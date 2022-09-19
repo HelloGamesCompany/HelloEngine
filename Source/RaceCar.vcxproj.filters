@@ -40,10 +40,11 @@
     <ClCompile Include="glmath.cpp">
       <Filter>Source\Tools</Filter>
     </ClCompile>
-    <ClCompile Include="imguitest.cpp" />
     <ClCompile Include="External\imgui\imgui.cpp" />
     <ClCompile Include="External\imgui\imgui_demo.cpp" />
     <ClCompile Include="External\imgui\imgui_draw.cpp" />
+    <ClCompile Include="External\imgui\imgui_impl_opengl3.cpp" />
+    <ClCompile Include="External\imgui\imgui_impl_sdl.cpp" />
     <ClCompile Include="External\imgui\imgui_tables.cpp" />
     <ClCompile Include="External\imgui\imgui_widgets.cpp" />
   </ItemGroup>
@@ -85,12 +86,15 @@
       <Filter>Header\Tools</Filter>
     </ClInclude>
     <ClInclude Include="External\imgui\include\imgui_impl_sdl.h" />
+    <ClInclude Include="External\imgui\imstb_truetype.h" />
     <ClInclude Include="External\imgui\imconfig.h" />
     <ClInclude Include="External\imgui\imgui.h" />
+    <ClInclude Include="External\imgui\imgui_impl_opengl3.h" />
+    <ClInclude Include="External\imgui\imgui_impl_opengl3_loader.h" />
+    <ClInclude Include="External\imgui\imgui_impl_sdl.h" />
     <ClInclude Include="External\imgui\imgui_internal.h" />
     <ClInclude Include="External\imgui\imstb_rectpack.h" />
     <ClInclude Include="External\imgui\imstb_textedit.h" />
-    <ClInclude Include="External\imgui\imstb_truetype.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header">
@@ -135,5 +139,10 @@
     <Filter Include="Source\Scenes">
       <UniqueIdentifier>{522743ca-8209-4bc8-88a9-89074a00e297}</UniqueIdentifier>
     </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="External\imgui\vulkan\generate_spv.sh" />
+    <None Include="External\imgui\vulkan\glsl_shader.frag" />
+    <None Include="External\imgui\vulkan\glsl_shader.vert" />
   </ItemGroup>
 </Project>
