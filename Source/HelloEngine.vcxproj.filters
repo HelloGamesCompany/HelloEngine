@@ -22,9 +22,6 @@
     <ClCompile Include="Globals.h">
       <Filter>Header\Globals</Filter>
     </ClCompile>
-    <ClCompile Include="Main.cpp">
-      <Filter>Header\Globals</Filter>
-    </ClCompile>
     <ClCompile Include="Log.cpp">
       <Filter>Header\Tools</Filter>
     </ClCompile>
@@ -47,6 +44,7 @@
     <ClCompile Include="External\imgui\imgui_impl_sdl.cpp" />
     <ClCompile Include="External\imgui\imgui_tables.cpp" />
     <ClCompile Include="External\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="External\imgui\main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Light.h">

@@ -4,6 +4,8 @@
 #include "Application.h"
 #include "MemLeaks.h"
 
+#include "imgui.h"
+
 #include "SDL.h"
 
 enum main_states
