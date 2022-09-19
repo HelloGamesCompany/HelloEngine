@@ -7,10 +7,7 @@
 class Module;
 class ModuleWindow;
 class ModuleInput;
-class ModuleAudio;
 class ModuleCamera3D;
-class ModuleScene;
-class ModulePhysics3D;
 class ModuleRenderer3D;
 class ModuleMap;
 
@@ -19,10 +16,7 @@ class Application
 public:
 	ModuleWindow* window = nullptr;
 	ModuleInput* input = nullptr;
-	ModuleAudio* audio = nullptr;
 	ModuleCamera3D* camera = nullptr;
-	ModulePhysics3D* physics = nullptr;
-	ModuleScene* scene = nullptr;
 	ModuleRenderer3D* renderer3D = nullptr;
 	ModuleMap* map = nullptr;
 

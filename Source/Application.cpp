@@ -2,18 +2,14 @@
 
 #include "ModuleWindow.h"
 #include "ModuleInput.h"
-#include "ModuleAudio.h"
 #include "ModuleCamera3D.h"
-#include "ModulePhysics3D.h"
 #include "ModuleRenderer3D.h"
 
 Application::Application()
 {
 	window = new ModuleWindow(this, true);
 	input = new ModuleInput(this, true);
-	audio = new ModuleAudio(this, true);
 	camera = new ModuleCamera3D(this, true);
-	physics = new ModulePhysics3D(this, true);
 	renderer3D = new ModuleRenderer3D(this, true);
 	
 	// The order of calls is very important!
@@ -24,9 +20,7 @@ Application::Application()
 	AddModule(window);
 	
 	AddModule(input);
-	AddModule(audio);
 	AddModule(camera);
-	AddModule(physics);
 	
 	// Renderer last!
 	AddModule(renderer3D);
@@ -80,17 +74,17 @@ UpdateStatus Application::Update()
 	UpdateStatus ret = UPDATE_CONTINUE;
 	PrepareUpdate();
 
-	for (int i = 0, count = list_modules.count(); i < count && ret == UPDATE_CONTINUE; i++)
+	for (int i = 0, count = list_modules.size(); i < count && ret == UPDATE_CONTINUE; i++)
 	{
 		ret = list_modules[i]->PreUpdate();
 	}
 
-	for (int i = 0, count = list_modules.count(); i < count && ret == UPDATE_CONTINUE; i++)
+	for (int i = 0, count = list_modules.size(); i < count && ret == UPDATE_CONTINUE; i++)
 	{
 		ret = list_modules[i]->Update();
 	}
 
-	for (int i = 0, count = list_modules.count(); i < count && ret == UPDATE_CONTINUE; i++)
+	for (int i = 0, count = list_modules.size(); i < count && ret == UPDATE_CONTINUE; i++)
 	{
 		ret = list_modules[i]->PostUpdate();
 	}
@@ -113,12 +107,12 @@ bool Application::CleanUp()
 {
 	bool ret = true;
 
-	for (int i = list_modules.count() -1; i >= 0 && ret; i--)
+	for (int i = list_modules.size() -1; i >= 0 && ret; i--)
 	{
 		ret = list_modules[i]->CleanUp();
 	}
 
-	for (int i = list_modules.count() - 1; i >= 0; i--)
+	for (int i = list_modules.size() - 1; i >= 0; i--)
 	{
 		RELEASE(list_modules[i]);
 	}

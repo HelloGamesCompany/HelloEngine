@@ -4,22 +4,13 @@
     <ClCompile Include="Light.cpp">
       <Filter>Source\Tools</Filter>
     </ClCompile>
-    <ClCompile Include="ModuleAudio.cpp">
-      <Filter>Source\Modules</Filter>
-    </ClCompile>
     <ClCompile Include="ModuleCamera3D.cpp">
       <Filter>Source\Modules</Filter>
     </ClCompile>
     <ClCompile Include="ModuleInput.cpp">
       <Filter>Source\Modules</Filter>
     </ClCompile>
-    <ClCompile Include="ModulePhysics3D.cpp">
-      <Filter>Source\Modules</Filter>
-    </ClCompile>
     <ClCompile Include="ModuleRenderer3D.cpp">
-      <Filter>Source\Modules</Filter>
-    </ClCompile>
-    <ClCompile Include="ModuleScene.cpp">
       <Filter>Source\Modules</Filter>
     </ClCompile>
     <ClCompile Include="ModuleWindow.cpp">
@@ -43,9 +34,6 @@
     <ClCompile Include="Application.cpp">
       <Filter>Source\Globals</Filter>
     </ClCompile>
-    <ClCompile Include="PhysBody3D.cpp">
-      <Filter>Source\Tools</Filter>
-    </ClCompile>
     <ClCompile Include="Primitive.cpp">
       <Filter>Source\Tools</Filter>
     </ClCompile>
@@ -63,22 +51,13 @@
     <ClInclude Include="Module.h">
       <Filter>Header\BaseClass</Filter>
     </ClInclude>
-    <ClInclude Include="ModuleAudio.h">
-      <Filter>Header\Modules</Filter>
-    </ClInclude>
     <ClInclude Include="ModuleCamera3D.h">
       <Filter>Header\Modules</Filter>
     </ClInclude>
     <ClInclude Include="ModuleInput.h">
       <Filter>Header\Modules</Filter>
     </ClInclude>
-    <ClInclude Include="ModulePhysics3D.h">
-      <Filter>Header\Modules</Filter>
-    </ClInclude>
     <ClInclude Include="ModuleRenderer3D.h">
-      <Filter>Header\Modules</Filter>
-    </ClInclude>
-    <ClInclude Include="ModuleScene.h">
       <Filter>Header\Modules</Filter>
     </ClInclude>
     <ClInclude Include="ModuleWindow.h">
@@ -93,16 +72,10 @@
     <ClInclude Include="Primitive.h">
       <Filter>Header\Tools</Filter>
     </ClInclude>
-    <ClInclude Include="PhysBody3D.h">
-      <Filter>Header\Tools</Filter>
-    </ClInclude>
     <ClInclude Include="Timer.hpp">
       <Filter>Header\Tools</Filter>
     </ClInclude>
     <ClInclude Include="glmath.h">
-      <Filter>Header\Tools</Filter>
-    </ClInclude>
-    <ClInclude Include="PhysVehicle3D.h">
       <Filter>Header\Tools</Filter>
     </ClInclude>
   </ItemGroup>
