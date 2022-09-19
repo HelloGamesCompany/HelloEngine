@@ -2,7 +2,7 @@
 #include "ModuleRenderer3D.h"
 #include "ModuleWindow.h"
 #include "ModuleCamera3D.h"
-#include "External/SDL/include/SDL_opengl.h"
+#include "SDL_opengl.h"
 #include <gl/GL.h>
 #include <gl/GLU.h>
 
