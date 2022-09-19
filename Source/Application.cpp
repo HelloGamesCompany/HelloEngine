@@ -5,9 +5,7 @@
 #include "ModuleAudio.h"
 #include "ModuleCamera3D.h"
 #include "ModulePhysics3D.h"
-#include "ModuleScene.h"
 #include "ModuleRenderer3D.h"
-#include "ModuleMap.h"
 
 Application::Application()
 {
@@ -15,10 +13,8 @@ Application::Application()
 	input = new ModuleInput(this, true);
 	audio = new ModuleAudio(this, true);
 	camera = new ModuleCamera3D(this, true);
-	scene = new ModuleScene(this, true);
 	physics = new ModulePhysics3D(this, true);
 	renderer3D = new ModuleRenderer3D(this, true);
-	map = new ModuleMap(this, true);
 	
 	// The order of calls is very important!
 	// Modules will Init() Start() and Update in this order
@@ -31,11 +27,6 @@ Application::Application()
 	AddModule(audio);
 	AddModule(camera);
 	AddModule(physics);
-
-	AddModule(map);
-
-	// Scenes
-	AddModule(scene);
 	
 	// Renderer last!
 	AddModule(renderer3D);
@@ -50,7 +41,7 @@ bool Application::Init()
 	bool ret = true;
 
 	// Call Init() in all modules
-	for (int i = 0, count = list_modules.count() ; i <count ; i++)
+	for (int i = 0, count = list_modules.size() ; i <count ; i++)
 	{
 		list_modules[i]->Init();
 	}
@@ -58,7 +49,7 @@ bool Application::Init()
 	// After all Init calls we call Start() in all modules
 	LOG("Application Start --------------");
 
-	for (int i = 0, count = list_modules.count(); i < count; i++)
+	for (int i = 0, count = list_modules.size(); i < count; i++)
 	{
 		list_modules[i]->Start();
 	}
@@ -69,7 +60,7 @@ bool Application::Init()
 
 void Application::AddModule(Module* mod)
 {
-	list_modules.add(mod);
+	list_modules.push_back(mod);
 }
 
 // ---------------------------------------------

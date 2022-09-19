@@ -1,7 +1,6 @@
 #ifndef __PhysBody3D_H__
 #define __PhysBody3D_H__
 
-#include "List.h"
 #include "glmath.h"
 
 class GameObject;

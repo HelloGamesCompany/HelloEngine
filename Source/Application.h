@@ -1,8 +1,8 @@
 #ifndef __APPLICATION_H__
 #define __APPLICATION_H__
 
-#include "List.h"
 #include "Timer.hpp"
+#include <vector>
 
 class Module;
 class ModuleWindow;
@@ -32,7 +32,7 @@ public:
 private:
 	
 	float	dt = 0;
-	List<Module*> list_modules;
+	std::vector<Module*> list_modules;
 
 public:
 	Application();

@@ -13,9 +13,6 @@
     <ClCompile Include="ModuleInput.cpp">
       <Filter>Source\Modules</Filter>
     </ClCompile>
-    <ClCompile Include="ModuleMap.cpp">
-      <Filter>Source\Modules</Filter>
-    </ClCompile>
     <ClCompile Include="ModulePhysics3D.cpp">
       <Filter>Source\Modules</Filter>
     </ClCompile>
@@ -31,18 +28,6 @@
     <ClCompile Include="Color.cpp">
       <Filter>Source\Tools</Filter>
     </ClCompile>
-    <ClCompile Include="Arrow.cpp">
-      <Filter>Source\GameObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="Vehicle.cpp">
-      <Filter>Source\GameObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="TaxiClient.cpp">
-      <Filter>Source\GameObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="Smoke.cpp">
-      <Filter>Source\GameObjects</Filter>
-    </ClCompile>
     <ClCompile Include="Globals.h">
       <Filter>Header\Globals</Filter>
     </ClCompile>
@@ -51,12 +36,6 @@
     </ClCompile>
     <ClCompile Include="Log.cpp">
       <Filter>Header\Tools</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene.cpp">
-      <Filter>Source\BaseClass</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject.cpp">
-      <Filter>Source\BaseClass</Filter>
     </ClCompile>
     <ClCompile Include="Module.cpp">
       <Filter>Source\BaseClass</Filter>
@@ -70,43 +49,19 @@
     <ClCompile Include="Primitive.cpp">
       <Filter>Source\Tools</Filter>
     </ClCompile>
-    <ClCompile Include="External\PugiXml\src\pugixml.cpp">
-      <Filter>Source\Tools</Filter>
-    </ClCompile>
     <ClCompile Include="glmath.cpp">
       <Filter>Source\Tools</Filter>
-    </ClCompile>
-    <ClCompile Include="SceneGame.cpp">
-      <Filter>Source\Scenes</Filter>
-    </ClCompile>
-    <ClCompile Include="WeelPrint.cpp">
-      <Filter>Source\GameObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="Booster.cpp">
-      <Filter>Source\GameObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="Radios.cpp">
-      <Filter>Source\GameObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="Follower.cpp">
-      <Filter>Source\GameObjects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Light.h">
       <Filter>Header\Tools</Filter>
     </ClInclude>
-    <ClInclude Include="GameObject.h">
-      <Filter>Header\BaseClass</Filter>
-    </ClInclude>
     <ClInclude Include="MemLeaks.h">
       <Filter>Header\Tools</Filter>
     </ClInclude>
     <ClInclude Include="Module.h">
       <Filter>Header\BaseClass</Filter>
-    </ClInclude>
-    <ClInclude Include="Arrow.h">
-      <Filter>Header\GameObjects</Filter>
     </ClInclude>
     <ClInclude Include="ModuleAudio.h">
       <Filter>Header\Modules</Filter>
@@ -115,9 +70,6 @@
       <Filter>Header\Modules</Filter>
     </ClInclude>
     <ClInclude Include="ModuleInput.h">
-      <Filter>Header\Modules</Filter>
-    </ClInclude>
-    <ClInclude Include="ModuleMap.h">
       <Filter>Header\Modules</Filter>
     </ClInclude>
     <ClInclude Include="ModulePhysics3D.h">
@@ -138,28 +90,10 @@
     <ClInclude Include="Application.h">
       <Filter>Header\Globals</Filter>
     </ClInclude>
-    <ClInclude Include="List.h">
-      <Filter>Header\Tools</Filter>
-    </ClInclude>
-    <ClInclude Include="Point.h">
-      <Filter>Header\Tools</Filter>
-    </ClInclude>
     <ClInclude Include="Primitive.h">
       <Filter>Header\Tools</Filter>
     </ClInclude>
-    <ClInclude Include="Vehicle.h">
-      <Filter>Header\GameObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="TaxiClient.h">
-      <Filter>Header\GameObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="Smoke.h">
-      <Filter>Header\GameObjects</Filter>
-    </ClInclude>
     <ClInclude Include="PhysBody3D.h">
-      <Filter>Header\Tools</Filter>
-    </ClInclude>
-    <ClInclude Include="External\PugiXml\src\pugixml.hpp">
       <Filter>Header\Tools</Filter>
     </ClInclude>
     <ClInclude Include="Timer.hpp">
@@ -170,24 +104,6 @@
     </ClInclude>
     <ClInclude Include="PhysVehicle3D.h">
       <Filter>Header\Tools</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene.h">
-      <Filter>Header\BaseClass</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneGame.h">
-      <Filter>Header\Scenes</Filter>
-    </ClInclude>
-    <ClInclude Include="WeelPrint.h">
-      <Filter>Header\GameObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="Booster.h">
-      <Filter>Header\GameObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="Radios.h">
-      <Filter>Header\GameObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="Follower.h">
-      <Filter>Header\GameObjects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
