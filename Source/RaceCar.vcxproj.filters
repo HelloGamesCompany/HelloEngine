@@ -40,6 +40,12 @@
     <ClCompile Include="glmath.cpp">
       <Filter>Source\Tools</Filter>
     </ClCompile>
+    <ClCompile Include="imguitest.cpp" />
+    <ClCompile Include="External\imgui\imgui.cpp" />
+    <ClCompile Include="External\imgui\imgui_demo.cpp" />
+    <ClCompile Include="External\imgui\imgui_draw.cpp" />
+    <ClCompile Include="External\imgui\imgui_tables.cpp" />
+    <ClCompile Include="External\imgui\imgui_widgets.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Light.h">
@@ -78,6 +84,13 @@
     <ClInclude Include="glmath.h">
       <Filter>Header\Tools</Filter>
     </ClInclude>
+    <ClInclude Include="External\imgui\include\imgui_impl_sdl.h" />
+    <ClInclude Include="External\imgui\imconfig.h" />
+    <ClInclude Include="External\imgui\imgui.h" />
+    <ClInclude Include="External\imgui\imgui_internal.h" />
+    <ClInclude Include="External\imgui\imstb_rectpack.h" />
+    <ClInclude Include="External\imgui\imstb_textedit.h" />
+    <ClInclude Include="External\imgui\imstb_truetype.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header">
