@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Light.cpp">
+      <Filter>Source\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleAudio.cpp">
+      <Filter>Source\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleCamera3D.cpp">
+      <Filter>Source\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleInput.cpp">
+      <Filter>Source\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleMap.cpp">
+      <Filter>Source\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModulePhysics3D.cpp">
+      <Filter>Source\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleRenderer3D.cpp">
+      <Filter>Source\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleScene.cpp">
+      <Filter>Source\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleWindow.cpp">
+      <Filter>Source\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="Color.cpp">
+      <Filter>Source\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Arrow.cpp">
+      <Filter>Source\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Vehicle.cpp">
+      <Filter>Source\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="TaxiClient.cpp">
+      <Filter>Source\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Smoke.cpp">
+      <Filter>Source\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Globals.h">
+      <Filter>Header\Globals</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Header\Globals</Filter>
+    </ClCompile>
+    <ClCompile Include="Log.cpp">
+      <Filter>Header\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Source\BaseClass</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Source\BaseClass</Filter>
+    </ClCompile>
+    <ClCompile Include="Module.cpp">
+      <Filter>Source\BaseClass</Filter>
+    </ClCompile>
+    <ClCompile Include="Application.cpp">
+      <Filter>Source\Globals</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysBody3D.cpp">
+      <Filter>Source\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Primitive.cpp">
+      <Filter>Source\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="External\PugiXml\src\pugixml.cpp">
+      <Filter>Source\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="glmath.cpp">
+      <Filter>Source\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneGame.cpp">
+      <Filter>Source\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="WeelPrint.cpp">
+      <Filter>Source\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Booster.cpp">
+      <Filter>Source\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Radios.cpp">
+      <Filter>Source\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Follower.cpp">
+      <Filter>Source\GameObjects</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Light.h">
+      <Filter>Header\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Header\BaseClass</Filter>
+    </ClInclude>
+    <ClInclude Include="MemLeaks.h">
+      <Filter>Header\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Module.h">
+      <Filter>Header\BaseClass</Filter>
+    </ClInclude>
+    <ClInclude Include="Arrow.h">
+      <Filter>Header\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleAudio.h">
+      <Filter>Header\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleCamera3D.h">
+      <Filter>Header\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleInput.h">
+      <Filter>Header\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleMap.h">
+      <Filter>Header\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="ModulePhysics3D.h">
+      <Filter>Header\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleRenderer3D.h">
+      <Filter>Header\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleScene.h">
+      <Filter>Header\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleWindow.h">
+      <Filter>Header\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="Color.h">
+      <Filter>Header\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Application.h">
+      <Filter>Header\Globals</Filter>
+    </ClInclude>
+    <ClInclude Include="List.h">
+      <Filter>Header\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Point.h">
+      <Filter>Header\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Primitive.h">
+      <Filter>Header\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Vehicle.h">
+      <Filter>Header\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="TaxiClient.h">
+      <Filter>Header\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Smoke.h">
+      <Filter>Header\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysBody3D.h">
+      <Filter>Header\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="External\PugiXml\src\pugixml.hpp">
+      <Filter>Header\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.hpp">
+      <Filter>Header\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="glmath.h">
+      <Filter>Header\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysVehicle3D.h">
+      <Filter>Header\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Header\BaseClass</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneGame.h">
+      <Filter>Header\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="WeelPrint.h">
+      <Filter>Header\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Booster.h">
+      <Filter>Header\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Radios.h">
+      <Filter>Header\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Follower.h">
+      <Filter>Header\GameObjects</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header">
+      <UniqueIdentifier>{f24c439f-ec71-4d60-ab6a-cae6cb289b37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source">
+      <UniqueIdentifier>{81089c4c-00d7-4cf9-8692-453b35c259e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header\Tools">
+      <UniqueIdentifier>{c4b1881c-ed67-4a88-85ce-2a2b6dfd4796}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header\BaseClass">
+      <UniqueIdentifier>{6ac11dec-abbf-4c8a-a4c4-9892bb2189b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Tools">
+      <UniqueIdentifier>{a75a7761-695b-4845-b1a7-e6054534fdb4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header\GameObjects">
+      <UniqueIdentifier>{561a75a0-dafc-4aaf-9a0e-08869b37154e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header\Modules">
+      <UniqueIdentifier>{ef86a9ed-0e93-4cb7-bd92-3cc8dd2eb29b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\GameObjects">
+      <UniqueIdentifier>{7cd4a10e-5f83-48ff-924a-711deea7b56c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header\Scenes">
+      <UniqueIdentifier>{93c0d9dd-2a2a-4f16-a5a0-d8f8ce03bc26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Modules">
+      <UniqueIdentifier>{8bd30d21-4b37-4c78-9725-d556c8bed01e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header\Globals">
+      <UniqueIdentifier>{c36bb433-1d52-4d78-b2b5-cca8ece82edd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\BaseClass">
+      <UniqueIdentifier>{5a404b51-d117-47ef-833f-9ef44deb2c92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Globals">
+      <UniqueIdentifier>{72feaffe-1683-462c-a26a-fcf5a07ecbbc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Scenes">
+      <UniqueIdentifier>{522743ca-8209-4bc8-88a9-89074a00e297}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
