@@ -26,8 +26,6 @@ int main(int argc, char** argv)
 	main_states state = MAIN_CREATION;
 	Application* App = nullptr;
 
-	ImGui::CreateContext();
-
 	while (state != MAIN_EXIT)
 	{
 		switch (state)
@@ -89,8 +87,6 @@ int main(int argc, char** argv)
 
 	delete App;
 	App = nullptr;
-
-	ImGui::DestroyContext();
 
 	ReportMemoryLeaks();
 

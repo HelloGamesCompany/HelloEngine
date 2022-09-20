@@ -1,6 +1,8 @@
 #include "Globals.h"
 #include "Application.h"
 #include "ModuleWindow.h"
+#include "imgui_impl_sdl.h"
+#include "imgui_impl_opengl3.h"
 
 ModuleWindow::ModuleWindow(Application* app, bool start_enabled) : Module(app, start_enabled)
 {
@@ -31,9 +33,9 @@ bool ModuleWindow::Init()
 		int height = SCREEN_HEIGHT * SCREEN_SIZE;
 		Uint32 flags = SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN;
 
-		//Use OpenGL 2.1
-		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 2);
-		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
+		//Use OpenGL 2.1 ??????????????????????????????????????????????????????'
+		//SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 2);
+		//SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
 
 		if(WIN_FULLSCREEN == true)
 		{
@@ -56,6 +58,7 @@ bool ModuleWindow::Init()
 		}
 
 		window = SDL_CreateWindow(TITLE, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, flags);
+
 
 		if(window == NULL)
 		{
