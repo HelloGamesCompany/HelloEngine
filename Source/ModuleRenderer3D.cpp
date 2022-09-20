@@ -50,11 +50,14 @@ bool ModuleRenderer3D::Init()
 	io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;       // Enable Keyboard Controls
 	//io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
 	io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;           // Enable Docking
-	io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;         // Enable Multi-Viewport / Platform Windows
+	io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;  
+	// Enable Multi-Viewport / Platform Windows
 	//io.ConfigViewportsNoAutoMerge = true;
 	//io.ConfigViewportsNoTaskBarIcon = true;
 
+
 	// Setup Dear ImGui style
+	//ImGui::StyleColorsClassic();
 	ImGui::StyleColorsDark();
 	//ImGui::StyleColorsLight();
 
@@ -62,8 +65,8 @@ bool ModuleRenderer3D::Init()
 	ImGuiStyle& style = ImGui::GetStyle();
 	if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
 	{
-		style.WindowRounding = 0.0f;
-		style.Colors[ImGuiCol_WindowBg].w = 1.0f;
+		style.WindowRounding = 10.0f;
+		style.Colors[ImGuiCol_WindowBg].w = 0.0f;
 	}
 
 	ImGui_ImplSDL2_InitForOpenGL(App->window->window, context);
@@ -171,13 +174,47 @@ UpdateStatus ModuleRenderer3D::PostUpdate()
 	ImGui_ImplSDL2_NewFrame();
 	ImGui::NewFrame();
 
-	ImGui::Begin("Close Application");
-	if (ImGui::Button("Click to close application."))
-		return UPDATE_STOP;
-	ImGui::End();
+	static bool showWindow = false;
 
-	ImGui::Begin("Basic window");
-	ImGui::End();
+	if (ImGui::BeginMainMenuBar())
+	{
+		if (ImGui::BeginMenu("Application"))
+		{
+			if (ImGui::MenuItem("Close Appplication"))
+			{
+				return UPDATE_STOP;
+			}
+			ImGui::EndMenu();
+		}
+
+		if (ImGui::BeginMenu("Example Window"))
+		{
+			if (ImGui::MenuItem("Toggle Demo Window"))
+			{
+				showWindow = !showWindow;
+			}
+			ImGui::EndMenu();
+		}
+
+		if (showWindow)
+		{
+			ImGui::ShowDemoWindow();
+		}
+
+		ImGui::EndMainMenuBar();
+	}
+
+	//ImGui::Begin("Close Application");
+	//if (ImGui::Button("Click to close application."))
+	//	return UPDATE_STOP;
+	//ImGui::End();
+
+	//ImGui::Begin("Close Application");
+	//ImGui::Button("Click to do nothing");
+	//ImGui::End();
+
+	//ImGui::Begin("Basic window");
+	//ImGui::End();
 
 	ImGui::Render();
 	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
