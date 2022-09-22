@@ -176,6 +176,8 @@ UpdateStatus ModuleRenderer3D::PostUpdate()
 
 	static bool showWindow = false;
 
+	ImGui::DockSpaceOverViewport(ImGui::GetMainViewport());
+
 	if (ImGui::BeginMainMenuBar())
 	{
 		if (ImGui::BeginMenu("Application"))
@@ -204,6 +206,12 @@ UpdateStatus ModuleRenderer3D::PostUpdate()
 		ImGui::EndMainMenuBar();
 	}
 
+	ImGui::Begin("Assets");
+	ImGui::End();
+
+	ImGui::Begin("Viewport");
+
+	ImGui::End();
 	//ImGui::Begin("Close Application");
 	//if (ImGui::Button("Click to close application."))
 	//	return UPDATE_STOP;

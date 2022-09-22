@@ -41,6 +41,7 @@ private:
 	void AddModule(Module* mod);
 	void PrepareUpdate();
 	void FinishUpdate();
+
 };
 
 #endif // !__APPLICATION_H__
