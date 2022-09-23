@@ -10,6 +10,7 @@ class ModuleInput;
 class ModuleCamera3D;
 class ModuleRenderer3D;
 class ModuleEditor;
+class ModuleXML;
 
 class Application
 {
@@ -19,6 +20,7 @@ public:
 	ModuleCamera3D* camera = nullptr;
 	ModuleRenderer3D* renderer3D = nullptr;
 	ModuleEditor* editor = nullptr;
+	ModuleXML* xml = nullptr;
 
 	float fps = 1.0f/60.0f;
 	Timer	timer;
@@ -35,7 +37,7 @@ public:
 	UpdateStatus Update();
 	bool CleanUp();
 
-	static Application* Instante();
+	static Application* Instance();
 
 private:
 

@@ -15,7 +15,6 @@ public:
 	Application* app = nullptr;
 
 public:
-	Module();
 
 	Module(bool start_enabled = true);
 

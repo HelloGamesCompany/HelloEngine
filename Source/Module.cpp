@@ -1,13 +1,9 @@
 #include "Module.h"
 #include "Application.h"
 
-Module::Module()
-{
-}
-
 Module::Module(bool start_enabled)
 {
-	app = Application::Instante();
+	app = Application::Instance();
 	enabled = start_enabled;
 }
 

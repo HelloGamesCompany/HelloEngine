@@ -4,6 +4,8 @@
 #include "Application.h"
 #include "MemLeaks.h"
 
+#include "pugixml.hpp"
+
 #include "SDL.h"
 
 enum main_states
@@ -31,7 +33,7 @@ int main(int argc, char** argv)
 		case MAIN_CREATION:
 
 			LOG("-------------- Application Creation --------------");
-			app = Application::Instante();
+			app = Application::Instance();
 			state = MAIN_START;
 			break;
 

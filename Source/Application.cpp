@@ -5,6 +5,7 @@
 #include "ModuleCamera3D.h"
 #include "ModuleRenderer3D.h"
 #include "ModuleEditor.h"
+#include "ModuleXML.h"
 
 Application* Application::app = nullptr;
 
@@ -23,21 +24,25 @@ bool Application::Init()
 	camera = new ModuleCamera3D(true);
 	renderer3D = new ModuleRenderer3D(true);
 	editor = new ModuleEditor(true);
+	xml = new ModuleXML();
 
 	// The order of calls is very important!
 	// Modules will Init() Start() and Update in this order
 	// They will CleanUp() in reverse order
 
 	// Main Modules
+	AddModule(xml);
 	AddModule(window);
 
 	AddModule(input);
 	AddModule(camera);
 
+	AddModule(editor);
+
 	// Renderer last!
 	AddModule(renderer3D);
 
-	AddModule(editor);
+
 
 	// Call Init() in all modules
 	for (int i = 0, count = list_modules.size() ; i <count ; i++)
@@ -125,7 +130,7 @@ bool Application::CleanUp()
 	return ret;
 }
 
-Application* Application::Instante()
+Application* Application::Instance()
 {
 	if (app == nullptr) app = new Application();
 

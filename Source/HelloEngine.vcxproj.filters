@@ -79,6 +79,10 @@
     <ClCompile Include="External\MathGeoLib\include\Geometry\Triangle.cpp" />
     <ClCompile Include="External\MathGeoLib\include\Geometry\TriangleMesh.cpp" />
     <ClCompile Include="JSONParser.cpp" />
+    <ClCompile Include="External\PugiXml\src\pugixml.cpp" />
+    <ClCompile Include="ModuleXML.cpp" />
+    <ClCompile Include="QuickSave.cpp" />
+    <ClCompile Include="XMLNode.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Light.h">
@@ -189,6 +193,11 @@
     <ClInclude Include="External\MathGeoLib\include\Geometry\Triangle.h" />
     <ClInclude Include="External\MathGeoLib\include\Geometry\TriangleMesh.h" />
     <ClInclude Include="JSONParser.h" />
+    <ClInclude Include="External\PugiXml\src\pugiconfig.hpp" />
+    <ClInclude Include="External\PugiXml\src\pugixml.hpp" />
+    <ClInclude Include="ModuleXML.h" />
+    <ClInclude Include="QuickSave.h" />
+    <ClInclude Include="XMLNode.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header">
