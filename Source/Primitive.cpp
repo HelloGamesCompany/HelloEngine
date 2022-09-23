@@ -1,8 +1,9 @@
 #include "Globals.h"
+#include "glew.h"
 #include <gl/GL.h>
 #include <gl/GLU.h>
 #include "Primitive.h"
-#include "glut.h"
+#include "glew.h"
 
 // ------------------------------------------------------------
 Primitive::Primitive() : transform(IdentityMatrix), color(White), wire(false), axis(false), type(PrimitiveTypes::Primitive_Point)
@@ -169,7 +170,8 @@ Sphere::Sphere(float radius) : Primitive(), radius(radius)
 
 void Sphere::InnerRender() const
 {
-	glutSolidSphere(radius, 25, 25);
+	// TODO: Implement using glew?
+	//glutSolidSphere(radius, 25, 25);
 }
 
 // CYLINDER ============================================
