@@ -1,6 +1,6 @@
 #include "ModuleEditor.h"
 
-ModuleEditor::ModuleEditor(bool enabled)
+ModuleEditor::ModuleEditor(bool enabled) :Module(enabled)
 {
 }
 

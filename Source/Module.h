@@ -12,12 +12,12 @@ private:
 	bool enabled = false;
 
 public:
-	Application* App = nullptr;
+	Application* app = nullptr;
 
 public:
 	Module();
 
-	Module(Application* parent, bool start_enabled = true);
+	Module(bool start_enabled = true);
 
 	virtual ~Module();
 

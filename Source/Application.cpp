@@ -6,28 +6,10 @@
 #include "ModuleRenderer3D.h"
 #include "ModuleEditor.h"
 
+Application* Application::app = nullptr;
+
 Application::Application()
 {
-	window = new ModuleWindow(this, true);
-	input = new ModuleInput(this, true);
-	camera = new ModuleCamera3D(this, true);
-	renderer3D = new ModuleRenderer3D(this, true);
-	editor = new ModuleEditor(true);
-	
-	// The order of calls is very important!
-	// Modules will Init() Start() and Update in this order
-	// They will CleanUp() in reverse order
-
-	// Main Modules
-	AddModule(window);
-	
-	AddModule(input);
-	AddModule(camera);
-	
-	// Renderer last!
-	AddModule(renderer3D);
-
-	AddModule(editor);
 }
 
 Application::~Application()
@@ -36,7 +18,26 @@ Application::~Application()
 
 bool Application::Init()
 {
-	bool ret = true;
+	window = new ModuleWindow(true);
+	input = new ModuleInput(true);
+	camera = new ModuleCamera3D(true);
+	renderer3D = new ModuleRenderer3D(true);
+	editor = new ModuleEditor(true);
+
+	// The order of calls is very important!
+	// Modules will Init() Start() and Update in this order
+	// They will CleanUp() in reverse order
+
+	// Main Modules
+	AddModule(window);
+
+	AddModule(input);
+	AddModule(camera);
+
+	// Renderer last!
+	AddModule(renderer3D);
+
+	AddModule(editor);
 
 	// Call Init() in all modules
 	for (int i = 0, count = list_modules.size() ; i <count ; i++)
@@ -53,7 +54,7 @@ bool Application::Init()
 	}
 
 	//ms_timer.Start();
-	return ret;
+	return true;
 }
 
 void Application::AddModule(Module* mod)
@@ -122,4 +123,11 @@ bool Application::CleanUp()
 	}
 
 	return ret;
+}
+
+Application* Application::Instante()
+{
+	if (app == nullptr) app = new Application();
+
+	return app;
 }

@@ -26,7 +26,7 @@ public:
 private:
 	float	dt = 0;
 	std::vector<Module*> list_modules;
-
+	static Application* app;
 public:
 	Application();
 	~Application();
@@ -34,6 +34,8 @@ public:
 	bool Init();
 	UpdateStatus Update();
 	bool CleanUp();
+
+	static Application* Instante();
 
 private:
 
