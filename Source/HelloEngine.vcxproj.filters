@@ -78,6 +78,7 @@
     <ClCompile Include="External\MathGeoLib\include\Geometry\Sphere.cpp" />
     <ClCompile Include="External\MathGeoLib\include\Geometry\Triangle.cpp" />
     <ClCompile Include="External\MathGeoLib\include\Geometry\TriangleMesh.cpp" />
+    <ClCompile Include="JSONParser.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Light.h">
@@ -187,6 +188,7 @@
     <ClInclude Include="External\MathGeoLib\include\Geometry\Sphere.h" />
     <ClInclude Include="External\MathGeoLib\include\Geometry\Triangle.h" />
     <ClInclude Include="External\MathGeoLib\include\Geometry\TriangleMesh.h" />
+    <ClInclude Include="JSONParser.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header">

@@ -4,10 +4,6 @@
 #include "Application.h"
 #include "MemLeaks.h"
 
-#include "MathGeoLib.h"
-
-#include "imgui.h"
-
 #include "SDL.h"
 
 enum main_states
@@ -21,8 +17,6 @@ enum main_states
 
 int main(int argc, char** argv)
 {
-
-	std::cout << Clock::Year() << std::endl;
 	srand((unsigned)time(0));
 	LOG("Starting game '%s'...", TITLE);
 
