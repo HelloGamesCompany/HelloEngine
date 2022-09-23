@@ -9,7 +9,7 @@ class ModuleWindow;
 class ModuleInput;
 class ModuleCamera3D;
 class ModuleRenderer3D;
-class ModuleMap;
+class ModuleEditor;
 
 class Application
 {
@@ -18,13 +18,12 @@ public:
 	ModuleInput* input = nullptr;
 	ModuleCamera3D* camera = nullptr;
 	ModuleRenderer3D* renderer3D = nullptr;
-	ModuleMap* map = nullptr;
+	ModuleEditor* editor = nullptr;
 
 	float fps = 1.0f/60.0f;
 	Timer	timer;
 
 private:
-	
 	float	dt = 0;
 	std::vector<Module*> list_modules;
 
@@ -41,7 +40,6 @@ private:
 	void AddModule(Module* mod);
 	void PrepareUpdate();
 	void FinishUpdate();
-
 };
 
 #endif // !__APPLICATION_H__

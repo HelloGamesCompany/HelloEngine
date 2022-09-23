@@ -25,17 +25,17 @@ bool Module::Start()
 
 UpdateStatus Module::PreUpdate()
 {
-	return UPDATE_CONTINUE;
+	return UpdateStatus::UPDATE_CONTINUE;
 }
 
 UpdateStatus Module::Update()
 {
-	return UPDATE_CONTINUE;
+	return UpdateStatus::UPDATE_CONTINUE;
 }
 
 UpdateStatus Module::PostUpdate()
 {
-	return UPDATE_CONTINUE;
+	return UpdateStatus::UPDATE_CONTINUE;
 }
 
 bool Module::CleanUp()

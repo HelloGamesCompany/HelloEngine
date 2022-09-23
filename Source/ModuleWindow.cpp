@@ -72,6 +72,8 @@ bool ModuleWindow::Init()
 		}
 	}
 
+	SetTitle("Hello Engine");
+
 	return ret;
 }
 

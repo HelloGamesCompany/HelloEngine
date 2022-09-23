@@ -4,6 +4,7 @@
 #include "ModuleInput.h"
 #include "ModuleCamera3D.h"
 #include "ModuleRenderer3D.h"
+#include "ModuleEditor.h"
 
 Application::Application()
 {
@@ -11,6 +12,7 @@ Application::Application()
 	input = new ModuleInput(this, true);
 	camera = new ModuleCamera3D(this, true);
 	renderer3D = new ModuleRenderer3D(this, true);
+	editor = new ModuleEditor(true);
 	
 	// The order of calls is very important!
 	// Modules will Init() Start() and Update in this order
@@ -24,6 +26,8 @@ Application::Application()
 	
 	// Renderer last!
 	AddModule(renderer3D);
+
+	AddModule(editor);
 }
 
 Application::~Application()
@@ -71,20 +75,20 @@ void Application::FinishUpdate()
 // Call PreUpdate, Update and PostUpdate on all modules
 UpdateStatus Application::Update()
 {
-	UpdateStatus ret = UPDATE_CONTINUE;
+	UpdateStatus ret = UpdateStatus::UPDATE_CONTINUE;
 	PrepareUpdate();
 
-	for (int i = 0, count = list_modules.size(); i < count && ret == UPDATE_CONTINUE; i++)
+	for (int i = 0, count = list_modules.size(); i < count && ret == UpdateStatus::UPDATE_CONTINUE; i++)
 	{
 		ret = list_modules[i]->PreUpdate();
 	}
 
-	for (int i = 0, count = list_modules.size(); i < count && ret == UPDATE_CONTINUE; i++)
+	for (int i = 0, count = list_modules.size(); i < count && ret == UpdateStatus::UPDATE_CONTINUE; i++)
 	{
 		ret = list_modules[i]->Update();
 	}
 
-	for (int i = 0, count = list_modules.size(); i < count && ret == UPDATE_CONTINUE; i++)
+	for (int i = 0, count = list_modules.size(); i < count && ret == UpdateStatus::UPDATE_CONTINUE; i++)
 	{
 		ret = list_modules[i]->PostUpdate();
 	}

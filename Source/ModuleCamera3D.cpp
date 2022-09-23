@@ -22,9 +22,8 @@ ModuleCamera3D::~ModuleCamera3D()
 bool ModuleCamera3D::Start()
 {
 	LOG("Setting up the camera");
-	bool ret = true;
 
-	return ret;
+	return true;
 }
 
 // -----------------------------------------------------------------
@@ -110,7 +109,7 @@ UpdateStatus ModuleCamera3D::Update()
 	// Recalculate matrix -------------
 	CalculateViewMatrix();
 
-	return UPDATE_CONTINUE;
+	return UpdateStatus::UPDATE_CONTINUE;
 }
 
 // -----------------------------------------------------------------

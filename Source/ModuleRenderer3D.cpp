@@ -164,7 +164,7 @@ UpdateStatus ModuleRenderer3D::PreUpdate()
 	for(uint i = 0; i < MAX_LIGHTS; ++i)
 		lights[i].Render();
 
-	return UPDATE_CONTINUE;
+	return UpdateStatus::UPDATE_CONTINUE;
 }
 
 // PostUpdate present buffer to screen
@@ -185,7 +185,7 @@ UpdateStatus ModuleRenderer3D::PostUpdate()
 		{
 			if (ImGui::MenuItem("Close Appplication"))
 			{
-				return UPDATE_STOP;
+				return UpdateStatus::UPDATE_STOP;
 			}
 			ImGui::EndMenu();
 		}
@@ -232,7 +232,7 @@ UpdateStatus ModuleRenderer3D::PostUpdate()
 
 	SDL_GL_SwapWindow(App->window->window);
 
-	return UPDATE_CONTINUE;
+	return UpdateStatus::UPDATE_CONTINUE;
 }
 
 // Called before quitting
