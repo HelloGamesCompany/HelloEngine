@@ -1,12 +1,13 @@
 #include "Module.h"
+#include "Application.h"
 
 Module::Module()
 {
 }
 
-Module::Module(Application* parent, bool start_enabled)
+Module::Module(bool start_enabled)
 {
-	App = parent;
+	app = Application::Instante();
 	enabled = start_enabled;
 }
 
@@ -25,17 +26,17 @@ bool Module::Start()
 
 UpdateStatus Module::PreUpdate()
 {
-	return UPDATE_CONTINUE;
+	return UpdateStatus::UPDATE_CONTINUE;
 }
 
 UpdateStatus Module::Update()
 {
-	return UPDATE_CONTINUE;
+	return UpdateStatus::UPDATE_CONTINUE;
 }
 
 UpdateStatus Module::PostUpdate()
 {
-	return UPDATE_CONTINUE;
+	return UpdateStatus::UPDATE_CONTINUE;
 }
 
 bool Module::CleanUp()

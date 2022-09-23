@@ -8,7 +8,7 @@
 #include "imgui_impl_sdl.h"
 #include "imgui_impl_opengl3.h"
 
-ModuleRenderer3D::ModuleRenderer3D(Application* app, bool start_enabled) : Module(app, start_enabled)
+ModuleRenderer3D::ModuleRenderer3D(bool start_enabled) : Module(start_enabled)
 {
 }
 
@@ -33,14 +33,14 @@ bool ModuleRenderer3D::Init()
 	SDL_GL_SetAttribute(SDL_GL_STENCIL_SIZE, 8);
 
 	//Create context
-	context = SDL_GL_CreateContext(App->window->window);
+	context = SDL_GL_CreateContext(app->window->window);
 	if(context == NULL)
 	{
 		LOG("OpenGL context could not be created! SDL_Error: %s\n", SDL_GetError());
 		ret = false;
 	}
 
-	SDL_GL_MakeCurrent(App->window->window, context);
+	SDL_GL_MakeCurrent(app->window->window, context);
 
 	// Setup Dear ImGui context
 	IMGUI_CHECKVERSION();
@@ -69,7 +69,7 @@ bool ModuleRenderer3D::Init()
 		style.Colors[ImGuiCol_WindowBg].w = 0.0f;
 	}
 
-	ImGui_ImplSDL2_InitForOpenGL(App->window->window, context);
+	ImGui_ImplSDL2_InitForOpenGL(app->window->window, context);
 	ImGui_ImplOpenGL3_Init(glsl_version);
 
 	if(ret == true)
@@ -155,15 +155,15 @@ UpdateStatus ModuleRenderer3D::PreUpdate()
 	glLoadIdentity();
 
 	glMatrixMode(GL_MODELVIEW);
-	glLoadMatrixf(App->camera->GetViewMatrix());
+	glLoadMatrixf(app->camera->GetViewMatrix());
 
 	// light 0 on cam pos
-	lights[0].SetPos(App->camera->Position.x, App->camera->Position.y, App->camera->Position.z);
+	lights[0].SetPos(app->camera->Position.x, app->camera->Position.y, app->camera->Position.z);
 
 	for(uint i = 0; i < MAX_LIGHTS; ++i)
 		lights[i].Render();
 
-	return UPDATE_CONTINUE;
+	return UpdateStatus::UPDATE_CONTINUE;
 }
 
 // PostUpdate present buffer to screen
@@ -184,7 +184,7 @@ UpdateStatus ModuleRenderer3D::PostUpdate()
 		{
 			if (ImGui::MenuItem("Close Appplication"))
 			{
-				return UPDATE_STOP;
+				return UpdateStatus::UPDATE_STOP;
 			}
 			ImGui::EndMenu();
 		}
@@ -229,9 +229,9 @@ UpdateStatus ModuleRenderer3D::PostUpdate()
 		SDL_GL_MakeCurrent(backup_current_window, backup_current_context);
 	}
 
-	SDL_GL_SwapWindow(App->window->window);
+	SDL_GL_SwapWindow(app->window->window);
 
-	return UPDATE_CONTINUE;
+	return UpdateStatus::UPDATE_CONTINUE;
 }
 
 // Called before quitting

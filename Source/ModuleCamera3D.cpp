@@ -3,7 +3,7 @@
 #include "ModuleCamera3D.h"
 #include "ModuleInput.h"
 
-ModuleCamera3D::ModuleCamera3D(Application* app, bool start_enabled) : Module(app, start_enabled)
+ModuleCamera3D::ModuleCamera3D(bool start_enabled) : Module(start_enabled)
 {
 	CalculateViewMatrix();
 
@@ -22,9 +22,8 @@ ModuleCamera3D::~ModuleCamera3D()
 bool ModuleCamera3D::Start()
 {
 	LOG("Setting up the camera");
-	bool ret = true;
 
-	return ret;
+	return true;
 }
 
 // -----------------------------------------------------------------
@@ -38,7 +37,7 @@ bool ModuleCamera3D::CleanUp()
 // -----------------------------------------------------------------
 UpdateStatus ModuleCamera3D::Update()
 {
-	//if (App->input->GetKey(SDL_SCANCODE_P) == KEY_DOWN)
+	//if (app->input->GetKey(SDL_SCANCODE_P) == KEY_DOWN)
 	//{
 	//	std::cout << "Cam Pos: x(" << Position.x << ") y(" << Position.y << ") z(" << Position.z << ")" << std::endl;
 	//}
@@ -52,29 +51,29 @@ UpdateStatus ModuleCamera3D::Update()
 	//	// Now we can make this movememnt frame rate independant!
 
 	//	vec3 newPos(0, 0, 0);
-	//	float speed = 3.0f * App->fps;
-	//	if (App->input->GetKey(SDL_SCANCODE_LSHIFT) == KEY_REPEAT)
-	//		speed = 100.0f * App->fps;
+	//	float speed = 3.0f * app->fps;
+	//	if (app->input->GetKey(SDL_SCANCODE_LSHIFT) == KEY_REPEAT)
+	//		speed = 100.0f * app->fps;
 
-	//	if (App->input->GetKey(SDL_SCANCODE_R) == KEY_REPEAT) newPos.y += speed;
-	//	if (App->input->GetKey(SDL_SCANCODE_F) == KEY_REPEAT) newPos.y -= speed;
+	//	if (app->input->GetKey(SDL_SCANCODE_R) == KEY_REPEAT) newPos.y += speed;
+	//	if (app->input->GetKey(SDL_SCANCODE_F) == KEY_REPEAT) newPos.y -= speed;
 
-	//	if (App->input->GetKey(SDL_SCANCODE_W) == KEY_REPEAT) newPos -= Z * speed;
-	//	if (App->input->GetKey(SDL_SCANCODE_S) == KEY_REPEAT) newPos += Z * speed;
+	//	if (app->input->GetKey(SDL_SCANCODE_W) == KEY_REPEAT) newPos -= Z * speed;
+	//	if (app->input->GetKey(SDL_SCANCODE_S) == KEY_REPEAT) newPos += Z * speed;
 
 
-	//	if (App->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT) newPos -= X * speed;
-	//	if (App->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT) newPos += X * speed;
+	//	if (app->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT) newPos -= X * speed;
+	//	if (app->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT) newPos += X * speed;
 
 	//	Position += newPos;
 	//	Reference += newPos;
 
 	//	// Mouse motion ----------------
 
-	//	if (App->input->GetMouseButton(SDL_BUTTON_RIGHT) == KEY_REPEAT)
+	//	if (app->input->GetMouseButton(SDL_BUTTON_RIGHT) == KEY_REPEAT)
 	//	{
-	//		int dx = -App->input->GetMouseXMotion();
-	//		int dy = -App->input->GetMouseYMotion();
+	//		int dx = -app->input->GetMouseXMotion();
+	//		int dy = -app->input->GetMouseYMotion();
 
 	//		float Sensitivity = 0.25f;
 
@@ -110,7 +109,7 @@ UpdateStatus ModuleCamera3D::Update()
 	// Recalculate matrix -------------
 	CalculateViewMatrix();
 
-	return UPDATE_CONTINUE;
+	return UpdateStatus::UPDATE_CONTINUE;
 }
 
 // -----------------------------------------------------------------

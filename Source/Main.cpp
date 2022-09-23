@@ -28,7 +28,7 @@ int main(int argc, char** argv)
 
 	int main_return = EXIT_FAILURE;
 	main_states state = MAIN_CREATION;
-	Application* App = nullptr;
+	Application* app = nullptr;
 
 	while (state != MAIN_EXIT)
 	{
@@ -37,14 +37,14 @@ int main(int argc, char** argv)
 		case MAIN_CREATION:
 
 			LOG("-------------- Application Creation --------------");
-			App = new Application();
+			app = Application::Instante();
 			state = MAIN_START;
 			break;
 
 		case MAIN_START:
 
 			LOG("-------------- Application Init --------------");
-			if (App->Init() == false)
+			if (app->Init() == false)
 			{
 				LOG("Application Init exits with ERROR");
 				state = MAIN_EXIT;
@@ -59,15 +59,15 @@ int main(int argc, char** argv)
 
 		case MAIN_UPDATE:
 		{
-			int update_return = App->Update();
+			int update_return = (int)app->Update();
 
-			if (update_return == UPDATE_ERROR)
+			if (update_return == (int)UpdateStatus::UPDATE_ERROR)
 			{
 				LOG("Application Update exits with ERROR");
 				state = MAIN_EXIT;
 			}
 
-			if (update_return == UPDATE_STOP)
+			if (update_return == (int)UpdateStatus::UPDATE_STOP)
 				state = MAIN_FINISH;
 		}
 		break;
@@ -75,7 +75,7 @@ int main(int argc, char** argv)
 		case MAIN_FINISH:
 
 			LOG("-------------- Application CleanUp --------------");
-			if (App->CleanUp() == false)
+			if (app->CleanUp() == false)
 			{
 				LOG("Application CleanUp exits with ERROR");
 			}
@@ -89,8 +89,8 @@ int main(int argc, char** argv)
 		}
 	}
 
-	delete App;
-	App = nullptr;
+	delete app;
+	app = nullptr;
 
 	ReportMemoryLeaks();
 

@@ -45,6 +45,7 @@
     <ClCompile Include="External\imgui\imgui_tables.cpp" />
     <ClCompile Include="External\imgui\imgui_widgets.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="ModuleEditor.cpp" />
     <ClCompile Include="External\MathGeoLib\include\Algorithm\Random\LCG.cpp" />
     <ClCompile Include="External\MathGeoLib\include\Time\Clock.cpp" />
     <ClCompile Include="External\MathGeoLib\include\Math\BitOps.cpp" />
@@ -125,6 +126,7 @@
     <ClInclude Include="External\imgui\imgui_internal.h" />
     <ClInclude Include="External\imgui\imstb_rectpack.h" />
     <ClInclude Include="External\imgui\imstb_textedit.h" />
+    <ClInclude Include="ModuleEditor.h" />
     <ClInclude Include="External\MathGeoLib\include\Algorithm\Random\LCG.h" />
     <ClInclude Include="External\MathGeoLib\include\Time\Clock.h" />
     <ClInclude Include="External\MathGeoLib\include\MathBuildConfig.h" />
