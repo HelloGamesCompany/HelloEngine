@@ -83,6 +83,7 @@
     <ClCompile Include="ModuleXML.cpp" />
     <ClCompile Include="QuickSave.cpp" />
     <ClCompile Include="XMLNode.cpp" />
+    <ClCompile Include="ImWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Light.h">
@@ -198,6 +199,7 @@
     <ClInclude Include="ModuleXML.h" />
     <ClInclude Include="QuickSave.h" />
     <ClInclude Include="XMLNode.h" />
+    <ClInclude Include="ImWindow.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header">

@@ -35,6 +35,11 @@ public:
 		return mouse_buttons[id];
 	}
 
+	void HandleMouseButton(int id) 
+	{
+		mouse_buttons[id] = KEY_STATE::KEY_IDLE;
+	}
+
 	int GetMouseX() const
 	{
 		return mouse_x;

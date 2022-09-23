@@ -138,6 +138,7 @@
     <ClCompile Include="External\PugiXml\src\pugixml.cpp" />
     <ClCompile Include="glmath.cpp" />
     <ClCompile Include="Globals.h" />
+    <ClCompile Include="ImWindow.cpp" />
     <ClCompile Include="JSONParser.cpp" />
     <ClCompile Include="Light.cpp" />
     <ClCompile Include="Log.cpp" />
@@ -229,6 +230,7 @@
     <ClInclude Include="External\PugiXml\src\pugiconfig.hpp" />
     <ClInclude Include="External\PugiXml\src\pugixml.hpp" />
     <ClInclude Include="glmath.h" />
+    <ClInclude Include="ImWindow.h" />
     <ClInclude Include="JSONParser.h" />
     <ClInclude Include="Light.h" />
     <ClInclude Include="MemLeaks.h" />
