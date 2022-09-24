@@ -1,12 +1,10 @@
-#include "imgui.h"
+#include "Headers.h"
 #include <stdlib.h>
 #include "Globals.h"
 #include "Application.h"
 #include "MemLeaks.h"
 
-#include "pugixml.hpp"
 
-#include "SDL.h"
 
 enum main_states
 {

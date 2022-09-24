@@ -67,6 +67,6 @@ enum class UpdateStatus
 #define WIN_BORDERLESS false
 #define WIN_FULLSCREEN_DESKTOP false
 #define VSYNC true
-#define TITLE "Race car 3D"
+#define TITLE "HelloEngine"
 
 #endif // !__GLOBALS_H__

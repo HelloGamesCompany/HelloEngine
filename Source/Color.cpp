@@ -1,3 +1,4 @@
+#include "Headers.h"
 #include "Color.h"
 
 Color Red = Color(1.0f, 0.0f, 0.0f);

@@ -1,6 +1,6 @@
+#include "Headers.h"
 #include "Globals.h"
 #include "Light.h"
-#include <gl/GL.h>
 //#include <gl/GLU.h>
 
 Light::Light() : ref(-1), on(false), position(0.0f, 0.0f, 0.0f)

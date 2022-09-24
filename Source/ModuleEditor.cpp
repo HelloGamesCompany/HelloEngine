@@ -1,3 +1,4 @@
+#include "Headers.h"
 #include "ModuleEditor.h"
 #include "Application.h"
 #include "QuickSave.h"

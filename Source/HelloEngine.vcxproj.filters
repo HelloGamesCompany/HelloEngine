@@ -178,6 +178,7 @@
     <ClCompile Include="ImWindow.cpp">
       <Filter>Source\Tools</Filter>
     </ClCompile>
+    <ClCompile Include="Headers.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Light.h">
@@ -450,6 +451,7 @@
     <ClInclude Include="ImWindow.h">
       <Filter>Header\Tools</Filter>
     </ClInclude>
+    <ClInclude Include="Headers.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header">

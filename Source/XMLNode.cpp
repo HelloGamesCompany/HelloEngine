@@ -1,3 +1,4 @@
+#include "Headers.h"
 #include "XMLNode.h"
 #include "Application.h"
 #include "ModuleXML.h"
