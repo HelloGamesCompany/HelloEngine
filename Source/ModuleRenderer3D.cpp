@@ -7,6 +7,11 @@
 
 
 
+
+#include "ImWindowConfiguration.h"
+
+ImWindowConfiguration* ImConfig = nullptr;
+
 ModuleRenderer3D::ModuleRenderer3D(bool start_enabled) : Module(start_enabled)
 {
 }
@@ -144,6 +149,9 @@ bool ModuleRenderer3D::Init()
 	// Projection matrix for
 	OnResize(SCREEN_WIDTH, SCREEN_HEIGHT);
 
+
+	ImConfig = new ImWindowConfiguration();
+
 	return ret;
 }
 
@@ -205,11 +213,17 @@ UpdateStatus ModuleRenderer3D::PostUpdate()
 		ImGui::ShowDemoWindow();
 	}
 
-	ImGui::Begin("Assets");
-	ImGui::End();
+	if (ImConfig->isEnabled) ImConfig->Update();
+
+	static bool asset = true;
+
+	if(asset)
+	{
+		ImGui::Begin("Assets",&asset);
+		ImGui::End();
+	}
 
 	ImGui::Begin("Viewport");
-
 	ImGui::End();
 
 	ImGui::Render();
@@ -243,6 +257,8 @@ bool ModuleRenderer3D::CleanUp()
 	ImGui::DestroyContext();
 
 	SDL_GL_DeleteContext(context);
+
+	RELEASE(ImConfig);
 
 	return true;
 }

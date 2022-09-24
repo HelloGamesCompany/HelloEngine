@@ -22,9 +22,6 @@
     <ClCompile Include="Globals.h">
       <Filter>Header\Globals</Filter>
     </ClCompile>
-    <ClCompile Include="Log.cpp">
-      <Filter>Header\Tools</Filter>
-    </ClCompile>
     <ClCompile Include="Module.cpp">
       <Filter>Source\BaseClass</Filter>
     </ClCompile>
@@ -175,10 +172,18 @@
     <ClCompile Include="XMLNode.cpp">
       <Filter>Source\Tools</Filter>
     </ClCompile>
-    <ClCompile Include="ImWindow.cpp">
+    <ClCompile Include="Log.cpp">
       <Filter>Source\Tools</Filter>
     </ClCompile>
     <ClCompile Include="Headers.cpp" />
+      <Filter>Source\Globals</Filter>
+    </ClCompile>
+    <ClCompile Include="ImWindow.cpp">
+      <Filter>Source\Tools\ImWindows</Filter>
+    </ClCompile>
+    <ClCompile Include="ImWindowConfiguration.cpp">
+      <Filter>Source\Tools\ImWindows</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Light.h">
@@ -449,7 +454,10 @@
       <Filter>Header\Tools</Filter>
     </ClInclude>
     <ClInclude Include="ImWindow.h">
-      <Filter>Header\Tools</Filter>
+      <Filter>Header\Tools\ImWindows</Filter>
+    </ClInclude>
+    <ClInclude Include="ImWindowConfiguration.h">
+      <Filter>Header\Tools\ImWindows</Filter>
     </ClInclude>
     <ClInclude Include="Headers.h" />
   </ItemGroup>
@@ -510,6 +518,12 @@
     </Filter>
     <Filter Include="External\PugiXML">
       <UniqueIdentifier>{645d63b4-aace-4584-8d26-cf4128e09e20}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header\Tools\ImWindows">
+      <UniqueIdentifier>{615e92a2-3c79-4bd7-bd9e-2e66da97db04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Tools\ImWindows">
+      <UniqueIdentifier>{043773a1-08fa-44c3-b166-89718543f03c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

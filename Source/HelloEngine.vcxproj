@@ -228,6 +228,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="ImWindow.cpp" />
+    <ClCompile Include="ImWindowConfiguration.cpp" />
     <ClCompile Include="JSONParser.cpp" />
     <ClCompile Include="Light.cpp" />
     <ClCompile Include="Log.cpp" />
@@ -321,6 +322,7 @@
     <ClInclude Include="glmath.h" />
     <ClInclude Include="Headers.h" />
     <ClInclude Include="ImWindow.h" />
+    <ClInclude Include="ImWindowConfiguration.h" />
     <ClInclude Include="JSONParser.h" />
     <ClInclude Include="Light.h" />
     <ClInclude Include="MemLeaks.h" />
