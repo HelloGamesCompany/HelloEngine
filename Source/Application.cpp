@@ -137,3 +137,8 @@ Application* Application::Instance()
 
 	return app;
 }
+
+std::string Application::GetEngineVersion()
+{
+	return "v0.1";
+}

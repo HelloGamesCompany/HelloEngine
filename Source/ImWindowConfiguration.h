@@ -31,6 +31,4 @@ private:
 	float systemRAM = 0;
 
 	int frameLimit = 60;
-
-	bool configOpen = true;
 };

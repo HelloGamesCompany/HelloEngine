@@ -39,6 +39,8 @@ public:
 
 	static Application* Instance();
 
+	std::string GetEngineVersion();
+
 private:
 
 	void AddModule(Module* mod);

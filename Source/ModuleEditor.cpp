@@ -82,22 +82,25 @@ UpdateStatus ModuleEditor::Update()
 			ImGui::EndMenu();
 		}
 
-		if (ImGui::BeginMenu("Example Window"))
+		if (ImGui::BeginMenu("Windows"))
 		{
-			if (ImGui::MenuItem("Toggle Demo Window"))
+			if (ImGui::MenuItem("Configuration"))
 			{
-				showWindow = !showWindow;
+				imWindows[(uint)ImWindowID::CONFIGURATION]->isEnabled = true;
 			}
+
+			if (ImGui::MenuItem("About"))
+			{
+				imWindows[(uint)ImWindowID::ABOUT]->isEnabled = true;
+			}
+
 			ImGui::EndMenu();
 		}
 
 		ImGui::EndMainMenuBar();
 	}
 
-	if (showWindow)
-	{
-		ImGui::ShowDemoWindow();
-	}
+
 
 	static bool asset = true;
 
