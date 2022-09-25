@@ -17,3 +17,6 @@
 #include "json.hpp"
 
 #include "Globals.h"
+#include "Application.h"
+
+//TODO: Add every Module in here once Modules have been tested and won't be changed anymore.

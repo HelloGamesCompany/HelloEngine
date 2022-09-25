@@ -2,6 +2,15 @@
 #define __MODULE_ENGINE_H__
 
 #include "Module.h"
+#include "ImWindow.h"
+
+enum class ImWindowID
+{
+	CONFIGURATION,
+	ABOUT,
+	MAX,
+};
+
 class ModuleEditor :public Module
 {
 public:
@@ -15,6 +24,10 @@ public:
 	UpdateStatus PostUpdate() override;
 
 	bool CleanUp() override;
+
+private:
+
+	ImWindow* imWindows[(uint)ImWindowID::MAX];
 };
 
 #endif // !__MODULE_ENGINE_H__

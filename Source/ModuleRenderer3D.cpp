@@ -5,13 +5,6 @@
 #include "ModuleCamera3D.h"
 #include "SDL_opengl.h"
 
-
-
-
-#include "ImWindowConfiguration.h"
-
-ImWindowConfiguration* ImConfig = nullptr;
-
 ModuleRenderer3D::ModuleRenderer3D(bool start_enabled) : Module(start_enabled)
 {
 }
@@ -26,7 +19,7 @@ bool ModuleRenderer3D::Init()
 	LOG("Creating 3D Renderer context");
 	bool ret = true;
 	
-	const char* glsl_version = "#version 130";
+	// Set Up OpenGL Attributes
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_FLAGS, 0);
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
@@ -45,36 +38,6 @@ bool ModuleRenderer3D::Init()
 	}
 
 	SDL_GL_MakeCurrent(app->window->window, context);
-
-	// Setup Dear ImGui context
-	IMGUI_CHECKVERSION();
-	ImGui::CreateContext();
-	ImGuiIO& io = ImGui::GetIO(); (void)io;
-	io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;       // Enable Keyboard Controls
-	//io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
-	io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;           // Enable Docking
-	
-	//io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;  
-	// Enable Multi-Viewport / Platform Windows
-	//io.ConfigViewportsNoAutoMerge = true;
-	//io.ConfigViewportsNoTaskBarIcon = true;
-
-
-	// Setup Dear ImGui style
-	//ImGui::StyleColorsClassic();
-	ImGui::StyleColorsDark();
-	//ImGui::StyleColorsLight();
-
-	// When viewports are enabled we tweak WindowRounding/WindowBg so platform windows can look identical to regular ones.
-	ImGuiStyle& style = ImGui::GetStyle();
-	if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
-	{
-		style.WindowRounding = 10.0f;
-		style.Colors[ImGuiCol_WindowBg].w = 0.0f;
-	}
-
-	ImGui_ImplSDL2_InitForOpenGL(app->window->window, context);
-	ImGui_ImplOpenGL3_Init(glsl_version);
 
 	if(ret == true)
 	{
@@ -149,9 +112,6 @@ bool ModuleRenderer3D::Init()
 	// Projection matrix for
 	OnResize(SCREEN_WIDTH, SCREEN_HEIGHT);
 
-
-	ImConfig = new ImWindowConfiguration();
-
 	return ret;
 }
 
@@ -176,72 +136,6 @@ UpdateStatus ModuleRenderer3D::PreUpdate()
 // PostUpdate present buffer to screen
 UpdateStatus ModuleRenderer3D::PostUpdate()
 {
-	// Start the Dear ImGui frame
-	ImGui_ImplOpenGL3_NewFrame();
-	ImGui_ImplSDL2_NewFrame();
-	ImGui::NewFrame();
-
-	static bool showWindow = false;
-
-	ImGui::DockSpaceOverViewport(ImGui::GetMainViewport());
-
-	if (ImGui::BeginMainMenuBar())
-	{
-		if (ImGui::BeginMenu("Application"))
-		{
-			if (ImGui::MenuItem("Close Appplication"))
-			{
-				return UpdateStatus::UPDATE_STOP;
-			}
-			ImGui::EndMenu();
-		}
-
-		if (ImGui::BeginMenu("Example Window"))
-		{
-			if (ImGui::MenuItem("Toggle Demo Window"))
-			{
-				showWindow = !showWindow;
-			}
-			ImGui::EndMenu();
-		}
-
-		ImGui::EndMainMenuBar();
-	}
-
-	if (showWindow)
-	{
-		ImGui::ShowDemoWindow();
-	}
-
-	if (ImConfig->isEnabled) ImConfig->Update();
-
-	static bool asset = true;
-
-	if(asset)
-	{
-		ImGui::Begin("Assets",&asset);
-		ImGui::End();
-	}
-
-	ImGui::Begin("Viewport");
-	ImGui::End();
-
-	ImGui::Render();
-	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-
-	// Update and Render additional Platform Windows
-	// (Platform functions may change the current OpenGL context, so we save/restore it to make it easier to paste this code elsewhere.
-	//  For this specific demo app we could also call SDL_GL_MakeCurrent(window, gl_context) directly)
-	ImGuiIO& io = ImGui::GetIO(); (void)io;
-	if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
-	{
-		SDL_Window* backup_current_window = SDL_GL_GetCurrentWindow();
-		SDL_GLContext backup_current_context = SDL_GL_GetCurrentContext();
-		ImGui::UpdatePlatformWindows();
-		ImGui::RenderPlatformWindowsDefault();
-		SDL_GL_MakeCurrent(backup_current_window, backup_current_context);
-	}
-
 	SDL_GL_SwapWindow(app->window->window);
 
 	return UpdateStatus::UPDATE_CONTINUE;
@@ -252,13 +146,7 @@ bool ModuleRenderer3D::CleanUp()
 {
 	LOG("Destroying 3D Renderer");
 
-	ImGui_ImplOpenGL3_Shutdown();
-	ImGui_ImplSDL2_Shutdown();
-	ImGui::DestroyContext();
-
 	SDL_GL_DeleteContext(context);
-
-	RELEASE(ImConfig);
 
 	return true;
 }
