@@ -21,7 +21,7 @@ public:
 	ModuleRenderer3D* renderer3D = nullptr;
 	ModuleEditor* editor = nullptr;
 	ModuleXML* xml = nullptr;
-
+	//TODO set this in XML/JSON file
 	float fps = 1.0f/60.0f;
 	Timer	timer;
 
@@ -38,6 +38,11 @@ public:
 	bool CleanUp();
 
 	static Application* Instance();
+
+	void SetFPS(int maxFrames)
+	{
+	   fps = 1.0f / (float)maxFrames;
+	}
 
 	std::string GetEngineVersion();
 

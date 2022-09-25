@@ -20,7 +20,7 @@ ImWindowAbout::ImWindowAbout()
 void ImWindowAbout::Update()
 {
 
-	if(ImGui::Begin(windowName.c_str(), &isEnabled))
+	if(ImGui::Begin(windowName.c_str(), &isEnabled, ImGuiWindowFlags_AlwaysAutoResize))
 	{
 		ImGui::TextWrapped("HelloEngine %s", Application::Instance()->GetEngineVersion().c_str());
 		ImGui::TextWrapped("by Zhida Chen & Adria Sellares");

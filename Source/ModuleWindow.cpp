@@ -30,13 +30,9 @@ bool ModuleWindow::Init()
 	else
 	{
 		//Create window
-		int width = SCREEN_WIDTH * SCREEN_SIZE;
-		int height = SCREEN_HEIGHT * SCREEN_SIZE;
+		width = SCREEN_WIDTH * SCREEN_SIZE;
+		height = SCREEN_HEIGHT * SCREEN_SIZE;
 		Uint32 flags = SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN;
-
-		//Use OpenGL 2.1 ??????????????????????????????????????????????????????'
-		//SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 2);
-		//SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
 
 		if(WIN_FULLSCREEN == true)
 		{
@@ -97,4 +93,11 @@ bool ModuleWindow::CleanUp()
 void ModuleWindow::SetTitle(const char* title)
 {
 	SDL_SetWindowTitle(window, title);
+}
+
+void ModuleWindow::SetBrightness(float brightness)
+{
+	brightness = MAX(0.2f, MIN(1.0f, brightness)); // check if brightness is between 0.2 and 1.0 and assign it to the closest valid value.
+
+	SDL_SetWindowBrightness(window, brightness);
 }

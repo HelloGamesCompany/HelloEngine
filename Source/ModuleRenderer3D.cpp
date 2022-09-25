@@ -42,7 +42,9 @@ bool ModuleRenderer3D::Init()
 	if(ret == true)
 	{
 		//Use Vsync
-		if(VSYNC && SDL_GL_SetSwapInterval(1) < 0)
+		//TODO: Get VSync from loaded XML/JSON
+		isVSync = VSYNC;
+		if(isVSync && SDL_GL_SetSwapInterval(1) < 0)
 			LOG("Warning: Unable to set VSync! SDL Error: %s\n", SDL_GetError());
 
 		//Initialize Projection Matrix
@@ -163,4 +165,14 @@ void ModuleRenderer3D::OnResize(int width, int height)
 
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
+
+	app->window->width = width;
+	app->window->height = height;
+}
+
+void ModuleRenderer3D::ToggleVSync(bool isOn)
+{
+	if (isOn == isVSync)return;
+	isVSync = isOn;
+	SDL_GL_SetSwapInterval(isVSync);
 }

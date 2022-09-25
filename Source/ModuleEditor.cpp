@@ -67,8 +67,6 @@ UpdateStatus ModuleEditor::Update()
 	ImGui_ImplSDL2_NewFrame();
 	ImGui::NewFrame();
 
-	static bool showWindow = false;
-
 	ImGui::DockSpaceOverViewport(ImGui::GetMainViewport());
 
 	if (ImGui::BeginMainMenuBar())
@@ -99,8 +97,6 @@ UpdateStatus ModuleEditor::Update()
 
 		ImGui::EndMainMenuBar();
 	}
-
-
 
 	static bool asset = true;
 

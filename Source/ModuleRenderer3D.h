@@ -18,6 +18,7 @@ public:
 	bool CleanUp();
 
 	void OnResize(int width, int height);
+	void ToggleVSync(bool isOn);
 
 public:
 
@@ -25,6 +26,7 @@ public:
 	SDL_GLContext context;
 	mat3x3 NormalMatrix;
 	mat4x4 ModelMatrix, ViewMatrix, ProjectionMatrix;
+	bool isVSync = false;
 };
 
 #endif // !__MODULERENDERER3D_H__
