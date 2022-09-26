@@ -52,6 +52,9 @@ bool ModuleEditor::Start()
     imWindows[(uint)ImWindowID::CONFIGURATION] = new ImWindowConfiguration();
     imWindows[(uint)ImWindowID::ABOUT] = new ImWindowAbout();
 
+	// Setup font
+	io.Fonts->AddFontFromFileTTF("Assets/font.ttf", 17.0f, NULL);
+
     return true;
 }
 
