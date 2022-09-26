@@ -99,7 +99,7 @@ void ModuleXML::CreateDefaultConfigFile()
 { 
 	// Create a new QuickSave xml file
 	FILE* f = nullptr;
-	fopen_s(&f, QUICKSAVE_FILENAME, "w");
+	fopen_s(&f, CONFIG_PATH, "w");
 
 	// Load template QuickSave structure into the new file
 	char buffer[] = "<?xml version=\"1.0\"?>\n<config>\n<window>\n<width value = \"1280\"/>\n<height value = \"720\"/>\n<brightness value = \"1\"/>\n</window>\n<renderer>\n<vsync value = \"true\"/>\n<framerate value = \"90\"/>\n</renderer>\n</config>";
