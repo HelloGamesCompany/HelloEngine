@@ -9,25 +9,10 @@ XMLNode QuickSave::nString;
 XMLNode QuickSave::nFloat;
 XMLNode QuickSave::nInt;
 
-inline bool exists_file(const std::string& name)
-{
-    FILE* file = nullptr;
-
-    LOG("Create default QuickSave file");
-
-    fopen_s(&file, name.c_str(), "r");
-
-    // If file is not exist
-    if(!file) return false;
-   
-    fclose(file);
-    return true;    
-}
-
 void QuickSave::Init()
 {
     // Create The XML file while is not exist
-    if (!exists_file(QUICKSAVE_FILENAME)) CreateQuickSaveDefaultFile();
+    if (!ExistsFile(QUICKSAVE_FILENAME)) CreateQuickSaveDefaultFile();
 
     LOG("Init QuickSave");
 

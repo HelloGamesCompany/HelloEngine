@@ -4,8 +4,8 @@
 #include "Module.h"
 #include <vector>
 
-#define CONFIG_PATH "XMLs/config.xml"
-#define RESOURCE_PATH "XMLs/resource.xml"
+#define CONFIG_PATH "Xmls/config.xml"
+#define RESOURCE_PATH "Xmls/resource.xml"
 
 #include "XMLNode.h"
 
@@ -35,6 +35,8 @@ public:
 
 	bool CleanUp() override;
 
+private:
+	void CreateDefaultConfigFile();
 private:
 	XMLNode config;
 

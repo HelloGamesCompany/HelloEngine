@@ -43,7 +43,10 @@ bool Application::Init()
 	// Renderer last!
 	AddModule(renderer3D);
 
-
+	//Set up frame rate
+	XMLNode configNode = xml->GetConfigXML();
+	frameCap = configNode.node.child("renderer").child("framerate").attribute("value").as_int(60);
+	SetFPS(frameCap);
 
 	// Call Init() in all modules
 	for (int i = 0, count = list_modules.size() ; i <count ; i++)
@@ -117,6 +120,9 @@ UpdateStatus Application::Update()
 bool Application::CleanUp()
 {
 	bool ret = true;
+
+	XMLNode configNode = xml->GetConfigXML();
+	configNode.node.child("renderer").child("framerate").attribute("value").set_value(frameCap);
 
 	for (int i = list_modules.size() -1; i >= 0 && ret; i--)
 	{

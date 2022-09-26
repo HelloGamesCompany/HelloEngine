@@ -19,9 +19,6 @@ public:
 private:
 	Application* app = nullptr;
 
-	// Is not compatible with ImGui::PlotHistogram();
-	std::queue<float> frames;
-
 	std::vector<float> frames2;
 
 	bool fullscreen = false;
@@ -30,10 +27,12 @@ private:
 
 	float systemRAM = 0;
 
-	int frameLimit = 60;
+	int* frameLimit = nullptr;
 
 	const int* windowWidth = nullptr;
 	const int* windowHeight = nullptr;
 
-	bool isVSyncOn = true;
+	float* windowBrightness = nullptr;
+
+	bool* isVSyncOn = nullptr;
 };

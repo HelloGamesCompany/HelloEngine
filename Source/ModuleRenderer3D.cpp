@@ -4,6 +4,8 @@
 #include "ModuleWindow.h"
 #include "ModuleCamera3D.h"
 #include "SDL_opengl.h"
+#include "XMLNode.h"
+#include "ModuleXML.h"
 
 ModuleRenderer3D::ModuleRenderer3D(bool start_enabled) : Module(start_enabled)
 {
@@ -42,11 +44,10 @@ bool ModuleRenderer3D::Init()
 	if(ret == true)
 	{
 		//Use Vsync
-		//TODO: Get VSync from loaded XML/JSON
-		isVSync = VSYNC;
-		if(isVSync && SDL_GL_SetSwapInterval(1) < 0)
-			LOG("Warning: Unable to set VSync! SDL Error: %s\n", SDL_GetError());
-
+		
+		XMLNode configNode = app->xml->GetConfigXML();
+		isVSync = configNode.node.child("renderer").child("vsync").attribute("value").as_bool();
+		ToggleVSync(isVSync);
 		//Initialize Projection Matrix
 		glMatrixMode(GL_PROJECTION);
 		glLoadIdentity();
@@ -112,7 +113,7 @@ bool ModuleRenderer3D::Init()
 	}
 
 	// Projection matrix for
-	OnResize(SCREEN_WIDTH, SCREEN_HEIGHT);
+	OnResize(app->window->width, app->window->height);
 
 	return ret;
 }
@@ -148,6 +149,9 @@ bool ModuleRenderer3D::CleanUp()
 {
 	LOG("Destroying 3D Renderer");
 
+	XMLNode configNode = app->xml->GetConfigXML();
+	configNode.node.child("renderer").child("vsync").attribute("value").set_value(isVSync);
+
 	SDL_GL_DeleteContext(context);
 
 	return true;
@@ -160,6 +164,7 @@ void ModuleRenderer3D::OnResize(int width, int height)
 
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
+	// TODO: We can do this every time the window size is changed instead of every frame?
 	ProjectionMatrix = perspective(60.0f, (float)width / (float)height, 0.125f, 2048.0f);
 	glLoadMatrixf(&ProjectionMatrix);
 
@@ -172,7 +177,6 @@ void ModuleRenderer3D::OnResize(int width, int height)
 
 void ModuleRenderer3D::ToggleVSync(bool isOn)
 {
-	if (isOn == isVSync)return;
 	isVSync = isOn;
 	SDL_GL_SetSwapInterval(isVSync);
 }

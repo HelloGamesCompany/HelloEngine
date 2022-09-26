@@ -4,6 +4,8 @@
 #include "ModuleWindow.h"
 #include "imgui_impl_sdl.h"
 #include "imgui_impl_opengl3.h"
+#include "XMLNode.h"
+#include "ModuleXML.h"
 
 ModuleWindow::ModuleWindow(bool start_enabled) : Module(start_enabled)
 {
@@ -29,9 +31,12 @@ bool ModuleWindow::Init()
 	}
 	else
 	{
+		XMLNode configNode = app->xml->GetConfigXML();
 		//Create window
-		width = SCREEN_WIDTH * SCREEN_SIZE;
-		height = SCREEN_HEIGHT * SCREEN_SIZE;
+		width = configNode.node.child("window").child("width").attribute("value").as_int(1280);
+		height = configNode.node.child("window").child("height").attribute("value").as_int(720);
+		brightness = configNode.node.child("window").child("brightness").attribute("value").as_float(1.0f);
+		
 		Uint32 flags = SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN;
 
 		if(WIN_FULLSCREEN == true)
@@ -56,6 +61,7 @@ bool ModuleWindow::Init()
 
 		window = SDL_CreateWindow(TITLE, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, flags);
 
+		SetBrightness(brightness);
 
 		if(window == NULL)
 		{
@@ -77,6 +83,14 @@ bool ModuleWindow::Init()
 // Called before quitting
 bool ModuleWindow::CleanUp()
 {
+	XMLNode configNode = app->xml->GetConfigXML();
+
+	configNode.node.child("window").child("width").attribute("value").set_value(width);
+	configNode.node.child("window").child("height").attribute("value").set_value(height);;
+	configNode.node.child("window").child("brightness").attribute("value").set_value(brightness);
+
+	configNode.Save();
+
 	LOG("Destroying SDL window and quitting all SDL systems");
 
 	//Destroy window
@@ -95,9 +109,17 @@ void ModuleWindow::SetTitle(const char* title)
 	SDL_SetWindowTitle(window, title);
 }
 
-void ModuleWindow::SetBrightness(float brightness)
+void ModuleWindow::SetBrightness(float bright)
 {
-	brightness = MAX(0.2f, MIN(1.0f, brightness)); // check if brightness is between 0.2 and 1.0 and assign it to the closest valid value.
+	bright = MAX(0.2f, MIN(1.0f, bright)); // check if brightness is between 0.2 and 1.0 and assign it to the closest valid value.
 
-	SDL_SetWindowBrightness(window, brightness);
+	SDL_SetWindowBrightness(window, bright);
+}
+
+int ModuleWindow::GetMaxRefreshRate()
+{
+	SDL_DisplayMode display;
+	SDL_GetDisplayMode(0, 0, &display);
+
+	return display.refresh_rate;
 }

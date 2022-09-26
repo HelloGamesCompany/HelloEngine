@@ -12,7 +12,6 @@ ImWindowConfiguration::ImWindowConfiguration() : ImWindow()
 
 	for (int i = 0; i < 60; i++)
 	{
-		frames.emplace(120);
 		frames2.emplace_back(120);
 	}
 
@@ -24,8 +23,11 @@ ImWindowConfiguration::ImWindowConfiguration() : ImWindow()
 
 	windowWidth = &app->window->width;
 	windowHeight = &app->window->height;
+	windowBrightness = &app->window->brightness;
 
-	isVSyncOn = SDL_GL_GetSwapInterval();
+	isVSyncOn = &app->renderer3D->isVSync;
+
+	frameLimit = &app->frameCap;
 }
 
 ImWindowConfiguration::~ImWindowConfiguration()
@@ -45,9 +47,9 @@ void ImWindowConfiguration::Update()
 		if (ImGui::CollapsingHeader("Application", ImGuiTreeNodeFlags_DefaultOpen))
 		{
 			ImGui::PlotHistogram("##Framerate", &frames2.front(), frames2.size(), 0, framerate.c_str(), 0.0f, 160.0f, ImVec2(300, 160));
-			if (ImGui::SliderInt("FPS Limit", &frameLimit, 30, 120))
+			if (ImGui::SliderInt("FPS Limit", frameLimit, 30, 120))
 			{
-				app->SetFPS(frameLimit);
+				app->SetFPS(*frameLimit);
 			}
 		}
 
@@ -62,17 +64,13 @@ void ImWindowConfiguration::Update()
 
 			//ImGui::NewLine();
 
-			static float brightness = 1.0f;
-
-			if (ImGui::SliderFloat("Brightness", &brightness, 0.2f, 1.0f))
+			if (ImGui::SliderFloat("Brightness", windowBrightness, 0.2f, 1.0f))
 			{
-				app->window->SetBrightness(brightness);
+				app->window->SetBrightness(*windowBrightness);
 			}
 
-			//ImGui::NewLine();
-
-			ImGui::Checkbox("VSync", &isVSyncOn);
-			app->renderer3D->ToggleVSync(isVSyncOn);
+			ImGui::Checkbox("VSync", isVSyncOn);
+			app->renderer3D->ToggleVSync(*isVSyncOn);
 			
 		}
 

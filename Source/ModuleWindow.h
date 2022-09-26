@@ -19,13 +19,15 @@ public:
 	bool CleanUp();
 
 	void SetTitle(const char* title);
-	void SetBrightness(float brightness);
+	void SetBrightness(float bright);
+	int GetMaxRefreshRate();
 
 public:
 	//The window we'll be rendering to
 	SDL_Window* window = nullptr;
 
 	int width, height;
+	float brightness;
 
 	//The surface contained by the window
 	SDL_Surface* screen_surface = nullptr;
