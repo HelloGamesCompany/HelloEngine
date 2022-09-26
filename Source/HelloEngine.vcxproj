@@ -227,6 +227,7 @@
     <ClCompile Include="Headers.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="ImGuiUtils.cpp" />
     <ClCompile Include="ImWindow.cpp" />
     <ClCompile Include="ImWindowAbout.cpp" />
     <ClCompile Include="ImWindowConfiguration.cpp" />
@@ -322,6 +323,7 @@
     <ClInclude Include="External\PugiXml\src\pugixml.hpp" />
     <ClInclude Include="glmath.h" />
     <ClInclude Include="Headers.h" />
+    <ClInclude Include="ImGuiUtils.h" />
     <ClInclude Include="ImWindow.h" />
     <ClInclude Include="ImWindowAbout.h" />
     <ClInclude Include="ImWindowConfiguration.h" />

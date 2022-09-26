@@ -63,6 +63,7 @@
     <ClCompile Include="QuickSave.cpp" />
     <ClCompile Include="XMLNode.cpp" />
     <ClCompile Include="ImWindowAbout.cpp" />
+    <ClCompile Include="ImGuiUtils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h" />
@@ -158,6 +159,7 @@
     <ClInclude Include="Timer.hpp" />
     <ClInclude Include="XMLNode.h" />
     <ClInclude Include="ImWindowAbout.h" />
+    <ClInclude Include="ImGuiUtils.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="External\imgui\vulkan\generate_spv.sh" />

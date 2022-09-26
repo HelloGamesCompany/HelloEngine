@@ -51,6 +51,7 @@ void ImWindowConfiguration::Update()
 			{
 				app->SetFPS(*frameLimit);
 			}
+
 		}
 
 		if (ImGui::CollapsingHeader("Window", ImGuiTreeNodeFlags_DefaultOpen))
@@ -60,9 +61,9 @@ void ImWindowConfiguration::Update()
 			ImGui::TextColored(ImVec4(255, 255, 0, 255), std::to_string(*windowWidth).c_str());
 
 			ImGui::TextWrapped("Height:"); ImGui::SameLine();
-			ImGui::TextColored(ImVec4(255, 255, 0, 255), std::to_string(*windowHeight).c_str());
+			ImGui::TextColored(ImVec4(255, 255, 0, 255), std::to_string(*windowHeight).c_str()); ImGui::SameLine();
 
-			//ImGui::NewLine();
+			ImGui::HelpMarker("Shows Window Width and Height");
 
 			if (ImGui::SliderFloat("Brightness", windowBrightness, 0.2f, 1.0f))
 			{
