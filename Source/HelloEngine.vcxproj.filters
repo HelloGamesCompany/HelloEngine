@@ -162,6 +162,7 @@
     <ClInclude Include="ImWindowAbout.h" />
     <ClInclude Include="ImGuiUtils.h" />
     <ClInclude Include="ImWindowOpenGL.h" />
+    <ClInclude Include="ArrayQueue.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="External\imgui\vulkan\generate_spv.sh" />

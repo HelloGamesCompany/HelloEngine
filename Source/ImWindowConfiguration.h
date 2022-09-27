@@ -4,6 +4,8 @@
 
 #include "ImWindow.h"
 
+#include "ArrayQueue.hpp"
+
 class Application;
 
 class ImWindowConfiguration :public ImWindow
@@ -19,7 +21,10 @@ public:
 private:
 	Application* app = nullptr;
 
-	std::vector<float> frames2;
+	// Need more testing, but i think is good
+	Htool::ArrayQueue<float>* frames = nullptr;
+
+	//std::vector<float> frames2;
 
 	bool fullscreen = false;
 

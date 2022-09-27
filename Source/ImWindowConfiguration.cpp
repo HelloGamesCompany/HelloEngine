@@ -5,24 +5,40 @@
 #include "ModuleRenderer3D.h"
 #include "ModuleInput.h"
 
+
+
 ImWindowConfiguration::ImWindowConfiguration() : ImWindow()
 {
 	windowName = "Configuration";
+
 	isEnabled = true;
 
-	for (int i = 0; i < 60; i++)
-	{
-		frames2.emplace_back(120);
-	}
+	//for (int i = 0; i < 60; i++)
+	//{
+	//	frames2.emplace_back(120);
+	//}
+
+	// Init frames with 0
+	frames = new Htool::ArrayQueue<float>(60, 0.0f);
+
+	//Htool::ArrayQueue<float>* a = new Htool::ArrayQueue<float>(20, 0.0f);
+
+
+	//for (int i = 0; i < a->GetSize(); i++)
+	//{
+	//	a->PushBack(i);
+	//}
+
+	app = Application::Instance();
 
 	countCPU = SDL_GetCPUCount();
 
 	systemRAM = SDL_GetSystemRAM();
 
-	app = Application::Instance();
-
 	windowWidth = &app->window->width;
+
 	windowHeight = &app->window->height;
+
 	windowBrightness = &app->window->brightness;
 
 	isVSyncOn = &app->renderer3D->isVSync;
@@ -32,21 +48,29 @@ ImWindowConfiguration::ImWindowConfiguration() : ImWindow()
 
 ImWindowConfiguration::~ImWindowConfiguration()
 {
+	RELEASE(frames);
 }
 
+// ESTO LLAMA DESPUES DE SU DESTRUCTOR??????
 void ImWindowConfiguration::Update()
 {
-	//if (frames.size() >= 60) frames.pop();
-
 	//frames.push(60);
 
+	static int count = 0;
+
 	std::string framerate = "Framerate: " + std::to_string(ImGui::GetIO().Framerate);
+
+	//frames->PushBack(ImGui::GetIO().Framerate);
+
+	std::cout << "Count: " << count << "\t frontI: " << frames->frontIndex << "\t inputI: " << frames->inputIndex << std::endl;
+
+	count++;
 
 	if (ImGui::Begin(windowName.c_str(), &isEnabled, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_AlwaysAutoResize))
 	{
 		if (ImGui::CollapsingHeader("Application", ImGuiTreeNodeFlags_DefaultOpen))
 		{
-			ImGui::PlotHistogram("##Framerate", &frames2.front(), frames2.size(), 0, framerate.c_str(), 0.0f, 160.0f, ImVec2(300, 160));
+			ImGui::PlotHistogram("##Framerate", frames->Front(), frames->GetSize(), 0, framerate.c_str(), 0.0f, 160.0f, ImVec2(300, 160));
 			if (ImGui::SliderInt("FPS Limit", frameLimit, 30, 120))
 			{
 				app->SetFPS(*frameLimit);
