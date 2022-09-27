@@ -67,6 +67,7 @@
     <ClCompile Include="ImWindowOpenGL.cpp" />
     <ClCompile Include="Layer.cpp" />
     <ClCompile Include="ModuleLayers.cpp" />
+    <ClCompile Include="LayerGame.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h" />
@@ -166,6 +167,7 @@
     <ClInclude Include="ImWindowOpenGL.h" />
     <ClInclude Include="Layer.h" />
     <ClInclude Include="ModuleLayers.h" />
+    <ClInclude Include="LayerGame.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="External\imgui\vulkan\generate_spv.sh" />

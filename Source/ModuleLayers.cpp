@@ -1,6 +1,7 @@
 #include "Headers.h"
 #include "ModuleLayers.h"
 #include "LayerEditor.h"
+#include "LayerGame.h"
 
 ModuleLayers::ModuleLayers()
 {
@@ -13,7 +14,7 @@ ModuleLayers::~ModuleLayers()
 bool ModuleLayers::Start()
 {
     layers[(uint)LayersID::EDITOR] = new LayerEditor();
-
+    layers[(uint)LayersID::GAME] = new LayerGame();
 
     for (int i = 0; i < (uint)LayersID::MAX; i++)
     {

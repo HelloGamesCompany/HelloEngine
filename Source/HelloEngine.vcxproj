@@ -234,6 +234,7 @@
     <ClCompile Include="ImWindowOpenGL.cpp" />
     <ClCompile Include="JSONParser.cpp" />
     <ClCompile Include="Layer.cpp" />
+    <ClCompile Include="LayerGame.cpp" />
     <ClCompile Include="Light.cpp" />
     <ClCompile Include="Log.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -333,6 +334,7 @@
     <ClInclude Include="ImWindowOpenGL.h" />
     <ClInclude Include="JSONParser.h" />
     <ClInclude Include="Layer.h" />
+    <ClInclude Include="LayerGame.h" />
     <ClInclude Include="Light.h" />
     <ClInclude Include="MemLeaks.h" />
     <ClInclude Include="Module.h" />
