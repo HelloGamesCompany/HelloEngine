@@ -1,5 +1,5 @@
 #include "Headers.h"
-#include "ModuleEditor.h"
+#include "LayerEditor.h"
 #include "Application.h"
 #include "QuickSave.h"
 #include "ModuleWindow.h"
@@ -9,15 +9,15 @@
 #include "ImWindowAbout.h"
 #include "ImWindowOpenGL.h"
 
-ModuleEditor::ModuleEditor(bool enabled) :Module(enabled)
+LayerEditor::LayerEditor()
 {
 }
 
-ModuleEditor::~ModuleEditor()
+LayerEditor::~LayerEditor()
 {
 }
 
-bool ModuleEditor::Start()
+void LayerEditor::Start()
 {
 	// Setup Dear ImGui context
 	IMGUI_CHECKVERSION();
@@ -58,15 +58,14 @@ bool ModuleEditor::Start()
 	// Setup font
 	io.Fonts->AddFontFromFileTTF("Assets/font.ttf", 17.0f, NULL);
 
-    return true;
 }
 
-UpdateStatus ModuleEditor::PreUpdate()
+void LayerEditor::PreUpdate()
 {
-    return UpdateStatus::UPDATE_CONTINUE;
+
 }
 
-UpdateStatus ModuleEditor::Update()
+void LayerEditor::Update()
 {
 	// Start the Dear ImGui frame
 	ImGui_ImplOpenGL3_NewFrame();
@@ -81,7 +80,7 @@ UpdateStatus ModuleEditor::Update()
 		{
 			if (ImGui::MenuItem("Close Appplication"))
 			{
-				return UpdateStatus::UPDATE_STOP;
+				// TODO: Exit application
 			}
 			ImGui::EndMenu();
 		}
@@ -141,16 +140,13 @@ UpdateStatus ModuleEditor::Update()
 		ImGui::RenderPlatformWindowsDefault();
 		SDL_GL_MakeCurrent(backup_current_window, backup_current_context);
 	}
-
-    return UpdateStatus::UPDATE_CONTINUE;
 }
 
-UpdateStatus ModuleEditor::PostUpdate()
+void LayerEditor::PostUpdate()
 {
-    return UpdateStatus::UPDATE_CONTINUE;
 }
 
-bool ModuleEditor::CleanUp()
+void LayerEditor::CleanUp()
 {
 	for (int i = 0; i < (uint)ImWindowID::MAX; i++)
 	{
@@ -160,6 +156,4 @@ bool ModuleEditor::CleanUp()
 	ImGui_ImplOpenGL3_Shutdown();
 	ImGui_ImplSDL2_Shutdown();
 	ImGui::DestroyContext();
-
-    return true;
 }

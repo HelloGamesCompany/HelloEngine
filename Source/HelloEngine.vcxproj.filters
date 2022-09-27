@@ -54,7 +54,7 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Module.cpp" />
     <ClCompile Include="ModuleCamera3D.cpp" />
-    <ClCompile Include="ModuleEditor.cpp" />
+    <ClCompile Include="LayerEditor.cpp" />
     <ClCompile Include="ModuleInput.cpp" />
     <ClCompile Include="ModuleRenderer3D.cpp" />
     <ClCompile Include="ModuleWindow.cpp" />
@@ -65,6 +65,9 @@
     <ClCompile Include="ImWindowAbout.cpp" />
     <ClCompile Include="ImGuiUtils.cpp" />
     <ClCompile Include="ImWindowOpenGL.cpp" />
+    <ClCompile Include="Layer.cpp" />
+    <ClCompile Include="ModuleLayers.cpp" />
+    <ClCompile Include="LayerGame.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h" />
@@ -150,7 +153,7 @@
     <ClInclude Include="MemLeaks.h" />
     <ClInclude Include="Module.h" />
     <ClInclude Include="ModuleCamera3D.h" />
-    <ClInclude Include="ModuleEditor.h" />
+    <ClInclude Include="LayerEditor.h" />
     <ClInclude Include="ModuleInput.h" />
     <ClInclude Include="ModuleRenderer3D.h" />
     <ClInclude Include="ModuleWindow.h" />
@@ -163,6 +166,9 @@
     <ClInclude Include="ImGuiUtils.h" />
     <ClInclude Include="ImWindowOpenGL.h" />
     <ClInclude Include="ArrayQueue.hpp" />
+    <ClInclude Include="Layer.h" />
+    <ClInclude Include="ModuleLayers.h" />
+    <ClInclude Include="LayerGame.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="External\imgui\vulkan\generate_spv.sh" />

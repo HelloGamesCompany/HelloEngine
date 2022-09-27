@@ -5,7 +5,7 @@
 #include "ModuleInput.h"
 #include "ModuleCamera3D.h"
 #include "ModuleRenderer3D.h"
-#include "ModuleEditor.h"
+#include "ModuleLayers.h"
 #include "ModuleXML.h"
 
 Application* Application::app = nullptr;
@@ -24,7 +24,7 @@ bool Application::Init()
 	input = new ModuleInput(true);
 	camera = new ModuleCamera3D(true);
 	renderer3D = new ModuleRenderer3D(true);
-	editor = new ModuleEditor(true);
+	layers = new ModuleLayers();
 	xml = new ModuleXML();
 
 	// The order of calls is very important!
@@ -38,7 +38,7 @@ bool Application::Init()
 	AddModule(input);
 	AddModule(camera);
 
-	AddModule(editor);
+	AddModule(layers);
 
 	// Renderer last!
 	AddModule(renderer3D);
