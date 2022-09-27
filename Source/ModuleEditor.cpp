@@ -7,6 +7,7 @@
 
 #include "ImWindowConfiguration.h"
 #include "ImWindowAbout.h"
+#include "ImWindowOpenGL.h"
 
 ModuleEditor::ModuleEditor(bool enabled) :Module(enabled)
 {
@@ -51,6 +52,8 @@ bool ModuleEditor::Start()
 
     imWindows[(uint)ImWindowID::CONFIGURATION] = new ImWindowConfiguration();
     imWindows[(uint)ImWindowID::ABOUT] = new ImWindowAbout();
+	imWindows[(uint)ImWindowID::OPENGL] = new ImWindowOpenGL();
+
 
 	// Setup font
 	io.Fonts->AddFontFromFileTTF("Assets/font.ttf", 17.0f, NULL);
@@ -93,6 +96,11 @@ UpdateStatus ModuleEditor::Update()
 			if (ImGui::MenuItem("About"))
 			{
 				imWindows[(uint)ImWindowID::ABOUT]->isEnabled = true;
+			}
+
+			if (ImGui::MenuItem("OpenGL Configuration"))
+			{
+				imWindows[(uint)ImWindowID::OPENGL]->isEnabled = true;
 			}
 
 			ImGui::EndMenu();

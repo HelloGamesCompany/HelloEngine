@@ -64,6 +64,7 @@
     <ClCompile Include="XMLNode.cpp" />
     <ClCompile Include="ImWindowAbout.cpp" />
     <ClCompile Include="ImGuiUtils.cpp" />
+    <ClCompile Include="ImWindowOpenGL.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h" />
@@ -160,6 +161,7 @@
     <ClInclude Include="XMLNode.h" />
     <ClInclude Include="ImWindowAbout.h" />
     <ClInclude Include="ImGuiUtils.h" />
+    <ClInclude Include="ImWindowOpenGL.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="External\imgui\vulkan\generate_spv.sh" />

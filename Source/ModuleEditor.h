@@ -8,6 +8,7 @@ enum class ImWindowID
 {
 	CONFIGURATION,
 	ABOUT,
+	OPENGL,
 	MAX,
 };
 

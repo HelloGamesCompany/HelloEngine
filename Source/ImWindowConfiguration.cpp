@@ -95,6 +95,13 @@ void ImWindowConfiguration::Update()
 
 			ImGui::TextWrapped("RAM: "); ImGui::SameLine();
 			ImGui::TextColored(ImVec4(255, 255, 0, 255), std::to_string(systemRAM).c_str());
+
+			ImGui::TextWrapped("--------OpenGL-------- ");
+			ImGui::TextWrapped("Vendor %s", glGetString(GL_VENDOR));
+			ImGui::TextWrapped("Renderer: %s", glGetString(GL_RENDERER));
+			ImGui::TextWrapped("OpenGL version supported %s", glGetString(GL_VERSION));
+			ImGui::TextWrapped("GLSL: %s\n", glGetString(GL_SHADING_LANGUAGE_VERSION));
+
 		}
 	}
 	ImGui::End();

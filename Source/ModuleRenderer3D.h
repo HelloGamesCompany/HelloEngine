@@ -20,6 +20,8 @@ public:
 	void OnResize(int width, int height);
 	void ToggleVSync(bool isOn);
 
+	void ToggleOpenGLSystem(bool enable, int openGLMacro);
+
 public:
 
 	Light lights[MAX_LIGHTS];

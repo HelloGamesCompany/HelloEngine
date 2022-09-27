@@ -231,6 +231,7 @@
     <ClCompile Include="ImWindow.cpp" />
     <ClCompile Include="ImWindowAbout.cpp" />
     <ClCompile Include="ImWindowConfiguration.cpp" />
+    <ClCompile Include="ImWindowOpenGL.cpp" />
     <ClCompile Include="JSONParser.cpp" />
     <ClCompile Include="Light.cpp" />
     <ClCompile Include="Log.cpp" />
@@ -327,6 +328,7 @@
     <ClInclude Include="ImWindow.h" />
     <ClInclude Include="ImWindowAbout.h" />
     <ClInclude Include="ImWindowConfiguration.h" />
+    <ClInclude Include="ImWindowOpenGL.h" />
     <ClInclude Include="JSONParser.h" />
     <ClInclude Include="Light.h" />
     <ClInclude Include="MemLeaks.h" />

@@ -180,3 +180,9 @@ void ModuleRenderer3D::ToggleVSync(bool isOn)
 	isVSync = isOn;
 	SDL_GL_SetSwapInterval(isVSync);
 }
+
+void ModuleRenderer3D::ToggleOpenGLSystem(bool enable, int openGLMacro)
+{
+	if (enable) glEnable(openGLMacro);
+	else glDisable(openGLMacro);
+}
