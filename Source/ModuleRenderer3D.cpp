@@ -185,6 +185,12 @@ void ModuleRenderer3D::ToggleVSync(bool isOn)
 
 void ModuleRenderer3D::ToggleOpenGLSystem(bool enable, int openGLMacro)
 {
-	//if (enable) glEnable(openGLMacro);
-	//else glDisable(openGLMacro);
+	if (enable) glEnable(openGLMacro);
+	else glDisable(openGLMacro);
+}
+
+void ModuleRenderer3D::ToggleOpenGLWireframe(bool enable)
+{
+	if (enable)glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+	else glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 }

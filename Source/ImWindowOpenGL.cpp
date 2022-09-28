@@ -20,6 +20,7 @@ void ImWindowOpenGL::Update()
 		ImGui::Checkbox("Color Material", &colorMaterial);
 		ImGui::Checkbox("Texture 2D", &texture2D);
 		ImGui::Checkbox("Blend", &blend);
+		ImGui::Checkbox("Wireframe", &wireframe);
 
 		// Call glEnable/disable for every checkbox. If the system is already on the given state, it ignores the call.
 		moduleRenderer->ToggleOpenGLSystem(depthTest, GL_DEPTH);
@@ -28,6 +29,7 @@ void ImWindowOpenGL::Update()
 		moduleRenderer->ToggleOpenGLSystem(colorMaterial, GL_COLOR_MATERIAL);
 		moduleRenderer->ToggleOpenGLSystem(texture2D, GL_TEXTURE_2D);
 		moduleRenderer->ToggleOpenGLSystem(blend, GL_BLEND);
+		moduleRenderer->ToggleOpenGLWireframe(wireframe);
 
 	}
 	ImGui::End();

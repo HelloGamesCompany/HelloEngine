@@ -16,6 +16,7 @@ private:
 	bool colorMaterial;
 	bool texture2D;
 	bool blend;
+	bool wireframe;
 
 	ModuleRenderer3D* moduleRenderer = nullptr;
 };

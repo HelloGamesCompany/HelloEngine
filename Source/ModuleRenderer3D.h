@@ -22,6 +22,8 @@ public:
 
 	void ToggleOpenGLSystem(bool enable, int openGLMacro);
 
+	void ToggleOpenGLWireframe(bool enable);
+
 public:
 
 	Light lights[MAX_LIGHTS];
