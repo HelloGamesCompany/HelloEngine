@@ -39,14 +39,28 @@ namespace Primitives
 	};
 
 	// ============================================
+	//TODO: Make primitives dynamic, so their size and position may change.
 	class Cube : public Primitive
 	{
 	public:
 		Cube();
 		Cube(float sizeX, float sizeY, float sizeZ);
+		~Cube();
+		
 		void InnerRender() const;
+
+
 	public:
 		vec3 size;
+	private:
+		void GenerateVertexBuffer();
+		uint VBO = 0;
+		uint IBO = 0;
+		uint VAO = 0;
+
+		float* vertices = nullptr;
+		uint* indices = nullptr;
+
 	};
 
 	// ============================================
