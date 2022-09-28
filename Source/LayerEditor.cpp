@@ -8,6 +8,8 @@
 #include "ImWindowConfiguration.h"
 #include "ImWindowAbout.h"
 #include "ImWindowOpenGL.h"
+#include "ModuleLayers.h"
+#include "LayerGame.h"
 
 LayerEditor::LayerEditor()
 {
@@ -108,15 +110,9 @@ void LayerEditor::PostUpdate()
 		ImGui::EndMainMenuBar();
 	}
 
-	static bool asset = true;
-
-	if (asset)
-	{
-		ImGui::Begin("Assets", &asset);
-		ImGui::End();
-	}
-
-	ImGui::Begin("Viewport");
+	ImGui::Begin("Game");
+	LayerGame* game = (LayerGame*)Application::Instance()->layers->layers[LayersID::GAME];
+	ImGui::Image((ImTextureID)game->GetTextureBuffer(), ImGui::GetContentRegionAvail(), ImVec2(0, 1), ImVec2(1, 0));
 	ImGui::End();
 
     for (int i = 0; i < (uint)ImWindowID::MAX; i++)

@@ -25,7 +25,7 @@ public:
 
 	bool CleanUp() override;
 
-private:
+public:
 	Layer* layers[(uint)LayersID::MAX] = { nullptr };
 };
 
