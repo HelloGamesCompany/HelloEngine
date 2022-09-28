@@ -17,7 +17,8 @@ public:
 	void VertexBufferArraySetUp();
 
 private:
-	uint VAO=0;
-	uint VBO=0;	
+	uint VAO = 0;
+	uint VBO = 0;	
+	uint IBO = 0;
 };
 
