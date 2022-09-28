@@ -252,7 +252,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h" />
-    <ClInclude Include="ArrayQueue.hpp" />
+    <ClInclude Include="CycleArray.hpp" />
     <ClInclude Include="Color.h" />
     <ClInclude Include="External\imgui\imconfig.h" />
     <ClInclude Include="External\imgui\imgui.h" />

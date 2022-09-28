@@ -1,10 +1,14 @@
 #include "Headers.h"
 #include "ModuleXML.h"
 #include "QuickSave.h"
+#include <filesystem>
 
 ModuleXML::ModuleXML() : Module()
 {
-	if (!QuickSave::ExistsFile(CONFIG_PATH)) CreateDefaultConfigFile();
+	if (!std::filesystem::exists(CONFIG_DIR)) std::filesystem::create_directory(CONFIG_DIR);
+
+	if (!std::filesystem::exists(CONFIG_PATH)) CreateDefaultConfigFile();
+
 	config = OpenXML(CONFIG_PATH);
 
 	//resource = OpenXML(RESOURCE_PATH);
@@ -108,4 +112,3 @@ void ModuleXML::CreateDefaultConfigFile()
 
 	fclose(f);
 }
-

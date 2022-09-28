@@ -165,7 +165,7 @@
     <ClInclude Include="ImWindowAbout.h" />
     <ClInclude Include="ImGuiUtils.h" />
     <ClInclude Include="ImWindowOpenGL.h" />
-    <ClInclude Include="ArrayQueue.hpp" />
+    <ClInclude Include="CycleArray.hpp" />
     <ClInclude Include="Layer.h" />
     <ClInclude Include="ModuleLayers.h" />
     <ClInclude Include="LayerGame.h" />

@@ -1,8 +1,7 @@
 #include "Headers.h"
 #include "QuickSave.h"
-#include <fstream>
-#include "Application.h"
 #include "ModuleXML.h"
+#include <fstream>
 
 XMLNode QuickSave::nBool;
 XMLNode QuickSave::nString;
@@ -12,7 +11,7 @@ XMLNode QuickSave::nInt;
 void QuickSave::Init()
 {
     // Create The XML file while is not exist
-    if (!ExistsFile(QUICKSAVE_FILENAME)) CreateQuickSaveDefaultFile();
+    if (!std::filesystem::exists(QUICKSAVE_FILENAME)) CreateQuickSaveDefaultFile();
 
     LOG("Init QuickSave");
 
@@ -102,8 +101,11 @@ std::string QuickSave::GetValue(std::string name, std::string value, XMLNode& no
 
 void QuickSave::CreateQuickSaveDefaultFile()
 {
+    LOG("Create default QuickSave file");
+
     // Create a new QuickSave xml file
     FILE* f = nullptr;
+
     fopen_s(&f, QUICKSAVE_FILENAME, "w");
 
     // Load template QuickSave structure into the new file

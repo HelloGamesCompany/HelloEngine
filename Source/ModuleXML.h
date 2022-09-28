@@ -4,6 +4,7 @@
 #include "Module.h"
 #include <vector>
 
+#define CONFIG_DIR "Xmls"
 #define CONFIG_PATH "Xmls/config.xml"
 #define RESOURCE_PATH "Xmls/resource.xml"
 
@@ -46,4 +47,3 @@ private:
 };
 
 #endif
-

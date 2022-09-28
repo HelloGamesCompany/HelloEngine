@@ -13,7 +13,7 @@ ImWindowConfiguration::ImWindowConfiguration() : ImWindow()
 
 	isEnabled = true;
 
-	frames = new AQueueF(60, 0.0f);
+	frames = new CArrayF(60, 0.0f);
 
 	app = Application::Instance();
 
@@ -42,18 +42,17 @@ void ImWindowConfiguration::Update()
 {
 	std::string framerate = "Framerate: " + std::to_string(ImGui::GetIO().Framerate);
 
-	frames->PushBack(ImGui::GetIO().Framerate);
+	frames->push_back(ImGui::GetIO().Framerate);
 
 	if (ImGui::Begin(windowName.c_str(), &isEnabled, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_AlwaysAutoResize))
 	{
 		if (ImGui::CollapsingHeader("Application", ImGuiTreeNodeFlags_DefaultOpen))
 		{
-			ImGui::PlotHistogram("##Framerate", frames->Front(), frames->GetSize(), 0, framerate.c_str(), 0.0f, 160.0f, ImVec2(300, 160));
+			ImGui::PlotHistogram("##Framerate", frames->front(), frames->size(), 0, framerate.c_str(), 0.0f, 160.0f, ImVec2(300, 160));
 			if (ImGui::SliderInt("FPS Limit", frameLimit, 30, 120))
 			{
 				app->SetFPS(*frameLimit);
 			}
-
 		}
 
 		if (ImGui::CollapsingHeader("Window", ImGuiTreeNodeFlags_DefaultOpen))

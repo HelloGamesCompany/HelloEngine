@@ -4,11 +4,11 @@
 
 #include "ImWindow.h"
 
-#include "ArrayQueue.hpp"
+#include "CycleArray.hpp"
 
 class Application;
 
-using AQueueF = Htool::ArrayQueue<float>;
+using CArrayF = Htool::CycleArray<float>;
 
 class ImWindowConfiguration :public ImWindow
 {
@@ -24,7 +24,8 @@ private:
 	Application* app = nullptr;
 
 	// Need more testing, but i think is good
-	AQueueF* frames = nullptr;
+	CArrayF* frames = nullptr;
+
 
 	bool fullscreen = false;
 
