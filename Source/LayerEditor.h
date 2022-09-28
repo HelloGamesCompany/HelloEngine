@@ -28,7 +28,7 @@ public:
 
 private:
 
-	ImWindow* imWindows[(uint)ImWindowID::MAX];
+	ImWindow* imWindows[(uint)ImWindowID::MAX] = { nullptr };
 };
 
 #endif // !__MODULE_ENGINE_H__
