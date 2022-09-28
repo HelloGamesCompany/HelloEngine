@@ -13,21 +13,7 @@ ImWindowConfiguration::ImWindowConfiguration() : ImWindow()
 
 	isEnabled = true;
 
-	//for (int i = 0; i < 60; i++)
-	//{
-	//	frames2.emplace_back(120);
-	//}
-
-	// Init frames with 0
-	frames = new Htool::ArrayQueue<float>(60, 0.0f);
-
-	//Htool::ArrayQueue<float>* a = new Htool::ArrayQueue<float>(20, 0.0f);
-
-
-	//for (int i = 0; i < a->GetSize(); i++)
-	//{
-	//	a->PushBack(i);
-	//}
+	frames = new AQueueF(60, 0.0f);
 
 	app = Application::Instance();
 
@@ -54,17 +40,9 @@ ImWindowConfiguration::~ImWindowConfiguration()
 // ESTO LLAMA DESPUES DE SU DESTRUCTOR??????
 void ImWindowConfiguration::Update()
 {
-	//frames.push(60);
-
-	static int count = 0;
-
 	std::string framerate = "Framerate: " + std::to_string(ImGui::GetIO().Framerate);
 
-	//frames->PushBack(ImGui::GetIO().Framerate);
-
-	std::cout << "Count: " << count << "\t frontI: " << frames->frontIndex << "\t inputI: " << frames->inputIndex << std::endl;
-
-	count++;
+	frames->PushBack(ImGui::GetIO().Framerate);
 
 	if (ImGui::Begin(windowName.c_str(), &isEnabled, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_AlwaysAutoResize))
 	{

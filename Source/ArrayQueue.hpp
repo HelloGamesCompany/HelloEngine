@@ -51,13 +51,14 @@ namespace Htool
 
 		arr = new T[capacity];
 
+		// Init value with init value
 		for (int i = 0; i < capacity; i++) arr[i] = initValue;
 	}
 
 	template<class T>
 	inline ArrayQueue<T>::~ArrayQueue()
 	{
-		RELEASE(arr);
+		delete[] arr;
 	}
 
 	template<class T>
@@ -74,11 +75,11 @@ namespace Htool
 		if(startDisplace)
 		{
 			// If frontier is out of range, move to the start position
-			if (++frontIndex > size) frontIndex = 0;
+			if (++frontIndex >= size) frontIndex = 0;
 		}
 
 		// If inputIndex is out of range, move to the start position
-		if (++inputIndex > capacity) inputIndex = size;
+		if (++inputIndex >= capacity) inputIndex = size;
 	}
 
 	template<class T>

@@ -8,6 +8,8 @@
 
 class Application;
 
+using AQueueF = Htool::ArrayQueue<float>;
+
 class ImWindowConfiguration :public ImWindow
 {
 public:
@@ -22,9 +24,7 @@ private:
 	Application* app = nullptr;
 
 	// Need more testing, but i think is good
-	Htool::ArrayQueue<float>* frames = nullptr;
-
-	//std::vector<float> frames2;
+	AQueueF* frames = nullptr;
 
 	bool fullscreen = false;
 
