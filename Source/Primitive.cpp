@@ -101,58 +101,77 @@ void Primitives::Primitive::Scale(float x, float y, float z)
 Primitives::Cube::Cube() : Primitive(), size(1.0f, 1.0f, 1.0f)
 {
 	type = PrimitiveTypes::Primitive_Cube;
+	GenerateVertexBuffer();
 }
 
 Primitives::Cube::Cube(float sizeX, float sizeY, float sizeZ) : Primitive(), size(sizeX, sizeY, sizeZ)
 {
 	type = PrimitiveTypes::Primitive_Cube;
+	GenerateVertexBuffer();
+}
+
+Primitives::Cube::~Cube()
+{
+	delete[] vertices;
+	delete[] indices;
 }
 
 void Primitives::Cube::InnerRender() const
 {	
+	glBindVertexArray(VAO);
+	glDrawElements(GL_TRIANGLES, 36/*NUM OF INDICES*/, GL_UNSIGNED_INT, 0);
+	glBindVertexArray(0);
+}
+
+void Primitives::Cube::GenerateVertexBuffer()
+{
 	float sx = size.x * 0.5f;
 	float sy = size.y * 0.5f;
 	float sz = size.z * 0.5f;
 
-	glBegin(GL_QUADS);
+	vertices = new float[24]
+	{
+		-sx,	 sy, sz,
+		-sx,	-sy, sz,
+		 sx,	 sy, sz,
+		 sx,	-sy, sz,
+		-sx,	 sy,-sz,
+		-sx,	-sy,-sz,
+		 sx,	 sy,-sz,
+		 sx,	-sy,-sz
+	};
 
-	glNormal3f(0.0f, 0.0f, 1.0f);
-	glVertex3f(-sx, -sy, sz);
-	glVertex3f( sx, -sy, sz);
-	glVertex3f( sx,  sy, sz);
-	glVertex3f(-sx,  sy, sz);
+	indices = new uint[36]
+	{
+	  0, 2, 3, 0, 3, 1,
+	  2, 6, 7, 2, 7, 3,
+	  6, 4, 5, 6, 5, 7,
+	  4, 0, 1, 4, 1, 5,
+	  0, 4, 6, 0, 6, 2,
+	  1, 5, 7, 1, 7, 3,
+	};
 
-	glNormal3f(0.0f, 0.0f, -1.0f);
-	glVertex3f( sx, -sy, -sz);
-	glVertex3f(-sx, -sy, -sz);
-	glVertex3f(-sx,  sy, -sz);
-	glVertex3f( sx,  sy, -sz);
+	// Create Vertex Array Object
+	glGenVertexArrays(1, &VAO);
+	glBindVertexArray(VAO);
 
-	glNormal3f(1.0f, 0.0f, 0.0f);
-	glVertex3f(sx, -sy,  sz);
-	glVertex3f(sx, -sy, -sz);
-	glVertex3f(sx,  sy, -sz);
-	glVertex3f(sx,  sy,  sz);
+	// Create Index Buffer Object
+	glGenBuffers(1, &IBO);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(uint) * 36/*NUM OF INDICES*/, indices, GL_STATIC_DRAW);
 
-	glNormal3f(-1.0f, 0.0f, 0.0f);
-	glVertex3f(-sx, -sy, -sz);
-	glVertex3f(-sx, -sy,  sz);
-	glVertex3f(-sx,  sy,  sz);
-	glVertex3f(-sx,  sy, -sz);
+	glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 0, 0);
 
-	glNormal3f(0.0f, 1.0f, 0.0f);
-	glVertex3f(-sx, sy,  sz);
-	glVertex3f( sx, sy,  sz);
-	glVertex3f( sx, sy, -sz);
-	glVertex3f(-sx, sy, -sz);
+	glEnableVertexAttribArray(0);
 
-	glNormal3f(0.0f, -1.0f, 0.0f);
-	glVertex3f(-sx, -sy, -sz);
-	glVertex3f( sx, -sy, -sz);
-	glVertex3f( sx, -sy,  sz);
-	glVertex3f(-sx, -sy,  sz);
+	// Create Vertex Buffer Object
+	glGenBuffers(1, &VBO);
 
-	glEnd();
+	glBindBuffer(GL_ARRAY_BUFFER, VBO);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 24, vertices, GL_STATIC_DRAW);
+
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+	glEnableVertexAttribArray(0);
 }
 
 // SPHERE ============================================

@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <config>
 	<window>
-		<width value="1920" />
+		<width value="1254" />
 		<height value="1017" />
 		<brightness value="1" />
 	</window>
 	<renderer>
-		<vsync value="true" />
-		<framerate value="111" />
+		<vsync value="false" />
+		<framerate value="120" />
 	</renderer>
 </config>

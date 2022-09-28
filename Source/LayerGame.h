@@ -1,5 +1,6 @@
 #pragma once
 #include "Layer.h"
+#include "Primitive.h"
 class LayerGame : public Layer
 {
 public:
@@ -26,5 +27,7 @@ private:
 
 	uint textureColorbuffer = 0;
 	uint RBO = 0;
+
+	Primitives::Cube* cube = nullptr;
 };
 
