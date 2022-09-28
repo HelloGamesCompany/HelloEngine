@@ -13,5 +13,11 @@ public:
 	void PostUpdate() override;
 
 	void CleanUp() override;
+
+	void VertexBufferArraySetUp();
+
+private:
+	uint VAO=0;
+	uint VBO=0;	
 };
 

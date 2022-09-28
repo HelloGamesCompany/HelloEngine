@@ -65,14 +65,14 @@ void LayerEditor::PreUpdate()
 
 }
 
-void LayerEditor::Update()
+void LayerEditor::PostUpdate()
 {
 	// Start the Dear ImGui frame
 	ImGui_ImplOpenGL3_NewFrame();
 	ImGui_ImplSDL2_NewFrame();
 	ImGui::NewFrame();
 
-	ImGui::DockSpaceOverViewport(ImGui::GetMainViewport());
+	//ImGui::DockSpaceOverViewport(ImGui::GetMainViewport());
 
 	if (ImGui::BeginMainMenuBar())
 	{
@@ -142,7 +142,7 @@ void LayerEditor::Update()
 	}
 }
 
-void LayerEditor::PostUpdate()
+void LayerEditor::Update()
 {
 }
 

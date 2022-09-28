@@ -39,6 +39,8 @@ bool ModuleRenderer3D::Init()
 		ret = false;
 	}
 
+	GLenum er = glewInit();
+
 	SDL_GL_MakeCurrent(app->window->window, context);
 
 	if(ret == true)
@@ -183,6 +185,6 @@ void ModuleRenderer3D::ToggleVSync(bool isOn)
 
 void ModuleRenderer3D::ToggleOpenGLSystem(bool enable, int openGLMacro)
 {
-	if (enable) glEnable(openGLMacro);
-	else glDisable(openGLMacro);
+	//if (enable) glEnable(openGLMacro);
+	//else glDisable(openGLMacro);
 }
