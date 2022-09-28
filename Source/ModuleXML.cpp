@@ -1,7 +1,7 @@
 #include "Headers.h"
 #include "ModuleXML.h"
 #include "QuickSave.h"
-#include <filesystem>
+#include <fstream>
 
 ModuleXML::ModuleXML() : Module()
 {
@@ -39,6 +39,8 @@ XMLNode ModuleXML::OpenXML(std::string path)
 			return ret;
 		}
 	}
+
+	EncryptDecryptXML(path, false);
 
 	const char* cPath = path.c_str();
 
@@ -78,12 +80,14 @@ void ModuleXML::Save(int index)
 	if (index >= 0)
 	{
 		xmlFiles[index].first->save_file(xmlFiles[index].second.c_str());
+		EncryptDecryptXML(xmlFiles[index].second.c_str(), true);
 		return;
 	}
 	
 	for (int i = 0; i < xmlFiles.size(); i++)
 	{
 		xmlFiles[i].first->save_file(xmlFiles[i].second.c_str());
+		EncryptDecryptXML(xmlFiles[i].second.c_str(), true);
 	}
 }
 
@@ -111,4 +115,38 @@ void ModuleXML::CreateDefaultConfigFile()
 	fwrite(buffer, sizeof(buffer), 1, f);
 
 	fclose(f);
+}
+
+void ModuleXML::EncryptDecryptXML(std::string fileName, bool encrypt)
+{
+	bool isEncrypted = false;
+
+	std::ifstream iFile(fileName);
+
+	std::string contex = "";
+
+	std::filebuf* readBuff = iFile.rdbuf();
+
+	char c = readBuff->sbumpc();
+
+	isEncrypted = c != '<' ? true : false;
+
+	// If is already encryped/decryped, then return
+	if (isEncrypted == encrypt)
+	{
+		iFile.close();
+		return;
+	}
+
+	// Encrypt or decrypt all characters
+
+	for (; c != EOF; c = readBuff->sbumpc()) contex += c ^ KEY;
+
+	iFile.close();
+
+	std::ofstream oFile(fileName);
+
+	oFile << contex;
+
+	oFile.close();
 }

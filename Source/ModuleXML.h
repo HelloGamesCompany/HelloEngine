@@ -8,6 +8,8 @@
 #define CONFIG_PATH "Xmls/config.xml"
 #define RESOURCE_PATH "Xmls/resource.xml"
 
+#define KEY 8888
+
 #include "XMLNode.h"
 
 class ModuleXML : public Module
@@ -38,11 +40,18 @@ public:
 
 private:
 	void CreateDefaultConfigFile();
+
+	/// <summary>
+	/// Encrypt or decrypt the gives Xml file
+	/// </summary>
+	/// <param name="encrypt">: true = encrypt, false =  decrypt</param>
+	void EncryptDecryptXML(std::string fileName, bool encrypt);
 private:
 	XMLNode config;
 
 	XMLNode resource;
 
+	// <xml file, path>
 	std::vector<std::pair<pugi::xml_document*, std::string>> xmlFiles;
 };
 

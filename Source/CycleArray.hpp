@@ -18,6 +18,10 @@ namespace Htool
 
 		~CycleArray();
 
+		/// <summary>
+		/// Add var to the last input position, is the position is out of the range, reset input position 
+		/// </summary>
+		/// <param name="var"></param>
 		void push_back(T var);
 
 		// Get first element direccion memory
@@ -70,6 +74,7 @@ namespace Htool
 	{
 		_arr[_inputIndex] = var;
 
+		// Copy the second zone value to the first zone
 		if (_inputIndex >= _size) _arr[_inputIndex - _size] = var;
 
 		// If input is out of size, we need to start displace the currentIndex

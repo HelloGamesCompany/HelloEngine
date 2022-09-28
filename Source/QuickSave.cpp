@@ -1,7 +1,6 @@
 #include "Headers.h"
 #include "QuickSave.h"
 #include "ModuleXML.h"
-#include <fstream>
 
 XMLNode QuickSave::nBool;
 XMLNode QuickSave::nString;
