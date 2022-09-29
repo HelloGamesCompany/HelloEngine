@@ -5,8 +5,8 @@
 class ImWindow
 {
 public:
-
 	ImWindow() {};
+
 	virtual ~ImWindow() {};
 
 	virtual void Update() = 0;

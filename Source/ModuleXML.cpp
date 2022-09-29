@@ -105,16 +105,40 @@ bool ModuleXML::CleanUp()
 
 void ModuleXML::CreateDefaultConfigFile()
 { 
-	// Create a new QuickSave xml file
-	FILE* f = nullptr;
-	fopen_s(&f, CONFIG_PATH, "w");
+	LOG("Create default Configuration file");
 
-	// Load template QuickSave structure into the new file
-	char buffer[] = "<?xml version=\"1.0\"?>\n<config>\n<window>\n<width value = \"1280\"/>\n<height value = \"720\"/>\n<brightness value = \"1\"/>\n</window>\n<renderer>\n<vsync value = \"true\"/>\n<framerate value = \"90\"/>\n</renderer>\n</config>";
+	// Load template Configuration structure into the new file
+	std::string context = 
+		"<?xml version=\"1.0\"?>\n"
+		"<config>\n"
+			"<window>\n"
+				"<width value = \"1280\"/>\n"
+				"<height value = \"720\"/>\n"
+				"<brightness value = \"1\"/>\n"
+			"</window>\n"
+			"<renderer>\n"
+				"<vsync value = \"true\"/>\n"
+				"<framerate value = \"90\"/>\n"
+			"</renderer>\n"
+			"<openGL>\n"
+				"<depthTest value = \"true\"/>\n"
+				"<cullFace value = \"true\"/>\n"
+				"<lighting value = \"true\"/>\n"
+				"<colorMaterial value = \"true\"/>\n"
+				"<texture2D value = \"true\"/>\n"
+				"<blend value = \"true\"/>\n"
+				"<wireframe value = \"true\"/>\n"
+			"</openGL>\n"
+		"</config>";
 
-	fwrite(buffer, sizeof(buffer), 1, f);
+	// Open/create config file
+	std::ofstream file(CONFIG_PATH);
 
-	fclose(f);
+	// Override the file with template context
+	file << context;
+
+	// Close file
+	file.close();
 }
 
 void ModuleXML::EncryptDecryptXML(std::string fileName, bool encrypt)

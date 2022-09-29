@@ -5,9 +5,14 @@
 ImWindowOpenGL::ImWindowOpenGL()
 {
 	windowName = "OpenGL Configuration";
+
 	isEnabled = true;
 
 	moduleRenderer = Application::Instance()->renderer3D;
+}
+
+ImWindowOpenGL::~ImWindowOpenGL()
+{
 }
 
 void ImWindowOpenGL::Update()
@@ -30,8 +35,6 @@ void ImWindowOpenGL::Update()
 		moduleRenderer->ToggleOpenGLSystem(texture2D, GL_TEXTURE_2D);
 		moduleRenderer->ToggleOpenGLSystem(blend, GL_BLEND);
 		moduleRenderer->ToggleOpenGLWireframe(wireframe);
-
 	}
 	ImGui::End();
-
 }

@@ -47,8 +47,8 @@ bool ModuleRenderer3D::Init()
 	{
 		//Use Vsync
 		
-		XMLNode configNode = app->xml->GetConfigXML();
-		isVSync = configNode.node.child("renderer").child("vsync").attribute("value").as_bool();
+		XMLNode renderNode = app->xml->GetConfigXML().FindChildBreadth("renderer");
+		isVSync = renderNode.node.child("vsync").attribute("value").as_bool();
 		ToggleVSync(isVSync);
 		//Initialize Projection Matrix
 		glMatrixMode(GL_PROJECTION);

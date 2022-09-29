@@ -1,6 +1,7 @@
 #include "Headers.h"
 #include "QuickSave.h"
 #include "ModuleXML.h"
+#include <fstream>
 
 XMLNode QuickSave::nBool;
 XMLNode QuickSave::nString;
@@ -10,11 +11,11 @@ XMLNode QuickSave::nInt;
 void QuickSave::Init()
 {
     // Create The XML file while is not exist
-    if (!std::filesystem::exists(QUICKSAVE_FILENAME)) CreateQuickSaveDefaultFile();
+    if (!std::filesystem::exists(QUICKSAVE_PATH)) CreateQuickSaveDefaultFile();
 
     LOG("Init QuickSave");
 
-    XMLNode node = Application::Instance()->xml->OpenXML(QUICKSAVE_FILENAME);
+    XMLNode node = Application::Instance()->xml->OpenXML(QUICKSAVE_PATH);
 
     // For align the xml file
     node.Save();
@@ -102,15 +103,29 @@ void QuickSave::CreateQuickSaveDefaultFile()
 {
     LOG("Create default QuickSave file");
 
-    // Create a new QuickSave xml file
-    FILE* f = nullptr;
-
-    fopen_s(&f, QUICKSAVE_FILENAME, "w");
-
     // Load template QuickSave structure into the new file
-    char buffer[] = "<?xml version=\"1.0\"?>\n<QuickSave>\n<Bool>\n<default value = \"0\"/>\n</Bool>\n<String>\n<default value = \"0\"/>\n</String>\n<Float>\n<default value = \"0\"/>\n</Float>\n<Int>\n<default value = \"0\"/>\n</Int>\n</QuickSave>";                            
+    std::string context = "<?xml version = \"1.0\"?>\n"
+        "<QuickSave>\n"
+            "<Bool>\n"
+                "<default value = \"0\"/>\n"
+            "</Bool>\n"
+            "<String>\n"
+                "<default value = \"0\"/>\n"
+            "</String>\n"
+            "<Float>\n"
+                "<default value = \"0\"/>\n"
+            "</Float>\n"
+            "<Int>\n"
+                "<default value = \"0\"/>\n"
+            "</Int>\n"
+        "</QuickSave>";
 
-    fwrite(buffer, sizeof(buffer), 1, f);
+    // Open/create  quick save file
+    std::ofstream file(QUICKSAVE_PATH);
 
-    fclose(f);
+    // Override the file with template context
+    file << context;
+
+    // Close file
+    file.close();
 }

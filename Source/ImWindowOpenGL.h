@@ -7,16 +7,18 @@ class ImWindowOpenGL : public ImWindow
 public:
 	ImWindowOpenGL();
 	
+	~ImWindowOpenGL();
+
 	void Update() override;
 
 private:
-	bool depthTest;
-	bool cullFace;
-	bool lighting;
-	bool colorMaterial;
-	bool texture2D;
-	bool blend;
-	bool wireframe;
+	bool depthTest = false;
+	bool cullFace = false;
+	bool lighting = false;
+	bool colorMaterial = false;
+	bool texture2D = false;
+	bool blend = false;
+	bool wireframe = false;
 
 	ModuleRenderer3D* moduleRenderer = nullptr;
 };
