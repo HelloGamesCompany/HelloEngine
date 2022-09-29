@@ -152,13 +152,15 @@ bool ModuleRenderer3D::CleanUp()
 	LOG("Destroying 3D Renderer");
 
 	XMLNode configNode = app->xml->GetConfigXML();
+
 	configNode.node.child("renderer").child("vsync").attribute("value").set_value(isVSync);
+
+	configNode.Save();
 
 	SDL_GL_DeleteContext(context);
 
 	return true;
 }
-
 
 void ModuleRenderer3D::OnResize(int width, int height)
 {

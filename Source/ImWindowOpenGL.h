@@ -12,6 +12,8 @@ public:
 	void Update() override;
 
 private:
+	//std::map<std::string, bool> configs;
+
 	bool depthTest = false;
 	bool cullFace = false;
 	bool lighting = false;

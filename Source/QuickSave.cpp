@@ -104,7 +104,8 @@ void QuickSave::CreateQuickSaveDefaultFile()
     LOG("Create default QuickSave file");
 
     // Load template QuickSave structure into the new file
-    std::string context = "<?xml version = \"1.0\"?>\n"
+    std::string context = 
+        "<?xml version = \"1.0\"?>\n"
         "<QuickSave>\n"
             "<Bool>\n"
                 "<default value = \"0\"/>\n"
