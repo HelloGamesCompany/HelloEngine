@@ -3,6 +3,7 @@
 
 #include "glmath.h"
 #include "Color.h"
+#include "Math/float3.h"
 
 enum PrimitiveTypes
 {
@@ -14,6 +15,27 @@ enum PrimitiveTypes
 	Primitive_Cylinder
 };
 
+class Mesh
+{
+public:
+	Mesh();
+	~Mesh();
+
+	void InitAsCube(float3 position, float3 transform);
+
+	void Update();
+
+	void CleanUp();
+
+	float3 transform;
+	float3 position;
+
+	std::vector<float3>* _vertices;
+	std::vector<uint>* _indices;
+private:
+	std::vector<float3>* _originalShape;
+};
+
 namespace Primitives
 {
 	class Primitive
@@ -22,7 +44,7 @@ namespace Primitives
 		Primitive();
 
 		virtual void	Render() const;
-		virtual void	InnerRender() const;
+		virtual void	InnerRender();
 		void			SetPos(float x, float y, float z);
 		void			SetRotation(float angle, const vec3& u);
 		void			Scale(float x, float y, float z);
@@ -47,20 +69,17 @@ namespace Primitives
 		Cube(float sizeX, float sizeY, float sizeZ);
 		~Cube();
 		
-		void InnerRender() const;
-
+		void InnerRender() override;
 
 	public:
 		vec3 size;
+		std::vector<float3>* vertices;
+		std::vector<uint>* indices;
 	private:
 		void GenerateVertexBuffer();
 		uint VBO = 0;
 		uint IBO = 0;
 		uint VAO = 0;
-
-		float* vertices = nullptr;
-		uint* indices = nullptr;
-
 	};
 
 	// ============================================
@@ -69,7 +88,7 @@ namespace Primitives
 	public:
 		Sphere();
 		Sphere(float radius);
-		void InnerRender() const;
+		void InnerRender() override;
 	public:
 		float radius = 0;
 	};
@@ -80,7 +99,7 @@ namespace Primitives
 	public:
 		Cylinder();
 		Cylinder(float radius, float height);
-		void InnerRender() const;
+		void InnerRender() override;
 	public:
 		float radius = 0;
 		float height = 0;
@@ -92,7 +111,7 @@ namespace Primitives
 	public:
 		Line();
 		Line(float x, float y, float z);
-		void InnerRender() const;
+		void InnerRender() override;
 	public:
 		vec3 origin;
 		vec3 destination;
@@ -104,7 +123,7 @@ namespace Primitives
 	public:
 		Plane();
 		Plane(float x, float y, float z, float d);
-		void InnerRender() const;
+		void InnerRender() override;
 	public:
 		vec3 normal;
 		float constant = 0;

@@ -16,57 +16,11 @@ PrimitiveTypes Primitives::Primitive::GetType() const
 // ------------------------------------------------------------
 void Primitives::Primitive::Render() const
 {
-	glPushMatrix();
-	glMultMatrixf(transform.M);
-
-	if(axis == true)
-	{
-		// Draw Axis Grid
-		glLineWidth(2.0f);
-
-		glBegin(GL_LINES);
-
-		glColor4f(1.0f, 0.0f, 0.0f, 1.0f);
-
-		glVertex3f(0.0f, 0.0f, 0.0f); glVertex3f(1.0f, 0.0f, 0.0f);
-		glVertex3f(1.0f, 0.1f, 0.0f); glVertex3f(1.1f, -0.1f, 0.0f);
-		glVertex3f(1.1f, 0.1f, 0.0f); glVertex3f(1.0f, -0.1f, 0.0f);
-
-		glColor4f(0.0f, 1.0f, 0.0f, 1.0f);
-
-		glVertex3f(0.0f, 0.0f, 0.0f); glVertex3f(0.0f, 1.0f, 0.0f);
-		glVertex3f(-0.05f, 1.25f, 0.0f); glVertex3f(0.0f, 1.15f, 0.0f);
-		glVertex3f(0.05f, 1.25f, 0.0f); glVertex3f(0.0f, 1.15f, 0.0f);
-		glVertex3f(0.0f, 1.15f, 0.0f); glVertex3f(0.0f, 1.05f, 0.0f);
-
-		glColor4f(0.0f, 0.0f, 1.0f, 1.0f);
-
-		glVertex3f(0.0f, 0.0f, 0.0f); glVertex3f(0.0f, 0.0f, 1.0f);
-		glVertex3f(-0.05f, 0.1f, 1.05f); glVertex3f(0.05f, 0.1f, 1.05f);
-		glVertex3f(0.05f, 0.1f, 1.05f); glVertex3f(-0.05f, -0.1f, 1.05f);
-		glVertex3f(-0.05f, -0.1f, 1.05f); glVertex3f(0.05f, -0.1f, 1.05f);
-
-		glEnd();
-
-		glLineWidth(5.0f);
-	}
-
-	//glColor3f(color.r, color.g, color.b);
-
-	glColor4f(color.r, color.g, color.b, color.a);
-
-	if(wire)
-		glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-	else
-		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-
-	InnerRender();
-
-	glPopMatrix();
+	std::cout << "Render primitive" << std::endl;
 }
 
 // ------------------------------------------------------------
-void Primitives::Primitive::InnerRender() const
+void Primitives::Primitive::InnerRender() 
 {
 	glPointSize(5.0f);
 
@@ -112,14 +66,20 @@ Primitives::Cube::Cube(float sizeX, float sizeY, float sizeZ) : Primitive(), siz
 
 Primitives::Cube::~Cube()
 {
-	delete[] vertices;
-	delete[] indices;
+	delete vertices;
+	delete indices;
 }
 
-void Primitives::Cube::InnerRender() const
-{	
+void Primitives::Cube::InnerRender() 
+{
 	glBindVertexArray(VAO);
-	glDrawElements(GL_TRIANGLES, 36/*NUM OF INDICES*/, GL_UNSIGNED_INT, 0);
+	glBindBuffer(GL_ARRAY_BUFFER, VBO);
+	glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(vertices), &vertices->front());
+
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
+	glBufferSubData(GL_ELEMENT_ARRAY_BUFFER, 0, sizeof(indices), &indices->front());
+
+	glDrawElements(GL_TRIANGLES, indices->size()/*NUM OF INDICES*/, GL_UNSIGNED_INT, 0);
 	glBindVertexArray(0);
 }
 
@@ -129,19 +89,19 @@ void Primitives::Cube::GenerateVertexBuffer()
 	float sy = size.y * 0.5f;
 	float sz = size.z * 0.5f;
 
-	vertices = new float[24]
-	{
-		-sx,	 sy,	 sz,  
-		-sx,	-sy,	 sz, 
-		 sx,	 sy,	 sz, 
-		 sx,	-sy,	 sz, 
-		-sx,	 sy,	-sz, 
-		-sx,	-sy,	-sz, 
-		 sx,	 sy,	-sz, 
-		 sx,	-sy,	-sz, 
+	vertices = new std::vector<float3>
+	{ 
+		{-sx,	 sy,	 sz},
+		{-sx,	-sy,	 sz},
+		{ sx,	 sy,	 sz},
+		{ sx,	-sy,	 sz},
+		{-sx,	 sy,	-sz},
+		{-sx,	-sy,	-sz},
+		{ sx,	 sy,	-sz},
+		{ sx,	-sy,	-sz},
 	};
 
-	indices = new uint[36]
+	indices = new std::vector<uint>
 	{
 	  0, 2, 3, 0, 3, 1,
 	  2, 6, 7, 2, 7, 3,
@@ -158,7 +118,7 @@ void Primitives::Cube::GenerateVertexBuffer()
 	// Create Index Buffer Object
 	glGenBuffers(1, &IBO);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(uint) * 36/*NUM OF INDICES*/, indices, GL_STATIC_DRAW);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(uint) * 1000/*NUM OF INDICES*/, nullptr, GL_DYNAMIC_DRAW);
 
 	glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 0, 0);
 
@@ -168,7 +128,7 @@ void Primitives::Cube::GenerateVertexBuffer()
 	glGenBuffers(1, &VBO);
 
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 24, vertices, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 1000, nullptr, GL_DYNAMIC_DRAW);
 
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, (void*)0);
 	glEnableVertexAttribArray(0);
@@ -187,7 +147,7 @@ Primitives::Sphere::Sphere(float radius) : Primitive(), radius(radius)
 	type = PrimitiveTypes::Primitive_Sphere;
 }
 
-void Primitives::Sphere::InnerRender() const
+void Primitives::Sphere::InnerRender() 
 {
 	// TODO: Implement using glew?
 	//glutSolidSphere(radius, 25, 25);
@@ -204,7 +164,7 @@ Primitives::Cylinder::Cylinder(float radius, float height) : Primitive(), radius
 	type = PrimitiveTypes::Primitive_Cylinder;
 }
 
-void Primitives::Cylinder::InnerRender() const
+void Primitives::Cylinder::InnerRender() 
 {
 	int n = 30;
 
@@ -251,7 +211,7 @@ Primitives::Line::Line(float x, float y, float z) : Primitive(), origin(0, 0, 0)
 	type = PrimitiveTypes::Primitive_Line;
 }
 
-void Primitives::Line::InnerRender() const
+void Primitives::Line::InnerRender() 
 {
 	glLineWidth(2.0f);
 
@@ -276,7 +236,7 @@ Primitives::Plane::Plane(float x, float y, float z, float d) : Primitive(), norm
 	type = PrimitiveTypes::Primitive_Plane;
 }
 
-void Primitives::Plane::InnerRender() const
+void Primitives::Plane::InnerRender() 
 {
 	glLineWidth(1.0f);
 
@@ -293,4 +253,59 @@ void Primitives::Plane::InnerRender() const
 	}
 
 	glEnd();
+}
+
+Mesh::Mesh()
+{
+}
+
+Mesh::~Mesh()
+{
+}
+
+void Mesh::InitAsCube(float3 position, float3 transform)
+{
+	this->position = position;
+	this->transform = transform;
+
+	_originalShape = new std::vector<float3>
+	{
+		float3(-0.5,	 0.5,	 0.5),
+		float3(-0.5,	-0.5,	 0.5),
+		float3( 0.5,	 0.5,	 0.5),
+		float3( 0.5,	-0.5,	 0.5),
+		float3(-0.5,	 0.5,	-0.5),
+		float3(-0.5,	-0.5,	-0.5),
+		float3( 0.5,	 0.5,	-0.5),
+		float3( 0.5,	-0.5,	-0.5),
+	};
+
+	_vertices = new std::vector<float3>(*_originalShape);
+
+	_indices = new std::vector<uint>
+	{
+	  0, 2, 3, 0, 3, 1,
+	  2, 6, 7, 2, 7, 3,
+	  6, 4, 5, 6, 5, 7,
+	  4, 0, 1, 4, 1, 5,
+	  0, 4, 6, 0, 6, 2,
+	  1, 5, 7, 1, 7, 3,
+	};
+}
+
+void Mesh::Update()
+{
+	for (int i = 0; i < _vertices->size(); i++)
+	{
+		_vertices->at(i).x = (_originalShape->at(i).x * transform.x) + position.x;
+		_vertices->at(i).y = (_originalShape->at(i).y * transform.y) + position.y;
+		_vertices->at(i).z = (_originalShape->at(i).z * transform.z) + position.z;
+	}
+}
+
+void Mesh::CleanUp()
+{	
+	RELEASE(_vertices);
+	RELEASE(_indices);
+	RELEASE(_originalShape);
 }

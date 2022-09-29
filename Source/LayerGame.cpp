@@ -15,8 +15,6 @@ LayerGame::~LayerGame()
 void LayerGame::Start()
 {
 	VertexBufferArraySetUp();
-
-	cube = new Primitives::Cube(5.0f, 1.0f, 5.0f);
 }
 
 void LayerGame::PreUpdate()
@@ -33,8 +31,8 @@ void LayerGame::PostUpdate()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 
-	// Draw cube using Pirmitive (ModernOpenGL)
-	cube->InnerRender();
+	renderManager.Draw();
+	//cube->InnerRender();
 
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 	// Draw cube using Pirmitive (ModernOpenGL)
@@ -46,7 +44,7 @@ void LayerGame::PostUpdate()
 
 void LayerGame::CleanUp()
 {
-	RELEASE(cube);
+
 }
 
 void LayerGame::VertexBufferArraySetUp()
