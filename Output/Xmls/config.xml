@@ -1,21 +1,12 @@
 <?xml version="1.0"?>
 <config>
 	<window>
-		<width value="1280" />
-		<height value="720" />
+		<width value="1535" />
+		<height value="898" />
 		<brightness value="1" />
 	</window>
 	<renderer>
 		<vsync value="false" />
 		<framerate value="120" />
 	</renderer>
-	<openGL>
-		<depthTest value="true" />
-		<cullFace value="true" />
-		<lighting value="true" />
-		<colorMaterial value="true" />
-		<texture2D value="true" />
-		<blend value="true" />
-		<wireframe value="true" />
-	</openGL>
 </config>
