@@ -1,6 +1,8 @@
 #pragma once
 #include "Layer.h"
 #include "Primitive.h"
+#include "RenderManager.h"
+
 class LayerGame : public Layer
 {
 public:
@@ -20,14 +22,10 @@ public:
 	uint GetTextureBuffer() { return textureColorbuffer; }
 
 private:
-	uint VAO = 0; // Vertex Array Object (contains multiple buffers)
-	uint VBO = 0; // Vertex Buffer Object (contains vertex position and other data)
-	uint IBO = 0; // Index/Element buffer object (contains indices for a vertex buffer object)
-
 	uint FBO = 0; // Frame Buffer Object (contains the result of the entire frame texture)
 	uint textureColorbuffer = 0;
 	uint RBO = 0;
 
-	Primitives::Cube* cube = nullptr;
+	RenderManager renderManager;
 };
 

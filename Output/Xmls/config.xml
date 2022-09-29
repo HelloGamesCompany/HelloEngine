@@ -6,8 +6,8 @@
 		<brightness value="1" />
 	</window>
 	<renderer>
-		<vsync value="true" />
-		<framerate value="90" />
+		<vsync value="false" />
+		<framerate value="120" />
 	</renderer>
 	<openGL>
 		<depthTest value="true" />
