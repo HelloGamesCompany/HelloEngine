@@ -10,6 +10,8 @@ public:
 
 	void Draw();
 
+	void AddMesh(Mesh newMesh);
+
 private:
 	void CreateBuffers();
 
