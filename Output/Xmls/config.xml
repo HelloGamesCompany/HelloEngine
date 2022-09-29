@@ -1,1 +1,12 @@
-„‡ÀÕÔ˜ÎÝÊËÑ×Ö…š‰–ˆš‡†²„Û×ÖÞÑß†²±„ÏÑÖÜ×Ï†²±±„ÏÑÜÌÐ˜ÎÙÔÍÝ…š‰‰‰ˆš˜—†²±±„ÐÝÑßÐÌ˜ÎÙÔÍÝ…šŒš˜—†²±±„ÚÊÑßÐÌÖÝËË˜ÎÙÔÍÝ…š‰š˜—†²±„—ÏÑÖÜ×Ï†²±„ÊÝÖÜÝÊÝÊ†²±±„ÎËÁÖÛ˜ÎÙÔÍÝ…šÌÊÍÝš˜—†²±±„ÞÊÙÕÝÊÙÌÝ˜ÎÙÔÍÝ…šˆš˜—†²±„—ÊÝÖÜÝÊÝÊ†²„—Û×ÖÞÑß†²
+<?xml version="1.0"?>
+<config>
+	<window>
+		<width value="1535" />
+		<height value="898" />
+		<brightness value="1" />
+	</window>
+	<renderer>
+		<vsync value="true" />
+		<framerate value="90" />
+	</renderer>
+</config>

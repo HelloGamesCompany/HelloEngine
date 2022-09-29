@@ -131,14 +131,14 @@ void Primitives::Cube::GenerateVertexBuffer()
 
 	vertices = new float[24]
 	{
-		-sx,	 sy, sz,
-		-sx,	-sy, sz,
-		 sx,	 sy, sz,
-		 sx,	-sy, sz,
-		-sx,	 sy,-sz,
-		-sx,	-sy,-sz,
-		 sx,	 sy,-sz,
-		 sx,	-sy,-sz
+		-sx,	 sy,	 sz,  
+		-sx,	-sy,	 sz, 
+		 sx,	 sy,	 sz, 
+		 sx,	-sy,	 sz, 
+		-sx,	 sy,	-sz, 
+		-sx,	-sy,	-sz, 
+		 sx,	 sy,	-sz, 
+		 sx,	-sy,	-sz, 
 	};
 
 	indices = new uint[36]
@@ -170,8 +170,10 @@ void Primitives::Cube::GenerateVertexBuffer()
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 24, vertices, GL_STATIC_DRAW);
 
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, (void*)0);
 	glEnableVertexAttribArray(0);
+
+	glBindVertexArray(0);
 }
 
 // SPHERE ============================================

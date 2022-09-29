@@ -80,14 +80,14 @@ void ModuleXML::Save(int index)
 	if (index >= 0)
 	{
 		xmlFiles[index].first->save_file(xmlFiles[index].second.c_str());
-		EncryptDecryptXML(xmlFiles[index].second.c_str(), true);
+		//EncryptDecryptXML(xmlFiles[index].second.c_str(), true);
 		return;
 	}
 	
 	for (int i = 0; i < xmlFiles.size(); i++)
 	{
 		xmlFiles[i].first->save_file(xmlFiles[i].second.c_str());
-		EncryptDecryptXML(xmlFiles[i].second.c_str(), true);
+		//EncryptDecryptXML(xmlFiles[i].second.c_str(), true);
 	}
 }
 
