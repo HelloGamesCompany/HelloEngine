@@ -10,6 +10,8 @@ public:
 
 	void Draw();
 
+	void TestOnEditor();
+
 	void AddMesh(Mesh newMesh);
 
 private:

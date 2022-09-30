@@ -32,14 +32,12 @@ void LayerGame::PostUpdate()
 	glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 
 	renderManager.Draw();
-	//cube->InnerRender();
 
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 	// Draw cube using Pirmitive (ModernOpenGL)
 	//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	//glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 	//cube->InnerRender();
-
 }
 
 void LayerGame::CleanUp()

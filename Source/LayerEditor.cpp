@@ -74,7 +74,7 @@ void LayerEditor::PostUpdate()
 	ImGui_ImplSDL2_NewFrame();
 	ImGui::NewFrame();
 
-	//ImGui::DockSpaceOverViewport(ImGui::GetMainViewport());
+	ImGui::DockSpaceOverViewport(ImGui::GetMainViewport());
 
 	if (ImGui::BeginMainMenuBar())
 	{
@@ -120,6 +120,8 @@ void LayerEditor::PostUpdate()
         if (imWindows[i]->isEnabled)
             imWindows[i]->Update();
     }
+
+	game->TestGetRenderManager()->TestOnEditor();
 
 	ImGui::Render();
 	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());

@@ -71,6 +71,15 @@ void RenderManager::Draw()
     totalIndices.clear();
 }
 
+void RenderManager::TestOnEditor()
+{
+    ImGui::Begin("Testing geometry");
+    
+    ImGui::DragFloat3("Position: ", &meshes[0].position.x, 0.1f);
+
+    ImGui::End();
+}
+
 void RenderManager::AddMesh(Mesh newMesh)
 {
     meshes.push_back(newMesh);

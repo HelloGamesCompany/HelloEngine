@@ -19,6 +19,7 @@ public:
 	void VertexBufferArraySetUp();
 
 	uint GetTextureBuffer() { return textureColorbuffer; }
+	RenderManager* TestGetRenderManager() { return &renderManager; }
 
 private:
 	uint FBO = 0; // Frame Buffer Object (contains the result of the entire frame texture)
