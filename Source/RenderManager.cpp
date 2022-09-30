@@ -5,17 +5,20 @@ RenderManager::RenderManager()
 {
     CreateBuffers();
 
- /*  for (int i = 0; i < 100; i++)
+    for (int i = 0; i < 20; i++)
     {
-        Mesh cube;
-        cube.InitAsCube({ 5.0f + i,5.0f,5.0f }, { 1.0f,1.0f,1.0f });
-        meshes.push_back(cube);
-    }*/
+        for (int j = 0; j < 20; j++)
+        {
+            Mesh cube;
+            cube.InitAsCube({ 0.0f + i,0.0f,0.0f + j }, { 1.0f,1.0f,1.0f });
+            meshes.push_back(cube);
+        }
+    }
    
-    Mesh sphere;
+   /* Mesh sphere;
     sphere.InitAsSphere({ 1.0f, 1.0f, 1.0f }, { 1.2f,1.2f,1.2f });
 
-    meshes.push_back(sphere);
+    meshes.push_back(sphere);*/
     
 }
 
@@ -49,14 +52,12 @@ void RenderManager::Draw()
     // Update Vertex buffer
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
     void* ptr = glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY);
-    std::cout << totalVertices.size() * sizeof(float3) << std::endl;
     memcpy(ptr, &totalVertices.front(), totalVertices.size() * sizeof(float3));
     glUnmapBuffer(GL_ARRAY_BUFFER);
 
     // Update Index buffer
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
     void* ptr2 = glMapBuffer(GL_ELEMENT_ARRAY_BUFFER, GL_WRITE_ONLY);
-    std::cout << totalIndices.size() * sizeof(uint) << std::endl;
     memcpy(ptr2, &totalIndices.front(), totalIndices.size() * sizeof(uint));
     glUnmapBuffer(GL_ELEMENT_ARRAY_BUFFER);
 
@@ -85,7 +86,7 @@ void RenderManager::CreateBuffers()
     glCreateBuffers(1, &VBO);
 
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(float3) * 1000, nullptr, GL_DYNAMIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(float3) * 100000, nullptr, GL_DYNAMIC_DRAW);
 
     glEnableVertexAttribArray(0);
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(float3), (void*)0);
@@ -93,6 +94,6 @@ void RenderManager::CreateBuffers()
     // Create Index Buffer Object
     glCreateBuffers(1, &IBO);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(uint) * 4000/*NUM OF INDICES*/,nullptr, GL_DYNAMIC_DRAW);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(uint) * 400000/*NUM OF INDICES*/,nullptr, GL_DYNAMIC_DRAW);
     glBindVertexArray(0);
 }

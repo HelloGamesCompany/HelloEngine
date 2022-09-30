@@ -1,6 +1,5 @@
 #pragma once
 #include "Layer.h"
-#include "Primitive.h"
 #include "RenderManager.h"
 
 class LayerGame : public Layer
