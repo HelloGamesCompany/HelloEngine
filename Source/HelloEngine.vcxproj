@@ -246,7 +246,7 @@
     <ClCompile Include="ModuleRenderer3D.cpp" />
     <ClCompile Include="ModuleWindow.cpp" />
     <ClCompile Include="ModuleXML.cpp" />
-    <ClCompile Include="Primitive.cpp" />
+    <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="QuickSave.cpp" />
     <ClCompile Include="RenderManager.cpp" />
     <ClCompile Include="XMLNode.cpp" />
@@ -347,7 +347,7 @@
     <ClInclude Include="ModuleRenderer3D.h" />
     <ClInclude Include="ModuleWindow.h" />
     <ClInclude Include="ModuleXML.h" />
-    <ClInclude Include="Primitive.h" />
+    <ClInclude Include="Mesh.h" />
     <ClInclude Include="QuickSave.h" />
     <ClInclude Include="RenderManager.h" />
     <ClInclude Include="Timer.hpp" />

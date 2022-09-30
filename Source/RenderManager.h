@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Primitive.h"
+#include "Mesh.h"
 
 class RenderManager
 {
