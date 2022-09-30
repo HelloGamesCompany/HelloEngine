@@ -5,16 +5,18 @@ RenderManager::RenderManager()
 {
     CreateBuffers();
 
-   /* for (int i = 0; i < 100; i++)
+ /*  for (int i = 0; i < 100; i++)
     {
         Mesh cube;
-        cube.InitAsCube({ 0.0f + i,0.0f,0.0f }, { 1.0f,1.0f,1.0f });
+        cube.InitAsCube({ 5.0f + i,5.0f,5.0f }, { 1.0f,1.0f,1.0f });
         meshes.push_back(cube);
     }*/
+   
     Mesh sphere;
-    sphere.InitAsSphere({ 1.0f, 1.0f, 1.0f }, { 4.0f,4.0f,4.0f });
+    sphere.InitAsSphere({ 1.0f, 1.0f, 1.0f }, { 1.2f,1.2f,1.2f });
 
     meshes.push_back(sphere);
+    
 }
 
 RenderManager::~RenderManager()

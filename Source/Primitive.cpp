@@ -255,17 +255,19 @@
 //	glEnd();
 //}
 
-inline void push_indices(std::vector<uint>& indices, int sectors, int r, int s) {
+inline void push_indices(std::vector<uint>& indices, int sectors, int r, int s) 
+{
 	int curRow = r * sectors;
 	int nextRow = (r + 1) * sectors;
+	int nextS = (s + 1) % sectors;
 
 	indices.push_back(curRow + s);
 	indices.push_back(nextRow + s);
-	indices.push_back(nextRow + (s + 1));
+	indices.push_back(nextRow + nextS);
 
 	indices.push_back(curRow + s);
-	indices.push_back(nextRow + (s + 1));
-	indices.push_back(curRow + (s + 1));
+	indices.push_back(nextRow + nextS);
+	indices.push_back(curRow + nextS);
 }
 
 
@@ -335,19 +337,8 @@ void Mesh::InitAsSphere(float3 position, float3 transform)
 		_originalShape->at(counter).y = y * radius;
 		_originalShape->at(counter).z = z * radius;
 		counter++;
-		push_indices(*_indices, sectors, r, s);
+		if (r < rings - 1) push_indices(*_indices, sectors, r, s);
 	}
-
-	
-	counter = 0;
-	for (int r = 0; r < rings; r++) for (int s = 0; s < sectors; s++) 
-	{
-		_indices->at(counter++) = r * sectors + s;
-		_indices->at(counter++) = r * sectors + (s + 1);
-		_indices->at(counter++) = (r + 1) * sectors + (s + 1);
-		_indices->at(counter++) = (r + 1) * sectors + s;
-	}
-
 }
 
 void Mesh::Update()
