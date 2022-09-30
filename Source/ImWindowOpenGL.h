@@ -12,15 +12,8 @@ public:
 	void Update() override;
 
 private:
-	//std::map<std::string, bool> configs;
-
-	bool depthTest = false;
-	bool cullFace = false;
-	bool lighting = false;
-	bool colorMaterial = false;
-	bool texture2D = false;
-	bool blend = false;
-	bool wireframe = false;
+	// string = config name, bool = conifg value, int = config openGL tag
+	std::map<std::string, std::pair<bool, int>> configs;
 
 	ModuleRenderer3D* moduleRenderer = nullptr;
 };

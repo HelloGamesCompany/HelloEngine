@@ -4,8 +4,6 @@
 #include "Application.h"
 #include "MemLeaks.h"
 
-
-
 enum main_states
 {
 	MAIN_CREATION,
