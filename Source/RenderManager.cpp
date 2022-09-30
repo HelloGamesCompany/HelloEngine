@@ -5,6 +5,8 @@ RenderManager::RenderManager()
 {
     CreateBuffers();
 
+    basicShader = new Shader("../Source/shaders/basic.vertex.shader", "../Source/shaders/basic.fragment.shader");
+
     for (int i = 0; i < 20; i++)
     {
         for (int j = 0; j < 20; j++)
@@ -28,6 +30,7 @@ RenderManager::~RenderManager()
     {
         meshes[i].CleanUp();
     }
+    RELEASE(basicShader);
 }
 
 void RenderManager::Draw()

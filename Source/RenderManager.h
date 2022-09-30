@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Mesh.h"
+#include "Shader.h"
 
 class RenderManager
 {
@@ -16,6 +17,7 @@ public:
 
 private:
 	void CreateBuffers();
+	Shader* basicShader = nullptr;
 
 private:
 	std::vector<Mesh> meshes;

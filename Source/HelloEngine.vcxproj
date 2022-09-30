@@ -249,6 +249,7 @@
     <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="QuickSave.cpp" />
     <ClCompile Include="RenderManager.cpp" />
+    <ClCompile Include="Shader.cpp" />
     <ClCompile Include="XMLNode.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -350,6 +351,7 @@
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="QuickSave.h" />
     <ClInclude Include="RenderManager.h" />
+    <ClInclude Include="Shader.h" />
     <ClInclude Include="Timer.hpp" />
     <ClInclude Include="XMLNode.h" />
   </ItemGroup>
