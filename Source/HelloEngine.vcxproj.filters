@@ -70,6 +70,7 @@
     <ClCompile Include="LayerGame.cpp" />
     <ClCompile Include="RenderManager.cpp" />
     <ClCompile Include="Shader.cpp" />
+    <ClCompile Include="ModulePhysFS.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h" />
@@ -173,6 +174,7 @@
     <ClInclude Include="LayerGame.h" />
     <ClInclude Include="RenderManager.h" />
     <ClInclude Include="Shader.h" />
+    <ClInclude Include="ModulePhysFS.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="External\imgui\vulkan\generate_spv.sh" />

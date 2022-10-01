@@ -22,7 +22,7 @@ ImWindowOpenGL::ImWindowOpenGL()
 		configs.insert(
 			std::make_pair(	
 				n.name(), // map key -> conifg name
-				std::make_pair(	// map value
+				std::make_pair(	// map value -> pair<value,tag>
 					n.attribute("value").as_bool(false),	// config value
 					n.attribute("tag").as_int(0))));	// config tag
 	}

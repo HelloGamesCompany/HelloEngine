@@ -5,8 +5,6 @@
 #include "ModuleRenderer3D.h"
 #include "ModuleInput.h"
 
-
-
 ImWindowConfiguration::ImWindowConfiguration() : ImWindow()
 {
 	windowName = "Configuration";
