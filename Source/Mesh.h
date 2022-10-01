@@ -21,20 +21,22 @@ public:
 	Mesh();
 	~Mesh();
 
-	void InitAsCube(float3 position, float3 transform);
-	void InitAsSphere(float3 position, float3 transform);
+	void InitAsMeshInformation(float3 position, float3 scale);
+	void InitAsCube(float3 position, float3 scale);
+	void InitAsSphere(float3 position, float3 scale);
 
 	void Update();
 
 	void CleanUp();
 
-	float3 transform;
+	float3 scale;
 	float3 position;
 
 	std::vector<float3>* _vertices;
 	std::vector<uint>* _indices;
+	mat4x4 modelMatrix;
 private:
-	std::vector<float3>* _originalShape;
+
 };
 
 #endif // !__PRIMITIVE_H__

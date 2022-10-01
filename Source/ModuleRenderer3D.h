@@ -24,6 +24,8 @@ public:
 
 	void ToggleOpenGLWireframe(bool enable);
 
+	float* GetProjectionMatrix() { return &ProjectionMatrix.M[0]; };
+
 public:
 
 	Light lights[MAX_LIGHTS];

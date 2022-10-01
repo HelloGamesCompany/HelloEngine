@@ -3,17 +3,24 @@
 #include "Mesh.h"
 #include "Shader.h"
 
+/// <summary>
+/// This class manages the rendering process o a single MeshObject.
+/// A MeshObject is a colection of Meshes that follow the same vertices/indices pattern.
+/// TLDR: This class instance renders a MeshObject.
+/// </summary>
 class RenderManager
 {
 public:
 	RenderManager();
 	~RenderManager();
 
+	void SetMeshInformation(Mesh& mesh);
+
 	void Draw();
 
 	void TestOnEditor();
 
-	void AddMesh(Mesh newMesh);
+	void AddMesh(Mesh& mesh);
 
 private:
 	void CreateBuffers();
@@ -23,9 +30,13 @@ private:
 	std::vector<Mesh> meshes;
 	std::vector<float3> totalVertices;
 	std::vector<uint> totalIndices;
+	std::vector<mat4x4> modelMatrices;
 
 	uint VAO = 0; // Vertex Array
 	uint VBO = 0; // Vertex buffer
 	uint IBO = 0; // Elements buffer object
+	uint MBO = 0; // ModelMatrix buffer object
+
+	int debugIntSlider;
 };
 

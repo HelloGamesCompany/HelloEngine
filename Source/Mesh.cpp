@@ -25,12 +25,18 @@ Mesh::~Mesh()
 {
 }
 
-void Mesh::InitAsCube(float3 position, float3 transform)
+void Mesh::InitAsMeshInformation(float3 position, float3 scale)
 {
 	this->position = position;
-	this->transform = transform;
+	this->scale = scale;
+}
 
-	_originalShape = new std::vector<float3>
+void Mesh::InitAsCube(float3 position, float3 scale)
+{
+	this->position = position;
+	this->scale = scale;
+
+	_vertices = new std::vector<float3>
 	{
 		float3(-0.5,	 0.5,	 0.5),
 		float3(-0.5,	-0.5,	 0.5),
@@ -41,8 +47,6 @@ void Mesh::InitAsCube(float3 position, float3 transform)
 		float3( 0.5,	 0.5,	-0.5),
 		float3( 0.5,	-0.5,	-0.5),
 	};
-
-	_vertices = new std::vector<float3>(*_originalShape);
 
 	_indices = new std::vector<uint>
 	{
@@ -55,10 +59,10 @@ void Mesh::InitAsCube(float3 position, float3 transform)
 	};
 }
 
-void Mesh::InitAsSphere(float3 position, float3 transform)
+void Mesh::InitAsSphere(float3 position, float3 scale)
 {
 	this->position = position;
-	this->transform = transform;
+	this->scale = scale;
 
 	int rings = 12;
 	int sectors = 24;
@@ -67,7 +71,6 @@ void Mesh::InitAsSphere(float3 position, float3 transform)
 	float const R = 1. / (float)(rings - 1);
 	float const S = 1. / (float)(sectors - 1);
 
-	_originalShape = new std::vector<float3>(rings * sectors);
 	_vertices = new std::vector<float3>(rings * sectors);
 	_indices = new std::vector<uint>(rings * sectors * 4);
 
@@ -79,9 +82,9 @@ void Mesh::InitAsSphere(float3 position, float3 transform)
 		float const x = cos(2 * M_PI * s * S) * sin(M_PI * r * R);
 		float const z = sin(2 * M_PI * s * S) * sin(M_PI * r * R);
 
-		_originalShape->at(counter).x = x * radius;
-		_originalShape->at(counter).y = y * radius;
-		_originalShape->at(counter).z = z * radius;
+		_vertices->at(counter).x = x * radius;
+		_vertices->at(counter).y = y * radius;
+		_vertices->at(counter).z = z * radius;
 		counter++;
 		if (r < rings - 1) push_indices(*_indices, sectors, r, s);
 	}
@@ -89,18 +92,13 @@ void Mesh::InitAsSphere(float3 position, float3 transform)
 
 void Mesh::Update()
 {
-	// TODO: For performance improvement, this should be done inside a vertex shader.
-	for (int i = 0; i < _vertices->size(); i++)
-	{
-		_vertices->at(i).x = (_originalShape->at(i).x * transform.x) + position.x;
-		_vertices->at(i).y = (_originalShape->at(i).y * transform.y) + position.y;
-		_vertices->at(i).z = (_originalShape->at(i).z * transform.z) + position.z;
-	}
+	// Update Model matrix. This information will be used later by the RenderManager.
+	modelMatrix.translate(position.x, position.y, position.z);
+	modelMatrix.scale(scale.x, scale.y, scale.z);
 }
 
 void Mesh::CleanUp()
 {	
 	RELEASE(_vertices);
 	RELEASE(_indices);
-	RELEASE(_originalShape);
 }

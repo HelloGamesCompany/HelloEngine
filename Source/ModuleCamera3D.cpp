@@ -156,7 +156,7 @@ void ModuleCamera3D::Move(const vec3 &Movement)
 // -----------------------------------------------------------------
 float* ModuleCamera3D::GetViewMatrix()
 {
-	return &ViewMatrix;
+	return &ViewMatrix.M[0];
 }
 
 void ModuleCamera3D::SetTarget(Vehicle* tg, vec3 offset)
