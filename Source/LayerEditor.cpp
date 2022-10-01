@@ -121,8 +121,6 @@ void LayerEditor::PostUpdate()
             imWindows[i]->Update();
     }
 
-	game->TestGetRenderManager()->TestOnEditor();
-
 	ImGui::Render();
 	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 

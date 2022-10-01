@@ -15,6 +15,9 @@ enum PrimitiveTypes
 	Primitive_Cylinder
 };
 
+//TODO: Every Mesh should have an ID that identifies it's original form, so they can be distributed on diferent render managers.
+//TODO: Define what a MeshObject is.
+//TODO: Check process of creating the first Mesh inside the Render Manager. Not every Mesh needs the vertices and indices vectors (only the first one does).
 class Mesh
 {
 public:

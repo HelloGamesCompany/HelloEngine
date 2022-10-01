@@ -15,6 +15,22 @@ LayerGame::~LayerGame()
 void LayerGame::Start()
 {
 	VertexBufferArraySetUp();
+	Mesh cube;
+	cube.InitAsCube({ 5.0f,1.0f,5.0f }, { 1.0f,1.0f,1.0f });
+	renderManager1.SetMeshInformation(cube);
+
+	Mesh sphere;
+	sphere.InitAsSphere({ 1.0f,1.0f,1.0f }, { 1.0f,1.0f,1.0f });
+	renderManager2.SetMeshInformation(sphere);
+
+	for (int i = 0; i < 10; i++)
+	{
+		Mesh newMesh;
+		newMesh.InitAsMeshInformation({ 1.0f + i, 1.0f, 1.0f }, { 2.0f,1.0f,1.0f });
+		renderManager1.AddMesh(newMesh);
+		renderManager2.AddMesh(newMesh);
+	}
+
 }
 
 void LayerGame::PreUpdate()
@@ -31,7 +47,8 @@ void LayerGame::PostUpdate()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 
-	renderManager.Draw();
+	renderManager1.Draw();
+	renderManager2.Draw();
 
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 	// Draw cube using Pirmitive (ModernOpenGL)

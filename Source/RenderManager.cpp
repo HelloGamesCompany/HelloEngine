@@ -6,29 +6,10 @@
 RenderManager::RenderManager()
 {
     basicShader = new Shader("../Source/shaders/basic.vertex.shader", "../Source/shaders/basic.fragment.shader");
-
-    Mesh cube;
-    cube.InitAsCube({ 1.0f,1.0f,1.0f }, { 1.0f,1.0f,1.0f });
-
-    SetMeshInformation(cube);
-
-    for (int i = 0; i < 100; i++)
-    {
-        for (int j = 0; j < 100; j++)
-        {
-            Mesh cube2;
-            cube2.InitAsMeshInformation({ i + 1.0f,1.0f, j + 1.0f }, { 1.0f,1.0f,1.0f });
-            AddMesh(cube2);
-        }
-    }
 }
 
 RenderManager::~RenderManager()
 {
-    //for (int i = 0; i < meshes.size(); i++)
-    //{
-    //    meshes[i].CleanUp();
-    //}
     RELEASE(basicShader);
 }
 
@@ -50,8 +31,11 @@ void RenderManager::SetMeshInformation(Mesh& mesh)
 
 void RenderManager::Draw()
 {
-    if (meshes.empty()) return;
-
+    if (meshes.empty())
+    {
+        LOG("A Render Manager is being updated without any meshes!");
+        return;
+    }
     for (int i = 0; i < meshes.size(); i++)
     {
         meshes[i].Update();
@@ -74,7 +58,7 @@ void RenderManager::Draw()
     basicShader->SetMatFloat4v("projection", Application::Instance()->renderer3D->GetProjectionMatrix());
 
     // Draw
-    glDrawElementsInstanced(GL_TRIANGLES, totalIndices.size(), GL_UNSIGNED_INT, 0, debugIntSlider);
+    glDrawElementsInstanced(GL_TRIANGLES, totalIndices.size(), GL_UNSIGNED_INT, 0, modelMatrices.size());
     
     glBindVertexArray(0);
     
@@ -84,12 +68,12 @@ void RenderManager::Draw()
 
 void RenderManager::TestOnEditor()
 {
-    ImGui::Begin("Testing geometry");
-    
-    ImGui::DragFloat3("Position: ", &meshes[0].position.x, 0.1f);
-    ImGui::DragInt("Instances: ", &debugIntSlider, 1, modelMatrices.size());
+    //ImGui::Begin("Testing geometry");
+    //
+    //ImGui::DragFloat3("Position: ", &meshes[0].position.x, 0.1f);
+    //ImGui::DragInt("Instances: ", &debugIntSlider, 1, modelMatrices.size());
 
-    ImGui::End();
+    //ImGui::End();
 }
 
 void RenderManager::AddMesh(Mesh& mesh)

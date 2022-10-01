@@ -10,12 +10,12 @@
 		<framerate value="120" />
 	</renderer>
 	<openGL>
-		<depthTest value="false" tag="0x1801" />
+		<depthTest value="true" tag="0x1801" />
 		<cullFace value="false" tag="0x0B44" />
 		<lighting value="true" tag="0x0B50" />
-		<colorMaterial value="false" tag="0x0B57" />
+		<colorMaterial value="true" tag="0x0B57" />
 		<texture2D value="true" tag="0x0DE1" />
-		<blend value="false" tag="0x0BE2" />
-		<wireframe value="false" />
+		<blend value="true" tag="0x0BE2" />
+		<wireframe value="true" />
 	</openGL>
 </config>
