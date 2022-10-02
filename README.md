@@ -9,5 +9,7 @@ The goal is to create a complete game engine with Entity Component System, fast 
 Engine current state: Early in development (v0.1)
 
 3D rendering available, but no mesh loading yet.
+
 Scene structure created, but no Entity component system yet.
+
 Added XML utilities to load Int, Float, Bool and String variables from a default XML file. This system is called QuickSave and mimics the PlayerPrefs system form Unity Engine.
