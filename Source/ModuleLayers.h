@@ -7,7 +7,7 @@ enum LayersID
 	GAME,
 	UI,
 	DEBUG,
-	EDITOR,
+	EDITOR,// Editor should always be the last layer
 	MAX
 };
 
@@ -22,6 +22,10 @@ public:
 	UpdateStatus PreUpdate() override;
 	UpdateStatus Update() override;
 	UpdateStatus PostUpdate() override;
+
+	void DrawLayers();
+
+	void DrawEditor();
 
 	bool CleanUp() override;
 

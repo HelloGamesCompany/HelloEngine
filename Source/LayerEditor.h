@@ -3,6 +3,7 @@
 
 #include "ImWindow.h"
 #include "Layer.h"
+#include "LayerGame.h"
 
 enum class ImWindowID
 {
@@ -29,6 +30,7 @@ public:
 private:
 
 	ImWindow* imWindows[(uint)ImWindowID::MAX] = { nullptr };
+	LayerGame* game = nullptr;
 };
 
 #endif // !__MODULE_ENGINE_H__

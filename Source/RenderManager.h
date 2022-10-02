@@ -14,20 +14,24 @@ public:
 	RenderManager();
 	~RenderManager();
 
-	void SetMeshInformation(Mesh& mesh);
+	uint SetMeshInformation(Mesh& mesh);
 
 	void Draw();
 
 	void TestOnEditor();
 
-	void AddMesh(Mesh& mesh);
+	uint AddMesh(Mesh& mesh);
 
+	std::map<uint, Mesh>& GetMap() { return meshes; };
+
+public:
+	bool initialized = false;
 private:
 	void CreateBuffers();
 	Shader* basicShader = nullptr;
 
 private:
-	std::vector<Mesh> meshes;
+	std::map<uint, Mesh> meshes;
 	std::vector<float3> totalVertices;
 	std::vector<uint> totalIndices;
 	std::vector<mat4x4> modelMatrices;
@@ -37,6 +41,6 @@ private:
 	uint IBO = 0; // Elements buffer object
 	uint MBO = 0; // ModelMatrix buffer object
 
-	int debugIntSlider;
+	int IDcounter = 0;
 };
 

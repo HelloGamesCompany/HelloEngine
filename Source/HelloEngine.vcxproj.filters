@@ -71,6 +71,8 @@
     <ClCompile Include="RenderManager.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="ModulePhysFS.cpp" />
+    <ClCompile Include="ModelRenderManager.cpp" />
+    <ClCompile Include="MeshRenderComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h" />
@@ -175,6 +177,8 @@
     <ClInclude Include="RenderManager.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="ModulePhysFS.h" />
+    <ClInclude Include="ModelRenderManager.h" />
+    <ClInclude Include="MeshRenderComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="External\imgui\vulkan\generate_spv.sh" />

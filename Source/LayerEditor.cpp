@@ -60,6 +60,8 @@ void LayerEditor::Start()
 	// Setup font
 	io.Fonts->AddFontFromFileTTF("Assets/font.ttf", 17.0f, NULL);
 
+	game = (LayerGame*)Application::Instance()->layers->layers[(uint)LayersID::GAME];
+
 }
 
 void LayerEditor::PreUpdate()
@@ -111,8 +113,15 @@ void LayerEditor::PostUpdate()
 	}
 
 	ImGui::Begin("Game");
-	LayerGame* game = (LayerGame*)Application::Instance()->layers->layers[LayersID::GAME];
-	ImGui::Image((ImTextureID)game->GetTextureBuffer(), ImGui::GetContentRegionAvail(), ImVec2(0, 1), ImVec2(1, 0));
+	ImGui::Image((ImTextureID)Application::Instance()->renderer3D->GetFrameBufferTexture(), ImGui::GetContentRegionAvail(), ImVec2(0, 1), ImVec2(1, 0));
+	ImGui::End();
+
+	ImGui::Begin("Scene testing");
+	ImGui::DragFloat3("Sphere position", &game->sphereRender.GetMesh().position.x, 0.1f);
+	ImGui::DragFloat3("Sphere scale", &game->sphereRender.GetMesh().scale.x, 0.1f);
+	ImGui::Separator();
+	ImGui::DragFloat3("Cube position", &game->meshRender.GetMesh().position.x, 0.1f);
+	ImGui::DragFloat3("Cube scale", &game->meshRender.GetMesh().scale.x, 0.1f);
 	ImGui::End();
 
     for (int i = 0; i < (uint)ImWindowID::MAX; i++)

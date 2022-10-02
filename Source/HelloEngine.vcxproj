@@ -238,6 +238,8 @@
     <ClCompile Include="Light.cpp" />
     <ClCompile Include="Log.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="MeshRenderComponent.cpp" />
+    <ClCompile Include="ModelRenderManager.cpp" />
     <ClCompile Include="Module.cpp" />
     <ClCompile Include="ModuleCamera3D.cpp" />
     <ClCompile Include="LayerEditor.cpp" />
@@ -341,6 +343,8 @@
     <ClInclude Include="LayerGame.h" />
     <ClInclude Include="Light.h" />
     <ClInclude Include="MemLeaks.h" />
+    <ClInclude Include="MeshRenderComponent.h" />
+    <ClInclude Include="ModelRenderManager.h" />
     <ClInclude Include="Module.h" />
     <ClInclude Include="ModuleCamera3D.h" />
     <ClInclude Include="LayerEditor.h" />

@@ -6,6 +6,7 @@
 #include "SDL_opengl.h"
 #include "XMLNode.h"
 #include "ModuleXML.h"
+#include "ModuleLayers.h"
 
 ModuleRenderer3D::ModuleRenderer3D(bool start_enabled) : Module(start_enabled)
 {
@@ -117,6 +118,8 @@ bool ModuleRenderer3D::Init()
 	// Projection matrix for
 	OnResize(app->window->width, app->window->height);
 
+	SetFrameBuffer();
+
 	return ret;
 }
 
@@ -135,12 +138,25 @@ UpdateStatus ModuleRenderer3D::PreUpdate()
 	for(uint i = 0; i < MAX_LIGHTS; ++i)
 		lights[i].Render();
 
+	glBindFramebuffer(GL_FRAMEBUFFER, FBO);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+
 	return UpdateStatus::UPDATE_CONTINUE;
 }
 
 // PostUpdate present buffer to screen
 UpdateStatus ModuleRenderer3D::PostUpdate()
 {
+
+	Application::Instance()->layers->DrawLayers();
+	modelRender.Draw();
+	glBindFramebuffer(GL_FRAMEBUFFER, 0);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+
+	Application::Instance()->layers->DrawEditor();
+
 	SDL_GL_SwapWindow(app->window->window);
 
 	return UpdateStatus::UPDATE_CONTINUE;
@@ -195,4 +211,34 @@ void ModuleRenderer3D::ToggleOpenGLWireframe(bool enable)
 {
 	if (enable)glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 	else glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+}
+
+uint ModuleRenderer3D::GetFrameBufferTexture()
+{
+	return textureColorbuffer;
+}
+
+void ModuleRenderer3D::SetFrameBuffer()
+{
+	glGenFramebuffers(1, &FBO);
+	glBindFramebuffer(GL_FRAMEBUFFER, FBO);
+
+	// generate texture
+	glGenTextures(1, &textureColorbuffer);
+	glBindTexture(GL_TEXTURE_2D, textureColorbuffer);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, Application::Instance()->window->width, Application::Instance()->window->height, 0, GL_RGB, GL_UNSIGNED_BYTE, NULL);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	glBindTexture(GL_TEXTURE_2D, 0);
+
+	// attach it to currently bound framebuffer object
+	glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, textureColorbuffer, 0);
+
+	// create render buffer object
+	glGenRenderbuffers(1, &RBO);
+	glBindRenderbuffer(GL_RENDERBUFFER, RBO);
+	glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8, Application::Instance()->window->width, Application::Instance()->window->height);
+	glBindRenderbuffer(GL_RENDERBUFFER, 0);
+
+	glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_STENCIL_ATTACHMENT, GL_RENDERBUFFER, RBO);
 }

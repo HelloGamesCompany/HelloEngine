@@ -1,6 +1,6 @@
 #pragma once
 #include "Layer.h"
-#include "RenderManager.h"
+#include "MeshRenderComponent.h"
 
 class LayerGame : public Layer
 {
@@ -16,16 +16,10 @@ public:
 
 	void CleanUp() override;
 
-	void VertexBufferArraySetUp();
 
-	uint GetTextureBuffer() { return textureColorbuffer; }
+public:
 
-private:
-	uint FBO = 0; // Frame Buffer Object (contains the result of the entire frame texture)
-	uint textureColorbuffer = 0;
-	uint RBO = 0;
-
-	RenderManager renderManager1;
-	RenderManager renderManager2;
+	MeshRenderComponent meshRender;
+	MeshRenderComponent sphereRender;
 };
 

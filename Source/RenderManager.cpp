@@ -13,8 +13,9 @@ RenderManager::~RenderManager()
     RELEASE(basicShader);
 }
 
-void RenderManager::SetMeshInformation(Mesh& mesh)
+uint RenderManager::SetMeshInformation(Mesh& mesh)
 {
+    if (initialized) LOG("Tried to call RenderManager::SetMeshInformation more than once in a single Render Manager instnace.");
     // Set this RenderManager Mesh information.
     this->totalVertices.insert(totalVertices.begin(), mesh._vertices->begin(), mesh._vertices->end());
     this->totalIndices.insert(totalIndices.begin(), mesh._indices->begin(), mesh._indices->end());
@@ -23,10 +24,11 @@ void RenderManager::SetMeshInformation(Mesh& mesh)
     
     Mesh firstMesh;
     firstMesh.InitAsMeshInformation(mesh.position, mesh.scale);
-
-    AddMesh(firstMesh); // Adds a copy of the original mesh into the mesh list.
     
     mesh.CleanUp(); // Destroy the original vertex and index data (now it is stored inside this render manager).
+    initialized = true;
+
+    return AddMesh(firstMesh); // Adds a copy of the original mesh into the mesh list.
 }
 
 void RenderManager::Draw()
@@ -36,10 +38,10 @@ void RenderManager::Draw()
         LOG("A Render Manager is being updated without any meshes!");
         return;
     }
-    for (int i = 0; i < meshes.size(); i++)
+    for (auto mesh : meshes)
     {
-        meshes[i].Update();
-        modelMatrices.push_back(meshes[i].modelMatrix); // Insert updated matrices
+        mesh.second.Update();
+        modelMatrices.push_back(mesh.second.modelMatrix); // Insert updated matrices
     }
 
     // Draw using Dynamic Geometry
@@ -76,9 +78,11 @@ void RenderManager::TestOnEditor()
     //ImGui::End();
 }
 
-void RenderManager::AddMesh(Mesh& mesh)
+uint RenderManager::AddMesh(Mesh& mesh)
 {
-    meshes.push_back(mesh);
+    uint meshID = ++IDcounter;
+    meshes[meshID] = mesh;
+    return meshID;
 }
 
 void RenderManager::CreateBuffers()

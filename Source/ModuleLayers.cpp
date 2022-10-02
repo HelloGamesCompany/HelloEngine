@@ -43,11 +43,21 @@ UpdateStatus ModuleLayers::Update()
 
 UpdateStatus ModuleLayers::PostUpdate()
 {
-    for (int i = 0; i < (uint)LayersID::MAX; i++)
+
+    return UpdateStatus::UPDATE_CONTINUE;
+}
+
+void ModuleLayers::DrawLayers()
+{
+    for (int i = 0; i < (uint)LayersID::EDITOR; i++)
     {
         if (layers[i] && layers[i]->IsEnabled()) layers[i]->PostUpdate();
     }
-    return UpdateStatus::UPDATE_CONTINUE;
+}
+
+void ModuleLayers::DrawEditor()
+{
+    if (layers[(uint)LayersID::EDITOR] && layers[(uint)LayersID::EDITOR]->IsEnabled()) layers[(uint)LayersID::EDITOR]->PostUpdate();
 }
 
 bool ModuleLayers::CleanUp()
