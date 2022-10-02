@@ -5,9 +5,6 @@
 #include "ModuleRenderer3D.h"
 #include "ModuleInput.h"
 
-
-#include "ModulePhysFS.h"
-
 ImWindowConfiguration::ImWindowConfiguration() : ImWindow()
 {
 	windowName = "Configuration";
@@ -31,12 +28,6 @@ ImWindowConfiguration::ImWindowConfiguration() : ImWindow()
 	isVSyncOn = &app->renderer3D->isVSync;
 
 	frameLimit = &app->frameCap;
-
-	ModulePhysFS* mP = new ModulePhysFS();
-
-	mP->ReadTest();
-
-	RELEASE(mP);
 }
 
 ImWindowConfiguration::~ImWindowConfiguration()

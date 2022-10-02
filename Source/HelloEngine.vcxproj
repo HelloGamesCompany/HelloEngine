@@ -246,7 +246,7 @@
     <ClCompile Include="LayerEditor.cpp" />
     <ClCompile Include="ModuleInput.cpp" />
     <ClCompile Include="ModuleLayers.cpp" />
-    <ClCompile Include="ModulePhysFS.cpp" />
+    <ClCompile Include="ModuleFiles.cpp" />
     <ClCompile Include="ModuleRenderer3D.cpp" />
     <ClCompile Include="ModuleWindow.cpp" />
     <ClCompile Include="ModuleXML.cpp" />
@@ -352,7 +352,7 @@
     <ClInclude Include="LayerEditor.h" />
     <ClInclude Include="ModuleInput.h" />
     <ClInclude Include="ModuleLayers.h" />
-    <ClInclude Include="ModulePhysFS.h" />
+    <ClInclude Include="ModuleFiles.h" />
     <ClInclude Include="ModuleRenderer3D.h" />
     <ClInclude Include="ModuleWindow.h" />
     <ClInclude Include="ModuleXML.h" />

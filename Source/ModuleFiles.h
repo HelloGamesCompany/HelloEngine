@@ -5,12 +5,12 @@
 
 #define PHYSFS_PATH "hello"
 
-class ModulePhysFS : public Module
+class ModuleFiles : public Module
 {
 public:
+	ModuleFiles();
 
-	ModulePhysFS();
-	~ModulePhysFS();
+	~ModuleFiles();
 
 	void ReadTest();
 };

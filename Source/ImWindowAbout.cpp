@@ -1,5 +1,6 @@
-#include "Headers.h"
+﻿#include "Headers.h"
 #include "ImWindowAbout.h"
+#include "ModuleCamera3D.h"
 
 ImWindowAbout::ImWindowAbout()
 {

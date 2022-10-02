@@ -1,18 +1,18 @@
 #include "Headers.h"
-#include "ModulePhysFS.h"
+#include "ModuleFiles.h"
 #include "physfs.h"
 
-ModulePhysFS::ModulePhysFS():Module()
+ModuleFiles::ModuleFiles():Module()
 {
 	PHYSFS_init(0);
 }
 
-ModulePhysFS::~ModulePhysFS()
+ModuleFiles::~ModuleFiles()
 {
 	PHYSFS_deinit();
 }
 
-void ModulePhysFS::ReadTest()
+void ModuleFiles::ReadTest()
 {
 	PHYSFS_file* file = PHYSFS_openRead(PHYSFS_PATH);
 

@@ -29,6 +29,8 @@ public:
 	void SetTarget(Vehicle* tg, vec3 offset);
 	void RemoveTarget();
 
+	static void Tets() { std::cout << "hello" << std::endl; }
+
 private:
 
 	void CalculateViewMatrix();
