@@ -218,6 +218,7 @@
     <ClCompile Include="External\PugiXml\src\pugixml.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="FrameBuffer.cpp" />
     <ClCompile Include="glmath.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
@@ -331,6 +332,7 @@
     <ClInclude Include="External\MathGeoLib\include\Time\Clock.h" />
     <ClInclude Include="External\PugiXml\src\pugiconfig.hpp" />
     <ClInclude Include="External\PugiXml\src\pugixml.hpp" />
+    <ClInclude Include="FrameBuffer.h" />
     <ClInclude Include="glmath.h" />
     <ClInclude Include="Headers.h" />
     <ClInclude Include="ImGuiUtils.h" />

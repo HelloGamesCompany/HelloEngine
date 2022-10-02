@@ -4,6 +4,7 @@
 #include "Module.h"
 #include "Light.h"
 #include "ModelRenderManager.h"
+#include "FrameBuffer.h"
 
 #define MAX_LIGHTS 8
 
@@ -27,24 +28,14 @@ public:
 
 	float* GetProjectionMatrix() { return &ProjectionMatrix.M[0]; };
 
-	//TODO: This should be a class that has 2 instances. Each for camera (game, editor)
-	uint GetFrameBufferTexture();
-
 public:
 	ModelRenderManager modelRender;
+	FrameBuffer frameBuffer;
 	Light lights[MAX_LIGHTS];
 	SDL_GLContext context;
 	mat3x3 NormalMatrix;
 	mat4x4 ModelMatrix, ViewMatrix, ProjectionMatrix;
 	bool isVSync = false;
-
-	uint FBO = 0; // Frame Buffer Object (contains the result of the entire frame texture)
-	uint textureColorbuffer = 0;
-	uint RBO = 0;
-
-private:
-	void SetFrameBuffer();
-
 };
 
 #endif // !__MODULERENDERER3D_H__

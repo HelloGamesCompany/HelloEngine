@@ -113,7 +113,18 @@ void LayerEditor::PostUpdate()
 	}
 
 	ImGui::Begin("Game");
-	ImGui::Image((ImTextureID)Application::Instance()->renderer3D->GetFrameBufferTexture(), ImGui::GetContentRegionAvail(), ImVec2(0, 1), ImVec2(1, 0));
+	ImVec2 gameDimensions = ImGui::GetContentRegionAvail();
+
+	if (gameDimensions.x != gameWidth || gameDimensions.y != gameHeight)
+	{
+		// If the size of this imgui window is different from the one stored.
+		gameWidth = gameDimensions.x;
+		gameHeight = gameDimensions.y;
+
+		Application::Instance()->renderer3D->frameBuffer.SetDimensions(gameWidth, gameHeight);
+	}
+
+	ImGui::Image((ImTextureID)Application::Instance()->renderer3D->frameBuffer.GetTexture(), ImGui::GetContentRegionAvail(), ImVec2(0, 1), ImVec2(1, 0));
 	ImGui::End();
 
 	ImGui::Begin("Scene testing");

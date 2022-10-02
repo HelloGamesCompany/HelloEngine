@@ -31,6 +31,8 @@ private:
 
 	ImWindow* imWindows[(uint)ImWindowID::MAX] = { nullptr };
 	LayerGame* game = nullptr;
+
+	int gameWidth, gameHeight;
 };
 
 #endif // !__MODULE_ENGINE_H__

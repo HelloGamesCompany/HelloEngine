@@ -73,5 +73,4 @@ Mesh& MeshRenderComponent::GetMesh()
 	Mesh& meshReference = manager->GetMap()[meshID];
 
 	return meshReference;
-	// TODO: Insertar una instrucción "return" aquí
 }

@@ -68,16 +68,6 @@ void RenderManager::Draw()
     modelMatrices.clear();
 }
 
-void RenderManager::TestOnEditor()
-{
-    //ImGui::Begin("Testing geometry");
-    //
-    //ImGui::DragFloat3("Position: ", &meshes[0].position.x, 0.1f);
-    //ImGui::DragInt("Instances: ", &debugIntSlider, 1, modelMatrices.size());
-
-    //ImGui::End();
-}
-
 uint RenderManager::AddMesh(Mesh& mesh)
 {
     uint meshID = ++IDcounter;

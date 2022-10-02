@@ -18,8 +18,6 @@ public:
 
 	void Draw();
 
-	void TestOnEditor();
-
 	uint AddMesh(Mesh& mesh);
 
 	std::map<uint, Mesh>& GetMap() { return meshes; };

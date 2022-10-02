@@ -7,6 +7,10 @@
 
 class Vehicle;
 
+//TODO: There should be multiple camera instances.
+//TODO: Each camera instance should have a framebuffer, which texture size should change with the window the camera is displayed in.
+// At the same time, the camera Aspect ratio should change with said window dimensions.
+
 class ModuleCamera3D : public Module
 {
 public:
