@@ -61,7 +61,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <AdditionalIncludeDirectories>$(SolutionDir)Source\External\Glew\include;$(SolutionDir)Source\External\SDL\include;$(SolutionDir)Source\External\imgui;$(SolutionDir)Source\External\MathGeoLib\include;$(SolutionDir)Source\External\json\include\single_include\nlohmann;$(SolutionDir)Source\External\PugiXml\src;$(SolutionDir)Source\External\PhysFS\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Source\External\Glew\include;$(SolutionDir)Source\External\SDL\include;$(SolutionDir)Source\External\imgui;$(SolutionDir)Source\External\MathGeoLib\include;$(SolutionDir)Source\External\json\include\single_include\nlohmann;$(SolutionDir)Source\External\PugiXml\src;$(SolutionDir)Source\External\PhysFS\include;%(AdditionalIncludeDirectories);$(SolutionDir)Source\External\Assimp\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>Headers.h</PrecompiledHeaderFile>
@@ -69,8 +69,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>DebugFull</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)Source\External\SDL\lib\x86;$(SolutionDir)Source\External\Glew\libx86;$(SolutionDir)Source\External\MathGeoLib\libx86\Debug;$(SolutionDir)Source\External\PhysFS\libx86</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;MathGeoLib.lib;glew32.lib;glew32s.lib;opengl32.lib;physfs.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)Source\External\SDL\lib\x86;$(SolutionDir)Source\External\Glew\libx86;$(SolutionDir)Source\External\MathGeoLib\libx86\Debug;$(SolutionDir)Source\External\PhysFS\libx86;$(SolutionDir)Source\External\Assimp\libx86</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;MathGeoLib.lib;glew32.lib;glew32s.lib;opengl32.lib;physfs.lib;%(AdditionalDependencies);assimp.lib;zlibstatic.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -82,7 +82,7 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <AdditionalIncludeDirectories>$(SolutionDir)Source\External\Glew\include;$(SolutionDir)Source\External\SDL\include;$(SolutionDir)Source\External\imgui;$(SolutionDir)Source\External\MathGeoLib\include;$(SolutionDir)Source\External\json\include\single_include\nlohmann;$(SolutionDir)Source\External\PugiXml\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Source\External\Glew\include;$(SolutionDir)Source\External\SDL\include;$(SolutionDir)Source\External\imgui;$(SolutionDir)Source\External\MathGeoLib\include;$(SolutionDir)Source\External\json\include\single_include\nlohmann;$(SolutionDir)Source\External\PugiXml\src;%(AdditionalIncludeDirectories);$(SolutionDir)Source\External\Assimp\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -90,8 +90,8 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>false</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)Source\External\SDL\lib\x86;$(SolutionDir)Source\External\Glew\libx86;$(SolutionDir)Source\External\MathGeoLib\libx86\Release</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;MathGeoLib.lib;glew32.lib;glew32s.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)Source\External\SDL\lib\x86;$(SolutionDir)Source\External\Glew\libx86;$(SolutionDir)Source\External\MathGeoLib\libx86\Release;$(SolutionDir)Source\External\Assimp\libx86</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;MathGeoLib.lib;glew32.lib;glew32s.lib;opengl32.lib;%(AdditionalDependencies);assimp.lib;zlibstatic.lib</AdditionalDependencies>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
   </ItemDefinitionGroup>

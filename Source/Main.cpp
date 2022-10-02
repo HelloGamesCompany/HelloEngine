@@ -3,6 +3,7 @@
 #include "Globals.h"
 #include "Application.h"
 #include "MemLeaks.h"
+#include "Importer.hpp"
 
 enum main_states
 {
