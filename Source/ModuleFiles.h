@@ -3,8 +3,6 @@
 
 #include "Module.h"
 
-#define PHYSFS_PATH "hello"
-
 class ModuleFiles : public Module
 {
 public:
@@ -12,7 +10,22 @@ public:
 
 	~ModuleFiles();
 
-	void ReadTest();
+	// Static functions
+	static bool S_Exists(const std::string file);
+
+	static bool S_MakeDir(const std::string dir);
+
+	static bool S_IsDirectory(const std::string file);
+
+	// can be path or zip
+	static bool S_AddPathToFileSystem(const std::string path);
+
+	/// <summary>
+	/// woking dir = Output/Assets
+	/// </summary>
+	/// <param name="filePath">: path/file.ext</param>
+	/// <returns> binary information </returns>
+	static char* Load(std::string filePath);
 };
 
 #endif // !__MODULE_PHYSFS_H__

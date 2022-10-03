@@ -4,6 +4,7 @@
 #include "ModuleWindow.h"
 #include "ModuleRenderer3D.h"
 #include "ModuleInput.h"
+#include "ModuleFiles.h"
 
 ImWindowConfiguration::ImWindowConfiguration() : ImWindow()
 {
@@ -28,6 +29,10 @@ ImWindowConfiguration::ImWindowConfiguration() : ImWindow()
 	isVSyncOn = &app->renderer3D->isVSync;
 
 	frameLimit = &app->frameCap;
+
+	bool r = ModuleFiles::S_Exists("");
+
+	//std::cout <<  << std::endl;
 }
 
 ImWindowConfiguration::~ImWindowConfiguration()
@@ -70,8 +75,7 @@ void ImWindowConfiguration::Update()
 			}
 
 			ImGui::Checkbox("VSync", isVSyncOn);
-			app->renderer3D->ToggleVSync(*isVSyncOn);
-			
+			app->renderer3D->ToggleVSync(*isVSyncOn);	
 		}
 
 		if (ImGui::CollapsingHeader("Input", ImGuiTreeNodeFlags_DefaultOpen))
@@ -82,7 +86,6 @@ void ImWindowConfiguration::Update()
 			ImGui::TextColored(ImVec4(255, 255, 0, 255), "%d", app->input->GetMouseX()); ImGui::SameLine();
 			ImGui::TextWrapped(" y = "); ImGui::SameLine();
 			ImGui::TextColored(ImVec4(255, 255, 0, 255), "%d", app->input->GetMouseY()); 
-
 		}
 
 		if (ImGui::CollapsingHeader("Hardware", ImGuiTreeNodeFlags_DefaultOpen))
@@ -100,7 +103,6 @@ void ImWindowConfiguration::Update()
 			ImGui::TextWrapped("Renderer: %s", glGetString(GL_RENDERER));
 			ImGui::TextWrapped("OpenGL version supported %s", glGetString(GL_VERSION));
 			ImGui::TextWrapped("GLSL: %s\n", glGetString(GL_SHADING_LANGUAGE_VERSION));
-
 		}
 	}
 	ImGui::End();

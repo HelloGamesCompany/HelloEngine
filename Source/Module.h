@@ -3,7 +3,6 @@
 
 #include "Globals.h"
 
-class PhysBody3D;
 class Application;
 
 class Module

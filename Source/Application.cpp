@@ -7,6 +7,7 @@
 #include "ModuleRenderer3D.h"
 #include "ModuleLayers.h"
 #include "ModuleXML.h"
+#include "ModuleFiles.h"
 
 Application* Application::app = nullptr;
 
@@ -26,12 +27,14 @@ bool Application::Init()
 	renderer3D = new ModuleRenderer3D(true);
 	layers = new ModuleLayers();
 	xml = new ModuleXML();
+	file = new ModuleFiles();
 
 	// The order of calls is very important!
 	// Modules will Init() Start() and Update in this order
 	// They will CleanUp() in reverse order
 
 	// Main Modules
+	AddModule(file);
 	AddModule(xml);
 	AddModule(window);
 
