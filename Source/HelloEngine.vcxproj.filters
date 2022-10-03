@@ -223,6 +223,9 @@
     <ClCompile Include="Light.cpp">
       <Filter>Modules\Renderer3D</Filter>
     </ClCompile>
+    <ClCompile Include="Console.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Module.h">
@@ -542,6 +545,9 @@
     </ClInclude>
     <ClInclude Include="Light.h">
       <Filter>Modules\Renderer3D</Filter>
+    </ClInclude>
+    <ClInclude Include="Console.h">
+      <Filter>Tools</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

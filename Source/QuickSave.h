@@ -6,6 +6,7 @@
 
 #define QUICKSAVE_PATH "Xmls/quickSave.xml"
 
+// static class
 class QuickSave
 {
 public:

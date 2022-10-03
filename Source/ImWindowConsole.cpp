@@ -1,5 +1,6 @@
 #include "Headers.h"
 #include "ImWindowConsole.h"
+#include "Console.h"
 
 ImWindowConsole::ImWindowConsole()
 {
@@ -16,7 +17,9 @@ void ImWindowConsole::Update()
 {
 	if (ImGui::Begin(windowName.c_str(), &isEnabled, ImGuiWindowFlags_NoCollapse))
 	{
-		ImGui::Text("hello Console");
+		ImGui::CollapsingHeader(Console::GetLogCounts());
+
+		ImGui::Text(Console::GetLog());
 	}
 	ImGui::End();
 }
