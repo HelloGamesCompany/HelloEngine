@@ -12,48 +12,48 @@ MeshRenderComponent::MeshRenderComponent()
 
 MeshRenderComponent::~MeshRenderComponent()
 {
-	RenderManager* manager = Application::Instance()->renderer3D->modelRender.GetRenderManager(modelID);
-	manager->GetMap().erase(meshID);
+	RenderManager* manager = Application::Instance()->renderer3D->modelRender.GetRenderManager(_modelID);
+	manager->GetMap().erase(_meshID);
 }
 
 void MeshRenderComponent::InitAsDefaultCube(float3 position, float3 scale)
 {
-	modelID = 0;
-	RenderManager* manager = Application::Instance()->renderer3D->modelRender.GetRenderManager(modelID);
+	_modelID = 0;
+	RenderManager* manager = Application::Instance()->renderer3D->modelRender.GetRenderManager(_modelID);
 
 	if (!manager->initialized)
 	{
 		Mesh cube;
 		cube.InitAsCube(position, scale);
-		meshID = manager->SetMeshInformation(cube);
+		_meshID = manager->SetMeshInformation(cube);
 	}
 	else
 	{
 
 		Mesh meshInfo;
 		meshInfo.InitAsMeshInformation(position, scale);
-		meshID = manager->AddMesh(meshInfo);
+		_meshID = manager->AddMesh(meshInfo);
 	}
 }
 
 void MeshRenderComponent::InitAsDefaultSphere(float3 position, float3 scale)
 {
-	modelID = 1;
-	RenderManager* manager = Application::Instance()->renderer3D->modelRender.GetRenderManager(modelID);
+	_modelID = 1;
+	RenderManager* manager = Application::Instance()->renderer3D->modelRender.GetRenderManager(_modelID);
 
 
 	if (!manager->initialized)
 	{
 		Mesh sphere;
 		sphere.InitAsSphere(position, scale);
-		meshID = manager->SetMeshInformation(sphere);
+		_meshID = manager->SetMeshInformation(sphere);
 	}
 	else
 	{
 
 		Mesh meshInfo;
 		meshInfo.InitAsMeshInformation(position, scale);
-		meshID = manager->AddMesh(meshInfo);
+		_meshID = manager->AddMesh(meshInfo);
 	}
 }
 
@@ -68,9 +68,9 @@ void MeshRenderComponent::InitAsLoadedMesh()
 
 Mesh& MeshRenderComponent::GetMesh()
 {
-	RenderManager* manager = Application::Instance()->renderer3D->modelRender.GetRenderManager(modelID);
+	RenderManager* manager = Application::Instance()->renderer3D->modelRender.GetRenderManager(_modelID);
 
-	Mesh& meshReference = manager->GetMap()[meshID];
+	Mesh& meshReference = manager->GetMap()[_meshID];
 
 	return meshReference;
 }

@@ -16,4 +16,6 @@ private:
 	std::string jsonVersion;
 	std::string mathGeoLibVersion;
 	std::string pugiXmlVersion;
+	std::string assimpVersion;
+	std::string physFsVersion;
 };

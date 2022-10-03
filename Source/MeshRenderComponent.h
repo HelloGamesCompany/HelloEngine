@@ -15,7 +15,7 @@ public:
 	Mesh& GetMesh();
 
 private:
-	uint modelID;
-	uint meshID;
+	uint _modelID;
+	uint _meshID;
 };
 

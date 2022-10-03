@@ -1,6 +1,7 @@
 ﻿#include "Headers.h"
 #include "ImWindowAbout.h"
 #include "ModuleCamera3D.h"
+#include "version.h"
 
 ImWindowAbout::ImWindowAbout()
 {
@@ -16,6 +17,8 @@ ImWindowAbout::ImWindowAbout()
 	jsonVersion = "3.12.2";
 	mathGeoLibVersion = "1.5";
 	pugiXmlVersion = "1.6";
+	assimpVersion = std::to_string(aiGetVersionMajor()) + "." + std::to_string(aiGetVersionMinor());
+	physFsVersion = "3.0.2";
 }
 
 void ImWindowAbout::Update()
@@ -34,6 +37,8 @@ void ImWindowAbout::Update()
 		ImGui::BulletText("JSON by nlhomann %s", jsonVersion.c_str()); ImGui::TextURL("(?)", "https://github.com/nlohmann/json", 1, 0);
 		ImGui::BulletText("MathGeoLib %s", mathGeoLibVersion.c_str()); ImGui::TextURL("(?)", "https://github.com/juj/MathGeoLib", 1, 0);
 		ImGui::BulletText("PugiXML %s", pugiXmlVersion.c_str()); ImGui::TextURL("(?)", "https://github.com/zeux/pugixml", 1, 0);
+		ImGui::BulletText("Assimp %s", assimpVersion.c_str()); ImGui::TextURL("(?)", "https://github.com/assimp/assimp", 1, 0);
+		ImGui::BulletText("PhysFS %s", physFsVersion.c_str()); ImGui::TextURL("(?)", "https://github.com/icculus/physfs", 1, 0);
 
 		ImGui::NewLine();
 
