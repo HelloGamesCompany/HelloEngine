@@ -226,6 +226,7 @@
     <ClCompile Include="Console.cpp">
       <Filter>Tools</Filter>
     </ClCompile>
+    <ClCompile Include="MeshImporter.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Module.h">
@@ -549,6 +550,7 @@
     <ClInclude Include="Console.h">
       <Filter>Tools</Filter>
     </ClInclude>
+    <ClInclude Include="MeshImporter.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="External\imgui\vulkan\generate_spv.sh">

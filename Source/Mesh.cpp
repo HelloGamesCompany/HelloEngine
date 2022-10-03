@@ -36,17 +36,16 @@ void Mesh::InitAsCube(float3 position, float3 scale)
 	this->position = position;
 	this->scale = scale;
 
-	_vertices = new std::vector<float3>
-	{
-		float3(-0.5,	 0.5,	 0.5),
-		float3(-0.5,	-0.5,	 0.5),
-		float3( 0.5,	 0.5,	 0.5),
-		float3( 0.5,	-0.5,	 0.5),
-		float3(-0.5,	 0.5,	-0.5),
-		float3(-0.5,	-0.5,	-0.5),
-		float3( 0.5,	 0.5,	-0.5),
-		float3( 0.5,	-0.5,	-0.5),
-	};
+	_vertices = new std::vector<Vertex>(8);
+
+	_vertices->at(0).position = float3(-0.5, 0.5, 0.5);
+	_vertices->at(1).position = float3(-0.5, -0.5, 0.5);
+	_vertices->at(2).position = float3(0.5, 0.5, 0.5);
+	_vertices->at(3).position = float3(0.5, -0.5, 0.5);
+	_vertices->at(4).position = float3(-0.5, 0.5, -0.5);
+	_vertices->at(5).position = float3(-0.5, -0.5, -0.5);
+	_vertices->at(6).position = float3(0.5, 0.5, -0.5);
+	_vertices->at(7).position = float3(0.5, -0.5, -0.5);
 
 	_indices = new std::vector<uint>
 	{
@@ -71,7 +70,7 @@ void Mesh::InitAsSphere(float3 position, float3 scale)
 	float const R = 1. / (float)(rings - 1);
 	float const S = 1. / (float)(sectors - 1);
 
-	_vertices = new std::vector<float3>(rings * sectors);
+	_vertices = new std::vector<Vertex>(rings * sectors);
 	_indices = new std::vector<uint>(rings * sectors * 4);
 
 	int counter = 0;
@@ -82,9 +81,9 @@ void Mesh::InitAsSphere(float3 position, float3 scale)
 		float const x = cos(2 * M_PI * s * S) * sin(M_PI * r * R);
 		float const z = sin(2 * M_PI * s * S) * sin(M_PI * r * R);
 
-		_vertices->at(counter).x = x * radius;
-		_vertices->at(counter).y = y * radius;
-		_vertices->at(counter).z = z * radius;
+		_vertices->at(counter).position.x = x * radius;
+		_vertices->at(counter).position.y = y * radius;
+		_vertices->at(counter).position.z = z * radius;
 		counter++;
 		if (r < rings - 1) push_indices(*_indices, sectors, r, s);
 	}

@@ -5,14 +5,13 @@
 #include "Color.h"
 #include "Math/float3.h"
 
-enum PrimitiveTypes
+struct Vertex
 {
-	Primitive_Point,
-	Primitive_Line,
-	Primitive_Plane,
-	Primitive_Cube,
-	Primitive_Sphere,
-	Primitive_Cylinder
+	Vertex() {}
+	Vertex(float3 pos, float3 norm, float2 texC) : position(pos), normals(norm), texCoords(texC){}
+	float3 position;
+	float3 normals;
+	float2 texCoords;
 };
 
 //TODO: Every Mesh should have an ID that identifies it's original form, so they can be distributed on diferent render managers.
@@ -35,7 +34,7 @@ public:
 	float3 scale;
 	float3 position;
 
-	std::vector<float3>* _vertices;
+	std::vector<Vertex>* _vertices;
 	std::vector<uint>* _indices;
 	mat4x4 modelMatrix;
 private:

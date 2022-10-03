@@ -30,7 +30,7 @@ private:
 
 private:
 	std::map<uint, Mesh> meshes;
-	std::vector<float3> totalVertices;
+	std::vector<Vertex> totalVertices;
 	std::vector<uint> totalIndices;
 	std::vector<mat4x4> modelMatrices;
 
