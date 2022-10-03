@@ -7,7 +7,7 @@ size_t Console::_logCount = 0;
 
 void Console::Log(const std::string text)
 {
-    _buffer += "\n" + text;
+    _buffer += "\nDebug.Log: " + text;
 
     _logCount++;
 }
@@ -22,4 +22,13 @@ const char* Console::GetLogCounts()
     _logCountText = _logCount > 999 ? "999+" : std::to_string(_logCount);
 
     return _logCountText.c_str();
+}
+
+void Console::ClearLog()
+{
+    _buffer.clear();
+
+    _logCountText.clear();
+
+    _logCount = 0;
 }

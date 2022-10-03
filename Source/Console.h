@@ -9,6 +9,8 @@ public:
 
 	static const char* GetLogCounts();
 
+	static void ClearLog();
+
 private:
 	static std::string _buffer;
 
