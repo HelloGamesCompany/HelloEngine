@@ -10,6 +10,7 @@ enum class ImWindowID
 	CONFIGURATION,
 	ABOUT,
 	OPENGL,
+	CONSOLE,
 	MAX,
 };
 

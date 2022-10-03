@@ -38,16 +38,16 @@
       <Filter>External\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="ImWindow.cpp">
-      <Filter>Windows</Filter>
+      <Filter>Modules\Layer\Windows</Filter>
     </ClCompile>
     <ClCompile Include="ImWindowAbout.cpp">
-      <Filter>Windows</Filter>
+      <Filter>Modules\Layer\Windows</Filter>
     </ClCompile>
     <ClCompile Include="ImWindowConfiguration.cpp">
-      <Filter>Windows</Filter>
+      <Filter>Modules\Layer\Windows</Filter>
     </ClCompile>
     <ClCompile Include="ImWindowOpenGL.cpp">
-      <Filter>Windows</Filter>
+      <Filter>Modules\Layer\Windows</Filter>
     </ClCompile>
     <ClCompile Include="Headers.cpp">
       <Filter>Global</Filter>
@@ -205,20 +205,23 @@
     <ClCompile Include="RenderManager.cpp">
       <Filter>Modules\Renderer3D</Filter>
     </ClCompile>
-    <ClCompile Include="Mesh.cpp">
-      <Filter>Others</Filter>
-    </ClCompile>
     <ClCompile Include="Color.cpp">
       <Filter>Others</Filter>
     </ClCompile>
-    <ClCompile Include="FrameBuffer.cpp">
-      <Filter>Others</Filter>
+    <ClCompile Include="ImWindowConsole.cpp">
+      <Filter>Modules\Layer\Windows</Filter>
     </ClCompile>
-    <ClCompile Include="Light.cpp">
-      <Filter>Others</Filter>
+    <ClCompile Include="FrameBuffer.cpp">
+      <Filter>Modules\Renderer3D</Filter>
     </ClCompile>
     <ClCompile Include="Shader.cpp">
-      <Filter>Others</Filter>
+      <Filter>Modules\Renderer3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh.cpp">
+      <Filter>Modules\Renderer3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Light.cpp">
+      <Filter>Modules\Renderer3D</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -259,16 +262,16 @@
       <Filter>External\ImGui</Filter>
     </ClInclude>
     <ClInclude Include="ImWindow.h">
-      <Filter>Windows</Filter>
+      <Filter>Modules\Layer\Windows</Filter>
     </ClInclude>
     <ClInclude Include="ImWindowAbout.h">
-      <Filter>Windows</Filter>
+      <Filter>Modules\Layer\Windows</Filter>
     </ClInclude>
     <ClInclude Include="ImWindowConfiguration.h">
-      <Filter>Windows</Filter>
+      <Filter>Modules\Layer\Windows</Filter>
     </ClInclude>
     <ClInclude Include="ImWindowOpenGL.h">
-      <Filter>Windows</Filter>
+      <Filter>Modules\Layer\Windows</Filter>
     </ClInclude>
     <ClInclude Include="Headers.h">
       <Filter>Global</Filter>
@@ -522,20 +525,23 @@
     <ClInclude Include="RenderManager.h">
       <Filter>Modules\Renderer3D</Filter>
     </ClInclude>
-    <ClInclude Include="Mesh.h">
-      <Filter>Others</Filter>
-    </ClInclude>
     <ClInclude Include="Color.h">
       <Filter>Others</Filter>
     </ClInclude>
-    <ClInclude Include="FrameBuffer.h">
-      <Filter>Others</Filter>
+    <ClInclude Include="ImWindowConsole.h">
+      <Filter>Modules\Layer\Windows</Filter>
     </ClInclude>
-    <ClInclude Include="Light.h">
-      <Filter>Others</Filter>
+    <ClInclude Include="FrameBuffer.h">
+      <Filter>Modules\Renderer3D</Filter>
     </ClInclude>
     <ClInclude Include="Shader.h">
-      <Filter>Others</Filter>
+      <Filter>Modules\Renderer3D</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>Modules\Renderer3D</Filter>
+    </ClInclude>
+    <ClInclude Include="Light.h">
+      <Filter>Modules\Renderer3D</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -577,9 +583,6 @@
     <Filter Include="External\ImGui">
       <UniqueIdentifier>{b313acf8-5ff8-4620-8a9f-d3d2f868a2ac}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Windows">
-      <UniqueIdentifier>{bc0b9b28-5aa3-4bfc-b719-02cb90e88d83}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Global">
       <UniqueIdentifier>{1868bfa4-3495-4d0f-a79c-12e720476e05}</UniqueIdentifier>
     </Filter>
@@ -606,6 +609,9 @@
     </Filter>
     <Filter Include="Modules\Renderer3D">
       <UniqueIdentifier>{029a64e1-ffbe-4883-9929-34c3463fdace}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\Layer\Windows">
+      <UniqueIdentifier>{bc0b9b28-5aa3-4bfc-b719-02cb90e88d83}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

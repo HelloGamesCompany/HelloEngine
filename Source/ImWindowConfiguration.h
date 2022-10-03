@@ -26,7 +26,6 @@ private:
 	// Need more testing, but i think is good
 	CArrayF* frames = nullptr;
 
-
 	bool fullscreen = false;
 
 	int countCPU = 0;

@@ -8,6 +8,8 @@
 #include "ImWindowConfiguration.h"
 #include "ImWindowAbout.h"
 #include "ImWindowOpenGL.h"
+#include "ImWindowConsole.h"
+
 #include "ModuleLayers.h"
 #include "LayerGame.h"
 
@@ -50,12 +52,10 @@ void LayerEditor::Start()
 	ImGui_ImplOpenGL3_Init(glsl_version);
 
 	// Create ImGui editor windows.
-
-
     imWindows[(uint)ImWindowID::CONFIGURATION] = new ImWindowConfiguration();
     imWindows[(uint)ImWindowID::ABOUT] = new ImWindowAbout();
 	imWindows[(uint)ImWindowID::OPENGL] = new ImWindowOpenGL();
-
+	imWindows[(uint)ImWindowID::CONSOLE] = new ImWindowConsole();
 
 	// Setup font
 	io.Fonts->AddFontFromFileTTF("Assets/font.ttf", 17.0f, NULL);
@@ -104,6 +104,11 @@ void LayerEditor::PostUpdate()
 			if (ImGui::MenuItem("OpenGL Configuration"))
 			{
 				imWindows[(uint)ImWindowID::OPENGL]->isEnabled = true;
+			}
+
+			if (ImGui::MenuItem("Console"))
+			{
+				imWindows[(uint)ImWindowID::CONSOLE]->isEnabled = true;
 			}
 
 			ImGui::EndMenu();
