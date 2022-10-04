@@ -27,13 +27,14 @@ public:
 	static void LoadMesh(std::string path); // This function loads all the information in the mesh and creates all necessary Gameobjects in the process
 
 private:
+	static const aiScene* GetAiScene(std::string path);
+	
 	// ProcessNew creates a new RenderManger for each Mesh
-	static void ProcessNewNode(aiNode* node, const aiScene* scene);
+	static void ProcessNewNode(aiNode* node, const aiScene* scene, std::string path);
 	static void ProcessNewMesh(aiMesh* mesh, const aiScene* scene);
 
 	//ProcessLoaded creates a new Instance inside a RenderManager for each Mesh
-	static void ProcessLoadedNode(aiNode* node, const aiScene* scene);
-	static void ProcessLoadedMesh(aiMesh* mesh, const aiScene* scene, uint meshID);
+	static void ProcessLoadedNode(aiNode* node, const aiScene* scene, uint firstMeshID);
 
 	static std::map<std::string, MeshCacheData> loadedMeshes;
 };

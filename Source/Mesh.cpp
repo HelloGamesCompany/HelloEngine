@@ -96,6 +96,15 @@ void Mesh::Update()
 	modelMatrix.scale(scale.x, scale.y, scale.z);
 }
 
+void Mesh::InitAsMesh(std::vector<Vertex>& vertices, std::vector<uint>& indices, float3 pos, float3 scale)
+{
+	this->position = position;
+	this->scale = scale;
+
+	this->_vertices = new std::vector<Vertex>(vertices);
+	this->_indices = new std::vector<uint>(indices);
+}
+
 void Mesh::CleanUp()
 {	
 	RELEASE(_vertices);

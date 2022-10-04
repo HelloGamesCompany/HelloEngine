@@ -1,48 +1,30 @@
 #include "Headers.h"
 #include "MeshImporter.h"
 #include "Mesh.h"
+#include "ModuleRenderer3D.h"
+#include "Application.h"
+#include "ModelRenderManager.h"
 
 std::map<std::string, MeshCacheData> MeshImporter::loadedMeshes;
 
 void MeshImporter::LoadMesh(std::string path)
 {
+	// Load AiScene
+	const aiScene* scene = GetAiScene(path);
+
 	// Check if this file path has already been loaded.
 	bool alreadyLoaded = loadedMeshes.find(path) == loadedMeshes.end();
 	
 	if (alreadyLoaded)
 	{
-		// Get only position information.
-
-		const auto& mapItem = loadedMeshes[path];
-
-		for (int i = 0; i < mapItem.numOfMeshes; i++)
-		{
-			uint meshID = mapItem.initialID + i; // Get the ID of the current Mesh
-
-			// Create an instance of this ID inside the RenderManager of ModelRenderManager
-		}
+		ProcessLoadedNode(scene->mRootNode, scene, loadedMeshes[path].initialID);
 	}
 	else
 	{
-
+		loadedMeshes[path].initialID = Application::Instance()->renderer3D->modelRender.GetMapSize(); // Set the ID of the first mesh inside this Model
+		loadedMeshes[path].numOfMeshes = 0;
+		ProcessNewNode(scene->mRootNode, scene, path);
 	}
-
-	// Load Mesh data into a Mesh class
-	Assimp::Importer importer;
-
-	const aiScene* scene = importer.ReadFile(path, aiProcess_Triangulate | aiProcess_FlipUVs | aiProcess_GenNormals);
-
-	if (!scene || scene->mFlags & AI_SCENE_FLAGS_INCOMPLETE || !scene->mRootNode)
-	{
-		std::cout << "ERROR::ASSIMP::" << importer.GetErrorString() << std::endl;
-		return;
-	}
-
-	ProcessNewNode(scene->mRootNode, scene);
-
-
-
-
 
 
 	// Create a new RenderManager or add Mesh information as an instance
@@ -50,26 +32,43 @@ void MeshImporter::LoadMesh(std::string path)
 
 }
 
-void MeshImporter::ProcessNewNode(aiNode* node, const aiScene* scene)
+const aiScene* MeshImporter::GetAiScene(std::string path)
 {
-	// process all the node's meshes (if any)
+	Assimp::Importer importer;
+
+	const aiScene* scene = importer.ReadFile(path, aiProcess_Triangulate | aiProcess_FlipUVs | aiProcess_GenNormals);
+
+	if (!scene || scene->mFlags & AI_SCENE_FLAGS_INCOMPLETE || !scene->mRootNode)
+	{
+		std::cout << "ERROR::ASSIMP::" << importer.GetErrorString() << std::endl;
+	}
+	return scene;
+}
+
+void MeshImporter::ProcessNewNode(aiNode* node, const aiScene* scene, std::string path)
+{
+	// Create empty Gameobject 
+	loadedMeshes[path].numOfMeshes += node->mNumMeshes; // Increase the number of meshes for every mesh inside this node.
 	for (unsigned int i = 0; i < node->mNumMeshes; i++)
 	{
+		// Process mesh and create a GameObject with a MeshRenderComponent that is child to the epmty game object
 		aiMesh* mesh = scene->mMeshes[node->mMeshes[i]];
 		ProcessNewMesh(mesh, scene);
 	}
-	// then do the same for each of its children
+
 	for (unsigned int i = 0; i < node->mNumChildren; i++)
 	{
-		ProcessNewNode(node->mChildren[i], scene);
+		// Creates an empty Gameobject that is children to the empty gameObject created here.
+		ProcessNewNode(node->mChildren[i], scene, path);
 	}
 }
 
 void MeshImporter::ProcessNewMesh(aiMesh* mesh, const aiScene* scene)
 {
-	std::vector<Vertex> vertices;	// Get Mesh information
+	std::vector<Vertex> vertices;	
 	std::vector<uint> indices;
 
+	// Get Mesh information
 	for (unsigned int i = 0; i < mesh->mNumVertices; i++)
 	{
 		Vertex vertex;
@@ -108,20 +107,33 @@ void MeshImporter::ProcessNewMesh(aiMesh* mesh, const aiScene* scene)
 			indices.push_back(face.mIndices[j]);
 	}
 
-	// Load Texture
+	// TODO: Load texture data 
 
 	// Load into a Mesh object
-	
-	// Generate a GameObject with a RenderMeshComponent
+	MeshRenderComponent* newMeshComponent = new MeshRenderComponent();
 
-	// Save Mesh id data inside the loadedMeshes map.
+	newMeshComponent->InitAsNewMesh(vertices, indices);
+
+	// TODO: Generate a GameObject with a RenderMeshComponent
 }
 
-void MeshImporter::ProcessLoadedNode(aiNode* node, const aiScene* scene)
+void MeshImporter::ProcessLoadedNode(aiNode* node, const aiScene* scene, uint firstMeshID)
 {
-}
+	// Create an empty GameObject that represents the Node
+	ModelRenderManager* renderManager = &Application::Instance()->renderer3D->modelRender;
+	uint meshID = firstMeshID;
 
-void MeshImporter::ProcessLoadedMesh(aiMesh* mesh, const aiScene* scene, uint meshID)
-{
+	for (unsigned int i = 0; i < node->mNumMeshes; i++)
+	{
+		// Create a GameObject with a MeshRenderComponent that represents the Mesh
+		MeshRenderComponent newMeshRender;
+		newMeshRender.InitAsLoadedMesh(meshID++);
+	}
+
+	for (unsigned int i = 0; i < node->mNumChildren; i++)
+	{
+		// Creates an empty Gameobject that is children to the empty gameObject created here.
+		ProcessLoadedNode(node->mChildren[i], scene, meshID);
+	}
 }
 

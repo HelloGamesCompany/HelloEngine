@@ -13,6 +13,7 @@ public:
 	~ModelRenderManager();
 
 	RenderManager* GetRenderManager(uint ID);
+	uint GetMapSize() { return renderMap.size(); };
 
 	void Draw();
 
