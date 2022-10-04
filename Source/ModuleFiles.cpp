@@ -53,7 +53,7 @@ bool ModuleFiles::S_AddPathToFileSystem(const std::string path)
 	return ret;
 }
 
-char* ModuleFiles::Load(std::string filePath)
+char* ModuleFiles::S_Load(std::string filePath)
 {
 	char* buffer = 0;
 

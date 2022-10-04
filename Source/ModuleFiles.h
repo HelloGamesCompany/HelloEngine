@@ -25,7 +25,7 @@ public:
 	/// </summary>
 	/// <param name="filePath">: path/file.ext</param>
 	/// <returns> binary information </returns>
-	static char* Load(std::string filePath);
+	static char* S_Load(std::string filePath);
 };
 
 #endif // !__MODULE_PHYSFS_H__
