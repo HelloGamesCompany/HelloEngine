@@ -21,11 +21,12 @@ public:
 	static bool S_AddPathToFileSystem(const std::string path);
 
 	/// <summary>
-	/// woking dir = Output/Assets
+	/// Read dir = /Output
 	/// </summary>
 	/// <param name="filePath">: path/file.ext</param>
-	/// <returns> binary information </returns>
-	static char* S_Load(std::string filePath);
+	/// <param name="buffer">: buffer where store binary file info</param>
+	/// <returns></returns>
+	static uint S_Load(std::string filePath, char** buffer);
 };
 
 #endif // !__MODULE_PHYSFS_H__

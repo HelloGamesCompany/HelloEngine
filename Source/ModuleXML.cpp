@@ -1,13 +1,15 @@
 #include "Headers.h"
 #include "ModuleXML.h"
 #include "QuickSave.h"
-#include <fstream>
+#include "ModuleFiles.h"
+
+#include <fstream> // Will be subtitute for ModuleFiles functions
 
 ModuleXML::ModuleXML() : Module()
 {
-	if (!std::filesystem::exists(CONFIG_DIR)) std::filesystem::create_directory(CONFIG_DIR);
+	if (!ModuleFiles::S_Exists(CONFIG_DIR)) ModuleFiles::S_MakeDir(CONFIG_DIR);
 
-	if (!std::filesystem::exists(CONFIG_PATH)) CreateDefaultConfigFile();
+	if (!ModuleFiles::S_Exists(CONFIG_PATH)) CreateDefaultConfigFile();
 
 	config = OpenXML(CONFIG_PATH);
 
@@ -44,7 +46,15 @@ XMLNode ModuleXML::OpenXML(std::string path)
 
 	const char* cPath = path.c_str();
 
-	pugi::xml_parse_result result = d->load_file(cPath);
+	char* buf = nullptr;
+
+	uint bufSize = ModuleFiles::S_Load(path, &buf);
+
+	// Old manner, 
+	//pugi::xml_parse_result result = d->load_file(cPath);
+
+	pugi::xml_parse_result result = d->load_buffer(buf, bufSize);
+
 	if (result == NULL)
 	{
 		LOG("Could not load xml file: %s. pugi error: %s", path.c_str(), result.description());
@@ -61,6 +71,8 @@ XMLNode ModuleXML::OpenXML(std::string path)
 
 	ret.node = n;
 	ret.xmlFile = xmlFiles.size()-1; // Uint that points to the index of the xml_document inside xmlFiles vector.
+
+	RELEASE(buf);
 
 	return ret;
 }
@@ -121,15 +133,17 @@ void ModuleXML::CreateDefaultConfigFile()
 				"<framerate value = \"90\"/>\n"
 			"</renderer>\n"
 			"<openGL>\n"
-				"<depthTest value = \"true\"/> tag = \"0x1801\" \n"
-				"<cullFace value = \"true\"/> tag = \"0x0B44\" \n"
-				"<lighting value = \"true\"/> tag = \"0x0B50\" \n"
-				"<colorMaterial value = \"true\"/> tag = \"0x0B57\" \n"
-				"<texture2D value = \"true\"/> tag = \"0x0DE1\" \n"
-				"<blend value = \"true\"/> tag = \"0x0BE2\" \n"
+				"<depthTest value = \"true\" tag = \"0x1801\" />\n"
+				"<cullFace value = \"true\" tag = \"0x0B44\" />\n"
+				"<lighting value = \"true\" tag = \"0x0B50\" />\n"
+				"<colorMaterial value = \"true\" tag = \"0x0B57\" />\n"
+				"<texture2D value = \"true\" tag = \"0x0DE1\" />\n"
+				"<blend value = \"true\" tag = \"0x0BE2\" />\n"
 				"<wireframe value = \"true\"/>\n"
 			"</openGL>\n"
 		"</config>";
+
+	//TODO: Will be subtitute for ModuleFiles functions
 
 	// Open/create config file
 	std::ofstream file(CONFIG_PATH);

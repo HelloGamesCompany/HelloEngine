@@ -1,6 +1,9 @@
 #include "Headers.h"
 #include "QuickSave.h"
 #include "ModuleXML.h"
+#include "ModuleFiles.h"
+
+//TODO: Will be subtitute for ModuleFiles functions
 #include <fstream>
 
 XMLNode QuickSave::nBool;
@@ -10,10 +13,10 @@ XMLNode QuickSave::nInt;
 
 void QuickSave::Init()
 {
-    // Create The XML file while is not exist
-    if (!std::filesystem::exists(QUICKSAVE_PATH)) CreateQuickSaveDefaultFile();
-
     LOG("Init QuickSave");
+
+    // Create The XML file while is not exist
+    if (!ModuleFiles::S_Exists(QUICKSAVE_PATH)) CreateQuickSaveDefaultFile();
 
     XMLNode node = Application::Instance()->xml->OpenXML(QUICKSAVE_PATH);
 
@@ -121,6 +124,8 @@ void QuickSave::CreateQuickSaveDefaultFile()
             "</Int>\n"
         "</QuickSave>";
 
+    //TODO: Will be subtitute for ModuleFiles functions
+    
     // Open/create  quick save file
     std::ofstream file(QUICKSAVE_PATH);
 

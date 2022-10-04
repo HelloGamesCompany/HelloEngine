@@ -6,12 +6,13 @@ ModuleFiles::ModuleFiles():Module()
 {
 	PHYSFS_init(0);
 
-	if (PHYSFS_setWriteDir("./Assets") == 0) LOG("File System error while creating write dir: %s\n", PHYSFS_getLastError());
+	// Add Write Dir
+	if (PHYSFS_setWriteDir(".") == 0) LOG("File System error while creating write dir: %s\n", PHYSFS_getLastError());
 
-	//S_AddPathToFileSystem(".");
-	//S_AddPathToFileSystem("Assets");
+	// Add Read Dir
+	S_AddPathToFileSystem(".");
 
-	S_MakeDir("hi");
+	//S_AddPathToFileSystem("Resources");
 }
 
 ModuleFiles::~ModuleFiles()
@@ -53,43 +54,45 @@ bool ModuleFiles::S_AddPathToFileSystem(const std::string path)
 	return ret;
 }
 
-char* ModuleFiles::S_Load(std::string filePath)
+uint ModuleFiles::S_Load(std::string filePath, char** buffer)
 {
-	char* buffer = 0;
+	uint ret = 0;
 
 	PHYSFS_file* fsFile = PHYSFS_openRead(filePath.c_str());
 
 	if (!fsFile)
 	{
-		LOG("File System error while opening file %s: %s\n", filePath, PHYSFS_getLastError());
+		LOG("File System error while opening file %s: %s\n", filePath.c_str(), PHYSFS_getLastError());
 
-		return nullptr;
+		return ret;
 	}
 	
 	PHYSFS_sint64 size = PHYSFS_fileLength(fsFile);
 
 	if (size <= 0)
 	{
-		LOG("File System error while reading from file %s: %s\n", filePath, PHYSFS_getLastError());
+		LOG("File System error while reading from file %s: %s\n", filePath.c_str(), PHYSFS_getLastError());
 		
-		return nullptr;
+		return ret;
 	}
 
-	buffer = new char[size + 1];
+	*buffer = new char[size + 1];
 
-	if (PHYSFS_readBytes(fsFile, buffer, size) != size)
+	ret = (uint)PHYSFS_readBytes(fsFile, *buffer, size);
+
+	if (ret != size)
 	{
-		LOG("File System error while reading from file %s: %s\n", filePath, PHYSFS_getLastError());
-		RELEASE_ARRAY(buffer);
-		return nullptr;
+		LOG("File System error while reading from file %s: %s\n", filePath.c_str(), PHYSFS_getLastError());
+		RELEASE_ARRAY(*buffer);
+		return ret;
 	}
 	else
 	{
 		//Adding end of file at the end of the buffer. Loading a shader file does not add this for some reason
-		buffer[size] = '\0';
+		(*buffer)[size] = '\0';
 	}
 
-	if (PHYSFS_close(fsFile) == 0) LOG("File System error while closing file %s: %s\n", filePath, PHYSFS_getLastError());
+	if (PHYSFS_close(fsFile) == 0) LOG("File System error while closing file %s: %s\n", filePath.c_str(), PHYSFS_getLastError());
 		
-	return buffer;
+	return ret;
 }

@@ -13,6 +13,8 @@
 #include "ModuleLayers.h"
 #include "LayerGame.h"
 
+#include "ModuleFiles.h"
+
 LayerEditor::LayerEditor()
 {
 }
@@ -51,17 +53,21 @@ void LayerEditor::Start()
 	ImGui_ImplSDL2_InitForOpenGL(Application::Instance()->window->window, Application::Instance()->renderer3D->context);
 	ImGui_ImplOpenGL3_Init(glsl_version);
 
+	// Setup font
+	char* buf = nullptr;
+
+	uint bufSize = ModuleFiles::S_Load("Resources/Fonts/font.ttf", &buf);
+
+	// ImGui will delete buf memory when close application, so no need realease here
+	io.Fonts->AddFontFromMemoryTTF(buf, bufSize, 14.0f, NULL);
+
 	// Create ImGui editor windows.
     imWindows[(uint)ImWindowID::CONFIGURATION] = new ImWindowConfiguration();
     imWindows[(uint)ImWindowID::ABOUT] = new ImWindowAbout();
 	imWindows[(uint)ImWindowID::OPENGL] = new ImWindowOpenGL();
 	imWindows[(uint)ImWindowID::CONSOLE] = new ImWindowConsole();
 
-	// Setup font
-	io.Fonts->AddFontFromFileTTF("Assets/font.ttf", 17.0f, NULL);
-
 	game = (LayerGame*)Application::Instance()->layers->layers[(uint)LayersID::GAME];
-
 }
 
 void LayerEditor::PreUpdate()

@@ -4,7 +4,7 @@
 #include "pugixml.hpp"
 #include "ModuleXML.h"
 
-#define QUICKSAVE_PATH "Xmls/quickSave.xml"
+#define QUICKSAVE_PATH "Resources/Xmls/quickSave.xml"
 
 // static class
 class QuickSave

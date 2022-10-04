@@ -4,9 +4,9 @@
 #include "Module.h"
 #include <vector>
 
-#define CONFIG_DIR "Xmls"
-#define CONFIG_PATH "Xmls/config.xml"
-#define RESOURCE_PATH "Xmls/resource.xml"
+#define CONFIG_DIR "Resources/Xmls"
+#define CONFIG_PATH "Resources/Xmls/config.xml"
+#define RESOURCE_PATH "Resources/Xmls/resource.xml"
 
 #define KEY 8888
 

@@ -22,12 +22,12 @@ Application::~Application()
 bool Application::Init()
 {
 	window = new ModuleWindow(true);
+	file = new ModuleFiles();
 	input = new ModuleInput(true);
 	camera = new ModuleCamera3D(true);
 	renderer3D = new ModuleRenderer3D(true);
 	layers = new ModuleLayers();
 	xml = new ModuleXML();
-	file = new ModuleFiles();
 
 	// The order of calls is very important!
 	// Modules will Init() Start() and Update in this order
