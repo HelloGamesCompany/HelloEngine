@@ -4,8 +4,11 @@
 #include "ModuleRenderer3D.h"
 #include "Application.h"
 #include "ModelRenderManager.h"
+#include "LayerGame.h"
+#include "ModuleLayers.h"
 
 std::map<std::string, MeshCacheData> MeshImporter::loadedMeshes;
+Assimp::Importer MeshImporter::importer;
 
 void MeshImporter::LoadMesh(std::string path)
 {
@@ -13,7 +16,7 @@ void MeshImporter::LoadMesh(std::string path)
 	const aiScene* scene = GetAiScene(path);
 
 	// Check if this file path has already been loaded.
-	bool alreadyLoaded = loadedMeshes.find(path) == loadedMeshes.end();
+	bool alreadyLoaded = loadedMeshes.find(path) != loadedMeshes.end();
 	
 	if (alreadyLoaded)
 	{
@@ -34,9 +37,7 @@ void MeshImporter::LoadMesh(std::string path)
 
 const aiScene* MeshImporter::GetAiScene(std::string path)
 {
-	Assimp::Importer importer;
-
-	const aiScene* scene = importer.ReadFile(path, aiProcess_Triangulate | aiProcess_FlipUVs | aiProcess_GenNormals);
+	const aiScene* scene = importer.ReadFile(path, aiProcess_Triangulate);
 
 	if (!scene || scene->mFlags & AI_SCENE_FLAGS_INCOMPLETE || !scene->mRootNode)
 	{
@@ -115,6 +116,8 @@ void MeshImporter::ProcessNewMesh(aiMesh* mesh, const aiScene* scene)
 	newMeshComponent->InitAsNewMesh(vertices, indices);
 
 	// TODO: Generate a GameObject with a RenderMeshComponent
+	LayerGame* game = (LayerGame*)Application::Instance()->layers->layers[LayersID::GAME];//TEMPORAL CODE
+	game->meshComponentTest.push_back(newMeshComponent);
 }
 
 void MeshImporter::ProcessLoadedNode(aiNode* node, const aiScene* scene, uint firstMeshID)

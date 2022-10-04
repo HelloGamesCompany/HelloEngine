@@ -37,5 +37,6 @@ private:
 	static void ProcessLoadedNode(aiNode* node, const aiScene* scene, uint firstMeshID);
 
 	static std::map<std::string, MeshCacheData> loadedMeshes;
+	static Assimp::Importer importer;
 };
 

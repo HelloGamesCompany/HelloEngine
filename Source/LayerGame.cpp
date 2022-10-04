@@ -2,6 +2,7 @@
 #include "LayerGame.h"
 #include "Application.h"
 #include "ModuleWindow.h"
+#include "MeshImporter.h"
 
 LayerGame::LayerGame()
 {
@@ -14,19 +15,8 @@ LayerGame::~LayerGame()
 
 void LayerGame::Start()
 {
-	meshRender.InitAsDefaultCube();
-	sphereRender.InitAsDefaultSphere();
-
-	for (int i = 0; i < 100; i++)
-	{
-		MeshRenderComponent newMesh;
-		newMesh.InitAsDefaultCube({ 1.0f + i, 0.0f,0.0f });
-	}
-	for (int i = 0; i < 100; i++)
-	{
-		MeshRenderComponent newMesh;
-		newMesh.InitAsDefaultSphere({ 0.0f, 1.0f+i,0.0f });
-	}
+	MeshImporter::LoadMesh("Assets/BakerHouse.fbx");
+	//MeshImporter::LoadMesh("Assets/backpack/backpack.mtl");
 }
 
 void LayerGame::PreUpdate()
@@ -45,5 +35,8 @@ void LayerGame::PostUpdate()
 
 void LayerGame::CleanUp()
 {
-
+	for (int i = 0; i < meshComponentTest.size(); i++)
+	{
+		RELEASE(meshComponentTest[i]);
+	}
 }

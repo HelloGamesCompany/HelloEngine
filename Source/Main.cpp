@@ -3,7 +3,7 @@
 #include "Globals.h"
 #include "Application.h"
 #include "MemLeaks.h"
-#include "Importer.hpp"
+#include "cimport.h"
 
 enum main_states
 {
@@ -22,6 +22,11 @@ int main(int argc, char** argv)
 	int main_return = EXIT_FAILURE;
 	main_states state = MAIN_CREATION;
 	Application* app = nullptr;
+
+	struct aiLogStream stream;
+	stream = aiGetPredefinedLogStream(aiDefaultLogStream_DEBUGGER, nullptr);
+	aiAttachLogStream(&stream);
+
 
 	while (state != MAIN_EXIT)
 	{

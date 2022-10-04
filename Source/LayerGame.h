@@ -16,10 +16,9 @@ public:
 
 	void CleanUp() override;
 
+	std::vector<MeshRenderComponent*> meshComponentTest;
 
 public:
-
-	MeshRenderComponent meshRender;
-	MeshRenderComponent sphereRender;
+	
 };
 

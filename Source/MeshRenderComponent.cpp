@@ -80,9 +80,10 @@ void MeshRenderComponent::InitAsNewMesh(std::vector<Vertex>& vertices, std::vect
 	Mesh newMesh;
 	newMesh.InitAsMesh(vertices, indices, { 0.0f,0.0f,0.0f }, { 1.0f,1.0f,1.0f });
 
+	_meshID = Application::Instance()->renderer3D->modelRender.GetMapSize();
 	RenderManager* manager = Application::Instance()->renderer3D->modelRender.GetRenderManager(_meshID); // Create a renderManager.
 
-	_meshID = manager->SetMeshInformation(newMesh);
+	_instanceID = manager->SetMeshInformation(newMesh);
 
 }
 
