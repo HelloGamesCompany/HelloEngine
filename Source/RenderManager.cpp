@@ -33,6 +33,7 @@ uint RenderManager::SetMeshInformation(Mesh& mesh)
 
 void RenderManager::Draw()
 {
+    if (!initialized) return; // This is placed here for security reasons. No RenderManager should be created without being initialized.
     if (meshes.empty())
     {
         LOG("A Render Manager is being updated without any meshes!");
@@ -70,6 +71,10 @@ void RenderManager::Draw()
 
 uint RenderManager::AddMesh(Mesh& mesh)
 {
+    if (!initialized)
+    {
+        LOG("Trying to add mesh information into a RenderManager that has not been initialized yet!");
+    }
     uint meshID = ++IDcounter;
     meshes[meshID] = mesh;
     return meshID;
