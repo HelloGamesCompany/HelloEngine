@@ -15,6 +15,11 @@ LayerGame::~LayerGame()
 
 void LayerGame::Start()
 {
+	MeshRenderComponent* cube = new MeshRenderComponent();
+	cube->InitAsDefaultCube();
+
+	meshComponentTest.push_back(cube);
+
 	MeshImporter::LoadMesh("Assets/BakerHouse.fbx");
 	//MeshImporter::LoadMesh("Assets/backpack/backpack.mtl");
 }

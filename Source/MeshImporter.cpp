@@ -100,13 +100,30 @@ void MeshImporter::ProcessNewMesh(aiMesh* mesh, const aiScene* scene)
 		vertices.push_back(vertex);
 	}
 
-	for (unsigned int i = 0; i < mesh->mNumFaces; i++)
+	indices.resize(mesh->mNumFaces * 3);
+
+	if (mesh->HasFaces())
 	{
-		aiFace face = mesh->mFaces[i];
-		// retrieve all indices of the face and store them in the indices vector
-		for (unsigned int j = 0; j < face.mNumIndices; j++)
-			indices.push_back(face.mIndices[j]);
+		for (uint i = 0; i < mesh->mNumFaces; ++i)
+		{
+			if (mesh->mFaces[i].mNumIndices != 3)
+			{
+				LOG("WARNING, geometry face with != 3 indices!");
+			}
+			else
+			{
+				memcpy(&indices[i * 3], mesh->mFaces[i].mIndices, 3 * sizeof(uint));
+			}
+		}
 	}
+
+	//for (unsigned int i = 0; i < mesh->mNumFaces; i++)
+	//{
+	//	aiFace face = mesh->mFaces[i];
+	//	// retrieve all indices of the face and store them in the indices vector
+	//	for (unsigned int j = 0; j < face.mNumIndices; j++)
+	//		indices.push_back(face.mIndices[j]);
+	//}
 
 	// TODO: Load texture data 
 
