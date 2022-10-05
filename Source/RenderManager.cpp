@@ -60,6 +60,8 @@ void RenderManager::Draw()
     basicShader->SetMatFloat4v("view", Application::Instance()->camera->GetViewMatrix());
     basicShader->SetMatFloat4v("projection", Application::Instance()->renderer3D->GetProjectionMatrix());
 
+    totalVertices;
+
     // Draw
     glDrawElementsInstanced(GL_TRIANGLES, totalIndices.size(), GL_UNSIGNED_INT, 0, modelMatrices.size());
     

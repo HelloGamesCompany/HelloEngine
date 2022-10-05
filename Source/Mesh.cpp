@@ -103,6 +103,7 @@ void Mesh::InitAsMesh(std::vector<Vertex>& vertices, std::vector<uint>& indices,
 
 	this->_vertices = new std::vector<Vertex>(vertices);
 	this->_indices = new std::vector<uint>(indices);
+
 }
 
 void Mesh::CleanUp()
