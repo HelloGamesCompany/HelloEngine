@@ -83,29 +83,34 @@ uint RenderManager::AddMesh(Mesh& mesh)
 void RenderManager::CreateBuffers()
 {
     // Create Vertex Array Object
-    glCreateVertexArrays(1, &VAO);
+    glGenVertexArrays(1, &VAO);
     glBindVertexArray(VAO);
 
     // Create Vertex Buffer Object
-    glCreateBuffers(1, &VBO);
+    glGenBuffers(1, &VBO);
 
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
     glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * totalVertices.size(), &totalVertices[0], GL_STATIC_DRAW);
 
+    // vertex positions
     glEnableVertexAttribArray(0);
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)0); // Position
-                                                                               // Normals
-                                                                               // Texture coordinates
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)0);
+    // vertex normals
+    glEnableVertexAttribArray(5);
+    glVertexAttribPointer(5, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, normals));
+    // vertex texture coords
+    glEnableVertexAttribArray(6);
+    glVertexAttribPointer(6, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, texCoords));
 
     // Create Index Buffer Object
-    glCreateBuffers(1, &IBO);
+    glGenBuffers(1, &IBO);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(uint) * totalIndices.size(), &totalIndices[0], GL_STATIC_DRAW);
 
     glBindVertexArray(0);
 
     // Create Model Matrix buffer object
-    glCreateBuffers(1, &MBO);
+    glGenBuffers(1, &MBO);
 
     glBindBuffer(GL_ARRAY_BUFFER, MBO);
     glBufferData(GL_ARRAY_BUFFER, sizeof(mat4x4) * 1000000, nullptr, GL_DYNAMIC_DRAW);

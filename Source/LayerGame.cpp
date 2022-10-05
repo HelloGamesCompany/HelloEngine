@@ -21,7 +21,7 @@ void LayerGame::Start()
 	meshComponentTest.push_back(cube);
 
 	MeshImporter::LoadMesh("Assets/BakerHouse.fbx");
-	//MeshImporter::LoadMesh("Assets/backpack/backpack.mtl");
+	//MeshImporter::LoadMesh("Assets/backpack/backpack.obj");
 }
 
 void LayerGame::PreUpdate()
