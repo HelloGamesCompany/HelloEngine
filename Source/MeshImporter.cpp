@@ -73,22 +73,22 @@ void MeshImporter::ProcessNewMesh(aiMesh* mesh, const aiScene* scene)
 	for (unsigned int i = 0; i < mesh->mNumVertices; i++)
 	{
 		Vertex vertex;
-		vertex.position.x = mesh->mVertices->x;
-		vertex.position.y = mesh->mVertices->y;
-		vertex.position.z = mesh->mVertices->z;
+		vertex.position.x = mesh->mVertices[i].x;
+		vertex.position.y = mesh->mVertices[i].y;
+		vertex.position.z = mesh->mVertices[i].z;
 
 		if (mesh->HasNormals())
 		{
-			vertex.normals.x = mesh->mNormals->x;
-			vertex.normals.y = mesh->mNormals->y;
-			vertex.normals.z = mesh->mNormals->z;
+			vertex.normals.x = mesh->mNormals[i].x;
+			vertex.normals.y = mesh->mNormals[i].y;
+			vertex.normals.z = mesh->mNormals[i].z;
 		}
 
 
 		if (mesh->mTextureCoords[0])
 		{
-			vertex.texCoords.x = mesh->mTextureCoords[0]->x;
-			vertex.texCoords.y = mesh->mTextureCoords[0]->y;
+			vertex.texCoords.x = mesh->mTextureCoords[0][i].x;
+			vertex.texCoords.y = mesh->mTextureCoords[0][i].y;
 
 			// Tangent and bit tangent
 		}
