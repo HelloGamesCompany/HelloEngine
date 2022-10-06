@@ -96,3 +96,55 @@ uint ModuleFiles::S_Load(std::string filePath, char** buffer)
 		
 	return ret;
 }
+
+uint ModuleFiles::S_Save(std::string filePath, char* buffer, uint size, bool append)
+{
+	uint byteCount = 0;
+
+	bool exist = S_Exists(filePath);
+
+	PHYSFS_file* des = nullptr;
+
+	if (append)	des = PHYSFS_openAppend(filePath.c_str());
+	else des = PHYSFS_openWrite(filePath.c_str());
+
+	do 
+	{
+		if (!des)
+		{
+			LOG("FILE SYSTEM: Could not open file '%s' to write. ERROR: %s", filePath.c_str(), PHYSFS_getLastError());
+
+			break;
+		}
+
+		byteCount = PHYSFS_writeBytes(des, (const void*)buffer, size);
+
+		if (byteCount != size)
+		{
+			LOG("FILE SYSTEM: Could not write to file '%s'. ERROR: %s", filePath.c_str(), PHYSFS_getLastError());
+
+			break;
+		}
+
+		if(!exist) 
+		{
+			LOG("FILE SYSTEM: New file '%s' created with %u bytes", filePath.c_str(), byteCount);
+			
+			break;
+		}
+
+		if (append)
+		{
+			LOG("FILE SYSTEM: Append %u bytes to file '%s'", byteCount, filePath.c_str());
+
+			break;
+		}
+		
+		LOG("FILE SYSTEM: File '%s' overwritten with %u bytes", filePath.c_str(), byteCount);
+
+	} while (false);
+
+	if (PHYSFS_close(des) == 0) LOG("FILE SYSTEM: Could not close file '%s'. ERROR: %s", filePath.c_str(), PHYSFS_getLastError());
+	
+	return byteCount;
+}

@@ -64,12 +64,15 @@ XMLNode ModuleXML::OpenXML(std::string path)
 	{
 		//Get first node
 		n = d->first_child();
+
 		// Add path and xml_document to the xmlFiles vector
 		std::pair<pugi::xml_document*, std::string> p(d, path);
+
 		xmlFiles.push_back(p);
 	}
 
 	ret.node = n;
+
 	ret.xmlFile = xmlFiles.size()-1; // Uint that points to the index of the xml_document inside xmlFiles vector.
 
 	RELEASE(buf);
@@ -92,6 +95,32 @@ void ModuleXML::Save(int index)
 	if (index >= 0)
 	{
 		xmlFiles[index].first->save_file(xmlFiles[index].second.c_str());
+
+		//uint size = strlen((char*)xmlFiles[index].first);
+
+		//pugi::xml_writer_file w(xmlFiles[index].first);
+
+		//xmlFiles[index].first->save(w);
+
+		//xmlFiles[index].first->save()
+
+		//char* c = const_cast<char*>(xmlFiles[index].first);
+
+		//uint size = sizeof(c);
+
+		//uint size = sizeof(*xmlFiles[index].first.);
+
+		//char* buffer = xmlFiles[index].first->GetBuffer();
+
+		//uint size=0;
+
+		//for (size = 0; size <700; size++)
+		//{
+		//	std::cout << buffer[size];
+		//}
+
+		//ModuleFiles::S_Save(xmlFiles[index].second.c_str(), buffer, size, false);
+		
 		//EncryptDecryptXML(xmlFiles[index].second.c_str(), true);
 		return;
 	}
@@ -99,6 +128,22 @@ void ModuleXML::Save(int index)
 	for (int i = 0; i < xmlFiles.size(); i++)
 	{
 		xmlFiles[i].first->save_file(xmlFiles[i].second.c_str());
+		
+		//pugi::xml_writer_file w(xmlFiles[i].first);
+
+		//xmlFiles[index].first->save(w);
+
+		//uint size = sizeof(xmlFiles[i].first);
+
+		/*
+		char* buffer = xmlFiles[i].first->GetBuffer();
+
+		uint size = 0;
+
+		for (size = 0; buffer[size] != '\0'; size++) {}
+
+		ModuleFiles::S_Save(xmlFiles[i].second.c_str(), buffer, size, false);
+		*/
 		//EncryptDecryptXML(xmlFiles[i].second.c_str(), true);
 	}
 }

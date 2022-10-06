@@ -957,6 +957,9 @@ namespace pugi
         // Removes all nodes, then copies the entire contents of the specified document
         void reset(const xml_document& proto);
 
+        // Our Func
+        char* GetBuffer() { return _buffer; }
+
     #ifndef PUGIXML_NO_STL
         // Load document from stream.
         xml_parse_result load(std::basic_istream<char, std::char_traits<char> >& stream, unsigned int options = parse_default, xml_encoding encoding = encoding_auto);

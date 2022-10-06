@@ -27,6 +27,8 @@ public:
 	/// <param name="buffer">: buffer where store binary file info</param>
 	/// <returns></returns>
 	static uint S_Load(std::string filePath, char** buffer);
+
+	static uint S_Save(std::string filePath, char* buffer, uint size, bool append);
 };
 
 #endif // !__MODULE_PHYSFS_H__
