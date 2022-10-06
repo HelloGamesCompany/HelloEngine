@@ -1,6 +1,7 @@
 #pragma once
 #include "Layer.h"
 #include "MeshRenderComponent.h"
+#include "GameObject.h"
 
 class LayerGame : public Layer
 {
@@ -15,10 +16,5 @@ public:
 	void PostUpdate() override;
 
 	void CleanUp() override;
-
-	std::vector<MeshRenderComponent*> meshComponentTest;
-
-public:
-	
 };
 

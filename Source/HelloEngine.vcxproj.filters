@@ -227,6 +227,8 @@
       <Filter>Tools</Filter>
     </ClCompile>
     <ClCompile Include="MeshImporter.cpp" />
+    <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="Component.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Module.h">
@@ -551,6 +553,8 @@
       <Filter>Tools</Filter>
     </ClInclude>
     <ClInclude Include="MeshImporter.h" />
+    <ClInclude Include="GameObject.h" />
+    <ClInclude Include="Component.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="External\imgui\vulkan\generate_spv.sh">

@@ -1,12 +1,13 @@
 #pragma once
 
 #include "Mesh.h"
+#include "Component.h"
 
-class MeshRenderComponent
+class MeshRenderComponent : public Component
 {
 public:
-	MeshRenderComponent();
-	~MeshRenderComponent();
+	MeshRenderComponent(GameObject* gameObject);
+	virtual ~MeshRenderComponent() override;
 
 	void InitAsDefaultCube(float3 position = { 0.0f,0.0f,0.0f }, float3 scale = { 1.0f,1.0f,1.0f });
 	void InitAsDefaultSphere(float3 position = { 0.0f,0.0f,0.0f }, float3 scale = { 1.0f,1.0f,1.0f });
