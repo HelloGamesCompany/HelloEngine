@@ -6,6 +6,7 @@
 #include "ModelRenderManager.h"
 #include "LayerGame.h"
 #include "ModuleLayers.h"
+#include "GameObject.h"
 
 std::map<std::string, MeshCacheData> MeshImporter::loadedMeshes;
 Assimp::Importer MeshImporter::importer;
@@ -128,13 +129,15 @@ void MeshImporter::ProcessNewMesh(aiMesh* mesh, const aiScene* scene)
 	// TODO: Load texture data 
 
 	// Load into a Mesh object
-	MeshRenderComponent* newMeshComponent = new MeshRenderComponent();
+	GameObject* newGameObject = new GameObject(Application::Instance()->layers->rootGameObject, "Mesh");
+
+	MeshRenderComponent* newMeshComponent = new MeshRenderComponent(newGameObject);
 
 	newMeshComponent->InitAsNewMesh(vertices, indices);
 
 	// TODO: Generate a GameObject with a RenderMeshComponent
-	LayerGame* game = (LayerGame*)Application::Instance()->layers->layers[LayersID::GAME];//TEMPORAL CODE
-	game->meshComponentTest.push_back(newMeshComponent);
+	//LayerGame* game = (LayerGame*)Application::Instance()->layers->layers[LayersID::GAME];//TEMPORAL CODE
+	//game->meshComponentTest.push_back(newMeshComponent);
 }
 
 void MeshImporter::ProcessLoadedNode(aiNode* node, const aiScene* scene, uint firstMeshID)
@@ -146,8 +149,10 @@ void MeshImporter::ProcessLoadedNode(aiNode* node, const aiScene* scene, uint fi
 	for (unsigned int i = 0; i < node->mNumMeshes; i++)
 	{
 		// Create a GameObject with a MeshRenderComponent that represents the Mesh
-		MeshRenderComponent newMeshRender;
-		newMeshRender.InitAsLoadedMesh(meshID++);
+		GameObject* newGameObject = new GameObject(Application::Instance()->layers->rootGameObject, "Mesh");
+
+		MeshRenderComponent* newMeshRender = new MeshRenderComponent(newGameObject);
+		newMeshRender->InitAsLoadedMesh(meshID++);
 	}
 
 	for (unsigned int i = 0; i < node->mNumChildren; i++)

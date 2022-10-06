@@ -6,7 +6,7 @@
 #include "RenderManager.h"
 #include "Mesh.h"
 
-MeshRenderComponent::MeshRenderComponent()
+MeshRenderComponent::MeshRenderComponent(GameObject* gameObject) : Component(gameObject)
 {
 }
 
@@ -78,7 +78,7 @@ void MeshRenderComponent::InitAsLoadedMesh(uint meshID)
 void MeshRenderComponent::InitAsNewMesh(std::vector<Vertex>& vertices, std::vector<uint>& indices)
 {
 	Mesh newMesh;
-	newMesh.InitAsMesh(vertices, indices, { 1.0f,1.0f,1.0f }, { 10.0f,10.0f,10.0f });
+	newMesh.InitAsMesh(vertices, indices, { 1.0f,1.0f,1.0f }, { 1.0f,1.0f,1.0f });
 
 	_meshID = Application::Instance()->renderer3D->modelRender.GetMapSize() + 2;
 	RenderManager* manager = Application::Instance()->renderer3D->modelRender.GetRenderManager(_meshID); // Create a renderManager.

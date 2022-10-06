@@ -1,6 +1,7 @@
 #pragma once
 #include "Module.h"
 #include "Layer.h"
+#include "GameObject.h"
 
 enum LayersID
 {
@@ -29,7 +30,15 @@ public:
 
 	bool CleanUp() override;
 
+	uint AddGameObject(GameObject* go);
+
 public:
 	Layer* layers[(uint)LayersID::MAX] = { nullptr };
+
+	uint IDcounter = 1;
+
+	GameObject* rootGameObject = nullptr;
+
+	std::map<uint, GameObject*> gameObjects;
 };
 

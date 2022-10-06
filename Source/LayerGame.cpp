@@ -4,6 +4,7 @@
 #include "ModuleWindow.h"
 #include "MeshImporter.h"
 
+
 LayerGame::LayerGame()
 {
 	
@@ -15,13 +16,14 @@ LayerGame::~LayerGame()
 
 void LayerGame::Start()
 {
-	MeshImporter::LoadMesh("Assets/BakerHouse.fbx");
+
+
+	//MeshImporter::LoadMesh("Assets/BakerHouse.fbx");
 	//MeshImporter::LoadMesh("Assets/backpack/backpack.obj");
 	/*MeshRenderComponent* cube = new MeshRenderComponent();
 	cube->InitAsDefaultCube();
 
 	meshComponentTest.push_back(cube);*/
-
 }
 
 void LayerGame::PreUpdate()
@@ -40,8 +42,4 @@ void LayerGame::PostUpdate()
 
 void LayerGame::CleanUp()
 {
-	for (int i = 0; i < meshComponentTest.size(); i++)
-	{
-		RELEASE(meshComponentTest[i]);
-	}
 }

@@ -13,6 +13,14 @@ ModuleLayers::~ModuleLayers()
 
 bool ModuleLayers::Start()
 {
+    rootGameObject = new GameObject(nullptr, "Root", "None");
+
+    GameObject* go1 = new GameObject(rootGameObject, "go1", "go1");
+    GameObject* go2 = new GameObject(rootGameObject, "go2", "go2");
+
+    GameObject* go21 = new GameObject(go2, "go21", "go21");
+
+
     layers[(uint)LayersID::EDITOR] = new LayerEditor();
     layers[(uint)LayersID::GAME] = new LayerGame();
 
@@ -67,5 +75,12 @@ bool ModuleLayers::CleanUp()
        if (layers[i]) layers[i]->CleanUp();
        RELEASE(layers[i]);
     }
+    RELEASE(rootGameObject);
     return true;
+}
+
+uint ModuleLayers::AddGameObject(GameObject* go)
+{
+    gameObjects[IDcounter] = go;
+    return IDcounter++;
 }
