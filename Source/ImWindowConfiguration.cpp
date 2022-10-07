@@ -29,8 +29,6 @@ ImWindowConfiguration::ImWindowConfiguration() : ImWindow()
 
 	frameLimit = &app->frameCap;
 
-	bool r = ModuleFiles::S_Exists("");
-
 	//std::cout <<  << std::endl;
 }
 
@@ -89,8 +87,6 @@ void ImWindowConfiguration::Update()
 
 		if (ImGui::CollapsingHeader("Hardware", ImGuiTreeNodeFlags_DefaultOpen))
 		{
-			ImGui::TextWrapped(std::to_string(ImGui::GetIO().Framerate).c_str());
-
 			ImGui::TextWrapped("CPU Count: "); ImGui::SameLine();
 			ImGui::TextColored(ImVec4(255, 255, 0, 255), std::to_string(countCPU).c_str());
 

@@ -21,14 +21,31 @@ public:
 	static bool S_AddPathToFileSystem(const std::string path);
 
 	/// <summary>
-	/// Read dir = /Output
+	/// Read directory => /Output
 	/// </summary>
 	/// <param name="filePath">: path/file.ext</param>
 	/// <param name="buffer">: buffer where store binary file info</param>
 	/// <returns></returns>
-	static uint S_Load(std::string filePath, char** buffer);
+	static uint S_Load(const std::string filePath, char** buffer);
 
-	static uint S_Save(std::string filePath, char* buffer, uint size, bool append);
+	static uint S_Save(const std::string filePath, char* buffer, uint size, bool append);
+
+	/// <summary>
+	/// 
+	/// </summary>
+	/// <param name="src">: PATH WITH NAME!!!</param>
+	/// <param name="des">: JUST PATH!!!</param>
+	/// <param name="replace">: Replace file if is aldready exist</param>
+	/// <returns></returns>
+	static uint S_Copy(const std::string src, const std::string des, bool replace = true);
+
+	/// <summary>
+	/// 
+	/// </summary>
+	/// <param name="file"></param>
+	/// <param name="getExtention">: If you want to get the extension</param>
+	/// <returns></returns>
+	static std::string GetFileName(const std::string file, bool getExtension = true);
 };
 
 #endif // !__MODULE_PHYSFS_H__

@@ -7,12 +7,12 @@
 	</window>
 	<renderer>
 		<vsync value="true" />
-		<framerate value="90" />
+		<framerate value="60" />
 	</renderer>
 	<openGL>
-		<depthTest value="true" tag="0x1801" />
+		<depthTest value="false" tag="0x1801" />
 		<cullFace value="false" tag="0x0B44" />
-		<lighting value="true" tag="0x0B50" />
+		<lighting value="false" tag="0x0B50" />
 		<colorMaterial value="true" tag="0x0B57" />
 		<texture2D value="true" tag="0x0DE1" />
 		<blend value="true" tag="0x0BE2" />

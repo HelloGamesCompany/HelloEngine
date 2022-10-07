@@ -56,7 +56,7 @@ void LayerEditor::Start()
 	// Setup font
 	char* buf = nullptr;
 
-	uint bufSize = ModuleFiles::S_Load("Resources/Fonts/font.ttf", &buf);
+	uint bufSize = ModuleFiles::S_Load("Resources/Editor/Fonts/font.ttf", &buf);
 
 	// ImGui will delete buf memory when close application, so no need realease here
 	io.Fonts->AddFontFromMemoryTTF(buf, bufSize, 14.0f, NULL);
