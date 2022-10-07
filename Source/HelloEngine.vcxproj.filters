@@ -178,9 +178,6 @@
     <ClCompile Include="External\MathGeoLib\include\Geometry\TriangleMesh.cpp">
       <Filter>External\MathGeoLib</Filter>
     </ClCompile>
-    <ClCompile Include="glmath.cpp">
-      <Filter>Others</Filter>
-    </ClCompile>
     <ClCompile Include="MeshRenderComponent.cpp">
       <Filter>Components</Filter>
     </ClCompile>
@@ -229,6 +226,7 @@
     <ClCompile Include="MeshImporter.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Component.cpp" />
+    <ClCompile Include="glmath.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Module.h">
@@ -492,9 +490,6 @@
     <ClInclude Include="External\MathGeoLib\include\Geometry\TriangleMesh.h">
       <Filter>External\MathGeoLib</Filter>
     </ClInclude>
-    <ClInclude Include="glmath.h">
-      <Filter>Others</Filter>
-    </ClInclude>
     <ClInclude Include="MeshRenderComponent.h">
       <Filter>Components</Filter>
     </ClInclude>
@@ -555,6 +550,7 @@
     <ClInclude Include="MeshImporter.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Component.h" />
+    <ClInclude Include="glmath.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="External\imgui\vulkan\generate_spv.sh">
