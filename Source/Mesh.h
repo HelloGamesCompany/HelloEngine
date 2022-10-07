@@ -32,15 +32,23 @@ public:
 
 	void CleanUp();
 
+	void SetPosition(float3 pos);
+	void SetScale(float3 s);
+	void SetRotation(float3 rot);
+
+	void SetTransform(float3 pos, float3 s, float3 rot);
+
+	void SetUpdateTrue() { _updateMatrix = true; } // Debugging function! Should be deleted.
+
 	float3 rotation;
 	float3 scale;
 	float3 position;
 
 	std::vector<Vertex>* _vertices = nullptr;
 	std::vector<uint>* _indices = nullptr;
-	float4x4 modelMatrix;
+	float4x4 modelMatrix = modelMatrix.identity;
 private:
-
+	bool _updateMatrix = false;
 };
 
 #endif // !__PRIMITIVE_H__

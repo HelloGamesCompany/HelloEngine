@@ -96,16 +96,22 @@ void Mesh::InitAsSphere(float3 position, float3 scale)
 
 void Mesh::Update()
 {
+	if (!_updateMatrix) return;
+
 	// Update Model matrix. This information will be used later by the RenderManager.
 	modelMatrix.SetIdentity();
 	modelMatrix = modelMatrix.Scale(scale.x, scale.y, scale.z).ToFloat4x4() * modelMatrix;
 
+	float3 tempRotation = rotation;
+
 	math::Quat rot;
-	rot = rot.FromEulerXYZ(rotation.x, rotation.y, rotation.z);
+	rot = rot.FromEulerZYX(math::DegToRad(tempRotation.z), math::DegToRad(tempRotation.y), math::DegToRad(tempRotation.x));
 
 	modelMatrix = rot * modelMatrix;
 	modelMatrix = modelMatrix.Translate(position.x, position.y, position.z).ToFloat4x4() * modelMatrix;
 	modelMatrix.Transpose();
+
+	_updateMatrix = false;
 }
 
 void Mesh::InitAsMesh(std::vector<Vertex>& vertices, std::vector<uint>& indices, float3 pos, float3 scale)
@@ -122,4 +128,30 @@ void Mesh::CleanUp()
 {	
 	RELEASE(_vertices);
 	RELEASE(_indices);
+}
+
+void Mesh::SetPosition(float3 pos)
+{
+	this->position = pos;
+	_updateMatrix = true;
+}
+
+void Mesh::SetScale(float3 s)
+{
+	this->scale = s;	
+	_updateMatrix = true;
+}
+
+void Mesh::SetRotation(float3 rot)
+{
+	this->rotation = rot;
+	_updateMatrix = true;
+}
+
+void Mesh::SetTransform(float3 pos, float3 s, float3 rot)
+{
+	this->position = pos;
+	this->scale = s;
+	this->rotation = rot;
+	_updateMatrix = true;
 }

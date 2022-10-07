@@ -139,7 +139,10 @@ void LayerEditor::PostUpdate()
 	ImGui::End();
 
 	ImGui::Begin("Rotation testing");
-	ImGui::DragFloat3("Rotation: ", &Application::Instance()->layers->go21->GetComponent<MeshRenderComponent>()->GetMesh().rotation.x, 0.1f);
+	if (ImGui::DragFloat3("Rotation: ", &Application::Instance()->layers->go21->GetComponent<MeshRenderComponent>()->GetMesh().rotation.x, 0.1f))
+	{
+		Application::Instance()->layers->go21->GetComponent<MeshRenderComponent>()->GetMesh().SetUpdateTrue();
+	}
 	ImGui::End();
 
     for (int i = 0; i < (uint)ImWindowID::MAX; i++)
