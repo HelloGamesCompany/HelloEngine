@@ -18,12 +18,12 @@ bool ModuleLayers::Start()
     GameObject* go1 = new GameObject(rootGameObject, "go1", "go1");
     GameObject* go2 = new GameObject(rootGameObject, "go2", "go2");
 
-    GameObject* go21 = new GameObject(go2, "go21", "go21");
+    go21 = new GameObject(go2, "go21", "go21");
 
     go21->AddComponent<MeshRenderComponent>()->InitAsDefaultCube();
-    go21->GetComponent<MeshRenderComponent>()->GetMesh().position = { 5.0f, 3.0f, 1.0f };
-    go21->GetComponent<MeshRenderComponent>()->GetMesh().scale = { 5.0f, 3.0f, 1.0f };
-
+    go21->GetComponent<MeshRenderComponent>()->GetMesh().SetPosition({ 1.0f, 1.0f, 1.0f });
+    go21->GetComponent<MeshRenderComponent>()->GetMesh().SetScale({ 5.0f, 3.0f, 1.0f });
+    go21->GetComponent<MeshRenderComponent>()->GetMesh().SetRotation({ 120.0f, 50.0f, 20.0f });
 
     layers[(uint)LayersID::EDITOR] = new LayerEditor();
     layers[(uint)LayersID::GAME] = new LayerGame();

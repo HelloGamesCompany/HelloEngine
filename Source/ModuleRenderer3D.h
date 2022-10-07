@@ -26,14 +26,13 @@ public:
 
 	void ToggleOpenGLWireframe(bool enable);
 
-	float* GetProjectionMatrix() { return &ProjectionMatrix.M[0]; };
+	float* GetProjectionMatrix() { return &ProjectionMatrix; };
 
 public:
 	ModelRenderManager modelRender;
 	FrameBuffer frameBuffer;
-	Light lights[MAX_LIGHTS];
+	//Light lights[MAX_LIGHTS];
 	SDL_GLContext context;
-	mat3x3 NormalMatrix;
 	mat4x4 ModelMatrix, ViewMatrix, ProjectionMatrix;
 	bool isVSync = false;
 };
