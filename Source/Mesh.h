@@ -1,7 +1,6 @@
 #ifndef __PRIMITIVE_H__
 #define __PRIMITIVE_H__
 
-#include "glmath.h"
 #include "Color.h"
 #include "Math/float3.h"
 
