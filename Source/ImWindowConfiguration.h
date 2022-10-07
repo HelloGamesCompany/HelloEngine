@@ -4,9 +4,12 @@
 
 #include "ImWindow.h"
 
-#include "CycleArray.hpp"
-
 class Application;
+
+namespace Htool
+{
+	template<class T> class CycleArray;
+}
 
 using CArrayF = Htool::CycleArray<float>;
 
@@ -24,7 +27,7 @@ private:
 	Application* app = nullptr;
 
 	// Need more testing, but i think is good
-	CArrayF* frames = nullptr;
+	Htool::CycleArray<float>* frames = nullptr;
 
 	bool fullscreen = false;
 

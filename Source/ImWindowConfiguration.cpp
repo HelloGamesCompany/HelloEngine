@@ -4,6 +4,7 @@
 #include "ModuleRenderer3D.h"
 #include "ModuleInput.h"
 #include "ModuleFiles.h"
+#include "CycleArray.hpp"
 
 ImWindowConfiguration::ImWindowConfiguration() : ImWindow()
 {
@@ -28,8 +29,6 @@ ImWindowConfiguration::ImWindowConfiguration() : ImWindow()
 	isVSyncOn = &app->renderer3D->isVSync;
 
 	frameLimit = &app->frameCap;
-
-	//std::cout <<  << std::endl;
 }
 
 ImWindowConfiguration::~ImWindowConfiguration()

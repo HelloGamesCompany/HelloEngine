@@ -1,4 +1,5 @@
 #pragma once
+
 #include "ImWindow.h"
 class ImWindowConsole : public ImWindow
 {
@@ -8,4 +9,8 @@ public:
 	~ImWindowConsole();
 
 	void Update() override;
+
+private:
+
+	bool _isCollapse = false;
 };
