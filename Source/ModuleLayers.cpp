@@ -20,6 +20,10 @@ bool ModuleLayers::Start()
 
     GameObject* go21 = new GameObject(go2, "go21", "go21");
 
+    go21->AddComponent<MeshRenderComponent>()->InitAsDefaultCube();
+    go21->GetComponent<MeshRenderComponent>()->GetMesh().position = { 5.0f, 3.0f, 1.0f };
+    go21->GetComponent<MeshRenderComponent>()->GetMesh().scale = { 5.0f, 3.0f, 1.0f };
+
 
     layers[(uint)LayersID::EDITOR] = new LayerEditor();
     layers[(uint)LayersID::GAME] = new LayerGame();

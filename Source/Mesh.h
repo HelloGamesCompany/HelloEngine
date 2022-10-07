@@ -38,6 +38,7 @@ public:
 
 	std::vector<Vertex>* _vertices;
 	std::vector<uint>* _indices;
+	float4x4 matrix;
 	mat4x4 modelMatrix;
 private:
 

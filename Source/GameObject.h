@@ -25,7 +25,7 @@ public:
 		{
 			if (typeid(*component) != typeid(T)) continue;
 	
-			if (counter == index) return component;
+			if (counter == index) return (T*)component;
 			else counter++;
 		}
 	}

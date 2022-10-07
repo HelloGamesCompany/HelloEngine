@@ -54,13 +54,10 @@ void RenderManager::Draw()
     memcpy(ptr, &modelMatrices.front(), modelMatrices.size() * sizeof(mat4x4));
     glUnmapBuffer(GL_ARRAY_BUFFER);
 
-
     // Update View and Projection matrices
     basicShader->Bind();
     basicShader->SetMatFloat4v("view", Application::Instance()->camera->GetViewMatrix());
     basicShader->SetMatFloat4v("projection", Application::Instance()->renderer3D->GetProjectionMatrix());
-
-    totalVertices;
 
     // Draw
     glDrawElementsInstanced(GL_TRIANGLES, totalIndices.size(), GL_UNSIGNED_INT, 0, modelMatrices.size());
