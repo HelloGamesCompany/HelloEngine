@@ -36,7 +36,6 @@ ImWindowConfiguration::~ImWindowConfiguration()
 	RELEASE(frames);
 }
 
-// ESTO LLAMA DESPUES DE SU DESTRUCTOR??????
 void ImWindowConfiguration::Update()
 {
 	std::string framerate = "Framerate: " + std::to_string(ImGui::GetIO().Framerate);

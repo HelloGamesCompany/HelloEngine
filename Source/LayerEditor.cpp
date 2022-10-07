@@ -47,11 +47,29 @@ void LayerEditor::Start()
 	{
 		style.WindowRounding = 10.0f;
 		style.Colors[ImGuiCol_WindowBg].w = 0.0f;
+		style.Colors[ImGuiCol_Border] = ImVec4(255, 1, 1, 255);
 	}
 
-	const char* glsl_version = "#version 130";
-	ImGui_ImplSDL2_InitForOpenGL(Application::Instance()->window->window, Application::Instance()->renderer3D->context);
-	ImGui_ImplOpenGL3_Init(glsl_version);
+	// Setup ImGui style
+	style.Colors[ImGuiCol_ScrollbarBg] = style.Colors[ImGuiCol_TableHeaderBg] = ImVec4(0.1f, 0.1f, 0.1f, 1);
+
+	style.Colors[ImGuiCol_WindowBg] = ImVec4(0.15f, 0.15f, 0.15f, 1);
+
+	style.Colors[ImGuiCol_TabUnfocusedActive] = ImVec4(0.2f, 0.2f, 0.2f, 1);
+
+	style.Colors[ImGuiCol_FrameBg] = style.Colors[ImGuiCol_Button] = style.Colors[ImGuiCol_TitleBg] = style.Colors[ImGuiCol_Header] = 
+		style.Colors[ImGuiCol_TitleBgActive]= style.Colors[ImGuiCol_TabUnfocused]= style.Colors[ImGuiCol_Tab]=
+		ImVec4(0.25f, 0.25f, 0.25f, 1);
+
+	style.Colors[ImGuiCol_FrameBgHovered] = ImVec4(0.3f, 0.3f, 0.3f, 1);
+
+	style.Colors[ImGuiCol_ButtonHovered] = style.Colors[ImGuiCol_HeaderHovered] = style.Colors[ImGuiCol_FrameBgActive]=
+		style.Colors[ImGuiCol_DockingPreview] = style.Colors[ImGuiCol_TabActive] = style.Colors[ImGuiCol_SliderGrab] =
+		ImVec4(0.4f, 0.4f, 0.4f, 1);
+
+	style.Colors[ImGuiCol_ButtonActive] = style.Colors[ImGuiCol_TitleBgCollapsed] = style.Colors[ImGuiCol_SliderGrabActive] =
+		style.Colors[ImGuiCol_HeaderActive] = style.Colors[ImGuiCol_TabHovered] = style.Colors[ImGuiCol_CheckMark] =
+		ImVec4(0.65f, 0.65f, 0.65f, 1);
 
 	// Setup font
 	char* buf = nullptr;
@@ -60,6 +78,11 @@ void LayerEditor::Start()
 
 	// ImGui will delete buf memory when close application, so no need realease here
 	io.Fonts->AddFontFromMemoryTTF(buf, bufSize, 14.0f, NULL);
+
+	// Init OpenGL
+	const char* glsl_version = "#version 130";
+	ImGui_ImplSDL2_InitForOpenGL(Application::Instance()->window->window, Application::Instance()->renderer3D->context);
+	ImGui_ImplOpenGL3_Init(glsl_version);
 
 	// Create ImGui editor windows.
     imWindows[(uint)ImWindowID::CONFIGURATION] = new ImWindowConfiguration();
