@@ -27,13 +27,15 @@ namespace Htool
 		// Get first element direccion memory
 		T* front();
 
+		void reset();
+
 		int size();
 
 	private:
 		T* _arr = nullptr;
 
 		// halfSize = real size
-		int _size = 0, _capacity = 0;
+		int _size = 0, _capacity = 0, _currentSize = 0;
 
 		int _frontIndex = 0, _inputIndex = 0;
 
@@ -74,6 +76,8 @@ namespace Htool
 	{
 		_arr[_inputIndex] = var;
 
+		if (_currentSize < _size) ++_currentSize;
+
 		// Copy the second zone value to the first zone
 		if (_inputIndex >= _size) _arr[_inputIndex - _size] = var;
 
@@ -100,8 +104,14 @@ namespace Htool
 	}
 
 	template<class T>
+	inline void CycleArray<T>::reset()
+	{
+		_currentSize = 0;
+	}
+
+	template<class T>
 	inline int CycleArray<T>::size()
 	{
-		return _size;
+		return _currentSize;
 	}
 }

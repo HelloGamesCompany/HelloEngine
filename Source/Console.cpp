@@ -1,21 +1,58 @@
 #include "Headers.h"
-#include "Console.h"
 #include "ModuleFiles.h"
+#include "CycleArray.hpp"
 
-std::string Console::_buffer = "";
+CArrayS* Console::_buffers = nullptr;
+std::map<std::string, uint> Console::_buffersMap;
 std::string Console::_logCountText = "";
 size_t Console::_logCount = 0;
 
+void Console::S_Init()
+{
+    static bool isInited = false;
+
+    if (isInited) return;
+
+    _buffers = new CArrayS(3000);
+}
+
+void Console::S_Close()
+{
+    static bool isClosed = false;
+
+    if (isClosed) return;
+
+    RELEASE(_buffers);
+}
+
 void Console::S_Log(const std::string text)
 {
-    _buffer += "\nDebug.Log: " + text;
+    _buffers->push_back("\nDebug.Log: " + text);
+
+    auto it = _buffersMap.find(text);
+
+    if (it == _buffersMap.end()) _buffersMap.insert(std::make_pair(text, 0));
+
+    _buffersMap[text]++;
 
     _logCount++;
 }
 
-const char* Console::S_GetLog()
+uint Console::S_GetLog(std::string** buffer)
 {
-    return _buffer.c_str();
+    *buffer = _buffers->front();
+
+    return _buffers->size();
+}
+
+std::map<std::string, uint> Console::S_GetCollapseLog()
+{
+    return _buffersMap;
+}
+
+std::string Console::S_GetLastLog()
+{
+    return *(_buffers->front() + _buffers->size());
 }
 
 const char* Console::S_GetLogCounts()
@@ -27,9 +64,9 @@ const char* Console::S_GetLogCounts()
 
 void Console::S_ClearLog()
 {
-    S_SaveLog();
+    _buffers->reset();
 
-    _buffer.clear();
+    _buffersMap.clear();
 
     _logCountText.clear();
 
@@ -38,5 +75,5 @@ void Console::S_ClearLog()
 
 void Console::S_SaveLog()
 {
-    ModuleFiles::S_Save("Assets/debug.txt", _buffer.data(), _buffer.size(), false);
+    //ModuleFiles::S_Save("Assets/debug.txt", _buffer.data(), _buffer.size(), false);
 }
