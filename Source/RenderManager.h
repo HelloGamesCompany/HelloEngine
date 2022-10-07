@@ -32,7 +32,7 @@ private:
 	std::map<uint, Mesh> meshes;
 	std::vector<Vertex> totalVertices;
 	std::vector<uint> totalIndices;
-	std::vector<mat4x4> modelMatrices;
+	std::vector<float4x4> modelMatrices;
 
 	uint VAO = 0; // Vertex Array
 	uint VBO = 0; // Vertex buffer

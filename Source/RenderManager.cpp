@@ -51,7 +51,7 @@ void RenderManager::Draw()
     // Update Model matrices
     glBindBuffer(GL_ARRAY_BUFFER, MBO);
     void* ptr = glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY);
-    memcpy(ptr, &modelMatrices.front(), modelMatrices.size() * sizeof(mat4x4));
+    memcpy(ptr, &modelMatrices.front(), modelMatrices.size() * sizeof(float4x4));
     glUnmapBuffer(GL_ARRAY_BUFFER);
 
     // Update View and Projection matrices
@@ -112,22 +112,25 @@ void RenderManager::CreateBuffers()
     glGenBuffers(1, &MBO);
 
     glBindBuffer(GL_ARRAY_BUFFER, MBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(mat4x4) * 1000000, nullptr, GL_DYNAMIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(float4x4) * 1000000, nullptr, GL_DYNAMIC_DRAW);
 
     glBindVertexArray(VAO);
 
+    std::cout << sizeof(mat4x4) << std::endl;
+    std::cout << sizeof(float4x4) << std::endl;
+
     // You can't pass an entire matrix, so we go row by row.
     glEnableVertexAttribArray(1);
-    glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, sizeof(mat4x4), (void*)0);
+    glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, sizeof(float4x4), (void*)0);
 
     glEnableVertexAttribArray(2);
-    glVertexAttribPointer(2, 4, GL_FLOAT, GL_FALSE, sizeof(mat4x4), (void*)sizeof(float4));
+    glVertexAttribPointer(2, 4, GL_FLOAT, GL_FALSE, sizeof(float4x4), (void*)sizeof(float4));
 
     glEnableVertexAttribArray(3);
-    glVertexAttribPointer(3, 4, GL_FLOAT, GL_FALSE, sizeof(mat4x4), (void*)(sizeof(float4) * 2));
+    glVertexAttribPointer(3, 4, GL_FLOAT, GL_FALSE, sizeof(float4x4), (void*)(sizeof(float4) * 2));
 
     glEnableVertexAttribArray(4);
-    glVertexAttribPointer(4, 4, GL_FLOAT, GL_FALSE, sizeof(mat4x4), (void*)(sizeof(float4) * 3));
+    glVertexAttribPointer(4, 4, GL_FLOAT, GL_FALSE, sizeof(float4x4), (void*)(sizeof(float4) * 3));
 
     // Set instancing interval
     glVertexAttribDivisor(1, 1);

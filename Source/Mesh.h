@@ -36,10 +36,9 @@ public:
 	float3 scale;
 	float3 position;
 
-	std::vector<Vertex>* _vertices;
-	std::vector<uint>* _indices;
-	float4x4 matrix;
-	mat4x4 modelMatrix;
+	std::vector<Vertex>* _vertices = nullptr;
+	std::vector<uint>* _indices = nullptr;
+	float4x4 modelMatrix;
 private:
 
 };

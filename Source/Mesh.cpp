@@ -19,7 +19,7 @@ inline void push_indices(std::vector<uint>& indices, int sectors, int r, int s)
 
 Mesh::Mesh()
 {
-	matrix.SetIdentity();
+	modelMatrix.SetIdentity();
 }
 
 Mesh::~Mesh()
@@ -93,12 +93,10 @@ void Mesh::InitAsSphere(float3 position, float3 scale)
 void Mesh::Update()
 {
 	// Update Model matrix. This information will be used later by the RenderManager.
-	matrix.SetIdentity();
-	matrix = matrix.Scale(scale.x, scale.y, scale.z).ToFloat4x4() * matrix;
-	matrix = matrix.Translate(position.x, position.y, position.z).ToFloat4x4() * matrix;
-	modelMatrix.translate(position.x, position.y, position.z);
-	modelMatrix.scale(scale.x, scale.y, scale.z);
-
+	modelMatrix.SetIdentity();
+	modelMatrix = modelMatrix.Scale(scale.x, scale.y, scale.z).ToFloat4x4() * modelMatrix;
+	modelMatrix = modelMatrix.Translate(position.x, position.y, position.z).ToFloat4x4() * modelMatrix;
+	modelMatrix.Transpose();
 }
 
 void Mesh::InitAsMesh(std::vector<Vertex>& vertices, std::vector<uint>& indices, float3 pos, float3 scale)

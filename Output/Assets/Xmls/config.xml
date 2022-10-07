@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <config>
 	<window>
-		<width value="1280" />
-		<height value="720" />
+		<width value="1680" />
+		<height value="979" />
 		<brightness value="1" />
 	</window>
 	<renderer>
@@ -11,7 +11,7 @@
 	</renderer>
 	<openGL>
 		<depthTest value="true" tag="0x1801" />
-		<cullFace value="true" tag="0x0B44" />
+		<cullFace value="false" tag="0x0B44" />
 		<lighting value="true" tag="0x0B50" />
 		<colorMaterial value="true" tag="0x0B57" />
 		<texture2D value="true" tag="0x0DE1" />
