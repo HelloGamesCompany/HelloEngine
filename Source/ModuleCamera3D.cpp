@@ -8,12 +8,12 @@ ModuleCamera3D::ModuleCamera3D(bool start_enabled) : Module(start_enabled)
 {
 	CalculateViewMatrix();
 
-	X = vec3(1.0f, 0.0f, 0.0f);
-	Y = vec3(0.0f, 1.0f, 0.0f);
-	Z = vec3(0.0f, 0.0f, 1.0f);
+	X = float3(1.0f, 0.0f, 0.0f);
+	Y = float3(0.0f, 1.0f, 0.0f);
+	Z = float3(0.0f, 0.0f, 1.0f);
 
-	Position = vec3(0.0f, 0.0f, 5.0f);
-	Reference = vec3(0.0f, 0.0f, 0.0f);
+	Position = float3(0.0f, 0.0f, 5.0f);
+	Reference = float3(0.0f, 0.0f, 0.0f);
 }
 
 ModuleCamera3D::~ModuleCamera3D()
@@ -42,70 +42,77 @@ UpdateStatus ModuleCamera3D::Update()
 	{
 		std::cout << "Cam Pos: x(" << Position.x << ") y(" << Position.y << ") z(" << Position.z << ")" << std::endl;
 	}
-	if (target != nullptr)
-	{
-		/*Look(target->GetObserverPos(), target->GetPosition());*/
-	}
-	else
-	{
+
 	//	// Implement a debug camera with keys and mouse
 	//	// Now we can make this movememnt frame rate independant!
 
-		vec3 newPos(0, 0, 0);
-		float speed = 3.0f * app->fps;
-		if (app->input->GetKey(SDL_SCANCODE_LSHIFT) == KEY_REPEAT)
-			speed = 10.0f * app->fps;
+	float3 newPos(0, 0, 0);
+	float speed = 3.0f * app->fps;
+	if (app->input->GetKey(SDL_SCANCODE_LSHIFT) == KEY_REPEAT)
+		speed = 10.0f * app->fps;
 
 	//	if (app->input->GetKey(SDL_SCANCODE_R) == KEY_REPEAT) newPos.y += speed;
 	//	if (app->input->GetKey(SDL_SCANCODE_F) == KEY_REPEAT) newPos.y -= speed;
 
-		if (app->input->GetKey(SDL_SCANCODE_W) == KEY_REPEAT) newPos -= Z * speed;
-		if (app->input->GetKey(SDL_SCANCODE_S) == KEY_REPEAT) newPos += Z * speed;
+	if (app->input->GetKey(SDL_SCANCODE_W) == KEY_REPEAT) newPos -= Z * speed;
+	if (app->input->GetKey(SDL_SCANCODE_S) == KEY_REPEAT) newPos += Z * speed;
 
 
-		if (app->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT) newPos -= X * speed;
-		if (app->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT) newPos += X * speed;
+	if (app->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT) newPos -= X * speed;
+	if (app->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT) newPos += X * speed;
 
-		Position += newPos;
-		Reference += newPos;
+	Position += newPos;
+	Reference += newPos;
 
-		// Mouse motion ----------------
+	// Mouse motion ----------------
 
-		if (app->input->GetMouseButton(SDL_BUTTON_RIGHT) == KEY_REPEAT)
+	if (app->input->GetMouseButton(SDL_BUTTON_RIGHT) == KEY_REPEAT)
+	{
+		int dx = -app->input->GetMouseXMotion();
+		int dy = -app->input->GetMouseYMotion();
+
+		float Sensitivity = 0.25f;
+
+		Position -= Reference;
+
+		if (dx != 0)
 		{
-			int dx = -app->input->GetMouseXMotion();
-			int dy = -app->input->GetMouseYMotion();
+			float DeltaX = math::DegToRad((float)dx * Sensitivity);
 
-			float Sensitivity = 0.25f;
+			math::Quat rotation;
+			rotation.SetFromAxisAngle({ 0.0f, 1.0f, 0.0f }, DeltaX);
 
-			Position -= Reference;
-
-			if (dx != 0)
-			{
-				float DeltaX = (float)dx * Sensitivity;
-
-				X = rotate(X, DeltaX, vec3(0.0f, 1.0f, 0.0f));
-				Y = rotate(Y, DeltaX, vec3(0.0f, 1.0f, 0.0f));
-				Z = rotate(Z, DeltaX, vec3(0.0f, 1.0f, 0.0f));
-			}
-
-			if (dy != 0)
-			{
-				float DeltaY = (float)dy * Sensitivity;
-
-				Y = rotate(Y, DeltaY, X);
-				Z = rotate(Z, DeltaY, X);
-
-				if (Y.y < 0.0f)
-				{
-					Z = vec3(0.0f, Z.y > 0.0f ? 1.0f : -1.0f, 0.0f);
-					Y = cross(Z, X);
-				}
-			}
-
-			Position = Reference + Z * length(Position);
+			X = rotation * X;
+			Y = rotation * Y;
+			Z = rotation * Z;
+			/*X = rotate(X, DeltaX, vec3(0.0f, 1.0f, 0.0f));
+			Y = Rotate(Y, DeltaX, vec3(0.0f, 1.0f, 0.0f));
+			Z = Rotate(Z, DeltaX, vec3(0.0f, 1.0f, 0.0f));*/
 		}
+
+		if (dy != 0)
+		{
+			float DeltaY = math::DegToRad((float)dy * Sensitivity);
+
+			math::Quat rotation;
+			rotation.SetFromAxisAngle(X, DeltaY);
+
+			Y = rotation * Y;
+			Z = rotation * Z;
+
+			/*Y = rotate(Y, DeltaY, X);
+			Z = rotate(Z, DeltaY, X);*/
+
+			if (Y.y < 0.0f)
+			{
+				Z = float3(0.0f, Z.y > 0.0f ? 1.0f : -1.0f, 0.0f);
+				Y = Cross(Z, X);
+			}
+		}
+
+		Position = Reference + Z * Position.Length();
 	}
+
 
 	// Recalculate matrix -------------
 	CalculateViewMatrix();
@@ -114,14 +121,14 @@ UpdateStatus ModuleCamera3D::Update()
 }
 
 // -----------------------------------------------------------------
-void ModuleCamera3D::Look(const vec3 &Position, const vec3 &Reference, bool RotateAroundReference)
+void ModuleCamera3D::Look(const float3&Position, const float3&Reference, bool RotateAroundReference)
 {
 	this->Position = Position;
 	this->Reference = Reference;
 
-	Z = normalize(Position - Reference);
-	X = normalize(cross(vec3(0.0f, 1.0f, 0.0f), Z));
-	Y = cross(Z, X);
+	Z = (Position - Reference).Normalized();
+	X = (float3(0.0f, 1.0f, 0.0f).Cross(Z)).Normalized();
+	Y = Cross(Z, X);
 
 	if(!RotateAroundReference)
 	{
@@ -133,19 +140,21 @@ void ModuleCamera3D::Look(const vec3 &Position, const vec3 &Reference, bool Rota
 }
 
 // -----------------------------------------------------------------
-void ModuleCamera3D::LookAt( const vec3 &Spot)
+void ModuleCamera3D::LookAt( const float3&Spot)
 {
 	Reference = Spot;
-
-	Z = normalize(Position - Reference);
-	X = normalize(cross(vec3(0.0f, 1.0f, 0.0f), Z));
-	Y = cross(Z, X);
+	Z = (Position - Reference).Normalized();
+	X = (float3(0.0f, 1.0f, 0.0f).Cross(Z)).Normalized();	
+	Y = Cross(Z, X);
+	// Z = normalize(Position - Reference);
+	// X = normalize(cross(vec3(0.0f, 1.0f, 0.0f), Z));
+	// Y = cross(Z, X);
 
 	CalculateViewMatrix();
 }
 
 // -----------------------------------------------------------------
-void ModuleCamera3D::Move(const vec3 &Movement)
+void ModuleCamera3D::Move(const float3 &Movement)
 {
 	Position += Movement;
 	Reference += Movement;
@@ -156,23 +165,12 @@ void ModuleCamera3D::Move(const vec3 &Movement)
 // -----------------------------------------------------------------
 float* ModuleCamera3D::GetViewMatrix()
 {
-	return &ViewMatrix.M[0];
-}
-
-void ModuleCamera3D::SetTarget(Vehicle* tg, vec3 offset)
-{
-	target = tg;
-	this->offset = offset;
-}
-
-void ModuleCamera3D::RemoveTarget()
-{
-	target = nullptr;
+	return &ViewMatrix.v[0][0];
 }
 
 // -----------------------------------------------------------------
 void ModuleCamera3D::CalculateViewMatrix()
 {
-	ViewMatrix = mat4x4(X.x, Y.x, Z.x, 0.0f, X.y, Y.y, Z.y, 0.0f, X.z, Y.z, Z.z, 0.0f, -dot(X, Position), -dot(Y, Position), -dot(Z, Position), 1.0f);
-	ViewMatrixInverse = inverse(ViewMatrix);
+	ViewMatrix = float4x4(X.x, Y.x, Z.x, 0.0f, X.y, Y.y, Z.y, 0.0f, X.z, Y.z, Z.z, 0.0f, -Dot(X, Position), -Dot(Y, Position), -Dot(Z, Position), 1.0f);
+	ViewMatrixInverse = ViewMatrix.Inverted();
 }

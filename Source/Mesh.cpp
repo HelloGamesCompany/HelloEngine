@@ -1,6 +1,10 @@
 #include "Headers.h"
 #include "Mesh.h"
 
+#define _USE_MATH_DEFINES
+
+#include <math.h>
+
 inline void push_indices(std::vector<uint>& indices, int sectors, int r, int s) 
 {
 	int curRow = r * sectors;

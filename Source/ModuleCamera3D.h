@@ -21,13 +21,10 @@ public:
 	UpdateStatus Update();
 	bool CleanUp();
 
-	void Look(const vec3 &Position, const vec3 &Reference, bool RotateAroundReference = false);
-	void LookAt(const vec3 &Spot);
-	void Move(const vec3 &Movement);
+	void Look(const float3&Position, const float3&Reference, bool RotateAroundReference = false);
+	void LookAt(const float3&Spot);
+	void Move(const float3&Movement);
 	float* GetViewMatrix();
-
-	void SetTarget(Vehicle* tg, vec3 offset);
-	void RemoveTarget();
 
 	static void Tets() { std::cout << "hello" << std::endl; }
 
@@ -37,14 +34,12 @@ private:
 
 public:
 	
-	vec3 X, Y, Z, Position, Reference;
+	float3 X, Y, Z, Position, Reference;
 
 private:
 
-	mat4x4 ViewMatrix, ViewMatrixInverse;
-
-	Vehicle* target = nullptr;
-	vec3 offset;
+	float4x4 ViewMatrix, ViewMatrixInverse;
+	float3 offset;
 };
 
 #endif // !__MODULECAMERA3D_H__
