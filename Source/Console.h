@@ -1,5 +1,8 @@
 #pragma once
 
+#define LOG_PATH "Resources/Editor/debug.txt"
+#define MAX_CONSOLE_LOGS 3000
+
 namespace Htool
 {
 	template<class T> class CycleArray;

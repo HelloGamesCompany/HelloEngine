@@ -31,9 +31,18 @@ void ImWindowConsole::Update()
 
 	//ImGui::SetNextWindowSize(ImVec2(520, 600), ImGuiCond_FirstUseEver);
 
+	//ImGui::ShowDemoWindow();
+
 	if (ImGui::Begin(windowName.c_str(), &isEnabled, ImGuiWindowFlags_NoCollapse))
 	{
-		if (ImGui::SmallButton("Collaps"))
+		if (ImGui::SmallButton("Save Log"))
+		{
+			CSL::S_SaveLog();
+		}ImGui::SameLine();
+
+		//if (ImGui::Selectable("Collapse", &_isCollapse, 0, ImVec2(50, 0))); ImGui::SameLine();
+
+		if (ImGui::SmallButton("Collapse"))
 		{
 			_isCollapse = !_isCollapse;
 		}ImGui::SameLine();
@@ -43,7 +52,7 @@ void ImWindowConsole::Update()
 			CSL::S_ClearLog();
 		}ImGui::SameLine();
 
-		ImGui::Text(CSL::S_GetLogCounts());
+		ImGui::Text("Total Logs: %s", CSL::S_GetLogCounts());
 
 		ImGui::Separator();
 
@@ -51,7 +60,7 @@ void ImWindowConsole::Update()
 		const float footer_height_to_reserve = ImGui::GetStyle().ItemSpacing.y + ImGui::GetFrameHeightWithSpacing();
 		ImGui::BeginChild("ScrollingRegion", ImVec2(0, -footer_height_to_reserve), false, ImGuiWindowFlags_HorizontalScrollbar);
 
-		if(!_isCollapse)
+		if(!_isCollapse) // if is not collapse
 		{
 			std::string* buffer = nullptr;
 
@@ -62,13 +71,13 @@ void ImWindowConsole::Update()
 				ImGui::Text((*buffer).c_str());
 			}
 		}
-		else
+		else // if is collapse
 		{
-			auto map = CSL::S_GetCollapseLog();
+			auto logs = CSL::S_GetCollapseLog();
 
-			for (auto m:map)
+			for (auto log: logs)
 			{
-				ImGui::Text((m.first + "\tcount: " + std::to_string(m.second)).c_str());
+				ImGui::Text((log.first + "\tcount: " + std::to_string(log.second)).c_str());
 			}
 		}
 

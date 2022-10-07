@@ -9,11 +9,11 @@ size_t Console::_logCount = 0;
 
 void Console::S_Init()
 {
-    static bool isInited = false;
+    static bool isInit = false;
 
-    if (isInited) return;
+    if (isInit) return;
 
-    _buffers = new CArrayS(3000);
+    _buffers = new CArrayS(MAX_CONSOLE_LOGS);
 }
 
 void Console::S_Close()
@@ -75,5 +75,22 @@ void Console::S_ClearLog()
 
 void Console::S_SaveLog()
 {
-    //ModuleFiles::S_Save("Assets/debug.txt", _buffer.data(), _buffer.size(), false);
+    std::string buffer="DEBUG INFO:\n";
+
+    // Read all context in the _buffers and put into buffer
+    auto* b = _buffers->front();
+
+    for (uint i = 0; i < _buffers->size(); i++, b++) buffer += *b;
+
+    // Convert string buffer to char* buffer
+    uint n = buffer.size() + 1;
+
+    char* arr = new char[n];
+
+    strcpy_s(arr, n, buffer.c_str());
+
+    // Save buffer info and release unnecessary memory
+    ModuleFiles::S_Save(LOG_PATH, arr, n, false);
+
+    RELEASE_ARRAY(arr);
 }
