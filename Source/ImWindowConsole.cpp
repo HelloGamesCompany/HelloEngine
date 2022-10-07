@@ -15,7 +15,7 @@ ImWindowConsole::~ImWindowConsole()
 
 void ImWindowConsole::Update()
 {
-	Console::Log("hello");
+	Console::S_Log("hello");
 
 	static int num = 0;
 
@@ -30,10 +30,10 @@ void ImWindowConsole::Update()
 
 		if (ImGui::SmallButton("Clear"))
 		{
-			Console::ClearLog();
+			Console::S_ClearLog();
 		}ImGui::SameLine();
 
-		ImGui::Text(Console::GetLogCounts());
+		ImGui::Text(Console::S_GetLogCounts());
 
 		ImGui::Separator();
 
@@ -41,7 +41,7 @@ void ImWindowConsole::Update()
 		const float footer_height_to_reserve = ImGui::GetStyle().ItemSpacing.y + ImGui::GetFrameHeightWithSpacing();
 		ImGui::BeginChild("ScrollingRegion", ImVec2(0, -footer_height_to_reserve), false, ImGuiWindowFlags_HorizontalScrollbar);
 
-		ImGui::Text(Console::GetLog());
+		ImGui::Text(Console::S_GetLog());
 
 		ImGui::EndChild();
 	}

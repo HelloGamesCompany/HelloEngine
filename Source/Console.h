@@ -3,13 +3,15 @@
 class Console
 {
 public:
-	static void Log(const std::string text);
+	static void S_Log(const std::string text);
 
-	static const char* GetLog();
+	static const char* S_GetLog();
 
-	static const char* GetLogCounts();
+	static const char* S_GetLogCounts();
 
-	static void ClearLog();
+	static void S_ClearLog();
+
+	static void S_SaveLog();
 
 private:
 	static std::string _buffer;
