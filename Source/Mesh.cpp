@@ -99,6 +99,11 @@ void Mesh::Update()
 	// Update Model matrix. This information will be used later by the RenderManager.
 	modelMatrix.SetIdentity();
 	modelMatrix = modelMatrix.Scale(scale.x, scale.y, scale.z).ToFloat4x4() * modelMatrix;
+
+	math::Quat rot;
+	rot = rot.FromEulerXYZ(rotation.x, rotation.y, rotation.z);
+
+	modelMatrix = rot * modelMatrix;
 	modelMatrix = modelMatrix.Translate(position.x, position.y, position.z).ToFloat4x4() * modelMatrix;
 	modelMatrix.Transpose();
 }

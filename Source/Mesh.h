@@ -32,6 +32,7 @@ public:
 
 	void CleanUp();
 
+	float3 rotation;
 	float3 scale;
 	float3 position;
 

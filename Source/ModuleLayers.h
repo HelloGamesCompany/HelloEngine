@@ -40,5 +40,6 @@ public:
 	GameObject* rootGameObject = nullptr;
 
 	std::map<uint, GameObject*> gameObjects;
+	GameObject* go21 = nullptr;
 };
 

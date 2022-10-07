@@ -138,13 +138,9 @@ void LayerEditor::PostUpdate()
 	ImGui::Image((ImTextureID)Application::Instance()->renderer3D->frameBuffer.GetTexture(), ImGui::GetContentRegionAvail(), ImVec2(0, 1), ImVec2(1, 0));
 	ImGui::End();
 
-	//ImGui::Begin("Scene testing");
-	//ImGui::DragFloat3("Sphere position", &game->sphereRender.GetMesh().position.x, 0.1f);
-	//ImGui::DragFloat3("Sphere scale", &game->sphereRender.GetMesh().scale.x, 0.1f);
-	//ImGui::Separator();
-	//ImGui::DragFloat3("Cube position", &game->meshRender.GetMesh().position.x, 0.1f);
-	//ImGui::DragFloat3("Cube scale", &game->meshRender.GetMesh().scale.x, 0.1f);
-	//ImGui::End();
+	ImGui::Begin("Rotation testing");
+	ImGui::DragFloat3("Rotation: ", &Application::Instance()->layers->go21->GetComponent<MeshRenderComponent>()->GetMesh().rotation.x, 0.1f);
+	ImGui::End();
 
     for (int i = 0; i < (uint)ImWindowID::MAX; i++)
     {
