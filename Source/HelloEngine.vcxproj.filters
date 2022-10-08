@@ -227,6 +227,7 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="glmath.cpp" />
+    <ClCompile Include="TextureImporter.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Module.h">
@@ -551,6 +552,7 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="glmath.h" />
+    <ClInclude Include="TextureImporter.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="External\imgui\vulkan\generate_spv.sh">
