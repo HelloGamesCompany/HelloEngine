@@ -11,6 +11,7 @@ enum class ImWindowID
 	ABOUT,
 	OPENGL,
 	CONSOLE,
+	PROJECT,
 	MAX,
 };
 

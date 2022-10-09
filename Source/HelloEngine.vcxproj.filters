@@ -225,9 +225,14 @@
     </ClCompile>
     <ClCompile Include="MeshImporter.cpp" />
     <ClCompile Include="GameObject.cpp" />
-    <ClCompile Include="Component.cpp" />
     <ClCompile Include="glmath.cpp" />
     <ClCompile Include="TextureImporter.cpp" />
+    <ClCompile Include="ImWindowProject.cpp">
+      <Filter>Modules\Layer\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="Component.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Module.h">
@@ -550,9 +555,14 @@
     </ClInclude>
     <ClInclude Include="MeshImporter.h" />
     <ClInclude Include="GameObject.h" />
-    <ClInclude Include="Component.h" />
     <ClInclude Include="glmath.h" />
     <ClInclude Include="TextureImporter.h" />
+    <ClInclude Include="ImWindowProject.h">
+      <Filter>Modules\Layer\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="Component.h">
+      <Filter>Components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="External\imgui\vulkan\generate_spv.sh">

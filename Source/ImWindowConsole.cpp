@@ -31,8 +31,6 @@ void ImWindowConsole::Update()
 
 	//ImGui::SetNextWindowSize(ImVec2(520, 600), ImGuiCond_FirstUseEver);
 
-	//ImGui::ShowDemoWindow();
-
 	if (ImGui::Begin(windowName.c_str(), &isEnabled, ImGuiWindowFlags_NoCollapse))
 	{
 		if (ImGui::SmallButton("Save Log"))

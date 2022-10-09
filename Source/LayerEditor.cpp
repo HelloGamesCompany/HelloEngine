@@ -9,6 +9,7 @@
 #include "ImWindowAbout.h"
 #include "ImWindowOpenGL.h"
 #include "ImWindowConsole.h"
+#include "ImWindowProject.h"
 
 #include "ModuleLayers.h"
 #include "LayerGame.h"
@@ -28,7 +29,7 @@ void LayerEditor::Start()
 	// Setup Dear ImGui context
 	IMGUI_CHECKVERSION();
 	ImGui::CreateContext();
-	ImGuiIO& io = ImGui::GetIO(); (void)io;
+	ImGuiIO& io = ImGui::GetIO();
 	io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;       // Enable Keyboard Controls
 	//io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
 	io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;           // Enable Docking
@@ -71,6 +72,8 @@ void LayerEditor::Start()
 		style.Colors[ImGuiCol_HeaderActive] = style.Colors[ImGuiCol_TabHovered] = style.Colors[ImGuiCol_CheckMark] =
 		ImVec4(0.65f, 0.65f, 0.65f, 1);
 
+	style.Colors[ImGuiCol_MenuBarBg] = ImVec4(0.95f, 0.95f, 0.95f, 1);
+
 	// Setup font
 	char* buf = nullptr;
 
@@ -89,6 +92,7 @@ void LayerEditor::Start()
     imWindows[(uint)ImWindowID::ABOUT] = new ImWindowAbout();
 	imWindows[(uint)ImWindowID::OPENGL] = new ImWindowOpenGL();
 	imWindows[(uint)ImWindowID::CONSOLE] = new ImWindowConsole();
+	imWindows[(uint)ImWindowID::PROJECT] = new ImWindowProject();
 
 	game = (LayerGame*)Application::Instance()->layers->layers[(uint)LayersID::GAME];
 }
@@ -97,6 +101,11 @@ void LayerEditor::PreUpdate()
 {
 
 }
+
+void LayerEditor::Update()
+{
+}
+
 
 void LayerEditor::PostUpdate()
 {
@@ -109,13 +118,18 @@ void LayerEditor::PostUpdate()
 
 	if (ImGui::BeginMainMenuBar())
 	{
+		ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.05f, 0.05f, 0.05f, 1));
+
+		ImGui::PushStyleColor(ImGuiCol_PopupBg, ImVec4(0.95f, 0.95f, 0.95f, 1));
+
 		if (ImGui::BeginMenu("Application"))
 		{
 			if (ImGui::MenuItem("Close Appplication"))
 			{
 				// TODO: Exit application
 			}
-			ImGui::EndMenu();
+
+			ImGui::EndMenu();	
 		}
 
 		if (ImGui::BeginMenu("Windows"))
@@ -142,6 +156,8 @@ void LayerEditor::PostUpdate()
 
 			ImGui::EndMenu();
 		}
+
+		ImGui::PopStyleColor(2);
 
 		ImGui::EndMainMenuBar();
 	}
@@ -180,7 +196,7 @@ void LayerEditor::PostUpdate()
 	// Update and Render additional Platform Windows
 	// (Platform functions may change the current OpenGL context, so we save/restore it to make it easier to paste this code elsewhere.
 	//  For this specific demo app we could also call SDL_GL_MakeCurrent(window, gl_context) directly)
-	ImGuiIO& io = ImGui::GetIO(); (void)io;
+	ImGuiIO& io = ImGui::GetIO();
 	if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
 	{
 		SDL_Window* backup_current_window = SDL_GL_GetCurrentWindow();
@@ -189,10 +205,6 @@ void LayerEditor::PostUpdate()
 		ImGui::RenderPlatformWindowsDefault();
 		SDL_GL_MakeCurrent(backup_current_window, backup_current_context);
 	}
-}
-
-void LayerEditor::Update()
-{
 }
 
 void LayerEditor::CleanUp()
