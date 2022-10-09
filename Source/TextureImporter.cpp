@@ -17,10 +17,18 @@ uint TextureImporter::ImportTexture(std::string path)
 	ilGenImages(1, &ImgId);
 	ilBindImage(ImgId);
 	ilLoadImage(path.c_str());
-	ilBindImage(ImgId);
 
-	GLuint texture;
-	texture = ilutGLBindTexImage();
+	GLuint texture = ilutGLBindTexImage();
+
+	glBindTexture(GL_TEXTURE_2D, texture);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glGenerateMipmap(GL_TEXTURE_2D);
+	glBindTexture(GL_TEXTURE_2D, 0);
+
+	ilDeleteImages(1, &ImgId);
 
 	Texture engineTexture;
 	engineTexture.OpenGLID = texture;

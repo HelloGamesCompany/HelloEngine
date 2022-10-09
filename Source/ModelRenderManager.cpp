@@ -16,7 +16,7 @@ void ModelRenderManager::Init()
 {
 	ilInit();
 	ilutInit();
-
+	ilutRenderer(ILUT_OPENGL);
 	textureManager = new TextureManager();
 }
 

@@ -58,7 +58,7 @@ void RenderManager::Draw()
     // Update TextureIDs
     glBindBuffer(GL_ARRAY_BUFFER, TBO);
     void* ptr2 = glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY);
-    memcpy(ptr2, &textureIDs.front(), textureIDs.size() * sizeof(float));
+    memcpy(ptr2, &textureIDs.front(), textureIDs.size() * sizeof(int));
     glUnmapBuffer(GL_ARRAY_BUFFER);
 
     // Update View and Projection matrices
@@ -66,21 +66,22 @@ void RenderManager::Draw()
     basicShader->SetMatFloat4v("view", Application::Instance()->camera->GetViewMatrix());
     basicShader->SetMatFloat4v("projection", Application::Instance()->renderer3D->GetProjectionMatrix());
 
-    glActiveTexture(GL_TEXTURE0);
-    uint id = TextureManager::loadedTextures[meshes.begin()->second.textureID].OpenGLID;
-    glBindTexture(GL_TEXTURE_2D, id);
-    glUniform1i(glGetUniformLocation(basicShader->programID, "testTexture"), 0);
+    //glActiveTexture(GL_TEXTURE0);
+    //uint id = TextureManager::loadedTextures[meshes.begin()->second.textureID].OpenGLID;
+    //glBindTexture(GL_TEXTURE_2D, id);
+    //glUniform1i(glGetUniformLocation(basicShader->programID, "testTexture"), 0);
 
-   // for (int i = 0; i < TextureManager::bindedTextures; i++)
-   // {
-   //     /*glActiveTexture(GL_TEXTURE0 + i);
-   //     uint id = TextureManager::loadedTextures[meshes.begin()->second.textureID].OpenGLID;
-   //     glBindTexture(GL_TEXTURE_2D, id);
-   //     glUniform1i(glGetUniformLocation(basicShader->programID, "testTexture"), i);*/
+    for (int i = 0; i < TextureManager::bindedTextures; i++)
+    {
+   /*     glActiveTexture(GL_TEXTURE0 + i);
+        uint id = TextureManager::loadedTextures[meshes.begin()->second.textureID].OpenGLID;
+        glBindTexture(GL_TEXTURE_2D, id);*/
+        uint location = glGetUniformLocation(basicShader->programID, "testTexture");
+        glUniform1i(glGetUniformLocation(basicShader->programID, "testTexture"), i);
 
-   ///*     uint location = glGetUniformLocation(basicShader->programID, ("textures[" + std::to_string(i) + "]").c_str());
-   //     glUniform1i(location, i);*/
-   // }
+        //uint location = glGetUniformLocation(basicShader->programID, ("textures[" + std::to_string(i) + "]").c_str());
+        //glUniform1i(location, i);
+    }
 
     // Draw
     glDrawElementsInstanced(GL_TRIANGLES, totalIndices.size(), GL_UNSIGNED_INT, 0, modelMatrices.size());
