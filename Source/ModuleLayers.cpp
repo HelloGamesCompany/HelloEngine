@@ -3,6 +3,7 @@
 #include "LayerEditor.h"
 #include "LayerGame.h"
 #include "MeshImporter.h"
+#include "TextureImporter.h"
 
 ModuleLayers::ModuleLayers()
 {
@@ -17,6 +18,16 @@ bool ModuleLayers::Start()
     rootGameObject = new GameObject(nullptr, "Root", "None");
 
     MeshImporter::LoadMesh("Assets/BakerHouse.fbx");
+    uint bakerTexture = TextureImporter::ImportTexture("Assets/Baker_house.png");
+
+    for (auto& gameObject : gameObjects)
+    {
+        MeshRenderComponent* rc = gameObject.second->GetComponent<MeshRenderComponent>();
+        if (rc)
+        {
+            rc->GetMesh().textureID = bakerTexture;
+        }
+    }
 
     layers[(uint)LayersID::EDITOR] = new LayerEditor();
     layers[(uint)LayersID::GAME] = new LayerGame();

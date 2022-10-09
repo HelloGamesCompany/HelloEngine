@@ -49,7 +49,7 @@ public:
 	std::vector<uint>* _indices = nullptr;
 	float4x4 modelMatrix = modelMatrix.identity;
 	
-	float OpenGLTextureID = 0;
+	float OpenGLTextureID = -1;
 	float textureID = -1;
 private:
 	bool _updateMatrix = false;
