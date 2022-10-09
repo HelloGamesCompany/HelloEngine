@@ -1,7 +1,5 @@
 #pragma once
 
-#include <iostream>
-
 namespace Htool 
 {
 	template<class T>

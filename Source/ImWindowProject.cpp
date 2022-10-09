@@ -88,5 +88,4 @@ void ImWindowProject::Update()
       
 	}
 	ImGui::End(); 
-
 }
