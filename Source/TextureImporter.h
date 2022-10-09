@@ -2,7 +2,6 @@
 class TextureImporter
 {
 public:
-	
-	static void ImportTexture(std::string path);
+	static uint ImportTexture(std::string path);
 };
 

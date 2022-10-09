@@ -126,6 +126,11 @@ void MeshImporter::ProcessNewMesh(aiMesh* mesh, const aiScene* scene, GameObject
 
 	// TODO: Load texture data 
 
+	if (mesh->mMaterialIndex >= 0)
+	{
+		aiMaterial* material = scene->mMaterials[mesh->mMaterialIndex];
+	}
+
 	// Load into a Mesh object
 	GameObject* newGameObject = new GameObject(parent, "Mesh");
 	newGameObject->AddComponent<MeshRenderComponent>()->InitAsNewMesh(vertices, indices);

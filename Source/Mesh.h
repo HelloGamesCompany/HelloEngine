@@ -11,6 +11,7 @@ struct Vertex
 	float3 position;
 	float3 normals;
 	float2 texCoords;
+	float textureID;
 };
 
 //TODO: Every Mesh should have an ID that identifies it's original form, so they can be distributed on diferent render managers.
@@ -47,6 +48,9 @@ public:
 	std::vector<Vertex>* _vertices = nullptr;
 	std::vector<uint>* _indices = nullptr;
 	float4x4 modelMatrix = modelMatrix.identity;
+	
+	float OpenGLTextureID = 0;
+	float textureID = -1;
 private:
 	bool _updateMatrix = false;
 };

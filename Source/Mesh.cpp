@@ -1,5 +1,6 @@
 #include "Headers.h"
 #include "Mesh.h"
+#include "TextureManager.h"
 
 #define _USE_MATH_DEFINES
 
@@ -96,6 +97,11 @@ void Mesh::InitAsSphere(float3 position, float3 scale)
 
 void Mesh::Update()
 {
+	if (TextureManager::loadedTextures.find(textureID) != TextureManager::loadedTextures.end())
+	{
+		OpenGLTextureID = TextureManager::BindTexture(textureID);
+	}
+
 	if (!_updateMatrix) return;
 
 	// Update Model matrix. This information will be used later by the RenderManager.

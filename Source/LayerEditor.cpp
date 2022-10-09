@@ -177,12 +177,12 @@ void LayerEditor::PostUpdate()
 	ImGui::Image((ImTextureID)Application::Instance()->renderer3D->frameBuffer.GetTexture(), ImGui::GetContentRegionAvail(), ImVec2(0, 1), ImVec2(1, 0));
 	ImGui::End();
 
-	ImGui::Begin("Rotation testing");
-	if (ImGui::DragFloat3("Rotation: ", &Application::Instance()->layers->go21->GetComponent<MeshRenderComponent>()->GetMesh().rotation.x, 0.1f))
-	{
-		Application::Instance()->layers->go21->GetComponent<MeshRenderComponent>()->GetMesh().SetUpdateTrue();
-	}
-	ImGui::End();
+	//ImGui::Begin("Rotation testing");
+	//if (ImGui::DragFloat3("Rotation: ", &Application::Instance()->layers->go21->GetComponent<MeshRenderComponent>()->GetMesh().rotation.x, 0.1f))
+	//{
+	//	Application::Instance()->layers->go21->GetComponent<MeshRenderComponent>()->GetMesh().SetUpdateTrue();
+	//}
+	//ImGui::End();
 
     for (int i = 0; i < (uint)ImWindowID::MAX; i++)
     {

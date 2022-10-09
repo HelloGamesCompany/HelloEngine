@@ -43,6 +43,7 @@ void RenderManager::Draw()
     {
         mesh.second.Update();
         modelMatrices.push_back(mesh.second.modelMatrix); // Insert updated matrices
+        textureIDs.push_back(mesh.second.OpenGLTextureID);
     }
 
     // Draw using Dynamic Geometry
@@ -52,6 +53,12 @@ void RenderManager::Draw()
     glBindBuffer(GL_ARRAY_BUFFER, MBO);
     void* ptr = glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY);
     memcpy(ptr, &modelMatrices.front(), modelMatrices.size() * sizeof(float4x4));
+    glUnmapBuffer(GL_ARRAY_BUFFER);
+
+    // Update TextureIDs
+    glBindBuffer(GL_ARRAY_BUFFER, TBO);
+    void* ptr2 = glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY);
+    memcpy(ptr2, &textureIDs.front(), textureIDs.size() * sizeof(float));
     glUnmapBuffer(GL_ARRAY_BUFFER);
 
     // Update View and Projection matrices
@@ -66,6 +73,7 @@ void RenderManager::Draw()
     
     // Reset model matrices.
     modelMatrices.clear();
+    textureIDs.clear();
 }
 
 uint RenderManager::AddMesh(Mesh& mesh)
@@ -116,9 +124,6 @@ void RenderManager::CreateBuffers()
 
     glBindVertexArray(VAO);
 
-    std::cout << sizeof(mat4x4) << std::endl;
-    std::cout << sizeof(float4x4) << std::endl;
-
     // You can't pass an entire matrix, so we go row by row.
     glEnableVertexAttribArray(1);
     glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, sizeof(float4x4), (void*)0);
@@ -137,6 +142,17 @@ void RenderManager::CreateBuffers()
     glVertexAttribDivisor(2, 1);
     glVertexAttribDivisor(3, 1);
     glVertexAttribDivisor(4, 1);
+
+    // Create TextureID buffer object
+    glGenBuffers(1, &TBO);
+
+    glBindBuffer(GL_ARRAY_BUFFER, TBO);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 100, nullptr, GL_DYNAMIC_DRAW);
+
+    glEnableVertexAttribArray(7);
+    glVertexAttribPointer(7, 1, GL_FLOAT, GL_FALSE, sizeof(float), (void*)0);
+
+    glVertexAttribDivisor(7, 1);
 
     glBindVertexArray(0);
 }

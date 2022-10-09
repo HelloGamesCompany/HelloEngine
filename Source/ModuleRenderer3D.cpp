@@ -115,6 +115,8 @@ bool ModuleRenderer3D::Init()
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	}
 
+	modelRender.Init();
+
 	// Projection matrix for
 	OnResize(app->window->width, app->window->height);
 

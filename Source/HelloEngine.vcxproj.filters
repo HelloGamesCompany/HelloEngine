@@ -233,6 +233,8 @@
     <ClCompile Include="Component.cpp">
       <Filter>Components</Filter>
     </ClCompile>
+    <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="TextureManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Module.h">
@@ -566,6 +568,8 @@
     <ClInclude Include="CommandArray.hpp">
       <Filter>Tools</Filter>
     </ClInclude>
+    <ClInclude Include="Texture.h" />
+    <ClInclude Include="TextureManager.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="External\imgui\vulkan\generate_spv.sh">

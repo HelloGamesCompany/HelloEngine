@@ -33,11 +33,13 @@ private:
 	std::vector<Vertex> totalVertices;
 	std::vector<uint> totalIndices;
 	std::vector<float4x4> modelMatrices;
+	std::vector<float> textureIDs;
 
 	uint VAO = 0; // Vertex Array
 	uint VBO = 0; // Vertex buffer
 	uint IBO = 0; // Elements buffer object
 	uint MBO = 0; // ModelMatrix buffer object
+	uint TBO = 0; // TextureID buffer object 
 
 	int IDcounter = 0;
 };

@@ -1,5 +1,7 @@
 #include "Headers.h"
 #include "ModelRenderManager.h"
+#include "IL/il.h"
+#include "IL/ilut.h"
 
 ModelRenderManager::ModelRenderManager()
 {
@@ -7,6 +9,15 @@ ModelRenderManager::ModelRenderManager()
 
 ModelRenderManager::~ModelRenderManager()
 {
+	RELEASE(textureManager);
+}
+
+void ModelRenderManager::Init()
+{
+	ilInit();
+	ilutInit();
+
+	textureManager = new TextureManager();
 }
 
 RenderManager* ModelRenderManager::GetRenderManager(uint ID)
