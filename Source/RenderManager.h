@@ -33,7 +33,7 @@ private:
 	std::vector<Vertex> totalVertices;
 	std::vector<uint> totalIndices;
 	std::vector<float4x4> modelMatrices;
-	std::vector<float> textureIDs;
+	std::vector<int> textureIDs;
 
 	uint VAO = 0; // Vertex Array
 	uint VBO = 0; // Vertex buffer
