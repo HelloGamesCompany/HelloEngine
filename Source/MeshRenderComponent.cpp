@@ -59,7 +59,7 @@ void MeshRenderComponent::InitAsDefaultSphere(float3 position, float3 scale)
 
 void MeshRenderComponent::InitAsLoadedMesh(uint meshID)
 {
-	_meshID = meshID;
+	_meshID = meshID + 2;
 
 	RenderManager* manager = Application::Instance()->renderer3D->modelRender.GetRenderManager(_meshID);
 

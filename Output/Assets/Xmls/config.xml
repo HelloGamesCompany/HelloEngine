@@ -7,7 +7,7 @@
 	</window>
 	<renderer>
 		<vsync value="false" />
-		<framerate value="60" />
+		<framerate value="120" />
 	</renderer>
 	<openGL>
 		<depthTest value="true" tag="0x1801" />

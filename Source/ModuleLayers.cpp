@@ -17,7 +17,10 @@ bool ModuleLayers::Start()
 {
     rootGameObject = new GameObject(nullptr, "Root", "None");
 
-    MeshImporter::LoadMesh("Assets/BakerHouse.fbx");
+    for (int i = 0; i < 10; i++)
+    {
+        MeshImporter::LoadMesh("Assets/BakerHouse.fbx");
+    }
     //uint bakerTexture = TextureImporter::ImportTexture("Assets/Baker_house.png");
     uint bakerTexture = TextureImporter::ImportTextureSTBI("Assets/Baker_house.png");
 
@@ -25,7 +28,11 @@ bool ModuleLayers::Start()
     {
         MeshRenderComponent* rc = nullptr;
         rc = gameObject.second->GetComponent<MeshRenderComponent>();
-        if (rc!= nullptr) rc->GetMesh().textureID = bakerTexture;
+        if (rc != nullptr)
+        {
+            rc->GetMesh().SetPosition({ (float)(rand() % 100), 1.0f, 1.0f });
+            rc->GetMesh().textureID = bakerTexture;
+        }
     }
 
     layers[(uint)LayersID::EDITOR] = new LayerEditor();

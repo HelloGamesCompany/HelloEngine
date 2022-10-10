@@ -34,7 +34,7 @@ private:
 	static void ProcessNewMesh(aiMesh* mesh, const aiScene* scene, GameObject* parent);
 
 	//ProcessLoaded creates a new Instance inside a RenderManager for each Mesh
-	static void ProcessLoadedNode(aiNode* node, const aiScene* scene, uint firstMeshID, GameObject* parent = nullptr);
+	static void ProcessLoadedNode(aiNode* node, const aiScene* scene, uint& firstMeshID, GameObject* parent = nullptr);
 
 	static std::map<std::string, MeshCacheData> loadedMeshes;
 	static Assimp::Importer importer;

@@ -155,7 +155,7 @@ void RenderManager::CreateBuffers()
     glGenBuffers(1, &TBO);
 
     glBindBuffer(GL_ARRAY_BUFFER, TBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 100, nullptr, GL_DYNAMIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 10000, nullptr, GL_DYNAMIC_DRAW);
     
     glBindVertexArray(VAO);
 
