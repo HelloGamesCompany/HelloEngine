@@ -19,7 +19,7 @@ bool ModuleLayers::Start()
 
     MeshImporter::LoadMesh("Assets/BakerHouse.fbx");
     //uint bakerTexture = TextureImporter::ImportTexture("Assets/Baker_house.png");
-    uint bakerTexture = TextureImporter::CheckerImage();
+    uint bakerTexture = TextureImporter::ImportTextureSTBI("Assets/Baker_house.png");
 
     for (auto& gameObject : gameObjects)
     {
