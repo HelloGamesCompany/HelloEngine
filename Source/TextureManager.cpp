@@ -14,7 +14,7 @@ float TextureManager::BindTexture(uint texture)
 		return -1;
 
 	glActiveTexture(GL_TEXTURE0 + bindedTextures);
-	glBindTexture(GL_TEXTURE0 + bindedTextures, texture);
+	glBindTexture(GL_TEXTURE_2D, texture);
 
 	return bindedTextures++;
 }

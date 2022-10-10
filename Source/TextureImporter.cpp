@@ -75,6 +75,12 @@ uint TextureImporter::CheckerImage()
 
 uint TextureImporter::ImportTextureSTBI(std::string path)
 {
+	//Check if the given texture has been already loaded
+	if (TextureManager::usedPaths.find(path) != TextureManager::usedPaths.end())
+	{
+		return TextureManager::usedPaths[path]; // If this texture path was already loaded, return the loaded texture.
+	}
+
 	unsigned int m_RendererID;
 	std::string m_FilePath;
 	unsigned char* m_LocalBuffer;
@@ -98,5 +104,13 @@ uint TextureImporter::ImportTextureSTBI(std::string path)
 	{
 		stbi_image_free(m_LocalBuffer);
 	}
+
+	Texture engineTexture;
+	engineTexture.OpenGLID = m_RendererID;
+	engineTexture.name = path;
+
+	TextureManager::loadedTextures[m_RendererID] = engineTexture; // Add loaded texture inside TextureManager.
+	TextureManager::usedPaths[path] = m_RendererID;
+
 	return m_RendererID;
 }

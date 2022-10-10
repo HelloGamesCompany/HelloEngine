@@ -43,17 +43,14 @@ void RenderManager::Draw()
     {
         mesh.second.Update();
         modelMatrices.push_back(mesh.second.modelMatrix); // Insert updated matrices
-        textureIDs.push_back((int)mesh.second.OpenGLTextureID);
+        textureIDs.push_back(mesh.second.OpenGLTextureID);
     }
 
     // Update View and Projection matrices
     basicShader->Bind();
     basicShader->SetMatFloat4v("view", Application::Instance()->camera->GetViewMatrix());
     basicShader->SetMatFloat4v("projection", Application::Instance()->renderer3D->GetProjectionMatrix());
-    basicShader->SetInt("testTexture", 5);
-    glActiveTexture(GL_TEXTURE5);
-    glEnable(GL_TEXTURE_2D);
-    glBindTexture(GL_TEXTURE_2D, 2);
+
     // Draw using Dynamic Geometry
     glBindVertexArray(VAO);
 
@@ -66,8 +63,13 @@ void RenderManager::Draw()
     // Update TextureIDs
     glBindBuffer(GL_ARRAY_BUFFER, TBO);
     void* ptr2 = glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY);
-    memcpy(ptr2, &textureIDs.front(), textureIDs.size() * sizeof(int));
+    memcpy(ptr2, &textureIDs.front(), textureIDs.size() * sizeof(float));
     glUnmapBuffer(GL_ARRAY_BUFFER);
+
+    for (int i = 0; i < TextureManager::bindedTextures; i++)
+    {
+        basicShader->SetInt(("textures[" + std::to_string(i) + "]").c_str(), i);
+    }
 
     // Draw
     glDrawElementsInstanced(GL_TRIANGLES, totalIndices.size(), GL_UNSIGNED_INT, 0, modelMatrices.size());
@@ -77,7 +79,7 @@ void RenderManager::Draw()
     // Reset model matrices.
     modelMatrices.clear();
     textureIDs.clear();
-    //TextureManager::UnBindTextures();
+    TextureManager::UnBindTextures();
 }
 
 uint RenderManager::AddMesh(Mesh& mesh)
@@ -147,14 +149,18 @@ void RenderManager::CreateBuffers()
     glVertexAttribDivisor(3, 1);
     glVertexAttribDivisor(4, 1);
 
+    glBindVertexArray(0);
+
     // Create TextureID buffer object
     glGenBuffers(1, &TBO);
 
     glBindBuffer(GL_ARRAY_BUFFER, TBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(int) * 100, nullptr, GL_DYNAMIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 100, nullptr, GL_DYNAMIC_DRAW);
+    
+    glBindVertexArray(VAO);
 
     glEnableVertexAttribArray(7);
-    glVertexAttribPointer(7, 1, GL_FLOAT, GL_FALSE, sizeof(int), (void*)0);
+    glVertexAttribPointer(7, 1, GL_FLOAT, GL_FALSE, sizeof(float), (void*)0);
 
     glVertexAttribDivisor(7, 1);
 

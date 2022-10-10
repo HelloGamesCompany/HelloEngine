@@ -3,13 +3,13 @@ layout (location = 0) in vec3 aPos;
 layout (location = 1) in mat4 model;
 layout (location = 5) in vec3 normals;
 layout (location = 6) in vec2 texCoords;
-layout (location = 7) in int texID;
+layout (location = 7) in float texID;
 
 uniform mat4 view;
 uniform mat4 projection;
 
 out vec2 TextureCoords;
-out int TextureID;
+out float TextureID;
 
 void main()
 {

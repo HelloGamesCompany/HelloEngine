@@ -99,7 +99,7 @@ void Mesh::Update()
 {
 	if (TextureManager::loadedTextures.find(textureID) != TextureManager::loadedTextures.end())
 	{
-		//OpenGLTextureID = TextureManager::BindTexture(textureID);
+		OpenGLTextureID = TextureManager::BindTexture(textureID);
 	}
 
 	if (!_updateMatrix) return;
