@@ -61,6 +61,8 @@ void RenderManager::Draw()
     memcpy(ptr2, &textureIDs.front(), textureIDs.size() * sizeof(int));
     glUnmapBuffer(GL_ARRAY_BUFFER);
 
+    totalVertices;
+
     // Update View and Projection matrices
     basicShader->Bind();
     basicShader->SetMatFloat4v("view", Application::Instance()->camera->GetViewMatrix());
@@ -71,13 +73,18 @@ void RenderManager::Draw()
     //glBindTexture(GL_TEXTURE_2D, id);
     //glUniform1i(glGetUniformLocation(basicShader->programID, "testTexture"), 0);
 
+    uint id = meshes.begin()->second.OpenGLTextureID;
+    glActiveTexture(GL_TEXTURE1);
+    glBindTexture(GL_TEXTURE_2D, id);
+    uint location = glGetUniformLocation(basicShader->programID, "testTexture");
+    glUniform1i(glGetUniformLocation(basicShader->programID, "testTexture"), 1);
+
     for (int i = 0; i < TextureManager::bindedTextures; i++)
     {
    /*     glActiveTexture(GL_TEXTURE0 + i);
         uint id = TextureManager::loadedTextures[meshes.begin()->second.textureID].OpenGLID;
         glBindTexture(GL_TEXTURE_2D, id);*/
-        uint location = glGetUniformLocation(basicShader->programID, "testTexture");
-        glUniform1i(glGetUniformLocation(basicShader->programID, "testTexture"), i);
+       
 
         //uint location = glGetUniformLocation(basicShader->programID, ("textures[" + std::to_string(i) + "]").c_str());
         //glUniform1i(location, i);
