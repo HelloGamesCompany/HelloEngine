@@ -141,9 +141,7 @@ UpdateStatus ModuleRenderer3D::PreUpdate()
 	//for(uint i = 0; i < MAX_LIGHTS; ++i)
 	//	lights[i].Render();
 
-	frameBuffer.Bind();
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+	
 
 	return UpdateStatus::UPDATE_CONTINUE;
 }
@@ -151,8 +149,13 @@ UpdateStatus ModuleRenderer3D::PreUpdate()
 // PostUpdate present buffer to screen
 UpdateStatus ModuleRenderer3D::PostUpdate()
 {
+	frameBuffer.Bind();
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+	glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+
 	Application::Instance()->layers->DrawLayers();
 	modelRender.Draw();
+
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glClearColor(0.2f, 0.3f, 0.3f, 1.0f);

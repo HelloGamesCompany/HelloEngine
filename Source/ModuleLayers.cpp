@@ -18,7 +18,8 @@ bool ModuleLayers::Start()
     rootGameObject = new GameObject(nullptr, "Root", "None");
 
     MeshImporter::LoadMesh("Assets/BakerHouse.fbx");
-    uint bakerTexture = TextureImporter::ImportTexture("Assets/Baker_house.png");
+    //uint bakerTexture = TextureImporter::ImportTexture("Assets/Baker_house.png");
+    uint bakerTexture = TextureImporter::CheckerImage();
 
     for (auto& gameObject : gameObjects)
     {
