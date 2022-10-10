@@ -22,11 +22,9 @@ bool ModuleLayers::Start()
 
     for (auto& gameObject : gameObjects)
     {
-        MeshRenderComponent* rc = gameObject.second->GetComponent<MeshRenderComponent>();
-        if (rc)
-        {
-            rc->GetMesh().textureID = bakerTexture;
-        }
+        MeshRenderComponent* rc = nullptr;
+        rc = gameObject.second->GetComponent<MeshRenderComponent>();
+        if (rc!= nullptr) rc->GetMesh().textureID = bakerTexture;
     }
 
     layers[(uint)LayersID::EDITOR] = new LayerEditor();
