@@ -235,12 +235,15 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="ImGuiUtils.cpp" />
+    <ClCompile Include="ImWindowHierarchy.cpp" />
+    <ClCompile Include="ImWindowInspector.cpp" />
     <ClCompile Include="ImWindowProject.cpp" />
     <ClCompile Include="ImWindowConsole.cpp" />
     <ClCompile Include="ImWindow.cpp" />
     <ClCompile Include="ImWindowAbout.cpp" />
     <ClCompile Include="ImWindowConfiguration.cpp" />
     <ClCompile Include="ImWindowOpenGL.cpp" />
+    <ClCompile Include="ImWindowQuickSave.cpp" />
     <ClCompile Include="JSONParser.cpp" />
     <ClCompile Include="Layer.cpp" />
     <ClCompile Include="LayerGame.cpp" />
@@ -354,12 +357,15 @@
     <ClInclude Include="glmath.h" />
     <ClInclude Include="Headers.h" />
     <ClInclude Include="ImGuiUtils.h" />
+    <ClInclude Include="ImWindowHierarchy.h" />
+    <ClInclude Include="ImWindowInspector.h" />
     <ClInclude Include="ImWindowProject.h" />
     <ClInclude Include="ImWindowConsole.h" />
     <ClInclude Include="ImWindow.h" />
     <ClInclude Include="ImWindowAbout.h" />
     <ClInclude Include="ImWindowConfiguration.h" />
     <ClInclude Include="ImWindowOpenGL.h" />
+    <ClInclude Include="ImWindowQuickSave.h" />
     <ClInclude Include="JSONParser.h" />
     <ClInclude Include="Layer.h" />
     <ClInclude Include="LayerGame.h" />

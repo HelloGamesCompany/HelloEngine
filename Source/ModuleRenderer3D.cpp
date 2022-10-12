@@ -1,5 +1,4 @@
 #include "Headers.h"
-#include "Application.h"
 #include "ModuleRenderer3D.h"
 #include "ModuleWindow.h"
 #include "ModuleCamera3D.h"
@@ -46,11 +45,11 @@ bool ModuleRenderer3D::Init()
 
 	if(ret == true)
 	{
-		//Use Vsync
-		
+		//Use Vsync	
 		XMLNode renderNode = app->xml->GetConfigXML().FindChildBreadth("renderer");
 		isVSync = renderNode.node.child("vsync").attribute("value").as_bool();
 		ToggleVSync(isVSync);
+
 		//Initialize Projection Matrix
 		glMatrixMode(GL_PROJECTION);
 		glLoadIdentity();
@@ -141,8 +140,6 @@ UpdateStatus ModuleRenderer3D::PreUpdate()
 	//for(uint i = 0; i < MAX_LIGHTS; ++i)
 	//	lights[i].Render();
 
-	
-
 	return UpdateStatus::UPDATE_CONTINUE;
 }
 
@@ -210,5 +207,3 @@ void ModuleRenderer3D::ToggleOpenGLWireframe(bool enable)
 	if (enable)glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 	else glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 }
-
-

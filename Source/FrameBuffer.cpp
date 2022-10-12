@@ -1,6 +1,5 @@
 #include "Headers.h"
 #include "FrameBuffer.h"
-#include "Application.h"
 #include "ModuleWindow.h"
 
 FrameBuffer::FrameBuffer()

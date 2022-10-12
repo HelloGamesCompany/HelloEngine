@@ -12,6 +12,9 @@ enum class ImWindowID
 	OPENGL,
 	CONSOLE,
 	PROJECT,
+	HIERARCHY,
+	INSPECTOR,
+	QUICKSAVE,
 	MAX,
 };
 

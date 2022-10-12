@@ -223,20 +223,45 @@
     <ClCompile Include="Console.cpp">
       <Filter>Tools</Filter>
     </ClCompile>
-    <ClCompile Include="MeshImporter.cpp" />
-    <ClCompile Include="GameObject.cpp" />
-    <ClCompile Include="glmath.cpp" />
-    <ClCompile Include="TextureImporter.cpp" />
     <ClCompile Include="ImWindowProject.cpp">
       <Filter>Modules\Layer\Windows</Filter>
     </ClCompile>
     <ClCompile Include="Component.cpp">
       <Filter>Components</Filter>
     </ClCompile>
-    <ClCompile Include="Texture.cpp" />
-    <ClCompile Include="TextureManager.cpp" />
-    <ClCompile Include="External\stb_image\stb_image.cpp" />
-    <ClCompile Include="TransformComponent.cpp" />
+    <ClCompile Include="TransformComponent.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Others</Filter>
+    </ClCompile>
+    <ClCompile Include="glmath.cpp">
+      <Filter>Others</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshImporter.cpp">
+      <Filter>Others</Filter>
+    </ClCompile>
+    <ClCompile Include="External\stb_image\stb_image.cpp">
+      <Filter>Others</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>Others</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureImporter.cpp">
+      <Filter>Others</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureManager.cpp">
+      <Filter>Others</Filter>
+    </ClCompile>
+    <ClCompile Include="ImWindowInspector.cpp">
+      <Filter>Modules\Layer\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="ImWindowHierarchy.cpp">
+      <Filter>Modules\Layer\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="ImWindowQuickSave.cpp">
+      <Filter>Modules\Layer\Windows</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Module.h">
@@ -557,10 +582,6 @@
     <ClInclude Include="Console.h">
       <Filter>Tools</Filter>
     </ClInclude>
-    <ClInclude Include="MeshImporter.h" />
-    <ClInclude Include="GameObject.h" />
-    <ClInclude Include="glmath.h" />
-    <ClInclude Include="TextureImporter.h" />
     <ClInclude Include="ImWindowProject.h">
       <Filter>Modules\Layer\Windows</Filter>
     </ClInclude>
@@ -570,10 +591,39 @@
     <ClInclude Include="CommandArray.hpp">
       <Filter>Tools</Filter>
     </ClInclude>
-    <ClInclude Include="Texture.h" />
-    <ClInclude Include="TextureManager.h" />
-    <ClInclude Include="External\stb_image\stb_image.h" />
-    <ClInclude Include="TransformComponent.h" />
+    <ClInclude Include="TransformComponent.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Others</Filter>
+    </ClInclude>
+    <ClInclude Include="glmath.h">
+      <Filter>Others</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshImporter.h">
+      <Filter>Others</Filter>
+    </ClInclude>
+    <ClInclude Include="External\stb_image\stb_image.h">
+      <Filter>Others</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Others</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureImporter.h">
+      <Filter>Others</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureManager.h">
+      <Filter>Others</Filter>
+    </ClInclude>
+    <ClInclude Include="ImWindowInspector.h">
+      <Filter>Modules\Layer\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="ImWindowHierarchy.h">
+      <Filter>Modules\Layer\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="ImWindowQuickSave.h">
+      <Filter>Modules\Layer\Windows</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="External\imgui\vulkan\generate_spv.sh">

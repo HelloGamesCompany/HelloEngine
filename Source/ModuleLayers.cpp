@@ -42,6 +42,7 @@ bool ModuleLayers::Start()
     {
         if (layers[i] && layers[i]->IsEnabled()) layers[i]->Start();
     }
+
     return true;
 }
 
@@ -65,7 +66,6 @@ UpdateStatus ModuleLayers::Update()
 
 UpdateStatus ModuleLayers::PostUpdate()
 {
-
     return UpdateStatus::UPDATE_CONTINUE;
 }
 

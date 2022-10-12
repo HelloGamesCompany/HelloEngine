@@ -10,6 +10,9 @@
 #include "ImWindowOpenGL.h"
 #include "ImWindowConsole.h"
 #include "ImWindowProject.h"
+#include "ImWindowHierarchy.h"
+#include "ImWindowInspector.h"
+#include "ImWindowQuickSave.h"
 
 #include "ModuleLayers.h"
 #include "LayerGame.h"
@@ -93,6 +96,9 @@ void LayerEditor::Start()
 	imWindows[(uint)ImWindowID::OPENGL] = new ImWindowOpenGL();
 	imWindows[(uint)ImWindowID::CONSOLE] = new ImWindowConsole();
 	imWindows[(uint)ImWindowID::PROJECT] = new ImWindowProject();
+	imWindows[(uint)ImWindowID::QUICKSAVE] = new ImWindowQuickSave();
+	imWindows[(uint)ImWindowID::INSPECTOR] = new ImWindowInspector();
+	imWindows[(uint)ImWindowID::HIERARCHY] = new ImWindowHierarchy();
 
 	game = (LayerGame*)Application::Instance()->layers->layers[(uint)LayersID::GAME];
 }
@@ -134,26 +140,13 @@ void LayerEditor::PostUpdate()
 
 		if (ImGui::BeginMenu("Windows"))
 		{
-			if (ImGui::MenuItem("Configuration"))
+			for (int i = 0; i < (uint)ImWindowID::MAX; i++)
 			{
-				imWindows[(uint)ImWindowID::CONFIGURATION]->isEnabled = true;
+				if (ImGui::MenuItem(imWindows[i]->windowName.c_str()))
+				{
+					imWindows[i]->isEnabled = true;
+				}
 			}
-
-			if (ImGui::MenuItem("About"))
-			{
-				imWindows[(uint)ImWindowID::ABOUT]->isEnabled = true;
-			}
-
-			if (ImGui::MenuItem("OpenGL Configuration"))
-			{
-				imWindows[(uint)ImWindowID::OPENGL]->isEnabled = true;
-			}
-
-			if (ImGui::MenuItem("Console"))
-			{
-				imWindows[(uint)ImWindowID::CONSOLE]->isEnabled = true;
-			}
-
 			ImGui::EndMenu();
 		}
 
