@@ -266,6 +266,7 @@
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TextureImporter.cpp" />
     <ClCompile Include="TextureManager.cpp" />
+    <ClCompile Include="TransformComponent.cpp" />
     <ClCompile Include="XMLNode.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -384,6 +385,7 @@
     <ClInclude Include="TextureImporter.h" />
     <ClInclude Include="TextureManager.h" />
     <ClInclude Include="Timer.hpp" />
+    <ClInclude Include="TransformComponent.h" />
     <ClInclude Include="XMLNode.h" />
   </ItemGroup>
   <ItemGroup>

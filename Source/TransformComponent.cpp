@@ -38,3 +38,7 @@ void TransformComponent::Rotate(float3 rotate)
 {
 	this->rotation += rotate;
 }
+
+void TransformComponent::CallbackPositions()
+{
+}
