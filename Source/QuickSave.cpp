@@ -41,7 +41,7 @@ void QuickSave::SetString(std::string name, std::string value)
 
 void QuickSave::SetFloat(std::string name, float value)
 {
-    SetValue(name, std::to_string(value), nFloat);
+    SetValue(name, std::to_string(value)+"f", nFloat);
 }
 
 void QuickSave::SetInt(std::string name, int value)
@@ -72,6 +72,26 @@ int QuickSave::GetInt(std::string name, int defaultValue)
 {
     std::string value = GetValue(name, std::to_string(defaultValue), nInt);
     return std::stoi(value);
+}
+
+XMLNode QuickSave::GetRootNodeBool()
+{
+    return nBool;
+}
+
+XMLNode QuickSave::GetRootNodeString()
+{
+    return nString;
+}
+
+XMLNode QuickSave::GetRootNodeFloat()
+{
+    return nFloat;
+}
+
+XMLNode QuickSave::GetRootNodeInt()
+{
+    return nInt;
 }
 
 void QuickSave::SetValue(std::string name, std::string value, XMLNode& node)
@@ -114,14 +134,14 @@ void QuickSave::CreateQuickSaveDefaultFile()
                 "<default value = \"0\"/>\n"
             "</Bool>\n"
             "<String>\n"
-                "<default value = \"0\"/>\n"
-            "</String>\n"
-            "<Float>\n"
-                "<default value = \"0\"/>\n"
-            "</Float>\n"
+                "<default value = \"nothing\"/>\n"
+            "</String>\n"      
             "<Int>\n"
                 "<default value = \"0\"/>\n"
             "</Int>\n"
+            "<Float>\n"
+                "<default value = \"0.0\"/>\n"
+            "</Float>\n"
         "</QuickSave>";
 
     //TODO: Will be subtitute for ModuleFiles functions

@@ -4,12 +4,13 @@
 		<default value="0" />
 	</Bool>
 	<String>
-		<default value="0" />
+		<default value="default" />
 	</String>
-	<Float>
-		<default value="0" />
-	</Float>
 	<Int>
 		<default value="0" />
 	</Int>
+	<Float>
+		<default value="1.0f" />
+		<hi value="20.500000f" />
+	</Float>
 </QuickSave>

@@ -4,7 +4,7 @@
 #include "pugixml.hpp"
 #include "ModuleXML.h"
 
-#define QUICKSAVE_PATH "Assets/Xmls/quickSave.xml"
+#define QUICKSAVE_PATH "Resources/Editor/Xmls/quickSave.xml"
 
 // static class
 class QuickSave
@@ -21,6 +21,11 @@ public:
 	static std::string GetString(std::string name, std::string defaultValue = "DefaultValue");
 	static float GetFloat(std::string name, float defaultValue = 0);
 	static int GetInt(std::string name, int defaultValue = 0);
+
+	static XMLNode GetRootNodeBool();
+	static XMLNode GetRootNodeString();
+	static XMLNode GetRootNodeFloat();
+	static XMLNode GetRootNodeInt();
 
 private:
 	static void SetValue(std::string name, std::string value, XMLNode& node);

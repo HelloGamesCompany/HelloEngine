@@ -16,7 +16,10 @@ void ImWindowInspector::Update()
 {
 	if (ImGui::Begin(windowName.c_str(), &isEnabled))
 	{
-
+		if (selectGameobject)
+		{
+				
+		}
 	}
 	ImGui::End();
 }

@@ -1,5 +1,8 @@
 #pragma once
 #include "ImWindow.h"
+
+class GameObject;
+
 class ImWindowInspector : public ImWindow
 {
 public:
@@ -8,4 +11,8 @@ public:
 	~ImWindowInspector();
 
 	void Update() override;
+
+private:
+
+	GameObject* selectGameobject = nullptr;
 };
