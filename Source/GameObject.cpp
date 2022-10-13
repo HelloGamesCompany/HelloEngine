@@ -6,15 +6,16 @@
 GameObject::GameObject(GameObject* parent, std::string name, std::string tag) : name(name), tag(tag)
 {
 	_ID = Application::Instance()->layers->AddGameObject(this);
+	transform = AddComponent<TransformComponent>();
 	if (parent != nullptr) parent->AddChild(this);
-	AddComponent<TransformComponent>();
+
 }
 
 GameObject::GameObject(GameObject* parent, std::string& name, std::string& tag) : name(name), tag(tag)
 {
 	_ID = Application::Instance()->layers->AddGameObject(this);
+	transform = AddComponent<TransformComponent>();
 	if (parent != nullptr) parent->AddChild(this);
-	AddComponent<TransformComponent>();
 }
 
 GameObject::~GameObject()
@@ -50,6 +51,9 @@ bool GameObject::AddChild(GameObject* child)
 	if (child->_parent) child->_parent->RemoveChild(child);
 
 	child->_parent = this;
+
+	child->transform->parentGlobalTransform = transform->GetGlobalTransform(); // Set the child parentGlobalTransform to this trasnform's global transfrom.
+
 	return true;
 }
 

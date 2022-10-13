@@ -49,9 +49,30 @@ void ImWindowHierarchy::DrawGameObjectChildren(GameObject* gameObject, int layer
 
         bool node_open = ImGui::TreeNodeEx((void*)(intptr_t)i, node_flags, gameObject->_children[i]->name.c_str(), i);
 
+        //Start drag for reparent
+        if (ImGui::BeginDragDropSource(/*ImGuiDragDropFlags_SourceNoDisableHover*/))
+        {
+            ImGui::SetDragDropPayload("GameObject", gameObject->_children[i], sizeof(GameObject*));
+
+            draggingGameObject = gameObject->_children[i];
+
+            ImGui::Text("Change parent to...");
+            ImGui::EndDragDropSource();
+        }
+
         if (ImGui::IsItemHovered() && ImGui::IsMouseReleased(ImGuiMouseButton_::ImGuiMouseButton_Left))
         {
             layerEditor->selectedGameObject = gameObject->_children[i];
+        }
+
+        if (ImGui::BeginDragDropTarget())
+        {
+            if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("GameObject"))
+            {
+                draggingGameObject->SetParent(gameObject->_children[i]);
+                draggingGameObject = nullptr;
+            }
+            ImGui::EndDragDropTarget();
         }
 
         if (node_open)

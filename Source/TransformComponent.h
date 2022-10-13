@@ -64,5 +64,6 @@ private:
 private:
 	TransformValues parentGlobalTransform;
 
+	friend class GameObject;
 };
 

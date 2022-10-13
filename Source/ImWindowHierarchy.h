@@ -19,6 +19,9 @@ public:
 private:
 	std::map<uint, GameObject*>* gameObjectsReference = nullptr;
 	LayerEditor* layerEditor = nullptr;
+
+	GameObject* draggingGameObject = nullptr;
+
 	ImGuiTreeNodeFlags base_flags;
 
 };

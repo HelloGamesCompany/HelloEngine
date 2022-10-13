@@ -1,6 +1,8 @@
 #pragma once
 #include "Component.h"
 
+class TransformComponent;
+
 class GameObject
 {
 public:
@@ -37,6 +39,7 @@ public:
 public:
 	std::string name;
 	std::string tag;
+	TransformComponent* transform = nullptr;
 
 private:
 	void RemoveChild(GameObject* child);
