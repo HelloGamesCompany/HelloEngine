@@ -1,5 +1,9 @@
 #pragma once
 #include "ImWindow.h"
+
+class GameObject;
+class LayerEditor;
+
 class ImWindowHierarchy : public ImWindow
 {
 public:
@@ -9,5 +13,13 @@ public:
 	~ImWindowHierarchy();
 
 	void Update() override;
+
+	void DrawGameObjectChildren(GameObject* gameObject, int layer);
+
+private:
+	std::map<uint, GameObject*>* gameObjectsReference = nullptr;
+	LayerEditor* layerEditor = nullptr;
+	ImGuiTreeNodeFlags base_flags;
+
 };
 

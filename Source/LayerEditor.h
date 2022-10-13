@@ -40,6 +40,8 @@ private:
 	GameObject* selectedGameObject = nullptr;
 
 	int gameWidth, gameHeight;
+
+	friend class ImWindowHierarchy;
 };
 
 #endif // !__MODULE_ENGINE_H__

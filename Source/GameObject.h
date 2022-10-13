@@ -54,5 +54,6 @@ private:
 	uint _ID = 0; // ID =  0 is an invalid ID. First ID is 1.
 
 	friend class TransformComponent;
+	friend class ImWindowHierarchy;
 };
 
