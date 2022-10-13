@@ -1,18 +1,20 @@
 #include "Headers.h"
 #include "GameObject.h"
 #include "ModuleLayers.h"
+#include "TransformComponent.h"
 
 GameObject::GameObject(GameObject* parent, std::string name, std::string tag) : name(name), tag(tag)
 {
 	_ID = Application::Instance()->layers->AddGameObject(this);
 	if (parent != nullptr) parent->AddChild(this);
-
+	AddComponent<TransformComponent>();
 }
 
 GameObject::GameObject(GameObject* parent, std::string& name, std::string& tag) : name(name), tag(tag)
 {
 	_ID = Application::Instance()->layers->AddGameObject(this);
 	if (parent != nullptr) parent->AddChild(this);
+	AddComponent<TransformComponent>();
 }
 
 GameObject::~GameObject()

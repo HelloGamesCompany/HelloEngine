@@ -87,6 +87,26 @@ void MeshRenderComponent::InitAsNewMesh(std::vector<Vertex>& vertices, std::vect
 
 }
 
+void MeshRenderComponent::OnPositionUpdate(float3 pos)
+{
+	GetMesh().SetPosition(pos);
+}
+
+void MeshRenderComponent::OnRotationUpdate(float3 rot)
+{
+	GetMesh().SetRotation(rot);
+}
+
+void MeshRenderComponent::OnScaleUpdate(float3 scale)
+{
+	GetMesh().SetScale(scale);
+}
+
+void MeshRenderComponent::OnTransformUpdate(float3 pos, float3 scale, float3 rot)
+{
+	GetMesh().SetTransform(pos, scale, rot);
+}
+
 Mesh& MeshRenderComponent::GetMesh()
 {
 	RenderManager* manager = Application::Instance()->renderer3D->modelRender.GetRenderManager(_meshID);

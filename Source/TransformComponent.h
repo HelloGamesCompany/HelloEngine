@@ -2,6 +2,13 @@
 #include "Component.h"
 #include "MathGeoLib.h"
 
+struct TransformValues
+{
+	float3 position;
+	float3 scale; 
+	float3 rotation;
+};
+
 class TransformComponent : public Component
 {
 public:
@@ -21,6 +28,8 @@ public:
 	/// </summary>
 	void SetRotation(float3 rot);
 
+	void SetTransform(float3 pos, float3 scale, float3 rot);
+
 	/// <summary>
 	/// Current position is transalted by the given vector
 	/// </summary>
@@ -36,15 +45,24 @@ public:
 	/// </summary>
 	void Rotate(float3 rotate);
 
-private:
-	// TODO: This should give the new Position for every component that has suscribed to this transform updates.
-	void CallbackPositions();
+	void OnPositionUpdate(float3 pos) override;
+	void OnRotationUpdate(float3 rot) override;
+	void OnScaleUpdate(float3 scale) override;
+	void OnTransformUpdate(float3 pos, float3 scale, float3 rot) override;
+
+	TransformValues GetGlobalTransform();
+
+	// TODO: This should be private! 
+	TransformValues localTransform;
 
 private:
-	float3 position;
-	float3 scale;
-	float3 rotation;
+	void UpdatePosition();
+	void UpdateRotation();
+	void UpdateScale();
+	void UpdateTransform();
 
+private:
+	TransformValues parentGlobalTransform;
 
 };
 

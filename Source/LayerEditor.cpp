@@ -18,6 +18,7 @@
 #include "LayerGame.h"
 
 #include "ModuleFiles.h"
+#include "TransformComponent.h"
 
 LayerEditor::LayerEditor()
 {
@@ -170,12 +171,30 @@ void LayerEditor::PostUpdate()
 	ImGui::Image((ImTextureID)Application::Instance()->renderer3D->frameBuffer.GetTexture(), ImGui::GetContentRegionAvail(), ImVec2(0, 1), ImVec2(1, 0));
 	ImGui::End();
 
-	//ImGui::Begin("Rotation testing");
-	//if (ImGui::DragFloat3("Rotation: ", &Application::Instance()->layers->go21->GetComponent<MeshRenderComponent>()->GetMesh().rotation.x, 0.1f))
-	//{
-	//	Application::Instance()->layers->go21->GetComponent<MeshRenderComponent>()->GetMesh().SetUpdateTrue();
-	//}
-	//ImGui::End();
+	ImGui::Begin("Transform testing");
+	
+	GameObject* selectedGO = Application::Instance()->layers->gameObjects[3];
+
+	float3 tempPos = selectedGO->GetComponent<TransformComponent>()->localTransform.position;
+	float3 tempRot = selectedGO->GetComponent<TransformComponent>()->localTransform.rotation;
+	float3 tempScale = selectedGO->GetComponent<TransformComponent>()->localTransform.scale;
+
+	if (ImGui::DragFloat3("Transform position", &tempPos[0], 0.1f))
+	{
+		selectedGO->GetComponent<TransformComponent>()->SetPosition(tempPos);
+	}
+
+	if (ImGui::DragFloat3("Transform rotation", &tempRot[0], 0.1f))
+	{
+		selectedGO->GetComponent<TransformComponent>()->SetRotation(tempRot);
+	}
+
+	if (ImGui::DragFloat3("Transform scale", &tempScale[0], 0.1f))
+	{
+		selectedGO->GetComponent<TransformComponent>()->SetScale(tempScale);
+	}
+	
+	ImGui::End();
 
     for (int i = 0; i < (uint)ImWindowID::MAX; i++)
     {

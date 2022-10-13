@@ -7,6 +7,7 @@
 #include "LayerGame.h"
 #include "ModuleLayers.h"
 #include "GameObject.h"
+#include "TransformComponent.h"
 
 std::map<std::string, MeshCacheData> MeshImporter::loadedMeshes;
 Assimp::Importer MeshImporter::importer;
@@ -56,6 +57,18 @@ void MeshImporter::ProcessNewNode(aiNode* node, const aiScene* scene, std::strin
 	if (parent == nullptr) newParent = new GameObject(Application::Instance()->layers->rootGameObject, "Mesh");
 	else newParent = new GameObject(parent, "Mesh");
 
+	// Set new GameObject position with node Transform.
+	aiVector3D translation, scaling;
+	aiQuaternion rotation;
+
+	node->mTransformation.Decompose(scaling, rotation, translation);
+	float3 pos(translation.x, translation.y, translation.z);
+	float3 scale(scaling.x, scaling.y, scaling.z);
+	Quat rot(rotation.x, rotation.y, rotation.z, rotation.w);
+	float3 eulerRot = rot.ToEulerZYX();	// TODO: Transform should save rotation as Quaternion?
+
+	newParent->GetComponent<TransformComponent>()->SetTransform(pos, scale, eulerRot);
+
 	loadedMeshes[path].numOfMeshes += node->mNumMeshes; // Increase the number of meshes for every mesh inside this node.
 
 	for (unsigned int i = 0; i < node->mNumMeshes; i++)
@@ -70,6 +83,8 @@ void MeshImporter::ProcessNewNode(aiNode* node, const aiScene* scene, std::strin
 		// Creates an empty Gameobject that is children to the empty gameObject created here.
 		ProcessNewNode(node->mChildren[i], scene, path, newParent);
 	}
+
+
 }
 
 void MeshImporter::ProcessNewMesh(aiMesh* mesh, const aiScene* scene, GameObject* parent)

@@ -30,7 +30,6 @@ bool ModuleLayers::Start()
         rc = gameObject.second->GetComponent<MeshRenderComponent>();
         if (rc != nullptr)
         {
-            rc->GetMesh().SetPosition({ (float)(rand() % 100), 1.0f, 1.0f });
             rc->GetMesh().textureID = bakerTexture;
         }
     }
