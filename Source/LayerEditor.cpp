@@ -173,7 +173,7 @@ void LayerEditor::PostUpdate()
 
 	ImGui::Begin("Transform testing");
 	
-	GameObject* selectedGO = Application::Instance()->layers->gameObjects[3];
+	GameObject* selectedGO = Application::Instance()->layers->gameObjects[4];
 
 	float3 tempPos = selectedGO->GetComponent<TransformComponent>()->localTransform.position;
 	float3 tempRot = selectedGO->GetComponent<TransformComponent>()->localTransform.rotation;

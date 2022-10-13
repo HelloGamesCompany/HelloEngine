@@ -67,7 +67,7 @@ void MeshImporter::ProcessNewNode(aiNode* node, const aiScene* scene, std::strin
 	Quat rot(rotation.x, rotation.y, rotation.z, rotation.w);
 	float3 eulerRot = rot.ToEulerZYX();	// TODO: Transform should save rotation as Quaternion?
 
-	newParent->GetComponent<TransformComponent>()->SetTransform(pos, scale, eulerRot);
+	newParent->GetComponent<TransformComponent>()->SetTransform(pos, {1.0f,1.0f,1.0f}, eulerRot);
 
 	loadedMeshes[path].numOfMeshes += node->mNumMeshes; // Increase the number of meshes for every mesh inside this node.
 

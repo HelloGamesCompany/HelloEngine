@@ -37,6 +37,8 @@ private:
 	ImWindow* imWindows[(uint)ImWindowID::MAX] = { nullptr };
 	LayerGame* game = nullptr;
 
+	GameObject* selectedGameObject = nullptr;
+
 	int gameWidth, gameHeight;
 };
 
