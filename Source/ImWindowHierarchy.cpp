@@ -49,14 +49,13 @@ void ImWindowHierarchy::DrawGameObjectChildren(GameObject* gameObject, int layer
 
         bool node_open = ImGui::TreeNodeEx((void*)(intptr_t)i, node_flags, gameObject->_children[i]->name.c_str(), i);
 
-        //Start drag for reparent
-        if (ImGui::BeginDragDropSource(/*ImGuiDragDropFlags_SourceNoDisableHover*/))
+        if (ImGui::BeginDragDropSource())
         {
             ImGui::SetDragDropPayload("GameObject", gameObject->_children[i], sizeof(GameObject*));
 
             draggingGameObject = gameObject->_children[i];
 
-            ImGui::Text("Change parent to...");
+            ImGui::Text("Change game object parent");
             ImGui::EndDragDropSource();
         }
 
