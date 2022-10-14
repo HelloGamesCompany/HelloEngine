@@ -20,7 +20,9 @@ private:
 	uint textureColorbuffer = 0;
 	uint RBO = 0;
 
-	int width;
-	int height;
+	int width = 1280;
+	int height = 720;
+
+	friend class CameraObject;
 };
 

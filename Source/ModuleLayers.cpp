@@ -4,6 +4,7 @@
 #include "LayerGame.h"
 #include "MeshImporter.h"
 #include "TextureImporter.h"
+#include "TransformComponent.h"
 
 ModuleLayers::ModuleLayers()
 {
@@ -17,7 +18,7 @@ bool ModuleLayers::Start()
 {
     rootGameObject = new GameObject(nullptr, "Root", "None");
 
-    for (int i = 0; i < 1; i++)
+    for (int i = 0; i < 2; i++)
     {
         MeshImporter::LoadMesh("Assets/BakerHouse.fbx");
     }

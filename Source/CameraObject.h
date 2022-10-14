@@ -1,6 +1,7 @@
 #pragma once
 
 #include "FrameBuffer.h"
+#include "glmath.h"
 
 class CameraObject
 {
@@ -14,6 +15,11 @@ public:
 	void LookAt(const float3& Spot);
 	void Move(const float3& Movement);
 	float* GetViewMatrix();
+	float* GetProjectionMatrix();
+
+	void RecalculateProjection();
+
+	void RegenerateFrameBuffer(int width, int height);
 
 public:
 	float3 X, Y, Z, Position, Reference;
@@ -24,7 +30,12 @@ private:
 
 private:
 	float4x4 ViewMatrix, ViewMatrixInverse;
+	Frustum ProjectionMatrix;
+	mat4x4 tempProjMatrix;
 	float3 offset;
 	Application* app = nullptr;
+	bool changeFOVWithBufferSize;
+
+	friend class ModuleCamera3D;
 };
 

@@ -175,8 +175,6 @@ void ModuleRenderer3D::OnResize(int width, int height)
 {
 	glViewport(0, 0, width, height);
 
-	ProjectionMatrix = perspective(60.0f, (float)width / (float)height, 0.125f, 2048.0f);
-
 	app->window->width = width;
 	app->window->height = height;
 }

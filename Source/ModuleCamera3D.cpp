@@ -19,10 +19,12 @@ bool ModuleCamera3D::Start()
 	LOG("Setting up the camera");
 
 	sceneCamera.frameBuffer.SetBufferInfo();
+	sceneCamera.changeFOVWithBufferSize = true;
 
 	for (int i = 0; i < gameCameras.size(); i++)
 	{
 		gameCameras[i].frameBuffer.SetBufferInfo();
+		gameCameras[i].changeFOVWithBufferSize = false;
 	}
 
 	return true;
@@ -48,7 +50,7 @@ UpdateStatus ModuleCamera3D::Update()
 {
 	if (frameBufferRegenCamera != nullptr)
 	{
-		frameBufferRegenCamera->frameBuffer.SetDimensions(newBufferWidth, newBufferHeight);
+		frameBufferRegenCamera->RegenerateFrameBuffer(newBufferWidth, newBufferHeight);
 		frameBufferRegenCamera = nullptr;
 	}
 
