@@ -175,6 +175,8 @@ void ModuleRenderer3D::OnResize(int width, int height)
 {
 	glViewport(0, 0, width, height);
 
+	cameras->RequestFrameBufferRegen(&cameras->sceneCamera, width, height);
+
 	app->window->width = width;
 	app->window->height = height;
 }
