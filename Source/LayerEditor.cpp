@@ -173,27 +173,30 @@ void LayerEditor::PostUpdate()
 
 	ImGui::Begin("Transform testing");
 	
-	GameObject* selectedGO = Application::Instance()->layers->gameObjects[4];
+	LayerEditor* editorLayer = (LayerEditor*)Application::Instance()->layers->layers[LayersID::EDITOR];
+	GameObject* selectedGO = editorLayer->selectedGameObject;
 
-	float3 tempPos = selectedGO->GetComponent<TransformComponent>()->localTransform.position;
-	float3 tempRot = selectedGO->GetComponent<TransformComponent>()->localTransform.rotation;
-	float3 tempScale = selectedGO->GetComponent<TransformComponent>()->localTransform.scale;
-
-	if (ImGui::DragFloat3("Transform position", &tempPos[0], 0.1f))
+	if (selectedGO != nullptr)
 	{
-		selectedGO->GetComponent<TransformComponent>()->SetPosition(tempPos);
-	}
+		float3 tempPos = selectedGO->GetComponent<TransformComponent>()->localTransform.position;
+		float3 tempRot = selectedGO->GetComponent<TransformComponent>()->localTransform.rotation;
+		float3 tempScale = selectedGO->GetComponent<TransformComponent>()->localTransform.scale;
 
-	if (ImGui::DragFloat3("Transform rotation", &tempRot[0], 0.1f))
-	{
-		selectedGO->GetComponent<TransformComponent>()->SetRotation(tempRot);
-	}
+		if (ImGui::DragFloat3("Transform position", &tempPos[0], 0.1f))
+		{
+			selectedGO->GetComponent<TransformComponent>()->SetPosition(tempPos);
+		}
 
-	if (ImGui::DragFloat3("Transform scale", &tempScale[0], 0.1f))
-	{
-		selectedGO->GetComponent<TransformComponent>()->SetScale(tempScale);
+		if (ImGui::DragFloat3("Transform rotation", &tempRot[0], 0.1f))
+		{
+			selectedGO->GetComponent<TransformComponent>()->SetRotation(tempRot);
+		}
+
+		if (ImGui::DragFloat3("Transform scale", &tempScale[0], 0.1f))
+		{
+			selectedGO->GetComponent<TransformComponent>()->SetScale(tempScale);
+		}
 	}
-	
 	ImGui::End();
 
     for (int i = 0; i < (uint)ImWindowID::MAX; i++)
