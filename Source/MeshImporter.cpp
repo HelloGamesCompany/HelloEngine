@@ -55,7 +55,8 @@ void MeshImporter::ProcessNewNode(aiNode* node, const aiScene* scene, std::strin
 	GameObject* newParent = nullptr;
 
 	if (parent == nullptr) newParent = new GameObject(Application::Instance()->layers->rootGameObject, "Mesh");
-	else newParent = new GameObject(parent, "Mesh");
+	else if (node->mNumMeshes > 1) newParent = new GameObject(parent, "Mesh");
+	else newParent = parent;
 
 	// Set new GameObject position with node Transform.
 	aiVector3D translation, scaling;
@@ -162,7 +163,8 @@ void MeshImporter::ProcessLoadedNode(aiNode* node, const aiScene* scene, uint& f
 	GameObject* newParent = nullptr;
 
 	if (parent == nullptr) newParent = new GameObject(Application::Instance()->layers->rootGameObject, "Mesh");
-	else newParent = new GameObject(parent, "Mesh");
+	else if (node->mNumMeshes > 1) newParent = new GameObject(parent, "Mesh");
+	else newParent = parent;
 
 	ModelRenderManager* renderManager = &Application::Instance()->renderer3D->modelRender;
 
@@ -171,6 +173,7 @@ void MeshImporter::ProcessLoadedNode(aiNode* node, const aiScene* scene, uint& f
 		// Create a GameObject with a MeshRenderComponent that represents the Mesh
 		GameObject* newGameObject = new GameObject(Application::Instance()->layers->rootGameObject, "Mesh");
 		newGameObject->AddComponent<MeshRenderComponent>()->InitAsLoadedMesh(firstMeshID++);
+		newGameObject->SetParent(newParent);
 	}
 
 	for (unsigned int i = 0; i < node->mNumChildren; i++)
