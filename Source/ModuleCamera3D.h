@@ -4,6 +4,7 @@
 #include "Module.h"
 #include "Globals.h"
 #include "glmath.h"
+#include "CameraObject.h"
 
 class Vehicle;
 
@@ -21,25 +22,21 @@ public:
 	UpdateStatus Update();
 	bool CleanUp();
 
-	void Look(const float3&Position, const float3&Reference, bool RotateAroundReference = false);
-	void LookAt(const float3&Spot);
-	void Move(const float3&Movement);
-	float* GetViewMatrix();
-
-	static void Tets() { std::cout << "hello" << std::endl; }
-
-private:
-
-	void CalculateViewMatrix();
+	void RequestFrameBufferRegen(CameraObject* camera, int width, int height);
 
 public:
-	
-	float3 X, Y, Z, Position, Reference;
+	std::vector<CameraObject> gameCameras;
+	CameraObject* activeGameCamera = nullptr;
+	CameraObject sceneCamera;
+
+	CameraObject* currentDrawingCamera = nullptr;
+
+	bool updateSceneCamera;
+	bool updateGameCamera;
 
 private:
-
-	float4x4 ViewMatrix, ViewMatrixInverse;
-	float3 offset;
+	CameraObject* frameBufferRegenCamera = nullptr;
+	int newBufferWidth, newBufferHeight;
 };
 
 #endif // !__MODULECAMERA3D_H__

@@ -48,7 +48,7 @@ void RenderManager::Draw()
 
     // Update View and Projection matrices
     basicShader->Bind();
-    basicShader->SetMatFloat4v("view", Application::Instance()->camera->GetViewMatrix());
+    basicShader->SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
     basicShader->SetMatFloat4v("projection", Application::Instance()->renderer3D->GetProjectionMatrix());
 
     // Draw using Dynamic Geometry

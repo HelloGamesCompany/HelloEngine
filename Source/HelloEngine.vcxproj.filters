@@ -262,6 +262,7 @@
     <ClCompile Include="ImWindowQuickSave.cpp">
       <Filter>Modules\Layer\Windows</Filter>
     </ClCompile>
+    <ClCompile Include="CameraObject.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Module.h">
@@ -624,6 +625,7 @@
     <ClInclude Include="ImWindowQuickSave.h">
       <Filter>Modules\Layer\Windows</Filter>
     </ClInclude>
+    <ClInclude Include="CameraObject.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="External\imgui\vulkan\generate_spv.sh">

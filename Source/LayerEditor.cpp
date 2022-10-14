@@ -4,6 +4,7 @@
 #include "QuickSave.h"
 #include "ModuleWindow.h"
 #include "ModuleRenderer3D.h"
+#include "ModuleCamera3D.h"
 
 #include "ImWindowConfiguration.h"
 #include "ImWindowAbout.h"
@@ -156,19 +157,23 @@ void LayerEditor::PostUpdate()
 		ImGui::EndMainMenuBar();
 	}
 
-	ImGui::Begin("Game");
-	ImVec2 gameDimensions = ImGui::GetContentRegionAvail();
+	ImGui::Begin("Scene");
+	
+	Application::Instance()->camera->updateSceneCamera = ImGui::IsWindowHovered();
 
-	if (gameDimensions.x != gameWidth || gameDimensions.y != gameHeight)
+	ImVec2 sceneDimensions = ImGui::GetContentRegionAvail();
+
+	if (sceneDimensions.x != gameWidth || sceneDimensions.y != gameHeight)
 	{
 		// If the size of this imgui window is different from the one stored.
-		gameWidth = gameDimensions.x;
-		gameHeight = gameDimensions.y;
+		gameWidth = sceneDimensions.x;
+		gameHeight = sceneDimensions.y;
 
-		Application::Instance()->renderer3D->frameBuffer.SetDimensions(gameWidth, gameHeight);
+		Application::Instance()->camera->RequestFrameBufferRegen(&Application::Instance()->camera->sceneCamera, gameWidth, gameHeight);
 	}
 
-	ImGui::Image((ImTextureID)Application::Instance()->renderer3D->frameBuffer.GetTexture(), ImGui::GetContentRegionAvail(), ImVec2(0, 1), ImVec2(1, 0));
+	ImGui::Image((ImTextureID)Application::Instance()->camera->sceneCamera.frameBuffer.GetTexture(), ImGui::GetContentRegionAvail(), ImVec2(0, 1), ImVec2(1, 0));
+
 	ImGui::End();
 
 	ImGui::Begin("Transform testing");

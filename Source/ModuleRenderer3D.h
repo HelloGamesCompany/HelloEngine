@@ -4,7 +4,6 @@
 #include "Module.h"
 #include "Light.h"
 #include "ModelRenderManager.h"
-#include "FrameBuffer.h"
 
 #define MAX_LIGHTS 8
 
@@ -30,11 +29,13 @@ public:
 
 public:
 	ModelRenderManager modelRender;
-	FrameBuffer frameBuffer;
-	//Light lights[MAX_LIGHTS];
 	SDL_GLContext context;
 	mat4x4 ModelMatrix, ViewMatrix, ProjectionMatrix;
 	bool isVSync = false;
+
+private:
+	ModuleCamera3D* cameras = nullptr;
+
 };
 
 #endif // !__MODULERENDERER3D_H__

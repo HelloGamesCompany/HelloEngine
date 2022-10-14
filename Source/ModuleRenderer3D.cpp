@@ -9,6 +9,7 @@
 
 ModuleRenderer3D::ModuleRenderer3D(bool start_enabled) : Module(start_enabled)
 {
+	cameras = app->camera;
 }
 
 // Destructor
@@ -120,8 +121,6 @@ bool ModuleRenderer3D::Init()
 	// Projection matrix for
 	OnResize(app->window->width, app->window->height);
 
-	frameBuffer.SetBufferInfo();
-
 	return ret;
 }
 
@@ -129,16 +128,6 @@ bool ModuleRenderer3D::Init()
 UpdateStatus ModuleRenderer3D::PreUpdate()
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	glLoadIdentity();
-
-	glMatrixMode(GL_MODELVIEW);
-	glLoadMatrixf(app->camera->GetViewMatrix());
-
-	// light 0 on cam pos
-	/*lights[0].SetPos(app->camera->Position.x, app->camera->Position.y, app->camera->Position.z);*/
-
-	//for(uint i = 0; i < MAX_LIGHTS; ++i)
-	//	lights[i].Render();
 
 	return UpdateStatus::UPDATE_CONTINUE;
 }
@@ -146,9 +135,11 @@ UpdateStatus ModuleRenderer3D::PreUpdate()
 // PostUpdate present buffer to screen
 UpdateStatus ModuleRenderer3D::PostUpdate()
 {
-	frameBuffer.Bind();
+	cameras->sceneCamera.frameBuffer.Bind();
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 	glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+
+	cameras->currentDrawingCamera = &cameras->sceneCamera;
 
 	Application::Instance()->layers->DrawLayers();
 	modelRender.Draw();
