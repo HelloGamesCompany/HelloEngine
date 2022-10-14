@@ -169,8 +169,10 @@ void LayerEditor::PostUpdate()
 		gameWidth = sceneDimensions.x;
 		gameHeight = sceneDimensions.y;
 
-		Application::Instance()->camera->RequestFrameBufferRegen(&Application::Instance()->camera->sceneCamera, gameWidth, gameHeight);
+		//Application::Instance()->camera->RequestFrameBufferRegen(&Application::Instance()->camera->sceneCamera, gameWidth, gameHeight);
 	}
+
+	Application::Instance()->camera->sceneCamera.ChangeAspectRatio((float)gameWidth / (float)gameHeight);
 
 	ImGui::Image((ImTextureID)Application::Instance()->camera->sceneCamera.frameBuffer.GetTexture(), ImGui::GetContentRegionAvail(), ImVec2(0, 1), ImVec2(1, 0));
 

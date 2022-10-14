@@ -21,6 +21,8 @@ public:
 
 	void RegenerateFrameBuffer(int width, int height);
 
+	void ChangeAspectRatio(float aspectRatio);
+
 public:
 	float3 X, Y, Z, Position, Reference;
 	bool active = true;
@@ -29,9 +31,8 @@ private:
 	void CalculateViewMatrix();
 
 private:
-	float4x4 ViewMatrix, ViewMatrixInverse;
-	Frustum ProjectionMatrix;
-	mat4x4 tempProjMatrix;
+	float4x4 ViewMatrix, ViewMatrixInverse, ProjectionMatrix;
+	Frustum cameraFrustum;
 	float3 offset;
 	Application* app = nullptr;
 	bool changeFOVWithBufferSize;

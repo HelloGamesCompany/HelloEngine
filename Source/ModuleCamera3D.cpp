@@ -3,6 +3,7 @@
 #include "Application.h"
 #include "ModuleCamera3D.h"
 #include "ModuleInput.h"
+#include "ModuleWindow.h"
 
 ModuleCamera3D::ModuleCamera3D(bool start_enabled) : Module(start_enabled)
 {
@@ -19,11 +20,13 @@ bool ModuleCamera3D::Start()
 	LOG("Setting up the camera");
 
 	sceneCamera.frameBuffer.SetBufferInfo();
+	sceneCamera.frameBuffer.SetDimensions(Application::Instance()->window->width, Application::Instance()->window->height);
 	sceneCamera.changeFOVWithBufferSize = true;
 
 	for (int i = 0; i < gameCameras.size(); i++)
 	{
 		gameCameras[i].frameBuffer.SetBufferInfo();
+		gameCameras[i].frameBuffer.SetDimensions(Application::Instance()->window->width, Application::Instance()->window->height);
 		gameCameras[i].changeFOVWithBufferSize = false;
 	}
 

@@ -16,19 +16,16 @@ CameraObject::CameraObject()
 	Position = float3(0.0f, 0.0f, 5.0f);
 	Reference = float3(0.0f, 0.0f, 0.0f);
 
-	ProjectionMatrix.type = math::FrustumType::PerspectiveFrustum;
+	cameraFrustum.type = math::FrustumType::PerspectiveFrustum;
+	cameraFrustum.verticalFov = math::DegToRad(60.0f);
+	cameraFrustum.horizontalFov = 2.0f * atanf(tanf(cameraFrustum.verticalFov / 2.0f) * 1.7f);
 
-	ProjectionMatrix.horizontalFov = Application::Instance()->window->width;
-	ProjectionMatrix.verticalFov = Application::Instance()->window->height;
+	cameraFrustum.nearPlaneDistance = 0.01f;
+	cameraFrustum.farPlaneDistance = 1000.0f;
 
-	ProjectionMatrix.nearPlaneDistance = 0.01f;
-	ProjectionMatrix.farPlaneDistance = 1000.0f;
-
-	ProjectionMatrix.pos = Position;
-	ProjectionMatrix.front = Z;
-	ProjectionMatrix.up = Y;
-
-	tempProjMatrix = perspective(60, 1280 / 720, 0.01f, 100.0f);
+	cameraFrustum.pos = Position;
+	cameraFrustum.front = Z;
+	cameraFrustum.up = Y;
 }
 
 CameraObject::~CameraObject()
@@ -41,7 +38,7 @@ void CameraObject::UpdateCameraInput()
 	//	// Now we can make this movememnt frame rate independant!
 
 	float3 newPos(0, 0, 0);
-	float speed = 3.0f;
+	float speed = 3.0f * app->fps;
 	if (app->input->GetKey(SDL_SCANCODE_LSHIFT) == KEY_REPEAT)
 		speed = 10.0f * app->fps;
 
@@ -145,22 +142,14 @@ float* CameraObject::GetViewMatrix()
 
 float* CameraObject::GetProjectionMatrix()
 {
-	ProjectionMatrix.ProjectionMatrix();
-	tempProjMatrix.M;
-	//float4x4 temp = ProjectionMatrix.ProjectionMatrix();
-	//return &ProjectionMatrix.ProjectionMatrix()[0][0];
-	return &tempProjMatrix.M[0];
+	ProjectionMatrix = cameraFrustum.ProjectionMatrix().Transposed();
+	return &ProjectionMatrix.v[0][0];
 }
 
 void CameraObject::RecalculateProjection()
 {
-	tempProjMatrix = perspective(60, frameBuffer.width / frameBuffer.height, 0.01f, 100.0f);
-
-	ProjectionMatrix.horizontalFov = frameBuffer.width;
-	ProjectionMatrix.verticalFov = frameBuffer.height;
-
-	ProjectionMatrix.nearPlaneDistance = 0.01f;
-	ProjectionMatrix.farPlaneDistance = 1000.0f;
+	float aspectRatio = (float)(frameBuffer.width) / (float)(frameBuffer.height);
+	cameraFrustum.horizontalFov = 2.f * atanf(tanf(cameraFrustum.verticalFov * 0.5f) * aspectRatio);
 }
 
 void CameraObject::RegenerateFrameBuffer(int width, int height)
@@ -169,11 +158,16 @@ void CameraObject::RegenerateFrameBuffer(int width, int height)
 	RecalculateProjection();
 }
 
+void CameraObject::ChangeAspectRatio(float aspectRatio)
+{
+	cameraFrustum.horizontalFov = 2.f * atanf(tanf(cameraFrustum.verticalFov * 0.5f) * aspectRatio);
+}
+
 void CameraObject::CalculateViewMatrix()
 {
     ViewMatrix = float4x4(X.x, Y.x, Z.x, 0.0f, X.y, Y.y, Z.y, 0.0f, X.z, Y.z, Z.z, 0.0f, -Dot(X, Position), -Dot(Y, Position), -Dot(Z, Position), 1.0f);
     ViewMatrixInverse = ViewMatrix.Inverted();
-	ProjectionMatrix.pos = Position;
-	ProjectionMatrix.front = Z;
-	ProjectionMatrix.up = Y;
+	cameraFrustum.pos = Position;
+	cameraFrustum.front = Z;
+	cameraFrustum.up = Y;
 }
