@@ -263,6 +263,10 @@
       <Filter>Modules\Layer\Windows</Filter>
     </ClCompile>
     <ClCompile Include="CameraObject.cpp" />
+    <ClCompile Include="ImWrapper.cpp">
+      <Filter>Tools\ImGuiWrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="ImWrapperInputBox.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Module.h">
@@ -626,6 +630,10 @@
       <Filter>Modules\Layer\Windows</Filter>
     </ClInclude>
     <ClInclude Include="CameraObject.h" />
+    <ClInclude Include="ImWrapper.h">
+      <Filter>Tools\ImGuiWrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="ImWrapperInputBox.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="External\imgui\vulkan\generate_spv.sh">
@@ -695,6 +703,9 @@
     </Filter>
     <Filter Include="Modules\Layer\Windows">
       <UniqueIdentifier>{bc0b9b28-5aa3-4bfc-b719-02cb90e88d83}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tools\ImGuiWrapper">
+      <UniqueIdentifier>{7b246eb4-3552-49b9-b503-717befbe3793}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
