@@ -32,6 +32,8 @@ public:
 		}
 	}
 
+	std::vector<Component*> GetComponents() { return _components;}
+
 	bool AddChild(GameObject* child);
 
 	bool SetParent(GameObject* parent);

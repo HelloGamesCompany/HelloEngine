@@ -22,7 +22,6 @@ public:
 	Mesh& GetMesh();
 
 private:
-	uint _meshID;
-	uint _instanceID;
+	uint _meshID = 0;
+	uint _instanceID = 0;
 };
-

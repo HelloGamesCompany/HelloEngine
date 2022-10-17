@@ -8,6 +8,9 @@
 
 MeshRenderComponent::MeshRenderComponent(GameObject* gameObject) : Component(gameObject)
 {
+	_type = Type::MESH_RENDERER;
+	_meshID = 0;
+	_instanceID = 0;
 }
 
 MeshRenderComponent::~MeshRenderComponent()

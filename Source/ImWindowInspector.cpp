@@ -24,25 +24,40 @@ void ImWindowInspector::Update()
 
 			ImGui::InputText("Name", &selectGameobject->name,0);
 
-			if(ImGui::CollapsingHeader("Transform"))
+			std::vector<Component*> components = selectGameobject->GetComponents();
+
+			for (size_t i = 0; i < components.size(); i++)
 			{
-				float3 tempPos = selectGameobject->GetComponent<TransformComponent>()->localTransform.position;
-				float3 tempRot = selectGameobject->GetComponent<TransformComponent>()->localTransform.rotation;
-				float3 tempScale = selectGameobject->GetComponent<TransformComponent>()->localTransform.scale;
-
-				if (ImGui::DragFloat3("position", &tempPos[0], 0.1f))
+				switch (components[i]->GetType())
 				{
-					selectGameobject->GetComponent<TransformComponent>()->SetPosition(tempPos);
-				}
+				case Component::Type::TRANSFORM:
+					if (ImGui::CollapsingHeader("Transform",ImGuiTreeNodeFlags_DefaultOpen))
+					{
+						float3 tempPos = selectGameobject->GetComponent<TransformComponent>()->localTransform.position;
+						float3 tempRot = selectGameobject->GetComponent<TransformComponent>()->localTransform.rotation;
+						float3 tempScale = selectGameobject->GetComponent<TransformComponent>()->localTransform.scale;
 
-				if (ImGui::DragFloat3("rotation", &tempRot[0], 0.1f))
-				{
-					selectGameobject->GetComponent<TransformComponent>()->SetRotation(tempRot);
-				}
+						if (ImGui::DragFloat3("position", &tempPos[0], 0.1f))
+						{
+							selectGameobject->GetComponent<TransformComponent>()->SetPosition(tempPos);
+						}
 
-				if (ImGui::DragFloat3("scale", &tempScale[0], 0.1f))
-				{
-					selectGameobject->GetComponent<TransformComponent>()->SetScale(tempScale);
+						if (ImGui::DragFloat3("rotation", &tempRot[0], 0.1f))
+						{
+							selectGameobject->GetComponent<TransformComponent>()->SetRotation(tempRot);
+						}
+
+						if (ImGui::DragFloat3("scale", &tempScale[0], 0.1f))
+						{
+							selectGameobject->GetComponent<TransformComponent>()->SetScale(tempScale);
+						}
+					}
+					break;
+				case Component::Type::MESH_RENDERER:
+					if (ImGui::CollapsingHeader("Mesh Renderer", ImGuiTreeNodeFlags_DefaultOpen))
+					{
+					}
+					break;
 				}
 			}		
 		}

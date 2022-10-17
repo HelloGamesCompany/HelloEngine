@@ -25,8 +25,6 @@ ImWindowConsole::~ImWindowConsole()
 
 void ImWindowConsole::Update()
 {
-	static int num = 0;
-
 	if (ImGui::Begin(windowName.c_str(), &isEnabled, ImGuiWindowFlags_NoCollapse))
 	{
 		if (ImGui::SmallButton("Save Log"))
@@ -80,6 +78,4 @@ void ImWindowConsole::Update()
 		ImGui::EndChild();			
 	}
 	ImGui::End();
-
-	num++;
 }

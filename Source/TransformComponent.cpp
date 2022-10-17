@@ -4,6 +4,8 @@
 
 TransformComponent::TransformComponent(GameObject* gameObject) : Component(gameObject)
 {
+	_type = Type::TRANSFORM;
+
 	// If this is not the root node, we need the parents global transform.
 	if (this->_gameObject->_parent)
 	{
