@@ -7,7 +7,8 @@ TransformComponent::TransformComponent(GameObject* gameObject) : Component(gameO
 	// If this is not the root node, we need the parents global transform.
 	if (this->_gameObject->_parent)
 	{
-		TransformComponent* parentTransform = _gameObject->_parent->GetComponent<TransformComponent>();
+		TransformComponent* parentTransform = nullptr;
+		parentTransform = _gameObject->_parent->GetComponent<TransformComponent>();
 		parentGlobalTransform = parentTransform->GetGlobalTransform();
 	}
 }

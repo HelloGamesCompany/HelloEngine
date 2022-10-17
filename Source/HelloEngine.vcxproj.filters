@@ -266,7 +266,9 @@
     <ClCompile Include="ImWrapper.cpp">
       <Filter>Tools\ImGuiWrapper</Filter>
     </ClCompile>
-    <ClCompile Include="ImWrapperInputBox.cpp" />
+    <ClCompile Include="ImWrapperInputBox.cpp">
+      <Filter>Tools\ImGuiWrapper</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Module.h">
@@ -633,7 +635,9 @@
     <ClInclude Include="ImWrapper.h">
       <Filter>Tools\ImGuiWrapper</Filter>
     </ClInclude>
-    <ClInclude Include="ImWrapperInputBox.h" />
+    <ClInclude Include="ImWrapperInputBox.h">
+      <Filter>Tools\ImGuiWrapper</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="External\imgui\vulkan\generate_spv.sh">

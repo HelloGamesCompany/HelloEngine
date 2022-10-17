@@ -13,6 +13,8 @@ ImWindowProject::~ImWindowProject()
 
 void ImWindowProject::Update()
 {
+    ImGui::SetNextWindowSizeConstraints(ImVec2(400, 200), ImVec2(600, 400));
+
 	if (ImGui::Begin(windowName.c_str(), &isEnabled, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoScrollbar))
 	{
         // Options, Filter
@@ -28,7 +30,9 @@ void ImWindowProject::Update()
         static float width2 = 1200; // Init Size child 2
         static float windowInitX = windowSize.x;
 
-        ImGui::DrawSplitter(0, 10, &width1, &width2, 10, 200);       
+        Console::S_Log("Windth: " + std::to_string(width2));
+
+        ImGui::DrawSplitter(0, 10, &width1, &width2, 50, 200);       
 
         width2 = (windowSize.x - width1 - 20);
 
