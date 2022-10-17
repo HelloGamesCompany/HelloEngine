@@ -36,6 +36,10 @@ public:
 
 	bool SetParent(GameObject* parent);
 
+	bool IsActive() { return _isActive; }
+
+	bool IsStatic() { return _isStatic; }
+
 public:
 	std::string name;
 	std::string tag;
@@ -52,11 +56,10 @@ private:
 
 	bool _isActive = true;
 	bool _isDestroyed = false;
-
+	bool _isStatic = false;
 
 	uint _ID = 0; // ID =  0 is an invalid ID. First ID is 1.
 
 	friend class TransformComponent;
 	friend class ImWindowHierarchy;
 };
-

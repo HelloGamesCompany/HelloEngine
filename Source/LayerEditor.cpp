@@ -145,10 +145,7 @@ void LayerEditor::PostUpdate()
 		{
 			for (int i = 0; i < (uint)ImWindowID::MAX; i++)
 			{
-				if (ImGui::MenuItem(imWindows[i]->windowName.c_str()))
-				{
-					imWindows[i]->isEnabled = true;
-				}
+				if (ImGui::MenuItem(imWindows[i]->windowName.c_str())) imWindows[i]->isEnabled = true;
 			}
 			ImGui::EndMenu();
 		}
