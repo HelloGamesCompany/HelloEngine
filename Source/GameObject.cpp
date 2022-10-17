@@ -36,6 +36,7 @@ GameObject::~GameObject()
 bool GameObject::AddChild(GameObject* child)
 {
 	if (!child) return false;
+	if (child->_parent == this) return false;
 
 	GameObject* p = _parent;
 

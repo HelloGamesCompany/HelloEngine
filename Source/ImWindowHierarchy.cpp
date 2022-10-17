@@ -27,57 +27,74 @@ void ImWindowHierarchy::Update()
 
 	if (ImGui::Begin(windowName.c_str(), &isEnabled))
 	{
-        if (ImGui::TreeNode("Root"))
-        {
-            DrawGameObjectChildren(gameObjectsReference->at(1), 1);
-            ImGui::TreePop();
-        }
+        DrawGameObjectChildren(gameObjectsReference->at(1));
 	}
 
 	ImGui::End();
 }
 
-void ImWindowHierarchy::DrawGameObjectChildren(GameObject* gameObject, int layer)
+void ImWindowHierarchy::DrawGameObjectChildren(GameObject* gameObject, bool onlyChildren)
 {
-    for (int i = 0; i < gameObject->_children.size(); i++)
+    if (!onlyChildren) ProcessGameObject(gameObject, 0);
+    else
     {
-        if (i == 0)  ImGui::SetNextItemOpen(true, ImGuiCond_Once);
-        
-        ImGuiTreeNodeFlags node_flags = base_flags;
-
-        if (gameObject->_children[i] == layerEditor->selectedGameObject) node_flags |= ImGuiTreeNodeFlags_Selected;
-
-        bool node_open = ImGui::TreeNodeEx((void*)(intptr_t)i, node_flags, gameObject->_children[i]->name.c_str(), i);
-
-        if (ImGui::BeginDragDropSource())
+        for (int i = 0; i < gameObject->_children.size(); i++)
         {
-            ImGui::SetDragDropPayload("GameObject", gameObject->_children[i], sizeof(GameObject*));
+            /*if (i == 0)  ImGui::SetNextItemOpen(true, ImGuiCond_Once);*/
 
-            draggingGameObject = gameObject->_children[i];
-
-            ImGui::Text("Change game object parent");
-            ImGui::EndDragDropSource();
+            ProcessGameObject(gameObject->_children[i], i);
         }
+    }
 
-        if (ImGui::IsItemHovered() && ImGui::IsMouseReleased(ImGuiMouseButton_::ImGuiMouseButton_Left))
+}
+
+void ImWindowHierarchy::ProcessGameObject(GameObject* gameObject, int iteration)
+{
+    ImGuiTreeNodeFlags node_flags = base_flags;
+
+    if (gameObject == layerEditor->selectedGameObject) node_flags |= ImGuiTreeNodeFlags_Selected;
+
+    bool node_open;
+
+    if (gameObject->_children.empty())
+    {
+        node_flags |= ImGuiTreeNodeFlags_Leaf | ImGuiTreeNodeFlags_NoTreePushOnOpen;
+        ImGui::TreeNodeEx((void*)(intptr_t)iteration, node_flags, gameObject->name.c_str(), iteration);
+        node_open = false;
+    }
+    else
+    {
+        node_open = ImGui::TreeNodeEx((void*)(intptr_t)iteration, node_flags, gameObject->name.c_str(), iteration);
+    }
+
+    if (ImGui::BeginDragDropSource())
+    {
+        ImGui::SetDragDropPayload("GameObject", gameObject, sizeof(GameObject*));
+
+        draggingGameObject = gameObject;
+
+        ImGui::Text("Change game object parent");
+        ImGui::EndDragDropSource();
+    }
+
+    if (ImGui::IsItemHovered() && ImGui::IsMouseReleased(ImGuiMouseButton_::ImGuiMouseButton_Left))
+    {
+        layerEditor->SetSelectGameObject(gameObject);
+    }
+
+    if (ImGui::BeginDragDropTarget())
+    {
+        if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("GameObject"))
         {
-            layerEditor->SetSelectGameObject(gameObject->_children[i]);
+            draggingGameObject->SetParent(gameObject);
+            draggingGameObject = nullptr;
         }
+        ImGui::EndDragDropTarget();
+    }
 
-        if (ImGui::BeginDragDropTarget())
-        {
-            if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("GameObject"))
-            {
-                draggingGameObject->SetParent(gameObject->_children[i]);
-                draggingGameObject = nullptr;
-            }
-            ImGui::EndDragDropTarget();
-        }
-
-        if (node_open)
-        {
-            DrawGameObjectChildren(gameObject->_children[i], ++layer);
-            ImGui::TreePop();
-        }
+    if (node_open)
+    {
+        if (!gameObject->_children.empty()) DrawGameObjectChildren(gameObject, true); 
+        ImGui::TreePop();
     }
 }

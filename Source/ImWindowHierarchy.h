@@ -14,7 +14,8 @@ public:
 
 	void Update() override;
 
-	void DrawGameObjectChildren(GameObject* gameObject, int layer);
+	void DrawGameObjectChildren(GameObject* gameObject, bool onlyChildren = false);
+	void ProcessGameObject(GameObject* gameObject, int iteration);
 
 private:
 	std::map<uint, GameObject*>* gameObjectsReference = nullptr;
