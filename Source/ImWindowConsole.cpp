@@ -27,10 +27,6 @@ void ImWindowConsole::Update()
 {
 	static int num = 0;
 
-	//CSL::S_Log("hello" + std::to_string(num));
-
-	//ImGui::SetNextWindowSize(ImVec2(520, 600), ImGuiCond_FirstUseEver);
-
 	if (ImGui::Begin(windowName.c_str(), &isEnabled, ImGuiWindowFlags_NoCollapse))
 	{
 		if (ImGui::SmallButton("Save Log"))
@@ -78,6 +74,8 @@ void ImWindowConsole::Update()
 				ImGui::Text((log.first + "\tcount: " + std::to_string(log.second)).c_str());
 			}
 		}
+
+		ImGui::SetScrollHereY(0.999f);
 
 		ImGui::EndChild();			
 	}
