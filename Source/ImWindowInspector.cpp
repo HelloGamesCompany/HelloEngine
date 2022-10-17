@@ -2,6 +2,7 @@
 #include "ImWindowInspector.h"
 #include "GameObject.h"
 #include "TransformComponent.h"
+#include "MeshRenderComponent.h"
 
 ImWindowInspector::ImWindowInspector()
 {
@@ -37,7 +38,7 @@ void ImWindowInspector::Update()
 
 				if (ImGui::DragFloat3("rotation", &tempRot[0], 0.1f))
 				{
-					selectGameobject->GetComponent<TransformComponent>()->SetRotation(tempRot);
+					selectGameobject->GetComponent<MeshRenderComponent>()->GetMesh().SetRotation(tempRot);
 				}
 
 				if (ImGui::DragFloat3("scale", &tempScale[0], 0.1f))

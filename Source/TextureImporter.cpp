@@ -12,20 +12,20 @@ void TextureImporter::ImportImage(const char* fileName, char* buffer, int size)
 	ILuint ImgId = 0;
 	ilGenImages(1, &ImgId);
 	ilBindImage(ImgId);
-	if (!ilLoadImage(fileName))
+	if (!ilLoadL(IL_TYPE_UNKNOWN, buffer, size))
 	{
 		LOG("Error loading image: %s", ilutGetString(ilGetError()));
 	}
 
-	ILuint size;
+	ILuint imgSize;
 	ILubyte* data;
 	ilSetInteger(IL_DXTC_FORMAT, IL_DXT5);// To pick a specific DXT compression use
-	size = ilSaveL(IL_DDS, nullptr, 0); // Get the size of the data buffer
+	imgSize = ilSaveL(IL_DDS, nullptr, 0); // Get the size of the data buffer
 
-	if (size > 0) 
+	if (imgSize > 0)
 	{
-		data = new ILubyte[size]; // allocate data buffer
-		if (ilSaveL(IL_DDS, data, size) > 0) // Save to buffer with the ilSaveIL function
+		data = new ILubyte[imgSize]; // allocate data buffer
+		if (ilSaveL(IL_DDS, data, imgSize) > 0) // Save to buffer with the ilSaveIL function
 			buffer = (char*)data;
 
 		RELEASE_ARRAY(data);
@@ -62,6 +62,8 @@ uint TextureImporter::Load(char* buffer, int size, int* width, int* heigth)
 	*heigth = ilGetInteger(IL_IMAGE_HEIGHT);
 
 	TextureManager::loadedTextures[engineTexture.OpenGLID] = engineTexture; // Add loaded texture inside TextureManager.
+
+	return engineTexture.OpenGLID;
 }
 
 uint TextureImporter::ImportTexture(std::string path)
