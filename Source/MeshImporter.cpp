@@ -166,14 +166,28 @@ void MeshImporter::ProcessLoadedNode(aiNode* node, const aiScene* scene, uint& f
 	else if (node->mNumMeshes > 1) newParent = new GameObject(parent, "Node");
 	else newParent = parent;
 
+	// Set new GameObject position with node Transform.
+	aiVector3D translation, scaling;
+	aiQuaternion rotation;
+
+	node->mTransformation.Decompose(scaling, rotation, translation);
+	float3 pos(translation.x, translation.y, translation.z);
+	float3 scale(scaling.x, scaling.y, scaling.z);
+	Quat rot(rotation.x, rotation.y, rotation.z, rotation.w);
+	float3 eulerRot = rot.ToEulerZYX();	// TODO: Transform should save rotation as Quaternion?
+	eulerRot.x = math::RadToDeg(eulerRot.x);
+	eulerRot.y = math::RadToDeg(eulerRot.y);
+	eulerRot.z = math::RadToDeg(eulerRot.z);
+
+	newParent->GetComponent<TransformComponent>()->SetTransform(pos, { 1.0f,1.0f,1.0f }, eulerRot);
+
 	ModelRenderManager* renderManager = &Application::Instance()->renderer3D->modelRender;
 
 	for (unsigned int i = 0; i < node->mNumMeshes; i++)
 	{
 		// Create a GameObject with a MeshRenderComponent that represents the Mesh
-		GameObject* newGameObject = new GameObject(Application::Instance()->layers->rootGameObject, "Mesh");
+		GameObject* newGameObject = new GameObject(newParent, "Mesh");
 		newGameObject->AddComponent<MeshRenderComponent>()->InitAsLoadedMesh(firstMeshID++);
-		newGameObject->SetParent(newParent);
 	}
 
 	for (unsigned int i = 0; i < node->mNumChildren; i++)

@@ -30,6 +30,7 @@ public:
 			if (counter == index) return (T*)component;
 			else counter++;
 		}
+		return nullptr;
 	}
 
 	std::vector<Component*> GetComponents() { return _components;}

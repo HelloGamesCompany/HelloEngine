@@ -64,12 +64,16 @@ void MeshRenderComponent::InitAsLoadedMesh(uint meshID)
 {
 	_meshID = meshID + 2;
 
+	ModelRenderManager* test = &Application::Instance()->renderer3D->modelRender;
+
 	RenderManager* manager = Application::Instance()->renderer3D->modelRender.GetRenderManager(_meshID);
 
 	Mesh instanceMesh;
 	instanceMesh.InitAsMeshInformation({ 0.0f,0.0,0.0f }, {1.0f,1.0f,1.0f});
 
 	_instanceID = manager->AddMesh(instanceMesh);
+
+
 
 	//TODO: determine how this funciton will be called. 
 	// The body of this funciton should:

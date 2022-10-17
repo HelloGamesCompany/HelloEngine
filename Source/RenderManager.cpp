@@ -15,7 +15,7 @@ RenderManager::~RenderManager()
 
 uint RenderManager::SetMeshInformation(Mesh& mesh)
 {
-    if (initialized) LOG("Tried to call RenderManager::SetMeshInformation more than once in a single Render Manager instnace.");
+    if (initialized) LOG("Tried to call RenderManager::SetMeshInformation more than once in a single Render Manager instance.");
     // Set this RenderManager Mesh information.
     this->totalVertices.insert(totalVertices.begin(), mesh._vertices->begin(), mesh._vertices->end());
     this->totalIndices.insert(totalIndices.begin(), mesh._indices->begin(), mesh._indices->end());
@@ -39,7 +39,7 @@ void RenderManager::Draw()
         LOG("A Render Manager is being updated without any meshes!");
         return;
     }
-    for (auto mesh : meshes)
+    for (auto& mesh : meshes)
     {
         mesh.second.Update();
         modelMatrices.push_back(mesh.second.modelMatrix); // Insert updated matrices

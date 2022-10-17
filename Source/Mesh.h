@@ -38,8 +38,6 @@ public:
 
 	void SetTransform(float3 pos, float3 s, float3 rot);
 
-	void SetUpdateTrue() { _updateMatrix = true; } // Debugging function! Should be deleted
-
 public:
 	float3 rotation;
 	float3 scale;
