@@ -14,6 +14,7 @@
 #include "ImWindowHierarchy.h"
 #include "ImWindowInspector.h"
 #include "ImWindowQuickSave.h"
+#include "ImWindowScene.h"
 
 #include "ModuleLayers.h"
 #include "LayerGame.h"
@@ -101,6 +102,7 @@ void LayerEditor::Start()
 	imWindows[(uint)ImWindowID::QUICKSAVE] = new ImWindowQuickSave();
 	imWindows[(uint)ImWindowID::INSPECTOR] = new ImWindowInspector();
 	imWindows[(uint)ImWindowID::HIERARCHY] = new ImWindowHierarchy();
+	imWindows[(uint)ImWindowID::SCENE] = new ImWindowScene();
 
 	game = (LayerGame*)Application::Instance()->layers->layers[(uint)LayersID::GAME];
 }
@@ -143,10 +145,7 @@ void LayerEditor::PostUpdate()
 		{
 			for (int i = 0; i < (uint)ImWindowID::MAX; i++)
 			{
-				if (ImGui::MenuItem(imWindows[i]->windowName.c_str()))
-				{
-					imWindows[i]->isEnabled = true;
-				}
+				if (ImGui::MenuItem(imWindows[i]->windowName.c_str())) imWindows[i]->isEnabled = true;
 			}
 			ImGui::EndMenu();
 		}
@@ -156,28 +155,9 @@ void LayerEditor::PostUpdate()
 		ImGui::EndMainMenuBar();
 	}
 
-	ImGui::Begin("Scene");
-	
-	Application::Instance()->camera->updateSceneCamera = ImGui::IsWindowHovered();
-
-	ImVec2 sceneDimensions = ImGui::GetContentRegionAvail();
-
-	if (sceneDimensions.x != gameWidth || sceneDimensions.y != gameHeight)
-	{
-		// If the size of this imgui window is different from the one stored.
-		gameWidth = sceneDimensions.x;
-		gameHeight = sceneDimensions.y;
-		Application::Instance()->camera->sceneCamera.ChangeAspectRatio((float)gameWidth / (float)gameHeight);
-	}
-
-	ImGui::Image((ImTextureID)Application::Instance()->camera->sceneCamera.frameBuffer.GetTexture(), ImGui::GetContentRegionAvail(), ImVec2(0, 1), ImVec2(1, 0));
-
-	ImGui::End();
-
     for (int i = 0; i < (uint)ImWindowID::MAX; i++)
     {
-        if (imWindows[i]->isEnabled)
-            imWindows[i]->Update();
+        if (imWindows[i]->isEnabled) imWindows[i]->Update();
     }
 
 	ImGui::Render();

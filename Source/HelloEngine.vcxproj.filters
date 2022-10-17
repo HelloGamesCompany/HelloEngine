@@ -269,6 +269,9 @@
     <ClCompile Include="ImWrapperInputBox.cpp">
       <Filter>Tools\ImGuiWrapper</Filter>
     </ClCompile>
+    <ClCompile Include="ImWindowScene.cpp">
+      <Filter>Modules\Layer\Windows</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Module.h">
@@ -637,6 +640,9 @@
     </ClInclude>
     <ClInclude Include="ImWrapperInputBox.h">
       <Filter>Tools\ImGuiWrapper</Filter>
+    </ClInclude>
+    <ClInclude Include="ImWindowScene.h">
+      <Filter>Modules\Layer\Windows</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
