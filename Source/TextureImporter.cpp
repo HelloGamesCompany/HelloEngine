@@ -7,6 +7,63 @@
 #include "External/stb_image/stb_image.h"
 
 
+void TextureImporter::ImportImage(const char* fileName, char* buffer, int size)
+{
+	ILuint ImgId = 0;
+	ilGenImages(1, &ImgId);
+	ilBindImage(ImgId);
+	if (!ilLoadImage(fileName))
+	{
+		LOG("Error loading image: %s", ilutGetString(ilGetError()));
+	}
+
+	ILuint size;
+	ILubyte* data;
+	ilSetInteger(IL_DXTC_FORMAT, IL_DXT5);// To pick a specific DXT compression use
+	size = ilSaveL(IL_DDS, nullptr, 0); // Get the size of the data buffer
+
+	if (size > 0) 
+	{
+		data = new ILubyte[size]; // allocate data buffer
+		if (ilSaveL(IL_DDS, data, size) > 0) // Save to buffer with the ilSaveIL function
+			buffer = (char*)data;
+
+		RELEASE_ARRAY(data);
+	}
+
+	ilDeleteImages(1, &ImgId);
+}
+
+uint TextureImporter::Load(char* buffer, int size, int* width, int* heigth)
+{
+	ILuint ImgId = 0;
+	ilGenImages(1, &ImgId);
+	ilBindImage(ImgId);
+	if (!ilLoadL(IL_TYPE_UNKNOWN, buffer, size))
+	{
+		LOG("Error loading image: %s", ilutGetString(ilGetError()));
+	}
+
+	Texture engineTexture;
+
+	glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+	engineTexture.OpenGLID = ilutGLBindTexImage();
+
+	//TODO: Generate mipmaps and use best settings
+	glBindTexture(GL_TEXTURE_2D, engineTexture.OpenGLID);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glGenerateMipmap(GL_TEXTURE_2D);
+	glBindTexture(GL_TEXTURE_2D, 0);
+
+	*width = ilGetInteger(IL_IMAGE_WIDTH);
+	*heigth = ilGetInteger(IL_IMAGE_HEIGHT);
+
+	TextureManager::loadedTextures[engineTexture.OpenGLID] = engineTexture; // Add loaded texture inside TextureManager.
+}
+
 uint TextureImporter::ImportTexture(std::string path)
 {
 	//Check if the given texture has been already loaded
