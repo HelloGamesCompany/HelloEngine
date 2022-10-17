@@ -61,7 +61,7 @@ void ImWindowHierarchy::DrawGameObjectChildren(GameObject* gameObject, int layer
 
         if (ImGui::IsItemHovered() && ImGui::IsMouseReleased(ImGuiMouseButton_::ImGuiMouseButton_Left))
         {
-            layerEditor->selectedGameObject = gameObject->_children[i];
+            layerEditor->SetSelectGameObject(gameObject->_children[i]);
         }
 
         if (ImGui::BeginDragDropTarget())

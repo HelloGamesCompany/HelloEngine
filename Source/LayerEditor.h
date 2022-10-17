@@ -32,9 +32,11 @@ public:
 
 	void CleanUp() override;
 
-private:
+	void SetSelectGameObject(GameObject* g);
 
+private:
 	ImWindow* imWindows[(uint)ImWindowID::MAX] = { nullptr };
+
 	LayerGame* game = nullptr;
 
 	GameObject* selectedGameObject = nullptr;

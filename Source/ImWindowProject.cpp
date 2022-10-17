@@ -30,11 +30,11 @@ void ImWindowProject::Update()
 
         ImVec2 windowSize = ImGui::GetWindowSize();
 
-        ImGui::DrawSplitter(0, 10, &width1, &width2, 50, 200);       
+        ImGui::DrawSplitter(0, 10, &width1, &width2, 100, 200);       
 
         width2 = (windowSize.x - width1 - 20);
 
-        if (width1 >= 1) 
+        if (width1 > 0) 
         {
             ImGui::PushStyleColor(ImGuiCol_ChildBg, ImVec4(0.16f, 0.16f, 0.16f, 1));
 
@@ -65,35 +65,15 @@ void ImWindowProject::Update()
             ImGui::PopStyleColor();
         }
 
-        if(width2 >= 1)
+        if (width2 > 0)
         {
             ImGui::SameLine();
 
             if (ImGui::BeginChild("ChildR", ImVec2(width2, 0), true, ImGuiWindowFlags_HorizontalScrollbar))
-            {
-                if (ImGui::TreeNode("Basic trees"))
-                {
-                    for (int i = 0; i < 8; i++)
-                    {
-                        // Use SetNextItemOpen() so set the default state of a node to be open. We could
-                        // also use TreeNodeEx() with the ImGuiTreeNodeFlags_DefaultOpen flag to achieve the same thing!
-                        if (i == 0)
-                            ImGui::SetNextItemOpen(true, ImGuiCond_Once);
-
-                        if (ImGui::TreeNode((void*)(intptr_t)i, "Child %d", i))
-                        {
-                            ImGui::Text("blah blah");
-                            ImGui::SameLine();
-                            if (ImGui::SmallButton("button")) {}
-                            ImGui::TreePop();
-                        }
-                    }
-                    ImGui::TreePop();
-                }
+            {               
                 ImGui::EndChild();
             }
         }
-
 	}
 	ImGui::End(); 
 }

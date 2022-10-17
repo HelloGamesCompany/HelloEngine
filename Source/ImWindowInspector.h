@@ -12,6 +12,8 @@ public:
 
 	void Update() override;
 
+	void SelectGameObject(GameObject* g);
+
 private:
 
 	GameObject* selectGameobject = nullptr;
