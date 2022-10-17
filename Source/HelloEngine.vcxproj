@@ -245,6 +245,7 @@
     <ClCompile Include="ImWindowConfiguration.cpp" />
     <ClCompile Include="ImWindowOpenGL.cpp" />
     <ClCompile Include="ImWindowQuickSave.cpp" />
+    <ClCompile Include="ImWindowScene.cpp" />
     <ClCompile Include="ImWrapper.cpp" />
     <ClCompile Include="ImWrapperInputBox.cpp" />
     <ClCompile Include="JSONParser.cpp" />
@@ -370,6 +371,7 @@
     <ClInclude Include="ImWindowConfiguration.h" />
     <ClInclude Include="ImWindowOpenGL.h" />
     <ClInclude Include="ImWindowQuickSave.h" />
+    <ClInclude Include="ImWindowScene.h" />
     <ClInclude Include="ImWrapper.h" />
     <ClInclude Include="ImWrapperInputBox.h" />
     <ClInclude Include="JSONParser.h" />
