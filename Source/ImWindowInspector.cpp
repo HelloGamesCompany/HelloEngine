@@ -2,6 +2,7 @@
 #include "ImWindowInspector.h"
 #include "GameObject.h"
 #include "TransformComponent.h"
+#include "MeshRenderComponent.h"
 
 ImWindowInspector::ImWindowInspector()
 {

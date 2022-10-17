@@ -40,8 +40,6 @@ void ImWindowHierarchy::DrawGameObjectChildren(GameObject* gameObject, bool only
     {
         for (int i = 0; i < gameObject->_children.size(); i++)
         {
-            /*if (i == 0)  ImGui::SetNextItemOpen(true, ImGuiCond_Once);*/
-
             ProcessGameObject(gameObject->_children[i], i);
         }
     }
@@ -77,7 +75,7 @@ void ImWindowHierarchy::ProcessGameObject(GameObject* gameObject, int iteration)
         ImGui::EndDragDropSource();
     }
 
-    if (ImGui::IsItemHovered() && ImGui::IsMouseReleased(ImGuiMouseButton_::ImGuiMouseButton_Left))
+    if (ImGui::IsItemHovered() && ImGui::IsMouseDown(ImGuiMouseButton_::ImGuiMouseButton_Left))
     {
         layerEditor->SetSelectGameObject(gameObject);
     }
