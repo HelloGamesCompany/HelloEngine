@@ -154,10 +154,6 @@ void MeshImporter::ProcessNewMesh(aiMesh* mesh, const aiScene* scene, GameObject
 	// Load into a Mesh object
 	GameObject* newGameObject = new GameObject(parent, "Mesh");
 	newGameObject->AddComponent<MeshRenderComponent>()->InitAsNewMesh(vertices, indices);
-
-	// TODO: Generate a GameObject with a RenderMeshComponent
-	//LayerGame* game = (LayerGame*)Application::Instance()->layers->layers[LayersID::GAME];//TEMPORAL CODE
-	//game->meshComponentTest.push_back(newMeshComponent);
 }
 
 void MeshImporter::ProcessLoadedNode(aiNode* node, const aiScene* scene, uint& firstMeshID, GameObject* parent)

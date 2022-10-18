@@ -38,5 +38,6 @@ private:
 	bool changeFOVWithBufferSize;
 
 	friend class ModuleCamera3D;
+	friend class CameraComponent;
 };
 

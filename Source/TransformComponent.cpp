@@ -104,17 +104,20 @@ TransformValues TransformComponent::GetGlobalTransform()
 
 float3 TransformComponent::GetForward()
 {
-	return float3();
+	CalculateGlobalMatrix();
+	return globalMatrix.RotatePart().Col(2).Normalized();
 }
 
 float3 TransformComponent::GetRight()
 {
-	return float3();
+	CalculateGlobalMatrix();
+	return globalMatrix.RotatePart().Col(0).Normalized();
 }
 
 float3 TransformComponent::GetUp()
 {
-	return float3();
+	CalculateGlobalMatrix();
+	return globalMatrix.RotatePart().Col(1).Normalized();
 }
 
 void TransformComponent::OnEditor()
@@ -200,4 +203,13 @@ void TransformComponent::UpdateTransform()
 	{
 		_gameObject->_components[i]->OnTransformUpdate(globalTransform.position, globalTransform.scale, globalTransform.rotation);
 	}
+}
+
+void TransformComponent::CalculateGlobalMatrix()
+{
+	TransformValues globalTransform = GetGlobalTransform();
+	
+	math::Quat rotation = Quat::FromEulerXYZ(globalTransform.rotation.x, globalTransform.rotation.y, globalTransform.rotation.z);
+
+	globalMatrix = float4x4::FromTRS(globalTransform.position, rotation, globalTransform.scale);
 }

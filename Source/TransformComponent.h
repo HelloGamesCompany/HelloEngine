@@ -58,15 +58,17 @@ public:
 
 	void OnEditor() override;
 
-	// TODO: This should be private! 
-
 private:
 	void UpdatePosition();
 	void UpdateRotation();
 	void UpdateScale();
 	void UpdateTransform();
 
+	void CalculateGlobalMatrix();
+
 private:
+	float4x4 globalMatrix;
+
 	TransformValues parentGlobalTransform;
 	TransformValues localTransform;
 
