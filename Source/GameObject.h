@@ -1,7 +1,6 @@
 #pragma once
 #include "Component.h"
-
-class TransformComponent;
+#include "TransformComponent.h"
 
 class GameObject
 {
@@ -16,6 +15,8 @@ public:
 	{
 		T* newComponent = new T(this);
 		_components.push_back(newComponent);
+
+
 		return newComponent;
 	}
 

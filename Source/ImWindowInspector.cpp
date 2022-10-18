@@ -27,6 +27,8 @@ void ImWindowInspector::Update()
 
 			std::vector<Component*> components = selectGameobject->GetComponents();
 
+			// TODO: Deberiamos hacer esto dentro de Component como método virtual?
+
 			for (size_t i = 0; i < components.size(); i++)
 			{
 				switch (components[i]->GetType())
@@ -53,7 +55,7 @@ void ImWindowInspector::Update()
 						
 						{
 							ImGui::DragFloat3("rotation", &tempRot[0], 0.1f);
-							selectGameobject->GetComponent<TransformComponent>()->SetRotation(tempRot);
+							selectGameobject->GetComponent<TransformComponent>()->SetRotation(tempRot); // TODO: Esto se llama cada frame, deberia ser solo cuando cambia el valor.
 						}
 
 						{

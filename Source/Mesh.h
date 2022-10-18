@@ -50,7 +50,7 @@ public:
 	float OpenGLTextureID = -1;
 	float textureID = -1;
 private:
-	bool _updateMatrix = false;
+	bool _updateMatrix = true;
 };
 
 #endif // !__PRIMITIVE_H__
