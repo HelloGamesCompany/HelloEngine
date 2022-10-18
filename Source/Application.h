@@ -12,6 +12,7 @@ class ModuleRenderer3D;
 class ModuleLayers;
 class ModuleXML;
 class ModuleFiles;
+class ModuleCommand;
 
 class Application
 {
@@ -23,6 +24,7 @@ public:
 	ModuleLayers* layers = nullptr;
 	ModuleXML* xml = nullptr;
 	ModuleFiles* file = nullptr;
+	ModuleCommand* command = nullptr;
 	float fps = 1.0f/60.0f;
 	int frameCap;
 	Timer	timer;

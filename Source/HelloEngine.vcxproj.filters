@@ -272,6 +272,12 @@
     <ClCompile Include="ImWindowScene.cpp">
       <Filter>Modules\Layer\Windows</Filter>
     </ClCompile>
+    <ClCompile Include="ModuleCommand.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="Command.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Module.h">
@@ -643,6 +649,12 @@
     </ClInclude>
     <ClInclude Include="ImWindowScene.h">
       <Filter>Modules\Layer\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleCommand.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="Command.h">
+      <Filter>Tools</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -8,6 +8,7 @@
 #include "ModuleLayers.h"
 #include "ModuleXML.h"
 #include "ModuleFiles.h"
+#include "ModuleCommand.h"
 
 Application* Application::app = nullptr;
 
@@ -28,6 +29,7 @@ bool Application::Init()
 	renderer3D = new ModuleRenderer3D(true);
 	layers = new ModuleLayers();
 	xml = new ModuleXML();
+	command = new ModuleCommand();
 
 	// The order of calls is very important!
 	// Modules will Init() Start() and Update in this order
@@ -36,6 +38,7 @@ bool Application::Init()
 	// Main Modules
 	AddModule(file);
 	AddModule(xml);
+	AddModule(command);
 	AddModule(window);
 
 	AddModule(input);

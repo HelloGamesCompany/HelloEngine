@@ -99,6 +99,7 @@
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="CameraObject.cpp" />
     <ClCompile Include="Color.cpp" />
+    <ClCompile Include="Command.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Console.cpp" />
     <ClCompile Include="External\imgui\imgui.cpp">
@@ -260,6 +261,7 @@
     <ClCompile Include="Module.cpp" />
     <ClCompile Include="ModuleCamera3D.cpp" />
     <ClCompile Include="LayerEditor.cpp" />
+    <ClCompile Include="ModuleCommand.cpp" />
     <ClCompile Include="ModuleInput.cpp" />
     <ClCompile Include="ModuleLayers.cpp" />
     <ClCompile Include="ModuleFiles.cpp" />
@@ -279,6 +281,7 @@
   <ItemGroup>
     <ClInclude Include="Application.h" />
     <ClInclude Include="CameraObject.h" />
+    <ClInclude Include="Command.h" />
     <ClInclude Include="CommandArray.hpp" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="Console.h" />
@@ -385,6 +388,7 @@
     <ClInclude Include="Module.h" />
     <ClInclude Include="ModuleCamera3D.h" />
     <ClInclude Include="LayerEditor.h" />
+    <ClInclude Include="ModuleCommand.h" />
     <ClInclude Include="ModuleInput.h" />
     <ClInclude Include="ModuleLayers.h" />
     <ClInclude Include="ModuleFiles.h" />
