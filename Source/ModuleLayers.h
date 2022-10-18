@@ -3,6 +3,8 @@
 #include "Layer.h"
 #include "GameObject.h"
 
+class LayerEditor;
+
 enum LayersID
 {
 	GAME,
@@ -41,7 +43,8 @@ public:
 
 	GameObject* rootGameObject = nullptr;
 
+	LayerEditor* editor = nullptr;
+
 	std::map<uint, GameObject*> gameObjects;
-	GameObject* go21 = nullptr;
 };
 

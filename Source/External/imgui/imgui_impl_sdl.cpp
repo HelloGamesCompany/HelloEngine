@@ -574,7 +574,7 @@ static void ImGui_ImplSDL2_UpdateMouseCursor()
     {
         // Show OS mouse cursor
         SDL_SetCursor(bd->MouseCursors[imgui_cursor] ? bd->MouseCursors[imgui_cursor] : bd->MouseCursors[ImGuiMouseCursor_Arrow]);
-        SDL_ShowCursor(SDL_TRUE);
+        //SDL_ShowCursor(SDL_TRUE);
     }
 }
 

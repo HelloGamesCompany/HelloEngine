@@ -39,7 +39,7 @@ bool ModuleLayers::Start()
         }
     }
 
-    layers[(uint)LayersID::EDITOR] = new LayerEditor();
+    layers[(uint)LayersID::EDITOR] = editor = new LayerEditor();
     layers[(uint)LayersID::GAME] = new LayerGame();
 
     for (int i = 0; i < (uint)LayersID::MAX; i++)
