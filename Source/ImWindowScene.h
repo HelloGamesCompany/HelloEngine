@@ -2,6 +2,7 @@
 #include "ImWindow.h"
 
 class ModuleCamera3D;
+class CameraObject;
 
 class ImWindowScene : public ImWindow
 {
@@ -16,7 +17,9 @@ private:
 
 	ModuleCamera3D* moduleCamera = nullptr;
 
-	int gameWidth = 1;
+	CameraObject* sceneCamera = nullptr;
 
-	int gameHeight = 1;
+	int sceneWidth = 1;
+
+	int sceneHeight = 1;
 };

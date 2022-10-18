@@ -97,6 +97,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
+    <ClCompile Include="CameraComponent.cpp" />
     <ClCompile Include="CameraObject.cpp" />
     <ClCompile Include="Color.cpp" />
     <ClCompile Include="Command.cpp" />
@@ -237,6 +238,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="ImGuiUtils.cpp" />
+    <ClCompile Include="ImWindowGame.cpp" />
     <ClCompile Include="ImWindowHierarchy.cpp" />
     <ClCompile Include="ImWindowInspector.cpp" />
     <ClCompile Include="ImWindowProject.cpp" />
@@ -280,6 +282,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h" />
+    <ClInclude Include="CameraComponent.h" />
     <ClInclude Include="CameraObject.h" />
     <ClInclude Include="Command.h" />
     <ClInclude Include="CommandArray.hpp" />
@@ -365,6 +368,7 @@
     <ClInclude Include="glmath.h" />
     <ClInclude Include="Headers.h" />
     <ClInclude Include="ImGuiUtils.h" />
+    <ClInclude Include="ImWindowGame.h" />
     <ClInclude Include="ImWindowHierarchy.h" />
     <ClInclude Include="ImWindowInspector.h" />
     <ClInclude Include="ImWindowProject.h" />

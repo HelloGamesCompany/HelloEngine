@@ -52,6 +52,10 @@ public:
 
 	TransformValues GetGlobalTransform();
 
+	float3 GetForward();
+	float3 GetRight();
+	float3 GetUp();
+
 	// TODO: This should be private! 
 	TransformValues localTransform;
 

@@ -102,6 +102,21 @@ TransformValues TransformComponent::GetGlobalTransform()
 	return globalTransform;
 }
 
+float3 TransformComponent::GetForward()
+{
+	return float3();
+}
+
+float3 TransformComponent::GetRight()
+{
+	return float3();
+}
+
+float3 TransformComponent::GetUp()
+{
+	return float3();
+}
+
 void TransformComponent::UpdatePosition()
 {
 	float3 globalPosition = parentGlobalTransform.position + localTransform.position;

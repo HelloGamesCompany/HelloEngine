@@ -7,7 +7,7 @@
 
 ModuleCamera3D::ModuleCamera3D(bool start_enabled) : Module(start_enabled)
 {
-	gameCameras.emplace_back();
+	// Create Empty GameObject with camera component.
 	currentDrawingCamera = activeGameCamera = &gameCameras[0];
 }
 
@@ -23,11 +23,11 @@ bool ModuleCamera3D::Start()
 	sceneCamera.frameBuffer.SetDimensions(Application::Instance()->window->width, Application::Instance()->window->height);
 	sceneCamera.changeFOVWithBufferSize = true;
 
-	for (int i = 0; i < gameCameras.size(); i++)
+	for (auto& camera : gameCameras)
 	{
-		gameCameras[i].frameBuffer.SetBufferInfo();
-		gameCameras[i].frameBuffer.SetDimensions(Application::Instance()->window->width, Application::Instance()->window->height);
-		gameCameras[i].changeFOVWithBufferSize = false;
+		camera.second.frameBuffer.SetBufferInfo();
+		camera.second.frameBuffer.SetDimensions(Application::Instance()->window->width, Application::Instance()->window->height);
+		camera.second.changeFOVWithBufferSize = false;
 	}
 
 	return true;
