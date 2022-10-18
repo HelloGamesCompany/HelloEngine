@@ -280,6 +280,7 @@
     </ClCompile>
     <ClCompile Include="ImWindowGame.cpp" />
     <ClCompile Include="CameraComponent.cpp" />
+    <ClCompile Include="SceneCameraObject.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Module.h">
@@ -660,6 +661,7 @@
     </ClInclude>
     <ClInclude Include="ImWindowGame.h" />
     <ClInclude Include="CameraComponent.h" />
+    <ClInclude Include="SceneCameraObject.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="External\imgui\vulkan\generate_spv.sh">

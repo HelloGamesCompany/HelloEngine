@@ -209,7 +209,7 @@ void TransformComponent::CalculateGlobalMatrix()
 {
 	TransformValues globalTransform = GetGlobalTransform();
 	
-	math::Quat rotation = Quat::FromEulerXYZ(globalTransform.rotation.x, globalTransform.rotation.y, globalTransform.rotation.z);
+	math::Quat rotation = Quat::FromEulerXYZ(math::DegToRad(globalTransform.rotation.x), math::DegToRad(globalTransform.rotation.y), math::DegToRad(globalTransform.rotation.z));
 
-	globalMatrix = float4x4::FromTRS(globalTransform.position, rotation, globalTransform.scale);
+	globalMatrix = float4x4::FromTRS(globalTransform.position, rotation, float3(1.0f,1.0f,1.0f));
 }

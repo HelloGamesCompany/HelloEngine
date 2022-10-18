@@ -9,8 +9,6 @@ public:
 	CameraObject();
 	~CameraObject();
 
-	void UpdateCameraInput();
-
 	void Look(const float3& Position, const float3& Reference, bool RotateAroundReference = false);
 	void LookAt(const float3& Spot);
 	void Move(const float3& Movement);
@@ -32,10 +30,12 @@ private:
 
 private:
 	float4x4 ViewMatrix, ViewMatrixInverse, ProjectionMatrix;
-	Frustum cameraFrustum;
 	float3 offset;
-	Application* app = nullptr;
 	bool changeFOVWithBufferSize;
+
+protected:
+	Application* app = nullptr;
+	Frustum cameraFrustum;
 
 	friend class ModuleCamera3D;
 	friend class CameraComponent;

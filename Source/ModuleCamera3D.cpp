@@ -4,11 +4,12 @@
 #include "ModuleCamera3D.h"
 #include "ModuleInput.h"
 #include "ModuleWindow.h"
+#include "GameObject.h"
+#include "ModuleLayers.h"
+#include "CameraComponent.h"
 
 ModuleCamera3D::ModuleCamera3D(bool start_enabled) : Module(start_enabled)
 {
-	// Create Empty GameObject with camera component.
-	currentDrawingCamera = activeGameCamera = &gameCameras[0];
 }
 
 ModuleCamera3D::~ModuleCamera3D()
@@ -18,6 +19,11 @@ ModuleCamera3D::~ModuleCamera3D()
 bool ModuleCamera3D::Start()
 {
 	LOG("Setting up the camera");
+
+	// Create Empty GameObject with camera component.
+	GameObject* mainCamera = new GameObject(Application::Instance()->layers->rootGameObject, "Main Camera", "Camera");
+	CameraComponent* camera = mainCamera->AddComponent<CameraComponent>();
+	currentDrawingCamera = activeGameCamera = camera->GetCameraObject();
 
 	sceneCamera.frameBuffer.SetBufferInfo();
 	sceneCamera.frameBuffer.SetDimensions(Application::Instance()->window->width, Application::Instance()->window->height);
@@ -57,8 +63,7 @@ UpdateStatus ModuleCamera3D::Update()
 		frameBufferRegenCamera = nullptr;
 	}
 
-	if (updateSceneCamera) sceneCamera.UpdateCameraInput();
-	if (updateGameCamera) activeGameCamera->UpdateCameraInput();
+	if (updateSceneCamera) sceneCamera.UpdateInput();
 
 	return UpdateStatus::UPDATE_CONTINUE;
 }

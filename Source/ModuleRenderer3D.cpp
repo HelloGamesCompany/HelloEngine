@@ -135,15 +135,28 @@ UpdateStatus ModuleRenderer3D::PreUpdate()
 // PostUpdate present buffer to screen
 UpdateStatus ModuleRenderer3D::PostUpdate()
 {
-	cameras->sceneCamera.frameBuffer.Bind();
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
-	glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+	if (cameras->sceneCamera.active)
+	{
+		cameras->sceneCamera.frameBuffer.Bind();
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+		glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 
-	cameras->currentDrawingCamera = &cameras->sceneCamera;
+		cameras->currentDrawingCamera = &cameras->sceneCamera;
 
-	Application::Instance()->layers->DrawLayers();
-	modelRender.Draw();
+		Application::Instance()->layers->DrawLayers();
+		modelRender.Draw();
+	}
+	if (cameras->activeGameCamera->active)
+	{
+		cameras->activeGameCamera->frameBuffer.Bind();
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+		glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 
+		cameras->currentDrawingCamera = cameras->activeGameCamera;
+
+		Application::Instance()->layers->DrawLayers();
+		modelRender.Draw();
+	}
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glClearColor(0.2f, 0.3f, 0.3f, 1.0f);

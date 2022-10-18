@@ -1,8 +1,9 @@
 #pragma once
 #include "ImWindow.h"
+#include "SceneCameraObject.h"
 
 class ModuleCamera3D;
-class CameraObject;
+
 
 class ImWindowScene : public ImWindow
 {
@@ -17,7 +18,7 @@ private:
 
 	ModuleCamera3D* moduleCamera = nullptr;
 
-	CameraObject* sceneCamera = nullptr;
+	SceneCameraObject* sceneCamera = nullptr;
 
 	int sceneWidth = 1;
 

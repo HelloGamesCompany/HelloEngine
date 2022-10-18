@@ -18,21 +18,26 @@ ImWindowScene::~ImWindowScene()
 
 void ImWindowScene::Update()
 {
-	ImGui::Begin(windowName.c_str());
-
-	moduleCamera->updateSceneCamera = ImGui::IsWindowHovered();
-
-	ImVec2 sceneDimensions = ImGui::GetContentRegionAvail();
-
-	if (sceneDimensions.x != sceneWidth || sceneDimensions.y != sceneHeight)
+	if (ImGui::Begin(windowName.c_str()))
 	{
-		// If the size of this imgui window is different from the one stored.
-		sceneWidth = sceneDimensions.x;
-		sceneHeight = sceneDimensions.y;
-		sceneCamera->ChangeAspectRatio((float)sceneWidth / (float)sceneHeight);
+		sceneCamera->active = true;
+		moduleCamera->updateSceneCamera = ImGui::IsWindowHovered();
+
+		ImVec2 sceneDimensions = ImGui::GetContentRegionAvail();
+
+		if (sceneDimensions.x != sceneWidth || sceneDimensions.y != sceneHeight)
+		{
+			// If the size of this imgui window is different from the one stored.
+			sceneWidth = sceneDimensions.x;
+			sceneHeight = sceneDimensions.y;
+			sceneCamera->ChangeAspectRatio((float)sceneWidth / (float)sceneHeight);
+		}
+
+		ImGui::Image((ImTextureID)sceneCamera->frameBuffer.GetTexture(), ImGui::GetContentRegionAvail(), ImVec2(0, 1), ImVec2(1, 0));
 	}
-
-	ImGui::Image((ImTextureID)sceneCamera->frameBuffer.GetTexture(), ImGui::GetContentRegionAvail(), ImVec2(0, 1), ImVec2(1, 0));
-
+	else
+	{
+		sceneCamera->active = false;
+	}
 	ImGui::End();
 }

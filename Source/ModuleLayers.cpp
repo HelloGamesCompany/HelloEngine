@@ -14,10 +14,14 @@ ModuleLayers::~ModuleLayers()
 {
 }
 
-bool ModuleLayers::Start()
+bool ModuleLayers::Init()
 {
     rootGameObject = new GameObject(nullptr, "Root", "None");
+    return true;
+}
 
+bool ModuleLayers::Start()
+{
     for (int i = 0; i < 2; i++)
     {
         MeshImporter::LoadMesh("Assets/BakerHouse.fbx");

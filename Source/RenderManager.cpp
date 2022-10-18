@@ -48,6 +48,16 @@ void RenderManager::Draw()
 
     // Update View and Projection matrices
     basicShader->Bind();
+
+    CameraObject* current = Application::Instance()->camera->currentDrawingCamera;
+    float* view = Application::Instance()->camera->currentDrawingCamera->GetViewMatrix();
+
+    for (int i = 0; i < 16; i++)
+    {
+        std::cout << *view << std::endl;
+        view++;
+    }
+
     basicShader->SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
     basicShader->SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
 

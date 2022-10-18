@@ -5,6 +5,7 @@
 #include "Globals.h"
 #include "glmath.h"
 #include "CameraObject.h"
+#include "SceneCameraObject.h"
 
 class Vehicle;
 
@@ -27,7 +28,7 @@ public:
 public:
 	std::map<uint, CameraObject> gameCameras;
 	CameraObject* activeGameCamera = nullptr;
-	CameraObject sceneCamera;
+	SceneCameraObject sceneCamera;
 
 	CameraObject* currentDrawingCamera = nullptr;
 

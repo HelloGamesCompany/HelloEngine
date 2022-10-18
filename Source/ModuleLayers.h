@@ -18,6 +18,8 @@ public:
 	ModuleLayers();
 	~ModuleLayers();
 
+	bool Init() override;
+
 	bool Start() override;
 
 	UpdateStatus PreUpdate() override;
