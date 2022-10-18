@@ -35,6 +35,7 @@ public:
 	void CleanUp() override;
 
 	void SetSelectGameObject(GameObject* g);
+	GameObject* GetSelectedGameObject() { return selectedGameObject; }
 
 private:
 	ImWindow* imWindows[(uint)ImWindowID::MAX] = { nullptr };

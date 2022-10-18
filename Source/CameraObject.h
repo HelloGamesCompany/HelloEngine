@@ -12,6 +12,7 @@ public:
 	void Look(const float3& Position, const float3& Reference, bool RotateAroundReference = false);
 	void LookAt(const float3& Spot);
 	void Move(const float3& Movement);
+	
 	float* GetViewMatrix();
 	float* GetProjectionMatrix();
 
@@ -21,6 +22,10 @@ public:
 
 	void ChangeAspectRatio(float aspectRatio);
 
+	float GetAspectRatio() { return aspectRatio; }
+
+	void SetFOV(float fov);
+	float GetFOV() { return FOV; };
 public:
 	float3 X, Y, Z, Position, Reference;
 	bool active = true;
@@ -32,7 +37,8 @@ private:
 	float4x4 ViewMatrix, ViewMatrixInverse, ProjectionMatrix;
 	float3 offset;
 	bool changeFOVWithBufferSize;
-
+	float aspectRatio = 0.0f;
+	float FOV = 60.0f;
 protected:
 	Application* app = nullptr;
 	Frustum cameraFrustum;

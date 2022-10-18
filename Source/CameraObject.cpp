@@ -17,8 +17,9 @@ CameraObject::CameraObject()
 	Reference = float3(0.0f, 0.0f, 0.0f);
 
 	cameraFrustum.type = math::FrustumType::PerspectiveFrustum;
-	cameraFrustum.verticalFov = math::DegToRad(60.0f);
-	cameraFrustum.horizontalFov = 2.0f * atanf(tanf(cameraFrustum.verticalFov / 2.0f) * 1.7f);
+	cameraFrustum.verticalFov = FOV = math::DegToRad(60.0f);
+	aspectRatio = 1.7f;
+	cameraFrustum.horizontalFov = 2.0f * atanf(tanf(cameraFrustum.verticalFov / 2.0f) * aspectRatio);
 
 	cameraFrustum.nearPlaneDistance = 0.01f;
 	cameraFrustum.farPlaneDistance = 1000.0f;
@@ -52,20 +53,14 @@ void CameraObject::Look(const float3& Position, const float3& Reference, bool Ro
 
 void CameraObject::LookAt(const float3& Spot)
 {
-    Reference = Spot;
-    Z = (Position - Reference).Normalized();
-    X = (float3(0.0f, 1.0f, 0.0f).Cross(Z)).Normalized();
-    Y = Cross(Z, X);
-
-    CalculateViewMatrix();
+	cameraFrustum.front = (Spot - cameraFrustum.pos).Normalized();
+	float3 X = float3(0, 1, 0).Cross(cameraFrustum.front).Normalized();
+	cameraFrustum.up = cameraFrustum.front.Cross(X);
 }
 
 void CameraObject::Move(const float3& Movement)
 {
-    Position += Movement;
-    Reference += Movement;
-
-    CalculateViewMatrix();
+	cameraFrustum.pos += Movement;
 }
 
 float* CameraObject::GetViewMatrix()
@@ -95,7 +90,14 @@ void CameraObject::RegenerateFrameBuffer(int width, int height)
 
 void CameraObject::ChangeAspectRatio(float aspectRatio)
 {
+	this->aspectRatio = aspectRatio;
 	cameraFrustum.horizontalFov = 2.f * atanf(tanf(cameraFrustum.verticalFov * 0.5f) * aspectRatio);
+}
+
+void CameraObject::SetFOV(float fov)
+{
+	cameraFrustum.verticalFov = FOV = math::DegToRad(fov);
+	cameraFrustum.horizontalFov = 2.0f * atanf(tanf(cameraFrustum.verticalFov / 2.0f) * aspectRatio);
 }
 
 void CameraObject::CalculateViewMatrix()

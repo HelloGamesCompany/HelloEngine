@@ -7,5 +7,9 @@ public:
 	~SceneCameraObject();
 
 	void UpdateInput();
+
+private:
+
+	void Focus(const float3& focusPoint);
 };
 
