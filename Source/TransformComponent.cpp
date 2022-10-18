@@ -117,6 +117,27 @@ float3 TransformComponent::GetUp()
 	return float3();
 }
 
+void TransformComponent::OnEditor()
+{
+	if (ImGui::CollapsingHeader("Transform", ImGuiTreeNodeFlags_DefaultOpen))
+	{
+		if (ImGui::DragFloat3("position", &localTransform.position[0], 0.1f))
+		{
+			UpdatePosition();
+		}
+
+		if (ImGui::DragFloat3("rotation", &localTransform.rotation[0], 0.1f))
+		{
+			UpdateRotation();
+		}
+
+		if (ImGui::DragFloat3("scale", &localTransform.scale[0], 0.1f))
+		{
+			UpdateScale();
+		}
+	}
+}
+
 void TransformComponent::UpdatePosition()
 {
 	float3 globalPosition = parentGlobalTransform.position + localTransform.position;

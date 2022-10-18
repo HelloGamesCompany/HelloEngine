@@ -56,8 +56,9 @@ public:
 	float3 GetRight();
 	float3 GetUp();
 
+	void OnEditor() override;
+
 	// TODO: This should be private! 
-	TransformValues localTransform;
 
 private:
 	void UpdatePosition();
@@ -67,6 +68,7 @@ private:
 
 private:
 	TransformValues parentGlobalTransform;
+	TransformValues localTransform;
 
 	friend class GameObject;
 };

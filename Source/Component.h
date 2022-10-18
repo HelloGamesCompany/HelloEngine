@@ -25,6 +25,8 @@ public:
 	virtual void OnRotationUpdate(float3 rotation) {}
 	virtual void OnTransformUpdate(float3 pos, float3 scale, float3 rotation) {}
 
+	virtual void OnEditor() {};
+
 protected:
 	bool _isEnabled = true;
 	GameObject* _gameObject = nullptr;
