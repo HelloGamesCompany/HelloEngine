@@ -3,6 +3,8 @@
 #include "GameObject.h"
 #include "ModuleLayers.h"
 #include "LayerEditor.h"
+#include "ModuleRenderer3D.h"
+#include "ModelRenderManager.h"
 
 ImWindowHierarchy::ImWindowHierarchy()
 {
@@ -28,7 +30,37 @@ void ImWindowHierarchy::Update()
 	if (ImGui::Begin(windowName.c_str(), &isEnabled))
 	{
         DrawGameObjectChildren(gameObjectsReference->at(1));
-	}
+	    
+        if ((ImGui::IsMouseDown(ImGuiMouseButton_::ImGuiMouseButton_Right) && ImGui::IsWindowHovered()) || popUpOpen)
+        {
+            popUpOpen = true;
+            int selectedShape = 0;
+            std::string shapeNames[2] = { "Cube", "Sphere" };
+
+            ImGui::OpenPopup("basicShapes");
+            
+            if (ImGui::IsMouseDown(ImGuiMouseButton_::ImGuiMouseButton_Left) && !ImGui::IsAnyItemHovered())
+            {
+                std::cout << "Close popup" << std::endl;
+                popUpOpen = false;
+            }
+            if(ImGui::BeginPopup("basicShapes"))
+            {
+                ImGui::Text("Select Shape");
+                ImGui::Separator();
+                for (int i = 0; i < 2; i++)
+                    if (ImGui::Selectable(shapeNames[i].c_str()))
+                    {
+                        selectedShape = i;
+                        Application::Instance()->renderer3D->modelRender.CreatePrimitive(rightClickedGameObject, (PrimitiveType)i);
+                        popUpOpen = false;
+                        rightClickedGameObject = nullptr;
+                    }
+                ImGui::EndPopup();
+            }
+        }
+
+    }
 
 	ImGui::End();
 }
@@ -75,9 +107,10 @@ void ImWindowHierarchy::ProcessGameObject(GameObject* gameObject, int iteration)
         ImGui::EndDragDropSource();
     }
 
-    if (ImGui::IsItemHovered() && ImGui::IsMouseDown(ImGuiMouseButton_::ImGuiMouseButton_Left))
+    if (ImGui::IsItemHovered())
     {
-        layerEditor->SetSelectGameObject(gameObject);
+        if (ImGui::IsMouseDown(ImGuiMouseButton_::ImGuiMouseButton_Left)) layerEditor->SetSelectGameObject(gameObject);
+        if (ImGui::IsMouseDown(ImGuiMouseButton_::ImGuiMouseButton_Right)) rightClickedGameObject = gameObject;
     }
 
     if (ImGui::BeginDragDropTarget())

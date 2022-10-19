@@ -22,8 +22,11 @@ private:
 	LayerEditor* layerEditor = nullptr;
 
 	GameObject* draggingGameObject = nullptr;
+	GameObject* rightClickedGameObject = nullptr;
 
 	ImGuiTreeNodeFlags base_flags;
+
+	bool popUpOpen = false;
 
 };
 

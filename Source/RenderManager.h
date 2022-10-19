@@ -48,7 +48,7 @@ private:
 	uint LineVAO = 0;
 	uint LineVBO = 0;
 
-	bool drawNormals = true;
+	bool drawNormals = false;
 
 	int IDcounter = 0;
 };
