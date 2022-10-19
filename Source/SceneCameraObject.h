@@ -17,7 +17,5 @@ public:
 private:
 	void Focus(const float3& focusPoint);
 
-private:
-	int cursorX, cursorY;
 };
 

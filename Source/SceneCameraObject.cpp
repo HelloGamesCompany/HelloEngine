@@ -27,7 +27,7 @@ void SceneCameraObject::UpdateInput()
 	int dx = -app->input->GetMouseXMotion();
 	int dy = -app->input->GetMouseYMotion();
 
-	float Sensitivity = 0.25f;
+	float Sensitivity = 0.75f;
 
 	float3 empty = { 0,0,0 };
 	Quat lookingDir = Quat::identity;
@@ -54,7 +54,7 @@ void SceneCameraObject::UpdateInput()
 
 		if (dy != 0)
 		{
-			float DeltaY = math::DegToRad((float)dy * Sensitivity);
+			float DeltaY = math::DegToRad((float)dy * Sensitivity * 0.75f);
 
 			math::Quat rotation = Quat::identity;
 			rotation.SetFromAxisAngle(float3(1, 0, 0), DeltaY);
@@ -64,7 +64,7 @@ void SceneCameraObject::UpdateInput()
 
 		if (dx != 0)
 		{
-			float DeltaX = math::DegToRad((float)dx * Sensitivity);
+			float DeltaX = math::DegToRad((float)dx * Sensitivity * 0.75f);
 
 			math::Quat rotation = Quat::identity;
 			rotation.SetFromAxisAngle({ 0.0f, 1.0f, 0.0f }, DeltaX);
@@ -76,16 +76,9 @@ void SceneCameraObject::UpdateInput()
 		newWorldMatrix.SetRotatePart(lookingDir.Normalized());
 		cameraFrustum.SetWorldMatrix(newWorldMatrix.Float3x4Part());
 	}
-	
-	if (app->input->GetKey(SDL_SCANCODE_LALT) == KEY_DOWN)
-	{
-		cursorX = app->input->GetMouseX();
-		cursorY = app->input->GetMouseY();
-	}
 
 	if (app->input->GetKey(SDL_SCANCODE_LALT) == KEY_REPEAT && app->input->GetMouseButton(1) == KEY_REPEAT)
 	{
-		SDL_ShowCursor(SDL_FALSE);
 		// Orbital rotation
 		float3 rotationCenter = { 0.0f,0.0f,0.0f };
 
@@ -119,12 +112,6 @@ void SceneCameraObject::UpdateInput()
 
 		cameraFrustum.pos = rotationCenter + (cameraFrustum.front * -distFromCenter);
 		LookAt(rotationCenter);
-		
-		SDL_WarpMouseInWindow(app->window->window, cursorX, cursorY);
-	}
-	else
-	{
-		SDL_ShowCursor(SDL_TRUE);
 	}
 
 	if (app->input->GetMouseZ() != 0)
