@@ -1,8 +1,17 @@
 #include "Headers.h"
 #include "ImWindowConsole.h"
 #include "Console.h"
+#include "cimport.h"
 
 using CSL = Console;
+
+static struct aiLogStream stream;
+
+void AssimpCallback(const char* message, char* user)
+{
+	std::string strM = message;
+	CSL::S_Log("Assimp: " + strM);
+}
 
 ImWindowConsole::ImWindowConsole()
 {
@@ -11,6 +20,9 @@ ImWindowConsole::ImWindowConsole()
 	isEnabled = true;
 
 	CSL::S_Init();
+
+	stream.callback = AssimpCallback;
+	aiAttachLogStream(&stream);
 
 	for (size_t i = 0; i < 10; i++)
 	{

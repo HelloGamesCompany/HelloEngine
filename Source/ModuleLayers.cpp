@@ -22,6 +22,14 @@ bool ModuleLayers::Init()
 
 bool ModuleLayers::Start()
 {
+    layers[(uint)LayersID::EDITOR] = editor = new LayerEditor();
+    layers[(uint)LayersID::GAME] = new LayerGame();
+
+    for (int i = 0; i < (uint)LayersID::MAX; i++)
+    {
+        if (layers[i] && layers[i]->IsEnabled()) layers[i]->Start();
+    }
+
     for (int i = 0; i < 2; i++)
     {
         MeshImporter::LoadMesh("Assets/BakerHouse.fbx");
@@ -37,14 +45,6 @@ bool ModuleLayers::Start()
         {
             rc->GetMesh().textureID = bakerTexture;
         }
-    }
-
-    layers[(uint)LayersID::EDITOR] = editor = new LayerEditor();
-    layers[(uint)LayersID::GAME] = new LayerGame();
-
-    for (int i = 0; i < (uint)LayersID::MAX; i++)
-    {
-        if (layers[i] && layers[i]->IsEnabled()) layers[i]->Start();
     }
 
     return true;
