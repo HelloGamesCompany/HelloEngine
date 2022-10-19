@@ -26,20 +26,29 @@ public:
 	bool initialized = false;
 private:
 	void CreateBuffers();
-	Shader* basicShader = nullptr;
-
+	void CreateNormalsDisplayBuffer();
 private:
+	Shader* basicShader = nullptr;
+	Shader* lineShader = nullptr;
+
 	std::map<uint, Mesh> meshes;
 	std::vector<Vertex> totalVertices;
 	std::vector<uint> totalIndices;
 	std::vector<float4x4> modelMatrices;
 	std::vector<float> textureIDs;
 
+	std::vector<float3> normalsDisplay;
+
 	uint VAO = 0; // Vertex Array
 	uint VBO = 0; // Vertex buffer
 	uint IBO = 0; // Elements buffer object
 	uint MBO = 0; // ModelMatrix buffer object
 	uint TBO = 0; // TextureID buffer object 
+
+	uint LineVAO = 0;
+	uint LineVBO = 0;
+
+	bool drawNormals = true;
 
 	int IDcounter = 0;
 };

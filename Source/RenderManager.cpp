@@ -6,11 +6,13 @@
 RenderManager::RenderManager()
 {
     basicShader = new Shader("../Source/shaders/basic.vertex.shader", "../Source/shaders/basic.fragment.shader");
+    lineShader = new Shader("../Source/shaders/lines.vertex.shader", "../Source/shaders/lines.fragment.shader");
 }
 
 RenderManager::~RenderManager()
 {
     RELEASE(basicShader);
+    RELEASE(lineShader);
 }
 
 uint RenderManager::SetMeshInformation(Mesh& mesh)
@@ -21,7 +23,8 @@ uint RenderManager::SetMeshInformation(Mesh& mesh)
     this->totalIndices.insert(totalIndices.begin(), mesh._indices->begin(), mesh._indices->end());
 
     CreateBuffers();
-    
+    CreateNormalsDisplayBuffer();
+
     Mesh firstMesh;
     firstMesh.InitAsMeshInformation(mesh.position, mesh.scale);
     
@@ -73,9 +76,28 @@ void RenderManager::Draw()
 
     // Draw
     glDrawElementsInstanced(GL_TRIANGLES, totalIndices.size(), GL_UNSIGNED_INT, 0, modelMatrices.size());
-    
     glBindVertexArray(0);
-    
+
+    // Drawing normals for every mesh instance
+    if (drawNormals)
+    {
+        lineShader->Bind();
+        lineShader->SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
+        lineShader->SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
+
+        for (int i = 0; i < modelMatrices.size(); i++)
+        {
+            lineShader->SetMatFloat4v("model", &modelMatrices[i].v[0][0]);
+
+            glBindVertexArray(LineVAO);
+
+            glDrawArrays(GL_LINES, 0, normalsDisplay.size());
+
+            glBindVertexArray(0);
+
+        }
+    }
+
     // Reset model matrices.
     modelMatrices.clear();
     textureIDs.clear();
@@ -166,3 +188,41 @@ void RenderManager::CreateBuffers()
 
     glBindVertexArray(0);
 }
+
+void RenderManager::CreateNormalsDisplayBuffer()
+{
+    normalsDisplay.resize(totalVertices.size() * 2);
+
+    float lineMangitude = 1.0f;
+
+    int j = 0;
+    for (int i = 0; i < totalVertices.size() * 2; i++)
+    {
+        if (i % 2 == 0)
+        {
+            normalsDisplay[i] = totalVertices[j].position;
+        }
+        else
+        {
+            normalsDisplay[i] = (totalVertices[j].position + totalVertices[j].normals) * lineMangitude;
+            j++;
+        }
+
+    }
+
+    glGenVertexArrays(1, &LineVAO);
+    glBindVertexArray(LineVAO);
+
+    // Create Vertex Buffer Object
+    glGenBuffers(1, &LineVBO);
+
+    glBindBuffer(GL_ARRAY_BUFFER, LineVBO);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(float3) * normalsDisplay.size(), &normalsDisplay[0], GL_STATIC_DRAW);
+
+    // vertex positions
+    glEnableVertexAttribArray(0);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(float3), (void*)0);
+
+    glBindVertexArray(0);
+}
+
