@@ -8,5 +8,13 @@ uniform sampler2D textures[32];
 
 void main()
 {
-    FragColor = texture(textures[int(TextureID)], TextureCoords);
-} 
+    const float eps = 0.001;
+    if (abs(TextureID + 1.0) < eps)
+    {
+        FragColor = vec4(1.0f, 1.0f, 1.0f, 1.0f);
+    }
+    else
+    {
+        FragColor = texture(textures[int(TextureID)], TextureCoords);
+    }
+}
