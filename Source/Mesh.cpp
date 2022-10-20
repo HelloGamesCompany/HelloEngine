@@ -46,13 +46,28 @@ void Mesh::InitAsCube(float3 position, float3 scale)
 	_vertices = new std::vector<Vertex>(8);
 
 	_vertices->at(0).position = float3(-0.5, 0.5, 0.5);
+	_vertices->at(0).normals = float3(0.0, 0.0, 1.0);
+
 	_vertices->at(1).position = float3(-0.5, -0.5, 0.5);
+	_vertices->at(1).normals = float3(0.0, 0.0, 1.0);
+
 	_vertices->at(2).position = float3(0.5, 0.5, 0.5);
+	_vertices->at(2).normals = float3(0.0, 0.0, 1.0);
+
 	_vertices->at(3).position = float3(0.5, -0.5, 0.5);
+	_vertices->at(3).normals = float3(0.0, 0.0, 1.0);
+
 	_vertices->at(4).position = float3(-0.5, 0.5, -0.5);
+	_vertices->at(4).normals = float3(0.0, 0.0, -1.0);
+
 	_vertices->at(5).position = float3(-0.5, -0.5, -0.5);
+	_vertices->at(5).normals = float3(0.0, 0.0, -1.0);
+
 	_vertices->at(6).position = float3(0.5, 0.5, -0.5);
+	_vertices->at(6).normals = float3(0.0, 0.0, -1.0);
+
 	_vertices->at(7).position = float3(0.5, -0.5, -0.5);
+	_vertices->at(7).normals = float3(0.0, 0.0, -1.0);
 
 	_indices = new std::vector<uint>
 	{

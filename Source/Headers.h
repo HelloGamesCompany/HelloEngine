@@ -40,3 +40,5 @@
 #include "ImGuiUtils.h"
 //#include "Timer.hpp"
 //TODO: Add every Module in here once Modules have been tested and won't be changed anymore.
+
+#include "ModuleInput.h"

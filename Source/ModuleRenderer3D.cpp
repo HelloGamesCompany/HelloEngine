@@ -50,44 +50,12 @@ bool ModuleRenderer3D::Init()
 		XMLNode renderNode = app->xml->GetConfigXML().FindChildBreadth("renderer");
 		isVSync = renderNode.node.child("vsync").attribute("value").as_bool();
 		ToggleVSync(isVSync);
-
-		//Initialize Projection Matrix
-		glMatrixMode(GL_PROJECTION);
-		glLoadIdentity();
-
-		//Check for error
-		GLenum error = glGetError();
-		if(error != GL_NO_ERROR)
-		{
-			//LOG("Error initializing OpenGL! %s\n", gluErrorString(error));
-			ret = false;
-		}
-
-		//Initialize Modelview Matrix
-		glMatrixMode(GL_MODELVIEW);
-		glLoadIdentity();
-
-		//Check for error
-		error = glGetError();
-		if(error != GL_NO_ERROR)
-		{
-			//LOG("Error initializing OpenGL! %s\n", gluErrorString(error));
-			ret = false;
-		}
 		
 		glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
 		glClearDepth(1.0f);
 		
 		//Initialize clear color
 		glClearColor(0.f, 0.f, 0.f, 1.f);
-
-		//Check for error
-		error = glGetError();
-		if(error != GL_NO_ERROR)
-		{
-			//LOG("Error initializing OpenGL! %s\n", gluErrorString(error));
-			ret = false;
-		}
 		
 		GLfloat LightModelAmbient[] = {0.0f, 0.0f, 0.0f, 1.0f};
 		glLightModelfv(GL_LIGHT_MODEL_AMBIENT, LightModelAmbient);
@@ -157,9 +125,8 @@ UpdateStatus ModuleRenderer3D::PostUpdate()
 		Application::Instance()->layers->DrawLayers();
 		modelRender.Draw();
 	}
+
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 
 	Application::Instance()->layers->DrawEditor();
 
