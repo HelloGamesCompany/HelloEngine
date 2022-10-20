@@ -38,10 +38,12 @@ bool Application::Init()
 	// Main Modules
 	AddModule(file);
 	AddModule(xml);
-	AddModule(command);
 	AddModule(window);
 
 	AddModule(input);
+
+	AddModule(command);
+
 	AddModule(camera);
 
 	AddModule(layers);

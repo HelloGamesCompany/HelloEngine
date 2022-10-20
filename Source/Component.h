@@ -33,4 +33,3 @@ protected:
 	Type _type = Type::NONE;
 
 };
-

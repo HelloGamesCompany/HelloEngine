@@ -16,7 +16,6 @@ public:
 		T* newComponent = new T(this);
 		_components.push_back(newComponent);
 
-
 		return newComponent;
 	}
 

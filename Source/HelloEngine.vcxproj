@@ -101,6 +101,7 @@
     <ClCompile Include="CameraObject.cpp" />
     <ClCompile Include="Color.cpp" />
     <ClCompile Include="Command.cpp" />
+    <ClCompile Include="CommandItem.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Console.cpp" />
     <ClCompile Include="External\imgui\imgui.cpp">
@@ -287,6 +288,8 @@
     <ClInclude Include="CameraObject.h" />
     <ClInclude Include="Command.h" />
     <ClInclude Include="CommandArray.hpp" />
+    <ClInclude Include="CommandChangeValue.hpp" />
+    <ClInclude Include="CommandItem.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="Console.h" />
     <ClInclude Include="CycleArray.hpp" />

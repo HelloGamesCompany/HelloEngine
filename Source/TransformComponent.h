@@ -7,6 +7,16 @@ struct TransformValues
 	float3 position;
 	float3 scale; 
 	float3 rotation;
+
+	bool operator !=(const TransformValues& v)
+	{
+		return (position != v.position) || (scale != v.scale) || (rotation != v.rotation);
+	}
+
+	bool operator ==(const TransformValues& v)
+	{
+		return (position == v.position) && (scale == v.scale) && (rotation == v.rotation);
+	}
 };
 
 class TransformComponent : public Component
@@ -71,6 +81,8 @@ private:
 
 	TransformValues parentGlobalTransform;
 	TransformValues localTransform;
+
+	TransformValues tempTransform;
 
 	friend class GameObject;
 };

@@ -1,23 +1,42 @@
 #pragma once
 #include "Module.h"
-#include "Command.h"
+#include "CommandChangeValue.hpp"
+#include "CommandArray.hpp"
 
-namespace Htool
-{
-	template<class T> class CommandArray;
-}
+#define MAX_UNDO 20
 
-using CommandC = Htool::CommandArray<Command>;
+using CommandArray = Htool::CommandArray<Command*>;
+
+class ModuleInput;
 
 class ModuleCommand :public Module
 {
 public:
-
 	ModuleCommand();
 
 	~ModuleCommand();
 
+	UpdateStatus Update() override;
+
+	template<class T>
+	static void S_ChangeValue(T* variable, T beginValue, T endValue)
+	{
+		ClearObsoleteCommands();
+		_commands->push(new CommandChangeValue<T>(variable, beginValue, endValue));
+	}
+
 private:
 
-	CommandC* commands = nullptr;
+	bool Undo();
+
+	bool Redo();
+
+	static void ClearObsoleteCommands();
+
+private:
+	static CommandArray* _commands;
+
+	ModuleInput* input = nullptr;
+
+	static std::vector<Command*> _commandPendingToDelete;
 };

@@ -1,6 +1,7 @@
 #include "Headers.h"
 #include "TransformComponent.h"
 #include "GameObject.h"
+#include "ModuleCommand.h"
 
 TransformComponent::TransformComponent(GameObject* gameObject) : Component(gameObject)
 {
@@ -129,14 +130,47 @@ void TransformComponent::OnEditor()
 			UpdatePosition();
 		}
 
+		if(ImGui::IsItemActivated())
+		{
+			tempTransform = localTransform;
+		}
+		if(ImGui::IsItemDeactivated())
+		{
+			if(tempTransform != localTransform)
+			{
+				ModuleCommand::S_ChangeValue(&localTransform, tempTransform, localTransform);
+			}
+		}
 		if (ImGui::DragFloat3("rotation", &localTransform.rotation[0], 0.1f))
 		{
 			UpdateRotation();
+		}
+		if (ImGui::IsItemActivated())
+		{
+			tempTransform = localTransform;
+		}
+		if (ImGui::IsItemDeactivated())
+		{
+			if (tempTransform != localTransform)
+			{
+				ModuleCommand::S_ChangeValue(&localTransform, tempTransform, localTransform);
+			}
 		}
 
 		if (ImGui::DragFloat3("scale", &localTransform.scale[0], 0.1f))
 		{
 			UpdateScale();
+		}
+		if (ImGui::IsItemActivated())
+		{
+			tempTransform = localTransform;
+		}
+		if (ImGui::IsItemDeactivated())
+		{
+			if (tempTransform != localTransform)
+			{
+				ModuleCommand::S_ChangeValue(&localTransform, tempTransform, localTransform);
+			}
 		}
 	}
 }

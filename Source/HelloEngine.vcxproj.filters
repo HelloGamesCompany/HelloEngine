@@ -275,12 +275,19 @@
     <ClCompile Include="ModuleCommand.cpp">
       <Filter>Modules</Filter>
     </ClCompile>
-    <ClCompile Include="Command.cpp">
-      <Filter>Tools</Filter>
-    </ClCompile>
-    <ClCompile Include="ImWindowGame.cpp" />
-    <ClCompile Include="CameraComponent.cpp" />
     <ClCompile Include="SceneCameraObject.cpp" />
+    <ClCompile Include="ImWindowGame.cpp">
+      <Filter>Modules\Layer\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraComponent.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Command.cpp">
+      <Filter>Tools\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandItem.cpp">
+      <Filter>Tools\Commands</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Module.h">
@@ -656,12 +663,22 @@
     <ClInclude Include="ModuleCommand.h">
       <Filter>Modules</Filter>
     </ClInclude>
-    <ClInclude Include="Command.h">
-      <Filter>Tools</Filter>
-    </ClInclude>
-    <ClInclude Include="ImWindowGame.h" />
-    <ClInclude Include="CameraComponent.h" />
     <ClInclude Include="SceneCameraObject.h" />
+    <ClInclude Include="ImWindowGame.h">
+      <Filter>Modules\Layer\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraComponent.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Command.h">
+      <Filter>Tools\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandChangeValue.hpp">
+      <Filter>Tools\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandItem.h">
+      <Filter>Tools\Commands</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="External\imgui\vulkan\generate_spv.sh">
@@ -734,6 +751,9 @@
     </Filter>
     <Filter Include="Tools\ImGuiWrapper">
       <UniqueIdentifier>{7b246eb4-3552-49b9-b503-717befbe3793}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tools\Commands">
+      <UniqueIdentifier>{0ad334dc-e5ce-44f8-a55e-610d8f4707f2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

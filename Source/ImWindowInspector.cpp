@@ -21,8 +21,6 @@ void ImWindowInspector::Update()
 	{
 		if (selectGameobject)
 		{
-			//ImGui::Text(selectGameobject->name.c_str());
-
 			ImGui::InputText("Name", &selectGameobject->name,0);
 
 			std::vector<Component*> components = selectGameobject->GetComponents();
