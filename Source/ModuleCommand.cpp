@@ -6,26 +6,15 @@
 
 CommandArray* ModuleCommand:: _commands = nullptr;
 
-std::vector<Command*> ModuleCommand::_commandPendingToDelete;
-
 ModuleCommand::ModuleCommand()
 {
-	_commands = new CommandArray(MAX_UNDO);
-
-	_commandPendingToDelete.reserve(MAX_UNDO);
+	_commands = new CommandArray(MAX_UNDO, true);
 
 	input = Application::Instance()->input;
 }
 
 ModuleCommand::~ModuleCommand()
 {
-	for (size_t i = 0; i < _commands->size(); i++)
-	{
-		RELEASE(_commands->get(i));
-	}
-
-	ClearObsoleteCommands();
-	
 	RELEASE(_commands);
 }
 
@@ -59,8 +48,6 @@ bool ModuleCommand::Undo()
 		return successful;
 	}
 
-	_commandPendingToDelete.push_back(command);
-
 	command->Undo();
 
 	return successful;
@@ -79,17 +66,7 @@ bool ModuleCommand::Redo()
 		return successful;
 	}
 
-	_commandPendingToDelete.erase(_commandPendingToDelete.begin() + _commandPendingToDelete.size() - 1);
-
 	command->Redo();
 
 	return successful;
-}
-
-void ModuleCommand::ClearObsoleteCommands()
-{
-	for (size_t i = 0; i < _commandPendingToDelete.size(); i++)
-	{
-		RELEASE(_commandPendingToDelete[i]);
-	}
 }

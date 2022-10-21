@@ -7,9 +7,9 @@ namespace Htool
 	class CommandArray
 	{
 	public: 
-		CommandArray(const int size);
+		CommandArray(const int size, const bool isPointer);
 
-		CommandArray(const int size,T value);
+		CommandArray(const int size,T value, const bool isPointer);
 
 		~CommandArray();
 
@@ -33,12 +33,16 @@ namespace Htool
 
 		T* _arr = nullptr;
 
+		bool _isPointer = false;
+
 		int _capacity = 0, _begin = 0, _end = 0, _current = 0, _size = 0;
 	};
 
 	template<class T>
-	inline CommandArray<T>::CommandArray(int size)
+	inline CommandArray<T>::CommandArray(int size, const bool isPointer)
 	{
+		_isPointer = isPointer;
+
 		_arr = new T[size];
 
 		_capacity = size;
@@ -47,8 +51,10 @@ namespace Htool
 	}
 
 	template<class T>
-	inline CommandArray<T>::CommandArray(int size, T value)
+	inline CommandArray<T>::CommandArray(int size, T value, const bool isPointer)
 	{
+		_isPointer = isPointer;
+
 		_arr = new T[size];
 
 		_capacity = size;
@@ -64,19 +70,54 @@ namespace Htool
 	template<class T>
 	inline CommandArray<T>::~CommandArray()
 	{
+		//TODO release begin to end
+		if(_isPointer)
+		{
+			for (size_t i = 0; i < _capacity; i++)
+			{
+				RELEASE(_arr[i]);
+			}
+		}
+
 		delete[] _arr;
 	}
 
 	template<class T>
 	inline void CommandArray<T>::push(T value)
 	{
-		_arr[_current] = value;
+		if(!_isPointer)
+		{
+			_arr[_current] = value;
 
-		_end = _current = next(_current);
+			_end = _current = next(_current);
 
-		_begin = (_current == _begin) ? next(_begin): _begin;
+			_begin = (_current == _begin) ? next(_begin) : _begin;
 
-		_size++;
+			_size = _size >= _capacity ? _capacity : (_size + 1);
+		}
+		else
+		{
+			if (_current != _end)
+			{
+				for (int i = _current; i != _end ; i = next(i))
+				{
+					RELEASE(_arr[i]);
+				}
+			}
+
+			_arr[_current] = value;
+
+			_end = _current = next(_current);
+
+			if(_current == _begin)
+			{
+				RELEASE(_arr[_begin]);
+
+				_begin = next(_begin);
+			}
+
+			_size = _size >= _capacity ? _capacity : (_size + 1);
+		}
 	}
 
 	template<class T>
@@ -91,7 +132,7 @@ namespace Htool
 
 		successful = true;
 
-		_size--;
+		_size = _size <= 0 ? 0 : (_size - 1);
 
 		_current = previous(_current);
 
@@ -110,7 +151,7 @@ namespace Htool
 
 		successful = true;
 
-		_size++;
+		_size = _size >= _capacity ? _capacity : (_size + 1);
 
 		_current = next(_current);
 

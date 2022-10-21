@@ -285,9 +285,6 @@
     <ClCompile Include="Command.cpp">
       <Filter>Tools\Commands</Filter>
     </ClCompile>
-    <ClCompile Include="CommandItem.cpp">
-      <Filter>Tools\Commands</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Module.h">
@@ -614,9 +611,6 @@
     <ClInclude Include="Component.h">
       <Filter>Components</Filter>
     </ClInclude>
-    <ClInclude Include="CommandArray.hpp">
-      <Filter>Tools</Filter>
-    </ClInclude>
     <ClInclude Include="TransformComponent.h">
       <Filter>Components</Filter>
     </ClInclude>
@@ -676,7 +670,7 @@
     <ClInclude Include="CommandChangeValue.hpp">
       <Filter>Tools\Commands</Filter>
     </ClInclude>
-    <ClInclude Include="CommandItem.h">
+    <ClInclude Include="CommandArray.hpp">
       <Filter>Tools\Commands</Filter>
     </ClInclude>
   </ItemGroup>

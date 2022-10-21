@@ -3,7 +3,7 @@
 #include "CommandChangeValue.hpp"
 #include "CommandArray.hpp"
 
-#define MAX_UNDO 20
+#define MAX_UNDO 5
 
 using CommandArray = Htool::CommandArray<Command*>;
 
@@ -21,7 +21,6 @@ public:
 	template<class T>
 	static void S_ChangeValue(T* variable, T beginValue, T endValue)
 	{
-		ClearObsoleteCommands();
 		_commands->push(new CommandChangeValue<T>(variable, beginValue, endValue));
 	}
 
@@ -31,12 +30,8 @@ private:
 
 	bool Redo();
 
-	static void ClearObsoleteCommands();
-
 private:
 	static CommandArray* _commands;
 
 	ModuleInput* input = nullptr;
-
-	static std::vector<Command*> _commandPendingToDelete;
 };
