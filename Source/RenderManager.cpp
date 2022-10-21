@@ -270,17 +270,14 @@ void RenderManager::DrawVertexNormals(int modelMatrixIndex)
     lineShader->SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
     lineShader->SetFloat4("lineColor", 0.36f, 0.75f, 0.72f, 1.0f);
 
-    for (int i = 0; i < modelMatrices.size(); i++)
-    {
-        lineShader->SetMatFloat4v("model", &modelMatrices[i].v[0][0]);
+    lineShader->SetMatFloat4v("model", &modelMatrices[modelMatrixIndex].v[0][0]);
 
-        glBindVertexArray(VertexLineVAO);
+    glBindVertexArray(VertexLineVAO);
 
-        glDrawArrays(GL_LINES, 0, vertexNormalsDisplay.size());
+    glDrawArrays(GL_LINES, 0, vertexNormalsDisplay.size());
 
-        glBindVertexArray(0);
+    glBindVertexArray(0);
 
-    }
 }
 
 void RenderManager::DrawFaceNormals(int modelMatrixIndex)
