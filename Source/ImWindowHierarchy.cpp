@@ -35,7 +35,7 @@ void ImWindowHierarchy::Update()
         {
             popUpOpen = true;
             int selectedShape = 0;
-            std::string shapeNames[2] = { "Cube", "Sphere" };
+            std::string shapeNames[4] = { "Cube", "Sphere", "Cylinder", "Plane"};
 
             ImGui::OpenPopup("basicShapes");
             
@@ -48,7 +48,7 @@ void ImWindowHierarchy::Update()
             {
                 ImGui::Text("Select Shape");
                 ImGui::Separator();
-                for (int i = 0; i < 2; i++)
+                for (int i = 0; i < 4; i++)
                     if (ImGui::Selectable(shapeNames[i].c_str()))
                     {
                         selectedShape = i;

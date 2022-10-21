@@ -47,7 +47,6 @@ void RenderManager::Draw()
         mesh.second.Update();
         modelMatrices.push_back(mesh.second.modelMatrix); // Insert updated matrices
         textureIDs.push_back(mesh.second.OpenGLTextureID);
-        std::cout << textureIDs.back() << std::endl;
     }
 
     // Update View and Projection matrices

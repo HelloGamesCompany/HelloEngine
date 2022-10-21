@@ -4,6 +4,7 @@
 #include "MeshRenderComponent.h"
 #include "IL/il.h"
 #include "IL/ilut.h"
+#include "MeshImporter.h"
 
 ModelRenderManager::ModelRenderManager()
 {
@@ -43,14 +44,30 @@ void ModelRenderManager::CreatePrimitive(GameObject* parent, PrimitiveType type)
 	{
 		case PrimitiveType::CUBE:
 		{
-			GameObject* cube = new GameObject(parent, "Cube", "Primitive");
-			cube->AddComponent<MeshRenderComponent>()->InitAsDefaultCube();
+			GameObject* cube = MeshImporter::LoadMesh("Assets/cube.fbx");
+			cube->SetParent(parent);
+			cube->name = "Cube";
 			break;
 		}
 		case PrimitiveType::SPHERE:
 		{
-			GameObject* sphere = new GameObject(parent, "Sphere", "Primitive");
-			sphere->AddComponent<MeshRenderComponent>()->InitAsDefaultSphere();
+			GameObject* sphere = MeshImporter::LoadMesh("Assets/sphere.fbx");
+			sphere->SetParent(parent);
+			sphere->name = "Sphere";
+			break;
+		}
+		case PrimitiveType::CYLINDER:
+		{
+			GameObject* cylinder = MeshImporter::LoadMesh("Assets/cylinder.fbx");
+			cylinder->SetParent(parent);
+			cylinder->name = "Cylinder";
+			break;
+		}
+		case PrimitiveType::PLANE:
+		{
+			GameObject* plane = MeshImporter::LoadMesh("Assets/plane.fbx");
+			plane->SetParent(parent);
+			plane->name = "Plane";
 			break;
 		}
 	}

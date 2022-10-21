@@ -7,7 +7,9 @@
 enum class PrimitiveType
 {
 	CUBE,
-	SPHERE
+	SPHERE,
+	CYLINDER,
+	PLANE,
 };
 
 /// <summary>
