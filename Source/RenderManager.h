@@ -27,6 +27,9 @@ public:
 private:
 	void CreateBuffers();
 	void CreateNormalsDisplayBuffer();
+
+	void DrawVertexNormals();
+	void DrawFaceNormals();
 private:
 	Shader* basicShader = nullptr;
 	Shader* lineShader = nullptr;
@@ -37,7 +40,8 @@ private:
 	std::vector<float4x4> modelMatrices;
 	std::vector<float> textureIDs;
 
-	std::vector<float3> normalsDisplay;
+	std::vector<float3> vertexNormalsDisplay;
+	std::vector<float3> faceNormalsDisplay;
 
 	uint VAO = 0; // Vertex Array
 	uint VBO = 0; // Vertex buffer
@@ -45,10 +49,14 @@ private:
 	uint MBO = 0; // ModelMatrix buffer object
 	uint TBO = 0; // TextureID buffer object 
 
-	uint LineVAO = 0;
-	uint LineVBO = 0;
+	uint VertexLineVAO = 0;
+	uint VertexLineVBO = 0;
 
-	bool drawNormals = true;
+	uint FaceLineVAO = 0;
+	uint FaceLineVBO = 0;
+
+	bool drawVertexNormals = false;
+	bool drawFaceNormals = true;
 
 	int IDcounter = 0;
 };

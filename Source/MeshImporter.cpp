@@ -121,7 +121,6 @@ void MeshImporter::ProcessNewMesh(aiMesh* mesh, const aiScene* scene, GameObject
 			vertex.normals.z = mesh->mNormals[i].z;
 		}
 
-
 		if (mesh->mTextureCoords[0])
 		{
 			vertex.texCoords.x = mesh->mTextureCoords[0][i].x;
@@ -143,14 +142,7 @@ void MeshImporter::ProcessNewMesh(aiMesh* mesh, const aiScene* scene, GameObject
 	{
 		for (uint i = 0; i < mesh->mNumFaces; ++i)
 		{
-			if (mesh->mFaces[i].mNumIndices != 3)
-			{
-				LOG("WARNING, geometry face with != 3 indices!");
-			}
-			else
-			{
-				memcpy(&indices[i * 3], mesh->mFaces[i].mIndices, 3 * sizeof(uint));
-			}
+			memcpy(&indices[i * 3], mesh->mFaces[i].mIndices, 3 * sizeof(uint));
 		}
 	}
 
