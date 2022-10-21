@@ -21,7 +21,12 @@ public:
 
 	Mesh& GetMesh();
 
+	void OnEditor() override;
+
 private:
 	uint _meshID = 0;
 	uint _instanceID = 0;
+
+	std::string comboValues[3] = { "None", "Vertex Normals", "Face Normals" };
+	int selectedNormalDisplay = 0;
 };

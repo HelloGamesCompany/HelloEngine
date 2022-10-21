@@ -122,3 +122,26 @@ Mesh& MeshRenderComponent::GetMesh()
 
 	return meshReference;
 }
+
+void MeshRenderComponent::OnEditor()
+{
+	if (ImGui::CollapsingHeader("Mesh Renderer", ImGuiTreeNodeFlags_DefaultOpen))
+	{
+		if (ImGui::BeginCombo("Show normals", comboValues[selectedNormalDisplay].c_str()))
+		{
+			for (int n = 0; n < 3; n++)
+			{
+				const bool is_selected = (selectedNormalDisplay == n);
+				if (ImGui::Selectable(comboValues[n].c_str(), is_selected))
+				{
+					selectedNormalDisplay = n;
+					GetMesh().showNormals = selectedNormalDisplay - 1;
+				}
+				// Set the initial focus when opening the combo (scrolling + keyboard navigation focus)
+				if (is_selected)
+					ImGui::SetItemDefaultFocus();
+			}
+			ImGui::EndCombo();
+		}
+	}
+}

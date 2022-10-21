@@ -28,8 +28,8 @@ private:
 	void CreateBuffers();
 	void CreateNormalsDisplayBuffer();
 
-	void DrawVertexNormals();
-	void DrawFaceNormals();
+	void DrawVertexNormals(int modelMatrixIndex);
+	void DrawFaceNormals(int modelMatrixIndex);
 private:
 	Shader* basicShader = nullptr;
 	Shader* lineShader = nullptr;
@@ -49,10 +49,10 @@ private:
 	uint MBO = 0; // ModelMatrix buffer object
 	uint TBO = 0; // TextureID buffer object 
 
-	uint VertexLineVAO = 0;
+	uint VertexLineVAO = 0; // Lines to display Vertex Normals
 	uint VertexLineVBO = 0;
 
-	uint FaceLineVAO = 0;
+	uint FaceLineVAO = 0; // Lines to display Face Normals
 	uint FaceLineVBO = 0;
 
 	bool drawVertexNormals = false;
