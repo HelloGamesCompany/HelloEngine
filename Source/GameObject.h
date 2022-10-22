@@ -43,6 +43,8 @@ public:
 
 	bool IsStatic() { return _isStatic; }
 
+	std::vector<GameObject*>* GetChildren() { return &_children; }
+
 public:
 	std::string name;
 	std::string tag;

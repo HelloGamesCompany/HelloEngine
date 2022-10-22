@@ -17,6 +17,7 @@ enum class ImWindowID
 	QUICKSAVE,
 	SCENE,
 	GAME,
+	PERFORMANCE,
 	MAX,
 };
 

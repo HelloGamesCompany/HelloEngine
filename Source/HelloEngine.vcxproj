@@ -244,6 +244,7 @@
     <ClCompile Include="ImWindowGame.cpp" />
     <ClCompile Include="ImWindowHierarchy.cpp" />
     <ClCompile Include="ImWindowInspector.cpp" />
+    <ClCompile Include="ImWindowPerformanceTest.cpp" />
     <ClCompile Include="ImWindowProject.cpp" />
     <ClCompile Include="ImWindowConsole.cpp" />
     <ClCompile Include="ImWindow.cpp" />
@@ -378,6 +379,7 @@
     <ClInclude Include="ImWindowGame.h" />
     <ClInclude Include="ImWindowHierarchy.h" />
     <ClInclude Include="ImWindowInspector.h" />
+    <ClInclude Include="ImWindowPerformanceTest.h" />
     <ClInclude Include="ImWindowProject.h" />
     <ClInclude Include="ImWindowConsole.h" />
     <ClInclude Include="ImWindow.h" />

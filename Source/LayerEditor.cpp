@@ -16,6 +16,7 @@
 #include "ImWindowQuickSave.h"
 #include "ImWindowScene.h"
 #include "ImWindowGame.h"
+#include "ImWindowPerformanceTest.h"
 
 #include "ModuleLayers.h"
 #include "LayerGame.h"
@@ -105,7 +106,7 @@ void LayerEditor::Start()
 	imWindows[(uint)ImWindowID::HIERARCHY] = new ImWindowHierarchy();
 	imWindows[(uint)ImWindowID::SCENE] = new ImWindowScene();
 	imWindows[(uint)ImWindowID::GAME] = new ImWindowGame();
-
+	imWindows[(uint)ImWindowID::PERFORMANCE] = new ImWindowPerformanceTest();
 
 	game = (LayerGame*)Application::Instance()->layers->layers[(uint)LayersID::GAME];
 }
