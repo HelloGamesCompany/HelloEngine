@@ -9,6 +9,7 @@
 #include <string>
 #include <set>
 #include <list>
+#include <fstream>
 
 // ----------------------------- External -----------------------------
 
@@ -30,6 +31,7 @@
 #include "json.hpp"
 #include "physfs.h"
 
+#include "mmgr.h"
 // ----------------------------- Engine -----------------------------
 #include "Globals.h"
 #include "Application.h"

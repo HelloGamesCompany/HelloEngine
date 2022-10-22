@@ -3,7 +3,6 @@
 #include "Globals.h"
 #include "Application.h"
 #include "MemLeaks.h"
-#include "cimport.h"
 
 enum main_states
 {
@@ -85,7 +84,6 @@ int main(int argc, char** argv)
 
 	delete app;
 	app = nullptr;
-
 	ReportMemoryLeaks();
 
 	LOG("\nBye :)\n");

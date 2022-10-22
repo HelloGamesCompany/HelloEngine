@@ -3,8 +3,6 @@
 #include "QuickSave.h"
 #include "ModuleFiles.h"
 
-#include <fstream> // Will be subtitute for ModuleFiles functions
-
 ModuleXML::ModuleXML() : Module()
 {
 	if (!ModuleFiles::S_Exists(CONFIG_DIR)) ModuleFiles::S_MakeDir(CONFIG_DIR);

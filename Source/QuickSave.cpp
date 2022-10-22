@@ -3,9 +3,6 @@
 #include "ModuleXML.h"
 #include "ModuleFiles.h"
 
-//TODO: Will be subtitute for ModuleFiles functions
-#include <fstream>
-
 XMLNode QuickSave::nBool;
 XMLNode QuickSave::nString;
 XMLNode QuickSave::nFloat;

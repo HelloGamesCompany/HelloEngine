@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 <config>
 	<window>
-		<width value="1919" />
-		<height value="1008" />
+		<width value="1920" />
+		<height value="1017" />
 		<brightness value="1" />
 	</window>
 	<renderer>
 		<vsync value="false" />
-		<framerate value="90" />
+		<framerate value="120" />
 	</renderer>
 	<openGL>
 		<depthTest value="true" tag="0x1801" />

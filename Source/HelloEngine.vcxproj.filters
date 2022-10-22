@@ -285,6 +285,7 @@
     <ClCompile Include="Command.cpp">
       <Filter>Tools\Commands</Filter>
     </ClCompile>
+    <ClCompile Include="External\mmgr\mmgr.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Module.h">
@@ -673,6 +674,8 @@
     <ClInclude Include="CommandArray.hpp">
       <Filter>Tools\Commands</Filter>
     </ClInclude>
+    <ClInclude Include="External\mmgr\mmgr.h" />
+    <ClInclude Include="External\mmgr\nommgr.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="External\imgui\vulkan\generate_spv.sh">

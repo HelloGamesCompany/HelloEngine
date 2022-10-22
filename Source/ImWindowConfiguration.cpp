@@ -90,11 +90,29 @@ void ImWindowConfiguration::Update()
 			ImGui::TextWrapped("RAM: "); ImGui::SameLine();
 			ImGui::TextColored(ImVec4(255, 255, 0, 255), std::to_string(systemRAM).c_str());
 
-			ImGui::TextWrapped("--------OpenGL-------- ");
+			ImGui::Separator();
 			ImGui::TextWrapped("Vendor %s", glGetString(GL_VENDOR));
 			ImGui::TextWrapped("Renderer: %s", glGetString(GL_RENDERER));
 			ImGui::TextWrapped("OpenGL version supported %s", glGetString(GL_VERSION));
 			ImGui::TextWrapped("GLSL: %s\n", glGetString(GL_SHADING_LANGUAGE_VERSION));
+
+			// Memory --------------------
+			sMStats stats = m_getMemoryStatistics();
+
+			ImGui::Separator();
+
+			ImGui::TextWrapped("Total reported memory: "); ImGui::SameLine(); 
+			ImGui::TextColored(ImVec4(255, 255, 0, 255), "%.2f MB", (float)((stats.totalReportedMemory/1024.0f)/ 1024.0f));
+
+			ImGui::TextWrapped("Total actual memory: "); ImGui::SameLine();
+			ImGui::TextColored(ImVec4(255, 255, 0, 255), "%.2f MB", (stats.totalActualMemory/ 1024.0f)/ 1024.0f);
+
+			ImGui::TextWrapped("Peak reported memory: "); ImGui::SameLine();
+			ImGui::TextColored(ImVec4(255, 255, 0, 255), "%.2f MB", (stats.peakReportedMemory/ 1024.0f)/ 1024.0f);
+
+			ImGui::TextWrapped("Peak actual memory: "); ImGui::SameLine();
+			ImGui::TextColored(ImVec4(255, 255, 0, 255), "%.2f MB", (stats.peakActualMemory/ 1024.0f)/ 1024.0f);
+
 		}
 	}
 	ImGui::End();
