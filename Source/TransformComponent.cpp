@@ -138,7 +138,8 @@ void TransformComponent::OnEditor()
 		{
 			if(tempTransform != localTransform)
 			{
-				ModuleCommand::S_ChangeValue(&localTransform, tempTransform, localTransform);
+				ModuleCommand::S_ChangeValue(&localTransform, tempTransform, localTransform, 
+					std::bind(&TransformComponent::UpdatePosition, this));
 			}
 		}
 		if (ImGui::DragFloat3("rotation", &localTransform.rotation[0], 0.1f))
@@ -153,7 +154,8 @@ void TransformComponent::OnEditor()
 		{
 			if (tempTransform != localTransform)
 			{
-				ModuleCommand::S_ChangeValue(&localTransform, tempTransform, localTransform);
+				ModuleCommand::S_ChangeValue(&localTransform, tempTransform, localTransform, 
+					std::bind(&TransformComponent::UpdateRotation, this));
 			}
 		}
 
@@ -169,7 +171,8 @@ void TransformComponent::OnEditor()
 		{
 			if (tempTransform != localTransform)
 			{
-				ModuleCommand::S_ChangeValue(&localTransform, tempTransform, localTransform);
+				ModuleCommand::S_ChangeValue(&localTransform, tempTransform, localTransform, 
+					std::bind(&TransformComponent::UpdateScale, this));
 			}
 		}
 	}

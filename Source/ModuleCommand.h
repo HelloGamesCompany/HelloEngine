@@ -24,6 +24,12 @@ public:
 		_commands->push(new CommandChangeValue<T>(variable, beginValue, endValue));
 	}
 
+	template<class T>
+	static void S_ChangeValue(T* variable, T beginValue, T endValue, std::function<void()> function)
+	{
+		_commands->push(new CommandChangeValue<T>(variable, beginValue, endValue, function));
+	}
+
 private:
 
 	bool Undo();
