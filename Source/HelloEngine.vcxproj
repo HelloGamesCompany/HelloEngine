@@ -272,6 +272,7 @@
     <ClCompile Include="ModuleLayers.cpp" />
     <ClCompile Include="ModuleFiles.cpp" />
     <ClCompile Include="ModuleRenderer3D.cpp" />
+    <ClCompile Include="ModuleResourceManager.cpp" />
     <ClCompile Include="ModuleWindow.cpp" />
     <ClCompile Include="ModuleXML.cpp" />
     <ClCompile Include="Mesh.cpp" />
@@ -407,6 +408,7 @@
     <ClInclude Include="ModuleLayers.h" />
     <ClInclude Include="ModuleFiles.h" />
     <ClInclude Include="ModuleRenderer3D.h" />
+    <ClInclude Include="ModuleResourceManager.h" />
     <ClInclude Include="ModuleWindow.h" />
     <ClInclude Include="ModuleXML.h" />
     <ClInclude Include="Mesh.h" />

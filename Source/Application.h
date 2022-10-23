@@ -13,6 +13,7 @@ class ModuleLayers;
 class ModuleXML;
 class ModuleFiles;
 class ModuleCommand;
+class ModuleResourceManager;
 
 class Application
 {
@@ -25,6 +26,7 @@ public:
 	ModuleXML* xml = nullptr;
 	ModuleFiles* file = nullptr;
 	ModuleCommand* command = nullptr;
+	ModuleResourceManager* resource = nullptr;
 	float fps = 1.0f/60.0f;
 	int frameCap;
 	Timer	timer;

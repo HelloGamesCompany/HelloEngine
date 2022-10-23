@@ -8,6 +8,7 @@
 #include "ModuleXML.h"
 #include "ModuleFiles.h"
 #include "ModuleCommand.h"
+#include "ModuleResourceManager.h"
 
 Application* Application::app = nullptr;
 
@@ -29,6 +30,7 @@ bool Application::Init()
 	layers = new ModuleLayers();
 	xml = new ModuleXML();
 	command = new ModuleCommand();
+	resource = new ModuleResourceManager();
 
 	// The order of calls is very important!
 	// Modules will Init() Start() and Update in this order
@@ -40,6 +42,8 @@ bool Application::Init()
 	AddModule(window);
 
 	AddModule(input);
+
+	AddModule(resource);
 
 	AddModule(command);
 

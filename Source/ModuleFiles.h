@@ -7,6 +7,7 @@ class FileTree;
 
 enum class ResourceType
 {
+	UNDEFINED,
 	MESH,
 	TEXTURE
 };
@@ -62,7 +63,7 @@ public:
 	/// <returns></returns>
 	static std::string S_GetFileName(const std::string file, bool getExtension = true);
 
-	static ResourceType S_GetResourceType(std::string& filename);
+	static ResourceType S_GetResourceType(const std::string& filename);
 };
 
 #endif // !__MODULE_PHYSFS_H__

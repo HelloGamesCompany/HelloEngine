@@ -23,6 +23,8 @@ void ModuleResourceManager::ImportFile(const std::string& filePath)
 		return;
 	}
 
+	// TODO: Create Meta object that knows where this resource will be inside Resources file.
+
 	char* buffer = nullptr;
 	uint size = ModuleFiles::S_Load(filePath, &buffer);
 
@@ -32,7 +34,7 @@ void ModuleResourceManager::ImportFile(const std::string& filePath)
 		//MeshImporter::LoadMesh()
 		break;
 	case ResourceType::TEXTURE:
-		TextureImporter::ImportImage("Resource/Textures/" + ModuleFiles::S_GetFileName(filePath, false), buffer, size);
+		TextureImporter::ImportImage("Resources/Textures/" + ModuleFiles::S_GetFileName(filePath, false), buffer, size);
 		break;
 	default:
 		break;

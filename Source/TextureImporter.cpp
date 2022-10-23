@@ -7,7 +7,7 @@
 #include "External/stb_image/stb_image.h"
 
 
-void TextureImporter::ImportImage(const char* fileName, char* buffer, int size)
+void TextureImporter::ImportImage(const std::string& fileName, char* buffer, uint size)
 {
 	ILuint ImgId = 0;
 	ilGenImages(1, &ImgId);
