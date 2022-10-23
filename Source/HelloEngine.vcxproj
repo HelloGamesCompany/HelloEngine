@@ -371,6 +371,7 @@
     <ClInclude Include="External\PugiXml\src\pugiconfig.hpp" />
     <ClInclude Include="External\PugiXml\src\pugixml.hpp" />
     <ClInclude Include="External\stb_image\stb_image.h" />
+    <ClInclude Include="FileTree.hpp" />
     <ClInclude Include="FrameBuffer.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="glmath.h" />

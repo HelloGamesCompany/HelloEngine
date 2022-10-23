@@ -16,6 +16,6 @@
 		<colorMaterial value="true" tag="0x0B57" />
 		<texture2D value="true" tag="0x0DE1" />
 		<blend value="true" tag="0x0BE2" />
-		<wireframe value="true" />
+		<wireframe value="false" />
 	</openGL>
 </config>

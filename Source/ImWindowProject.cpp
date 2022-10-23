@@ -1,10 +1,15 @@
 #include "Headers.h"
 #include "ImWindowProject.h"
+#include "ModuleFiles.h"
 
 ImWindowProject::ImWindowProject()
 {
 	windowName = "Project";
 	isEnabled = true;
+
+    fileTree = ModuleFiles::S_GetFileTree("Assets");
+
+    currentNode = fileTree;
 }
 
 ImWindowProject::~ImWindowProject()
@@ -28,52 +33,75 @@ void ImWindowProject::Update()
         filter.Draw("Filter (\"incl,-excl\") (\"error\")", 180);
         ImGui::Separator();
 
+        // Adjust window size
         ImVec2 windowSize = ImGui::GetWindowSize();
 
         ImGui::DrawSplitter(0, 10, &width1, &width2, 100, 200);       
 
         width2 = (windowSize.x - width1 - 20);
 
+        // Left window
         if (width1 > 0) 
         {
             ImGui::PushStyleColor(ImGuiCol_ChildBg, ImVec4(0.16f, 0.16f, 0.16f, 1));
 
             if (ImGui::BeginChild("ChildL", ImVec2(width1, 0), true, ImGuiWindowFlags_HorizontalScrollbar))
             {
-                if (ImGui::TreeNode("Assets"))
-                {
-                    for (int i = 0; i < 8; i++)
-                    {
-                        // Use SetNextItemOpen() so set the default state of a node to be open. We could
-                        // also use TreeNodeEx() with the ImGuiTreeNodeFlags_DefaultOpen flag to achieve the same thing!
-                        if (i == 0)
-                            ImGui::SetNextItemOpen(true, ImGuiCond_Once);
-
-                        if (ImGui::TreeNode((void*)(intptr_t)i, "Child %d", i))
-                        {
-                            ImGui::Text("blah blah");
-                            ImGui::SameLine();
-                            if (ImGui::SmallButton("button")) {}
-                            ImGui::TreePop();
-                        }
-                    }
-                    ImGui::TreePop();
-                }
+                DrawTreeNode(fileTree);
                 ImGui::EndChild();
             }
 
             ImGui::PopStyleColor();
         }
+   
+        bool changeDir = false;
+        FileTree newDir;
 
+        // Right window
         if (width2 > 0)
         {
             ImGui::SameLine();
 
             if (ImGui::BeginChild("ChildR", ImVec2(width2, 0), true, ImGuiWindowFlags_HorizontalScrollbar))
-            {               
+            {         
+                for (int i = 0; i < currentNode.directories.size(); i++)
+                {
+                    if(ImGui::Button(currentNode.directories[i].name.c_str(), ImVec2(120, 60)))
+                    {
+                        newDir = currentNode.directories[i];
+                        changeDir = true;
+                    }
+                    ImGui::SameLine();
+                }
+                for (int i = 0; i < currentNode.files.size(); i++)
+                {
+                    ImGui::Button(currentNode.files[i].c_str(), ImVec2(120, 60));
+                    ImGui::SameLine();
+                }
+
                 ImGui::EndChild();
             }
         }
+
+        if (changeDir) currentNode = newDir;
 	}
 	ImGui::End(); 
+}
+
+void ImWindowProject::DrawTreeNode(const FileTree node) const
+{
+    if (ImGui::TreeNode(node.name.c_str()))
+    {
+        for (int i = 0; i < node.directories.size(); i++)
+        {
+            DrawTreeNode(node.directories[i]);
+        }
+        for (int i = 0; i < node.files.size(); i++)
+        {
+            ImGui::Text(node.files[i].c_str());
+            //ImGui::TreePop();
+        }
+
+        ImGui::TreePop();
+    }
 }

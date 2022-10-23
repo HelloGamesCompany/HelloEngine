@@ -1,6 +1,7 @@
 #include "Headers.h"
 #include "ModuleFiles.h"
 #include "physfs.h"
+#include "FileTree.hpp"
 
 ModuleFiles::ModuleFiles():Module()
 {
@@ -152,7 +153,7 @@ uint ModuleFiles::S_Copy(const std::string src, std::string des, bool replace)
 {
 	uint byteCount = 0;
 
-	std::string fileName = GetFileName(src, true);
+	std::string fileName = S_GetFileName(src, true);
 
 	des += fileName;
 
@@ -189,13 +190,36 @@ uint ModuleFiles::S_Copy(const std::string src, std::string des, bool replace)
 	return byteCount;
 }
 
-std::string ModuleFiles::GetFileName(const std::string file, bool getExtension)
+FileTree ModuleFiles::S_GetFileTree(std::string path)
+{
+	FileTree ret = FileTree(path, S_GetFileName(path));
+
+	char** list = PHYSFS_enumerateFiles(path.c_str());
+
+	for (int i = 0; list[i] != nullptr; i++)
+	{		
+		std::string dirCheck = path + "/" + list[i];
+
+		if (PHYSFS_isDirectory(dirCheck.c_str()) != 0)
+		{
+			ret.directories.emplace_back(S_GetFileTree(dirCheck));
+		}
+		else
+		{
+			ret.files.emplace_back(list[i]);
+		}
+	}
+
+	return ret;
+}
+
+std::string ModuleFiles::S_GetFileName(const std::string file, bool getExtension)
 {
 	uint pos = file.find_last_of("/");
 
-	std::string name = "";
+	std::string name = file;
 
-	if (pos != std::string::npos) std::string name = file.substr(pos + 1, file.size() - 1);
+	if (pos != std::string::npos) name = file.substr(pos + 1, file.size() - 1);
 	else name = file;
 
 	if (!getExtension)

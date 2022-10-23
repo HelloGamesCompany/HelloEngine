@@ -3,6 +3,8 @@
 
 #include "Module.h"
 
+class FileTree;
+
 class ModuleFiles : public Module
 {
 public:
@@ -42,10 +44,17 @@ public:
 	/// <summary>
 	/// 
 	/// </summary>
+	/// <param name="path">: path will be start in folder Output</param>
+	/// <returns></returns>
+	static FileTree S_GetFileTree(std::string path);
+
+	/// <summary>
+	/// 
+	/// </summary>
 	/// <param name="file"></param>
 	/// <param name="getExtention">: If you want to get the extension</param>
 	/// <returns></returns>
-	static std::string GetFileName(const std::string file, bool getExtension = true);
+	static std::string S_GetFileName(const std::string file, bool getExtension = true);
 };
 
 #endif // !__MODULE_PHYSFS_H__

@@ -286,7 +286,9 @@
       <Filter>Tools\Commands</Filter>
     </ClCompile>
     <ClCompile Include="External\mmgr\mmgr.cpp" />
-    <ClCompile Include="ImWindowPerformanceTest.cpp" />
+    <ClCompile Include="ImWindowPerformanceTest.cpp">
+      <Filter>Modules\Layer\Windows</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Module.h">
@@ -677,7 +679,12 @@
     </ClInclude>
     <ClInclude Include="External\mmgr\mmgr.h" />
     <ClInclude Include="External\mmgr\nommgr.h" />
-    <ClInclude Include="ImWindowPerformanceTest.h" />
+    <ClInclude Include="ImWindowPerformanceTest.h">
+      <Filter>Modules\Layer\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="FileTree.hpp">
+      <Filter>Tools</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="External\imgui\vulkan\generate_spv.sh">
