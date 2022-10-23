@@ -5,6 +5,7 @@
 #include "ModelRenderManager.h"
 #include "RenderManager.h"
 #include "Mesh.h"
+#include "TextureImporter.h"
 
 MeshRenderComponent::MeshRenderComponent(GameObject* gameObject) : Component(gameObject)
 {
@@ -142,6 +143,11 @@ void MeshRenderComponent::OnEditor()
 					ImGui::SetItemDefaultFocus();
 			}
 			ImGui::EndCombo();
+		}
+
+		if (ImGui::Button("Set Checkers Texture"))
+		{
+			GetMesh().textureID = TextureImporter::CheckerImage();
 		}
 	}
 }

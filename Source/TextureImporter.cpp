@@ -106,6 +106,12 @@ uint TextureImporter::ImportTexture(std::string path)
 
 uint TextureImporter::CheckerImage()
 {
+	//Check if the given texture has been already loaded
+	if (TextureManager::usedPaths.find("Checkers") != TextureManager::usedPaths.end())
+	{
+		return TextureManager::usedPaths["Checkers"]; // If this texture path was already loaded, return the loaded texture.
+	}
+
 	GLubyte checkerImage[240][240][4];
 	for (int i = 0; i < 240; i++) {
 		for (int j = 0; j < 240; j++) {
@@ -128,6 +134,13 @@ uint TextureImporter::CheckerImage()
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 240, 240,
 		0, GL_RGBA, GL_UNSIGNED_BYTE, checkerImage);
+
+	Texture engineTexture;
+	engineTexture.OpenGLID = textureID;
+	engineTexture.name = "Checkers";
+
+	TextureManager::loadedTextures[textureID] = engineTexture; // Add loaded texture inside TextureManager.
+	TextureManager::usedPaths["Checkers"] = textureID;
 
 	return textureID;
 }

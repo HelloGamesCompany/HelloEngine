@@ -15,6 +15,6 @@ void main()
     }
     else
     {
-        FragColor = texture(textures[int(TextureID)], TextureCoords);
+        FragColor = texture(textures[int(round(TextureID))], TextureCoords);
     }
 }
