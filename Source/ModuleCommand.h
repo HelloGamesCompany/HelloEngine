@@ -3,7 +3,7 @@
 #include "CommandChangeValue.hpp"
 #include "CommandArray.hpp"
 
-#define MAX_UNDO 5
+#define MAX_UNDO 30
 
 using CommandArray = Htool::CommandArray<Command*>;
 
