@@ -14,10 +14,12 @@ ImWindowPerformanceTest::~ImWindowPerformanceTest()
 
 void ImWindowPerformanceTest::Update()
 {
+	static int houseNum = 2;
 	if (ImGui::Begin(windowName.c_str()))
 	{
-		if (ImGui::Button("Add 10 Bake House models"))
+		if (ImGui::Button("Add 10 Baker House models"))
 		{
+			houseNum += 10;
 			for (int i = 0; i < 10; i++)
 			{
 				GameObject* mesh = MeshImporter::LoadMesh("Assets/BakerHouse.fbx");
@@ -29,8 +31,9 @@ void ImWindowPerformanceTest::Update()
 				}
 			}
 		}
-		if (ImGui::Button("Add 100 Bake House models"))
+		if (ImGui::Button("Add 100 Baker House models"))
 		{
+			houseNum += 100;
 			for (int i = 0; i < 100; i++)
 			{
 				GameObject* mesh = MeshImporter::LoadMesh("Assets/BakerHouse.fbx");
@@ -42,8 +45,9 @@ void ImWindowPerformanceTest::Update()
 				}
 			}
 		}
-		if (ImGui::Button("Add 1000 Bake House models"))
+		if (ImGui::Button("Add 1000 Baker House models"))
 		{
+			houseNum += 1000;
 			for (int i = 0; i < 1000; i++)
 			{
 				GameObject* mesh = MeshImporter::LoadMesh("Assets/BakerHouse.fbx");
@@ -55,6 +59,8 @@ void ImWindowPerformanceTest::Update()
 				}
 			}
 		}
+
+		ImGui::TextWrapped("Number of houses: %d", houseNum);
 	}
 	ImGui::End();
 }

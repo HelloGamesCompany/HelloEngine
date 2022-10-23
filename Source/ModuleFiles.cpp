@@ -2,6 +2,7 @@
 #include "ModuleFiles.h"
 #include "physfs.h"
 #include "FileTree.hpp"
+#include <algorithm>
 
 ModuleFiles::ModuleFiles():Module()
 {
@@ -229,4 +230,19 @@ std::string ModuleFiles::S_GetFileName(const std::string file, bool getExtension
 	}
 
 	return name;
+}
+
+ResourceType ModuleFiles::S_GetResourceType(const std::string& filename)
+{
+	std::string fileExtension = filename;
+	fileExtension = fileExtension.substr(fileExtension.find_last_of('.') + 1);
+
+	std::transform(fileExtension.begin(), fileExtension.end(), fileExtension.begin(), ::tolower);
+
+	//TODO: Add our own file extensions to this checks
+
+	if (fileExtension == "fbx" || fileExtension == "dae") return ResourceType::MESH;
+	if (fileExtension == "tga" || fileExtension == "png" || fileExtension == "jpg" || fileExtension == "dds") return ResourceType::TEXTURE;
+
+	return ResourceType::UNDEFINED;
 }

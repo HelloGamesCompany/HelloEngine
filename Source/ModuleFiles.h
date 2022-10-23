@@ -5,6 +5,12 @@
 
 class FileTree;
 
+enum class ResourceType
+{
+	MESH,
+	TEXTURE
+};
+
 class ModuleFiles : public Module
 {
 public:
@@ -55,6 +61,8 @@ public:
 	/// <param name="getExtention">: If you want to get the extension</param>
 	/// <returns></returns>
 	static std::string S_GetFileName(const std::string file, bool getExtension = true);
+
+	static ResourceType S_GetResourceType(std::string& filename);
 };
 
 #endif // !__MODULE_PHYSFS_H__
