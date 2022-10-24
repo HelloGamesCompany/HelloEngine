@@ -2,7 +2,7 @@
 #include "ImWindow.h"
 #include "imgui.h"
 
-#include "FileTree.hpp"
+class FileTree;
 
 class ImWindowProject : public ImWindow
 {
@@ -14,7 +14,7 @@ public:
 	void Update() override;
 
 private:
-	void DrawTreeNode(const FileTree node)const;
+	void DrawTreeNode(const FileTree* node)const;
 
 private:
 
@@ -22,7 +22,7 @@ private:
 
 	ImGuiTextFilter filter;
 
-	FileTree fileTree;
+	FileTree* fileTree = nullptr;
 
-	FileTree currentNode;
+	FileTree* currentNode = nullptr;
 };

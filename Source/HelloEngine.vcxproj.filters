@@ -285,11 +285,13 @@
     <ClCompile Include="Command.cpp">
       <Filter>Tools\Commands</Filter>
     </ClCompile>
-    <ClCompile Include="External\mmgr\mmgr.cpp" />
     <ClCompile Include="ImWindowPerformanceTest.cpp">
       <Filter>Modules\Layer\Windows</Filter>
     </ClCompile>
     <ClCompile Include="ModuleResourceManager.cpp" />
+    <ClCompile Include="External\mmgr\mmgr.cpp">
+      <Filter>External\mmgr</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Module.h">
@@ -366,9 +368,6 @@
     </ClInclude>
     <ClInclude Include="XMLNode.h">
       <Filter>Modules\XML</Filter>
-    </ClInclude>
-    <ClInclude Include="CycleArray.hpp">
-      <Filter>Tools</Filter>
     </ClInclude>
     <ClInclude Include="External\MathGeoLib\include\Geometry\Frustum.h">
       <Filter>External\MathGeoLib</Filter>
@@ -675,18 +674,25 @@
     <ClInclude Include="CommandChangeValue.hpp">
       <Filter>Tools\Commands</Filter>
     </ClInclude>
-    <ClInclude Include="CommandArray.hpp">
-      <Filter>Tools\Commands</Filter>
-    </ClInclude>
-    <ClInclude Include="External\mmgr\mmgr.h" />
-    <ClInclude Include="External\mmgr\nommgr.h" />
     <ClInclude Include="ImWindowPerformanceTest.h">
       <Filter>Modules\Layer\Windows</Filter>
     </ClInclude>
-    <ClInclude Include="FileTree.hpp">
-      <Filter>Tools</Filter>
-    </ClInclude>
     <ClInclude Include="ModuleResourceManager.h" />
+    <ClInclude Include="External\mmgr\mmgr.h">
+      <Filter>External\mmgr</Filter>
+    </ClInclude>
+    <ClInclude Include="External\mmgr\nommgr.h">
+      <Filter>External\mmgr</Filter>
+    </ClInclude>
+    <ClInclude Include="CycleArray.hpp">
+      <Filter>Tools\DataStruct</Filter>
+    </ClInclude>
+    <ClInclude Include="FileTree.hpp">
+      <Filter>Tools\DataStruct</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandArray.hpp">
+      <Filter>Tools\DataStruct</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="External\imgui\vulkan\generate_spv.sh">
@@ -762,6 +768,12 @@
     </Filter>
     <Filter Include="Tools\Commands">
       <UniqueIdentifier>{0ad334dc-e5ce-44f8-a55e-610d8f4707f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="External\mmgr">
+      <UniqueIdentifier>{f7145bd8-f5ce-42bc-ada6-9e52462dd192}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tools\DataStruct">
+      <UniqueIdentifier>{07f835a3-a482-4f51-b329-36585cc31a62}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

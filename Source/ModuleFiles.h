@@ -53,7 +53,7 @@ public:
 	/// </summary>
 	/// <param name="path">: path will be start in folder Output</param>
 	/// <returns></returns>
-	static FileTree S_GetFileTree(std::string path);
+	static FileTree* S_GetFileTree(std::string path, FileTree* parent = nullptr);
 
 	/// <summary>
 	/// 

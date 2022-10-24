@@ -1,6 +1,7 @@
 #include "Headers.h"
 #include "ImWindowProject.h"
 #include "ModuleFiles.h"
+#include "FileTree.hpp"
 
 ImWindowProject::ImWindowProject()
 {
@@ -14,6 +15,7 @@ ImWindowProject::ImWindowProject()
 
 ImWindowProject::~ImWindowProject()
 {
+    RELEASE(fileTree);
 }
 
 void ImWindowProject::Update()
@@ -25,12 +27,20 @@ void ImWindowProject::Update()
         static float width2 = 1200; // Init Size child 2
         static float windowInitX = ImGui::GetWindowSize().x;
 
+        // For change directory
+        FileTree* newDir = nullptr;
+
         if (width2 < 200) width2 = 200;
 
         // Options, Filter
         if (ImGui::Button("Options")) ImGui::OpenPopup("Options");
         ImGui::SameLine();
         filter.Draw("Filter (\"incl,-excl\") (\"error\")", 180);
+        ImGui::SameLine();
+        if (ImGui::Button("Return")) 
+        {
+            if(!currentNode->isRoot()) newDir = currentNode->GetParent();
+        }
         ImGui::Separator();
 
         // Adjust window size
@@ -54,8 +64,7 @@ void ImWindowProject::Update()
             ImGui::PopStyleColor();
         }
    
-        bool changeDir = false;
-        FileTree newDir;
+
 
         // Right window
         if (width2 > 0)
@@ -63,19 +72,20 @@ void ImWindowProject::Update()
             ImGui::SameLine();
 
             if (ImGui::BeginChild("ChildR", ImVec2(width2, 0), true, ImGuiWindowFlags_HorizontalScrollbar))
-            {         
-                for (int i = 0; i < currentNode.directories.size(); i++)
-                {
-                    if(ImGui::Button(currentNode.directories[i].name.c_str(), ImVec2(120, 60)))
+            {        
+                ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.5, 0.5, 1.0, 255));
+                for (int i = 0; i < currentNode->directories.size(); i++)
+                {             
+                    if(ImGui::Button(currentNode->directories[i]->name.c_str(), ImVec2(120, 60)))
                     {
-                        newDir = currentNode.directories[i];
-                        changeDir = true;
+                        newDir = currentNode->directories[i];
                     }
                     ImGui::SameLine();
                 }
-                for (int i = 0; i < currentNode.files.size(); i++)
+                ImGui::PopStyleColor(1);
+                for (int i = 0; i < currentNode->files.size(); i++)
                 {
-                    ImGui::Button(currentNode.files[i].c_str(), ImVec2(120, 60));
+                    ImGui::Button(currentNode->files[i].c_str(), ImVec2(120, 60));
                     ImGui::SameLine();
                 }
 
@@ -83,22 +93,22 @@ void ImWindowProject::Update()
             }
         }
 
-        if (changeDir) currentNode = newDir;
+        if (newDir) currentNode = newDir;
 	}
 	ImGui::End(); 
 }
 
-void ImWindowProject::DrawTreeNode(const FileTree node) const
+void ImWindowProject::DrawTreeNode(const FileTree* node) const
 {
-    if (ImGui::TreeNode(node.name.c_str()))
+    if (ImGui::TreeNode(node->name.c_str()))
     {
-        for (int i = 0; i < node.directories.size(); i++)
+        for (int i = 0; i < node->directories.size(); i++)
         {
-            DrawTreeNode(node.directories[i]);
+            DrawTreeNode(node->directories[i]);
         }
-        for (int i = 0; i < node.files.size(); i++)
+        for (int i = 0; i < node->files.size(); i++)
         {
-            ImGui::Text(node.files[i].c_str());
+            ImGui::Text(node->files[i].c_str());
             //ImGui::TreePop();
         }
 

@@ -18,12 +18,27 @@ public:
 
 	UpdateStatus Update() override;
 
+	/// <summary>
+	/// 
+	/// </summary>
+	/// <typeparam name="T"></typeparam>
+	/// <param name="variable">: variable you want to change</param>
+	/// <param name="beginValue">: value before change</param>
+	/// <param name="endValue">: value after change</param>
 	template<class T>
 	static void S_ChangeValue(T* variable, T beginValue, T endValue)
 	{
 		_commands->push(new CommandChangeValue<T>(variable, beginValue, endValue));
 	}
 
+	/// <summary>
+	/// 
+	/// </summary>
+	/// <typeparam name="T"></typeparam>
+	/// <param name="variable">: variable you want to change</param>
+	/// <param name="beginValue">: value before change</param>
+	/// <param name="endValue">: value after change</param>
+	/// <param name="function">: if you want call some function when undo/redo</param>
 	template<class T>
 	static void S_ChangeValue(T* variable, T beginValue, T endValue, std::function<void()> function)
 	{
@@ -31,7 +46,6 @@ public:
 	}
 
 private:
-
 	bool Undo();
 
 	bool Redo();

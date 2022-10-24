@@ -191,23 +191,23 @@ uint ModuleFiles::S_Copy(const std::string src, std::string des, bool replace)
 	return byteCount;
 }
 
-FileTree ModuleFiles::S_GetFileTree(std::string path)
+FileTree* ModuleFiles::S_GetFileTree(std::string path, FileTree* parent)
 {
-	FileTree ret = FileTree(path, S_GetFileName(path));
-
+	FileTree* ret = new FileTree(path, S_GetFileName(path), parent);
+	
 	char** list = PHYSFS_enumerateFiles(path.c_str());
-
+	
 	for (int i = 0; list[i] != nullptr; i++)
 	{		
 		std::string dirCheck = path + "/" + list[i];
 
 		if (PHYSFS_isDirectory(dirCheck.c_str()) != 0)
 		{
-			ret.directories.emplace_back(S_GetFileTree(dirCheck));
+			ret->directories.emplace_back(S_GetFileTree(dirCheck, ret));
 		}
 		else
 		{
-			ret.files.emplace_back(list[i]);
+			ret->files.emplace_back(list[i]);
 		}
 	}
 

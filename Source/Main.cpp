@@ -84,6 +84,7 @@ int main(int argc, char** argv)
 
 	delete app;
 	app = nullptr;
+
 	ReportMemoryLeaks();
 
 	LOG("\nBye :)\n");
