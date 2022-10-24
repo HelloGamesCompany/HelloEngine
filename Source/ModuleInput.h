@@ -77,7 +77,7 @@ private:
 	int mouse_z = 0;
 	int mouse_x_motion = 0;
 	int mouse_y_motion = 0;
-	std::function<void(std::string)> onDrops;
+	std::function<void(std::string)> onDrops = nullptr;
 };
 
 #endif // !__MODULEINPUT_H__

@@ -28,7 +28,7 @@ public:
 
 	static bool S_IsDirectory(const std::string file);
 
-	static std::string S_GlobalToLocalPath(const std::string path);
+	/*static std::string S_GlobalToLocalPath(const std::string path);*/
 
 	static std::string S_NormalizePath(const std::string path);
 
@@ -54,7 +54,7 @@ public:
 	/// <param name="des">: JUST PATH!!!</param>
 	/// <param name="replace">: Replace file if is aldready exist</param>
 	/// <returns></returns>
-	static uint S_Copy(const std::string src, const std::string des, bool replace = true);
+	static bool S_Copy(const std::string src, const std::string des, bool replace = true);
 
 	/// <summary>
 	/// 

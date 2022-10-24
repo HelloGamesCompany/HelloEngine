@@ -14,6 +14,10 @@ ModuleFiles::ModuleFiles():Module()
 	// Add Read Dir
 	S_AddPathToFileSystem(".");
 
+	S_AddPathToFileSystem("C:\\");
+
+	S_AddPathToFileSystem("D:\\");
+
 	//S_AddPathToFileSystem("Resources");
 }
 
@@ -42,6 +46,7 @@ bool ModuleFiles::S_IsDirectory(const std::string file)
 	return PHYSFS_isDirectory(file.c_str()) != 0;
 }
 
+/*
 std::string ModuleFiles::S_GlobalToLocalPath(const std::string path)
 {
 	std::string localPath = S_NormalizePath(path);
@@ -59,10 +64,20 @@ std::string ModuleFiles::S_GlobalToLocalPath(const std::string path)
 
 	return localPath;
 }
+*/
 
 std::string ModuleFiles::S_NormalizePath(const std::string path)
 {
 	std::string ret = path;
+
+	// Remove no necesary path
+	int pos = ret.find("C:\\");
+
+	if (pos != std::string::npos) ret.erase(pos, 3);
+
+	pos = ret.find("D:\\");
+
+	if (pos != std::string::npos) ret.erase(pos, 3);
 
 	for (int i = 0; i < ret.size(); i++)
 	{
@@ -192,9 +207,9 @@ uint ModuleFiles::S_Save(const std::string filePath, char* buffer, uint size, bo
 	return byteCount;
 }
 
-uint ModuleFiles::S_Copy(const std::string src, std::string des, bool replace)
+bool ModuleFiles::S_Copy(const std::string src, std::string des, bool replace)
 {
-	uint byteCount = 0;
+	bool successful = true;
 
 	std::string fileName = S_GetFileName(src, true);
 
@@ -205,6 +220,7 @@ uint ModuleFiles::S_Copy(const std::string src, std::string des, bool replace)
 		if (S_Exists(des) && !replace)
 		{
 			LOG("FILE SYSTEM: the file you want to copy is already exist and you don't want to replace this: '%s'", src.c_str());
+			successful = false;
 			break;
 		}
 
@@ -215,6 +231,7 @@ uint ModuleFiles::S_Copy(const std::string src, std::string des, bool replace)
 		if (srcSize <= 0)
 		{
 			LOG("FILE SYSTEM: Could not read from file '%s'", src.c_str());
+			successful = false;
 			break;
 		}
 
@@ -223,19 +240,22 @@ uint ModuleFiles::S_Copy(const std::string src, std::string des, bool replace)
 		if (desSize <= 0)
 		{
 			LOG("FILE SYSTEM: Could not save file '%s'", src.c_str()); 
+			successful = false;
 			break;			
 		}
 
 		LOG("FILE SYSTEM: Successfully copied source file: '%s' to the destination file: '%s'", src.c_str(), des.c_str());
 
+		RELEASE(buffer);
+
 	} while (false);
 
-	return byteCount;
+	return true;
 }
 
 FileTree* ModuleFiles::S_GetFileTree(std::string path, FileTree* parent)
 {
-	FileTree* ret = new FileTree(path, S_GetFileName(path), parent);
+	FileTree* ret = new FileTree(path + "/", S_GetFileName(path), parent);
 	
 	char** list = PHYSFS_enumerateFiles(path.c_str());
 	

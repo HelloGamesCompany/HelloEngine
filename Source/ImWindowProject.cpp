@@ -68,8 +68,6 @@ void ImWindowProject::Update()
             ImGui::PopStyleColor();
         }
    
-
-
         // Right window
         if (width2 > 0)
         {
@@ -122,11 +120,15 @@ void ImWindowProject::DrawTreeNode(const FileTree* node) const
 
 void ImWindowProject::OnDrop(std::string filePath)
 {
-    std::cout << "droped: " << filePath <<std::endl;
-
     std::string ret = ModuleFiles::S_NormalizePath(filePath);
 
-    ModuleFiles::S_Copy(ret, "Assets/");
+    ModuleFiles::S_Copy(ret, currentNode->path);
 
-    std::cout << "droped after: " << ret << std::endl;
+    currentNode->files.push_back(ModuleFiles::S_GetFileName(ret));
+
+    //RELEASE(fileTree);
+
+    //fileTree = ModuleFiles::S_GetFileTree("Assets");
+
+    //currentNode = fileTree;
 }
