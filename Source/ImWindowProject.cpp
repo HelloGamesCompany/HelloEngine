@@ -11,10 +11,14 @@ ImWindowProject::ImWindowProject()
     fileTree = ModuleFiles::S_GetFileTree("Assets");
 
     currentNode = fileTree;
+
+    Application::Instance()->input->AddOnDropListener(std::bind(&ImWindowProject::OnDrop, this, std::placeholders::_1));
 }
 
 ImWindowProject::~ImWindowProject()
 {
+    Application::Instance()->input->ClearOnDropListener();
+
     RELEASE(fileTree);
 }
 
@@ -114,4 +118,15 @@ void ImWindowProject::DrawTreeNode(const FileTree* node) const
 
         ImGui::TreePop();
     }
+}
+
+void ImWindowProject::OnDrop(std::string filePath)
+{
+    std::cout << "droped: " << filePath <<std::endl;
+
+    std::string ret = ModuleFiles::S_NormalizePath(filePath);
+
+    ModuleFiles::S_Copy(ret, "Assets/");
+
+    std::cout << "droped after: " << ret << std::endl;
 }

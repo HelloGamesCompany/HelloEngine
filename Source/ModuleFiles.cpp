@@ -42,6 +42,48 @@ bool ModuleFiles::S_IsDirectory(const std::string file)
 	return PHYSFS_isDirectory(file.c_str()) != 0;
 }
 
+std::string ModuleFiles::S_GlobalToLocalPath(const std::string path)
+{
+	std::string localPath = S_NormalizePath(path);
+
+	size_t pos = 0;
+
+	pos = localPath.find(ASSETS_PATH);
+
+	if (pos != std::string::npos)
+	{
+		localPath = localPath.substr(pos);
+
+		if (localPath.c_str() != "") return localPath;
+	}
+
+	return localPath;
+}
+
+std::string ModuleFiles::S_NormalizePath(const std::string path)
+{
+	std::string ret = path;
+
+	for (int i = 0; i < ret.size(); i++)
+	{
+		if (ret[i] == '\\') ret[i] = '/';
+	}
+
+	return ret;
+}
+
+std::string ModuleFiles::S_UnNormalizePath(const std::string path)
+{
+	std::string ret = path;
+
+	for (int i = 0; i < ret.size(); i++)
+	{
+		if (ret[i] == '/') ret[i] = '\\';
+	}
+
+	return ret;
+}
+
 bool ModuleFiles::S_AddPathToFileSystem(const std::string path)
 {
 	bool ret = false;

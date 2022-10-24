@@ -109,6 +109,15 @@ UpdateStatus ModuleInput::PreUpdate()
 			quit = true;
 			break;
 
+			case (SDL_DROPFILE):
+			{
+				//TODO: Change method name to duplicate on drop or something
+				//FileSystem::LoadDroppedFile(e.drop.file);
+				if (onDrops) onDrops(e.drop.file);
+				SDL_free(e.drop.file);    // Free dropped_filedir memory
+				break;
+			}
+
 			case SDL_WINDOWEVENT:
 			{
 				if(e.window.event == SDL_WINDOWEVENT_RESIZED)
@@ -129,4 +138,14 @@ bool ModuleInput::CleanUp()
 	LOG("Quitting SDL input event subsystem");
 	SDL_QuitSubSystem(SDL_INIT_EVENTS);
 	return true;
+}
+
+void ModuleInput::AddOnDropListener(std::function<void(std::string)> func)
+{
+	onDrops = func;
+}
+
+void ModuleInput::ClearOnDropListener()
+{
+	onDrops = nullptr;
 }

@@ -65,6 +65,10 @@ public:
 		return mouse_y_motion;
 	}
 
+	void AddOnDropListener(std::function<void(std::string)> func);
+
+	void ClearOnDropListener();
+
 private:
 	KEY_STATE* keyboard = nullptr;
 	KEY_STATE mouse_buttons[MAX_MOUSE_BUTTONS];
@@ -73,7 +77,7 @@ private:
 	int mouse_z = 0;
 	int mouse_x_motion = 0;
 	int mouse_y_motion = 0;
-	//int mouse_z_motion;
+	std::function<void(std::string)> onDrops;
 };
 
 #endif // !__MODULEINPUT_H__

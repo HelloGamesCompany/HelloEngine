@@ -5,6 +5,8 @@
 
 class FileTree;
 
+#define ASSETS_PATH "Assets/"
+
 enum class ResourceType
 {
 	UNDEFINED,
@@ -25,6 +27,12 @@ public:
 	static bool S_MakeDir(const std::string dir);
 
 	static bool S_IsDirectory(const std::string file);
+
+	static std::string S_GlobalToLocalPath(const std::string path);
+
+	static std::string S_NormalizePath(const std::string path);
+
+	static std::string S_UnNormalizePath(const std::string path);
 
 	// can be path or zip
 	static bool S_AddPathToFileSystem(const std::string path);
