@@ -35,6 +35,7 @@ private:
 	float	dt = 0;
 	std::vector<Module*> list_modules;
 	static Application* app;
+	bool isExiting = false;
 public:
 	Application();
 	~Application();
@@ -49,6 +50,8 @@ public:
 	{
 	   fps = 1.0f / (float)maxFrames;
 	}
+
+	void Exit() { isExiting = true; }
 
 	std::string GetEngineVersion();
 

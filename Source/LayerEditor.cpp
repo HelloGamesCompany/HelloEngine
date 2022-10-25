@@ -139,7 +139,7 @@ void LayerEditor::PostUpdate()
 		{
 			if (ImGui::MenuItem("Close Appplication"))
 			{
-				// TODO: Exit application
+				Application::Instance()->Exit();
 			}
 
 			ImGui::EndMenu();	
@@ -150,6 +150,15 @@ void LayerEditor::PostUpdate()
 			for (int i = 0; i < (uint)ImWindowID::MAX; i++)
 			{
 				ImGui::MenuItem(imWindows[i]->windowName.c_str(), (const char*)0, &imWindows[i]->isEnabled);
+			}
+			ImGui::EndMenu();
+		}
+
+		if (ImGui::BeginMenu("About"))
+		{
+			if (ImGui::MenuItem("Check our Github!"))
+			{
+				ShellExecute(0, 0, "https://github.com/HelloGamesCompany/HelloEngine", 0, 0, SW_SHOW);
 			}
 			ImGui::EndMenu();
 		}

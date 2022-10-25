@@ -29,4 +29,7 @@ private:
 
 	std::string comboValues[3] = { "None", "Vertex Normals", "Face Normals" };
 	int selectedNormalDisplay = 0;
+
+	int vertexNum = 0;
+	int indexNum = 0;
 };

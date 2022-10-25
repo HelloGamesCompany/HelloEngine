@@ -96,6 +96,8 @@ void Application::FinishUpdate()
 // Call PreUpdate, Update and PostUpdate on all modules
 UpdateStatus Application::Update()
 {
+	if (isExiting) return UpdateStatus::UPDATE_STOP;
+
 	UpdateStatus ret = UpdateStatus::UPDATE_CONTINUE;
 	PrepareUpdate();
 

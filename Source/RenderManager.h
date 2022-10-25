@@ -22,6 +22,9 @@ public:
 
 	std::map<uint, Mesh>& GetMap() { return meshes; };
 
+	int GetMeshVertexNum() { return totalVertices.size(); }
+	int GetMeshIndexNum() { return totalIndices.size(); }
+
 public:
 	bool initialized = false;
 private:

@@ -38,6 +38,9 @@ void MeshRenderComponent::InitAsDefaultCube(float3 position, float3 scale)
 		meshInfo.InitAsMeshInformation(position, scale);
 		_instanceID = manager->AddMesh(meshInfo);
 	}
+
+	vertexNum = manager->GetMeshVertexNum();
+	indexNum = manager->GetMeshIndexNum();
 }
 
 void MeshRenderComponent::InitAsDefaultSphere(float3 position, float3 scale)
@@ -59,6 +62,8 @@ void MeshRenderComponent::InitAsDefaultSphere(float3 position, float3 scale)
 		meshInfo.InitAsMeshInformation(position, scale);
 		_instanceID = manager->AddMesh(meshInfo);
 	}
+	vertexNum = manager->GetMeshVertexNum();
+	indexNum = manager->GetMeshIndexNum();
 }
 
 void MeshRenderComponent::InitAsLoadedMesh(uint meshID)
@@ -74,13 +79,8 @@ void MeshRenderComponent::InitAsLoadedMesh(uint meshID)
 
 	_instanceID = manager->AddMesh(instanceMesh);
 
-
-
-	//TODO: determine how this funciton will be called. 
-	// The body of this funciton should:
-	// Acces the ModelRenderManager to check if the given mesh has already been loaded.
-	// Create an instance inside the RenderManager in ModelRenderManager that manages this unique Mesh.
-	// Get an ID to access that instance, so its attributes can be dynamically changed from this component.
+	vertexNum = manager->GetMeshVertexNum();
+	indexNum = manager->GetMeshIndexNum();
 }
 
 void MeshRenderComponent::InitAsNewMesh(std::vector<Vertex>& vertices, std::vector<uint>& indices)
@@ -93,6 +93,8 @@ void MeshRenderComponent::InitAsNewMesh(std::vector<Vertex>& vertices, std::vect
 
 	_instanceID = manager->SetMeshInformation(newMesh);
 
+	vertexNum = manager->GetMeshVertexNum();
+	indexNum = manager->GetMeshIndexNum();
 }
 
 void MeshRenderComponent::OnPositionUpdate(float3 pos)
@@ -128,6 +130,12 @@ void MeshRenderComponent::OnEditor()
 {
 	if (ImGui::CollapsingHeader("Mesh Renderer", ImGuiTreeNodeFlags_DefaultOpen))
 	{
+		ImGui::TextWrapped("Mesh vertices: "); ImGui::SameLine(); 
+		ImGui::TextColored(ImVec4(255, 255, 0, 255), std::to_string(vertexNum).c_str());
+
+		ImGui::TextWrapped("Mesh indices: "); ImGui::SameLine();
+		ImGui::TextColored(ImVec4(255, 255, 0, 255), std::to_string(indexNum).c_str());
+
 		if (ImGui::BeginCombo("Show normals", comboValues[selectedNormalDisplay].c_str()))
 		{
 			for (int n = 0; n < 3; n++)

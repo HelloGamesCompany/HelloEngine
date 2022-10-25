@@ -184,7 +184,7 @@ void RenderManager::CreateNormalsDisplayBuffer()
     { 
         vertexNormalsDisplay.resize(totalVertices.size() * 2);
 
-        float lineMangitude = 1.0f;
+        float lineMangitude = 0.5f;
 
         int j = 0;
         for (int i = 0; i < totalVertices.size() * 2; i++)
@@ -195,7 +195,7 @@ void RenderManager::CreateNormalsDisplayBuffer()
             }
             else
             {
-                vertexNormalsDisplay[i] = (totalVertices[j].position + totalVertices[j].normals) * lineMangitude;
+                vertexNormalsDisplay[i] = totalVertices[j].position + (totalVertices[j].normals * lineMangitude);
                 j++;
             }
 
@@ -220,7 +220,7 @@ void RenderManager::CreateNormalsDisplayBuffer()
     {
         faceNormalsDisplay.resize((totalIndices.size() / 3) * 2); // 3 vertices make a face; we need 2 points to display 1 face normal. 
 
-        float lineMangitude = 1.0f;
+        float lineMangitude = 0.5f;
 
         int k = 0;
         int l = 0;
@@ -243,7 +243,7 @@ void RenderManager::CreateNormalsDisplayBuffer()
             }
             normalsDir /= 3;
             normalsDir.Normalize();
-            faceNormalsDisplay.push_back((faceCenter + normalsDir) * lineMangitude);
+            faceNormalsDisplay.push_back(faceCenter + (normalsDir * lineMangitude));
         }
 
         glGenVertexArrays(1, &FaceLineVAO);
