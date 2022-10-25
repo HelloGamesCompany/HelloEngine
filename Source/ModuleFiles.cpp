@@ -211,46 +211,63 @@ bool ModuleFiles::S_Copy(const std::string src, std::string des, bool replace)
 {
 	bool successful = true;
 
-	std::string fileName = S_GetFileName(src, true);
+	bool isDir = S_IsDirectory(src);
 
-	des += fileName;
-
-	do 
+	// Files case
+	if (!isDir) 
 	{
-		if (S_Exists(des) && !replace)
-		{
-			LOG("FILE SYSTEM: the file you want to copy is already exist and you don't want to replace this: '%s'", src.c_str());
-			successful = false;
-			break;
-		}
+		std::string fileName = S_GetFileName(src, true);
+
+		des += fileName;
 
 		char* buffer = nullptr;
 
-		uint srcSize = S_Load(src, &buffer);
-
-		if (srcSize <= 0)
+		do
 		{
-			LOG("FILE SYSTEM: Could not read from file '%s'", src.c_str());
-			successful = false;
-			break;
-		}
+			if (S_Exists(des) && !replace)
+			{
+				LOG("FILE SYSTEM: the file you want to copy is already exist and you don't want to replace this: '%s'", src.c_str());
+				successful = false;
+				break;
+			}
 
-		uint desSize = S_Save(des, buffer, srcSize, false);
+			uint srcSize = S_Load(src, &buffer);
 
-		if (desSize <= 0)
-		{
-			LOG("FILE SYSTEM: Could not save file '%s'", src.c_str()); 
-			successful = false;
-			break;			
-		}
+			if (srcSize <= 0)
+			{
+				if (S_Exists(src))
+				{
+					S_Save(des, buffer, srcSize, false);
+					break;
+				}
 
-		LOG("FILE SYSTEM: Successfully copied source file: '%s' to the destination file: '%s'", src.c_str(), des.c_str());
+				LOG("FILE SYSTEM: Could not read from file '%s'", src.c_str());
+				successful = false;
+				break;
+			}
+
+			uint desSize = S_Save(des, buffer, srcSize, false);
+
+			if (desSize <= 0)
+			{
+				LOG("FILE SYSTEM: Could not save file '%s'", src.c_str());
+				successful = false;
+				break;
+			}
+
+			LOG("FILE SYSTEM: Successfully copied source file: '%s' to the destination file: '%s'", src.c_str(), des.c_str());
+
+		} while (false);
 
 		RELEASE(buffer);
+	}
+	// Folder case
+	else
+	{
+		// TODO: Copy entire folder
+	}
 
-	} while (false);
-
-	return true;
+	return successful;
 }
 
 FileTree* ModuleFiles::S_GetFileTree(std::string path, FileTree* parent)
