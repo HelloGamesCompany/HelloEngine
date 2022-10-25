@@ -61,7 +61,7 @@ void ImWindowProject::Update()
 
             if (ImGui::BeginChild("ChildL", ImVec2(width1, 0), true, ImGuiWindowFlags_HorizontalScrollbar))
             {
-                DrawTreeNode(fileTree);
+                DrawTreeNode(fileTree, false);
                 ImGui::EndChild();
             }
 
@@ -100,20 +100,21 @@ void ImWindowProject::Update()
 	ImGui::End(); 
 }
 
-void ImWindowProject::DrawTreeNode(const FileTree* node) const
+void ImWindowProject::DrawTreeNode(const FileTree* node, bool drawFiles) const
 {
     if (ImGui::TreeNode(node->name.c_str()))
     {
         for (int i = 0; i < node->directories.size(); i++)
         {
-            DrawTreeNode(node->directories[i]);
+            DrawTreeNode(node->directories[i], drawFiles);
         }
-        for (int i = 0; i < node->files.size(); i++)
+        if(drawFiles)
         {
-            ImGui::Text(node->files[i].c_str());
-            //ImGui::TreePop();
+            for (int i = 0; i < node->files.size(); i++)
+            {
+                ImGui::Text(node->files[i].c_str());
+            }
         }
-
         ImGui::TreePop();
     }
 }
