@@ -12,6 +12,6 @@ public:
 	/// </summary>
 	void ImportFile(const std::string& filePath);
 
-private:
+	void LoadFile(const std::string& filePath);
 };
 

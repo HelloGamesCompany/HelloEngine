@@ -5,6 +5,7 @@
 #include "MeshImporter.h"
 #include "TextureImporter.h"
 #include "TransformComponent.h"
+#include "ModuleResourceManager.h"
 
 ModuleLayers::ModuleLayers()
 {
@@ -35,15 +36,19 @@ bool ModuleLayers::Start()
         MeshImporter::LoadMesh("Assets/BakerHouse.fbx");
     }
     //uint bakerTexture = TextureImporter::ImportTexture("Assets/Baker_house.png");
-    uint bakerTexture = TextureImporter::ImportTextureSTBI("Assets/Baker_house.png");
 
+    //app->resource->ImportFile("Assets/Baker_house.png");
+    //TextureImporter::ImportTextureSTBI("Resources/Textures/Baker_house.dds");
+    
+    app->resource->LoadFile("Resources/Textures/Baker_house.dds");
+    
     for (auto& gameObject : gameObjects)
     {
         MeshRenderComponent* rc = nullptr;
         rc = gameObject.second->GetComponent<MeshRenderComponent>();
         if (rc != nullptr)
         {
-            rc->GetMesh().textureID = bakerTexture;
+            rc->GetMesh().textureID = 3;
         }
     }
 

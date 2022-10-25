@@ -10,7 +10,7 @@ public:
 	// Loads a texture from DDS file to OpenGL and returns its ID.
 	static uint Load(char* buffer, int size, int* w, int* h);
 
-	static uint ImportTexture(std::string path);
+	//static uint ImportTexture(std::string path);
 	static uint CheckerImage();
 	static uint ImportTextureSTBI(std::string path);
 };

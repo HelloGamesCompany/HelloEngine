@@ -7,5 +7,7 @@ public:
 
 	std::string name;
 	uint OpenGLID;
+	int width;
+	int height;
 };
 

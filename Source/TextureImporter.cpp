@@ -5,7 +5,7 @@
 #include "Texture.h"
 #include "TextureManager.h"
 #include "External/stb_image/stb_image.h"
-
+#include "ModuleFiles.h"
 
 void TextureImporter::ImportImage(const std::string& fileName, char* buffer, uint size)
 {
@@ -25,8 +25,9 @@ void TextureImporter::ImportImage(const std::string& fileName, char* buffer, uin
 	if (imgSize > 0)
 	{
 		data = new ILubyte[imgSize]; // allocate data buffer
-		if (ilSaveL(IL_DDS, data, imgSize) > 0) // Save to buffer with the ilSaveIL function
-			buffer = (char*)data;
+		ilSaveL(IL_DDS, data, imgSize); // Save to buffer with the ilSaveIL function
+
+		ModuleFiles::S_Save(fileName + ".dds", (char*)data, imgSize, false);
 
 		RELEASE_ARRAY(data);
 	}
@@ -44,10 +45,16 @@ uint TextureImporter::Load(char* buffer, int size, int* width, int* heigth)
 		LOG("Error loading image: %s", ilutGetString(ilGetError()));
 	}
 
+	uint error = ilGetError();
+
 	Texture engineTexture;
 
-	glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
-	engineTexture.OpenGLID = ilutGLBindTexImage();
+	engineTexture.width = ilGetInteger(IL_IMAGE_WIDTH);
+	engineTexture.height = ilGetInteger(IL_IMAGE_HEIGHT);
+
+	ILubyte* bytes = ilGetData();
+
+	glGenTextures(1, &engineTexture.OpenGLID);
 
 	//TODO: Generate mipmaps and use best settings
 	glBindTexture(GL_TEXTURE_2D, engineTexture.OpenGLID);
@@ -56,53 +63,54 @@ uint TextureImporter::Load(char* buffer, int size, int* width, int* heigth)
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	glGenerateMipmap(GL_TEXTURE_2D);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, engineTexture.width, engineTexture.height, 0, GL_RGBA, GL_UNSIGNED_BYTE, bytes);
 	glBindTexture(GL_TEXTURE_2D, 0);
 
-	*width = ilGetInteger(IL_IMAGE_WIDTH);
-	*heigth = ilGetInteger(IL_IMAGE_HEIGHT);
+	ilDeleteImages(1, &ImgId);
+	glBindTexture(GL_TEXTURE_2D, 0);
 
 	TextureManager::loadedTextures[engineTexture.OpenGLID] = engineTexture; // Add loaded texture inside TextureManager.
 
 	return engineTexture.OpenGLID;
 }
 
-uint TextureImporter::ImportTexture(std::string path)
-{
-	//Check if the given texture has been already loaded
-	if (TextureManager::usedPaths.find(path) != TextureManager::usedPaths.end())
-	{
-		return TextureManager::usedPaths[path]; // If this texture path was already loaded, return the loaded texture.
-	}
-
-	ILuint ImgId = 0;
-	ilGenImages(1, &ImgId);
-	ilBindImage(ImgId);
-	if (!ilLoadImage(path.c_str()))
-	{
-		LOG("Error loading image: %s", ilutGetString(ilGetError()));
-	}
-
-	GLuint texture = ilutGLBindTexImage();
-
-	glBindTexture(GL_TEXTURE_2D, texture);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-	glGenerateMipmap(GL_TEXTURE_2D);
-	glBindTexture(GL_TEXTURE_2D, 0);
-
-	ilDeleteImages(1, &ImgId);
-
-	Texture engineTexture;
-	engineTexture.OpenGLID = texture;
-	engineTexture.name = path;
-
-	TextureManager::loadedTextures[texture] = engineTexture; // Add loaded texture inside TextureManager.
-	TextureManager::usedPaths[path] = texture;
-
-	return texture;
-}
+//uint TextureImporter::ImportTexture(std::string path)
+//{
+//	//Check if the given texture has been already loaded
+//	if (TextureManager::usedPaths.find(path) != TextureManager::usedPaths.end())
+//	{
+//		return TextureManager::usedPaths[path]; // If this texture path was already loaded, return the loaded texture.
+//	}
+//
+//	ILuint ImgId = 0;
+//	ilGenImages(1, &ImgId);
+//	ilBindImage(ImgId);
+//	if (!ilLoadImage(path.c_str()))
+//	{
+//		LOG("Error loading image: %s", ilutGetString(ilGetError()));
+//	}
+//
+//	GLuint texture = ilutGLBindTexImage();
+//
+//	glBindTexture(GL_TEXTURE_2D, texture);
+//	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+//	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+//	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+//	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+//	glGenerateMipmap(GL_TEXTURE_2D);
+//	glBindTexture(GL_TEXTURE_2D, 0);
+//
+//	ilDeleteImages(1, &ImgId);
+//
+//	Texture engineTexture;
+//	engineTexture.OpenGLID = texture;
+//	engineTexture.name = path;
+//
+//	TextureManager::loadedTextures[texture] = engineTexture; // Add loaded texture inside TextureManager.
+//	TextureManager::usedPaths[path] = texture;
+//
+//	return texture;
+//}
 
 uint TextureImporter::CheckerImage()
 {

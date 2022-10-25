@@ -3,6 +3,9 @@
 #include "Globals.h"
 #include "Application.h"
 #include "MemLeaks.h"
+#include "IL/il.h"
+#include "IL/ilu.h"
+#include "IL/ilut.h"
 
 enum main_states
 {
@@ -22,6 +25,16 @@ int main(int argc, char** argv)
 	int main_return = EXIT_FAILURE;
 	main_states state = MAIN_CREATION;
 	Application* app = nullptr;
+
+	if (ilGetInteger(IL_VERSION_NUM) < IL_VERSION) {
+		LOG("Wrong DevIL version detected.");
+		return 0;
+	}
+
+	ilInit();
+	iluInit();
+	ilutInit();
+	ilutRenderer(ILUT_OPENGL);
 
 	while (state != MAIN_EXIT)
 	{
@@ -84,7 +97,7 @@ int main(int argc, char** argv)
 
 	delete app;
 	app = nullptr;
-
+	ilShutDown();
 	ReportMemoryLeaks();
 
 	LOG("\nBye :)\n");
