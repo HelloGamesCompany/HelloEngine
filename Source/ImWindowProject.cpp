@@ -2,6 +2,7 @@
 #include "ImWindowProject.h"
 #include "ModuleFiles.h"
 #include "FileTree.hpp"
+#include "ModuleResourceManager.h"
 
 ImWindowProject::ImWindowProject()
 {
@@ -126,6 +127,12 @@ void ImWindowProject::OnDrop(std::string filePath)
     ModuleFiles::S_Copy(ret, currentNode->path);
 
     currentNode->files.push_back(ModuleFiles::S_GetFileName(ret));
+
+    std::string fileName = ModuleFiles::S_GetFileName(ret, true);
+
+    std::string file = currentNode->path + fileName;
+
+    Application::Instance()->resource->ImportFile(file);
 
     //RELEASE(fileTree);
 
