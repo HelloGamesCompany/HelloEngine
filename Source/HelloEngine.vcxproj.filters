@@ -235,9 +235,6 @@
     <ClCompile Include="GameObject.cpp">
       <Filter>Others</Filter>
     </ClCompile>
-    <ClCompile Include="glmath.cpp">
-      <Filter>Others</Filter>
-    </ClCompile>
     <ClCompile Include="MeshImporter.cpp">
       <Filter>Others</Filter>
     </ClCompile>
@@ -619,9 +616,6 @@
       <Filter>Components</Filter>
     </ClInclude>
     <ClInclude Include="GameObject.h">
-      <Filter>Others</Filter>
-    </ClInclude>
-    <ClInclude Include="glmath.h">
       <Filter>Others</Filter>
     </ClInclude>
     <ClInclude Include="MeshImporter.h">

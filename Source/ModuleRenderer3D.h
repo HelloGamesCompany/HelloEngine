@@ -29,7 +29,6 @@ public:
 public:
 	ModelRenderManager modelRender;
 	SDL_GLContext context;
-	mat4x4 ModelMatrix, ViewMatrix;
 	bool isVSync = false;
 
 private:

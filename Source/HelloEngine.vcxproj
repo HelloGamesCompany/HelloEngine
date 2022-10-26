@@ -231,9 +231,6 @@
     </ClCompile>
     <ClCompile Include="FrameBuffer.cpp" />
     <ClCompile Include="GameObject.cpp" />
-    <ClCompile Include="glmath.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-    </ClCompile>
     <ClCompile Include="Globals.h">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
@@ -375,7 +372,6 @@
     <ClInclude Include="FileTree.hpp" />
     <ClInclude Include="FrameBuffer.h" />
     <ClInclude Include="GameObject.h" />
-    <ClInclude Include="glmath.h" />
     <ClInclude Include="Headers.h" />
     <ClInclude Include="ImGuiUtils.h" />
     <ClInclude Include="ImWindowGame.h" />
