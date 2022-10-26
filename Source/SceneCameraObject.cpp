@@ -87,7 +87,23 @@ void SceneCameraObject::UpdateInput()
 
 		if (dy != 0)
 		{
+			float3 viewDir = { cameraFrustum.ViewMatrix().v[2][0],  cameraFrustum.ViewMatrix().v[2][1], cameraFrustum.ViewMatrix().v[2][2] };
+
+			float cosAngle = math::Dot(float3(0, 1, 0), cameraFrustum.front);
+
 			float DeltaY = (float)dy * Sensitivity;
+
+			std::cout << "Cos: " << cosAngle << " Delta: " << DeltaY << std::endl;
+
+			if (math::Abs(cosAngle) > 0.99f)
+			{
+				if (cosAngle > 0 && DeltaY > 0) DeltaY = 0;
+				if (cosAngle < 0 && DeltaY < 0) DeltaY = 0;
+				//if (cosAngle > 0 && DeltaY < 0) DeltaY = 0;
+			}
+
+
+			//std::cout << cameraFrustum.front.x << " " << cameraFrustum.front.y << "" << cameraFrustum.front.z << std::endl;
 
 			Quat rotation = Quat::identity;
 			rotation.SetFromAxisAngle(float3(1, 0, 0), DeltaY * DEGTORAD);
