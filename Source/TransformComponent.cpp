@@ -98,7 +98,7 @@ TransformValues TransformComponent::GetGlobalTransform()
 	TransformValues globalTransform;
 	globalTransform.position = parentGlobalTransform.position + localTransform.position;
 	globalTransform.rotation = parentGlobalTransform.rotation + localTransform.rotation;
-	globalTransform.scale = parentGlobalTransform.scale + localTransform.scale;
+	globalTransform.scale = { parentGlobalTransform.scale.x * localTransform.scale.x, parentGlobalTransform.scale.y * localTransform.scale.y, parentGlobalTransform.scale.z * localTransform.scale.z };
 	
 	return globalTransform;
 }
@@ -212,7 +212,7 @@ void TransformComponent::UpdateRotation()
 
 void TransformComponent::UpdateScale()
 {
-	float3 totalScale = parentGlobalTransform.scale + localTransform.scale;
+	float3 totalScale = { parentGlobalTransform.scale.x * localTransform.scale.x, parentGlobalTransform.scale.y * localTransform.scale.y, parentGlobalTransform.scale.z * localTransform.scale.z };
 	// Give current position change to the transform component of every child of this transform's gameobject.
 	for (int i = 0; i < _gameObject->_children.size(); i++)
 	{

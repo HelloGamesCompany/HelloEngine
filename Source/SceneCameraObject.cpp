@@ -15,14 +15,11 @@ SceneCameraObject::~SceneCameraObject()
 
 void SceneCameraObject::UpdateInput()
 {
-	//	// Implement a debug camera with keys and mouse
-	//	// Now we can make this movememnt frame rate independant!
 	// Mouse motion ----------------
 	if (editor == nullptr) editor = Application::Instance()->layers->editor;
 	
 	GameObject* selectedGO = editor->GetSelectedGameObject();
 
-	// Free rotation
 	int dx = -app->input->GetMouseXMotion();
 	int dy = -app->input->GetMouseYMotion();
 
@@ -93,17 +90,13 @@ void SceneCameraObject::UpdateInput()
 
 			float DeltaY = (float)dy * Sensitivity;
 
-			std::cout << "Cos: " << cosAngle << " Delta: " << DeltaY << std::endl;
+			//std::cout << "Cos: " << cosAngle << " Delta: " << DeltaY << std::endl;
 
 			if (math::Abs(cosAngle) > 0.99f)
 			{
 				if (cosAngle > 0 && DeltaY > 0) DeltaY = 0;
 				if (cosAngle < 0 && DeltaY < 0) DeltaY = 0;
-				//if (cosAngle > 0 && DeltaY < 0) DeltaY = 0;
 			}
-
-
-			//std::cout << cameraFrustum.front.x << " " << cameraFrustum.front.y << "" << cameraFrustum.front.z << std::endl;
 
 			Quat rotation = Quat::identity;
 			rotation.SetFromAxisAngle(float3(1, 0, 0), DeltaY * DEGTORAD);

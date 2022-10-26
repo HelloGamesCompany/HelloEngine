@@ -5,7 +5,7 @@
 struct TransformValues
 {
 	float3 position;
-	float3 scale; 
+	float3 scale = {1.0f,1.0f,1.0f};
 	float3 rotation;
 
 	bool operator !=(const TransformValues& v)
