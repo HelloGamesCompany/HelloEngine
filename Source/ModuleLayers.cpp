@@ -35,12 +35,8 @@ bool ModuleLayers::Start()
     {
         MeshImporter::LoadMesh("Assets/BakerHouse.fbx");
     }
-    //uint bakerTexture = TextureImporter::ImportTexture("Assets/Baker_house.png");
-
-    //app->resource->ImportFile("Assets/Baker_house.png");
-    //TextureImporter::ImportTextureSTBI("Resources/Textures/Baker_house.dds");
     
-    app->resource->LoadFile("Resources/Textures/Baker_house.dds");
+    ResourceTexture* res = (ResourceTexture*)app->resource->LoadFile("Resources/Textures/Baker_house.dds");
     
     for (auto& gameObject : gameObjects)
     {
@@ -48,7 +44,7 @@ bool ModuleLayers::Start()
         rc = gameObject.second->GetComponent<MeshRenderComponent>();
         if (rc != nullptr)
         {
-            rc->GetMesh().textureID = 3;
+            rc->GetMesh().textureID = res->textureInfo.OpenGLID;
         }
     }
 

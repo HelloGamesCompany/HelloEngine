@@ -6,6 +6,7 @@
 #include "RenderManager.h"
 #include "Mesh.h"
 #include "TextureImporter.h"
+#include "ModuleResourceManager.h"
 
 MeshRenderComponent::MeshRenderComponent(GameObject* gameObject) : Component(gameObject)
 {
@@ -128,6 +129,8 @@ Mesh& MeshRenderComponent::GetMesh()
 
 void MeshRenderComponent::OnEditor()
 {
+	Mesh& mesh = GetMesh();
+
 	if (ImGui::CollapsingHeader("Mesh Renderer", ImGuiTreeNodeFlags_DefaultOpen))
 	{
 		ImGui::TextWrapped("Mesh vertices: "); ImGui::SameLine(); 
@@ -144,7 +147,7 @@ void MeshRenderComponent::OnEditor()
 				if (ImGui::Selectable(comboValues[n].c_str(), is_selected))
 				{
 					selectedNormalDisplay = n;
-					GetMesh().showNormals = selectedNormalDisplay - 1;
+					mesh.showNormals = selectedNormalDisplay - 1;
 				}
 				// Set the initial focus when opening the combo (scrolling + keyboard navigation focus)
 				if (is_selected)
@@ -155,7 +158,32 @@ void MeshRenderComponent::OnEditor()
 
 		if (ImGui::Button("Set Checkers Texture"))
 		{
-			GetMesh().textureID = TextureImporter::CheckerImage();
+			mesh.textureID = TextureImporter::CheckerImage();
 		}
+
+		if (mesh.textureID != -1.0f)
+			ImGui::Image((ImTextureID)(uint)mesh.textureID, ImVec2(64, 64), ImVec2(0, 1), ImVec2(1, 0));
+		else
+			ImGui::Image((ImTextureID)0, ImVec2(64, 64), ImVec2(0, 1), ImVec2(1, 0));
+
+		//if (ImGui::BeginDragDropTarget())
+		//{
+		//	if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("Texture"))
+		//	{
+		//		//Drop asset from Asset window to scene window
+		//		const std::string drop = *(std::string*)payload->Data;
+
+		//		Resource* resource = Application::Instance()->resource->LoadFile(drop);
+
+		//		if (resource->type != ResourceType::TEXTURE) return;
+
+		//		ResourceTexture* textureResource = (ResourceTexture*)resource;
+
+		//		mesh.textureID = textureResource->textureInfo.OpenGLID;
+
+		//		RELEASE(resource);
+		//	}
+		//	ImGui::EndDragDropTarget();
+		//}
 	}
 }
