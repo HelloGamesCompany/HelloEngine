@@ -34,6 +34,9 @@ public:
 
 	Resource* LoadFile(const std::string& filePath);
 
-	std::vector<Resource*> loadedResources;
+	bool IsFileLoaded(std::string fileName);
+	bool IsFileLoaded(const char* fileName);
+
+	std::map<std::string, Resource*> loadedResources;
 };
 

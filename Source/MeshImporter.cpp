@@ -8,14 +8,17 @@
 #include "ModuleLayers.h"
 #include "GameObject.h"
 #include "TransformComponent.h"
+#include "ModuleResourceManager.h"
 
 std::map<std::string, MeshCacheData> MeshImporter::loadedMeshes;
 Assimp::Importer MeshImporter::importer;
 GameObject* MeshImporter::returnGameObject = nullptr;
+std::string MeshImporter::currentPath = "";
 
 GameObject* MeshImporter::LoadMesh(std::string path)
 {
 	returnGameObject = nullptr;
+	currentPath = path;
 	// Load AiScene
 	const aiScene* scene = GetAiScene(path);
 	// Check if this file path has already been loaded.
@@ -30,10 +33,11 @@ GameObject* MeshImporter::LoadMesh(std::string path)
 	{
 		loadedMeshes[path].initialID = Application::Instance()->renderer3D->modelRender.GetMapSize(); // Set the ID of the first mesh inside this Model
 		loadedMeshes[path].numOfMeshes = 0;
+		loadedMeshes[path].meshDiffuseTexture = -1.0f;
 		ProcessNewNode(scene->mRootNode, scene, path);
 	}
 
-
+	currentPath = "none";
 	// Create a new RenderManager or add Mesh information as an instance
 	// Create a MeshRenderComponent inside a GameObject for every Mesh, following the assimp hierachy structure.
 	return returnGameObject;
@@ -149,14 +153,81 @@ void MeshImporter::ProcessNewMesh(aiMesh* mesh, const aiScene* scene, GameObject
 
 	// TODO: Load texture data 
 
+	float textureID = -1.0f;
+
 	if (mesh->mMaterialIndex >= 0)
 	{
+		// TODO: All the code inside this snippet is temporary to achieve Assignment 1 requirements of loading the mesh bounded texture.
 		aiMaterial* material = scene->mMaterials[mesh->mMaterialIndex];
+		aiString path; 
+		material->GetTexture(aiTextureType_DIFFUSE, 0, &path);
+
+		if (path.length != 0)
+		{
+			std::string ddsName = path.C_Str();
+			ddsName = ddsName.substr(0, ddsName.find_last_of("."));
+			ddsName += ".dds";
+
+			if (Application::Instance()->resource->IsFileLoaded(ddsName))
+			{
+				ResourceTexture* textureResource = (ResourceTexture*)Application::Instance()->resource->loadedResources[ddsName];
+				textureID = textureResource->textureInfo.OpenGLID;
+			}
+			else
+			{
+				std::string filePath = currentPath;
+
+				filePath = filePath.substr(0, filePath.find_last_of('/'));
+
+				std::string assetsPath = filePath += "/";
+				assetsPath += path.C_Str();
+
+				if (ModuleFiles::S_Exists(assetsPath))
+				{
+					// Import file to create DDS file
+					Application::Instance()->resource->ImportFile(filePath);
+
+					// Get path of our loaded DDS file inside Resources
+					std::string resourcesPath = "Resources/Textures/";
+
+					resourcesPath += ddsName;
+
+					// Load DDS file
+					Resource* resource = Application::Instance()->resource->LoadFile(resourcesPath);
+
+					if (resource->type != ResourceType::TEXTURE) return;
+
+					ResourceTexture* textureResource = (ResourceTexture*)resource;
+
+					textureID = textureResource->textureInfo.OpenGLID;
+				}
+				else
+				{
+					Console::S_Log("Error loading texture. The path inside FBX doesnt correspond with any file in the FBX current folder. Check that the FBX bounded texture is inside the same folder.");
+				}
+			}
+
+		}
+
+
 	}
 
+	loadedMeshes[currentPath].meshDiffuseTexture = textureID;
+
 	// Load into a Mesh object
-	if (createGO) GameObject* newGameObject = new GameObject(parent, "Mesh");
-	else parent->AddComponent<MeshRenderComponent>()->InitAsNewMesh(vertices, indices);
+	if (createGO)
+	{
+		GameObject* newGameObject = new GameObject(parent, "Mesh");
+		MeshRenderComponent* meshRC = newGameObject->AddComponent<MeshRenderComponent>();
+		meshRC->InitAsNewMesh(vertices, indices);
+		meshRC->GetMesh().textureID = textureID;
+	}
+	else
+	{
+		MeshRenderComponent* meshRC = parent->AddComponent<MeshRenderComponent>();
+		meshRC->InitAsNewMesh(vertices, indices);
+		meshRC->GetMesh().textureID = textureID;
+	}
 }
 
 void MeshImporter::ProcessLoadedNode(aiNode* node, const aiScene* scene, uint& firstMeshID, GameObject* parent)
@@ -200,14 +271,17 @@ void MeshImporter::ProcessLoadedNode(aiNode* node, const aiScene* scene, uint& f
 		{
 			// Create a GameObject with a MeshRenderComponent that represents the Mesh
 			GameObject* newGameObject = new GameObject(newParent, "Mesh");
-			newGameObject->AddComponent<MeshRenderComponent>()->InitAsLoadedMesh(firstMeshID++);
+			MeshRenderComponent* mesh = newGameObject->AddComponent<MeshRenderComponent>();
+			mesh->InitAsLoadedMesh(firstMeshID++);
+			mesh->GetMesh().textureID = loadedMeshes[currentPath].meshDiffuseTexture;
 		}
 	}
 	else if (meshNum != 0)
 	{
-		newParent->AddComponent<MeshRenderComponent>()->InitAsLoadedMesh(firstMeshID++);
+		MeshRenderComponent* mesh = newParent->AddComponent<MeshRenderComponent>();
+		mesh->InitAsLoadedMesh(firstMeshID++);
+		mesh->GetMesh().textureID = loadedMeshes[currentPath].meshDiffuseTexture;
 	}
-
 
 	for (unsigned int i = 0; i < node->mNumChildren; i++)
 	{

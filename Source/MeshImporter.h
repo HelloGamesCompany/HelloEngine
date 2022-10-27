@@ -13,6 +13,7 @@ struct MeshCacheData
 {
 	uint numOfMeshes;
 	uint initialID;
+	uint meshDiffuseTexture;
 };
 
 // This class is responsible for:
@@ -41,5 +42,6 @@ private:
 	static std::map<std::string, MeshCacheData> loadedMeshes;
 	static Assimp::Importer importer;
 	static GameObject* returnGameObject;
+	static std::string currentPath;
 };
 

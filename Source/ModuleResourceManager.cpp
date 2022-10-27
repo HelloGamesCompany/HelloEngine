@@ -11,9 +11,9 @@ ModuleResourceManager::ModuleResourceManager()
 
 ModuleResourceManager::~ModuleResourceManager()
 {
-	for (int i = 0; i < loadedResources.size(); i++)
+	for (auto& resource : loadedResources)
 	{
-		RELEASE(loadedResources[i]);
+		RELEASE(resource.second);
 	}
 	loadedResources.clear();
 }
@@ -70,10 +70,17 @@ Resource* ModuleResourceManager::LoadFile(const std::string& filePath)
 		break;
 	case ResourceType::TEXTURE:
 	{
+		// If we already loaded this texture, return its pointer.
+		if (loadedResources.find(ModuleFiles::S_GetFileName(filePath, true)) != loadedResources.end())
+		{
+			RELEASE_ARRAY(buffer);
+			return loadedResources[ModuleFiles::S_GetFileName(filePath, true)];
+		}
+
 		ResourceTexture* resource = new ResourceTexture();
 		resource->textureInfo.OpenGLID = TextureImporter::Load(buffer, size, nullptr, nullptr, ModuleFiles::S_GetFileName(filePath, false));
 		RELEASE_ARRAY(buffer);
-		loadedResources.push_back(resource);
+		loadedResources[ModuleFiles::S_GetFileName(filePath, true)] = resource;
 		return resource;
 	}
 	}
@@ -81,4 +88,14 @@ Resource* ModuleResourceManager::LoadFile(const std::string& filePath)
 	RELEASE_ARRAY(buffer);
 
 	return nullptr;
+}
+
+bool ModuleResourceManager::IsFileLoaded(std::string fileName)
+{
+	return loadedResources.find(fileName) != loadedResources.end();
+}
+
+bool ModuleResourceManager::IsFileLoaded(const char* fileName)
+{
+	return loadedResources.find(fileName) != loadedResources.end();
 }

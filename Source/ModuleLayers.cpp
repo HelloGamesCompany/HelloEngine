@@ -31,21 +31,9 @@ bool ModuleLayers::Start()
         if (layers[i] && layers[i]->IsEnabled()) layers[i]->Start();
     }
 
-    for (int i = 0; i < 1; i++)
+    for (int i = 0; i < 5; i++)
     {
         MeshImporter::LoadMesh("Assets/BakerHouse.fbx");
-    }
-    
-    ResourceTexture* res = (ResourceTexture*)app->resource->LoadFile("Resources/Textures/Baker_house.dds");
-    
-    for (auto& gameObject : gameObjects)
-    {
-        MeshRenderComponent* rc = nullptr;
-        rc = gameObject.second->GetComponent<MeshRenderComponent>();
-        if (rc != nullptr)
-        {
-            rc->GetMesh().textureID = res->textureInfo.OpenGLID;
-        }
     }
 
     return true;

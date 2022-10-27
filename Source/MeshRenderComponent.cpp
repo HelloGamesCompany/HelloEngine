@@ -21,55 +21,9 @@ MeshRenderComponent::~MeshRenderComponent()
 	manager->GetMap().erase(_instanceID);
 }
 
-void MeshRenderComponent::InitAsDefaultCube(float3 position, float3 scale)
-{
-	_meshID = 0;
-	RenderManager* manager = Application::Instance()->renderer3D->modelRender.GetRenderManager(_meshID);
-
-	if (!manager->initialized)
-	{
-		Mesh cube;
-		cube.InitAsCube(position, scale);
-		_instanceID = manager->SetMeshInformation(cube);
-	}
-	else
-	{
-
-		Mesh meshInfo;
-		meshInfo.InitAsMeshInformation(position, scale);
-		_instanceID = manager->AddMesh(meshInfo);
-	}
-
-	vertexNum = manager->GetMeshVertexNum();
-	indexNum = manager->GetMeshIndexNum();
-}
-
-void MeshRenderComponent::InitAsDefaultSphere(float3 position, float3 scale)
-{
-	_meshID = 1;
-	RenderManager* manager = Application::Instance()->renderer3D->modelRender.GetRenderManager(_meshID);
-
-
-	if (!manager->initialized)
-	{
-		Mesh sphere;
-		sphere.InitAsSphere(position, scale);
-		_instanceID = manager->SetMeshInformation(sphere);
-	}
-	else
-	{
-
-		Mesh meshInfo;
-		meshInfo.InitAsMeshInformation(position, scale);
-		_instanceID = manager->AddMesh(meshInfo);
-	}
-	vertexNum = manager->GetMeshVertexNum();
-	indexNum = manager->GetMeshIndexNum();
-}
-
 void MeshRenderComponent::InitAsLoadedMesh(uint meshID)
 {
-	_meshID = meshID + 2;
+	_meshID = meshID;
 
 	ModelRenderManager* test = &Application::Instance()->renderer3D->modelRender;
 
@@ -90,7 +44,7 @@ void MeshRenderComponent::InitAsNewMesh(std::vector<Vertex>& vertices, std::vect
 	Mesh newMesh;
 	newMesh.InitAsMesh(vertices, indices, { 1.0f,1.0f,1.0f }, { 1.0f,1.0f,1.0f });
 
-	_meshID = Application::Instance()->renderer3D->modelRender.GetMapSize() + 2;
+	_meshID = Application::Instance()->renderer3D->modelRender.GetMapSize();
 	RenderManager* manager = Application::Instance()->renderer3D->modelRender.GetRenderManager(_meshID); // Create a renderManager.
 
 	_instanceID = manager->SetMeshInformation(newMesh);

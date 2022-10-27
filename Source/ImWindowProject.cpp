@@ -97,9 +97,7 @@ void ImWindowProject::Update()
             ImGui::EndChild();
         }
 
-        if (newDir) currentNode = newDir;
-        std::cout << "End window Project" << std::endl;
-   
+        if (newDir) currentNode = newDir;   
 	}
     ImGui::End();
 }
