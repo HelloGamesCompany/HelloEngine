@@ -63,9 +63,9 @@ void ImWindowProject::Update()
             if (ImGui::BeginChild("ChildL", ImVec2(width1, 0), true, ImGuiWindowFlags_HorizontalScrollbar))
             {
                 DrawTreeNode(fileTree, false);
-                ImGui::EndChild();
+                
             }
-
+            ImGui::EndChild();
             ImGui::PopStyleColor();
         }
    
@@ -92,13 +92,16 @@ void ImWindowProject::Update()
                     ImGui::SameLine();
                 }
 
-                ImGui::EndChild();
+                
             }
+            ImGui::EndChild();
         }
 
         if (newDir) currentNode = newDir;
+        std::cout << "End window Project" << std::endl;
+   
 	}
-	ImGui::End(); 
+    ImGui::End();
 }
 
 void ImWindowProject::DrawTreeNode(const FileTree* node, bool drawFiles) const

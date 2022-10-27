@@ -1,3 +1,4 @@
+#include <iostream>
 // dear imgui, v1.89 WIP
 // (main code and documentation)
 
@@ -866,6 +867,8 @@ CODE
 #else
 #include <stdint.h>     // intptr_t
 #endif
+
+#include <stdio.h>
 
 // [Windows] On non-Visual Studio compilers, we default to IMGUI_DISABLE_WIN32_DEFAULT_IME_FUNCTIONS unless explicitly enabled
 #if defined(_WIN32) && !defined(_MSC_VER) && !defined(IMGUI_ENABLE_WIN32_DEFAULT_IME_FUNCTIONS) && !defined(IMGUI_DISABLE_WIN32_DEFAULT_IME_FUNCTIONS)
@@ -7366,6 +7369,8 @@ void ImGui::End()
 {
     ImGuiContext& g = *GImGui;
     ImGuiWindow* window = g.CurrentWindow;
+
+    std::cout << window->Name << std::endl;
 
     // Error checking: verify that user hasn't called End() too many times!
     if (g.CurrentWindowStack.Size <= 1 && g.WithinFrameScopeWithImplicitWindow)
