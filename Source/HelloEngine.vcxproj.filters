@@ -217,9 +217,6 @@
     <ClCompile Include="Mesh.cpp">
       <Filter>Modules\Renderer3D</Filter>
     </ClCompile>
-    <ClCompile Include="Light.cpp">
-      <Filter>Modules\Renderer3D</Filter>
-    </ClCompile>
     <ClCompile Include="Console.cpp">
       <Filter>Tools</Filter>
     </ClCompile>
@@ -598,9 +595,6 @@
       <Filter>Modules\Renderer3D</Filter>
     </ClInclude>
     <ClInclude Include="Mesh.h">
-      <Filter>Modules\Renderer3D</Filter>
-    </ClInclude>
-    <ClInclude Include="Light.h">
       <Filter>Modules\Renderer3D</Filter>
     </ClInclude>
     <ClInclude Include="Console.h">

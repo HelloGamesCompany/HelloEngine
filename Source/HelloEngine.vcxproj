@@ -255,7 +255,6 @@
     <ClCompile Include="JSONParser.cpp" />
     <ClCompile Include="Layer.cpp" />
     <ClCompile Include="LayerGame.cpp" />
-    <ClCompile Include="Light.cpp" />
     <ClCompile Include="Log.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MeshImporter.cpp" />
@@ -391,7 +390,6 @@
     <ClInclude Include="JSONParser.h" />
     <ClInclude Include="Layer.h" />
     <ClInclude Include="LayerGame.h" />
-    <ClInclude Include="Light.h" />
     <ClInclude Include="MemLeaks.h" />
     <ClInclude Include="MeshImporter.h" />
     <ClInclude Include="MeshRenderComponent.h" />

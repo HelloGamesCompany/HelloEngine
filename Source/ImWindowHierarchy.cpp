@@ -115,7 +115,7 @@ void ImWindowHierarchy::ProcessGameObject(GameObject* gameObject, int iteration)
 
     if (ImGui::BeginDragDropTarget())
     {
-        if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("GameObject"))
+        if (ImGui::AcceptDragDropPayload("GameObject"))
         {
             draggingGameObject->SetParent(gameObject);
             draggingGameObject = nullptr;

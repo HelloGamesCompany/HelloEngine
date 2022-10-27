@@ -1,7 +1,6 @@
 #pragma once
 
 #include "FrameBuffer.h"
-#include "glmath.h"
 
 class CameraObject
 {
