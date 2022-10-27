@@ -68,6 +68,8 @@ public:
 
 	void OnEditor() override;
 
+	void ForceUpdate();
+
 private:
 	void UpdatePosition();
 	void UpdateRotation();

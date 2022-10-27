@@ -178,6 +178,11 @@ void TransformComponent::OnEditor()
 	}
 }
 
+void TransformComponent::ForceUpdate()
+{
+	UpdateTransform();
+}
+
 void TransformComponent::UpdatePosition()
 {
 	float3 globalPosition = parentGlobalTransform.position + localTransform.position;

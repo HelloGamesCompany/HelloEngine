@@ -70,7 +70,6 @@ Resource* ModuleResourceManager::LoadFile(const std::string& filePath)
 		break;
 	case ResourceType::TEXTURE:
 	{
-
 		ResourceTexture* resource = new ResourceTexture();
 		resource->textureInfo.OpenGLID = TextureImporter::Load(buffer, size, nullptr, nullptr, ModuleFiles::S_GetFileName(filePath, false));
 		RELEASE_ARRAY(buffer);

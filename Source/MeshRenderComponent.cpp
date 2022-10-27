@@ -82,6 +82,7 @@ void MeshRenderComponent::InitAsLoadedMesh(uint meshID)
 
 	vertexNum = manager->GetMeshVertexNum();
 	indexNum = manager->GetMeshIndexNum();
+	_gameObject->transform->ForceUpdate();
 }
 
 void MeshRenderComponent::InitAsNewMesh(std::vector<Vertex>& vertices, std::vector<uint>& indices)
@@ -96,6 +97,7 @@ void MeshRenderComponent::InitAsNewMesh(std::vector<Vertex>& vertices, std::vect
 
 	vertexNum = manager->GetMeshVertexNum();
 	indexNum = manager->GetMeshIndexNum();
+	_gameObject->transform->ForceUpdate();
 }
 
 void MeshRenderComponent::OnPositionUpdate(float3 pos)
@@ -166,24 +168,24 @@ void MeshRenderComponent::OnEditor()
 		else
 			ImGui::Image((ImTextureID)0, ImVec2(64, 64), ImVec2(0, 1), ImVec2(1, 0));
 
-		//if (ImGui::BeginDragDropTarget())
-		//{
-		//	if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("Texture"))
-		//	{
-		//		//Drop asset from Asset window to scene window
-		//		const std::string drop = *(std::string*)payload->Data;
+		if (ImGui::BeginDragDropTarget())
+		{
+			if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("Texture"))
+			{
+				//Drop asset from Asset window to scene window
+				const std::string drop = *(std::string*)payload->Data;
 
-		//		Resource* resource = Application::Instance()->resource->LoadFile(drop);
+				Resource* resource = Application::Instance()->resource->LoadFile(drop);
 
-		//		if (resource->type != ResourceType::TEXTURE) return;
+				if (resource->type != ResourceType::TEXTURE) return;
 
-		//		ResourceTexture* textureResource = (ResourceTexture*)resource;
+				ResourceTexture* textureResource = (ResourceTexture*)resource;
 
-		//		mesh.textureID = textureResource->textureInfo.OpenGLID;
+				mesh.textureID = textureResource->textureInfo.OpenGLID;
 
-		//		RELEASE(resource);
-		//	}
-		//	ImGui::EndDragDropTarget();
-		//}
+				RELEASE(resource);
+			}
+			ImGui::EndDragDropTarget();
+		}
 	}
 }
