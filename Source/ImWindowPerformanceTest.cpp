@@ -27,7 +27,7 @@ void ImWindowPerformanceTest::Update()
 				std::vector<GameObject*>* children = mesh->GetChildren();
 				for (int i = 0; i < children->size(); i++)
 				{
-					children->at(i)->GetComponent<MeshRenderComponent>()->GetMesh().OpenGLTextureID = TextureImporter::ImportTextureSTBI("Assets/Baker_house.png");
+					children->at(i)->GetComponent<MeshRenderComponent>()->GetMesh().textureID = TextureImporter::ImportTextureSTBI("Assets/Baker_house.png");
 				}
 			}
 		}
@@ -41,7 +41,7 @@ void ImWindowPerformanceTest::Update()
 				std::vector<GameObject*>* children = mesh->GetChildren();
 				for (int i = 0; i < children->size(); i++)
 				{
-					children->at(i)->GetComponent<MeshRenderComponent>()->GetMesh().OpenGLTextureID = TextureImporter::ImportTextureSTBI("Assets/Baker_house.png");
+					children->at(i)->GetComponent<MeshRenderComponent>()->GetMesh().textureID = TextureImporter::ImportTextureSTBI("Assets/Baker_house.png");
 				}
 			}
 		}
@@ -55,7 +55,7 @@ void ImWindowPerformanceTest::Update()
 				std::vector<GameObject*>* children = mesh->GetChildren();
 				for (int i = 0; i < children->size(); i++)
 				{
-					children->at(i)->GetComponent<MeshRenderComponent>()->GetMesh().OpenGLTextureID = TextureImporter::ImportTextureSTBI("Assets/Baker_house.png");
+					children->at(i)->GetComponent<MeshRenderComponent>()->GetMesh().textureID = TextureImporter::ImportTextureSTBI("Assets/Baker_house.png");
 				}
 			}
 		}

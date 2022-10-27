@@ -64,7 +64,7 @@ void ModuleResourceManager::LoadFile(const std::string& filePath)
 		//MeshImporter::LoadMesh()
 		break;
 	case ResourceType::TEXTURE:
-		TextureImporter::Load(buffer, size, nullptr, nullptr);
+		TextureImporter::Load(buffer, size, nullptr, nullptr, ModuleFiles::S_GetFileName(filePath, false));
 		break;
 	default:
 		break;

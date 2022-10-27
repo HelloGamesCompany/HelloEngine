@@ -35,8 +35,14 @@ void TextureImporter::ImportImage(const std::string& fileName, char* buffer, uin
 	ilDeleteImages(1, &ImgId);
 }
 
-uint TextureImporter::Load(char* buffer, int size, int* width, int* heigth)
+uint TextureImporter::Load(char* buffer, int size, int* width, int* heigth, std::string&& filename)
 {
+	//Check if the given texture has been already loaded
+	if (TextureManager::usedPaths.find(filename) != TextureManager::usedPaths.end())
+	{
+		return TextureManager::usedPaths[filename]; // If this texture path was already loaded, return the loaded texture.
+	}
+
 	ILuint ImgId = 0;
 	ilGenImages(1, &ImgId);
 	ilBindImage(ImgId);
@@ -70,6 +76,7 @@ uint TextureImporter::Load(char* buffer, int size, int* width, int* heigth)
 	glBindTexture(GL_TEXTURE_2D, 0);
 
 	TextureManager::loadedTextures[engineTexture.OpenGLID] = engineTexture; // Add loaded texture inside TextureManager.
+	TextureManager::usedPaths[filename] = engineTexture.OpenGLID;
 
 	return engineTexture.OpenGLID;
 }
@@ -156,9 +163,9 @@ uint TextureImporter::CheckerImage()
 uint TextureImporter::ImportTextureSTBI(std::string path)
 {
 	//Check if the given texture has been already loaded
-	if (TextureManager::usedPaths.find(path) != TextureManager::usedPaths.end())
+	if (TextureManager::usedPaths.find(ModuleFiles::S_GetFileName(path, false)) != TextureManager::usedPaths.end())
 	{
-		return TextureManager::usedPaths[path]; // If this texture path was already loaded, return the loaded texture.
+		return TextureManager::usedPaths[ModuleFiles::S_GetFileName(path, false)]; // If this texture path was already loaded, return the loaded texture.
 	}
 
 	unsigned int m_RendererID;
@@ -190,7 +197,7 @@ uint TextureImporter::ImportTextureSTBI(std::string path)
 	engineTexture.name = path;
 
 	TextureManager::loadedTextures[m_RendererID] = engineTexture; // Add loaded texture inside TextureManager.
-	TextureManager::usedPaths[path] = m_RendererID;
+	TextureManager::usedPaths[ModuleFiles::S_GetFileName(path, false)] = m_RendererID;
 
 	return m_RendererID;
 }

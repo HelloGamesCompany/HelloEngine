@@ -65,7 +65,7 @@ void MeshImporter::ProcessNewNode(aiNode* node, const aiScene* scene, std::strin
 	bool necessaryNode = node->mNumChildren > 1;
 
 	if (parent == nullptr) returnGameObject = newParent = new GameObject(Application::Instance()->layers->rootGameObject, "Node");
-	else newParent = new GameObject(parent, "Node");
+	else newParent = new GameObject(parent, "NodeNew");
 
 	// Set new GameObject position with node Transform.
 	aiVector3D translation, scaling;
