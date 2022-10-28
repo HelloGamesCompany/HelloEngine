@@ -15,10 +15,6 @@ ModuleFiles::ModuleFiles():Module()
 	// Add Read Dir
 	S_AddPathToFileSystem(".");
 
-	S_AddPathToFileSystem("C:\\");
-
-	S_AddPathToFileSystem("D:\\");
-
 	//S_AddPathToFileSystem("Resources");
 }
 
@@ -70,15 +66,6 @@ std::string ModuleFiles::S_GlobalToLocalPath(const std::string path)
 std::string ModuleFiles::S_NormalizePath(const std::string path)
 {
 	std::string ret = path;
-
-	// Remove no necesary path
-	int pos = ret.find("C:\\");
-
-	if (pos != std::string::npos) ret.erase(pos, 3);
-
-	pos = ret.find("D:\\");
-
-	if (pos != std::string::npos) ret.erase(pos, 3);
 
 	for (int i = 0; i < ret.size(); i++)
 	{
@@ -269,6 +256,43 @@ bool ModuleFiles::S_Copy(const std::string src, std::string des, bool replace)
 	}
 
 	return successful;
+}
+
+bool ModuleFiles::S_ExternalCopy(const std::string src, std::string des, bool replace)
+{
+	 std::string workingDir = S_NormalizePath(std::filesystem::current_path().string());
+
+	 // Change destination file to correspondent formmat
+	if (des[0] != '/') des.insert(des.begin(), '/');
+
+	des = workingDir + des + S_GetFileName(src);
+
+	std::ifstream srcFile(src, std::ios::binary);
+	if(srcFile.is_open() == 0)
+	{
+		LOG("Faild to oppen src file");
+		Console::S_Log("Faild to oppen src file");
+		srcFile.close();
+		return false;
+	}
+
+	std::ofstream desFile(des, std::ios::binary);
+	if (desFile.is_open() == 0)
+	{
+		LOG("Faild to create/oppend destination file");
+		Console::S_Log("Faild to create/oppend destination file");
+		desFile.close();
+		return false;
+	}
+
+	// copy context
+	desFile << srcFile.rdbuf();
+
+	srcFile.close();
+
+	desFile.close();
+
+	return true;
 }
 
 FileTree* ModuleFiles::S_GetFileTree(std::string path, FileTree* parent)

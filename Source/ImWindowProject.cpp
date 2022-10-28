@@ -146,12 +146,15 @@ void ImWindowProject::OnDrop(std::string filePath)
 {
     std::string ret = ModuleFiles::S_NormalizePath(filePath);
 
-    ModuleFiles::S_Copy(ret, currentNode->path);
+    // Use this for global path files
+    ModuleFiles::S_ExternalCopy(ret, currentNode->path);
 
     currentNode->files.push_back(ModuleFiles::S_GetFileName(ret));
 
     std::string fileName = ModuleFiles::S_GetFileName(ret, true);
+
     std::string file = currentNode->path + fileName;
+
     Application::Instance()->resource->ImportFile(file);
 
     //RELEASE(fileTree);

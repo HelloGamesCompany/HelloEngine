@@ -48,13 +48,22 @@ public:
 	static uint S_Save(const std::string filePath, char* buffer, uint size, bool append);
 
 	/// <summary>
-	/// 
+	/// Use for copy project file -> project folder
 	/// </summary>
 	/// <param name="src">: PATH WITH NAME!!!</param>
 	/// <param name="des">: JUST PATH!!!</param>
 	/// <param name="replace">: Replace file if is aldready exist</param>
 	/// <returns></returns>
 	static bool S_Copy(const std::string src, const std::string des, bool replace = true);
+
+	/// <summary>
+	/// Use for copy external file -> project folder.
+	/// </summary>
+	/// <param name="src">: Should be global path + name</param>
+	/// <param name="des">: Should be local path</param>
+	/// <param name="replace">: Replace file if is aldready exist</param>
+	/// <returns></returns>
+	static bool S_ExternalCopy(const std::string src, std::string des, bool replace = true);
 
 	/// <summary>
 	/// 

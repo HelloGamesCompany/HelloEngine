@@ -47,6 +47,7 @@ public:
 
 	std::vector<std::string> files;
 
+	// Start without "/"
 	std::string path;
 
 	std::string name;
