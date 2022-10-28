@@ -66,7 +66,7 @@ Resource* ModuleResourceManager::LoadFile(const std::string& filePath)
 	switch (type)
 	{
 	case ResourceType::MESH:
-		//MeshImporter::LoadMesh()
+		MeshImporter::LoadMesh(filePath);
 		break;
 	case ResourceType::TEXTURE:
 	{

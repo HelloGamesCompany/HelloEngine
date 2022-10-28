@@ -6,8 +6,7 @@
 
 
 ModuleFiles::ModuleFiles():Module()
-{
-	
+{	
 	PHYSFS_init(0);
 
 	// Add Write Dir

@@ -1,6 +1,7 @@
 #include "Headers.h"
 #include "ImWindowScene.h"
 #include "ModuleCamera3D.h"
+#include "ModuleResourceManager.h"
 
 ImWindowScene::ImWindowScene()
 {
@@ -20,6 +21,18 @@ void ImWindowScene::Update()
 {
 	if (ImGui::Begin(windowName.c_str()))
 	{
+		if (ImGui::BeginDragDropTarget())
+		{
+			if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("Mesh"))
+			{
+				//Drop asset from Asset window to scene window
+				const std::string drop = *(std::string*)payload->Data;
+
+				Application::Instance()->resource->LoadFile(drop);
+			}
+			ImGui::EndDragDropTarget();
+		}
+
 		sceneCamera->active = true;
 		moduleCamera->updateSceneCamera = ImGui::IsWindowHovered();
 

@@ -5,6 +5,7 @@
 #include "LayerEditor.h"
 #include "ModuleRenderer3D.h"
 #include "ModelRenderManager.h"
+#include "ModuleResourceManager.h"
 
 ImWindowHierarchy::ImWindowHierarchy()
 {
@@ -29,6 +30,18 @@ void ImWindowHierarchy::Update()
 
 	if (ImGui::Begin(windowName.c_str(), &isEnabled))
 	{
+        if (ImGui::BeginDragDropTarget())
+        {
+            if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("Mesh"))
+            {
+                //Drop asset from Asset window to scene window
+                const std::string drop = *(std::string*)payload->Data;
+
+                Application::Instance()->resource->LoadFile(drop);
+            }
+            ImGui::EndDragDropTarget();
+        }
+
         DrawGameObjectChildren(gameObjectsReference->at(1));
 	    
         if ((ImGui::IsMouseDown(ImGuiMouseButton_::ImGuiMouseButton_Right) && ImGui::IsWindowHovered()) || popUpOpen)
@@ -59,9 +72,7 @@ void ImWindowHierarchy::Update()
                 ImGui::EndPopup();
             }
         }
-
     }
-
 	ImGui::End();
 }
 
