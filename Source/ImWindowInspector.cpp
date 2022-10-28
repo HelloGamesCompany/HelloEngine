@@ -24,9 +24,9 @@ void ImWindowInspector::Update()
 			if (ImGui::SmallButton(selectGameobject->IsActive() ? "X" : " "))
 				selectGameobject->SetActive(!selectGameobject->IsActive());
 			ImGui::SameLine(); 
+
 			ImGui::InputText("Name", &selectGameobject->name, 0);
 			
-
 			selectGameobject->OnEditor();
 		}
 	}

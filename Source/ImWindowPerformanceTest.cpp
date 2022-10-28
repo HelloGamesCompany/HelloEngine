@@ -59,7 +59,6 @@ void ImWindowPerformanceTest::Update()
 				}
 			}
 		}
-
 		ImGui::TextWrapped("Number of houses: %d", houseNum);
 	}
 	ImGui::End();

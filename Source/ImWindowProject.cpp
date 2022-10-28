@@ -25,7 +25,7 @@ ImWindowProject::~ImWindowProject()
 
 void ImWindowProject::Update()
 {
-	if (ImGui::Begin(windowName.c_str(), &isEnabled, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoScrollbar))
+   	if (ImGui::Begin(windowName.c_str(), &isEnabled, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoScrollbar))
 	{
         // Resize children widths
         static float width1 = 200; // Init Size child 1

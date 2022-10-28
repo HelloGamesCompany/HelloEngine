@@ -15,9 +15,9 @@ enum class ImWindowID
 	HIERARCHY,
 	INSPECTOR,
 	QUICKSAVE,
-	SCENE,
-	GAME,
 	PERFORMANCE,
+	GAME,
+	SCENE,
 	MAX,
 };
 

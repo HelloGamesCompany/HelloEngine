@@ -26,43 +26,44 @@ ImWindowHierarchy::~ImWindowHierarchy()
 
 void ImWindowHierarchy::Update()
 {
-    ImGui::ShowDemoWindow();
-
 	if (ImGui::Begin(windowName.c_str(), &isEnabled))
 	{
         ImGui::BeginChild("DropArea");
-
-        DrawGameObjectChildren(gameObjectsReference->at(1));
-	    
-        if ((ImGui::IsMouseDown(ImGuiMouseButton_::ImGuiMouseButton_Right) && ImGui::IsWindowHovered()) || popUpOpen)
         {
-            popUpOpen = true;
-            int selectedShape = 0;
-            std::string shapeNames[4] = { "Cube", "Sphere", "Cylinder", "Plane"};
+            DrawGameObjectChildren(gameObjectsReference->at(1));
 
-            ImGui::OpenPopup("basicShapes");
-            
-            if (ImGui::IsMouseDown(ImGuiMouseButton_::ImGuiMouseButton_Left) && !ImGui::IsAnyItemHovered())
+            if ((ImGui::IsMouseDown(ImGuiMouseButton_::ImGuiMouseButton_Right) && ImGui::IsWindowHovered()) || popUpOpen)
             {
-                std::cout << "Close popup" << std::endl;
-                popUpOpen = false;
-            }
-            if(ImGui::BeginPopup("basicShapes"))
-            {
-                ImGui::Text("Select Shape");
-                ImGui::Separator();
-                for (int i = 0; i < 4; i++)
-                    if (ImGui::Selectable(shapeNames[i].c_str()))
+                popUpOpen = true;
+                int selectedShape = 0;
+                std::string shapeNames[4] = { "Cube", "Sphere", "Cylinder", "Plane" };
+
+                ImGui::OpenPopup("basicShapes");
+
+                if (ImGui::IsMouseDown(ImGuiMouseButton_::ImGuiMouseButton_Left) && !ImGui::IsAnyItemHovered())
+                {
+                    std::cout << "Close popup" << std::endl;
+                    popUpOpen = false;
+                }
+                if (ImGui::BeginPopup("basicShapes"))
+                {
+                    ImGui::Text("Select Shape");
+                    ImGui::Separator();
+                    for (int i = 0; i < 4; i++)
                     {
-                        selectedShape = i;
-                        Application::Instance()->renderer3D->modelRender.CreatePrimitive(rightClickedGameObject, (PrimitiveType)i);
-                        popUpOpen = false;
-                        rightClickedGameObject = nullptr;
+                        if (ImGui::Selectable(shapeNames[i].c_str()))
+                        {
+                            selectedShape = i;
+                            Application::Instance()->renderer3D->modelRender.CreatePrimitive(rightClickedGameObject, (PrimitiveType)i);
+                            popUpOpen = false;
+                            rightClickedGameObject = nullptr;
+                        }
                     }
+                }
                 ImGui::EndPopup();
             }
+
         }
-        
         ImGui::EndChild();
 
         // Create Droped mesh

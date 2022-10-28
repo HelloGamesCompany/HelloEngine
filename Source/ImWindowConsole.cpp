@@ -62,9 +62,9 @@ void ImWindowConsole::Update()
 
 		// Reserve enough left-over height for 1 separator + 1 input text
 		const float footer_height_to_reserve = ImGui::GetStyle().ItemSpacing.y + ImGui::GetFrameHeightWithSpacing();
-		ImGui::BeginChild("ScrollingRegion", ImVec2(0, -footer_height_to_reserve), false, ImGuiWindowFlags_HorizontalScrollbar);
+		ImGui::BeginChild("ScrollingRegion", ImVec2(0, -footer_height_to_reserve), true, ImGuiWindowFlags_HorizontalScrollbar);
 
-		if(!_isCollapse) // if is not collapse
+		if(!_isCollapse) // if isn't collapsing
 		{
 			std::string* buffer = nullptr;
 
@@ -75,7 +75,7 @@ void ImWindowConsole::Update()
 				ImGui::Text((*buffer).c_str());
 			}
 		}
-		else // if is collapse
+		else // if is collapsing
 		{
 			auto logs = CSL::S_GetCollapseLog();
 
@@ -85,9 +85,12 @@ void ImWindowConsole::Update()
 			}
 		}
 
-		ImGui::SetScrollHereY(0.999f);
+		// Automatically set scroll to bottom
+		if (ImGui::GetScrollY() >= ImGui::GetScrollMaxY())	ImGui::SetScrollHereY(1.0f);
 
-		ImGui::EndChild();			
+		ImGui::EndChild();	
+
+		ImGui::Text(" Hello Engine :) ");
 	}
 	ImGui::End();
 }

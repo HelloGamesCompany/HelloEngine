@@ -27,7 +27,6 @@ void ImWindowAbout::Update()
 	{
 		ImGui::TextWrapped("HelloEngine %s", Application::Instance()->GetEngineVersion().c_str());
 		ImGui::TextWrapped("by Zhida Chen & Adria Sellares");
-
 		ImGui::NewLine();
 
 		ImGui::TextWrapped("Libraries used: ");
@@ -39,7 +38,6 @@ void ImWindowAbout::Update()
 		ImGui::BulletText("PugiXML %s", pugiXmlVersion.c_str()); ImGui::TextURL("(?)", "https://github.com/zeux/pugixml", 1, 0);
 		ImGui::BulletText("Assimp %s", assimpVersion.c_str()); ImGui::TextURL("(?)", "https://github.com/assimp/assimp", 1, 0);
 		ImGui::BulletText("PhysFS %s", physFsVersion.c_str()); ImGui::TextURL("(?)", "https://github.com/icculus/physfs", 1, 0);
-
 		ImGui::NewLine();
 
 		ImGui::TextWrapped("License information: ");
@@ -58,6 +56,5 @@ void ImWindowAbout::Update()
 		ImGui::TextWrapped("THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.");
 
 	}
-
 	ImGui::End();
 }

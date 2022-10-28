@@ -105,8 +105,8 @@ void LayerEditor::Start()
 	imWindows[(uint)ImWindowID::INSPECTOR] = new ImWindowInspector();
 	imWindows[(uint)ImWindowID::HIERARCHY] = new ImWindowHierarchy();
 	imWindows[(uint)ImWindowID::SCENE] = new ImWindowScene();
-	imWindows[(uint)ImWindowID::GAME] = new ImWindowGame();
 	imWindows[(uint)ImWindowID::PERFORMANCE] = new ImWindowPerformanceTest();
+	imWindows[(uint)ImWindowID::GAME] = new ImWindowGame();
 
 	game = (LayerGame*)Application::Instance()->layers->layers[(uint)LayersID::GAME];
 }
