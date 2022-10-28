@@ -10,6 +10,7 @@ public:
 		NONE,
 		TRANSFORM,
 		MESH_RENDERER,
+		MATERIAL,
 		MAX
 	};
 
@@ -19,6 +20,8 @@ public:
 	GameObject* GetGameObject() { return _gameObject; }
 	Type GetType() { return _type; }
 	bool IsEnabled(){ return _isEnabled; }
+
+	virtual void Enable(bool enabled, bool fromGo = true) { _isEnabled = enabled; }
 
 	virtual void OnPositionUpdate(float3 pos) {}
 	virtual void OnScaleUpdate(float3 scale) {}

@@ -89,6 +89,10 @@ void MeshRenderComponent::OnEditor()
 
 	if (ImGui::CollapsingHeader("Mesh Renderer", ImGuiTreeNodeFlags_DefaultOpen))
 	{
+		bool auxiliaryBool = _isEnabled;
+		if (ImGui::Checkbox("SetActive", &auxiliaryBool))
+			Enable(auxiliaryBool, false);
+
 		ImGui::TextWrapped("Mesh vertices: "); ImGui::SameLine(); 
 		ImGui::TextColored(ImVec4(255, 255, 0, 255), std::to_string(vertexNum).c_str());
 
@@ -111,33 +115,16 @@ void MeshRenderComponent::OnEditor()
 			}
 			ImGui::EndCombo();
 		}
-
-		if (ImGui::Button("Set Checkers Texture"))
-		{
-			mesh.textureID = TextureImporter::CheckerImage();
-		}
-
-		if (mesh.textureID != -1.0f)
-			ImGui::Image((ImTextureID)(uint)mesh.textureID, ImVec2(64, 64), ImVec2(0, 1), ImVec2(1, 0));
-		else
-			ImGui::Image((ImTextureID)0, ImVec2(64, 64), ImVec2(0, 1), ImVec2(1, 0));
-
-		if (ImGui::BeginDragDropTarget())
-		{
-			if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("Texture"))
-			{
-				//Drop asset from Asset window to scene window
-				const std::string drop = *(std::string*)payload->Data;
-
-				Resource* resource = Application::Instance()->resource->LoadFile(drop);
-
-				if (resource->type != ResourceType::TEXTURE) return;
-
-				ResourceTexture* textureResource = (ResourceTexture*)resource;
-
-				mesh.textureID = textureResource->textureInfo.OpenGLID;
-			}
-			ImGui::EndDragDropTarget();
-		}
 	}
+}
+
+void MeshRenderComponent::Enable(bool enabled, bool fromGo)
+{
+	if (!fromGo) _isEnabled = enabled;
+	GetMesh().draw = _isEnabled;
+
+	if (_isEnabled && _gameObject->IsActive())
+		GetMesh().draw = true;
+	else if (_isEnabled && !_gameObject->IsActive())
+		GetMesh().draw = false;
 }

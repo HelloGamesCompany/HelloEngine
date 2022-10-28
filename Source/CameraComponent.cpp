@@ -17,7 +17,6 @@ CameraComponent::~CameraComponent()
 void CameraComponent::OnPositionUpdate(float3 pos)
 {
 	moduleCameras->gameCameras[cameraID].cameraFrustum.pos = pos;
-	moduleCameras->gameCameras[cameraID].CalculateViewMatrix();
 }
 
 void CameraComponent::OnRotationUpdate(float3 rotation)
@@ -26,7 +25,6 @@ void CameraComponent::OnRotationUpdate(float3 rotation)
 	float3 up = _gameObject->transform->GetUp();
 	moduleCameras->gameCameras[cameraID].cameraFrustum.front = _gameObject->transform->GetForward();
 	moduleCameras->gameCameras[cameraID].cameraFrustum.up = _gameObject->transform->GetUp();
-	moduleCameras->gameCameras[cameraID].CalculateViewMatrix();
 }
 
 void CameraComponent::OnTransformUpdate(float3 pos, float3 scale, float3 rotation)
@@ -34,7 +32,6 @@ void CameraComponent::OnTransformUpdate(float3 pos, float3 scale, float3 rotatio
 	moduleCameras->gameCameras[cameraID].cameraFrustum.pos = pos;
 	moduleCameras->gameCameras[cameraID].cameraFrustum.front = _gameObject->transform->GetForward();
 	moduleCameras->gameCameras[cameraID].cameraFrustum.up = _gameObject->transform->GetUp();
-	moduleCameras->gameCameras[cameraID].CalculateViewMatrix();
 }
 
 CameraObject* CameraComponent::GetCameraObject()

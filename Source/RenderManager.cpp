@@ -44,10 +44,14 @@ void RenderManager::Draw()
     }
     for (auto& mesh : meshes)
     {
-        mesh.second.Update();
+        if (!mesh.second.Update())
+            continue;
+
         modelMatrices.push_back(mesh.second.modelMatrix); // Insert updated matrices
         textureIDs.push_back(mesh.second.OpenGLTextureID);
     }
+
+    if (modelMatrices.empty()) return;
 
     // Update View and Projection matrices
     basicShader->Bind();

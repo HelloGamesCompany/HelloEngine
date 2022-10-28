@@ -4,9 +4,13 @@
 #include "GameObject.h"
 #include "TextureImporter.h"
 #include "ModuleResourceManager.h"
+#include "TextureManager.h"
 
 MaterialComponent::MaterialComponent(GameObject* go) : Component(go)
 {
+	MeshRenderComponent* meshRenderer = go->GetComponent<MeshRenderComponent>();
+	if (!meshRenderer) return;
+	SetMeshRenderer(meshRenderer);
 }
 
 MaterialComponent::~MaterialComponent()
@@ -42,11 +46,23 @@ void MaterialComponent::OnEditor()
 			mesh.textureID = TextureImporter::CheckerImage();
 		}
 
+		std::string imageName;
+		int width = 0;
+		int height = 0;
 		if (mesh.textureID != -1.0f)
+		{
 			ImGui::Image((ImTextureID)(uint)mesh.textureID, ImVec2(64, 64), ImVec2(0, 1), ImVec2(1, 0));
-		else
+			Texture text = TextureManager::loadedTextures[mesh.textureID];
+			imageName = text.name;
+			width = text.width;
+			height = text.height;
+		}
+		else 
+		{
 			ImGui::Image((ImTextureID)0, ImVec2(64, 64), ImVec2(0, 1), ImVec2(1, 0));
-
+			imageName = "None";
+		}
+		
 		if (ImGui::BeginDragDropTarget())
 		{
 			if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("Texture"))
@@ -61,11 +77,18 @@ void MaterialComponent::OnEditor()
 				ResourceTexture* textureResource = (ResourceTexture*)resource;
 
 				mesh.textureID = textureResource->textureInfo.OpenGLID;
-
-				RELEASE(resource);
 			}
 			ImGui::EndDragDropTarget();
 		}
+
+		ImGui::TextWrapped("Path: "); ImGui::SameLine();
+		ImGui::TextColored(ImVec4(1, 1, 0, 1), imageName.c_str());
+
+		ImGui::TextWrapped("Width: "); ImGui::SameLine();
+		ImGui::TextColored(ImVec4(1, 1, 0, 1), std::to_string(width).c_str());
+
+		ImGui::TextWrapped("Height: "); ImGui::SameLine();
+		ImGui::TextColored(ImVec4(1, 1, 0, 1), std::to_string(height).c_str());
 	}
 }
 

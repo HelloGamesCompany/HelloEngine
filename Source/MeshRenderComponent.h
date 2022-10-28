@@ -21,6 +21,8 @@ public:
 
 	void OnEditor() override;
 
+	void Enable(bool enabled, bool fromGo = true) override;
+
 private:
 	uint _meshID = 0;
 	uint _instanceID = 0;
