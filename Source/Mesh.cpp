@@ -111,14 +111,15 @@ void Mesh::InitAsSphere(float3 position, float3 scale)
 	}
 }
 
-void Mesh::Update()
+bool Mesh::Update()
 {
+	if (!draw) return false;
 	if (TextureManager::loadedTextures.find(textureID) != TextureManager::loadedTextures.end())
 	{
 		OpenGLTextureID = TextureManager::BindTexture(textureID);
 	}
 
-	if (!_updateMatrix) return;
+	if (!_updateMatrix) return true;
 
 	modelMatrix.SetIdentity();
 
@@ -130,6 +131,7 @@ void Mesh::Update()
 	modelMatrix.Transpose();
 
 	_updateMatrix = false;
+	return true;
 }
 
 void Mesh::InitAsMesh(std::vector<Vertex>& vertices, std::vector<uint>& indices, float3 pos, float3 scale)

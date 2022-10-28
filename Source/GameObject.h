@@ -35,9 +35,13 @@ public:
 
 	std::vector<Component*> GetComponents() { return _components;}
 
+	GameObject* GetParent() { return _parent; }
+
 	bool AddChild(GameObject* child);
 
 	bool SetParent(GameObject* parent);
+
+	void SetActive(bool active);
 
 	bool IsActive() { return _isActive; }
 

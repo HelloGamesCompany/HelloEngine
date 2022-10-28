@@ -89,6 +89,10 @@ void MeshRenderComponent::OnEditor()
 
 	if (ImGui::CollapsingHeader("Mesh Renderer", ImGuiTreeNodeFlags_DefaultOpen))
 	{
+		bool auxiliaryBool = _isEnabled;
+		if (ImGui::Checkbox("SetActive", &auxiliaryBool))
+			Enable(auxiliaryBool, false);
+
 		ImGui::TextWrapped("Mesh vertices: "); ImGui::SameLine(); 
 		ImGui::TextColored(ImVec4(255, 255, 0, 255), std::to_string(vertexNum).c_str());
 
@@ -112,4 +116,15 @@ void MeshRenderComponent::OnEditor()
 			ImGui::EndCombo();
 		}
 	}
+}
+
+void MeshRenderComponent::Enable(bool enabled, bool fromGo)
+{
+	if (!fromGo) _isEnabled = enabled;
+	GetMesh().draw = _isEnabled;
+
+	if (_isEnabled && _gameObject->IsActive())
+		GetMesh().draw = true;
+	else if (_isEnabled && !_gameObject->IsActive())
+		GetMesh().draw = false;
 }

@@ -65,6 +65,22 @@ bool GameObject::SetParent(GameObject* parent)
 	return parent->AddChild(this);
 }
 
+void GameObject::SetActive(bool active)
+{
+	_isActive = active;
+
+	for (auto* component : _components)
+	{
+		component->Enable(active);
+	}
+
+	for (auto* child : _children)
+	{
+		child->SetActive(active);
+	}
+
+}
+
 void GameObject::OnEditor()
 {
 	for (auto* component : _components)

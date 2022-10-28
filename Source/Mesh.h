@@ -28,7 +28,7 @@ public:
 
 	void InitAsMesh(std::vector<Vertex>& vertices, std::vector<uint>& indices, float3 pos, float3 scale);
 
-	void Update();
+	bool Update();
 
 	void CleanUp();
 
@@ -56,6 +56,8 @@ public:
 	float textureID = -1;
 
 	int showNormals = -1;
+
+	bool draw = true;
 private:
 	bool _updateMatrix = true;
 };

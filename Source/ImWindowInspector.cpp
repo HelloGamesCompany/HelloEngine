@@ -19,9 +19,13 @@ void ImWindowInspector::Update()
 {
 	if (ImGui::Begin(windowName.c_str(), &isEnabled))
 	{
-		if (selectGameobject)
+		if (selectGameobject && selectGameobject->GetParent())
 		{
-			ImGui::InputText("Name", &selectGameobject->name,0);
+			if (ImGui::SmallButton(selectGameobject->IsActive() ? "X" : " "))
+				selectGameobject->SetActive(!selectGameobject->IsActive());
+			ImGui::SameLine(); 
+			ImGui::InputText("Name", &selectGameobject->name, 0);
+			
 
 			selectGameobject->OnEditor();
 		}
