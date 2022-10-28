@@ -26,8 +26,8 @@ public:
 	//The window we'll be rendering to
 	SDL_Window* window = nullptr;
 
-	int width, height;
-	float brightness;
+	int width = 0, height = 0;
+	float brightness = 1.0f;
 
 	//The surface contained by the window
 	SDL_Surface* screen_surface = nullptr;

@@ -27,7 +27,7 @@ private:
 
 	GameObject* rightClickedGameObject = nullptr;
 
-	ImGuiTreeNodeFlags base_flags;
+	ImGuiTreeNodeFlags base_flags = 0;
 
 	bool popUpOpen = false;
 

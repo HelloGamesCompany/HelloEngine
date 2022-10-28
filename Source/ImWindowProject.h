@@ -28,5 +28,5 @@ private:
 
 	FileTree* currentNode = nullptr;
 
-	std::string dragPath;
+	std::string dragPath = "";
 };

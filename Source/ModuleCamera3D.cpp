@@ -27,13 +27,11 @@ bool ModuleCamera3D::Start()
 
 	sceneCamera.frameBuffer.SetBufferInfo();
 	sceneCamera.frameBuffer.SetDimensions(Application::Instance()->window->width, Application::Instance()->window->height);
-	sceneCamera.changeFOVWithBufferSize = true;
 
 	for (auto& camera : gameCameras)
 	{
 		camera.second.frameBuffer.SetBufferInfo();
 		camera.second.frameBuffer.SetDimensions(Application::Instance()->window->width, Application::Instance()->window->height);
-		camera.second.changeFOVWithBufferSize = false;
 	}
 
 	return true;

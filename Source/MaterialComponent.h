@@ -18,8 +18,10 @@ public:
 	Mesh& GetMesh();
 
 private:
-	void ChangeTexture(uint textureID);
 	MeshRenderComponent* meshRenderer = nullptr;
+
+private:
+	void ChangeTexture(uint textureID);
 
 };
 

@@ -24,7 +24,7 @@ public:
     void SetMatFloat4v(const std::string& name, const float* value) const;
 
 public:
-    uint programID;
+    uint programID = 0;
 
 private:
     uint CompileShader(const std::string& source, uint type);

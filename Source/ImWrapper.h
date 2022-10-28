@@ -10,5 +10,5 @@ public:
 
 	virtual void Update() = 0;
 
-	std::string name;
+	std::string name = "";
 };

@@ -28,7 +28,7 @@ public:
 	ModuleCommand* command = nullptr;
 	ModuleResourceManager* resource = nullptr;
 	float fps = 1.0f/60.0f;
-	int frameCap;
+	int frameCap = 60;
 	Timer	timer;
 
 private:

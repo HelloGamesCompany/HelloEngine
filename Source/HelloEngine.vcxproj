@@ -99,7 +99,6 @@
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="CameraComponent.cpp" />
     <ClCompile Include="CameraObject.cpp" />
-    <ClCompile Include="Color.cpp" />
     <ClCompile Include="Command.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Console.cpp" />
@@ -277,7 +276,6 @@
     <ClCompile Include="RenderManager.cpp" />
     <ClCompile Include="SceneCameraObject.cpp" />
     <ClCompile Include="Shader.cpp" />
-    <ClCompile Include="ShaderManager.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TextureImporter.cpp" />
     <ClCompile Include="TextureManager.cpp" />
@@ -294,7 +292,6 @@
     <ClInclude Include="Component.h" />
     <ClInclude Include="Console.h" />
     <ClInclude Include="CycleArray.hpp" />
-    <ClInclude Include="Color.h" />
     <ClInclude Include="External\imgui\imconfig.h" />
     <ClInclude Include="External\imgui\imgui.h" />
     <ClInclude Include="External\imgui\imgui_impl_opengl3.h" />
@@ -413,7 +410,6 @@
     <ClInclude Include="RenderManager.h" />
     <ClInclude Include="SceneCameraObject.h" />
     <ClInclude Include="Shader.h" />
-    <ClInclude Include="ShaderManager.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TextureImporter.h" />
     <ClInclude Include="TextureManager.h" />

@@ -26,14 +26,15 @@ public:
 	void SetFOV(float fov);
 	float GetFOV() { return FOV; };
 public:
-	float3 X, Y, Z, Position, Reference;
+	float3 X = { 0,0,0 }, Y = { 0,0,0 }, Z = { 0,0,0 }, Position = { 0,0,0 }, Reference = { 0,0,0 };
 	bool active = true;
 	FrameBuffer frameBuffer;
 
 private:
-	float4x4 ViewMatrix, ViewMatrixInverse, ProjectionMatrix;
-	float3 offset;
-	bool changeFOVWithBufferSize;
+	// TODO: Sospechoso de provocar excepcion en Release
+	float4x4 ViewMatrix = float4x4::identity, ViewMatrixInverse = float4x4::identity, ProjectionMatrix = float4x4::identity;
+
+	float3 offset = { 0,0,0 };
 	float aspectRatio = 0.0f;
 	float FOV = 60.0f;
 protected:

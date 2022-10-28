@@ -4,9 +4,9 @@
 
 struct TransformValues
 {
-	float3 position;
+	float3 position = { 0,0,0 };
 	float3 scale = {1.0f,1.0f,1.0f};
-	float3 rotation;
+	float3 rotation = { 0,0,0 };
 
 	bool operator !=(const TransformValues& v)
 	{
@@ -79,7 +79,7 @@ private:
 	void CalculateGlobalMatrix();
 
 private:
-	float4x4 globalMatrix;
+	float4x4 globalMatrix = float4x4::identity;
 
 	TransformValues parentGlobalTransform;
 	TransformValues localTransform;

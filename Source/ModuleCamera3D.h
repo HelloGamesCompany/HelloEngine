@@ -31,12 +31,12 @@ public:
 
 	CameraObject* currentDrawingCamera = nullptr;
 
-	bool updateSceneCamera;
-	bool updateGameCamera;
+	bool updateSceneCamera = true;
+	bool updateGameCamera = true;
 
 private:
 	CameraObject* frameBufferRegenCamera = nullptr;
-	int newBufferWidth, newBufferHeight;
+	int newBufferWidth = 0, newBufferHeight = 0;
 };
 
 #endif // !__MODULECAMERA3D_H__

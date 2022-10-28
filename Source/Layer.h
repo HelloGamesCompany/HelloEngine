@@ -22,10 +22,6 @@ public:
 	void SetEnabled(bool enabled)
 	{
 		_isEnabled = enabled;
-		/*for (component: components)
-		{
-			gameobjects.Enabled(enabled);
-		})*/
 	}
 
 	bool IsEnabled() const

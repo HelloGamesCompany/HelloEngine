@@ -64,8 +64,8 @@ public:
 	}
 
 public:
-	std::string name;
-	std::string tag;
+	std::string name = "";
+	std::string tag = "";
 	TransformComponent* transform = nullptr;
 
 private:
@@ -84,7 +84,6 @@ private:
 	uint _ID = 0; // ID =  0 is an invalid ID. First ID is 1.
 
 	// On Editor variables
-
 	std::string comboValues[2] = {"Mesh Renderer", "Material"};
 
 	friend class TransformComponent;

@@ -202,9 +202,6 @@
     <ClCompile Include="RenderManager.cpp">
       <Filter>Modules\Renderer3D</Filter>
     </ClCompile>
-    <ClCompile Include="Color.cpp">
-      <Filter>Others</Filter>
-    </ClCompile>
     <ClCompile Include="ImWindowConsole.cpp">
       <Filter>Modules\Layer\Windows</Filter>
     </ClCompile>
@@ -287,7 +284,6 @@
       <Filter>External\mmgr</Filter>
     </ClCompile>
     <ClCompile Include="MaterialComponent.cpp" />
-    <ClCompile Include="ShaderManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Module.h">
@@ -584,9 +580,6 @@
     <ClInclude Include="RenderManager.h">
       <Filter>Modules\Renderer3D</Filter>
     </ClInclude>
-    <ClInclude Include="Color.h">
-      <Filter>Others</Filter>
-    </ClInclude>
     <ClInclude Include="ImWindowConsole.h">
       <Filter>Modules\Layer\Windows</Filter>
     </ClInclude>
@@ -684,7 +677,6 @@
       <Filter>Tools\DataStruct</Filter>
     </ClInclude>
     <ClInclude Include="MaterialComponent.h" />
-    <ClInclude Include="ShaderManager.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="External\imgui\vulkan\generate_spv.sh">

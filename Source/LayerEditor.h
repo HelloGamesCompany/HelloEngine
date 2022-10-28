@@ -45,7 +45,7 @@ private:
 
 	GameObject* selectedGameObject = nullptr;
 
-	int gameWidth, gameHeight;
+	int gameWidth = 0, gameHeight = 0;
 
 	friend class ImWindowHierarchy;
 };
