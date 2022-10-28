@@ -5,8 +5,8 @@
 
 RenderManager::RenderManager()
 {
-    basicShader = new Shader("../Source/shaders/basic.vertex.shader", "../Source/shaders/basic.fragment.shader");
-    lineShader = new Shader("../Source/shaders/lines.vertex.shader", "../Source/shaders/lines.fragment.shader");
+    basicShader = new Shader("Resources/shaders/basic.vertex.shader", "Resources/shaders/basic.fragment.shader");
+    lineShader = new Shader("Resources/shaders/lines.vertex.shader", "Resources/shaders/lines.fragment.shader");
 }
 
 RenderManager::~RenderManager()
