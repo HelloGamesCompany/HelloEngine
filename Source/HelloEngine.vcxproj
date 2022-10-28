@@ -277,6 +277,7 @@
     <ClCompile Include="RenderManager.cpp" />
     <ClCompile Include="SceneCameraObject.cpp" />
     <ClCompile Include="Shader.cpp" />
+    <ClCompile Include="ShaderManager.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TextureImporter.cpp" />
     <ClCompile Include="TextureManager.cpp" />
@@ -412,6 +413,7 @@
     <ClInclude Include="RenderManager.h" />
     <ClInclude Include="SceneCameraObject.h" />
     <ClInclude Include="Shader.h" />
+    <ClInclude Include="ShaderManager.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TextureImporter.h" />
     <ClInclude Include="TextureManager.h" />
