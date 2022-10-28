@@ -21,19 +21,10 @@ void ImWindowScene::Update()
 {
 	if (ImGui::Begin(windowName.c_str()))
 	{
-		if (ImGui::BeginDragDropTarget())
-		{
-			if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("Mesh"))
-			{
-				//Drop asset from Asset window to scene window
-				const std::string drop = *(std::string*)payload->Data;
-
-				Application::Instance()->resource->LoadFile(drop);
-			}
-			ImGui::EndDragDropTarget();
-		}
+		ImGui::BeginChild("DropArea");
 
 		sceneCamera->active = true;
+
 		moduleCamera->updateSceneCamera = ImGui::IsWindowHovered();
 
 		ImVec2 sceneDimensions = ImGui::GetContentRegionAvail();
@@ -47,6 +38,20 @@ void ImWindowScene::Update()
 		}
 
 		ImGui::Image((ImTextureID)sceneCamera->frameBuffer.GetTexture(), ImGui::GetContentRegionAvail(), ImVec2(0, 1), ImVec2(1, 0));
+	
+		ImGui::EndChild();
+
+		// Create Droped mesh
+		if (ImGui::BeginDragDropTarget())
+		{
+			if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("Mesh"))
+			{
+				const std::string drop = *(std::string*)payload->Data;
+
+				Application::Instance()->resource->LoadFile(drop);
+			}
+			ImGui::EndDragDropTarget();
+		}
 	}
 	else
 	{
