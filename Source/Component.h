@@ -10,6 +10,7 @@ public:
 		NONE,
 		TRANSFORM,
 		MESH_RENDERER,
+		MATERIAL,
 		MAX
 	};
 

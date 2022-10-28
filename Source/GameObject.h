@@ -45,6 +45,20 @@ public:
 
 	std::vector<GameObject*>* GetChildren() { return &_children; }
 
+	void OnEditor();
+
+	template <class T>
+	bool HasComponent()
+	{
+		for (const auto& component : _components)
+		{
+			if (typeid(*component) != typeid(T)) continue;
+
+			return true;
+		}
+		return false;
+	}
+
 public:
 	std::string name;
 	std::string tag;
@@ -64,6 +78,10 @@ private:
 	bool _isStatic = false;
 
 	uint _ID = 0; // ID =  0 is an invalid ID. First ID is 1.
+
+	// On Editor variables
+
+	std::string comboValues[2] = {"Mesh Renderer", "Material"};
 
 	friend class TransformComponent;
 	friend class ImWindowHierarchy;
