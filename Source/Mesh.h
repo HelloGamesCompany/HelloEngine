@@ -9,7 +9,7 @@ struct Vertex
 	Vertex(float3 pos, float3 norm, float2 texC) : position(pos), normals(norm), texCoords(texC){}
 	float3 position = { 0,0,0 };
 	float3 normals = { 0,0,0 };
-	float2 texCoords = { 0,0,0 };
+	float2 texCoords = { 0,0 };
 };
 
 //TODO: Every Mesh should have an ID that identifies it's original form, so they can be distributed on diferent render managers.
