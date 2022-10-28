@@ -19,7 +19,7 @@ void TextureImporter::ImportImage(const std::string& fileName, char* buffer, uin
 
 	ILuint imgSize;
 	ILubyte* data;
-	ilSetInteger(IL_DXTC_FORMAT, IL_DXT5);// To pick a specific DXT compression use
+	ilSetInteger(IL_DXTC_FORMAT, IL_DXT5); // To pick a specific DXT compression use
 	imgSize = ilSaveL(IL_DDS, nullptr, 0); // Get the size of the data buffer
 
 	if (imgSize > 0)
@@ -57,6 +57,7 @@ uint TextureImporter::Load(char* buffer, int size, int* width, int* heigth, std:
 
 	engineTexture.width = ilGetInteger(IL_IMAGE_WIDTH);
 	engineTexture.height = ilGetInteger(IL_IMAGE_HEIGHT);
+	engineTexture.name = filename;
 
 	ILubyte* bytes = ilGetData();
 

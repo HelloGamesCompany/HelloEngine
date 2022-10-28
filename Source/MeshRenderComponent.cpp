@@ -111,33 +111,5 @@ void MeshRenderComponent::OnEditor()
 			}
 			ImGui::EndCombo();
 		}
-
-		if (ImGui::Button("Set Checkers Texture"))
-		{
-			mesh.textureID = TextureImporter::CheckerImage();
-		}
-
-		if (mesh.textureID != -1.0f)
-			ImGui::Image((ImTextureID)(uint)mesh.textureID, ImVec2(64, 64), ImVec2(0, 1), ImVec2(1, 0));
-		else
-			ImGui::Image((ImTextureID)0, ImVec2(64, 64), ImVec2(0, 1), ImVec2(1, 0));
-
-		if (ImGui::BeginDragDropTarget())
-		{
-			if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("Texture"))
-			{
-				//Drop asset from Asset window to scene window
-				const std::string drop = *(std::string*)payload->Data;
-
-				Resource* resource = Application::Instance()->resource->LoadFile(drop);
-
-				if (resource->type != ResourceType::TEXTURE) return;
-
-				ResourceTexture* textureResource = (ResourceTexture*)resource;
-
-				mesh.textureID = textureResource->textureInfo.OpenGLID;
-			}
-			ImGui::EndDragDropTarget();
-		}
 	}
 }

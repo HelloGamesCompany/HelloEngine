@@ -29,8 +29,6 @@ public:
 	float3 X, Y, Z, Position, Reference;
 	bool active = true;
 	FrameBuffer frameBuffer;
-private:
-	void CalculateViewMatrix();
 
 private:
 	float4x4 ViewMatrix, ViewMatrixInverse, ProjectionMatrix;

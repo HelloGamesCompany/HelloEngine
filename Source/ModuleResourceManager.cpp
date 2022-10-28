@@ -78,7 +78,7 @@ Resource* ModuleResourceManager::LoadFile(const std::string& filePath)
 		}
 
 		ResourceTexture* resource = new ResourceTexture();
-		resource->textureInfo.OpenGLID = TextureImporter::Load(buffer, size, nullptr, nullptr, ModuleFiles::S_GetFileName(filePath, false));
+		resource->textureInfo.OpenGLID = TextureImporter::Load(buffer, size, nullptr, nullptr, filePath.c_str());
 		RELEASE_ARRAY(buffer);
 		loadedResources[ModuleFiles::S_GetFileName(filePath, true)] = resource;
 		return resource;

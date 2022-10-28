@@ -5,8 +5,9 @@
 #include "LayerEditor.h"
 #include "ModuleWindow.h"
 
-SceneCameraObject::SceneCameraObject()
+SceneCameraObject::SceneCameraObject() : CameraObject()
 {
+	Position = float3(0.0f, 0.0f, 5.0f);
 }
 
 SceneCameraObject::~SceneCameraObject()

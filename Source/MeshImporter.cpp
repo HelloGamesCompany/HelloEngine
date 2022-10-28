@@ -9,6 +9,7 @@
 #include "GameObject.h"
 #include "TransformComponent.h"
 #include "ModuleResourceManager.h"
+#include "MaterialComponent.h"
 
 std::map<std::string, MeshCacheData> MeshImporter::loadedMeshes;
 Assimp::Importer MeshImporter::importer;
@@ -213,6 +214,7 @@ void MeshImporter::ProcessNewMesh(aiMesh* mesh, const aiScene* scene, GameObject
 	}
 
 	loadedMeshes[currentPath].meshDiffuseTexture = textureID;
+	bool hasMaterial = textureID != -1.0f;
 
 	// Load into a Mesh object
 	if (createGO)
@@ -221,6 +223,7 @@ void MeshImporter::ProcessNewMesh(aiMesh* mesh, const aiScene* scene, GameObject
 		MeshRenderComponent* meshRC = newGameObject->AddComponent<MeshRenderComponent>();
 		meshRC->InitAsNewMesh(vertices, indices);
 		meshRC->GetMesh().textureID = textureID;
+		if (hasMaterial) newGameObject->AddComponent<MaterialComponent>();
 	}
 	else
 	{
@@ -228,6 +231,7 @@ void MeshImporter::ProcessNewMesh(aiMesh* mesh, const aiScene* scene, GameObject
 		MeshRenderComponent* meshRC = parent->AddComponent<MeshRenderComponent>();
 		meshRC->InitAsNewMesh(vertices, indices);
 		meshRC->GetMesh().textureID = textureID;
+		if (hasMaterial) parent->AddComponent<MaterialComponent>();
 	}
 }
 

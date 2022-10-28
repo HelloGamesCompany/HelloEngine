@@ -6,13 +6,11 @@ CameraObject::CameraObject()
 {
 	app = Application::Instance();
 
-	CalculateViewMatrix();
-
 	X = float3(1.0f, 0.0f, 0.0f);
 	Y = float3(0.0f, 1.0f, 0.0f);
 	Z = float3(0.0f, 0.0f, 1.0f);
 
-	Position = float3(0.0f, 0.0f, -5.0f);
+	Position = float3(0.0f, 0.0f, 0.0f);
 	Reference = float3(0.0f, 0.0f, 0.0f);
 
 	cameraFrustum.type = math::FrustumType::PerspectiveFrustum;
@@ -34,20 +32,18 @@ CameraObject::~CameraObject()
 
 void CameraObject::Look(const float3& Position, const float3& Reference, bool RotateAroundReference)
 {
-    this->Position = Position;
-    this->Reference = Reference;
+	this->Position = Position;
+	this->Reference = Reference;
 
-    Z = (Position - Reference).Normalized();
-    X = (float3(0.0f, 1.0f, 0.0f).Cross(Z)).Normalized();
-    Y = Cross(Z, X);
+	Z = (Position - Reference).Normalized();
+	X = (float3(0.0f, 1.0f, 0.0f).Cross(Z)).Normalized();
+	Y = Cross(Z, X);
 
-    if (!RotateAroundReference)
-    {
-        this->Reference = this->Position;
-        this->Position += Z * 0.05f;
-    }
-
-    CalculateViewMatrix();
+	if (!RotateAroundReference)
+	{
+		this->Reference = this->Position;
+		this->Position += Z * 0.05f;
+	}
 }
 
 void CameraObject::LookAt(const float3& Spot)
@@ -99,11 +95,3 @@ void CameraObject::SetFOV(float fov)
 	cameraFrustum.horizontalFov = 2.0f * atanf(tanf(cameraFrustum.verticalFov / 2.0f) * aspectRatio);
 }
 
-void CameraObject::CalculateViewMatrix()
-{
-    /*ViewMatrix = float4x4(X.x, Y.x, Z.x, 0.0f, X.y, Y.y, Z.y, 0.0f, X.z, Y.z, Z.z, 0.0f, -Dot(X, Position), -Dot(Y, Position), -Dot(Z, Position), 1.0f);
-    ViewMatrixInverse = ViewMatrix.Inverted();*/
-	/*cameraFrustum.pos = Position;
-	cameraFrustum.front = Z;
-	cameraFrustum.up = Y;*/
-}
