@@ -1,4 +1,10 @@
 #pragma once
+
+enum class TextureType
+{
+	DIFFUSE,
+};
+
 class Texture
 {
 public:

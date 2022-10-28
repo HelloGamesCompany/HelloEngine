@@ -286,6 +286,7 @@
     <ClCompile Include="External\mmgr\mmgr.cpp">
       <Filter>External\mmgr</Filter>
     </ClCompile>
+    <ClCompile Include="MaterialComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Module.h">
@@ -681,6 +682,7 @@
     <ClInclude Include="CommandArray.hpp">
       <Filter>Tools\DataStruct</Filter>
     </ClInclude>
+    <ClInclude Include="MaterialComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="External\imgui\vulkan\generate_spv.sh">
