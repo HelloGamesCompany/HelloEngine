@@ -89,14 +89,32 @@ void ImWindowProject::Update()
                 for (int i = 0; i < currentNode->files.size(); i++)
                 {
                     ImGui::Button(currentNode->files[i].c_str(), ImVec2(120, 60));
-                    ImGui::SameLine();
-                }
 
-                
+                    if (ModuleFiles::S_GetResourceType(currentNode->files[i]) == ResourceType::TEXTURE)
+                    {
+                        if (ImGui::BeginDragDropSource(ImGuiDragDropFlags_None))
+                        {
+
+                            newPath = ModuleFiles::S_GetFileName(currentNode->files[i], false);
+
+                            newPath = "Resources/Textures/" + newPath + ".dds";
+
+                            // Set payload to carry the index of our item (could be anything)
+                            ImGui::SetDragDropPayload("Texture", &newPath, sizeof(std::string));
+
+                            // Display preview (could be anything, e.g. when dragging an image we could decide to display
+                            // the filename and a small preview of the image, etc.)
+                            /* if (mode == Mode_Copy) { ImGui::Text("Copy %s", names[n]); }
+                            if (mode == Mode_Move) { ImGui::Text("Move %s", names[n]); }
+                            if (mode == Mode_Swap) { ImGui::Text("Swap %s", names[n]); }*/
+                            ImGui::EndDragDropSource();
+                        }
+                    }
+                    ImGui::SameLine();
+                }              
             }
             ImGui::EndChild();
         }
-
         if (newDir) currentNode = newDir;   
 	}
     ImGui::End();

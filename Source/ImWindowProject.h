@@ -27,4 +27,6 @@ private:
 	FileTree* fileTree = nullptr;
 
 	FileTree* currentNode = nullptr;
+
+	std::string newPath;
 };

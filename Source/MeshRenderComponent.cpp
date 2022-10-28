@@ -136,8 +136,6 @@ void MeshRenderComponent::OnEditor()
 				ResourceTexture* textureResource = (ResourceTexture*)resource;
 
 				mesh.textureID = textureResource->textureInfo.OpenGLID;
-
-				RELEASE(resource);
 			}
 			ImGui::EndDragDropTarget();
 		}

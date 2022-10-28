@@ -307,7 +307,7 @@ std::string ModuleFiles::S_GetFileName(const std::string file, bool getExtension
 	if (!getExtension)
 	{
 		uint ePos = name.find(".");
-		if (pos != std::string::npos) name = name.substr(0, ePos);
+		if (ePos != std::string::npos) name = name.substr(0, ePos);
 	}
 
 	return name;
