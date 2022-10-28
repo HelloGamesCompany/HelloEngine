@@ -173,8 +173,6 @@ void LayerEditor::PostUpdate()
         if (imWindows[i]->isEnabled) imWindows[i]->Update();
     }
 
-	//ImGui::ShowDemoWindow();
-
 	ImGui::Render();
 	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 

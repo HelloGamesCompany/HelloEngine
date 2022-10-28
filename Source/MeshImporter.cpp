@@ -217,13 +217,14 @@ void MeshImporter::ProcessNewMesh(aiMesh* mesh, const aiScene* scene, GameObject
 	// Load into a Mesh object
 	if (createGO)
 	{
-		GameObject* newGameObject = new GameObject(parent, "Mesh");
+		GameObject* newGameObject = new GameObject(parent, mesh->mName.C_Str());
 		MeshRenderComponent* meshRC = newGameObject->AddComponent<MeshRenderComponent>();
 		meshRC->InitAsNewMesh(vertices, indices);
 		meshRC->GetMesh().textureID = textureID;
 	}
 	else
 	{
+		parent->name = mesh->mName.C_Str();
 		MeshRenderComponent* meshRC = parent->AddComponent<MeshRenderComponent>();
 		meshRC->InitAsNewMesh(vertices, indices);
 		meshRC->GetMesh().textureID = textureID;
