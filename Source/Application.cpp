@@ -73,7 +73,6 @@ bool Application::Init()
 		list_modules[i]->Start();
 	}
 
-	//ms_timer.Start();
 	return true;
 }
 
@@ -82,24 +81,12 @@ void Application::AddModule(Module* mod)
 	list_modules.push_back(mod);
 }
 
-// ---------------------------------------------
-void Application::PrepareUpdate()
-{
-	//ms_timer.Start();
-}
-
-// ---------------------------------------------
-void Application::FinishUpdate()
-{
-}
-
 // Call PreUpdate, Update and PostUpdate on all modules
 UpdateStatus Application::Update()
 {
 	if (isExiting) return UpdateStatus::UPDATE_STOP;
 
 	UpdateStatus ret = UpdateStatus::UPDATE_CONTINUE;
-	PrepareUpdate();
 
 	for (int i = 0, count = list_modules.size(); i < count && ret == UpdateStatus::UPDATE_CONTINUE; i++)
 	{
@@ -126,7 +113,6 @@ UpdateStatus Application::Update()
 
 	timer.Reset();
 
-	FinishUpdate();
 	return ret;
 }
 

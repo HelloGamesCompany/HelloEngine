@@ -35,7 +35,7 @@ private:
 
 	float systemRAM = 0;
 
-	int* frameLimit = nullptr;
+	int frameLimit = 60;
 
 	const int* windowWidth = nullptr;
 	const int* windowHeight = nullptr;

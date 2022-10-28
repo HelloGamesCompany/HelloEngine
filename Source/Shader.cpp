@@ -35,7 +35,7 @@ uint Shader::CompileShader(const std::string& source, uint type)
 	glGetShaderiv(id, GL_COMPILE_STATUS, &compileResult);
 	if (compileResult == GL_FALSE)
 	{
-		int messageLength;
+		int messageLength = 0;
 
 		glGetShaderiv(id, GL_INFO_LOG_LENGTH, &messageLength);
 		std::vector<char> message;

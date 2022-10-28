@@ -49,6 +49,7 @@ public:
 	void SetFPS(int maxFrames)
 	{
 	   fps = 1.0f / (float)maxFrames;
+	   frameCap = maxFrames;
 	}
 
 	void Exit() { isExiting = true; }
@@ -58,8 +59,6 @@ public:
 private:
 
 	void AddModule(Module* mod);
-	void PrepareUpdate();
-	void FinishUpdate();
 };
 
 #endif // !__APPLICATION_H__

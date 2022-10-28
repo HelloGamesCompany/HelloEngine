@@ -27,7 +27,7 @@ ImWindowConfiguration::ImWindowConfiguration() : ImWindow()
 
 	isVSyncOn = &app->renderer3D->isVSync;
 
-	frameLimit = &app->frameCap;
+	frameLimit = app->frameCap;
 }
 
 ImWindowConfiguration::~ImWindowConfiguration()
@@ -46,9 +46,9 @@ void ImWindowConfiguration::Update()
 		if (ImGui::CollapsingHeader("Application", ImGuiTreeNodeFlags_DefaultOpen))
 		{
 			ImGui::PlotHistogram("##Framerate", frames->front(), frames->size(), 0, framerate.c_str(), 0.0f, 160.0f, ImVec2(300, 160));
-			if (ImGui::SliderInt("FPS Limit", frameLimit, 30, 120))
+			if (ImGui::SliderInt("FPS Limit", &frameLimit, 30, 120))
 			{
-				app->SetFPS(*frameLimit);
+				app->SetFPS(frameLimit);
 			}
 		}
 
