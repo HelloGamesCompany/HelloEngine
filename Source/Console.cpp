@@ -44,6 +44,11 @@ void Console::S_Log(const std::string text, bool focusConsole)
     if (focusConsole && Application::Instance()->layers->editor->consoleWindow) Application::Instance()->layers->editor->consoleWindow->FocusConsole();
 }
 
+void Console::S_LogPopUp(const std::string text)
+{
+    Application::Instance()->layers->editor->PopUpMessage(text);
+}
+
 uint Console::S_GetLog(std::string** buffer)
 {
     *buffer = _buffers->front();

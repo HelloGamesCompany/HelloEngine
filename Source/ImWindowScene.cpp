@@ -48,6 +48,10 @@ void ImWindowScene::Update()
 				const std::string drop = *(std::string*)payload->Data;
 
 				Application::Instance()->resource->LoadFile(drop);
+
+				std::string popUpmessage = "Loaded Mesh: " + drop;
+
+				Console::S_LogPopUp(popUpmessage);
 			}
 			ImGui::EndDragDropTarget();
 		}

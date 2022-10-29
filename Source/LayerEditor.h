@@ -40,6 +40,8 @@ public:
 	void SetSelectGameObject(GameObject* g);
 	GameObject* GetSelectedGameObject() { return selectedGameObject; }
 
+	void PopUpMessage(std::string message);
+
 public:
 	ImWindowConsole* consoleWindow = nullptr;
 
@@ -51,6 +53,12 @@ private:
 	GameObject* selectedGameObject = nullptr;
 
 	int gameWidth = 0, gameHeight = 0;
+
+	//Popup message variables
+	bool displayPopUp = false;
+	std::string popUpMessage = "";
+	float messageTime = 2.0f;
+	float currentMessageTime = 0.0f;
 
 	friend class ImWindowHierarchy;
 };

@@ -21,6 +21,8 @@ public:
 
 	static uint S_GetLog(std::string** buffer);
 
+	static void S_LogPopUp(const std::string text);
+
 	static std::map<std::string, uint> S_GetCollapseLog();
 
 	static std::string S_GetLastLog();

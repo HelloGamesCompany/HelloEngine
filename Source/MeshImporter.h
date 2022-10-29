@@ -11,9 +11,10 @@ class GameObject;
 
 struct MeshCacheData
 {
-	uint numOfMeshes;
-	uint initialID;
-	uint meshDiffuseTexture;
+	uint numOfMeshes = 0;
+	uint initialID = 0;
+	uint meshDiffuseTexture = 0;
+	bool displayMissingTextureError = false;
 };
 
 // This class is responsible for:
