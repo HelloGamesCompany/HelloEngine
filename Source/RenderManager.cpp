@@ -142,7 +142,7 @@ void RenderManager::CreateBuffers()
     glGenBuffers(1, &MBO);
 
     glBindBuffer(GL_ARRAY_BUFFER, MBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(float4x4) * 1000000, nullptr, GL_DYNAMIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(float4x4) * 1000000, nullptr, GL_DYNAMIC_DRAW); // TODO: This buffer size should dynamicaly change
 
     glBindVertexArray(VAO);
 
@@ -171,7 +171,7 @@ void RenderManager::CreateBuffers()
     glGenBuffers(1, &TBO);
 
     glBindBuffer(GL_ARRAY_BUFFER, TBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 10000, nullptr, GL_DYNAMIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 10000, nullptr, GL_DYNAMIC_DRAW); // TODO: This buffer size should dynamically change
     
     glBindVertexArray(VAO);
 

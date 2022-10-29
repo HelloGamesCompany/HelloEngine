@@ -47,6 +47,13 @@ void ImWindowHierarchy::Update()
                 }
                 if (ImGui::BeginPopup("basicShapes"))
                 {
+                    if (ImGui::Selectable("Create empty GameObject"))
+                    {
+                        GameObject* parent = layerEditor->selectedGameObject ? layerEditor->selectedGameObject : Application::Instance()->layers->rootGameObject;
+                        GameObject* newGameObject = new GameObject(parent, "Empty");
+                        popUpOpen = false;
+                    }
+                    ImGui::Separator();
                     ImGui::Text("Select Shape");
                     ImGui::Separator();
                     for (int i = 0; i < 4; i++)

@@ -108,7 +108,8 @@ void GameObject::OnEditor()
 					if (!HasComponent<MaterialComponent>())
 						AddComponent<MaterialComponent>();
 					else
-						Console::S_Log("Cannot add two Materials to a single GameObject.");
+						if (!HasComponent<MeshRenderComponent>())
+							AddComponent<MeshRenderComponent>();
 					break;
 				}
 			}
