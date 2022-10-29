@@ -21,8 +21,8 @@ void SceneCameraObject::UpdateInput()
 	
 	GameObject* selectedGO = editor->GetSelectedGameObject();
 
-	int dx = -app->input->GetMouseXMotion();
-	int dy = -app->input->GetMouseYMotion();
+	float dx = -app->input->GetMouseXMotion();
+	float dy = -app->input->GetMouseYMotion();
 
 	float Sensitivity = 0.75f;
 
@@ -51,7 +51,7 @@ void SceneCameraObject::UpdateInput()
 
 		if (dy != 0)
 		{
-			float DeltaY = math::DegToRad((float)dy * Sensitivity * 0.75f);
+			float DeltaY = math::DegToRad(dy * Sensitivity * 0.75f);
 
 			math::Quat rotation = Quat::identity;
 			rotation.SetFromAxisAngle(float3(1, 0, 0), DeltaY);
@@ -61,7 +61,7 @@ void SceneCameraObject::UpdateInput()
 
 		if (dx != 0)
 		{
-			float DeltaX = math::DegToRad((float)dx * Sensitivity * 0.75f);
+			float DeltaX = math::DegToRad(dx * Sensitivity * 0.75f);
 
 			math::Quat rotation = Quat::identity;
 			rotation.SetFromAxisAngle({ 0.0f, 1.0f, 0.0f }, DeltaX);
@@ -74,22 +74,30 @@ void SceneCameraObject::UpdateInput()
 		cameraFrustum.SetWorldMatrix(newWorldMatrix.Float3x4Part());
 	}
 
+	// Orbital rotation
 	if (app->input->GetKey(SDL_SCANCODE_LALT) == KEY_REPEAT && app->input->GetMouseButton(1) == KEY_REPEAT)
 	{
-		// Orbital rotation
+		
 		float3 rotationCenter = { 0.0f,0.0f,0.0f };
 
 		if (selectedGO != nullptr) rotationCenter = selectedGO->transform->GetGlobalTransform().position;
 
-		float distFromCenter = cameraFrustum.pos.Distance(rotationCenter);
+		float distFromCenter = cameraFrustum.pos.Distance(rotationCenter); // Get current distance from center
+
+		if (dx != 0)
+		{
+			float DeltaX = math::DegToRad(dx * Sensitivity * 0.75f);
+
+			Quat rotation = Quat::identity;
+			rotation = rotation.RotateY(DeltaX);
+
+			lookingDir = rotation * lookingDir;
+		}
 
 		if (dy != 0)
 		{
-			float3 viewDir = { cameraFrustum.ViewMatrix().v[2][0],  cameraFrustum.ViewMatrix().v[2][1], cameraFrustum.ViewMatrix().v[2][2] };
-
+			float DeltaY = math::DegToRad(dy * Sensitivity * 0.75f);
 			float cosAngle = math::Dot(float3(0, 1, 0), cameraFrustum.front);
-
-			float DeltaY = (float)dy * Sensitivity;
 
 			//std::cout << "Cos: " << cosAngle << " Delta: " << DeltaY << std::endl;
 
@@ -100,27 +108,17 @@ void SceneCameraObject::UpdateInput()
 			}
 
 			Quat rotation = Quat::identity;
-			rotation.SetFromAxisAngle(float3(1, 0, 0), DeltaY * DEGTORAD);
+			rotation = rotation.RotateX(DeltaY);
 
 			lookingDir = lookingDir * rotation;
 		}
 
-		if (dx != 0)
-		{
-			float DeltaX = (float)dx * Sensitivity;
-
-			Quat rotation = Quat::identity;
-			rotation.SetFromAxisAngle(float3(0, 1, 0), DeltaX * DEGTORAD);
-
-			lookingDir = rotation * lookingDir;
-		}
-
 		float4x4 newWorldMatrix = cameraFrustum.WorldMatrix();
 		newWorldMatrix.SetRotatePart(lookingDir.Normalized());
+
 		cameraFrustum.SetWorldMatrix(newWorldMatrix.Float3x4Part());
 
 		cameraFrustum.pos = rotationCenter + (cameraFrustum.front * -distFromCenter);
-		LookAt(rotationCenter);
 	}
 
 	if (app->input->GetMouseZ() != 0)
