@@ -2,6 +2,8 @@
 #include "ImWindowScene.h"
 #include "ModuleCamera3D.h"
 #include "ModuleResourceManager.h"
+#include "ModuleLayers.h"
+#include "LayerEditor.h"
 
 ImWindowScene::ImWindowScene()
 {
@@ -50,6 +52,7 @@ void ImWindowScene::Update()
 				Application::Instance()->resource->LoadFile(drop);
 
 				std::string popUpmessage = "Loaded Mesh: " + drop;
+				Application::Instance()->layers->editor->PopUpMessage(popUpmessage);
 
 			}
 			ImGui::EndDragDropTarget();

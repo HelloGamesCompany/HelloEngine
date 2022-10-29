@@ -173,52 +173,47 @@ void LayerEditor::PostUpdate()
         if (imWindows[i]->isEnabled) imWindows[i]->Update();
     }
 
-	//if (displayPopUp)
-	//{
-	//	currentMessageTime += Application::Instance()->fps;
-	//	if (currentMessageTime >= messageTime)
-	//	{
-	//		displayPopUp = false;
-	//		popUpMessage = "";
-	//		currentMessageTime = 0.0f;
-	//	}
-	//	else
-	//	{
-	//		bool fadeIn = currentMessageTime <= messageTime * 0.25;
-	//		bool fadeOut = currentMessageTime >= messageTime * 0.75;
-	//		if (fadeIn)
-	//		{
-	//			ImGui::PushStyleVar(ImGuiStyleVar_Alpha, currentMessageTime / (messageTime * 0.25f));
-	//		}
-	//		if (fadeOut)
-	//		{
-	//			ImGui::PushStyleVar(ImGuiStyleVar_Alpha, 1.0f - ((currentMessageTime - (messageTime * 0.75f)) / (messageTime * 0.75f)));
-	//		}
+	if (displayPopUp)
+	{
+		currentMessageTime += Application::Instance()->fps;
+		if (currentMessageTime >= messageTime)
+		{
+			displayPopUp = false;
+			popUpMessage = "";
+			currentMessageTime = 0.0f;
+		}
+		else
+		{
+			bool fadeIn = currentMessageTime <= messageTime * 0.25;
+			bool fadeOut = currentMessageTime >= messageTime * 0.75;
+			if (fadeIn)
+			{
+				ImGui::PushStyleVar(ImGuiStyleVar_Alpha, currentMessageTime / (messageTime * 0.25f));
+			}
+			if (fadeOut)
+			{
+				ImGui::PushStyleVar(ImGuiStyleVar_Alpha, 1.0f - ((currentMessageTime - (messageTime * 0.75f)) / (messageTime * 0.75f)));
+			}
 
-	//		int width = Application::Instance()->window->width;
-	//		int height = Application::Instance()->window->height;
-	//		ImGui::SetNextWindowSize(ImVec2(width * 0.5f, height * 0.25f));
-	//		ImGui::SetNextWindowPos(ImVec2(width * 0.25f, height * 0.25f));
-	//		if(ImGui::BeginPopup("Test"))
-	//		{
-	//			ImVec2 textDimensions = ImGui::CalcTextSize(popUpMessage.c_str());
+			int width = Application::Instance()->window->width;
+			int height = Application::Instance()->window->height;
+			ImGui::SetNextWindowSize(ImVec2(width * 0.5f, height * 0.25f));
+			ImGui::SetNextWindowPos(ImVec2(width * 0.25f, height * 0.25f));
+			if(ImGui::BeginPopup("Test"))
+			{
+				ImVec2 textDimensions = ImGui::CalcTextSize(popUpMessage.c_str());
 
-	//			ImGui::SetWindowFontScale(2.0f);
+				ImGui::SetWindowFontScale(2.0f);
 
-	//			//ImFont* currentFont = ImGui::GetFont();
-	//			//float originalSize = currentFont->FontSize;
-	//			//currentFont->FontSize = 8.0f;
+				ImGui::SetCursorPos(ImVec2((width * 0.5f - textDimensions.x) * 0.5f, (height * 0.25f - textDimensions.y) * 0.5f));
+				ImGui::Text(popUpMessage.c_str());
+				ImGui::EndPopup();
 
-	//			ImGui::SetCursorPos(ImVec2((width * 0.5f - textDimensions.x) * 0.5f, (height * 0.25f - textDimensions.y) * 0.5f));
-	//			ImGui::Text(popUpMessage.c_str());
-	//			ImGui::EndPopup();
-
-	//			//currentFont->FontSize = originalSize;
-	//		}
-	//		ImGui::OpenPopup("Test");
-	//		if (fadeIn || fadeOut) ImGui::PopStyleVar();
-	//	}
-	//}
+			}
+			ImGui::OpenPopup("Test");
+			if (fadeIn || fadeOut) ImGui::PopStyleVar();
+		}
+	}
 
 	ImGui::Render();
 	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
@@ -256,5 +251,11 @@ void LayerEditor::SetSelectGameObject(GameObject* g)
 	ImWindowInspector* inspector = (ImWindowInspector*)imWindows[(uint)ImWindowID::INSPECTOR];
 
 	inspector->SelectGameObject(g);
+}
+
+void LayerEditor::PopUpMessage(std::string message)
+{
+	displayPopUp = true;
+	popUpMessage = message;
 }
 

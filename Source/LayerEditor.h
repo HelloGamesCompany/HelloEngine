@@ -38,6 +38,9 @@ public:
 	void SetSelectGameObject(GameObject* g);
 	GameObject* GetSelectedGameObject() { return selectedGameObject; }
 
+	void PopUpMessage(std::string message);
+
+
 private:
 	ImWindow* imWindows[(uint)ImWindowID::MAX] = { nullptr };
 

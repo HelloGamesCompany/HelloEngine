@@ -10,6 +10,7 @@
 #include "TransformComponent.h"
 #include "ModuleResourceManager.h"
 #include "MaterialComponent.h"
+#include "LayerEditor.h"
 
 std::map<std::string, MeshCacheData> MeshImporter::loadedMeshes;
 Assimp::Importer MeshImporter::importer;
@@ -204,6 +205,7 @@ void MeshImporter::ProcessNewMesh(aiMesh* mesh, const aiScene* scene, GameObject
 				}
 				else
 				{
+					Application::Instance()->layers->editor->PopUpMessage("Error loading diffuse texture. Check console.");
 					Console::S_Log("Error loading texture. The path inside FBX doesnt correspond with any file in the FBX current folder. Check that the FBX bounded texture is inside the same folder.");
 					loadedMeshes[currentPath].displayMissingTextureError = true;
 				}
@@ -291,6 +293,7 @@ void MeshImporter::ProcessLoadedNode(aiNode* node, const aiScene* scene, uint& f
 
 	if (loadedMeshes[currentPath].displayMissingTextureError)
 	{
+		Application::Instance()->layers->editor->PopUpMessage("Error loading diffuse texture. Check console.");
 		Console::S_Log("Error loading texture. The path inside FBX doesnt correspond with any file in the FBX current folder. Check that the FBX bounded texture is inside the same folder.");
 	}
 
