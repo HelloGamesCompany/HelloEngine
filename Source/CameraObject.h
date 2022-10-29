@@ -2,6 +2,13 @@
 
 #include "FrameBuffer.h"
 
+enum class CameraType
+{
+	SCENE,
+	GAME,
+};
+
+
 class CameraObject
 {
 public:
@@ -29,6 +36,7 @@ public:
 	float3 X = { 0,0,0 }, Y = { 0,0,0 }, Z = { 0,0,0 }, Position = { 0,0,0 }, Reference = { 0,0,0 };
 	bool active = true;
 	FrameBuffer frameBuffer;
+	CameraType type = CameraType::GAME;
 
 private:
 	// TODO: Sospechoso de provocar excepcion en Release

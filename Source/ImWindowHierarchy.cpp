@@ -26,17 +26,11 @@ ImWindowHierarchy::~ImWindowHierarchy()
 
 void ImWindowHierarchy::Update()
 {
-    changeSelectedGO = false;
 	if (ImGui::Begin(windowName.c_str(), &isEnabled))
 	{
         ImGui::BeginChild("DropArea");
         {
             DrawGameObjectChildren(gameObjectsReference->at(1));
-
-            if ((ImGui::IsMouseDown(ImGuiMouseButton_::ImGuiMouseButton_Right) && !changeSelectedGO) && rightClickedGameObject == nullptr)
-            {
-                layerEditor->selectedGameObject = nullptr;
-            }
 
             if ((ImGui::IsMouseDown(ImGuiMouseButton_::ImGuiMouseButton_Right) && ImGui::IsWindowHovered()) || popUpOpen)
             {
@@ -53,23 +47,21 @@ void ImWindowHierarchy::Update()
                 }
                 if (ImGui::BeginPopup("basicShapes"))
                 {
-                    if (rightClickedGameObject != nullptr)
+                    if (layerEditor->selectedGameObject != nullptr)
                     {
                         ImGui::TextColored(ImVec4(1, 1, 0, 1), "Delete GameObject"); ImGui::SameLine(-ImGui::GetWindowWidth()); 
                         if (ImGui::Selectable("##"))
                         {
-                            rightClickedGameObject->Destroy();
-                            rightClickedGameObject = nullptr;
+                            layerEditor->selectedGameObject->Destroy();
                             popUpOpen = false;
                         }
                     }
 
                     if (ImGui::Selectable("Create empty GameObject"))
                     {
-                        GameObject* parent = rightClickedGameObject != nullptr ? rightClickedGameObject : Application::Instance()->layers->rootGameObject;
+                        GameObject* parent = layerEditor->selectedGameObject != nullptr ? layerEditor->selectedGameObject : Application::Instance()->layers->rootGameObject;
                         GameObject* newGameObject = new GameObject(parent, "Empty");
                         popUpOpen = false;
-                        rightClickedGameObject = nullptr;
                     }
                     ImGui::Separator();
                     ImGui::Text("Select Shape");
@@ -79,9 +71,8 @@ void ImWindowHierarchy::Update()
                         if (ImGui::Selectable(shapeNames[i].c_str()))
                         {
                             selectedShape = i;
-                            Application::Instance()->renderer3D->modelRender.CreatePrimitive(rightClickedGameObject, (PrimitiveType)i);
+                            Application::Instance()->renderer3D->modelRender.CreatePrimitive(layerEditor->selectedGameObject, (PrimitiveType)i);
                             popUpOpen = false;
-                            rightClickedGameObject = nullptr;
                         }
                     }
                 }
@@ -162,12 +153,10 @@ void ImWindowHierarchy::ProcessGameObject(GameObject* gameObject, int iteration)
 
     if (ImGui::IsItemHovered())
     {
-        if (ImGui::IsMouseDown(ImGuiMouseButton_::ImGuiMouseButton_Left))
+        if (ImGui::IsMouseDown(ImGuiMouseButton_::ImGuiMouseButton_Left) || ImGui::IsMouseDown(ImGuiMouseButton_::ImGuiMouseButton_Right))
         {
             layerEditor->SetSelectGameObject(gameObject);
-            changeSelectedGO = true;
         }
-        if (ImGui::IsMouseDown(ImGuiMouseButton_::ImGuiMouseButton_Right)) rightClickedGameObject = gameObject;
     }
 
     ImGui::SameLine(ImGui::GetWindowWidth() - 20);

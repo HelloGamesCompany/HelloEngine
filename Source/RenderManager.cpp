@@ -84,12 +84,15 @@ void RenderManager::Draw()
 
     // Drawing normals for every mesh instance
     
-    int index = 0;
-    for (auto& mesh : meshes)
+    if (Application::Instance()->camera->currentDrawingCamera->type == CameraType::SCENE)
     {
-        if (mesh.second.showNormals == 0) DrawVertexNormals(index);
-        else if (mesh.second.showNormals == 1) DrawFaceNormals(index);
-        index++;
+        int index = 0;
+        for (auto& mesh : meshes)
+        {
+            if (mesh.second.showNormals == 0) DrawVertexNormals(index);
+            else if (mesh.second.showNormals == 1) DrawFaceNormals(index);
+            index++;
+        }
     }
 
     // Reset model matrices.

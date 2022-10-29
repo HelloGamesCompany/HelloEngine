@@ -25,11 +25,8 @@ private:
 
 	GameObject* draggingGameObject = nullptr;
 
-	GameObject* rightClickedGameObject = nullptr;
-
 	ImGuiTreeNodeFlags base_flags = 0;
 
 	bool popUpOpen = false;
-	bool changeSelectedGO = false;
 };
 

@@ -14,7 +14,8 @@ CameraObject::CameraObject()
 	Reference = float3(0.0f, 0.0f, 0.0f);
 
 	cameraFrustum.type = math::FrustumType::PerspectiveFrustum;
-	cameraFrustum.verticalFov = FOV = math::DegToRad(60.0f);
+	FOV = 60;
+	cameraFrustum.verticalFov = math::DegToRad(FOV);
 	aspectRatio = 1.7f;
 	cameraFrustum.horizontalFov = 2.0f * atanf(tanf(cameraFrustum.verticalFov / 2.0f) * aspectRatio);
 
@@ -91,7 +92,8 @@ void CameraObject::ChangeAspectRatio(float aspectRatio)
 
 void CameraObject::SetFOV(float fov)
 {
-	cameraFrustum.verticalFov = FOV = math::DegToRad(fov);
+	this->FOV = fov;
+	cameraFrustum.verticalFov = math::DegToRad(fov);
 	cameraFrustum.horizontalFov = 2.0f * atanf(tanf(cameraFrustum.verticalFov / 2.0f) * aspectRatio);
 }
 

@@ -12,6 +12,8 @@ public:
 	void OnRotationUpdate(float3 rotation) override;
 	void OnTransformUpdate(float3 pos, float3 scale, float3 rotation) override;
 
+	void OnEditor() override;
+
 	CameraObject* GetCameraObject();
 private:
 	ModuleCamera3D* moduleCameras = nullptr;

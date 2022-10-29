@@ -8,6 +8,7 @@
 SceneCameraObject::SceneCameraObject() : CameraObject()
 {
 	Position = float3(0.0f, 0.0f, 5.0f);
+	type = CameraType::SCENE;
 }
 
 SceneCameraObject::~SceneCameraObject()
