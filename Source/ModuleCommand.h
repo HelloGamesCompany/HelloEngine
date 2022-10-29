@@ -5,7 +5,7 @@
 
 #define MAX_UNDO 30
 
-using CommandArray = Htool::CommandArray<Command*>;
+typedef Htool::CommandArray<Command*> CommandArray;
 
 class ModuleInput;
 

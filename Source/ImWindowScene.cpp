@@ -51,7 +51,6 @@ void ImWindowScene::Update()
 
 				std::string popUpmessage = "Loaded Mesh: " + drop;
 
-				Console::S_LogPopUp(popUpmessage);
 			}
 			ImGui::EndDragDropTarget();
 		}

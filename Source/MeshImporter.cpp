@@ -204,7 +204,6 @@ void MeshImporter::ProcessNewMesh(aiMesh* mesh, const aiScene* scene, GameObject
 				}
 				else
 				{
-					Console::S_LogPopUp("Cannot load diffuse texture. Check console.");
 					Console::S_Log("Error loading texture. The path inside FBX doesnt correspond with any file in the FBX current folder. Check that the FBX bounded texture is inside the same folder.");
 					loadedMeshes[currentPath].displayMissingTextureError = true;
 				}
@@ -292,7 +291,6 @@ void MeshImporter::ProcessLoadedNode(aiNode* node, const aiScene* scene, uint& f
 
 	if (loadedMeshes[currentPath].displayMissingTextureError)
 	{
-		Console::S_LogPopUp("Cannot load diffuse texture. Check console.");
 		Console::S_Log("Error loading texture. The path inside FBX doesnt correspond with any file in the FBX current folder. Check that the FBX bounded texture is inside the same folder.");
 	}
 

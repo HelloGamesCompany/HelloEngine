@@ -1,10 +1,6 @@
 #include "Headers.h"
 #include "ModuleFiles.h"
 #include "CycleArray.hpp"
-#include "Application.h"
-#include "ModuleLayers.h"
-#include "LayerEditor.h"
-#include "ImWindowConsole.h"
 
 CArrayS* Console::_buffers = nullptr;
 std::map<std::string, uint> Console::_buffersMap;
@@ -29,7 +25,7 @@ void Console::S_Close()
     RELEASE(_buffers);
 }
 
-void Console::S_Log(const std::string text, bool focusConsole)
+void Console::S_Log(const std::string text)
 {
     _buffers->push_back("\nDebug.Log: " + text);
 
@@ -40,13 +36,6 @@ void Console::S_Log(const std::string text, bool focusConsole)
     _buffersMap[text]++;
 
     _logCount++;
-
-    if (focusConsole && Application::Instance()->layers->editor->consoleWindow) Application::Instance()->layers->editor->consoleWindow->FocusConsole();
-}
-
-void Console::S_LogPopUp(const std::string text)
-{
-    Application::Instance()->layers->editor->PopUpMessage(text);
 }
 
 uint Console::S_GetLog(std::string** buffer)

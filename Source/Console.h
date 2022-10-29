@@ -17,11 +17,9 @@ public:
 
 	static void S_Close();
 
-	static void S_Log(const std::string text, bool focusConsole = false);
+	static void S_Log(const std::string text);
 
 	static uint S_GetLog(std::string** buffer);
-
-	static void S_LogPopUp(const std::string text);
 
 	static std::map<std::string, uint> S_GetCollapseLog();
 

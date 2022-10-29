@@ -5,8 +5,6 @@
 #include "Layer.h"
 #include "LayerGame.h"
 
-class ImWindowConsole;
-
 enum class ImWindowID
 {
 	CONFIGURATION,
@@ -39,11 +37,6 @@ public:
 
 	void SetSelectGameObject(GameObject* g);
 	GameObject* GetSelectedGameObject() { return selectedGameObject; }
-
-	void PopUpMessage(std::string message);
-
-public:
-	ImWindowConsole* consoleWindow = nullptr;
 
 private:
 	ImWindow* imWindows[(uint)ImWindowID::MAX] = { nullptr };

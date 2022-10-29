@@ -101,14 +101,14 @@ void GameObject::OnEditor()
 				switch (n)
 				{
 				case 0:
-					Console::S_Log("Cannot add empty MeshRenderComponents yet!", true);
+					Console::S_Log("Cannot add empty MeshRenderComponents yet!");
 					//AddComponent<MeshRenderComponent>();
 					break;
 				case 1:
 					if (!HasComponent<MaterialComponent>())
 						AddComponent<MaterialComponent>();
 					else
-						Console::S_Log("Cannot add two Materials to a single GameObject.", true);
+						Console::S_Log("Cannot add two Materials to a single GameObject.");
 					break;
 				}
 			}
