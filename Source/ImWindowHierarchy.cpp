@@ -17,7 +17,7 @@ ImWindowHierarchy::ImWindowHierarchy()
 
 	isEnabled = true;
 
-    base_flags = ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_OpenOnDoubleClick | ImGuiTreeNodeFlags_SpanAvailWidth;
+    base_flags = ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_OpenOnDoubleClick | ImGuiTreeNodeFlags_SpanAvailWidth | ImGuiTreeNodeFlags_AllowItemOverlap;
 }
 
 ImWindowHierarchy::~ImWindowHierarchy()
@@ -102,10 +102,13 @@ void ImWindowHierarchy::ProcessGameObject(GameObject* gameObject, int iteration)
     if (gameObject == layerEditor->selectedGameObject) node_flags |= ImGuiTreeNodeFlags_Selected;
 
     bool node_open;
+    bool isLeaf = false;
+    ImGui::AlignTextToFramePadding();
 
     if (gameObject->_children.empty())
     {
-        node_flags |= ImGuiTreeNodeFlags_Leaf | ImGuiTreeNodeFlags_NoTreePushOnOpen;
+        isLeaf = true;
+        node_flags |= ImGuiTreeNodeFlags_Leaf;
         ImGui::TreeNodeEx((void*)(intptr_t)iteration, node_flags, gameObject->name.c_str(), iteration);
         node_open = false;
     }
@@ -116,18 +119,12 @@ void ImWindowHierarchy::ProcessGameObject(GameObject* gameObject, int iteration)
 
     if (ImGui::BeginDragDropSource())
     {
-        ImGui::SetDragDropPayload("GameObject", gameObject, sizeof(GameObject*));
+        ImGui::SetDragDropPayload("GameObject", nullptr, 0);
 
         draggingGameObject = gameObject;
 
         ImGui::Text("Change game object parent");
         ImGui::EndDragDropSource();
-    }
-
-    if (ImGui::IsItemHovered())
-    {
-        if (ImGui::IsMouseDown(ImGuiMouseButton_::ImGuiMouseButton_Left)) layerEditor->SetSelectGameObject(gameObject);
-        if (ImGui::IsMouseDown(ImGuiMouseButton_::ImGuiMouseButton_Right)) rightClickedGameObject = gameObject;
     }
 
     if (ImGui::BeginDragDropTarget())
@@ -140,9 +137,22 @@ void ImWindowHierarchy::ProcessGameObject(GameObject* gameObject, int iteration)
         ImGui::EndDragDropTarget();
     }
 
+    if (ImGui::IsItemHovered(ImGuiHoveredFlags_AllowWhenOverlapped))
+    {
+        if (ImGui::IsMouseDown(ImGuiMouseButton_::ImGuiMouseButton_Left)) layerEditor->SetSelectGameObject(gameObject);
+        if (ImGui::IsMouseDown(ImGuiMouseButton_::ImGuiMouseButton_Right)) rightClickedGameObject = gameObject;
+    }
+
+    ImGui::SameLine(ImGui::GetWindowWidth() - 20);
+    if (ImGui::SmallButton(gameObject->IsActive() ? "X" : " "))
+    {
+        gameObject->SetActive(!gameObject->IsActive());
+    }
+
     if (node_open)
     {
         if (!gameObject->_children.empty()) DrawGameObjectChildren(gameObject, true); 
         ImGui::TreePop();
     }
+    if (isLeaf) ImGui::TreePop();
 }

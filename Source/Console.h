@@ -17,7 +17,7 @@ public:
 
 	static void S_Close();
 
-	static void S_Log(const std::string text);
+	static void S_Log(const std::string text, bool focusConsole = false);
 
 	static uint S_GetLog(std::string** buffer);
 

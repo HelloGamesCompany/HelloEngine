@@ -99,7 +99,7 @@ void LayerEditor::Start()
     imWindows[(uint)ImWindowID::CONFIGURATION] = new ImWindowConfiguration();
     imWindows[(uint)ImWindowID::ABOUT] = new ImWindowAbout();
 	imWindows[(uint)ImWindowID::OPENGL] = new ImWindowOpenGL();
-	imWindows[(uint)ImWindowID::CONSOLE] = new ImWindowConsole();
+	imWindows[(uint)ImWindowID::CONSOLE] = consoleWindow = new ImWindowConsole();
 	imWindows[(uint)ImWindowID::PROJECT] = new ImWindowProject();
 	imWindows[(uint)ImWindowID::QUICKSAVE] = new ImWindowQuickSave();
 	imWindows[(uint)ImWindowID::INSPECTOR] = new ImWindowInspector();

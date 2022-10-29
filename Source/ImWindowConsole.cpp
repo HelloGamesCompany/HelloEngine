@@ -37,14 +37,18 @@ ImWindowConsole::~ImWindowConsole()
 
 void ImWindowConsole::Update()
 {
+	if (focus)
+	{
+		focus = false;
+		ImGui::SetWindowFocus(windowName.c_str());
+	}
+
 	if (ImGui::Begin(windowName.c_str(), &isEnabled, ImGuiWindowFlags_NoCollapse))
 	{
 		if (ImGui::SmallButton("Save Log"))
 		{
 			CSL::S_SaveLog();
 		}ImGui::SameLine();
-
-		//if (ImGui::Selectable("Collapse", &_isCollapse, 0, ImVec2(50, 0))); ImGui::SameLine();
 
 		if (ImGui::SmallButton("Collapse"))
 		{
@@ -93,4 +97,9 @@ void ImWindowConsole::Update()
 		ImGui::Text(" Hello Engine :) ");
 	}
 	ImGui::End();
+}
+
+void ImWindowConsole::FocusConsole()
+{
+	focus = true;
 }

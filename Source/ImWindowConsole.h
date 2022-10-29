@@ -10,7 +10,9 @@ public:
 
 	void Update() override;
 
-private:
+	void FocusConsole();
 
+private:
+	bool focus = false;
 	bool _isCollapse = false;
 };
