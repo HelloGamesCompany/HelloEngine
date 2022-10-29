@@ -66,8 +66,14 @@ Resource* ModuleResourceManager::LoadFile(const std::string& filePath)
 	switch (type)
 	{
 	case ResourceType::MESH:
-		MeshImporter::LoadMesh(filePath);
-		break;
+	{
+		ResourceMesh* resource = new ResourceMesh();
+		resource->meshParent = MeshImporter::LoadMesh(filePath);
+		RELEASE_ARRAY(buffer);
+		loadedResources[ModuleFiles::S_GetFileName(filePath, true)] = resource;
+		return resource;
+	}
+	break;
 	case ResourceType::TEXTURE:
 	{
 		// If we already loaded this texture, return its pointer.
@@ -99,3 +105,4 @@ bool ModuleResourceManager::IsFileLoaded(const char* fileName)
 {
 	return loadedResources.find(fileName) != loadedResources.end();
 }
+

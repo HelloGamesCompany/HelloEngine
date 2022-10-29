@@ -39,6 +39,9 @@ public:
 
 	bool AddChild(GameObject* child);
 
+	// Only to be called when a GameObject is destroyed! no Game Object should be without a parent.
+	void RemoveChild(GameObject* child);
+
 	bool SetParent(GameObject* parent);
 
 	void SetActive(bool active);
@@ -50,6 +53,8 @@ public:
 	std::vector<GameObject*>* GetChildren() { return &_children; }
 
 	void OnEditor();
+
+	void Destroy();
 
 	template <class T>
 	bool HasComponent()
@@ -67,9 +72,6 @@ public:
 	std::string name = "";
 	std::string tag = "";
 	TransformComponent* transform = nullptr;
-
-private:
-	void RemoveChild(GameObject* child);
 
 private:
 	std::vector<Component*> _components;

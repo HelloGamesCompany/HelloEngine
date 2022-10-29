@@ -7,18 +7,23 @@
 #include "Mesh.h"
 #include "TextureImporter.h"
 #include "ModuleResourceManager.h"
+#include "ModuleLayers.h"
+#include "LayerEditor.h"
 
 MeshRenderComponent::MeshRenderComponent(GameObject* gameObject) : Component(gameObject)
 {
 	_type = Type::MESH_RENDERER;
-	_meshID = 0;
+	_meshID = -1;
 	_instanceID = 0;
 }
 
 MeshRenderComponent::~MeshRenderComponent()
 {
-	RenderManager* manager = Application::Instance()->renderer3D->modelRender.GetRenderManager(_meshID);
-	manager->GetMap().erase(_instanceID);
+	if (_meshID != -1)
+	{
+		RenderManager* manager = Application::Instance()->renderer3D->modelRender.GetRenderManager(_meshID);
+		manager->GetMap().erase(_instanceID);
+	}
 }
 
 void MeshRenderComponent::InitAsLoadedMesh(uint meshID)
@@ -85,10 +90,59 @@ Mesh& MeshRenderComponent::GetMesh()
 
 void MeshRenderComponent::OnEditor()
 {
-	Mesh& mesh = GetMesh();
-
 	if (ImGui::CollapsingHeader("Mesh Renderer", ImGuiTreeNodeFlags_DefaultOpen))
 	{
+		if (_meshID == -1)
+		{
+			ImGui::TextWrapped("No mesh loaded! Drag an FBX file below to load a mesh ");
+
+			ImGui::TextColored(ImVec4(1,1,0,1), "Drag FBX here");
+
+			// Create Droped mesh
+			if (ImGui::BeginDragDropTarget())
+			{
+				if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("Mesh"))
+				{
+					const std::string drop = *(std::string*)payload->Data;
+
+					Resource* resource = Application::Instance()->resource->LoadFile(drop);
+
+					if (resource->type != ResourceType::MESH) return;
+
+					ResourceMesh* mesh = (ResourceMesh*)resource;
+
+					GameObject* meshParent = mesh->meshParent;
+					std::vector<GameObject*>* meshes = meshParent->GetChildren();
+
+					for (int i = 0; i < meshes->size(); i) // Because the vector changes dynamically, we just read the value 0 every iteration.
+					{
+						meshes->at(i)->SetParent(_gameObject);
+					}
+
+					MeshRenderComponent* meshRenderer = meshParent->GetComponent<MeshRenderComponent>();
+
+					if (meshRenderer != nullptr)
+					{
+						_meshID = meshRenderer->_meshID;
+						_instanceID = meshRenderer->_instanceID;
+						vertexNum = meshRenderer->vertexNum;
+						indexNum = meshRenderer->indexNum;
+						meshRenderer->_meshID = -1;
+					}
+
+					meshParent->Destroy();
+
+					std::string popUpmessage = "Loaded Mesh: " + drop;
+					Application::Instance()->layers->editor->PopUpMessage(popUpmessage);
+
+				}
+				ImGui::EndDragDropTarget();
+			}
+
+			return;
+		}
+
+		Mesh& mesh = GetMesh();
 		bool auxiliaryBool = _isEnabled;
 		if (ImGui::Checkbox("SetActive", &auxiliaryBool))
 			Enable(auxiliaryBool, false);

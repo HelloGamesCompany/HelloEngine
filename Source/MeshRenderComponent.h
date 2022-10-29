@@ -24,7 +24,7 @@ public:
 	void Enable(bool enabled, bool fromGo = true) override;
 
 private:
-	uint _meshID = 0;
+	int _meshID = -1;
 	uint _instanceID = 0;
 
 	std::string comboValues[3] = { "None", "Vertex Normals", "Face Normals" };

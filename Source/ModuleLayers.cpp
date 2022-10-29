@@ -41,6 +41,11 @@ bool ModuleLayers::Start()
 
 UpdateStatus ModuleLayers::PreUpdate()
 {
+    for (int i = 0; i < deletedGameObjects.size(); i++)
+    {
+        RELEASE(deletedGameObjects[i]);
+    }
+
     for (int i = 0; i < (uint)LayersID::MAX; i++)
     {
         if (layers[i] && layers[i]->IsEnabled()) layers[i]->PreUpdate();

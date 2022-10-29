@@ -3,6 +3,8 @@
 #include "ModuleFiles.h"
 #include "Texture.h"
 
+class GameObject;
+
 class Resource
 {
 public:
@@ -19,6 +21,15 @@ public:
 	ResourceTexture() { type = ResourceType::TEXTURE; }
 	~ResourceTexture() {}
 	Texture textureInfo;
+};
+
+class ResourceMesh : public Resource
+{
+public:
+	ResourceMesh() { type = ResourceType::MESH; };
+	~ResourceMesh() {};
+
+	GameObject* meshParent = nullptr;
 };
 
 class ModuleResourceManager : public Module

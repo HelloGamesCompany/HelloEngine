@@ -46,5 +46,8 @@ public:
 	LayerEditor* editor = nullptr;
 
 	std::map<uint, GameObject*> gameObjects;
+	std::vector<GameObject*> deletedGameObjects;
+
+	friend class GameObject;
 };
 

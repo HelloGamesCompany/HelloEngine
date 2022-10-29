@@ -4,6 +4,7 @@
 #include "TransformComponent.h"
 #include "MeshRenderComponent.h"
 #include "MaterialComponent.h"
+#include "LayerEditor.h"
 
 GameObject::GameObject(GameObject* parent, std::string name, std::string tag) : name(name), tag(tag)
 {
@@ -101,15 +102,12 @@ void GameObject::OnEditor()
 				switch (n)
 				{
 				case 0:
-					Console::S_Log("Cannot add empty MeshRenderComponents yet!");
-					//AddComponent<MeshRenderComponent>();
+					if (!HasComponent<MeshRenderComponent>())
+						AddComponent<MeshRenderComponent>();
 					break;
 				case 1:
 					if (!HasComponent<MaterialComponent>())
 						AddComponent<MaterialComponent>();
-					else
-						if (!HasComponent<MeshRenderComponent>())
-							AddComponent<MeshRenderComponent>();
 					break;
 				}
 			}
@@ -117,6 +115,18 @@ void GameObject::OnEditor()
 		ImGui::EndCombo();
 	}
 
+}
+
+void GameObject::Destroy()
+{
+	if (Application::Instance()->layers->editor->GetSelectedGameObject() == this) Application::Instance()->layers->editor->SetSelectGameObject(nullptr);
+	_parent->RemoveChild(this);
+	Application::Instance()->layers->gameObjects[_ID] = nullptr;
+	Application::Instance()->layers->deletedGameObjects.push_back(this);
+	for (int i = 0; i < _children.size();)
+	{
+		_children[i]->Destroy();
+	}
 }
 
 void GameObject::RemoveChild(GameObject* child)

@@ -154,6 +154,7 @@ uint TextureImporter::CheckerImage()
 	Texture engineTexture;
 	engineTexture.OpenGLID = textureID;
 	engineTexture.name = "Checkers";
+	engineTexture.width = engineTexture.height = 240;
 
 	TextureManager::loadedTextures[textureID] = engineTexture; // Add loaded texture inside TextureManager.
 	TextureManager::usedPaths["Checkers"] = textureID;
