@@ -144,7 +144,7 @@ void MeshRenderComponent::OnEditor()
 
 		Mesh& mesh = GetMesh();
 		bool auxiliaryBool = _isEnabled;
-		if (ImGui::Checkbox("SetActive", &auxiliaryBool))
+		if (ImGui::Checkbox("Active", &auxiliaryBool))
 			Enable(auxiliaryBool, false);
 
 		ImGui::TextWrapped("Mesh vertices: "); ImGui::SameLine(); 

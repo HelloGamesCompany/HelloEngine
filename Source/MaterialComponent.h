@@ -17,11 +17,13 @@ public:
 
 	Mesh& GetMesh();
 
+	void Enable(bool enabled, bool fromGo = true) override;
+
 private:
 	MeshRenderComponent* meshRenderer = nullptr;
 
 private:
 	void ChangeTexture(uint textureID);
-
+	int textureID = -1;
 };
 

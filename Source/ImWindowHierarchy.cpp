@@ -28,6 +28,7 @@ void ImWindowHierarchy::Update()
 {
 	if (ImGui::Begin(windowName.c_str(), &isEnabled))
 	{
+        hasSelectedAGameObject = false;
         ImGui::BeginChild("DropArea");
         {
             DrawGameObjectChildren(gameObjectsReference->at(1));
@@ -49,7 +50,7 @@ void ImWindowHierarchy::Update()
                 {
                     if (layerEditor->selectedGameObject != nullptr)
                     {
-                        ImGui::TextColored(ImVec4(1, 1, 0, 1), "Delete GameObject"); ImGui::SameLine(-ImGui::GetWindowWidth()); 
+                        ImGui::TextColored(ImVec4(1, 1, 0, 1), "Delete GameObject"); ImGui::SameLine(-ImGui::GetWindowWidth());
                         if (ImGui::Selectable("##"))
                         {
                             layerEditor->selectedGameObject->Destroy();
@@ -78,7 +79,10 @@ void ImWindowHierarchy::Update()
                 }
                 ImGui::EndPopup();
             }
-
+            else if (ImGui::IsMouseDown(ImGuiMouseButton_::ImGuiMouseButton_Left) && !hasSelectedAGameObject && ImGui::IsWindowHovered())
+            {
+                layerEditor->SetSelectGameObject(nullptr);
+            }
         }
         ImGui::EndChild();
 
@@ -151,11 +155,12 @@ void ImWindowHierarchy::ProcessGameObject(GameObject* gameObject, int iteration)
         ImGui::EndDragDropTarget();
     }
 
-    if (ImGui::IsItemHovered())
+    if (ImGui::IsItemHovered() && gameObject->_parent != nullptr)
     {
         if (ImGui::IsMouseDown(ImGuiMouseButton_::ImGuiMouseButton_Left) || ImGui::IsMouseDown(ImGuiMouseButton_::ImGuiMouseButton_Right))
         {
             layerEditor->SetSelectGameObject(gameObject);
+            hasSelectedAGameObject = true;
         }
     }
 

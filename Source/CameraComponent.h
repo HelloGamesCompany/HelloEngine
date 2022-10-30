@@ -14,6 +14,8 @@ public:
 
 	void OnEditor() override;
 
+	void Enable(bool enabled, bool fromGo = true) override;
+
 	CameraObject* GetCameraObject();
 private:
 	ModuleCamera3D* moduleCameras = nullptr;

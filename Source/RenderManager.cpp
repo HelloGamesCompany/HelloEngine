@@ -49,6 +49,7 @@ void RenderManager::Draw()
 
         modelMatrices.push_back(mesh.second.modelMatrix); // Insert updated matrices
         textureIDs.push_back(mesh.second.OpenGLTextureID);
+        mesh.second.OpenGLTextureID = -1; // Reset this, in case the next frame our texture ID changes to -1.
     }
 
     if (modelMatrices.empty()) return;

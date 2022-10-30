@@ -22,9 +22,30 @@ Mesh& MaterialComponent::GetMesh()
 	return meshRenderer->GetMesh();
 }
 
+void MaterialComponent::Enable(bool enabled, bool fromGo)
+{
+	if (!fromGo) _isEnabled = enabled;
+	GetMesh().textureID = _isEnabled ? textureID : -1;
+
+	if (_isEnabled && _gameObject->IsActive())
+		GetMesh().textureID = textureID;
+	else if (_isEnabled && !_gameObject->IsActive())
+		GetMesh().textureID = -1;
+}
+
+void MaterialComponent::ChangeTexture(uint textureID)
+{
+	this->textureID = textureID;
+	GetMesh().textureID = textureID;
+}
+
 void MaterialComponent::OnEditor()
 {
 	if (!ImGui::CollapsingHeader("Material", ImGuiTreeNodeFlags_DefaultOpen)) return;
+
+	bool auxiliaryBool = _isEnabled;
+	if (ImGui::Checkbox("SetActive", &auxiliaryBool))
+		Enable(auxiliaryBool, false);
 
 	if (!meshRenderer)
 	{
@@ -43,16 +64,16 @@ void MaterialComponent::OnEditor()
 
 		if (ImGui::Button("Set Checkers Texture"))
 		{
-			mesh.textureID = TextureImporter::CheckerImage();
+			ChangeTexture(TextureImporter::CheckerImage());
 		}
 
 		std::string imageName;
 		int width = 0;
 		int height = 0;
-		if (mesh.textureID != -1.0f)
+		if (textureID != -1.0f)
 		{
-			ImGui::Image((ImTextureID)(uint)mesh.textureID, ImVec2(64, 64), ImVec2(0, 1), ImVec2(1, 0));
-			Texture text = TextureManager::loadedTextures[mesh.textureID];
+			ImGui::Image((ImTextureID)(uint)textureID, ImVec2(64, 64), ImVec2(0, 1), ImVec2(1, 0));
+			Texture text = TextureManager::loadedTextures[textureID];
 			imageName = text.name;
 			width = text.width;
 			height = text.height;
@@ -76,7 +97,7 @@ void MaterialComponent::OnEditor()
 
 				ResourceTexture* textureResource = (ResourceTexture*)resource;
 
-				mesh.textureID = textureResource->textureInfo.OpenGLID;
+				ChangeTexture(textureResource->textureInfo.OpenGLID);
 			}
 			ImGui::EndDragDropTarget();
 		}
@@ -95,9 +116,5 @@ void MaterialComponent::OnEditor()
 void MaterialComponent::SetMeshRenderer(MeshRenderComponent* mesh)
 {
 	this->meshRenderer = mesh;
-}
-
-void MaterialComponent::ChangeTexture(uint textureID)
-{
-	GetMesh();
+	this->textureID = GetMesh().textureID;
 }

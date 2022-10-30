@@ -117,6 +117,7 @@ UpdateStatus ModuleRenderer3D::PostUpdate()
 		Application::Instance()->layers->DrawLayers();
 		modelRender.Draw();
 	}
+
 	if (cameras->activeGameCamera->active)
 	{
 		cameras->activeGameCamera->frameBuffer.Bind();

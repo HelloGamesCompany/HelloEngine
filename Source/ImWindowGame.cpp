@@ -18,7 +18,7 @@ void ImWindowGame::Update()
 {
 	if(ImGui::Begin(windowName.c_str()))
 	{
-		currentGameCamera->active = true;
+		/*currentGameCamera->active = true;*/
 		ImVec2 gameDimensions = ImGui::GetContentRegionAvail();
 
 		if (gameDimensions.x != gameWidth || gameDimensions.y != gameHeight)
@@ -30,11 +30,11 @@ void ImWindowGame::Update()
 			//moduleCameras->RequestFrameBufferRegen(currentGameCamera, gameWidth, gameHeight);
 		}
 
-		ImGui::Image((ImTextureID)currentGameCamera->frameBuffer.GetTexture(), ImGui::GetContentRegionAvail(), ImVec2(0, 1), ImVec2(1, 0));
+		if (currentGameCamera->active)ImGui::Image((ImTextureID)currentGameCamera->frameBuffer.GetTexture(), ImGui::GetContentRegionAvail(), ImVec2(0, 1), ImVec2(1, 0));
 	}
 	else
 	{
-		currentGameCamera->active = true;
+		/*currentGameCamera->active = true;*/
 	}
 	ImGui::End();
 }

@@ -32,6 +32,7 @@ public:
 
 	void SetFOV(float fov);
 	float GetFOV() { return FOV; };
+
 public:
 	float3 X = { 0,0,0 }, Y = { 0,0,0 }, Z = { 0,0,0 }, Position = { 0,0,0 }, Reference = { 0,0,0 };
 	bool active = true;

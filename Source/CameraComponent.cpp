@@ -38,6 +38,10 @@ void CameraComponent::OnEditor()
 {
 	if (ImGui::CollapsingHeader("Camera", ImGuiTreeNodeFlags_DefaultOpen))
 	{
+		bool auxiliaryBool = _isEnabled;
+		if (ImGui::Checkbox("Active", &auxiliaryBool))
+			Enable(auxiliaryBool, false);
+
 		int tempValue = moduleCameras->gameCameras[cameraID].FOV;
 		if (ImGui::SliderInt("FOV", &tempValue, 20, 140))
 		{
@@ -48,6 +52,17 @@ void CameraComponent::OnEditor()
 		ImGui::DragFloat("Far plane", &moduleCameras->gameCameras[cameraID].cameraFrustum.farPlaneDistance, 1.0f, 0.01);
 
 	}
+}
+
+void CameraComponent::Enable(bool enabled, bool fromGo)
+{
+	if (!fromGo) _isEnabled = enabled;
+	moduleCameras->gameCameras[cameraID].active = enabled;
+
+	if (_isEnabled && _gameObject->IsActive())
+		moduleCameras->gameCameras[cameraID].active = true;
+	else if (_isEnabled && !_gameObject->IsActive())
+		moduleCameras->gameCameras[cameraID].active = false;
 }
 
 CameraObject* CameraComponent::GetCameraObject()
