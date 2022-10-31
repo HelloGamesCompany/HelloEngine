@@ -124,7 +124,8 @@ void SceneCameraObject::UpdateInput()
 
 	if (app->input->GetMouseZ() != 0)
 	{
-		float newFOV = math::RadToDeg(GetFOV()) + (1.5f * -app->input->GetMouseZ());
+		float currentFOV = GetFOV();
+		float newFOV = currentFOV + (1.5f * -app->input->GetMouseZ());
 
 		if (newFOV > 20.0f && newFOV < 160.0f) SetFOV(newFOV);
 	}

@@ -2,6 +2,7 @@
 #include "ImWindowPerformanceTest.h"
 #include "MeshImporter.h"
 #include "TextureImporter.h"
+#include "ModuleResourceManager.h"
 
 ImWindowPerformanceTest::ImWindowPerformanceTest()
 {
@@ -24,11 +25,6 @@ void ImWindowPerformanceTest::Update()
 			{
 				GameObject* mesh = MeshImporter::LoadMesh("Assets/BakerHouse.fbx");
 				mesh->transform->SetPosition({ (float)(rand() % 100), 1.0f, (float)(rand() % 100) });
-				std::vector<GameObject*>* children = mesh->GetChildren();
-				for (int i = 0; i < children->size(); i++)
-				{
-					children->at(i)->GetComponent<MeshRenderComponent>()->GetMesh().textureID = TextureImporter::ImportTextureSTBI("Assets/Baker_house.png");
-				}
 			}
 		}
 		if (ImGui::Button("Add 100 Baker House models"))
@@ -38,11 +34,6 @@ void ImWindowPerformanceTest::Update()
 			{
 				GameObject* mesh = MeshImporter::LoadMesh("Assets/BakerHouse.fbx");
 				mesh->transform->SetPosition({ (float)(rand() % 100), 1.0f, (float)(rand() % 100) });
-				std::vector<GameObject*>* children = mesh->GetChildren();
-				for (int i = 0; i < children->size(); i++)
-				{
-					children->at(i)->GetComponent<MeshRenderComponent>()->GetMesh().textureID = TextureImporter::ImportTextureSTBI("Assets/Baker_house.png");
-				}
 			}
 		}
 		if (ImGui::Button("Add 1000 Baker House models"))
@@ -52,11 +43,6 @@ void ImWindowPerformanceTest::Update()
 			{
 				GameObject* mesh = MeshImporter::LoadMesh("Assets/BakerHouse.fbx");
 				mesh->transform->SetPosition({ (float)(rand() % 100), 1.0f, (float)(rand() % 100) });
-				std::vector<GameObject*>* children = mesh->GetChildren();
-				for (int i = 0; i < children->size(); i++)
-				{
-					children->at(i)->GetComponent<MeshRenderComponent>()->GetMesh().textureID = TextureImporter::ImportTextureSTBI("Assets/Baker_house.png");
-				}
 			}
 		}
 		ImGui::TextWrapped("Number of houses: %d", houseNum);

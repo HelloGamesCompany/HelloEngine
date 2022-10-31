@@ -53,7 +53,9 @@ void ImWindowHierarchy::Update()
                         ImGui::TextColored(ImVec4(1, 1, 0, 1), "Delete GameObject"); ImGui::SameLine(-ImGui::GetWindowWidth());
                         if (ImGui::Selectable("##"))
                         {
-                            layerEditor->selectedGameObject->Destroy();
+                            Application::Instance()->layers->editor->PopUpMessage("Cannot delete GameObjects in this version yet! Check console.");
+                            Console::S_Log("Cannot delete GameObjects yet. Because of the Undo/ Redo system, we need to implement this feature carefully. Therefore, it is not included in this version.");
+                            //layerEditor->selectedGameObject->Destroy();
                             popUpOpen = false;
                         }
                     }
@@ -112,6 +114,7 @@ void ImWindowHierarchy::DrawGameObjectChildren(GameObject* gameObject, bool only
             ProcessGameObject(gameObject->_children[i], i);
         }
     }
+
 
 }
 

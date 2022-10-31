@@ -119,6 +119,10 @@ void GameObject::OnEditor()
 
 void GameObject::Destroy()
 {
+	// TODO: This won't work for now because of the Command system to Undo / Redo. It will be implemented in the future
+	
+	// Suspiciously similar to another Destroy() method in another person's repository...
+
 	if (Application::Instance()->layers->editor->GetSelectedGameObject() == this) Application::Instance()->layers->editor->SetSelectGameObject(nullptr);
 	_parent->RemoveChild(this);
 	Application::Instance()->layers->gameObjects[_ID] = nullptr;

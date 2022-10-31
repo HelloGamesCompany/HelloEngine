@@ -24,7 +24,7 @@ void ModuleResourceManager::ImportFile(const std::string& filePath)
 
 	if (type == ResourceType::UNDEFINED)
 	{
-		Console::S_Log("Tried to load an undefined file. Filename: " + filePath);
+		Console::S_Log("Tried to import an undefined file. Filename: " + filePath);
 		return;
 	}
 

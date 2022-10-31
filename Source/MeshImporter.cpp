@@ -187,7 +187,7 @@ void MeshImporter::ProcessNewMesh(aiMesh* mesh, const aiScene* scene, GameObject
 				if (ModuleFiles::S_Exists(assetsPath))
 				{
 					// Import file to create DDS file
-					Application::Instance()->resource->ImportFile(filePath);
+					Application::Instance()->resource->ImportFile(assetsPath);
 
 					// Get path of our loaded DDS file inside Resources
 					std::string resourcesPath = "Resources/Textures/";
@@ -282,6 +282,9 @@ void MeshImporter::ProcessLoadedNode(aiNode* node, const aiScene* scene, uint& f
 			MeshRenderComponent* mesh = newGameObject->AddComponent<MeshRenderComponent>();
 			mesh->InitAsLoadedMesh(firstMeshID++);
 			mesh->GetMesh().textureID = loadedMeshes[currentPath].meshDiffuseTexture;
+			if (loadedMeshes[currentPath].meshDiffuseTexture != -1)
+				newGameObject->AddComponent<MaterialComponent>();
+			
 		}
 	}
 	else if (meshNum != 0)
@@ -289,6 +292,8 @@ void MeshImporter::ProcessLoadedNode(aiNode* node, const aiScene* scene, uint& f
 		MeshRenderComponent* mesh = newParent->AddComponent<MeshRenderComponent>();
 		mesh->InitAsLoadedMesh(firstMeshID++);
 		mesh->GetMesh().textureID = loadedMeshes[currentPath].meshDiffuseTexture;
+		if (loadedMeshes[currentPath].meshDiffuseTexture != -1)
+			newParent->AddComponent<MaterialComponent>();
 	}
 
 	if (loadedMeshes[currentPath].displayMissingTextureError)

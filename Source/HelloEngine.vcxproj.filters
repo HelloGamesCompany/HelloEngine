@@ -232,9 +232,6 @@
     <ClCompile Include="MeshImporter.cpp">
       <Filter>Others</Filter>
     </ClCompile>
-    <ClCompile Include="External\stb_image\stb_image.cpp">
-      <Filter>Others</Filter>
-    </ClCompile>
     <ClCompile Include="Texture.cpp">
       <Filter>Others</Filter>
     </ClCompile>
@@ -608,9 +605,6 @@
       <Filter>Others</Filter>
     </ClInclude>
     <ClInclude Include="MeshImporter.h">
-      <Filter>Others</Filter>
-    </ClInclude>
-    <ClInclude Include="External\stb_image\stb_image.h">
       <Filter>Others</Filter>
     </ClInclude>
     <ClInclude Include="Texture.h">

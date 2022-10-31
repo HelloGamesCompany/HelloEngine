@@ -4,7 +4,6 @@
 #include "IL/ilut.h"
 #include "Texture.h"
 #include "TextureManager.h"
-#include "External/stb_image/stb_image.h"
 #include "ModuleFiles.h"
 
 void TextureImporter::ImportImage(const std::string& fileName, char* buffer, uint size)
@@ -82,44 +81,6 @@ uint TextureImporter::Load(char* buffer, int size, int* width, int* heigth, std:
 	return engineTexture.OpenGLID;
 }
 
-//uint TextureImporter::ImportTexture(std::string path)
-//{
-//	//Check if the given texture has been already loaded
-//	if (TextureManager::usedPaths.find(path) != TextureManager::usedPaths.end())
-//	{
-//		return TextureManager::usedPaths[path]; // If this texture path was already loaded, return the loaded texture.
-//	}
-//
-//	ILuint ImgId = 0;
-//	ilGenImages(1, &ImgId);
-//	ilBindImage(ImgId);
-//	if (!ilLoadImage(path.c_str()))
-//	{
-//		LOG("Error loading image: %s", ilutGetString(ilGetError()));
-//	}
-//
-//	GLuint texture = ilutGLBindTexImage();
-//
-//	glBindTexture(GL_TEXTURE_2D, texture);
-//	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-//	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-//	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-//	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-//	glGenerateMipmap(GL_TEXTURE_2D);
-//	glBindTexture(GL_TEXTURE_2D, 0);
-//
-//	ilDeleteImages(1, &ImgId);
-//
-//	Texture engineTexture;
-//	engineTexture.OpenGLID = texture;
-//	engineTexture.name = path;
-//
-//	TextureManager::loadedTextures[texture] = engineTexture; // Add loaded texture inside TextureManager.
-//	TextureManager::usedPaths[path] = texture;
-//
-//	return texture;
-//}
-
 uint TextureImporter::CheckerImage()
 {
 	//Check if the given texture has been already loaded
@@ -160,46 +121,4 @@ uint TextureImporter::CheckerImage()
 	TextureManager::usedPaths["Checkers"] = textureID;
 
 	return textureID;
-}
-
-uint TextureImporter::ImportTextureSTBI(std::string path)
-{
-	//Check if the given texture has been already loaded
-	if (TextureManager::usedPaths.find(ModuleFiles::S_GetFileName(path, false)) != TextureManager::usedPaths.end())
-	{
-		return TextureManager::usedPaths[ModuleFiles::S_GetFileName(path, false)]; // If this texture path was already loaded, return the loaded texture.
-	}
-
-	unsigned int m_RendererID;
-	std::string m_FilePath;
-	unsigned char* m_LocalBuffer;
-	int m_Width, m_Height, m_BPP;	// BPP = Bits per pixel
-
-	//stbi_set_flip_vertically_on_load(1);
-	m_LocalBuffer = stbi_load(path.c_str(), &m_Width, &m_Height, &m_BPP, 4);
-
-	glGenTextures(1, &m_RendererID);
-	glBindTexture(GL_TEXTURE_2D, m_RendererID);
-
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, m_Width, m_Height, 0, GL_RGBA, GL_UNSIGNED_BYTE, m_LocalBuffer);
-	glBindTexture(GL_TEXTURE_2D, 0);
-
-	if (m_LocalBuffer)
-	{
-		stbi_image_free(m_LocalBuffer);
-	}
-
-	Texture engineTexture;
-	engineTexture.OpenGLID = m_RendererID;
-	engineTexture.name = path;
-
-	TextureManager::loadedTextures[m_RendererID] = engineTexture; // Add loaded texture inside TextureManager.
-	TextureManager::usedPaths[ModuleFiles::S_GetFileName(path, false)] = m_RendererID;
-
-	return m_RendererID;
 }
