@@ -348,3 +348,6 @@ MigrationBackup/
 .ionide/
 
 Output/Xmls/config.xml
+*.psd
+*.blend
+*.zip
