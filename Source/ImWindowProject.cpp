@@ -38,10 +38,10 @@ void ImWindowProject::Update()
         if (width2 < 200) width2 = 200;
 
         // Options, Filter
-        if (ImGui::Button("Options")) ImGui::OpenPopup("Options");
-        ImGui::SameLine();
-        filter.Draw("Filter (\"incl,-excl\") (\"error\")", 180);
-        ImGui::SameLine();
+        //if (ImGui::Button("Options")) ImGui::OpenPopup("Options");
+        //ImGui::SameLine();
+        //filter.Draw("Filter (\"incl,-excl\") (\"error\")", 180);
+        //ImGui::SameLine();
         if (ImGui::Button("Return")) 
         {
             if(!currentNode->isRoot()) newDir = currentNode->GetParent();
