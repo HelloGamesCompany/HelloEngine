@@ -671,6 +671,9 @@
       <Filter>Tools\DataStruct</Filter>
     </ClInclude>
     <ClInclude Include="MaterialComponent.h" />
+    <ClInclude Include="resource.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="External\imgui\vulkan\generate_spv.sh">
@@ -753,5 +756,18 @@
     <Filter Include="Tools\DataStruct">
       <UniqueIdentifier>{07f835a3-a482-4f51-b329-36585cc31a62}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource">
+      <UniqueIdentifier>{a64d89a7-0eff-4c97-ab3a-b71f81408e02}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="HelloEngine.rc">
+      <Filter>Resource</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\Output\Resources\icon.ico">
+      <Filter>Resource</Filter>
+    </Image>
   </ItemGroup>
 </Project>
