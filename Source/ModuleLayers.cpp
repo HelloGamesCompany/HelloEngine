@@ -33,6 +33,7 @@ bool ModuleLayers::Start()
 
     MeshImporter::LoadMesh("Assets/FBX/BakerHouse.fbx");
     MeshImporter::LoadMesh("Assets/FBX/destructibleDoor.fbx");
+    MeshImporter::LoadMesh("Assets/FBX/stairsBasic.fbx");
 
     return true;
 }
