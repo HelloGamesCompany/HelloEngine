@@ -83,7 +83,7 @@ void ImWindowHierarchy::Update()
             }
             else if (ImGui::IsMouseDown(ImGuiMouseButton_::ImGuiMouseButton_Left) && !hasSelectedAGameObject && ImGui::IsWindowHovered())
             {
-                layerEditor->SetSelectGameObject(nullptr);
+                layerEditor->selectedGameObject = nullptr;
             }
         }
         ImGui::EndChild();

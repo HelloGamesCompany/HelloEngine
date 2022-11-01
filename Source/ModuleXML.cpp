@@ -177,8 +177,7 @@ void ModuleXML::CreateDefaultConfigFile()
 			"</renderer>\n"
 			"<openGL>\n"
 				"<blend value = \"true\" tag = \"0x0BE2\" />\n"
-				"<cullFace value = \"true\" tag = \"0x0B44\" />\n"
-				"<texture2D value = \"true\" tag = \"0x0DE1\" />\n"			
+				"<cullFace value = \"true\" tag = \"0x0B44\" />\n"		
 				"<wireframe value = \"true\"/>\n"
 			"</openGL>\n"
 		"</config>";

@@ -11,12 +11,12 @@ class ImWindowConfiguration;
 enum class ImWindowID
 {
 	CONFIGURATION,
-	ABOUT,
 	CONSOLE,
 	PROJECT,
 	HIERARCHY,
 	INSPECTOR,
 	QUICKSAVE,
+	ABOUT,
 	PERFORMANCE,
 	GAME,
 	SCENE,
@@ -44,12 +44,13 @@ public:
 
 public:
 	ImWindowConfiguration* configuration = nullptr;
+	GameObject* selectedGameObject = nullptr;
+
 private:
 	ImWindow* imWindows[(uint)ImWindowID::MAX] = { nullptr };
 
 	LayerGame* game = nullptr;
 
-	GameObject* selectedGameObject = nullptr;
 
 	Application* app = nullptr;
 

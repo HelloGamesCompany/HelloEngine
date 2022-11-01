@@ -7,12 +7,11 @@
 	</window>
 	<renderer>
 		<vsync value="false" />
-		<framerate value="90" />
+		<framerate value="120" />
 	</renderer>
 	<openGL>
 		<blend value="false" tag="0x0BE2" />
 		<cullFace value="false" tag="0x0B44" />
-		<texture2D value="false" tag="0x0DE1" />
 		<wireframe value="false" />
 	</openGL>
 </config>
