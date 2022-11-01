@@ -11,11 +11,11 @@
 	</renderer>
 	<openGL>
 		<depthTest value="false" tag="0x1801" />
-		<cullFace value="false" tag="0x0B44" />
+		<cullFace value="true" tag="0x0B44" />
 		<lighting value="false" tag="0x0B50" />
 		<colorMaterial value="false" tag="0x0B57" />
-		<texture2D value="false" tag="0x0DE1" />
+		<texture2D value="true" tag="0x0DE1" />
 		<blend value="true" tag="0x0BE2" />
-		<wireframe value="false" />
+		<wireframe value="true" />
 	</openGL>
 </config>
