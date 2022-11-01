@@ -23,6 +23,14 @@ GameObject* MeshImporter::LoadMesh(std::string path)
 	currentPath = path;
 	// Load AiScene
 	const aiScene* scene = GetAiScene(path);
+
+	if (scene == nullptr)
+	{
+		std::string errorMessage = "Cannot load FBX: " + path;
+		Console::S_Log(errorMessage);
+		return nullptr;
+	}
+
 	// Check if this file path has already been loaded.
 	bool alreadyLoaded = loadedMeshes.find(path) != loadedMeshes.end();
 
@@ -86,7 +94,7 @@ void MeshImporter::ProcessNewNode(aiNode* node, const aiScene* scene, std::strin
 	eulerRot.y = math::RadToDeg(eulerRot.y);
 	eulerRot.z = math::RadToDeg(eulerRot.z);
 
-	newParent->GetComponent<TransformComponent>()->SetTransform(pos, {1.0f,1.0f,1.0f}, eulerRot);
+	newParent->GetComponent<TransformComponent>()->SetTransform(pos, { 1.0f,1.0f,1.0f }, eulerRot);
 
 	uint meshNum = node->mNumMeshes;
 

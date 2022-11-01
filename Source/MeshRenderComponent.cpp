@@ -112,6 +112,9 @@ void MeshRenderComponent::OnEditor()
 					ResourceMesh* mesh = (ResourceMesh*)resource;
 
 					GameObject* meshParent = mesh->meshParent;
+
+					if (meshParent == nullptr) return;
+
 					std::vector<GameObject*>* meshes = meshParent->GetChildren();
 
 					for (int i = 0; i < meshes->size(); i) // Because the vector changes dynamically, we just read the value 0 every iteration.

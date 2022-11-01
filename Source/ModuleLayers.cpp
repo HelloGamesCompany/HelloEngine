@@ -31,10 +31,8 @@ bool ModuleLayers::Start()
         if (layers[i] && layers[i]->IsEnabled()) layers[i]->Start();
     }
 
-    for (int i = 0; i < 1; i++)
-    {
-        MeshImporter::LoadMesh("Assets/BakerHouse.fbx");
-    }
+    MeshImporter::LoadMesh("Assets/FBX/BakerHouse.fbx");
+    MeshImporter::LoadMesh("Assets/FBX/destructibleDoor.fbx");
 
     return true;
 }
