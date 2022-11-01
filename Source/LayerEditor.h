@@ -17,7 +17,6 @@ enum class ImWindowID
 	INSPECTOR,
 	QUICKSAVE,
 	ABOUT,
-	PERFORMANCE,
 	GAME,
 	SCENE,
 	MAX,

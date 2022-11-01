@@ -7,31 +7,32 @@
 CameraComponent::CameraComponent(GameObject* gameObject) : Component(gameObject)
 {
 	moduleCameras = Application::Instance()->camera;
-	cameraID = moduleCameras->gameCameras.size();
+	cameraID = moduleCameras->gameCameras.empty() ? 0 : moduleCameras->gameCameras.size();
 }
 
 CameraComponent::~CameraComponent()
 {
+	RELEASE(cameraObject);
 }
 
 void CameraComponent::OnPositionUpdate(float3 pos)
 {
-	moduleCameras->gameCameras[cameraID].cameraFrustum.pos = pos;
+	cameraObject->cameraFrustum.pos = pos;
 }
 
 void CameraComponent::OnRotationUpdate(float3 rotation)
 {
 	float3 forward = _gameObject->transform->GetForward();
 	float3 up = _gameObject->transform->GetUp();
-	moduleCameras->gameCameras[cameraID].cameraFrustum.front = _gameObject->transform->GetForward();
-	moduleCameras->gameCameras[cameraID].cameraFrustum.up = _gameObject->transform->GetUp();
+	cameraObject->cameraFrustum.front = _gameObject->transform->GetForward();
+	cameraObject->cameraFrustum.up = _gameObject->transform->GetUp();
 }
 
 void CameraComponent::OnTransformUpdate(float3 pos, float3 scale, float3 rotation)
 {
-	moduleCameras->gameCameras[cameraID].cameraFrustum.pos = pos;
-	moduleCameras->gameCameras[cameraID].cameraFrustum.front = _gameObject->transform->GetForward();
-	moduleCameras->gameCameras[cameraID].cameraFrustum.up = _gameObject->transform->GetUp();
+	cameraObject->cameraFrustum.pos = pos;
+	cameraObject->cameraFrustum.front = _gameObject->transform->GetForward();
+	cameraObject->cameraFrustum.up = _gameObject->transform->GetUp();
 }
 
 void CameraComponent::OnEditor()
@@ -42,14 +43,14 @@ void CameraComponent::OnEditor()
 		if (ImGui::Checkbox("Active", &auxiliaryBool))
 			Enable(auxiliaryBool, false);
 
-		int tempValue = moduleCameras->gameCameras[cameraID].FOV;
+		int tempValue = cameraObject->FOV;
 		if (ImGui::SliderInt("FOV", &tempValue, 20, 140))
 		{
-			moduleCameras->gameCameras[cameraID].SetFOV(tempValue);
+			cameraObject->SetFOV(tempValue);
 		}
 
-		ImGui::DragFloat("Near plane", &moduleCameras->gameCameras[cameraID].cameraFrustum.nearPlaneDistance, 0.1f, 0.01);
-		ImGui::DragFloat("Far plane", &moduleCameras->gameCameras[cameraID].cameraFrustum.farPlaneDistance, 1.0f, 0.01);
+		ImGui::DragFloat("Near plane", &cameraObject->cameraFrustum.nearPlaneDistance, 0.1f, 0.01);
+		ImGui::DragFloat("Far plane", &cameraObject->cameraFrustum.farPlaneDistance, 1.0f, 0.01);
 
 	}
 }

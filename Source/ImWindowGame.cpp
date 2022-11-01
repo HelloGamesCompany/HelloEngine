@@ -18,7 +18,6 @@ void ImWindowGame::Update()
 {
 	if(ImGui::Begin(windowName.c_str()))
 	{
-		/*currentGameCamera->active = true;*/
 		ImVec2 gameDimensions = ImGui::GetContentRegionAvail();
 
 		if (gameDimensions.x != gameWidth || gameDimensions.y != gameHeight)

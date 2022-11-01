@@ -24,16 +24,19 @@ bool ModuleCamera3D::Start()
 	// Create Empty GameObject with camera component.
 	GameObject* mainCamera = new GameObject(Application::Instance()->layers->rootGameObject, "Main Camera", "Camera");
 	CameraComponent* camera = mainCamera->AddComponent<CameraComponent>();
-	currentDrawingCamera = activeGameCamera = camera->GetCameraObject();
+	currentDrawingCamera = activeGameCamera = camera->cameraObject = new CameraObject();
 
 	sceneCamera.frameBuffer.SetBufferInfo();
 	sceneCamera.frameBuffer.SetDimensions(Application::Instance()->window->width, Application::Instance()->window->height);
 
-	for (auto& camera : gameCameras)
+	activeGameCamera->frameBuffer.SetBufferInfo();
+	activeGameCamera->frameBuffer.SetBufferInfo();
+
+	/*for (auto& camera : gameCameras)
 	{
 		camera.second.frameBuffer.SetBufferInfo();
 		camera.second.frameBuffer.SetDimensions(Application::Instance()->window->width, Application::Instance()->window->height);
-	}
+	}*/
 
 	return true;
 }
