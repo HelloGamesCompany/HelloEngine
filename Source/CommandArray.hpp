@@ -4,6 +4,8 @@ namespace Htool
 {
 	template<class T>
 
+	// Better use 2 stacks.
+
 	/// <summary>
 	/// Command use array
 	/// </summary>

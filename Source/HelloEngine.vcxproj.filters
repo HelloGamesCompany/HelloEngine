@@ -250,7 +250,6 @@
     <ClCompile Include="ImWindowQuickSave.cpp">
       <Filter>Modules\Layer\Windows</Filter>
     </ClCompile>
-    <ClCompile Include="CameraObject.cpp" />
     <ClCompile Include="ImWrapper.cpp">
       <Filter>Tools\ImGuiWrapper</Filter>
     </ClCompile>
@@ -263,7 +262,6 @@
     <ClCompile Include="ModuleCommand.cpp">
       <Filter>Modules</Filter>
     </ClCompile>
-    <ClCompile Include="SceneCameraObject.cpp" />
     <ClCompile Include="ImWindowGame.cpp">
       <Filter>Modules\Layer\Windows</Filter>
     </ClCompile>
@@ -276,11 +274,21 @@
     <ClCompile Include="ImWindowPerformanceTest.cpp">
       <Filter>Modules\Layer\Windows</Filter>
     </ClCompile>
-    <ClCompile Include="ModuleResourceManager.cpp" />
     <ClCompile Include="External\mmgr\mmgr.cpp">
       <Filter>External\mmgr</Filter>
     </ClCompile>
-    <ClCompile Include="MaterialComponent.cpp" />
+    <ClCompile Include="MaterialComponent.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneCameraObject.cpp">
+      <Filter>Others</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraObject.cpp">
+      <Filter>Others</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleResourceManager.cpp">
+      <Filter>Others</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Module.h">
@@ -625,7 +633,6 @@
     <ClInclude Include="ImWindowQuickSave.h">
       <Filter>Modules\Layer\Windows</Filter>
     </ClInclude>
-    <ClInclude Include="CameraObject.h" />
     <ClInclude Include="ImWrapper.h">
       <Filter>Tools\ImGuiWrapper</Filter>
     </ClInclude>
@@ -638,7 +645,6 @@
     <ClInclude Include="ModuleCommand.h">
       <Filter>Modules</Filter>
     </ClInclude>
-    <ClInclude Include="SceneCameraObject.h" />
     <ClInclude Include="ImWindowGame.h">
       <Filter>Modules\Layer\Windows</Filter>
     </ClInclude>
@@ -654,7 +660,6 @@
     <ClInclude Include="ImWindowPerformanceTest.h">
       <Filter>Modules\Layer\Windows</Filter>
     </ClInclude>
-    <ClInclude Include="ModuleResourceManager.h" />
     <ClInclude Include="External\mmgr\mmgr.h">
       <Filter>External\mmgr</Filter>
     </ClInclude>
@@ -670,9 +675,20 @@
     <ClInclude Include="CommandArray.hpp">
       <Filter>Tools\DataStruct</Filter>
     </ClInclude>
-    <ClInclude Include="MaterialComponent.h" />
     <ClInclude Include="resource.h">
       <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="MaterialComponent.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneCameraObject.h">
+      <Filter>Others</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraObject.h">
+      <Filter>Others</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleResourceManager.h">
+      <Filter>Others</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
