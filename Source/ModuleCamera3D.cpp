@@ -7,6 +7,7 @@
 #include "GameObject.h"
 #include "ModuleLayers.h"
 #include "CameraComponent.h"
+#include "SceneCameraObject.h"
 
 ModuleCamera3D::ModuleCamera3D(bool start_enabled) : Module(start_enabled)
 {

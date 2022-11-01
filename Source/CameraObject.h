@@ -38,6 +38,7 @@ public:
 	bool active = true;
 	FrameBuffer frameBuffer;
 	CameraType type = CameraType::GAME;
+	Frustum cameraFrustum; // Should not be public, but we need ModuleCamera3D to access it.
 
 private:
 	// TODO: Sospechoso de provocar excepcion en Release
@@ -46,11 +47,13 @@ private:
 	float3 offset = { 0,0,0 };
 	float aspectRatio = 0.0f;
 	float FOV = 60.0f;
-protected:
-	Application* app = nullptr;
-	Frustum cameraFrustum;
 
 	friend class ModuleCamera3D;
 	friend class CameraComponent;
+
+protected:
+	Application* app = nullptr;
+
+
 };
 

@@ -275,7 +275,7 @@ void MeshImporter::ProcessLoadedNode(aiNode* node, const aiScene* scene, uint& f
 
 	if ((meshNum > 1 || necessaryNode))
 	{
-		for (unsigned int i = 0; i < meshNum; i++)
+		for (uint i = 0; i < meshNum; i++)
 		{
 			// Create a GameObject with a MeshRenderComponent that represents the Mesh
 			GameObject* newGameObject = new GameObject(newParent, "Mesh");
