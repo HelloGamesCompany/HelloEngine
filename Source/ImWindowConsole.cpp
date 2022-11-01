@@ -19,20 +19,13 @@ ImWindowConsole::ImWindowConsole()
 
 	isEnabled = true;
 
-	CSL::S_Init();
-
 	stream.callback = AssimpCallback;
 	aiAttachLogStream(&stream);
-
-	for (size_t i = 0; i < 10; i++)
-	{
-		CSL::S_Log("hello");
-	}
 }
 
 ImWindowConsole::~ImWindowConsole()
 {
-	CSL::S_Close();
+
 }
 
 void ImWindowConsole::Update()

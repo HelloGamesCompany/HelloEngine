@@ -4,9 +4,22 @@
 #include "Console.h"
 #include "MeshImporter.h"
 #include "TextureImporter.h"
+#include "IL/il.h"
+#include "IL/ilu.h"
+#include "IL/ilut.h"
 
 ModuleResourceManager::ModuleResourceManager()
 {
+	Console::S_Log("Initialaizing DevIL.");
+
+	ilInit();
+	iluInit();
+	ilutInit();
+	ilutRenderer(ILUT_OPENGL);
+
+	if (ilGetInteger(IL_VERSION_NUM) < IL_VERSION) {
+		Console::S_Log("Wrong DevIL version detected.");
+	}
 }
 
 ModuleResourceManager::~ModuleResourceManager()

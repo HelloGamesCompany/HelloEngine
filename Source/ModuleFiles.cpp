@@ -3,10 +3,14 @@
 #include "physfs.h"
 #include "FileTree.hpp"
 #include <algorithm>
-
+#include "Console.h"
 
 ModuleFiles::ModuleFiles():Module()
 {	
+	Console::S_Init();
+
+	Console::S_Log("Initializing PhysFS.");
+
 	PHYSFS_init(0);
 
 	// Add Write Dir
@@ -20,6 +24,8 @@ ModuleFiles::ModuleFiles():Module()
 
 ModuleFiles::~ModuleFiles()
 {
+	Console::S_Close();
+
 	PHYSFS_deinit();
 }
 
