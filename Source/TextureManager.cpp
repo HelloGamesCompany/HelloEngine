@@ -3,6 +3,9 @@
 #include "IL/il.h"
 #include "IL/ilut.h"
 #include "TextureImporter.h"
+#include "ModuleLayers.h"
+#include "LayerEditor.h"
+#include "ImWindowConfiguration.h"
 
 std::map<uint, Texture> TextureManager::loadedTextures;
 std::map<std::string, uint> TextureManager::usedPaths;
@@ -27,6 +30,12 @@ float TextureManager::BindTexture(uint texture)
 
 	bindedTexturesInfo.push_back({ texture, bindedTextures });
 
+	// If texture 2d is disabled, do not return binded texture. Instead, return invalid num so the renderer only displays untextured meshes.
+	if (!Application::Instance()->layers->editor->configuration->renderConfigs["texture2D"].first)
+	{
+		bindedTextures++;
+		return -1.0f;
+	}
 	return bindedTextures++;
 }
 

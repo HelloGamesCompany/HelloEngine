@@ -6,6 +6,7 @@
 #include "LayerGame.h"
 
 class Application;
+class ImWindowConfiguration;
 
 enum class ImWindowID
 {
@@ -41,9 +42,11 @@ public:
 
 	void PopUpMessage(std::string message);
 
+	ImWindowConfiguration* configuration = nullptr;
 
 private:
 	ImWindow* imWindows[(uint)ImWindowID::MAX] = { nullptr };
+
 
 	LayerGame* game = nullptr;
 
