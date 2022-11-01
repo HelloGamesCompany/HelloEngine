@@ -27,6 +27,7 @@ public:
 	// string = config name, bool = conifg value, int = config openGL tag
 	std::map<std::string, std::pair<bool, int>> renderConfigs;
 
+
 private:
 	Application* app = nullptr;
 
@@ -47,6 +48,7 @@ private:
 	float* windowBrightness = nullptr;
 
 	bool* isVSyncOn = nullptr;
+
 
 	ModuleRenderer3D* moduleRenderer = nullptr;
 };

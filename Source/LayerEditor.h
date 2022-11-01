@@ -42,11 +42,10 @@ public:
 
 	void PopUpMessage(std::string message);
 
+public:
 	ImWindowConfiguration* configuration = nullptr;
-
 private:
 	ImWindow* imWindows[(uint)ImWindowID::MAX] = { nullptr };
-
 
 	LayerGame* game = nullptr;
 

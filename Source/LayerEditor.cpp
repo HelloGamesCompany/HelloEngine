@@ -102,8 +102,7 @@ void LayerEditor::Start()
 
 	// Create ImGui editor windows
 	{
-		imWindows[(uint)ImWindowID::CONFIGURATION] = configuration = new ImWindowConfiguration();
-		imWindows[(uint)ImWindowID::ABOUT] = new ImWindowAbout();
+		imWindows[(uint)ImWindowID::CONFIGURATION] = configuration = new ImWindowConfiguration();		imWindows[(uint)ImWindowID::ABOUT] = new ImWindowAbout();
 		imWindows[(uint)ImWindowID::CONSOLE] = new ImWindowConsole();
 		imWindows[(uint)ImWindowID::PROJECT] = new ImWindowProject();
 		imWindows[(uint)ImWindowID::QUICKSAVE] = new ImWindowQuickSave();

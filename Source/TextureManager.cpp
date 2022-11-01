@@ -30,12 +30,12 @@ float TextureManager::BindTexture(uint texture)
 
 	bindedTexturesInfo.push_back({ texture, bindedTextures });
 
-	// If texture 2d is disabled, do not return binded texture. Instead, return invalid num so the renderer only displays untextured meshes.
-	if (!Application::Instance()->layers->editor->configuration->renderConfigs["texture2D"].first)
+	/*if (!Application::Instance()->layers->editor->configuration->renderConfigs["texture2D"].first)
 	{
 		bindedTextures++;
 		return -1.0f;
-	}
+	}*/
+
 	return bindedTextures++;
 }
 
