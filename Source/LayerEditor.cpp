@@ -8,7 +8,6 @@
 
 #include "ImWindowConfiguration.h"
 #include "ImWindowAbout.h"
-#include "ImWindowOpenGL.h"
 #include "ImWindowConsole.h"
 #include "ImWindowProject.h"
 #include "ImWindowHierarchy.h"
@@ -34,6 +33,9 @@ LayerEditor::~LayerEditor()
 
 void LayerEditor::Start()
 {
+	// Get application
+	app = Application::Instance();
+
 	// Setup Dear ImGui context
 	IMGUI_CHECKVERSION();
 	ImGui::CreateContext();
@@ -46,6 +48,7 @@ void LayerEditor::Start()
 	//io.ConfigViewportsNoTaskBarIcon = true;
 
 	// Setup Dear ImGui style
+	
 	//ImGui::StyleColorsClassic();
 	ImGui::StyleColorsDark();
 	//ImGui::StyleColorsLight();
@@ -60,28 +63,30 @@ void LayerEditor::Start()
 	}
 
 	// Setup ImGui style
-	style.Colors[ImGuiCol_ScrollbarBg] = style.Colors[ImGuiCol_TableHeaderBg] = ImVec4(0.1f, 0.1f, 0.1f, 1);
+	{
+		style.Colors[ImGuiCol_ScrollbarBg] = style.Colors[ImGuiCol_TableHeaderBg] = ImVec4(0.1f, 0.1f, 0.1f, 1);
 
-	style.Colors[ImGuiCol_WindowBg] = ImVec4(0.15f, 0.15f, 0.15f, 1);
+		style.Colors[ImGuiCol_WindowBg] = ImVec4(0.15f, 0.15f, 0.15f, 1);
 
-	style.Colors[ImGuiCol_TabUnfocusedActive] = ImVec4(0.2f, 0.2f, 0.2f, 1);
+		style.Colors[ImGuiCol_TabUnfocusedActive] = ImVec4(0.2f, 0.2f, 0.2f, 1);
 
-	style.Colors[ImGuiCol_FrameBg] = style.Colors[ImGuiCol_Button] = style.Colors[ImGuiCol_TitleBg] = style.Colors[ImGuiCol_Header] = 
-		style.Colors[ImGuiCol_TitleBgActive]= style.Colors[ImGuiCol_TabUnfocused]= style.Colors[ImGuiCol_Tab]=
-		ImVec4(0.25f, 0.25f, 0.25f, 1);
+		style.Colors[ImGuiCol_FrameBg] = style.Colors[ImGuiCol_Button] = style.Colors[ImGuiCol_TitleBg] = style.Colors[ImGuiCol_Header] =
+			style.Colors[ImGuiCol_TitleBgActive] = style.Colors[ImGuiCol_TabUnfocused] = style.Colors[ImGuiCol_Tab] =
+			ImVec4(0.25f, 0.25f, 0.25f, 1);
 
-	style.Colors[ImGuiCol_FrameBgHovered] = ImVec4(0.3f, 0.3f, 0.3f, 1);
+		style.Colors[ImGuiCol_FrameBgHovered] = ImVec4(0.3f, 0.3f, 0.3f, 1);
 
-	style.Colors[ImGuiCol_ButtonHovered] = style.Colors[ImGuiCol_HeaderHovered] = style.Colors[ImGuiCol_FrameBgActive]=
-		style.Colors[ImGuiCol_DockingPreview] = style.Colors[ImGuiCol_TabActive] = style.Colors[ImGuiCol_SliderGrab] =
-		ImVec4(0.4f, 0.4f, 0.4f, 1);
+		style.Colors[ImGuiCol_ButtonHovered] = style.Colors[ImGuiCol_HeaderHovered] = style.Colors[ImGuiCol_FrameBgActive] =
+			style.Colors[ImGuiCol_DockingPreview] = style.Colors[ImGuiCol_TabActive] = style.Colors[ImGuiCol_SliderGrab] =
+			ImVec4(0.4f, 0.4f, 0.4f, 1);
 
-	style.Colors[ImGuiCol_ButtonActive] = style.Colors[ImGuiCol_TitleBgCollapsed] = style.Colors[ImGuiCol_SliderGrabActive] =
-		style.Colors[ImGuiCol_HeaderActive] = style.Colors[ImGuiCol_TabHovered] = style.Colors[ImGuiCol_CheckMark] =
-		ImVec4(0.65f, 0.65f, 0.65f, 1);
+		style.Colors[ImGuiCol_ButtonActive] = style.Colors[ImGuiCol_TitleBgCollapsed] = style.Colors[ImGuiCol_SliderGrabActive] =
+			style.Colors[ImGuiCol_HeaderActive] = style.Colors[ImGuiCol_TabHovered] = style.Colors[ImGuiCol_CheckMark] =
+			ImVec4(0.65f, 0.65f, 0.65f, 1);
 
-	style.Colors[ImGuiCol_MenuBarBg] = ImVec4(0.95f, 0.95f, 0.95f, 1);
-
+		style.Colors[ImGuiCol_MenuBarBg] = ImVec4(0.95f, 0.95f, 0.95f, 1);
+	}
+	
 	// Setup font
 	char* buf = nullptr;
 
@@ -92,23 +97,27 @@ void LayerEditor::Start()
 
 	// Init OpenGL
 	const char* glsl_version = "#version 130";
-	ImGui_ImplSDL2_InitForOpenGL(Application::Instance()->window->window, Application::Instance()->renderer3D->context);
+	ImGui_ImplSDL2_InitForOpenGL(app->window->window, app->renderer3D->context);
 	ImGui_ImplOpenGL3_Init(glsl_version);
 
-	// Create ImGui editor windows.
-    imWindows[(uint)ImWindowID::CONFIGURATION] = new ImWindowConfiguration();
-    imWindows[(uint)ImWindowID::ABOUT] = new ImWindowAbout();
-	imWindows[(uint)ImWindowID::OPENGL] = new ImWindowOpenGL();
-	imWindows[(uint)ImWindowID::CONSOLE] = new ImWindowConsole();
-	imWindows[(uint)ImWindowID::PROJECT] = new ImWindowProject();
-	imWindows[(uint)ImWindowID::QUICKSAVE] = new ImWindowQuickSave();
-	imWindows[(uint)ImWindowID::INSPECTOR] = new ImWindowInspector();
-	imWindows[(uint)ImWindowID::HIERARCHY] = new ImWindowHierarchy();
-	imWindows[(uint)ImWindowID::SCENE] = new ImWindowScene();
-	imWindows[(uint)ImWindowID::PERFORMANCE] = new ImWindowPerformanceTest();
-	imWindows[(uint)ImWindowID::GAME] = new ImWindowGame();
+	// Create ImGui editor windows
+	{
+		imWindows[(uint)ImWindowID::CONFIGURATION] = new ImWindowConfiguration();
+		imWindows[(uint)ImWindowID::ABOUT] = new ImWindowAbout();
+		imWindows[(uint)ImWindowID::CONSOLE] = new ImWindowConsole();
+		imWindows[(uint)ImWindowID::PROJECT] = new ImWindowProject();
+		imWindows[(uint)ImWindowID::QUICKSAVE] = new ImWindowQuickSave();
+		imWindows[(uint)ImWindowID::INSPECTOR] = new ImWindowInspector();
+		imWindows[(uint)ImWindowID::HIERARCHY] = new ImWindowHierarchy();
+		imWindows[(uint)ImWindowID::SCENE] = new ImWindowScene();
+		imWindows[(uint)ImWindowID::PERFORMANCE] = new ImWindowPerformanceTest();
+		imWindows[(uint)ImWindowID::GAME] = new ImWindowGame();
+	}
 
-	game = (LayerGame*)Application::Instance()->layers->layers[(uint)LayersID::GAME];
+	// Get layer game for future implementation
+	game = (LayerGame*)app->layers->layers[(uint)LayersID::GAME];
+
+
 }
 
 void LayerEditor::PreUpdate()
@@ -139,7 +148,7 @@ void LayerEditor::PostUpdate()
 		{
 			if (ImGui::MenuItem("Close Appplication"))
 			{
-				Application::Instance()->Exit();
+				app->Exit();
 			}
 
 			ImGui::EndMenu();	
@@ -175,7 +184,7 @@ void LayerEditor::PostUpdate()
 
 	if (displayPopUp)
 	{
-		currentMessageTime += Application::Instance()->fps;
+		currentMessageTime += app->fps;
 		if (currentMessageTime >= messageTime)
 		{
 			displayPopUp = false;
@@ -195,8 +204,8 @@ void LayerEditor::PostUpdate()
 				ImGui::PushStyleVar(ImGuiStyleVar_Alpha, 1.0f - ((currentMessageTime - (messageTime * 0.75f)) / (messageTime * 0.75f)));
 			}
 
-			int width = Application::Instance()->window->width;
-			int height = Application::Instance()->window->height;
+			int width = app->window->width;
+			int height = app->window->height;
 			ImGui::SetNextWindowSize(ImVec2(width * 0.5f, height * 0.25f));
 			ImGui::SetNextWindowPos(ImVec2(width * 0.25f, height * 0.25f));
 			if(ImGui::BeginPopup("Test"))
@@ -216,6 +225,7 @@ void LayerEditor::PostUpdate()
 	}
 
 	ImGui::Render();
+
 	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
 	// Update and Render additional Platform Windows

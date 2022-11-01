@@ -46,9 +46,6 @@
     <ClCompile Include="ImWindowConfiguration.cpp">
       <Filter>Modules\Layer\Windows</Filter>
     </ClCompile>
-    <ClCompile Include="ImWindowOpenGL.cpp">
-      <Filter>Modules\Layer\Windows</Filter>
-    </ClCompile>
     <ClCompile Include="Headers.cpp">
       <Filter>Global</Filter>
     </ClCompile>
@@ -334,9 +331,6 @@
       <Filter>Modules\Layer\Windows</Filter>
     </ClInclude>
     <ClInclude Include="ImWindowConfiguration.h">
-      <Filter>Modules\Layer\Windows</Filter>
-    </ClInclude>
-    <ClInclude Include="ImWindowOpenGL.h">
       <Filter>Modules\Layer\Windows</Filter>
     </ClInclude>
     <ClInclude Include="Headers.h">

@@ -1,21 +1,18 @@
 <?xml version="1.0"?>
 <config>
 	<window>
-		<width value="1600" />
-		<height value="829" />
+		<width value="1280" />
+		<height value="720" />
 		<brightness value="1" />
 	</window>
 	<renderer>
-		<vsync value="false" />
-		<framerate value="120" />
+		<vsync value="true" />
+		<framerate value="90" />
 	</renderer>
 	<openGL>
-		<depthTest value="true" tag="0x1801" />
+		<blend value="false" tag="0x0BE2" />
 		<cullFace value="false" tag="0x0B44" />
-		<lighting value="true" tag="0x0B50" />
-		<colorMaterial value="true" tag="0x0B57" />
-		<texture2D value="true" tag="0x0DE1" />
-		<blend value="true" tag="0x0BE2" />
-		<wireframe value="true" />
+		<texture2D value="false" tag="0x0DE1" />
+		<wireframe value="false" />
 	</openGL>
 </config>

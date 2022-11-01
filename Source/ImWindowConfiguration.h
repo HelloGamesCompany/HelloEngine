@@ -43,4 +43,9 @@ private:
 	float* windowBrightness = nullptr;
 
 	bool* isVSyncOn = nullptr;
+
+	// string = config name, bool = conifg value, int = config openGL tag
+	std::map<std::string, std::pair<bool, int>> renderConfigs;
+
+	ModuleRenderer3D* moduleRenderer = nullptr;
 };

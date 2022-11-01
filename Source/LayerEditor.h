@@ -5,11 +5,12 @@
 #include "Layer.h"
 #include "LayerGame.h"
 
+class Application;
+
 enum class ImWindowID
 {
 	CONFIGURATION,
 	ABOUT,
-	OPENGL,
 	CONSOLE,
 	PROJECT,
 	HIERARCHY,
@@ -47,6 +48,8 @@ private:
 	LayerGame* game = nullptr;
 
 	GameObject* selectedGameObject = nullptr;
+
+	Application* app = nullptr;
 
 	int gameWidth = 0, gameHeight = 0;
 

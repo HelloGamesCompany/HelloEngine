@@ -28,11 +28,37 @@ ImWindowConfiguration::ImWindowConfiguration() : ImWindow()
 	isVSyncOn = &app->renderer3D->isVSync;
 
 	frameLimit = app->frameCap;
+
+	// Init render configurations
+	moduleRenderer = Application::Instance()->renderer3D;
+
+	// Get openGl node with module xml
+	XMLNode openGlNode = Application::Instance()->xml->GetConfigXML().FindChildBreadth("openGL");
+
+	// Init setting values with node context
+	for (pugi::xml_node n = openGlNode.node.first_child(); !n.empty(); n = n.next_sibling())
+	{
+		n.name();
+		renderConfigs.insert(
+			std::make_pair(
+				n.name(), // map key -> conifg name
+				std::make_pair(	// map value -> pair<value,tag>
+					n.attribute("value").as_bool(false),	// config value
+					n.attribute("tag").as_int(0))));	// config tag
+	}
 }
 
 ImWindowConfiguration::~ImWindowConfiguration()
 {
 	RELEASE(frames);
+
+	// Save values to the xml file
+	XMLNode openGlNode = Application::Instance()->xml->GetConfigXML().FindChildBreadth("openGL");
+
+	for (pugi::xml_node n = openGlNode.node.first_child(); !n.empty(); n = n.next_sibling())
+		n.attribute("value").set_value(renderConfigs[n.name()].first);
+
+	openGlNode.Save();
 }
 
 void ImWindowConfiguration::Update()
@@ -80,6 +106,19 @@ void ImWindowConfiguration::Update()
 			ImGui::TextColored(ImVec4(255, 255, 0, 255), "%d", app->input->GetMouseX()); ImGui::SameLine();
 			ImGui::TextWrapped(" y = "); ImGui::SameLine();
 			ImGui::TextColored(ImVec4(255, 255, 0, 255), "%d", app->input->GetMouseY()); 
+		}
+
+		if(ImGui::CollapsingHeader("Render", ImGuiTreeNodeFlags_DefaultOpen))
+		{
+			// iter.first = config name,
+			// iter.second.first = conifg value,
+			// iter.second.second = config openGL tag
+			for (auto& iter : renderConfigs)
+			{
+				ImGui::Checkbox(iter.first.c_str(), &iter.second.first);
+				if (iter.first == "wireframe") moduleRenderer->ToggleOpenGLWireframe(iter.second.first);
+				else moduleRenderer->ToggleOpenGLSystem(iter.second.first, iter.second.second);
+			}
 		}
 
 		if (ImGui::CollapsingHeader("Hardware", ImGuiTreeNodeFlags_DefaultOpen))
