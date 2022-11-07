@@ -23,7 +23,7 @@ void ImWindowPerformanceTest::Update()
 			houseNum += 10;
 			for (int i = 0; i < 10; i++)
 			{
-				GameObject* mesh = MeshImporter::LoadMesh("Assets/BakerHouse.fbx");
+				GameObject* mesh = MeshImporter::LoadMesh("Assets/FBX/BakerHouse.fbx");
 				mesh->transform->SetPosition({ (float)(rand() % 100), 1.0f, (float)(rand() % 100) });
 			}
 		}
@@ -32,7 +32,7 @@ void ImWindowPerformanceTest::Update()
 			houseNum += 100;
 			for (int i = 0; i < 100; i++)
 			{
-				GameObject* mesh = MeshImporter::LoadMesh("Assets/BakerHouse.fbx");
+				GameObject* mesh = MeshImporter::LoadMesh("Assets/FBX/BakerHouse.fbx");
 				mesh->transform->SetPosition({ (float)(rand() % 100), 1.0f, (float)(rand() % 100) });
 			}
 		}
@@ -41,7 +41,7 @@ void ImWindowPerformanceTest::Update()
 			houseNum += 1000;
 			for (int i = 0; i < 1000; i++)
 			{
-				GameObject* mesh = MeshImporter::LoadMesh("Assets/BakerHouse.fbx");
+				GameObject* mesh = MeshImporter::LoadMesh("Assets/FBX/BakerHouse.fbx");
 				mesh->transform->SetPosition({ (float)(rand() % 100), 1.0f, (float)(rand() % 100) });
 			}
 		}

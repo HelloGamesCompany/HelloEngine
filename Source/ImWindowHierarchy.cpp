@@ -122,7 +122,12 @@ void ImWindowHierarchy::ProcessGameObject(GameObject* gameObject, int iteration)
 {
     ImGuiTreeNodeFlags node_flags = base_flags;
 
-    if (gameObject == layerEditor->selectedGameObject) node_flags |= ImGuiTreeNodeFlags_Selected;
+    GameObject* temp = layerEditor->GetSelectedGameObject();
+
+    if (gameObject == temp)
+    {
+        node_flags |= ImGuiTreeNodeFlags_Selected;
+    }
 
     bool node_open;
     bool isLeaf = false;

@@ -11,6 +11,7 @@ class ImWindowConfiguration;
 enum class ImWindowID
 {
 	CONFIGURATION,
+	PERFORMANCE,
 	CONSOLE,
 	PROJECT,
 	HIERARCHY,
