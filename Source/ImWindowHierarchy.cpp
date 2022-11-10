@@ -175,12 +175,13 @@ void ImWindowHierarchy::DrawOptions()
         if (layerEditor->selectedGameObject != nullptr)
         {
             ImGui::TextColored(ImVec4(1, 1, 0, 1), "Delete GameObject"); ImGui::SameLine(-ImGui::GetWindowWidth());
+            printf("hei\n");
             if (ImGui::Selectable("##"))
             {
+                printf("heo\n");
                 Application::Instance()->layers->editor->AddPopUpMessage("Cannot delete GameObjects in this version yet! Check console.");
                 Console::S_Log("Cannot delete GameObjects yet. Because of the Undo/ Redo system, we need to implement this feature carefully. Therefore, it is not included in this version.");
                 //layerEditor->selectedGameObject->Destroy();
-                popUpOpen = false;
             }
         }
 
@@ -188,7 +189,6 @@ void ImWindowHierarchy::DrawOptions()
         {
             GameObject* parent = layerEditor->selectedGameObject != nullptr ? layerEditor->selectedGameObject : Application::Instance()->layers->rootGameObject;
             GameObject* newGameObject = new GameObject(parent, "Empty");
-            popUpOpen = false;
         }
         ImGui::Separator();
         ImGui::Text("Select Shape");
@@ -199,7 +199,6 @@ void ImWindowHierarchy::DrawOptions()
             {
                 selectedShape = i;
                 Application::Instance()->renderer3D->modelRender.CreatePrimitive(layerEditor->selectedGameObject, (PrimitiveType)i);
-                popUpOpen = false;
             }
         }
         ImGui::EndPopup();
