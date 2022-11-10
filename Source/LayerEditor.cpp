@@ -185,7 +185,7 @@ void LayerEditor::PostUpdate()
 
 	if (displayPopUp)
 	{
-		currentMessageTime += app->fps;
+		currentMessageTime += (1/ImGui::GetIO().Framerate);
 		if (currentMessageTime >= messageTime)
 		{
 			displayPopUp = false;
@@ -194,15 +194,17 @@ void LayerEditor::PostUpdate()
 		}
 		else
 		{
-			bool fadeIn = currentMessageTime <= messageTime * 0.25;
-			bool fadeOut = currentMessageTime >= messageTime * 0.75;
+			float fadeInFix = 0.3f;
+			float fadeOutFix = 0.7f;
+			bool fadeIn = currentMessageTime <= messageTime * fadeInFix;
+			bool fadeOut = currentMessageTime >= messageTime * fadeOutFix;
 			if (fadeIn)
 			{
-				ImGui::PushStyleVar(ImGuiStyleVar_Alpha, currentMessageTime / (messageTime * 0.25f));
+				ImGui::PushStyleVar(ImGuiStyleVar_Alpha, currentMessageTime / (messageTime * fadeInFix));
 			}
 			if (fadeOut)
 			{
-				ImGui::PushStyleVar(ImGuiStyleVar_Alpha, 1.0f - ((currentMessageTime - (messageTime * 0.75f)) / (messageTime * 0.75f)));
+				ImGui::PushStyleVar(ImGuiStyleVar_Alpha, 1.0f - ((currentMessageTime - (messageTime * fadeOutFix)) / (messageTime * fadeInFix)));
 			}
 
 			int width = app->window->width;
@@ -213,7 +215,7 @@ void LayerEditor::PostUpdate()
 			{
 				ImVec2 textDimensions = ImGui::CalcTextSize(popUpMessage.c_str());
 
-				ImGui::SetWindowFontScale(2.0f);
+				//ImGui::SetWindowFontScale(1.0f);
 
 				ImGui::SetCursorPos(ImVec2((width * 0.5f - textDimensions.x) * 0.5f, (height * 0.25f - textDimensions.y) * 0.5f));
 				ImGui::Text(popUpMessage.c_str());
