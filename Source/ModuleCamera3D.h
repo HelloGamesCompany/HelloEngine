@@ -26,10 +26,6 @@ public:
 
 	CameraObject* CreateGameCamera();
 
-	void SetCurrentActiveGameCamera(CameraObject* target);
-
-	void EraseGameCamera(CameraObject* erasedCamera);
-
 public:
 	std::vector<CameraObject*> gameCameras;
 	CameraObject* activeGameCamera = nullptr;

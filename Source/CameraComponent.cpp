@@ -39,26 +39,18 @@ void CameraComponent::OnEditor()
 {
 	if (ImGui::CollapsingHeader("Camera", ImGuiTreeNodeFlags_DefaultOpen))
 	{
-		bool auxiliaryBool = _isEnabled;
-		if (ImGui::Checkbox("Active", &auxiliaryBool))
-			Enable(auxiliaryBool, false);
+		//bool auxiliaryBool = _isEnabled;
+		//if (ImGui::Checkbox("Active", &auxiliaryBool))
+		//	Enable(auxiliaryBool, false);
 
-		int tempValue = cameraObject->FOV;
-		if (ImGui::SliderInt("FOV", &tempValue, 20, 140))
-		{
-			cameraObject->SetFOV(tempValue);
-		}
+		//int tempValue = cameraObject->FOV;
+		//if (ImGui::SliderInt("FOV", &tempValue, 20, 140))
+		//{
+		//	cameraObject->SetFOV(tempValue);
+		//}
 
-		ImGui::DragFloat("Near plane", &cameraObject->cameraFrustum.nearPlaneDistance, 0.1f, 0.01);
-		ImGui::DragFloat("Far plane", &cameraObject->cameraFrustum.farPlaneDistance, 1.0f, 0.01);
-
-		ImGui::TextColored(cameraObject->currentlyDisplaying ? ImVec4(0, 1, 0, 1) : ImVec4(1, 0, 0, 1), cameraObject->currentlyDisplaying ? "Currently displaying" : "Not currently displaying");
-		ImGui::SameLine();
-
-		if (ImGui::Button("Set as drawing game camera."))
-		{
-			Application::Instance()->camera->SetCurrentActiveGameCamera(cameraObject);
-		}
+		//ImGui::DragFloat("Near plane", &cameraObject->cameraFrustum.nearPlaneDistance, 0.1f, 0.01);
+		//ImGui::DragFloat("Far plane", &cameraObject->cameraFrustum.farPlaneDistance, 1.0f, 0.01);
 
 	}
 }

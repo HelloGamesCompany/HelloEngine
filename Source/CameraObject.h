@@ -39,7 +39,6 @@ public:
 	FrameBuffer frameBuffer;
 	CameraType type = CameraType::GAME;
 	Frustum cameraFrustum; // Should not be public, but we need ModuleCamera3D to access it.
-	bool currentlyDisplaying = false;
 
 private:
 	// TODO: Sospechoso de provocar excepcion en Release

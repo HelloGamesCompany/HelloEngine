@@ -18,7 +18,6 @@ public:
 
 public:
 	CameraObject* cameraObject = nullptr;
-	bool isCurrentlyDisplaying = false;
 
 private:
 	ModuleCamera3D* moduleCameras = nullptr;

@@ -1,7 +1,6 @@
 #include "Headers.h"
 #include "CameraObject.h"
 #include "ModuleWindow.h"
-#include "ModuleCamera3D.h"
 
 CameraObject::CameraObject()
 {
@@ -30,8 +29,6 @@ CameraObject::CameraObject()
 
 CameraObject::~CameraObject()
 {
-	// TODO: Could be done more clean if we had an event system to commmunicate this kind of things.
-	Application::Instance()->camera->EraseGameCamera(this);
 }
 
 void CameraObject::Look(const float3& Position, const float3& Reference, bool RotateAroundReference)
