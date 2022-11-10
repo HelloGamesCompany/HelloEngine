@@ -21,20 +21,16 @@ bool ModuleRenderer3D::Init()
 {
 	LOG("Creating 3D Renderer context");
 	bool ret = true;
-	LOG("TEST");
 	cameras = app->camera;
 	Console::S_Log("Initializing OpenGL 3.3");
 	
 	//Create context
-	LOG("TEST2");
 	context = SDL_GL_CreateContext(app->window->window);
 
 	Console::S_Log("Initializing Glew.");
 
-	LOG("TEST3");
 	GLenum er = glewInit();
 
-	LOG("TEST4");
 	SDL_GL_MakeCurrent(app->window->window, context);
 
 	if(ret == true)
@@ -98,7 +94,6 @@ UpdateStatus ModuleRenderer3D::PreUpdate()
 // PostUpdate present buffer to screen
 UpdateStatus ModuleRenderer3D::PostUpdate()
 {
-	LOG("render post update");
 	if (cameras->sceneCamera.active)
 	{
 		cameras->sceneCamera.frameBuffer.Bind();
