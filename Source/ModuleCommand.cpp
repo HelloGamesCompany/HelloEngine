@@ -3,6 +3,8 @@
 #include "CommandArray.hpp"
 #include "CommandChangeValue.hpp"
 #include "Console.h"
+#include "ModuleLayers.h"
+#include "LayerEditor.h"
 
 CommandArray* ModuleCommand:: _commands = nullptr;
 
@@ -10,7 +12,7 @@ ModuleCommand::ModuleCommand()
 {
 	_commands = new CommandArray(MAX_UNDO, true);
 
-	input = Application::Instance()->input;
+	_input = Application::Instance()->input;
 }
 
 ModuleCommand::~ModuleCommand()
@@ -20,15 +22,15 @@ ModuleCommand::~ModuleCommand()
 
 UpdateStatus ModuleCommand::Update()
 {
-	if(input->GetKey(SDL_SCANCODE_LCTRL) == KEY_REPEAT)
+	if(_input->GetKey(SDL_SCANCODE_LCTRL) == KEY_REPEAT)
 	{
-		if(input->GetKey(SDL_SCANCODE_Z) == KEY_DOWN)
+		if(_input->GetKey(SDL_SCANCODE_Z) == KEY_DOWN)
 		{
-			Undo();
+			if(!Undo()) app->layers->editor->AddPopUpMessage("Cannot undo anymore!!!");
 		}
-		if (input->GetKey(SDL_SCANCODE_Y) == KEY_DOWN)
+		if (_input->GetKey(SDL_SCANCODE_Y) == KEY_DOWN)
 		{
-			Redo();
+			if (!Redo()) app->layers->editor->AddPopUpMessage("Cannot redo anymore!!!");
 		}
 	}
 

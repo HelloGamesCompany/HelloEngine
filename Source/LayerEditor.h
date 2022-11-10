@@ -23,6 +23,15 @@ enum class ImWindowID
 	MAX,
 };
 
+struct PopUpMessage
+{
+	PopUpMessage(std::string message) :message(message) {}
+
+	std::string message = "";
+	
+	float currentMessageTime = 0.0f;
+};
+
 class LayerEditor :public Layer
 {
 public:
@@ -40,27 +49,29 @@ public:
 	void SetSelectGameObject(GameObject* g);
 	GameObject* GetSelectedGameObject() { return selectedGameObject; }
 
-	void PopUpMessage(std::string message);
+	void AddPopUpMessage(std::string message);
+
+private:
+	void DrawMenuBar();
+
+	void DrawPopUpMessages();
 
 public:
 	ImWindowConfiguration* configuration = nullptr;
 	GameObject* selectedGameObject = nullptr;
 
 private:
-	ImWindow* imWindows[(uint)ImWindowID::MAX] = { nullptr };
+	ImWindow* _imWindows[(uint)ImWindowID::MAX] = { nullptr };
 
-	LayerGame* game = nullptr;
+	LayerGame* _game = nullptr;
 
+	Application* _app = nullptr;
 
-	Application* app = nullptr;
-
-	int gameWidth = 0, gameHeight = 0;
+	int _gameWidth = 0, _gameHeight = 0;
 
 	//Popup message variables
-	bool displayPopUp = false;
-	std::string popUpMessage = "";
-	float messageTime = 2.0f;
-	float currentMessageTime = 0.0f;
+	std::vector<PopUpMessage> popUpMessages;
+	float _messageTime = 1.5f;
 
 	friend class ImWindowHierarchy;
 };

@@ -136,7 +136,7 @@ void MeshRenderComponent::OnEditor()
 					meshParent->Destroy();
 
 					std::string popUpmessage = "Loaded Mesh: " + drop;
-					Application::Instance()->layers->editor->PopUpMessage(popUpmessage);
+					Application::Instance()->layers->editor->AddPopUpMessage(popUpmessage);
 
 				}
 				ImGui::EndDragDropTarget();

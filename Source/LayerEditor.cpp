@@ -35,7 +35,7 @@ LayerEditor::~LayerEditor()
 void LayerEditor::Start()
 {
 	// Get application
-	app = Application::Instance();
+	_app = Application::Instance();
 
 	// Setup Dear ImGui context
 	IMGUI_CHECKVERSION();
@@ -98,27 +98,28 @@ void LayerEditor::Start()
 
 	// Init OpenGL
 	const char* glsl_version = "#version 130";
-	ImGui_ImplSDL2_InitForOpenGL(app->window->window, app->renderer3D->context);
+	ImGui_ImplSDL2_InitForOpenGL(_app->window->window, _app->renderer3D->context);
 	ImGui_ImplOpenGL3_Init(glsl_version);
 
 	// Create ImGui editor windows
 	{
-		imWindows[(uint)ImWindowID::CONFIGURATION] = configuration = new ImWindowConfiguration();		
-		imWindows[(uint)ImWindowID::ABOUT] = new ImWindowAbout();
-		imWindows[(uint)ImWindowID::CONSOLE] = new ImWindowConsole();
-		imWindows[(uint)ImWindowID::PROJECT] = new ImWindowProject();
-		imWindows[(uint)ImWindowID::QUICKSAVE] = new ImWindowQuickSave();
-		imWindows[(uint)ImWindowID::INSPECTOR] = new ImWindowInspector();
-		imWindows[(uint)ImWindowID::HIERARCHY] = new ImWindowHierarchy();
-		imWindows[(uint)ImWindowID::SCENE] = new ImWindowScene();
-		imWindows[(uint)ImWindowID::GAME] = new ImWindowGame();
-		imWindows[(uint)ImWindowID::PERFORMANCE] = new ImWindowPerformanceTest();
+		_imWindows[(uint)ImWindowID::CONFIGURATION] = configuration = new ImWindowConfiguration();		
+		_imWindows[(uint)ImWindowID::ABOUT] = new ImWindowAbout();
+		_imWindows[(uint)ImWindowID::CONSOLE] = new ImWindowConsole();
+		_imWindows[(uint)ImWindowID::PROJECT] = new ImWindowProject();
+		_imWindows[(uint)ImWindowID::QUICKSAVE] = new ImWindowQuickSave();
+		_imWindows[(uint)ImWindowID::INSPECTOR] = new ImWindowInspector();
+		_imWindows[(uint)ImWindowID::HIERARCHY] = new ImWindowHierarchy();
+		_imWindows[(uint)ImWindowID::SCENE] = new ImWindowScene();
+		_imWindows[(uint)ImWindowID::GAME] = new ImWindowGame();
+		_imWindows[(uint)ImWindowID::PERFORMANCE] = new ImWindowPerformanceTest();
 	}
 
 	// Get layer game for future implementation
-	game = (LayerGame*)app->layers->layers[(uint)LayersID::GAME];
+	_game = (LayerGame*)_app->layers->layers[(uint)LayersID::GAME];
 
-
+	// Reserve space for popUpMessages
+	popUpMessages.reserve(20);
 }
 
 void LayerEditor::PreUpdate()
@@ -139,93 +140,15 @@ void LayerEditor::PostUpdate()
 
 	ImGui::DockSpaceOverViewport(ImGui::GetMainViewport());
 
-	if (ImGui::BeginMainMenuBar())
-	{
-		ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.05f, 0.05f, 0.05f, 1));
+	DrawMenuBar();
 
-		ImGui::PushStyleColor(ImGuiCol_PopupBg, ImVec4(0.95f, 0.95f, 0.95f, 1));
-
-		if (ImGui::BeginMenu("Application"))
-		{
-			if (ImGui::MenuItem("Close Appplication"))
-			{
-				app->Exit();
-			}
-
-			ImGui::EndMenu();	
-		}
-
-		if (ImGui::BeginMenu("Windows"))
-		{
-			for (int i = 0; i < (uint)ImWindowID::MAX; i++)
-			{
-				ImGui::MenuItem(imWindows[i]->windowName.c_str(), (const char*)0, &imWindows[i]->isEnabled);
-			}
-			ImGui::EndMenu();
-		}
-
-		if (ImGui::BeginMenu("About"))
-		{
-			if (ImGui::MenuItem("Check our Github!"))
-			{
-				ShellExecute(0, 0, "https://github.com/HelloGamesCompany/HelloEngine", 0, 0, SW_SHOW);
-			}
-			ImGui::EndMenu();
-		}
-
-		ImGui::PopStyleColor(2);
-
-		ImGui::EndMainMenuBar();
-	}
-
+	// Draw Every windows
     for (int i = 0; i < (uint)ImWindowID::MAX; i++)
     {
-        if (imWindows[i]->isEnabled) imWindows[i]->Update();
+        if (_imWindows[i]->isEnabled) _imWindows[i]->Update();
     }
 
-	if (displayPopUp)
-	{
-		currentMessageTime += (1/ImGui::GetIO().Framerate);
-		if (currentMessageTime >= messageTime)
-		{
-			displayPopUp = false;
-			popUpMessage = "";
-			currentMessageTime = 0.0f;
-		}
-		else
-		{
-			float fadeInFix = 0.3f;
-			float fadeOutFix = 0.7f;
-			bool fadeIn = currentMessageTime <= messageTime * fadeInFix;
-			bool fadeOut = currentMessageTime >= messageTime * fadeOutFix;
-			if (fadeIn)
-			{
-				ImGui::PushStyleVar(ImGuiStyleVar_Alpha, currentMessageTime / (messageTime * fadeInFix));
-			}
-			if (fadeOut)
-			{
-				ImGui::PushStyleVar(ImGuiStyleVar_Alpha, 1.0f - ((currentMessageTime - (messageTime * fadeOutFix)) / (messageTime * fadeInFix)));
-			}
-
-			int width = app->window->width;
-			int height = app->window->height;
-			ImGui::SetNextWindowSize(ImVec2(width * 0.5f, height * 0.25f));
-			ImGui::SetNextWindowPos(ImVec2(width * 0.25f, height * 0.25f));
-			if(ImGui::BeginPopup("Test"))
-			{
-				ImVec2 textDimensions = ImGui::CalcTextSize(popUpMessage.c_str());
-
-				//ImGui::SetWindowFontScale(1.0f);
-
-				ImGui::SetCursorPos(ImVec2((width * 0.5f - textDimensions.x) * 0.5f, (height * 0.25f - textDimensions.y) * 0.5f));
-				ImGui::Text(popUpMessage.c_str());
-				ImGui::EndPopup();
-
-			}
-			ImGui::OpenPopup("Test");
-			if (fadeIn || fadeOut) ImGui::PopStyleVar();
-		}
-	}
+	DrawPopUpMessages();
 
 	ImGui::Render();
 
@@ -249,7 +172,7 @@ void LayerEditor::CleanUp()
 {
 	for (int i = 0; i < (uint)ImWindowID::MAX; i++)
 	{
-		RELEASE(imWindows[i]);
+		RELEASE(_imWindows[i]);
 	}
 
 	ImGui_ImplOpenGL3_Shutdown();
@@ -261,14 +184,113 @@ void LayerEditor::SetSelectGameObject(GameObject* g)
 {
 	selectedGameObject = g;
 
-	ImWindowInspector* inspector = (ImWindowInspector*)imWindows[(uint)ImWindowID::INSPECTOR];
+	ImWindowInspector* inspector = (ImWindowInspector*)_imWindows[(uint)ImWindowID::INSPECTOR];
 
 	inspector->SelectGameObject(g);
 }
 
-void LayerEditor::PopUpMessage(std::string message)
+void LayerEditor::AddPopUpMessage(std::string message)
 {
-	displayPopUp = true;
-	popUpMessage = message;
+	popUpMessages.emplace_back(message);
 }
 
+void LayerEditor::DrawMenuBar()
+{
+	if (ImGui::BeginMainMenuBar())
+	{
+		ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.05f, 0.05f, 0.05f, 1));
+
+		ImGui::PushStyleColor(ImGuiCol_PopupBg, ImVec4(0.95f, 0.95f, 0.95f, 1));
+
+		if (ImGui::BeginMenu("Application"))
+		{
+			if (ImGui::MenuItem("Close Appplication"))
+			{
+				_app->Exit();
+			}
+
+			ImGui::EndMenu();
+		}
+
+		if (ImGui::BeginMenu("Windows"))
+		{
+			for (int i = 0; i < (uint)ImWindowID::MAX; i++)
+			{
+				ImGui::MenuItem(_imWindows[i]->windowName.c_str(), (const char*)0, &_imWindows[i]->isEnabled);
+			}
+			ImGui::EndMenu();
+		}
+
+		if (ImGui::BeginMenu("About"))
+		{
+			if (ImGui::MenuItem("Check our Github!"))
+			{
+				ShellExecute(0, 0, "https://github.com/HelloGamesCompany/HelloEngine", 0, 0, SW_SHOW);
+			}
+			ImGui::EndMenu();
+		}
+
+		ImGui::PopStyleColor(2);
+
+		ImGui::EndMainMenuBar();
+	}
+}
+
+void LayerEditor::DrawPopUpMessages()
+{
+	float fadeInFix = 0.1f; // 0 - 0.1 do fadeIn
+	float fadeOutFix = 0.9f; // 0.9 - 1.0 do fadeOut
+
+	bool fadeIn = false;
+	bool fadeOut = false;
+
+	int width = _app->window->width;
+	int height = _app->window->height;
+
+	std::string id = "popUpMessage";
+
+	if (popUpMessages.empty()) return;
+	
+	for (size_t i = 0; i < 1; i++)
+	{
+		popUpMessages[i].currentMessageTime += (1 / ImGui::GetIO().Framerate);
+
+		if (popUpMessages[i].currentMessageTime >= _messageTime)
+		{
+			popUpMessages.erase(popUpMessages.begin() + i);
+			return;
+			// will apear all in same time.
+			//popUpMessages.erase(popUpMessages.begin() + i--);
+			//continue;
+		}
+
+		fadeIn = popUpMessages[i].currentMessageTime <= _messageTime * fadeInFix;
+		fadeOut = popUpMessages[i].currentMessageTime >= _messageTime * fadeOutFix;
+
+		if (fadeIn)
+		{
+			ImGui::PushStyleVar(ImGuiStyleVar_Alpha, popUpMessages[i].currentMessageTime / (_messageTime * fadeInFix));
+		}
+		else if (fadeOut)
+		{
+			ImGui::PushStyleVar(ImGuiStyleVar_Alpha, 1.0f - ((popUpMessages[i].currentMessageTime - (_messageTime * fadeOutFix)) / (_messageTime * fadeInFix)));
+		}
+
+		ImGui::SetNextWindowSize(ImVec2(width * 0.5f, height * 0.25f));
+		ImGui::SetNextWindowPos(ImVec2(width * 0.25f, height * 0.25f));
+
+		id += std::to_string(i);
+
+		if (ImGui::BeginPopup(id.c_str()))
+		{
+			ImVec2 textDimensions = ImGui::CalcTextSize(popUpMessages[i].message.c_str());
+
+			ImGui::SetWindowFontScale(1.0f);
+			ImGui::SetCursorPos(ImVec2((width * 0.5f - textDimensions.x) * 0.5f, (height * 0.25f - textDimensions.y) * 0.5f));
+			ImGui::Text(popUpMessages[i].message.c_str());
+			ImGui::EndPopup();
+		}
+		ImGui::OpenPopup(id.c_str());
+		if (fadeIn || fadeOut) ImGui::PopStyleVar();
+	}
+}

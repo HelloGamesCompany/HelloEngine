@@ -53,5 +53,5 @@ private:
 private:
 	static CommandArray* _commands;
 
-	ModuleInput* input = nullptr;
+	ModuleInput* _input = nullptr;
 };
