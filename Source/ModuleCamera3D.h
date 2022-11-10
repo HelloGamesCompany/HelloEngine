@@ -24,8 +24,10 @@ public:
 
 	void RequestFrameBufferRegen(CameraObject* camera, int width, int height);
 
+	CameraObject* CreateGameCamera();
+
 public:
-	std::map<uint, CameraObject> gameCameras;
+	std::vector<CameraObject*> gameCameras;
 	CameraObject* activeGameCamera = nullptr;
 	SceneCameraObject sceneCamera;
 

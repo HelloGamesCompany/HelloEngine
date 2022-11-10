@@ -9,7 +9,7 @@
 
 ModuleRenderer3D::ModuleRenderer3D(bool start_enabled) : Module(start_enabled)
 {
-	cameras = app->camera;
+	
 }
 
 // Destructor
@@ -21,31 +21,20 @@ bool ModuleRenderer3D::Init()
 {
 	LOG("Creating 3D Renderer context");
 	bool ret = true;
-	
+	LOG("TEST");
+	cameras = app->camera;
 	Console::S_Log("Initializing OpenGL 3.3");
-
-	// Set Up OpenGL Attributes
-	SDL_GL_SetAttribute(SDL_GL_CONTEXT_FLAGS, 0);
-	SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
-	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
-	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
-
-	SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
-	SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
-	SDL_GL_SetAttribute(SDL_GL_STENCIL_SIZE, 8);
-
+	
 	//Create context
+	LOG("TEST2");
 	context = SDL_GL_CreateContext(app->window->window);
-	if(context == NULL)
-	{
-		LOG("OpenGL context could not be created! SDL_Error: %s\n", SDL_GetError());
-		ret = false;
-	}
 
 	Console::S_Log("Initializing Glew.");
 
+	LOG("TEST3");
 	GLenum er = glewInit();
 
+	LOG("TEST4");
 	SDL_GL_MakeCurrent(app->window->window, context);
 
 	if(ret == true)
@@ -109,6 +98,7 @@ UpdateStatus ModuleRenderer3D::PreUpdate()
 // PostUpdate present buffer to screen
 UpdateStatus ModuleRenderer3D::PostUpdate()
 {
+	LOG("render post update");
 	if (cameras->sceneCamera.active)
 	{
 		cameras->sceneCamera.frameBuffer.Bind();
@@ -121,7 +111,7 @@ UpdateStatus ModuleRenderer3D::PostUpdate()
 		modelRender.Draw();
 	}
 
-	if (cameras->activeGameCamera->active)
+	if (cameras->activeGameCamera != nullptr && cameras->activeGameCamera->active)
 	{
 		cameras->activeGameCamera->frameBuffer.Bind();
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
@@ -153,7 +143,11 @@ bool ModuleRenderer3D::CleanUp()
 
 	configNode.Save();
 
+	LOG("Deleting context");
+
 	SDL_GL_DeleteContext(context);
+
+	LOG("Context deleted");
 
 	return true;
 }

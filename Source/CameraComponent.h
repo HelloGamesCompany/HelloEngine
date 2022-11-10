@@ -16,11 +16,9 @@ public:
 
 	void Enable(bool enabled, bool fromGo = true) override;
 
-	CameraObject* GetCameraObject();
 public:
 	CameraObject* cameraObject = nullptr;
 
-	uint cameraID = 0;
 private:
 	ModuleCamera3D* moduleCameras = nullptr;
 

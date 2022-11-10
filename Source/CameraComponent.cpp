@@ -6,8 +6,8 @@
 
 CameraComponent::CameraComponent(GameObject* gameObject) : Component(gameObject)
 {
-	moduleCameras = Application::Instance()->camera;
-	cameraID = moduleCameras->gameCameras.empty() ? 0 : moduleCameras->gameCameras.size();
+	cameraObject = Application::Instance()->camera->CreateGameCamera();
+	cameraObject->frameBuffer.SetBufferInfo();
 }
 
 CameraComponent::~CameraComponent()
@@ -39,18 +39,18 @@ void CameraComponent::OnEditor()
 {
 	if (ImGui::CollapsingHeader("Camera", ImGuiTreeNodeFlags_DefaultOpen))
 	{
-		bool auxiliaryBool = _isEnabled;
-		if (ImGui::Checkbox("Active", &auxiliaryBool))
-			Enable(auxiliaryBool, false);
+		//bool auxiliaryBool = _isEnabled;
+		//if (ImGui::Checkbox("Active", &auxiliaryBool))
+		//	Enable(auxiliaryBool, false);
 
-		int tempValue = cameraObject->FOV;
-		if (ImGui::SliderInt("FOV", &tempValue, 20, 140))
-		{
-			cameraObject->SetFOV(tempValue);
-		}
+		//int tempValue = cameraObject->FOV;
+		//if (ImGui::SliderInt("FOV", &tempValue, 20, 140))
+		//{
+		//	cameraObject->SetFOV(tempValue);
+		//}
 
-		ImGui::DragFloat("Near plane", &cameraObject->cameraFrustum.nearPlaneDistance, 0.1f, 0.01);
-		ImGui::DragFloat("Far plane", &cameraObject->cameraFrustum.farPlaneDistance, 1.0f, 0.01);
+		//ImGui::DragFloat("Near plane", &cameraObject->cameraFrustum.nearPlaneDistance, 0.1f, 0.01);
+		//ImGui::DragFloat("Far plane", &cameraObject->cameraFrustum.farPlaneDistance, 1.0f, 0.01);
 
 	}
 }
@@ -58,15 +58,11 @@ void CameraComponent::OnEditor()
 void CameraComponent::Enable(bool enabled, bool fromGo)
 {
 	if (!fromGo) _isEnabled = enabled;
-	moduleCameras->gameCameras[cameraID].active = enabled;
+	cameraObject->active = enabled;
 
 	if (_isEnabled && _gameObject->IsActive())
-		moduleCameras->gameCameras[cameraID].active = true;
+		cameraObject->active = true;
 	else if (_isEnabled && !_gameObject->IsActive())
-		moduleCameras->gameCameras[cameraID].active = false;
+		cameraObject->active = false;
 }
 
-CameraObject* CameraComponent::GetCameraObject()
-{
-	return &moduleCameras->gameCameras[cameraID]; 
-}
