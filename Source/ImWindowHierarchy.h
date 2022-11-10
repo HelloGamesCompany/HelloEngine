@@ -19,6 +19,10 @@ public:
 	void ProcessGameObject(GameObject* gameObject, int iteration);
 
 private:
+
+	void DrawOptions();
+
+private:
 	std::map<uint, GameObject*>* gameObjectsReference = nullptr;
 
 	LayerEditor* layerEditor = nullptr;

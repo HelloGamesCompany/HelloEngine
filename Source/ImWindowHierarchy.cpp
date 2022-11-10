@@ -33,58 +33,30 @@ void ImWindowHierarchy::Update()
         {
             DrawGameObjectChildren(gameObjectsReference->at(1));
 
-            if ((ImGui::IsMouseDown(ImGuiMouseButton_::ImGuiMouseButton_Right) && ImGui::IsWindowHovered()) || popUpOpen)
+            // Detect window popUps
+            if(ImGui::IsWindowHovered())
             {
-                popUpOpen = true;
-                int selectedShape = 0;
-                std::string shapeNames[4] = { "Cube", "Sphere", "Cylinder", "Plane" };
-
-                ImGui::OpenPopup("basicShapes");
-
-                if (ImGui::IsMouseDown(ImGuiMouseButton_::ImGuiMouseButton_Left) && !ImGui::IsAnyItemHovered())
+                if (ImGui::IsMouseClicked(ImGuiMouseButton_::ImGuiMouseButton_Right))
                 {
-                    std::cout << "Close popup" << std::endl;
+                    popUpOpen = true;
+                    layerEditor->SetSelectGameObject(nullptr);
+                    hasSelectedAGameObject = false;
+                }
+                else if (ImGui::IsMouseClicked(ImGuiMouseButton_::ImGuiMouseButton_Left)) 
+                {
                     popUpOpen = false;
                 }
-                if (ImGui::BeginPopup("basicShapes"))
-                {
-                    if (layerEditor->selectedGameObject != nullptr)
-                    {
-                        ImGui::TextColored(ImVec4(1, 1, 0, 1), "Delete GameObject"); ImGui::SameLine(-ImGui::GetWindowWidth());
-                        if (ImGui::Selectable("##"))
-                        {
-                            Application::Instance()->layers->editor->AddPopUpMessage("Cannot delete GameObjects in this version yet! Check console.");
-                            Console::S_Log("Cannot delete GameObjects yet. Because of the Undo/ Redo system, we need to implement this feature carefully. Therefore, it is not included in this version.");
-                            //layerEditor->selectedGameObject->Destroy();
-                            popUpOpen = false;
-                        }
-                    }
-
-                    if (ImGui::Selectable("Create empty GameObject"))
-                    {
-                        GameObject* parent = layerEditor->selectedGameObject != nullptr ? layerEditor->selectedGameObject : Application::Instance()->layers->rootGameObject;
-                        GameObject* newGameObject = new GameObject(parent, "Empty");
-                        popUpOpen = false;
-                    }
-                    ImGui::Separator();
-                    ImGui::Text("Select Shape");
-                    ImGui::Separator();
-                    for (int i = 0; i < 4; i++)
-                    {
-                        if (ImGui::Selectable(shapeNames[i].c_str()))
-                        {
-                            selectedShape = i;
-                            Application::Instance()->renderer3D->modelRender.CreatePrimitive(layerEditor->selectedGameObject, (PrimitiveType)i);
-                            popUpOpen = false;
-                        }
-                    }
-                }
-                ImGui::EndPopup();
             }
-            else if (ImGui::IsMouseDown(ImGuiMouseButton_::ImGuiMouseButton_Left) && !hasSelectedAGameObject && ImGui::IsWindowHovered())
+            else
             {
-                layerEditor->selectedGameObject = nullptr;
-            }
+                if (ImGui::IsMouseClicked(ImGuiMouseButton_::ImGuiMouseButton_Left) || 
+                    ImGui::IsMouseClicked(ImGuiMouseButton_::ImGuiMouseButton_Right))
+                {
+                    popUpOpen = false;
+                }
+            }      
+
+            if(popUpOpen) DrawOptions();
         }
         ImGui::EndChild();
 
@@ -114,8 +86,6 @@ void ImWindowHierarchy::DrawGameObjectChildren(GameObject* gameObject, bool only
             ProcessGameObject(gameObject->_children[i], i);
         }
     }
-
-
 }
 
 void ImWindowHierarchy::ProcessGameObject(GameObject* gameObject, int iteration)
@@ -124,10 +94,7 @@ void ImWindowHierarchy::ProcessGameObject(GameObject* gameObject, int iteration)
 
     GameObject* temp = layerEditor->GetSelectedGameObject();
 
-    if (gameObject == temp)
-    {
-        node_flags |= ImGuiTreeNodeFlags_Selected;
-    }
+    if (gameObject == temp) node_flags |= ImGuiTreeNodeFlags_Selected;
 
     bool node_open;
     bool isLeaf = false;
@@ -163,13 +130,23 @@ void ImWindowHierarchy::ProcessGameObject(GameObject* gameObject, int iteration)
         ImGui::EndDragDropTarget();
     }
 
-    if (ImGui::IsItemHovered() && gameObject->_parent != nullptr)
+    // Select gameObejct
+    if ((ImGui::IsMouseClicked(ImGuiMouseButton_::ImGuiMouseButton_Left,true)))
     {
-        if (ImGui::IsMouseDown(ImGuiMouseButton_::ImGuiMouseButton_Left) || ImGui::IsMouseDown(ImGuiMouseButton_::ImGuiMouseButton_Right))
+        if (ImGui::IsItemHovered() && gameObject->_parent != nullptr)
         {
             layerEditor->SetSelectGameObject(gameObject);
             hasSelectedAGameObject = true;
         }
+    }
+    if (gameObject->_parent && ImGui::BeginPopupContextItem())
+    {
+        layerEditor->SetSelectGameObject(gameObject);
+        hasSelectedAGameObject = true;
+
+        DrawOptions();
+
+        ImGui::EndPopup();
     }
 
     ImGui::SameLine(ImGui::GetWindowWidth() - 20);
@@ -184,4 +161,47 @@ void ImWindowHierarchy::ProcessGameObject(GameObject* gameObject, int iteration)
         ImGui::TreePop();
     }
     if (isLeaf) ImGui::TreePop();
+}
+
+void ImWindowHierarchy::DrawOptions()
+{
+    int selectedShape = 0;
+    std::string shapeNames[4] = { "Cube", "Sphere", "Cylinder", "Plane" };
+
+    ImGui::OpenPopup("basicShapes");
+
+    if (ImGui::BeginPopup("basicShapes"))
+    {
+        if (layerEditor->selectedGameObject != nullptr)
+        {
+            ImGui::TextColored(ImVec4(1, 1, 0, 1), "Delete GameObject"); ImGui::SameLine(-ImGui::GetWindowWidth());
+            if (ImGui::Selectable("##"))
+            {
+                Application::Instance()->layers->editor->AddPopUpMessage("Cannot delete GameObjects in this version yet! Check console.");
+                Console::S_Log("Cannot delete GameObjects yet. Because of the Undo/ Redo system, we need to implement this feature carefully. Therefore, it is not included in this version.");
+                //layerEditor->selectedGameObject->Destroy();
+                popUpOpen = false;
+            }
+        }
+
+        if (ImGui::Selectable("Create empty GameObject"))
+        {
+            GameObject* parent = layerEditor->selectedGameObject != nullptr ? layerEditor->selectedGameObject : Application::Instance()->layers->rootGameObject;
+            GameObject* newGameObject = new GameObject(parent, "Empty");
+            popUpOpen = false;
+        }
+        ImGui::Separator();
+        ImGui::Text("Select Shape");
+        ImGui::Separator();
+        for (int i = 0; i < 4; i++)
+        {
+            if (ImGui::Selectable(shapeNames[i].c_str()))
+            {
+                selectedShape = i;
+                Application::Instance()->renderer3D->modelRender.CreatePrimitive(layerEditor->selectedGameObject, (PrimitiveType)i);
+                popUpOpen = false;
+            }
+        }
+        ImGui::EndPopup();
+    }
 }

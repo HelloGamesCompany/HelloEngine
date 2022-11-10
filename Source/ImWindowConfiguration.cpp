@@ -63,6 +63,8 @@ ImWindowConfiguration::~ImWindowConfiguration()
 
 void ImWindowConfiguration::Update()
 {
+	ImGui::ShowDemoWindow();
+
 	std::string framerate = "Framerate: " + std::to_string(ImGui::GetIO().Framerate);
 
 	frames->push_back(ImGui::GetIO().Framerate);
