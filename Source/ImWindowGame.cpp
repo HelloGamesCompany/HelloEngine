@@ -6,6 +6,8 @@
 ImWindowGame::ImWindowGame()
 {
 	windowName = "Game";
+	moduleCameras = Application::Instance()->camera;
+	currentGameCamera = moduleCameras->activeGameCamera;
 }
 
 ImWindowGame::~ImWindowGame()
@@ -16,22 +18,19 @@ void ImWindowGame::Update()
 {
 	if(ImGui::Begin(windowName.c_str()))
 	{
-		if (Application::Instance()->camera->activeGameCamera != nullptr) 
+		ImVec2 gameDimensions = ImGui::GetContentRegionAvail();
+
+		if (gameDimensions.x != gameWidth || gameDimensions.y != gameHeight)
 		{
-			ImVec2 gameDimensions = ImGui::GetContentRegionAvail();
+			// If the size of this imgui window is different from the one stored.
+			gameWidth = gameDimensions.x;
+			gameHeight = gameDimensions.y;
+			currentGameCamera->ChangeAspectRatio((float)gameWidth / (float)gameHeight);
+		}
 
-			if (gameDimensions.x != gameWidth || gameDimensions.y != gameHeight)
-			{
-				// If the size of this imgui window is different from the one stored.
-				gameWidth = gameDimensions.x;
-				gameHeight = gameDimensions.y;
-				Application::Instance()->camera->activeGameCamera->ChangeAspectRatio((float)gameWidth / (float)gameHeight);
-			}
-
-			if (Application::Instance()->camera->activeGameCamera->active)
-			{
-				ImGui::Image((ImTextureID)Application::Instance()->camera->activeGameCamera->frameBuffer.GetTexture(), ImGui::GetContentRegionAvail(), ImVec2(0, 1), ImVec2(1, 0));
-			}
+		if (currentGameCamera->active)
+		{
+			ImGui::Image((ImTextureID)currentGameCamera->frameBuffer.GetTexture(), ImGui::GetContentRegionAvail(), ImVec2(0, 1), ImVec2(1, 0));
 		}
 	}
 

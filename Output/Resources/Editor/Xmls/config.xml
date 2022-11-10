@@ -10,7 +10,7 @@
 		<framerate value="120" />
 	</renderer>
 	<openGL>
-		<blend value="true" tag="0x0BE2" />
+		<blend value="false" tag="0x0BE2" />
 		<cullFace value="false" tag="0x0B44" />
 		<wireframe value="false" />
 	</openGL>

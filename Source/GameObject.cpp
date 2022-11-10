@@ -4,7 +4,6 @@
 #include "TransformComponent.h"
 #include "MeshRenderComponent.h"
 #include "MaterialComponent.h"
-#include "CameraComponent.h"
 #include "LayerEditor.h"
 
 GameObject::GameObject(GameObject* parent, std::string name, std::string tag) : name(name), tag(tag)
@@ -95,7 +94,7 @@ void GameObject::OnEditor()
 	ImGui::Spacing();
 	if (ImGui::BeginCombo("Add Component", "Select"))
 	{
-		for (int n = 0; n < 3; n++)
+		for (int n = 0; n < 2; n++)
 		{
 			int selectedItem = n;
 			if (ImGui::Selectable(comboValues[n].c_str(), false))
@@ -109,10 +108,6 @@ void GameObject::OnEditor()
 				case 1:
 					if (!HasComponent<MaterialComponent>())
 						AddComponent<MaterialComponent>();
-					break;
-				case 2:
-					if (!HasComponent<CameraComponent>())
-						AddComponent<CameraComponent>();
 					break;
 				}
 			}

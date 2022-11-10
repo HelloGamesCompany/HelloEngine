@@ -15,6 +15,8 @@ public:
 
 
 private:
+	CameraObject* currentGameCamera = nullptr;
+	ModuleCamera3D* moduleCameras = nullptr;
 
 	int gameWidth = 1;
 
