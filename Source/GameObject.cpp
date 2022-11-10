@@ -73,7 +73,7 @@ void GameObject::SetActive(bool active)
 
 	for (auto* component : _components)
 	{
-		component->Enable(active);
+		_isActive ? component->EnableFromGameObject() : component->DisableFromGameObject();
 	}
 
 	for (auto* child : _children)

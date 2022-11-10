@@ -21,7 +21,11 @@ public:
 	Type GetType() { return _type; }
 	bool IsEnabled(){ return _isEnabled; }
 
-	virtual void Enable(bool enabled, bool fromGo = true) { _isEnabled = enabled; }
+	void Enable();
+	void Disable();
+
+	virtual void OnEnable() {};
+	virtual void OnDisable() {};
 
 	virtual void OnPositionUpdate(float3 pos) {}
 	virtual void OnScaleUpdate(float3 scale) {}
@@ -30,6 +34,11 @@ public:
 
 	virtual void OnEditor() {};
 
+private:
+	void EnableFromGameObject() { if (_isEnabled) OnEnable(); };
+	void DisableFromGameObject() { if (_isEnabled) OnDisable(); };
+
+	friend class GameObject;
 protected:
 	bool _isEnabled = true;
 	GameObject* _gameObject = nullptr;

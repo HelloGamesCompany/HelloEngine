@@ -17,11 +17,12 @@ public:
 	void OnScaleUpdate(float3 scale) override;
 	void OnTransformUpdate(float3 pos, float3 scale, float3 rot) override;
 
+	void OnEnable() override;
+	void OnDisable() override;
+
 	Mesh& GetMesh();
 
 	void OnEditor() override;
-
-	void Enable(bool enabled, bool fromGo = true) override;
 
 private:
 	int _meshID = -1;

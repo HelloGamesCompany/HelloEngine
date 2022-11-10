@@ -13,11 +13,12 @@ public:
 
 	void OnEditor() override;
 
+	void OnEnable() override;
+	void OnDisable() override;
+
 	void SetMeshRenderer(MeshRenderComponent* mesh);
 
 	Mesh& GetMesh();
-
-	void Enable(bool enabled, bool fromGo = true) override;
 
 private:
 	MeshRenderComponent* meshRenderer = nullptr;

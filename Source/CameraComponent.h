@@ -14,7 +14,8 @@ public:
 
 	void OnEditor() override;
 
-	void Enable(bool enabled, bool fromGo = true) override;
+	void OnEnable() override;
+	void OnDisable() override;
 
 public:
 	CameraObject* cameraObject = nullptr;

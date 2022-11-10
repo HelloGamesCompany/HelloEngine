@@ -40,8 +40,10 @@ void CameraComponent::OnEditor()
 	if (ImGui::CollapsingHeader("Camera", ImGuiTreeNodeFlags_DefaultOpen))
 	{
 		bool auxiliaryBool = _isEnabled;
-		if (ImGui::Checkbox("Active", &auxiliaryBool))
-			Enable(auxiliaryBool, false);
+		if (ImGui::Checkbox("Active##Camera", &auxiliaryBool))
+		{
+			auxiliaryBool ? Enable() : Disable();
+		}
 
 		int tempValue = cameraObject->FOV;
 		if (ImGui::SliderInt("FOV", &tempValue, 20, 140))
@@ -63,14 +65,12 @@ void CameraComponent::OnEditor()
 	}
 }
 
-void CameraComponent::Enable(bool enabled, bool fromGo)
+void CameraComponent::OnEnable()
 {
-	if (!fromGo) _isEnabled = enabled;
-	cameraObject->active = enabled;
-
-	if (_isEnabled && _gameObject->IsActive())
-		cameraObject->active = true;
-	else if (_isEnabled && !_gameObject->IsActive())
-		cameraObject->active = false;
+	cameraObject->active = true;
 }
 
+void CameraComponent::OnDisable()
+{
+	cameraObject->active = false;
+}
