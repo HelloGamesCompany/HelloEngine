@@ -86,7 +86,7 @@ private:
 	uint _ID = 0; // ID =  0 is an invalid ID. First ID is 1.
 
 	// On Editor variables
-	std::string comboValues[2] = {"Mesh Renderer", "Material"};
+	std::string comboValues[3] = {"Mesh Renderer", "Material", "Camera"};
 
 	friend class TransformComponent;
 	friend class ImWindowHierarchy;

@@ -22,17 +22,6 @@ Mesh& MaterialComponent::GetMesh()
 	return meshRenderer->GetMesh();
 }
 
-void MaterialComponent::Enable(bool enabled, bool fromGo)
-{
-	if (!fromGo) _isEnabled = enabled;
-	GetMesh().textureID = _isEnabled ? textureID : -1;
-
-	if (_isEnabled && _gameObject->IsActive())
-		GetMesh().textureID = textureID;
-	else if (_isEnabled && !_gameObject->IsActive())
-		GetMesh().textureID = -1;
-}
-
 void MaterialComponent::ChangeTexture(uint textureID)
 {
 	this->textureID = textureID;
@@ -44,8 +33,8 @@ void MaterialComponent::OnEditor()
 	if (!ImGui::CollapsingHeader("Material", ImGuiTreeNodeFlags_DefaultOpen)) return;
 
 	bool auxiliaryBool = _isEnabled;
-	if (ImGui::Checkbox("SetActive", &auxiliaryBool))
-		Enable(auxiliaryBool, false);
+	if (ImGui::Checkbox("Active##Material", &auxiliaryBool))
+		auxiliaryBool ? Enable() : Disable();
 
 	if (!meshRenderer)
 	{
@@ -111,6 +100,18 @@ void MaterialComponent::OnEditor()
 		ImGui::TextWrapped("Height: "); ImGui::SameLine();
 		ImGui::TextColored(ImVec4(1, 1, 0, 1), std::to_string(height).c_str());
 	}
+}
+
+void MaterialComponent::OnEnable()
+{
+	if (!meshRenderer) return;
+	GetMesh().textureID = textureID;
+}
+
+void MaterialComponent::OnDisable()
+{
+	if (!meshRenderer) return;
+	GetMesh().textureID = -1;
 }
 
 void MaterialComponent::SetMeshRenderer(MeshRenderComponent* mesh)

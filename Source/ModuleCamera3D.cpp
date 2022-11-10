@@ -19,25 +19,8 @@ ModuleCamera3D::~ModuleCamera3D()
 // -----------------------------------------------------------------
 bool ModuleCamera3D::Start()
 {
-	LOG("Setting up the camera");
-
-	// Create Empty GameObject with camera component.
-	GameObject* mainCamera = new GameObject(Application::Instance()->layers->rootGameObject, "Main Camera", "Camera");
-	CameraComponent* camera = mainCamera->AddComponent<CameraComponent>();
-	currentDrawingCamera = activeGameCamera = camera->cameraObject = new CameraObject();
-
 	sceneCamera.frameBuffer.SetBufferInfo();
 	sceneCamera.frameBuffer.SetDimensions(Application::Instance()->window->width, Application::Instance()->window->height);
-
-	activeGameCamera->frameBuffer.SetBufferInfo();
-	activeGameCamera->frameBuffer.SetBufferInfo();
-
-	/*for (auto& camera : gameCameras)
-	{
-		camera.second.frameBuffer.SetBufferInfo();
-		camera.second.frameBuffer.SetDimensions(Application::Instance()->window->width, Application::Instance()->window->height);
-	}*/
-
 	return true;
 }
 
@@ -54,6 +37,43 @@ void ModuleCamera3D::RequestFrameBufferRegen(CameraObject* camera, int width, in
 	frameBufferRegenCamera = camera;
 	newBufferWidth = width;
 	newBufferHeight = height;
+}
+
+CameraObject* ModuleCamera3D::CreateGameCamera()
+{
+	CameraObject* newCamera = new CameraObject();
+	gameCameras.push_back(newCamera);
+	if (gameCameras.size() == 1)
+	{
+		activeGameCamera = newCamera; // If this is the first game camera, assign the current display camera to this.
+		newCamera->currentlyDisplaying = true;
+	}
+	return newCamera;
+}
+
+void ModuleCamera3D::SetCurrentActiveGameCamera(CameraObject* target)
+{
+	if (activeGameCamera != nullptr) activeGameCamera->currentlyDisplaying = false;
+	activeGameCamera = target;
+	target->currentlyDisplaying = true;
+}
+
+void ModuleCamera3D::EraseGameCamera(CameraObject* erasedCamera)
+{
+	// TODO: To be tested when deleting game objects is possible.
+	/*for (int i = 0; i < gameCameras.size(); i++)
+	{
+		if (erasedCamera == gameCameras[i]) 
+		{
+			gameCameras.erase(gameCameras.begin() + i);
+			if (activeGameCamera == erasedCamera)
+			{
+				activeGameCamera = gameCameras.empty() ? nullptr : gameCameras[0];
+			}
+			break;
+		}
+	}*/
+	
 }
 
 // -----------------------------------------------------------------

@@ -6,8 +6,8 @@
 
 CameraComponent::CameraComponent(GameObject* gameObject) : Component(gameObject)
 {
-	moduleCameras = Application::Instance()->camera;
-	cameraID = moduleCameras->gameCameras.empty() ? 0 : moduleCameras->gameCameras.size();
+	cameraObject = Application::Instance()->camera->CreateGameCamera();
+	cameraObject->frameBuffer.SetBufferInfo();
 }
 
 CameraComponent::~CameraComponent()
@@ -40,8 +40,10 @@ void CameraComponent::OnEditor()
 	if (ImGui::CollapsingHeader("Camera", ImGuiTreeNodeFlags_DefaultOpen))
 	{
 		bool auxiliaryBool = _isEnabled;
-		if (ImGui::Checkbox("Active", &auxiliaryBool))
-			Enable(auxiliaryBool, false);
+		if (ImGui::Checkbox("Active##Camera", &auxiliaryBool))
+		{
+			auxiliaryBool ? Enable() : Disable();
+		}
 
 		int tempValue = cameraObject->FOV;
 		if (ImGui::SliderInt("FOV", &tempValue, 20, 140))
@@ -52,21 +54,23 @@ void CameraComponent::OnEditor()
 		ImGui::DragFloat("Near plane", &cameraObject->cameraFrustum.nearPlaneDistance, 0.1f, 0.01);
 		ImGui::DragFloat("Far plane", &cameraObject->cameraFrustum.farPlaneDistance, 1.0f, 0.01);
 
+		ImGui::TextColored(cameraObject->currentlyDisplaying ? ImVec4(0, 1, 0, 1) : ImVec4(1, 0, 0, 1), cameraObject->currentlyDisplaying ? "Currently displaying" : "Not currently displaying");
+		ImGui::SameLine();
+
+		if (ImGui::Button("Set as drawing game camera."))
+		{
+			Application::Instance()->camera->SetCurrentActiveGameCamera(cameraObject);
+		}
+
 	}
 }
 
-void CameraComponent::Enable(bool enabled, bool fromGo)
+void CameraComponent::OnEnable()
 {
-	if (!fromGo) _isEnabled = enabled;
-	moduleCameras->gameCameras[cameraID].active = enabled;
-
-	if (_isEnabled && _gameObject->IsActive())
-		moduleCameras->gameCameras[cameraID].active = true;
-	else if (_isEnabled && !_gameObject->IsActive())
-		moduleCameras->gameCameras[cameraID].active = false;
+	cameraObject->active = true;
 }
 
-CameraObject* CameraComponent::GetCameraObject()
+void CameraComponent::OnDisable()
 {
-	return &moduleCameras->gameCameras[cameraID]; 
+	cameraObject->active = false;
 }

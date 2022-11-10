@@ -14,13 +14,13 @@ public:
 
 	void OnEditor() override;
 
-	void Enable(bool enabled, bool fromGo = true) override;
+	void OnEnable() override;
+	void OnDisable() override;
 
-	CameraObject* GetCameraObject();
 public:
 	CameraObject* cameraObject = nullptr;
+	bool isCurrentlyDisplaying = false;
 
-	uint cameraID = 0;
 private:
 	ModuleCamera3D* moduleCameras = nullptr;
 
