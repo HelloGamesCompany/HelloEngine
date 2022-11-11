@@ -198,7 +198,7 @@ void ImWindowHierarchy::DrawOptions()
         {
             Application::Instance()->layers->editor->AddPopUpMessage("Cannot delete GameObjects in this version yet! Check console.");
             Console::S_Log("Cannot delete GameObjects yet. Because of the Undo/ Redo system, we need to implement this feature carefully. Therefore, it is not included in this version.");
-            //layerEditor->selectedGameObject->Destroy();
+            _layerEditor->selectedGameObject->Destroy();
         }
     }
     if (ImGui::Selectable("Create empty GameObject"))

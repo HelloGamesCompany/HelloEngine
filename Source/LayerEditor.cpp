@@ -142,13 +142,13 @@ void LayerEditor::PostUpdate()
 
 	DrawMenuBar();
 
+	DrawPopUpMessages();
+
 	// Draw Every windows
     for (int i = 0; i < (uint)ImWindowID::MAX; i++)
     {
         if (_imWindows[i]->isEnabled) _imWindows[i]->Update();
     }
-
-	DrawPopUpMessages();
 
 	ImGui::Render();
 
@@ -238,8 +238,8 @@ void LayerEditor::DrawMenuBar()
 
 void LayerEditor::DrawPopUpMessages()
 {
-	float fadeInFix = 0.1f; // 0 - 0.1 do fadeIn
-	float fadeOutFix = 0.9f; // 0.9 - 1.0 do fadeOut
+	float fadeInFix = 0.4f; // 0 - 0.4 do fadeIn
+	float fadeOutFix = 0.8f; // 0.8 - 1.0 do fadeOut
 
 	bool fadeIn = false;
 	bool fadeOut = false;
@@ -249,19 +249,26 @@ void LayerEditor::DrawPopUpMessages()
 
 	std::string id = "popUpMessage";
 
-	if (_popUpMessages.empty()) return;
-	
-	for (size_t i = 0; i < 1; i++)
+	ImGuiWindowFlags popupFlags =
+		ImGuiWindowFlags_NoTitleBar |
+		ImGuiWindowFlags_NoResize |
+		ImGuiWindowFlags_NoMove |
+		ImGuiWindowFlags_HorizontalScrollbar |
+		ImGuiWindowFlags_NoSavedSettings;
+
+	if (_popUpMessages.empty())
+		return;
+
+	for (size_t i = 0; i < _popUpMessages.size(); i++)
 	{
 		_popUpMessages[i].currentMessageTime += (1 / ImGui::GetIO().Framerate);
 
 		if (_popUpMessages[i].currentMessageTime >= _messageTime)
 		{
-			_popUpMessages.erase(_popUpMessages.begin() + i);
-			return;
-			// will apear all in same time.
-			//popUpMessages.erase(popUpMessages.begin() + i--);
-			//continue;
+			std::cout << _popUpMessages[i].currentMessageTime << std::endl;
+			_popUpMessages.erase(_popUpMessages.begin() + i--);
+		
+			continue;
 		}
 
 		fadeIn = _popUpMessages[i].currentMessageTime <= _messageTime * fadeInFix;
@@ -273,25 +280,29 @@ void LayerEditor::DrawPopUpMessages()
 		}
 		else if (fadeOut)
 		{
-			ImGui::PushStyleVar(ImGuiStyleVar_Alpha, 1.0f - ((_popUpMessages[i].currentMessageTime - (_messageTime * fadeOutFix)) / (_messageTime * fadeInFix)));
+			float result = 1.0f - ((_popUpMessages[i].currentMessageTime - (_messageTime * fadeOutFix)) / (1.0f - fadeOutFix));
+			ImGui::PushStyleVar(ImGuiStyleVar_Alpha, result > 0 ? result : 0.0f);
+			if (result < 0)
+			{
+				std::cout << result << std::endl;
+			}
 		}
 
-		ImGui::SetNextWindowSize(ImVec2(width * 0.5f, height * 0.25f));
-		ImGui::SetNextWindowPos(ImVec2(width * 0.25f, height * 0.25f));
+		ImGui::SetNextWindowSize(ImVec2(width * 0.3f, height * 0.15f));
+		ImGui::SetNextWindowPos(ImVec2(width * 0.35f, (height * 0.425f) - 30.0f * _popUpMessages[i].currentMessageTime));
 
 		id += std::to_string(i);
 
-		if (ImGui::BeginPopup(id.c_str()))
+		if (ImGui::Begin(id.c_str(),0, popupFlags))
 		{
 			ImVec2 textDimensions = ImGui::CalcTextSize(_popUpMessages[i].message.c_str());
 
 			ImGui::SetWindowFontScale(1.0f);
-			ImGui::SetCursorPos(ImVec2((width * 0.5f - textDimensions.x) * 0.5f, (height * 0.25f - textDimensions.y) * 0.5f));
+			ImGui::SetCursorPos(ImVec2((width * 0.3f - textDimensions.x) * 0.5f, (height * 0.15f - textDimensions.y) * 0.5f));
 			ImGui::Text(_popUpMessages[i].message.c_str());
-			ImGui::EndPopup();
 		}
+		ImGui::End();
 
-		ImGui::OpenPopup(id.c_str());
 		if (fadeIn || fadeOut) ImGui::PopStyleVar();
 	}
 }

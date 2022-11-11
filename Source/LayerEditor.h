@@ -71,7 +71,7 @@ private:
 
 	//Popup message variables
 	std::vector<PopUpMessage> _popUpMessages;
-	float _messageTime = 1.5f;
+	float _messageTime = 3.0f;
 
 	friend class ImWindowHierarchy;
 };

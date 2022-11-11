@@ -53,7 +53,10 @@ CameraObject* ModuleCamera3D::CreateGameCamera()
 
 void ModuleCamera3D::SetCurrentActiveGameCamera(CameraObject* target)
 {
-	if (activeGameCamera != nullptr) activeGameCamera->currentlyDisplaying = false;
+	if (activeGameCamera != nullptr)
+	{
+		activeGameCamera->currentlyDisplaying = false;
+	}
 	activeGameCamera = target;
 	target->currentlyDisplaying = true;
 }
@@ -61,7 +64,7 @@ void ModuleCamera3D::SetCurrentActiveGameCamera(CameraObject* target)
 void ModuleCamera3D::EraseGameCamera(CameraObject* erasedCamera)
 {
 	// TODO: To be tested when deleting game objects is possible.
-	/*for (int i = 0; i < gameCameras.size(); i++)
+	for (int i = 0; i < gameCameras.size(); i++)
 	{
 		if (erasedCamera == gameCameras[i]) 
 		{
@@ -69,10 +72,14 @@ void ModuleCamera3D::EraseGameCamera(CameraObject* erasedCamera)
 			if (activeGameCamera == erasedCamera)
 			{
 				activeGameCamera = gameCameras.empty() ? nullptr : gameCameras[0];
+				if (activeGameCamera != nullptr)
+				{
+					activeGameCamera->currentlyDisplaying = true;
+				}
 			}
 			break;
 		}
-	}*/
+	}
 	
 }
 
