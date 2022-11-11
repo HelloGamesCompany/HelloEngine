@@ -35,18 +35,21 @@ void SceneCameraObject::UpdateInput()
 	{
 		float3 newPos(0, 0, 0);
 		float speed = 3.0f * app->fps;
+
 		if (app->input->GetKey(SDL_SCANCODE_LSHIFT) == KEY_REPEAT)
 			speed = 10.0f * app->fps;
 
-		if (app->input->GetKey(SDL_SCANCODE_W) == KEY_REPEAT) newPos += cameraFrustum.front * speed;
-		if (app->input->GetKey(SDL_SCANCODE_S) == KEY_REPEAT) newPos -= cameraFrustum.front * speed;
+		if (app->input->GetKey(SDL_SCANCODE_W) == KEY_REPEAT) 
+			newPos += cameraFrustum.front * speed;
 
+		if (app->input->GetKey(SDL_SCANCODE_S) == KEY_REPEAT) 
+			newPos -= cameraFrustum.front * speed;
 
-		if (app->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT) newPos -= cameraFrustum.WorldRight() * speed;
-		if (app->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT) newPos += cameraFrustum.WorldRight() * speed;
+		if (app->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT) 
+			newPos -= cameraFrustum.WorldRight() * speed;
 
-		Position += newPos;
-		Reference += newPos;
+		if (app->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT)
+			newPos += cameraFrustum.WorldRight() * speed;
 
 		cameraFrustum.pos += newPos;
 
@@ -78,7 +81,6 @@ void SceneCameraObject::UpdateInput()
 	// Orbital rotation
 	if (app->input->GetKey(SDL_SCANCODE_LALT) == KEY_REPEAT && app->input->GetMouseButton(1) == KEY_REPEAT)
 	{
-		
 		float3 rotationCenter = { 0.0f,0.0f,0.0f };
 
 		if (selectedGO != nullptr) rotationCenter = selectedGO->transform->GetGlobalTransform().position;
@@ -99,8 +101,6 @@ void SceneCameraObject::UpdateInput()
 		{
 			float DeltaY = math::DegToRad(dy * Sensitivity * 0.75f);
 			float cosAngle = math::Dot(float3(0, 1, 0), cameraFrustum.front);
-
-			//std::cout << "Cos: " << cosAngle << " Delta: " << DeltaY << std::endl;
 
 			if (math::Abs(cosAngle) > 0.99f)
 			{
@@ -124,11 +124,14 @@ void SceneCameraObject::UpdateInput()
 
 	if (app->input->GetMouseZ() != 0)
 	{
+		// TODO: Change to move forward and backwards
 		float currentFOV = GetFOV();
 		float newFOV = currentFOV + (1.5f * -app->input->GetMouseZ());
 
 		if (newFOV > 20.0f && newFOV < 160.0f) SetFOV(newFOV);
 	}
+
+	// TODO: Add panning with middle mouse button.
 
 	if (app->input->GetKey(SDL_SCANCODE_F) == KEY_DOWN)
 	{
@@ -141,6 +144,7 @@ void SceneCameraObject::UpdateInput()
 
 void SceneCameraObject::Focus(const float3& focusPoint)
 {
+	// TODO: improve focus to take into account our position before focusing
 	float3 newPos = focusPoint;
 	newPos += float3(4.0f, 0.0f, 2.0f);
 	cameraFrustum.pos = newPos;
