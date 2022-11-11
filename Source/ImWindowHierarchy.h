@@ -23,16 +23,14 @@ private:
 	void DrawOptions();
 
 private:
-	std::map<uint, GameObject*>* gameObjectsReference = nullptr;
+	std::map<uint, GameObject*>* _gameObjectsReference = nullptr;
 
-	LayerEditor* layerEditor = nullptr;
+	LayerEditor* _layerEditor = nullptr;
 
-	GameObject* draggingGameObject = nullptr;
+	GameObject* _draggingGameObject = nullptr;
 
-	ImGuiTreeNodeFlags base_flags = 0;
+	ImGuiTreeNodeFlags _base_flags = 0;
 
-	bool popUpOpen = false;
-	bool popUpGOpen = false;
-	bool hasSelectedAGameObject = false;
+	bool _popUpOpen = false;
+	bool _hasSelectedAGameObject = false;
 };
-

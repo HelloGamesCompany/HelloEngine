@@ -11,13 +11,13 @@ ImWindowHierarchy::ImWindowHierarchy()
 {
 	windowName = "Hierarchy";
 
-    layerEditor = (LayerEditor*)Application::Instance()->layers->layers[LayersID::EDITOR];
+    _layerEditor = (LayerEditor*)Application::Instance()->layers->layers[LayersID::EDITOR];
 
-    gameObjectsReference = &Application::Instance()->layers->gameObjects;
+    _gameObjectsReference = &Application::Instance()->layers->gameObjects;
 
 	isEnabled = true;
 
-    base_flags = ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_OpenOnDoubleClick | ImGuiTreeNodeFlags_SpanAvailWidth | ImGuiTreeNodeFlags_AllowItemOverlap;
+    _base_flags = ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_OpenOnDoubleClick | ImGuiTreeNodeFlags_SpanAvailWidth | ImGuiTreeNodeFlags_AllowItemOverlap;
 }
 
 ImWindowHierarchy::~ImWindowHierarchy()
@@ -27,24 +27,33 @@ ImWindowHierarchy::~ImWindowHierarchy()
 void ImWindowHierarchy::Update()
 {
 	if (ImGui::Begin(windowName.c_str(), &isEnabled))
-	{
-            DrawGameObjectChildren(gameObjectsReference->at(1));
-        hasSelectedAGameObject = false;
+    {
+        _hasSelectedAGameObject = false;
+        
+        DrawGameObjectChildren(_gameObjectsReference->at(1));
+
         ImGui::BeginChild("DropArea");
         {
+            // Draw PopUps
+            if (_popUpOpen)
+            {            
+                if (ImGui::BeginPopup("basicShapes"))
+                {
+                    DrawOptions();
 
-            if(popUpOpen || popUpGOpen) DrawOptions();
-            // Detect window popUps
-            if(ImGui::IsWindowHovered() && !hasSelectedAGameObject)
+                    ImGui::EndPopup();
+                }
+
+                ImGui::OpenPopup("basicShapes", ImGuiPopupFlags_MouseButtonMask_);
+            }
+
+            // Detect window PopUps
+            if(ImGui::IsWindowHovered() && !_hasSelectedAGameObject)
             {
                 if (ImGui::IsMouseReleased(ImGuiMouseButton_::ImGuiMouseButton_Right))
                 {
-                    popUpOpen = true;
-                    layerEditor->SetSelectGameObject(nullptr);
-                }
-                else if (ImGui::IsMouseReleased(ImGuiMouseButton_::ImGuiMouseButton_Left))
-                {
-                    popUpOpen = false;
+                    _popUpOpen = true;
+                    _layerEditor->SetSelectGameObject(nullptr);
                 }
             }
             else
@@ -52,10 +61,9 @@ void ImWindowHierarchy::Update()
                 if (ImGui::IsMouseReleased(ImGuiMouseButton_::ImGuiMouseButton_Left) ||
                     ImGui::IsMouseReleased(ImGuiMouseButton_::ImGuiMouseButton_Right))
                 {
-                    popUpOpen = false;
+                    _popUpOpen = false;
                 }
             }      
-
         }
         ImGui::EndChild();
 
@@ -89,11 +97,14 @@ void ImWindowHierarchy::DrawGameObjectChildren(GameObject* gameObject, bool only
 
 void ImWindowHierarchy::ProcessGameObject(GameObject* gameObject, int iteration)
 {
-    ImGuiTreeNodeFlags node_flags = base_flags;
+    ImGuiTreeNodeFlags node_flags = _base_flags;
 
-    GameObject* temp = layerEditor->GetSelectedGameObject();
+    GameObject* temp = _layerEditor->GetSelectedGameObject();
 
-    if (gameObject == temp) node_flags |= ImGuiTreeNodeFlags_Selected;
+    if (gameObject == temp)
+    {
+        node_flags |= ImGuiTreeNodeFlags_Selected;
+    }
 
     bool node_open;
     bool isLeaf = false;
@@ -111,47 +122,53 @@ void ImWindowHierarchy::ProcessGameObject(GameObject* gameObject, int iteration)
         node_open = ImGui::TreeNodeEx((void*)(intptr_t)iteration, node_flags, gameObject->name.c_str(), iteration);
     }
 
+    // Drag & drop
     if (ImGui::BeginDragDropSource())
     {
         ImGui::SetDragDropPayload("GameObject", nullptr, 0);
-        draggingGameObject = gameObject;
+        _draggingGameObject = gameObject;
         ImGui::Text("Change game object parent");
         ImGui::EndDragDropSource();
     }
-
     if (ImGui::BeginDragDropTarget())
     {
         if (ImGui::AcceptDragDropPayload("GameObject"))
         {
-            draggingGameObject->SetParent(gameObject);
-            draggingGameObject = nullptr;
+            _draggingGameObject->SetParent(gameObject);
+            _draggingGameObject = nullptr;
         }
         ImGui::EndDragDropTarget();
     }
 
     // Select gameObejct
-    if ((ImGui::IsMouseReleased(ImGuiMouseButton_::ImGuiMouseButton_Left)))
+    if (ImGui::IsMouseReleased(ImGuiMouseButton_::ImGuiMouseButton_Left) || 
+        ImGui::IsMouseReleased(ImGuiMouseButton_::ImGuiMouseButton_Right))
     {
         if (ImGui::IsItemHovered() && gameObject->_parent != nullptr)
         {
-            layerEditor->SetSelectGameObject(gameObject);
-            hasSelectedAGameObject = true;
+            _layerEditor->SetSelectGameObject(gameObject);
+            _hasSelectedAGameObject = true;
         }
     }
-    else if (gameObject->_parent && ImGui::BeginPopupContextItem())
-    {
-        layerEditor->SetSelectGameObject(gameObject);
-        hasSelectedAGameObject = true;
 
-        //DrawOptions();
-        popUpGOpen = true;
-        ImGui::EndPopup();
-    }
-    else if (gameObject == temp)
+    // Draw PopUps
+    if(gameObject == _layerEditor->GetSelectedGameObject())
     {
-        hasSelectedAGameObject = false;
-    }
+        if (gameObject->_parent)
+        {
+            if (ImGui::BeginPopupContextItem("basicShapes"))
+            {
+                DrawOptions();
 
+                ImGui::EndPopup();
+            }
+        }
+        else
+        {
+            _hasSelectedAGameObject = false;
+        }
+    }
+ 
     ImGui::SameLine(ImGui::GetWindowWidth() - 20);
     if (ImGui::SmallButton(gameObject->IsActive() ? "X" : " "))
     {
@@ -163,7 +180,10 @@ void ImWindowHierarchy::ProcessGameObject(GameObject* gameObject, int iteration)
         if (!gameObject->_children.empty()) DrawGameObjectChildren(gameObject, true); 
         ImGui::TreePop();
     }
-    if (isLeaf) ImGui::TreePop();
+    if (isLeaf)
+    {
+        ImGui::TreePop();
+    }
 }
 
 void ImWindowHierarchy::DrawOptions()
@@ -171,36 +191,32 @@ void ImWindowHierarchy::DrawOptions()
     int selectedShape = 0;
     std::string shapeNames[4] = { "Cube", "Sphere", "Cylinder", "Plane" };
 
-    ImGui::OpenPopup("basicShapes");
-
-    if (ImGui::BeginPopup("basicShapes"))
+    if (_layerEditor->selectedGameObject != nullptr)
     {
-        if (layerEditor->selectedGameObject != nullptr)
+        ImGui::TextColored(ImVec4(1, 1, 0, 1), "Delete GameObject"); ImGui::SameLine(-ImGui::GetWindowWidth());
+        if (ImGui::Selectable("##"))
         {
-            ImGui::TextColored(ImVec4(1, 1, 0, 1), "Delete GameObject"); ImGui::SameLine(-ImGui::GetWindowWidth());
-            if (ImGui::Selectable("##"))
-            {
-                Application::Instance()->layers->editor->AddPopUpMessage("Cannot delete GameObjects in this version yet! Check console.");
-                Console::S_Log("Cannot delete GameObjects yet. Because of the Undo/ Redo system, we need to implement this feature carefully. Therefore, it is not included in this version.");
-                //layerEditor->selectedGameObject->Destroy();
-            }
+            Application::Instance()->layers->editor->AddPopUpMessage("Cannot delete GameObjects in this version yet! Check console.");
+            Console::S_Log("Cannot delete GameObjects yet. Because of the Undo/ Redo system, we need to implement this feature carefully. Therefore, it is not included in this version.");
+            //layerEditor->selectedGameObject->Destroy();
         }
-        if (ImGui::Selectable("Create empty GameObject"))
+    }
+    if (ImGui::Selectable("Create empty GameObject"))
+    {
+        GameObject* parent = _layerEditor->selectedGameObject != nullptr ? _layerEditor->selectedGameObject : Application::Instance()->layers->rootGameObject;
+        GameObject* newGameObject = new GameObject(parent, "Empty");
+    }
+
+    ImGui::Separator();
+    ImGui::Text("Select Shape");
+    ImGui::Separator();
+
+    for (int i = 0; i < 4; i++)
+    {
+        if (ImGui::Selectable(shapeNames[i].c_str()))
         {
-            GameObject* parent = layerEditor->selectedGameObject != nullptr ? layerEditor->selectedGameObject : Application::Instance()->layers->rootGameObject;
-            GameObject* newGameObject = new GameObject(parent, "Empty");
+            selectedShape = i;
+            Application::Instance()->renderer3D->modelRender.CreatePrimitive(_layerEditor->selectedGameObject, (PrimitiveType)i);
         }
-        ImGui::Separator();
-        ImGui::Text("Select Shape");
-        ImGui::Separator();
-        for (int i = 0; i < 4; i++)
-        {
-            if (ImGui::Selectable(shapeNames[i].c_str()))
-            {
-                selectedShape = i;
-                Application::Instance()->renderer3D->modelRender.CreatePrimitive(layerEditor->selectedGameObject, (PrimitiveType)i);
-            }
-        }
-        ImGui::EndPopup();
     }
 }

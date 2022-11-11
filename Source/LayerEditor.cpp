@@ -290,6 +290,7 @@ void LayerEditor::DrawPopUpMessages()
 			ImGui::Text(_popUpMessages[i].message.c_str());
 			ImGui::EndPopup();
 		}
+
 		ImGui::OpenPopup(id.c_str());
 		if (fadeIn || fadeOut) ImGui::PopStyleVar();
 	}
