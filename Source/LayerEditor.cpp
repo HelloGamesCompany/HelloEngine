@@ -119,7 +119,7 @@ void LayerEditor::Start()
 	_game = (LayerGame*)_app->layers->layers[(uint)LayersID::GAME];
 
 	// Reserve space for popUpMessages
-	popUpMessages.reserve(20);
+	_popUpMessages.reserve(20);
 }
 
 void LayerEditor::PreUpdate()
@@ -191,7 +191,7 @@ void LayerEditor::SetSelectGameObject(GameObject* g)
 
 void LayerEditor::AddPopUpMessage(std::string message)
 {
-	popUpMessages.emplace_back(message);
+	_popUpMessages.emplace_back(message);
 }
 
 void LayerEditor::DrawMenuBar()
@@ -249,31 +249,31 @@ void LayerEditor::DrawPopUpMessages()
 
 	std::string id = "popUpMessage";
 
-	if (popUpMessages.empty()) return;
+	if (_popUpMessages.empty()) return;
 	
 	for (size_t i = 0; i < 1; i++)
 	{
-		popUpMessages[i].currentMessageTime += (1 / ImGui::GetIO().Framerate);
+		_popUpMessages[i].currentMessageTime += (1 / ImGui::GetIO().Framerate);
 
-		if (popUpMessages[i].currentMessageTime >= _messageTime)
+		if (_popUpMessages[i].currentMessageTime >= _messageTime)
 		{
-			popUpMessages.erase(popUpMessages.begin() + i);
+			_popUpMessages.erase(_popUpMessages.begin() + i);
 			return;
 			// will apear all in same time.
 			//popUpMessages.erase(popUpMessages.begin() + i--);
 			//continue;
 		}
 
-		fadeIn = popUpMessages[i].currentMessageTime <= _messageTime * fadeInFix;
-		fadeOut = popUpMessages[i].currentMessageTime >= _messageTime * fadeOutFix;
+		fadeIn = _popUpMessages[i].currentMessageTime <= _messageTime * fadeInFix;
+		fadeOut = _popUpMessages[i].currentMessageTime >= _messageTime * fadeOutFix;
 
 		if (fadeIn)
 		{
-			ImGui::PushStyleVar(ImGuiStyleVar_Alpha, popUpMessages[i].currentMessageTime / (_messageTime * fadeInFix));
+			ImGui::PushStyleVar(ImGuiStyleVar_Alpha, _popUpMessages[i].currentMessageTime / (_messageTime * fadeInFix));
 		}
 		else if (fadeOut)
 		{
-			ImGui::PushStyleVar(ImGuiStyleVar_Alpha, 1.0f - ((popUpMessages[i].currentMessageTime - (_messageTime * fadeOutFix)) / (_messageTime * fadeInFix)));
+			ImGui::PushStyleVar(ImGuiStyleVar_Alpha, 1.0f - ((_popUpMessages[i].currentMessageTime - (_messageTime * fadeOutFix)) / (_messageTime * fadeInFix)));
 		}
 
 		ImGui::SetNextWindowSize(ImVec2(width * 0.5f, height * 0.25f));
@@ -283,11 +283,11 @@ void LayerEditor::DrawPopUpMessages()
 
 		if (ImGui::BeginPopup(id.c_str()))
 		{
-			ImVec2 textDimensions = ImGui::CalcTextSize(popUpMessages[i].message.c_str());
+			ImVec2 textDimensions = ImGui::CalcTextSize(_popUpMessages[i].message.c_str());
 
 			ImGui::SetWindowFontScale(1.0f);
 			ImGui::SetCursorPos(ImVec2((width * 0.5f - textDimensions.x) * 0.5f, (height * 0.25f - textDimensions.y) * 0.5f));
-			ImGui::Text(popUpMessages[i].message.c_str());
+			ImGui::Text(_popUpMessages[i].message.c_str());
 			ImGui::EndPopup();
 		}
 		ImGui::OpenPopup(id.c_str());

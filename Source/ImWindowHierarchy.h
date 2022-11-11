@@ -32,6 +32,7 @@ private:
 	ImGuiTreeNodeFlags base_flags = 0;
 
 	bool popUpOpen = false;
+	bool popUpGOpen = false;
 	bool hasSelectedAGameObject = false;
 };
 

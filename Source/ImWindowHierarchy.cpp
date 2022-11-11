@@ -28,35 +28,34 @@ void ImWindowHierarchy::Update()
 {
 	if (ImGui::Begin(windowName.c_str(), &isEnabled))
 	{
+            DrawGameObjectChildren(gameObjectsReference->at(1));
         hasSelectedAGameObject = false;
         ImGui::BeginChild("DropArea");
         {
-            DrawGameObjectChildren(gameObjectsReference->at(1));
 
+            if(popUpOpen || popUpGOpen) DrawOptions();
             // Detect window popUps
-            if(ImGui::IsWindowHovered())
+            if(ImGui::IsWindowHovered() && !hasSelectedAGameObject)
             {
-                if (ImGui::IsMouseClicked(ImGuiMouseButton_::ImGuiMouseButton_Right))
+                if (ImGui::IsMouseReleased(ImGuiMouseButton_::ImGuiMouseButton_Right))
                 {
                     popUpOpen = true;
                     layerEditor->SetSelectGameObject(nullptr);
-                    hasSelectedAGameObject = false;
                 }
-                else if (ImGui::IsMouseClicked(ImGuiMouseButton_::ImGuiMouseButton_Left)) 
+                else if (ImGui::IsMouseReleased(ImGuiMouseButton_::ImGuiMouseButton_Left))
                 {
                     popUpOpen = false;
                 }
             }
             else
             {
-                if (ImGui::IsMouseClicked(ImGuiMouseButton_::ImGuiMouseButton_Left) || 
-                    ImGui::IsMouseClicked(ImGuiMouseButton_::ImGuiMouseButton_Right))
+                if (ImGui::IsMouseReleased(ImGuiMouseButton_::ImGuiMouseButton_Left) ||
+                    ImGui::IsMouseReleased(ImGuiMouseButton_::ImGuiMouseButton_Right))
                 {
                     popUpOpen = false;
                 }
             }      
 
-            if(popUpOpen) DrawOptions();
         }
         ImGui::EndChild();
 
@@ -131,7 +130,7 @@ void ImWindowHierarchy::ProcessGameObject(GameObject* gameObject, int iteration)
     }
 
     // Select gameObejct
-    if ((ImGui::IsMouseClicked(ImGuiMouseButton_::ImGuiMouseButton_Left,true)))
+    if ((ImGui::IsMouseReleased(ImGuiMouseButton_::ImGuiMouseButton_Left)))
     {
         if (ImGui::IsItemHovered() && gameObject->_parent != nullptr)
         {
@@ -139,14 +138,18 @@ void ImWindowHierarchy::ProcessGameObject(GameObject* gameObject, int iteration)
             hasSelectedAGameObject = true;
         }
     }
-    if (gameObject->_parent && ImGui::BeginPopupContextItem())
+    else if (gameObject->_parent && ImGui::BeginPopupContextItem())
     {
         layerEditor->SetSelectGameObject(gameObject);
         hasSelectedAGameObject = true;
 
-        DrawOptions();
-
+        //DrawOptions();
+        popUpGOpen = true;
         ImGui::EndPopup();
+    }
+    else if (gameObject == temp)
+    {
+        hasSelectedAGameObject = false;
     }
 
     ImGui::SameLine(ImGui::GetWindowWidth() - 20);
@@ -175,16 +178,13 @@ void ImWindowHierarchy::DrawOptions()
         if (layerEditor->selectedGameObject != nullptr)
         {
             ImGui::TextColored(ImVec4(1, 1, 0, 1), "Delete GameObject"); ImGui::SameLine(-ImGui::GetWindowWidth());
-            printf("hei\n");
             if (ImGui::Selectable("##"))
             {
-                printf("heo\n");
                 Application::Instance()->layers->editor->AddPopUpMessage("Cannot delete GameObjects in this version yet! Check console.");
                 Console::S_Log("Cannot delete GameObjects yet. Because of the Undo/ Redo system, we need to implement this feature carefully. Therefore, it is not included in this version.");
                 //layerEditor->selectedGameObject->Destroy();
             }
         }
-
         if (ImGui::Selectable("Create empty GameObject"))
         {
             GameObject* parent = layerEditor->selectedGameObject != nullptr ? layerEditor->selectedGameObject : Application::Instance()->layers->rootGameObject;

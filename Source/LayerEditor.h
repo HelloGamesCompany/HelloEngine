@@ -70,7 +70,7 @@ private:
 	int _gameWidth = 0, _gameHeight = 0;
 
 	//Popup message variables
-	std::vector<PopUpMessage> popUpMessages;
+	std::vector<PopUpMessage> _popUpMessages;
 	float _messageTime = 1.5f;
 
 	friend class ImWindowHierarchy;
