@@ -17,7 +17,7 @@ namespace Htool
 		~CycleArray();
 
 		/// <summary>
-		/// Add var to the last input position, is the position is out of the range, reset input position 
+		/// Add value to the last input position, is the position is out of the range, reset input position 
 		/// </summary>
 		/// <param name="var"></param>
 		void push_back(T var);
@@ -74,29 +74,47 @@ namespace Htool
 	{
 		_arr[_inputIndex] = var;
 
-		if (_currentSize < _size) ++_currentSize;
+		if (_currentSize < _size)
+		{
+			++_currentSize;
+		}
 
 		// Copy the second zone value to the first zone
-		if (_inputIndex >= _size) _arr[_inputIndex - _size] = var;
+		if (_inputIndex >= _size)
+		{
+			_arr[_inputIndex - _size] = var;
+		}
 
 		// If input is out of size, we need to start displace the currentIndex
-		if(!_isStartDisplace && _inputIndex >= _size) _isStartDisplace = true;
-		
+		if (!_isStartDisplace && _inputIndex >= _size) 
+		{
+			_isStartDisplace = true;
+		}
+
 		// Displace forntIndex
 		if(_isStartDisplace)
 		{
 			// If frontier is out of range, move to the start position
-			if (++_frontIndex >= _size) _frontIndex = 0;
+			if (++_frontIndex >= _size)
+			{
+				_frontIndex = 0;
+			}
 		}
 
 		// If inputIndex is out of range, move to the start position
-		if (++_inputIndex >= _capacity) _inputIndex = _size;
+		if (++_inputIndex >= _capacity)
+		{
+			_inputIndex = _size;
+		}
 	}
 
 	template<class T>
 	inline T* CycleArray<T>::front()
 	{
-		if(_arr)	return &_arr[_frontIndex];
+		if (_arr)
+		{
+			return &_arr[_frontIndex];
+		}
 
 		return nullptr;
 	}
