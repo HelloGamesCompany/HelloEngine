@@ -12,7 +12,6 @@ GameObject::GameObject(GameObject* parent, std::string name, std::string tag) : 
 	_ID = Application::Instance()->layers->AddGameObject(this);
 	transform = AddComponent<TransformComponent>();
 	if (parent != nullptr) parent->AddChild(this);
-
 }
 
 GameObject::GameObject(GameObject* parent, std::string& name, std::string& tag) : name(name), tag(tag)
@@ -85,6 +84,8 @@ void GameObject::SetActive(bool active)
 
 void GameObject::OnEditor()
 {
+	if (_isPendingToDelete) return;
+
 	for (auto* component : _components)
 	{
 		component->OnEditor();
@@ -98,7 +99,7 @@ void GameObject::OnEditor()
 		for (int n = 0; n < 3; n++)
 		{
 			int selectedItem = n;
-			if (ImGui::Selectable(comboValues[n].c_str(), false))
+			if (ImGui::Selectable(_comboValues[n].c_str(), false))
 			{
 				switch (n)
 				{
@@ -122,16 +123,64 @@ void GameObject::OnEditor()
 
 }
 
+#ifdef STANDALONE
+bool GameObject::MarkAsDead()
+{
+	if(!_isPendingToDelete)
+	{
+		if (Application::Instance()->layers->editor->GetSelectedGameObject() == this) Application::Instance()->layers->editor->SetSelectGameObject(nullptr);
+
+		_isPendingToDelete = true;
+
+		for (int i = 0; i < _children.size(); i++)
+		{
+			if(_children[i]->MarkAsDead())
+			{
+				_childrenDeletedIndex.push_back(i);
+			}
+		}
+
+		return true;
+	}	
+
+	return false;
+}
+
+bool GameObject::MarkAsAlive()
+{
+	if(_isPendingToDelete)
+	{
+		_isPendingToDelete = false;
+
+		for (int i = 0; i < _childrenDeletedIndex.size(); i++)
+		{
+			_children[_childrenDeletedIndex[i]]->MarkAsAlive();
+		}
+	
+		return true;
+	}	
+
+	return false;
+}
+#endif // STANDALONE
+
 void GameObject::Destroy()
 {
 	// TODO: This won't work for now because of the Command system to Undo / Redo. It will be implemented in the future
 	
 	// Suspiciously similar to another Destroy() method in another person's repository...
 
-	if (Application::Instance()->layers->editor->GetSelectedGameObject() == this) Application::Instance()->layers->editor->SetSelectGameObject(nullptr);
+	//if (Application::Instance()->layers->editor->GetSelectedGameObject() == this)
+	//{
+	//	Application::Instance()->layers->editor->SetSelectGameObject(nullptr);
+	//}
+	
 	_parent->RemoveChild(this);
+	
 	Application::Instance()->layers->gameObjects[_ID] = nullptr;
+	
 	Application::Instance()->layers->deletedGameObjects.push_back(this);
+	
 	for (int i = 0; i < _children.size();)
 	{
 		_children[i]->Destroy();

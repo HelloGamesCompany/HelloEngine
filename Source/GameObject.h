@@ -54,6 +54,12 @@ public:
 
 	void OnEditor();
 
+#ifdef STANDALONE
+	bool MarkAsDead();
+
+	bool MarkAsAlive();
+#endif // STANDALONE
+
 	void Destroy();
 
 	template <class T>
@@ -83,10 +89,16 @@ private:
 	bool _isDestroyed = false;
 	bool _isStatic = false;
 
+#ifdef STANDALONE
+	bool _isPendingToDelete = false;
+
+	std::vector<int> _childrenDeletedIndex;
+#endif // STANDALONE
+
 	uint _ID = 0; // ID =  0 is an invalid ID. First ID is 1.
 
 	// On Editor variables
-	std::string comboValues[3] = {"Mesh Renderer", "Material", "Camera"};
+	std::string _comboValues[3] = {"Mesh Renderer", "Material", "Camera"};
 
 	friend class TransformComponent;
 	friend class ImWindowHierarchy;

@@ -286,6 +286,9 @@
     <ClCompile Include="ModuleResourceManager.cpp">
       <Filter>Others</Filter>
     </ClCompile>
+    <ClCompile Include="CommandDeleteGameObject.cpp">
+      <Filter>Tools\Commands</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Module.h">
@@ -683,6 +686,9 @@
     </ClInclude>
     <ClInclude Include="ModuleResourceManager.h">
       <Filter>Others</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandDeleteGameObject.h">
+      <Filter>Tools\Commands</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

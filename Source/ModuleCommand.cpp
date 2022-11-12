@@ -1,7 +1,7 @@
 #include "Headers.h"
 #include "ModuleCommand.h"
 #include "CommandArray.hpp"
-#include "CommandChangeValue.hpp"
+#include "CommandDeleteGameObject.h"
 #include "Console.h"
 #include "ModuleLayers.h"
 #include "LayerEditor.h"
@@ -26,15 +26,26 @@ UpdateStatus ModuleCommand::Update()
 	{
 		if(_input->GetKey(SDL_SCANCODE_Z) == KEY_DOWN)
 		{
-			if(!Undo()) app->layers->editor->AddPopUpMessage("Cannot undo anymore!!!");
+			if (!Undo())
+			{
+				app->layers->editor->AddPopUpMessage("Cannot undo anymore!!!");
+			}
 		}
 		if (_input->GetKey(SDL_SCANCODE_Y) == KEY_DOWN)
 		{
-			if (!Redo()) app->layers->editor->AddPopUpMessage("Cannot redo anymore!!!");
+			if (!Redo()) 
+			{
+				app->layers->editor->AddPopUpMessage("Cannot redo anymore!!!"); 
+			}
 		}
 	}
 
 	return UpdateStatus::UPDATE_CONTINUE;
+}
+
+void ModuleCommand::S_DeleteGameObject(GameObject* gameobject)
+{
+	_commands->push(new CommandDeleteGameObject(gameobject));
 }
 
 bool ModuleCommand::Undo()
@@ -45,7 +56,7 @@ bool ModuleCommand::Undo()
 
 	if(!successful)
 	{
-		Console::S_Log("Wanrning: Do not undo more");
+		Console::S_Log("Wanrning: Do not undo anymore");
 
 		return successful;
 	}

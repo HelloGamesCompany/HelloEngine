@@ -52,7 +52,15 @@ public:
 	   frameCap = maxFrames;
 	}
 
-	void Exit() { isExiting = true; }
+	bool IsExit()
+	{
+		return isExiting;
+	}
+
+	void Exit()
+	{
+		isExiting = true; 
+	}
 
 	std::string GetEngineVersion();
 

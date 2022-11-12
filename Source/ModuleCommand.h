@@ -3,11 +3,12 @@
 #include "CommandChangeValue.hpp"
 #include "CommandArray.hpp"
 
-#define MAX_UNDO 30
+#define MAX_UNDO 5
 
 typedef Htool::CommandArray<Command*> CommandArray;
 
 class ModuleInput;
+class GameObject;
 
 class ModuleCommand :public Module
 {
@@ -38,12 +39,14 @@ public:
 	/// <param name="variable">: variable you want to change</param>
 	/// <param name="beginValue">: value before change</param>
 	/// <param name="endValue">: value after change</param>
-	/// <param name="function">: if you want call some function when undo/redo</param>
+	/// <param name="function">: if you want call some function when undo/redo for refresh values</param>
 	template<class T>
 	static void S_ChangeValue(T* variable, T beginValue, T endValue, std::function<void()> function)
 	{
 		_commands->push(new CommandChangeValue<T>(variable, beginValue, endValue, function));
 	}
+
+	static void S_DeleteGameObject(GameObject* gameobject);
 
 private:
 	bool Undo();

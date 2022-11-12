@@ -120,6 +120,8 @@ bool Application::CleanUp()
 {
 	bool ret = true;
 
+	isExiting = true;
+
 	XMLNode configNode = xml->GetConfigXML();
 	configNode.node.child("renderer").child("framerate").attribute("value").set_value(frameCap);
 

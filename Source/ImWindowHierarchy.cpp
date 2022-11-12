@@ -6,16 +6,25 @@
 #include "ModuleRenderer3D.h"
 #include "ModelRenderManager.h"
 #include "ModuleResourceManager.h"
+#include "ModuleCommand.h"
 
 ImWindowHierarchy::ImWindowHierarchy()
 {
 	windowName = "Hierarchy";
 
-    _layerEditor = (LayerEditor*)Application::Instance()->layers->layers[LayersID::EDITOR];
+    isEnabled = true;
 
-    _gameObjectsReference = &Application::Instance()->layers->gameObjects;
+    _app = Application::Instance();
 
-	isEnabled = true;
+    _layerEditor = (LayerEditor*)_app->layers->layers[LayersID::EDITOR];
+
+    _gameObjectsReference = &_app->layers->gameObjects;
+
+    _popUpOpen = false;
+
+    _hasSelectedAGameObject = false;
+
+    _draggingGameObject = nullptr;
 
     _base_flags = ImGuiTreeNodeFlags_DefaultOpen | ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_OpenOnDoubleClick | ImGuiTreeNodeFlags_SpanAvailWidth | ImGuiTreeNodeFlags_AllowItemOverlap;
 }
@@ -75,7 +84,7 @@ void ImWindowHierarchy::Update()
                 //Drop asset from Asset window to scene window
                 const std::string drop = *(std::string*)payload->Data;
 
-                Application::Instance()->resource->LoadFile(drop);
+                _app->resource->LoadFile(drop);
             }
             ImGui::EndDragDropTarget();
         }
@@ -97,6 +106,9 @@ void ImWindowHierarchy::DrawGameObjectChildren(GameObject* gameObject, bool only
 
 void ImWindowHierarchy::ProcessGameObject(GameObject* gameObject, int iteration)
 {
+    if (gameObject->_isPendingToDelete) 
+        return;
+
     ImGuiTreeNodeFlags node_flags = _base_flags;
 
     GameObject* temp = _layerEditor->GetSelectedGameObject();
@@ -196,9 +208,11 @@ void ImWindowHierarchy::DrawOptions()
         ImGui::TextColored(ImVec4(1, 1, 0, 1), "Delete GameObject"); ImGui::SameLine(-ImGui::GetWindowWidth());
         if (ImGui::Selectable("##"))
         {
-            Application::Instance()->layers->editor->AddPopUpMessage("Cannot delete GameObjects in this version yet! Check console.");
-            Console::S_Log("Cannot delete GameObjects yet. Because of the Undo/ Redo system, we need to implement this feature carefully. Therefore, it is not included in this version.");
-            _layerEditor->selectedGameObject->Destroy();
+#ifdef STANDALONE           
+             _app->command->S_DeleteGameObject(_layerEditor->selectedGameObject);
+#else
+            _layerEditor->selectedGameObject->Destroy()
+#endif // STANDALONE
         }
     }
     if (ImGui::Selectable("Create empty GameObject"))
@@ -216,7 +230,7 @@ void ImWindowHierarchy::DrawOptions()
         if (ImGui::Selectable(shapeNames[i].c_str()))
         {
             selectedShape = i;
-            Application::Instance()->renderer3D->modelRender.CreatePrimitive(_layerEditor->selectedGameObject, (PrimitiveType)i);
+            _app->renderer3D->modelRender.CreatePrimitive(_layerEditor->selectedGameObject, (PrimitiveType)i);
         }
     }
 }

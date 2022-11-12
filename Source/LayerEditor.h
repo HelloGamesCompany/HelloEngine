@@ -47,7 +47,10 @@ public:
 	void CleanUp() override;
 
 	void SetSelectGameObject(GameObject* g);
-	GameObject* GetSelectedGameObject() { return selectedGameObject; }
+	GameObject* GetSelectedGameObject() 
+	{
+		return selectedGameObject; 
+	}
 
 	void AddPopUpMessage(std::string message);
 

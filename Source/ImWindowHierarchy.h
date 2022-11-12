@@ -32,5 +32,10 @@ private:
 	ImGuiTreeNodeFlags _base_flags = 0;
 
 	bool _popUpOpen = false;
+
 	bool _hasSelectedAGameObject = false;
+
+	Application* _app = nullptr;
+
+	friend class GameObject;
 };
