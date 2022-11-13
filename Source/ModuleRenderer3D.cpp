@@ -114,7 +114,6 @@ UpdateStatus ModuleRenderer3D::PostUpdate()
 
 		cameras->currentDrawingCamera = cameras->activeGameCamera;
 
-		Application::Instance()->layers->DrawLayers();
 		modelRender.Draw();
 	}
 

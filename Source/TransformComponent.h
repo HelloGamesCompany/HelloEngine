@@ -55,8 +55,6 @@ public:
 	/// </summary>
 	void Rotate(float3 rotate);
 
-	TransformValues GetGlobalTransform();
-
 	float4x4 GetGlobalMatrix();
 
 	float3 GetForward();
@@ -80,7 +78,6 @@ private:
 	float4x4 _globalMatrix = float4x4::identity;
 	float4x4 _localMatrix = float4x4::identity;
 
-	TransformValues parentGlobalTransform;
 	TransformValues localTransform;
 
 	TransformValues tempTransform;

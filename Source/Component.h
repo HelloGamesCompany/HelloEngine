@@ -21,6 +21,10 @@ public:
 	Type GetType() { return _type; }
 	bool IsEnabled(){ return _isEnabled; }
 
+	bool NeedsTransformCallback() { return _needsTransformCallback; }
+
+	virtual void OnTransformCallback(float4x4 worldMatrix) {};
+
 	void Enable();
 	void Disable();
 
@@ -39,9 +43,11 @@ private:
 	void DisableFromGameObject() { if (_isEnabled) OnDisable(); };
 
 	friend class GameObject;
+
 protected:
 	bool _isEnabled = true;
+	bool _needsTransformCallback = false;
+
 	GameObject* _gameObject = nullptr;
 	Type _type = Type::NONE;
-
 };

@@ -102,4 +102,5 @@ private:
 
 	friend class TransformComponent;
 	friend class ImWindowHierarchy;
+	friend class ImWindowInspector;
 };

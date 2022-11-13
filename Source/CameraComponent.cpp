@@ -8,6 +8,7 @@ CameraComponent::CameraComponent(GameObject* gameObject) : Component(gameObject)
 {
 	cameraObject = Application::Instance()->camera->CreateGameCamera();
 	cameraObject->frameBuffer.SetBufferInfo();
+	_needsTransformCallback = true;
 }
 
 CameraComponent::~CameraComponent()
@@ -15,22 +16,9 @@ CameraComponent::~CameraComponent()
 	RELEASE(cameraObject);
 }
 
-void CameraComponent::OnPositionUpdate(float3 pos)
+void CameraComponent::OnTransformCallback(float4x4 worldMatrix)
 {
-	cameraObject->cameraFrustum.pos = pos;
-}
-
-void CameraComponent::OnRotationUpdate(float3 rotation)
-{
-	float3 forward = _gameObject->transform->GetForward();
-	float3 up = _gameObject->transform->GetUp();
-	cameraObject->cameraFrustum.front = _gameObject->transform->GetForward();
-	cameraObject->cameraFrustum.up = _gameObject->transform->GetUp();
-}
-
-void CameraComponent::OnTransformUpdate(float3 pos, float3 scale, float3 rotation)
-{
-	cameraObject->cameraFrustum.pos = pos;
+	cameraObject->cameraFrustum.pos = worldMatrix.TranslatePart();
 	cameraObject->cameraFrustum.front = _gameObject->transform->GetForward();
 	cameraObject->cameraFrustum.up = _gameObject->transform->GetUp();
 }

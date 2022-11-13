@@ -19,7 +19,7 @@ void ImWindowInspector::Update()
 {
 	if (ImGui::Begin(windowName.c_str(), &isEnabled))
 	{
-		if (selectGameobject && selectGameobject->GetParent())
+		if (selectGameobject && selectGameobject->_parent)
 		{
 			if (ImGui::SmallButton(selectGameobject->IsActive() ? "X" : " "))
 				selectGameobject->SetActive(!selectGameobject->IsActive());

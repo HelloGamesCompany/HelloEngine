@@ -6,14 +6,6 @@
 TransformComponent::TransformComponent(GameObject* gameObject) : Component(gameObject)
 {
 	_type = Type::TRANSFORM;
-
-	// If this is not the root node, we need the parents global transform.
-	if (this->_gameObject->_parent)
-	{
-		TransformComponent* parentTransform = nullptr;
-		parentTransform = _gameObject->_parent->GetComponent<TransformComponent>();
-		parentGlobalTransform = parentTransform->GetGlobalTransform();
-	}
 }
 
 TransformComponent::~TransformComponent()
@@ -23,16 +15,19 @@ TransformComponent::~TransformComponent()
 void TransformComponent::SetPosition(float3 pos)
 {
 	this->localTransform.position = pos;
+	UpdateDirtyFlag();
 }
 
 void TransformComponent::SetScale(float3 s)
 {
 	this->localTransform.scale = s;
+	UpdateDirtyFlag();
 }
 
 void TransformComponent::SetRotation(float3 rot)
 {
 	this->localTransform.rotation = rot;
+	UpdateDirtyFlag();
 }
 
 void TransformComponent::SetTransform(float3 pos, float3 scale, float3 rot)
@@ -40,34 +35,25 @@ void TransformComponent::SetTransform(float3 pos, float3 scale, float3 rot)
 	this->localTransform.position = pos;
 	this->localTransform.scale = scale;
 	this->localTransform.rotation = rot;
+	UpdateDirtyFlag();
 }
 
 void TransformComponent::Translate(float3 translation)
 {
 	this->localTransform.position += translation;
+	UpdateDirtyFlag();
 }
 
 void TransformComponent::Scale(float3 s)
 {
 	this->localTransform.scale += s;
+	UpdateDirtyFlag();
 }
 
 void TransformComponent::Rotate(float3 rotate)
 {
 	this->localTransform.rotation += rotate;
-}
-
-TransformValues TransformComponent::GetGlobalTransform()
-{
-	// If we have no parent, we are the root gameObject. which means our local transform is also our global.
-	if (_gameObject->_parent == nullptr) return localTransform; 
-	
-	TransformValues globalTransform;
-	globalTransform.position = parentGlobalTransform.position + localTransform.position;
-	globalTransform.rotation = parentGlobalTransform.rotation + localTransform.rotation;
-	globalTransform.scale = { parentGlobalTransform.scale.x * localTransform.scale.x, parentGlobalTransform.scale.y * localTransform.scale.y, parentGlobalTransform.scale.z * localTransform.scale.z };
-	
-	return globalTransform;
+	UpdateDirtyFlag();
 }
 
 float4x4 TransformComponent::GetGlobalMatrix()
@@ -166,6 +152,7 @@ void TransformComponent::UpdateDirtyFlagForChildren()
 	{
 		childrenTransforms.push_back((TransformComponent*)_gameObject->_children[i]->_components[0]); // We assume component Nº 0 is always Transform.
 	}
+
 	for (auto& transfrom : childrenTransforms)
 	{
 		transfrom->UpdateDirtyFlag();
@@ -180,7 +167,15 @@ void TransformComponent::CalculateLocalMatrix()
 
 void TransformComponent::UpdateDirtyFlag()
 {
-	// TODO: We could check if this is already true to prevent multiple calls to the function without need?
+
+	for (auto& component : _gameObject->_components)
+	{
+		if (component->NeedsTransformCallback()) // Check if we need to callback our transform to some component.
+		{
+			component->OnTransformCallback(GetGlobalMatrix());
+		}
+	}
+
 	_dirtyFlag = true;
 	UpdateDirtyFlagForChildren();
 }

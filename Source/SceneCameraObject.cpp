@@ -83,7 +83,7 @@ void SceneCameraObject::UpdateInput()
 	{
 		float3 rotationCenter = { 0.0f,0.0f,0.0f };
 
-		if (selectedGO != nullptr) rotationCenter = selectedGO->transform->GetGlobalTransform().position;
+		if (selectedGO != nullptr) rotationCenter = selectedGO->transform->GetGlobalMatrix().TranslatePart();
 
 		float distFromCenter = cameraFrustum.pos.Distance(rotationCenter); // Get current distance from center
 
@@ -137,7 +137,7 @@ void SceneCameraObject::UpdateInput()
 	{
 		if (selectedGO != nullptr)
 		{
-			Focus(selectedGO->transform->GetGlobalTransform().position);
+			Focus(selectedGO->transform->GetGlobalMatrix().TranslatePart());
 		}
 	}
 }
