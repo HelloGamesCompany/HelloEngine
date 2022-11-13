@@ -1,7 +1,7 @@
 ﻿#include "Headers.h"
 #include "ImWindowAbout.h"
 #include "ModuleCamera3D.h"
-#include "version.h"
+#include "assimp/version.h"
 
 ImWindowAbout::ImWindowAbout()
 {

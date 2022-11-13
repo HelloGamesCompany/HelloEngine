@@ -1,7 +1,9 @@
 #include "Headers.h"
 #include "ImWindowConsole.h"
 #include "Console.h"
-#include "cimport.h"
+#include "nommgr.h"
+#include "assimp/cimport.h"
+#include "mmgr.h"
 
 using CSL = Console;
 
