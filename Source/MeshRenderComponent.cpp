@@ -42,6 +42,7 @@ void MeshRenderComponent::InitAsLoadedMesh(uint meshID)
 	vertexNum = manager->GetMeshVertexNum();
 	indexNum = manager->GetMeshIndexNum();
 	_gameObject->transform->ForceUpdate();
+	GetMesh().component = this;
 }
 
 void MeshRenderComponent::InitAsNewMesh(std::vector<Vertex>& vertices, std::vector<uint>& indices)
@@ -57,26 +58,7 @@ void MeshRenderComponent::InitAsNewMesh(std::vector<Vertex>& vertices, std::vect
 	vertexNum = manager->GetMeshVertexNum();
 	indexNum = manager->GetMeshIndexNum();
 	_gameObject->transform->ForceUpdate();
-}
-
-void MeshRenderComponent::OnPositionUpdate(float3 pos)
-{
-	GetMesh().SetPosition(pos);
-}
-
-void MeshRenderComponent::OnRotationUpdate(float3 rot)
-{
-	GetMesh().SetRotation(rot);
-}
-
-void MeshRenderComponent::OnScaleUpdate(float3 scale)
-{
-	GetMesh().SetScale(scale);
-}
-
-void MeshRenderComponent::OnTransformUpdate(float3 pos, float3 scale, float3 rot)
-{
-	GetMesh().SetTransform(pos, scale, rot);
+	GetMesh().component = this;
 }
 
 void MeshRenderComponent::OnEnable()
@@ -134,6 +116,8 @@ void MeshRenderComponent::OnEditor()
 
 					MeshRenderComponent* meshRenderer = meshParent->GetComponent<MeshRenderComponent>();
 
+					//TODO Maybe turn this into a method?
+
 					if (meshRenderer != nullptr)
 					{
 						_meshID = meshRenderer->_meshID;
@@ -141,6 +125,7 @@ void MeshRenderComponent::OnEditor()
 						vertexNum = meshRenderer->vertexNum;
 						indexNum = meshRenderer->indexNum;
 						meshRenderer->_meshID = -1;
+						GetMesh().component = this;
 					}
 
 					meshParent->Destroy();

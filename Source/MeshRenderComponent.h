@@ -12,11 +12,6 @@ public:
 	void InitAsLoadedMesh(uint meshID);
 	void InitAsNewMesh(std::vector<Vertex>& vertices, std::vector<uint>& indices);
 
-	void OnPositionUpdate(float3 pos) override;
-	void OnRotationUpdate(float3 rot) override;
-	void OnScaleUpdate(float3 scale) override;
-	void OnTransformUpdate(float3 pos, float3 scale, float3 rot) override;
-
 	void OnEnable() override;
 	void OnDisable() override;
 
@@ -33,4 +28,6 @@ private:
 
 	int vertexNum = 0;
 	int indexNum = 0;
+
+	friend class Mesh;
 };

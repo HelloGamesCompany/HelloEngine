@@ -23,19 +23,16 @@ TransformComponent::~TransformComponent()
 void TransformComponent::SetPosition(float3 pos)
 {
 	this->localTransform.position = pos;
-	UpdatePosition();
 }
 
 void TransformComponent::SetScale(float3 s)
 {
 	this->localTransform.scale = s;
-	UpdateScale();
 }
 
 void TransformComponent::SetRotation(float3 rot)
 {
 	this->localTransform.rotation = rot;
-	UpdateRotation();
 }
 
 void TransformComponent::SetTransform(float3 pos, float3 scale, float3 rot)
@@ -43,51 +40,21 @@ void TransformComponent::SetTransform(float3 pos, float3 scale, float3 rot)
 	this->localTransform.position = pos;
 	this->localTransform.scale = scale;
 	this->localTransform.rotation = rot;
-	UpdateTransform();
 }
 
 void TransformComponent::Translate(float3 translation)
 {
 	this->localTransform.position += translation;
-	UpdatePosition();
 }
 
 void TransformComponent::Scale(float3 s)
 {
 	this->localTransform.scale += s;
-	UpdateScale();
 }
 
 void TransformComponent::Rotate(float3 rotate)
 {
 	this->localTransform.rotation += rotate;
-	UpdateRotation();
-}
-
-void TransformComponent::OnPositionUpdate(float3 pos)
-{
-	parentGlobalTransform.position = pos;
-	UpdatePosition();
-}
-
-void TransformComponent::OnRotationUpdate(float3 rot)
-{
-	parentGlobalTransform.rotation = rot;
-	UpdateRotation();
-}
-
-void TransformComponent::OnScaleUpdate(float3 scale)
-{
-	parentGlobalTransform.scale = scale;
-	UpdateScale();
-}
-
-void TransformComponent::OnTransformUpdate(float3 pos, float3 scale, float3 rot)
-{
-	parentGlobalTransform.position = pos;
-	parentGlobalTransform.rotation = rot;
-	parentGlobalTransform.scale = scale;
-	UpdateTransform();
 }
 
 TransformValues TransformComponent::GetGlobalTransform()
@@ -103,22 +70,31 @@ TransformValues TransformComponent::GetGlobalTransform()
 	return globalTransform;
 }
 
+float4x4 TransformComponent::GetGlobalMatrix()
+{
+	CalculateLocalMatrix();
+	if (_dirtyFlag)
+	{
+		float4x4 parentGlobal = _gameObject->_parent != nullptr ? _gameObject->_parent->transform->GetGlobalMatrix() : float4x4::identity;
+		_globalMatrix = parentGlobal * _localMatrix;
+		_dirtyFlag = false;
+	}
+	return _globalMatrix;
+}
+
 float3 TransformComponent::GetForward()
 {
-	CalculateGlobalMatrix();
-	return globalMatrix.RotatePart().Col(2).Normalized();
+	return GetGlobalMatrix().RotatePart().Col(2).Normalized();
 }
 
 float3 TransformComponent::GetRight()
 {
-	CalculateGlobalMatrix();
-	return globalMatrix.RotatePart().Col(0).Normalized();
+	return GetGlobalMatrix().RotatePart().Col(0).Normalized();
 }
 
 float3 TransformComponent::GetUp()
 {
-	CalculateGlobalMatrix();
-	return globalMatrix.RotatePart().Col(1).Normalized();
+	return GetGlobalMatrix().RotatePart().Col(1).Normalized();
 }
 
 void TransformComponent::OnEditor()
@@ -127,7 +103,7 @@ void TransformComponent::OnEditor()
 	{
 		if (ImGui::DragFloat3("position", &localTransform.position[0], 0.1f))
 		{
-			UpdatePosition();
+			UpdateDirtyFlag();
 		}
 
 		if(ImGui::IsItemActivated())
@@ -139,12 +115,12 @@ void TransformComponent::OnEditor()
 			if(tempTransform != localTransform)
 			{
 				ModuleCommand::S_ChangeValue(&localTransform, tempTransform, localTransform, 
-					std::bind(&TransformComponent::UpdatePosition, this));
+					std::bind(&TransformComponent::UpdateDirtyFlag, this));
 			}
 		}
 		if (ImGui::DragFloat3("rotation", &localTransform.rotation[0], 0.1f))
 		{
-			UpdateRotation();
+			UpdateDirtyFlag();
 		}
 		if (ImGui::IsItemActivated())
 		{
@@ -155,13 +131,13 @@ void TransformComponent::OnEditor()
 			if (tempTransform != localTransform)
 			{
 				ModuleCommand::S_ChangeValue(&localTransform, tempTransform, localTransform, 
-					std::bind(&TransformComponent::UpdateRotation, this));
+					std::bind(&TransformComponent::UpdateDirtyFlag, this));
 			}
 		}
 
 		if (ImGui::DragFloat3("scale", &localTransform.scale[0], 0.1f))
 		{
-			UpdateScale();
+			UpdateDirtyFlag();
 		}
 		if (ImGui::IsItemActivated())
 		{
@@ -172,7 +148,7 @@ void TransformComponent::OnEditor()
 			if (tempTransform != localTransform)
 			{
 				ModuleCommand::S_ChangeValue(&localTransform, tempTransform, localTransform, 
-					std::bind(&TransformComponent::UpdateScale, this));
+					std::bind(&TransformComponent::UpdateDirtyFlag, this));
 			}
 		}
 	}
@@ -180,78 +156,32 @@ void TransformComponent::OnEditor()
 
 void TransformComponent::ForceUpdate()
 {
-	UpdateTransform();
+	UpdateDirtyFlag();
 }
 
-void TransformComponent::UpdatePosition()
+void TransformComponent::UpdateDirtyFlagForChildren()
 {
-	float3 globalPosition = parentGlobalTransform.position + localTransform.position;
-	// Give current position change to the transform component of every child of this transform's gameobject.
+	std::vector<TransformComponent*> childrenTransforms;
 	for (int i = 0; i < _gameObject->_children.size(); i++)
 	{
-		_gameObject->_children[i]->_components[0]->OnPositionUpdate(globalPosition);
+		childrenTransforms.push_back((TransformComponent*)_gameObject->_children[i]->_components[0]); // We assume component Nº 0 is always Transform.
 	}
-
-	// Give current position change to every component linked to this transform's gameobject.
-	for (int i = 1; i < _gameObject->_components.size(); i++)
+	for (auto& transfrom : childrenTransforms)
 	{
-		_gameObject->_components[i]->OnPositionUpdate(globalPosition);
+		transfrom->UpdateDirtyFlag();
 	}
 }
 
-void TransformComponent::UpdateRotation()
+void TransformComponent::CalculateLocalMatrix()
 {
-	float3 totalRotation = parentGlobalTransform.rotation + localTransform.rotation;
-	// Give current position change to the transform component of every child of this transform's gameobject.
-	for (int i = 0; i < _gameObject->_children.size(); i++)
-	{
-		_gameObject->_children[i]->_components[0]->OnRotationUpdate(totalRotation);
-	}
-
-	// Give current position change to every component linked to this transform's gameobject.
-	for (int i = 1; i < _gameObject->_components.size(); i++)
-	{
-		_gameObject->_components[i]->OnRotationUpdate(totalRotation);
-	}
+	Quat rot = Quat::FromEulerXYZ(math::DegToRad(localTransform.rotation.x), math::DegToRad(localTransform.rotation.y), math::DegToRad(localTransform.rotation.z));
+	_localMatrix = _localMatrix.FromTRS(localTransform.position, rot, localTransform.scale); // Calculate local matrix from our local transfom values.
 }
 
-void TransformComponent::UpdateScale()
+void TransformComponent::UpdateDirtyFlag()
 {
-	float3 totalScale = { parentGlobalTransform.scale.x * localTransform.scale.x, parentGlobalTransform.scale.y * localTransform.scale.y, parentGlobalTransform.scale.z * localTransform.scale.z };
-	// Give current position change to the transform component of every child of this transform's gameobject.
-	for (int i = 0; i < _gameObject->_children.size(); i++)
-	{
-		_gameObject->_children[i]->_components[0]->OnScaleUpdate(totalScale);
-	}
-
-	// Give current position change to every component linked to this transform's gameobject.
-	for (int i = 1; i < _gameObject->_components.size(); i++)
-	{
-		_gameObject->_components[i]->OnScaleUpdate(totalScale);
-	}
+	// TODO: We could check if this is already true to prevent multiple calls to the function without need?
+	_dirtyFlag = true;
+	UpdateDirtyFlagForChildren();
 }
 
-void TransformComponent::UpdateTransform()
-{
-	TransformValues globalTransform = GetGlobalTransform();
-	// Give current position change to the transform component of every child of this transform's gameobject.
-	for (int i = 0; i < _gameObject->_children.size(); i++)
-	{
-		_gameObject->_children[i]->_components[0]->OnTransformUpdate(globalTransform.position, globalTransform.scale, globalTransform.rotation);
-	}
-
-	// Give current position change to every component linked to this transform's gameobject. i = 1 so we skip this transform instance
-	for (int i = 1; i < _gameObject->_components.size(); i++)
-	{
-		_gameObject->_components[i]->OnTransformUpdate(globalTransform.position, globalTransform.scale, globalTransform.rotation);
-	}
-}
-
-void TransformComponent::CalculateGlobalMatrix()
-{
-	TransformValues globalTransform = GetGlobalTransform();
-	
-	math::Quat rotation = Quat::FromEulerXYZ(math::DegToRad(globalTransform.rotation.x), math::DegToRad(globalTransform.rotation.y), math::DegToRad(globalTransform.rotation.z));
-
-	globalMatrix = float4x4::FromTRS(globalTransform.position, rotation, float3(1.0f,1.0f,1.0f));
-}

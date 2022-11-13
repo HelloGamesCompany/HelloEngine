@@ -3,6 +3,8 @@
 
 #include "Math/float3.h"
 
+class MeshRenderComponent;
+
 struct Vertex
 {
 	Vertex() {}
@@ -22,8 +24,6 @@ public:
 	~Mesh();
 
 	void InitAsMeshInformation(float3 position, float3 scale);
-	void InitAsCube(float3 position, float3 scale);
-	void InitAsSphere(float3 position, float3 scale);
 
 	void InitAsMesh(std::vector<Vertex>& vertices, std::vector<uint>& indices, float3 pos, float3 scale);
 
@@ -58,7 +58,10 @@ public:
 
 	bool draw = true;
 private:
+	MeshRenderComponent* component = nullptr;
 	bool _updateMatrix = true;
+
+	friend class MeshRenderComponent;
 };
 
 #endif // !__PRIMITIVE_H__

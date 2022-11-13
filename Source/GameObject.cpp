@@ -56,8 +56,8 @@ bool GameObject::AddChild(GameObject* child)
 
 	child->_parent = this;
 
-	child->transform->parentGlobalTransform = transform->GetGlobalTransform(); // Set the child parentGlobalTransform to this trasnform's global transfrom.
-	child->transform->UpdateTransform();
+	transform->ForceUpdate();
+
 	return true;
 }
 

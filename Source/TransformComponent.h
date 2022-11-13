@@ -55,12 +55,9 @@ public:
 	/// </summary>
 	void Rotate(float3 rotate);
 
-	void OnPositionUpdate(float3 pos) override;
-	void OnRotationUpdate(float3 rot) override;
-	void OnScaleUpdate(float3 scale) override;
-	void OnTransformUpdate(float3 pos, float3 scale, float3 rot) override;
-
 	TransformValues GetGlobalTransform();
+
+	float4x4 GetGlobalMatrix();
 
 	float3 GetForward();
 	float3 GetRight();
@@ -70,21 +67,25 @@ public:
 
 	void ForceUpdate();
 
-private:
-	void UpdatePosition();
-	void UpdateRotation();
-	void UpdateScale();
-	void UpdateTransform();
-
-	void CalculateGlobalMatrix();
+	bool CheckDirtyFlag() { return _dirtyFlag; }
 
 private:
-	float4x4 globalMatrix = float4x4::identity;
+	void UpdateDirtyFlagForChildren();
+
+	void CalculateLocalMatrix();
+
+	void UpdateDirtyFlag();
+
+private:
+	float4x4 _globalMatrix = float4x4::identity;
+	float4x4 _localMatrix = float4x4::identity;
 
 	TransformValues parentGlobalTransform;
 	TransformValues localTransform;
 
 	TransformValues tempTransform;
+
+	bool _dirtyFlag = true;
 
 	friend class GameObject;
 };
