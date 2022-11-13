@@ -120,7 +120,6 @@ void GameObject::OnEditor()
 		}
 		ImGui::EndCombo();
 	}
-
 }
 
 #ifdef STANDALONE
@@ -128,7 +127,10 @@ bool GameObject::MarkAsDead()
 {
 	if(!_isPendingToDelete)
 	{
-		if (Application::Instance()->layers->editor->GetSelectedGameObject() == this) Application::Instance()->layers->editor->SetSelectGameObject(nullptr);
+		if (Application::Instance()->layers->editor->selectedGameObject == this)
+		{
+			Application::Instance()->layers->editor->SetSelectGameObject(nullptr);
+		}
 
 		_isPendingToDelete = true;
 
