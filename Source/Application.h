@@ -18,6 +18,38 @@ class ModuleResourceManager;
 class Application
 {
 public:
+	Application();
+	~Application();
+
+	bool Init();
+	UpdateStatus Update();
+	bool CleanUp();
+
+	static Application* Instance();
+
+	void SetFPS(int maxFrames)
+	{
+		fps = 1.0f / (float)maxFrames;
+		frameCap = maxFrames;
+	}
+
+	bool IsExit()
+	{
+		return _isExiting;
+	}
+
+	void Exit()
+	{
+		_isExiting = true;
+	}
+
+	std::string GetEngineVersion();
+
+private:
+
+	void AddModule(Module* mod);
+
+public:
 	ModuleWindow* window = nullptr;
 	ModuleInput* input = nullptr;
 	ModuleCamera3D* camera = nullptr;
@@ -32,41 +64,9 @@ public:
 	Timer	timer;
 
 private:
-	float	dt = 0;
-	std::vector<Module*> list_modules;
-	static Application* app;
-	bool isExiting = false;
-public:
-	Application();
-	~Application();
-
-	bool Init();
-	UpdateStatus Update();
-	bool CleanUp();
-
-	static Application* Instance();
-
-	void SetFPS(int maxFrames)
-	{
-	   fps = 1.0f / (float)maxFrames;
-	   frameCap = maxFrames;
-	}
-
-	bool IsExit()
-	{
-		return isExiting;
-	}
-
-	void Exit()
-	{
-		isExiting = true; 
-	}
-
-	std::string GetEngineVersion();
-
-private:
-
-	void AddModule(Module* mod);
+	float	_dt = 0;
+	std::vector<Module*> _list_modules;
+	static Application* _app;
+	bool _isExiting = false;
 };
-
 #endif // !__APPLICATION_H__

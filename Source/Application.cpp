@@ -10,7 +10,7 @@
 #include "ModuleCommand.h"
 #include "ModuleResourceManager.h"
 
-Application* Application::app = nullptr;
+Application* Application::_app = nullptr;
 
 Application::Application()
 {
@@ -60,17 +60,17 @@ bool Application::Init()
 	SetFPS(frameCap);
 
 	// Call Init() in all modules
-	for (int i = 0, count = list_modules.size() ; i <count ; i++)
+	for (int i = 0, count = _list_modules.size() ; i <count ; i++)
 	{
-		list_modules[i]->Init();
+		_list_modules[i]->Init();
 	}
 
 	// After all Init calls we call Start() in all modules
 	LOG("Application Start --------------");
 
-	for (int i = 0, count = list_modules.size(); i < count; i++)
+	for (int i = 0, count = _list_modules.size(); i < count; i++)
 	{
-		list_modules[i]->Start();
+		_list_modules[i]->Start();
 	}
 
 	return true;
@@ -78,36 +78,36 @@ bool Application::Init()
 
 void Application::AddModule(Module* mod)
 {
-	list_modules.push_back(mod);
+	_list_modules.push_back(mod);
 }
 
 // Call PreUpdate, Update and PostUpdate on all modules
 UpdateStatus Application::Update()
 {
-	if (isExiting) return UpdateStatus::UPDATE_STOP;
+	if (_isExiting) return UpdateStatus::UPDATE_STOP;
 
 	UpdateStatus ret = UpdateStatus::UPDATE_CONTINUE;
 
-	for (int i = 0, count = list_modules.size(); i < count && ret == UpdateStatus::UPDATE_CONTINUE; i++)
+	for (int i = 0, count = _list_modules.size(); i < count && ret == UpdateStatus::UPDATE_CONTINUE; i++)
 	{
-		ret = list_modules[i]->PreUpdate();
+		ret = _list_modules[i]->PreUpdate();
 	}
 
-	for (int i = 0, count = list_modules.size(); i < count && ret == UpdateStatus::UPDATE_CONTINUE; i++)
+	for (int i = 0, count = _list_modules.size(); i < count && ret == UpdateStatus::UPDATE_CONTINUE; i++)
 	{
-		ret = list_modules[i]->Update();
+		ret = _list_modules[i]->Update();
 	}
 
-	for (int i = 0, count = list_modules.size(); i < count && ret == UpdateStatus::UPDATE_CONTINUE; i++)
+	for (int i = 0, count = _list_modules.size(); i < count && ret == UpdateStatus::UPDATE_CONTINUE; i++)
 	{
-		ret = list_modules[i]->PostUpdate();
+		ret = _list_modules[i]->PostUpdate();
 	}
 
-	dt = timer.getDeltaTime();
+	_dt = timer.getDeltaTime();
 
-	if (dt < fps)
+	if (_dt < fps)
 	{
-		float sleepTime = (fps - dt) * 1000;
+		float sleepTime = (fps - _dt) * 1000;
 		Sleep(sleepTime);
 	}
 
@@ -120,19 +120,19 @@ bool Application::CleanUp()
 {
 	bool ret = true;
 
-	isExiting = true;
+	_isExiting = true;
 
 	XMLNode configNode = xml->GetConfigXML();
 	configNode.node.child("renderer").child("framerate").attribute("value").set_value(frameCap);
 
-	for (int i = list_modules.size() -1; i >= 0 && ret; i--)
+	for (int i = _list_modules.size() -1; i >= 0 && ret; i--)
 	{
-		ret = list_modules[i]->CleanUp();
+		ret = _list_modules[i]->CleanUp();
 	}
 
-	for (int i = list_modules.size() - 1; i >= 0; i--)
+	for (int i = _list_modules.size() - 1; i >= 0; i--)
 	{
-		RELEASE(list_modules[i]);
+		RELEASE(_list_modules[i]);
 	}
 
 	return ret;
@@ -140,9 +140,9 @@ bool Application::CleanUp()
 
 Application* Application::Instance()
 {
-	if (app == nullptr) app = new Application();
+	if (_app == nullptr) _app = new Application();
 
-	return app;
+	return _app;
 }
 
 std::string Application::GetEngineVersion()
