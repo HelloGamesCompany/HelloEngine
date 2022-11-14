@@ -3,7 +3,7 @@
 #include "CommandChangeValue.hpp"
 #include "CommandArray.hpp"
 
-#define MAX_UNDO 5
+#define MAX_UNDO 20 // Actually is 20-1 = 19;
 
 typedef Htool::CommandArray<Command*> CommandArray;
 
@@ -47,6 +47,8 @@ public:
 	}
 
 	static void S_DeleteGameObject(GameObject* gameobject);
+
+	static void S_SetParentGameObject(GameObject* gameobject, GameObject* newParent);
 
 private:
 	bool Undo();

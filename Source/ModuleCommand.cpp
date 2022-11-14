@@ -2,6 +2,7 @@
 #include "ModuleCommand.h"
 #include "CommandArray.hpp"
 #include "CommandDeleteGameObject.h"
+#include "CommandSetParentGameObject.h"
 #include "Console.h"
 #include "ModuleLayers.h"
 #include "LayerEditor.h"
@@ -46,6 +47,11 @@ UpdateStatus ModuleCommand::Update()
 void ModuleCommand::S_DeleteGameObject(GameObject* gameobject)
 {
 	_commands->push(new CommandDeleteGameObject(gameobject));
+}
+
+void ModuleCommand::S_SetParentGameObject(GameObject* gameobject, GameObject* newParent)
+{
+	_commands->push(new CommandSetParentGameObject(gameobject, newParent));
 }
 
 bool ModuleCommand::Undo()

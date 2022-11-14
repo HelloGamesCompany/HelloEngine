@@ -146,7 +146,7 @@ void ImWindowHierarchy::ProcessGameObject(GameObject* gameObject, int iteration)
     {
         if (ImGui::AcceptDragDropPayload("GameObject"))
         {
-            _draggingGameObject->SetParent(gameObject);
+            ModuleCommand::S_SetParentGameObject(_draggingGameObject, gameObject);
             _draggingGameObject = nullptr;
         }
         ImGui::EndDragDropTarget();
@@ -209,7 +209,7 @@ void ImWindowHierarchy::DrawOptions()
         if (ImGui::Selectable("##"))
         {
 #ifdef STANDALONE           
-             _app->command->S_DeleteGameObject(_layerEditor->selectedGameObject);
+             ModuleCommand::S_DeleteGameObject(_layerEditor->selectedGameObject);
 #else
             _layerEditor->selectedGameObject->Destroy()
 #endif // STANDALONE

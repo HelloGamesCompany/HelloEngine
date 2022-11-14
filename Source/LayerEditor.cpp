@@ -23,6 +23,8 @@
 #include "ModuleFiles.h"
 #include "TransformComponent.h"
 
+#include "ModuleCommand.h"
+
 LayerEditor::LayerEditor()
 {
 	selectedGameObject = nullptr;
@@ -129,6 +131,14 @@ void LayerEditor::PreUpdate()
 
 void LayerEditor::Update()
 {
+#ifdef STANDALONE
+
+	if(_app->input->GetKey(SDL_SCANCODE_DELETE) == KEY_DOWN)
+	{
+		ModuleCommand::S_DeleteGameObject(selectedGameObject);
+	}
+
+#endif // !STANDALONE
 }
 
 void LayerEditor::PostUpdate()

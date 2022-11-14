@@ -89,18 +89,20 @@ private:
 	bool _isDestroyed = false;
 	bool _isStatic = false;
 
+	uint _ID = 0; // ID =  0 is an invalid ID. First ID is 1.
+
+	// On Editor variables
+	std::string _comboValues[3] = { "Mesh Renderer", "Material", "Camera" };
+
+	friend class TransformComponent;
+
 #ifdef STANDALONE
 	bool _isPendingToDelete = false;
 
 	std::vector<int> _childrenDeletedIndex;
-#endif // STANDALONE
 
-	uint _ID = 0; // ID =  0 is an invalid ID. First ID is 1.
-
-	// On Editor variables
-	std::string _comboValues[3] = {"Mesh Renderer", "Material", "Camera"};
-
-	friend class TransformComponent;
 	friend class ImWindowHierarchy;
 	friend class ImWindowInspector;
+	friend class CommandSetParentGameObject;
+#endif // STANDALONE
 };
