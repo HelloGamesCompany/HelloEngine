@@ -696,6 +696,7 @@
     <ClInclude Include="CommandSetParentGameObject.h">
       <Filter>Tools\Commands</Filter>
     </ClInclude>
+    <ClInclude Include="File_Model.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="External\imgui\vulkan\generate_spv.sh">

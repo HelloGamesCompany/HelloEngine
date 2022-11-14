@@ -78,6 +78,32 @@ XMLNode ModuleXML::OpenXML(std::string path)
 	return ret;
 }
 
+XMLNode ModuleXML::CreateXML(std::string filePath, std::string rootNodeName)
+{
+	std::string rootNodeOpen = "<";
+	std::string rootNodeClose = "</";
+	rootNodeOpen += rootNodeName;
+	rootNodeClose += rootNodeName;
+	rootNodeOpen += ">\n";
+	rootNodeClose += ">\n";
+
+	// Load template Configuration structure into the new file
+	std::string context =
+		"<?xml version=\"1.0\"?>\n" +
+		rootNodeOpen +
+		rootNodeClose;
+
+	// Open/create config file
+	std::ofstream file(filePath);
+
+	// Override the file with template context
+	file << context;
+
+	// Close file
+	file.close();
+	return OpenXML(filePath);
+}
+
 XMLNode ModuleXML::GetConfigXML()
 {
 	return config;

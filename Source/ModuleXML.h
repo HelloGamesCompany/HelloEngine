@@ -26,6 +26,8 @@ public:
 	/// <returns></returns>
 	XMLNode OpenXML(std::string path);
 
+	XMLNode CreateXML(std::string filePath, std::string rootNodeName);
+
 	XMLNode GetConfigXML();
 
 	XMLNode GetResourceXML();
