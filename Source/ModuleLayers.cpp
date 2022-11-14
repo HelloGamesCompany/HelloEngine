@@ -7,9 +7,6 @@
 #include "TransformComponent.h"
 #include "ModuleResourceManager.h"
 
-// Temporary, Delete Later!
-#include "File_Model.h"
-
 ModuleLayers::ModuleLayers()
 {
 }
@@ -36,41 +33,7 @@ bool ModuleLayers::Start()
 
     GameObject* house = MeshImporter::LoadMesh("Assets/FBX/BakerHouse.fbx");
 
-    XMLNode test = Application::Instance()->xml->CreateXML("Assets/ModelFileTest.xml", "Model");
-
-    ModelNode testNode;
-    testNode.meshPath = "TestingPath";
-    testNode.position = { 0,1,3 };
-    testNode.rotation = { 1,2,3 };
-    testNode.scale = { 10,15,20 };
-
-    ModelNode testNodeChild1;
-    testNodeChild1.name = "Node1";
-    testNodeChild1.meshPath = "NodeChild1";
-    testNodeChild1.position = { 1,1,1 };
-    testNodeChild1.rotation = { 2,2,2 };
-    testNodeChild1.scale = { 3,3,3 };
-
-    ModelNode testNodeChild2;
-    testNodeChild2.name = "Node2";
-    testNodeChild2.meshPath = "NodeChild2";
-    testNodeChild2.position = { 2,2,2 };
-    testNodeChild2.rotation = { 4,4,4 };
-    testNodeChild2.scale = { 6,6,6 };
-
-    testNode.children.push_back(testNodeChild1);
-    testNode.children.push_back(testNodeChild2);
-
-    testNode.WriteToXML("TestNode", test.node);
-
-    test.Save();
-
-   /* XMLNode readTest = Application::Instance()->xml->OpenXML("Assets/test.xml");
-
-    ModelNode readTestNode;
-    readTestNode.ReadFromXML("TestNode", readTest);
-
-    readTestNode;*/
+    MeshImporter::ImportModel("Assets/FBX/BakerHouse.fbx");
 
     return true;
 }

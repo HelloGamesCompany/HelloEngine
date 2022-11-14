@@ -11,7 +11,7 @@ struct ModelNode
 	std::string meshPath = "N"; // By default, this path is set to "N". Paths with "N" will be seen as Null.
 	float3 position = float3::zero;
 	float3 rotation = float3::zero;
-	float3 scale = float3::zero;
+	float3 scale = {1,1,1};
 	std::vector<ModelNode> children;
 
 	void WriteToXML(std::string nodeName, pugi::xml_node& whereToWrite)

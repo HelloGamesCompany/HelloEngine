@@ -12,10 +12,42 @@
 #include "MaterialComponent.h"
 #include "LayerEditor.h"
 
+#include "File_Model.h"
+#include "ModuleXML.h"
+
 std::map<std::string, MeshCacheData> MeshImporter::loadedMeshes;
 Assimp::Importer MeshImporter::importer;
 GameObject* MeshImporter::returnGameObject = nullptr;
 std::string MeshImporter::currentPath = "";
+
+void MeshImporter::ImportModel(std::string path)
+{
+	// Load AiScene
+	const aiScene* scene = GetAiScene(path);
+
+	if (scene == nullptr)
+	{
+		std::string errorMessage = "Cannot load FBX: " + path;
+		Console::S_Log(errorMessage);
+		return;
+	}
+
+	// Create XML file to store Model data.
+	std::string fileName = ModuleFiles::S_GetFileName(path, false);
+	XMLNode xmlRootNode = Application::Instance()->xml->CreateXML("Resources/Models/" + fileName + ".xml", "Model");
+
+	ModelNode modelRootNode;
+	for (int i = 0; i < scene->mRootNode->mNumChildren; i++)
+	{
+		ProcessNode(scene->mRootNode->mChildren[i], scene, modelRootNode);
+	}
+
+	modelRootNode.WriteToXML("ModelRoot", xmlRootNode.node);
+
+	// Save XML file
+	xmlRootNode.Save();
+
+}
 
 GameObject* MeshImporter::LoadMesh(std::string path)
 {
@@ -53,6 +85,52 @@ GameObject* MeshImporter::LoadMesh(std::string path)
 	return returnGameObject;
 }
 
+void MeshImporter::ProcessNode(aiNode* node, const aiScene* scene, ModelNode& parentNode)
+{
+	ModelNode newNode;
+	newNode.name = node->mName.C_Str();
+
+	// Get Node transform
+	aiVector3D translation, scaling;
+	aiQuaternion rotation;
+
+	node->mTransformation.Decompose(scaling, rotation, translation);
+
+	float3 pos(translation.x, translation.y, translation.z);
+
+	float3 scale(scaling.x, scaling.y, scaling.z);
+
+	Quat rot(rotation.x, rotation.y, rotation.z, rotation.w);
+	float3 eulerRot = rot.ToEulerZYX();
+	eulerRot.x = math::RadToDeg(eulerRot.x);
+	eulerRot.y = math::RadToDeg(eulerRot.y);
+	eulerRot.z = math::RadToDeg(eulerRot.z);
+
+	newNode.position = pos;
+	newNode.rotation = eulerRot;
+	newNode.scale = scale;
+
+	// We are assuming that every node can contain only one mesh!!!
+	// If we have more than one mesh inside a node, we should put them together inside the same game object!
+	for (int i = 0; i < node->mNumMeshes; i++)
+	{
+		newNode.meshPath = ProcessMesh(scene->mMeshes[node->mMeshes[i]], scene);
+	}
+
+	for (int i = 0; i < node->mNumChildren; i++)
+	{
+		ProcessNode(node->mChildren[i], scene, newNode);
+	}
+	
+	parentNode.children.push_back(newNode);
+
+}
+
+std::string MeshImporter::ProcessMesh(aiMesh* mesh, const aiScene* scene)
+{
+	return "Mesh";
+}
+
 const aiScene* MeshImporter::GetAiScene(std::string path)
 {
 	const aiScene* scene = importer.ReadFile(path, aiProcess_Triangulate | aiProcess_FlipUVs);
@@ -75,6 +153,7 @@ void MeshImporter::ProcessNewNode(aiNode* node, const aiScene* scene, std::strin
 
 	// Create empty Gameobject 
 	GameObject* newParent = nullptr;
+
 
 	bool necessaryNode = node->mNumChildren > 1;
 

@@ -9,6 +9,7 @@
 #include "mmgr.h"
 
 class GameObject;
+struct ModelNode;
 
 struct MeshCacheData
 {
@@ -29,9 +30,14 @@ class MeshImporter
 {
 public:
 
+	static void ImportModel(std::string path);
+
 	static GameObject* LoadMesh(std::string path); // This function loads all the information in the mesh and creates all necessary Gameobjects in the process
 
 private:
+	static void ProcessNode(aiNode* node, const aiScene* scene, ModelNode& parentNode);
+	static std::string ProcessMesh(aiMesh* mesh, const aiScene* scene);
+
 	static const aiScene* GetAiScene(std::string path);
 	
 	// ProcessNew creates a new RenderManger for each Mesh
