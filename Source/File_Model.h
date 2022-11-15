@@ -4,6 +4,7 @@
 #include <vector>
 #include "Math/float4x4.h"
 #include "ModuleXML.h"
+#include "Mesh.h"
 
 struct ModelNode
 {
@@ -88,5 +89,49 @@ struct ModelNode
 		scale.x = xmlNode.FindChildBreadth("Scale").node.attribute("X").as_float();
 		scale.y = xmlNode.FindChildBreadth("Scale").node.attribute("Y").as_float();
 		scale.z = xmlNode.FindChildBreadth("Scale").node.attribute("Z").as_float();
+	}
+};
+
+struct MeshInfo
+{
+	std::vector<Vertex> vertices;
+	std::vector<uint> indices;
+	uint hasTexture = 0; // For now, this only implies a diffuse texture.
+
+	/// <summary>
+	/// Returns path to created binary file.
+	/// </summary>
+	std::string SaveToBinaryFile(std::string fileName)
+	{
+		std::string filePath = "Resources/Meshes/" + fileName + ".hmsh";
+
+		uint header[3] = { vertices.size(), indices.size(), hasTexture }; // Num of vertices, num of indices, has or not a texture.
+
+		uint verticesSize = vertices.size() * sizeof(Vertex);
+		uint indicesSize = indices.size() * sizeof(uint);
+
+		uint fileSize = verticesSize + indicesSize + sizeof(uint); // Vertex + indices + hasTexture.
+
+		char* fileBuffer = new char[fileSize];
+		char* cursor = fileBuffer;
+
+		// Save header
+		uint headerSize = sizeof(header);
+		memcpy(cursor, header, headerSize);
+		cursor += headerSize;
+
+		// Save vertices
+		memcpy(cursor, &vertices[0], verticesSize);
+		cursor += verticesSize;
+
+		// Save indices
+		memcpy(cursor, &indices[0], indicesSize);
+		cursor += indicesSize;
+
+		ModuleFiles::S_Save(filePath, fileBuffer, fileSize, false);
+
+		RELEASE(fileBuffer);
+
+		return filePath;
 	}
 };

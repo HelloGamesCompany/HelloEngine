@@ -36,7 +36,7 @@ public:
 
 private:
 	static void ProcessNode(aiNode* node, const aiScene* scene, ModelNode& parentNode);
-	static std::string ProcessMesh(aiMesh* mesh, const aiScene* scene);
+	static std::string ProcessMesh(aiMesh* mesh, const aiScene* scene, std::string fileName);
 
 	static const aiScene* GetAiScene(std::string path);
 	
