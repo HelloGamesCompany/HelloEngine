@@ -283,14 +283,14 @@
     <ClCompile Include="CameraObject.cpp">
       <Filter>Others</Filter>
     </ClCompile>
-    <ClCompile Include="ModuleResourceManager.cpp">
-      <Filter>Others</Filter>
-    </ClCompile>
     <ClCompile Include="CommandDeleteGameObject.cpp">
       <Filter>Tools\Commands</Filter>
     </ClCompile>
     <ClCompile Include="CommandSetParentGameObject.cpp">
       <Filter>Tools\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleResourceManager.cpp">
+      <Filter>Modules</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -687,14 +687,14 @@
     <ClInclude Include="CameraObject.h">
       <Filter>Others</Filter>
     </ClInclude>
-    <ClInclude Include="ModuleResourceManager.h">
-      <Filter>Others</Filter>
-    </ClInclude>
     <ClInclude Include="CommandDeleteGameObject.h">
       <Filter>Tools\Commands</Filter>
     </ClInclude>
     <ClInclude Include="CommandSetParentGameObject.h">
       <Filter>Tools\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleResourceManager.h">
+      <Filter>Modules</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

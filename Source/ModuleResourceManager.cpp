@@ -35,6 +35,8 @@ void ModuleResourceManager::ImportFile(const std::string& filePath)
 {
 	ResourceType type = ModuleFiles::S_GetResourceType(filePath);
 
+	ModuleFiles::S_CreateMeta(filePath);
+
 	if (type == ResourceType::UNDEFINED)
 	{
 		Console::S_Log("Tried to import an undefined file. Filename: " + filePath);
@@ -118,4 +120,3 @@ bool ModuleResourceManager::IsFileLoaded(const char* fileName)
 {
 	return loadedResources.find(fileName) != loadedResources.end();
 }
-
