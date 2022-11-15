@@ -23,10 +23,6 @@ bool ModuleXML::Init()
 
 XMLNode ModuleXML::OpenXML(std::string path)
 {
-	pugi::xml_node n;
-
-	pugi::xml_document* d = new pugi::xml_document();
-
 	XMLNode ret;
 
 	// Check if the document has already been opened
@@ -39,6 +35,9 @@ XMLNode ModuleXML::OpenXML(std::string path)
 			return ret;
 		}
 	}
+	pugi::xml_node n;
+
+	pugi::xml_document* d = new pugi::xml_document();
 
 	EncryptDecryptXML(path, false);
 

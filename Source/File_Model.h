@@ -13,6 +13,7 @@ struct ModelNode
 	float3 position = float3::zero;
 	float3 rotation = float3::zero;
 	float3 scale = {1,1,1};
+	int childrenNum = 0;
 	std::vector<ModelNode> children;
 
 	void WriteToXML(std::string nodeName, pugi::xml_node& whereToWrite)
@@ -59,10 +60,15 @@ struct ModelNode
 		pugi::xml_attribute scaleAttZ = scaleNode.append_attribute("Z");
 		scaleAttZ.set_value(scale.z);
 
+		// Save num of children
+		pugi::xml_node childrenNode = xmlNode.append_child("ChildrenNum");
+		pugi::xml_attribute childrenAtt = childrenNode.append_attribute("Value");
+		childrenAtt.set_value(children.size());
+
 		// Save Children
 		for (int i = 0; i < children.size(); i++)
 		{
-			children[i].WriteToXML(children[i].name, xmlNode);
+			children[i].WriteToXML("Node" + std::to_string(i), xmlNode);
 		}
 	}
 
@@ -76,19 +82,32 @@ struct ModelNode
 		name = nodeName;
 		XMLNode xmlNode = whereToRead.FindChildBreadth(name);
 
-		meshPath = whereToRead.FindChildBreadth("MeshPath").node.attribute("Path").as_string();
+		meshPath = xmlNode.FindChildBreadth("MeshPath").node.attribute("Path").as_string();
 
-		position.x = xmlNode.FindChildBreadth("Position").node.attribute("X").as_float();
-		position.y = xmlNode.FindChildBreadth("Position").node.attribute("Y").as_float();
-		position.z = xmlNode.FindChildBreadth("Position").node.attribute("Z").as_float();
 
-		rotation.x = xmlNode.FindChildBreadth("Rotation").node.attribute("X").as_float();
-		rotation.y = xmlNode.FindChildBreadth("Rotation").node.attribute("Y").as_float();
-		rotation.z = xmlNode.FindChildBreadth("Rotation").node.attribute("Z").as_float();
+		pugi::xml_node positionNode = xmlNode.FindChildBreadth("Position").node;
+		position.x = positionNode.attribute("X").as_float();
+		position.y = positionNode.attribute("Y").as_float();
+		position.z = positionNode.attribute("Z").as_float();
 
-		scale.x = xmlNode.FindChildBreadth("Scale").node.attribute("X").as_float();
-		scale.y = xmlNode.FindChildBreadth("Scale").node.attribute("Y").as_float();
-		scale.z = xmlNode.FindChildBreadth("Scale").node.attribute("Z").as_float();
+		pugi::xml_node rotationNode = xmlNode.FindChildBreadth("Rotation").node;
+		rotation.x = rotationNode.attribute("X").as_float();
+		rotation.y = rotationNode.attribute("Y").as_float();
+		rotation.z = rotationNode.attribute("Z").as_float();
+
+		pugi::xml_node scaleNode = xmlNode.FindChildBreadth("Scale").node;
+		scale.x = scaleNode.attribute("X").as_float();
+		scale.y = scaleNode.attribute("Y").as_float();
+		scale.z = scaleNode.attribute("Z").as_float();
+
+		childrenNum = xmlNode.FindChildBreadth("ChildrenNum").node.attribute("Value").as_int();
+
+		for (int i = 0; i < childrenNum; i++)
+		{
+			ModelNode newNode;
+			newNode.ReadFromXML("Node" + std::to_string(i), xmlNode);
+			children.push_back(newNode);
+		}
 	}
 };
 
@@ -120,18 +139,45 @@ struct MeshInfo
 		memcpy(cursor, header, headerSize);
 		cursor += headerSize;
 
-		// Save vertices
-		memcpy(cursor, &vertices[0], verticesSize);
-		cursor += verticesSize;
-
 		// Save indices
 		memcpy(cursor, &indices[0], indicesSize);
 		cursor += indicesSize;
+
+		// Save vertices
+		memcpy(cursor, &vertices[0], verticesSize);
+		cursor += verticesSize;
 
 		ModuleFiles::S_Save(filePath, fileBuffer, fileSize, false);
 
 		RELEASE(fileBuffer);
 
 		return filePath;
+	}
+
+	void LoadFromBinaryFile(std::string filePath)
+	{
+		char* buffer = nullptr;
+		uint size = ModuleFiles::S_Load(filePath, &buffer);
+
+		char* cursor = buffer;
+
+		uint header[3];
+		uint headerSize = sizeof(uint) * 3;
+		memcpy(header, cursor, headerSize);
+		cursor += headerSize;
+
+		uint indicesSize = header[1] * sizeof(uint);
+		indices.resize(header[1]);
+		memcpy(&indices[0], cursor, indicesSize);
+		cursor += indicesSize;
+
+		uint verticesSize = header[0] * sizeof(Vertex);
+		vertices.resize(header[0]);
+		memcpy(&vertices[0], cursor, verticesSize);
+		cursor += verticesSize;
+
+		hasTexture = header[2];
+
+		RELEASE(buffer);
 	}
 };

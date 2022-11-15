@@ -5,17 +5,20 @@
 		<Position X="0" Y="0" Z="0" />
 		<Rotation X="0" Y="0" Z="0" />
 		<Scale X="1" Y="1" Z="1" />
-		<Chimney>
+		<ChildrenNum Value="2" />
+		<Node0>
 			<MeshPath Path="Resources/Meshes/Chimney.hmsh" />
 			<Position X="0" Y="0" Z="0" />
 			<Rotation X="0" Y="0" Z="-90.0000076" />
 			<Scale X="100" Y="100" Z="100" />
-		</Chimney>
-		<Baker_house>
+			<ChildrenNum Value="0" />
+		</Node0>
+		<Node1>
 			<MeshPath Path="Resources/Meshes/Baker_house.hmsh" />
 			<Position X="0" Y="0" Z="0" />
 			<Rotation X="0" Y="0" Z="-90.0000076" />
 			<Scale X="100" Y="100" Z="100" />
-		</Baker_house>
+			<ChildrenNum Value="0" />
+		</Node1>
 	</ModelRoot>
 </Model>

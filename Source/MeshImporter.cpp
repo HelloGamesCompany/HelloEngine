@@ -54,42 +54,6 @@ void MeshImporter::ImportModel(std::string path)
 
 }
 
-GameObject* MeshImporter::LoadMesh(std::string path)
-{
-	returnGameObject = nullptr;
-	currentPath = path;
-	// Load AiScene
-	const aiScene* scene = GetAiScene(path);
-
-	if (scene == nullptr)
-	{
-		std::string errorMessage = "Cannot load FBX: " + path;
-		Console::S_Log(errorMessage);
-		return nullptr;
-	}
-
-	// Check if this file path has already been loaded.
-	bool alreadyLoaded = loadedMeshes.find(path) != loadedMeshes.end();
-
-	if (alreadyLoaded)
-	{
-		uint firstID = loadedMeshes[path].initialID;
-		ProcessLoadedNode(scene->mRootNode, scene, firstID);
-	}
-	else
-	{
-		loadedMeshes[path].initialID = Application::Instance()->renderer3D->modelRender.GetMapSize(); // Set the ID of the first mesh inside this Model
-		loadedMeshes[path].numOfMeshes = 0;
-		loadedMeshes[path].meshDiffuseTexture = -1.0f;
-		ProcessNewNode(scene->mRootNode, scene, path);
-	}
-
-	currentPath = "none";
-	// Create a new RenderManager or add Mesh information as an instance
-	// Create a MeshRenderComponent inside a GameObject for every Mesh, following the assimp hierachy structure.
-	return returnGameObject;
-}
-
 void MeshImporter::ProcessNode(aiNode* node, const aiScene* scene, ModelNode& parentNode)
 {
 	ModelNode newNode;
@@ -126,7 +90,7 @@ void MeshImporter::ProcessNode(aiNode* node, const aiScene* scene, ModelNode& pa
 	{
 		ProcessNode(node->mChildren[i], scene, newNode);
 	}
-	
+
 	parentNode.children.push_back(newNode);
 
 }
@@ -180,6 +144,86 @@ std::string MeshImporter::ProcessMesh(aiMesh* mesh, const aiScene* scene, std::s
 	return meshInfo.SaveToBinaryFile(fileName);
 }
 
+void MeshImporter::LoadModel(std::string path)
+{
+	XMLNode rootNode = Application::Instance()->xml->OpenXML(path);
+
+	// Read root node from XML
+	ModelNode modelRootNode;
+	modelRootNode.ReadFromXML("ModelRoot", rootNode);
+
+	LoadNode(modelRootNode, nullptr);
+	// Process root node recursively, checking children and meshes.
+	// When get into a mesh, process its mesh file.
+	// Every node and every mesh should be an independent GameObject, but respecting original hierarchy.
+	// What should this function return?
+}
+
+void MeshImporter::LoadNode(ModelNode& node, GameObject* parent)
+{
+	GameObject* nodeGameObject = new GameObject(parent == nullptr ? Application::Instance()->layers->rootGameObject : parent, node.name);
+
+	nodeGameObject->transform->SetPosition(node.position);
+	nodeGameObject->transform->SetRotation(node.rotation);
+	nodeGameObject->transform->SetScale(node.scale);
+
+	if (node.meshPath != "N")
+	{
+		LoadMeshNode(node.meshPath, nodeGameObject);
+	}
+
+	for (int i = 0; i < node.childrenNum; i++)
+	{
+		LoadNode(node.children[i], nodeGameObject);
+	}
+
+}
+
+void MeshImporter::LoadMeshNode(std::string filePath, GameObject* parent)
+{
+	MeshInfo meshInfo;
+	meshInfo.LoadFromBinaryFile(filePath);
+
+	MeshRenderComponent* meshRender = parent->AddComponent<MeshRenderComponent>();
+	meshRender->InitAsNewMesh(meshInfo.vertices, meshInfo.indices);
+
+}
+
+GameObject* MeshImporter::LoadMesh(std::string path)
+{
+	returnGameObject = nullptr;
+	currentPath = path;
+	// Load AiScene
+	const aiScene* scene = GetAiScene(path);
+
+	if (scene == nullptr)
+	{
+		std::string errorMessage = "Cannot load FBX: " + path;
+		Console::S_Log(errorMessage);
+		return nullptr;
+	}
+
+	// Check if this file path has already been loaded.
+	bool alreadyLoaded = loadedMeshes.find(path) != loadedMeshes.end();
+
+	if (alreadyLoaded)
+	{
+		uint firstID = loadedMeshes[path].initialID;
+		ProcessLoadedNode(scene->mRootNode, scene, firstID);
+	}
+	else
+	{
+		loadedMeshes[path].initialID = Application::Instance()->renderer3D->modelRender.GetMapSize(); // Set the ID of the first mesh inside this Model
+		loadedMeshes[path].numOfMeshes = 0;
+		loadedMeshes[path].meshDiffuseTexture = -1.0f;
+		ProcessNewNode(scene->mRootNode, scene, path);
+	}
+
+	currentPath = "none";
+	// Create a new RenderManager or add Mesh information as an instance
+	// Create a MeshRenderComponent inside a GameObject for every Mesh, following the assimp hierachy structure.
+	return returnGameObject;
+}
 const aiScene* MeshImporter::GetAiScene(std::string path)
 {
 	const aiScene* scene = importer.ReadFile(path, aiProcess_Triangulate | aiProcess_FlipUVs);
