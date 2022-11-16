@@ -12,10 +12,182 @@
 #include "MaterialComponent.h"
 #include "LayerEditor.h"
 
+#include "File_Model.h"
+#include "ModuleXML.h"
+
 std::map<std::string, MeshCacheData> MeshImporter::loadedMeshes;
 Assimp::Importer MeshImporter::importer;
 GameObject* MeshImporter::returnGameObject = nullptr;
 std::string MeshImporter::currentPath = "";
+
+void MeshImporter::ImportModel(std::string path)
+{
+	// Load AiScene
+	const aiScene* scene = GetAiScene(path);
+
+	if (scene == nullptr)
+	{
+		std::string errorMessage = "Cannot load FBX: " + path;
+		Console::S_Log(errorMessage);
+		return;
+	}
+
+	// Create XML file to store Model data.
+	std::string fileName = ModuleFiles::S_GetFileName(path, false);
+	XMLNode xmlRootNode = Application::Instance()->xml->CreateXML("Resources/Models/" + fileName + ".xml", "Model");
+
+	// TODO: Material importer
+	//pugi::xml_node texturesNode = xmlRootNode.node.append_child("Textures");
+	//pugi::xml_node diffuseTextureNode = texturesNode.append_child("Diffuse");
+	//pugi::xml_attribute diffuseTextureAtt = diffuseTextureNode.append_attribute("Name");
+	
+	ModelNode modelRootNode;
+	for (int i = 0; i < scene->mRootNode->mNumChildren; i++)
+	{
+		ProcessNode(scene->mRootNode->mChildren[i], scene, modelRootNode);
+	}
+
+	modelRootNode.WriteToXML("ModelRoot", xmlRootNode.node);
+	
+	// Save XML file
+	xmlRootNode.Save();
+
+}
+
+void MeshImporter::ProcessNode(aiNode* node, const aiScene* scene, ModelNode& parentNode)
+{
+	ModelNode newNode;
+	newNode.name = node->mName.C_Str();
+
+	// Get Node transform
+	aiVector3D translation, scaling;
+	aiQuaternion rotation;
+
+	node->mTransformation.Decompose(scaling, rotation, translation);
+
+	float3 pos(translation.x, translation.y, translation.z);
+
+	float3 scale(scaling.x, scaling.y, scaling.z);
+
+	Quat rot(rotation.x, rotation.y, rotation.z, rotation.w);
+	float3 eulerRot = rot.ToEulerZYX();
+	eulerRot.x = math::RadToDeg(eulerRot.x);
+	eulerRot.y = math::RadToDeg(eulerRot.y);
+	eulerRot.z = math::RadToDeg(eulerRot.z);
+
+	newNode.position = pos;
+	newNode.rotation = eulerRot;
+	newNode.scale = scale;
+
+	// We are assuming that every node can contain only one mesh!!!
+	// If we have more than one mesh inside a node, we should put them together inside the same game object!
+	for (int i = 0; i < node->mNumMeshes; i++)
+	{
+		newNode.meshPath = ProcessMesh(scene->mMeshes[node->mMeshes[i]], scene, newNode.name);
+	}
+
+	for (int i = 0; i < node->mNumChildren; i++)
+	{
+		ProcessNode(node->mChildren[i], scene, newNode);
+	}
+
+	parentNode.children.push_back(newNode);
+
+}
+
+std::string MeshImporter::ProcessMesh(aiMesh* mesh, const aiScene* scene, std::string fileName)
+{
+	MeshInfo meshInfo;
+
+	// Get Mesh information
+	for (unsigned int i = 0; i < mesh->mNumVertices; i++)
+	{
+		Vertex vertex;
+		vertex.position.x = mesh->mVertices[i].x;
+		vertex.position.y = mesh->mVertices[i].y;
+		vertex.position.z = mesh->mVertices[i].z;
+
+		if (mesh->HasNormals())
+		{
+			vertex.normals.x = mesh->mNormals[i].x;
+			vertex.normals.y = mesh->mNormals[i].y;
+			vertex.normals.z = mesh->mNormals[i].z;
+		}
+
+		if (mesh->mTextureCoords[0])
+		{
+			vertex.texCoords.x = mesh->mTextureCoords[0][i].x;
+			vertex.texCoords.y = mesh->mTextureCoords[0][i].y;
+
+			// Tangent and bit tangent
+		}
+		else
+		{
+			vertex.texCoords = { 0.0f,0.0f };
+		}
+
+		meshInfo.vertices.push_back(vertex);
+	}
+
+	meshInfo.indices.resize(mesh->mNumFaces * 3);
+
+	if (mesh->HasFaces())
+	{
+		for (uint i = 0; i < mesh->mNumFaces; ++i)
+		{
+			memcpy(&meshInfo.indices[i * 3], mesh->mFaces[i].mIndices, 3 * sizeof(uint));
+		}
+	}
+
+	meshInfo.hasTexture = 0; // TODO: Determine this with Material importer later on.
+
+	return meshInfo.SaveToBinaryFile(fileName);
+}
+
+void MeshImporter::LoadModel(std::string path)
+{
+	XMLNode rootNode = Application::Instance()->xml->OpenXML(path);
+
+	// Read root node from XML
+	ModelNode modelRootNode;
+	modelRootNode.ReadFromXML("ModelRoot", rootNode);
+
+	LoadNode(modelRootNode, nullptr);
+	// Process root node recursively, checking children and meshes.
+	// When get into a mesh, process its mesh file.
+	// Every node and every mesh should be an independent GameObject, but respecting original hierarchy.
+	// What should this function return?
+}
+
+void MeshImporter::LoadNode(ModelNode& node, GameObject* parent)
+{
+	GameObject* nodeGameObject = new GameObject(parent == nullptr ? Application::Instance()->layers->rootGameObject : parent, node.name);
+
+	nodeGameObject->transform->SetPosition(node.position);
+	nodeGameObject->transform->SetRotation(node.rotation);
+	nodeGameObject->transform->SetScale(node.scale);
+
+	if (node.meshPath != "N")
+	{
+		LoadMeshNode(node.meshPath, nodeGameObject);
+	}
+
+	for (int i = 0; i < node.childrenNum; i++)
+	{
+		LoadNode(node.children[i], nodeGameObject);
+	}
+
+}
+
+void MeshImporter::LoadMeshNode(std::string filePath, GameObject* parent)
+{
+	MeshInfo meshInfo;
+	meshInfo.LoadFromBinaryFile(filePath);
+
+	MeshRenderComponent* meshRender = parent->AddComponent<MeshRenderComponent>();
+	meshRender->InitAsNewMesh(meshInfo.vertices, meshInfo.indices);
+
+}
 
 GameObject* MeshImporter::LoadMesh(std::string path)
 {
@@ -52,7 +224,6 @@ GameObject* MeshImporter::LoadMesh(std::string path)
 	// Create a MeshRenderComponent inside a GameObject for every Mesh, following the assimp hierachy structure.
 	return returnGameObject;
 }
-
 const aiScene* MeshImporter::GetAiScene(std::string path)
 {
 	const aiScene* scene = importer.ReadFile(path, aiProcess_Triangulate | aiProcess_FlipUVs);
@@ -75,6 +246,7 @@ void MeshImporter::ProcessNewNode(aiNode* node, const aiScene* scene, std::strin
 
 	// Create empty Gameobject 
 	GameObject* newParent = nullptr;
+
 
 	bool necessaryNode = node->mNumChildren > 1;
 

@@ -31,13 +31,10 @@ bool ModuleLayers::Start()
         if (layers[i] && layers[i]->IsEnabled()) layers[i]->Start();
     }
 
-    GameObject* house = MeshImporter::LoadMesh("Assets/FBX/BakerHouse.fbx");
-    /*GameObject* door = MeshImporter::LoadMesh("Assets/FBX/destructibleDoor.fbx");
-    GameObject* stairs = MeshImporter::LoadMesh("Assets/FBX/stairsBasic.fbx");*/
+    //GameObject* house = MeshImporter::LoadMesh("Assets/FBX/BakerHouse.fbx");
 
-   /* door->transform->SetPosition({ 6.0f,0.0f,0.0f });
-    stairs->transform->SetPosition({ 10.0f,0.0f,0.0f });*/
-
+    MeshImporter::ImportModel("Assets/FBX/BakerHouse.fbx");
+    MeshImporter::LoadModel("Resources/Models/BakerHouse.xml");
     return true;
 }
 

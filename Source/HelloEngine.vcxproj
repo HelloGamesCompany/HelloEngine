@@ -408,6 +408,7 @@
     <ClInclude Include="External\PugiXml\src\pugiconfig.hpp" />
     <ClInclude Include="External\PugiXml\src\pugixml.hpp" />
     <ClInclude Include="FileTree.hpp" />
+    <ClInclude Include="File_Model.h" />
     <ClInclude Include="FrameBuffer.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Headers.h" />

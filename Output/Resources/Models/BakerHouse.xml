@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<Model>
+	<ModelRoot>
+		<MeshPath Path="N" />
+		<Position X="0" Y="0" Z="0" />
+		<Rotation X="0" Y="0" Z="0" />
+		<Scale X="1" Y="1" Z="1" />
+		<ChildrenNum Value="2" />
+		<Node0>
+			<MeshPath Path="Resources/Meshes/Chimney.hmsh" />
+			<Position X="0" Y="0" Z="0" />
+			<Rotation X="-90" Y="-0" Z="-90" />
+			<Scale X="100" Y="100" Z="100" />
+			<ChildrenNum Value="0" />
+		</Node0>
+		<Node1>
+			<MeshPath Path="Resources/Meshes/Baker_house.hmsh" />
+			<Position X="0" Y="0" Z="0" />
+			<Rotation X="-90" Y="-0" Z="-90" />
+			<Scale X="100" Y="100" Z="100" />
+			<ChildrenNum Value="0" />
+		</Node1>
+	</ModelRoot>
+</Model>

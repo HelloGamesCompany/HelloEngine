@@ -90,7 +90,7 @@ void CameraObject::RegenerateFrameBuffer(int width, int height)
 void CameraObject::ChangeAspectRatio(float aspectRatio)
 {
 	this->aspectRatio = aspectRatio;
-	cameraFrustum.horizontalFov = 2.f * atanf(tanf(cameraFrustum.verticalFov * 0.5f) * aspectRatio);
+	cameraFrustum.horizontalFov = 2.0f * atanf(tanf(cameraFrustum.verticalFov * 0.5f) * aspectRatio);
 }
 
 void CameraObject::SetFOV(float fov)

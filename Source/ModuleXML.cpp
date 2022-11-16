@@ -23,10 +23,6 @@ bool ModuleXML::Init()
 
 XMLNode ModuleXML::OpenXML(std::string path)
 {
-	pugi::xml_node n;
-
-	pugi::xml_document* d = new pugi::xml_document();
-
 	XMLNode ret;
 
 	// Check if the document has already been opened
@@ -39,6 +35,9 @@ XMLNode ModuleXML::OpenXML(std::string path)
 			return ret;
 		}
 	}
+	pugi::xml_node n;
+
+	pugi::xml_document* d = new pugi::xml_document();
 
 	EncryptDecryptXML(path, false);
 
@@ -76,6 +75,32 @@ XMLNode ModuleXML::OpenXML(std::string path)
 	RELEASE(buf);
 
 	return ret;
+}
+
+XMLNode ModuleXML::CreateXML(std::string filePath, std::string rootNodeName)
+{
+	std::string rootNodeOpen = "<";
+	std::string rootNodeClose = "</";
+	rootNodeOpen += rootNodeName;
+	rootNodeClose += rootNodeName;
+	rootNodeOpen += ">\n";
+	rootNodeClose += ">\n";
+
+	// Load template Configuration structure into the new file
+	std::string context =
+		"<?xml version=\"1.0\"?>\n" +
+		rootNodeOpen +
+		rootNodeClose;
+
+	// Open/create config file
+	std::ofstream file(filePath);
+
+	// Override the file with template context
+	file << context;
+
+	// Close file
+	file.close();
+	return OpenXML(filePath);
 }
 
 XMLNode ModuleXML::GetConfigXML()
