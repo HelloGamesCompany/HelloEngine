@@ -41,6 +41,7 @@ public:
 	Frustum cameraFrustum; // Should not be public, but we need ModuleCamera3D to access it.
 	bool currentlyDisplaying = false;
 
+
 private:
 	// TODO: Sospechoso de provocar excepcion en Release
 	float4x4 ViewMatrix = float4x4::identity, ViewMatrixInverse = float4x4::identity, ProjectionMatrix = float4x4::identity;

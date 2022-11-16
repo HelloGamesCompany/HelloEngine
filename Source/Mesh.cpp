@@ -33,8 +33,8 @@ bool Mesh::Update()
 		OpenGLTextureID = TextureManager::BindTexture(textureID);
 	}
 
-	modelMatrix = component->_gameObject->transform->GetGlobalMatrix();
-	modelMatrix.Transpose();
+	/*modelMatrix = component->_gameObject->transform->GetGlobalMatrix();
+	modelMatrix.Transpose();*/
 
 	return true;
 }
@@ -79,4 +79,13 @@ void Mesh::SetTransform(float3 pos, float3 s, float3 rot)
 	this->scale = s;
 	this->rotation = rot;
 	_updateMatrix = true;
+}
+
+void Mesh::CalculateBoundingBoxes()
+{
+	globalOBB = localAABB;
+	globalOBB.Transform(modelMatrix.Transposed());
+
+	globalAABB.SetNegativeInfinity();
+	globalAABB.Enclose(globalOBB);
 }

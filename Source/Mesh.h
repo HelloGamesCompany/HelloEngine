@@ -42,6 +42,8 @@ public:
 	/// </summary>
 	void ShowNormals(int normals) { showNormals = normals; };
 
+	void CalculateBoundingBoxes();
+
 public:
 	float3 rotation;
 	float3 scale;
@@ -55,8 +57,15 @@ public:
 	float textureID = -1;
 
 	int showNormals = -1;
+	bool showAABB = true;
+	bool showOBB = true;
 
 	bool draw = true;
+
+	OBB globalOBB;
+	AABB globalAABB;
+	AABB localAABB;
+
 private:
 	MeshRenderComponent* component = nullptr;
 	bool _updateMatrix = true;

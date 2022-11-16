@@ -7,12 +7,14 @@ RenderManager::RenderManager()
 {
     basicShader = new Shader("Resources/shaders/basic.vertex.shader", "Resources/shaders/basic.fragment.shader");
     lineShader = new Shader("Resources/shaders/lines.vertex.shader", "Resources/shaders/lines.fragment.shader");
+    localLineShader = new Shader("Resources/shaders/localLines.vertex.shader", "Resources/shaders/localLines.fragment.shader");
 }
 
 RenderManager::~RenderManager()
 {
     RELEASE(basicShader);
     RELEASE(lineShader);
+    RELEASE(localLineShader);
 }
 
 uint RenderManager::SetMeshInformation(Mesh& mesh)
@@ -24,10 +26,12 @@ uint RenderManager::SetMeshInformation(Mesh& mesh)
 
     CreateBuffers();
     CreateNormalsDisplayBuffer();
+    CreateAABB();
 
     Mesh firstMesh;
     firstMesh.InitAsMeshInformation(mesh.position, mesh.scale);
-    
+    firstMesh.localAABB = localAABB;
+
     mesh.CleanUp(); // Destroy the original vertex and index data (now it is stored inside this render manager).
     initialized = true;
 
@@ -91,8 +95,15 @@ void RenderManager::Draw()
         int index = 0;
         for (auto& mesh : meshes)
         {
-            if (mesh.second.showNormals == 0) DrawVertexNormals(index);
-            else if (mesh.second.showNormals == 1) DrawFaceNormals(index);
+            if (mesh.second.showNormals == 0) 
+                DrawVertexNormals(index);
+            else if (mesh.second.showNormals == 1) 
+                DrawFaceNormals(index);
+            if (mesh.second.showAABB)
+                DrawBoundingBoxAABB(mesh.second);
+            if (mesh.second.showOBB)
+                DrawBoundingBoxOBB(mesh.second);
+
             index++;
         }
     }
@@ -111,6 +122,8 @@ uint RenderManager::AddMesh(Mesh& mesh)
     }
     uint meshID = ++IDcounter;
     meshes[meshID] = mesh;
+    meshes[meshID].localAABB = localAABB;
+
     return meshID;
 }
 
@@ -272,6 +285,79 @@ void RenderManager::CreateNormalsDisplayBuffer()
     }
 }
 
+void RenderManager::CreateAABB()
+{
+    localAABB.SetNegativeInfinity();
+   
+    std::vector<float3> vertexPositions;
+    vertexPositions.resize(totalVertices.size());
+    for (int i = 0; i < totalVertices.size(); i++)
+    {
+        vertexPositions[i] = totalVertices[i].position;
+    }
+    localAABB.Enclose(&vertexPositions[0], totalVertices.size());
+
+    boxIndices.push_back(0);    // 1
+    boxIndices.push_back(1);    // 2
+    boxIndices.push_back(0);    // 3
+    boxIndices.push_back(2);    // 4
+    boxIndices.push_back(2);    // 5
+    boxIndices.push_back(3);    // 6
+    boxIndices.push_back(1);    // 7
+    boxIndices.push_back(3);    // 8
+    boxIndices.push_back(0);    // 9
+    boxIndices.push_back(4);    // 10
+    boxIndices.push_back(4);    // 11
+    boxIndices.push_back(5);    // 12
+    boxIndices.push_back(4);    // 13
+    boxIndices.push_back(6);    // 14
+    boxIndices.push_back(6);    // 15
+    boxIndices.push_back(7);    // 16
+    boxIndices.push_back(7);    // 17
+    boxIndices.push_back(5);    // 18
+    boxIndices.push_back(1);    // 19
+    boxIndices.push_back(5);    // 20
+    boxIndices.push_back(3);    // 21
+    boxIndices.push_back(7);    // 22
+    boxIndices.push_back(2);    // 23
+    boxIndices.push_back(6);    // 24
+
+
+    // Set up buffer for OBB lines.
+    glGenVertexArrays(1, &OBBLineVAO);
+    glBindVertexArray(OBBLineVAO);
+
+    glGenBuffers(1, &OBBIndexO);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, OBBIndexO);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(uint) * boxIndices.size(), &boxIndices[0], GL_STATIC_DRAW);
+
+    glGenBuffers(1, &OBBLineVBO);
+    glBindBuffer(GL_ARRAY_BUFFER, OBBLineVBO);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(float3) * 8, nullptr, GL_DYNAMIC_DRAW);
+
+    glEnableVertexAttribArray(0);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(float3), (void*)0);
+
+    glBindVertexArray(0);
+
+    // Set up buffer for AABB lines.
+    glGenVertexArrays(1, &AABBLineVAO);
+    glBindVertexArray(AABBLineVAO);
+
+    glGenBuffers(1, &AABBIndexO);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, AABBIndexO);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(uint) * boxIndices.size(), &boxIndices[0], GL_STATIC_DRAW);
+
+    glGenBuffers(1, &AABBLineVBO);
+    glBindBuffer(GL_ARRAY_BUFFER, AABBLineVBO);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(float3) * 8, nullptr, GL_DYNAMIC_DRAW);
+
+    glEnableVertexAttribArray(0);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(float3), (void*)0);
+
+    glBindVertexArray(0);
+}
+
 void RenderManager::DrawVertexNormals(int modelMatrixIndex)
 {
     lineShader->Bind();
@@ -304,5 +390,51 @@ void RenderManager::DrawFaceNormals(int modelMatrixIndex)
 
     glBindVertexArray(0);
 
+}
+
+void RenderManager::DrawBoundingBoxAABB(Mesh& mesh)
+{
+    float3 AABBPoints[8];
+
+    mesh.globalAABB.GetCornerPoints(AABBPoints);
+
+    glBindVertexArray(AABBLineVAO);
+
+    glBindBuffer(GL_ARRAY_BUFFER, AABBLineVBO);
+    void* ptr = glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY);
+    memcpy(ptr, &AABBPoints[0], 8 * sizeof(float3));
+    glUnmapBuffer(GL_ARRAY_BUFFER);
+
+    localLineShader->Bind();
+    localLineShader->SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
+    localLineShader->SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
+    localLineShader->SetFloat4("lineColor", 0.0f, 1.0f, 0.0f, 1.0f);
+
+    glDrawElements(GL_LINES, boxIndices.size(), GL_UNSIGNED_INT, 0);
+
+    glBindVertexArray(0);
+}
+
+void RenderManager::DrawBoundingBoxOBB(Mesh& mesh)
+{
+    float3 OBBPoints[8];
+
+    mesh.globalOBB.GetCornerPoints(OBBPoints);
+
+    glBindVertexArray(OBBLineVAO);
+
+    glBindBuffer(GL_ARRAY_BUFFER, OBBLineVBO);
+    void* ptr = glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY);
+    memcpy(ptr, &OBBPoints[0], 8 * sizeof(float3));
+    glUnmapBuffer(GL_ARRAY_BUFFER);
+
+    localLineShader->Bind();
+    localLineShader->SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
+    localLineShader->SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
+    localLineShader->SetFloat4("lineColor", 1.0f, 0.0f, 0.0f, 1.0f);
+
+    glDrawElements(GL_LINES, boxIndices.size(), GL_UNSIGNED_INT, 0);
+
+    glBindVertexArray(0);
 }
 

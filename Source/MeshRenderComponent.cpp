@@ -15,6 +15,7 @@ MeshRenderComponent::MeshRenderComponent(GameObject* gameObject) : Component(gam
 	_type = Type::MESH_RENDERER;
 	_meshID = -1;
 	_instanceID = 0;
+	_needsTransformCallback = true;
 }
 
 MeshRenderComponent::~MeshRenderComponent()
@@ -59,6 +60,13 @@ void MeshRenderComponent::InitAsNewMesh(std::vector<Vertex>& vertices, std::vect
 	indexNum = manager->GetMeshIndexNum();
 	_gameObject->transform->ForceUpdate();
 	GetMesh().component = this;
+}
+
+void MeshRenderComponent::OnTransformCallback(float4x4 worldMatrix)
+{
+	Mesh& mesh = GetMesh();
+	mesh.modelMatrix = worldMatrix.Transposed();
+	mesh.CalculateBoundingBoxes();
 }
 
 void MeshRenderComponent::OnEnable()

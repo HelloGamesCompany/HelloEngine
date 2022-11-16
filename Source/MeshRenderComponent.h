@@ -12,6 +12,8 @@ public:
 	void InitAsLoadedMesh(uint meshID);
 	void InitAsNewMesh(std::vector<Vertex>& vertices, std::vector<uint>& indices);
 
+	void OnTransformCallback(float4x4 worldMatrix) override;
+
 	void OnEnable() override;
 	void OnDisable() override;
 
