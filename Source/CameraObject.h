@@ -33,6 +33,8 @@ public:
 	void SetFOV(float fov);
 	float GetFOV() { return FOV; };
 
+	bool IsInsideFrustum(AABB& globalAABB);
+
 public:
 	float3 X = { 0,0,0 }, Y = { 0,0,0 }, Z = { 0,0,0 }, Position = { 0,0,0 }, Reference = { 0,0,0 };
 	bool active = true;
@@ -40,6 +42,7 @@ public:
 	CameraType type = CameraType::GAME;
 	Frustum cameraFrustum; // Should not be public, but we need ModuleCamera3D to access it.
 	bool currentlyDisplaying = false;
+	bool isCullingActive = true;
 
 
 private:

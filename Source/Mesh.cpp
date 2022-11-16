@@ -27,7 +27,8 @@ void Mesh::InitAsMeshInformation(float3 position, float3 scale)
 
 bool Mesh::Update()
 {
-	if (!draw) return false;
+	if (!draw || outOfFrustum) 
+		return false;
 	if (TextureManager::loadedTextures.find(textureID) != TextureManager::loadedTextures.end())
 	{
 		OpenGLTextureID = TextureManager::BindTexture(textureID);

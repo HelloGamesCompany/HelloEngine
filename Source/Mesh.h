@@ -61,6 +61,7 @@ public:
 	bool showOBB = true;
 
 	bool draw = true;
+	bool outOfFrustum = false;
 
 	OBB globalOBB;
 	AABB globalAABB;

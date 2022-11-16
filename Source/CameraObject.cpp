@@ -100,3 +100,35 @@ void CameraObject::SetFOV(float fov)
 	cameraFrustum.horizontalFov = 2.0f * atanf(tanf(cameraFrustum.verticalFov / 2.0f) * aspectRatio);
 }
 
+bool CameraObject::IsInsideFrustum(AABB& globalAABB)
+{
+	float3 vCorner[8];
+	math::Plane planes[6];
+	cameraFrustum.GetPlanes(planes);
+	int iTotalIn = 0;
+	globalAABB.GetCornerPoints(vCorner); // get the corners of the box into the vCorner array
+	// test all 8 corners against the 6 sides
+	// if all points are behind 1 specific plane, we are out
+	// if we are in with all points, then we are fully in
+	for (int p = 0; p < 6; ++p) {
+		int iInCount = 8;
+		int iPtIn = 1;
+		for (int i = 0; i < 8; ++i) {
+			// test this point against the planes
+			if (planes[p].IsOnPositiveSide(vCorner[i])) { //<-- “IsOnPositiveSide” from MathGeoLib
+				iPtIn = 0;
+				--iInCount;
+			}
+		}
+		// were all the points outside of plane p?
+		if(iInCount == 0)
+			return false;
+		// check if they were all on the right side of the plane
+		iTotalIn += iPtIn;
+	}
+	// so if iTotalIn is 6, then all are inside the view
+	if (iTotalIn == 6)
+		return true;
+	// we must be partly in then otherwise
+	return true;
+}

@@ -46,49 +46,73 @@ void RenderManager::Draw()
         LOG("A Render Manager is being updated without any meshes!");
         return;
     }
+
+    CameraObject* currentCamera = Application::Instance()->camera->currentDrawingCamera;
+
     for (auto& mesh : meshes)
     {
+        if (currentCamera->isCullingActive)
+        {
+            if (!currentCamera->IsInsideFrustum(mesh.second.globalAABB))
+            {
+                mesh.second.outOfFrustum = true;
+                continue;
+            }
+            else
+                mesh.second.outOfFrustum = false;
+        }
+        else if (currentCamera->type != CameraType::SCENE)
+        {
+            mesh.second.outOfFrustum = false;
+        }
+
         if (!mesh.second.Update())
             continue;
+       
+        // Check if this game camera is culling.
+        // Check if the current mesh is inside the camera culling
+        // If true, keep going. If false, go to next iteration.
 
         modelMatrices.push_back(mesh.second.modelMatrix); // Insert updated matrices
         textureIDs.push_back(mesh.second.OpenGLTextureID);
         mesh.second.OpenGLTextureID = -1; // Reset this, in case the next frame our texture ID changes to -1.
     }
 
-    if (modelMatrices.empty()) return;
-
-    // Update View and Projection matrices
-    basicShader->Bind();
-
-    basicShader->SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
-    basicShader->SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
-
-    // Draw using Dynamic Geometry
-    glBindVertexArray(VAO);
-
-    // Update Model matrices
-    glBindBuffer(GL_ARRAY_BUFFER, MBO);
-    void* ptr = glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY);
-    memcpy(ptr, &modelMatrices.front(), modelMatrices.size() * sizeof(float4x4));
-    glUnmapBuffer(GL_ARRAY_BUFFER);
-
-    // Update TextureIDs
-    glBindBuffer(GL_ARRAY_BUFFER, TBO);
-    void* ptr2 = glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY);
-    memcpy(ptr2, &textureIDs.front(), textureIDs.size() * sizeof(float));
-    glUnmapBuffer(GL_ARRAY_BUFFER);
-
-    for (int i = 0; i < TextureManager::bindedTextures; i++)
+    if (!modelMatrices.empty())
     {
-        basicShader->SetInt(("textures[" + std::to_string(i) + "]").c_str(), i);
+        // Update View and Projection matrices
+        basicShader->Bind();
+
+        basicShader->SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
+        basicShader->SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
+
+        // Draw using Dynamic Geometry
+        glBindVertexArray(VAO);
+
+        // Update Model matrices
+        glBindBuffer(GL_ARRAY_BUFFER, MBO);
+        void* ptr = glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY);
+        memcpy(ptr, &modelMatrices.front(), modelMatrices.size() * sizeof(float4x4));
+        glUnmapBuffer(GL_ARRAY_BUFFER);
+
+        // Update TextureIDs
+        glBindBuffer(GL_ARRAY_BUFFER, TBO);
+        void* ptr2 = glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY);
+        memcpy(ptr2, &textureIDs.front(), textureIDs.size() * sizeof(float));
+        glUnmapBuffer(GL_ARRAY_BUFFER);
+
+        for (int i = 0; i < TextureManager::bindedTextures; i++)
+        {
+            basicShader->SetInt(("textures[" + std::to_string(i) + "]").c_str(), i);
+        }
+
+        // Draw
+        glDrawElementsInstanced(GL_TRIANGLES, totalIndices.size(), GL_UNSIGNED_INT, 0, modelMatrices.size());
+        glBindVertexArray(0);
     }
 
-    // Draw
-    glDrawElementsInstanced(GL_TRIANGLES, totalIndices.size(), GL_UNSIGNED_INT, 0, modelMatrices.size());
-    glBindVertexArray(0);
-
     // Drawing normals for every mesh instance
+    // TODO: We can optimize this. Add every mesh that has to draw any debug primitive inside a vector. Iterate that vector every frame. 
     
     if (Application::Instance()->camera->currentDrawingCamera->type == CameraType::SCENE)
     {
