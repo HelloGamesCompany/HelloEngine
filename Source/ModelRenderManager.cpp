@@ -12,22 +12,22 @@ ModelRenderManager::ModelRenderManager()
 
 ModelRenderManager::~ModelRenderManager()
 {
-	RELEASE(textureManager);
+	RELEASE(_textureManager);
 }
 
 void ModelRenderManager::Init()
 {
-	textureManager = new TextureManager();
+	_textureManager = new TextureManager();
 }
 
 RenderManager* ModelRenderManager::GetRenderManager(uint ID)
 {
-	return &renderMap[ID];
+	return &_renderMap[ID];
 }
 
 void ModelRenderManager::Draw()
 {
-	for (auto& obj : renderMap)
+	for (auto& obj : _renderMap)
 	{
 		obj.second.Draw();
 	}

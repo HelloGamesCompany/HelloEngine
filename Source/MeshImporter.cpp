@@ -284,8 +284,6 @@ void MeshImporter::ProcessNewNode(aiNode* node, const aiScene* scene, std::strin
 		// Creates an empty Gameobject that is children to the empty gameObject created here.
 		ProcessNewNode(node->mChildren[i], scene, path, newParent);
 	}
-
-
 }
 
 void MeshImporter::ProcessNewMesh(aiMesh* mesh, const aiScene* scene, GameObject* parent, bool createGO)
@@ -377,7 +375,8 @@ void MeshImporter::ProcessNewMesh(aiMesh* mesh, const aiScene* scene, GameObject
 					// Load DDS file
 					Resource* resource = Application::Instance()->resource->LoadFile(resourcesPath);
 
-					if (resource->type != ResourceType::TEXTURE) return;
+					if (resource->type != ResourceType::TEXTURE)
+						return;
 
 					ResourceTexture* textureResource = (ResourceTexture*)resource;
 
@@ -406,7 +405,10 @@ void MeshImporter::ProcessNewMesh(aiMesh* mesh, const aiScene* scene, GameObject
 		MeshRenderComponent* meshRC = newGameObject->AddComponent<MeshRenderComponent>();
 		meshRC->InitAsNewMesh(vertices, indices);
 		meshRC->GetMesh().textureID = textureID;
-		if (hasMaterial) newGameObject->AddComponent<MaterialComponent>();
+		if (hasMaterial)
+		{
+			newGameObject->AddComponent<MaterialComponent>();
+		}
 	}
 	else
 	{
@@ -414,7 +416,11 @@ void MeshImporter::ProcessNewMesh(aiMesh* mesh, const aiScene* scene, GameObject
 		MeshRenderComponent* meshRC = parent->AddComponent<MeshRenderComponent>();
 		meshRC->InitAsNewMesh(vertices, indices);
 		meshRC->GetMesh().textureID = textureID;
-		if (hasMaterial) parent->AddComponent<MaterialComponent>();
+
+		if (hasMaterial) 
+		{
+			parent->AddComponent<MaterialComponent>();
+		}
 	}
 }
 
@@ -431,8 +437,14 @@ void MeshImporter::ProcessLoadedNode(aiNode* node, const aiScene* scene, uint& f
 
 	bool necessaryNode = node->mNumChildren > 1;
 
-	if (parent == nullptr) returnGameObject = newParent = new GameObject(Application::Instance()->layers->rootGameObject, "Node");
-	else newParent = new GameObject(parent, "Node");
+	if (parent == nullptr)
+	{
+		returnGameObject = newParent = new GameObject(Application::Instance()->layers->rootGameObject, "Node");
+	}
+	else
+	{
+		newParent = new GameObject(parent, "Node");
+	}
 
 	// Set new GameObject position with node Transform.
 	aiVector3D translation, scaling;
@@ -462,9 +474,11 @@ void MeshImporter::ProcessLoadedNode(aiNode* node, const aiScene* scene, uint& f
 			MeshRenderComponent* mesh = newGameObject->AddComponent<MeshRenderComponent>();
 			mesh->InitAsLoadedMesh(firstMeshID++);
 			mesh->GetMesh().textureID = loadedMeshes[currentPath].meshDiffuseTexture;
+
 			if (loadedMeshes[currentPath].meshDiffuseTexture != -1)
+			{
 				newGameObject->AddComponent<MaterialComponent>();
-			
+			}
 		}
 	}
 	else if (meshNum != 0)
@@ -472,8 +486,11 @@ void MeshImporter::ProcessLoadedNode(aiNode* node, const aiScene* scene, uint& f
 		MeshRenderComponent* mesh = newParent->AddComponent<MeshRenderComponent>();
 		mesh->InitAsLoadedMesh(firstMeshID++);
 		mesh->GetMesh().textureID = loadedMeshes[currentPath].meshDiffuseTexture;
+
 		if (loadedMeshes[currentPath].meshDiffuseTexture != -1)
+		{
 			newParent->AddComponent<MaterialComponent>();
+		}
 	}
 
 	if (loadedMeshes[currentPath].displayMissingTextureError)

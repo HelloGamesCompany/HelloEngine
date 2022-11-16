@@ -124,8 +124,11 @@ void ImWindowProject::Update()
             }
             ImGui::EndChild();
         }
-        if (newDir) currentNode = newDir;   
-	}
+        if (newDir)
+        {
+            currentNode = newDir;
+        }
+    }
     ImGui::End();
 }
 

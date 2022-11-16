@@ -17,7 +17,8 @@ ModuleResourceManager::ModuleResourceManager()
 	ilutInit();
 	ilutRenderer(ILUT_OPENGL);
 
-	if (ilGetInteger(IL_VERSION_NUM) < IL_VERSION) {
+	if (ilGetInteger(IL_VERSION_NUM) < IL_VERSION) 
+	{
 		Console::S_Log("Wrong DevIL version detected.");
 	}
 }
@@ -35,19 +36,19 @@ void ModuleResourceManager::ImportFile(const std::string& filePath)
 {
 	ResourceType type = ModuleFiles::S_GetResourceType(filePath);
 
-	ModuleFiles::S_CreateMeta(filePath);
-
 	if (type == ResourceType::UNDEFINED)
 	{
 		Console::S_Log("Tried to import an undefined file. Filename: " + filePath);
 		return;
 	}
 
-	// TODO: Create Meta object that knows where this resource will be inside Resources file.
+	// Create Meta data
+	CreateMetaData(filePath);
 
 	char* buffer = nullptr;
 	uint size = ModuleFiles::S_Load(filePath, &buffer);
 
+	// TODO: Restruct Inport parameters
 	switch (type)
 	{
 	case ResourceType::MESH:
@@ -119,4 +120,40 @@ bool ModuleResourceManager::IsFileLoaded(std::string fileName)
 bool ModuleResourceManager::IsFileLoaded(const char* fileName)
 {
 	return loadedResources.find(fileName) != loadedResources.end();
+}
+
+bool ModuleResourceManager::CreateMetaData(const std::string file)
+{
+	if (!CheckMetaExist(file))
+	{
+		std::string newFile = ModuleFiles::S_RemoveExtension(file) + ".helloMeta";
+
+		// get modify time
+		std::string meta = "Last modify: ";
+
+		time_t currentTime = time(0);
+
+		char time[26];
+
+		ctime_s(time, sizeof(time), &currentTime);
+
+		meta += time;
+
+		// get resource path
+
+		meta += "\nResource path : Resources/Textures/" + ModuleFiles::S_GetFileName(file, false);
+
+		ModuleFiles::S_Save(newFile, &meta[0], meta.size(), false);
+
+		return true;
+	}
+
+	return false;
+}
+
+bool ModuleResourceManager::CheckMetaExist(const std::string file)
+{
+	std::string meta = ModuleFiles::S_RemoveExtension(file) + ".helloMeta";
+
+	return ModuleFiles::S_Exists(meta);
 }

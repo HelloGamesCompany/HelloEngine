@@ -48,6 +48,11 @@ public:
 	bool IsFileLoaded(std::string fileName);
 	bool IsFileLoaded(const char* fileName);
 
+private:
+	bool CreateMetaData(const std::string file);
+
+	bool CheckMetaExist(const std::string file);
+
+public:
 	std::map<std::string, Resource*> loadedResources;
 };
-

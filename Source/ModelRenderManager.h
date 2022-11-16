@@ -25,14 +25,14 @@ public:
 	void Init();
 
 	RenderManager* GetRenderManager(uint ID);
-	uint GetMapSize() { return renderMap.size(); };
+	uint GetMapSize() { return _renderMap.size(); };
 
 	void Draw();
 
 	void CreatePrimitive(GameObject* parent, PrimitiveType type);
 
 private:
-	std::map<uint, RenderManager> renderMap;
-	TextureManager* textureManager = nullptr;
+	std::map<uint, RenderManager> _renderMap;
+	TextureManager* _textureManager = nullptr;
 };
 

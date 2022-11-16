@@ -3,6 +3,7 @@
 #include "physfs.h"
 #include "FileTree.hpp"
 #include <algorithm>
+#include <ctime>
 #include "Console.h"
 
 ModuleFiles::ModuleFiles():Module()
@@ -32,29 +33,6 @@ ModuleFiles::~ModuleFiles()
 bool ModuleFiles::S_Exists(const std::string file)
 {
 	return PHYSFS_exists(file.c_str()) != 0;
-}
-
-bool ModuleFiles::S_CheckMetaExist(const std::string file)
-{
-	std::string meta = S_RemoveExtension(file) + ".helloMeta";
-
-	return S_Exists(meta);
-}
-
-bool ModuleFiles::S_CreateMeta(const std::string file)
-{
-	if(!S_CheckMetaExist(file))
-	{
-		std::string newFile = S_RemoveExtension(file) + ".helloMeta";
-
-		std::string meta = "hello";
-
-		S_Save(newFile, &meta[0], meta.size(), false);
-
-		return true;
-	}
-
-	return false;
 }
 
 bool ModuleFiles::S_MakeDir(const std::string dir)

@@ -26,10 +26,6 @@ public:
 
 	static bool S_CheckFinishWith(const std::string file, const std::string checker);
 
-	static bool S_CheckMetaExist(const std::string file);
-
-	static bool S_CreateMeta(const std::string file);
-
 	static bool S_MakeDir(const std::string dir);
 
 	static bool S_IsDirectory(const std::string file);
