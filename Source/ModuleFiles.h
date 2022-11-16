@@ -24,6 +24,12 @@ public:
 	// Static functions
 	static bool S_Exists(const std::string file);
 
+	static bool S_CheckFinishWith(const std::string file, const std::string checker);
+
+	static bool S_CheckMetaExist(const std::string file);
+
+	static bool S_CreateMeta(const std::string file);
+
 	static bool S_MakeDir(const std::string dir);
 
 	static bool S_IsDirectory(const std::string file);
@@ -75,10 +81,13 @@ public:
 	/// <summary>
 	/// 
 	/// </summary>
-	/// <param name="file"></param>
 	/// <param name="getExtention">: If you want to get the extension</param>
 	/// <returns></returns>
 	static std::string S_GetFileName(const std::string file, bool getExtension = true);
+	
+	static std::string S_RemoveExtension(const std::string file);
+
+	static std::string S_FilePath(const std::string file);
 
 	static ResourceType S_GetResourceType(const std::string& filename);
 };

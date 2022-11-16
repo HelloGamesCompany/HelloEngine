@@ -35,7 +35,10 @@ void ImWindowProject::Update()
         // For change directory
         FileTree* newDir = nullptr;
 
-        if (width2 < 200) width2 = 200;
+        if (width2 < 200)
+        {
+            width2 = 200;
+        }
 
         // Options, Filter
         //if (ImGui::Button("Options")) ImGui::OpenPopup("Options");
@@ -44,7 +47,10 @@ void ImWindowProject::Update()
         //ImGui::SameLine();
         if (ImGui::Button("Return")) 
         {
-            if(!currentNode->isRoot()) newDir = currentNode->GetParent();
+            if (!currentNode->isRoot())
+            {
+                newDir = currentNode->GetParent();
+            }
         }
         ImGui::Separator();
 
@@ -144,16 +150,14 @@ void ImWindowProject::DrawTreeNode(const FileTree* node, bool drawFiles) const
 
 void ImWindowProject::OnDrop(std::string filePath)
 {
-    std::string ret = ModuleFiles::S_NormalizePath(filePath);
+    std::string pathNormalized = ModuleFiles::S_NormalizePath(filePath);
 
     // Use this for global path files
-    ModuleFiles::S_ExternalCopy(ret, currentNode->path);
+    ModuleFiles::S_ExternalCopy(pathNormalized, currentNode->path);
 
-    currentNode->files.push_back(ModuleFiles::S_GetFileName(ret));
+    currentNode->files.push_back(ModuleFiles::S_GetFileName(pathNormalized));
 
-    std::string fileName = ModuleFiles::S_GetFileName(ret, true);
-
-    std::string file = currentNode->path + fileName;
+    std::string file = currentNode->path + ModuleFiles::S_GetFileName(pathNormalized, true);
 
     Application::Instance()->resource->ImportFile(file);
 

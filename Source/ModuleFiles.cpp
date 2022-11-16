@@ -34,6 +34,29 @@ bool ModuleFiles::S_Exists(const std::string file)
 	return PHYSFS_exists(file.c_str()) != 0;
 }
 
+bool ModuleFiles::S_CheckMetaExist(const std::string file)
+{
+	std::string meta = S_RemoveExtension(file) + ".helloMeta";
+
+	return S_Exists(meta);
+}
+
+bool ModuleFiles::S_CreateMeta(const std::string file)
+{
+	if(!S_CheckMetaExist(file))
+	{
+		std::string newFile = S_RemoveExtension(file) + ".helloMeta";
+
+		std::string meta = "hello";
+
+		S_Save(newFile, &meta[0], meta.size(), false);
+
+		return true;
+	}
+
+	return false;
+}
+
 bool ModuleFiles::S_MakeDir(const std::string dir)
 {
 	if (S_IsDirectory(dir) == false)
@@ -75,7 +98,10 @@ std::string ModuleFiles::S_NormalizePath(const std::string path)
 
 	for (int i = 0; i < ret.size(); i++)
 	{
-		if (ret[i] == '\\') ret[i] = '/';
+		if (ret[i] == '\\')
+		{
+			ret[i] = '/';
+		}
 	}
 
 	return ret;
@@ -147,7 +173,10 @@ uint ModuleFiles::S_Load(const std::string filePath, char** buffer)
 	
 	} while (false);
 	
-	if (PHYSFS_close(fsFile) == 0) LOG("File System error while closing file %s: %s\n", filePath.c_str(), PHYSFS_getLastError());
+	if (PHYSFS_close(fsFile) == 0)
+	{
+		LOG("File System error while closing file %s: %s\n", filePath.c_str(), PHYSFS_getLastError());
+	}
 
 	return byteCount;
 }
@@ -196,8 +225,11 @@ uint ModuleFiles::S_Save(const std::string filePath, char* buffer, uint size, bo
 
 	} while (false);
 
-	if (PHYSFS_close(des) == 0) LOG("FILE SYSTEM: Could not close file '%s'. ERROR: %s", filePath.c_str(), PHYSFS_getLastError());
-	
+	if (PHYSFS_close(des) == 0)
+	{
+		LOG("FILE SYSTEM: Could not close file '%s'. ERROR: %s", filePath.c_str(), PHYSFS_getLastError());
+	}
+
 	return byteCount;
 }
 
@@ -269,7 +301,10 @@ bool ModuleFiles::S_ExternalCopy(const std::string src, std::string des, bool re
 	 std::string workingDir = S_NormalizePath(std::filesystem::current_path().string());
 
 	 // Change destination file to correspondent formmat
-	if (des[0] != '/') des.insert(des.begin(), '/');
+	 if (des[0] != '/')
+	 {
+		 des.insert(des.begin(), '/');
+	 }
 
 	des = workingDir + des + S_GetFileName(src);
 
@@ -328,18 +363,42 @@ std::string ModuleFiles::S_GetFileName(const std::string file, bool getExtension
 {
 	uint pos = file.find_last_of("/");
 
-	std::string name = file;
+	std::string ret = file;
 
-	if (pos != std::string::npos) name = file.substr(pos + 1, file.size() - 1);
-	else name = file;
+	if (pos != std::string::npos)
+	{
+		ret = file.substr(pos + 1, file.size() - 1);
+	}
+	else
+	{
+		ret = file;
+	}
 
 	if (!getExtension)
 	{
-		uint ePos = name.find(".");
-		if (ePos != std::string::npos) name = name.substr(0, ePos);
+		ret = S_RemoveExtension(ret);
 	}
 
-	return name;
+	return ret;
+}
+
+std::string ModuleFiles::S_RemoveExtension(const std::string file)
+{
+	uint pos = file.find_last_of(".");
+
+	std::string ret = file;
+
+	if (pos != std::string::npos)
+	{
+		ret = file.substr(0, pos);
+	}
+
+	return ret;
+}
+
+std::string ModuleFiles::S_FilePath(const std::string file)
+{
+	return "In process...";
 }
 
 ResourceType ModuleFiles::S_GetResourceType(const std::string& filename)
