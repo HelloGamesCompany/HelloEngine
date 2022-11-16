@@ -33,7 +33,7 @@ bool ModuleLayers::Start()
 
     //GameObject* house = MeshImporter::LoadMesh("Assets/FBX/BakerHouse.fbx");
 
-    //MeshImporter::ImportModel("Assets/FBX/BakerHouse.fbx");
+    MeshImporter::ImportModel("Assets/FBX/BakerHouse.fbx");
     MeshImporter::LoadModel("Resources/Models/BakerHouse.xml");
     return true;
 }
