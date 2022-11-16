@@ -49,7 +49,7 @@ void ModuleResourceManager::ImportFile(const std::string& filePath)
 	switch (type)
 	{
 	case ResourceType::MESH:
-		//MeshImporter::LoadMesh()
+		MeshImporter::ImportModel(filePath);
 		break;
 	case ResourceType::TEXTURE:
 		 TextureImporter::ImportImage("Resources/Textures/" + ModuleFiles::S_GetFileName(filePath, false), buffer, size);
