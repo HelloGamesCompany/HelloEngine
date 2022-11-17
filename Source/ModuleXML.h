@@ -36,7 +36,7 @@ public:
 	/// Save an xmlDocument using its index
 	/// </summary>
 	/// <param name="index">-1 = Save all xml_documents</param>
-	void Save(int index = -1);
+	void Save(int index = -1, const std::string& extension = ".xml");
 
 	bool CleanUp() override;
 

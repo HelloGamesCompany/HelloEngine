@@ -113,11 +113,14 @@ XMLNode ModuleXML::GetResourceXML()
 	return resource;
 }
 
-void ModuleXML::Save(int index)
+void ModuleXML::Save(int index, const std::string& extension)
 {
 	if (index >= 0)
 	{
-		xmlFiles[index].first->save_file(xmlFiles[index].second.c_str());
+		std::string filePath = xmlFiles[index].second;
+		filePath = ModuleFiles::S_RemoveExtension(filePath);
+		filePath += extension;
+		xmlFiles[index].first->save_file(filePath.c_str());
 
 		//uint size = strlen((char*)xmlFiles[index].first);
 

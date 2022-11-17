@@ -20,7 +20,7 @@ Assimp::Importer MeshImporter::importer;
 GameObject* MeshImporter::returnGameObject = nullptr;
 std::string MeshImporter::currentPath = "";
 
-void MeshImporter::ImportModel(std::string path)
+std::string MeshImporter::ImportModel(std::string path)
 {
 	// Load AiScene
 	const aiScene* scene = GetAiScene(path);
@@ -29,12 +29,13 @@ void MeshImporter::ImportModel(std::string path)
 	{
 		std::string errorMessage = "Cannot load FBX: " + path;
 		Console::S_Log(errorMessage);
-		return;
+		return "Null";
 	}
 
+	std::string modelFilePath = "Resources/Models/" + ModuleFiles::S_GetFileName(path, false) + ".xml";
+
 	// Create XML file to store Model data.
-	std::string fileName = ModuleFiles::S_GetFileName(path, false);
-	XMLNode xmlRootNode = Application::Instance()->xml->CreateXML("Resources/Models/" + fileName + ".xml", "Model");
+	XMLNode xmlRootNode = Application::Instance()->xml->CreateXML(modelFilePath, "Model");
 
 	// TODO: Material importer
 	//pugi::xml_node texturesNode = xmlRootNode.node.append_child("Textures");
@@ -50,8 +51,9 @@ void MeshImporter::ImportModel(std::string path)
 	modelRootNode.WriteToXML("ModelRoot", xmlRootNode.node);
 	
 	// Save XML file
-	xmlRootNode.Save();
+	xmlRootNode.Save(".hmodel");
 
+	return modelFilePath;
 }
 
 void MeshImporter::ProcessNode(aiNode* node, const aiScene* scene, ModelNode& parentNode)

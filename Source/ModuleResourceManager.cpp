@@ -42,9 +42,6 @@ void ModuleResourceManager::ImportFile(const std::string& filePath)
 		return;
 	}
 
-	// Create Meta data
-	CreateMetaData(filePath);
-
 	char* buffer = nullptr;
 	uint size = ModuleFiles::S_Load(filePath, &buffer);
 
@@ -52,11 +49,17 @@ void ModuleResourceManager::ImportFile(const std::string& filePath)
 	switch (type)
 	{
 	case ResourceType::MESH:
-		MeshImporter::ImportModel(filePath);
-		break;
+	{
+		std::string path = MeshImporter::ImportModel(filePath);
+		CreateMetaData(filePath, path);
+	}
+	break;
 	case ResourceType::TEXTURE:
-		 TextureImporter::ImportImage("Resources/Textures/" + ModuleFiles::S_GetFileName(filePath, false), buffer, size);
-		break;
+	{
+		std::string path = TextureImporter::ImportImage(ModuleFiles::S_GetFileName(filePath, false), buffer, size);
+		CreateMetaData(filePath, path);
+	}
+	break;
 	default:
 		break;
 	}
@@ -122,7 +125,7 @@ bool ModuleResourceManager::IsFileLoaded(const char* fileName)
 	return loadedResources.find(fileName) != loadedResources.end();
 }
 
-bool ModuleResourceManager::CreateMetaData(const std::string file)
+bool ModuleResourceManager::CreateMetaData(const std::string file, const std::string& resourcePath)
 {
 	if (!CheckMetaExist(file))
 	{
@@ -141,7 +144,7 @@ bool ModuleResourceManager::CreateMetaData(const std::string file)
 
 		// get resource path
 
-		meta += "\nResource path : Resources/Textures/" + ModuleFiles::S_GetFileName(file, false);
+		meta += "\nResource path : " + resourcePath;
 
 		ModuleFiles::S_Save(newFile, &meta[0], meta.size(), false);
 

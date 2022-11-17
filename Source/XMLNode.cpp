@@ -114,7 +114,7 @@ XMLNode XMLNode::FindChildDepthRecursive(pugi::xml_node node, std::string name, 
 	return ret;
 }
 
-void XMLNode::Save()
+void XMLNode::Save(const std::string& extension)
 {
-	Application::Instance()->xml->Save(xmlFile);
+	Application::Instance()->xml->Save(xmlFile, extension);
 }

@@ -30,7 +30,8 @@ class MeshImporter
 {
 public:
 
-	static void ImportModel(std::string path);
+	// Returns path to the model custom file.
+	static std::string ImportModel(std::string path);
 
 	static void LoadModel(std::string path);
 

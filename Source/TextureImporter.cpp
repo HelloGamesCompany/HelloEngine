@@ -6,8 +6,10 @@
 #include "TextureManager.h"
 #include "ModuleFiles.h"
 
-void TextureImporter::ImportImage(const std::string& fileName, char* buffer, uint size)
+std::string TextureImporter::ImportImage(const std::string& fileName, char* buffer, uint size)
 {
+	std::string ddsFilePath = "Resources/Textures/" + fileName + ".dds";
+
 	ILuint ImgId = 0;
 	ilGenImages(1, &ImgId);
 	ilBindImage(ImgId);
@@ -26,12 +28,13 @@ void TextureImporter::ImportImage(const std::string& fileName, char* buffer, uin
 		data = new ILubyte[imgSize]; // allocate data buffer
 		ilSaveL(IL_DDS, data, imgSize); // Save to buffer with the ilSaveIL function
 
-		ModuleFiles::S_Save(fileName + ".dds", (char*)data, imgSize, false);
+		ModuleFiles::S_Save(ddsFilePath, (char*)data, imgSize, false);
 
 		RELEASE_ARRAY(data);
 	}
 
 	ilDeleteImages(1, &ImgId);
+	return ddsFilePath;
 }
 
 uint TextureImporter::Load(char* buffer, int size, int* width, int* heigth, std::string&& filename)

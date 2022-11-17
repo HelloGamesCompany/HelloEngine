@@ -49,7 +49,7 @@ public:
 	bool IsFileLoaded(const char* fileName);
 
 private:
-	bool CreateMetaData(const std::string file);
+	bool CreateMetaData(const std::string file, const std::string& resourcePath);
 
 	bool CheckMetaExist(const std::string file);
 

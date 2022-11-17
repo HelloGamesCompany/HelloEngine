@@ -19,7 +19,7 @@ public:
 
 	XMLNode FindChildDepth(std::string name);
 
-	void Save();
+	void Save(const std::string& extension = ".xml");
 
 	bool operator == (const XMLNode& n) const
 	{

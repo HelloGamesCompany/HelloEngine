@@ -127,8 +127,8 @@ bool CameraObject::IsInsideFrustum(AABB& globalAABB)
 		iTotalIn += iPtIn;
 	}
 	// so if iTotalIn is 6, then all are inside the view
-	if (iTotalIn == 6)
-		return true;
+	/*if (iTotalIn == 6)
+		return true;*/
 	// we must be partly in then otherwise
 	return true;
 }
