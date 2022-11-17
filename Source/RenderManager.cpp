@@ -119,9 +119,9 @@ void RenderManager::Draw()
         int index = 0;
         for (auto& mesh : meshes)
         {
-            if (mesh.second.showNormals == 0) 
+            if (mesh.second.showVertexNormals) 
                 DrawVertexNormals(index);
-            else if (mesh.second.showNormals == 1) 
+            if (mesh.second.showFaceNormals) 
                 DrawFaceNormals(index);
             if (mesh.second.showAABB)
                 DrawBoundingBoxAABB(mesh.second);

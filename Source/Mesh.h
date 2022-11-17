@@ -37,11 +37,6 @@ public:
 
 	void SetTransform(float3 pos, float3 s, float3 rot);
 
-	/// <summary>
-	/// -1 = None; 0 = Vertex Normals; 1 = Face Normals
-	/// </summary>
-	void ShowNormals(int normals) { showNormals = normals; };
-
 	void CalculateBoundingBoxes();
 
 public:
@@ -56,9 +51,10 @@ public:
 	float OpenGLTextureID = -1;
 	float textureID = -1;
 
-	int showNormals = -1;
-	bool showAABB = true;
-	bool showOBB = true;
+	bool showVertexNormals = false;
+	bool showFaceNormals = false;
+	bool showAABB = false;
+	bool showOBB = false;
 
 	bool draw = true;
 	bool outOfFrustum = false;

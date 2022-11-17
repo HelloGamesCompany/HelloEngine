@@ -159,22 +159,11 @@ void MeshRenderComponent::OnEditor()
 		ImGui::TextWrapped("Mesh indices: "); ImGui::SameLine();
 		ImGui::TextColored(ImVec4(255, 255, 0, 255), std::to_string(indexNum).c_str());
 
-		if (ImGui::BeginCombo("Show normals", comboValues[selectedNormalDisplay].c_str()))
-		{
-			for (int n = 0; n < 3; n++)
-			{
-				const bool is_selected = (selectedNormalDisplay == n);
-				if (ImGui::Selectable(comboValues[n].c_str(), is_selected))
-				{
-					selectedNormalDisplay = n;
-					mesh.showNormals = selectedNormalDisplay - 1;
-				}
-				// Set the initial focus when opening the combo (scrolling + keyboard navigation focus)
-				if (is_selected)
-					ImGui::SetItemDefaultFocus();
-			}
-			ImGui::EndCombo();
-		}
+		ImGui::Checkbox("Vertex Normals", &mesh.showVertexNormals); ImGui::SameLine();
+		ImGui::Checkbox("Face Normals", &mesh.showFaceNormals);
+
+		ImGui::Checkbox("AABB", &mesh.showAABB); ImGui::SameLine();
+		ImGui::Checkbox("OBB", &mesh.showOBB);
 	}
 }
 

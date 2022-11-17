@@ -39,6 +39,8 @@ void CameraComponent::OnEditor()
 			cameraObject->SetFOV(tempValue);
 		}
 
+		ImGui::Checkbox("Culling", &cameraObject->isCullingActive);
+
 		ImGui::DragFloat("Near plane", &cameraObject->cameraFrustum.nearPlaneDistance, 0.1f, 0.01);
 		ImGui::DragFloat("Far plane", &cameraObject->cameraFrustum.farPlaneDistance, 1.0f, 0.01);
 
