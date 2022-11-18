@@ -122,13 +122,35 @@ void SceneCameraObject::UpdateInput()
 		cameraFrustum.pos = rotationCenter + (cameraFrustum.front * -distFromCenter);
 	}
 
-	if (app->input->GetMouseZ() != 0)
+	int mouseZ = app->input->GetMouseZ();
+
+	if (mouseZ != 0)
 	{
+		float speed = 0.05f * ImGui::GetIO().Framerate;
+		if (mouseZ > 0)
+			cameraFrustum.pos += cameraFrustum.front * speed;
+		if (mouseZ < 0)
+			cameraFrustum.pos -= cameraFrustum.front * speed;
+
 		// TODO: Change to move forward and backwards
-		float currentFOV = GetFOV();
+		/*float currentFOV = GetFOV();
 		float newFOV = currentFOV + (1.5f * -app->input->GetMouseZ());
 
-		if (newFOV > 20.0f && newFOV < 160.0f) SetFOV(newFOV);
+		if (newFOV > 20.0f && newFOV < 160.0f) SetFOV(newFOV);*/
+	}
+
+	// Camera panning
+	if (app->input->GetMouseButton(2))
+	{
+		float panningSensitivity = 0.05f;
+
+		float4x4 cameraMat = cameraFrustum.WorldMatrix();
+		float3 movementX = cameraMat.RotatePart().Col(0) * dx * panningSensitivity;
+		float3 movementY = cameraMat.RotatePart().Col(1) * -dy * panningSensitivity;
+
+		float3 movement = movementX + movementY;
+
+		cameraFrustum.pos += movement;
 	}
 
 	// TODO: Add panning with middle mouse button.
