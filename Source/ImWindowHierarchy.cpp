@@ -39,7 +39,7 @@ void ImWindowHierarchy::Update()
     {
         _hasSelectedAGameObject = false;
         
-        DrawGameObjectChildren(_gameObjectsReference->at(1));
+        DrawGameObjectChildren(_app->layers->rootGameObject);
 
         ImGui::BeginChild("DropArea");
         {

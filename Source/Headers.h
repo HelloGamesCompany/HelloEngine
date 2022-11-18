@@ -40,6 +40,7 @@
 #include "Console.h"
 #include "JSONParser.h"
 #include "ImGuiUtils.h"
+#include "UUID.h"
 //#include "Timer.hpp"
 //TODO: Add every Module in here once Modules have been tested and won't be changed anymore.
 

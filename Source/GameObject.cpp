@@ -120,6 +120,9 @@ void GameObject::OnEditor()
 		}
 		ImGui::EndCombo();
 	}
+
+	ImGui::TextColored(ImVec4(1, 1, 1, 0.5f), "GameObject UID: "); ImGui::SameLine();
+	ImGui::TextColored(ImVec4(1, 1, 1, 0.5f), std::to_string(_ID).c_str());
 }
 
 #ifdef STANDALONE

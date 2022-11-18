@@ -92,6 +92,7 @@ bool ModuleLayers::CleanUp()
 
 uint ModuleLayers::AddGameObject(GameObject* go)
 {
-    gameObjects[IDcounter] = go;
-    return IDcounter++;
+    uint ID = HelloUUID::GenerateUUID();
+    gameObjects[ID] = go;
+    return ID;
 }

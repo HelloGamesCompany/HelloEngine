@@ -158,9 +158,6 @@ void SceneCameraObject::UpdateInput()
 
 void SceneCameraObject::Focus(const float3& focusPoint, float distance)
 {
-	// TODO: this distance parameter should take into account the following:
-	//	-> Has the object a mesh
-	//		->	Get the AABB of the mesh and calucate distance from there ?
 	float3 newPos = focusPoint;
 	newPos -= (cameraFrustum.front * distance);
 	cameraFrustum.pos = newPos;
@@ -179,7 +176,6 @@ void SceneCameraObject::Focus(GameObject* gameObject)
 	{
 		Mesh& mesh = gameObject->GetComponent<MeshRenderComponent>()->GetMesh();
 		AABB& meshAABB = mesh.globalAABB;
-		//float AABBSize =  * mesh.modelMatrix.GetScale();
 		distance = meshAABB.Size().Length() * distanceOffset; // Uses square root, but is just once and on an event, should be fine.
 	}
 
