@@ -131,12 +131,6 @@ void SceneCameraObject::UpdateInput()
 			cameraFrustum.pos += cameraFrustum.front * speed;
 		if (mouseZ < 0)
 			cameraFrustum.pos -= cameraFrustum.front * speed;
-
-		// TODO: Change to move forward and backwards
-		/*float currentFOV = GetFOV();
-		float newFOV = currentFOV + (1.5f * -app->input->GetMouseZ());
-
-		if (newFOV > 20.0f && newFOV < 160.0f) SetFOV(newFOV);*/
 	}
 
 	// Camera panning
@@ -153,22 +147,43 @@ void SceneCameraObject::UpdateInput()
 		cameraFrustum.pos += movement;
 	}
 
-	// TODO: Add panning with middle mouse button.
-
 	if (app->input->GetKey(SDL_SCANCODE_F) == KEY_DOWN)
 	{
 		if (selectedGO != nullptr)
 		{
-			Focus(selectedGO->transform->GetGlobalMatrix().TranslatePart());
+			Focus(selectedGO);
 		}
 	}
 }
 
-void SceneCameraObject::Focus(const float3& focusPoint)
+void SceneCameraObject::Focus(const float3& focusPoint, float distance)
 {
-	// TODO: improve focus to take into account our position before focusing
+	// TODO: this distance parameter should take into account the following:
+	//	-> Has the object a mesh
+	//		->	Get the AABB of the mesh and calucate distance from there ?
 	float3 newPos = focusPoint;
-	newPos += float3(4.0f, 0.0f, 2.0f);
+	newPos -= (cameraFrustum.front * distance);
+	cameraFrustum.pos = newPos;
+	LookAt(focusPoint);
+}
+
+void SceneCameraObject::Focus(GameObject* gameObject)
+{
+	float3 focusPoint = gameObject->transform->GetGlobalMatrix().TranslatePart();
+	float3 newPos = focusPoint;
+
+	float distance = 4.0f;
+	float distanceOffset = 1.5f;
+
+	if (gameObject->HasComponent<MeshRenderComponent>())
+	{
+		Mesh& mesh = gameObject->GetComponent<MeshRenderComponent>()->GetMesh();
+		AABB& meshAABB = mesh.globalAABB;
+		//float AABBSize =  * mesh.modelMatrix.GetScale();
+		distance = meshAABB.Size().Length() * distanceOffset; // Uses square root, but is just once and on an event, should be fine.
+	}
+
+	newPos -= (cameraFrustum.front * distance);
 	cameraFrustum.pos = newPos;
 	LookAt(focusPoint);
 }
