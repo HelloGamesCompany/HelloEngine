@@ -5,6 +5,7 @@
 #include "ModuleWindow.h"
 #include "ModuleRenderer3D.h"
 #include "ModuleCamera3D.h"
+#include "ImGuizmo/ImGuizmo.h"
 
 #include "ImWindowConfiguration.h"
 #include "ImWindowAbout.h"
@@ -41,7 +42,7 @@ void LayerEditor::Start()
 
 	// Setup Dear ImGui context
 	IMGUI_CHECKVERSION();
-	ImGui::CreateContext();
+	ImGuiContext* imGuiContext = ImGui::CreateContext();
 	ImGuiIO& io = ImGui::GetIO();
 	io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;       // Enable Keyboard Controls
 	//io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
@@ -49,6 +50,8 @@ void LayerEditor::Start()
 	//io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;  
 	//io.ConfigViewportsNoAutoMerge = true;
 	//io.ConfigViewportsNoTaskBarIcon = true;
+
+	ImGuizmo::SetImGuiContext(imGuiContext);
 
 	// Setup Dear ImGui style
 	
@@ -147,6 +150,7 @@ void LayerEditor::PostUpdate()
 	ImGui_ImplOpenGL3_NewFrame();
 	ImGui_ImplSDL2_NewFrame();
 	ImGui::NewFrame();
+	ImGuizmo::BeginFrame();
 
 	ImGui::DockSpaceOverViewport(ImGui::GetMainViewport());
 

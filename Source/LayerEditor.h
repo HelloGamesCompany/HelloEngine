@@ -65,7 +65,6 @@ public:
 
 private:
 	ImWindow* _imWindows[(uint)ImWindowID::MAX] = { nullptr };
-
 	LayerGame* _game = nullptr;
 
 	Application* _app = nullptr;

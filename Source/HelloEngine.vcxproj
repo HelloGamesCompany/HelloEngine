@@ -148,6 +148,21 @@
     <ClCompile Include="External\imgui\imgui.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="External\imgui\ImGuizmo\GraphEditor.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="External\imgui\ImGuizmo\ImCurveEdit.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="External\imgui\ImGuizmo\ImGradient.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="External\imgui\ImGuizmo\ImGuizmo.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="External\imgui\ImGuizmo\ImSequencer.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="External\imgui\imgui_demo.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
@@ -336,6 +351,12 @@
     <ClInclude Include="CycleArray.hpp" />
     <ClInclude Include="External\imgui\imconfig.h" />
     <ClInclude Include="External\imgui\imgui.h" />
+    <ClInclude Include="External\imgui\ImGuizmo\GraphEditor.h" />
+    <ClInclude Include="External\imgui\ImGuizmo\ImCurveEdit.h" />
+    <ClInclude Include="External\imgui\ImGuizmo\ImGradient.h" />
+    <ClInclude Include="External\imgui\ImGuizmo\ImGuizmo.h" />
+    <ClInclude Include="External\imgui\ImGuizmo\ImSequencer.h" />
+    <ClInclude Include="External\imgui\ImGuizmo\ImZoomSlider.h" />
     <ClInclude Include="External\imgui\imgui_impl_opengl3.h" />
     <ClInclude Include="External\imgui\imgui_impl_opengl3_loader.h" />
     <ClInclude Include="External\imgui\imgui_impl_sdl.h" />

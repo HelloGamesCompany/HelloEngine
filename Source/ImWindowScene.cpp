@@ -38,7 +38,30 @@ void ImWindowScene::Update()
 				sceneHeight = sceneDimensions.y;
 				sceneCamera->ChangeAspectRatio((float)sceneWidth / (float)sceneHeight);
 			}
+			//ImGuizmo::DrawGrid(Application::Instance()->camera->sceneCamera.GetViewMatrix(), Application::Instance()->camera->sceneCamera.GetProjectionMatrix(), &identity.v[0][0], 100);
+
 			ImGui::Image((ImTextureID)sceneCamera->frameBuffer.GetTexture(), ImGui::GetContentRegionAvail(), ImVec2(0, 1), ImVec2(1, 0));
+
+			GameObject* selected = Application::Instance()->layers->editor->selectedGameObject;
+
+			if (selected != nullptr)
+			{
+				float4x4 auxiliarMatrix = selected->transform->GetGlobalMatrix();
+				auxiliarMatrix.Transpose();
+
+				ImGuizmo::SetOrthographic(false);
+
+				ImGuiIO& io = ImGui::GetIO();
+				ImGuizmo::SetRect(ImGui::GetWindowPos().x, ImGui::GetWindowPos().y, ImGui::GetWindowWidth(), ImGui::GetWindowHeight());
+
+				ImGuizmo::SetDrawlist();
+
+				if (ImGuizmo::Manipulate(sceneCamera->GetViewMatrix(), sceneCamera->GetProjectionMatrix(), ImGuizmo::OPERATION::TRANSLATE, ImGuizmo::MODE::WORLD, &auxiliarMatrix.v[0][0]))
+				{
+					selected->transform->SetPosition(auxiliarMatrix.TranslatePart());
+				}
+
+			}
 		}
 		ImGui::EndChild();
 
@@ -62,5 +85,6 @@ void ImWindowScene::Update()
 	{
 		sceneCamera->active = false;
 	}
+	
 	ImGui::End();
 }

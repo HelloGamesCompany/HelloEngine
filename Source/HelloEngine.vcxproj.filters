@@ -99,6 +99,11 @@
     <ClCompile Include="TransformComponent.cpp" />
     <ClCompile Include="XMLNode.cpp" />
     <ClCompile Include="UUID.cpp" />
+    <ClCompile Include="External\imgui\ImGuizmo\GraphEditor.cpp" />
+    <ClCompile Include="External\imgui\ImGuizmo\ImCurveEdit.cpp" />
+    <ClCompile Include="External\imgui\ImGuizmo\ImGradient.cpp" />
+    <ClCompile Include="External\imgui\ImGuizmo\ImGuizmo.cpp" />
+    <ClCompile Include="External\imgui\ImGuizmo\ImSequencer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h" />
@@ -237,6 +242,12 @@
     <ClInclude Include="TransformComponent.h" />
     <ClInclude Include="XMLNode.h" />
     <ClInclude Include="UUID.h" />
+    <ClInclude Include="External\imgui\ImGuizmo\GraphEditor.h" />
+    <ClInclude Include="External\imgui\ImGuizmo\ImCurveEdit.h" />
+    <ClInclude Include="External\imgui\ImGuizmo\ImGradient.h" />
+    <ClInclude Include="External\imgui\ImGuizmo\ImGuizmo.h" />
+    <ClInclude Include="External\imgui\ImGuizmo\ImSequencer.h" />
+    <ClInclude Include="External\imgui\ImGuizmo\ImZoomSlider.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="HelloEngine.rc" />

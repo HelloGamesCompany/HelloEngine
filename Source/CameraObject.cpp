@@ -75,6 +75,18 @@ float* CameraObject::GetProjectionMatrix()
 	return &ProjectionMatrix.v[0][0];
 }
 
+float* CameraObject::GetViewMatrixNoTransp()
+{
+	ViewMatrix = cameraFrustum.ViewMatrix();
+	return &ViewMatrix.v[0][0];
+}
+
+float* CameraObject::GetProjectionMatrixNoTransp()
+{
+	ProjectionMatrix = cameraFrustum.ProjectionMatrix();
+	return &ProjectionMatrix.v[0][0];
+}
+
 void CameraObject::RecalculateProjection()
 {
 	float aspectRatio = (float)(frameBuffer.width) / (float)(frameBuffer.height);

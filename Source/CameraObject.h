@@ -22,6 +22,9 @@ public:
 	float* GetViewMatrix();
 	float* GetProjectionMatrix();
 
+	float* GetViewMatrixNoTransp();
+	float* GetProjectionMatrixNoTransp();
+
 	void RecalculateProjection();
 
 	void RegenerateFrameBuffer(int width, int height);
