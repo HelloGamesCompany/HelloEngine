@@ -190,7 +190,7 @@ void MeshRenderComponent::SetMeshAsTransparent()
 
 	// Update mesh transfrom 
 	Mesh& mesh = GetMesh();
-	mesh.modelMatrix = _gameObject->transform->GetGlobalMatrix(true); // Force dirty flag update.
+	mesh.modelMatrix = _gameObject->transform->GetGlobalMatrix(true).Transposed(); // Force dirty flag update.
 	mesh.CalculateBoundingBoxes();
 }
 

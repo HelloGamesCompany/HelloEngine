@@ -40,34 +40,44 @@ void ModelRenderManager::Draw()
 	// Draw transparent objects with a draw call per mesh.
 	for (auto& mesh : _transparencyMeshes)
 	{
-		_orderedMeshes.emplace(std::make_pair<float, Mesh*>(mesh.second.modelMatrix.TranslatePart().DistanceSq(currentCamera->cameraFrustum.pos), &mesh.second)); 
+		float3 cameraPos = currentCamera->cameraFrustum.pos;
+		float distance = mesh.second.modelMatrix.Transposed().TranslatePart().DistanceSq(currentCamera->cameraFrustum.pos);
+		_orderedMeshes.emplace(std::make_pair(distance, &mesh.second));
 	}
 
-	// Does this iterate the map in order?
-	for (auto& mesh : _orderedMeshes)
+	for (auto mesh = _orderedMeshes.rbegin(); mesh != _orderedMeshes.rend(); mesh++)
 	{
 		// Do camera culling checks first
 		if (currentCamera->isCullingActive)
 		{
-			if (!currentCamera->IsInsideFrustum(mesh.second->globalAABB))
+			if (!currentCamera->IsInsideFrustum(mesh->second->globalAABB))
 			{
-				mesh.second->outOfFrustum = true;
+				mesh->second->outOfFrustum = true;
 				continue;
 			}
 			else
-				mesh.second->outOfFrustum = false;
+				mesh->second->outOfFrustum = false;
 		}
 		else if (currentCamera->type != CameraType::SCENE)
 		{
-			mesh.second->outOfFrustum = false;
+			mesh->second->outOfFrustum = false;
 		}
 
 		// Update mesh. If the mesh should draw this frame, call Draw.
-		if (mesh.second->Update())
+		if (mesh->second->Update())
 		{
-			mesh.second->Draw();
+			mesh->second->Draw();
 		}
 	}
+
+
+	// Does this iterate the map in order?
+	for (auto& mesh : _orderedMeshes)
+	{
+		
+	}
+	_orderedMeshes.clear();
+
 }
 
 uint ModelRenderManager::AddTransparentMesh(RenderManager* previousRenderer, MeshRenderComponent* component)
