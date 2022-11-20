@@ -45,6 +45,7 @@ void ModelRenderManager::Draw()
 		_orderedMeshes.emplace(std::make_pair(distance, &mesh.second));
 	}
 
+	// iterate meshes from furthest to closest.
 	for (auto mesh = _orderedMeshes.rbegin(); mesh != _orderedMeshes.rend(); mesh++)
 	{
 		// Do camera culling checks first
@@ -70,14 +71,7 @@ void ModelRenderManager::Draw()
 		}
 	}
 
-
-	// Does this iterate the map in order?
-	for (auto& mesh : _orderedMeshes)
-	{
-		
-	}
 	_orderedMeshes.clear();
-
 }
 
 uint ModelRenderManager::AddTransparentMesh(RenderManager* previousRenderer, MeshRenderComponent* component)

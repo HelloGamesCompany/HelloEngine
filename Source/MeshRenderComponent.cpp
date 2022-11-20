@@ -198,5 +198,8 @@ void MeshRenderComponent::SetMeshAsOpaque()
 {
 	if (!isTransparent)
 		return;
+	// This will work using Resources. We need to know what resource do we belong to. If that resource is not loaded, load it and create a Render Manager.
+	// if the Resource is loaded, then a Render Manaer that uses that resource should be already created.
+	// Use the correct Render Manager and Add a mesh instance to it.
 }
 
