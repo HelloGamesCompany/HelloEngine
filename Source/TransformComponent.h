@@ -55,7 +55,7 @@ public:
 	/// </summary>
 	void Rotate(float3 rotate);
 
-	float4x4 GetGlobalMatrix();
+	float4x4 GetGlobalMatrix(bool forceUpdate = false);
 
 	float3 GetForward();
 	float3 GetRight();

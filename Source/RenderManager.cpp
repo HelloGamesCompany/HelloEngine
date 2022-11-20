@@ -5,14 +5,14 @@
 
 RenderManager::RenderManager()
 {
-    basicShader = new Shader("Resources/shaders/basic.vertex.shader", "Resources/shaders/basic.fragment.shader");
+    instancedShader = new Shader("Resources/shaders/instanced.vertex.shader", "Resources/shaders/instanced.fragment.shader");
     lineShader = new Shader("Resources/shaders/lines.vertex.shader", "Resources/shaders/lines.fragment.shader");
     localLineShader = new Shader("Resources/shaders/localLines.vertex.shader", "Resources/shaders/localLines.fragment.shader");
 }
 
 RenderManager::~RenderManager()
 {
-    RELEASE(basicShader);
+    RELEASE(instancedShader);
     RELEASE(lineShader);
     RELEASE(localLineShader);
 }
@@ -29,7 +29,6 @@ uint RenderManager::SetMeshInformation(Mesh& mesh)
     CreateAABB();
 
     Mesh firstMesh;
-    firstMesh.InitAsMeshInformation(mesh.position, mesh.scale);
     firstMesh.localAABB = localAABB;
 
     mesh.CleanUp(); // Destroy the original vertex and index data (now it is stored inside this render manager).
@@ -81,10 +80,10 @@ void RenderManager::Draw()
     if (!modelMatrices.empty())
     {
         // Update View and Projection matrices
-        basicShader->Bind();
+        instancedShader->Bind();
 
-        basicShader->SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
-        basicShader->SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
+        instancedShader->SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
+        instancedShader->SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
 
         // Draw using Dynamic Geometry
         glBindVertexArray(VAO);
@@ -103,7 +102,7 @@ void RenderManager::Draw()
 
         for (int i = 0; i < TextureManager::bindedTextures; i++)
         {
-            basicShader->SetInt(("textures[" + std::to_string(i) + "]").c_str(), i);
+            instancedShader->SetInt(("textures[" + std::to_string(i) + "]").c_str(), i);
         }
 
         // Draw

@@ -25,7 +25,12 @@ Mesh& MaterialComponent::GetMesh()
 void MaterialComponent::ChangeTexture(uint textureID)
 {
 	this->textureID = textureID;
+
+	// TODO: Check if the given RESOURCE has a transparent texture.
+	meshRenderer->SetMeshAsTransparent();
+
 	GetMesh().textureID = textureID;
+
 }
 
 void MaterialComponent::OnEditor()

@@ -24,7 +24,7 @@ private:
 	MeshRenderComponent* meshRenderer = nullptr;
 
 private:
-	void ChangeTexture(uint textureID);
+	void ChangeTexture(uint textureID); // This should receive a Resource! Not just the texture id.
 	int textureID = -1;
 };
 

@@ -41,7 +41,7 @@ private:
 private:
 	AABB localAABB;
 
-	Shader* basicShader = nullptr;
+	Shader* instancedShader = nullptr;
 	Shader* lineShader = nullptr;
 	Shader* localLineShader = nullptr;
 
@@ -81,5 +81,7 @@ private:
 	bool drawFaceNormals = true;
 
 	int IDcounter = 0;
+
+	friend class ModelRenderManager;
 };
 
