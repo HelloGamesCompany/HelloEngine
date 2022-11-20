@@ -36,9 +36,8 @@ void MeshRenderComponent::InitAsLoadedMesh(uint meshID)
 	RenderManager* manager = Application::Instance()->renderer3D->modelRender.GetRenderManager(_meshID);
 
 	Mesh instanceMesh;
-	instanceMesh.InitAsMeshInformation({ 0.0f,0.0,0.0f }, {1.0f,1.0f,1.0f});
 
-	_instanceID = manager->AddMesh(instanceMesh);
+	_instanceID = manager->AddMesh(instanceMesh); // TODO: Doesnt need to add an empty mesh. 
 
 	vertexNum = manager->GetMeshVertexNum();
 	indexNum = manager->GetMeshIndexNum();
@@ -49,7 +48,7 @@ void MeshRenderComponent::InitAsLoadedMesh(uint meshID)
 void MeshRenderComponent::InitAsNewMesh(std::vector<Vertex>& vertices, std::vector<uint>& indices)
 {
 	Mesh newMesh;
-	newMesh.InitAsMesh(vertices, indices, { 1.0f,1.0f,1.0f }, { 1.0f,1.0f,1.0f });
+	newMesh.InitAsMesh(vertices, indices);
 
 	_meshID = Application::Instance()->renderer3D->modelRender.GetMapSize();
 	RenderManager* manager = Application::Instance()->renderer3D->modelRender.GetRenderManager(_meshID); // Create a renderManager.
@@ -81,11 +80,17 @@ void MeshRenderComponent::OnDisable()
 
 Mesh& MeshRenderComponent::GetMesh()
 {
-	RenderManager* manager = Application::Instance()->renderer3D->modelRender.GetRenderManager(_meshID);
-
-	Mesh& meshReference = manager->GetMap()[_instanceID];
-
-	return meshReference;
+	if (!isTransparent)
+	{
+		RenderManager* manager = Application::Instance()->renderer3D->modelRender.GetRenderManager(_meshID);
+		Mesh& meshReference = manager->GetMap()[_instanceID];
+		return meshReference;
+	}
+	else
+	{
+		Mesh& meshReference = Application::Instance()->renderer3D->modelRender._transparencyMeshes[_meshID];
+		return meshReference;
+	}
 }
 
 void MeshRenderComponent::OnEditor()
@@ -165,5 +170,33 @@ void MeshRenderComponent::OnEditor()
 		ImGui::Checkbox("AABB", &mesh.showAABB); ImGui::SameLine();
 		ImGui::Checkbox("OBB", &mesh.showOBB);
 	}
+}
+
+void MeshRenderComponent::SetMeshAsTransparent()
+{
+	if (isTransparent)
+		return;
+
+	GetMesh().CleanUp();
+
+	isTransparent = true;
+
+	// Erase current mesh 
+	RenderManager* manager = Application::Instance()->renderer3D->modelRender.GetRenderManager(_meshID);
+	manager->GetMap().erase(_instanceID);
+
+	// When using a transparent mesh, MeshID is the key in the map!
+	_meshID = Application::Instance()->renderer3D->modelRender.AddTransparentMesh(manager, this);
+
+	// Update mesh transfrom 
+	Mesh& mesh = GetMesh();
+	mesh.modelMatrix = _gameObject->transform->GetGlobalMatrix(true); // Force dirty flag update.
+	mesh.CalculateBoundingBoxes();
+}
+
+void MeshRenderComponent::SetMeshAsOpaque()
+{
+	if (!isTransparent)
+		return;
 }
 

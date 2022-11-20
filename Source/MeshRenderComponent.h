@@ -21,6 +21,9 @@ public:
 
 	void OnEditor() override;
 
+	void SetMeshAsTransparent();
+	void SetMeshAsOpaque();
+
 private:
 	int _meshID = -1;
 	uint _instanceID = 0;
@@ -30,6 +33,8 @@ private:
 
 	int vertexNum = 0;
 	int indexNum = 0;
+
+	bool isTransparent = false;
 
 	friend class Mesh;
 };

@@ -2,6 +2,7 @@
 #define __PRIMITIVE_H__
 
 #include "Math/float3.h"
+#include "Shader.h"
 
 class MeshRenderComponent;
 
@@ -14,35 +15,26 @@ struct Vertex
 	float2 texCoords = { 0,0 };
 };
 
-//TODO: Every Mesh should have an ID that identifies it's original form, so they can be distributed on diferent render managers.
-//TODO: Define what a MeshObject is.
-//TODO: Check process of creating the first Mesh inside the Render Manager. Not every Mesh needs the vertices and indices vectors (only the first one does).
 class Mesh
 {
 public:
 	Mesh();
 	~Mesh();
 
-	void InitAsMeshInformation(float3 position, float3 scale);
+	// Only to be used for meshes that cannot be drawn with instanced rendering (meshes with transparency).
+	void CreateBufferData();
+	void Draw();
+	// ----------------------------------------------------------------------------------------------------
 
-	void InitAsMesh(std::vector<Vertex>& vertices, std::vector<uint>& indices, float3 pos, float3 scale);
+	void InitAsMesh(std::vector<Vertex>& vertices, std::vector<uint>& indices);
 
 	bool Update();
 
 	void CleanUp();
 
-	void SetPosition(float3 pos);
-	void SetScale(float3 s);
-	void SetRotation(float3 rot);
-
-	void SetTransform(float3 pos, float3 s, float3 rot);
-
 	void CalculateBoundingBoxes();
 
 public:
-	float3 rotation;
-	float3 scale;
-	float3 position;
 
 	std::vector<Vertex>* _vertices = nullptr;
 	std::vector<uint>* _indices = nullptr;
@@ -63,9 +55,18 @@ public:
 	AABB globalAABB;
 	AABB localAABB;
 
+	bool isTransparent = false;
+
 private:
 	MeshRenderComponent* component = nullptr;
 	bool _updateMatrix = true;
+
+	// Only to be used for meshes that cannot be drawn with instanced rendering (meshes with transparency).
+	uint _VAO = 0;
+	uint _VBO = 0;
+	uint _IBO = 0;
+	Shader* drawPerMeshShader = nullptr;
+	// ----------------------------------------------------------------------------------------------------
 
 	friend class MeshRenderComponent;
 };

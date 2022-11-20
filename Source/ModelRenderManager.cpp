@@ -5,6 +5,8 @@
 #include "IL/il.h"
 #include "IL/ilut.h"
 #include "MeshImporter.h"
+#include "CameraObject.h"
+#include "ModuleCamera3D.h"
 
 ModelRenderManager::ModelRenderManager()
 {
@@ -27,10 +29,57 @@ RenderManager* ModelRenderManager::GetRenderManager(uint ID)
 
 void ModelRenderManager::Draw()
 {
+	// Draw opaque meshes instanced.
 	for (auto& obj : _renderMap)
 	{
 		obj.second.Draw();
 	}
+
+	CameraObject* currentCamera = Application::Instance()->camera->currentDrawingCamera;
+
+	// Draw transparent objects with a draw call per mesh.
+	for (auto& mesh : _transparencyMeshes)
+	{
+		_orderedMeshes.emplace(std::make_pair<float, Mesh*>(mesh.second.modelMatrix.TranslatePart().DistanceSq(currentCamera->cameraFrustum.pos), &mesh.second)); 
+	}
+
+	// Does this iterate the map in order?
+	for (auto& mesh : _orderedMeshes)
+	{
+		// Do camera culling checks first
+		if (currentCamera->isCullingActive)
+		{
+			if (!currentCamera->IsInsideFrustum(mesh.second->globalAABB))
+			{
+				mesh.second->outOfFrustum = true;
+				continue;
+			}
+			else
+				mesh.second->outOfFrustum = false;
+		}
+		else if (currentCamera->type != CameraType::SCENE)
+		{
+			mesh.second->outOfFrustum = false;
+		}
+
+		// Update mesh. If the mesh should draw this frame, call Draw.
+		if (mesh.second->Update())
+		{
+			mesh.second->Draw();
+		}
+	}
+}
+
+uint ModelRenderManager::AddTransparentMesh(RenderManager* previousRenderer, MeshRenderComponent* component)
+{
+	uint randomID = HelloUUID::GenerateUUID();
+
+	_transparencyMeshes[randomID].InitAsMesh(previousRenderer->totalVertices, previousRenderer->totalIndices);
+	_transparencyMeshes[randomID].localAABB = previousRenderer->localAABB;
+	_transparencyMeshes[randomID].isTransparent = true;
+	_transparencyMeshes[randomID].CreateBufferData();
+
+	return randomID;
 }
 
 void ModelRenderManager::CreatePrimitive(GameObject* parent, PrimitiveType type)

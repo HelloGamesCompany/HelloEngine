@@ -25,7 +25,11 @@ Mesh& MaterialComponent::GetMesh()
 void MaterialComponent::ChangeTexture(uint textureID)
 {
 	this->textureID = textureID;
+
+	meshRenderer->SetMeshAsTransparent();
+
 	GetMesh().textureID = textureID;
+
 }
 
 void MaterialComponent::OnEditor()

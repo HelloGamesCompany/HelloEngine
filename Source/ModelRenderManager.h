@@ -29,10 +29,15 @@ public:
 
 	void Draw();
 
+	uint AddTransparentMesh(RenderManager* previousRenderer, MeshRenderComponent* component);
 	void CreatePrimitive(GameObject* parent, PrimitiveType type);
 
 private:
-	std::map<uint, RenderManager> _renderMap;
+	std::map<uint, RenderManager> _renderMap; // Render managers that use instance rendering to draw opaque meshes.
+	std::map<uint, Mesh> _transparencyMeshes; // Meshes with transparency that must be drawn with a draw call per mesh.
+	std::map<float, Mesh*> _orderedMeshes; // Meshes with transparency ordered from furthest to closest to the camera.
 	TextureManager* _textureManager = nullptr;
+
+	friend class MeshRenderComponent;
 };
 

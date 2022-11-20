@@ -56,10 +56,10 @@ void TransformComponent::Rotate(float3 rotate)
 	UpdateDirtyFlag();
 }
 
-float4x4 TransformComponent::GetGlobalMatrix()
+float4x4 TransformComponent::GetGlobalMatrix(bool forceUpdate)
 {
 	CalculateLocalMatrix();
-	if (_dirtyFlag)
+	if (_dirtyFlag || forceUpdate)
 	{
 		float4x4 parentGlobal = _gameObject->_parent != nullptr ? _gameObject->_parent->transform->GetGlobalMatrix() : float4x4::identity;
 		_globalMatrix = parentGlobal * _localMatrix;
