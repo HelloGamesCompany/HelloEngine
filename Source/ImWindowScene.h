@@ -29,8 +29,8 @@ private:
 	int sceneWidth = 1;
 	float4x4 identity = float4x4::identity;
 
-	ImGuizmo::MODE _imMode;
-	ImGuizmo::OPERATION _imOperation;
+	ImGuizmo::MODE _imMode = ImGuizmo::MODE::WORLD;
+	ImGuizmo::OPERATION _imOperation = ImGuizmo::OPERATION::TRANSLATE;
 
 	int sceneHeight = 1;
 };

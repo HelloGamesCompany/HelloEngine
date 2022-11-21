@@ -40,31 +40,11 @@ void TransformComponent::SetTransform(float3 pos, float3 scale, float3 rot)
 
 void TransformComponent::SetTransform(float4x4& localTransformMatrix)
 {
+	float3x3 rotation;
+	localTransformMatrix.Decompose(localTransform.position, rotation, localTransform.scale);
 
-	for (int i = 0; i < 4; i++)
-	{
-		for (int j = 0; j < 4; j++)
-		{
-			std::cout << localTransformMatrix[i][j] << " ";
-		}
-		std::cout << std::endl;
-	}
-
-
-
-	//this->_localMatrix = localTransformMatrix;
-	localTransform.position = localTransformMatrix.TranslatePart();
-
-	Quat rot = localTransformMatrix.RotatePart().ToQuat().Normalized();
-
-	localTransform.rotation = rot.ToEulerXYZ();
-	localTransform.rotation.x = RadToDeg(localTransform.rotation.x);
-	localTransform.rotation.y = RadToDeg(localTransform.rotation.y);
-	localTransform.rotation.z = RadToDeg(localTransform.rotation.z);
-
-	std::cout << "rtoation: " << localTransform.rotation.x << " " << localTransform.rotation.y << " " << localTransform.rotation.z << std::endl;
-
-	localTransform.scale = localTransformMatrix.GetScale();
+	localTransform.rotation = RadToDeg(rotation.ToEulerXYZ());
+	_dirtyFlag = true;
 	UpdateDirtyFlag();
 }
 
@@ -98,6 +78,7 @@ float4x4 TransformComponent::GetGlobalMatrix(bool forceUpdate)
 		float4x4 parentGlobal = _gameObject->_parent != nullptr ? _gameObject->_parent->transform->GetGlobalMatrix() : float4x4::identity;
 		_globalMatrix = parentGlobal * _localMatrix;
 		_dirtyFlag = false;
+		forceUpdate = false;
 	}
 	return _globalMatrix;
 }
@@ -201,7 +182,6 @@ void TransformComponent::CalculateLocalMatrix()
 
 void TransformComponent::UpdateDirtyFlag()
 {
-
 	for (auto& component : _gameObject->_components)
 	{
 		if (component->NeedsTransformCallback()) // Check if we need to callback our transform to some component.
