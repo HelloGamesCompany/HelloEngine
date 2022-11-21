@@ -40,7 +40,8 @@ uint Shader::CompileShader(const std::string& source, uint type)
 		glGetShaderiv(id, GL_INFO_LOG_LENGTH, &messageLength);
 		std::vector<char> message;
 		message.resize(messageLength);
-		glGetShaderInfoLog(id, messageLength, &messageLength, &message.front());
+		if (messageLength != 0)
+			glGetShaderInfoLog(id, messageLength, &messageLength, &message.front());
 
 		Console::S_Log("Failed to compile shader!");
 		

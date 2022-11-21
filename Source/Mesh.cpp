@@ -65,9 +65,9 @@ void Mesh::Draw()
 	drawPerMeshShader->Bind();
 	if (textureID != -1) // This should never happen in theory. If a mesh is being drawn with this method, it is because it contains a transparent texture.
 	{
-		glBindTexture(GL_TEXTURE_2D, textureID);
-		drawPerMeshShader->SetInt("textureID", textureID);
+		//drawPerMeshShader->SetInt("textureID", textureID);
 	}
+	glBindTexture(GL_TEXTURE_2D, textureID);
 
 	drawPerMeshShader->SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
 	drawPerMeshShader->SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());

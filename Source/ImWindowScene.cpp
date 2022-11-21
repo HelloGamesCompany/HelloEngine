@@ -55,10 +55,9 @@ void ImWindowScene::Update()
 				ImGuizmo::SetRect(ImGui::GetWindowPos().x, ImGui::GetWindowPos().y, ImGui::GetWindowWidth(), ImGui::GetWindowHeight());
 
 				ImGuizmo::SetDrawlist();
-
 				if (ImGuizmo::Manipulate(sceneCamera->GetViewMatrix(), sceneCamera->GetProjectionMatrix(), ImGuizmo::OPERATION::TRANSLATE, ImGuizmo::MODE::WORLD, &auxiliarMatrix.v[0][0]))
 				{
-					selected->transform->SetPosition(auxiliarMatrix.TranslatePart());
+					selected->transform->SetPosition(auxiliarMatrix.Transposed().TranslatePart());
 				}
 
 			}
