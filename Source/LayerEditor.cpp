@@ -52,7 +52,7 @@ void LayerEditor::Start()
 	//io.ConfigViewportsNoTaskBarIcon = true;
 
 	ImGuizmo::SetImGuiContext(imGuiContext);
-
+	ImGuizmo::SetOrthographic(false);
 	// Setup Dear ImGui style
 	
 	//ImGui::StyleColorsClassic();
@@ -150,6 +150,8 @@ void LayerEditor::PostUpdate()
 	ImGui_ImplOpenGL3_NewFrame();
 	ImGui_ImplSDL2_NewFrame();
 	ImGui::NewFrame();
+
+	// ImGuizmo
 	ImGuizmo::BeginFrame();
 
 	ImGui::DockSpaceOverViewport(ImGui::GetMainViewport());

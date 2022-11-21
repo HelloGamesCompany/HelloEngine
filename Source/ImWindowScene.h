@@ -15,6 +15,12 @@ public:
 	void Update() override;
 
 private:
+	/// <summary>
+	/// This reads necessary Input for the ImGuizmo Manipulate.
+	/// </summary>
+	void DetectSceneInput();
+
+private:
 
 	ModuleCamera3D* moduleCamera = nullptr;
 
@@ -22,6 +28,9 @@ private:
 
 	int sceneWidth = 1;
 	float4x4 identity = float4x4::identity;
+
+	ImGuizmo::MODE _imMode;
+	ImGuizmo::OPERATION _imOperation;
 
 	int sceneHeight = 1;
 };

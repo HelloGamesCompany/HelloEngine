@@ -72,7 +72,7 @@ void MeshImporter::ProcessNode(aiNode* node, const aiScene* scene, ModelNode& pa
 	float3 scale(scaling.x, scaling.y, scaling.z);
 
 	Quat rot(rotation.x, rotation.y, rotation.z, rotation.w);
-	float3 eulerRot = rot.ToEulerZYX();
+	float3 eulerRot = rot.ToEulerXYZ();
 	eulerRot.x = math::RadToDeg(eulerRot.x);
 	eulerRot.y = math::RadToDeg(eulerRot.y);
 	eulerRot.z = math::RadToDeg(eulerRot.z);

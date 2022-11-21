@@ -38,6 +38,40 @@ void TransformComponent::SetTransform(float3 pos, float3 scale, float3 rot)
 	UpdateDirtyFlag();
 }
 
+void TransformComponent::SetTransform(float4x4& localTransformMatrix)
+{
+
+	for (int i = 0; i < 4; i++)
+	{
+		for (int j = 0; j < 4; j++)
+		{
+			std::cout << localTransformMatrix[i][j] << " ";
+		}
+		std::cout << std::endl;
+	}
+
+
+
+	//this->_localMatrix = localTransformMatrix;
+	localTransform.position = localTransformMatrix.TranslatePart();
+
+	Quat rot = localTransformMatrix.RotatePart().ToQuat().Normalized();
+
+	localTransform.rotation = rot.ToEulerXYZ();
+	localTransform.rotation.x = RadToDeg(localTransform.rotation.x);
+	localTransform.rotation.y = RadToDeg(localTransform.rotation.y);
+	localTransform.rotation.z = RadToDeg(localTransform.rotation.z);
+
+	std::cout << "rtoation: " << localTransform.rotation.x << " " << localTransform.rotation.y << " " << localTransform.rotation.z << std::endl;
+
+	localTransform.scale = localTransformMatrix.GetScale();
+	UpdateDirtyFlag();
+}
+
+void TransformComponent::SetLocalFromGlobal(float4x4& globalMatrix)
+{
+}
+
 void TransformComponent::Translate(float3 translation)
 {
 	this->localTransform.position += translation;

@@ -40,6 +40,10 @@ public:
 
 	void SetTransform(float3 pos, float3 scale, float3 rot);
 
+	void SetTransform(float4x4& localTransformMatrix);
+
+	void SetLocalFromGlobal(float4x4& globalMatrix);
+
 	/// <summary>
 	/// Current position is transalted by the given vector
 	/// </summary>
@@ -83,6 +87,7 @@ private:
 	TransformValues tempTransform;
 
 	bool _dirtyFlag = true;
+	bool _calculateLocal = true;
 
 	friend class GameObject;
 };
