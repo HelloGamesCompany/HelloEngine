@@ -18,7 +18,9 @@ private:
 	/// <summary>
 	/// This reads necessary Input for the ImGuizmo Manipulate.
 	/// </summary>
-	void DetectSceneInput();
+	void DetectImGuizmoInput();
+
+	void DetectClick();
 
 private:
 

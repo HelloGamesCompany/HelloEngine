@@ -93,6 +93,32 @@ Mesh& MeshRenderComponent::GetMesh()
 	}
 }
 
+std::vector<Vertex>& MeshRenderComponent::GetMeshVertices()
+{
+	if (!isTransparent)
+	{
+		RenderManager* manager = Application::Instance()->renderer3D->modelRender.GetRenderManager(_meshID);
+		return manager->totalVertices;
+	}
+	else
+	{
+		return *GetMesh()._vertices;
+	}
+}
+
+std::vector<uint>& MeshRenderComponent::GetMeshIndices()
+{
+	if (!isTransparent)
+	{
+		RenderManager* manager = Application::Instance()->renderer3D->modelRender.GetRenderManager(_meshID);
+		return manager->totalIndices;
+	}
+	else
+	{
+		return *GetMesh()._indices;
+	}
+}
+
 void MeshRenderComponent::OnEditor()
 {
 	if (ImGui::CollapsingHeader("Mesh Renderer", ImGuiTreeNodeFlags_DefaultOpen))

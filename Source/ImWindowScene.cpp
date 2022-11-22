@@ -4,6 +4,7 @@
 #include "ModuleResourceManager.h"
 #include "ModuleLayers.h"
 #include "LayerEditor.h"
+#include "ModuleRenderer3D.h"
 
 ImWindowScene::ImWindowScene()
 {
@@ -40,7 +41,7 @@ void ImWindowScene::Update()
 			}
 			//ImGuizmo::DrawGrid(Application::Instance()->camera->sceneCamera.GetViewMatrix(), Application::Instance()->camera->sceneCamera.GetProjectionMatrix(), &identity.v[0][0], 100);
 
-			DetectSceneInput();
+			DetectImGuizmoInput();
 
 			ImGui::Image((ImTextureID)sceneCamera->frameBuffer.GetTexture(), ImGui::GetContentRegionAvail(), ImVec2(0, 1), ImVec2(1, 0));
 
@@ -61,6 +62,9 @@ void ImWindowScene::Update()
 				}
 
 			}
+
+			if (!ImGuizmo::IsUsing())
+				DetectClick();
 		}
 		ImGui::EndChild();
 
@@ -88,7 +92,39 @@ void ImWindowScene::Update()
 	ImGui::End();
 }
 
-void ImWindowScene::DetectSceneInput()
+void ImWindowScene::DetectClick()
+{
+	if (ImGui::IsWindowHovered() && Application::Instance()->input->GetMouseButton(1) == KEY_DOWN && Application::Instance()->input->GetKey(SDL_SCANCODE_LALT) != KEY_REPEAT)
+	{
+		// Get mouse position normalized inside this window-----------------------------------------------------
+		ImVec2 windowPos = ImGui::GetWindowPos();
+		ImVec2 windowSize = ImGui::GetWindowSize();
+
+		ImVec2 normalizedPos = { (float)Application::Instance()->input->GetMouseX(), (float)Application::Instance()->input->GetMouseY() };
+
+		normalizedPos = { normalizedPos.x - windowPos.x,  normalizedPos.y - windowPos.y };
+
+		float halfWindowWidth = (float)windowSize.x / 2;
+		float halfWindowHeight = (float)windowSize.y / 2;
+
+		float positionX = normalizedPos.x - halfWindowWidth;
+		float positionY = normalizedPos.y - halfWindowHeight;
+
+		positionX /= halfWindowWidth;
+		positionY /= halfWindowHeight;
+
+		positionY *= -1.0f;
+
+		//--------------------------------------------------------------------------------------------------------
+
+		LineSegment line = sceneCamera->cameraFrustum.UnProjectLineSegment(positionX, positionY);
+		GameObject* hitGameObject = Application::Instance()->renderer3D->RaycastFromMousePosition(line, sceneCamera);
+		Application::Instance()->layers->editor->SetSelectGameObject(hitGameObject);
+
+	}
+}
+
+void ImWindowScene::DetectImGuizmoInput()
 {
 	if (Application::Instance()->input->GetKey(SDL_SCANCODE_W) == KEY_DOWN)
 	{

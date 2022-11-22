@@ -19,6 +19,9 @@ public:
 
 	Mesh& GetMesh();
 
+	std::vector<Vertex>& GetMeshVertices();
+	std::vector<uint>& GetMeshIndices();
+
 	void OnEditor() override;
 
 	void SetMeshAsTransparent();

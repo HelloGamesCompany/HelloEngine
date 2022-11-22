@@ -4,7 +4,7 @@
 #include "Module.h"
 #include "ModelRenderManager.h"
 
-#define MAX_LIGHTS 8
+class CameraObject;
 
 class ModuleRenderer3D : public Module
 {
@@ -23,6 +23,8 @@ public:
 	void ToggleOpenGLSystem(bool enable, int openGLMacro);
 
 	void ToggleOpenGLWireframe(bool enable);
+
+	GameObject* RaycastFromMousePosition(LineSegment& ray, CameraObject* camera);
 
 
 public:

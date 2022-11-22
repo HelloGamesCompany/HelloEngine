@@ -83,5 +83,6 @@ private:
 	int IDcounter = 0;
 
 	friend class ModelRenderManager;
+	friend class MeshRenderComponent;
 };
 
