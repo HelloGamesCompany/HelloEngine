@@ -630,6 +630,10 @@ public:
 	/// @return Returns true on success, false otherwise.
 	bool Inverse(float epsilon = 1e-3f);
 
+
+	/// Same as Inverse, but using a slower more accurate operation.
+	bool InverseAccurate(float epsilon = 1e-3f);
+
 	/// Returns an inverted copy of this matrix.
 	/// If this matrix does not have an inverse, returns the matrix that was the result of running
 	/// Gauss's method on the matrix.

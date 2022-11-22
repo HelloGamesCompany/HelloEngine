@@ -54,10 +54,10 @@ void ImWindowScene::Update()
 				// Could be done only when one of the 4 variables changes.
 				ImGuizmo::SetRect(ImGui::GetWindowPos().x, ImGui::GetWindowPos().y, ImGui::GetWindowWidth(), ImGui::GetWindowHeight());
 				ImGuizmo::SetDrawlist();
-				if (ImGuizmo::Manipulate(sceneCamera->GetViewMatrix(), sceneCamera->GetProjectionMatrix(), _imOperation, ImGuizmo::MODE::LOCAL, &auxiliarMatrix.v[0][0]))
+				if (ImGuizmo::Manipulate(sceneCamera->GetViewMatrix(), sceneCamera->GetProjectionMatrix(), _imOperation, ImGuizmo::MODE::WORLD, &auxiliarMatrix.v[0][0]))
 				{
 					auxiliarMatrix.Transpose();
-					selected->transform->SetTransform(auxiliarMatrix);
+					selected->transform->SetLocalFromGlobal(auxiliarMatrix);
 				}
 
 			}

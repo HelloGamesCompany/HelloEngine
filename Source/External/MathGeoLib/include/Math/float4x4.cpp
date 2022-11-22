@@ -1348,6 +1348,11 @@ bool float4x4::Inverse(float epsilon)
 #endif
 }
 
+bool float4x4::InverseAccurate(float epsilon)
+{
+	return InverseMatrix(*this, epsilon);
+}
+
 float4x4 float4x4::Inverted() const
 {
 	float4x4 copy = *this;

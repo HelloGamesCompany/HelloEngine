@@ -40,16 +40,23 @@ void TransformComponent::SetTransform(float3 pos, float3 scale, float3 rot)
 
 void TransformComponent::SetTransform(float4x4& localTransformMatrix)
 {
-	float3x3 rotation;
+	Quat rotation;
 	localTransformMatrix.Decompose(localTransform.position, rotation, localTransform.scale);
-
 	localTransform.rotation = RadToDeg(rotation.ToEulerXYZ());
-	_dirtyFlag = true;
-	UpdateDirtyFlag();
+
+	_localMatrix = localTransformMatrix;
+
+	UpdateDirtyFlagNoLocal();
 }
 
 void TransformComponent::SetLocalFromGlobal(float4x4& globalMatrix)
 {
+	_globalMatrix = globalMatrix;
+	float4x4 parentGlobal = _gameObject->_parent->transform->_globalMatrix;
+	parentGlobal.InverseAccurate();
+
+	float4x4 localTransformed = parentGlobal * globalMatrix;
+	SetTransform(localTransformed);
 }
 
 void TransformComponent::Translate(float3 translation)
@@ -70,9 +77,10 @@ void TransformComponent::Rotate(float3 rotate)
 	UpdateDirtyFlag();
 }
 
-float4x4 TransformComponent::GetGlobalMatrix(bool forceUpdate)
+float4x4 TransformComponent::GetGlobalMatrix(bool forceUpdate, bool updateLocal)
 {
-	CalculateLocalMatrix();
+	if (updateLocal)
+		CalculateLocalMatrix();
 	if (_dirtyFlag || forceUpdate)
 	{
 		float4x4 parentGlobal = _gameObject->_parent != nullptr ? _gameObject->_parent->transform->GetGlobalMatrix() : float4x4::identity;
@@ -178,6 +186,20 @@ void TransformComponent::CalculateLocalMatrix()
 {
 	Quat rot = Quat::FromEulerXYZ(math::DegToRad(localTransform.rotation.x), math::DegToRad(localTransform.rotation.y), math::DegToRad(localTransform.rotation.z));
 	_localMatrix = _localMatrix.FromTRS(localTransform.position, rot, localTransform.scale); // Calculate local matrix from our local transfom values.
+}
+
+void TransformComponent::UpdateDirtyFlagNoLocal()
+{
+	for (auto& component : _gameObject->_components)
+	{
+		if (component->NeedsTransformCallback()) // Check if we need to callback our transform to some component.
+		{
+			component->OnTransformCallback(GetGlobalMatrix(false, false));
+		}
+	}
+
+	_dirtyFlag = true;
+	UpdateDirtyFlagForChildren();
 }
 
 void TransformComponent::UpdateDirtyFlag()
