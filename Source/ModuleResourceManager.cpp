@@ -7,6 +7,9 @@
 #include "IL/il.h"
 #include "IL/ilu.h"
 #include "IL/ilut.h"
+#include "json.hpp"
+
+using json = nlohmann::json;
 
 ModuleResourceManager::ModuleResourceManager()
 {
@@ -131,20 +134,23 @@ bool ModuleResourceManager::CreateMetaData(const std::string file, const std::st
 	{
 		std::string newFile = ModuleFiles::S_RemoveExtension(file) + ".helloMeta";
 
-		// get modify time
-		std::string meta = "Last modify: ";
+		// Create json object
+		json j;
 
+		// Get modify time
 		time_t currentTime = time(0);
 
 		char time[26];
 
 		ctime_s(time, sizeof(time), &currentTime);
 
-		meta += time;
+		// Update json values
+		j["Last modify"] = time;
 
-		// get resource path
-
-		meta += "\nResource path : " + resourcePath;
+		j["Resource path"] = resourcePath;
+		
+		// write to string
+		std::string meta = j.dump();
 
 		ModuleFiles::S_Save(newFile, &meta[0], meta.size(), false);
 
