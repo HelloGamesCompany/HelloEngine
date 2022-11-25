@@ -23,8 +23,10 @@ public:
 
 	// Only to be used for meshes that cannot be drawn with instanced rendering (meshes with transparency).
 	void CreateBufferData();
-	void Draw();
+	void Draw(bool useBasicShader = true);
 	// ----------------------------------------------------------------------------------------------------
+
+	void DrawAsSelected();
 
 	void InitAsMesh(std::vector<Vertex>& vertices, std::vector<uint>& indices);
 
@@ -67,6 +69,10 @@ private:
 	uint _IBO = 0;
 	Shader* drawPerMeshShader = nullptr;
 	// ----------------------------------------------------------------------------------------------------
+
+#ifdef STANDALONE
+	Shader stencilShader;
+#endif
 
 	friend class MeshRenderComponent;
 };

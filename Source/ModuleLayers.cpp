@@ -31,7 +31,7 @@ bool ModuleLayers::Start()
         if (layers[i] && layers[i]->IsEnabled()) layers[i]->Start();
     }
 
-    //GameObject* house = MeshImporter::LoadMesh("Assets/FBX/BakerHouse.fbx");
+   //GameObject* house = MeshImporter::LoadMesh("Assets/FBX/BakerHouse.fbx");
 
     Application::Instance()->resource->ImportFile("Assets/FBX/BakerHouse.fbx");
     MeshImporter::LoadModel("Resources/Models/BakerHouse.hmodel");

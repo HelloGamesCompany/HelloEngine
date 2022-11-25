@@ -198,7 +198,13 @@ void LayerEditor::CleanUp()
 
 void LayerEditor::SetSelectGameObject(GameObject* g)
 {
+	if (selectedGameObject)
+		selectedGameObject->isSelected = false;
+
 	selectedGameObject = g;
+	
+	if (selectedGameObject)
+		selectedGameObject->isSelected = true;
 
 	ImWindowInspector* inspector = (ImWindowInspector*)_imWindows[(uint)ImWindowID::INSPECTOR];
 
