@@ -38,32 +38,23 @@ void ImWindowProject::Update()
 
    	if (ImGui::Begin(windowName.c_str(), &isEnabled, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoScrollbar))
 	{
-        // Resize children widths
-        static float width1 = 200; // Init Size child 1
-        static float width2 = 1200; // Init Size child 2
-        static float windowInitX = ImGui::GetWindowSize().x;
-
-        // For change directory
-        Directory* newDir = nullptr;
-
-        if (width2 < 200)
-        {
-            width2 = 200;
-        }
-
         // Options, Filter
         //if (ImGui::Button("Options")) ImGui::OpenPopup("Options");
         //ImGui::SameLine();
         //filter.Draw("Filter (\"incl,-excl\") (\"error\")", 180);
         //ImGui::SameLine();
-        if (ImGui::Button("Return")) 
+
+        // For change directory
+        Directory* newDir = nullptr;
+
+        // Resize children width
+        static float width1 = 200; // Init Size child 1
+        static float width2 = 1200; // Init Size child 2
+
+        if (width2 < 200)
         {
-            if (_fileTree->_currentDir->parent)
-            {
-                newDir = _fileTree->_currentDir->parent;
-            }
+            width2 = 200;
         }
-        ImGui::Separator();
 
         // Adjust window size
         ImVec2 windowSize = ImGui::GetWindowSize();
@@ -79,7 +70,7 @@ void ImWindowProject::Update()
 
             if (ImGui::BeginChild("ChildL", ImVec2(width1, 0), true, ImGuiWindowFlags_HorizontalScrollbar))
             {
-                DrawTreeNode(_rootNode, false);            
+                DrawTreeNodePanelLeft(newDir, _rootNode, false);
             }
             ImGui::EndChild();
             ImGui::PopStyleColor();
@@ -92,49 +83,11 @@ void ImWindowProject::Update()
 
             if (ImGui::BeginChild("ChildR", ImVec2(width2, 0), true, ImGuiWindowFlags_HorizontalScrollbar))
             {        
-                ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.5, 0.5, 1.0, 255));
-                for (int i = 0; i < _fileTree->_currentDir->directories.size(); i++)
-                {             
-                    if(ImGui::Button(_fileTree->_currentDir->directories[i]->name.c_str(), ImVec2(110, 50)))
-                    {
-                        newDir = _fileTree->_currentDir->directories[i];
-                    }
-                    ImGui::SameLine();
-                }
-                ImGui::PopStyleColor(1);
-                for (int i = 0; i < _fileTree->_currentDir->files.size(); i++)
-                {
-                    ImGui::Button(_fileTree->_currentDir->files[i].name.c_str(), ImVec2(110, 50));
-
-                    ResourceType type = ModuleFiles::S_GetResourceType(_fileTree->_currentDir->files[i].name);
-
-                    if (type == ResourceType::TEXTURE || type == ResourceType::MESH)
-                    {
-                        if (ImGui::BeginDragDropSource(ImGuiDragDropFlags_None))
-                        {
-                            if(type == ResourceType::TEXTURE)
-                            {
-                                _dragPath = ModuleFiles::S_GetFileName(_fileTree->_currentDir->files[i].name, false);
-
-                                _dragPath = "Resources/Textures/" + _dragPath + ".dds";
-
-                                // Set payload to carry the index of our item (could be anything)
-                                ImGui::SetDragDropPayload("Texture", &_dragPath, sizeof(std::string));
-                            }
-                            else
-                            {
-                                _dragPath = _fileTree->_currentDir->path + _fileTree->_currentDir->files[i].name;
-
-                                ImGui::SetDragDropPayload("Mesh", &_dragPath, sizeof(std::string));
-                            }
-                            ImGui::EndDragDropSource();
-                        }
-                    }
-                    ImGui::SameLine();
-                }              
+                DrawTreeNodePanelRight(newDir);
             }
             ImGui::EndChild();
         }
+        
         if (newDir)
         {
             _fileTree->_currentDir = newDir;
@@ -143,13 +96,31 @@ void ImWindowProject::Update()
     ImGui::End();
 }
 
-void ImWindowProject::DrawTreeNode(const Directory* node, bool drawFiles) const
+void ImWindowProject::DrawTreeNodePanelLeft(Directory*& newDir, Directory* node, const bool drawFiles) const
 {
-    if (ImGui::TreeNode(node->name.c_str()))
+    ImGuiTreeNodeFlags node_flags = ImGuiTreeNodeFlags_None;
+
+    if(node == _fileTree->_currentDir)
     {
+        node_flags |= ImGuiTreeNodeFlags_Selected;
+    }
+    if(node->directories.empty())
+    {
+        node_flags |= ImGuiTreeNodeFlags_Leaf;
+    }
+
+    if (ImGui::TreeNodeEx(node->name.c_str(), node_flags))
+    {
+        // Slect node
+        if (ImGui::IsItemClicked() && !ImGui::IsItemToggledOpen())
+        {
+            newDir = node;
+        }
+
+        // Recursive functions
         for (int i = 0; i < node->directories.size(); i++)
         {
-            DrawTreeNode(node->directories[i], drawFiles);
+            DrawTreeNodePanelLeft(newDir, node->directories[i], drawFiles);
         }
         if(drawFiles)
         {
@@ -159,6 +130,59 @@ void ImWindowProject::DrawTreeNode(const Directory* node, bool drawFiles) const
             }
         }
         ImGui::TreePop();
+    }
+}
+
+void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
+{
+    if (ImGui::Button("Return"))
+    {
+        if (_fileTree->_currentDir->parent)
+        {
+            newDir = _fileTree->_currentDir->parent;
+        }
+    }
+    ImGui::Separator();
+
+    ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.5, 0.5, 1.0, 255));
+    for (int i = 0; i < _fileTree->_currentDir->directories.size(); i++)
+    {
+        if (ImGui::Button(_fileTree->_currentDir->directories[i]->name.c_str(), ImVec2(110, 50)))
+        {
+            newDir = _fileTree->_currentDir->directories[i];
+        }
+        ImGui::SameLine();
+    }
+    ImGui::PopStyleColor(1);
+    for (int i = 0; i < _fileTree->_currentDir->files.size(); i++)
+    {
+        ImGui::Button(_fileTree->_currentDir->files[i].name.c_str(), ImVec2(110, 50));
+
+        ResourceType type = ModuleFiles::S_GetResourceType(_fileTree->_currentDir->files[i].name);
+
+        if (type == ResourceType::TEXTURE || type == ResourceType::MESH)
+        {
+            if (ImGui::BeginDragDropSource(ImGuiDragDropFlags_None))
+            {
+                if (type == ResourceType::TEXTURE)
+                {
+                    _dragPath = ModuleFiles::S_GetFileName(_fileTree->_currentDir->files[i].name, false);
+
+                    _dragPath = "Resources/Textures/" + _dragPath + ".dds";
+
+                    // Set payload to carry the index of our item (could be anything)
+                    ImGui::SetDragDropPayload("Texture", &_dragPath, sizeof(std::string));
+                }
+                else
+                {
+                    _dragPath = _fileTree->_currentDir->path + _fileTree->_currentDir->files[i].name;
+
+                    ImGui::SetDragDropPayload("Mesh", &_dragPath, sizeof(std::string));
+                }
+                ImGui::EndDragDropSource();
+            }
+        }
+        ImGui::SameLine();
     }
 }
 

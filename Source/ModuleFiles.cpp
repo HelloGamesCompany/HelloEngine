@@ -343,7 +343,7 @@ bool ModuleFiles::UpdateFileNode(Directory*& dir, Directory*& lastDir)
 
 	for (int i = 0; fileList[i] != nullptr; i++)
 	{
-		std::string dirCheck = dir->path + fileList[i];
+		std::string dirCheck = dir->path + "/" + fileList[i];
 		// File case
 		if (PHYSFS_isDirectory(dirCheck.c_str()) == 0)
 		{

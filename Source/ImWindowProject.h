@@ -15,7 +15,9 @@ public:
 	void Update() override;
 
 private:
-	void DrawTreeNode(const Directory* node, bool drawFiles = true) const;
+	void DrawTreeNodePanelLeft(Directory*& newDir, Directory* node, const bool drawFiles = true) const;
+
+	void DrawTreeNodePanelRight(Directory*& newDir);
 
 	void OnDrop(const std::string filePath);
 
