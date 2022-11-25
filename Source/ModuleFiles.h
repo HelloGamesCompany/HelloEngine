@@ -4,8 +4,10 @@
 #include "Module.h"
 
 class FileTree;
+class Directory;
 
 #define ASSETS_PATH "Assets/"
+#define ASSETS_NAME "Assets"
 
 enum class ResourceType
 {
@@ -68,11 +70,16 @@ public:
 	static bool S_ExternalCopy(const std::string src, std::string des, bool replace = true);
 
 	/// <summary>
-	/// 
+	/// Root path = Assets/
 	/// </summary>
-	/// <param name="path">: path will be start in folder Output</param>
-	/// <returns></returns>
-	static FileTree* S_GetFileTree(std::string path, FileTree* parent = nullptr);
+	/// <param name="fileTree"></param>
+	static void S_UpdateFileTree(FileTree*& fileTree);
+
+	/// <summary>
+	/// Internal Function, do not use it!!!
+	/// ----- You maybe look for S_UpdateFileTree()
+	/// </summary>
+	static bool UpdateFileNode(Directory*& dir, Directory*& lastDir);
 
 	/// <summary>
 	/// 

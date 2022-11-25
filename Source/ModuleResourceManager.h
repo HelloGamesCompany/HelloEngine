@@ -4,14 +4,13 @@
 #include "Texture.h"
 
 class GameObject;
+class FileTree;
 
 class Resource
 {
 public:
-
 	Resource() {}
 	virtual ~Resource() {}
-
 	ResourceType type = ResourceType::UNDEFINED;
 };
 
@@ -36,6 +35,7 @@ class ModuleResourceManager : public Module
 {
 public:
 	ModuleResourceManager();
+
 	~ModuleResourceManager();
 
 	/// <summary>
@@ -45,8 +45,13 @@ public:
 
 	Resource* LoadFile(const std::string& filePath);
 
-	bool IsFileLoaded(std::string fileName);
+	bool IsFileLoaded(const std::string fileName);
+
 	bool IsFileLoaded(const char* fileName);
+
+	bool GetFileTree(FileTree*& tree);
+
+	void UpdateFileTree();
 
 private:
 	bool CreateMetaData(const std::string file, const std::string& resourcePath);
@@ -55,4 +60,7 @@ private:
 
 public:
 	std::map<std::string, Resource*> loadedResources;
+
+private:
+	FileTree* fileTree = nullptr;
 };

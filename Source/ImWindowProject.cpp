@@ -4,27 +4,38 @@
 #include "FileTree.hpp"
 #include "ModuleResourceManager.h"
 
+#include "ModuleWindow.h"
+
 ImWindowProject::ImWindowProject()
 {
 	windowName = "Project";
 	isEnabled = true;
 
-    fileTree = ModuleFiles::S_GetFileTree("Assets");
+    //fileTree = ModuleFiles::S_GetFileTree("Assets");
 
-    currentNode = fileTree;
+    _app = Application::Instance();
 
-    Application::Instance()->input->AddOnDropListener(std::bind(&ImWindowProject::OnDrop, this, std::placeholders::_1));
+    _window = _app->window->window;
+
+    _resource = _app->resource;
+
+    _resource->GetFileTree(_fileTree);
+
+    // Init rootNode & currentNode
+    UpdateFileNodes();
+
+    _app->input->AddOnDropListener(std::bind(&ImWindowProject::OnDrop, this, std::placeholders::_1));
 }
 
 ImWindowProject::~ImWindowProject()
 {
-    Application::Instance()->input->ClearOnDropListener();
-
-    RELEASE(fileTree);
+    _app->input->ClearOnDropListener();
 }
 
 void ImWindowProject::Update()
 {
+    CheckWindowFocus();
+
    	if (ImGui::Begin(windowName.c_str(), &isEnabled, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoScrollbar))
 	{
         // Resize children widths
@@ -33,7 +44,7 @@ void ImWindowProject::Update()
         static float windowInitX = ImGui::GetWindowSize().x;
 
         // For change directory
-        FileTree* newDir = nullptr;
+        Directory* newDir = nullptr;
 
         if (width2 < 200)
         {
@@ -47,9 +58,9 @@ void ImWindowProject::Update()
         //ImGui::SameLine();
         if (ImGui::Button("Return")) 
         {
-            if (!currentNode->isRoot())
+            if (_fileTree->_currentDir->parent)
             {
-                newDir = currentNode->GetParent();
+                newDir = _fileTree->_currentDir->parent;
             }
         }
         ImGui::Separator();
@@ -68,7 +79,7 @@ void ImWindowProject::Update()
 
             if (ImGui::BeginChild("ChildL", ImVec2(width1, 0), true, ImGuiWindowFlags_HorizontalScrollbar))
             {
-                DrawTreeNode(fileTree, false);            
+                DrawTreeNode(_rootNode, false);            
             }
             ImGui::EndChild();
             ImGui::PopStyleColor();
@@ -82,20 +93,20 @@ void ImWindowProject::Update()
             if (ImGui::BeginChild("ChildR", ImVec2(width2, 0), true, ImGuiWindowFlags_HorizontalScrollbar))
             {        
                 ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.5, 0.5, 1.0, 255));
-                for (int i = 0; i < currentNode->directories.size(); i++)
+                for (int i = 0; i < _fileTree->_currentDir->directories.size(); i++)
                 {             
-                    if(ImGui::Button(currentNode->directories[i]->name.c_str(), ImVec2(110, 50)))
+                    if(ImGui::Button(_fileTree->_currentDir->directories[i]->name.c_str(), ImVec2(110, 50)))
                     {
-                        newDir = currentNode->directories[i];
+                        newDir = _fileTree->_currentDir->directories[i];
                     }
                     ImGui::SameLine();
                 }
                 ImGui::PopStyleColor(1);
-                for (int i = 0; i < currentNode->files.size(); i++)
+                for (int i = 0; i < _fileTree->_currentDir->files.size(); i++)
                 {
-                    ImGui::Button(currentNode->files[i].c_str(), ImVec2(110, 50));
+                    ImGui::Button(_fileTree->_currentDir->files[i].name.c_str(), ImVec2(110, 50));
 
-                    ResourceType type = ModuleFiles::S_GetResourceType(currentNode->files[i]);
+                    ResourceType type = ModuleFiles::S_GetResourceType(_fileTree->_currentDir->files[i].name);
 
                     if (type == ResourceType::TEXTURE || type == ResourceType::MESH)
                     {
@@ -103,18 +114,18 @@ void ImWindowProject::Update()
                         {
                             if(type == ResourceType::TEXTURE)
                             {
-                                dragPath = ModuleFiles::S_GetFileName(currentNode->files[i], false);
+                                _dragPath = ModuleFiles::S_GetFileName(_fileTree->_currentDir->files[i].name, false);
 
-                                dragPath = "Resources/Textures/" + dragPath + ".dds";
+                                _dragPath = "Resources/Textures/" + _dragPath + ".dds";
 
                                 // Set payload to carry the index of our item (could be anything)
-                                ImGui::SetDragDropPayload("Texture", &dragPath, sizeof(std::string));
+                                ImGui::SetDragDropPayload("Texture", &_dragPath, sizeof(std::string));
                             }
                             else
                             {
-                                dragPath = currentNode->path + currentNode->files[i];
+                                _dragPath = _fileTree->_currentDir->path + _fileTree->_currentDir->files[i].name;
 
-                                ImGui::SetDragDropPayload("Mesh", &dragPath, sizeof(std::string));
+                                ImGui::SetDragDropPayload("Mesh", &_dragPath, sizeof(std::string));
                             }
                             ImGui::EndDragDropSource();
                         }
@@ -126,13 +137,13 @@ void ImWindowProject::Update()
         }
         if (newDir)
         {
-            currentNode = newDir;
+            _fileTree->_currentDir = newDir;
         }
     }
     ImGui::End();
 }
 
-void ImWindowProject::DrawTreeNode(const FileTree* node, bool drawFiles) const
+void ImWindowProject::DrawTreeNode(const Directory* node, bool drawFiles) const
 {
     if (ImGui::TreeNode(node->name.c_str()))
     {
@@ -144,29 +155,66 @@ void ImWindowProject::DrawTreeNode(const FileTree* node, bool drawFiles) const
         {
             for (int i = 0; i < node->files.size(); i++)
             {
-                ImGui::Text(node->files[i].c_str());
+                ImGui::Text(node->files[i].name.c_str());
             }
         }
         ImGui::TreePop();
     }
 }
 
-void ImWindowProject::OnDrop(std::string filePath)
+void ImWindowProject::OnDrop(const std::string filePath)
 {
     std::string pathNormalized = ModuleFiles::S_NormalizePath(filePath);
 
     // Use this for global path files
-    ModuleFiles::S_ExternalCopy(pathNormalized, currentNode->path);
+    ModuleFiles::S_ExternalCopy(pathNormalized, _fileTree->_currentDir->path);
 
-    currentNode->files.push_back(ModuleFiles::S_GetFileName(pathNormalized));
+    // File case
+    File file = _fileTree->_currentDir->files.emplace_back(pathNormalized, ModuleFiles::S_GetFileName(pathNormalized), _fileTree->_currentDir);
 
-    std::string file = currentNode->path + ModuleFiles::S_GetFileName(pathNormalized, true);
+    //std::string file = currentNode->path + ModuleFiles::S_GetFileName(pathNormalized, true);
 
-    Application::Instance()->resource->ImportFile(file);
+    _resource->ImportFile(file.path);
+
+    // Folder case
 
     //RELEASE(fileTree);
 
     //fileTree = ModuleFiles::S_GetFileTree("Assets");
 
     //currentNode = fileTree;
+}
+
+void ImWindowProject::UpdateFileNodes()
+{
+    _resource->UpdateFileTree();
+
+    if (_resource->GetFileTree(_fileTree))
+    {
+        _fileTree->GetRootDir(_rootNode);
+    }
+}
+
+void ImWindowProject::CheckWindowFocus()
+{
+    Uint32 flags = SDL_GetWindowFlags(_window);
+
+    // When Global Windows has selected -> just the instante
+    if (((flags & SDL_WINDOW_INPUT_FOCUS) != 0))
+    {
+        if (!_isWindowFocus)
+        {
+            _isWindowFocus = true;
+
+            UpdateFileNodes();
+
+            //std::cout << "FOCUS" << std::endl;
+        }
+    }
+    // When Global Windows has deselected -> just the instante
+    else if (_isWindowFocus)
+    {
+        _isWindowFocus = false;
+        //std::cout << "NO FOCUS" << std::endl;
+    }
 }

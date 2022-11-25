@@ -314,26 +314,66 @@ bool ModuleFiles::S_ExternalCopy(const std::string src, std::string des, bool re
 	return true;
 }
 
-FileTree* ModuleFiles::S_GetFileTree(std::string path, FileTree* parent)
+void ModuleFiles::S_UpdateFileTree(FileTree*& fileTree)
 {
-	FileTree* ret = new FileTree(path + "/", S_GetFileName(path), parent);
-	
-	char** list = PHYSFS_enumerateFiles(path.c_str());
-	
-	for (int i = 0; list[i] != nullptr; i++)
-	{		
-		std::string dirCheck = path + "/" + list[i];
+	// Init Root
+	Directory* root = new Directory(ASSETS_PATH, ASSETS_NAME, nullptr);
+	// Get FileTree last directory
+	Directory* LastDir = fileTree->_currentDir;
 
-		if (PHYSFS_isDirectory(dirCheck.c_str()) != 0)
-		{
-			ret->directories.emplace_back(S_GetFileTree(dirCheck, ret));
-		}
-		else
-		{
-			ret->files.emplace_back(list[i]);
-		}
+	bool hasLastDir = UpdateFileNode(root, LastDir);
+	if (!hasLastDir)
+	{
+		fileTree->_currentDir = root;
 	}
+	else
+	{
+		fileTree->_currentDir = LastDir;
+	}
+	fileTree->SetNewRoot(root);
+}
 
+bool ModuleFiles::UpdateFileNode(Directory*& dir, Directory*& lastDir)
+{
+	// Check if lastDir still exist
+	bool ret = false;
+
+	// Get all files
+	char** fileList = PHYSFS_enumerateFiles(dir->path.c_str());
+
+	for (int i = 0; fileList[i] != nullptr; i++)
+	{
+		std::string dirCheck = dir->path + fileList[i];
+		// File case
+		if (PHYSFS_isDirectory(dirCheck.c_str()) == 0)
+		{
+			dir->files.emplace_back(dirCheck, S_GetFileName(dirCheck), dir);
+			continue;
+		}
+
+		// Folder case
+		Directory* currentDir = new Directory(dirCheck, S_GetFileName(dirCheck), dir);
+		dir->directories.push_back(currentDir);
+
+		// Check if still exist the last Directory we opened
+		// If we have already found this
+		if (ret)
+		{
+			UpdateFileNode(currentDir, lastDir);
+			continue;
+		}
+
+		// If we still haven't found, we check if current dir is we wanted
+		if (!lastDir || lastDir->path != currentDir->path)
+		{
+			ret = UpdateFileNode(currentDir, lastDir);
+			continue;
+		}
+
+		ret = true;
+		lastDir = currentDir;
+		UpdateFileNode(currentDir, lastDir);
+	}
 	return ret;
 }
 

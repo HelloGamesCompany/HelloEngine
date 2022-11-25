@@ -3,6 +3,7 @@
 #include "imgui.h"
 
 class FileTree;
+struct Directory;
 
 class ImWindowProject : public ImWindow
 {
@@ -14,19 +15,28 @@ public:
 	void Update() override;
 
 private:
-	void DrawTreeNode(const FileTree* node, bool drawFiles = true)const;
+	void DrawTreeNode(const Directory* node, bool drawFiles = true) const;
 
-	void OnDrop(std::string filePath);
+	void OnDrop(const std::string filePath);
+
+	void UpdateFileNodes();
+
+	void CheckWindowFocus();
 
 private:
-
-	Application* app = nullptr;
+	Application* _app = nullptr;
 
 	ImGuiTextFilter filter;
 
-	FileTree* fileTree = nullptr;
+	Directory* _rootNode = nullptr;
 
-	FileTree* currentNode = nullptr;
+	FileTree* _fileTree = nullptr;
 
-	std::string dragPath = "";
+	std::string _dragPath = "";
+
+	SDL_Window* _window = nullptr;
+
+	ModuleResourceManager* _resource = nullptr;
+
+	bool _isWindowFocus = false;
 };

@@ -8,6 +8,7 @@
 #include "IL/ilu.h"
 #include "IL/ilut.h"
 #include "json.hpp"
+#include "FileTree.hpp"
 
 using json = nlohmann::json;
 
@@ -24,6 +25,10 @@ ModuleResourceManager::ModuleResourceManager()
 	{
 		Console::S_Log("Wrong DevIL version detected.");
 	}
+
+	fileTree = new FileTree();
+
+	ModuleFiles::S_UpdateFileTree(fileTree);
 }
 
 ModuleResourceManager::~ModuleResourceManager()
@@ -33,6 +38,8 @@ ModuleResourceManager::~ModuleResourceManager()
 		RELEASE(resource.second);
 	}
 	loadedResources.clear();
+
+	RELEASE(fileTree);
 }
 
 void ModuleResourceManager::ImportFile(const std::string& filePath)
@@ -118,7 +125,7 @@ Resource* ModuleResourceManager::LoadFile(const std::string& filePath)
 	return nullptr;
 }
 
-bool ModuleResourceManager::IsFileLoaded(std::string fileName)
+bool ModuleResourceManager::IsFileLoaded(const std::string fileName)
 {
 	return loadedResources.find(fileName) != loadedResources.end();
 }
@@ -126,6 +133,22 @@ bool ModuleResourceManager::IsFileLoaded(std::string fileName)
 bool ModuleResourceManager::IsFileLoaded(const char* fileName)
 {
 	return loadedResources.find(fileName) != loadedResources.end();
+}
+
+bool ModuleResourceManager::GetFileTree(FileTree*& tree)
+{
+	if(fileTree)
+	{
+		tree = fileTree;
+		return true;
+	}
+
+	return false;
+}
+
+void ModuleResourceManager::UpdateFileTree()
+{
+	ModuleFiles::S_UpdateFileTree(fileTree);
 }
 
 bool ModuleResourceManager::CreateMetaData(const std::string file, const std::string& resourcePath)
