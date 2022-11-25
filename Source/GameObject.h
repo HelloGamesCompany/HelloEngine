@@ -79,6 +79,10 @@ public:
 	std::string tag = "";
 	TransformComponent* transform = nullptr;
 
+#ifdef STANDALONE
+	bool isSelected = false;
+#endif
+
 private:
 	std::vector<Component*> _components;
 	std::vector<GameObject*> _children;

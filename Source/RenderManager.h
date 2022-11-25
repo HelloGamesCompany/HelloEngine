@@ -25,10 +25,14 @@ public:
 	int GetMeshVertexNum() { return totalVertices.size(); }
 	int GetMeshIndexNum() { return totalIndices.size(); }
 
+	/// Draws an instance with an individual draw call.
+	void DrawInstance(Mesh* mesh, bool useBasicShader = true);
+
 public:
 	bool initialized = false;
 private:
 	void CreateBuffers();
+	void CreateBasicBuffers(); // Creates buffers for individual drawing.
 	void CreateNormalsDisplayBuffer();
 	void CreateAABB();
 
@@ -44,6 +48,7 @@ private:
 	Shader* instancedShader = nullptr;
 	Shader* lineShader = nullptr;
 	Shader* localLineShader = nullptr;
+	Shader* perMeshShader = nullptr;
 
 	std::map<uint, Mesh> meshes;
 	std::vector<Vertex> totalVertices;
@@ -61,6 +66,11 @@ private:
 	uint IBO = 0; // Elements buffer object
 	uint MBO = 0; // ModelMatrix buffer object
 	uint TBO = 0; // TextureID buffer object 
+
+	// Buffers to be able to draw a single instance with an individual draw call.
+	uint BasicVAO = 0;
+	uint BasicVBO = 0;
+	uint BasicIBO = 0;
 
 	uint OBBIndexO = 0; // Elements buffer object for OBB
 	uint AABBIndexO = 0; // Elements buffer object for AABB

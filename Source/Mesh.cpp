@@ -5,6 +5,8 @@
 #include "TransformComponent.h"
 #include "GameObject.h"
 #include "ModuleCamera3D.h"
+#include "RenderManager.h"
+#include "ModuleRenderer3D.h"
 
 #define _USE_MATH_DEFINES
 
@@ -13,6 +15,10 @@
 Mesh::Mesh()
 {
 	modelMatrix.SetIdentity();
+#ifdef STANDALONE
+	stencilShader = Shader("Resources/shaders/stencil.vertex.shader", "Resources/shaders/stencil.fragment.shader");
+#endif
+
 }
 
 Mesh::~Mesh()
@@ -60,18 +66,19 @@ void Mesh::CreateBufferData()
 
 }
 
-void Mesh::Draw()
+void Mesh::Draw(bool useBasicShader)
 {
-	drawPerMeshShader->Bind();
-	if (textureID != -1) // This should never happen in theory. If a mesh is being drawn with this method, it is because it contains a transparent texture.
+	if (useBasicShader) // We use this function to draw the outilne too.
 	{
-		//drawPerMeshShader->SetInt("textureID", textureID);
+		if (textureID != -1) // Only happens when material components is deactivated.
+		{
+			glBindTexture(GL_TEXTURE_2D, textureID);
+		}
+		drawPerMeshShader->Bind();
+		drawPerMeshShader->SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
+		drawPerMeshShader->SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
+		drawPerMeshShader->SetMatFloat4v("model", &modelMatrix.v[0][0]);
 	}
-	glBindTexture(GL_TEXTURE_2D, textureID);
-
-	drawPerMeshShader->SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
-	drawPerMeshShader->SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
-	drawPerMeshShader->SetMatFloat4v("model", &modelMatrix.v[0][0]);
 
 	glBindVertexArray(_VAO);
 
@@ -86,6 +93,11 @@ bool Mesh::Update()
 {
 	if (!draw || outOfFrustum) 
 		return false;
+	if (component && component->_gameObject->isSelected)
+	{
+		DrawAsSelected();
+		return false; // We dont want to render this object twice when selected.
+	}
 	if (isTransparent) // We dont use the TextureManager to set transparent textures.
 		return true;
 	if (TextureManager::loadedTextures.find(textureID) != TextureManager::loadedTextures.end())
@@ -94,6 +106,49 @@ bool Mesh::Update()
 	}
 
 	return true;
+}
+
+void Mesh::DrawAsSelected()
+{
+	//// TODO: Do this inside ModuleRender3D, and allow to enable and disable it.
+	glEnable(GL_DEPTH_TEST);
+	glEnable(GL_STENCIL_TEST);
+	glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE);
+
+	glStencilFunc(GL_ALWAYS, 1, 0xFF);
+	glStencilMask(0xFF);
+
+	// Draw model normal size
+	if (isTransparent)
+		Draw();
+	else
+	{
+		RenderManager* manager = Application::Instance()->renderer3D->modelRender.GetRenderManager(component->_meshID);
+		manager->DrawInstance(this);
+	}
+
+	glStencilFunc(GL_NOTEQUAL, 1, 0xFF);
+	glStencilMask(0x00);
+	glDisable(GL_DEPTH_TEST);
+
+	stencilShader.Bind();
+	stencilShader.SetFloat("outlineSize", 0.04f);
+	stencilShader.SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
+	stencilShader.SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
+	stencilShader.SetMatFloat4v("model", &modelMatrix.v[0][0]);
+
+	// Draw model bigger size using the stencilShader
+	if (isTransparent)
+		Draw(false);
+	else
+	{
+		RenderManager* manager = Application::Instance()->renderer3D->modelRender.GetRenderManager(component->_meshID);
+		manager->DrawInstance(this, false);
+	}
+
+	glStencilMask(0xFF);
+	glStencilFunc(GL_ALWAYS, 0, 0xFF);
+	glEnable(GL_DEPTH_TEST);
 }
 
 void Mesh::InitAsMesh(std::vector<Vertex>& vertices, std::vector<uint>& indices)

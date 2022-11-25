@@ -8,6 +8,7 @@ RenderManager::RenderManager()
     instancedShader = new Shader("Resources/shaders/instanced.vertex.shader", "Resources/shaders/instanced.fragment.shader");
     lineShader = new Shader("Resources/shaders/lines.vertex.shader", "Resources/shaders/lines.fragment.shader");
     localLineShader = new Shader("Resources/shaders/localLines.vertex.shader", "Resources/shaders/localLines.fragment.shader");
+    perMeshShader = new Shader("Resources/shaders/basic.vertex.shader", "Resources/shaders/basic.fragment.shader");
 }
 
 RenderManager::~RenderManager()
@@ -15,6 +16,7 @@ RenderManager::~RenderManager()
     RELEASE(instancedShader);
     RELEASE(lineShader);
     RELEASE(localLineShader);
+    RELEASE(perMeshShader);
 }
 
 uint RenderManager::SetMeshInformation(Mesh& mesh)
@@ -25,6 +27,7 @@ uint RenderManager::SetMeshInformation(Mesh& mesh)
     this->totalIndices.insert(totalIndices.begin(), mesh._indices->begin(), mesh._indices->end());
 
     CreateBuffers();
+    CreateBasicBuffers();
     CreateNormalsDisplayBuffer();
     CreateAABB();
 
@@ -150,6 +153,34 @@ uint RenderManager::AddMesh(Mesh& mesh)
     return meshID;
 }
 
+void RenderManager::DrawInstance(Mesh* mesh, bool useBasicShader)
+{
+    if (useBasicShader)
+    {
+        if (mesh->textureID != -1) 
+        {
+            glBindTexture(GL_TEXTURE_2D, mesh->textureID);
+        }
+        else
+        {
+            glBindTexture(GL_TEXTURE_2D, 0);
+        }
+
+        perMeshShader->Bind();
+        perMeshShader->SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
+        perMeshShader->SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
+        perMeshShader->SetMatFloat4v("model", &mesh->modelMatrix.v[0][0]);
+    }
+
+    glBindVertexArray(BasicVAO);
+
+    glDrawElements(GL_TRIANGLES, totalIndices.size(), GL_UNSIGNED_INT, 0);
+
+    glBindVertexArray(0);
+
+    glBindTexture(GL_TEXTURE_2D, 0);
+}
+
 void RenderManager::CreateBuffers()
 {
     // Create Vertex Array Object
@@ -222,6 +253,37 @@ void RenderManager::CreateBuffers()
     glVertexAttribDivisor(7, 1);
 
     glBindVertexArray(0);
+}
+
+void RenderManager::CreateBasicBuffers()
+{
+    // Create Vertex Array Object
+    glGenVertexArrays(1, &BasicVAO);
+    glBindVertexArray(BasicVAO);
+
+    // Create Vertex Buffer Object
+    glGenBuffers(1, &BasicVBO);
+
+    glBindBuffer(GL_ARRAY_BUFFER, BasicVBO);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * totalVertices.size(), &totalVertices[0], GL_STATIC_DRAW);
+
+    // vertex positions
+    glEnableVertexAttribArray(0);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)0);
+    // vertex normals
+    glEnableVertexAttribArray(1);
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, normals));
+    // vertex texture coords
+    glEnableVertexAttribArray(2);
+    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, texCoords));
+
+    glGenBuffers(1, &BasicIBO);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, BasicIBO);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(uint) * totalIndices.size(), &totalIndices[0], GL_STATIC_DRAW);
+
+    glBindVertexArray(0);
+
+
 }
 
 void RenderManager::CreateNormalsDisplayBuffer()
