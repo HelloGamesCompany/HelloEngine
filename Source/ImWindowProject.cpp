@@ -135,15 +135,45 @@ void ImWindowProject::DrawTreeNodePanelLeft(Directory*& newDir, Directory* node,
 
 void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
 {
-    if (ImGui::Button("Return"))
+    // Return 
+    Directory* parent1 = nullptr;
+    Directory* parent2 = nullptr;
+
+    if (_fileTree->_currentDir->parent)
     {
-        if (_fileTree->_currentDir->parent)
+        parent1 = _fileTree->_currentDir->parent;
+    }
+    if(parent1 && parent1->parent)
+    {
+        parent2 = parent1->parent;
+    }
+    if(parent2)
+    {
+        std::string pName = parent2->name + " > ##Return";
+        if (ImGui::Button(pName.c_str()))
         {
-            newDir = _fileTree->_currentDir->parent;
+            newDir = parent2;
+        }   
+    }
+    if (parent1)
+    {
+        std::string pName = parent1->name + " > ##Return";
+        ImGui::SameLine();
+        if (ImGui::Button(pName.c_str()))
+        {
+            newDir = parent1;
+        }
+    }
+    if(!parent1 && !parent2)
+    {
+        if (ImGui::Button("There going to have return :)"))
+        {
+            // Do nothing here, just fixed space
         }
     }
     ImGui::Separator();
 
+    // Folders & files
     ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.5, 0.5, 1.0, 255));
     for (int i = 0; i < _fileTree->_currentDir->directories.size(); i++)
     {
