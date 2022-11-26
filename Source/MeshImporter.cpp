@@ -77,7 +77,7 @@ void MeshImporter::ProcessNode(aiNode* node, const aiScene* scene, ModelNode& pa
 	// If we have more than one mesh inside a node, we should create more nodes!
 	if (node->mNumMeshes > 1)
 	{
-		Console::S_Log("Importing a model with multiple FBX inside the same node!");
+		Console::S_Log("Importing a model with multiple meshes inside the same node!");
 		for (int i = 0; i < node->mNumMeshes; i++)
 		{
 			ModelNode meshNode;
@@ -149,8 +149,9 @@ std::string MeshImporter::ProcessMesh(aiMesh* mesh, const aiScene* scene, std::s
 	return meshInfo.SaveToBinaryFile(fileName);
 }
 
-void MeshImporter::LoadModel(std::string path)
+GameObject* MeshImporter::LoadModel(std::string path)
 {
+	returnGameObject = nullptr;
 	// Read root node from JSON
 	ModelNode modelRootNode;
 	modelRootNode.ReadFromJSON(path);
@@ -159,16 +160,36 @@ void MeshImporter::LoadModel(std::string path)
 	// Process root node recursively, checking children and meshes.
 	// When get into a mesh, process its mesh file.
 	// Every node and every mesh should be an independent GameObject, but respecting original hierarchy.
-	// What should this function return?
+	// Returns a pointer to the root game object of this model.
+	return returnGameObject;
 }
 
 void MeshImporter::LoadNode(ModelNode& node, GameObject* parent)
 {
-	GameObject* nodeGameObject = new GameObject(parent == nullptr ? Application::Instance()->layers->rootGameObject : parent, node.name);
+	GameObject* nodeGameObject = nullptr;
+
+	if (parent == nullptr)
+	{
+		nodeGameObject = returnGameObject = new GameObject(Application::Instance()->layers->rootGameObject, node.name);
+	}
+	else
+	{
+		nodeGameObject = new GameObject(parent, node.name);
+	}
 
 	nodeGameObject->transform->SetPosition(node.position);
 	nodeGameObject->transform->SetRotation(node.rotation);
 	nodeGameObject->transform->SetScale(node.scale);
+
+	// Check if this node could be joined with its only child into a single node.
+	if (node.children.size() == 1 && node.meshPath == "N")
+	{
+		if (node.children[0].meshPath != "N")
+		{
+			LoadMeshNode(node.children[0].meshPath, nodeGameObject);
+		}
+		return; // TODO: This check could give problems with the animation bones loading (empty nodes with no meshes).
+	}
 
 	if (node.meshPath != "N")
 	{
