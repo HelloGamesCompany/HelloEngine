@@ -365,6 +365,12 @@ bool ModuleFiles::UpdateFileNode(Directory*& dir, Directory*& lastDir)
 		// File case
 		if (PHYSFS_isDirectory(dirCheck.c_str()) == 0)
 		{
+			// We shouldn't care metas. 
+			if(S_GetFileExtension(S_GetFileName(dirCheck)) == "hellometa")
+			{
+				continue;
+			}
+
 			// Change directory construcotr to create meta data if necessary
 			dir->files.emplace_back(dirCheck, S_GetFileName(dirCheck), dir);
 
@@ -425,6 +431,17 @@ std::string ModuleFiles::S_GetFileName(const std::string file, bool getExtension
 	return ret;
 }
 
+std::string ModuleFiles::S_GetFileExtension(const std::string file)
+{
+	std::string ret = file;
+
+	ret = ret.substr(ret.find_last_of('.') + 1);
+
+	std::transform(ret.begin(), ret.end(), ret.begin(), ::tolower);
+
+	return ret;
+}
+
 std::string ModuleFiles::S_RemoveExtension(const std::string file)
 {
 	uint pos = file.find_last_of(".");
@@ -446,10 +463,7 @@ std::string ModuleFiles::S_FilePath(const std::string file)
 
 ResourceType ModuleFiles::S_GetResourceType(const std::string& filename)
 {
-	std::string fileExtension = filename;
-	fileExtension = fileExtension.substr(fileExtension.find_last_of('.') + 1);
-
-	std::transform(fileExtension.begin(), fileExtension.end(), fileExtension.begin(), ::tolower);
+	std::string fileExtension = S_GetFileExtension(filename);
 
 	//TODO: Add our own file extensions to this checks
 

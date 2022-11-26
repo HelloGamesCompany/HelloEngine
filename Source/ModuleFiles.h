@@ -98,6 +98,8 @@ public:
 	/// <returns></returns>
 	static std::string S_GetFileName(const std::string file, bool getExtension = true);
 	
+	static std::string S_GetFileExtension(const std::string file);
+
 	static std::string S_RemoveExtension(const std::string file);
 
 	static std::string S_FilePath(const std::string file);

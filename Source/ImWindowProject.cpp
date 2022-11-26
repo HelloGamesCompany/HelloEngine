@@ -178,16 +178,26 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
     for (int i = 0; i < _fileTree->_currentDir->directories.size(); i++)
     {
         if (ImGui::Button(_fileTree->_currentDir->directories[i]->name.c_str(), ImVec2(110, 50)))
-        {
+        {         
             newDir = _fileTree->_currentDir->directories[i];
+        }
+        if (ImGui::IsItemHovered())
+        {
+            ImGui::SetTooltip(_fileTree->_currentDir->directories[i]->name.c_str());
         }
         ImGui::SameLine();
     }
     ImGui::PopStyleColor(1);
     for (int i = 0; i < _fileTree->_currentDir->files.size(); i++)
     {
-        ImGui::Button(_fileTree->_currentDir->files[i].name.c_str(), ImVec2(110, 50));
+        if(ImGui::Button(_fileTree->_currentDir->files[i].name.c_str(), ImVec2(110, 50)))
+        {
+        }
 
+        if (ImGui::IsItemHovered())
+        {
+            ImGui::SetTooltip(_fileTree->_currentDir->files[i].name.c_str());
+        }
         ResourceType type = ModuleFiles::S_GetResourceType(_fileTree->_currentDir->files[i].name);
 
         if (type == ResourceType::TEXTURE || type == ResourceType::MESH)
@@ -223,8 +233,10 @@ void ImWindowProject::OnDrop(const std::string filePath)
     // Use this for global path files
     ModuleFiles::S_ExternalCopy(pathNormalized, _fileTree->_currentDir->path);
 
+    std::string relativePath = _fileTree->_currentDir->path + ModuleFiles::S_GetFileName(pathNormalized);
+
     // File case
-    File file = _fileTree->_currentDir->files.emplace_back(pathNormalized, ModuleFiles::S_GetFileName(pathNormalized), _fileTree->_currentDir);
+    File file = _fileTree->_currentDir->files.emplace_back(relativePath, ModuleFiles::S_GetFileName(pathNormalized), _fileTree->_currentDir);
 
     //std::string file = currentNode->path + ModuleFiles::S_GetFileName(pathNormalized, true);
 
