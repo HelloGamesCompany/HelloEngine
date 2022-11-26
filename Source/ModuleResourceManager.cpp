@@ -10,8 +10,6 @@
 #include "json.hpp"
 #include "FileTree.hpp"
 
-using json = nlohmann::json;
-
 ModuleResourceManager::ModuleResourceManager()
 {
 	Console::S_Log("Initialaizing DevIL.");
@@ -42,6 +40,22 @@ ModuleResourceManager::~ModuleResourceManager()
 	RELEASE(fileTree);
 }
 
+
+bool ModuleResourceManager::Init()
+{
+	// Create meta files for every asset that doesnt have one.
+	// Check if file has a defined reosurce type
+	// If it does, create meta file. (MODULEFILESYSTEM)
+
+
+	// Check all meta files and create a resource per file using FileTree.
+	// Save all resources in a map, using as key the meta file UID.
+	// Unload all resources.
+
+	// When a resource needs to be loaded, it will always be already created.
+	return true;
+}
+
 void ModuleResourceManager::ImportFile(const std::string& filePath)
 {
 	ResourceType type = ModuleFiles::S_GetResourceType(filePath);
@@ -61,13 +75,13 @@ void ModuleResourceManager::ImportFile(const std::string& filePath)
 	case ResourceType::MESH:
 	{
 		std::string path = MeshImporter::ImportModel(filePath);
-		CreateMetaData(filePath, path);
+		ModuleFiles::S_CreateMetaData(filePath, path);
 	}
 	break;
 	case ResourceType::TEXTURE:
 	{
 		std::string path = TextureImporter::ImportImage(ModuleFiles::S_GetFileName(filePath, false), buffer, size);
-		CreateMetaData(filePath, path);
+		ModuleFiles::S_CreateMetaData(filePath, path);
 	}
 	break;
 	default:
@@ -149,43 +163,4 @@ bool ModuleResourceManager::GetFileTree(FileTree*& tree)
 void ModuleResourceManager::UpdateFileTree()
 {
 	ModuleFiles::S_UpdateFileTree(fileTree);
-}
-
-bool ModuleResourceManager::CreateMetaData(const std::string file, const std::string& resourcePath)
-{
-	if (!CheckMetaExist(file))
-	{
-		std::string newFile = ModuleFiles::S_RemoveExtension(file) + ".helloMeta";
-
-		// Create json object
-		json j;
-
-		// Get modify time
-		time_t currentTime = time(0);
-
-		char time[26];
-
-		ctime_s(time, sizeof(time), &currentTime);
-
-		// Update json values
-		j["Last modify"] = time;
-
-		j["Resource path"] = resourcePath;
-		
-		// write to string
-		std::string meta = j.dump();
-
-		ModuleFiles::S_Save(newFile, &meta[0], meta.size(), false);
-
-		return true;
-	}
-
-	return false;
-}
-
-bool ModuleResourceManager::CheckMetaExist(const std::string file)
-{
-	std::string meta = ModuleFiles::S_RemoveExtension(file) + ".helloMeta";
-
-	return ModuleFiles::S_Exists(meta);
 }

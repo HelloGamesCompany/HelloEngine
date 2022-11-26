@@ -5,6 +5,9 @@
 #include <algorithm>
 #include <ctime>
 #include "Console.h"
+#include "json.hpp"
+
+using json = nlohmann::json;
 
 ModuleFiles::ModuleFiles():Module()
 {	
@@ -157,6 +160,21 @@ uint ModuleFiles::S_Load(const std::string filePath, char** buffer)
 	}
 
 	return byteCount;
+}
+
+MetaFile ModuleFiles::S_LoadMeta(const std::string filePath)
+{
+	char* data = nullptr;
+	S_Load(filePath, &data);
+	json file = json::parse(data);
+
+	MetaFile ret;
+	ret.lastModified = file["Last modify"];
+	ret.resourcePath = file["Resource path"];
+	ret.type = file["Resource type"];
+	ret.UID = file["UID"];
+
+	return ret;
 }
 
 uint ModuleFiles::S_Save(const std::string filePath, char* buffer, uint size, bool append)
@@ -347,7 +365,9 @@ bool ModuleFiles::UpdateFileNode(Directory*& dir, Directory*& lastDir)
 		// File case
 		if (PHYSFS_isDirectory(dirCheck.c_str()) == 0)
 		{
+			// Change directory construcotr to create meta data if necessary
 			dir->files.emplace_back(dirCheck, S_GetFileName(dirCheck), dir);
+
 			continue;
 		}
 
@@ -438,3 +458,47 @@ ResourceType ModuleFiles::S_GetResourceType(const std::string& filename)
 
 	return ResourceType::UNDEFINED;
 }
+
+bool ModuleFiles::S_CheckMetaExist(const std::string file)
+{
+	std::string meta = file + ".helloMeta";
+
+	return S_Exists(meta);
+}
+
+bool ModuleFiles::S_CreateMetaData(const std::string file, const std::string& resourcePath)
+{
+	if (!S_CheckMetaExist(file))
+	{
+		std::string newFile = file + ".helloMeta";
+
+		// Create json object
+		json j;
+
+		// Get modify time
+		time_t currentTime = time(0);
+
+		//char time[26];
+
+		//ctime_s(time, sizeof(time), &currentTime);
+
+		// Update json values
+		j["Last modify"] = currentTime;
+
+		j["Resource path"] = resourcePath;
+
+		j["Resource type"] = ModuleFiles::S_GetResourceType(resourcePath);
+
+		j["UID"] = HelloUUID::GenerateUUID();
+
+		// write to string
+		std::string meta = j.dump();
+
+		ModuleFiles::S_Save(newFile, &meta[0], meta.size(), false);
+
+		return true;
+	}
+
+	return false;
+}
+

@@ -38,6 +38,8 @@ public:
 
 	~ModuleResourceManager();
 
+	bool Init() override;
+
 	/// <summary>
 	/// Import a file from assets to our desired file format.
 	/// </summary>
@@ -52,11 +54,6 @@ public:
 	bool GetFileTree(FileTree*& tree);
 
 	void UpdateFileTree();
-
-private:
-	bool CreateMetaData(const std::string file, const std::string& resourcePath);
-
-	bool CheckMetaExist(const std::string file);
 
 public:
 	std::map<std::string, Resource*> loadedResources;

@@ -16,6 +16,14 @@ enum class ResourceType
 	TEXTURE
 };
 
+struct MetaFile
+{
+	ResourceType type = ResourceType::UNDEFINED;
+	std::string resourcePath;
+	uint UID;
+	time_t lastModified;
+};
+
 class ModuleFiles : public Module
 {
 public:
@@ -48,6 +56,8 @@ public:
 	/// <param name="buffer">: buffer where store binary file info</param>
 	/// <returns></returns>
 	static uint S_Load(const std::string filePath, char** buffer);
+
+	static MetaFile S_LoadMeta(const std::string filePath);
 
 	static uint S_Save(const std::string filePath, char* buffer, uint size, bool append);
 
@@ -93,6 +103,12 @@ public:
 	static std::string S_FilePath(const std::string file);
 
 	static ResourceType S_GetResourceType(const std::string& filename);
+
+	static bool S_CheckMetaExist(const std::string file);
+
+	static bool S_CreateMetaData(const std::string file, const std::string& resourcePath);
+
+
 };
 
 #endif // !__MODULE_PHYSFS_H__
