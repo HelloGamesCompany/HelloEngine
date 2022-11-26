@@ -5,6 +5,9 @@
 #include "Math/float4x4.h"
 #include "ModuleXML.h"
 #include "Mesh.h"
+#include "json.hpp"
+
+using json = nlohmann::json;
 
 struct ModelNode
 {
@@ -15,97 +18,102 @@ struct ModelNode
 	float3 scale = {1,1,1};
 	int childrenNum = 0;
 	std::vector<ModelNode> children;
+	uint UID = 0;
 
-	void WriteToXML(std::string nodeName, pugi::xml_node& whereToWrite)
+	void WriteToJSON(std::string filename = "")
 	{
-		name = nodeName;
-		pugi::xml_node xmlNode = whereToWrite.append_child(name.c_str());
+		json file;
 
-		// Save Mesh path
-		pugi::xml_node meshPathNode = xmlNode.append_child("MeshPath");
-		pugi::xml_attribute meshPathAtt = meshPathNode.append_attribute("Path");
-		meshPathAtt.set_value(meshPath.c_str());
+		WriteToParent(file, 0, true);
 
-		// Save transform (it has to be done variable per variable)
-		// Position 
-		pugi::xml_node positionNode = xmlNode.append_child("Position");
-		pugi::xml_attribute positionAttX = positionNode.append_attribute("X");
-		positionAttX.set_value(position.x);
+		std::string data = file.dump();
 
-		pugi::xml_attribute positionAttY = positionNode.append_attribute("Y");
-		positionAttY.set_value(position.y);
-
-		pugi::xml_attribute positionAttZ = positionNode.append_attribute("Z");
-		positionAttZ.set_value(position.z);
-
-		// Rotation
-		pugi::xml_node rotationNode = xmlNode.append_child("Rotation");
-		pugi::xml_attribute rotationAttX = rotationNode.append_attribute("X");
-		rotationAttX.set_value(rotation.x);
-
-		pugi::xml_attribute rotationAttY = rotationNode.append_attribute("Y");
-		rotationAttY.set_value(rotation.y);
-
-		pugi::xml_attribute rotationAttZ = rotationNode.append_attribute("Z");
-		rotationAttZ.set_value(rotation.z);
-
-		// Scale
-		pugi::xml_node scaleNode = xmlNode.append_child("Scale");
-		pugi::xml_attribute scaleAttX = scaleNode.append_attribute("X");
-		scaleAttX.set_value(scale.x);
-
-		pugi::xml_attribute scaleAttY = scaleNode.append_attribute("Y");
-		scaleAttY.set_value(scale.y);
-
-		pugi::xml_attribute scaleAttZ = scaleNode.append_attribute("Z");
-		scaleAttZ.set_value(scale.z);
-
-		// Save num of children
-		pugi::xml_node childrenNode = xmlNode.append_child("ChildrenNum");
-		pugi::xml_attribute childrenAtt = childrenNode.append_attribute("Value");
-		childrenAtt.set_value(children.size());
-
-		// Save Children
-		for (int i = 0; i < children.size(); i++)
-		{
-			children[i].WriteToXML("Node" + std::to_string(i), xmlNode);
-		}
+		ModuleFiles::S_Save(filename, &data[0], data.size(), false);
 	}
 
-	/// <summary>
-	/// Reads the Model node data from an XMLNode
-	/// </summary>
-	/// <param name="nodeName">Name of the node you are reading from.</param>
-	/// <param name="whereToRead">XMLNode to the root node of the XML file.</param>
-	void ReadFromXML(std::string nodeName, XMLNode& whereToRead)
+	void ReadFromJSON(std::string filePath)
 	{
-		name = nodeName;
-		XMLNode xmlNode = whereToRead.FindChildBreadth(name);
+		char* data = nullptr;
+		ModuleFiles::S_Load(filePath, &data);
+		json file = json::parse(data);
 
-		meshPath = xmlNode.FindChildBreadth("MeshPath").node.attribute("Path").as_string();
+		std::vector<std::string> childrenUIDs = file["0"]["children"];
 
+		name = file["0"]["name"];
+		meshPath = file["0"]["meshPath"];
 
-		pugi::xml_node positionNode = xmlNode.FindChildBreadth("Position").node;
-		position.x = positionNode.attribute("X").as_float();
-		position.y = positionNode.attribute("Y").as_float();
-		position.z = positionNode.attribute("Z").as_float();
+		std::vector<float> positions = file["0"]["position"];
+		position = { positions[0], positions[1], positions[2] };
 
-		pugi::xml_node rotationNode = xmlNode.FindChildBreadth("Rotation").node;
-		rotation.x = rotationNode.attribute("X").as_float();
-		rotation.y = rotationNode.attribute("Y").as_float();
-		rotation.z = rotationNode.attribute("Z").as_float();
+		std::vector<float> rotations = file["0"]["rotation"];
+		rotation = { rotations[0], rotations[1], rotations[2] };
 
-		pugi::xml_node scaleNode = xmlNode.FindChildBreadth("Scale").node;
-		scale.x = scaleNode.attribute("X").as_float();
-		scale.y = scaleNode.attribute("Y").as_float();
-		scale.z = scaleNode.attribute("Z").as_float();
+		std::vector<float> scales = file["0"]["scale"];
+		scale = { scales[0], scales[1], scales[2] };
 
-		childrenNum = xmlNode.FindChildBreadth("ChildrenNum").node.attribute("Value").as_int();
+		UID = 0;
+		childrenNum = childrenUIDs.size();
 
-		for (int i = 0; i < childrenNum; i++)
+		for (int i = 0; i < childrenUIDs.size(); i++)
 		{
 			ModelNode newNode;
-			newNode.ReadFromXML("Node" + std::to_string(i), xmlNode);
+			newNode.ReadFromParent(file, childrenUIDs[i]);
+			children.push_back(newNode);
+		}
+		RELEASE(data);
+	}
+
+private:
+	std::string WriteToParent(json& file, uint parentUID, bool isRoot = false)
+	{
+		if (!isRoot)
+			UID = HelloUUID::GenerateUUID();
+		else
+			UID = 0;
+
+		std::string stringUID = std::to_string(UID);
+
+		file[stringUID]["name"] = name;
+		file[stringUID]["meshPath"] = meshPath;
+		file[stringUID]["position"] = { position.x, position.y, position.z };
+		file[stringUID]["rotation"] = { rotation.x, rotation.y, rotation.z };
+		file[stringUID]["scale"] = { scale.x, scale.y, scale.z };
+		file[stringUID]["childrenNum"] = children.size();
+		file[stringUID]["UID"] = UID;
+		file[stringUID]["parentUID"] = parentUID;
+
+		std::vector<std::string> childrenUIDs; 
+
+		for (int i = 0; i < children.size(); i++)
+		{
+			childrenUIDs.push_back(children[i].WriteToParent(file, UID));
+		}
+		file[stringUID]["children"] = childrenUIDs;
+		return stringUID;
+	}
+
+	void ReadFromParent(json& file, std::string uid)
+	{
+		std::vector<std::string> childrenUIDs = file[uid]["children"];
+
+		name = file[uid]["name"];
+		meshPath = file[uid]["meshPath"];
+		std::vector<float> positions = file[uid]["position"];
+		position = { positions[0], positions[1], positions[2] };
+
+		std::vector<float> rotations = file[uid]["rotation"];
+		rotation = { rotations[0], rotations[1], rotations[2] };
+
+		std::vector<float> scales = file[uid]["scale"];
+		scale = { scales[0], scales[1], scales[2] };
+
+		UID = std::stoul(uid);
+		childrenNum = childrenUIDs.size();
+
+		for (int i = 0; i < childrenUIDs.size(); i++)
+		{
+			ModelNode newNode;
+			newNode.ReadFromParent(file, childrenUIDs[i]);
 			children.push_back(newNode);
 		}
 	}

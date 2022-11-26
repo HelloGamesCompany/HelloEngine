@@ -32,15 +32,10 @@ std::string MeshImporter::ImportModel(std::string path)
 		return "Null";
 	}
 
-	std::string modelFilePath = "Resources/Models/" + ModuleFiles::S_GetFileName(path, false) + ".xml";
-
-	// Create XML file to store Model data.
-	XMLNode xmlRootNode = Application::Instance()->xml->CreateXML(modelFilePath, "Model");
+	std::string modelFilePath = "Resources/Models/" + ModuleFiles::S_GetFileName(path, false) + ".hmodel";
 
 	// TODO: Material importer
-	//pugi::xml_node texturesNode = xmlRootNode.node.append_child("Textures");
-	//pugi::xml_node diffuseTextureNode = texturesNode.append_child("Diffuse");
-	//pugi::xml_attribute diffuseTextureAtt = diffuseTextureNode.append_attribute("Name");
+	
 	
 	ModelNode modelRootNode;
 	for (int i = 0; i < scene->mRootNode->mNumChildren; i++)
@@ -48,10 +43,7 @@ std::string MeshImporter::ImportModel(std::string path)
 		ProcessNode(scene->mRootNode->mChildren[i], scene, modelRootNode);
 	}
 
-	modelRootNode.WriteToXML("ModelRoot", xmlRootNode.node);
-	
-	// Save XML file
-	xmlRootNode.Save(".hmodel");
+	modelRootNode.WriteToJSON(modelFilePath);
 
 	return modelFilePath;
 }
@@ -82,7 +74,18 @@ void MeshImporter::ProcessNode(aiNode* node, const aiScene* scene, ModelNode& pa
 	newNode.scale = scale;
 
 	// We are assuming that every node can contain only one mesh!!!
-	// If we have more than one mesh inside a node, we should put them together inside the same game object!
+	// If we have more than one mesh inside a node, we should create more nodes!
+	if (node->mNumMeshes > 1)
+	{
+		Console::S_Log("Importing a model with multiple FBX inside the same node!");
+		for (int i = 0; i < node->mNumMeshes; i++)
+		{
+			ModelNode meshNode;
+			meshNode.meshPath = ProcessMesh(scene->mMeshes[node->mMeshes[i]], scene, newNode.name);
+			newNode.children.push_back(meshNode);
+		}
+	}
+	
 	for (int i = 0; i < node->mNumMeshes; i++)
 	{
 		newNode.meshPath = ProcessMesh(scene->mMeshes[node->mMeshes[i]], scene, newNode.name);
@@ -148,11 +151,9 @@ std::string MeshImporter::ProcessMesh(aiMesh* mesh, const aiScene* scene, std::s
 
 void MeshImporter::LoadModel(std::string path)
 {
-	XMLNode rootNode = Application::Instance()->xml->OpenXML(path);
-
-	// Read root node from XML
+	// Read root node from JSON
 	ModelNode modelRootNode;
-	modelRootNode.ReadFromXML("ModelRoot", rootNode);
+	modelRootNode.ReadFromJSON(path);
 
 	LoadNode(modelRootNode, nullptr);
 	// Process root node recursively, checking children and meshes.
