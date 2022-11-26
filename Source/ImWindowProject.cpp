@@ -98,7 +98,7 @@ void ImWindowProject::Update()
 
 void ImWindowProject::DrawTreeNodePanelLeft(Directory*& newDir, Directory* node, const bool drawFiles) const
 {
-    ImGuiTreeNodeFlags node_flags = ImGuiTreeNodeFlags_None;
+    ImGuiTreeNodeFlags node_flags = ImGuiTreeNodeFlags_None | ImGuiTreeNodeFlags_OpenOnArrow;
 
     if(node == _fileTree->_currentDir)
     {

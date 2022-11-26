@@ -343,7 +343,7 @@ bool ModuleFiles::UpdateFileNode(Directory*& dir, Directory*& lastDir)
 
 	for (int i = 0; fileList[i] != nullptr; i++)
 	{
-		std::string dirCheck = dir->path + "/" + fileList[i];
+		std::string dirCheck = dir->path + fileList[i] + "/";
 		// File case
 		if (PHYSFS_isDirectory(dirCheck.c_str()) == 0)
 		{
@@ -380,12 +380,17 @@ bool ModuleFiles::UpdateFileNode(Directory*& dir, Directory*& lastDir)
 std::string ModuleFiles::S_GetFileName(const std::string file, bool getExtension)
 {
 	uint pos = file.find_last_of("/");
-
 	std::string ret = file;
+
+	if (file[pos] == file.back())
+	{
+		ret = file.substr(0, pos);
+		pos = ret.find_last_of("/");
+	}
 
 	if (pos != std::string::npos)
 	{
-		ret = file.substr(pos + 1, file.size() - 1);
+		ret = ret.substr(pos + 1, file.size() - 1);
 	}
 	else
 	{
