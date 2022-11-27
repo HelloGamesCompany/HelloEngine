@@ -38,25 +38,25 @@ void TransformComponent::SetTransform(float3 pos, float3 scale, float3 rot)
 	UpdateDirtyFlag();
 }
 
-void TransformComponent::SetTransform(float4x4& localTransformMatrix)
+void TransformComponent::SetTransform(float4x4& localTransformMatrix, bool ignoreRotation)
 {
 	Quat rotation;
 	localTransformMatrix.Decompose(localTransform.position, rotation, localTransform.scale);
-	localTransform.rotation = RadToDeg(rotation.ToEulerXYZ());
-
+	if (!ignoreRotation)
+		localTransform.rotation = RadToDeg(rotation.ToEulerXYZ());
+		
 	_localMatrix = localTransformMatrix;
 
 	UpdateDirtyFlagNoLocal();
 }
 
-void TransformComponent::SetLocalFromGlobal(float4x4& globalMatrix)
+void TransformComponent::SetLocalFromGlobal(float4x4& globalMatrix, bool ignoreRotation)
 {
-	_globalMatrix = globalMatrix;
 	float4x4 parentGlobal = _gameObject->_parent->transform->_globalMatrix;
 	parentGlobal.InverseAccurate();
 
 	float4x4 localTransformed = parentGlobal * globalMatrix;
-	SetTransform(localTransformed);
+	SetTransform(localTransformed, ignoreRotation);
 }
 
 void TransformComponent::Translate(float3 translation)

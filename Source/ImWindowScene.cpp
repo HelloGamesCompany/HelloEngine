@@ -24,6 +24,17 @@ void ImWindowScene::Update()
 {
 	if (ImGui::Begin(windowName.c_str()))
 	{
+		if (ImGui::BeginMenu("SceneOptions"))
+		{
+			std::string option = "Change to ";
+			option += _imMode == ImGuizmo::MODE::LOCAL ? "GLOBAL" : "LOCAL";
+			if (ImGui::MenuItem(option.c_str()))
+			{
+				_imMode = _imMode == ImGuizmo::MODE::LOCAL ? ImGuizmo::MODE::WORLD : ImGuizmo::MODE::LOCAL;
+			}
+			ImGui::EndMenu();
+		}
+
 		ImGui::BeginChild("DropArea");
 		{
 			sceneCamera->active = true;
@@ -55,18 +66,22 @@ void ImWindowScene::Update()
 				// Could be done only when one of the 4 variables changes.
 				ImGuizmo::SetRect(ImGui::GetWindowPos().x, ImGui::GetWindowPos().y, ImGui::GetWindowWidth(), ImGui::GetWindowHeight());
 				ImGuizmo::SetDrawlist();
-				if (ImGuizmo::Manipulate(sceneCamera->GetViewMatrix(), sceneCamera->GetProjectionMatrix(), _imOperation, ImGuizmo::MODE::WORLD, &auxiliarMatrix.v[0][0]))
+				if (ImGuizmo::Manipulate(sceneCamera->GetViewMatrix(), sceneCamera->GetProjectionMatrix(), _imOperation, _imMode, &auxiliarMatrix.v[0][0]))
 				{
 					auxiliarMatrix.Transpose();
-					selected->transform->SetLocalFromGlobal(auxiliarMatrix);
+					selected->transform->SetLocalFromGlobal(auxiliarMatrix, _imOperation == ImGuizmo::OPERATION::SCALE);
 				}
 
 			}
+
+			ImGui::SameLine(); ImGui::Button("Change to LOCAL");
 
 			if (!ImGuizmo::IsUsing())
 				DetectClick();
 		}
 		ImGui::EndChild();
+
+
 
 		// Create Droped mesh
 		if (ImGui::BeginDragDropTarget())

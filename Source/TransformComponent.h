@@ -40,9 +40,9 @@ public:
 
 	void SetTransform(float3 pos, float3 scale, float3 rot);
 
-	void SetTransform(float4x4& localTransformMatrix);
+	void SetTransform(float4x4& localTransformMatrix, bool ignoreRotation = false);
 
-	void SetLocalFromGlobal(float4x4& globalMatrix);
+	void SetLocalFromGlobal(float4x4& globalMatrix, bool ignoreRotation = false);
 
 	/// <summary>
 	/// Current position is transalted by the given vector

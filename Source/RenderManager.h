@@ -36,8 +36,8 @@ private:
 	void CreateNormalsDisplayBuffer();
 	void CreateAABB();
 
-	void DrawVertexNormals(int modelMatrixIndex);
-	void DrawFaceNormals(int modelMatrixIndex);
+	void DrawVertexNormals(Mesh& mesh);
+	void DrawFaceNormals(Mesh& mesh);
 	void DrawBoundingBoxAABB(Mesh& mesh);
 	void DrawBoundingBoxOBB(Mesh& mesh);
 

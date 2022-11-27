@@ -122,9 +122,9 @@ void RenderManager::Draw()
         for (auto& mesh : meshes)
         {
             if (mesh.second.showVertexNormals) 
-                DrawVertexNormals(index);
+                DrawVertexNormals(mesh.second);
             if (mesh.second.showFaceNormals) 
-                DrawFaceNormals(index);
+                DrawFaceNormals(mesh.second);
             if (mesh.second.showAABB)
                 DrawBoundingBoxAABB(mesh.second);
             if (mesh.second.showOBB)
@@ -443,14 +443,14 @@ void RenderManager::CreateAABB()
     glBindVertexArray(0);
 }
 
-void RenderManager::DrawVertexNormals(int modelMatrixIndex)
+void RenderManager::DrawVertexNormals(Mesh& mesh)
 {
     lineShader->Bind();
     lineShader->SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
     lineShader->SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
     lineShader->SetFloat4("lineColor", 0.36f, 0.75f, 0.72f, 1.0f);
 
-    lineShader->SetMatFloat4v("model", &modelMatrices[modelMatrixIndex].v[0][0]);
+    lineShader->SetMatFloat4v("model", &mesh.modelMatrix.v[0][0]);
 
     glBindVertexArray(VertexLineVAO);
 
@@ -460,14 +460,14 @@ void RenderManager::DrawVertexNormals(int modelMatrixIndex)
 
 }
 
-void RenderManager::DrawFaceNormals(int modelMatrixIndex)
+void RenderManager::DrawFaceNormals(Mesh& mesh)
 {
     lineShader->Bind();
     lineShader->SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
     lineShader->SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
     lineShader->SetFloat4("lineColor", 0.75f, 0.36f, 0.32f, 1.0f);
 
-    lineShader->SetMatFloat4v("model", &modelMatrices[modelMatrixIndex].v[0][0]);
+    lineShader->SetMatFloat4v("model", &mesh.modelMatrix.v[0][0]);
 
     glBindVertexArray(FaceLineVAO);
 
