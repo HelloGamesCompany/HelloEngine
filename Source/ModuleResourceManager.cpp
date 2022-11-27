@@ -9,7 +9,7 @@
 #include "IL/ilut.h"
 #include "json.hpp"
 #include "FileTree.hpp"
-#include "File_Model.h"
+
 
 std::map<std::string, Resource*> ModuleResourceManager::loadedResources;
 FileTree* ModuleResourceManager::fileTree = nullptr;
@@ -172,7 +172,14 @@ void ModuleResourceManager::S_DeleteMetaFile(const std::string& file)
 			std::vector<std::string> meshFilePaths;
 
 			ModelNode model;
-			// Get all resource paths and delete them. Then delete the model file.
+			model.ReadFromJSON(meta.resourcePath);
+			GetResourcePath(model, meshFilePaths);
+
+			for (int i = 0; i < meshFilePaths.size(); i++)
+			{
+				ModuleFiles::S_Delete(meshFilePaths[i]);
+			}
+			ModuleFiles::S_Delete(meta.resourcePath);
 		}
 		break;
 	default:
@@ -182,4 +189,16 @@ void ModuleResourceManager::S_DeleteMetaFile(const std::string& file)
 		break;
 	}
 	ModuleFiles::S_Delete(file);
+}
+
+void ModuleResourceManager::GetResourcePath(ModelNode& node, std::vector<std::string>& vector)
+{
+	if (node.meshPath != "N")
+	{
+		vector.push_back(node.meshPath);
+	}
+	for (int i = 0; i < node.children.size(); i++)
+	{
+		GetResourcePath(node.children[i], vector);
+	}
 }

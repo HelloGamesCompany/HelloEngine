@@ -2,6 +2,7 @@
 #include "Module.h"
 #include "ModuleFiles.h"
 #include "Texture.h"
+#include "File_Model.h"
 
 class GameObject;
 class FileTree;
@@ -54,6 +55,9 @@ public:
 	static void S_UpdateFileTree();
 
 	static void S_DeleteMetaFile(const std::string& file);
+
+private:
+	static void GetResourcePath(ModelNode& node, std::vector<std::string>& vector);
 
 public:
 	static std::map<std::string, Resource*> loadedResources;

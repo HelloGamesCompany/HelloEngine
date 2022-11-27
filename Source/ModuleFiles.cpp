@@ -525,7 +525,7 @@ bool ModuleFiles::S_CreateMetaData(const std::string& file, const std::string& r
 
 	j["Resource path"] = resourcePath;
 
-	j["Resource type"] = ModuleFiles::S_GetResourceType(resourcePath);
+	j["Resource type"] = ModuleFiles::S_GetResourceType(file);
 
 	j["UID"] = HelloUUID::GenerateUUID();
 
