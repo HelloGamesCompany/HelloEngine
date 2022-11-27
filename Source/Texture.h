@@ -15,5 +15,6 @@ public:
 	uint OpenGLID = 0;
 	int width = 0;
 	int height = 0;
+	bool isTransparent = false;
 };
 
