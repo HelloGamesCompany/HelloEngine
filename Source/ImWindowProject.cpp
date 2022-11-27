@@ -171,7 +171,7 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
     }
     ImGui::Separator();
 
-    // Folders & files
+    // Folders
     ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.5, 0.5, 1.0, 255));
     for (int i = 0; i < _fileTree->_currentDir->directories.size(); i++)
     {
@@ -186,18 +186,29 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
         ImGui::SameLine();
     }
     ImGui::PopStyleColor(1);
+
+    // Files
     for (int i = 0; i < _fileTree->_currentDir->files.size(); i++)
     {
         if(ImGui::Button(_fileTree->_currentDir->files[i].name.c_str(), ImVec2(110, 50)))
         {
         }
 
+        //ImGui::Selectable(_fileTree->_currentDir->files[i].name.c_str());
+        if (ImGui::BeginPopupContextItem()) // <-- use last item id as popup id
+        {
+            if (ImGui::Button("Delete"))
+                ImGui::CloseCurrentPopup();
+            ImGui::EndPopup();
+        }
+
         if (ImGui::IsItemHovered())
         {
             ImGui::SetTooltip(_fileTree->_currentDir->files[i].name.c_str());
         }
-        ResourceType type = ModuleFiles::S_GetResourceType(_fileTree->_currentDir->files[i].name);
 
+        // Drag file
+        ResourceType type = ModuleFiles::S_GetResourceType(_fileTree->_currentDir->files[i].name);
         if (type == ResourceType::TEXTURE || type == ResourceType::MESH)
         {
             if (ImGui::BeginDragDropSource(ImGuiDragDropFlags_None))
