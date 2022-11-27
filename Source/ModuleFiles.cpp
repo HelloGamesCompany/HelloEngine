@@ -302,7 +302,7 @@ bool ModuleFiles::S_Copy(const std::string& src, std::string des, bool replace)
 	return successful;
 }
 
-bool ModuleFiles::S_ExternalCopy(const std::string& src, std::string& des, bool replace)
+bool ModuleFiles::S_ExternalCopy(const std::string& src, std::string des, bool replace)
 {
 	 std::string workingDir = S_NormalizePath(std::filesystem::current_path().string());
 

@@ -81,7 +81,7 @@ public:
 	/// <param name="des">: Should be local path</param>
 	/// <param name="replace">: Replace file if is aldready exist</param>
 	/// <returns></returns>
-	static bool S_ExternalCopy(const std::string& src, std::string& des, bool replace = true);
+	static bool S_ExternalCopy(const std::string& src, std::string des, bool replace = true);
 
 	/// <summary>
 	/// Root path = Assets/

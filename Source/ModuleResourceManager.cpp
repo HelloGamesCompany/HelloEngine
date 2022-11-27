@@ -40,7 +40,6 @@ ModuleResourceManager::~ModuleResourceManager()
 	RELEASE(fileTree);
 }
 
-
 bool ModuleResourceManager::Init()
 {
 	// Create meta files for every asset that doesnt have one.
