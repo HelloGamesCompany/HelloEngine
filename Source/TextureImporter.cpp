@@ -63,6 +63,20 @@ uint TextureImporter::Load(char* buffer, int size, int* width, int* heigth, std:
 
 	ILubyte* bytes = ilGetData();
 
+	for (int i = 0; i < engineTexture.height; i++)
+	{
+		if (engineTexture.isTransparent)
+			break;
+		for (int j = 0; j < engineTexture.width; j++)
+		{
+			if ((int)bytes[(i * engineTexture.width + j) * 4 + 3] != 255)
+			{
+				engineTexture.isTransparent = true;
+				break;
+			}
+		}
+	}
+
 	glGenTextures(1, &engineTexture.OpenGLID);
 
 	//TODO: Generate mipmaps and use best settings
