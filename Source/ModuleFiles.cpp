@@ -33,12 +33,12 @@ ModuleFiles::~ModuleFiles()
 	PHYSFS_deinit();
 }
 
-bool ModuleFiles::S_Exists(const std::string file)
+bool ModuleFiles::S_Exists(const std::string& file)
 {
 	return PHYSFS_exists(file.c_str()) != 0;
 }
 
-bool ModuleFiles::S_MakeDir(const std::string dir)
+bool ModuleFiles::S_MakeDir(const std::string& dir)
 {
 	if (S_IsDirectory(dir) == false)
 	{
@@ -48,9 +48,17 @@ bool ModuleFiles::S_MakeDir(const std::string dir)
 	return false;
 }
 
-bool ModuleFiles::S_IsDirectory(const std::string file)
+bool ModuleFiles::S_IsDirectory(const std::string& file)
 {
-	return PHYSFS_isDirectory(file.c_str()) != 0;
+	PHYSFS_Stat fileState;
+	PHYSFS_stat(file.c_str(), &fileState);
+
+	return fileState.filetype == PHYSFS_FileType::PHYSFS_FILETYPE_DIRECTORY;
+}
+
+bool ModuleFiles::S_Delete(const std::string& file)
+{
+	return PHYSFS_delete(file.c_str());
 }
 
 /*
@@ -73,7 +81,7 @@ std::string ModuleFiles::S_GlobalToLocalPath(const std::string path)
 }
 */
 
-std::string ModuleFiles::S_NormalizePath(const std::string path)
+std::string ModuleFiles::S_NormalizePath(const std::string& path)
 {
 	std::string ret = path;
 
@@ -88,7 +96,7 @@ std::string ModuleFiles::S_NormalizePath(const std::string path)
 	return ret;
 }
 
-std::string ModuleFiles::S_UnNormalizePath(const std::string path)
+std::string ModuleFiles::S_UnNormalizePath(const std::string& path)
 {
 	std::string ret = path;
 
@@ -100,7 +108,7 @@ std::string ModuleFiles::S_UnNormalizePath(const std::string path)
 	return ret;
 }
 
-bool ModuleFiles::S_AddPathToFileSystem(const std::string path)
+bool ModuleFiles::S_AddPathToFileSystem(const std::string& path)
 {
 	bool ret = false;
 
@@ -114,7 +122,7 @@ bool ModuleFiles::S_AddPathToFileSystem(const std::string path)
 	return ret;
 }
 
-uint ModuleFiles::S_Load(const std::string filePath, char** buffer)
+uint ModuleFiles::S_Load(const std::string& filePath, char** buffer)
 {
 	uint byteCount = 0;
 
@@ -162,7 +170,7 @@ uint ModuleFiles::S_Load(const std::string filePath, char** buffer)
 	return byteCount;
 }
 
-MetaFile ModuleFiles::S_LoadMeta(const std::string filePath)
+MetaFile ModuleFiles::S_LoadMeta(const std::string& filePath)
 {
 	char* data = nullptr;
 	S_Load(filePath, &data);
@@ -174,10 +182,12 @@ MetaFile ModuleFiles::S_LoadMeta(const std::string filePath)
 	ret.type = file["Resource type"];
 	ret.UID = file["UID"];
 
+	RELEASE(data);
+
 	return ret;
 }
 
-uint ModuleFiles::S_Save(const std::string filePath, char* buffer, uint size, bool append)
+uint ModuleFiles::S_Save(const std::string& filePath, char* buffer, uint size, bool append)
 {
 	uint byteCount = 0;
 
@@ -229,7 +239,7 @@ uint ModuleFiles::S_Save(const std::string filePath, char* buffer, uint size, bo
 	return byteCount;
 }
 
-bool ModuleFiles::S_Copy(const std::string src, std::string des, bool replace)
+bool ModuleFiles::S_Copy(const std::string& src, std::string des, bool replace)
 {
 	bool successful = true;
 
@@ -292,7 +302,7 @@ bool ModuleFiles::S_Copy(const std::string src, std::string des, bool replace)
 	return successful;
 }
 
-bool ModuleFiles::S_ExternalCopy(const std::string src, std::string des, bool replace)
+bool ModuleFiles::S_ExternalCopy(const std::string& src, std::string& des, bool replace)
 {
 	 std::string workingDir = S_NormalizePath(std::filesystem::current_path().string());
 
@@ -361,13 +371,19 @@ bool ModuleFiles::UpdateFileNode(Directory*& dir, Directory*& lastDir)
 
 	for (int i = 0; fileList[i] != nullptr; i++)
 	{
-		std::string dirCheck = dir->path + fileList[i] + "/";
+		std::string dirCheck = dir->path + fileList[i];
 		// File case
-		if (PHYSFS_isDirectory(dirCheck.c_str()) == 0)
+		if (!S_IsDirectory(dirCheck))
 		{
 			// We shouldn't care metas. 
 			if(S_GetFileExtension(S_GetFileName(dirCheck)) == "hellometa")
 			{
+				// Check if this meta has an associated file.
+				std::string fileDir = dirCheck.substr(0, dirCheck.find_last_of(".")+1);
+
+				if (!S_Exists(fileDir))
+					ModuleResourceManager::S_DeleteMetaFile(dirCheck);
+				
 				continue;
 			}
 
@@ -376,6 +392,8 @@ bool ModuleFiles::UpdateFileNode(Directory*& dir, Directory*& lastDir)
 
 			continue;
 		}
+
+		dirCheck += "/"; // Add '/' if this is a directory.
 
 		// Folder case
 		Directory* currentDir = new Directory(dirCheck, S_GetFileName(dirCheck), dir);
@@ -403,12 +421,24 @@ bool ModuleFiles::UpdateFileNode(Directory*& dir, Directory*& lastDir)
 	return ret;
 }
 
-std::string ModuleFiles::S_GetFileName(const std::string file, bool getExtension)
+unsigned long long ModuleFiles::S_CheckFileLastModify(const std::string& path)
+{
+	PHYSFS_Stat fileState;
+	if (PHYSFS_stat(path.c_str(), &fileState) == 0)
+	{
+		LOG("Failed to open file in S_CheckFileLastModify!");
+		return 0;
+	}
+
+	return fileState.modtime;
+}
+
+std::string ModuleFiles::S_GetFileName(const std::string& file, bool getExtension)
 {
 	uint pos = file.find_last_of("/");
 	std::string ret = file;
 
-	if (file[pos] == file.back())
+	if (pos != std::string::npos && file[pos] == file.back())
 	{
 		ret = file.substr(0, pos);
 		pos = ret.find_last_of("/");
@@ -431,7 +461,7 @@ std::string ModuleFiles::S_GetFileName(const std::string file, bool getExtension
 	return ret;
 }
 
-std::string ModuleFiles::S_GetFileExtension(const std::string file)
+std::string ModuleFiles::S_GetFileExtension(const std::string& file)
 {
 	std::string ret = file;
 
@@ -442,7 +472,7 @@ std::string ModuleFiles::S_GetFileExtension(const std::string file)
 	return ret;
 }
 
-std::string ModuleFiles::S_RemoveExtension(const std::string file)
+std::string ModuleFiles::S_RemoveExtension(const std::string& file)
 {
 	uint pos = file.find_last_of(".");
 
@@ -456,7 +486,7 @@ std::string ModuleFiles::S_RemoveExtension(const std::string file)
 	return ret;
 }
 
-std::string ModuleFiles::S_FilePath(const std::string file)
+std::string ModuleFiles::S_FilePath(const std::string& file)
 {
 	return "In process...";
 }
@@ -473,46 +503,38 @@ ResourceType ModuleFiles::S_GetResourceType(const std::string& filename)
 	return ResourceType::UNDEFINED;
 }
 
-bool ModuleFiles::S_CheckMetaExist(const std::string file)
+bool ModuleFiles::S_CheckMetaExist(const std::string& file)
 {
 	std::string meta = file + ".helloMeta";
 
 	return S_Exists(meta);
 }
 
-bool ModuleFiles::S_CreateMetaData(const std::string file, const std::string& resourcePath)
+bool ModuleFiles::S_CreateMetaData(const std::string& file, const std::string& resourcePath)
 {
-	if (!S_CheckMetaExist(file))
-	{
-		std::string newFile = file + ".helloMeta";
+	std::string newFile = file + ".helloMeta";
 
-		// Create json object
-		json j;
+	// Create json object
+	json j;
 
-		// Get modify time
-		time_t currentTime = time(0);
+	// Get modify time
+	time_t currentTime = S_CheckFileLastModify(file);
 
-		//char time[26];
+	// Update json values
+	j["Last modify"] = currentTime;
 
-		//ctime_s(time, sizeof(time), &currentTime);
+	j["Resource path"] = resourcePath;
 
-		// Update json values
-		j["Last modify"] = currentTime;
+	j["Resource type"] = ModuleFiles::S_GetResourceType(resourcePath);
 
-		j["Resource path"] = resourcePath;
+	j["UID"] = HelloUUID::GenerateUUID();
 
-		j["Resource type"] = ModuleFiles::S_GetResourceType(resourcePath);
+	// write to string
+	std::string meta = j.dump();
 
-		j["UID"] = HelloUUID::GenerateUUID();
+	ModuleFiles::S_Save(newFile, &meta[0], meta.size(), false);
 
-		// write to string
-		std::string meta = j.dump();
+	return true;
 
-		ModuleFiles::S_Save(newFile, &meta[0], meta.size(), false);
-
-		return true;
-	}
-
-	return false;
 }
 

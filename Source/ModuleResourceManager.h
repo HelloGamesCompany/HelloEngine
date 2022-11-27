@@ -47,13 +47,15 @@ public:
 
 	Resource* LoadFile(const std::string& filePath);
 
-	bool IsFileLoaded(const std::string fileName);
+	bool IsFileLoaded(const std::string& fileName);
 
 	bool IsFileLoaded(const char* fileName);
 
 	bool GetFileTree(FileTree*& tree);
 
 	void UpdateFileTree();
+
+	static void S_DeleteMetaFile(const std::string& file);
 
 public:
 	std::map<std::string, Resource*> loadedResources;

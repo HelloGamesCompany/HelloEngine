@@ -9,6 +9,7 @@
 #include "IL/ilut.h"
 #include "json.hpp"
 #include "FileTree.hpp"
+#include "File_Model.h"
 
 ModuleResourceManager::ModuleResourceManager()
 {
@@ -23,10 +24,6 @@ ModuleResourceManager::ModuleResourceManager()
 	{
 		Console::S_Log("Wrong DevIL version detected.");
 	}
-
-	fileTree = new FileTree();
-
-	ModuleFiles::S_UpdateFileTree(fileTree);
 }
 
 ModuleResourceManager::~ModuleResourceManager()
@@ -47,6 +44,9 @@ bool ModuleResourceManager::Init()
 	// Check if file has a defined reosurce type
 	// If it does, create meta file. (MODULEFILESYSTEM)
 
+	fileTree = new FileTree();
+
+	ModuleFiles::S_UpdateFileTree(fileTree);
 
 	// Check all meta files and create a resource per file using FileTree.
 	// Save all resources in a map, using as key the meta file UID.
@@ -139,7 +139,7 @@ Resource* ModuleResourceManager::LoadFile(const std::string& filePath)
 	return nullptr;
 }
 
-bool ModuleResourceManager::IsFileLoaded(const std::string fileName)
+bool ModuleResourceManager::IsFileLoaded(const std::string& fileName)
 {
 	return loadedResources.find(fileName) != loadedResources.end();
 }
@@ -163,4 +163,27 @@ bool ModuleResourceManager::GetFileTree(FileTree*& tree)
 void ModuleResourceManager::UpdateFileTree()
 {
 	ModuleFiles::S_UpdateFileTree(fileTree);
+}
+
+void ModuleResourceManager::S_DeleteMetaFile(const std::string& file)
+{
+	MetaFile meta = ModuleFiles::S_LoadMeta(file);
+
+	switch (meta.type)
+	{
+	case ResourceType::MESH:
+		{
+			std::vector<std::string> meshFilePaths;
+
+			ModelNode model;
+			// Get all resource paths and delete them. Then delete the model file.
+		}
+		break;
+	default:
+		{
+		ModuleFiles::S_Delete(meta.resourcePath);
+		}
+		break;
+	}
+	ModuleFiles::S_Delete(file);
 }

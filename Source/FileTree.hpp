@@ -3,6 +3,8 @@
 #include <string>
 #include <vector>
 
+#include "Application.h"
+#include "ModuleResourceManager.h"
 #include "ModuleFiles.h"
 
 struct Directory;
@@ -15,19 +17,29 @@ struct File
 		if (ModuleFiles::S_CheckMetaExist(path))
 		{
 			std::string metapath = path + ".helloMeta";
-			// Check if this meta file has a different modify time than the file.
 			metaFile = ModuleFiles::S_LoadMeta(metapath);
+
+			// Check if this meta file has a different modify time than the file.
+			unsigned long long modifyTime = ModuleFiles::S_CheckFileLastModify(path);
+			if (metaFile.lastModified != modifyTime)
+			{
+				Application::Instance()->resource->ImportFile(path);
+
+				metaFile = ModuleFiles::S_LoadMeta(metapath);
+			}
 		}
 		else
 		{
 			// If the resource type of this file is not undefined:
 			// iF it doesn't have a meta file, create one by using the ImportFile method inside ModuleResourceManager
+			if (ModuleFiles::S_GetResourceType(path) == ResourceType::UNDEFINED)
+				return;
 
+			Application::Instance()->resource->ImportFile(path);
+
+			std::string metapath = path + ".helloMeta";
+			metaFile = ModuleFiles::S_LoadMeta(metapath);
 		}
-
-		// If it does have a meta file, check if the change date is newer than importing date.
-		// if the change date is newer than the import date, call import of moduleResourcemanager again (reimport file)
-		// else, we can continue.
 	};
 	std::string path;
 	std::string name;

@@ -8,6 +8,8 @@ class Directory;
 
 #define ASSETS_PATH "Assets/"
 #define ASSETS_NAME "Assets"
+#define RESOURCE_PATH "Resources/"
+#define RESOURCE_NAME "Resources"
 
 enum class ResourceType
 {
@@ -32,22 +34,24 @@ public:
 	~ModuleFiles();
 
 	// Static functions
-	static bool S_Exists(const std::string file);
+	static bool S_Exists(const std::string& file);
 
-	static bool S_CheckFinishWith(const std::string file, const std::string checker);
+	static bool S_CheckFinishWith(const std::string& file, const std::string& checker);
 
-	static bool S_MakeDir(const std::string dir);
+	static bool S_MakeDir(const std::string& dir);
 
-	static bool S_IsDirectory(const std::string file);
+	static bool S_IsDirectory(const std::string& file);
+
+	static bool S_Delete(const std::string& file);
 
 	/*static std::string S_GlobalToLocalPath(const std::string path);*/
 
-	static std::string S_NormalizePath(const std::string path);
+	static std::string S_NormalizePath(const std::string& path);
 
-	static std::string S_UnNormalizePath(const std::string path);
+	static std::string S_UnNormalizePath(const std::string& path);
 
 	// can be path or zip
-	static bool S_AddPathToFileSystem(const std::string path);
+	static bool S_AddPathToFileSystem(const std::string& path);
 
 	/// <summary>
 	/// Read directory => /Output
@@ -55,11 +59,11 @@ public:
 	/// <param name="filePath">: path/file.ext</param>
 	/// <param name="buffer">: buffer where store binary file info</param>
 	/// <returns></returns>
-	static uint S_Load(const std::string filePath, char** buffer);
+	static uint S_Load(const std::string& filePath, char** buffer);
 
-	static MetaFile S_LoadMeta(const std::string filePath);
+	static MetaFile S_LoadMeta(const std::string& filePath);
 
-	static uint S_Save(const std::string filePath, char* buffer, uint size, bool append);
+	static uint S_Save(const std::string& filePath, char* buffer, uint size, bool append);
 
 	/// <summary>
 	/// Use for copy project file -> project folder
@@ -68,7 +72,7 @@ public:
 	/// <param name="des">: JUST PATH!!!</param>
 	/// <param name="replace">: Replace file if is aldready exist</param>
 	/// <returns></returns>
-	static bool S_Copy(const std::string src, const std::string des, bool replace = true);
+	static bool S_Copy(const std::string& src, std::string des, bool replace = true);
 
 	/// <summary>
 	/// Use for copy external file -> project folder.
@@ -77,7 +81,7 @@ public:
 	/// <param name="des">: Should be local path</param>
 	/// <param name="replace">: Replace file if is aldready exist</param>
 	/// <returns></returns>
-	static bool S_ExternalCopy(const std::string src, std::string des, bool replace = true);
+	static bool S_ExternalCopy(const std::string& src, std::string& des, bool replace = true);
 
 	/// <summary>
 	/// Root path = Assets/
@@ -91,24 +95,26 @@ public:
 	/// </summary>
 	static bool UpdateFileNode(Directory*& dir, Directory*& lastDir);
 
+	static unsigned long long S_CheckFileLastModify(const std::string& path);
+
 	/// <summary>
 	/// 
 	/// </summary>
 	/// <param name="getExtention">: If you want to get the extension</param>
 	/// <returns></returns>
-	static std::string S_GetFileName(const std::string file, bool getExtension = true);
+	static std::string S_GetFileName(const std::string& file, bool getExtension = true);
 	
-	static std::string S_GetFileExtension(const std::string file);
+	static std::string S_GetFileExtension(const std::string& file);
 
-	static std::string S_RemoveExtension(const std::string file);
+	static std::string S_RemoveExtension(const std::string& file);
 
-	static std::string S_FilePath(const std::string file);
+	static std::string S_FilePath(const std::string& file);
 
 	static ResourceType S_GetResourceType(const std::string& filename);
 
-	static bool S_CheckMetaExist(const std::string file);
+	static bool S_CheckMetaExist(const std::string& file);
 
-	static bool S_CreateMetaData(const std::string file, const std::string& resourcePath);
+	static bool S_CreateMetaData(const std::string& file, const std::string& resourcePath);
 
 
 };
