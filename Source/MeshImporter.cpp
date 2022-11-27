@@ -32,7 +32,7 @@ std::string MeshImporter::ImportModel(std::string path)
 		return "Null";
 	}
 
-	std::string modelFilePath = "Resources/Models/" + ModuleFiles::S_GetFileName(path, false) + ".hmodel";
+	std::string modelFilePath = "Resources/Models/" + std::to_string(HelloUUID::GenerateUUID()) + ".hmodel";
 
 	// TODO: Material importer
 	

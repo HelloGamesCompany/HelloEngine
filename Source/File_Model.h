@@ -130,7 +130,7 @@ struct MeshInfo
 	/// </summary>
 	std::string SaveToBinaryFile(std::string fileName)
 	{
-		std::string filePath = "Resources/Meshes/" + fileName + ".hmesh";
+		std::string filePath = "Resources/Meshes/" + std::to_string(HelloUUID::GenerateUUID()) + ".hmesh";
 
 		uint header[3] = { vertices.size(), indices.size(), hasTexture }; // Num of vertices, num of indices, has or not a texture.
 

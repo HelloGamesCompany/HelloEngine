@@ -94,28 +94,28 @@ void ModelRenderManager::CreatePrimitive(GameObject* parent, PrimitiveType type)
 	{
 		case PrimitiveType::CUBE:
 		{
-			GameObject* cube = MeshImporter::LoadModel("Resources/Models/cube.hmodel");
+			GameObject* cube = MeshImporter::LoadModel("Resources/Models/3803316393.hmodel");
 			cube->SetParent(parent);
 			cube->name = "Cube";
 			break;
 		}
 		case PrimitiveType::SPHERE:
 		{
-			GameObject* sphere = MeshImporter::LoadModel("Resources/Models/sphere.hmodel");
+			GameObject* sphere = MeshImporter::LoadModel("Resources/Models/363196802.hmodel");
 			sphere->SetParent(parent);
 			sphere->name = "Sphere";
 			break;
 		}
 		case PrimitiveType::CYLINDER:
 		{
-			GameObject* cylinder = MeshImporter::LoadModel("Resources/Models/cylinder.hmodel");
+			GameObject* cylinder = MeshImporter::LoadModel("Resources/Models/343324178.hmodel");
 			cylinder->SetParent(parent);
 			cylinder->name = "Cylinder";
 			break;
 		}
 		case PrimitiveType::PLANE:
 		{
-			GameObject* plane = MeshImporter::LoadModel("Resources/Models/plane.hmodel");
+			GameObject* plane = MeshImporter::LoadModel("Resources/Models/505199352.hmodel");
 			plane->SetParent(parent);
 			plane->name = "Plane";
 			break;

@@ -37,8 +37,8 @@ bool ModuleLayers::Start()
     // When asking to load a model from Scene or Hierarchy, we are actually createing a new set of Game Objects.
     // Each game object will contain a Mesh. Every mes IS a resource, and could be already loaded.
 
-    ModuleResourceManager::S_ImportFile("Assets/FBX/BakerHouse.fbx");
-    MeshImporter::LoadModel("Resources/Models/BakerHouse.hmodel");
+    /*ModuleResourceManager::S_ImportFile("Assets/FBX/BakerHouse.fbx");
+    MeshImporter::LoadModel("Resources/Models/BakerHouse.hmodel");*/
     return true;
 }
 
