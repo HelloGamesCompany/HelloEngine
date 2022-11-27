@@ -372,7 +372,7 @@ void MeshImporter::ProcessNewMesh(aiMesh* mesh, const aiScene* scene, GameObject
 			ddsName = ddsName.substr(0, ddsName.find_last_of("."));
 			ddsName += ".dds";
 
-			if (Application::Instance()->resource->IsFileLoaded(ddsName))
+			if (ModuleResourceManager::S_IsFileLoaded(ddsName))
 			{
 				ResourceTexture* textureResource = (ResourceTexture*)Application::Instance()->resource->loadedResources[ddsName];
 				textureID = textureResource->textureInfo.OpenGLID;
@@ -389,7 +389,7 @@ void MeshImporter::ProcessNewMesh(aiMesh* mesh, const aiScene* scene, GameObject
 				if (ModuleFiles::S_Exists(assetsPath))
 				{
 					// Import file to create DDS file
-					Application::Instance()->resource->ImportFile(assetsPath);
+					ModuleResourceManager::S_ImportFile(assetsPath);
 
 					// Get path of our loaded DDS file inside Resources
 					std::string resourcesPath = "Resources/Textures/";
@@ -397,7 +397,7 @@ void MeshImporter::ProcessNewMesh(aiMesh* mesh, const aiScene* scene, GameObject
 					resourcesPath += ddsName;
 
 					// Load DDS file
-					Resource* resource = Application::Instance()->resource->LoadFile(resourcesPath);
+					Resource* resource = ModuleResourceManager::S_LoadFile(resourcesPath);
 
 					if (resource->type != ResourceType::TEXTURE)
 						return;

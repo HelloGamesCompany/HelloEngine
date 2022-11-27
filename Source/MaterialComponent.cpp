@@ -85,7 +85,7 @@ void MaterialComponent::OnEditor()
 				//Drop asset from Asset window to scene window
 				const std::string drop = *(std::string*)payload->Data;
 
-				Resource* resource = Application::Instance()->resource->LoadFile(drop);
+				Resource* resource = ModuleResourceManager::S_LoadFile(drop);
 
 				if (resource->type != ResourceType::TEXTURE) return;
 

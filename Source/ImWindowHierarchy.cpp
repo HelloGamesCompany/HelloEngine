@@ -84,7 +84,7 @@ void ImWindowHierarchy::Update()
                 //Drop asset from Asset window to scene window
                 const std::string drop = *(std::string*)payload->Data;
 
-                _app->resource->LoadFile(drop);
+                ModuleResourceManager::S_LoadFile(drop);
             }
             ImGui::EndDragDropTarget();
         }

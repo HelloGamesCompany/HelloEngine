@@ -38,7 +38,5 @@ private:
 
 	SDL_Window* _window = nullptr;
 
-	ModuleResourceManager* _resource = nullptr;
-
 	bool _isWindowFocus = false;
 };

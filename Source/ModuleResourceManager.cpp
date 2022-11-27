@@ -11,6 +11,9 @@
 #include "FileTree.hpp"
 #include "File_Model.h"
 
+std::map<std::string, Resource*> ModuleResourceManager::loadedResources;
+FileTree* ModuleResourceManager::fileTree = nullptr;
+
 ModuleResourceManager::ModuleResourceManager()
 {
 	Console::S_Log("Initialaizing DevIL.");
@@ -56,7 +59,7 @@ bool ModuleResourceManager::Init()
 	return true;
 }
 
-void ModuleResourceManager::ImportFile(const std::string& filePath)
+void ModuleResourceManager::S_ImportFile(const std::string& filePath)
 {
 	ResourceType type = ModuleFiles::S_GetResourceType(filePath);
 
@@ -91,7 +94,7 @@ void ModuleResourceManager::ImportFile(const std::string& filePath)
 	RELEASE_ARRAY(buffer);
 }
 
-Resource* ModuleResourceManager::LoadFile(const std::string& filePath)
+Resource* ModuleResourceManager::S_LoadFile(const std::string& filePath)
 {
 	ResourceType type = ModuleFiles::S_GetResourceType(filePath);
 
@@ -139,28 +142,22 @@ Resource* ModuleResourceManager::LoadFile(const std::string& filePath)
 	return nullptr;
 }
 
-bool ModuleResourceManager::IsFileLoaded(const std::string& fileName)
+bool ModuleResourceManager::S_IsFileLoaded(const std::string& fileName)
 {
 	return loadedResources.find(fileName) != loadedResources.end();
 }
 
-bool ModuleResourceManager::IsFileLoaded(const char* fileName)
-{
-	return loadedResources.find(fileName) != loadedResources.end();
-}
-
-bool ModuleResourceManager::GetFileTree(FileTree*& tree)
+bool ModuleResourceManager::S_GetFileTree(FileTree*& tree)
 {
 	if(fileTree)
 	{
 		tree = fileTree;
 		return true;
 	}
-
 	return false;
 }
 
-void ModuleResourceManager::UpdateFileTree()
+void ModuleResourceManager::S_UpdateFileTree()
 {
 	ModuleFiles::S_UpdateFileTree(fileTree);
 }

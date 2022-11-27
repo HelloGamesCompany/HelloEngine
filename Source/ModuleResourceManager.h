@@ -43,23 +43,21 @@ public:
 	/// <summary>
 	/// Import a file from assets to our desired file format.
 	/// </summary>
-	void ImportFile(const std::string& filePath);
+	static void S_ImportFile(const std::string& filePath);
 
-	Resource* LoadFile(const std::string& filePath);
+	static Resource* S_LoadFile(const std::string& filePath);
 
-	bool IsFileLoaded(const std::string& fileName);
+	static bool S_IsFileLoaded(const std::string& fileName);
 
-	bool IsFileLoaded(const char* fileName);
+	static bool S_GetFileTree(FileTree*& tree);
 
-	bool GetFileTree(FileTree*& tree);
-
-	void UpdateFileTree();
+	static void S_UpdateFileTree();
 
 	static void S_DeleteMetaFile(const std::string& file);
 
 public:
-	std::map<std::string, Resource*> loadedResources;
+	static std::map<std::string, Resource*> loadedResources;
 
 private:
-	FileTree* fileTree = nullptr;
+	static FileTree* fileTree;
 };

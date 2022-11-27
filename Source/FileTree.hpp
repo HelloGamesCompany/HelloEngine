@@ -23,7 +23,7 @@ struct File
 			unsigned long long modifyTime = ModuleFiles::S_CheckFileLastModify(path);
 			if (metaFile.lastModified != modifyTime)
 			{
-				Application::Instance()->resource->ImportFile(path);
+				ModuleResourceManager::S_ImportFile(path);
 
 				metaFile = ModuleFiles::S_LoadMeta(metapath);
 			}
@@ -35,7 +35,7 @@ struct File
 			if (ModuleFiles::S_GetResourceType(path) == ResourceType::UNDEFINED)
 				return;
 
-			Application::Instance()->resource->ImportFile(path);
+			ModuleResourceManager::S_ImportFile(path);
 
 			std::string metapath = path + ".helloMeta";
 			metaFile = ModuleFiles::S_LoadMeta(metapath);

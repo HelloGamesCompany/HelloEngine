@@ -75,7 +75,7 @@ void ImWindowScene::Update()
 			{
 				const std::string drop = *(std::string*)payload->Data;
 
-				Application::Instance()->resource->LoadFile(drop);
+				ModuleResourceManager::S_LoadFile(drop);
 
 				std::string popUpmessage = "Loaded Mesh: " + drop;
 				Application::Instance()->layers->editor->AddPopUpMessage(popUpmessage);

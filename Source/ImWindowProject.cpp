@@ -17,9 +17,7 @@ ImWindowProject::ImWindowProject()
 
     _window = _app->window->window;
 
-    _resource = _app->resource;
-
-    _resource->GetFileTree(_fileTree);
+    ModuleResourceManager::S_GetFileTree(_fileTree);
 
     // Init rootNode & currentNode
     UpdateFileNodes();
@@ -238,24 +236,14 @@ void ImWindowProject::OnDrop(const std::string filePath)
     // File case
     File file = _fileTree->_currentDir->files.emplace_back(relativePath, ModuleFiles::S_GetFileName(pathNormalized), _fileTree->_currentDir);
 
-    //std::string file = currentNode->path + ModuleFiles::S_GetFileName(pathNormalized, true);
-
-    _resource->ImportFile(file.path);
-
-    // Folder case
-
-    //RELEASE(fileTree);
-
-    //fileTree = ModuleFiles::S_GetFileTree("Assets");
-
-    //currentNode = fileTree;
+    ModuleResourceManager::S_ImportFile(file.path);
 }
 
 void ImWindowProject::UpdateFileNodes()
 {
-    _resource->UpdateFileTree();
+    ModuleResourceManager::S_UpdateFileTree();
 
-    if (_resource->GetFileTree(_fileTree))
+    if (ModuleResourceManager::S_GetFileTree(_fileTree))
     {
         _fileTree->GetRootDir(_rootNode);
     }
@@ -273,14 +261,11 @@ void ImWindowProject::CheckWindowFocus()
             _isWindowFocus = true;
 
             UpdateFileNodes();
-
-            //std::cout << "FOCUS" << std::endl;
         }
     }
     // When Global Windows has deselected -> just the instante
     else if (_isWindowFocus)
     {
         _isWindowFocus = false;
-        //std::cout << "NO FOCUS" << std::endl;
     }
 }
