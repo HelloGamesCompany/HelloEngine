@@ -5,6 +5,7 @@
 #include "Texture.h"
 #include "TextureManager.h"
 #include "ModuleFiles.h"
+#include "ModuleResourceManager.h"
 
 std::string TextureImporter::ImportImage(const std::string& fileName, char* buffer, uint size)
 {
@@ -37,14 +38,8 @@ std::string TextureImporter::ImportImage(const std::string& fileName, char* buff
 	return ddsFilePath;
 }
 
-uint TextureImporter::Load(char* buffer, int size, int* width, int* heigth, std::string&& filename)
+void TextureImporter::Load(char* buffer, int size, ResourceTexture* resource)
 {
-	//Check if the given texture has been already loaded
-	if (TextureManager::usedPaths.find(filename) != TextureManager::usedPaths.end())
-	{
-		return TextureManager::usedPaths[filename]; // If this texture path was already loaded, return the loaded texture.
-	}
-
 	ILuint ImgId = 0;
 	ilGenImages(1, &ImgId);
 	ilBindImage(ImgId);
@@ -55,47 +50,40 @@ uint TextureImporter::Load(char* buffer, int size, int* width, int* heigth, std:
 
 	uint error = ilGetError();
 
-	Texture engineTexture;
-
-	engineTexture.width = ilGetInteger(IL_IMAGE_WIDTH);
-	engineTexture.height = ilGetInteger(IL_IMAGE_HEIGHT);
-	engineTexture.name = filename;
+	resource->width = ilGetInteger(IL_IMAGE_WIDTH);
+	resource->height = ilGetInteger(IL_IMAGE_HEIGHT);
+	resource->name = resource->resourcePath;
 
 	ILubyte* bytes = ilGetData();
 
-	for (int i = 0; i < engineTexture.height; i++)
+	for (int i = 0; i < resource->height; i++)
 	{
-		if (engineTexture.isTransparent)
+		if (resource->isTransparent)
 			break;
-		for (int j = 0; j < engineTexture.width; j++)
+		for (int j = 0; j < resource->width; j++)
 		{
-			if ((int)bytes[(i * engineTexture.width + j) * 4 + 3] != 255)
+			if ((int)bytes[(i * resource->width + j) * 4 + 3] != 255)
 			{
-				engineTexture.isTransparent = true;
+				resource->isTransparent = true;
 				break;
 			}
 		}
 	}
 
-	glGenTextures(1, &engineTexture.OpenGLID);
+	glGenTextures(1, &resource->OpenGLID);
 
 	//TODO: Generate mipmaps and use best settings
-	glBindTexture(GL_TEXTURE_2D, engineTexture.OpenGLID);
+	glBindTexture(GL_TEXTURE_2D, resource->OpenGLID);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	glGenerateMipmap(GL_TEXTURE_2D);
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, engineTexture.width, engineTexture.height, 0, GL_RGBA, GL_UNSIGNED_BYTE, bytes);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, resource->width, resource->height, 0, GL_RGBA, GL_UNSIGNED_BYTE, bytes);
 	glBindTexture(GL_TEXTURE_2D, 0);
 
 	ilDeleteImages(1, &ImgId);
 	glBindTexture(GL_TEXTURE_2D, 0);
-
-	TextureManager::loadedTextures[engineTexture.OpenGLID] = engineTexture; // Add loaded texture inside TextureManager.
-	TextureManager::usedPaths[filename] = engineTexture.OpenGLID;
-
-	return engineTexture.OpenGLID;
 }
 
 uint TextureImporter::CheckerImage()

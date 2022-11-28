@@ -3,6 +3,7 @@
 #include "Texture.h"
 #include "Mesh.h"
 #include "MeshRenderComponent.h"
+#include "ModuleResourceManager.h"
 
 class MaterialComponent : public Component
 {
@@ -24,7 +25,9 @@ private:
 	MeshRenderComponent* meshRenderer = nullptr;
 
 private:
-	void ChangeTexture(uint textureID); // This should receive a Resource! Not just the texture id.
+	void ChangeTexture(ResourceTexture* resource); 
+	void ChangeTexture(int ID); 
+
 	int textureID = -1;
 };
 

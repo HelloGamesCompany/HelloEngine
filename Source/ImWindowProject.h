@@ -39,6 +39,8 @@ private:
 
 	std::string _dragPath = "";
 
+	uint _dragUID = 0;
+
 	SDL_Window* _window = nullptr;
 
 	bool _isWindowFocus = false;

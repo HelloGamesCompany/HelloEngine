@@ -12,6 +12,7 @@
 
 
 std::map<std::string, Resource*> ModuleResourceManager::loadedResources;
+std::map<uint, Resource*> ModuleResourceManager::resources;
 FileTree* ModuleResourceManager::fileTree = nullptr;
 
 ModuleResourceManager::ModuleResourceManager()
@@ -27,10 +28,17 @@ ModuleResourceManager::ModuleResourceManager()
 	{
 		Console::S_Log("Wrong DevIL version detected.");
 	}
+
 }
 
 ModuleResourceManager::~ModuleResourceManager()
 {
+	for (auto& resource1 : resources)
+	{
+		RELEASE(resource1.second);
+	}
+	resources.clear();
+
 	for (auto& resource : loadedResources)
 	{
 		RELEASE(resource.second);
@@ -120,6 +128,36 @@ void ModuleResourceManager::S_ReImportFile(const std::string& filePath, Resource
 	RELEASE_ARRAY(buffer);
 }
 
+void ModuleResourceManager::S_LoadFileIntoResource(Resource* resource)
+{
+	char* buffer = nullptr;
+	uint size = ModuleFiles::S_Load(resource->resourcePath, &buffer);
+
+	switch (resource->type)
+	{
+	case ResourceType::MESH:
+	{
+		// When loading a Model, we need to load each mesh of the model into separate Mesh Resources.
+		// A meta file of a model IS NOT a ResourceMesh instance.
+		// When loading a Model, all Resources of that model get loaded, but there is no ResourceModel.
+		ResourceMesh* meshRes = (ResourceMesh*)resource;
+		/*ResourceMesh* resource = new ResourceMesh();
+		resource->meshParent = MeshImporter::LoadMesh(filePath);
+		RELEASE_ARRAY(buffer);
+		loadedResources[ModuleFiles::S_GetFileName(filePath, true)] = resource;
+		return resource;*/
+	}
+	break;
+	case ResourceType::TEXTURE:
+	{
+		ResourceTexture* textureRes = (ResourceTexture*)resource;
+		TextureImporter::Load(buffer, size, textureRes);
+	}
+	}
+
+	RELEASE_ARRAY(buffer);
+}
+
 Resource* ModuleResourceManager::S_LoadFile(const std::string& filePath)
 {
 	ResourceType type = ModuleFiles::S_GetResourceType(filePath);
@@ -129,8 +167,6 @@ Resource* ModuleResourceManager::S_LoadFile(const std::string& filePath)
 		Console::S_Log("Tried to load an undefined file. Filename: " + filePath);
 		return nullptr;
 	}
-
-	// TODO: Create Meta object that knows where this resource will be inside Resources file.
 
 	char* buffer = nullptr;
 	uint size = ModuleFiles::S_Load(filePath, &buffer);
@@ -156,7 +192,7 @@ Resource* ModuleResourceManager::S_LoadFile(const std::string& filePath)
 		}
 
 		ResourceTexture* resource = new ResourceTexture();
-		resource->textureInfo.OpenGLID = TextureImporter::Load(buffer, size, nullptr, nullptr, filePath.c_str());
+		TextureImporter::Load(buffer, size, resource);
 		RELEASE_ARRAY(buffer);
 		loadedResources[ModuleFiles::S_GetFileName(filePath, true)] = resource;
 		return resource;
@@ -217,6 +253,46 @@ void ModuleResourceManager::S_DeleteMetaFile(const std::string& file, bool onlyR
 	}
 	if (!onlyResources)
 		ModuleFiles::S_Delete(file);
+}
+
+void ModuleResourceManager::S_CreateResource(const MetaFile& metaFile)
+{
+	if (resources.count(metaFile.UID) != 0)
+		return;
+
+	switch (metaFile.type)
+	{
+	case ResourceType::MESH:
+	{
+		resources[metaFile.UID] = new ResourceMesh();
+	}
+	break;
+	case ResourceType::TEXTURE:
+	{
+		resources[metaFile.UID] = new ResourceTexture();
+	}
+	break;
+	default:
+		Console::S_Log("Cannot create a resource of an undefined meta file!");
+		return;
+	}
+
+	resources[metaFile.UID]->referenceCount = 0;
+	resources[metaFile.UID]->resourcePath = metaFile.resourcePath;
+	resources[metaFile.UID]->type = metaFile.type;
+}
+
+Resource* ModuleResourceManager::S_LoadResource(uint UID)
+{
+	Resource* ret = resources[UID];
+	
+	// Load resource
+	if (ret->referenceCount == 0)
+		S_LoadFileIntoResource(ret);
+		
+	ret->referenceCount++;
+
+	return ret; // We assume we always find a resource.
 }
 
 void ModuleResourceManager::GetResourcePath(ModelNode& node, std::vector<std::string>& vector)

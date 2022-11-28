@@ -375,7 +375,7 @@ void MeshImporter::ProcessNewMesh(aiMesh* mesh, const aiScene* scene, GameObject
 			if (ModuleResourceManager::S_IsFileLoaded(ddsName))
 			{
 				ResourceTexture* textureResource = (ResourceTexture*)Application::Instance()->resource->loadedResources[ddsName];
-				textureID = textureResource->textureInfo.OpenGLID;
+				textureID = textureResource->OpenGLID;
 			}
 			else
 			{
@@ -404,7 +404,7 @@ void MeshImporter::ProcessNewMesh(aiMesh* mesh, const aiScene* scene, GameObject
 
 					ResourceTexture* textureResource = (ResourceTexture*)resource;
 
-					textureID = textureResource->textureInfo.OpenGLID;
+					textureID = textureResource->OpenGLID;
 				}
 				else
 				{

@@ -1,4 +1,7 @@
 #pragma once
+
+class ResourceTexture;
+
 class TextureImporter
 {
 public:
@@ -8,7 +11,7 @@ public:
 	static std::string ImportImage(const std::string& filename, char* buffer, uint size);
 
 	// Loads a texture from DDS file to OpenGL and returns its ID.
-	static uint Load(char* buffer, int size, int* w, int* h, std::string&& filename);
+	static void Load(char* buffer, int size, ResourceTexture* resource);
 
 	static uint CheckerImage();
 };

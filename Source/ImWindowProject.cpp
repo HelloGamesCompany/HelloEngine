@@ -236,19 +236,16 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
                 if (type == ResourceType::TEXTURE)
                 {
                     // Find resource path
-
-                    _dragPath = ModuleFiles::S_GetFileName(_fileTree->_currentDir->files[i].name, false);
-
-                    _dragPath = _fileTree->_currentDir->files[i].metaFile.resourcePath;
+                    _dragUID = _fileTree->_currentDir->files[i].metaFile.UID;
 
                     // Set payload to carry the index of our item (could be anything)
-                    ImGui::SetDragDropPayload("Texture", &_dragPath, sizeof(std::string));
+                    ImGui::SetDragDropPayload("Texture", &_dragUID, sizeof(uint));
                 }
                 else
                 {
-                    _dragPath = _fileTree->_currentDir->path + _fileTree->_currentDir->files[i].name;
+                    _dragUID = _fileTree->_currentDir->files[i].metaFile.UID;
 
-                    ImGui::SetDragDropPayload("Mesh", &_dragPath, sizeof(std::string));
+                    ImGui::SetDragDropPayload("Mesh", &_dragUID, sizeof(uint));
                 }
                 ImGui::EndDragDropSource();
             }

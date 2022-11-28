@@ -22,15 +22,24 @@ Mesh& MaterialComponent::GetMesh()
 	return meshRenderer->GetMesh();
 }
 
-void MaterialComponent::ChangeTexture(uint textureID)
+void MaterialComponent::ChangeTexture(ResourceTexture* resource)
 {
-	this->textureID = textureID;
+	this->textureID = resource->OpenGLID;
 
 	// TODO: Check if the given RESOURCE has a transparent texture.
 	//meshRenderer->SetMeshAsTransparent();
 
-	GetMesh().textureID = textureID;
+	if (resource->isTransparent)
+		meshRenderer->SetMeshAsTransparent();
 
+	GetMesh().textureID = textureID;
+}
+
+void MaterialComponent::ChangeTexture(int ID)
+{
+	this->textureID = ID;
+
+	GetMesh().textureID = textureID;
 }
 
 void MaterialComponent::OnEditor()
@@ -83,15 +92,11 @@ void MaterialComponent::OnEditor()
 			if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("Texture"))
 			{
 				//Drop asset from Asset window to scene window
-				const std::string drop = *(std::string*)payload->Data;
+				const uint* drop = (uint*)payload->Data;
 
-				Resource* resource = ModuleResourceManager::S_LoadFile(drop);
+				ResourceTexture* resource = (ResourceTexture*)ModuleResourceManager::S_LoadResource(*drop);
 
-				if (resource->type != ResourceType::TEXTURE) return;
-
-				ResourceTexture* textureResource = (ResourceTexture*)resource;
-
-				ChangeTexture(textureResource->textureInfo.OpenGLID);
+				ChangeTexture(resource->OpenGLID);
 			}
 			ImGui::EndDragDropTarget();
 		}

@@ -14,6 +14,7 @@ class Directory;
 enum class ResourceType
 {
 	UNDEFINED,
+	MODEL,
 	MESH,
 	TEXTURE
 };

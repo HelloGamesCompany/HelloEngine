@@ -383,7 +383,9 @@ bool ModuleFiles::UpdateFileNode(Directory*& dir, Directory*& lastDir)
 
 				if (!S_Exists(fileDir))
 					ModuleResourceManager::S_DeleteMetaFile(dirCheck);
-				
+				else
+					ModuleResourceManager::S_CreateResource(S_LoadMeta(dirCheck));
+
 				continue;
 			}
 

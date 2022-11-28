@@ -13,6 +13,8 @@ public:
 	Resource() {}
 	virtual ~Resource() {}
 	ResourceType type = ResourceType::UNDEFINED;
+	uint referenceCount = 0;
+	std::string resourcePath = "";
 };
 
 class ResourceTexture : public Resource
@@ -20,7 +22,20 @@ class ResourceTexture : public Resource
 public:
 	ResourceTexture() { type = ResourceType::TEXTURE; }
 	~ResourceTexture() {}
-	Texture textureInfo;
+	std::string name = "";
+	uint OpenGLID = 0;
+	int width = 0;
+	int height = 0;
+	bool isTransparent = false;
+};
+
+class ResourceModel : public Resource
+{
+public:
+	ResourceModel() { type = ResourceType::MODEL; };
+	~ResourceModel() {};
+
+	ModelNode modelInfo;
 };
 
 class ResourceMesh : public Resource
@@ -50,6 +65,8 @@ public:
 
 	static Resource* S_LoadFile(const std::string& filePath);
 
+	static void S_LoadFileIntoResource(Resource* resource);
+
 	static bool S_IsFileLoaded(const std::string& fileName);
 
 	static bool S_GetFileTree(FileTree*& tree);
@@ -61,11 +78,17 @@ public:
 	/// </summary>
 	static void S_DeleteMetaFile(const std::string& file, bool onlyResources = false);
 
+	static void S_CreateResource(const MetaFile& metaFile);
+
+	static Resource* S_LoadResource(uint UID);
+
 private:
 	static void GetResourcePath(ModelNode& node, std::vector<std::string>& vector);
 
 public:
 	static std::map<std::string, Resource*> loadedResources;
+
+	static std::map<uint, Resource*> resources;
 
 private:
 	static FileTree* fileTree;
