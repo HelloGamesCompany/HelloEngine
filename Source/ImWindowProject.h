@@ -3,6 +3,7 @@
 #include "imgui.h"
 
 class FileTree;
+class File;
 struct Directory;
 
 class ImWindowProject : public ImWindow
@@ -28,9 +29,11 @@ private:
 private:
 	Application* _app = nullptr;
 
-	ImGuiTextFilter filter;
+	ImGuiTextFilter _filter;
 
 	Directory* _rootNode = nullptr;
+
+	File* _deleteFile = nullptr;
 
 	FileTree* _fileTree = nullptr;
 

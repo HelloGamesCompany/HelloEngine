@@ -19,6 +19,9 @@ ImWindowProject::ImWindowProject()
 
     ModuleResourceManager::S_GetFileTree(_fileTree);
 
+    // Init delete object;
+    _deleteFile = nullptr;
+
     // Init rootNode & currentNode
     UpdateFileNodes();
 
@@ -92,6 +95,20 @@ void ImWindowProject::Update()
         }
     }
     ImGui::End();
+
+    if (_deleteFile)
+    {
+        ModuleFiles::S_Delete(_deleteFile->path);
+
+        if (_deleteFile->metaPath != "none")
+        {
+            ModuleResourceManager::S_DeleteMetaFile(_deleteFile->metaPath);
+        }
+
+        _deleteFile = nullptr;
+
+        UpdateFileNodes();
+    }
 }
 
 void ImWindowProject::DrawTreeNodePanelLeft(Directory*& newDir, Directory* node, const bool drawFiles) const
@@ -198,7 +215,10 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
         if (ImGui::BeginPopupContextItem()) // <-- use last item id as popup id
         {
             if (ImGui::Button("Delete"))
+            {
+                _deleteFile = &_fileTree->_currentDir->files[i];
                 ImGui::CloseCurrentPopup();
+            }              
             ImGui::EndPopup();
         }
 

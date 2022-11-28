@@ -11,13 +11,15 @@ struct Directory;
 
 struct File
 {
+	File() {};
+
 	File(std::string path, std::string name, Directory* parent) :path(path), name(name), parent(parent)
 	{
 		// Check if this file has a .helloMeta file with the same name.
 		if (ModuleFiles::S_CheckMetaExist(path))
 		{
-			std::string metapath = path + ".helloMeta";
-			metaFile = ModuleFiles::S_LoadMeta(metapath);
+			metaPath = path + ".helloMeta";
+			metaFile = ModuleFiles::S_LoadMeta(metaPath);
 
 			// Check if this meta file has a different modify time than the file.
 			unsigned long long modifyTime = ModuleFiles::S_CheckFileLastModify(path);
@@ -25,7 +27,7 @@ struct File
 			{
 				ModuleResourceManager::S_ImportFile(path);
 
-				metaFile = ModuleFiles::S_LoadMeta(metapath);
+				metaFile = ModuleFiles::S_LoadMeta(metaPath);
 			}
 		}
 		else
@@ -37,11 +39,12 @@ struct File
 
 			ModuleResourceManager::S_ImportFile(path);
 
-			std::string metapath = path + ".helloMeta";
-			metaFile = ModuleFiles::S_LoadMeta(metapath);
+			metaPath = path + ".helloMeta";
+			metaFile = ModuleFiles::S_LoadMeta(metaPath);
 		}
 	};
 	std::string path;
+	std::string metaPath = "none";
 	std::string name;
 	Directory* parent = nullptr;
 	MetaFile metaFile;
