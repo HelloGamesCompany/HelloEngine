@@ -93,6 +93,33 @@ void ModuleResourceManager::S_ImportFile(const std::string& filePath)
 	RELEASE_ARRAY(buffer);
 }
 
+void ModuleResourceManager::S_ReImportFile(const std::string& filePath, ResourceType resourceType)
+{
+	char* buffer = nullptr;
+	uint size = ModuleFiles::S_Load(filePath, &buffer);
+
+	// TODO: Restruct Inport parameters
+	switch (resourceType)
+	{
+	case ResourceType::MESH:
+	{
+		std::string path = MeshImporter::ImportModel(filePath);
+		ModuleFiles::S_UpdateMetaData(filePath, path);
+	}
+	break;
+	case ResourceType::TEXTURE:
+	{
+		std::string path = TextureImporter::ImportImage(ModuleFiles::S_GetFileName(filePath, false), buffer, size);
+		ModuleFiles::S_UpdateMetaData(filePath, path);
+	}
+	break;
+	default:
+		break;
+	}
+
+	RELEASE_ARRAY(buffer);
+}
+
 Resource* ModuleResourceManager::S_LoadFile(const std::string& filePath)
 {
 	ResourceType type = ModuleFiles::S_GetResourceType(filePath);
@@ -161,7 +188,7 @@ void ModuleResourceManager::S_UpdateFileTree()
 	ModuleFiles::S_UpdateFileTree(fileTree);
 }
 
-void ModuleResourceManager::S_DeleteMetaFile(const std::string& file)
+void ModuleResourceManager::S_DeleteMetaFile(const std::string& file, bool onlyResources)
 {
 	MetaFile meta = ModuleFiles::S_LoadMeta(file);
 
@@ -188,7 +215,8 @@ void ModuleResourceManager::S_DeleteMetaFile(const std::string& file)
 		}
 		break;
 	}
-	ModuleFiles::S_Delete(file);
+	if (!onlyResources)
+		ModuleFiles::S_Delete(file);
 }
 
 void ModuleResourceManager::GetResourcePath(ModelNode& node, std::vector<std::string>& vector)

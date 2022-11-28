@@ -8,7 +8,7 @@
 
 std::string TextureImporter::ImportImage(const std::string& fileName, char* buffer, uint size)
 {
-	std::string ddsFilePath = "Resources/Textures/" + fileName + ".dds";
+	std::string ddsFilePath = "Resources/Textures/" + std::to_string(HelloUUID::GenerateUUID()) + ".dds";
 
 	ILuint ImgId = 0;
 	ilGenImages(1, &ImgId);

@@ -46,6 +46,8 @@ public:
 	/// </summary>
 	static void S_ImportFile(const std::string& filePath);
 
+	static void S_ReImportFile(const std::string& filePath, ResourceType resourceType);
+
 	static Resource* S_LoadFile(const std::string& filePath);
 
 	static bool S_IsFileLoaded(const std::string& fileName);
@@ -54,7 +56,10 @@ public:
 
 	static void S_UpdateFileTree();
 
-	static void S_DeleteMetaFile(const std::string& file);
+	/// <summary>
+	/// Delete meta file and the resources attached to it. If you want to only destroy the resources, mark bool as true.
+	/// </summary>
+	static void S_DeleteMetaFile(const std::string& file, bool onlyResources = false);
 
 private:
 	static void GetResourcePath(ModelNode& node, std::vector<std::string>& vector);

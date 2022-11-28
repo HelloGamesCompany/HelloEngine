@@ -25,7 +25,7 @@ struct File
 			unsigned long long modifyTime = ModuleFiles::S_CheckFileLastModify(path);
 			if (metaFile.lastModified != modifyTime)
 			{
-				ModuleResourceManager::S_ImportFile(path);
+				ModuleResourceManager::S_ReImportFile(path, metaFile.type);
 
 				metaFile = ModuleFiles::S_LoadMeta(metaPath);
 			}

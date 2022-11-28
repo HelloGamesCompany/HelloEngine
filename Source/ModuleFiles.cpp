@@ -538,3 +538,32 @@ bool ModuleFiles::S_CreateMetaData(const std::string& file, const std::string& r
 
 }
 
+bool ModuleFiles::S_UpdateMetaData(const std::string& file, const std::string& resourcePath)
+{
+	std::string metaFile = file + ".helloMeta";
+
+	// Destroy resources attached to this meta file
+	ModuleResourceManager::S_DeleteMetaFile(metaFile, true);
+
+	char* data = nullptr;
+	ModuleFiles::S_Load(metaFile, &data);
+
+	// Create json object
+	json j = json::parse(data);
+
+	// Get modify time
+	time_t currentTime = S_CheckFileLastModify(file);
+
+	// Update json values
+	j["Last modify"] = currentTime;
+
+	j["Resource path"] = resourcePath;
+
+	// write to string
+	std::string meta = j.dump();
+
+	ModuleFiles::S_Save(metaFile, &meta[0], meta.size(), false);
+
+	return true;
+}
+

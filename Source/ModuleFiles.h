@@ -116,7 +116,7 @@ public:
 
 	static bool S_CreateMetaData(const std::string& file, const std::string& resourcePath);
 
-
+	static bool S_UpdateMetaData(const std::string& file, const std::string& resourcePath);
 };
 
 #endif // !__MODULE_PHYSFS_H__
