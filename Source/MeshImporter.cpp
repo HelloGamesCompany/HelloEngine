@@ -149,14 +149,34 @@ std::string MeshImporter::ProcessMesh(aiMesh* mesh, const aiScene* scene, std::s
 	return meshInfo.SaveToBinaryFile(fileName);
 }
 
-GameObject* MeshImporter::LoadModel(std::string path)
+GameObject* MeshImporter::LoadModelIntoResource(ResourceModel* resource)
 {
 	returnGameObject = nullptr;
 	// Read root node from JSON
-	ModelNode modelRootNode;
-	modelRootNode.ReadFromJSON(path);
+	resource->modelInfo.ReadFromJSON(resource->resourcePath);
 
-	LoadNode(modelRootNode, nullptr);
+	// Process root node recursively, checking children and meshes.
+	// When get into a mesh, process its mesh file.
+	// Every node and every mesh should be an independent GameObject, but respecting original hierarchy.
+	// Returns a pointer to the root game object of this model.
+	return returnGameObject;
+}
+
+GameObject* MeshImporter::LoadModelIntoScene(ResourceModel* resource)
+{
+	returnGameObject = nullptr;
+	LoadNode(resource->modelInfo, nullptr);
+	return returnGameObject;
+}
+
+GameObject* MeshImporter::LoadModel(const std::string& path)
+{
+	returnGameObject = nullptr;
+	// Read root node from JSON
+	ModelNode rootNode;
+	rootNode.ReadFromJSON(path);
+
+	LoadNode(rootNode, nullptr);
 	// Process root node recursively, checking children and meshes.
 	// When get into a mesh, process its mesh file.
 	// Every node and every mesh should be an independent GameObject, but respecting original hierarchy.

@@ -229,7 +229,7 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
 
         // Drag file
         ResourceType type = ModuleFiles::S_GetResourceType(_fileTree->_currentDir->files[i].name);
-        if (type == ResourceType::TEXTURE || type == ResourceType::MESH)
+        if (type == ResourceType::TEXTURE || type == ResourceType::MODEL)
         {
             if (ImGui::BeginDragDropSource(ImGuiDragDropFlags_None))
             {
@@ -245,7 +245,7 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
                 {
                     _dragUID = _fileTree->_currentDir->files[i].metaFile.UID;
 
-                    ImGui::SetDragDropPayload("Mesh", &_dragUID, sizeof(uint));
+                    ImGui::SetDragDropPayload("Model", &_dragUID, sizeof(uint));
                 }
                 ImGui::EndDragDropSource();
             }

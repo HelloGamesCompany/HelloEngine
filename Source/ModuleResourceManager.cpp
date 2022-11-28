@@ -82,7 +82,7 @@ void ModuleResourceManager::S_ImportFile(const std::string& filePath)
 	// TODO: Restruct Inport parameters
 	switch (type)
 	{
-	case ResourceType::MESH:
+	case ResourceType::MODEL:
 	{
 		std::string path = MeshImporter::ImportModel(filePath);
 		ModuleFiles::S_CreateMetaData(filePath, path);
@@ -109,7 +109,7 @@ void ModuleResourceManager::S_ReImportFile(const std::string& filePath, Resource
 	// TODO: Restruct Inport parameters
 	switch (resourceType)
 	{
-	case ResourceType::MESH:
+	case ResourceType::MODEL:
 	{
 		std::string path = MeshImporter::ImportModel(filePath);
 		ModuleFiles::S_UpdateMetaData(filePath, path);
@@ -135,17 +135,13 @@ void ModuleResourceManager::S_LoadFileIntoResource(Resource* resource)
 
 	switch (resource->type)
 	{
-	case ResourceType::MESH:
+	case ResourceType::MODEL:
 	{
 		// When loading a Model, we need to load each mesh of the model into separate Mesh Resources.
 		// A meta file of a model IS NOT a ResourceMesh instance.
 		// When loading a Model, all Resources of that model get loaded, but there is no ResourceModel.
-		ResourceMesh* meshRes = (ResourceMesh*)resource;
-		/*ResourceMesh* resource = new ResourceMesh();
-		resource->meshParent = MeshImporter::LoadMesh(filePath);
-		RELEASE_ARRAY(buffer);
-		loadedResources[ModuleFiles::S_GetFileName(filePath, true)] = resource;
-		return resource;*/
+		ResourceModel* meshRes = (ResourceModel*)resource;
+		MeshImporter::LoadModelIntoResource(meshRes);
 	}
 	break;
 	case ResourceType::TEXTURE:
@@ -265,6 +261,11 @@ void ModuleResourceManager::S_CreateResource(const MetaFile& metaFile)
 	case ResourceType::MESH:
 	{
 		resources[metaFile.UID] = new ResourceMesh();
+	}
+	break;
+	case ResourceType::MODEL:
+	{
+		resources[metaFile.UID] = new ResourceModel();
 	}
 	break;
 	case ResourceType::TEXTURE:

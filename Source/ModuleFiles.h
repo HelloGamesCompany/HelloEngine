@@ -14,9 +14,9 @@ class Directory;
 enum class ResourceType
 {
 	UNDEFINED,
-	MODEL,
 	MESH,
-	TEXTURE
+	TEXTURE,
+	MODEL,
 };
 
 struct MetaFile

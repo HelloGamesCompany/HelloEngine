@@ -10,6 +10,7 @@
 
 class GameObject;
 struct ModelNode;
+class ResourceModel;
 
 struct MeshCacheData
 {
@@ -33,7 +34,11 @@ public:
 	// Returns path to the model custom file.
 	static std::string ImportModel(std::string path);
 
-	static GameObject* LoadModel(std::string path);
+	static GameObject* LoadModelIntoResource(ResourceModel* resource);
+
+	static GameObject* LoadModelIntoScene(ResourceModel* resource);
+
+	static GameObject* LoadModel(const std::string& path);
 
 	static GameObject* LoadMesh(std::string path); // This function loads all the information in the mesh and creates all necessary Gameobjects in the process
 

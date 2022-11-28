@@ -5,6 +5,7 @@
 #include "ModuleLayers.h"
 #include "LayerEditor.h"
 #include "ModuleRenderer3D.h"
+#include "MeshImporter.h"
 
 ImWindowScene::ImWindowScene()
 {
@@ -86,13 +87,17 @@ void ImWindowScene::Update()
 		// Create Droped mesh
 		if (ImGui::BeginDragDropTarget())
 		{
-			if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("Mesh"))
+			if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("Model"))
 			{
-				const std::string drop = *(std::string*)payload->Data;
+				//Drop asset from Asset window to scene window
+				const uint* drop = (uint*)payload->Data;
 
-				ModuleResourceManager::S_LoadFile(drop);
 
-				std::string popUpmessage = "Loaded Mesh: " + drop;
+				ResourceModel* resource = (ResourceModel*)ModuleResourceManager::S_LoadResource(*drop);
+
+				MeshImporter::LoadModelIntoScene(resource);
+
+				std::string popUpmessage = "Loaded Mesh: ";
 				Application::Instance()->layers->editor->AddPopUpMessage(popUpmessage);
 
 			}
