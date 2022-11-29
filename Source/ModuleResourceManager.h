@@ -12,6 +12,18 @@ class Resource
 public:
 	Resource() {}
 	virtual ~Resource() {}
+
+	void Dereference()
+	{
+		referenceCount--;
+		if (referenceCount == 0)
+			UnLoad();
+	}
+protected:
+	virtual void UnLoad() {}
+
+public:
+
 	ResourceType type = ResourceType::UNDEFINED;
 	uint referenceCount = 0;
 	std::string resourcePath = "";
@@ -23,6 +35,19 @@ class ResourceTexture : public Resource
 public:
 	ResourceTexture() { type = ResourceType::TEXTURE; }
 	~ResourceTexture() {}
+
+private:
+	void UnLoad() override
+	{
+		glDeleteTextures(1, &OpenGLID);
+		name = "";
+		OpenGLID = 0;
+		width = 0;
+		height = 0;
+		isTransparent = false;
+	}
+
+public:
 	std::string name = "";
 	uint OpenGLID = 0;
 	int width = 0;

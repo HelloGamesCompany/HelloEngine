@@ -23,6 +23,7 @@ public:
 
 private:
 	MeshRenderComponent* meshRenderer = nullptr;
+	ResourceTexture* currentResource = nullptr;
 
 private:
 	void ChangeTexture(ResourceTexture* resource); 

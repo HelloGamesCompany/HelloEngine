@@ -15,6 +15,8 @@ MaterialComponent::MaterialComponent(GameObject* go) : Component(go)
 
 MaterialComponent::~MaterialComponent()
 {
+	if (currentResource != nullptr)
+		currentResource->Dereference();
 }
 
 Mesh& MaterialComponent::GetMesh()
@@ -26,8 +28,10 @@ void MaterialComponent::ChangeTexture(ResourceTexture* resource)
 {
 	this->textureID = resource->OpenGLID;
 
-	// TODO: Check if the given RESOURCE has a transparent texture.
-	//meshRenderer->SetMeshAsTransparent();
+	if (currentResource != nullptr)
+		currentResource->Dereference();
+
+	currentResource = resource;
 
 	if (resource->isTransparent)
 		meshRenderer->SetMeshAsTransparent();

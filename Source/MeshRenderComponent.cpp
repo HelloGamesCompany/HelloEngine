@@ -121,7 +121,7 @@ std::vector<Vertex>& MeshRenderComponent::GetMeshVertices()
 	if (!isTransparent)
 	{
 		RenderManager* manager = Application::Instance()->renderer3D->modelRender.GetRenderManager(_meshID);
-		return manager->totalVertices;
+		return *manager->totalVertices;
 	}
 	else
 	{
@@ -134,7 +134,7 @@ std::vector<uint>& MeshRenderComponent::GetMeshIndices()
 	if (!isTransparent)
 	{
 		RenderManager* manager = Application::Instance()->renderer3D->modelRender.GetRenderManager(_meshID);
-		return manager->totalIndices;
+		return *manager->totalIndices;
 	}
 	else
 	{

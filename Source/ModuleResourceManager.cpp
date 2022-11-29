@@ -10,7 +10,6 @@
 #include "json.hpp"
 #include "FileTree.hpp"
 
-
 std::map<std::string, Resource*> ModuleResourceManager::loadedResources;
 std::map<uint, Resource*> ModuleResourceManager::resources;
 FileTree* ModuleResourceManager::fileTree = nullptr;

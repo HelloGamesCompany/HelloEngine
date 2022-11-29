@@ -23,8 +23,8 @@ public:
 
 	std::map<uint, Mesh>& GetMap() { return meshes; };
 
-	int GetMeshVertexNum() { return totalVertices.size(); }
-	int GetMeshIndexNum() { return totalIndices.size(); }
+	int GetMeshVertexNum() { return totalVertices->size(); }
+	int GetMeshIndexNum() { return totalIndices->size(); }
 
 	/// Draws an instance with an individual draw call.
 	void DrawInstance(Mesh* mesh, bool useBasicShader = true);
@@ -43,6 +43,9 @@ private:
 	void DrawBoundingBoxAABB(Mesh& mesh);
 	void DrawBoundingBoxOBB(Mesh& mesh);
 
+	void ReallocateMoreMemory();
+	void DestroyDynamicBuffers();
+	void CreateDynamicBuffers();
 
 private:
 	AABB localAABB;
@@ -53,8 +56,8 @@ private:
 	Shader* perMeshShader = nullptr;
 
 	std::map<uint, Mesh> meshes;
-	std::vector<Vertex> totalVertices;
-	std::vector<uint> totalIndices;
+	std::vector<Vertex>* totalVertices = nullptr;
+	std::vector<uint>* totalIndices = nullptr;
 	std::vector<float4x4> modelMatrices;
 	std::vector<float> textureIDs;
 
@@ -91,6 +94,8 @@ private:
 
 	bool drawVertexNormals = false;
 	bool drawFaceNormals = true;
+
+	int instanceNum = 10; // Number of instances available in this RenderManager.
 
 	int IDcounter = 0;
 

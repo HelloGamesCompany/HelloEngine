@@ -13,6 +13,9 @@ RenderManager::RenderManager()
 
 RenderManager::~RenderManager()
 {
+    if (resource != nullptr)
+        resource->Dereference();
+
     RELEASE(instancedShader);
     RELEASE(lineShader);
     RELEASE(localLineShader);
@@ -22,9 +25,12 @@ RenderManager::~RenderManager()
 uint RenderManager::SetMeshInformation(ResourceMesh* resource)
 {
     if (initialized) LOG("Tried to call RenderManager::SetMeshInformation more than once in a single Render Manager instance.");
+    
     // Set this RenderManager Mesh information.
-    this->totalVertices.insert(totalVertices.begin(), resource->meshInfo.vertices.begin(), resource->meshInfo.vertices.end());
-    this->totalIndices.insert(totalIndices.begin(), resource->meshInfo.indices.begin(), resource->meshInfo.indices.end());
+    totalVertices = &resource->meshInfo.vertices;
+    totalIndices = &resource->meshInfo.indices;
+    //this->totalVertices.insert(totalVertices.begin(), resource->meshInfo.vertices.begin(), resource->meshInfo.vertices.end());
+    //this->totalIndices.insert(totalIndices.begin(), resource->meshInfo.indices.begin(), resource->meshInfo.indices.end());
 
     CreateBuffers();
     CreateBasicBuffers();
@@ -108,7 +114,7 @@ void RenderManager::Draw()
         }
 
         // Draw
-        glDrawElementsInstanced(GL_TRIANGLES, totalIndices.size(), GL_UNSIGNED_INT, 0, modelMatrices.size());
+        glDrawElementsInstanced(GL_TRIANGLES, totalIndices->size(), GL_UNSIGNED_INT, 0, modelMatrices.size());
         glBindVertexArray(0);
     }
 
@@ -149,6 +155,10 @@ uint RenderManager::AddMesh(Mesh& mesh)
     meshes[meshID] = mesh;
     meshes[meshID].localAABB = localAABB;
 
+    // If our instance capacity is too low, reserve more memory inside the opengl buffer.
+    if (instanceNum < meshes.size())
+        ReallocateMoreMemory();
+
     return meshID;
 }
 
@@ -173,7 +183,7 @@ void RenderManager::DrawInstance(Mesh* mesh, bool useBasicShader)
 
     glBindVertexArray(BasicVAO);
 
-    glDrawElements(GL_TRIANGLES, totalIndices.size(), GL_UNSIGNED_INT, 0);
+    glDrawElements(GL_TRIANGLES, totalIndices->size(), GL_UNSIGNED_INT, 0);
 
     glBindVertexArray(0);
 
@@ -190,7 +200,7 @@ void RenderManager::CreateBuffers()
     glGenBuffers(1, &VBO);
 
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * totalVertices.size(), &totalVertices[0], GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * totalVertices->size(), &totalVertices->at(0), GL_STATIC_DRAW);
 
     // vertex positions
     glEnableVertexAttribArray(0);
@@ -205,53 +215,12 @@ void RenderManager::CreateBuffers()
     // Create Index Buffer Object
     glGenBuffers(1, &IBO);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(uint) * totalIndices.size(), &totalIndices[0], GL_STATIC_DRAW);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(uint) * totalIndices->size(), &totalIndices->at(0), GL_STATIC_DRAW);
 
     glBindVertexArray(0);
 
-    // Create Model Matrix buffer object
-    glGenBuffers(1, &MBO);
-
-    glBindBuffer(GL_ARRAY_BUFFER, MBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(float4x4) * 1000000, nullptr, GL_DYNAMIC_DRAW); // TODO: This buffer size should dynamicaly change
-
-    glBindVertexArray(VAO);
-
-    // You can't pass an entire matrix, so we go row by row.
-    glEnableVertexAttribArray(1);
-    glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, sizeof(float4x4), (void*)0);
-
-    glEnableVertexAttribArray(2);
-    glVertexAttribPointer(2, 4, GL_FLOAT, GL_FALSE, sizeof(float4x4), (void*)sizeof(float4));
-
-    glEnableVertexAttribArray(3);
-    glVertexAttribPointer(3, 4, GL_FLOAT, GL_FALSE, sizeof(float4x4), (void*)(sizeof(float4) * 2));
-
-    glEnableVertexAttribArray(4);
-    glVertexAttribPointer(4, 4, GL_FLOAT, GL_FALSE, sizeof(float4x4), (void*)(sizeof(float4) * 3));
-
-    // Set instancing interval
-    glVertexAttribDivisor(1, 1);
-    glVertexAttribDivisor(2, 1);
-    glVertexAttribDivisor(3, 1);
-    glVertexAttribDivisor(4, 1);
-
-    glBindVertexArray(0);
-
-    // Create TextureID buffer object
-    glGenBuffers(1, &TBO);
-
-    glBindBuffer(GL_ARRAY_BUFFER, TBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 10000, nullptr, GL_DYNAMIC_DRAW); // TODO: This buffer size should dynamically change
-    
-    glBindVertexArray(VAO);
-
-    glEnableVertexAttribArray(7);
-    glVertexAttribPointer(7, 1, GL_FLOAT, GL_FALSE, sizeof(float), (void*)0);
-
-    glVertexAttribDivisor(7, 1);
-
-    glBindVertexArray(0);
+    // Create dynamic buffers based on current instanceNum.
+    CreateDynamicBuffers();
 }
 
 void RenderManager::CreateBasicBuffers()
@@ -264,7 +233,7 @@ void RenderManager::CreateBasicBuffers()
     glGenBuffers(1, &BasicVBO);
 
     glBindBuffer(GL_ARRAY_BUFFER, BasicVBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * totalVertices.size(), &totalVertices[0], GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * totalVertices->size(), &totalVertices->at(0), GL_STATIC_DRAW);
 
     // vertex positions
     glEnableVertexAttribArray(0);
@@ -278,7 +247,7 @@ void RenderManager::CreateBasicBuffers()
 
     glGenBuffers(1, &BasicIBO);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, BasicIBO);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(uint) * totalIndices.size(), &totalIndices[0], GL_STATIC_DRAW);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(uint) * totalIndices->size(), &totalIndices->at(0), GL_STATIC_DRAW);
 
     glBindVertexArray(0);
 
@@ -288,20 +257,20 @@ void RenderManager::CreateBasicBuffers()
 void RenderManager::CreateNormalsDisplayBuffer()
 {
     { 
-        vertexNormalsDisplay.resize(totalVertices.size() * 2);
+        vertexNormalsDisplay.resize(totalVertices->size() * 2);
 
         float lineMangitude = 0.5f;
 
         int j = 0;
-        for (int i = 0; i < totalVertices.size() * 2; i++)
+        for (int i = 0; i < totalVertices->size() * 2; i++)
         {
             if (i % 2 == 0)
             {
-                vertexNormalsDisplay[i] = totalVertices[j].position;
+                vertexNormalsDisplay[i] = totalVertices->at(j).position;
             }
             else
             {
-                vertexNormalsDisplay[i] = totalVertices[j].position + (totalVertices[j].normals * lineMangitude);
+                vertexNormalsDisplay[i] = totalVertices->at(j).position + (totalVertices->at(j).normals * lineMangitude);
                 j++;
             }
 
@@ -324,7 +293,7 @@ void RenderManager::CreateNormalsDisplayBuffer()
     }
 
     {
-        faceNormalsDisplay.resize((totalIndices.size() / 3) * 2); // 3 vertices make a face; we need 2 points to display 1 face normal. 
+        faceNormalsDisplay.resize((totalIndices->size() / 3) * 2); // 3 vertices make a face; we need 2 points to display 1 face normal. 
 
         float lineMangitude = 0.5f;
 
@@ -337,7 +306,7 @@ void RenderManager::CreateNormalsDisplayBuffer()
             float3 faceCenter = { 0,0,0 };
             for (int j = 0; j < 3; j++)
             {
-                faceCenter += totalVertices[totalIndices[k++]].position;
+                faceCenter += totalVertices->at(totalIndices->at(k++)).position;
             }
             faceCenter /= 3;
             faceNormalsDisplay.push_back(faceCenter);
@@ -345,7 +314,7 @@ void RenderManager::CreateNormalsDisplayBuffer()
             float3 normalsDir = { 0,0,0 };
             for (int j = 0; j < 3; j++)
             {
-                normalsDir += totalVertices[totalIndices[l++]].normals;
+                normalsDir += totalVertices->at(totalIndices->at(l++)).normals;
             }
             normalsDir /= 3;
             normalsDir.Normalize();
@@ -374,12 +343,12 @@ void RenderManager::CreateAABB()
     localAABB.SetNegativeInfinity();
    
     std::vector<float3> vertexPositions;
-    vertexPositions.resize(totalVertices.size());
-    for (int i = 0; i < totalVertices.size(); i++)
+    vertexPositions.resize(totalVertices->size());
+    for (int i = 0; i < totalVertices->size(); i++)
     {
-        vertexPositions[i] = totalVertices[i].position;
+        vertexPositions[i] = totalVertices->at(i).position;
     }
-    localAABB.Enclose(&vertexPositions[0], totalVertices.size());
+    localAABB.Enclose(&vertexPositions[0], totalVertices->size());
 
     boxIndices.push_back(0);    // 1
     boxIndices.push_back(1);    // 2
@@ -518,6 +487,68 @@ void RenderManager::DrawBoundingBoxOBB(Mesh& mesh)
     localLineShader->SetFloat4("lineColor", 1.0f, 0.0f, 0.0f, 1.0f);
 
     glDrawElements(GL_LINES, boxIndices.size(), GL_UNSIGNED_INT, 0);
+
+    glBindVertexArray(0);
+}
+
+void RenderManager::ReallocateMoreMemory()
+{
+    // Add instance num
+    instanceNum += (int)(instanceNum * 0.5f);
+
+    DestroyDynamicBuffers();
+    CreateDynamicBuffers();
+}
+
+void RenderManager::DestroyDynamicBuffers()
+{
+    glDeleteBuffers(1, &MBO);
+    glDeleteBuffers(1, &TBO);
+}
+
+void RenderManager::CreateDynamicBuffers()
+{
+    // Create Model Matrix buffer object
+    glGenBuffers(1, &MBO);
+
+    glBindBuffer(GL_ARRAY_BUFFER, MBO);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(float4x4) * instanceNum, nullptr, GL_DYNAMIC_DRAW); // TODO: This buffer size should dynamicaly change
+
+    glBindVertexArray(VAO);
+
+    // You can't pass an entire matrix, so we go row by row.
+    glEnableVertexAttribArray(1);
+    glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, sizeof(float4x4), (void*)0);
+
+    glEnableVertexAttribArray(2);
+    glVertexAttribPointer(2, 4, GL_FLOAT, GL_FALSE, sizeof(float4x4), (void*)sizeof(float4));
+
+    glEnableVertexAttribArray(3);
+    glVertexAttribPointer(3, 4, GL_FLOAT, GL_FALSE, sizeof(float4x4), (void*)(sizeof(float4) * 2));
+
+    glEnableVertexAttribArray(4);
+    glVertexAttribPointer(4, 4, GL_FLOAT, GL_FALSE, sizeof(float4x4), (void*)(sizeof(float4) * 3));
+
+    // Set instancing interval
+    glVertexAttribDivisor(1, 1);
+    glVertexAttribDivisor(2, 1);
+    glVertexAttribDivisor(3, 1);
+    glVertexAttribDivisor(4, 1);
+
+    glBindVertexArray(0);
+
+    // Create TextureID buffer object
+    glGenBuffers(1, &TBO);
+
+    glBindBuffer(GL_ARRAY_BUFFER, TBO);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(float) * instanceNum, nullptr, GL_DYNAMIC_DRAW); // TODO: This buffer size should dynamically change
+
+    glBindVertexArray(VAO);
+
+    glEnableVertexAttribArray(7);
+    glVertexAttribPointer(7, 1, GL_FLOAT, GL_FALSE, sizeof(float), (void*)0);
+
+    glVertexAttribDivisor(7, 1);
 
     glBindVertexArray(0);
 }
