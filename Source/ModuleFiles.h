@@ -25,6 +25,7 @@ struct MetaFile
 	std::string resourcePath;
 	uint UID;
 	time_t lastModified;
+	std::string name = "Null";
 };
 
 class ModuleFiles : public Module

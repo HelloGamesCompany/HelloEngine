@@ -15,6 +15,7 @@ public:
 	ResourceType type = ResourceType::UNDEFINED;
 	uint referenceCount = 0;
 	std::string resourcePath = "";
+	std::string debugName = "NoName";
 };
 
 class ResourceTexture : public Resource
@@ -81,7 +82,7 @@ public:
 
 	static void S_CreateResource(const MetaFile& metaFile);
 
-	static void S_CreateResourceMesh(std::string filePath, uint UID);
+	static void S_CreateResourceMesh(std::string filePath, uint UID, const std::string& name);
 
 	static Resource* S_LoadResource(uint UID);
 

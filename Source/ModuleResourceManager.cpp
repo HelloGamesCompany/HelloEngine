@@ -281,9 +281,10 @@ void ModuleResourceManager::S_CreateResource(const MetaFile& metaFile)
 	resources[metaFile.UID]->referenceCount = 0;
 	resources[metaFile.UID]->resourcePath = metaFile.resourcePath;
 	resources[metaFile.UID]->type = metaFile.type;
+	resources[metaFile.UID]->debugName = metaFile.name;
 }
 
-void ModuleResourceManager::S_CreateResourceMesh(std::string filePath, uint UID)
+void ModuleResourceManager::S_CreateResourceMesh(std::string filePath, uint UID, const std::string& name)
 {
 	if (resources.count(UID) != 0)
 		return;
@@ -292,6 +293,7 @@ void ModuleResourceManager::S_CreateResourceMesh(std::string filePath, uint UID)
 	newResource->meshInfo.LoadFromBinaryFile(filePath);
 
 	resources[UID] = newResource;
+	resources[UID]->debugName = name;
 }
 
 Resource* ModuleResourceManager::S_LoadResource(uint UID)

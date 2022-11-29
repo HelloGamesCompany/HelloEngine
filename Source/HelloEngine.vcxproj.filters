@@ -104,6 +104,7 @@
     <ClCompile Include="External\imgui\ImGuizmo\ImGradient.cpp" />
     <ClCompile Include="External\imgui\ImGuizmo\ImGuizmo.cpp" />
     <ClCompile Include="External\imgui\ImGuizmo\ImSequencer.cpp" />
+    <ClCompile Include="ImWindowResources.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h" />
@@ -248,6 +249,7 @@
     <ClInclude Include="External\imgui\ImGuizmo\ImGuizmo.h" />
     <ClInclude Include="External\imgui\ImGuizmo\ImSequencer.h" />
     <ClInclude Include="External\imgui\ImGuizmo\ImZoomSlider.h" />
+    <ClInclude Include="ImWindowResources.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="HelloEngine.rc" />

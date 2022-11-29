@@ -222,7 +222,7 @@ void MeshImporter::LoadMeshNode(std::string filePath, GameObject* parent)
 
 	if (!ModuleResourceManager::S_IsResourceCreated(UID))
 	{
-		ModuleResourceManager::S_CreateResourceMesh(filePath, UID);
+		ModuleResourceManager::S_CreateResourceMesh(filePath, UID, parent->name);
 	}
 	
 	MeshRenderComponent* meshRender = parent->AddComponent<MeshRenderComponent>();

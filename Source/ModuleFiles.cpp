@@ -181,6 +181,7 @@ MetaFile ModuleFiles::S_LoadMeta(const std::string& filePath)
 	ret.resourcePath = file["Resource path"];
 	ret.type = file["Resource type"];
 	ret.UID = file["UID"];
+	ret.name = file["Name"];
 
 	RELEASE(data);
 
@@ -515,7 +516,7 @@ bool ModuleFiles::S_CheckMetaExist(const std::string& file)
 bool ModuleFiles::S_CreateMetaData(const std::string& file, const std::string& resourcePath)
 {
 	std::string newFile = file + ".helloMeta";
-
+	std::string assetName = ModuleFiles::S_GetFileName(file);
 	// Create json object
 	json j;
 
@@ -530,6 +531,8 @@ bool ModuleFiles::S_CreateMetaData(const std::string& file, const std::string& r
 	j["Resource type"] = ModuleFiles::S_GetResourceType(file);
 
 	j["UID"] = HelloUUID::GenerateUUID();
+
+	j["Name"] = assetName;
 
 	// write to string
 	std::string meta = j.dump();
