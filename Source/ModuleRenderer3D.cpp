@@ -95,16 +95,17 @@ UpdateStatus ModuleRenderer3D::PreUpdate()
 // PostUpdate present buffer to screen
 UpdateStatus ModuleRenderer3D::PostUpdate()
 {
-	if (cameras->sceneCamera.active)
+	if (cameras->sceneCamera->active)
 	{
-		cameras->sceneCamera.frameBuffer.Bind();
+		cameras->sceneCamera->frameBuffer.Bind();
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 		glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 
-		cameras->currentDrawingCamera = &cameras->sceneCamera;
+		cameras->currentDrawingCamera = cameras->sceneCamera;
 
 		Application::Instance()->layers->DrawLayers();
 		modelRender.Draw();
+		cameras->DrawCameraFrustums();
 	}
 
 	if (cameras->activeGameCamera != nullptr && cameras->activeGameCamera->active)
@@ -151,7 +152,7 @@ void ModuleRenderer3D::OnResize(int width, int height)
 {
 	glViewport(0, 0, width, height);
 
-	cameras->RequestFrameBufferRegen(&cameras->sceneCamera, width, height);
+	cameras->RequestFrameBufferRegen(cameras->sceneCamera, width, height);
 	if (cameras->activeGameCamera != nullptr) cameras->RequestFrameBufferRegen(cameras->activeGameCamera, width, height);
 	app->window->width = width;
 	app->window->height = height;

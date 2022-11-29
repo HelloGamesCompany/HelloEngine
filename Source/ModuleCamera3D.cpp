@@ -14,14 +14,18 @@ ModuleCamera3D::ModuleCamera3D(bool start_enabled) : Module(start_enabled)
 }
 
 ModuleCamera3D::~ModuleCamera3D()
-{}
+{
+	RELEASE(sceneCamera);
+}
 
 // -----------------------------------------------------------------
 bool ModuleCamera3D::Start()
 {
-	sceneCamera.frameBuffer.SetBufferInfo();
-	sceneCamera.frameBuffer.SetDimensions(Application::Instance()->window->width, Application::Instance()->window->height);
-	sceneCamera.isCullingActive = false;
+	sceneCamera = new SceneCameraObject(); // Needs to be allocated manually to avoid initializtion order issues.
+	sceneCamera->frameBuffer.SetBufferInfo();
+	sceneCamera->frameBuffer.SetDimensions(Application::Instance()->window->width, Application::Instance()->window->height);
+	sceneCamera->isCullingActive = false;
+	sceneCamera->cameraFrustum.farPlaneDistance = 4000;
 	return true;
 }
 
@@ -31,6 +35,14 @@ bool ModuleCamera3D::CleanUp()
 	LOG("Cleaning camera");
 
 	return true;
+}
+
+void ModuleCamera3D::DrawCameraFrustums()
+{
+	for (int i = 0; i < gameCameras.size(); i++)
+	{
+		gameCameras[i]->DrawFrustum();
+	}
 }
 
 void ModuleCamera3D::RequestFrameBufferRegen(CameraObject* camera, int width, int height)
@@ -93,7 +105,7 @@ UpdateStatus ModuleCamera3D::Update()
 		frameBufferRegenCamera = nullptr;
 	}
 
-	if (updateSceneCamera) sceneCamera.UpdateInput();
+	if (updateSceneCamera) sceneCamera->UpdateInput();
 
 	return UpdateStatus::UPDATE_CONTINUE;
 }

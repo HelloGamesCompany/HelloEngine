@@ -22,6 +22,8 @@ public:
 	UpdateStatus Update();
 	bool CleanUp();
 
+	void DrawCameraFrustums();
+
 	void RequestFrameBufferRegen(CameraObject* camera, int width, int height);
 
 	CameraObject* CreateGameCamera();
@@ -33,7 +35,7 @@ public:
 public:
 	std::vector<CameraObject*> gameCameras;
 	CameraObject* activeGameCamera = nullptr;
-	SceneCameraObject sceneCamera;
+	SceneCameraObject* sceneCamera = nullptr;
 
 	CameraObject* currentDrawingCamera = nullptr;
 

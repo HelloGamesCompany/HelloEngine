@@ -26,12 +26,16 @@ CameraObject::CameraObject()
 	cameraFrustum.pos = Position;
 	cameraFrustum.front = Z;
 	cameraFrustum.up = Y;
+
+	localLineShader = new Shader("Resources/shaders/localLines.vertex.shader", "Resources/shaders/localLines.fragment.shader");
+	SetUpBuffers();
 }
 
 CameraObject::~CameraObject()
 {
 	// TODO: Could be done more clean if we had an event system to commmunicate this kind of things.
 	Application::Instance()->camera->EraseGameCamera(this);
+	RELEASE(localLineShader);
 }
 
 void CameraObject::Look(const float3& Position, const float3& Reference, bool RotateAroundReference)
@@ -60,6 +64,73 @@ void CameraObject::LookAt(const float3& Spot)
 void CameraObject::Move(const float3& Movement)
 {
 	cameraFrustum.pos += Movement;
+}
+
+void CameraObject::DrawFrustum()
+{
+	float3 frustumPoints[8];
+
+	cameraFrustum.GetCornerPoints(frustumPoints);
+
+	glBindVertexArray(VAO);
+
+	glBindBuffer(GL_ARRAY_BUFFER, VBO);
+	void* ptr = glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY);
+	memcpy(ptr, &frustumPoints[0], 8 * sizeof(float3));
+	glUnmapBuffer(GL_ARRAY_BUFFER);
+
+	localLineShader->Bind();
+	localLineShader->SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
+	localLineShader->SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
+	localLineShader->SetFloat4("lineColor", 0.0f, 1.0f, 1.0f, 1.0f);
+
+	glDrawElements(GL_LINES, boxIndices.size(), GL_UNSIGNED_INT, 0);
+
+	glBindVertexArray(0);
+}
+
+void CameraObject::SetUpBuffers()
+{
+	boxIndices.push_back(0);    // 1
+	boxIndices.push_back(1);    // 2
+	boxIndices.push_back(0);    // 3
+	boxIndices.push_back(2);    // 4
+	boxIndices.push_back(2);    // 5
+	boxIndices.push_back(3);    // 6
+	boxIndices.push_back(1);    // 7
+	boxIndices.push_back(3);    // 8
+	boxIndices.push_back(0);    // 9
+	boxIndices.push_back(4);    // 10
+	boxIndices.push_back(4);    // 11
+	boxIndices.push_back(5);    // 12
+	boxIndices.push_back(4);    // 13
+	boxIndices.push_back(6);    // 14
+	boxIndices.push_back(6);    // 15
+	boxIndices.push_back(7);    // 16
+	boxIndices.push_back(7);    // 17
+	boxIndices.push_back(5);    // 18
+	boxIndices.push_back(1);    // 19
+	boxIndices.push_back(5);    // 20
+	boxIndices.push_back(3);    // 21
+	boxIndices.push_back(7);    // 22
+	boxIndices.push_back(2);    // 23
+	boxIndices.push_back(6);    // 24
+
+	glGenVertexArrays(1, &VAO);
+	glBindVertexArray(VAO);
+
+	glGenBuffers(1, &IBO);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(uint) * boxIndices.size(), &boxIndices[0], GL_STATIC_DRAW);
+
+	glGenBuffers(1, &VBO);
+	glBindBuffer(GL_ARRAY_BUFFER, VBO);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(float3) * 8, nullptr, GL_DYNAMIC_DRAW);
+
+	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(float3), (void*)0);
+
+	glBindVertexArray(0);
 }
 
 float* CameraObject::GetViewMatrix()

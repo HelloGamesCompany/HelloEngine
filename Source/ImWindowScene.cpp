@@ -14,7 +14,7 @@ ImWindowScene::ImWindowScene()
 	isEnabled = true;
 
 	moduleCamera = Application::Instance()->camera;
-	sceneCamera = &Application::Instance()->camera->sceneCamera;
+	sceneCamera = Application::Instance()->camera->sceneCamera;
 }
 
 ImWindowScene::~ImWindowScene()

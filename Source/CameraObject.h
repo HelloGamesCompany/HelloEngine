@@ -1,6 +1,7 @@
 #pragma once
 
 #include "FrameBuffer.h"
+#include "Shader.h"
 
 enum class CameraType
 {
@@ -13,12 +14,15 @@ class CameraObject
 {
 public:
 	CameraObject();
-	~CameraObject();
+	virtual ~CameraObject();
 
 	void Look(const float3& Position, const float3& Reference, bool RotateAroundReference = false);
 	void LookAt(const float3& Spot);
 	void Move(const float3& Movement);
 	
+	void DrawFrustum();
+	void SetUpBuffers();
+
 	float* GetViewMatrix();
 	float* GetProjectionMatrix();
 
@@ -49,12 +53,18 @@ public:
 
 
 private:
-	// TODO: Sospechoso de provocar excepcion en Release
 	float4x4 ViewMatrix = float4x4::identity, ViewMatrixInverse = float4x4::identity, ProjectionMatrix = float4x4::identity;
 
 	float3 offset = { 0,0,0 };
 	float aspectRatio = 0.0f;
 	float FOV = 60.0f;
+
+	std::vector<uint> boxIndices;
+
+	Shader* localLineShader = nullptr;
+	uint VAO = 0;
+	uint VBO = 0;
+	uint IBO = 0;
 
 	friend class ModuleCamera3D;
 	friend class CameraComponent;
