@@ -49,11 +49,9 @@ void ImWindowProject::Update()
         Directory* newDir = nullptr;
 
         // Resize children width
+        // Warning, is static!!!
         static float widthLeft = 200; // Init Size child 1
         static float widthRight = 1200; // Init Size child 2
-
-        if (widthRight < 200)
-            widthRight = 200;
 
         // Adjust window size
         ImVec2 windowSize = ImGui::GetWindowSize();
@@ -72,14 +70,15 @@ void ImWindowProject::Update()
                 DrawTreeNodePanelLeft(newDir, _rootNode, false);
             }
             ImGui::EndChild();
+
             ImGui::PopStyleColor();
         }
-   
+
+        ImGui::SameLine();
+
         // Right window
         if (widthRight > 0)
         {
-            ImGui::SameLine();
-
             if (ImGui::BeginChild("ChildR", ImVec2(widthRight, 0), true, ImGuiWindowFlags_HorizontalScrollbar))
             {        
                 DrawTreeNodePanelRight(newDir);
@@ -87,6 +86,7 @@ void ImWindowProject::Update()
             ImGui::EndChild();
         }
         
+        // Change current directory
         if (newDir)
         {
             _fileTree->_currentDir = newDir;
@@ -94,6 +94,7 @@ void ImWindowProject::Update()
     }
     ImGui::End();
 
+    // If have any file to delete, delete this
     if (_deleteFile)
     {
         ModuleFiles::S_Delete(_deleteFile->path);
