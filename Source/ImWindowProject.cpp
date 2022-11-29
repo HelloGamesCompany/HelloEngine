@@ -49,27 +49,25 @@ void ImWindowProject::Update()
         Directory* newDir = nullptr;
 
         // Resize children width
-        static float width1 = 200; // Init Size child 1
-        static float width2 = 1200; // Init Size child 2
+        static float widthLeft = 200; // Init Size child 1
+        static float widthRight = 1200; // Init Size child 2
 
-        if (width2 < 200)
-        {
-            width2 = 200;
-        }
+        if (widthRight < 200)
+            widthRight = 200;
 
         // Adjust window size
         ImVec2 windowSize = ImGui::GetWindowSize();
 
-        ImGui::DrawSplitter(0, 10, &width1, &width2, 100, 200);       
+        ImGui::DrawSplitter(0, 10, &widthLeft, &widthRight, 100, 200);
 
-        width2 = (windowSize.x - width1 - 20);
+        widthRight = (windowSize.x - widthLeft - 20);
 
         // Left window
-        if (width1 > 0) 
+        if (widthLeft > 0)
         {
             ImGui::PushStyleColor(ImGuiCol_ChildBg, ImVec4(0.16f, 0.16f, 0.16f, 1));
 
-            if (ImGui::BeginChild("ChildL", ImVec2(width1, 0), true, ImGuiWindowFlags_HorizontalScrollbar))
+            if (ImGui::BeginChild("ChildL", ImVec2(widthLeft, 0), true, ImGuiWindowFlags_HorizontalScrollbar))
             {
                 DrawTreeNodePanelLeft(newDir, _rootNode, false);
             }
@@ -78,11 +76,11 @@ void ImWindowProject::Update()
         }
    
         // Right window
-        if (width2 > 0)
+        if (widthRight > 0)
         {
             ImGui::SameLine();
 
-            if (ImGui::BeginChild("ChildR", ImVec2(width2, 0), true, ImGuiWindowFlags_HorizontalScrollbar))
+            if (ImGui::BeginChild("ChildR", ImVec2(widthRight, 0), true, ImGuiWindowFlags_HorizontalScrollbar))
             {        
                 DrawTreeNodePanelRight(newDir);
             }
@@ -179,13 +177,16 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
             newDir = parent1;
         }
     }
-    if(!parent1 && !parent2)
+
+    ImGui::SameLine();
+
+    ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.4, 0.4, 0.4, 255));
+    if (ImGui::Button(_fileTree->_currentDir->name.c_str()))
     {
-        if (ImGui::Button("There going to have return :)"))
-        {
-            // Do nothing here, just fixed space
-        }
+        // Do nothing here, just fixed space
     }
+    ImGui::PopStyleColor(1);
+
     ImGui::Separator();
 
     // Folders
