@@ -157,6 +157,12 @@ void Mesh::InitAsMesh(std::vector<Vertex>& vertices, std::vector<uint>& indices)
 	this->_indices = new std::vector<uint>(indices);
 }
 
+void Mesh::InitWithResource(ResourceMesh* res)
+{
+	this->_vertices = &res->meshInfo.vertices;
+	this->_indices = &res->meshInfo.indices;
+}
+
 void Mesh::CleanUp()
 {	
 	RELEASE(_vertices);

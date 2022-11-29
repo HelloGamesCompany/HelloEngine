@@ -171,11 +171,11 @@ Resource* ModuleResourceManager::S_LoadFile(const std::string& filePath)
 	{
 	case ResourceType::MESH:
 	{
-		ResourceMesh* resource = new ResourceMesh();
+		/*ResourceMesh* resource = new ResourceMesh();
 		resource->meshParent = MeshImporter::LoadMesh(filePath);
 		RELEASE_ARRAY(buffer);
 		loadedResources[ModuleFiles::S_GetFileName(filePath, true)] = resource;
-		return resource;
+		return resource;*/
 	}
 	break;
 	case ResourceType::TEXTURE:

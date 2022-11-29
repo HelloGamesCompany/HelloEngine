@@ -235,10 +235,11 @@ void MeshRenderComponent::SetMeshAsTransparent()
 	manager->GetMap().erase(_instanceID);
 
 	// When using a transparent mesh, MeshID is the key in the map!
-	_meshID = Application::Instance()->renderer3D->modelRender.AddTransparentMesh(manager, this);
+	_meshID = Application::Instance()->renderer3D->modelRender.AddTransparentMesh(manager, resource);
 
 	// Update mesh transfrom 
 	Mesh& mesh = GetMesh();
+	mesh.component = this;
 	mesh.modelMatrix = _gameObject->transform->GetGlobalMatrix(true).Transposed(); // Force dirty flag update.
 	mesh.CalculateBoundingBoxes();
 }

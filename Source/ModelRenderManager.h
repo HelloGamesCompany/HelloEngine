@@ -29,7 +29,7 @@ public:
 
 	void Draw();
 
-	uint AddTransparentMesh(RenderManager* previousRenderer, MeshRenderComponent* component);
+	uint AddTransparentMesh(RenderManager* previousRenderer, ResourceMesh* resource);
 	void CreatePrimitive(GameObject* parent, PrimitiveType type);
 
 private:

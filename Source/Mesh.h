@@ -4,7 +4,9 @@
 #include "Math/float3.h"
 #include "Shader.h"
 
+
 class MeshRenderComponent;
+class ResourceMesh;
 
 struct Vertex
 {
@@ -29,6 +31,7 @@ public:
 	void DrawAsSelected();
 
 	void InitAsMesh(std::vector<Vertex>& vertices, std::vector<uint>& indices);
+	void InitWithResource(ResourceMesh* res);
 
 	bool Update();
 

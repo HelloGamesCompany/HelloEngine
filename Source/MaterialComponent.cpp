@@ -96,7 +96,7 @@ void MaterialComponent::OnEditor()
 
 				ResourceTexture* resource = (ResourceTexture*)ModuleResourceManager::S_LoadResource(*drop);
 
-				ChangeTexture(resource->OpenGLID);
+				ChangeTexture(resource);
 			}
 			ImGui::EndDragDropTarget();
 		}

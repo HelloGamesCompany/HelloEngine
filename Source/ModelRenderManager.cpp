@@ -74,11 +74,11 @@ void ModelRenderManager::Draw()
 	_orderedMeshes.clear();
 }
 
-uint ModelRenderManager::AddTransparentMesh(RenderManager* previousRenderer, MeshRenderComponent* component)
+uint ModelRenderManager::AddTransparentMesh(RenderManager* previousRenderer, ResourceMesh* resource)
 {
 	uint randomID = HelloUUID::GenerateUUID();
 
-	_transparencyMeshes[randomID].InitAsMesh(previousRenderer->totalVertices, previousRenderer->totalIndices);
+	_transparencyMeshes[randomID].InitWithResource(resource);
 	_transparencyMeshes[randomID].localAABB = previousRenderer->localAABB;
 	_transparencyMeshes[randomID].isTransparent = true;
 	_transparencyMeshes[randomID].CreateBufferData();

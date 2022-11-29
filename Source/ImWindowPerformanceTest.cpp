@@ -18,7 +18,7 @@ void ImWindowPerformanceTest::Update()
 	static int houseNum = 2;
 	if (ImGui::Begin(windowName.c_str()))
 	{
-		if (ImGui::Button("Add 10 Baker House models"))
+		/*if (ImGui::Button("Add 10 Baker House models"))
 		{
 			houseNum += 10;
 			for (int i = 0; i < 10; i++)
@@ -44,7 +44,7 @@ void ImWindowPerformanceTest::Update()
 				GameObject* mesh = MeshImporter::LoadMesh("Assets/FBX/BakerHouse.fbx");
 				mesh->transform->SetPosition({ (float)(rand() % 100), 1.0f, (float)(rand() % 100) });
 			}
-		}
+		}*/
 		ImGui::TextWrapped("Number of houses: %d", houseNum);
 	}
 	ImGui::End();
