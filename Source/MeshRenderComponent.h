@@ -2,6 +2,7 @@
 
 #include "Mesh.h"
 #include "Component.h"
+#include "ModuleResourceManager.h"
 
 class MeshRenderComponent : public Component
 {
@@ -11,6 +12,8 @@ public:
 
 	void InitAsLoadedMesh(uint meshID);
 	void InitAsNewMesh(std::vector<Vertex>& vertices, std::vector<uint>& indices);
+
+	void CreateMesh(uint resourceUID);
 
 	void OnTransformCallback(float4x4 worldMatrix) override;
 
@@ -28,10 +31,10 @@ public:
 	void SetMeshAsOpaque();
 
 private:
+	ResourceMesh* resource = nullptr;
 	int _meshID = -1;
 	uint _instanceID = 0;
 
-	std::string comboValues[3] = { "None", "Vertex Normals", "Face Normals" };
 	int selectedNormalDisplay = 0;
 
 	int vertexNum = 0;

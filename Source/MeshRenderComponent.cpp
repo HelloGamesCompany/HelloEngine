@@ -53,7 +53,30 @@ void MeshRenderComponent::InitAsNewMesh(std::vector<Vertex>& vertices, std::vect
 	_meshID = Application::Instance()->renderer3D->modelRender.GetMapSize();
 	RenderManager* manager = Application::Instance()->renderer3D->modelRender.GetRenderManager(_meshID); // Create a renderManager.
 
-	_instanceID = manager->SetMeshInformation(newMesh);
+	//_instanceID = manager->SetMeshInformation(newMesh);
+
+	vertexNum = manager->GetMeshVertexNum();
+	indexNum = manager->GetMeshIndexNum();
+	_gameObject->transform->ForceUpdate();
+	GetMesh().component = this;
+}
+
+void MeshRenderComponent::CreateMesh(uint resourceUID)
+{
+	resource = (ResourceMesh*)ModuleResourceManager::S_LoadResource(resourceUID);
+	_meshID = resourceUID;
+
+	RenderManager* manager = Application::Instance()->renderer3D->modelRender.GetRenderManager(_meshID); // Create a renderManager.
+	
+	if (manager->initialized)
+	{
+		Mesh instanceMesh;
+		_instanceID = manager->AddMesh(instanceMesh);
+	}
+	else
+	{
+		_instanceID = manager->SetMeshInformation(resource);
+	}
 
 	vertexNum = manager->GetMeshVertexNum();
 	indexNum = manager->GetMeshIndexNum();

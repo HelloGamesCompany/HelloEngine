@@ -225,12 +225,16 @@ void MeshImporter::LoadNode(ModelNode& node, GameObject* parent)
 
 void MeshImporter::LoadMeshNode(std::string filePath, GameObject* parent)
 {
-	MeshInfo meshInfo;
-	meshInfo.LoadFromBinaryFile(filePath);
+	std::string stringUID = ModuleFiles::S_GetFileName(filePath, false);
+	uint UID = std::stoul(stringUID);
 
+	if (!ModuleResourceManager::S_IsResourceCreated(UID))
+	{
+		ModuleResourceManager::S_CreateResourceMesh(filePath, UID);
+	}
+	
 	MeshRenderComponent* meshRender = parent->AddComponent<MeshRenderComponent>();
-	meshRender->InitAsNewMesh(meshInfo.vertices, meshInfo.indices);
-
+	meshRender->CreateMesh(UID);
 }
 
 GameObject* MeshImporter::LoadMesh(std::string path)

@@ -19,12 +19,12 @@ RenderManager::~RenderManager()
     RELEASE(perMeshShader);
 }
 
-uint RenderManager::SetMeshInformation(Mesh& mesh)
+uint RenderManager::SetMeshInformation(ResourceMesh* resource)
 {
     if (initialized) LOG("Tried to call RenderManager::SetMeshInformation more than once in a single Render Manager instance.");
     // Set this RenderManager Mesh information.
-    this->totalVertices.insert(totalVertices.begin(), mesh._vertices->begin(), mesh._vertices->end());
-    this->totalIndices.insert(totalIndices.begin(), mesh._indices->begin(), mesh._indices->end());
+    this->totalVertices.insert(totalVertices.begin(), resource->meshInfo.vertices.begin(), resource->meshInfo.vertices.end());
+    this->totalIndices.insert(totalIndices.begin(), resource->meshInfo.indices.begin(), resource->meshInfo.indices.end());
 
     CreateBuffers();
     CreateBasicBuffers();
@@ -34,7 +34,6 @@ uint RenderManager::SetMeshInformation(Mesh& mesh)
     Mesh firstMesh;
     firstMesh.localAABB = localAABB;
 
-    mesh.CleanUp(); // Destroy the original vertex and index data (now it is stored inside this render manager).
     initialized = true;
 
     return AddMesh(firstMesh); // Adds a copy of the original mesh into the mesh list.

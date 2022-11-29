@@ -2,6 +2,7 @@
 
 #include "Mesh.h"
 #include "Shader.h"
+#include "ModuleResourceManager.h"
 
 /// <summary>
 /// This class manages the rendering process o a single MeshObject.
@@ -14,7 +15,7 @@ public:
 	RenderManager();
 	~RenderManager();
 
-	uint SetMeshInformation(Mesh& mesh);
+	uint SetMeshInformation(ResourceMesh* resource);
 
 	void Draw();
 
@@ -30,6 +31,7 @@ public:
 
 public:
 	bool initialized = false;
+	ResourceMesh* resource = nullptr;
 private:
 	void CreateBuffers();
 	void CreateBasicBuffers(); // Creates buffers for individual drawing.

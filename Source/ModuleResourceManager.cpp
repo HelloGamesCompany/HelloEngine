@@ -283,6 +283,17 @@ void ModuleResourceManager::S_CreateResource(const MetaFile& metaFile)
 	resources[metaFile.UID]->type = metaFile.type;
 }
 
+void ModuleResourceManager::S_CreateResourceMesh(std::string filePath, uint UID)
+{
+	if (resources.count(UID) != 0)
+		return;
+
+	ResourceMesh* newResource = new ResourceMesh();
+	newResource->meshInfo.LoadFromBinaryFile(filePath);
+
+	resources[UID] = newResource;
+}
+
 Resource* ModuleResourceManager::S_LoadResource(uint UID)
 {
 	Resource* ret = resources[UID];
@@ -294,6 +305,11 @@ Resource* ModuleResourceManager::S_LoadResource(uint UID)
 	ret->referenceCount++;
 
 	return ret; // We assume we always find a resource.
+}
+
+bool ModuleResourceManager::S_IsResourceCreated(uint UID)
+{
+	return resources.count(UID) == 1;
 }
 
 void ModuleResourceManager::GetResourcePath(ModelNode& node, std::vector<std::string>& vector)

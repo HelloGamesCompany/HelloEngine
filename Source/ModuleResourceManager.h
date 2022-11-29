@@ -45,6 +45,7 @@ public:
 	~ResourceMesh() {};
 
 	GameObject* meshParent = nullptr;
+	MeshInfo meshInfo;
 };
 
 class ModuleResourceManager : public Module
@@ -80,7 +81,11 @@ public:
 
 	static void S_CreateResource(const MetaFile& metaFile);
 
+	static void S_CreateResourceMesh(std::string filePath, uint UID);
+
 	static Resource* S_LoadResource(uint UID);
+
+	static bool S_IsResourceCreated(uint UID);
 
 private:
 	static void GetResourcePath(ModelNode& node, std::vector<std::string>& vector);
