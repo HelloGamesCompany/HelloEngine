@@ -100,7 +100,8 @@ bool Mesh::Update()
 	}
 	if (isTransparent) // We dont use the TextureManager to set transparent textures.
 		return true;
-	if (TextureManager::loadedTextures.find(textureID) != TextureManager::loadedTextures.end())
+	
+	if (textureID != -1.0f)
 	{
 		OpenGLTextureID = TextureManager::BindTexture(textureID);
 	}
