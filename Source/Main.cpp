@@ -23,8 +23,6 @@ int main(int argc, char** argv)
 	main_states state = MAIN_CREATION;
 	Application* app = nullptr;
 
-	//_CrtSetBreakAlloc(9612);
-
 	while (state != MAIN_EXIT)
 	{
 		switch (state)

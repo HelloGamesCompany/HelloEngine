@@ -27,7 +27,15 @@ std::string MeshImporter::ImportModel(std::string path)
 	std::string modelFilePath = "Resources/Models/" + std::to_string(HelloUUID::GenerateUUID()) + ".hmodel";
 
 	// TODO: Material importer
-	
+	if (scene->mNumMaterials > 0)
+	{
+		for (int i = 0; i < scene->mNumMaterials; i++)
+		{
+			aiString texture;
+			scene->mMaterials[i]->GetTexture(aiTextureType_DIFFUSE, 0, &texture);
+			std::cout << texture.C_Str() << std::endl;
+		}
+	}
 	
 	ModelNode modelRootNode;
 	for (int i = 0; i < scene->mRootNode->mNumChildren; i++)

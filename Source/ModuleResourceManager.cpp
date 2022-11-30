@@ -225,7 +225,7 @@ void ModuleResourceManager::S_DeleteMetaFile(const std::string& file, bool onlyR
 
 	switch (meta.type)
 	{
-	case ResourceType::MESH:
+	case ResourceType::MODEL:
 		{
 			std::vector<std::string> meshFilePaths;
 

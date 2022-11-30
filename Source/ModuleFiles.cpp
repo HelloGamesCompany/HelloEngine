@@ -556,7 +556,7 @@ bool ModuleFiles::S_UpdateMetaData(const std::string& file, const std::string& r
 	// Create json object
 	json j = json::parse(data);
 
-	// Get modify time
+	//// Get modify time
 	time_t currentTime = S_CheckFileLastModify(file);
 
 	// Update json values
@@ -568,6 +568,8 @@ bool ModuleFiles::S_UpdateMetaData(const std::string& file, const std::string& r
 	std::string meta = j.dump();
 
 	ModuleFiles::S_Save(metaFile, &meta[0], meta.size(), false);
+
+	RELEASE(data);
 
 	return true;
 }

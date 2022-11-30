@@ -176,7 +176,7 @@ void SceneCameraObject::Focus(GameObject* gameObject)
 	{
 		Mesh& mesh = gameObject->GetComponent<MeshRenderComponent>()->GetMesh();
 		AABB& meshAABB = mesh.globalAABB;
-		distance = meshAABB.Size().Length() * distanceOffset; // Uses square root, but is just once and on an event, should be fine.
+		distance = meshAABB.Size().Length() * distanceOffset; // Uses square root, but its just once and on an event, should be fine.
 	}
 
 	newPos -= (cameraFrustum.front * distance);
