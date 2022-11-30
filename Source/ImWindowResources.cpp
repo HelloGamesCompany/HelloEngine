@@ -17,8 +17,11 @@ void ImWindowResources::Update()
 	{
 		for (auto& resource : ModuleResourceManager::resources)
 		{
-			ImGui::Text(resource.second->debugName.c_str()); ImGui::SameLine();
-			ImGui::TextColored(ImVec4(1, 0, 1, 1), std::to_string(resource.second->referenceCount).c_str());
+			if (resource.second->type != ResourceType::MODEL) // Ignore MODEL resources, because their reference count is not necessary to track, only meshes's.
+			{
+				ImGui::Text(resource.second->debugName.c_str()); ImGui::SameLine();
+				ImGui::TextColored(ImVec4(1, 0, 1, 1), std::to_string(resource.second->referenceCount).c_str());
+			}
 		}
 	}
 	ImGui::End();

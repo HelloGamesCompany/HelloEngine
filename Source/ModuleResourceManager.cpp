@@ -292,7 +292,7 @@ void ModuleResourceManager::S_CreateResourceMesh(std::string filePath, uint UID,
 	newResource->meshInfo.LoadFromBinaryFile(filePath);
 
 	resources[UID] = newResource;
-	resources[UID]->debugName = name;
+	resources[UID]->debugName = name + ".hmesh";
 }
 
 Resource* ModuleResourceManager::S_LoadResource(uint UID)

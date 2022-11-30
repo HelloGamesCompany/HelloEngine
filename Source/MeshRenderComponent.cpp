@@ -22,8 +22,16 @@ MeshRenderComponent::~MeshRenderComponent()
 {
 	if (_meshID != -1)
 	{
-		RenderManager* manager = Application::Instance()->renderer3D->modelRender.GetRenderManager(_meshID);
-		manager->GetMap().erase(_instanceID);
+		if (!isTransparent)
+		{
+			RenderManager* manager = Application::Instance()->renderer3D->modelRender.GetRenderManager(_meshID);
+			manager->GetMap().erase(_instanceID);
+		}
+		else
+		{
+			Application::Instance()->renderer3D->modelRender._transparencyMeshes.erase(_meshID);
+		}
+		resource->Dereference();
 	}
 }
 
