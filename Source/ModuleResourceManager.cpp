@@ -219,6 +219,23 @@ void ModuleResourceManager::S_UpdateFileTree()
 	ModuleFiles::S_UpdateFileTree(fileTree);
 }
 
+void ModuleResourceManager::S_SerializeScene(GameObject* g)
+{
+	if (!g) return;
+
+	json j;
+
+	// Write json
+
+
+	// Save json 
+	std::string savePath = fileTree->_currentDir->path + g->name + ".HScene";
+
+	std::string buffer = j.dump();
+
+	ModuleFiles::S_Save(savePath, &buffer[0], buffer.size(), false);
+}
+
 void ModuleResourceManager::S_DeleteMetaFile(const std::string& file, bool onlyResources)
 {
 	MetaFile meta = ModuleFiles::S_LoadMeta(file);
