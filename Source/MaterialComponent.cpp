@@ -33,8 +33,8 @@ void MaterialComponent::ChangeTexture(ResourceTexture* resource)
 
 	currentResource = resource;
 
-	if (resource->isTransparent)
-		meshRenderer->SetMeshAsTransparent();
+	/*if (resource->isTransparent)
+		meshRenderer->SetMeshAsTransparent();*/
 
 	GetMesh().textureID = textureID;
 }
@@ -77,13 +77,13 @@ void MaterialComponent::OnEditor()
 		std::string imageName;
 		int width = 0;
 		int height = 0;
-		if (textureID != -1.0f)
+		if (textureID != -1.0f && currentResource != nullptr)
 		{
 			ImGui::Image((ImTextureID)(uint)textureID, ImVec2(64, 64), ImVec2(0, 1), ImVec2(1, 0));
-			Texture text = TextureManager::loadedTextures[textureID];
-			imageName = text.name;
-			width = text.width;
-			height = text.height;
+			
+			imageName = currentResource->debugName;
+			width = currentResource->width;
+			height = currentResource->height;
 		}
 		else 
 		{
