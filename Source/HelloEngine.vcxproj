@@ -141,6 +141,7 @@
     <ClCompile Include="CameraComponent.cpp" />
     <ClCompile Include="CameraObject.cpp" />
     <ClCompile Include="Command.cpp" />
+    <ClCompile Include="CommandChangeTransform.cpp" />
     <ClCompile Include="CommandDeleteGameObject.cpp" />
     <ClCompile Include="CommandSetParentGameObject.cpp" />
     <ClCompile Include="Component.cpp" />
@@ -344,6 +345,7 @@
     <ClInclude Include="CameraObject.h" />
     <ClInclude Include="Command.h" />
     <ClInclude Include="CommandArray.hpp" />
+    <ClInclude Include="CommandChangeTransform.h" />
     <ClInclude Include="CommandChangeValue.hpp" />
     <ClInclude Include="CommandDeleteGameObject.h" />
     <ClInclude Include="CommandSetParentGameObject.h" />

@@ -36,7 +36,13 @@ public:
 	virtual void OnRotationUpdate(float3 rotation) {}
 	virtual void OnTransformUpdate(float3 pos, float3 scale, float3 rotation) {}
 
-	virtual void OnEditor() {};
+#ifdef STANDALONE
+
+	virtual void OnEditor() {}
+
+	virtual void MarkAsDead() {}
+	virtual void MarkAsAlive() {}
+#endif // STANDALONE
 
 private:
 	void EnableFromGameObject() { if (_isEnabled) OnEnable(); };

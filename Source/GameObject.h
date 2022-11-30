@@ -109,4 +109,5 @@ private:
 	friend class ImWindowInspector;
 	friend class CommandSetParentGameObject;
 #endif // STANDALONE
+	friend class ModuleRenderer3D;
 };

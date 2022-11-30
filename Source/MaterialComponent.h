@@ -24,10 +24,18 @@ public:
 	void ChangeTexture(ResourceTexture* resource);
 	void ChangeTexture(int ID);
 
+	void MarkAsDead() override;
+	void MarkAsAlive() override;
+
 private:
 	MeshRenderComponent* meshRenderer = nullptr;
 	ResourceTexture* currentResource = nullptr;
 
 	int textureID = -1;
+
+#ifdef STANDALONE
+	uint resourceUID = 0; // To be used when using MarkAsAlive only
+#endif // STANDALONE
+
 };
 

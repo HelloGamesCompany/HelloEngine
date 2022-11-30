@@ -46,6 +46,8 @@ public:
 		_commands->push(new CommandChangeValue<T>(variable, beginValue, endValue, function));
 	}
 
+	static void S_ChangeTransform(float4x4& newGlobalMatrix, float4x4& currentGlobalMatrix, bool ignoreRotation, std::function<void(float4x4&, bool)> function);
+
 	static void S_DeleteGameObject(GameObject* gameobject);
 
 	static void S_SetParentGameObject(GameObject* gameobject, GameObject* newParent);

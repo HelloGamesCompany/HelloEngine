@@ -6,6 +6,7 @@
 #include "LayerEditor.h"
 #include "ModuleRenderer3D.h"
 #include "MeshImporter.h"
+#include "ModuleCommand.h"
 
 ImWindowScene::ImWindowScene()
 {
@@ -67,22 +68,39 @@ void ImWindowScene::Update()
 				// Could be done only when one of the 4 variables changes.
 				ImGuizmo::SetRect(ImGui::GetWindowPos().x, ImGui::GetWindowPos().y, ImGui::GetWindowWidth(), ImGui::GetWindowHeight());
 				ImGuizmo::SetDrawlist();
+
+				static bool firstClick = false;
+				static bool manipulated = false;
+				static float4x4 currentGlobal;
+
 				if (ImGuizmo::Manipulate(sceneCamera->GetViewMatrix(), sceneCamera->GetProjectionMatrix(), _imOperation, _imMode, &auxiliarMatrix.v[0][0]))
 				{
+					manipulated = true;
+					if (!firstClick && ImGui::IsWindowHovered())
+					{
+						currentGlobal = selected->transform->GetGlobalMatrix();
+						firstClick = true;
+					}
 					auxiliarMatrix.Transpose();
 					selected->transform->SetLocalFromGlobal(auxiliarMatrix, _imOperation == ImGuizmo::OPERATION::SCALE);
 				}
 
-			}
+				if (Application::Instance()->input->GetMouseButton(1) == KEY_UP && ImGui::IsWindowHovered() && manipulated)
+				{
+					manipulated = false;
+					ModuleCommand::S_ChangeTransform(auxiliarMatrix, currentGlobal, _imOperation == ImGuizmo::OPERATION::SCALE,
+						std::bind(&TransformComponent::SetLocalFromGlobal, selected->transform, std::placeholders::_1, std::placeholders::_2));
+					firstClick = false;
+				}
 
-			ImGui::SameLine(); ImGui::Button("Change to LOCAL");
+			}
 
 			if (!ImGuizmo::IsUsing())
 				DetectClick();
+
+			ImGui::SameLine(); ImGui::Button("Change to LOCAL");
 		}
 		ImGui::EndChild();
-
-
 
 		// Create Droped mesh
 		if (ImGui::BeginDragDropTarget())

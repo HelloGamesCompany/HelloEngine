@@ -278,7 +278,8 @@ void LayerEditor::DrawPopUpMessages()
 		ImGuiWindowFlags_NoResize |
 		ImGuiWindowFlags_NoMove |
 		ImGuiWindowFlags_HorizontalScrollbar |
-		ImGuiWindowFlags_NoSavedSettings;
+		ImGuiWindowFlags_NoSavedSettings |
+		ImGuiWindowFlags_NoInputs;
 
 	if (_popUpMessages.empty())
 		return;
@@ -289,7 +290,6 @@ void LayerEditor::DrawPopUpMessages()
 
 		if (_popUpMessages[i].currentMessageTime >= _messageTime)
 		{
-			std::cout << _popUpMessages[i].currentMessageTime << std::endl;
 			_popUpMessages.erase(_popUpMessages.begin() + i--);
 		
 			continue;
@@ -306,10 +306,6 @@ void LayerEditor::DrawPopUpMessages()
 		{
 			float result = 1.0f - ((_popUpMessages[i].currentMessageTime - (_messageTime * fadeOutFix)) / (1.0f - fadeOutFix));
 			ImGui::PushStyleVar(ImGuiStyleVar_Alpha, result > 0 ? result : 0.0f);
-			if (result < 0)
-			{
-				std::cout << result << std::endl;
-			}
 		}
 
 		ImGui::SetNextWindowSize(ImVec2(width * 0.3f, height * 0.15f));

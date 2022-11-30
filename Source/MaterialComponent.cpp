@@ -26,6 +26,12 @@ Mesh& MaterialComponent::GetMesh()
 
 void MaterialComponent::ChangeTexture(ResourceTexture* resource)
 {
+	if (resource == nullptr)
+	{
+		textureID = -1.0f;
+		currentResource = nullptr;
+		return;
+	}
 	this->textureID = resource->OpenGLID;
 
 	if (currentResource != nullptr)
@@ -44,6 +50,21 @@ void MaterialComponent::ChangeTexture(int ID)
 	this->textureID = ID;
 
 	GetMesh().textureID = textureID;
+}
+
+void MaterialComponent::MarkAsDead()
+{
+	if (currentResource != nullptr)
+	{
+		currentResource->Dereference();
+		resourceUID = currentResource->UID;
+		currentResource = nullptr;
+	}
+}
+
+void MaterialComponent::MarkAsAlive()
+{
+	ChangeTexture((ResourceTexture*)ModuleResourceManager::S_LoadResource(resourceUID));
 }
 
 void MaterialComponent::OnEditor()

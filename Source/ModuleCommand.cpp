@@ -3,6 +3,7 @@
 #include "CommandArray.hpp"
 #include "CommandDeleteGameObject.h"
 #include "CommandSetParentGameObject.h"
+#include "CommandChangeTransform.h"
 #include "Console.h"
 #include "ModuleLayers.h"
 #include "LayerEditor.h"
@@ -44,9 +45,16 @@ UpdateStatus ModuleCommand::Update()
 	return UpdateStatus::UPDATE_CONTINUE;
 }
 
+void ModuleCommand::S_ChangeTransform(float4x4& newGlobalMatrix, float4x4& currentGlobalMatrix, bool ignoreRotation, std::function<void(float4x4&, bool)> function)
+{
+	std::cout << "Added transform change" << std::endl;
+	_commands->push(new CommandChangeTransform(newGlobalMatrix, currentGlobalMatrix, ignoreRotation, function));
+}
+
 void ModuleCommand::S_DeleteGameObject(GameObject* gameobject)
 {
-	_commands->push(new CommandDeleteGameObject(gameobject));
+	if (gameobject != nullptr)
+		_commands->push(new CommandDeleteGameObject(gameobject));
 }
 
 void ModuleCommand::S_SetParentGameObject(GameObject* gameobject, GameObject* newParent)

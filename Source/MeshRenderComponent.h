@@ -30,6 +30,9 @@ public:
 	void SetMeshAsTransparent();
 	void SetMeshAsOpaque();
 
+	void MarkAsDead() override;
+	void MarkAsAlive() override;
+
 private:
 	ResourceMesh* resource = nullptr;
 	int _meshID = -1;

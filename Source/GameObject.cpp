@@ -145,6 +145,11 @@ bool GameObject::MarkAsDead()
 			}
 		}
 
+		for (int i = 0; i < _components.size(); i++)
+		{
+			_components[i]->MarkAsDead();
+		}
+
 		return true;
 	}	
 
@@ -160,6 +165,11 @@ bool GameObject::MarkAsAlive()
 		for (int i = 0; i < _childrenDeletedIndex.size(); i++)
 		{
 			_children[_childrenDeletedIndex[i]]->MarkAsAlive();
+		}
+
+		for (int i = 0; i < _components.size(); i++)
+		{
+			_components[i]->MarkAsAlive();
 		}
 	
 		return true;

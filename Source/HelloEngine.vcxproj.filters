@@ -105,6 +105,7 @@
     <ClCompile Include="External\imgui\ImGuizmo\ImGuizmo.cpp" />
     <ClCompile Include="External\imgui\ImGuizmo\ImSequencer.cpp" />
     <ClCompile Include="ImWindowResources.cpp" />
+    <ClCompile Include="CommandChangeTransform.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h" />
@@ -250,6 +251,7 @@
     <ClInclude Include="External\imgui\ImGuizmo\ImSequencer.h" />
     <ClInclude Include="External\imgui\ImGuizmo\ImZoomSlider.h" />
     <ClInclude Include="ImWindowResources.h" />
+    <ClInclude Include="CommandChangeTransform.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="HelloEngine.rc" />

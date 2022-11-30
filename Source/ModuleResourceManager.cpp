@@ -298,6 +298,7 @@ void ModuleResourceManager::S_CreateResource(const MetaFile& metaFile)
 	resources[metaFile.UID]->resourcePath = metaFile.resourcePath;
 	resources[metaFile.UID]->type = metaFile.type;
 	resources[metaFile.UID]->debugName = metaFile.name;
+	resources[metaFile.UID]->UID = metaFile.UID;
 }
 
 void ModuleResourceManager::S_CreateResourceMesh(std::string filePath, uint UID, const std::string& name)
@@ -310,10 +311,14 @@ void ModuleResourceManager::S_CreateResourceMesh(std::string filePath, uint UID,
 
 	resources[UID] = newResource;
 	resources[UID]->debugName = name + ".hmesh";
+	resources[UID]->UID = UID;
 }
 
 Resource* ModuleResourceManager::S_LoadResource(uint UID)
 {
+	if (resources.count(UID) == 0)
+		return nullptr;
+
 	Resource* ret = resources[UID];
 	
 	// Load resource

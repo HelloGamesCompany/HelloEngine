@@ -194,7 +194,7 @@ void TransformComponent::UpdateDirtyFlagNoLocal()
 	{
 		if (component->NeedsTransformCallback()) // Check if we need to callback our transform to some component.
 		{
-			component->OnTransformCallback(GetGlobalMatrix(false, false));
+			component->OnTransformCallback(GetGlobalMatrix(true, false));
 		}
 	}
 
@@ -204,6 +204,7 @@ void TransformComponent::UpdateDirtyFlagNoLocal()
 
 void TransformComponent::UpdateDirtyFlag()
 {
+	_dirtyFlag = true;
 	for (auto& component : _gameObject->_components)
 	{
 		if (component->NeedsTransformCallback()) // Check if we need to callback our transform to some component.
@@ -212,7 +213,6 @@ void TransformComponent::UpdateDirtyFlag()
 		}
 	}
 
-	_dirtyFlag = true;
 	UpdateDirtyFlagForChildren();
 }
 

@@ -28,6 +28,7 @@ public:
 	uint referenceCount = 0;
 	std::string resourcePath = "";
 	std::string debugName = "NoName";
+	uint UID = 0;
 };
 
 class ResourceTexture : public Resource
@@ -99,6 +100,8 @@ public:
 	static bool S_GetFileTree(FileTree*& tree);
 
 	static void S_UpdateFileTree();
+
+	static void S_SerializeScene(GameObject* g);
 
 	/// <summary>
 	/// Delete meta file and the resources attached to it. If you want to only destroy the resources, mark bool as true.

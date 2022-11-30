@@ -92,4 +92,5 @@ private:
 	bool _calculateLocal = true;
 
 	friend class GameObject;
+	friend class ImWindowScene;
 };

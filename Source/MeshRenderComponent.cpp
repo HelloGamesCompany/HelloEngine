@@ -261,3 +261,15 @@ void MeshRenderComponent::SetMeshAsOpaque()
 	// Use the correct Render Manager and Add a mesh instance to it.
 }
 
+void MeshRenderComponent::MarkAsDead()
+{
+	GetMesh().draw = false;
+}
+
+void MeshRenderComponent::MarkAsAlive()
+{
+	if (IsEnabled())
+		GetMesh().draw = true;
+	// Load resource again. If the reosurce is no longer created, make sure this mesh render component is just empty.
+}
+
