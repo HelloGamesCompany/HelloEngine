@@ -43,9 +43,12 @@ public:
 private:
 	static void ProcessNode(aiNode* node, const aiScene* scene, ModelNode& parentNode);
 	static std::string ProcessMesh(aiMesh* mesh, const aiScene* scene, std::string fileName);
+	static uint ProcessTexture(const std::string& textureName);
 
 	static void LoadNode(ModelNode& node, GameObject* parent);
 	static void LoadMeshNode(std::string filePath, GameObject* parent);
+
+	static void LoadTexture(uint resourceUID, GameObject* parent);
 
 	static const aiScene* GetAiScene(std::string path);
 		

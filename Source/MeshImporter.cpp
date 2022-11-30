@@ -25,18 +25,8 @@ std::string MeshImporter::ImportModel(std::string path)
 	}
 
 	std::string modelFilePath = "Resources/Models/" + std::to_string(HelloUUID::GenerateUUID()) + ".hmodel";
+	currentPath = path;
 
-	// TODO: Material importer
-	if (scene->mNumMaterials > 0)
-	{
-		for (int i = 0; i < scene->mNumMaterials; i++)
-		{
-			aiString texture;
-			scene->mMaterials[i]->GetTexture(aiTextureType_DIFFUSE, 0, &texture);
-			std::cout << texture.C_Str() << std::endl;
-		}
-	}
-	
 	ModelNode modelRootNode;
 	for (int i = 0; i < scene->mRootNode->mNumChildren; i++)
 	{
@@ -44,6 +34,8 @@ std::string MeshImporter::ImportModel(std::string path)
 	}
 
 	modelRootNode.WriteToJSON(modelFilePath);
+
+	currentPath = "";
 
 	return modelFilePath;
 }
@@ -83,12 +75,25 @@ void MeshImporter::ProcessNode(aiNode* node, const aiScene* scene, ModelNode& pa
 			ModelNode meshNode;
 			meshNode.meshPath = ProcessMesh(scene->mMeshes[node->mMeshes[i]], scene, newNode.name);
 			newNode.children.push_back(meshNode);
+			if (scene->mMeshes[node->mMeshes[i]]->mMaterialIndex >= 0)
+			{
+				aiString texture;
+				scene->mMaterials[scene->mMeshes[node->mMeshes[i]]->mMaterialIndex]->GetTexture(aiTextureType_DIFFUSE, 0, &texture);
+				if (texture.C_Str() != "")
+					meshNode.resourceMaterialUID = ProcessTexture(texture.C_Str());
+			}
 		}
 	}
-	
-	for (int i = 0; i < node->mNumMeshes; i++)
+	else if (node->mNumMeshes != 0)
 	{
-		newNode.meshPath = ProcessMesh(scene->mMeshes[node->mMeshes[i]], scene, newNode.name);
+		newNode.meshPath = ProcessMesh(scene->mMeshes[node->mMeshes[0]], scene, newNode.name);
+		if (scene->mMeshes[node->mMeshes[0]]->mMaterialIndex >= 0)
+		{
+			aiString texture;
+			scene->mMaterials[scene->mMeshes[node->mMeshes[0]]->mMaterialIndex]->GetTexture(aiTextureType_DIFFUSE, 0, &texture);
+			if (texture.C_Str() != "")
+				newNode.resourceMaterialUID = ProcessTexture(texture.C_Str());
+		}
 	}
 
 	for (int i = 0; i < node->mNumChildren; i++)
@@ -149,6 +154,29 @@ std::string MeshImporter::ProcessMesh(aiMesh* mesh, const aiScene* scene, std::s
 	return meshInfo.SaveToBinaryFile(fileName);
 }
 
+uint MeshImporter::ProcessTexture(const std::string& textureName)
+{
+	if (textureName == "")
+		return 0;
+
+	// Check if the given texture is inside the current folder.
+	std::string folder = currentPath.substr(0, currentPath.find_last_of('/')+1);
+
+	std::string textureAsset = folder + textureName;
+
+	// If the texture is inside the same folder
+	if (ModuleFiles::S_Exists(textureAsset))
+	{
+		if (ModuleFiles::S_CheckMetaExist(textureAsset))
+		{
+			// If the texture has a meta file, return that meta file's resource path.
+			return ModuleFiles::S_LoadMeta(textureAsset + ".helloMeta").UID;
+		}
+	}
+
+	return 0;
+}
+
 GameObject* MeshImporter::LoadModelIntoResource(ResourceModel* resource)
 {
 	returnGameObject = nullptr;
@@ -207,6 +235,9 @@ void MeshImporter::LoadNode(ModelNode& node, GameObject* parent)
 		if (node.children[0].meshPath != "N")
 		{
 			LoadMeshNode(node.children[0].meshPath, nodeGameObject);
+
+			if (node.children[0].resourceMaterialUID != 0)
+				LoadTexture(node.children[0].resourceMaterialUID, nodeGameObject);
 		}
 		return; // TODO: This check could give problems with the animation bones loading (empty nodes with no meshes).
 	}
@@ -214,6 +245,8 @@ void MeshImporter::LoadNode(ModelNode& node, GameObject* parent)
 	if (node.meshPath != "N")
 	{
 		LoadMeshNode(node.meshPath, nodeGameObject);
+		if (node.resourceMaterialUID != 0)
+			LoadTexture(node.resourceMaterialUID, nodeGameObject);
 	}
 
 	for (int i = 0; i < node.childrenNum; i++)
@@ -235,6 +268,12 @@ void MeshImporter::LoadMeshNode(std::string filePath, GameObject* parent)
 	
 	MeshRenderComponent* meshRender = parent->AddComponent<MeshRenderComponent>();
 	meshRender->CreateMesh(UID);
+}
+
+void MeshImporter::LoadTexture(uint resourceUID, GameObject* parent)
+{
+	MaterialComponent* newMaterial = parent->AddComponent<MaterialComponent>();
+	newMaterial->ChangeTexture((ResourceTexture*)ModuleResourceManager::S_LoadResource(resourceUID));
 }
 
 const aiScene* MeshImporter::GetAiScene(std::string path)

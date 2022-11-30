@@ -21,13 +21,12 @@ public:
 
 	Mesh& GetMesh();
 
+	void ChangeTexture(ResourceTexture* resource);
+	void ChangeTexture(int ID);
+
 private:
 	MeshRenderComponent* meshRenderer = nullptr;
 	ResourceTexture* currentResource = nullptr;
-
-private:
-	void ChangeTexture(ResourceTexture* resource); 
-	void ChangeTexture(int ID); 
 
 	int textureID = -1;
 };

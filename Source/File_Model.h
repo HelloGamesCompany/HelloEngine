@@ -13,6 +13,7 @@ struct ModelNode
 {
 	std::string name = "Node";
 	std::string meshPath = "N"; // By default, this path is set to "N". Paths with "N" will be seen as Null.
+	uint resourceMaterialUID = 0;
 	float3 position = float3::zero;
 	float3 rotation = float3::zero;
 	float3 scale = {1,1,1};
@@ -41,6 +42,7 @@ struct ModelNode
 
 		name = file["0"]["name"];
 		meshPath = file["0"]["meshPath"];
+		resourceMaterialUID = file["0"]["resourceUID"];
 
 		std::vector<float> positions = file["0"]["position"];
 		position = { positions[0], positions[1], positions[2] };
@@ -81,6 +83,7 @@ private:
 		file[stringUID]["childrenNum"] = children.size();
 		file[stringUID]["UID"] = UID;
 		file[stringUID]["parentUID"] = parentUID;
+		file[stringUID]["resourceUID"] = resourceMaterialUID;
 
 		std::vector<std::string> childrenUIDs; 
 
@@ -98,6 +101,8 @@ private:
 
 		name = file[uid]["name"];
 		meshPath = file[uid]["meshPath"];
+		resourceMaterialUID = file[uid]["resourceUID"];
+
 		std::vector<float> positions = file[uid]["position"];
 		position = { positions[0], positions[1], positions[2] };
 

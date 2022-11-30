@@ -270,8 +270,6 @@ void ImWindowProject::OnDrop(const std::string filePath)
     File file = File(relativePath, ModuleFiles::S_GetFileName(pathNormalized), _fileTree->_currentDir);//_fileTree->_currentDir->files.emplace_back(relativePath, ModuleFiles::S_GetFileName(pathNormalized), _fileTree->_currentDir);
     
     _fileTree->_currentDir->files.push_back(file);
-
-    ModuleResourceManager::S_ImportFile(file.path);
 }
 
 void ImWindowProject::UpdateFileNodes()
