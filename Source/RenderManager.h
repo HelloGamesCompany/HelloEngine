@@ -99,6 +99,8 @@ private:
 
 	int IDcounter = 0;
 
+	Mesh* _selectedMesh = nullptr;
+
 	friend class ModelRenderManager;
 	friend class MeshRenderComponent;
 };

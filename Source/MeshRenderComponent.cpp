@@ -31,7 +31,8 @@ MeshRenderComponent::~MeshRenderComponent()
 		{
 			Application::Instance()->renderer3D->modelRender._transparencyMeshes.erase(_meshID);
 		}
-		resource->Dereference();
+		if (resource != nullptr)
+			resource->Dereference();
 	}
 }
 
@@ -72,6 +73,13 @@ void MeshRenderComponent::InitAsNewMesh(std::vector<Vertex>& vertices, std::vect
 void MeshRenderComponent::CreateMesh(uint resourceUID)
 {
 	resource = (ResourceMesh*)ModuleResourceManager::S_LoadResource(resourceUID);
+	
+	if (resource == nullptr)
+	{
+		_meshID = -1;
+		return;
+	}
+	
 	_meshID = resourceUID;
 
 	RenderManager* manager = Application::Instance()->renderer3D->modelRender.GetRenderManager(_meshID); // Create a renderManager.
@@ -263,13 +271,32 @@ void MeshRenderComponent::SetMeshAsOpaque()
 
 void MeshRenderComponent::MarkAsDead()
 {
-	GetMesh().draw = false;
+	if (_meshID != -1)
+	{
+		if (!isTransparent)
+		{
+			RenderManager* manager = Application::Instance()->renderer3D->modelRender.GetRenderManager(_meshID);
+			manager->GetMap().erase(_instanceID);
+		}
+		else
+		{
+			Application::Instance()->renderer3D->modelRender._transparencyMeshes.erase(_meshID);
+		}
+		if (resource != nullptr)
+		{
+			resource->Dereference();
+			resourceUID = resource->UID;
+		}
+	}
+	//GetMesh().draw = false;
 }
 
 void MeshRenderComponent::MarkAsAlive()
 {
-	if (IsEnabled())
-		GetMesh().draw = true;
+	CreateMesh(resourceUID);
+
+	/*if (IsEnabled())
+		GetMesh().draw = true;*/
 	// Load resource again. If the reosurce is no longer created, make sure this mesh render component is just empty.
 }
 

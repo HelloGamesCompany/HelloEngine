@@ -45,5 +45,10 @@ private:
 
 	bool isTransparent = false;
 
+#ifdef STANDALONE
+	uint resourceUID = 0;
+#endif // STANDALONE
+
+
 	friend class Mesh;
 };

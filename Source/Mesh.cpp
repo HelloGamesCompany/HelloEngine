@@ -95,7 +95,6 @@ bool Mesh::Update()
 		return false;
 	if (component && component->_gameObject->isSelected)
 	{
-		DrawAsSelected();
 		return false; // We dont want to render this object twice when selected.
 	}
 	if (isTransparent) // We dont use the TextureManager to set transparent textures.
