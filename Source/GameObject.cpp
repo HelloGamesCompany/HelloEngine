@@ -195,7 +195,7 @@ void GameObject::Destroy()
 	Application::Instance()->layers->gameObjects[_ID] = nullptr;
 	
 	Application::Instance()->layers->deletedGameObjects.push_back(this);
-	
+
 	for (int i = 0; i < _children.size();)
 	{
 		_children[i]->Destroy();

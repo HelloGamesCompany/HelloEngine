@@ -31,6 +31,7 @@ struct PopUpMessage
 	std::string message = "";
 	
 	float currentMessageTime = 0.0f;
+	bool hovered = false;
 };
 
 class LayerEditor :public Layer

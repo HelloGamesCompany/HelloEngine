@@ -267,6 +267,7 @@ void LayerEditor::DrawPopUpMessages()
 
 	bool fadeIn = false;
 	bool fadeOut = false;
+	bool hovering = false; // We need this variable to Push/Pop in the correct moment.
 
 	int width = _app->window->width;
 	int height = _app->window->height;
@@ -313,16 +314,39 @@ void LayerEditor::DrawPopUpMessages()
 
 		id += std::to_string(i);
 
+		if (_popUpMessages[i].hovered)
+		{
+			if (fadeIn || fadeOut)
+				ImGui::PopStyleVar();
+			ImGui::PushStyleVar(ImGuiStyleVar_Alpha, 0.25f);
+			hovering = true;
+		}
+		else
+			hovering = false;
+
 		if (ImGui::Begin(id.c_str(),0, popupFlags))
 		{
+			float2 temp = float2(width * 0.3f, height * 0.15f);
+			temp += float2(width * 0.35f, (height * 0.425f) - 30.0f * _popUpMessages[i].currentMessageTime);
+			ImVec2 bottomRight = ImVec2(temp.x, temp.y);
+
+			if (ImGui::IsMouseHoveringRect(ImVec2(width * 0.35f, (height * 0.425f) - 30.0f * _popUpMessages[i].currentMessageTime),
+				bottomRight))
+			{
+				_popUpMessages[i].hovered = true;
+			}
+			else
+				_popUpMessages[i].hovered = false;
+
 			ImVec2 textDimensions = ImGui::CalcTextSize(_popUpMessages[i].message.c_str());
 
 			ImGui::SetWindowFontScale(1.0f);
 			ImGui::SetCursorPos(ImVec2((width * 0.3f - textDimensions.x) * 0.5f, (height * 0.15f - textDimensions.y) * 0.5f));
 			ImGui::Text(_popUpMessages[i].message.c_str());
 		}
+		if (fadeIn || fadeOut || hovering) ImGui::PopStyleVar();
 		ImGui::End();
 
-		if (fadeIn || fadeOut) ImGui::PopStyleVar();
+		
 	}
 }

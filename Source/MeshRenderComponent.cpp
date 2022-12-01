@@ -286,6 +286,7 @@ void MeshRenderComponent::MarkAsDead()
 		{
 			resource->Dereference();
 			resourceUID = resource->UID;
+			resource = nullptr;
 		}
 	}
 	//GetMesh().draw = false;
