@@ -35,7 +35,7 @@ ImWindowHierarchy::~ImWindowHierarchy()
 
 void ImWindowHierarchy::Update()
 {
-	if (ImGui::Begin(windowName.c_str(), &isEnabled))
+	if (ImGui::Begin(windowName.c_str(), &isEnabled, ImGuiWindowFlags_NoResize))
     {
         _hasSelectedAGameObject = false;
         
@@ -181,7 +181,7 @@ void ImWindowHierarchy::ProcessGameObject(GameObject* gameObject, int iteration)
         }
     }
  
-    ImGui::SameLine(ImGui::GetWindowWidth() - 20);
+    ImGui::SameLine(ImGui::GetWindowContentRegionWidth() - 5);
     if (ImGui::SmallButton(gameObject->IsActive() ? "X" : " "))
     {
         gameObject->SetActive(!gameObject->IsActive());

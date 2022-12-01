@@ -14,9 +14,6 @@ RenderManager::RenderManager()
 
 RenderManager::~RenderManager()
 {
-    if (resource != nullptr)
-        resource->Dereference();
-
     RELEASE(instancedShader);
     RELEASE(lineShader);
     RELEASE(localLineShader);
