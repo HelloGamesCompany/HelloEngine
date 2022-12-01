@@ -15,6 +15,14 @@ public:
 	void Update() override;
 	void PostUpdate() override;
 
+	void Play();
+	void Stop();
+	void Pause();
+
 	void CleanUp() override;
+private:
+	bool _isPlaying = false;
+	bool _stopped = false;
+	bool _update = false;
 };
 

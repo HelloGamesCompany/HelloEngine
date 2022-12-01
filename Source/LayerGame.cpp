@@ -16,6 +16,7 @@ LayerGame::~LayerGame()
 
 void LayerGame::Start()
 {
+	Time::SetTimeScale(2.0f);
 	/*uint newTexture = TextureImporter::ImportTexture("Assets/Baker_house.png");
 	uint newTexture2 = TextureImporter::ImportTexture("Assets/Baker_house.png");*/
 
@@ -30,16 +31,54 @@ void LayerGame::Start()
 
 void LayerGame::PreUpdate()
 {
+	if (!_isPlaying || !_stopped)
+	{
+		_update = false;
+		return;
+	}
+	_update = true;
+	
+	// Update time.
+	Time::UpdateRealTime();
+	Time::UpdateGameTime();
 
+	//std::cout << "Real time: " << Time::RealTimeDeltaTime() << std::endl;
+	//std::cout << "Game time: " << Time::GameDeltaTime() << std::endl;
+	/*std::cout << "Total Time Real Time: " << Time::GameTimeInRealTimeCount() << std::endl;
+	std::cout << "Total Time Game Time: " << Time::GameTimeCount() << std::endl;*/
+	//std::cout << "Frame count: " << Time::GameFrameCount() << std::endl;
 }
 
 void LayerGame::Update()
 {
+	if (!_update)
+		return;
 }
 
 void LayerGame::PostUpdate()
 {
+	if (!_update)
+		return;
+}
 
+void LayerGame::Play()
+{
+	// TODO: Save scene.
+
+	_isPlaying = true;
+	_stopped = false;
+}
+
+void LayerGame::Stop()
+{
+	_isPlaying = false;
+	// TODO: Reload scene.
+}
+
+void LayerGame::Pause()
+{
+	_isPlaying = false;
+	_stopped = true;
 }
 
 void LayerGame::CleanUp()
