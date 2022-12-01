@@ -30,6 +30,7 @@ uint RenderManager::SetMeshInformation(ResourceMesh* resource)
     // Set this RenderManager Mesh information.
     totalVertices = &resource->meshInfo.vertices;
     totalIndices = &resource->meshInfo.indices;
+    this->resource = resource;
     //this->totalVertices.insert(totalVertices.begin(), resource->meshInfo.vertices.begin(), resource->meshInfo.vertices.end());
     //this->totalIndices.insert(totalIndices.begin(), resource->meshInfo.indices.begin(), resource->meshInfo.indices.end());
 
@@ -52,6 +53,7 @@ void RenderManager::Draw()
     if (meshes.empty())
     {
         LOG("A Render Manager is being updated without any meshes!");
+        Application::Instance()->renderer3D->modelRender.DestroyRenderManager(resource->UID);
         return;
     }
 

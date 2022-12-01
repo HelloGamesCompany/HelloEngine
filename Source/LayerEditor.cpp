@@ -168,6 +168,8 @@ void LayerEditor::PostUpdate()
         if (_imWindows[i]->isEnabled) _imWindows[i]->Update();
     }
 
+	Application::Instance()->renderer3D->modelRender.OnEditor();
+
 	ImGui::Render();
 
 	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());

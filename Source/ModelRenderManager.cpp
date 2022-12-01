@@ -22,6 +22,31 @@ void ModelRenderManager::Init()
 	_textureManager = new TextureManager();
 }
 
+void ModelRenderManager::OnEditor()
+{
+	if (ImGui::Begin("Render System Debugging"))
+	{
+		ImGui::TextWrapped("Window to manage every RenderManager memory usage and instances. The memory allocated per RenderManager increases by 50 per cent every time the current allocated memory gets surpassed.");
+		for (auto& manager : _renderMap)
+		{
+			std::string headerName = manager.second.resource->debugName + "##" + manager.second.resource->resourcePath;
+			if(ImGui::CollapsingHeader(headerName.c_str()))
+			{
+				std::string maxInstances = "Maximum number of instances: " + std::to_string(manager.second.instanceNum);
+				ImGui::Text(maxInstances.c_str());
+				ImGui::Text("Instances: "); ImGui::SameLine();
+				ImGui::TextColored(ImVec4(1.0f, 0.0f, 1.0f, 1.0f), std::to_string(manager.second.meshes.size()).c_str());
+				ImGui::Text("Memory usage in bytes: "); ImGui::SameLine();
+				float memory = manager.second.instanceNum * sizeof(float4x4) + manager.second.instanceNum * sizeof(float);
+				memory += manager.second.totalIndices->size() * sizeof(uint);
+				memory += manager.second.totalVertices->size() * sizeof(Vertex);
+				ImGui::TextColored(ImVec4(1.0f, 0.0f, 1.0f, 1.0f), std::to_string(memory).c_str());
+			}
+		}
+	}
+	ImGui::End();
+}
+
 RenderManager* ModelRenderManager::GetRenderManager(uint ID)
 {
 	return &_renderMap[ID];
@@ -34,6 +59,12 @@ void ModelRenderManager::Draw()
 	{
 		obj.second.Draw();
 	}
+	// Delete empty render managers.
+	for (int i = 0; i < _emptyRenderManagers.size(); i++)
+	{
+		_renderMap.erase(_emptyRenderManagers[i]);
+	}
+	_emptyRenderManagers.clear();
 
 	CameraObject* currentCamera = Application::Instance()->camera->currentDrawingCamera;
 
@@ -121,4 +152,9 @@ void ModelRenderManager::CreatePrimitive(GameObject* parent, PrimitiveType type)
 			break;
 		}
 	}
+}
+
+void ModelRenderManager::DestroyRenderManager(uint managerUID)
+{
+	_emptyRenderManagers.push_back(managerUID);
 }
