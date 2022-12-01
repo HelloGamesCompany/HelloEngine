@@ -29,7 +29,9 @@ void ModelRenderManager::OnEditor()
 		ImGui::TextWrapped("Window to manage every RenderManager memory usage and instances. The memory allocated per RenderManager increases by 50 per cent every time the current allocated memory gets surpassed.");
 		for (auto& manager : _renderMap)
 		{
-			std::string headerName = manager.second.resource->debugName + "##" + manager.second.resource->resourcePath;
+			if (manager.second.resource == nullptr)
+				continue;
+			std::string headerName = manager.second.resource->debugName + "##" + std::to_string(manager.second.resource->UID);
 			if(ImGui::CollapsingHeader(headerName.c_str()))
 			{
 				std::string maxInstances = "Maximum number of instances: " + std::to_string(manager.second.instanceNum);

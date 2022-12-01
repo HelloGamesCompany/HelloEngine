@@ -62,6 +62,7 @@ void ImWindowScene::Update()
 
 			if (selected != nullptr)
 			{
+				ImGuizmo::Enable(true);
 				float4x4 auxiliarMatrix = selected->transform->GetGlobalMatrix();
 				auxiliarMatrix.Transpose();
 

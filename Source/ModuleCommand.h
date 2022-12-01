@@ -3,7 +3,7 @@
 #include "CommandChangeValue.hpp"
 #include "CommandArray.hpp"
 
-#define MAX_UNDO 20 // Actually is 20-1 = 19;
+#define MAX_UNDO 20 // Actually is 21-1 = 20;
 
 typedef Htool::CommandArray<Command*> CommandArray;
 

@@ -26,6 +26,7 @@ MeshRenderComponent::~MeshRenderComponent()
 		{
 			RenderManager* manager = Application::Instance()->renderer3D->modelRender.GetRenderManager(_meshID);
 			manager->GetMap().erase(_instanceID);
+			_meshID = -1;
 		}
 		else
 		{
@@ -277,6 +278,7 @@ void MeshRenderComponent::MarkAsDead()
 		{
 			RenderManager* manager = Application::Instance()->renderer3D->modelRender.GetRenderManager(_meshID);
 			manager->GetMap().erase(_instanceID);
+			_meshID = -1;
 		}
 		else
 		{
@@ -289,15 +291,10 @@ void MeshRenderComponent::MarkAsDead()
 			resource = nullptr;
 		}
 	}
-	//GetMesh().draw = false;
 }
 
 void MeshRenderComponent::MarkAsAlive()
 {
 	CreateMesh(resourceUID);
-
-	/*if (IsEnabled())
-		GetMesh().draw = true;*/
-	// Load resource again. If the reosurce is no longer created, make sure this mesh render component is just empty.
 }
 

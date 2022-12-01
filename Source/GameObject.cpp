@@ -6,6 +6,7 @@
 #include "MaterialComponent.h"
 #include "CameraComponent.h"
 #include "LayerEditor.h"
+#include "ImGuizmo/ImGuizmo.h"
 
 GameObject::GameObject(GameObject* parent, std::string name, std::string tag) : name(name), tag(tag)
 {
@@ -133,6 +134,7 @@ bool GameObject::MarkAsDead()
 		if (Application::Instance()->layers->editor->selectedGameObject == this)
 		{
 			Application::Instance()->layers->editor->SetSelectGameObject(nullptr);
+			ImGuizmo::Enable(false);
 		}
 
 		_isPendingToDelete = true;
@@ -149,6 +151,8 @@ bool GameObject::MarkAsDead()
 		{
 			_components[i]->MarkAsDead();
 		}
+
+
 
 		return true;
 	}	
@@ -192,7 +196,7 @@ void GameObject::Destroy()
 	
 	_parent->RemoveChild(this);
 	
-	Application::Instance()->layers->gameObjects[_ID] = nullptr;
+	Application::Instance()->layers->gameObjects.erase(_ID);
 	
 	Application::Instance()->layers->deletedGameObjects.push_back(this);
 

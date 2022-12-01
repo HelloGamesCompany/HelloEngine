@@ -182,7 +182,7 @@ GameObject* ModuleRenderer3D::RaycastFromMousePosition(LineSegment& ray, CameraO
 	bool hit = false;
 	std::vector<uint> hitGameobjects;
 	for (auto& gameObject : gameObjects)
-	{
+	{		
 		if (!gameObject.second->_isActive || gameObject.second->_isPendingToDelete || gameObject.second->_isDestroyed)
 			continue;
 		if (!gameObject.second->HasComponent<MeshRenderComponent>())
