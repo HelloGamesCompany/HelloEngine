@@ -88,6 +88,10 @@ void ImWindowScene::Update()
 				if (Application::Instance()->input->GetMouseButton(1) == KEY_UP && ImGui::IsWindowHovered() && manipulated)
 				{
 					manipulated = false;
+					// If this auxiliar matrix has not been transposed, transpose ir before giving it to the changetransform command
+					if (auxiliarMatrix.Col(3).xyz() == float3(0,0,0) && auxiliarMatrix.Col(3).w == 1)
+						auxiliarMatrix.Transpose();
+
 					ModuleCommand::S_ChangeTransform(auxiliarMatrix, currentGlobal, _imOperation == ImGuizmo::OPERATION::SCALE,
 						std::bind(&TransformComponent::SetLocalFromGlobal, selected->transform, std::placeholders::_1, std::placeholders::_2));
 					firstClick = false;
