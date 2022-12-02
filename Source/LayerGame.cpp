@@ -31,11 +31,12 @@ void LayerGame::Start()
 
 void LayerGame::PreUpdate()
 {
-	if (!_isPlaying || !_stopped)
+	if ((!_isPlaying || _paused) && !_oneFrame)
 	{
 		_update = false;
 		return;
 	}
+	_oneFrame = false;
 	_update = true;
 	
 	// Update time.
@@ -43,10 +44,10 @@ void LayerGame::PreUpdate()
 	Time::UpdateGameTime();
 
 	//std::cout << "Real time: " << Time::RealTimeDeltaTime() << std::endl;
-	//std::cout << "Game time: " << Time::GameDeltaTime() << std::endl;
+	//std::cout << "Game time: " << Time::GameDeltaTime() << std::endl;s
 	/*std::cout << "Total Time Real Time: " << Time::GameTimeInRealTimeCount() << std::endl;
 	std::cout << "Total Time Game Time: " << Time::GameTimeCount() << std::endl;*/
-	//std::cout << "Frame count: " << Time::GameFrameCount() << std::endl;
+	std::cout << "Frame count: " << Time::GameFrameCount() << std::endl;
 }
 
 void LayerGame::Update()
@@ -66,11 +67,12 @@ void LayerGame::Play()
 	// TODO: Save scene.
 
 	_isPlaying = true;
-	_stopped = false;
+	_paused = false;
 }
 
 void LayerGame::Stop()
 {
+	Time::Reset();
 	_isPlaying = false;
 	// TODO: Reload scene.
 }
@@ -78,7 +80,12 @@ void LayerGame::Stop()
 void LayerGame::Pause()
 {
 	_isPlaying = false;
-	_stopped = true;
+	_paused = true;
+}
+
+void LayerGame::OneFrame()
+{
+	_oneFrame = true;
 }
 
 void LayerGame::CleanUp()

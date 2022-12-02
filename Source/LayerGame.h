@@ -18,11 +18,13 @@ public:
 	void Play();
 	void Stop();
 	void Pause();
+	void OneFrame();
 
 	void CleanUp() override;
 private:
 	bool _isPlaying = false;
-	bool _stopped = false;
+	bool _paused = false;
 	bool _update = false;
+	bool _oneFrame = false;
 };
 

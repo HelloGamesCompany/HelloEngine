@@ -63,3 +63,18 @@ float Time::GetTimeScale()
 {
 	return _timeScale;
 }
+
+void Time::Reset()
+{
+	// Real Time
+	_realTimeDeltaTime = 0;
+	_lastFrameTicks = 0;
+	_realTimeTotalTime = 0;
+
+	// Game Time
+	_gameTimeDeltaTime = 0;
+	_frameCount = 0;
+	_gameTimeTotalTime = 0;
+	_timeScale = 1.0f;
+
+}

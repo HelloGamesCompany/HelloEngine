@@ -33,6 +33,8 @@ public:
 	static void SetTimeScale(float timeScale);
 	static float GetTimeScale();
 
+	static void Reset();
+
 private:
 
 	// Real Time

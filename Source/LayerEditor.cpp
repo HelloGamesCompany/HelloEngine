@@ -224,6 +224,7 @@ void LayerEditor::DrawMenuBar()
 {
 	if (ImGui::BeginMainMenuBar())
 	{
+
 		ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.05f, 0.05f, 0.05f, 1));
 
 		ImGui::PushStyleColor(ImGuiCol_PopupBg, ImVec4(0.95f, 0.95f, 0.95f, 1));
@@ -255,11 +256,33 @@ void LayerEditor::DrawMenuBar()
 			}
 			ImGui::EndMenu();
 		}
-
 		ImGui::PopStyleColor(2);
 
 		ImGui::EndMainMenuBar();
 	}
+
+	ImGuiViewportP* viewport = (ImGuiViewportP*)(void*)ImGui::GetMainViewport();
+	ImGuiWindowFlags window_flags = ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_MenuBar;
+	float height = ImGui::GetFrameHeight();
+
+	if (ImGui::BeginViewportSideBar("##SecondaryMenuBar", viewport, ImGuiDir_Up, height, window_flags)) {
+		if (ImGui::BeginMenuBar()) {
+			ImVec2 contentRegion = ImGui::GetContentRegionAvail();
+			int totalButtonsWidth = 100;
+			ImGui::SetCursorPos(ImVec2(contentRegion.x / 2 - totalButtonsWidth, 0));
+			if (ImGui::Button("Play"))
+				_game->Play();
+			if (ImGui::Button("Pause"))
+				_game->Pause();			
+			if (ImGui::Button("Stop"))
+				_game->Stop();
+			if (ImGui::Button("One frame"))
+				_game->OneFrame();
+			ImGui::EndMenuBar();
+		}
+		ImGui::End();
+	}
+
 }
 
 void LayerEditor::DrawPopUpMessages()
