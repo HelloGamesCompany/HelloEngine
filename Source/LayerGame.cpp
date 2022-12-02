@@ -16,7 +16,6 @@ LayerGame::~LayerGame()
 
 void LayerGame::Start()
 {
-	Time::SetTimeScale(2.0f);
 	/*uint newTexture = TextureImporter::ImportTexture("Assets/Baker_house.png");
 	uint newTexture2 = TextureImporter::ImportTexture("Assets/Baker_house.png");*/
 
@@ -65,7 +64,8 @@ void LayerGame::PostUpdate()
 void LayerGame::Play()
 {
 	// TODO: Save scene.
-
+	Time::Reset();
+	Time::Start();
 	_isPlaying = true;
 	_paused = false;
 }
@@ -79,12 +79,18 @@ void LayerGame::Stop()
 
 void LayerGame::Pause()
 {
-	_isPlaying = false;
-	_paused = true;
+	if (!_isPlaying)
+		return;
+
+	_paused = !_paused;
+	if (!_paused)
+		Time::Start();
 }
 
 void LayerGame::OneFrame()
 {
+	if (!_isPlaying || !_paused) return;
+	Time::Start();
 	_oneFrame = true;
 }
 

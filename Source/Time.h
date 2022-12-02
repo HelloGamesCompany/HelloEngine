@@ -13,7 +13,8 @@ public:
 	// last frame time expressed in real time seconds
 	// seconds since game start in real time
 
-	// Real tme
+	static void Start();
+
 	static void UpdateRealTime();
 	static void UpdateGameTime();
 
@@ -41,6 +42,7 @@ private:
 	static float _realTimeDeltaTime;
 	static uint _lastFrameTicks;
 	static double _realTimeTotalTime;
+	static uint _startTicks;
 
 	// Game Time
 	static float _gameTimeDeltaTime;

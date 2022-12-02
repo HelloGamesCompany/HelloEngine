@@ -5,6 +5,7 @@
 float Time::_realTimeDeltaTime = 0;
 uint Time::_lastFrameTicks = 0;
 double Time::_realTimeTotalTime = 0;
+uint Time::_startTicks = 0;
 
 // Game Time
 float Time::_gameTimeDeltaTime = 0;
@@ -12,11 +13,17 @@ uint Time::_frameCount = 0;
 double Time::_gameTimeTotalTime = 0;
 float Time::_timeScale = 1.0f;
 
+void Time::Start()
+{
+	_startTicks = SDL_GetTicks();
+	_lastFrameTicks = 0;
+}
+
 void Time::UpdateRealTime()
 {
 	// Get real time in seconds (SDL_GetTicks() returns in miliseconds)
-	_realTimeDeltaTime = (SDL_GetTicks() - _lastFrameTicks) * 0.001f;
-	_lastFrameTicks = SDL_GetTicks();
+	_realTimeDeltaTime = (SDL_GetTicks() - _lastFrameTicks - _startTicks) * 0.001f;
+	_lastFrameTicks = SDL_GetTicks() - _startTicks;
 	_realTimeTotalTime += _realTimeDeltaTime;
 
 }
@@ -70,6 +77,7 @@ void Time::Reset()
 	_realTimeDeltaTime = 0;
 	_lastFrameTicks = 0;
 	_realTimeTotalTime = 0;
+	_startTicks = 0;
 
 	// Game Time
 	_gameTimeDeltaTime = 0;

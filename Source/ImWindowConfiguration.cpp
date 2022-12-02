@@ -100,6 +100,28 @@ void ImWindowConfiguration::Update()
 			app->renderer3D->ToggleVSync(*isVSyncOn);	
 		}
 
+		if (ImGui::CollapsingHeader("Time", ImGuiTreeNodeFlags_DefaultOpen))
+		{
+			ImGui::TextWrapped("\Time variables\t");
+
+			ImGui::TextWrapped("Real time delta time: "); ImGui::SameLine();
+			ImGui::TextColored(ImVec4(255, 255, 0, 255), "%.4f", Time::RealTimeDeltaTime()); 
+			ImGui::TextWrapped("Real time total time: "); ImGui::SameLine();
+			ImGui::TextColored(ImVec4(255, 255, 0, 255), "%.4f", Time::GameTimeInRealTimeCount());
+
+
+			ImGui::TextWrapped("Game delta time: "); ImGui::SameLine();
+			ImGui::TextColored(ImVec4(255, 255, 0, 255), "%.4f", Time::GameDeltaTime());
+			ImGui::TextWrapped("Game total time: "); ImGui::SameLine();
+			ImGui::TextColored(ImVec4(255, 255, 0, 255), "%.4f", Time::GameTimeCount());
+			ImGui::TextWrapped("Game frame count: "); ImGui::SameLine();
+			ImGui::TextColored(ImVec4(255, 255, 0, 255), "%d", Time::GameFrameCount());
+
+			float tempTimeScale = Time::GetTimeScale();
+			if (ImGui::DragFloat("Time scale", &tempTimeScale, 0.05f))
+				Time::SetTimeScale(tempTimeScale);
+		}
+
 		if (ImGui::CollapsingHeader("Input", ImGuiTreeNodeFlags_DefaultOpen))
 		{
 			ImGui::TextWrapped("\tMouse Input\t");
