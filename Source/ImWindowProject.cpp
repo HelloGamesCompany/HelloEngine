@@ -157,17 +157,17 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
     {
         parent1 = _fileTree->_currentDir->parent;
     }
-    if(parent1 && parent1->parent)
+    if (parent1 && parent1->parent)
     {
         parent2 = parent1->parent;
     }
-    if(parent2)
+    if (parent2)
     {
         std::string pName = parent2->name + " > ##Return";
         if (ImGui::Button(pName.c_str()))
         {
             newDir = parent2;
-        }   
+        }
     }
     if (parent1)
     {
@@ -195,7 +195,7 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
     for (int i = 0; i < _fileTree->_currentDir->directories.size(); i++)
     {
         if (ImGui::Button(_fileTree->_currentDir->directories[i]->name.c_str(), ImVec2(110, 50)))
-        {         
+        {
             newDir = _fileTree->_currentDir->directories[i];
         }
         if (ImGui::IsItemHovered())
@@ -209,7 +209,7 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
     // Files
     for (int i = 0; i < _fileTree->_currentDir->files.size(); i++)
     {
-        if(ImGui::Button(_fileTree->_currentDir->files[i].name.c_str(), ImVec2(110, 50)))
+        if (ImGui::Button(_fileTree->_currentDir->files[i].name.c_str(), ImVec2(110, 50)))
         {
         }
 
@@ -220,7 +220,7 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
             {
                 _deleteFile = &_fileTree->_currentDir->files[i];
                 ImGui::CloseCurrentPopup();
-            }              
+            }
             ImGui::EndPopup();
         }
 
@@ -254,6 +254,15 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
         }
         ImGui::SameLine();
     }
+
+    //if (ImGui::BeginPopupContextItem()) // <-- use last item id as popup id
+    //{
+    //    if (ImGui::Button("Delete"))
+    //    {
+    //        ImGui::CloseCurrentPopup();
+    //    }
+    //    ImGui::EndPopup();
+    //}
 }
 
 void ImWindowProject::OnDrop(const std::string filePath)

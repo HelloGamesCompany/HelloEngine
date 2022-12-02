@@ -224,9 +224,13 @@ void ModuleResourceManager::S_SerializeScene(GameObject* g)
 	if (!g) return;
 
 	json j;
-
 	// Write json
 
+	for (int i = 0; i < g->_children.size() ; i++)
+	{
+		//Recursiva
+		SerializeSceneRecursive(g->_children, j);
+	}
 
 	// Save json 
 	std::string savePath = fileTree->_currentDir->path + g->name + ".HScene";
@@ -345,4 +349,9 @@ void ModuleResourceManager::GetResourcePath(ModelNode& node, std::vector<std::st
 	{
 		GetResourcePath(node.children[i], vector);
 	}
+}
+
+void ModuleResourceManager::SerializeSceneRecursive(const GameObject*& g, json& j)
+{
+
 }

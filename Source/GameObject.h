@@ -110,4 +110,5 @@ private:
 	friend class CommandSetParentGameObject;
 #endif // STANDALONE
 	friend class ModuleRenderer3D;
+	friend class ModuleResourceManager;
 };
