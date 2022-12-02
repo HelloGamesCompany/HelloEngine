@@ -11,6 +11,8 @@ public:
 	void OnTransformCallback(float4x4 worldMatrix) override;
 
 	void OnEditor() override;
+	void PerspectiveEditorOptions();
+	void OrthographicEditorOptions();
 
 	void OnEnable() override;
 	void OnDisable() override;
@@ -21,6 +23,8 @@ public:
 
 private:
 	ModuleCamera3D* moduleCameras = nullptr;
+	std::string _comboValues[2] = { "Orthographic", "Perspective" };
+	uint _selectedCombo = 1;
 
 
 };

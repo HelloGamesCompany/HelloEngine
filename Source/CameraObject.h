@@ -29,6 +29,9 @@ public:
 	float* GetViewMatrixNoTransp();
 	float* GetProjectionMatrixNoTransp();
 
+	void ChangeToOrthograpic();
+	void ChangeToPerspective();
+
 	void RecalculateProjection();
 
 	void RegenerateFrameBuffer(int width, int height);
@@ -41,6 +44,10 @@ public:
 	float GetFOV() { return FOV; };
 
 	bool IsInsideFrustum(AABB& globalAABB);
+
+private:
+	bool IsInsideFrustumPerspective(AABB& globalAABB);
+	bool IsInsideFrustumOrthographic(AABB& globalAABB);
 
 public:
 	float3 X = { 0,0,0 }, Y = { 0,0,0 }, Z = { 0,0,0 }, Position = { 0,0,0 }, Reference = { 0,0,0 };

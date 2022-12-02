@@ -7,7 +7,7 @@
 	</window>
 	<renderer>
 		<vsync value="false" />
-		<framerate value="30" />
+		<framerate value="120" />
 	</renderer>
 	<openGL>
 		<blend value="true" tag="0x0BE2" />

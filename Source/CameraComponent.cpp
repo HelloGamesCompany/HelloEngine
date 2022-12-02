@@ -33,26 +33,56 @@ void CameraComponent::OnEditor()
 			auxiliaryBool ? Enable() : Disable();
 		}
 
-		int tempValue = cameraObject->FOV;
-		if (ImGui::SliderInt("FOV", &tempValue, 20, 140))
+		if (ImGui::BeginCombo("Frustum type", _comboValues[_selectedCombo].c_str()))
 		{
-			cameraObject->SetFOV(tempValue);
+			for (int i = 0; i < 2; i++)
+			{
+				bool selected = i == _selectedCombo;
+				if (ImGui::Selectable(_comboValues[i].c_str(), &selected))
+				{
+					if (i == 0)
+						cameraObject->ChangeToOrthograpic();
+					else
+						cameraObject->ChangeToPerspective();
+					_selectedCombo = i;
+				}
+			}
+			ImGui::EndCombo();
 		}
 
 		ImGui::Checkbox("Culling", &cameraObject->isCullingActive);
 
-		ImGui::DragFloat("Near plane", &cameraObject->cameraFrustum.nearPlaneDistance, 0.1f, 0.01);
-		ImGui::DragFloat("Far plane", &cameraObject->cameraFrustum.farPlaneDistance, 1.0f, 0.01);
+		if (_selectedCombo == 0)
+			OrthographicEditorOptions();
+		else
+			PerspectiveEditorOptions();
 
+		
 		ImGui::TextColored(cameraObject->currentlyDisplaying ? ImVec4(0, 1, 0, 1) : ImVec4(1, 0, 0, 1), cameraObject->currentlyDisplaying ? "Currently displaying" : "Not currently displaying");
 		ImGui::SameLine();
-
 		if (ImGui::Button("Set as drawing game camera."))
 		{
 			Application::Instance()->camera->SetCurrentActiveGameCamera(cameraObject);
 		}
-
 	}
+}
+
+void CameraComponent::PerspectiveEditorOptions()
+{
+	int tempValue = cameraObject->FOV;
+	if (ImGui::SliderInt("FOV", &tempValue, 20, 140))
+	{
+		cameraObject->SetFOV(tempValue);
+	}
+
+	ImGui::DragFloat("Near plane", &cameraObject->cameraFrustum.nearPlaneDistance, 0.1f, 0.01);
+	ImGui::DragFloat("Far plane", &cameraObject->cameraFrustum.farPlaneDistance, 1.0f, 0.01);
+}
+
+void CameraComponent::OrthographicEditorOptions()
+{
+	ImGui::DragFloat("Width", &cameraObject->cameraFrustum.orthographicWidth, 0.1f, 0.01);
+	ImGui::DragFloat("Height", &cameraObject->cameraFrustum.orthographicHeight, 0.1f, 0.01);
 }
 
 void CameraComponent::OnEnable()

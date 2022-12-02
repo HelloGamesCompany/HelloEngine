@@ -158,6 +158,18 @@ float* CameraObject::GetProjectionMatrixNoTransp()
 	return &ProjectionMatrix.v[0][0];
 }
 
+void CameraObject::ChangeToOrthograpic()
+{
+	if (cameraFrustum.type != math::FrustumType::OrthographicFrustum)
+		cameraFrustum.type = math::FrustumType::OrthographicFrustum;
+}
+
+void CameraObject::ChangeToPerspective()
+{
+	if (cameraFrustum.type != math::FrustumType::PerspectiveFrustum)
+		cameraFrustum.type = math::FrustumType::PerspectiveFrustum;
+}
+
 void CameraObject::RecalculateProjection()
 {
 	float aspectRatio = (float)(frameBuffer.width) / (float)(frameBuffer.height);
@@ -184,6 +196,14 @@ void CameraObject::SetFOV(float fov)
 }
 
 bool CameraObject::IsInsideFrustum(AABB& globalAABB)
+{
+	if (cameraFrustum.type == FrustumType::PerspectiveFrustum)
+		return IsInsideFrustumPerspective(globalAABB);
+	else
+		return IsInsideFrustumOrthographic(globalAABB);
+}
+
+bool CameraObject::IsInsideFrustumPerspective(AABB& globalAABB)
 {
 	float3 vCorner[8];
 	math::Plane planes[6];
@@ -214,4 +234,16 @@ bool CameraObject::IsInsideFrustum(AABB& globalAABB)
 		return true;*/
 	// we must be partly in then otherwise
 	return true;
+}
+
+bool CameraObject::IsInsideFrustumOrthographic(AABB& globalAABB)
+{
+	// TODO: This is temporal. Doesn't work with too small frustums, where all 8 points are outside.
+	for (int i = 0; i < 8; ++i)
+	{
+		if (cameraFrustum.Contains(globalAABB.CornerPoint(i)))
+			return true;
+	}
+	return false;
+
 }
