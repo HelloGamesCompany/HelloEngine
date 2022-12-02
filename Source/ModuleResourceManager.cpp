@@ -219,18 +219,16 @@ void ModuleResourceManager::S_UpdateFileTree()
 	ModuleFiles::S_UpdateFileTree(fileTree);
 }
 
-void ModuleResourceManager::S_SerializeScene(GameObject* g)
+void ModuleResourceManager::S_SerializeScene(const GameObject*& g)
 {
-	if (!g) return;
+	if (!g)
+		return;
 
+	// Create json
 	json j;
-	// Write json
 
-	for (int i = 0; i < g->_children.size() ; i++)
-	{
-		//Recursiva
-		SerializeSceneRecursive(g->_children, j);
-	}
+	// Write json
+	SerializeSceneRecursive(g, j);
 
 	// Save json 
 	std::string savePath = fileTree->_currentDir->path + g->name + ".HScene";
@@ -263,7 +261,7 @@ void ModuleResourceManager::S_DeleteMetaFile(const std::string& file, bool onlyR
 		break;
 	default:
 		{
-		ModuleFiles::S_Delete(meta.resourcePath);
+			ModuleFiles::S_Delete(meta.resourcePath);
 		}
 		break;
 	}
@@ -351,7 +349,16 @@ void ModuleResourceManager::GetResourcePath(ModelNode& node, std::vector<std::st
 	}
 }
 
-void ModuleResourceManager::SerializeSceneRecursive(const GameObject*& g, json& j)
+void ModuleResourceManager::SerializeSceneRecursive(const GameObject* g, json& j)
 {
+	for (int i = 0; i < g->_components.size(); i++)
+	{
+		// Add components
+	}
 
+	for (int i = 0; i < g->_children.size(); i++)
+	{
+		// Recursiva
+		SerializeSceneRecursive(g->_children[i], j);
+	}
 }

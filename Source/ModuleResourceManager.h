@@ -101,7 +101,7 @@ public:
 
 	static void S_UpdateFileTree();
 
-	static void S_SerializeScene(GameObject* g);
+	static void S_SerializeScene(const GameObject*& g);
 
 	/// <summary>
 	/// Delete meta file and the resources attached to it. If you want to only destroy the resources, mark bool as true.
@@ -119,7 +119,7 @@ public:
 private:
 	static void GetResourcePath(ModelNode& node, std::vector<std::string>& vector);
 
-	static void SerializeSceneRecursive(const GameObject*& g, json& j);
+	static void SerializeSceneRecursive(const GameObject* g, json& j);
 
 public:
 	static std::map<std::string, Resource*> loadedResources;
