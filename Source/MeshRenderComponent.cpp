@@ -298,3 +298,11 @@ void MeshRenderComponent::MarkAsAlive()
 	CreateMesh(resourceUID);
 }
 
+void MeshRenderComponent::Serialization(json& j)
+{
+	json _j;
+
+	_j["Type"] = _type;
+
+	j["Components"].push_back(_j);
+}

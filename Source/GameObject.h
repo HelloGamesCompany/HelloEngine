@@ -5,8 +5,8 @@
 class GameObject
 {
 public:
-	GameObject(GameObject* parent, std::string name = "Default", std::string tag = "Default");
-	GameObject(GameObject* parent, std::string& name, std::string& tag);
+	GameObject(GameObject* parent, std::string name = "Default", std::string tag = "Default", uint ID = 0);
+	GameObject(GameObject* parent, std::string& name, std::string& tag, uint ID = 0);
 	~GameObject();
 
 	//TODO: Could do with an array of functions that creates a specific component

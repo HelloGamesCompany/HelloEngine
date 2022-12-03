@@ -5,6 +5,7 @@
 #include "ModuleResourceManager.h"
 
 #include "ModuleWindow.h"
+#include "ModuleLayers.h"
 
 ImWindowProject::ImWindowProject()
 {
@@ -108,6 +109,24 @@ void ImWindowProject::Update()
 
         UpdateFileNodes();
     }
+
+    // JUST FOR TEST
+
+    
+    if (Application::Instance()->input->GetKey(SDL_SCANCODE_J) == KEY_DOWN)
+    {
+        ModuleResourceManager::S_SerializeScene(Application::Instance()->layers->rootGameObject);
+    }
+
+    if (Application::Instance()->input->GetKey(SDL_SCANCODE_L) == KEY_DOWN)
+    {
+        std::string path = _fileTree->_currentDir->path + Application::Instance()->layers->rootGameObject->name + ".HScene";
+
+        Application::Instance()->layers->RequestLoadScene(path);
+
+        //ModuleResourceManager::S_DeserializeScene(path);
+    }
+    
 }
 
 void ImWindowProject::DrawTreeNodePanelLeft(Directory*& newDir, Directory* node, const bool drawFiles) const

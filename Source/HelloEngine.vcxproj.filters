@@ -2,12 +2,10 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
-    <ClCompile Include="CameraComponent.cpp" />
     <ClCompile Include="CameraObject.cpp" />
     <ClCompile Include="Command.cpp" />
     <ClCompile Include="CommandDeleteGameObject.cpp" />
     <ClCompile Include="CommandSetParentGameObject.cpp" />
-    <ClCompile Include="Component.cpp" />
     <ClCompile Include="Console.cpp" />
     <ClCompile Include="External\imgui\imgui.cpp" />
     <ClCompile Include="External\imgui\imgui_demo.cpp" />
@@ -73,9 +71,7 @@
     <ClCompile Include="LayerGame.cpp" />
     <ClCompile Include="Log.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="MaterialComponent.cpp" />
     <ClCompile Include="MeshImporter.cpp" />
-    <ClCompile Include="MeshRenderComponent.cpp" />
     <ClCompile Include="ModelRenderManager.cpp" />
     <ClCompile Include="Module.cpp" />
     <ClCompile Include="ModuleCamera3D.cpp" />
@@ -96,7 +92,6 @@
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TextureImporter.cpp" />
     <ClCompile Include="TextureManager.cpp" />
-    <ClCompile Include="TransformComponent.cpp" />
     <ClCompile Include="XMLNode.cpp" />
     <ClCompile Include="UUID.cpp" />
     <ClCompile Include="External\imgui\ImGuizmo\GraphEditor.cpp" />
@@ -107,17 +102,30 @@
     <ClCompile Include="ImWindowResources.cpp" />
     <ClCompile Include="CommandChangeTransform.cpp" />
     <ClCompile Include="Time.cpp" />
+    <ClCompile Include="CameraComponent.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Component.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="TransformComponent.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshRenderComponent.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="MaterialComponent.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h" />
-    <ClInclude Include="CameraComponent.h" />
     <ClInclude Include="CameraObject.h" />
     <ClInclude Include="Command.h" />
     <ClInclude Include="CommandArray.hpp" />
     <ClInclude Include="CommandChangeValue.hpp" />
     <ClInclude Include="CommandDeleteGameObject.h" />
     <ClInclude Include="CommandSetParentGameObject.h" />
-    <ClInclude Include="Component.h" />
     <ClInclude Include="Console.h" />
     <ClInclude Include="CycleArray.hpp" />
     <ClInclude Include="External\imgui\imconfig.h" />
@@ -216,10 +224,8 @@
     <ClInclude Include="JSONParser.h" />
     <ClInclude Include="Layer.h" />
     <ClInclude Include="LayerGame.h" />
-    <ClInclude Include="MaterialComponent.h" />
     <ClInclude Include="MemLeaks.h" />
     <ClInclude Include="MeshImporter.h" />
-    <ClInclude Include="MeshRenderComponent.h" />
     <ClInclude Include="ModelRenderManager.h" />
     <ClInclude Include="Module.h" />
     <ClInclude Include="ModuleCamera3D.h" />
@@ -242,7 +248,6 @@
     <ClInclude Include="TextureImporter.h" />
     <ClInclude Include="TextureManager.h" />
     <ClInclude Include="Timer.hpp" />
-    <ClInclude Include="TransformComponent.h" />
     <ClInclude Include="XMLNode.h" />
     <ClInclude Include="UUID.h" />
     <ClInclude Include="External\imgui\ImGuizmo\GraphEditor.h" />
@@ -254,6 +259,21 @@
     <ClInclude Include="ImWindowResources.h" />
     <ClInclude Include="CommandChangeTransform.h" />
     <ClInclude Include="Time.h" />
+    <ClInclude Include="CameraComponent.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Component.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="TransformComponent.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshRenderComponent.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="MaterialComponent.h">
+      <Filter>Components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="HelloEngine.rc" />
@@ -271,5 +291,10 @@
     <None Include="External\MathGeoLib\include\Geometry\TriangleMesh_IntersectRay_CPP.inl" />
     <None Include="External\MathGeoLib\include\Geometry\TriangleMesh_IntersectRay_SSE.inl" />
     <None Include="External\MathGeoLib\include\Math\Matrix.inl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Components">
+      <UniqueIdentifier>{a2b44d8a-d1bc-4968-85f9-c7ef84d0d10c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

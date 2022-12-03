@@ -17,6 +17,8 @@ public:
 	void OnEnable() override;
 	void OnDisable() override;
 
+	void Serialization(json& j) override;
+
 public:
 	CameraObject* cameraObject = nullptr;
 	bool isCurrentlyDisplaying = false;

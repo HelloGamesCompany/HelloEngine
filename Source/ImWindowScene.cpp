@@ -115,7 +115,6 @@ void ImWindowScene::Update()
 				//Drop asset from Asset window to scene window
 				const uint* drop = (uint*)payload->Data;
 
-
 				ResourceModel* resource = (ResourceModel*)ModuleResourceManager::S_LoadResource(*drop);
 
 				MeshImporter::LoadModelIntoScene(resource);

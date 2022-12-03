@@ -167,7 +167,7 @@ struct MeshInfo
 		return filePath;
 	}
 
-	void LoadFromBinaryFile(std::string filePath)
+	void LoadFromBinaryFile(const std::string& filePath)
 	{
 		char* buffer = nullptr;
 		uint size = ModuleFiles::S_Load(filePath, &buffer);

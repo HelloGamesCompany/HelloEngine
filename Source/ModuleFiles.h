@@ -17,6 +17,7 @@ enum class ResourceType
 	MESH,
 	TEXTURE,
 	MODEL,
+	SCENE,
 };
 
 struct MetaFile

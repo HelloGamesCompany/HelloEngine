@@ -94,3 +94,12 @@ void CameraComponent::OnDisable()
 {
 	cameraObject->active = false;
 }
+
+void CameraComponent::Serialization(json& j)
+{
+	json _j;
+
+	_j["Type"] = _type;
+
+	j["Components"].push_back(_j);
+}

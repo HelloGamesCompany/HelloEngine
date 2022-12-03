@@ -7,6 +7,8 @@
 #include "TransformComponent.h"
 #include "ModuleResourceManager.h"
 
+#include "ModuleInput.h"
+
 ModuleLayers::ModuleLayers()
 {
 }
@@ -18,6 +20,7 @@ ModuleLayers::~ModuleLayers()
 bool ModuleLayers::Init()
 {
     rootGameObject = new GameObject(nullptr, "Root", "None");
+
     return true;
 }
 
@@ -36,9 +39,18 @@ bool ModuleLayers::Start()
 
 UpdateStatus ModuleLayers::PreUpdate()
 {
-    for (int i = 0; i < deletedGameObjects.size(); i++)
+    if(_requestScene)
     {
-        RELEASE(deletedGameObjects[i]);
+        ModuleResourceManager::S_DeserializeScene(_requestScenePath);
+
+        _requestScenePath = "";
+
+        _requestScene = false;
+    }
+
+    for (int i = 0; i < _deletedGameObjects.size(); i++)
+    {
+        RELEASE(_deletedGameObjects[i]);
     }
 
     for (int i = 0; i < (uint)LayersID::MAX; i++)
@@ -86,9 +98,16 @@ bool ModuleLayers::CleanUp()
     return true;
 }
 
-uint ModuleLayers::AddGameObject(GameObject* go)
+uint ModuleLayers::AddGameObject(GameObject* go, uint ID)
 {
-    uint ID = HelloUUID::GenerateUUID();
+    ID = ID == 0 ? HelloUUID::GenerateUUID() : ID;
     gameObjects[ID] = go;
     return ID;
+}
+
+void ModuleLayers::RequestLoadScene(const std::string& scenePath)
+{
+    _requestScenePath = scenePath;
+
+    _requestScene = true;
 }

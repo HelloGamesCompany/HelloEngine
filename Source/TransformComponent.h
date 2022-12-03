@@ -71,6 +71,8 @@ public:
 
 	bool CheckDirtyFlag() { return _dirtyFlag; }
 
+	void Serialization(json& j) override;
+
 private:
 	void UpdateDirtyFlagForChildren();
 

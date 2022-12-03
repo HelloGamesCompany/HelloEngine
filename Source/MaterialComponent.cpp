@@ -67,6 +67,15 @@ void MaterialComponent::MarkAsAlive()
 	ChangeTexture((ResourceTexture*)ModuleResourceManager::S_LoadResource(resourceUID));
 }
 
+void MaterialComponent::Serialization(json& j)
+{
+	json _j;
+
+	_j["Type"] = _type;
+
+	j["Components"].push_back(_j);
+}
+
 void MaterialComponent::OnEditor()
 {
 	if (!ImGui::CollapsingHeader("Material", ImGuiTreeNodeFlags_DefaultOpen)) return;

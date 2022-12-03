@@ -2,6 +2,9 @@
 
 class GameObject;
 
+#include "json.hpp"
+using json = nlohmann::json;
+
 class Component
 {
 public:
@@ -35,6 +38,8 @@ public:
 	virtual void OnScaleUpdate(float3 scale) {}
 	virtual void OnRotationUpdate(float3 rotation) {}
 	virtual void OnTransformUpdate(float3 pos, float3 scale, float3 rotation) {}
+
+	virtual void Serialization(json& j) = 0;
 
 #ifdef STANDALONE
 

@@ -33,6 +33,8 @@ public:
 	void MarkAsDead() override;
 	void MarkAsAlive() override;
 
+	void Serialization(json& j) override;
+
 private:
 	ResourceMesh* resource = nullptr;
 	int _meshID = -1;

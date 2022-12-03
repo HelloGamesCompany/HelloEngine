@@ -168,12 +168,21 @@ void TransformComponent::ForceUpdate()
 	UpdateDirtyFlag();
 }
 
+void TransformComponent::Serialization(json& j)
+{
+	json _j;
+
+	_j["Type"] = _type;
+
+	j["Components"].push_back(_j);
+}
+
 void TransformComponent::UpdateDirtyFlagForChildren()
 {
 	std::vector<TransformComponent*> childrenTransforms;
 	for (int i = 0; i < _gameObject->_children.size(); i++)
 	{
-		childrenTransforms.push_back((TransformComponent*)_gameObject->_children[i]->_components[0]); // We assume component Nº 0 is always Transform.
+		childrenTransforms.push_back((TransformComponent*)_gameObject->_children[i]->_components[0]); // We assume component N?0 is always Transform.
 	}
 
 	for (auto& transfrom : childrenTransforms)

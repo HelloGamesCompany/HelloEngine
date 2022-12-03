@@ -34,19 +34,25 @@ public:
 
 	bool CleanUp() override;
 
-	uint AddGameObject(GameObject* go);
+	uint AddGameObject(GameObject* go, uint ID = 0);
+
+	void RequestLoadScene(const std::string& scenePath);
 
 public:
 	Layer* layers[(uint)LayersID::MAX] = { nullptr };
-
-	uint IDcounter = 1;
 
 	GameObject* rootGameObject = nullptr;
 
 	LayerEditor* editor = nullptr;
 
 	std::map<uint, GameObject*> gameObjects;
-	std::vector<GameObject*> deletedGameObjects;
+
+private:
+	bool _requestScene = false;
+
+	std::string _requestScenePath = "";
+
+	std::vector<GameObject*> _deletedGameObjects;
 
 	friend class GameObject;
 };

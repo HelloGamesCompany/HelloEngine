@@ -10,6 +10,9 @@
 #include "json.hpp"
 #include "FileTree.hpp"
 
+#include "GameObject.h"
+#include "ModuleLayers.h"
+
 std::map<std::string, Resource*> ModuleResourceManager::loadedResources;
 std::map<uint, Resource*> ModuleResourceManager::resources;
 FileTree* ModuleResourceManager::fileTree = nullptr;
@@ -27,7 +30,6 @@ ModuleResourceManager::ModuleResourceManager()
 	{
 		Console::S_Log("Wrong DevIL version detected.");
 	}
-
 }
 
 ModuleResourceManager::~ModuleResourceManager()
@@ -75,9 +77,6 @@ void ModuleResourceManager::S_ImportFile(const std::string& filePath)
 		return;
 	}
 
-	char* buffer = nullptr;
-	uint size = ModuleFiles::S_Load(filePath, &buffer);
-
 	// TODO: Restruct Inport parameters
 	switch (type)
 	{
@@ -89,15 +88,16 @@ void ModuleResourceManager::S_ImportFile(const std::string& filePath)
 	break;
 	case ResourceType::TEXTURE:
 	{
+		char* buffer = nullptr;
+		uint size = ModuleFiles::S_Load(filePath, &buffer);
 		std::string path = TextureImporter::ImportImage(ModuleFiles::S_GetFileName(filePath, false), buffer, size);
 		ModuleFiles::S_CreateMetaData(filePath, path);
+		RELEASE_ARRAY(buffer);
 	}
 	break;
 	default:
 		break;
 	}
-
-	RELEASE_ARRAY(buffer);
 }
 
 void ModuleResourceManager::S_ReImportFile(const std::string& filePath, ResourceType resourceType)
@@ -219,7 +219,7 @@ void ModuleResourceManager::S_UpdateFileTree()
 	ModuleFiles::S_UpdateFileTree(fileTree);
 }
 
-void ModuleResourceManager::S_SerializeScene(const GameObject*& g)
+void ModuleResourceManager::S_SerializeScene(GameObject*& g)
 {
 	if (!g)
 		return;
@@ -236,6 +236,43 @@ void ModuleResourceManager::S_SerializeScene(const GameObject*& g)
 	std::string buffer = j.dump();
 
 	ModuleFiles::S_Save(savePath, &buffer[0], buffer.size(), false);
+}
+
+void ModuleResourceManager::S_DeserializeScene(const std::string& filePath)
+{
+	ModuleLayers* layers = Application::Instance()->layers;
+
+	char* buffer = nullptr;
+
+	uint size = ModuleFiles::S_Load(filePath, &buffer);
+
+	json j = json::parse(buffer);
+
+	RELEASE(buffer);
+
+	// Create New GameObject for root GameObject
+
+	layers->rootGameObject->Destroy();
+
+	std::vector<std::pair<GameObject*, uint>> temp;
+
+	for (int i = 0; i < j.size(); i++)
+	{
+		GameObject* g = new GameObject(nullptr, j[i]["Name"], j[i]["Tag"], j[i]["UID"]);
+
+		temp.push_back(std::make_pair(g, j[i]["ParentUID"]));
+
+		// Create components
+		
+	}
+
+	for (int i = 0; i < temp.size(); i++)
+	{
+		if (temp[i].second != 0)
+			temp[i].first->SetParent(layers->gameObjects[temp[i].second]);
+	}
+
+	layers->rootGameObject = temp[0].first;
 }
 
 void ModuleResourceManager::S_DeleteMetaFile(const std::string& file, bool onlyResources)
@@ -303,7 +340,7 @@ void ModuleResourceManager::S_CreateResource(const MetaFile& metaFile)
 	resources[metaFile.UID]->UID = metaFile.UID;
 }
 
-void ModuleResourceManager::S_CreateResourceMesh(std::string filePath, uint UID, const std::string& name)
+void ModuleResourceManager::S_CreateResourceMesh(const std::string& filePath, uint UID, const std::string& name)
 {
 	if (resources.count(UID) != 0)
 		return;
@@ -316,7 +353,7 @@ void ModuleResourceManager::S_CreateResourceMesh(std::string filePath, uint UID,
 	resources[UID]->UID = UID;
 }
 
-Resource* ModuleResourceManager::S_LoadResource(uint UID)
+Resource* ModuleResourceManager::S_LoadResource(const uint& UID)
 {
 	if (resources.count(UID) == 0)
 		return nullptr;
@@ -332,7 +369,7 @@ Resource* ModuleResourceManager::S_LoadResource(uint UID)
 	return ret; // We assume we always find a resource.
 }
 
-bool ModuleResourceManager::S_IsResourceCreated(uint UID)
+bool ModuleResourceManager::S_IsResourceCreated(const uint& UID)
 {
 	return resources.count(UID) == 1;
 }
@@ -351,14 +388,24 @@ void ModuleResourceManager::GetResourcePath(ModelNode& node, std::vector<std::st
 
 void ModuleResourceManager::SerializeSceneRecursive(const GameObject* g, json& j)
 {
+	json _j;
+
+	_j["ParentUID"] = g->_parent ? g->_parent->_ID : 0;
+	_j["UID"] = g->_ID;
+	_j["Name"] = g->name;
+	_j["Tag"] = g->tag;
+
 	for (int i = 0; i < g->_components.size(); i++)
 	{
-		// Add components
+		// Serialize components
+		g->_components[i]->Serialization(_j);
 	}
+
+	j.push_back(_j);
 
 	for (int i = 0; i < g->_children.size(); i++)
 	{
-		// Recursiva
+		// Recursive to serialize children
 		SerializeSceneRecursive(g->_children[i], j);
 	}
 }

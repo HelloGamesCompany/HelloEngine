@@ -8,18 +8,20 @@
 #include "LayerEditor.h"
 #include "ImGuizmo/ImGuizmo.h"
 
-GameObject::GameObject(GameObject* parent, std::string name, std::string tag) : name(name), tag(tag)
+GameObject::GameObject(GameObject* parent, std::string name, std::string tag, uint ID) : name(name), tag(tag)
 {
-	_ID = Application::Instance()->layers->AddGameObject(this);
+	_ID = Application::Instance()->layers->AddGameObject(this, ID);
 	transform = AddComponent<TransformComponent>();
-	if (parent != nullptr) parent->AddChild(this);
+	if (parent != nullptr)
+		parent->AddChild(this);
 }
 
-GameObject::GameObject(GameObject* parent, std::string& name, std::string& tag) : name(name), tag(tag)
+GameObject::GameObject(GameObject* parent, std::string& name, std::string& tag, uint ID) : name(name), tag(tag)
 {
-	_ID = Application::Instance()->layers->AddGameObject(this);
+	_ID = Application::Instance()->layers->AddGameObject(this, ID);
 	transform = AddComponent<TransformComponent>();
-	if (parent != nullptr) parent->AddChild(this);
+	if (parent != nullptr) 
+		parent->AddChild(this);
 }
 
 GameObject::~GameObject()
@@ -53,7 +55,8 @@ bool GameObject::AddChild(GameObject* child)
 
 	_children.push_back(child);
 
-	if (child->_parent) child->_parent->RemoveChild(child);
+	if (child->_parent) 
+		child->_parent->RemoveChild(child);
 
 	child->_parent = this;
 
@@ -185,20 +188,12 @@ bool GameObject::MarkAsAlive()
 
 void GameObject::Destroy()
 {
-	// TODO: This won't work for now because of the Command system to Undo / Redo. It will be implemented in the future
-	
-	// Suspiciously similar to another Destroy() method in another person's repository...
-
-	//if (Application::Instance()->layers->editor->GetSelectedGameObject() == this)
-	//{
-	//	Application::Instance()->layers->editor->SetSelectGameObject(nullptr);
-	//}
-	
-	_parent->RemoveChild(this);
+	if(_parent)
+		_parent->RemoveChild(this);
 	
 	Application::Instance()->layers->gameObjects.erase(_ID);
 	
-	Application::Instance()->layers->deletedGameObjects.push_back(this);
+	Application::Instance()->layers->_deletedGameObjects.push_back(this);
 
 	for (int i = 0; i < _children.size();)
 	{
