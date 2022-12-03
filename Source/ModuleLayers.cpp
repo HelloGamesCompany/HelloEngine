@@ -25,11 +25,11 @@ bool ModuleLayers::Init()
 
     _sceneBeginPath = sceneXML.FindChildBreadth("currentScene").node.attribute("value").as_string();
 
-    if (!ModuleResourceManager::S_DeserializeScene(_sceneBeginPath))
-    {
-        rootGameObject = new GameObject(nullptr, "Root", "None");
-    }
-
+    //if (!ModuleResourceManager::S_DeserializeScene(_sceneBeginPath))
+    //{
+    //    rootGameObject = new GameObject(nullptr, "Root", "None");
+    //}
+    rootGameObject = new GameObject(nullptr, "Root", "None");
     return true;
 }
 
