@@ -62,6 +62,12 @@ void ModuleCommand::S_SetParentGameObject(GameObject* gameobject, GameObject* ne
 	_commands->push(new CommandSetParentGameObject(gameobject, newParent));
 }
 
+void ModuleCommand::S_CleanCommandQueue()
+{
+	RELEASE(_commands);
+	_commands = new CommandArray(MAX_UNDO, true);
+}
+
 bool ModuleCommand::Undo()
 {
 	bool successful = false;

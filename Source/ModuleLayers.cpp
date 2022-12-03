@@ -19,22 +19,23 @@ ModuleLayers::~ModuleLayers()
 
 bool ModuleLayers::Init()
 {
+   
+    return true;
+}
+
+bool ModuleLayers::Start()
+{
     // Create Root GameObject (Scene)
 
     XMLNode sceneXML = Application::Instance()->xml->GetConfigXML();
 
     _sceneBeginPath = sceneXML.FindChildBreadth("currentScene").node.attribute("value").as_string();
 
-    //if (!ModuleResourceManager::S_DeserializeScene(_sceneBeginPath))
-    //{
-    //    rootGameObject = new GameObject(nullptr, "Root", "None");
-    //}
-    rootGameObject = new GameObject(nullptr, "Root", "None");
-    return true;
-}
+    if (!ModuleResourceManager::S_DeserializeScene(_sceneBeginPath))
+    {
+        rootGameObject = new GameObject(nullptr, "Root", "None");
+    }
 
-bool ModuleLayers::Start()
-{
     layers[(uint)LayersID::EDITOR] = editor = new LayerEditor();
     layers[(uint)LayersID::GAME] = new LayerGame();
 

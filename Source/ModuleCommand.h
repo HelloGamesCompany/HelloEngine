@@ -52,6 +52,8 @@ public:
 
 	static void S_SetParentGameObject(GameObject* gameobject, GameObject* newParent);
 
+	static void S_CleanCommandQueue();
+
 private:
 	bool Undo();
 

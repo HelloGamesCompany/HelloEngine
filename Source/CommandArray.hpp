@@ -54,6 +54,8 @@ namespace Htool
 
 		int size() { return _size; }
 
+		void clear();
+
 	private:
 		int next(int index);
 
@@ -226,6 +228,23 @@ namespace Htool
 		}
 
 		return _arr[index];
+	}
+
+	template<class T>
+	inline void CommandArray<T>::clear()
+	{
+		if (_isPointer)
+		{
+			for (int i = 0; i < _capacity; i++)
+			{
+				RELEASE(_arr[i]);
+			}
+		}
+		else
+		{
+			RELEASE(_arr);
+		}
+		_begin = _end = _current = 0;
 	}
 
 	template<class T>

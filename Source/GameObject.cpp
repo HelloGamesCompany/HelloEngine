@@ -188,6 +188,9 @@ bool GameObject::MarkAsAlive()
 
 void GameObject::Destroy()
 {
+	if (_isDestroyed)
+		return;
+
 	if (Application::Instance()->layers->editor->selectedGameObject == this)
 	{
 		Application::Instance()->layers->editor->SetSelectGameObject(nullptr);
@@ -195,9 +198,10 @@ void GameObject::Destroy()
 	}
 
 	_isPendingToDelete = true;
+	_isDestroyed = true;
 
 	Application::Instance()->layers->gameObjects.erase(_ID);
-	
+
 	Application::Instance()->layers->_deletedGameObjects.push_back(this);
 
 	for (int i = 0; i < _children.size(); i++)

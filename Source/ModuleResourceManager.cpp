@@ -9,6 +9,7 @@
 #include "IL/ilut.h"
 #include "json.hpp"
 #include "FileTree.hpp"
+#include "ModuleCommand.h"
 
 #include "GameObject.h"
 #include "ModuleLayers.h"
@@ -264,6 +265,8 @@ bool ModuleResourceManager::S_DeserializeScene(const std::string& filePath)
 
 	if (size == 0)
 		return false;
+
+	ModuleCommand::S_CleanCommandQueue();
 
 	json sceneFile = json::parse(buffer);
 	RELEASE(buffer);
