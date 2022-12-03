@@ -14,5 +14,7 @@ public:
 	static void Load(char* buffer, int size, ResourceTexture* resource);
 
 	static uint CheckerImage();
+
+	static uint LoadEditorDDS(char* buffer, int size);
 };
 

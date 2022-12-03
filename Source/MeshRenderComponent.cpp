@@ -165,56 +165,26 @@ void MeshRenderComponent::OnEditor()
 	{
 		if (_meshID == -1)
 		{
-			ImGui::TextWrapped("No mesh loaded! Drag an FBX file below to load a mesh ");
+			ImGui::TextWrapped("No mesh loaded! Drag an .hmesh file below to load a mesh ");
 
-			ImGui::TextColored(ImVec4(1,1,0,1), "Drag FBX here");
+			ImGui::TextColored(ImVec4(1, 1, 0, 1), "Drag .hmesh here"); ImGui::SameLine();
 
 			// Create Droped mesh
 			if (ImGui::BeginDragDropTarget())
 			{
 				if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("Mesh"))
 				{
-					const std::string drop = *(std::string*)payload->Data;
+					const uint* drop = (uint*)payload->Data;
 
-					Resource* resource = ModuleResourceManager::S_LoadFile(drop);
+					CreateMesh(*drop);
 
-					if (resource->type != ResourceType::MESH) return;
-
-					ResourceMesh* mesh = (ResourceMesh*)resource;
-
-					GameObject* meshParent = mesh->meshParent;
-
-					if (meshParent == nullptr) return;
-
-					std::vector<GameObject*>* meshes = meshParent->GetChildren();
-
-					for (uint i = 0; i < meshes->size(); i) // Because the vector changes dynamically, we just read the value 0 every iteration.
-					{
-						meshes->at(i)->SetParent(_gameObject);
-					}
-
-					MeshRenderComponent* meshRenderer = meshParent->GetComponent<MeshRenderComponent>();
-
-					//TODO Maybe turn this into a method?
-
-					if (meshRenderer != nullptr)
-					{
-						_meshID = meshRenderer->_meshID;
-						_instanceID = meshRenderer->_instanceID;
-						vertexNum = meshRenderer->vertexNum;
-						indexNum = meshRenderer->indexNum;
-						meshRenderer->_meshID = -1;
-						GetMesh().component = this;
-					}
-
-					meshParent->Destroy();
-
-					std::string popUpmessage = "Loaded Mesh: " + drop;
+					std::string popUpmessage = "Loaded Mesh: ";
 					Application::Instance()->layers->editor->AddPopUpMessage(popUpmessage);
 
 				}
 				ImGui::EndDragDropTarget();
 			}
+			ImGui::HelpMarker("You can find .hmesh files by clicking on any model file (FBX or DAE). They will appear below the file icon in the Project window.");
 
 			return;
 		}

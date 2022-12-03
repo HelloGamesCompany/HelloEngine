@@ -48,6 +48,7 @@ struct File
 	std::string name;
 	Directory* parent = nullptr;
 	MetaFile metaFile;
+	bool pressed = false;
 };
 
 struct Directory

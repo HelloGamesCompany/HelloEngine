@@ -470,6 +470,7 @@ void ResourceModel::CreateResourceMeshesRecursive(ModelNode& node)
 		if (!ModuleResourceManager::S_IsResourceCreated(meshUID))
 		{
 			ModuleResourceManager::S_CreateResourceMesh(node.meshPath, meshUID, node.name, false);
+			modelMeshes.push_back((ResourceMesh*)ModuleResourceManager::resources[meshUID]);
 		}
 	}
 
@@ -478,3 +479,5 @@ void ResourceModel::CreateResourceMeshesRecursive(ModelNode& node)
 		CreateResourceMeshesRecursive(node.children[i]);
 	}
 }
+
+

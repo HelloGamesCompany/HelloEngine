@@ -127,3 +127,40 @@ uint TextureImporter::CheckerImage()
 
 	return textureID;
 }
+
+uint TextureImporter::LoadEditorDDS(char* buffer, int size)
+{
+	ILuint ImgId = 0;
+	ilGenImages(1, &ImgId);
+	ilBindImage(ImgId);
+	if (!ilLoadL(IL_TYPE_UNKNOWN, buffer, size))
+	{
+		LOG("Error loading image: %s", ilutGetString(ilGetError()));
+	}
+
+	uint error = ilGetError();
+
+	ILubyte* bytes = ilGetData();
+
+	uint ret = 0;
+
+	int width = ilGetInteger(IL_IMAGE_WIDTH);
+	int height = ilGetInteger(IL_IMAGE_HEIGHT);
+
+	glGenTextures(1, &ret);
+
+	//TODO: Generate mipmaps and use best settings
+	glBindTexture(GL_TEXTURE_2D, ret);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glGenerateMipmap(GL_TEXTURE_2D);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, bytes);
+	glBindTexture(GL_TEXTURE_2D, 0);
+
+	ilDeleteImages(1, &ImgId);
+	glBindTexture(GL_TEXTURE_2D, 0);
+
+	return ret;
+}

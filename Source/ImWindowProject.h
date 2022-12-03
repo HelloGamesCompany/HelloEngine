@@ -44,4 +44,10 @@ private:
 	SDL_Window* _window = nullptr;
 
 	bool _isWindowFocus = false;
+
+	int itemWidth = 80;
+	int itemHeight = 80;
+
+	uint fileImageID = 0;
+	uint folderImageID = 0;
 };

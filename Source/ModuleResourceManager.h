@@ -65,7 +65,7 @@ public:
 	void CreateResourceMeshes();
 
 	ModelNode modelInfo;
-
+	std::vector<ResourceMesh*> modelMeshes;
 private:
 	void CreateResourceMeshesRecursive(ModelNode& node);
 };

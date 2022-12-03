@@ -6,6 +6,7 @@
 
 #include "ModuleWindow.h"
 #include "ModuleLayers.h"
+#include "TextureImporter.h"
 
 ImWindowProject::ImWindowProject()
 {
@@ -27,6 +28,20 @@ ImWindowProject::ImWindowProject()
     UpdateFileNodes();
 
     _app->input->AddOnDropListener(std::bind(&ImWindowProject::OnDrop, this, std::placeholders::_1));
+
+    char* buffer = nullptr;
+    int size = ModuleFiles::S_Load("Resources/Editor/Images/files.dds", &buffer);
+
+    fileImageID = TextureImporter::LoadEditorDDS(buffer, size);
+
+    RELEASE(buffer);
+
+    buffer = nullptr;
+    size = ModuleFiles::S_Load("Resources/Editor/Images/folder.dds", &buffer);
+
+    folderImageID = TextureImporter::LoadEditorDDS(buffer, size);
+
+    RELEASE(buffer);
 }
 
 ImWindowProject::~ImWindowProject()
@@ -123,8 +138,6 @@ void ImWindowProject::Update()
         std::string path = _fileTree->_currentDir->path + Application::Instance()->layers->rootGameObject->name + ".HScene";
 
         Application::Instance()->layers->RequestLoadScene(path);
-
-        //ModuleResourceManager::S_DeserializeScene(path);
     }
     
 }
@@ -209,11 +222,17 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
 
     ImGui::Separator();
 
+    int numOfColumns = (ImGui::GetContentRegionAvail().x / itemWidth) -1;
+    if (numOfColumns == 0)
+        numOfColumns++;
+
+    ImGui::Columns(numOfColumns);
+
     // Folders
     ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.5, 0.5, 1.0, 255));
     for (int i = 0; i < _fileTree->_currentDir->directories.size(); i++)
     {
-        if (ImGui::Button(_fileTree->_currentDir->directories[i]->name.c_str(), ImVec2(110, 50)))
+        if (ImGui::ImageButton(std::to_string(i).c_str(), (ImTextureID)folderImageID, ImVec2(itemWidth, itemHeight)))
         {
             newDir = _fileTree->_currentDir->directories[i];
         }
@@ -221,18 +240,19 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
         {
             ImGui::SetTooltip(_fileTree->_currentDir->directories[i]->name.c_str());
         }
-        ImGui::SameLine();
+        ImGui::TextWrapped(_fileTree->_currentDir->directories[i]->name.c_str());
+        ImGui::NextColumn();
     }
     ImGui::PopStyleColor(1);
 
     // Files
     for (int i = 0; i < _fileTree->_currentDir->files.size(); i++)
     {
-        if (ImGui::Button(_fileTree->_currentDir->files[i].name.c_str(), ImVec2(110, 50)))
+        if (ImGui::ImageButton(std::to_string(i).c_str(), (ImTextureID)fileImageID, ImVec2(itemWidth, itemHeight)))
         {
+            _fileTree->_currentDir->files[i].pressed = !_fileTree->_currentDir->files[i].pressed;
         }
 
-        //ImGui::Selectable(_fileTree->_currentDir->files[i].name.c_str());
         if (ImGui::BeginPopupContextItem()) // <-- use last item id as popup id
         {
             if (ImGui::Button("Delete"))
@@ -271,7 +291,31 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
                 ImGui::EndDragDropSource();
             }
         }
-        ImGui::SameLine();
+        ImGui::TextWrapped(_fileTree->_currentDir->files[i].name.c_str());
+
+
+        if (_fileTree->_currentDir->files[i].metaFile.type == ResourceType::MODEL && _fileTree->_currentDir->files[i].pressed)
+        {
+            ResourceModel* model = (ResourceModel*)ModuleResourceManager::resources[_fileTree->_currentDir->files[i].metaFile.UID];
+            for (int j = 0; j < model->modelMeshes.size(); j++)
+            {
+                ImGui::Button(model->modelMeshes[j]->debugName.c_str(), ImVec2(0, itemHeight / 3));
+
+                if (ImGui::BeginDragDropSource(ImGuiDragDropFlags_None))
+                {
+                    // Find resource path
+                    _dragUID = model->modelMeshes[j]->UID;
+
+                    // Set payload to carry the index of our item (could be anything)
+                    ImGui::SetDragDropPayload("Mesh", &_dragUID, sizeof(uint));
+                 
+                    ImGui::EndDragDropSource();
+                }
+            }
+        }
+
+
+        ImGui::NextColumn();
     }
 
     //if (ImGui::BeginPopupContextItem()) // <-- use last item id as popup id
