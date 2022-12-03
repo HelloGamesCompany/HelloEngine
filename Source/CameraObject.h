@@ -32,6 +32,9 @@ public:
 	void ChangeToOrthograpic();
 	void ChangeToPerspective();
 
+	void ChangeOrthographicSize(float size);
+	float GetOrthographicSize();
+
 	void RecalculateProjection();
 
 	void RegenerateFrameBuffer(int width, int height);
@@ -65,6 +68,7 @@ private:
 	float3 offset = { 0,0,0 };
 	float aspectRatio = 0.0f;
 	float FOV = 60.0f;
+	float _orthographicSize = 10.0f; // We use a Size instead of Width and height to maintain correct Aspect ratio at all times.
 
 	std::vector<uint> boxIndices;
 

@@ -161,13 +161,29 @@ float* CameraObject::GetProjectionMatrixNoTransp()
 void CameraObject::ChangeToOrthograpic()
 {
 	if (cameraFrustum.type != math::FrustumType::OrthographicFrustum)
+	{
+		cameraFrustum.orthographicWidth = _orthographicSize * aspectRatio;
+		cameraFrustum.orthographicHeight = _orthographicSize * aspectRatio;
 		cameraFrustum.type = math::FrustumType::OrthographicFrustum;
+	}
 }
 
 void CameraObject::ChangeToPerspective()
 {
 	if (cameraFrustum.type != math::FrustumType::PerspectiveFrustum)
 		cameraFrustum.type = math::FrustumType::PerspectiveFrustum;
+}
+
+void CameraObject::ChangeOrthographicSize(float size)
+{
+	_orthographicSize = size;
+	cameraFrustum.orthographicWidth = _orthographicSize * aspectRatio;
+	cameraFrustum.orthographicHeight = _orthographicSize * aspectRatio;
+}
+
+float CameraObject::GetOrthographicSize()
+{
+	return _orthographicSize;
 }
 
 void CameraObject::RecalculateProjection()
@@ -184,8 +200,16 @@ void CameraObject::RegenerateFrameBuffer(int width, int height)
 
 void CameraObject::ChangeAspectRatio(float aspectRatio)
 {
+	if (cameraFrustum.type == FrustumType::OrthographicFrustum)
+	{
+		cameraFrustum.orthographicWidth = _orthographicSize * aspectRatio;
+		cameraFrustum.orthographicHeight = _orthographicSize * aspectRatio;
+		return;
+	}
 	this->aspectRatio = aspectRatio;
 	cameraFrustum.horizontalFov = 2.0f * atanf(tanf(cameraFrustum.verticalFov * 0.5f) * aspectRatio);
+	// Resize orthographic
+	
 }
 
 void CameraObject::SetFOV(float fov)

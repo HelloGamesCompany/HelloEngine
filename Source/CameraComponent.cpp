@@ -81,8 +81,9 @@ void CameraComponent::PerspectiveEditorOptions()
 
 void CameraComponent::OrthographicEditorOptions()
 {
-	ImGui::DragFloat("Width", &cameraObject->cameraFrustum.orthographicWidth, 0.1f, 0.01);
-	ImGui::DragFloat("Height", &cameraObject->cameraFrustum.orthographicHeight, 0.1f, 0.01);
+	float size = cameraObject->GetOrthographicSize();
+	if (ImGui::DragFloat("Size", &size, 0.1f, 0.01f))
+		cameraObject->ChangeOrthographicSize(size);
 }
 
 void CameraComponent::OnEnable()
