@@ -44,7 +44,15 @@ ImWindowProject::ImWindowProject()
     RELEASE(buffer);
 
     buffer = nullptr;
-    size = ModuleFiles::S_Load("Resources/Editor/Images/model.dds", &buffer);
+    size = ModuleFiles::S_Load("Resources/Editor/Images/grid.dds", &buffer);
+
+    meshImageID = TextureImporter::LoadEditorDDS(buffer, size);
+
+    RELEASE(buffer);
+
+
+    buffer = nullptr;
+    size = ModuleFiles::S_Load("Resources/Editor/Images/modelOpen.dds", &buffer);
 
     modelImageID = TextureImporter::LoadEditorDDS(buffer, size);
 
@@ -302,13 +310,15 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
         }
         ImGui::TextWrapped(_fileTree->_currentDir->files[i].name.c_str());
 
-
+        // Draw Mesh files
         if (_fileTree->_currentDir->files[i].metaFile.type == ResourceType::MODEL && _fileTree->_currentDir->files[i].pressed)
         {
             ResourceModel* model = (ResourceModel*)ModuleResourceManager::resources[_fileTree->_currentDir->files[i].metaFile.UID];
+            ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.8, 0.8, 0.8, 255));
             for (int j = 0; j < model->modelMeshes.size(); j++)
             {
-                ImGui::Button(model->modelMeshes[j]->debugName.c_str(), ImVec2(0, itemHeight / 3));
+                ImGui::NextColumn();
+                ImGui::ImageButton(std::to_string(model->modelMeshes[j]->UID).c_str(), (ImTextureID)meshImageID, ImVec2(itemWidth, itemHeight));
 
                 if (ImGui::BeginDragDropSource(ImGuiDragDropFlags_None))
                 {
@@ -320,7 +330,9 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
                  
                     ImGui::EndDragDropSource();
                 }
+                ImGui::TextWrapped(model->modelMeshes[j]->debugName.c_str());
             }
+            ImGui::PopStyleColor(1);
         }
 
 
