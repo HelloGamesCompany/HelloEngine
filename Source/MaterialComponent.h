@@ -28,7 +28,7 @@ public:
 	void MarkAsAlive() override;
 
 	void Serialization(json& j) override;
-
+	void DeSerialization(json& j) override;
 private:
 	MeshRenderComponent* meshRenderer = nullptr;
 	ResourceTexture* currentResource = nullptr;

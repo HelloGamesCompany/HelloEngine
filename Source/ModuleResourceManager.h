@@ -62,7 +62,12 @@ public:
 	ResourceModel() { type = ResourceType::MODEL; };
 	~ResourceModel() {};
 
+	void CreateResourceMeshes();
+
 	ModelNode modelInfo;
+
+private:
+	void CreateResourceMeshesRecursive(ModelNode& node);
 };
 
 class ResourceMesh : public Resource
@@ -112,7 +117,7 @@ public:
 
 	static void S_CreateResource(const MetaFile& metaFile);
 
-	static void S_CreateResourceMesh(const std::string& filePath, uint UID, const std::string& name);
+	static void S_CreateResourceMesh(const std::string& filePath, uint UID, const std::string& name, bool load = true);
 
 	static Resource* S_LoadResource(const uint& UID);
 

@@ -303,6 +303,11 @@ void MeshRenderComponent::Serialization(json& j)
 	json _j;
 
 	_j["Type"] = _type;
-
+	_j["ResourceUID"] = resource ? resource->UID : 0;
 	j["Components"].push_back(_j);
+}
+
+void MeshRenderComponent::DeSerialization(json& j)
+{
+	CreateMesh(j["ResourceUID"]);
 }

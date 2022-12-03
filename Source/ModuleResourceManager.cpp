@@ -139,8 +139,8 @@ void ModuleResourceManager::S_LoadFileIntoResource(Resource* resource)
 		// When loading a Model, we need to load each mesh of the model into separate Mesh Resources.
 		// A meta file of a model IS NOT a ResourceMesh instance.
 		// When loading a Model, all Resources of that model get loaded, but there is no ResourceModel.
-		ResourceModel* meshRes = (ResourceModel*)resource;
-		MeshImporter::LoadModelIntoResource(meshRes);
+		ResourceModel* modelRes = (ResourceModel*)resource;
+		MeshImporter::LoadModelIntoResource(modelRes);
 	}
 	break;
 	case ResourceType::TEXTURE:
@@ -148,6 +148,13 @@ void ModuleResourceManager::S_LoadFileIntoResource(Resource* resource)
 		ResourceTexture* textureRes = (ResourceTexture*)resource;
 		TextureImporter::Load(buffer, size, textureRes);
 	}
+	break;
+	case ResourceType::MESH:
+	{
+		ResourceMesh* meshRes = (ResourceMesh*)resource;
+		meshRes->meshInfo.LoadFromBinaryFile(meshRes->resourcePath);
+	}
+	break;
 	}
 
 	RELEASE_ARRAY(buffer);
@@ -246,8 +253,7 @@ void ModuleResourceManager::S_DeserializeScene(const std::string& filePath)
 
 	uint size = ModuleFiles::S_Load(filePath, &buffer);
 
-	json j = json::parse(buffer);
-
+	json sceneFile = json::parse(buffer);
 	RELEASE(buffer);
 
 	// Create New GameObject for root GameObject
@@ -256,14 +262,19 @@ void ModuleResourceManager::S_DeserializeScene(const std::string& filePath)
 
 	std::vector<std::pair<GameObject*, uint>> temp;
 
-	for (int i = 0; i < j.size(); i++)
+	for (int i = 0; i < sceneFile.size(); i++)
 	{
-		GameObject* g = new GameObject(nullptr, j[i]["Name"], j[i]["Tag"], j[i]["UID"]);
+		GameObject* g = new GameObject(nullptr, sceneFile[i]["Name"], sceneFile[i]["Tag"], sceneFile[i]["UID"]);
 
-		temp.push_back(std::make_pair(g, j[i]["ParentUID"]));
+		temp.push_back(std::make_pair(g, sceneFile[i]["ParentUID"]));
 
 		// Create components
-		
+		json object = sceneFile[i]["Components"];
+		for (int j = 0; j < object.size(); j++)
+		{
+			Component::Type componentType = object[j]["Type"];
+			g->AddComponentSerialized(componentType, object[j]);
+		}
 	}
 
 	for (int i = 0; i < temp.size(); i++)
@@ -320,7 +331,12 @@ void ModuleResourceManager::S_CreateResource(const MetaFile& metaFile)
 	break;
 	case ResourceType::MODEL:
 	{
-		resources[metaFile.UID] = new ResourceModel();
+		ResourceModel* resourceModel = new ResourceModel();
+		resources[metaFile.UID] = resourceModel;
+		resources[metaFile.UID]->UID = metaFile.UID;
+		resourceModel->resourcePath = metaFile.resourcePath;
+		resourceModel->modelInfo.ReadFromJSON(resourceModel->resourcePath);
+		resourceModel->CreateResourceMeshes();
 	}
 	break;
 	case ResourceType::TEXTURE:
@@ -340,17 +356,19 @@ void ModuleResourceManager::S_CreateResource(const MetaFile& metaFile)
 	resources[metaFile.UID]->UID = metaFile.UID;
 }
 
-void ModuleResourceManager::S_CreateResourceMesh(const std::string& filePath, uint UID, const std::string& name)
+void ModuleResourceManager::S_CreateResourceMesh(const std::string& filePath, uint UID, const std::string& name, bool load)
 {
 	if (resources.count(UID) != 0)
 		return;
 
 	ResourceMesh* newResource = new ResourceMesh();
-	newResource->meshInfo.LoadFromBinaryFile(filePath);
+	if (load)
+		newResource->meshInfo.LoadFromBinaryFile(filePath);
 
 	resources[UID] = newResource;
 	resources[UID]->debugName = name + ".hmesh";
 	resources[UID]->UID = UID;
+	resources[UID]->resourcePath = filePath;
 }
 
 Resource* ModuleResourceManager::S_LoadResource(const uint& UID)
@@ -407,5 +425,41 @@ void ModuleResourceManager::SerializeSceneRecursive(const GameObject* g, json& j
 	{
 		// Recursive to serialize children
 		SerializeSceneRecursive(g->_children[i], j);
+	}
+}
+
+void ResourceModel::CreateResourceMeshes()
+{
+	if (modelInfo.meshPath != "N")
+	{
+		std::string stringUID = ModuleFiles::S_GetFileName(modelInfo.meshPath, false);
+		uint meshUID = std::stoul(stringUID);
+		if (!ModuleResourceManager::S_IsResourceCreated(meshUID))
+		{
+			ModuleResourceManager::S_CreateResourceMesh(modelInfo.meshPath, meshUID, modelInfo.name, false);
+		}
+	}
+	for (int i = 0; i < modelInfo.children.size(); i++)
+	{
+		CreateResourceMeshesRecursive(modelInfo.children[i]);
+	}
+}
+
+void ResourceModel::CreateResourceMeshesRecursive(ModelNode& node)
+{
+	// Iterate model. Create resource mesh per mesh inside model.
+	if (node.meshPath != "N")
+	{
+		std::string stringUID = ModuleFiles::S_GetFileName(node.meshPath, false);
+		uint meshUID = std::stoul(stringUID);
+		if (!ModuleResourceManager::S_IsResourceCreated(meshUID))
+		{
+			ModuleResourceManager::S_CreateResourceMesh(node.meshPath, meshUID, node.name, false);
+		}
+	}
+
+	for (int i = 0; i < node.children.size(); i++)
+	{
+		CreateResourceMeshesRecursive(node.children[i]);
 	}
 }

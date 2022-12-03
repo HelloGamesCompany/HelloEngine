@@ -19,6 +19,9 @@ public:
 		return newComponent;
 	}
 
+	Component* AddComponentOfType(Component::Type type);
+	void AddComponentSerialized(Component::Type type, json& jsonFile);
+
 	template<class T>
 	T* GetComponent(uint index = 0)
 	{

@@ -8,6 +8,7 @@
 
 MaterialComponent::MaterialComponent(GameObject* go) : Component(go)
 {
+	_type = Component::Type::MATERIAL;
 	MeshRenderComponent* meshRenderer = go->GetComponent<MeshRenderComponent>();
 	if (!meshRenderer) return;
 	SetMeshRenderer(meshRenderer);
@@ -72,9 +73,15 @@ void MaterialComponent::Serialization(json& j)
 	json _j;
 
 	_j["Type"] = _type;
-
+	_j["ResourceUID"] = currentResource ? currentResource->UID : 0;
 	j["Components"].push_back(_j);
 }
+
+void MaterialComponent::DeSerialization(json& j)
+{
+	currentResource = j["ResourceUID"] == 0 ? nullptr : (ResourceTexture*)ModuleResourceManager::S_LoadResource(j["ResourceUID"]);
+}
+
 
 void MaterialComponent::OnEditor()
 {

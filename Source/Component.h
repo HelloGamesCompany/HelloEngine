@@ -40,6 +40,7 @@ public:
 	virtual void OnTransformUpdate(float3 pos, float3 scale, float3 rotation) {}
 
 	virtual void Serialization(json& j) = 0;
+	virtual void DeSerialization(json& j) = 0;
 
 #ifdef STANDALONE
 

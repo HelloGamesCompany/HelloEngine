@@ -18,6 +18,7 @@ public:
 	void OnDisable() override;
 
 	void Serialization(json& j) override;
+	void DeSerialization(json& j) override;
 
 public:
 	CameraObject* cameraObject = nullptr;

@@ -102,5 +102,29 @@ void CameraComponent::Serialization(json& j)
 
 	_j["Type"] = _type;
 
+	_j["Near plane"] = cameraObject->cameraFrustum.nearPlaneDistance;
+	_j["Far plane"] = cameraObject->cameraFrustum.farPlaneDistance;
+	_j["FOV"] = cameraObject->cameraFrustum.farPlaneDistance;
+	_j["Aspect ratio"] = cameraObject->aspectRatio;
+	_j["Frustum type"] = cameraObject->cameraFrustum.type;
+	_j["Orthographic size"] = cameraObject->_orthographicSize;
+	_j["Active culling"] = cameraObject->isCullingActive;
+	_j["Active camera"] = cameraObject->active;
+
 	j["Components"].push_back(_j);
+}
+
+void CameraComponent::DeSerialization(json& j)
+{
+	cameraObject->cameraFrustum.nearPlaneDistance = j["Near plane"];
+	cameraObject->cameraFrustum.farPlaneDistance = j["Far plane"];
+	cameraObject->ChangeAspectRatio(j["Aspect ratio"]);
+	cameraObject->SetFOV(j["FOV"]);
+	cameraObject->cameraFrustum.type = j["Frustum type"];
+	cameraObject->ChangeOrthographicSize(j["Orthographic size"]);
+	cameraObject->isCullingActive = j["Active culling"];
+	cameraObject->active = j["Active camera"];
+
+	if (cameraObject->active)
+		Application::Instance()->camera->SetCurrentActiveGameCamera(cameraObject);
 }

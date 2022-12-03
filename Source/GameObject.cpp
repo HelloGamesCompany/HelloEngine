@@ -211,3 +211,30 @@ void GameObject::RemoveChild(GameObject* child)
 	}
 	child->_parent = nullptr;
 }
+
+Component* GameObject::AddComponentOfType(Component::Type type)
+{
+	Component* newComponent = nullptr;
+	switch (type)
+	{
+	case Component::Type::TRANSFORM:
+		newComponent = new TransformComponent(this);
+		_components.push_back(newComponent);
+		break;
+	case Component::Type::MESH_RENDERER:
+		newComponent = new MeshRenderComponent(this);
+		_components.push_back(newComponent);
+		break;
+	case Component::Type::MATERIAL:
+		newComponent = new MaterialComponent(this);
+		_components.push_back(newComponent);
+		break;
+	}
+	return newComponent;
+}
+
+void GameObject::AddComponentSerialized(Component::Type type, json& jsonFile)
+{
+	Component* newComponent = AddComponentOfType(type);
+	newComponent->DeSerialization(jsonFile);
+}

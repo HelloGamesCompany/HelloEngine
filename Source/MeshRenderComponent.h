@@ -34,7 +34,7 @@ public:
 	void MarkAsAlive() override;
 
 	void Serialization(json& j) override;
-
+	void DeSerialization(json& j) override;
 private:
 	ResourceMesh* resource = nullptr;
 	int _meshID = -1;

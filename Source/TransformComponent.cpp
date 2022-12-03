@@ -173,8 +173,20 @@ void TransformComponent::Serialization(json& j)
 	json _j;
 
 	_j["Type"] = _type;
-
+	_j["Position"] = { localTransform.position.x, localTransform.position.y, localTransform.position.z };
+	_j["Rotation"] = { localTransform.rotation.x, localTransform.rotation.y, localTransform.rotation.z };
+	_j["Scale"] = { localTransform.scale.x, localTransform.scale.y, localTransform.scale.z };
 	j["Components"].push_back(_j);
+}
+
+void TransformComponent::DeSerialization(json& j)
+{
+	std::vector<float> tempPos = j["Position"];
+	localTransform.position = { tempPos[0], tempPos[1], tempPos[2] };
+	std::vector<float> tempRot = j["Rotation"];
+	localTransform.position = { tempRot[0], tempRot[1], tempRot[2] };
+	std::vector<float> tempScale = j["Scale"];
+	localTransform.position = { tempScale[0], tempScale[1], tempScale[2] };
 }
 
 void TransformComponent::UpdateDirtyFlagForChildren()
