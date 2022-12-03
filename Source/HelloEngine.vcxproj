@@ -307,7 +307,6 @@
     <ClCompile Include="ImWindowScene.cpp" />
     <ClCompile Include="ImWrapper.cpp" />
     <ClCompile Include="ImWrapperInputBox.cpp" />
-    <ClCompile Include="JSONParser.cpp" />
     <ClCompile Include="Layer.cpp" />
     <ClCompile Include="LayerGame.cpp" />
     <ClCompile Include="Log.cpp" />
@@ -453,7 +452,6 @@
     <ClInclude Include="ImWindowScene.h" />
     <ClInclude Include="ImWrapper.h" />
     <ClInclude Include="ImWrapperInputBox.h" />
-    <ClInclude Include="JSONParser.h" />
     <ClInclude Include="Layer.h" />
     <ClInclude Include="LayerGame.h" />
     <ClInclude Include="MaterialComponent.h" />

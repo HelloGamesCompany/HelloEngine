@@ -242,7 +242,7 @@ bool CameraObject::IsInsideFrustumPerspective(AABB& globalAABB)
 		int iPtIn = 1;
 		for (int i = 0; i < 8; ++i) {
 			// test this point against the planes
-			if (planes[p].IsOnPositiveSide(vCorner[i])) { //<-- “IsOnPositiveSide” from MathGeoLib
+			if (planes[p].IsOnPositiveSide(vCorner[i])) { //<-- “IsOnPositiveSide?from MathGeoLib
 				iPtIn = 0;
 				--iInCount;
 			}
