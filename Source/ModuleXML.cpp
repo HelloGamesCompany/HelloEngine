@@ -100,6 +100,7 @@ XMLNode ModuleXML::CreateXML(std::string filePath, std::string rootNodeName)
 
 	// Close file
 	file.close();
+
 	return OpenXML(filePath);
 }
 
@@ -203,6 +204,9 @@ void ModuleXML::CreateDefaultConfigFile()
 				"<vsync value = \"true\"/>\n"
 				"<framerate value = \"90\"/>\n"
 			"</renderer>\n"
+			"<scene>\n"
+				"<currentScene value = \"null\"/>\n"
+			"</scene>\n"
 			"<openGL>\n"
 				"<blend value = \"true\" tag = \"0x0BE2\" />\n"
 				"<cullFace value = \"true\" tag = \"0x0B44\" />\n"		

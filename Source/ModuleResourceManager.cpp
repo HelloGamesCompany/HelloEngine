@@ -15,7 +15,7 @@
 
 std::map<std::string, Resource*> ModuleResourceManager::loadedResources;
 std::map<uint, Resource*> ModuleResourceManager::resources;
-FileTree* ModuleResourceManager::fileTree = nullptr;
+FileTree* ModuleResourceManager::_fileTree = nullptr;
 
 ModuleResourceManager::ModuleResourceManager()
 {
@@ -46,7 +46,7 @@ ModuleResourceManager::~ModuleResourceManager()
 	}
 	loadedResources.clear();
 
-	RELEASE(fileTree);
+	RELEASE(_fileTree);
 }
 
 bool ModuleResourceManager::Init()
@@ -55,9 +55,9 @@ bool ModuleResourceManager::Init()
 	// Check if file has a defined reosurce type
 	// If it does, create meta file. (MODULEFILESYSTEM)
 
-	fileTree = new FileTree();
+	_fileTree = new FileTree();
 
-	ModuleFiles::S_UpdateFileTree(fileTree);
+	ModuleFiles::S_UpdateFileTree(_fileTree);
 
 	// Check all meta files and create a resource per file using FileTree.
 	// Save all resources in a map, using as key the meta file UID.
@@ -206,17 +206,22 @@ bool ModuleResourceManager::S_IsFileLoaded(const std::string& fileName)
 
 bool ModuleResourceManager::S_GetFileTree(FileTree*& tree)
 {
-	if(fileTree)
+	if(_fileTree)
 	{
-		tree = fileTree;
+		tree = _fileTree;
 		return true;
 	}
 	return false;
 }
 
+std::string ModuleResourceManager::S_GetCurrentWorkingDir()
+{
+	return _fileTree->_currentDir->path;
+}
+
 void ModuleResourceManager::S_UpdateFileTree()
 {
-	ModuleFiles::S_UpdateFileTree(fileTree);
+	ModuleFiles::S_UpdateFileTree(_fileTree);
 }
 
 void ModuleResourceManager::S_SerializeScene(GameObject*& g)
@@ -231,14 +236,18 @@ void ModuleResourceManager::S_SerializeScene(GameObject*& g)
 	SerializeSceneRecursive(g, j);
 
 	// Save json 
-	std::string savePath = fileTree->_currentDir->path + g->name + ".HScene";
+
+	std::string savePath = Application::Instance()->xml->GetConfigXML().FindChildBreadth("currentScene").node.attribute("value").as_string();
+
+	if (savePath == "null")
+		savePath = _fileTree->_currentDir->path + g->name + ".HScene";
 
 	std::string buffer = j.dump();
 
 	ModuleFiles::S_Save(savePath, &buffer[0], buffer.size(), false);
 }
 
-void ModuleResourceManager::S_DeserializeScene(const std::string& filePath)
+bool ModuleResourceManager::S_DeserializeScene(const std::string& filePath)
 {
 	ModuleLayers* layers = Application::Instance()->layers;
 
@@ -246,13 +255,16 @@ void ModuleResourceManager::S_DeserializeScene(const std::string& filePath)
 
 	uint size = ModuleFiles::S_Load(filePath, &buffer);
 
+	if (size == 0)
+		return false;
+
 	json j = json::parse(buffer);
 
 	RELEASE(buffer);
 
 	// Create New GameObject for root GameObject
-
-	layers->rootGameObject->Destroy();
+	if(layers->rootGameObject)
+		layers->rootGameObject->Destroy();
 
 	std::vector<std::pair<GameObject*, uint>> temp;
 
@@ -273,6 +285,8 @@ void ModuleResourceManager::S_DeserializeScene(const std::string& filePath)
 	}
 
 	layers->rootGameObject = temp[0].first;
+
+	return true;
 }
 
 void ModuleResourceManager::S_DeleteMetaFile(const std::string& file, bool onlyResources)
@@ -406,6 +420,7 @@ void ModuleResourceManager::SerializeSceneRecursive(const GameObject* g, json& j
 	for (int i = 0; i < g->_children.size(); i++)
 	{
 		// Recursive to serialize children
-		SerializeSceneRecursive(g->_children[i], j);
+		if(!g->_children[i]->_isPendingToDelete)
+			SerializeSceneRecursive(g->_children[i], j);
 	}
 }
