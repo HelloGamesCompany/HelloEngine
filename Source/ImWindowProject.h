@@ -50,4 +50,5 @@ private:
 
 	uint fileImageID = 0;
 	uint folderImageID = 0;
+	uint modelImageID = 0;
 };

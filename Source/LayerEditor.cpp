@@ -91,7 +91,7 @@ void LayerEditor::Start()
 			style.Colors[ImGuiCol_HeaderActive] = style.Colors[ImGuiCol_TabHovered] = style.Colors[ImGuiCol_CheckMark] =
 			ImVec4(0.65f, 0.65f, 0.65f, 1);
 
-		style.Colors[ImGuiCol_MenuBarBg] = ImVec4(0.95f, 0.95f, 0.95f, 1);
+		style.Colors[ImGuiCol_MenuBarBg] = ImVec4(0.1f, 0.1f, 0.1f, 1);
 	}
 	
 	// Setup font
@@ -225,9 +225,9 @@ void LayerEditor::DrawMenuBar()
 	if (ImGui::BeginMainMenuBar())
 	{
 
-		ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.05f, 0.05f, 0.05f, 1));
+		ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.95f, 0.95f, 0.95f, 1));
 
-		ImGui::PushStyleColor(ImGuiCol_PopupBg, ImVec4(0.95f, 0.95f, 0.95f, 1));
+		ImGui::PushStyleColor(ImGuiCol_PopupBg, ImVec4(0.05f, 0.05f, 0.05f, 1));
 
 		if (ImGui::BeginMenu("Application"))
 		{

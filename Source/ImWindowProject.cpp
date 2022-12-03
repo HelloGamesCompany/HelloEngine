@@ -42,6 +42,13 @@ ImWindowProject::ImWindowProject()
     folderImageID = TextureImporter::LoadEditorDDS(buffer, size);
 
     RELEASE(buffer);
+
+    buffer = nullptr;
+    size = ModuleFiles::S_Load("Resources/Editor/Images/model.dds", &buffer);
+
+    modelImageID = TextureImporter::LoadEditorDDS(buffer, size);
+
+    RELEASE(buffer)
 }
 
 ImWindowProject::~ImWindowProject()
@@ -248,7 +255,9 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
     // Files
     for (int i = 0; i < _fileTree->_currentDir->files.size(); i++)
     {
-        if (ImGui::ImageButton(std::to_string(i).c_str(), (ImTextureID)fileImageID, ImVec2(itemWidth, itemHeight)))
+        uint icon = 0;
+        icon = _fileTree->_currentDir->files[i].metaFile.type == ResourceType::MODEL ? modelImageID : fileImageID;
+        if (ImGui::ImageButton(std::to_string(i).c_str(), (ImTextureID)icon, ImVec2(itemWidth, itemHeight)))
         {
             _fileTree->_currentDir->files[i].pressed = !_fileTree->_currentDir->files[i].pressed;
         }

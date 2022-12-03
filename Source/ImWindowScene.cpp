@@ -24,9 +24,9 @@ ImWindowScene::~ImWindowScene()
 
 void ImWindowScene::Update()
 {
-	if (ImGui::Begin(windowName.c_str()))
+	if (ImGui::Begin(windowName.c_str(), 0, ImGuiWindowFlags_MenuBar))
 	{
-		if (ImGui::BeginMenu("SceneOptions"))
+		if (ImGui::BeginMenuBar())
 		{
 			std::string option = "Change to ";
 			option += _imMode == ImGuizmo::MODE::LOCAL ? "GLOBAL" : "LOCAL";
@@ -34,7 +34,7 @@ void ImWindowScene::Update()
 			{
 				_imMode = _imMode == ImGuizmo::MODE::LOCAL ? ImGuizmo::MODE::WORLD : ImGuizmo::MODE::LOCAL;
 			}
-			ImGui::EndMenu();
+			ImGui::EndMenuBar();
 		}
 
 		ImGui::BeginChild("DropArea");
@@ -120,6 +120,20 @@ void ImWindowScene::Update()
 				MeshImporter::LoadModelIntoScene(resource);
 
 				std::string popUpmessage = "Loaded Mesh: ";
+				Application::Instance()->layers->editor->AddPopUpMessage(popUpmessage);
+
+			}
+			else if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("Mesh"))
+			{
+				const uint* drop = (uint*)payload->Data;
+
+				ResourceMesh* resource = (ResourceMesh*)ModuleResourceManager::resources[*drop];
+
+				GameObject* newGameObject = new GameObject(Application::Instance()->layers->rootGameObject, resource->debugName);
+				MeshRenderComponent* meshRender = newGameObject->AddComponent<MeshRenderComponent>();
+				meshRender->CreateMesh(*drop);
+
+				std::string popUpmessage = "Loaded Mesh: " + resource->debugName;
 				Application::Instance()->layers->editor->AddPopUpMessage(popUpmessage);
 
 			}

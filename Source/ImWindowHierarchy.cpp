@@ -7,6 +7,7 @@
 #include "ModelRenderManager.h"
 #include "ModuleResourceManager.h"
 #include "ModuleCommand.h"
+#include "MeshImporter.h"
 
 ImWindowHierarchy::ImWindowHierarchy()
 {
@@ -79,12 +80,32 @@ void ImWindowHierarchy::Update()
         // Create Droped mesh
         if (ImGui::BeginDragDropTarget())
         {
-            if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("Mesh"))
+            if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("Model"))
             {
                 //Drop asset from Asset window to scene window
-                const std::string drop = *(std::string*)payload->Data;
+                const uint* drop = (uint*)payload->Data;
 
-                ModuleResourceManager::S_LoadFile(drop);
+                ResourceModel* resource = (ResourceModel*)ModuleResourceManager::S_LoadResource(*drop);
+
+                MeshImporter::LoadModelIntoScene(resource);
+
+                std::string popUpmessage = "Loaded Mesh: ";
+                Application::Instance()->layers->editor->AddPopUpMessage(popUpmessage);
+
+            }
+            else if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("Mesh"))
+            {
+                const uint* drop = (uint*)payload->Data;
+
+                ResourceMesh* resource = (ResourceMesh*)ModuleResourceManager::resources[*drop];
+
+                GameObject* newGameObject = new GameObject(Application::Instance()->layers->rootGameObject, resource->debugName);
+                MeshRenderComponent* meshRender = newGameObject->AddComponent<MeshRenderComponent>();
+                meshRender->CreateMesh(*drop);
+
+                std::string popUpmessage = "Loaded Mesh: " + resource->debugName;
+                Application::Instance()->layers->editor->AddPopUpMessage(popUpmessage);
+
             }
             ImGui::EndDragDropTarget();
         }
