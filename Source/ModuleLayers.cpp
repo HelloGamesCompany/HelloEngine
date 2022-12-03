@@ -62,6 +62,7 @@ UpdateStatus ModuleLayers::PreUpdate()
     {
         RELEASE(_deletedGameObjects[i]);
     }
+    _deletedGameObjects.clear();
 
     for (int i = 0; i < (uint)LayersID::MAX; i++)
     {

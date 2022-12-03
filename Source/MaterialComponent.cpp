@@ -79,7 +79,8 @@ void MaterialComponent::Serialization(json& j)
 
 void MaterialComponent::DeSerialization(json& j)
 {
-	currentResource = j["ResourceUID"] == 0 ? nullptr : (ResourceTexture*)ModuleResourceManager::S_LoadResource(j["ResourceUID"]);
+	ResourceTexture* resource = j["ResourceUID"] == 0 ? nullptr : (ResourceTexture*)ModuleResourceManager::S_LoadResource(j["ResourceUID"]);
+	ChangeTexture(resource);
 }
 
 

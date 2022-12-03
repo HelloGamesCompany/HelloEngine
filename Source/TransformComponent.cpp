@@ -184,9 +184,11 @@ void TransformComponent::DeSerialization(json& j)
 	std::vector<float> tempPos = j["Position"];
 	localTransform.position = { tempPos[0], tempPos[1], tempPos[2] };
 	std::vector<float> tempRot = j["Rotation"];
-	localTransform.position = { tempRot[0], tempRot[1], tempRot[2] };
+	localTransform.rotation = { tempRot[0], tempRot[1], tempRot[2] };
 	std::vector<float> tempScale = j["Scale"];
-	localTransform.position = { tempScale[0], tempScale[1], tempScale[2] };
+	localTransform.scale = { tempScale[0], tempScale[1], tempScale[2] };
+
+	_dirtyFlag = true;
 }
 
 void TransformComponent::UpdateDirtyFlagForChildren()

@@ -188,17 +188,23 @@ bool GameObject::MarkAsAlive()
 
 void GameObject::Destroy()
 {
-	if(_parent)
-		_parent->RemoveChild(this);
-	
+	if (Application::Instance()->layers->editor->selectedGameObject == this)
+	{
+		Application::Instance()->layers->editor->SetSelectGameObject(nullptr);
+		ImGuizmo::Enable(false);
+	}
+
+	_isPendingToDelete = true;
+
 	Application::Instance()->layers->gameObjects.erase(_ID);
 	
 	Application::Instance()->layers->_deletedGameObjects.push_back(this);
 
-	for (int i = 0; i < _children.size();)
+	for (int i = 0; i < _children.size(); i++)
 	{
 		_children[i]->Destroy();
 	}
+	_children.clear();
 }
 
 void GameObject::RemoveChild(GameObject* child)
@@ -218,8 +224,8 @@ Component* GameObject::AddComponentOfType(Component::Type type)
 	switch (type)
 	{
 	case Component::Type::TRANSFORM:
-		newComponent = new TransformComponent(this);
-		_components.push_back(newComponent);
+		Console::S_Log("Cannot add another transform to a gameobject");
+		return transform;
 		break;
 	case Component::Type::MESH_RENDERER:
 		newComponent = new MeshRenderComponent(this);
@@ -229,7 +235,12 @@ Component* GameObject::AddComponentOfType(Component::Type type)
 		newComponent = new MaterialComponent(this);
 		_components.push_back(newComponent);
 		break;
+	case Component::Type::CAMERA:
+		newComponent = new CameraComponent(this);
+		_components.push_back(newComponent);
+		break;
 	}
+
 	return newComponent;
 }
 

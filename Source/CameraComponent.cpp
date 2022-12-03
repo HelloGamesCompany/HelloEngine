@@ -6,6 +6,7 @@
 
 CameraComponent::CameraComponent(GameObject* gameObject) : Component(gameObject)
 {
+	_type = Component::Type::CAMERA;
 	cameraObject = Application::Instance()->camera->CreateGameCamera();
 	cameraObject->frameBuffer.SetBufferInfo();
 	_needsTransformCallback = true;

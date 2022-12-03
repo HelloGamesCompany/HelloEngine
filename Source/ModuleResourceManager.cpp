@@ -257,7 +257,7 @@ void ModuleResourceManager::S_SerializeScene(GameObject*& g)
 bool ModuleResourceManager::S_DeserializeScene(const std::string& filePath)
 {
 	ModuleLayers* layers = Application::Instance()->layers;
-
+	// TODO: Reset module command to prevent crashes. No ctrl+z after deserializing.
 	char* buffer = nullptr;
 
 	uint size = ModuleFiles::S_Load(filePath, &buffer);

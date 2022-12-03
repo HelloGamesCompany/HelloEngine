@@ -14,6 +14,7 @@ public:
 		TRANSFORM,
 		MESH_RENDERER,
 		MATERIAL,
+		CAMERA,
 		MAX
 	};
 
