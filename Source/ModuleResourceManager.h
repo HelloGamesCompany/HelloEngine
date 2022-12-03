@@ -104,11 +104,13 @@ public:
 
 	static bool S_GetFileTree(FileTree*& tree);
 
+	static std::string S_GetCurrentWorkingDir();
+
 	static void S_UpdateFileTree();
 
 	static void S_SerializeScene(GameObject*& g);
 
-	static void S_DeserializeScene(const std::string& filePath);
+	static bool S_DeserializeScene(const std::string& filePath);
 
 	/// <summary>
 	/// Delete meta file and the resources attached to it. If you want to only destroy the resources, mark bool as true.
@@ -135,5 +137,5 @@ public:
 	static std::map<uint, Resource*> resources;
 
 private:
-	static FileTree* fileTree;
+	static FileTree* _fileTree;
 };

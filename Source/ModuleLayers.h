@@ -50,7 +50,9 @@ public:
 private:
 	bool _requestScene = false;
 
-	std::string _requestScenePath = "";
+	std::string _requestScenePath = "null";
+
+	std::string _sceneBeginPath = "null";
 
 	std::vector<GameObject*> _deletedGameObjects;
 

@@ -95,7 +95,7 @@ void QuickSave::SetValue(std::string name, std::string value, XMLNode& node)
 {
     XMLNode n = node.FindChildBreadth(name);
 
-    // If there wasnt any node with the given name, create one.
+    // If there wasn't any node with the given name, create one.
     if (n == node)
     {
         pugi::xml_node newNode = n.node.append_child(name.c_str());
