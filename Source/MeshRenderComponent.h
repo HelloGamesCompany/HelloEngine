@@ -36,21 +36,20 @@ public:
 	void Serialization(json& j) override;
 	void DeSerialization(json& j) override;
 private:
-	ResourceMesh* resource = nullptr;
-	int _meshID = -1;
+	ResourceMesh* _resource = nullptr;
+	int64_t _meshID = -1;
 	uint _instanceID = 0;
 
-	int selectedNormalDisplay = 0;
+	int _selectedNormalDisplay = 0;
 
-	int vertexNum = 0;
-	int indexNum = 0;
+	int _vertexNum = 0;
+	int _indexNum = 0;
 
-	bool isTransparent = false;
+	bool _isTransparent = false;
 
 #ifdef STANDALONE
-	uint resourceUID = 0;
+	uint _resourceUID = 0;
 #endif // STANDALONE
-
 
 	friend class Mesh;
 };

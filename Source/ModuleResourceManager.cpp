@@ -13,6 +13,7 @@
 
 #include "GameObject.h"
 #include "ModuleLayers.h"
+#include "ModuleWindow.h"
 
 // In create resource mesh method save my index and model UID.
 // Save ResourceModel UID and index.
@@ -259,6 +260,11 @@ void ModuleResourceManager::S_SerializeScene(GameObject*& g)
 	if (savePath == "null")
 		savePath = _fileTree->_currentDir->path + g->name + ".HScene";
 
+	// Change Title
+	std::string scenePath = " -- CurrentScene: " + savePath;
+
+	Application::Instance()->window->AddTitleExtraInfo(scenePath);
+
 	std::string buffer = j.dump();
 
 	ModuleFiles::S_Save(savePath, &buffer[0], buffer.size(), false);
@@ -267,13 +273,18 @@ void ModuleResourceManager::S_SerializeScene(GameObject*& g)
 bool ModuleResourceManager::S_DeserializeScene(const std::string& filePath)
 {
 	ModuleLayers* layers = Application::Instance()->layers;
-	// TODO: Reset module command to prevent crashes. No ctrl+z after deserializing.
+
 	char* buffer = nullptr;
 
 	uint size = ModuleFiles::S_Load(filePath, &buffer);
 
 	if (size == 0)
 		return false;
+
+	// Change Title
+	std::string scenePath = " -- CurrentScene: " + filePath;
+
+	Application::Instance()->window->AddTitleExtraInfo(scenePath);
 
 	ModuleCommand::S_CleanCommandQueue();
 

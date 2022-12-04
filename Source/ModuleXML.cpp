@@ -208,9 +208,9 @@ void ModuleXML::CreateDefaultConfigFile()
 				"<currentScene value = \"null\"/>\n"
 			"</scene>\n"
 			"<openGL>\n"
-				"<blend value = \"true\" tag = \"0x0BE2\" />\n"
-				"<cullFace value = \"true\" tag = \"0x0B44\" />\n"		
-				"<wireframe value = \"true\"/>\n"
+				"<blend value = \"false\" tag = \"0x0BE2\" />\n"
+				"<cullFace value = \"false\" tag = \"0x0B44\" />\n"		
+				"<wireframe value = \"false\"/>\n"
 			"</openGL>\n"
 		"</config>";
 

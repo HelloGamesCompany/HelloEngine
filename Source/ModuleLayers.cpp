@@ -8,6 +8,7 @@
 #include "ModuleResourceManager.h"
 
 #include "ModuleInput.h"
+#include "ModuleWindow.h"
 
 ModuleLayers::ModuleLayers()
 {
@@ -38,7 +39,12 @@ bool ModuleLayers::Start()
 
         std::string newDir = ASSETS_PATH;
 
+        // Change Title
         newDir += rootGameObject->name + ".HScene";
+
+        std::string scenePath = " -- CurrentScene: " + newDir;
+
+        Application::Instance()->window->AddTitleExtraInfo(scenePath);
 
         sceneXML.FindChildBreadth("currentScene").node.attribute("value").set_value(newDir.c_str());
         

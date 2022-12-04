@@ -19,6 +19,7 @@ public:
 	bool CleanUp();
 
 	void SetTitle(const char* title);
+	void AddTitleExtraInfo(const std::string& context);
 	void SetBrightness(float bright);
 	int GetMaxRefreshRate();
 
@@ -31,6 +32,9 @@ public:
 
 	//The surface contained by the window
 	SDL_Surface* screen_surface = nullptr;
+
+private:
+	std::string _title = "";
 };
 
 #endif // __ModuleWindow_H__

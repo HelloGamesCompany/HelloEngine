@@ -22,7 +22,7 @@ MeshRenderComponent::~MeshRenderComponent()
 {
 	if (_meshID != -1)
 	{
-		if (!isTransparent)
+		if (!_isTransparent)
 		{
 			RenderManager* manager = Application::Instance()->renderer3D->modelRender.GetRenderManager(_meshID);
 			manager->GetMap().erase(_instanceID);
@@ -32,8 +32,8 @@ MeshRenderComponent::~MeshRenderComponent()
 		{
 			Application::Instance()->renderer3D->modelRender._transparencyMeshes.erase(_meshID);
 		}
-		if (resource != nullptr)
-			resource->Dereference();
+		if (_resource != nullptr)
+			_resource->Dereference();
 	}
 }
 
@@ -49,8 +49,8 @@ void MeshRenderComponent::InitAsLoadedMesh(uint meshID)
 
 	_instanceID = manager->AddMesh(instanceMesh); // TODO: Doesnt need to add an empty mesh. 
 
-	vertexNum = manager->GetMeshVertexNum();
-	indexNum = manager->GetMeshIndexNum();
+	_vertexNum = manager->GetMeshVertexNum();
+	_indexNum = manager->GetMeshIndexNum();
 	_gameObject->transform->ForceUpdate();
 	GetMesh().component = this;
 }
@@ -65,17 +65,17 @@ void MeshRenderComponent::InitAsNewMesh(std::vector<Vertex>& vertices, std::vect
 
 	//_instanceID = manager->SetMeshInformation(newMesh);
 
-	vertexNum = manager->GetMeshVertexNum();
-	indexNum = manager->GetMeshIndexNum();
+	_vertexNum = manager->GetMeshVertexNum();
+	_indexNum = manager->GetMeshIndexNum();
 	_gameObject->transform->ForceUpdate();
 	GetMesh().component = this;
 }
 
 void MeshRenderComponent::CreateMesh(uint resourceUID)
 {
-	resource = (ResourceMesh*)ModuleResourceManager::S_LoadResource(resourceUID);
+	_resource = (ResourceMesh*)ModuleResourceManager::S_LoadResource(resourceUID);
 	
-	if (resource == nullptr)
+	if (_resource == nullptr)
 	{
 		_meshID = -1;
 		return;
@@ -92,11 +92,11 @@ void MeshRenderComponent::CreateMesh(uint resourceUID)
 	}
 	else
 	{
-		_instanceID = manager->SetMeshInformation(resource);
+		_instanceID = manager->SetMeshInformation(_resource);
 	}
 
-	vertexNum = manager->GetMeshVertexNum();
-	indexNum = manager->GetMeshIndexNum();
+	_vertexNum = manager->GetMeshVertexNum();
+	_indexNum = manager->GetMeshIndexNum();
 	_gameObject->transform->ForceUpdate();
 	GetMesh().component = this;
 }
@@ -120,7 +120,7 @@ void MeshRenderComponent::OnDisable()
 
 Mesh& MeshRenderComponent::GetMesh()
 {
-	if (!isTransparent)
+	if (!_isTransparent)
 	{
 		RenderManager* manager = Application::Instance()->renderer3D->modelRender.GetRenderManager(_meshID);
 		Mesh& meshReference = manager->GetMap()[_instanceID];
@@ -135,7 +135,7 @@ Mesh& MeshRenderComponent::GetMesh()
 
 std::vector<Vertex>& MeshRenderComponent::GetMeshVertices()
 {
-	if (!isTransparent)
+	if (!_isTransparent)
 	{
 		RenderManager* manager = Application::Instance()->renderer3D->modelRender.GetRenderManager(_meshID);
 		return *manager->totalVertices;
@@ -148,7 +148,7 @@ std::vector<Vertex>& MeshRenderComponent::GetMeshVertices()
 
 std::vector<uint>& MeshRenderComponent::GetMeshIndices()
 {
-	if (!isTransparent)
+	if (!_isTransparent)
 	{
 		RenderManager* manager = Application::Instance()->renderer3D->modelRender.GetRenderManager(_meshID);
 		return *manager->totalIndices;
@@ -195,10 +195,10 @@ void MeshRenderComponent::OnEditor()
 			auxiliaryBool ? Enable() : Disable();
 
 		ImGui::TextWrapped("Mesh vertices: "); ImGui::SameLine(); 
-		ImGui::TextColored(ImVec4(255, 255, 0, 255), std::to_string(vertexNum).c_str());
+		ImGui::TextColored(ImVec4(255, 255, 0, 255), std::to_string(_vertexNum).c_str());
 
 		ImGui::TextWrapped("Mesh indices: "); ImGui::SameLine();
-		ImGui::TextColored(ImVec4(255, 255, 0, 255), std::to_string(indexNum).c_str());
+		ImGui::TextColored(ImVec4(255, 255, 0, 255), std::to_string(_indexNum).c_str());
 
 		ImGui::Checkbox("Vertex Normals", &mesh.showVertexNormals); ImGui::SameLine();
 		ImGui::Checkbox("Face Normals", &mesh.showFaceNormals);
@@ -210,19 +210,19 @@ void MeshRenderComponent::OnEditor()
 
 void MeshRenderComponent::SetMeshAsTransparent()
 {
-	if (isTransparent)
+	if (_isTransparent)
 		return;
 
 	GetMesh().CleanUp();
 
-	isTransparent = true;
+	_isTransparent = true;
 
 	// Erase current mesh 
 	RenderManager* manager = Application::Instance()->renderer3D->modelRender.GetRenderManager(_meshID);
 	manager->GetMap().erase(_instanceID);
 
 	// When using a transparent mesh, MeshID is the key in the map!
-	_meshID = Application::Instance()->renderer3D->modelRender.AddTransparentMesh(manager, resource);
+	_meshID = Application::Instance()->renderer3D->modelRender.AddTransparentMesh(manager, _resource);
 
 	// Update mesh transfrom 
 	Mesh& mesh = GetMesh();
@@ -233,7 +233,7 @@ void MeshRenderComponent::SetMeshAsTransparent()
 
 void MeshRenderComponent::SetMeshAsOpaque()
 {
-	if (!isTransparent)
+	if (!_isTransparent)
 		return;
 	// This will work using Resources. We need to know what resource do we belong to. If that resource is not loaded, load it and create a Render Manager.
 	// if the Resource is loaded, then a Render Manaer that uses that resource should be already created.
@@ -244,7 +244,7 @@ void MeshRenderComponent::MarkAsDead()
 {
 	if (_meshID != -1)
 	{
-		if (!isTransparent)
+		if (!_isTransparent)
 		{
 			RenderManager* manager = Application::Instance()->renderer3D->modelRender.GetRenderManager(_meshID);
 			manager->GetMap().erase(_instanceID);
@@ -254,18 +254,18 @@ void MeshRenderComponent::MarkAsDead()
 		{
 			Application::Instance()->renderer3D->modelRender._transparencyMeshes.erase(_meshID);
 		}
-		if (resource != nullptr)
+		if (_resource != nullptr)
 		{
-			resource->Dereference();
-			resourceUID = resource->UID;
-			resource = nullptr;
+			_resource->Dereference();
+			_resourceUID = _resource->UID;
+			_resource = nullptr;
 		}
 	}
 }
 
 void MeshRenderComponent::MarkAsAlive()
 {
-	CreateMesh(resourceUID);
+	CreateMesh(_resourceUID);
 }
 
 void MeshRenderComponent::Serialization(json& j)
@@ -274,10 +274,26 @@ void MeshRenderComponent::Serialization(json& j)
 
 	_j["Type"] = _type;
 
-	if (resource != nullptr)
+	if (_meshID != -1)
 	{
-		_j["ModelUID"] = resource->modelUID;
-		_j["Index inside model"] = resource->indexInsideModel;
+		Mesh& m = GetMesh();
+		_j["ShowAABB"] = m.showAABB;
+		_j["ShowOBB"] = m.showOBB;
+		_j["ShowFaceNormals"] = m.showFaceNormals;
+		_j["ShowVertexNormals"] = m.showVertexNormals;
+	}
+	else
+	{
+		_j["ShowAABB"] = false;
+		_j["ShowOBB"] = false;
+		_j["ShowFaceNormals"] = false;
+		_j["ShowVertexNormals"] = false;
+	}
+
+	if (_resource != nullptr)
+	{
+		_j["ModelUID"] = _resource->modelUID;
+		_j["Index inside model"] = _resource->indexInsideModel;
 	}
 	else
 	{
@@ -299,6 +315,17 @@ void MeshRenderComponent::DeSerialization(json& j)
 		{
 			ResourceMesh* resourceMesh = model->modelMeshes[index];
 			CreateMesh(resourceMesh->UID);
+
+			if (_meshID != -1)
+			{
+				Mesh& m = GetMesh();
+
+				m.showAABB = j["ShowAABB"];
+				m.showOBB = j["ShowOBB"];
+				m.showFaceNormals = j["ShowFaceNormals"];
+				m.showVertexNormals = j["ShowVertexNormals"];
+			}
+
 			return;
 		}
 	}

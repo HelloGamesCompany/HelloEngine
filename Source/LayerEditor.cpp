@@ -372,11 +372,14 @@ void LayerEditor::DrawAssetsTree(Directory*& newDir, Directory* node, const bool
 		}
 
 		// Recursive functions
+		// Directories
 		for (int i = 0; i < node->directories.size(); i++)
 		{
 			DrawAssetsTree(newDir, node->directories[i], isLoading);
 		}
 
+		// Files
+		ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(1, 1, 0, 1));
 		for (int i = 0; i < node->files.size(); i++)
 		{
 			ImGuiTreeNodeFlags leafFlags = ImGuiTreeNodeFlags_Leaf;
@@ -400,6 +403,7 @@ void LayerEditor::DrawAssetsTree(Directory*& newDir, Directory* node, const bool
 				ImGui::TreePop();
 			}
 		}
+		ImGui::PopStyleColor();
 
 		ImGui::TreePop();
 	}
@@ -446,6 +450,11 @@ void LayerEditor::DrawMenuBar()
 
 			if (ImGui::MenuItem("Save Scene As"))
 			{
+				// Restart selectedPath
+				Directory* rootDir = nullptr;
+				_fileTree->GetRootDir(rootDir);
+				_currentSelectedPath = rootDir->path;
+
 				_openSaveScene = true;
 			}
 

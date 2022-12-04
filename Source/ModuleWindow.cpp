@@ -118,7 +118,16 @@ bool ModuleWindow::CleanUp()
 
 void ModuleWindow::SetTitle(const char* title)
 {
+	_title = title;
+
 	SDL_SetWindowTitle(window, title);
+}
+
+void ModuleWindow::AddTitleExtraInfo(const std::string& context)
+{
+	std::string newTitle = _title + context;
+
+	SDL_SetWindowTitle(window, newTitle.c_str());
 }
 
 void ModuleWindow::SetBrightness(float bright)
