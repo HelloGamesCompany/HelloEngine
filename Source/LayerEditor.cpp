@@ -6,6 +6,7 @@
 #include "ModuleRenderer3D.h"
 #include "ModuleCamera3D.h"
 #include "ModuleCommand.h"
+#include "ModuleFiles.h"
 
 #include "ImGuizmo/ImGuizmo.h"
 
@@ -174,6 +175,33 @@ void LayerEditor::Update()
 		ModuleCommand::S_DeleteGameObject(selectedGameObject);
 	}
 
+	if (_app->input->GetKey(SDL_SCANCODE_LCTRL) == KEY_REPEAT && _app->input->GetKey(SDL_SCANCODE_S) == KEY_DOWN)
+	{
+		if (_app->input->GetKey(SDL_SCANCODE_LALT) == KEY_REPEAT)
+		{
+			// Restart selectedPath
+			Directory* rootDir = nullptr;
+			_fileTree->GetRootDir(rootDir);
+			_currentSelectedPath = rootDir->path;
+
+			_openSaveScene = true;
+		}
+		else
+		{
+			XMLNode sceneXML = Application::Instance()->xml->GetConfigXML();
+			std::string configScene = sceneXML.FindChildBreadth("currentScene").node.attribute("value").as_string();
+
+			if (configScene == "null")
+			{
+				_openSaveScene = true;
+			}
+			else
+				ModuleResourceManager::S_SerializeScene(Application::Instance()->layers->rootGameObject);
+			
+			AddPopUpMessage("Saved scene: " + ModuleFiles::S_GetFileName(configScene));
+		}
+	}
+
 #endif // !STANDALONE
 }
 
@@ -313,6 +341,8 @@ void LayerEditor::DrawPopUpSaveScene()
 			_requestUpdateFileTree = true;
 
 			_openSaveScene = false;
+
+			AddPopUpMessage("Saved scene: " + _savingSceneName);
 		}
 		ImGui::SameLine();
 		if (ImGui::Button("Close"))
@@ -435,7 +465,7 @@ void LayerEditor::DrawMenuBar()
 				_openLoadScene = true;
 			}
 
-			if (ImGui::MenuItem("Save Scene"))
+			if (ImGui::MenuItem("Save Scene (Ctrl + S)"))
 			{
 				XMLNode sceneXML = Application::Instance()->xml->GetConfigXML();
 				std::string configScene = sceneXML.FindChildBreadth("currentScene").node.attribute("value").as_string();
@@ -446,9 +476,11 @@ void LayerEditor::DrawMenuBar()
 				}
 				else
 					ModuleResourceManager::S_SerializeScene(Application::Instance()->layers->rootGameObject);
+				
+				AddPopUpMessage("Saved scene: " + ModuleFiles::S_GetFileName(configScene));
 			}
 
-			if (ImGui::MenuItem("Save Scene As"))
+			if (ImGui::MenuItem("Save Scene As (Ctrl + Alt + S)"))
 			{
 				// Restart selectedPath
 				Directory* rootDir = nullptr;
