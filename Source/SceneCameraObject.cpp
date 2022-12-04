@@ -4,6 +4,7 @@
 #include "ModuleLayers.h"
 #include "LayerEditor.h"
 #include "ModuleWindow.h"
+#include "ImGuizmo/ImGuizmo.h"
 
 SceneCameraObject::SceneCameraObject() : CameraObject()
 {
@@ -79,7 +80,7 @@ void SceneCameraObject::UpdateInput()
 	}
 
 	// Orbital rotation
-	if (app->input->GetKey(SDL_SCANCODE_LALT) == KEY_REPEAT && app->input->GetMouseButton(1) == KEY_REPEAT)
+	if (app->input->GetKey(SDL_SCANCODE_LALT) == KEY_REPEAT && app->input->GetMouseButton(1) == KEY_REPEAT && !ImGuizmo::IsUsing())
 	{
 		float3 rotationCenter = { 0.0f,0.0f,0.0f };
 
