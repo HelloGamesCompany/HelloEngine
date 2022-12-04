@@ -481,5 +481,3 @@ void ResourceModel::CreateResourceMeshesRecursive(ModelNode& node)
 		CreateResourceMeshesRecursive(node.children[i]);
 	}
 }
-
-

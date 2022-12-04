@@ -45,11 +45,13 @@ private:
 
 	bool _isWindowFocus = false;
 
-	int itemWidth = 80;
-	int itemHeight = 80;
+	int _itemWidth = 80;
+	int _itemHeight = 80;
 
-	uint fileImageID = 0;
-	uint folderImageID = 0;
-	uint modelImageID = 0;
-	uint meshImageID = 0;
+	uint _fileImageID = 0;
+	uint _folderImageID = 0;
+	uint _modelImageID = 0;
+	uint _meshImageID = 0;
+	uint _sceneImageID = 0;
+	uint _textureImageID = 0;
 };

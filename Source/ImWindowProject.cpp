@@ -29,34 +29,38 @@ ImWindowProject::ImWindowProject()
 
     _app->input->AddOnDropListener(std::bind(&ImWindowProject::OnDrop, this, std::placeholders::_1));
 
-    char* buffer = nullptr;
-    int size = ModuleFiles::S_Load("Resources/Editor/Images/files.dds", &buffer);
+    // Load Icons 
+    {
+        char* buffer = nullptr;
+        int size = ModuleFiles::S_Load("Resources/Editor/Images/files.dds", &buffer);
+        _fileImageID = TextureImporter::LoadEditorDDS(buffer, size);
+        RELEASE(buffer);
 
-    fileImageID = TextureImporter::LoadEditorDDS(buffer, size);
+        buffer = nullptr;
+        size = ModuleFiles::S_Load("Resources/Editor/Images/folder.dds", &buffer);
+        _folderImageID = TextureImporter::LoadEditorDDS(buffer, size);
+        RELEASE(buffer);
 
-    RELEASE(buffer);
+        buffer = nullptr;
+        size = ModuleFiles::S_Load("Resources/Editor/Images/grid.dds", &buffer);
+        _meshImageID = TextureImporter::LoadEditorDDS(buffer, size);
+        RELEASE(buffer);
 
-    buffer = nullptr;
-    size = ModuleFiles::S_Load("Resources/Editor/Images/folder.dds", &buffer);
+        buffer = nullptr;
+        size = ModuleFiles::S_Load("Resources/Editor/Images/modelOpen.dds", &buffer);
+        _modelImageID = TextureImporter::LoadEditorDDS(buffer, size);
+        RELEASE(buffer)
 
-    folderImageID = TextureImporter::LoadEditorDDS(buffer, size);
+            buffer = nullptr;
+        size = ModuleFiles::S_Load("Resources/Editor/Images/scene.dds", &buffer);
+        _sceneImageID = TextureImporter::LoadEditorDDS(buffer, size);
+        RELEASE(buffer)
 
-    RELEASE(buffer);
-
-    buffer = nullptr;
-    size = ModuleFiles::S_Load("Resources/Editor/Images/grid.dds", &buffer);
-
-    meshImageID = TextureImporter::LoadEditorDDS(buffer, size);
-
-    RELEASE(buffer);
-
-
-    buffer = nullptr;
-    size = ModuleFiles::S_Load("Resources/Editor/Images/modelOpen.dds", &buffer);
-
-    modelImageID = TextureImporter::LoadEditorDDS(buffer, size);
-
-    RELEASE(buffer)
+        buffer = nullptr;
+        size = ModuleFiles::S_Load("Resources/Editor/Images/image.dds", &buffer);
+        _textureImageID = TextureImporter::LoadEditorDDS(buffer, size);
+        RELEASE(buffer)
+    }   
 }
 
 ImWindowProject::~ImWindowProject()
@@ -235,7 +239,7 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
 
     ImGui::Separator();
 
-    int numOfColumns = (ImGui::GetContentRegionAvail().x / itemWidth) -1;
+    int numOfColumns = (ImGui::GetContentRegionAvail().x / _itemWidth) -1;
     if (numOfColumns == 0)
         numOfColumns++;
 
@@ -245,7 +249,7 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
     ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.5, 0.5, 1.0, 255));
     for (int i = 0; i < _fileTree->_currentDir->directories.size(); i++)
     {
-        if (ImGui::ImageButton(std::to_string(i).c_str(), (ImTextureID)folderImageID, ImVec2(itemWidth, itemHeight)))
+        if (ImGui::ImageButton(std::to_string(i).c_str(), (ImTextureID)_folderImageID, ImVec2(_itemWidth, _itemHeight)))
         {
             newDir = _fileTree->_currentDir->directories[i];
         }
@@ -262,8 +266,24 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
     for (int i = 0; i < _fileTree->_currentDir->files.size(); i++)
     {
         uint icon = 0;
-        icon = _fileTree->_currentDir->files[i].metaFile.type == ResourceType::MODEL ? modelImageID : fileImageID;
-        if (ImGui::ImageButton(std::to_string(i).c_str(), (ImTextureID)icon, ImVec2(itemWidth, itemHeight)))
+
+        switch (ModuleFiles::S_GetResourceType(_fileTree->_currentDir->files[i].path))
+        {
+        case ResourceType::MODEL:
+            icon = _modelImageID;
+            break;
+        case ResourceType::SCENE:
+            icon = _sceneImageID;
+            break;
+        case ResourceType::TEXTURE:         
+            icon = _textureImageID;
+            break;
+        default:
+            icon = _fileImageID;
+            break;
+        }
+
+        if (ImGui::ImageButton(std::to_string(i).c_str(), (ImTextureID)icon, ImVec2(_itemWidth, _itemHeight)))
         {
             _fileTree->_currentDir->files[i].pressed = !_fileTree->_currentDir->files[i].pressed;
         }
@@ -321,7 +341,7 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
             for (int j = 0; j < model->modelMeshes.size(); j++)
             {
                 ImGui::NextColumn();
-                ImGui::ImageButton(std::to_string(model->modelMeshes[j]->UID).c_str(), (ImTextureID)meshImageID, ImVec2(itemWidth, itemHeight));
+                ImGui::ImageButton(std::to_string(model->modelMeshes[j]->UID).c_str(), (ImTextureID)_meshImageID, ImVec2(_itemWidth, _itemHeight));
 
                 if (ImGui::BeginDragDropSource(ImGuiDragDropFlags_None))
                 {
