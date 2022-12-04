@@ -34,9 +34,51 @@ While hovering the Scene Window:
 
 ### Loading assets
 
-Currently you can load FBX and PNG/DDS files. To do so, drag and drop the file you want to load into the engine. This will create a copy of the dragged file into the Assets folder. FILES THAT ARE NOT PLACED INSIDE ASSETS USING THIS METHOD WILL NOT BE PROCESSED BY THE ENGINE.
+Currently you can load FBX and PNG/DDS files. To do so, drag and drop the file you want to load into the engine. This will create a copy of the dragged file into the Assets folder. You can also drag it inside the file from the windows explorer. If a file doesnt appear, try minimize the engine and open it again.
 
 Once the file is imported, drag and drop the file from the Project window inside the Engine. Drop inside Scene to load an FBX. Drop inside MaterialComponent Inspector image if it is a PNG/DDS image.
+
+You can load separeted meshes from the model file by clicking on the model file in the projet window. This will show all meshes inside that model. This files can be dragged and dropped too.
+
+# Current version
+
+**Current state** : Level Editor (v0.5):
+
+**Basic Features**
+
+Custom file format for Mesh and Model. Named "hmesh" and "hmodel".
+
+Resource Manager that:
+
+* Makes sure every asset gets loaded only once in memory, and unloads when no other references are using it.
+* Creates Meta files beside assets to connect to the custom file format files inside Resources.
+* Destroys any Resources data that no longer has an Asset.
+
+Scene Serialization. Now scenes can be saved and loaded into an "HScene" file. 
+
+Camera Component added Orthographic camera. Updated camera component variables to be changed inside inspector.
+
+Project window with icons and correct form.
+
+Project window allows drag and drop of all usable assets (mesh, texture, model and scene).
+
+Start/Stop/Pause/Next frame buttons that control an internal timer. This can be seen inside Configuration Window!
+
+All objects can be culled using the main camera's frustum culling option. 
+
+Main camera can be switched between multiple game cameras.
+
+Added ImGuizmo to manage game objects transform inside the Scene.
+
+Undo/Redo can be applied to multiple actions:
+
+* Move with ImGuizmo
+* Parent game objects
+* Delete game objects
+
+Mouse picking of game objects inside the scene using Raycast method.
+
+Scene camera panning using middle mouse button.
 
 ### Versions
 
@@ -48,11 +90,9 @@ Scene structure created, but no Entity component system yet.
 
 Added XML utilities to load Int, Float, Bool and String variables from a default XML file. This system is called QuickSave and mimics the PlayerPrefs system form Unity Engine.
 
-## Current state: v0.2
+Geometry viewer: v0.2
 
-**Current state** : Basic Geometry Viewer (v0.2):
-
-### **Basic Features**
+**Basic Features**
 
 3D rendering with FBX loading.
 
