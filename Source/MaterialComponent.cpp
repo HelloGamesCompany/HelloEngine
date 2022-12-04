@@ -79,7 +79,14 @@ void MaterialComponent::Serialization(json& j)
 
 void MaterialComponent::DeSerialization(json& j)
 {
-	ResourceTexture* resource = j["ResourceUID"] == 0 ? nullptr : (ResourceTexture*)ModuleResourceManager::S_LoadResource(j["ResourceUID"]);
+	uint savedUID = j["ResourceUID"];
+	if (savedUID == CHECKERS_RESOURCE_UID)
+	{
+		ChangeTexture(TextureImporter::CheckerImage());
+		return;
+	}
+
+	ResourceTexture* resource = savedUID == 0 ? nullptr : (ResourceTexture*)ModuleResourceManager::S_LoadResource(j["ResourceUID"]);
 	ChangeTexture(resource);
 }
 

@@ -52,6 +52,9 @@ ModuleResourceManager::~ModuleResourceManager()
 
 bool ModuleResourceManager::Init()
 {
+	// Create checkers texture resource
+	S_CreateResourceText("Null", CHECKERS_RESOURCE_UID, "Checkers", false);
+
 	// Create meta files for every asset that doesnt have one.
 	// Check if file has a defined reosurce type
 	// If it does, create meta file. (MODULEFILESYSTEM)
@@ -132,6 +135,9 @@ void ModuleResourceManager::S_LoadFileIntoResource(Resource* resource)
 {
 	char* buffer = nullptr;
 	uint size = ModuleFiles::S_Load(resource->resourcePath, &buffer);
+
+	if (size == 0)
+		return;
 
 	switch (resource->type)
 	{
@@ -385,6 +391,22 @@ void ModuleResourceManager::S_CreateResourceMesh(const std::string& filePath, ui
 	resources[UID]->debugName = name + ".hmesh";
 	resources[UID]->UID = UID;
 	resources[UID]->resourcePath = filePath;
+}
+
+void ModuleResourceManager::S_CreateResourceText(const std::string& filePath, uint UID, const std::string& name, bool load)
+{
+	if (resources.count(UID) != 0)
+		return;
+
+	ResourceTexture* newResource = new ResourceTexture();
+
+	resources[UID] = newResource;
+	resources[UID]->debugName = name + ".dds";
+	resources[UID]->UID = UID;
+	resources[UID]->resourcePath = filePath;
+
+	if (load)
+		S_LoadFileIntoResource(newResource);
 }
 
 Resource* ModuleResourceManager::S_LoadResource(const uint& UID)

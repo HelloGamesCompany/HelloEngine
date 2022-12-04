@@ -2,6 +2,8 @@
 
 class ResourceTexture;
 
+#define CHECKERS_RESOURCE_UID 240240
+
 class TextureImporter
 {
 public:
@@ -13,7 +15,7 @@ public:
 	// Loads a texture from DDS file to OpenGL and returns its ID.
 	static void Load(char* buffer, int size, ResourceTexture* resource);
 
-	static uint CheckerImage();
+	static ResourceTexture* CheckerImage();
 
 	static uint LoadEditorDDS(char* buffer, int size);
 };
