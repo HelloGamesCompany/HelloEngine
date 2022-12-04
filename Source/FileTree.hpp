@@ -5,7 +5,6 @@
 
 #include "Application.h"
 #include "ModuleResourceManager.h"
-#include "ModuleFiles.h"
 
 struct Directory;
 

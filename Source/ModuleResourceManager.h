@@ -1,4 +1,5 @@
 #pragma once
+
 #include "Module.h"
 #include "ModuleFiles.h"
 #include "Texture.h"
@@ -131,7 +132,6 @@ private:
 	static void GetResourcePath(ModelNode& node, std::vector<std::string>& vector);
 
 	static void SerializeSceneRecursive(const GameObject* g, json& j);
-
 
 public:
 	static std::map<std::string, Resource*> loadedResources;
