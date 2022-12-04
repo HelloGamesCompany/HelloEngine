@@ -254,6 +254,12 @@ bool ModuleFiles::S_Copy(const std::string& src, std::string des, bool replace)
 
 		char* buffer = nullptr;
 
+		if (src == des)
+		{
+			Console::S_Log("Cannot import the same file twice. Change the file name first.");
+			return false;
+		}
+
 		do
 		{
 			if (S_Exists(des) && !replace)
@@ -313,6 +319,12 @@ bool ModuleFiles::S_ExternalCopy(const std::string& src, std::string des, bool r
 	 }
 
 	des = workingDir + des + S_GetFileName(src);
+
+	if (src == des)
+	{
+		Console::S_Log("Cannot import the same file twice. Change the file name first.");
+		return false;
+	}
 
 	std::ifstream srcFile(src, std::ios::binary);
 	if(srcFile.is_open() == 0)

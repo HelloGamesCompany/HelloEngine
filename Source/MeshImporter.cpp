@@ -218,7 +218,8 @@ void MeshImporter::LoadNode(ModelNode& node, GameObject* parent)
 
 	if (parent == nullptr)
 	{
-		nodeGameObject = returnGameObject = new GameObject(Application::Instance()->layers->rootGameObject, node.name);
+		nodeGameObject = new GameObject(Application::Instance()->layers->rootGameObject, node.name);
+		returnGameObject = nodeGameObject;
 	}
 	else
 	{

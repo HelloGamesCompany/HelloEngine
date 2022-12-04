@@ -63,9 +63,7 @@ void ModelRenderManager::OnEditor()
 
 RenderManager* ModelRenderManager::GetRenderManager(uint ID)
 {
-	if (_renderMap.count(ID) != 0)
-		return &_renderMap[ID];
-	return nullptr;
+	return &_renderMap[ID];
 }
 
 RenderManager* ModelRenderManager::CreateRenderManager(uint ID)

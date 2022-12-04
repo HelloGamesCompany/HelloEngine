@@ -34,29 +34,29 @@ void CameraComponent::OnEditor()
 			auxiliaryBool ? Enable() : Disable();
 		}
 
-		if (ImGui::BeginCombo("Frustum type", _comboValues[_selectedCombo].c_str()))
-		{
-			for (int i = 0; i < 2; i++)
-			{
-				bool selected = i == _selectedCombo;
-				if (ImGui::Selectable(_comboValues[i].c_str(), &selected))
-				{
-					if (i == 0)
-						cameraObject->ChangeToOrthograpic();
-					else
-						cameraObject->ChangeToPerspective();
-					_selectedCombo = i;
-				}
-			}
-			ImGui::EndCombo();
-		}
+		//if (ImGui::BeginCombo("Frustum type", _comboValues[_selectedCombo].c_str()))
+		//{
+		//	for (int i = 0; i < 2; i++)
+		//	{
+		//		bool selected = i == _selectedCombo;
+		//		if (ImGui::Selectable(_comboValues[i].c_str(), &selected))
+		//		{
+		//			if (i == 0)
+		//				cameraObject->ChangeToOrthograpic();
+		//			else
+		//				cameraObject->ChangeToPerspective();
+		//			_selectedCombo = i;
+		//		}
+		//	}
+		//	ImGui::EndCombo();
+		//}
 
 		ImGui::Checkbox("Culling", &cameraObject->isCullingActive);
 
-		if (_selectedCombo == 0)
-			OrthographicEditorOptions();
-		else
-			PerspectiveEditorOptions();
+		//if (_selectedCombo == 0)
+		//	OrthographicEditorOptions();
+		//else
+		PerspectiveEditorOptions();
 
 		
 		ImGui::TextColored(cameraObject->currentlyDisplaying ? ImVec4(0, 1, 0, 1) : ImVec4(1, 0, 0, 1), cameraObject->currentlyDisplaying ? "Currently displaying" : "Not currently displaying");
@@ -105,7 +105,7 @@ void CameraComponent::Serialization(json& j)
 
 	_j["Near plane"] = cameraObject->cameraFrustum.nearPlaneDistance;
 	_j["Far plane"] = cameraObject->cameraFrustum.farPlaneDistance;
-	_j["FOV"] = cameraObject->cameraFrustum.farPlaneDistance;
+	_j["FOV"] = cameraObject->FOV;
 	_j["Aspect ratio"] = cameraObject->aspectRatio;
 	_j["Frustum type"] = cameraObject->cameraFrustum.type;
 	_j["Orthographic size"] = cameraObject->_orthographicSize;
@@ -121,8 +121,8 @@ void CameraComponent::DeSerialization(json& j)
 	cameraObject->cameraFrustum.farPlaneDistance = j["Far plane"];
 	cameraObject->ChangeAspectRatio(j["Aspect ratio"]);
 	cameraObject->SetFOV(j["FOV"]);
-	cameraObject->cameraFrustum.type = j["Frustum type"];
-	cameraObject->ChangeOrthographicSize(j["Orthographic size"]);
+	//cameraObject->cameraFrustum.type = j["Frustum type"];
+	//cameraObject->ChangeOrthographicSize(j["Orthographic size"]);
 	cameraObject->isCullingActive = j["Active culling"];
 	cameraObject->active = j["Active camera"];
 

@@ -147,5 +147,5 @@ Application* Application::Instance()
 
 std::string Application::GetEngineVersion()
 {
-	return "v0.2";
+	return "v0.5";
 }

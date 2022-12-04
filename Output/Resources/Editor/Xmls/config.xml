@@ -6,14 +6,14 @@
 		<brightness value="1" />
 	</window>
 	<renderer>
-		<vsync value="true" />
-		<framerate value="90" />
+		<vsync value="false" />
+		<framerate value="120" />
 	</renderer>
 	<scene>
 		<currentScene value="Assets/Root.HScene" />
 	</scene>
 	<openGL>
-		<blend value="false" tag="0x0BE2" />
+		<blend value="true" tag="0x0BE2" />
 		<cullFace value="false" tag="0x0B44" />
 		<wireframe value="false" />
 	</openGL>

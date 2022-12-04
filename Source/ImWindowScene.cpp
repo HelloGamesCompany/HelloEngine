@@ -144,7 +144,7 @@ void ImWindowScene::Update()
 
 				_moduleLayers->RequestLoadScene(drop);
 
-				std::string popUpmessage = "Loaded Mesh: " + ModuleFiles::S_GetFileName(drop, false);
+				std::string popUpmessage = "Loaded Scene: " + ModuleFiles::S_GetFileName(drop, false);
 				_moduleLayers->editor->AddPopUpMessage(popUpmessage);
 			}
 			ImGui::EndDragDropTarget();

@@ -497,7 +497,7 @@ void LayerEditor::DrawMenuBar()
 	if (ImGui::BeginViewportSideBar("##TimeBar", viewport, ImGuiDir_Up, 32, window_flags)) 
 	{
 		ImVec2 contentRegion = ImGui::GetContentRegionAvail();
-		int totalButtonsWidth = 100;
+		int totalButtonsWidth = 72;
 		ImGui::SetCursorPos(ImVec2(contentRegion.x / 2 - totalButtonsWidth, 4));
 
 		if (!_game->_isPlaying)
