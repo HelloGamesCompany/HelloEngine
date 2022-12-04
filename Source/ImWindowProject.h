@@ -15,14 +15,14 @@ public:
 
 	void Update() override;
 
+	void UpdateFileNodes();
+
 private:
 	void DrawTreeNodePanelLeft(Directory*& newDir, Directory* node, const bool drawFiles = true) const;
 
 	void DrawTreeNodePanelRight(Directory*& newDir);
 
 	void OnDrop(const std::string filePath);
-
-	void UpdateFileNodes();
 
 	void CheckWindowFocus();
 

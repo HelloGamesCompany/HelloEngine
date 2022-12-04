@@ -5,6 +5,8 @@
 #include "ModuleWindow.h"
 #include "ModuleRenderer3D.h"
 #include "ModuleCamera3D.h"
+#include "ModuleCommand.h"
+
 #include "ImGuizmo/ImGuizmo.h"
 
 #include "ImWindowConfiguration.h"
@@ -22,10 +24,8 @@
 #include "ModuleLayers.h"
 #include "LayerGame.h"
 
-#include "ModuleFiles.h"
 #include "TransformComponent.h"
 
-#include "ModuleCommand.h"
 
 LayerEditor::LayerEditor()
 {
@@ -127,11 +127,20 @@ void LayerEditor::Start()
 
 	// Reserve space for popUpMessages
 	_popUpMessages.reserve(20);
+
+	// Save and load scene popups variables
+	ModuleResourceManager::S_GetFileTree(_fileTree);
 }
 
 void LayerEditor::PreUpdate()
 {
-
+	if (_requestUpdateFileTree)
+	{
+		ModuleResourceManager::S_UpdateFileTree();
+		_requestUpdateFileTree = false;
+		ImWindowProject* projectWindow = (ImWindowProject*)_imWindows[(uint)ImWindowID::PROJECT];
+		projectWindow->UpdateFileNodes();
+	}
 }
 
 void LayerEditor::Update()
@@ -169,6 +178,11 @@ void LayerEditor::PostUpdate()
     }
 
 	Application::Instance()->renderer3D->modelRender.OnEditor();
+
+	if (_openLoadScene)
+		DrawPopUpLoadScene();
+	if (_openSaveScene)
+		DrawPopUpSaveScene();
 
 	ImGui::Render();
 
@@ -220,17 +234,185 @@ void LayerEditor::AddPopUpMessage(std::string message)
 	_popUpMessages.emplace_back(message);
 }
 
+void LayerEditor::DrawPopUpLoadScene()
+{
+	ImGui::OpenPopup("Load Scene");
+	if (ImGui::BeginPopupModal("Load Scene", NULL, ImGuiWindowFlags_AlwaysAutoResize))
+	{
+		ImGui::Text("Select a scene to load.\n\n");
+		ImGui::Separator();
+		Directory* newDir = nullptr;
+
+		Directory* rootDir = nullptr;
+		_fileTree->GetRootDir(rootDir);
+
+		DrawAssetsTree(newDir, rootDir, true);
+
+		if (ImGui::Button("Open"))
+		{
+			Application::Instance()->layers->RequestLoadScene(_currentSelectedPath);
+			_openLoadScene = false;
+		}
+
+		ImGui::SameLine();
+		if (ImGui::Button("Close"))
+		{
+			_openLoadScene = false;
+		}
+		ImGui::EndPopup();
+	}
+}
+
+void LayerEditor::DrawPopUpSaveScene()
+{
+	ImGui::OpenPopup("Save Scene");
+	if (ImGui::BeginPopupModal("Save Scene", NULL, ImGuiWindowFlags_AlwaysAutoResize))
+	{
+		ImGui::Text("Save your current scene.\n\n");
+		ImGui::Separator();
+		Directory* newDir = nullptr;
+
+		Directory* rootDir = nullptr;
+		_fileTree->GetRootDir(rootDir);
+
+		DrawAssetsTree(newDir, rootDir, false);
+
+		ImGui::Text("Name: "); ImGui::SameLine();
+		ImGui::InputText("##inputTextSceneSave", &_savingSceneName);
+
+		if (ImGui::Button("Save"))
+		{
+			std::string scenePath = _currentSelectedPath + _savingSceneName + ".HScene";
+
+			XMLNode sceneXML = Application::Instance()->xml->GetConfigXML();
+			sceneXML.FindChildBreadth("currentScene").node.attribute("value").set_value(scenePath.c_str());
+
+			ModuleResourceManager::S_SerializeScene(_app->layers->rootGameObject);
+			_requestUpdateFileTree = true;
+
+			_openSaveScene = false;
+		}
+		ImGui::SameLine();
+		if (ImGui::Button("Close"))
+		{
+			_openSaveScene = false;
+		}
+		ImGui::EndPopup();
+	}
+}
+
+void LayerEditor::DrawAssetsTree(Directory*& newDir, Directory* node, const bool isLoading)
+{
+	ImGuiTreeNodeFlags node_flags = ImGuiTreeNodeFlags_None | ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_DefaultOpen;
+
+	bool hasScenesInside = false;
+
+	for (int i = 0; i < node->files.size(); i++)
+	{
+		if (ModuleFiles::S_GetFileExtension(node->files[i].path) == "hscene")
+		{
+			hasScenesInside = true;
+			break;
+		}
+	}
+
+	if (isLoading)
+	{
+		if (node == _fileTree->_currentDir)
+		{
+			node_flags |= ImGuiTreeNodeFlags_Selected;
+		}
+	}
+	else
+	{
+		if (node->path == _currentSelectedPath)
+		{
+			node_flags |= ImGuiTreeNodeFlags_Selected;
+		}
+	}
+	if (node->directories.empty() && !hasScenesInside)
+	{
+		if (isLoading)
+			return; // We dont want to show a folder that has no scenes in, and doesn't have any other folders.
+		node_flags |= ImGuiTreeNodeFlags_Leaf;
+	}
+
+	if (ImGui::TreeNodeEx(node->name.c_str(), node_flags))
+	{
+		// Slect node
+		if (ImGui::IsItemClicked() && !ImGui::IsItemToggledOpen())
+		{
+			newDir = node;
+			if (!isLoading)
+			{
+				_currentSelectedPath = node->path;
+			}
+		}
+
+		// Recursive functions
+		for (int i = 0; i < node->directories.size(); i++)
+		{
+			DrawAssetsTree(newDir, node->directories[i], isLoading);
+		}
+
+		for (int i = 0; i < node->files.size(); i++)
+		{
+			ImGuiTreeNodeFlags leafFlags = ImGuiTreeNodeFlags_Leaf;
+			if (ModuleFiles::S_GetFileExtension(node->files[i].path) == "hscene")
+			{
+				if (_currentSelectedPath == node->files[i].path)
+					leafFlags |= ImGuiTreeNodeFlags_Selected;
+
+				ImGui::TreeNodeEx(node->files[i].name.c_str(), leafFlags);
+
+				if (ImGui::IsItemClicked() && !ImGui::IsItemToggledOpen())
+				{
+					if (!isLoading)
+					{
+						_savingSceneName = ModuleFiles::S_GetFileName(node->files[i].name, false);
+						_currentSelectedPath = node->files[i].parent->path;
+					}
+					else
+						_currentSelectedPath = node->files[i].path;
+				}
+				ImGui::TreePop();
+			}
+		}
+
+		ImGui::TreePop();
+	}
+}
+
 void LayerEditor::DrawMenuBar()
 {
 	if (ImGui::BeginMainMenuBar())
 	{
-
 		ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.95f, 0.95f, 0.95f, 1));
 
 		ImGui::PushStyleColor(ImGuiCol_PopupBg, ImVec4(0.05f, 0.05f, 0.05f, 1));
 
-		if (ImGui::BeginMenu("Application"))
+		if (ImGui::BeginMenu("File"))
 		{
+			if (ImGui::MenuItem("New Scene"))
+			{
+
+			}
+
+			if (ImGui::MenuItem("Load Scene"))
+			{
+				_openLoadScene = true;
+			}
+
+			if (ImGui::MenuItem("Save Scene"))
+			{
+
+			}
+
+			if (ImGui::MenuItem("Save Scene As"))
+			{
+				_openSaveScene = true;
+			}
+
 			if (ImGui::MenuItem("Close Appplication"))
 			{
 				_app->Exit();

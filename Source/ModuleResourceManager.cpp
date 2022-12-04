@@ -244,7 +244,6 @@ void ModuleResourceManager::S_SerializeScene(GameObject*& g)
 	SerializeSceneRecursive(g, j);
 
 	// Save json 
-
 	std::string savePath = Application::Instance()->xml->GetConfigXML().FindChildBreadth("currentScene").node.attribute("value").as_string();
 
 	if (savePath == "null")

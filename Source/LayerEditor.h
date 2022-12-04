@@ -4,6 +4,7 @@
 #include "ImWindow.h"
 #include "Layer.h"
 #include "LayerGame.h"
+#include "FileTree.hpp"
 
 class Application;
 class ImWindowConfiguration;
@@ -55,9 +56,13 @@ public:
 	}
 
 	void AddPopUpMessage(std::string message);
-
 private:
 	void DrawMenuBar();
+
+	// Draw scene open and save popups
+	void DrawPopUpLoadScene();
+	void DrawPopUpSaveScene();
+	void DrawAssetsTree(Directory*& newDir, Directory* node, const bool drawFiles);
 
 	void DrawPopUpMessages();
 
@@ -77,6 +82,13 @@ private:
 	std::vector<PopUpMessage> _popUpMessages;
 	float _messageTime = 3.0f;
 
+	// Scene popups
+	bool _openLoadScene = false;
+	bool _openSaveScene = false;
+	FileTree* _fileTree = nullptr;
+	std::string _currentSelectedPath = "";
+	std::string _savingSceneName = "";
+	bool _requestUpdateFileTree = false;
 	friend class ImWindowHierarchy;
 };
 

@@ -19,7 +19,7 @@ ModuleLayers::~ModuleLayers()
 
 bool ModuleLayers::Init()
 {
-   
+  
     return true;
 }
 
@@ -34,6 +34,15 @@ bool ModuleLayers::Start()
     if (!ModuleResourceManager::S_DeserializeScene(_sceneBeginPath))
     {
         rootGameObject = new GameObject(nullptr, "Root", "None");
+        XMLNode sceneXML = Application::Instance()->xml->GetConfigXML();
+
+        std::string newDir = ASSETS_PATH;
+
+        newDir += rootGameObject->name + ".HScene";
+
+        sceneXML.FindChildBreadth("currentScene").node.attribute("value").set_value(newDir.c_str());
+        
+        ModuleResourceManager::S_SerializeScene(rootGameObject);
     }
 
     layers[(uint)LayersID::EDITOR] = editor = new LayerEditor();
@@ -103,22 +112,18 @@ bool ModuleLayers::CleanUp()
 {
     XMLNode sceneXML = Application::Instance()->xml->GetConfigXML();
 
-    if (_requestScenePath != "null")
-    {
-        sceneXML.FindChildBreadth("currentScene").node.attribute("value").set_value(_requestScenePath.c_str());
+    std::string configScene = sceneXML.FindChildBreadth("currentScene").node.attribute("value").as_string();
 
-        ModuleResourceManager::S_SerializeScene(rootGameObject);
-    }
-    else
+    if (configScene == "null")
     {
-        std::string newDir =  ModuleResourceManager::S_GetCurrentWorkingDir();
+        std::string newDir = ASSETS_PATH;
 
         newDir += rootGameObject->name + ".HScene";
 
         sceneXML.FindChildBreadth("currentScene").node.attribute("value").set_value(newDir.c_str());
-
-        ModuleResourceManager::S_SerializeScene(rootGameObject);
     }
+
+    ModuleResourceManager::S_SerializeScene(rootGameObject);
 
     for (int i = 0; i < (uint)LayersID::MAX; i++)
     {
