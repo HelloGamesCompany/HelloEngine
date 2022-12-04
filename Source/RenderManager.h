@@ -95,7 +95,7 @@ private:
 	bool drawVertexNormals = false;
 	bool drawFaceNormals = true;
 
-	int instanceNum = 10; // Number of instances available in this RenderManager.
+	int instanceNum = 4; // Number of instances available in this RenderManager.
 
 	int IDcounter = 0;
 
