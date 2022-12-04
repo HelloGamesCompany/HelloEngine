@@ -25,7 +25,8 @@ MeshRenderComponent::~MeshRenderComponent()
 		if (!_isTransparent)
 		{
 			RenderManager* manager = Application::Instance()->renderer3D->modelRender.GetRenderManager(_meshID);
-			manager->GetMap().erase(_instanceID);
+			if (manager != nullptr)
+				manager->GetMap().erase(_instanceID);
 			_meshID = -1;
 		}
 		else
@@ -43,7 +44,7 @@ void MeshRenderComponent::InitAsLoadedMesh(uint meshID)
 
 	ModelRenderManager* test = &Application::Instance()->renderer3D->modelRender;
 
-	RenderManager* manager = Application::Instance()->renderer3D->modelRender.GetRenderManager(_meshID);
+	RenderManager* manager = Application::Instance()->renderer3D->modelRender.CreateRenderManager(_meshID);
 
 	Mesh instanceMesh;
 
@@ -61,7 +62,7 @@ void MeshRenderComponent::InitAsNewMesh(std::vector<Vertex>& vertices, std::vect
 	newMesh.InitAsMesh(vertices, indices);
 
 	_meshID = Application::Instance()->renderer3D->modelRender.GetMapSize();
-	RenderManager* manager = Application::Instance()->renderer3D->modelRender.GetRenderManager(_meshID); // Create a renderManager.
+	RenderManager* manager = Application::Instance()->renderer3D->modelRender.CreateRenderManager(_meshID); // Create a renderManager.
 
 	//_instanceID = manager->SetMeshInformation(newMesh);
 
@@ -83,7 +84,7 @@ void MeshRenderComponent::CreateMesh(uint resourceUID)
 	
 	_meshID = resourceUID;
 
-	RenderManager* manager = Application::Instance()->renderer3D->modelRender.GetRenderManager(_meshID); // Create a renderManager.
+	RenderManager* manager = Application::Instance()->renderer3D->modelRender.CreateRenderManager(_meshID); // Create a renderManager.
 	
 	if (manager->initialized)
 	{

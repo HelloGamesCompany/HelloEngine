@@ -27,6 +27,8 @@ public:
 	void OnEditor();
 
 	RenderManager* GetRenderManager(uint ID);
+	// If the render manager is already created, it returns that render manager.
+	RenderManager* CreateRenderManager(uint ID);
 	uint GetMapSize() { return _renderMap.size(); };
 
 	void Draw();

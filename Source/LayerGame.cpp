@@ -16,16 +16,6 @@ LayerGame::~LayerGame()
 
 void LayerGame::Start()
 {
-	/*uint newTexture = TextureImporter::ImportTexture("Assets/Baker_house.png");
-	uint newTexture2 = TextureImporter::ImportTexture("Assets/Baker_house.png");*/
-
-	/*MeshImporter::LoadMesh("Assets/BakerHouse.fbx");
-	MeshImporter::LoadMesh("Assets/BakerHouse.fbx");*/
-	//MeshImporter::LoadMesh("Assets/backpack/backpack.obj");
-	/*MeshRenderComponent* cube = new MeshRenderComponent();
-	cube->InitAsDefaultCube();
-
-	meshComponentTest.push_back(cube);*/
 }
 
 void LayerGame::PreUpdate()
@@ -41,12 +31,6 @@ void LayerGame::PreUpdate()
 	// Update time.
 	Time::UpdateRealTime();
 	Time::UpdateGameTime();
-
-	//std::cout << "Real time: " << Time::RealTimeDeltaTime() << std::endl;
-	//std::cout << "Game time: " << Time::GameDeltaTime() << std::endl;s
-	/*std::cout << "Total Time Real Time: " << Time::GameTimeInRealTimeCount() << std::endl;
-	std::cout << "Total Time Game Time: " << Time::GameTimeCount() << std::endl;*/
-	std::cout << "Frame count: " << Time::GameFrameCount() << std::endl;
 }
 
 void LayerGame::Update()

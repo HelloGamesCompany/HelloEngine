@@ -6,8 +6,8 @@
 		<brightness value="1" />
 	</window>
 	<renderer>
-		<vsync value="false" />
-		<framerate value="120" />
+		<vsync value="true" />
+		<framerate value="90" />
 	</renderer>
 	<scene>
 		<currentScene value="Assets/Root.HScene" />
