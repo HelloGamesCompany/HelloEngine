@@ -20,6 +20,18 @@ ModelRenderManager::~ModelRenderManager()
 void ModelRenderManager::Init()
 {
 	_textureManager = new TextureManager();
+
+	cubeUID = 2677981019;
+	planeUID = 2393626792;
+	cylinderUID = 1158218481;
+	sphereUID = 2121897186;
+
+	// Create resources for 2121897186
+	ModuleResourceManager::S_CreateResourceMesh("Resources/Editor/Primitives/2677981019.hmesh", cubeUID, "Cube", false);
+	ModuleResourceManager::S_CreateResourceMesh("Resources/Editor/Primitives/2393626792.hmesh", planeUID, "Plane", false);
+	ModuleResourceManager::S_CreateResourceMesh("Resources/Editor/Primitives/1158218481.hmesh", cylinderUID, "Cylinder", false);
+	ModuleResourceManager::S_CreateResourceMesh("Resources/Editor/Primitives/2121897186.hmesh", sphereUID, "Sphere", false);
+
 }
 
 void ModelRenderManager::OnEditor()
@@ -127,30 +139,30 @@ void ModelRenderManager::CreatePrimitive(GameObject* parent, PrimitiveType type)
 	{
 		case PrimitiveType::CUBE:
 		{
-			GameObject* cube = MeshImporter::LoadModel("Resources/Models/3803316393.hmodel");
-			cube->SetParent(parent);
-			cube->name = "Cube";
+			GameObject* cube = new GameObject(parent, "Cube", "Primitive");
+			MeshRenderComponent* meshRenderer = cube->AddComponent<MeshRenderComponent>();
+			meshRenderer->CreateMesh(cubeUID);
 			break;
 		}
 		case PrimitiveType::SPHERE:
 		{
-			GameObject* sphere = MeshImporter::LoadModel("Resources/Models/363196802.hmodel");
-			sphere->SetParent(parent);
-			sphere->name = "Sphere";
+			GameObject* cube = new GameObject(parent, "Sphere", "Primitive");
+			MeshRenderComponent* meshRenderer = cube->AddComponent<MeshRenderComponent>();
+			meshRenderer->CreateMesh(sphereUID);
 			break;
 		}
 		case PrimitiveType::CYLINDER:
 		{
-			GameObject* cylinder = MeshImporter::LoadModel("Resources/Models/343324178.hmodel");
-			cylinder->SetParent(parent);
-			cylinder->name = "Cylinder";
+			GameObject* cube = new GameObject(parent, "Cylinder", "Primitive");
+			MeshRenderComponent* meshRenderer = cube->AddComponent<MeshRenderComponent>();
+			meshRenderer->CreateMesh(cylinderUID);
 			break;
 		}
 		case PrimitiveType::PLANE:
 		{
-			GameObject* plane = MeshImporter::LoadModel("Resources/Models/505199352.hmodel");
-			plane->SetParent(parent);
-			plane->name = "Plane";
+			GameObject* cube = new GameObject(parent, "Plane", "Primitive");
+			MeshRenderComponent* meshRenderer = cube->AddComponent<MeshRenderComponent>();
+			meshRenderer->CreateMesh(planeUID);
 			break;
 		}
 	}

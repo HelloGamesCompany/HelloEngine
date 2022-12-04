@@ -43,6 +43,12 @@ private:
 	TextureManager* _textureManager = nullptr;
 	std::vector<uint> _emptyRenderManagers;
 
+	// Primitives
+	uint cubeUID = 0;
+	uint sphereUID = 0;
+	uint planeUID = 0;
+	uint cylinderUID = 0;
+
 	friend class MeshRenderComponent;
 };
 
