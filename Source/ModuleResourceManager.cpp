@@ -14,6 +14,10 @@
 #include "GameObject.h"
 #include "ModuleLayers.h"
 
+// In create resource mesh method save my index and model UID.
+// Save ResourceModel UID and index.
+// On Deserialization, look for ModelUID. If exists, check if index exists. If exists, load that resource mesh.
+
 std::map<std::string, Resource*> ModuleResourceManager::loadedResources;
 std::map<uint, Resource*> ModuleResourceManager::resources;
 FileTree* ModuleResourceManager::_fileTree = nullptr;
@@ -378,7 +382,7 @@ void ModuleResourceManager::S_CreateResource(const MetaFile& metaFile)
 	resources[metaFile.UID]->UID = metaFile.UID;
 }
 
-void ModuleResourceManager::S_CreateResourceMesh(const std::string& filePath, uint UID, const std::string& name, bool load)
+void ModuleResourceManager::S_CreateResourceMesh(const std::string& filePath, uint UID, const std::string& name, bool load, ResourceModel* model)
 {
 	if (resources.count(UID) != 0)
 		return;
@@ -391,6 +395,11 @@ void ModuleResourceManager::S_CreateResourceMesh(const std::string& filePath, ui
 	resources[UID]->debugName = name + ".hmesh";
 	resources[UID]->UID = UID;
 	resources[UID]->resourcePath = filePath;
+	if (model != nullptr)
+	{
+		newResource->modelUID = model->UID;
+		newResource->indexInsideModel = model->modelMeshes.size();
+	}
 }
 
 void ModuleResourceManager::S_CreateResourceText(const std::string& filePath, uint UID, const std::string& name, bool load)
@@ -475,7 +484,8 @@ void ResourceModel::CreateResourceMeshes()
 		uint meshUID = std::stoul(stringUID);
 		if (!ModuleResourceManager::S_IsResourceCreated(meshUID))
 		{
-			ModuleResourceManager::S_CreateResourceMesh(modelInfo.meshPath, meshUID, modelInfo.name, false);
+			ModuleResourceManager::S_CreateResourceMesh(modelInfo.meshPath, meshUID, modelInfo.name, false, this);
+			modelMeshes.push_back((ResourceMesh*)ModuleResourceManager::resources[meshUID]);
 		}
 	}
 	for (int i = 0; i < modelInfo.children.size(); i++)
@@ -493,7 +503,7 @@ void ResourceModel::CreateResourceMeshesRecursive(ModelNode& node)
 		uint meshUID = std::stoul(stringUID);
 		if (!ModuleResourceManager::S_IsResourceCreated(meshUID))
 		{
-			ModuleResourceManager::S_CreateResourceMesh(node.meshPath, meshUID, node.name, false);
+			ModuleResourceManager::S_CreateResourceMesh(node.meshPath, meshUID, node.name, false, this);
 			modelMeshes.push_back((ResourceMesh*)ModuleResourceManager::resources[meshUID]);
 		}
 	}

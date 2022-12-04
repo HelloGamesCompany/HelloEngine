@@ -10,10 +10,10 @@
 		<framerate value="90" />
 	</renderer>
 	<scene>
-		<currentScene value="Assets/hey.HScene" />
+		<currentScene value="Assets/Root.HScene" />
 	</scene>
 	<openGL>
-		<blend value="true" tag="0x0BE2" />
+		<blend value="false" tag="0x0BE2" />
 		<cullFace value="false" tag="0x0B44" />
 		<wireframe value="false" />
 	</openGL>

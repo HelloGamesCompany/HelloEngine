@@ -273,11 +273,34 @@ void MeshRenderComponent::Serialization(json& j)
 	json _j;
 
 	_j["Type"] = _type;
-	_j["ResourceUID"] = resource ? resource->UID : 0;
+
+	if (resource != nullptr)
+	{
+		_j["ModelUID"] = resource->modelUID;
+		_j["Index inside model"] = resource->indexInsideModel;
+	}
+	else
+	{
+		_j["ModelUID"] = 0;
+		_j["Index inside model"] = 0;
+	}
+
 	j["Components"].push_back(_j);
 }
 
 void MeshRenderComponent::DeSerialization(json& j)
 {
-	CreateMesh(j["ResourceUID"]);
+	ResourceModel* model = (ResourceModel*)ModuleResourceManager::resources[j["ModelUID"]];
+
+	if (model != nullptr)
+	{
+		uint index = j["Index inside model"];
+		if (index < model->modelMeshes.size())
+		{
+			ResourceMesh* resourceMesh = model->modelMeshes[index];
+			CreateMesh(resourceMesh->UID);
+			return;
+		}
+	}
+	Console::S_Log("A scene mesh render data was not found.");
 }
