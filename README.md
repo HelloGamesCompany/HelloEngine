@@ -38,7 +38,7 @@ Currently you can load FBX and PNG/DDS files. To do so, drag and drop the file y
 
 Once the file is imported, drag and drop the file from the Project window inside the Engine. Drop inside Scene to load an FBX. Drop inside MaterialComponent Inspector image if it is a PNG/DDS image.
 
-### Current version
+# Current version
 
 **Current state** : Level Editor (v0.5):
 
@@ -58,7 +58,25 @@ Camera Component added Orthographic camera. Updated camera component variables t
 
 Project window with icons and correct form.
 
+Project window allows drag and drop of all usable assets (mesh, texture, model and scene).
+
 Start/Stop/Pause/Next frame buttons that control an internal timer. This can be seen inside Configuration Window!
+
+All objects can be culled using the main camera's frustum culling option. 
+
+Main camera can be switched between multiple game cameras.
+
+Added ImGuizmo to manage game objects transform inside the Scene.
+
+Undo/Redo can be applied to multiple actions:
+
+* Move with ImGuizmo
+* Parent game objects
+* Delete game objects
+
+Mouse picking of game objects inside the scene using Raycast method.
+
+Scene camera panning using middle mouse button.
 
 ### Versions
 
