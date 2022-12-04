@@ -14,8 +14,9 @@ ImWindowScene::ImWindowScene()
 
 	isEnabled = true;
 
-	moduleCamera = Application::Instance()->camera;
-	sceneCamera = Application::Instance()->camera->sceneCamera;
+	_moduleCamera = Application::Instance()->camera;
+	_sceneCamera = Application::Instance()->camera->sceneCamera;
+	_moduleLayers = Application::Instance()->layers;
 }
 
 ImWindowScene::~ImWindowScene()
@@ -39,26 +40,26 @@ void ImWindowScene::Update()
 
 		ImGui::BeginChild("DropArea");
 		{
-			sceneCamera->active = true;
+			_sceneCamera->active = true;
 
-			moduleCamera->updateSceneCamera = ImGui::IsWindowHovered();
+			_moduleCamera->updateSceneCamera = ImGui::IsWindowHovered();
 
 			ImVec2 sceneDimensions = ImGui::GetContentRegionAvail();
 
-			if (sceneDimensions.x != sceneWidth || sceneDimensions.y != sceneHeight)
+			if (sceneDimensions.x != _sceneWidth || sceneDimensions.y != _sceneHeight)
 			{
 				// If the size of this imgui window is different from the one stored.
-				sceneWidth = sceneDimensions.x;
-				sceneHeight = sceneDimensions.y;
-				sceneCamera->ChangeAspectRatio((float)sceneWidth / (float)sceneHeight);
+				_sceneWidth = sceneDimensions.x;
+				_sceneHeight = sceneDimensions.y;
+				_sceneCamera->ChangeAspectRatio((float)_sceneWidth / (float)_sceneHeight);
 			}
 			//ImGuizmo::DrawGrid(Application::Instance()->camera->sceneCamera.GetViewMatrix(), Application::Instance()->camera->sceneCamera.GetProjectionMatrix(), &identity.v[0][0], 100);
 
 			DetectImGuizmoInput();
 
-			ImGui::Image((ImTextureID)sceneCamera->frameBuffer.GetTexture(), ImGui::GetContentRegionAvail(), ImVec2(0, 1), ImVec2(1, 0));
+			ImGui::Image((ImTextureID)_sceneCamera->frameBuffer.GetTexture(), ImGui::GetContentRegionAvail(), ImVec2(0, 1), ImVec2(1, 0));
 
-			GameObject* selected = Application::Instance()->layers->editor->selectedGameObject;
+			GameObject* selected = _moduleLayers->editor->selectedGameObject;
 
 			if (selected != nullptr)
 			{
@@ -74,7 +75,7 @@ void ImWindowScene::Update()
 				static bool manipulated = false;
 				static float4x4 currentGlobal;
 
-				if (ImGuizmo::Manipulate(sceneCamera->GetViewMatrix(), sceneCamera->GetProjectionMatrix(), _imOperation, _imMode, &auxiliarMatrix.v[0][0]))
+				if (ImGuizmo::Manipulate(_sceneCamera->GetViewMatrix(), _sceneCamera->GetProjectionMatrix(), _imOperation, _imMode, &auxiliarMatrix.v[0][0]))
 				{
 					manipulated = true;
 					if (!firstClick && ImGui::IsWindowHovered())
@@ -120,7 +121,7 @@ void ImWindowScene::Update()
 				MeshImporter::LoadModelIntoScene(resource);
 
 				std::string popUpmessage = "Loaded Mesh: ";
-				Application::Instance()->layers->editor->AddPopUpMessage(popUpmessage);
+				_moduleLayers->editor->AddPopUpMessage(popUpmessage);
 
 			}
 			else if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("Mesh"))
@@ -129,20 +130,29 @@ void ImWindowScene::Update()
 
 				ResourceMesh* resource = (ResourceMesh*)ModuleResourceManager::resources[*drop];
 
-				GameObject* newGameObject = new GameObject(Application::Instance()->layers->rootGameObject, resource->debugName);
+				GameObject* newGameObject = new GameObject(_moduleLayers->rootGameObject, resource->debugName);
 				MeshRenderComponent* meshRender = newGameObject->AddComponent<MeshRenderComponent>();
 				meshRender->CreateMesh(*drop);
 
 				std::string popUpmessage = "Loaded Mesh: " + resource->debugName;
-				Application::Instance()->layers->editor->AddPopUpMessage(popUpmessage);
+				_moduleLayers->editor->AddPopUpMessage(popUpmessage);
 
+			}
+			else if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("Scene"))
+			{
+				const std::string drop = *(std::string*)payload->Data;
+
+				_moduleLayers->RequestLoadScene(drop);
+
+				std::string popUpmessage = "Loaded Mesh: " + ModuleFiles::S_GetFileName(drop, false);
+				_moduleLayers->editor->AddPopUpMessage(popUpmessage);
 			}
 			ImGui::EndDragDropTarget();
 		}
 	}
 	else
 	{
-		sceneCamera->active = false;
+		_sceneCamera->active = false;
 	}
 	
 	ImGui::End();
@@ -173,10 +183,9 @@ void ImWindowScene::DetectClick()
 
 		//--------------------------------------------------------------------------------------------------------
 
-		LineSegment line = sceneCamera->cameraFrustum.UnProjectLineSegment(positionX, positionY);
-		GameObject* hitGameObject = Application::Instance()->renderer3D->RaycastFromMousePosition(line, sceneCamera);
-		Application::Instance()->layers->editor->SetSelectGameObject(hitGameObject);
-
+		LineSegment line = _sceneCamera->cameraFrustum.UnProjectLineSegment(positionX, positionY);
+		GameObject* hitGameObject = Application::Instance()->renderer3D->RaycastFromMousePosition(line, _sceneCamera);
+		_moduleLayers->editor->SetSelectGameObject(hitGameObject);
 	}
 }
 

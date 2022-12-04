@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <config>
 	<window>
-		<width value="1919" />
-		<height value="1008" />
+		<width value="1920" />
+		<height value="1017" />
 		<brightness value="1" />
 	</window>
 	<renderer>
@@ -10,7 +10,7 @@
 		<framerate value="90" />
 	</renderer>
 	<scene>
-		<currentScene value="Assets/Root.HScene" />
+		<currentScene value="Assets/hey.HScene" />
 	</scene>
 	<openGL>
 		<blend value="true" tag="0x0BE2" />

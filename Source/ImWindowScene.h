@@ -23,16 +23,19 @@ private:
 	void DetectClick();
 
 private:
+	ModuleLayers* _moduleLayers = nullptr;
 
-	ModuleCamera3D* moduleCamera = nullptr;
+	ModuleCamera3D* _moduleCamera = nullptr;
 
-	SceneCameraObject* sceneCamera = nullptr;
+	SceneCameraObject* _sceneCamera = nullptr;
 
-	int sceneWidth = 1;
-	float4x4 identity = float4x4::identity;
+	int _sceneWidth = 1;
+
+	float4x4 _identity = float4x4::identity;
 
 	ImGuizmo::MODE _imMode = ImGuizmo::MODE::WORLD;
+
 	ImGuizmo::OPERATION _imOperation = ImGuizmo::OPERATION::TRANSLATE;
 
-	int sceneHeight = 1;
+	int _sceneHeight = 1;
 };

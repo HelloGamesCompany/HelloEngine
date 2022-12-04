@@ -34,7 +34,8 @@ struct File
 		{
 			// If the resource type of this file is not undefined:
 			// iF it doesn't have a meta file, create one by using the ImportFile method inside ModuleResourceManager
-			if (ModuleFiles::S_GetResourceType(path) == ResourceType::UNDEFINED)
+			if (ModuleFiles::S_GetResourceType(path) == ResourceType::UNDEFINED ||
+				ModuleFiles::S_GetResourceType(path) == ResourceType::SCENE)
 				return;
 
 			ModuleResourceManager::S_ImportFile(path);
