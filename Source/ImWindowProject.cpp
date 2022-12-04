@@ -141,8 +141,7 @@ void ImWindowProject::Update()
     }
 
     // JUST FOR TEST
-
-    
+   
     if (Application::Instance()->input->GetKey(SDL_SCANCODE_J) == KEY_DOWN)
     {
         ModuleResourceManager::S_SerializeScene(Application::Instance()->layers->rootGameObject);
@@ -153,8 +152,7 @@ void ImWindowProject::Update()
         std::string path = _fileTree->_currentDir->path + Application::Instance()->layers->rootGameObject->name + ".HScene";
 
         Application::Instance()->layers->RequestLoadScene(path);
-    }
-    
+    } 
 }
 
 void ImWindowProject::DrawTreeNodePanelLeft(Directory*& newDir, Directory* node, const bool drawFiles) const
@@ -287,7 +285,7 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
 
         // Drag file
         ResourceType type = ModuleFiles::S_GetResourceType(_fileTree->_currentDir->files[i].name);
-        if (type == ResourceType::TEXTURE || type == ResourceType::MODEL)
+        if (type == ResourceType::TEXTURE || type == ResourceType::MODEL || type == ResourceType::SCENE)
         {
             if (ImGui::BeginDragDropSource(ImGuiDragDropFlags_None))
             {
@@ -299,12 +297,17 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
                     // Set payload to carry the index of our item (could be anything)
                     ImGui::SetDragDropPayload("Texture", &_dragUID, sizeof(uint));
                 }
-                else
+                else if (type == ResourceType::MODEL)
                 {
                     _dragUID = _fileTree->_currentDir->files[i].metaFile.UID;
 
                     ImGui::SetDragDropPayload("Model", &_dragUID, sizeof(uint));
                 }
+                else if(type == ResourceType::SCENE)
+                {
+                    ImGui::SetDragDropPayload("Scene", &_fileTree->_currentDir->files[i].path , sizeof(std::string));
+                }
+
                 ImGui::EndDragDropSource();
             }
         }

@@ -500,8 +500,12 @@ ResourceType ModuleFiles::S_GetResourceType(const std::string& filename)
 
 	//TODO: Add our own file extensions to this checks
 
-	if (fileExtension == "fbx" || fileExtension == "dae") return ResourceType::MODEL;
-	if (fileExtension == "tga" || fileExtension == "png" || fileExtension == "jpg" || fileExtension == "dds") return ResourceType::TEXTURE;
+	if (fileExtension == "fbx" || fileExtension == "dae") 
+		return ResourceType::MODEL;
+	if (fileExtension == "tga" || fileExtension == "png" || fileExtension == "jpg" || fileExtension == "dds")
+		return ResourceType::TEXTURE;
+	if (fileExtension == "hscene") 
+		return ResourceType::SCENE;
 
 	return ResourceType::UNDEFINED;
 }
