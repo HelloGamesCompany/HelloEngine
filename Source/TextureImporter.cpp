@@ -86,12 +86,12 @@ void TextureImporter::Load(char* buffer, int size, ResourceTexture* resource)
 	glBindTexture(GL_TEXTURE_2D, 0);
 }
 
-uint TextureImporter::CheckerImage()
+ResourceTexture* TextureImporter::CheckerImage()
 {
-	//Check if the given texture has been already loaded
-	if (TextureManager::usedPaths.find("Checkers") != TextureManager::usedPaths.end())
+	if (ModuleResourceManager::resources[CHECKERS_RESOURCE_UID]->referenceCount != 0)
 	{
-		return TextureManager::usedPaths["Checkers"]; // If this texture path was already loaded, return the loaded texture.
+		ModuleResourceManager::resources[CHECKERS_RESOURCE_UID]->referenceCount++;
+		return (ResourceTexture*)ModuleResourceManager::resources[CHECKERS_RESOURCE_UID];
 	}
 
 	GLubyte checkerImage[240][240][4];
@@ -117,15 +117,14 @@ uint TextureImporter::CheckerImage()
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 240, 240,
 		0, GL_RGBA, GL_UNSIGNED_BYTE, checkerImage);
 
-	Texture engineTexture;
-	engineTexture.OpenGLID = textureID;
-	engineTexture.name = "Checkers";
-	engineTexture.width = engineTexture.height = 240;
+	ResourceTexture* checkersResource = (ResourceTexture*)ModuleResourceManager::resources[CHECKERS_RESOURCE_UID];
+	checkersResource->OpenGLID = textureID;
+	checkersResource->name = "Checkers";
+	checkersResource->width = checkersResource->height = 240;
 
-	TextureManager::loadedTextures[textureID] = engineTexture; // Add loaded texture inside TextureManager.
-	TextureManager::usedPaths["Checkers"] = textureID;
+	ModuleResourceManager::resources[CHECKERS_RESOURCE_UID]->referenceCount++;
 
-	return textureID;
+	return (ResourceTexture*)ModuleResourceManager::resources[CHECKERS_RESOURCE_UID];
 }
 
 uint TextureImporter::LoadEditorDDS(char* buffer, int size)
