@@ -395,7 +395,13 @@ void LayerEditor::DrawMenuBar()
 		{
 			if (ImGui::MenuItem("New Scene"))
 			{
+				// Set config scene path to null
+				XMLNode sceneXML = Application::Instance()->xml->GetConfigXML();
+				sceneXML.FindChildBreadth("currentScene").node.attribute("value").set_value("null");
 
+				if (_app->layers->rootGameObject)
+					_app->layers->rootGameObject->Destroy();
+				_app->layers->rootGameObject = new GameObject(nullptr, "Root", "None");
 			}
 
 			if (ImGui::MenuItem("Load Scene"))
@@ -405,7 +411,15 @@ void LayerEditor::DrawMenuBar()
 
 			if (ImGui::MenuItem("Save Scene"))
 			{
+				XMLNode sceneXML = Application::Instance()->xml->GetConfigXML();
+				std::string configScene = sceneXML.FindChildBreadth("currentScene").node.attribute("value").as_string();
 
+				if (configScene == "null")
+				{
+					_openSaveScene = true;
+				}
+				else
+					ModuleResourceManager::S_SerializeScene(Application::Instance()->layers->rootGameObject);
 			}
 
 			if (ImGui::MenuItem("Save Scene As"))
