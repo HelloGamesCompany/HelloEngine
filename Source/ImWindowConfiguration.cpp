@@ -100,7 +100,7 @@ void ImWindowConfiguration::Update()
 			app->renderer3D->ToggleVSync(*isVSyncOn);	
 		}
 
-		if (ImGui::CollapsingHeader("Time", ImGuiTreeNodeFlags_DefaultOpen))
+		if (ImGui::CollapsingHeader("Game Time", ImGuiTreeNodeFlags_DefaultOpen))
 		{
 			ImGui::TextWrapped("\Time variables\t");
 

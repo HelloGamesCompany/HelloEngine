@@ -89,6 +89,14 @@ private:
 	std::string _currentSelectedPath = "";
 	std::string _savingSceneName = "";
 	bool _requestUpdateFileTree = false;
+
+	// Play/Stop buttons
+	uint _playImageID = 0;
+	uint _stopImageID = 0;
+	uint _pauseImageID = 0;
+	uint _nextImageID = 0;
+
+
 	friend class ImWindowHierarchy;
 };
 

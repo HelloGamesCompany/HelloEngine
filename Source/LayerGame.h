@@ -26,5 +26,7 @@ private:
 	bool _paused = false;
 	bool _update = false;
 	bool _oneFrame = false;
+
+	friend class LayerEditor;
 };
 

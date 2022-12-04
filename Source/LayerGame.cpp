@@ -67,20 +67,21 @@ void LayerGame::Play()
 	Time::Reset();
 	Time::Start();
 	_isPlaying = true;
-	_paused = false;
+	/*_paused = false;*/
 }
 
 void LayerGame::Stop()
 {
 	Time::Reset();
 	_isPlaying = false;
+	_paused = false;
 	// TODO: Reload scene.
 }
 
 void LayerGame::Pause()
 {
-	if (!_isPlaying)
-		return;
+	//if (!_isPlaying)
+	//	return;
 
 	_paused = !_paused;
 	if (!_paused)

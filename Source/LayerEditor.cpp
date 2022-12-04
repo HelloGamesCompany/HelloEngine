@@ -25,6 +25,7 @@
 #include "LayerGame.h"
 
 #include "TransformComponent.h"
+#include "TextureImporter.h"
 
 
 LayerEditor::LayerEditor()
@@ -130,6 +131,27 @@ void LayerEditor::Start()
 
 	// Save and load scene popups variables
 	ModuleResourceManager::S_GetFileTree(_fileTree);
+
+	// Load
+	char* buffer = nullptr;
+	int size = ModuleFiles::S_Load("Resources/Editor/Images/play.dds", &buffer);
+	_playImageID = TextureImporter::LoadEditorDDS(buffer, size);
+	RELEASE(buffer);
+
+	buffer = nullptr;
+	size = ModuleFiles::S_Load("Resources/Editor/Images/stop.dds", &buffer);
+	_stopImageID = TextureImporter::LoadEditorDDS(buffer, size);
+	RELEASE(buffer);
+
+	buffer = nullptr;
+	size = ModuleFiles::S_Load("Resources/Editor/Images/pause.dds", &buffer);
+	_pauseImageID = TextureImporter::LoadEditorDDS(buffer, size);
+	RELEASE(buffer);
+
+	buffer = nullptr;
+	size = ModuleFiles::S_Load("Resources/Editor/Images/next.dds", &buffer);
+	_nextImageID = TextureImporter::LoadEditorDDS(buffer, size);
+	RELEASE(buffer);
 }
 
 void LayerEditor::PreUpdate()
@@ -458,27 +480,52 @@ void LayerEditor::DrawMenuBar()
 	}
 
 	ImGuiViewportP* viewport = (ImGuiViewportP*)(void*)ImGui::GetMainViewport();
-	ImGuiWindowFlags window_flags = ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_MenuBar;
+	ImGuiWindowFlags window_flags = ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoSavedSettings;
 	float height = ImGui::GetFrameHeight();
 
-	if (ImGui::BeginViewportSideBar("##SecondaryMenuBar", viewport, ImGuiDir_Up, height, window_flags)) {
-		if (ImGui::BeginMenuBar()) {
-			ImVec2 contentRegion = ImGui::GetContentRegionAvail();
-			int totalButtonsWidth = 100;
-			ImGui::SetCursorPos(ImVec2(contentRegion.x / 2 - totalButtonsWidth, 0));
-			if (ImGui::Button("Play"))
+	ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.85f, 0.85f, 0.85f, 1.0f));
+	ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2(0, 0));
+	if (ImGui::BeginViewportSideBar("##TimeBar", viewport, ImGuiDir_Up, 32, window_flags)) 
+	{
+		ImVec2 contentRegion = ImGui::GetContentRegionAvail();
+		int totalButtonsWidth = 100;
+		ImGui::SetCursorPos(ImVec2(contentRegion.x / 2 - totalButtonsWidth, 4));
+
+		if (!_game->_isPlaying)
+		{
+			if (ImGui::ImageButton("Play", (ImTextureID)_playImageID, ImVec2(24, 24)))
 				_game->Play();
-			if (ImGui::Button("Pause"))
-				_game->Pause();			
-			if (ImGui::Button("Stop"))
-				_game->Stop();
-			if (ImGui::Button("One frame"))
-				_game->OneFrame();
-			ImGui::EndMenuBar();
+			ImGui::SameLine();
 		}
+		else
+		{
+			if (ImGui::ImageButton("Stop", (ImTextureID)_stopImageID, ImVec2(24, 24)))
+				_game->Stop();
+			ImGui::SameLine();
+		}
+
+		if (_game->_paused)
+		{
+			ImGui::PopStyleColor();
+			ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(1.0f, 0.5f, 0.5f, 1.0f));
+		}
+
+		if (ImGui::ImageButton("Pause", (ImTextureID)_pauseImageID, ImVec2(24, 24)))
+			_game->Pause();
+		ImGui::SameLine();
+		if (_game->_paused)
+		{
+			ImGui::PopStyleColor();
+			ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.85f, 0.85f, 0.85f, 1.0f));
+		}
+
+		if (ImGui::ImageButton("Next", (ImTextureID)_nextImageID, ImVec2(24, 24)))
+			_game->OneFrame();
+		
 		ImGui::End();
 	}
-
+	ImGui::PopStyleVar();
+	ImGui::PopStyleColor();
 }
 
 void LayerEditor::DrawPopUpMessages()
