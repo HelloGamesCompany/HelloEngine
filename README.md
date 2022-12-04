@@ -34,9 +34,11 @@ While hovering the Scene Window:
 
 ### Loading assets
 
-Currently you can load FBX and PNG/DDS files. To do so, drag and drop the file you want to load into the engine. This will create a copy of the dragged file into the Assets folder. FILES THAT ARE NOT PLACED INSIDE ASSETS USING THIS METHOD WILL NOT BE PROCESSED BY THE ENGINE.
+Currently you can load FBX and PNG/DDS files. To do so, drag and drop the file you want to load into the engine. This will create a copy of the dragged file into the Assets folder. You can also drag it inside the file from the windows explorer. If a file doesnt appear, try minimize the engine and open it again.
 
 Once the file is imported, drag and drop the file from the Project window inside the Engine. Drop inside Scene to load an FBX. Drop inside MaterialComponent Inspector image if it is a PNG/DDS image.
+
+You can load separeted meshes from the model file by clicking on the model file in the projet window. This will show all meshes inside that model. This files can be dragged and dropped too.
 
 # Current version
 
