@@ -38,6 +38,28 @@ Currently you can load FBX and PNG/DDS files. To do so, drag and drop the file y
 
 Once the file is imported, drag and drop the file from the Project window inside the Engine. Drop inside Scene to load an FBX. Drop inside MaterialComponent Inspector image if it is a PNG/DDS image.
 
+### Current version
+
+**Current state** : Level Editor (v0.5):
+
+**Basic Features**
+
+Custom file format for Mesh and Model. Named "hmesh" and "hmodel".
+
+Resource Manager that:
+
+* Makes sure every asset gets loaded only once in memory, and unloads when no other references are using it.
+* Creates Meta files beside assets to connect to the custom file format files inside Resources.
+* Destroys any Resources data that no longer has an Asset.
+
+Scene Serialization. Now scenes can be saved and loaded into an "HScene" file. 
+
+Camera Component added Orthographic camera. Updated camera component variables to be changed inside inspector.
+
+Project window with icons and correct form.
+
+Start/Stop/Pause/Next frame buttons that control an internal timer. This can be seen inside Configuration Window!
+
 ### Versions
 
 Early in development (v0.1)
@@ -48,11 +70,9 @@ Scene structure created, but no Entity component system yet.
 
 Added XML utilities to load Int, Float, Bool and String variables from a default XML file. This system is called QuickSave and mimics the PlayerPrefs system form Unity Engine.
 
-## Current state: v0.2
+Geometry viewer: v0.2
 
-**Current state** : Basic Geometry Viewer (v0.2):
-
-### **Basic Features**
+**Basic Features**
 
 3D rendering with FBX loading.
 
