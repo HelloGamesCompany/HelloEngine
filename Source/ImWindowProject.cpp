@@ -272,9 +272,6 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
         if (ImGui::IsItemHovered())
             ImGui::SetTooltip(_fileTree->_currentDir->files[i].name.c_str());
 
-        // Show file name
-        ImGui::TextWrapped(_fileTree->_currentDir->files[i].name.c_str());
-
         // Draw Mesh files
         if (_fileTree->_currentDir->files[i].metaFile.type == ResourceType::MODEL && _fileTree->_currentDir->files[i].pressed)
         {
@@ -299,8 +296,7 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
             }
             ImGui::PopStyleColor(1);
         }
-        ImGui::NextColumn();
-
+       
         // Drag file
         ResourceType type = ModuleFiles::S_GetResourceType(_fileTree->_currentDir->files[i].name);
         if (type == ResourceType::TEXTURE || type == ResourceType::MODEL || type == ResourceType::SCENE)
@@ -329,6 +325,11 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
                 ImGui::EndDragDropSource();
             }
         }
+
+        // Show file name
+        ImGui::TextWrapped(_fileTree->_currentDir->files[i].name.c_str());
+
+        ImGui::NextColumn();
     }
     ImGui::PopStyleColor(1);
 }
