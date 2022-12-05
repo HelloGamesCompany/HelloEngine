@@ -103,6 +103,12 @@ public:
 	/// <summary>
 	/// 
 	/// </summary>
+	/// <param name="path"> Relative path </param>
+	static void S_OpenFolder(const std::string& path);
+
+	/// <summary>
+	/// 
+	/// </summary>
 	/// <param name="getExtention">: If you want to get the extension</param>
 	/// <returns></returns>
 	static std::string S_GetFileName(const std::string& file, bool getExtension = true);

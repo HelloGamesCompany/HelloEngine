@@ -209,6 +209,7 @@ void ImWindowHierarchy::DrawOptions()
 #endif // STANDALONE
         }
     }
+    
     if (ImGui::Selectable("Create empty GameObject"))
     {
         GameObject* parent = _layerEditor->selectedGameObject != nullptr ? _layerEditor->selectedGameObject : Application::Instance()->layers->rootGameObject;

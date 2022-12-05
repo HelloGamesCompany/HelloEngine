@@ -103,7 +103,7 @@ void ImWindowProject::Update()
                 DrawTreeNodePanelLeft(newDir, _rootNode, false);
             ImGui::EndChild();
 
-            ImGui::PopStyleColor();
+            ImGui::PopStyleColor(1);
         }
 
         ImGui::SameLine();
@@ -197,12 +197,15 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
         }
 
         ImGui::SameLine();
+
         ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.4, 0.4, 0.4, 255));
 
         if (ImGui::Button(_fileTree->_currentDir->name.c_str()))
+        {
             // Do nothing here, just fixed space
-
-            ImGui::PopStyleColor(1);
+        }
+           
+        ImGui::PopStyleColor(1);
     }
     
     ImGui::Separator();
@@ -332,6 +335,14 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
         ImGui::NextColumn();
     }
     ImGui::PopStyleColor(1);
+
+    if (ImGui::BeginPopupContextWindow("WinodwProjectPopUp", ImGuiPopupFlags_NoOpenOverExistingPopup | ImGuiPopupFlags_MouseButtonDefault_))
+    {
+        if (ImGui::Selectable("Show in Explorer"))
+            ModuleFiles::S_OpenFolder(_fileTree->_currentDir->path);
+
+        ImGui::EndPopup();
+    }
 }
 
 void ImWindowProject::OnDrop(const std::string filePath)

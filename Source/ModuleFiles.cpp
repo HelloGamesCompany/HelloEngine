@@ -447,6 +447,18 @@ unsigned long long ModuleFiles::S_CheckFileLastModify(const std::string& path)
 	return fileState.modtime;
 }
 
+void ModuleFiles::S_OpenFolder(const std::string& path)
+{
+	std::string workingDir = S_NormalizePath(std::filesystem::current_path().string());
+
+	if (path[0] != '/')
+		workingDir.append("/");
+
+	workingDir.append(path.c_str());
+
+	ShellExecuteA(NULL, "open", workingDir.c_str(), NULL, NULL, SW_SHOWDEFAULT);
+}
+
 std::string ModuleFiles::S_GetFileName(const std::string& file, bool getExtension)
 {
 	uint pos = file.find_last_of("/");
