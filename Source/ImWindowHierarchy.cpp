@@ -44,36 +44,15 @@ void ImWindowHierarchy::Update()
 
         ImGui::BeginChild("DropArea");
         {
-            // Draw PopUps
-            if (_popUpOpen)
-            {            
-                if (ImGui::BeginPopup("basicShapes"))
-                {
-                    DrawOptions();
-
-                    ImGui::EndPopup();
-                }
-
-                ImGui::OpenPopup("basicShapes", ImGuiPopupFlags_MouseButtonMask_);
-            }
-
-            // Detect window PopUps
-            if(ImGui::IsWindowHovered() && !_hasSelectedAGameObject)
+            // WindowHierachy PopUp
+            if(ImGui::BeginPopupContextWindow("WinodwHierachyPopUp", ImGuiPopupFlags_NoOpenOverExistingPopup | ImGuiPopupFlags_MouseButtonDefault_))
             {
-                if (ImGui::IsMouseReleased(ImGuiMouseButton_::ImGuiMouseButton_Right))
-                {
-                    _popUpOpen = true;
-                    _layerEditor->SetSelectGameObject(nullptr);
-                }
-            }
-            else
-            {
-                if (ImGui::IsMouseReleased(ImGuiMouseButton_::ImGuiMouseButton_Left) ||
-                    ImGui::IsMouseReleased(ImGuiMouseButton_::ImGuiMouseButton_Right))
-                {
-                    _popUpOpen = false;
-                }
-            }      
+                _layerEditor->SetSelectGameObject(nullptr);
+
+                DrawOptions();
+
+                ImGui::EndPopup();
+            }            
         }
         ImGui::EndChild();
 
@@ -90,6 +69,7 @@ void ImWindowHierarchy::Update()
                 MeshImporter::LoadModelIntoScene(resource);
 
                 std::string popUpmessage = "Loaded Mesh: ";
+
                 Application::Instance()->layers->editor->AddPopUpMessage(popUpmessage);
 
             }
@@ -100,10 +80,13 @@ void ImWindowHierarchy::Update()
                 ResourceMesh* resource = (ResourceMesh*)ModuleResourceManager::resources[*drop];
 
                 GameObject* newGameObject = new GameObject(Application::Instance()->layers->rootGameObject, resource->debugName);
+                
                 MeshRenderComponent* meshRender = newGameObject->AddComponent<MeshRenderComponent>();
+                
                 meshRender->CreateMesh(*drop);
 
                 std::string popUpmessage = "Loaded Mesh: " + resource->debugName;
+
                 Application::Instance()->layers->editor->AddPopUpMessage(popUpmessage);
 
             }
@@ -115,14 +98,14 @@ void ImWindowHierarchy::Update()
 
 void ImWindowHierarchy::DrawGameObjectChildren(GameObject* gameObject, bool onlyChildren)
 {
-    if (!onlyChildren) ProcessGameObject(gameObject, 0);
+    if (!onlyChildren) 
+        ProcessGameObject(gameObject, 0);
     else
-    {
         for (int i = 0; i < gameObject->_children.size(); i++)
         {
             ProcessGameObject(gameObject->_children[i], i);
         }
-    }
+            
 }
 
 void ImWindowHierarchy::ProcessGameObject(GameObject* gameObject, int iteration)
@@ -135,9 +118,7 @@ void ImWindowHierarchy::ProcessGameObject(GameObject* gameObject, int iteration)
     GameObject* temp = _layerEditor->GetSelectedGameObject();
 
     if (gameObject == temp)
-    {
         node_flags |= ImGuiTreeNodeFlags_Selected;
-    }
 
     bool node_open;
     bool isLeaf = false;
@@ -151,9 +132,7 @@ void ImWindowHierarchy::ProcessGameObject(GameObject* gameObject, int iteration)
         node_open = false;
     }
     else
-    {
         node_open = ImGui::TreeNodeEx((void*)(intptr_t)iteration, node_flags, gameObject->name.c_str(), iteration);
-    }
 
     // Drag & drop
     if (ImGui::BeginDragDropSource())
@@ -176,20 +155,18 @@ void ImWindowHierarchy::ProcessGameObject(GameObject* gameObject, int iteration)
     // Select gameObejct
     if (ImGui::IsMouseReleased(ImGuiMouseButton_::ImGuiMouseButton_Left) || 
         ImGui::IsMouseReleased(ImGuiMouseButton_::ImGuiMouseButton_Right))
-    {
         if (ImGui::IsItemHovered() && gameObject->_parent != nullptr)
         {
             _layerEditor->SetSelectGameObject(gameObject);
             _hasSelectedAGameObject = true;
         }
-    }
 
     // Draw PopUps
     if(gameObject == _layerEditor->GetSelectedGameObject())
     {
         if (gameObject->_parent)
         {
-            if (ImGui::BeginPopupContextItem("basicShapes"))
+            if (ImGui::BeginPopupContextItem("gameObjectPopUps"))
             {
                 DrawOptions();
 
@@ -197,26 +174,22 @@ void ImWindowHierarchy::ProcessGameObject(GameObject* gameObject, int iteration)
             }
         }
         else
-        {
             _hasSelectedAGameObject = false;
-        }
     }
  
     ImGui::SameLine(ImGui::GetWindowContentRegionWidth() - 5);
+
     if (ImGui::SmallButton(gameObject->IsActive() ? "X" : " "))
-    {
         gameObject->SetActive(!gameObject->IsActive());
-    }
 
     if (node_open)
     {
-        if (!gameObject->_children.empty()) DrawGameObjectChildren(gameObject, true); 
+        if (!gameObject->_children.empty()) 
+            DrawGameObjectChildren(gameObject, true); 
         ImGui::TreePop();
     }
     if (isLeaf)
-    {
         ImGui::TreePop();
-    }
 }
 
 void ImWindowHierarchy::DrawOptions()
@@ -242,9 +215,9 @@ void ImWindowHierarchy::DrawOptions()
         GameObject* newGameObject = new GameObject(parent, "Empty");
     }
 
-    ImGui::Separator();
-    ImGui::Text("Select Shape");
-    ImGui::Separator();
+    //ImGui::Separator();
+    //ImGui::Text("Select Shape");
+    //ImGui::Separator();
 
     for (int i = 0; i < 4; i++)
     {

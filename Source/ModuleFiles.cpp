@@ -313,7 +313,7 @@ bool ModuleFiles::S_ExternalCopy(const std::string& src, std::string des, bool r
 	 std::string workingDir = S_NormalizePath(std::filesystem::current_path().string());
 
 	 // Change destination file to correspondent formmat
-	 if (des[0] != '/')
+ 	 if (des[0] != '/')
 	 {
 		 des.insert(des.begin(), '/');
 	 }

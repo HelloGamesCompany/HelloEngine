@@ -133,26 +133,28 @@ void LayerEditor::Start()
 	// Save and load scene popups variables
 	ModuleResourceManager::S_GetFileTree(_fileTree);
 
-	// Load
-	char* buffer = nullptr;
-	int size = ModuleFiles::S_Load("Resources/Editor/Images/play.dds", &buffer);
-	_playImageID = TextureImporter::LoadEditorDDS(buffer, size);
-	RELEASE(buffer);
+	// Load icons
+	{
+		char* buffer = nullptr;
+		int size = ModuleFiles::S_Load("Resources/Editor/Images/play.dds", &buffer);
+		_playImageID = TextureImporter::LoadEditorDDS(buffer, size);
+		RELEASE(buffer);
 
-	buffer = nullptr;
-	size = ModuleFiles::S_Load("Resources/Editor/Images/stop.dds", &buffer);
-	_stopImageID = TextureImporter::LoadEditorDDS(buffer, size);
-	RELEASE(buffer);
+		buffer = nullptr;
+		size = ModuleFiles::S_Load("Resources/Editor/Images/stop.dds", &buffer);
+		_stopImageID = TextureImporter::LoadEditorDDS(buffer, size);
+		RELEASE(buffer);
 
-	buffer = nullptr;
-	size = ModuleFiles::S_Load("Resources/Editor/Images/pause.dds", &buffer);
-	_pauseImageID = TextureImporter::LoadEditorDDS(buffer, size);
-	RELEASE(buffer);
+		buffer = nullptr;
+		size = ModuleFiles::S_Load("Resources/Editor/Images/pause.dds", &buffer);
+		_pauseImageID = TextureImporter::LoadEditorDDS(buffer, size);
+		RELEASE(buffer);
 
-	buffer = nullptr;
-	size = ModuleFiles::S_Load("Resources/Editor/Images/next.dds", &buffer);
-	_nextImageID = TextureImporter::LoadEditorDDS(buffer, size);
-	RELEASE(buffer);
+		buffer = nullptr;
+		size = ModuleFiles::S_Load("Resources/Editor/Images/next.dds", &buffer);
+		_nextImageID = TextureImporter::LoadEditorDDS(buffer, size);
+		RELEASE(buffer);
+	}
 }
 
 void LayerEditor::PreUpdate()
@@ -171,9 +173,7 @@ void LayerEditor::Update()
 #ifdef STANDALONE
 
 	if(_app->input->GetKey(SDL_SCANCODE_DELETE) == KEY_DOWN)
-	{
 		ModuleCommand::S_DeleteGameObject(selectedGameObject);
-	}
 
 	if (_app->input->GetKey(SDL_SCANCODE_LCTRL) == KEY_REPEAT && _app->input->GetKey(SDL_SCANCODE_S) == KEY_DOWN)
 	{
@@ -192,9 +192,7 @@ void LayerEditor::Update()
 			std::string configScene = sceneXML.FindChildBreadth("currentScene").node.attribute("value").as_string();
 
 			if (configScene == "null")
-			{
 				_openSaveScene = true;
-			}
 			else
 				ModuleResourceManager::S_SerializeScene(Application::Instance()->layers->rootGameObject);
 			
@@ -224,13 +222,15 @@ void LayerEditor::PostUpdate()
 	// Draw Every windows
     for (int i = 0; i < (uint)ImWindowID::MAX; i++)
     {
-        if (_imWindows[i]->isEnabled) _imWindows[i]->Update();
+        if (_imWindows[i]->isEnabled) 
+			_imWindows[i]->Update();
     }
 
 	Application::Instance()->renderer3D->modelRender.OnEditor();
 
 	if (_openLoadScene)
 		DrawPopUpLoadScene();
+
 	if (_openSaveScene)
 		DrawPopUpSaveScene();
 
@@ -305,10 +305,10 @@ void LayerEditor::DrawPopUpLoadScene()
 		}
 
 		ImGui::SameLine();
+
 		if (ImGui::Button("Close"))
-		{
 			_openLoadScene = false;
-		}
+
 		ImGui::EndPopup();
 	}
 }
@@ -335,20 +335,23 @@ void LayerEditor::DrawPopUpSaveScene()
 			std::string scenePath = _currentSelectedPath + _savingSceneName + ".HScene";
 
 			XMLNode sceneXML = Application::Instance()->xml->GetConfigXML();
+
 			sceneXML.FindChildBreadth("currentScene").node.attribute("value").set_value(scenePath.c_str());
 
 			ModuleResourceManager::S_SerializeScene(_app->layers->rootGameObject);
+
 			_requestUpdateFileTree = true;
 
 			_openSaveScene = false;
 
 			AddPopUpMessage("Saved scene: " + _savingSceneName);
 		}
+
 		ImGui::SameLine();
+
 		if (ImGui::Button("Close"))
-		{
 			_openSaveScene = false;
-		}
+
 		ImGui::EndPopup();
 	}
 }
@@ -368,24 +371,16 @@ void LayerEditor::DrawAssetsTree(Directory*& newDir, Directory* node, const bool
 		}
 	}
 
-	if (isLoading)
-	{
-		if (node == _fileTree->_currentDir)
-		{
-			node_flags |= ImGuiTreeNodeFlags_Selected;
-		}
-	}
-	else
-	{
-		if (node->path == _currentSelectedPath)
-		{
-			node_flags |= ImGuiTreeNodeFlags_Selected;
-		}
-	}
+	if (isLoading && node == _fileTree->_currentDir)
+		node_flags |= ImGuiTreeNodeFlags_Selected;
+	else if(node->path == _currentSelectedPath)
+		node_flags |= ImGuiTreeNodeFlags_Selected;
+
 	if (node->directories.empty() && !hasScenesInside)
 	{
 		if (isLoading)
 			return; // We dont want to show a folder that has no scenes in, and doesn't have any other folders.
+		
 		node_flags |= ImGuiTreeNodeFlags_Leaf;
 	}
 
@@ -395,18 +390,15 @@ void LayerEditor::DrawAssetsTree(Directory*& newDir, Directory* node, const bool
 		if (ImGui::IsItemClicked() && !ImGui::IsItemToggledOpen())
 		{
 			newDir = node;
+
 			if (!isLoading)
-			{
 				_currentSelectedPath = node->path;
-			}
 		}
 
 		// Recursive functions
 		// Directories
 		for (int i = 0; i < node->directories.size(); i++)
-		{
 			DrawAssetsTree(newDir, node->directories[i], isLoading);
-		}
 
 		// Files
 		ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(1, 1, 0, 1));
@@ -457,13 +449,12 @@ void LayerEditor::DrawMenuBar()
 
 				if (_app->layers->rootGameObject)
 					_app->layers->rootGameObject->Destroy();
+
 				_app->layers->rootGameObject = new GameObject(nullptr, "Root", "None");
 			}
 
 			if (ImGui::MenuItem("Load Scene"))
-			{
 				_openLoadScene = true;
-			}
 
 			if (ImGui::MenuItem("Save Scene (Ctrl + S)"))
 			{
@@ -471,9 +462,7 @@ void LayerEditor::DrawMenuBar()
 				std::string configScene = sceneXML.FindChildBreadth("currentScene").node.attribute("value").as_string();
 
 				if (configScene == "null")
-				{
 					_openSaveScene = true;
-				}
 				else
 					ModuleResourceManager::S_SerializeScene(Application::Instance()->layers->rootGameObject);
 				
@@ -491,9 +480,7 @@ void LayerEditor::DrawMenuBar()
 			}
 
 			if (ImGui::MenuItem("Close Appplication"))
-			{
 				_app->Exit();
-			}
 
 			ImGui::EndMenu();
 		}
@@ -510,9 +497,8 @@ void LayerEditor::DrawMenuBar()
 		if (ImGui::BeginMenu("About"))
 		{
 			if (ImGui::MenuItem("Check our Github!"))
-			{
 				ShellExecute(0, 0, "https://github.com/HelloGamesCompany/HelloEngine", 0, 0, SW_SHOW);
-			}
+
 			ImGui::EndMenu();
 		}
 		ImGui::PopStyleColor(2);
@@ -601,7 +587,7 @@ void LayerEditor::DrawPopUpMessages()
 		if (_popUpMessages[i].currentMessageTime >= _messageTime)
 		{
 			_popUpMessages.erase(_popUpMessages.begin() + i--);
-		
+
 			continue;
 		}
 
@@ -609,9 +595,7 @@ void LayerEditor::DrawPopUpMessages()
 		fadeOut = _popUpMessages[i].currentMessageTime >= _messageTime * fadeOutFix;
 
 		if (fadeIn)
-		{
 			ImGui::PushStyleVar(ImGuiStyleVar_Alpha, _popUpMessages[i].currentMessageTime / (_messageTime * fadeInFix));
-		}
 		else if (fadeOut)
 		{
 			float result = 1.0f - ((_popUpMessages[i].currentMessageTime - (_messageTime * fadeOutFix)) / (1.0f - fadeOutFix));
@@ -627,6 +611,7 @@ void LayerEditor::DrawPopUpMessages()
 		{
 			if (fadeIn || fadeOut)
 				ImGui::PopStyleVar();
+
 			ImGui::PushStyleVar(ImGuiStyleVar_Alpha, 0.25f);
 			hovering = true;
 		}
@@ -639,11 +624,8 @@ void LayerEditor::DrawPopUpMessages()
 			temp += float2(width * 0.35f, (height * 0.425f) - 30.0f * _popUpMessages[i].currentMessageTime);
 			ImVec2 bottomRight = ImVec2(temp.x, temp.y);
 
-			if (ImGui::IsMouseHoveringRect(ImVec2(width * 0.35f, (height * 0.425f) - 30.0f * _popUpMessages[i].currentMessageTime),
-				bottomRight))
-			{
+			if (ImGui::IsMouseHoveringRect(ImVec2(width * 0.35f, (height * 0.425f) - 30.0f * _popUpMessages[i].currentMessageTime),bottomRight))
 				_popUpMessages[i].hovered = true;
-			}
 			else
 				_popUpMessages[i].hovered = false;
 
@@ -653,9 +635,10 @@ void LayerEditor::DrawPopUpMessages()
 			ImGui::SetCursorPos(ImVec2((width * 0.3f - textDimensions.x) * 0.5f, (height * 0.15f - textDimensions.y) * 0.5f));
 			ImGui::Text(_popUpMessages[i].message.c_str());
 		}
-		if (fadeIn || fadeOut || hovering) ImGui::PopStyleVar();
-		ImGui::End();
 
-		
+		if (fadeIn || fadeOut || hovering) 
+			ImGui::PopStyleVar();
+
+		ImGui::End();	
 	}
 }
