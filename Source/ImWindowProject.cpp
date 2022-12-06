@@ -260,6 +260,35 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
         if (ImGui::ImageButton(std::to_string(i).c_str(), (ImTextureID)icon, ImVec2(_itemWidth, _itemHeight)))
             _fileTree->_currentDir->files[i].pressed = !_fileTree->_currentDir->files[i].pressed;
 
+        // Drag file
+        ResourceType type = ModuleFiles::S_GetResourceType(_fileTree->_currentDir->files[i].name);
+        if (type == ResourceType::TEXTURE || type == ResourceType::MODEL || type == ResourceType::SCENE)
+        {
+            if (ImGui::BeginDragDropSource(ImGuiDragDropFlags_None))
+            {
+                if (type == ResourceType::TEXTURE)
+                {
+                    // Find resource path
+                    _dragUID = _fileTree->_currentDir->files[i].metaFile.UID;
+
+                    // Set payload to carry the index of our item (could be anything)
+                    ImGui::SetDragDropPayload("Texture", &_dragUID, sizeof(uint));
+                }
+                else if (type == ResourceType::MODEL)
+                {
+                    _dragUID = _fileTree->_currentDir->files[i].metaFile.UID;
+
+                    ImGui::SetDragDropPayload("Model", &_dragUID, sizeof(uint));
+                }
+                else if (type == ResourceType::SCENE)
+                {
+                    ImGui::SetDragDropPayload("Scene", &_fileTree->_currentDir->files[i].path, sizeof(std::string));
+                }
+
+                ImGui::EndDragDropSource();
+            }
+        }
+
         // Right click
         if (ImGui::BeginPopupContextItem()) // <-- use last item id as popup id
         {
@@ -274,6 +303,9 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
         // Shwo file name when mouse is hovered
         if (ImGui::IsItemHovered())
             ImGui::SetTooltip(_fileTree->_currentDir->files[i].name.c_str());
+
+        // Show file name
+        ImGui::TextWrapped(_fileTree->_currentDir->files[i].name.c_str());
 
         // Draw Mesh files
         if (_fileTree->_currentDir->files[i].metaFile.type == ResourceType::MODEL && _fileTree->_currentDir->files[i].pressed)
@@ -299,38 +331,6 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
             }
             ImGui::PopStyleColor(1);
         }
-       
-        // Drag file
-        ResourceType type = ModuleFiles::S_GetResourceType(_fileTree->_currentDir->files[i].name);
-        if (type == ResourceType::TEXTURE || type == ResourceType::MODEL || type == ResourceType::SCENE)
-        {
-            if (ImGui::BeginDragDropSource(ImGuiDragDropFlags_None))
-            {
-                if (type == ResourceType::TEXTURE)
-                {
-                    // Find resource path
-                    _dragUID = _fileTree->_currentDir->files[i].metaFile.UID;
-
-                    // Set payload to carry the index of our item (could be anything)
-                    ImGui::SetDragDropPayload("Texture", &_dragUID, sizeof(uint));
-                }
-                else if (type == ResourceType::MODEL)
-                {
-                    _dragUID = _fileTree->_currentDir->files[i].metaFile.UID;
-
-                    ImGui::SetDragDropPayload("Model", &_dragUID, sizeof(uint));
-                }
-                else if(type == ResourceType::SCENE)
-                {
-                    ImGui::SetDragDropPayload("Scene", &_fileTree->_currentDir->files[i].path , sizeof(std::string));
-                }
-
-                ImGui::EndDragDropSource();
-            }
-        }
-
-        // Show file name
-        ImGui::TextWrapped(_fileTree->_currentDir->files[i].name.c_str());
 
         ImGui::NextColumn();
     }
