@@ -17,7 +17,8 @@ ModuleFiles::ModuleFiles():Module()
 	PHYSFS_init(0);
 
 	// Add Write Dir
-	if (PHYSFS_setWriteDir(".") == 0) LOG("File System error while creating write dir: %s\n", PHYSFS_getLastError());
+	if (PHYSFS_setWriteDir(".") == 0) 
+		LOG("File System error while creating write dir: %s\n", PHYSFS_getLastError());
 
 	// Add Read Dir
 	S_AddPathToFileSystem(".");
@@ -42,6 +43,7 @@ bool ModuleFiles::S_MakeDir(const std::string& dir)
 	if (S_IsDirectory(dir) == false)
 	{
 		PHYSFS_mkdir(dir.c_str());
+
 		return true;
 	}
 	return false;
@@ -50,6 +52,7 @@ bool ModuleFiles::S_MakeDir(const std::string& dir)
 bool ModuleFiles::S_IsDirectory(const std::string& file)
 {
 	PHYSFS_Stat fileState;
+
 	PHYSFS_stat(file.c_str(), &fileState);
 
 	return fileState.filetype == PHYSFS_FileType::PHYSFS_FILETYPE_DIRECTORY;
@@ -87,9 +90,7 @@ std::string ModuleFiles::S_NormalizePath(const std::string& path)
 	for (int i = 0; i < ret.size(); i++)
 	{
 		if (ret[i] == '\\')
-		{
 			ret[i] = '/';
-		}
 	}
 
 	return ret;
@@ -101,7 +102,8 @@ std::string ModuleFiles::S_UnNormalizePath(const std::string& path)
 
 	for (int i = 0; i < ret.size(); i++)
 	{
-		if (ret[i] == '/') ret[i] = '\\';
+		if (ret[i] == '/') 
+			ret[i] = '\\';
 	}
 
 	return ret;
@@ -113,8 +115,8 @@ bool ModuleFiles::S_AddPathToFileSystem(const std::string& path)
 
 	if (PHYSFS_mount(path.c_str(), nullptr, 1) == 0)
 	{
-		LOG("File System error while adding a path or zip: %s\n", PHYSFS_getLastError());
-	}
+		LOG("File System error while adding a path or zip: %s\n", PHYSFS_getLastError());	
+	}		
 	else
 		ret = true;
 
@@ -162,9 +164,7 @@ uint ModuleFiles::S_Load(const std::string& filePath, char** buffer)
 	} while (false);
 	
 	if (PHYSFS_close(fsFile) == 0)
-	{
 		LOG("File System error while closing file %s: %s\n", filePath.c_str(), PHYSFS_getLastError());
-	}
 
 	return byteCount;
 }
@@ -172,14 +172,21 @@ uint ModuleFiles::S_Load(const std::string& filePath, char** buffer)
 MetaFile ModuleFiles::S_LoadMeta(const std::string& filePath)
 {
 	char* data = nullptr;
+
 	S_Load(filePath, &data);
+
 	json file = json::parse(data);
 
 	MetaFile ret;
+
 	ret.lastModified = file["Last modify"];
+
 	ret.resourcePath = file["Resource path"];
+
 	ret.type = file["Resource type"];
+
 	ret.UID = file["UID"];
+
 	ret.name = file["Name"];
 
 	RELEASE(data);
@@ -543,7 +550,9 @@ bool ModuleFiles::S_CheckMetaExist(const std::string& file)
 bool ModuleFiles::S_CreateMetaData(const std::string& file, const std::string& resourcePath)
 {
 	std::string newFile = file + ".helloMeta";
+
 	std::string assetName = ModuleFiles::S_GetFileName(file);
+
 	// Create json object
 	json j;
 

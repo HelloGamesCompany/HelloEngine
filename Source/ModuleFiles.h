@@ -45,6 +45,11 @@ public:
 
 	static bool S_IsDirectory(const std::string& file);
 
+	/// <summary>
+	/// 
+	/// </summary>
+	/// <param name="file"> :$(SolutionDir)Output/relative path</param>
+	/// <returns></returns>
 	static bool S_Delete(const std::string& file);
 
 	/*static std::string S_GlobalToLocalPath(const std::string path);*/
@@ -66,6 +71,14 @@ public:
 
 	static MetaFile S_LoadMeta(const std::string& filePath);
 
+	/// <summary>
+	/// 
+	/// </summary>
+	/// <param name="filePath">: $(SolutionDir)Output/relative path </param>
+	/// <param name="buffer"></param>
+	/// <param name="size"></param>
+	/// <param name="append"></param>
+	/// <returns></returns>
 	static uint S_Save(const std::string& filePath, char* buffer, uint size, bool append);
 
 	/// <summary>
@@ -98,6 +111,11 @@ public:
 	/// </summary>
 	static bool UpdateFileNode(Directory*& dir, Directory*& lastDir);
 
+	/// <summary>
+	/// 
+	/// </summary>
+	/// <param name="path">: $(SolutionDir)Output/relative path </param>
+	/// <returns></returns>
 	static unsigned long long S_CheckFileLastModify(const std::string& path);
 
 	/// <summary>
