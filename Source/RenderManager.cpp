@@ -267,25 +267,6 @@ void RenderManager::CreateBasicBuffers()
 void RenderManager::CreateNormalsDisplayBuffer()
 {
     { 
-        vertexNormalsDisplay.resize(totalVertices->size() * 2);
-
-        float lineMangitude = 0.5f;
-
-        int j = 0;
-        for (int i = 0; i < totalVertices->size() * 2; i++)
-        {
-            if (i % 2 == 0)
-            {
-                vertexNormalsDisplay[i] = totalVertices->at(j).position;
-            }
-            else
-            {
-                vertexNormalsDisplay[i] = totalVertices->at(j).position + (totalVertices->at(j).normals * lineMangitude);
-                j++;
-            }
-
-        }
-
         glGenVertexArrays(1, &VertexLineVAO);
         glBindVertexArray(VertexLineVAO);
 
@@ -293,7 +274,7 @@ void RenderManager::CreateNormalsDisplayBuffer()
         glGenBuffers(1, &VertexLineVBO);
 
         glBindBuffer(GL_ARRAY_BUFFER, VertexLineVBO);
-        glBufferData(GL_ARRAY_BUFFER, sizeof(float3) * vertexNormalsDisplay.size(), &vertexNormalsDisplay[0], GL_STATIC_DRAW);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(float3) * resource->vertexNormals.size(), &resource->vertexNormals[0], GL_STATIC_DRAW);
 
         // vertex positions
         glEnableVertexAttribArray(0);
@@ -303,34 +284,6 @@ void RenderManager::CreateNormalsDisplayBuffer()
     }
 
     {
-        faceNormalsDisplay.resize((totalIndices->size() / 3) * 2); // 3 vertices make a face; we need 2 points to display 1 face normal. 
-
-        float lineMangitude = 0.5f;
-
-        int k = 0;
-        int l = 0;
-
-        int iterations = faceNormalsDisplay.size() / 2;
-        for (int i = 0; i < iterations; i++)
-        {
-            float3 faceCenter = { 0,0,0 };
-            for (int j = 0; j < 3; j++)
-            {
-                faceCenter += totalVertices->at(totalIndices->at(k++)).position;
-            }
-            faceCenter /= 3;
-            faceNormalsDisplay.push_back(faceCenter);
-            
-            float3 normalsDir = { 0,0,0 };
-            for (int j = 0; j < 3; j++)
-            {
-                normalsDir += totalVertices->at(totalIndices->at(l++)).normals;
-            }
-            normalsDir /= 3;
-            normalsDir.Normalize();
-            faceNormalsDisplay.push_back(faceCenter + (normalsDir * lineMangitude));
-        }
-
         glGenVertexArrays(1, &FaceLineVAO);
         glBindVertexArray(FaceLineVAO);
 
@@ -338,7 +291,7 @@ void RenderManager::CreateNormalsDisplayBuffer()
         glGenBuffers(1, &FaceLineVBO);
 
         glBindBuffer(GL_ARRAY_BUFFER, FaceLineVBO);
-        glBufferData(GL_ARRAY_BUFFER, sizeof(float3) * faceNormalsDisplay.size(), &faceNormalsDisplay[0], GL_STATIC_DRAW);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(float3) * resource->faceNormals.size(), &resource->faceNormals[0], GL_STATIC_DRAW);
 
         // vertex positions
         glEnableVertexAttribArray(0);
@@ -432,7 +385,7 @@ void RenderManager::DrawVertexNormals(Mesh& mesh)
 
     glBindVertexArray(VertexLineVAO);
 
-    glDrawArrays(GL_LINES, 0, vertexNormalsDisplay.size());
+    glDrawArrays(GL_LINES, 0, resource->vertexNormals.size());
 
     glBindVertexArray(0);
 
@@ -449,7 +402,7 @@ void RenderManager::DrawFaceNormals(Mesh& mesh)
 
     glBindVertexArray(FaceLineVAO);
 
-    glDrawArrays(GL_LINES, 0, faceNormalsDisplay.size());
+    glDrawArrays(GL_LINES, 0, resource->faceNormals.size());
 
     glBindVertexArray(0);
 

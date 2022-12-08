@@ -165,6 +165,7 @@ void ModuleResourceManager::S_LoadFileIntoResource(Resource* resource)
 	{
 		ResourceMesh* meshRes = (ResourceMesh*)resource;
 		meshRes->meshInfo.LoadFromBinaryFile(meshRes->resourcePath);
+		meshRes->CalculateNormals();
 	}
 	break;
 	}
@@ -400,8 +401,10 @@ void ModuleResourceManager::S_CreateResourceMesh(const std::string& filePath, ui
 
 	ResourceMesh* newResource = new ResourceMesh();
 	if (load)
+	{
 		newResource->meshInfo.LoadFromBinaryFile(filePath);
-
+		newResource->CalculateNormals();
+	}
 	resources[UID] = newResource;
 	resources[UID]->debugName = name + ".hmesh";
 	resources[UID]->UID = UID;
@@ -411,6 +414,8 @@ void ModuleResourceManager::S_CreateResourceMesh(const std::string& filePath, ui
 		newResource->modelUID = model->UID;
 		newResource->indexInsideModel = model->modelMeshes.size();
 	}
+
+
 }
 
 void ModuleResourceManager::S_CreateResourceText(const std::string& filePath, uint UID, const std::string& name, bool load)
@@ -522,5 +527,54 @@ void ResourceModel::CreateResourceMeshesRecursive(ModelNode& node)
 	for (int i = 0; i < node.children.size(); i++)
 	{
 		CreateResourceMeshesRecursive(node.children[i]);
+	}
+}
+
+void ResourceMesh::CalculateNormals()
+{
+	// Vertex normals
+	vertexNormals.resize(meshInfo.vertices.size() * 2);
+	float lineMangitude = 0.5f;
+
+	int j = 0;
+	for (int i = 0; i < meshInfo.vertices.size() * 2; i++)
+	{
+		if (i % 2 == 0)
+		{
+			vertexNormals[i] = meshInfo.vertices[j].position;
+		}
+		else
+		{
+			vertexNormals[i] = meshInfo.vertices[j].position + (meshInfo.vertices[j].normals * lineMangitude);
+			j++;
+		}
+
+	}
+
+	// Face normals
+	faceNormals.resize((meshInfo.indices.size() / 3) * 2); // 3 vertices make a face; we need 2 points to display 1 face normal. 
+	lineMangitude = 0.5f;
+	int k = 0;
+	int l = 0;
+
+	int iterations = faceNormals.size() / 2;
+	for (int i = 0; i < iterations; i++)
+	{
+		float3 faceCenter = { 0,0,0 };
+		for (int j = 0; j < 3; j++)
+		{
+			faceCenter += meshInfo.vertices[meshInfo.indices[k++]].position;
+		}
+		faceCenter /= 3;
+		faceNormals.push_back(faceCenter);
+
+		float3 normalsDir = { 0,0,0 };
+		for (int j = 0; j < 3; j++)
+		{
+			normalsDir += meshInfo.vertices[meshInfo.indices[l++]].normals;
+		}
+		normalsDir /= 3;
+		normalsDir.Normalize();
+		faceNormals.push_back(faceCenter + (normalsDir * lineMangitude));
 	}
 }

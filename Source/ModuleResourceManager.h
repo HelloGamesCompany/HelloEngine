@@ -77,10 +77,21 @@ public:
 	ResourceMesh() { type = ResourceType::MESH; };
 	~ResourceMesh() {};
 
-	GameObject* meshParent = nullptr;
+	void UnLoad() override
+	{
+		meshInfo.Clear();
+		vertexNormals.clear();
+		faceNormals.clear();
+	}
+
+	void CalculateNormals();
+
 	MeshInfo meshInfo;
 	uint modelUID = 0;
 	uint indexInsideModel = 0;
+
+	std::vector<float3> vertexNormals;
+	std::vector<float3> faceNormals;
 };
 
 class ModuleResourceManager : public Module

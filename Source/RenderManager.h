@@ -61,9 +61,6 @@ private:
 	std::vector<float4x4> modelMatrices;
 	std::vector<float> textureIDs;
 
-	std::vector<float3> vertexNormalsDisplay;
-	std::vector<float3> faceNormalsDisplay;
-
 	std::vector<uint> boxIndices; // Used to display bounding boxes.
 
 	uint VAO = 0; // Vertex Array

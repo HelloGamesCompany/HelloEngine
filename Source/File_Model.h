@@ -130,6 +130,12 @@ struct MeshInfo
 	std::vector<uint> indices;
 	uint hasTexture = 0; // For now, this only implies a diffuse texture.
 
+	void Clear()
+	{
+		vertices.clear();
+		indices.clear();
+	}
+
 	/// <summary>
 	/// Returns path to created binary file.
 	/// </summary>
