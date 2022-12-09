@@ -35,6 +35,8 @@ private:
 
 	File* _deleteFile = nullptr;
 
+	Directory* _deleteDir = nullptr;
+
 	FileTree* _fileTree = nullptr;
 
 	std::string _dragPath = "";

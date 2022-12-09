@@ -25,8 +25,6 @@ ModuleFiles::ModuleFiles():Module()
 	// Add Read Dir
 	S_AddPathToFileSystem(".");
 
-	DeleteDirectoryRecursive("Assets");
-
 	//S_AddPathToFileSystem("Resources");
 }
 
@@ -624,9 +622,7 @@ bool ModuleFiles::S_UpdateMetaData(const std::string& file, const std::string& r
 bool ModuleFiles::DeleteDirectoryRecursive(std::string directory)
 {
 	if(directory[directory.size()-1] != '/')
-	{
 		directory.append("/");
-	}
 
 	// Get all files
 	char** fileList = PHYSFS_enumerateFiles(directory.c_str());
@@ -637,16 +633,20 @@ bool ModuleFiles::DeleteDirectoryRecursive(std::string directory)
 
 		std::cout << dirCheck << std::endl;
 
+		// File case
 		if (!S_IsDirectory(dirCheck))
 		{
-			
-			S_Delete(dirCheck);
+			if (S_GetFileExtension(dirCheck) == "hellometa")
+				ModuleResourceManager::S_DeleteMetaFile(dirCheck);
+			else
+				S_Delete(dirCheck);
 		}
+		// Folder case
 		else
-		{
 			DeleteDirectoryRecursive(dirCheck);
-		}
 	}
+
+	PHYSFS_delete(directory.c_str());
 
 	return true;
 }

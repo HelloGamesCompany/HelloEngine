@@ -134,6 +134,16 @@ void ImWindowProject::Update()
 
         UpdateFileNodes();
     }
+
+    // If have any folder to delete, delete this
+    if(_deleteDir)
+    {
+        ModuleFiles::S_Delete(_deleteDir->path);
+
+        UpdateFileNodes();
+
+        _deleteDir = nullptr;
+    }
 }
 
 void ImWindowProject::DrawTreeNodePanelLeft(Directory*& newDir, Directory* node, const bool drawFiles) const
@@ -222,9 +232,22 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
     ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.5, 0.5, 0.8, 1));
     for (int i = 0; i < _fileTree->_currentDir->directories.size(); i++)
     {
-        if (ImGui::ImageButton(std::to_string(i).c_str(), (ImTextureID)_folderImageID, ImVec2(_itemWidth, _itemHeight)))
+        std::string directoryID = std::to_string(i).c_str() + _fileTree->_currentDir->directories[i]->name;
+
+        if (ImGui::ImageButton(directoryID.c_str(), (ImTextureID)_folderImageID, ImVec2(_itemWidth, _itemHeight)))
             newDir = _fileTree->_currentDir->directories[i];
         
+        // Right click
+        if (ImGui::BeginPopupContextItem()) // <-- use last item id as popup id
+        {
+            if (ImGui::Button("Delete##Folder"))
+            {
+                _deleteDir = _fileTree->_currentDir->directories[i];
+                ImGui::CloseCurrentPopup();
+            }
+            ImGui::EndPopup();
+        }
+
         if (ImGui::IsItemHovered())
             ImGui::SetTooltip(_fileTree->_currentDir->directories[i]->name.c_str());
 
@@ -256,8 +279,10 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
             break;
         }
 
+        std::string fileID = std::to_string(i).c_str() + _fileTree->_currentDir->files[i].name;
+
         // Draw Icon button
-        if (ImGui::ImageButton(std::to_string(i).c_str(), (ImTextureID)icon, ImVec2(_itemWidth, _itemHeight)))
+        if (ImGui::ImageButton(fileID.c_str(), (ImTextureID)icon, ImVec2(_itemWidth, _itemHeight)))
             _fileTree->_currentDir->files[i].pressed = !_fileTree->_currentDir->files[i].pressed;
 
         // Drag file
@@ -292,7 +317,7 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
         // Right click
         if (ImGui::BeginPopupContextItem()) // <-- use last item id as popup id
         {
-            if (ImGui::Button("Delete"))
+            if (ImGui::Button("Delete##File"))
             {
                 _deleteFile = &_fileTree->_currentDir->files[i];
                 ImGui::CloseCurrentPopup();
