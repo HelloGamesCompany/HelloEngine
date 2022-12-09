@@ -225,7 +225,7 @@ void ImWindowHierarchy::DrawOptions()
         if (ImGui::Selectable(shapeNames[i].c_str()))
         {
             selectedShape = i;
-            _app->renderer3D->modelRender.CreatePrimitive(_layerEditor->selectedGameObject, (PrimitiveType)i);
+            _app->renderer3D->renderManager.CreatePrimitive(_layerEditor->selectedGameObject, (PrimitiveType)i);
         }
     }
 }

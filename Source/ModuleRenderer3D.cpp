@@ -76,7 +76,7 @@ bool ModuleRenderer3D::Init()
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	}
 
-	modelRender.Init();
+	renderManager.Init();
 
 	// Projection matrix for
 	OnResize(app->window->width, app->window->height);
@@ -104,7 +104,7 @@ UpdateStatus ModuleRenderer3D::PostUpdate()
 		cameras->currentDrawingCamera = cameras->sceneCamera;
 
 		Application::Instance()->layers->DrawLayers();
-		modelRender.Draw();
+		renderManager.Draw();
 		cameras->DrawCameraFrustums();
 	}
 
@@ -116,7 +116,7 @@ UpdateStatus ModuleRenderer3D::PostUpdate()
 
 		cameras->currentDrawingCamera = cameras->activeGameCamera;
 
-		modelRender.Draw();
+		renderManager.Draw();
 	}
 
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);

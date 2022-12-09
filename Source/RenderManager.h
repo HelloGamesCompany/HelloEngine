@@ -27,22 +27,30 @@ public:
 	void OnEditor();
 
 	InstanceRenderer* GetRenderManager(uint ID);
-	// If the render manager is already created, it returns that render manager.
-	InstanceRenderer* CreateRenderManager(uint ID);
 	uint GetMapSize() { return _renderMap.size(); };
 
 	void Draw();
 
 	uint AddTransparentMesh(ResourceMesh* resource);
+
+	void AddIndependentMesh();
+
 	void CreatePrimitive(GameObject* parent, PrimitiveType type);
 
 	void DestroyRenderManager(uint managerUID);
 
 private:
+	void DrawTransparentMeshes();
+
+private:
 	std::map<uint, InstanceRenderer> _renderMap; // Render managers that use instance rendering to draw opaque meshes.
 	std::map<uint, Mesh> _transparencyMeshes; // Meshes with transparency that must be drawn with a draw call per mesh.
 	std::multimap<float, Mesh*> _orderedMeshes; // Meshes with transparency ordered from furthest to closest to the camera.
+	
+	std::map<uint, Mesh> _individualMeshes; // Opaque meshes that need to be drawn in an independent draw call.
+
 	TextureManager* _textureManager = nullptr;
+	
 	std::vector<uint> _emptyRenderManagers;
 
 	// Primitives

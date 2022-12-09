@@ -28,7 +28,7 @@ public:
 
 
 public:
-	RenderManager modelRender;
+	RenderManager renderManager;
 	SDL_GLContext context;
 	bool isVSync = false;
 

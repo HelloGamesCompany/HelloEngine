@@ -123,7 +123,7 @@ void Mesh::DrawAsSelected()
 		Draw();
 	else
 	{
-		InstanceRenderer* manager = Application::Instance()->renderer3D->modelRender.GetRenderManager(component->_meshID);
+		InstanceRenderer* manager = Application::Instance()->renderer3D->renderManager.GetRenderManager(component->_meshID);
 		manager->DrawInstance(this);
 	}
 
@@ -142,7 +142,7 @@ void Mesh::DrawAsSelected()
 		Draw(false);
 	else
 	{
-		InstanceRenderer* manager = Application::Instance()->renderer3D->modelRender.GetRenderManager(component->_meshID);
+		InstanceRenderer* manager = Application::Instance()->renderer3D->renderManager.GetRenderManager(component->_meshID);
 		manager->DrawInstance(this, false);
 	}
 

@@ -72,11 +72,6 @@ InstanceRenderer* RenderManager::GetRenderManager(uint ID)
 	return &_renderMap[ID];
 }
 
-InstanceRenderer* RenderManager::CreateRenderManager(uint ID)
-{
-	return &_renderMap[ID];
-}
-
 void RenderManager::Draw()
 {
 	// Draw opaque meshes instanced.
@@ -90,44 +85,13 @@ void RenderManager::Draw()
 		_renderMap.erase(_emptyRenderManagers[i]);
 	}
 	_emptyRenderManagers.clear();
+	
+	// Draw meshes that must be rendered in an individual draw call.
 
-	CameraObject* currentCamera = Application::Instance()->camera->currentDrawingCamera;
+	// Draw selected mesh
 
-	// Draw transparent objects with a draw call per mesh.
-	for (auto& mesh : _transparencyMeshes)
-	{
-		float3 cameraPos = currentCamera->cameraFrustum.pos;
-		float distance = mesh.second.modelMatrix.Transposed().TranslatePart().DistanceSq(currentCamera->cameraFrustum.pos);
-		_orderedMeshes.emplace(std::make_pair(distance, &mesh.second));
-	}
-
-	// iterate meshes from furthest to closest.
-	for (auto mesh = _orderedMeshes.rbegin(); mesh != _orderedMeshes.rend(); mesh++)
-	{
-		// Do camera culling checks first
-		if (currentCamera->isCullingActive)
-		{
-			if (!currentCamera->IsInsideFrustum(mesh->second->globalAABB))
-			{
-				mesh->second->outOfFrustum = true;
-				continue;
-			}
-			else
-				mesh->second->outOfFrustum = false;
-		}
-		else if (currentCamera->type != CameraType::SCENE)
-		{
-			mesh->second->outOfFrustum = false;
-		}
-
-		// Update mesh. If the mesh should draw this frame, call Draw.
-		if (mesh->second->Update())
-		{
-			mesh->second->Draw();
-		}
-	}
-
-	_orderedMeshes.clear();
+	// Draw meshes that have transparency textures applied on their material.
+	DrawTransparentMeshes();
 }
 
 uint RenderManager::AddTransparentMesh(ResourceMesh* resource)
@@ -140,6 +104,10 @@ uint RenderManager::AddTransparentMesh(ResourceMesh* resource)
 	_transparencyMeshes[randomID].CreateBufferData();
 
 	return randomID;
+}
+
+void RenderManager::AddIndependentMesh()
+{
 }
 
 void RenderManager::CreatePrimitive(GameObject* parent, PrimitiveType type)
@@ -182,4 +150,45 @@ void RenderManager::CreatePrimitive(GameObject* parent, PrimitiveType type)
 void RenderManager::DestroyRenderManager(uint managerUID)
 {
 	_emptyRenderManagers.push_back(managerUID);
+}
+
+void RenderManager::DrawTransparentMeshes()
+{
+	CameraObject* currentCamera = Application::Instance()->camera->currentDrawingCamera;
+
+	// Draw transparent objects with a draw call per mesh.
+	for (auto& mesh : _transparencyMeshes)
+	{
+		float3 cameraPos = currentCamera->cameraFrustum.pos;
+		float distance = mesh.second.modelMatrix.Transposed().TranslatePart().DistanceSq(currentCamera->cameraFrustum.pos);
+		_orderedMeshes.emplace(std::make_pair(distance, &mesh.second));
+	}
+
+	// iterate meshes from furthest to closest.
+	for (auto mesh = _orderedMeshes.rbegin(); mesh != _orderedMeshes.rend(); mesh++)
+	{
+		// Do camera culling checks first
+		if (currentCamera->isCullingActive)
+		{
+			if (!currentCamera->IsInsideFrustum(mesh->second->globalAABB))
+			{
+				mesh->second->outOfFrustum = true;
+				continue;
+			}
+			else
+				mesh->second->outOfFrustum = false;
+		}
+		else if (currentCamera->type != CameraType::SCENE)
+		{
+			mesh->second->outOfFrustum = false;
+		}
+
+		// Update mesh. If the mesh should draw this frame, call Draw.
+		if (mesh->second->Update())
+		{
+			mesh->second->Draw();
+		}
+	}
+
+	_orderedMeshes.clear();
 }

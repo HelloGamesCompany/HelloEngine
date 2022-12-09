@@ -24,14 +24,14 @@ MeshRenderComponent::~MeshRenderComponent()
 	{
 		if (!_isTransparent)
 		{
-			InstanceRenderer* manager = Application::Instance()->renderer3D->modelRender.GetRenderManager(_meshID);
+			InstanceRenderer* manager = Application::Instance()->renderer3D->renderManager.GetRenderManager(_meshID);
 			if (manager != nullptr)
 				manager->GetMap().erase(_instanceID);
 			_meshID = -1;
 		}
 		else
 		{
-			Application::Instance()->renderer3D->modelRender._transparencyMeshes.erase(_meshID);
+			Application::Instance()->renderer3D->renderManager._transparencyMeshes.erase(_meshID);
 		}
 		if (_resource != nullptr)
 			_resource->Dereference();
@@ -50,7 +50,7 @@ void MeshRenderComponent::CreateMesh(uint resourceUID)
 	
 	_meshID = resourceUID;
 
-	InstanceRenderer* manager = Application::Instance()->renderer3D->modelRender.GetRenderManager(_meshID); // Create a renderManager.
+	InstanceRenderer* manager = Application::Instance()->renderer3D->renderManager.GetRenderManager(_meshID); // Create a renderManager.
 	_instanceID = manager->AddMesh();
 
 	_vertexNum = manager->GetMeshVertexNum();
@@ -80,13 +80,13 @@ Mesh& MeshRenderComponent::GetMesh()
 {
 	if (!_isTransparent)
 	{
-		InstanceRenderer* manager = Application::Instance()->renderer3D->modelRender.GetRenderManager(_meshID);
+		InstanceRenderer* manager = Application::Instance()->renderer3D->renderManager.GetRenderManager(_meshID);
 		Mesh& meshReference = manager->GetMap()[_instanceID];
 		return meshReference;
 	}
 	else
 	{
-		Mesh& meshReference = Application::Instance()->renderer3D->modelRender._transparencyMeshes[_meshID];
+		Mesh& meshReference = Application::Instance()->renderer3D->renderManager._transparencyMeshes[_meshID];
 		return meshReference;
 	}
 }
@@ -95,7 +95,7 @@ std::vector<Vertex>& MeshRenderComponent::GetMeshVertices()
 {
 	if (!_isTransparent)
 	{
-		InstanceRenderer* manager = Application::Instance()->renderer3D->modelRender.GetRenderManager(_meshID);
+		InstanceRenderer* manager = Application::Instance()->renderer3D->renderManager.GetRenderManager(_meshID);
 		return *manager->totalVertices;
 	}
 	else
@@ -108,7 +108,7 @@ std::vector<uint>& MeshRenderComponent::GetMeshIndices()
 {
 	if (!_isTransparent)
 	{
-		InstanceRenderer* manager = Application::Instance()->renderer3D->modelRender.GetRenderManager(_meshID);
+		InstanceRenderer* manager = Application::Instance()->renderer3D->renderManager.GetRenderManager(_meshID);
 		return *manager->totalIndices;
 	}
 	else
@@ -176,11 +176,11 @@ void MeshRenderComponent::SetMeshAsTransparent()
 	_isTransparent = true;
 
 	// Erase current mesh 
-	InstanceRenderer* manager = Application::Instance()->renderer3D->modelRender.GetRenderManager(_meshID);
+	InstanceRenderer* manager = Application::Instance()->renderer3D->renderManager.GetRenderManager(_meshID);
 	manager->GetMap().erase(_instanceID);
 
 	// When using a transparent mesh, MeshID is the key in the map!
-	_meshID = Application::Instance()->renderer3D->modelRender.AddTransparentMesh(_resource);
+	_meshID = Application::Instance()->renderer3D->renderManager.AddTransparentMesh(_resource);
 
 	// Update mesh transfrom 
 	Mesh& mesh = GetMesh();
@@ -193,9 +193,12 @@ void MeshRenderComponent::SetMeshAsOpaque()
 {
 	if (!_isTransparent)
 		return;
-	// This will work using Resources. We need to know what resource do we belong to. If that resource is not loaded, load it and create a Render Manager.
-	// if the Resource is loaded, then a Render Manaer that uses that resource should be already created.
-	// Use the correct Render Manager and Add a mesh instance to it.
+
+	// Erase mesh from renderManager transparency meshes map.
+	Application::Instance()->renderer3D->renderManager._transparencyMeshes.erase(_meshID);
+
+	// Create new mesh with the resource UID saved inside _meshID.
+	CreateMesh(_meshID);
 }
 
 void MeshRenderComponent::MarkAsDead()
@@ -204,13 +207,13 @@ void MeshRenderComponent::MarkAsDead()
 	{
 		if (!_isTransparent)
 		{
-			InstanceRenderer* manager = Application::Instance()->renderer3D->modelRender.GetRenderManager(_meshID);
+			InstanceRenderer* manager = Application::Instance()->renderer3D->renderManager.GetRenderManager(_meshID);
 			manager->GetMap().erase(_instanceID);
 			_meshID = -1;
 		}
 		else
 		{
-			Application::Instance()->renderer3D->modelRender._transparencyMeshes.erase(_meshID);
+			Application::Instance()->renderer3D->renderManager._transparencyMeshes.erase(_meshID);
 		}
 		if (_resource != nullptr)
 		{
