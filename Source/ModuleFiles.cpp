@@ -639,6 +639,7 @@ bool ModuleFiles::DeleteDirectoryRecursive(std::string directory)
 
 		if (!S_IsDirectory(dirCheck))
 		{
+			
 			S_Delete(dirCheck);
 		}
 		else
