@@ -10,9 +10,6 @@ public:
 	MeshRenderComponent(GameObject* gameObject);
 	virtual ~MeshRenderComponent() override;
 
-	void InitAsLoadedMesh(uint meshID);
-	void InitAsNewMesh(std::vector<Vertex>& vertices, std::vector<uint>& indices);
-
 	void CreateMesh(uint resourceUID);
 
 	void OnTransformCallback(float4x4 worldMatrix) override;

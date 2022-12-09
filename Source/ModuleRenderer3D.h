@@ -2,7 +2,7 @@
 #define __MODULERENDERER3D_H__
 
 #include "Module.h"
-#include "ModelRenderManager.h"
+#include "RenderManager.h"
 
 class CameraObject;
 
@@ -28,7 +28,7 @@ public:
 
 
 public:
-	ModelRenderManager modelRender;
+	RenderManager modelRender;
 	SDL_GLContext context;
 	bool isVSync = false;
 

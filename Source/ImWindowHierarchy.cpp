@@ -4,7 +4,7 @@
 #include "ModuleLayers.h"
 #include "LayerEditor.h"
 #include "ModuleRenderer3D.h"
-#include "ModelRenderManager.h"
+#include "RenderManager.h"
 #include "ModuleResourceManager.h"
 #include "ModuleCommand.h"
 #include "MeshImporter.h"

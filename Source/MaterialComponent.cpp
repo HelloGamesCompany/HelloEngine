@@ -1,6 +1,6 @@
 #include "Headers.h"
 #include "MaterialComponent.h"
-#include "RenderManager.h"
+#include "InstanceRenderer.h"
 #include "GameObject.h"
 #include "TextureImporter.h"
 #include "ModuleResourceManager.h"

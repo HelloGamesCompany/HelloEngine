@@ -1,13 +1,20 @@
 #pragma once
 
-#include "Mesh.h"
-#include "Shader.h"
-#include "ModuleResourceManager.h"
+#include "InstanceRenderer.h"
+#include "TextureManager.h"
+#include "GameObject.h"
+
+enum class PrimitiveType
+{
+	CUBE,
+	SPHERE,
+	CYLINDER,
+	PLANE,
+};
 
 /// <summary>
-/// This class manages the rendering process o a single MeshObject.
-/// A MeshObject is a colection of Meshes that follow the same vertices/indices pattern.
-/// TLDR: This class instance renders a MeshObject.
+/// This class contains a colletion of RenderManagers. It dynamically creates and destroys Render Managers tu fullfill the task of having one per Unique mesh.
+/// Every Render Manager updates and draws their corresponding Models.
 /// </summary>
 class RenderManager
 {
@@ -15,90 +22,35 @@ public:
 	RenderManager();
 	~RenderManager();
 
-	uint SetMeshInformation(ResourceMesh* resource);
+	void Init();
+
+	void OnEditor();
+
+	InstanceRenderer* GetRenderManager(uint ID);
+	// If the render manager is already created, it returns that render manager.
+	InstanceRenderer* CreateRenderManager(uint ID);
+	uint GetMapSize() { return _renderMap.size(); };
 
 	void Draw();
 
-	uint AddMesh(Mesh& mesh);
+	uint AddTransparentMesh(ResourceMesh* resource);
+	void CreatePrimitive(GameObject* parent, PrimitiveType type);
 
-	std::map<uint, Mesh>& GetMap() { return meshes; };
-
-	int GetMeshVertexNum() { return totalVertices->size(); }
-	int GetMeshIndexNum() { return totalIndices->size(); }
-
-	/// Draws an instance with an individual draw call.
-	void DrawInstance(Mesh* mesh, bool useBasicShader = true);
-
-public:
-	bool initialized = false;
-	ResourceMesh* resource = nullptr;
-private:
-	void CreateBuffers();
-	void CreateBasicBuffers(); // Creates buffers for individual drawing.
-	void CreateNormalsDisplayBuffer();
-	void CreateAABB();
-
-	void DrawVertexNormals(Mesh& mesh);
-	void DrawFaceNormals(Mesh& mesh);
-	void DrawBoundingBoxAABB(Mesh& mesh);
-	void DrawBoundingBoxOBB(Mesh& mesh);
-
-	void ReallocateMoreMemory();
-	void DestroyDynamicBuffers();
-	void CreateDynamicBuffers();
+	void DestroyRenderManager(uint managerUID);
 
 private:
-	AABB localAABB;
+	std::map<uint, InstanceRenderer> _renderMap; // Render managers that use instance rendering to draw opaque meshes.
+	std::map<uint, Mesh> _transparencyMeshes; // Meshes with transparency that must be drawn with a draw call per mesh.
+	std::multimap<float, Mesh*> _orderedMeshes; // Meshes with transparency ordered from furthest to closest to the camera.
+	TextureManager* _textureManager = nullptr;
+	std::vector<uint> _emptyRenderManagers;
 
-	Shader* instancedShader = nullptr;
-	Shader* lineShader = nullptr;
-	Shader* localLineShader = nullptr;
-	Shader* perMeshShader = nullptr;
+	// Primitives
+	uint cubeUID = 0;
+	uint sphereUID = 0;
+	uint planeUID = 0;
+	uint cylinderUID = 0;
 
-	std::map<uint, Mesh> meshes;
-	std::vector<Vertex>* totalVertices = nullptr;
-	std::vector<uint>* totalIndices = nullptr;
-	std::vector<float4x4> modelMatrices;
-	std::vector<float> textureIDs;
-
-	std::vector<uint> boxIndices; // Used to display bounding boxes.
-
-	uint VAO = 0; // Vertex Array
-	uint VBO = 0; // Vertex buffer
-	uint IBO = 0; // Elements buffer object
-	uint MBO = 0; // ModelMatrix buffer object
-	uint TBO = 0; // TextureID buffer object 
-
-	// Buffers to be able to draw a single instance with an individual draw call.
-	uint BasicVAO = 0;
-	uint BasicVBO = 0;
-	uint BasicIBO = 0;
-
-	uint OBBIndexO = 0; // Elements buffer object for OBB
-	uint AABBIndexO = 0; // Elements buffer object for AABB
-
-	uint VertexLineVAO = 0; // Lines to display Vertex Normals
-	uint VertexLineVBO = 0;
-
-	uint FaceLineVAO = 0; // Lines to display Face Normals
-	uint FaceLineVBO = 0;
-
-	uint OBBLineVAO = 0; // Lines to display OBB
-	uint OBBLineVBO = 0;
-
-	uint AABBLineVAO = 0; // Lines to display AABB
-	uint AABBLineVBO = 0;
-
-	bool drawVertexNormals = false;
-	bool drawFaceNormals = true;
-
-	int instanceNum = 4; // Number of instances available in this RenderManager.
-
-	int IDcounter = 0;
-
-	Mesh* _selectedMesh = nullptr;
-
-	friend class ModelRenderManager;
 	friend class MeshRenderComponent;
 };
 

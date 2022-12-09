@@ -78,7 +78,7 @@ private:
 #endif
 
 	friend class MeshRenderComponent;
-	friend class RenderManager;
+	friend class InstanceRenderer;
 };
 
 #endif // !__PRIMITIVE_H__

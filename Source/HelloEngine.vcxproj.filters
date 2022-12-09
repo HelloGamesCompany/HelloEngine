@@ -283,10 +283,10 @@
     <ClCompile Include="External\MathGeoLib\include\Geometry\Frustum.cpp">
       <Filter>External\MathGeoLib</Filter>
     </ClCompile>
-    <ClCompile Include="ModelRenderManager.cpp">
+    <ClCompile Include="RenderManager.cpp">
       <Filter>Managers</Filter>
     </ClCompile>
-    <ClCompile Include="RenderManager.cpp">
+    <ClCompile Include="InstanceRenderer.cpp">
       <Filter>Managers</Filter>
     </ClCompile>
     <ClCompile Include="TextureManager.cpp">
@@ -714,10 +714,10 @@
     <ClInclude Include="External\MathGeoLib\include\Geometry\Frustum.h">
       <Filter>External\MathGeoLib</Filter>
     </ClInclude>
-    <ClInclude Include="ModelRenderManager.h">
+    <ClInclude Include="RenderManager.h">
       <Filter>Managers</Filter>
     </ClInclude>
-    <ClInclude Include="RenderManager.h">
+    <ClInclude Include="InstanceRenderer.h">
       <Filter>Managers</Filter>
     </ClInclude>
     <ClInclude Include="TextureManager.h">

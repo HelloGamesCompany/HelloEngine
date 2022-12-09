@@ -5,7 +5,7 @@
 #include "TransformComponent.h"
 #include "GameObject.h"
 #include "ModuleCamera3D.h"
-#include "RenderManager.h"
+#include "InstanceRenderer.h"
 #include "ModuleRenderer3D.h"
 
 #define _USE_MATH_DEFINES
@@ -123,7 +123,7 @@ void Mesh::DrawAsSelected()
 		Draw();
 	else
 	{
-		RenderManager* manager = Application::Instance()->renderer3D->modelRender.GetRenderManager(component->_meshID);
+		InstanceRenderer* manager = Application::Instance()->renderer3D->modelRender.GetRenderManager(component->_meshID);
 		manager->DrawInstance(this);
 	}
 
@@ -142,7 +142,7 @@ void Mesh::DrawAsSelected()
 		Draw(false);
 	else
 	{
-		RenderManager* manager = Application::Instance()->renderer3D->modelRender.GetRenderManager(component->_meshID);
+		InstanceRenderer* manager = Application::Instance()->renderer3D->modelRender.GetRenderManager(component->_meshID);
 		manager->DrawInstance(this, false);
 	}
 

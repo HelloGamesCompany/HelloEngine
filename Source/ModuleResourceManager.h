@@ -84,7 +84,7 @@ public:
 		faceNormals.clear();
 	}
 
-	void CalculateNormals();
+	void CalculateNormalsAndAABB();
 
 	MeshInfo meshInfo;
 	uint modelUID = 0;
@@ -92,6 +92,7 @@ public:
 
 	std::vector<float3> vertexNormals;
 	std::vector<float3> faceNormals;
+	AABB localAABB;
 };
 
 class ModuleResourceManager : public Module

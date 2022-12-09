@@ -165,7 +165,7 @@ void ModuleResourceManager::S_LoadFileIntoResource(Resource* resource)
 	{
 		ResourceMesh* meshRes = (ResourceMesh*)resource;
 		meshRes->meshInfo.LoadFromBinaryFile(meshRes->resourcePath);
-		meshRes->CalculateNormals();
+		meshRes->CalculateNormalsAndAABB();
 	}
 	break;
 	}
@@ -403,7 +403,7 @@ void ModuleResourceManager::S_CreateResourceMesh(const std::string& filePath, ui
 	if (load)
 	{
 		newResource->meshInfo.LoadFromBinaryFile(filePath);
-		newResource->CalculateNormals();
+		newResource->CalculateNormalsAndAABB();
 	}
 	resources[UID] = newResource;
 	resources[UID]->debugName = name + ".hmesh";
@@ -530,7 +530,7 @@ void ResourceModel::CreateResourceMeshesRecursive(ModelNode& node)
 	}
 }
 
-void ResourceMesh::CalculateNormals()
+void ResourceMesh::CalculateNormalsAndAABB()
 {
 	// Vertex normals
 	vertexNormals.resize(meshInfo.vertices.size() * 2);
@@ -577,4 +577,15 @@ void ResourceMesh::CalculateNormals()
 		normalsDir.Normalize();
 		faceNormals.push_back(faceCenter + (normalsDir * lineMangitude));
 	}
+
+	// AABB
+	localAABB.SetNegativeInfinity();
+
+	std::vector<float3> vertexPositions;
+	vertexPositions.resize(meshInfo.vertices.size());
+	for (int i = 0; i < meshInfo.vertices.size(); i++)
+	{
+		vertexPositions[i] = meshInfo.vertices[i].position;
+	}
+	localAABB.Enclose(&vertexPositions[0], meshInfo.vertices.size());
 }
