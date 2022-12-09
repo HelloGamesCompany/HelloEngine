@@ -144,6 +144,9 @@ public:
 	static bool S_CreateMetaData(const std::string& file, const std::string& resourcePath);
 
 	static bool S_UpdateMetaData(const std::string& file, const std::string& resourcePath);
+
+private:
+	static bool S_DeleteDirectoryRecursive(const std::string& directory);
 };
 
 #endif // !__MODULE_PHYSFS_H__

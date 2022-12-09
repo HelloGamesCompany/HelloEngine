@@ -18,7 +18,9 @@ ModuleFiles::ModuleFiles():Module()
 
 	// Add Write Dir
 	if (PHYSFS_setWriteDir(".") == 0) 
-		LOG("File System error while creating write dir: %s\n", PHYSFS_getLastError());
+	{
+		LOG("File System error while creating write dir: %s\n", PHYSFS_getLastError());	
+	}
 
 	// Add Read Dir
 	S_AddPathToFileSystem(".");
@@ -60,7 +62,21 @@ bool ModuleFiles::S_IsDirectory(const std::string& file)
 
 bool ModuleFiles::S_Delete(const std::string& file)
 {
-	return PHYSFS_delete(file.c_str());
+	bool ret = false;
+
+	if (!S_Exists(file))
+	{
+		LOG("Error to delete file, %s is not exist in the project", file);
+		return false;
+	}
+	
+
+	if (!S_IsDirectory(file))
+		ret = PHYSFS_delete(file.c_str());
+
+	ret = S_DeleteDirectoryRecursive(file);
+
+	return ret;
 }
 
 /*
@@ -164,7 +180,9 @@ uint ModuleFiles::S_Load(const std::string& filePath, char** buffer)
 	} while (false);
 	
 	if (PHYSFS_close(fsFile) == 0)
+	{
 		LOG("File System error while closing file %s: %s\n", filePath.c_str(), PHYSFS_getLastError());
+	}
 
 	return byteCount;
 }
@@ -204,8 +222,10 @@ uint ModuleFiles::S_Save(const std::string& filePath, char* buffer, uint size, b
 
 	do 
 	{
-		if (append)	des = PHYSFS_openAppend(filePath.c_str());
-		else des = PHYSFS_openWrite(filePath.c_str());
+		if (append)	
+			des = PHYSFS_openAppend(filePath.c_str());
+		else 
+			des = PHYSFS_openWrite(filePath.c_str());
 
 		if (!des)
 		{
@@ -230,7 +250,6 @@ uint ModuleFiles::S_Save(const std::string& filePath, char* buffer, uint size, b
 		if (append)
 		{
 			LOG("FILE SYSTEM: Append %u bytes to file '%s'", byteCount, filePath.c_str());
-
 			break;
 		}
 		
@@ -321,9 +340,7 @@ bool ModuleFiles::S_ExternalCopy(const std::string& src, std::string des, bool r
 
 	 // Change destination file to correspondent formmat
  	 if (des[0] != '/')
-	 {
 		 des.insert(des.begin(), '/');
-	 }
 
 	des = workingDir + des + S_GetFileName(src);
 
@@ -369,14 +386,12 @@ void ModuleFiles::S_UpdateFileTree(FileTree*& fileTree)
 	Directory* LastDir = fileTree->_currentDir;
 
 	bool hasLastDir = UpdateFileNode(root, LastDir);
+
 	if (!hasLastDir)
-	{
 		fileTree->_currentDir = root;
-	}
 	else
-	{
 		fileTree->_currentDir = LastDir;
-	}
+
 	fileTree->SetNewRoot(root);
 }
 
@@ -478,18 +493,12 @@ std::string ModuleFiles::S_GetFileName(const std::string& file, bool getExtensio
 	}
 
 	if (pos != std::string::npos)
-	{
 		ret = ret.substr(pos + 1, file.size() - 1);
-	}
 	else
-	{
 		ret = file;
-	}
 
 	if (!getExtension)
-	{
 		ret = S_RemoveExtension(ret);
-	}
 
 	return ret;
 }
@@ -512,9 +521,7 @@ std::string ModuleFiles::S_RemoveExtension(const std::string& file)
 	std::string ret = file;
 
 	if (pos != std::string::npos)
-	{
 		ret = file.substr(0, pos);
-	}
 
 	return ret;
 }
@@ -532,8 +539,10 @@ ResourceType ModuleFiles::S_GetResourceType(const std::string& filename)
 
 	if (fileExtension == "fbx" || fileExtension == "dae") 
 		return ResourceType::MODEL;
+
 	if (fileExtension == "tga" || fileExtension == "png" || fileExtension == "jpg" || fileExtension == "dds")
 		return ResourceType::TEXTURE;
+
 	if (fileExtension == "hscene") 
 		return ResourceType::SCENE;
 
@@ -610,3 +619,14 @@ bool ModuleFiles::S_UpdateMetaData(const std::string& file, const std::string& r
 	return true;
 }
 
+bool ModuleFiles::S_DeleteDirectoryRecursive(const std::string& directory)
+{
+	// Get all files
+	char** fileList = PHYSFS_enumerateFiles(directory.c_str());
+
+	for (int i = 0; fileList[i] != nullptr; i++)
+	{
+	}
+
+	return true;
+}
