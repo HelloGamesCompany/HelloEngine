@@ -39,6 +39,9 @@ public:
 
 	void DestroyRenderManager(uint managerUID);
 
+	void SetSelectedMesh(Mesh* mesh);
+	void DrawSelectedMesh();
+
 private:
 	void DrawTransparentMeshes();
 
@@ -52,6 +55,8 @@ private:
 	TextureManager* _textureManager = nullptr;
 	
 	std::vector<uint> _emptyRenderManagers;
+
+	Mesh* selectedMesh = nullptr;
 
 	// Primitives
 	uint cubeUID = 0;

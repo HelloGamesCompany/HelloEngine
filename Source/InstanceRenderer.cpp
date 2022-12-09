@@ -69,13 +69,8 @@ void InstanceRenderer::Draw()
         }
         if (!mesh.second.Update())
         {
-#ifdef STANDALONE
-            if (mesh.second.component->GetGameObject()->isSelected)
-                _selectedMesh = &mesh.second;
-#endif // STANDALONE
             continue;
         }
-
 
         // Check if this game camera is culling.
         // Check if the current mesh is inside the camera culling
@@ -118,10 +113,6 @@ void InstanceRenderer::Draw()
         glDrawElementsInstanced(GL_TRIANGLES, totalIndices->size(), GL_UNSIGNED_INT, 0, modelMatrices.size());
         glBindVertexArray(0);
     }
-
-    if (_selectedMesh != nullptr)
-        _selectedMesh->DrawAsSelected();
-    _selectedMesh = nullptr;
 
     // Drawing normals for every mesh instance
     // TODO: We can optimize this. Add every mesh that has to draw any debug primitive inside a vector. Iterate that vector every frame. 

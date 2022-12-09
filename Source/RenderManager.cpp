@@ -89,6 +89,7 @@ void RenderManager::Draw()
 	// Draw meshes that must be rendered in an individual draw call.
 
 	// Draw selected mesh
+	DrawSelectedMesh();
 
 	// Draw meshes that have transparency textures applied on their material.
 	DrawTransparentMeshes();
@@ -150,6 +151,21 @@ void RenderManager::CreatePrimitive(GameObject* parent, PrimitiveType type)
 void RenderManager::DestroyRenderManager(uint managerUID)
 {
 	_emptyRenderManagers.push_back(managerUID);
+}
+
+void RenderManager::SetSelectedMesh(Mesh* mesh)
+{
+	selectedMesh = mesh;
+}
+
+void RenderManager::DrawSelectedMesh()
+{
+	if (selectedMesh == nullptr)
+		return;
+
+	selectedMesh->DrawAsSelected();
+
+	selectedMesh = nullptr;
 }
 
 void RenderManager::DrawTransparentMeshes()
