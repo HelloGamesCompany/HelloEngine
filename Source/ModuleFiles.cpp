@@ -25,6 +25,8 @@ ModuleFiles::ModuleFiles():Module()
 	// Add Read Dir
 	S_AddPathToFileSystem(".");
 
+	DeleteDirectoryRecursive("Assets");
+
 	//S_AddPathToFileSystem("Resources");
 }
 
@@ -68,13 +70,12 @@ bool ModuleFiles::S_Delete(const std::string& file)
 	{
 		LOG("Error to delete file, %s is not exist in the project", file);
 		return false;
-	}
-	
+	}	
 
 	if (!S_IsDirectory(file))
 		ret = PHYSFS_delete(file.c_str());
 
-	ret = S_DeleteDirectoryRecursive(file);
+	ret = DeleteDirectoryRecursive(file);
 
 	return ret;
 }
@@ -385,7 +386,7 @@ void ModuleFiles::S_UpdateFileTree(FileTree*& fileTree)
 	// Get FileTree last directory
 	Directory* LastDir = fileTree->_currentDir;
 
-	bool hasLastDir = UpdateFileNode(root, LastDir);
+	bool hasLastDir = UpdateFileNodeRecursive(root, LastDir);
 
 	if (!hasLastDir)
 		fileTree->_currentDir = root;
@@ -395,7 +396,7 @@ void ModuleFiles::S_UpdateFileTree(FileTree*& fileTree)
 	fileTree->SetNewRoot(root);
 }
 
-bool ModuleFiles::UpdateFileNode(Directory*& dir, Directory*& lastDir)
+bool ModuleFiles::UpdateFileNodeRecursive(Directory*& dir, Directory*& lastDir)
 {
 	// Check if lastDir still exist
 	bool ret = false;
@@ -406,6 +407,7 @@ bool ModuleFiles::UpdateFileNode(Directory*& dir, Directory*& lastDir)
 	for (int i = 0; fileList[i] != nullptr; i++)
 	{
 		std::string dirCheck = dir->path + fileList[i];
+
 		// File case
 		if (!S_IsDirectory(dirCheck))
 		{
@@ -439,20 +441,20 @@ bool ModuleFiles::UpdateFileNode(Directory*& dir, Directory*& lastDir)
 		// If we have already found this
 		if (ret)
 		{
-			UpdateFileNode(currentDir, lastDir);
+			UpdateFileNodeRecursive(currentDir, lastDir);
 			continue;
 		}
 
 		// If we still haven't found, we check if current dir is we wanted
 		if (!lastDir || lastDir->path != currentDir->path)
 		{
-			ret = UpdateFileNode(currentDir, lastDir);
+			ret = UpdateFileNodeRecursive(currentDir, lastDir);
 			continue;
 		}
 
 		ret = true;
 		lastDir = currentDir;
-		UpdateFileNode(currentDir, lastDir);
+		UpdateFileNodeRecursive(currentDir, lastDir);
 	}
 	return ret;
 }
@@ -619,13 +621,30 @@ bool ModuleFiles::S_UpdateMetaData(const std::string& file, const std::string& r
 	return true;
 }
 
-bool ModuleFiles::S_DeleteDirectoryRecursive(const std::string& directory)
+bool ModuleFiles::DeleteDirectoryRecursive(std::string directory)
 {
+	if(directory[directory.size()-1] != '/')
+	{
+		directory.append("/");
+	}
+
 	// Get all files
 	char** fileList = PHYSFS_enumerateFiles(directory.c_str());
 
 	for (int i = 0; fileList[i] != nullptr; i++)
 	{
+		std::string dirCheck = directory + fileList[i];
+
+		std::cout << dirCheck << std::endl;
+
+		if (!S_IsDirectory(dirCheck))
+		{
+			S_Delete(dirCheck);
+		}
+		else
+		{
+			DeleteDirectoryRecursive(dirCheck);
+		}
 	}
 
 	return true;

@@ -106,12 +106,6 @@ public:
 	static void S_UpdateFileTree(FileTree*& fileTree);
 
 	/// <summary>
-	/// Internal Function, do not use it!!!
-	/// ----- You maybe look for S_UpdateFileTree()
-	/// </summary>
-	static bool UpdateFileNode(Directory*& dir, Directory*& lastDir);
-
-	/// <summary>
 	/// 
 	/// </summary>
 	/// <param name="path">: $(SolutionDir)Output/relative path </param>
@@ -146,7 +140,14 @@ public:
 	static bool S_UpdateMetaData(const std::string& file, const std::string& resourcePath);
 
 private:
-	static bool S_DeleteDirectoryRecursive(const std::string& directory);
+
+	/// <summary>
+	/// Internal Function, do not use it!!!
+	/// ----- You maybe look for S_UpdateFileTree()
+	/// </summary>
+	static bool UpdateFileNodeRecursive(Directory*& dir, Directory*& lastDir);
+
+	static bool DeleteDirectoryRecursive(std::string directory);
 };
 
 #endif // !__MODULE_PHYSFS_H__
