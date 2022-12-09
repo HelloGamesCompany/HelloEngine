@@ -35,13 +35,6 @@ public:
 private:
 	void CreateBuffers();
 	void CreateBasicBuffers(); // Creates buffers for individual drawing.
-	void CreateNormalsDisplayBuffer();
-	void CreateAABB();
-
-	void DrawVertexNormals(Mesh& mesh);
-	void DrawFaceNormals(Mesh& mesh);
-	void DrawBoundingBoxAABB(Mesh& mesh);
-	void DrawBoundingBoxOBB(Mesh& mesh);
 
 	void ReallocateMoreMemory();
 	void DestroyDynamicBuffers();
@@ -50,8 +43,6 @@ private:
 private:
 
 	Shader* instancedShader = nullptr;
-	Shader* lineShader = nullptr;
-	Shader* localLineShader = nullptr;
 	Shader* perMeshShader = nullptr;
 
 	std::map<uint, Mesh> meshes;
@@ -59,8 +50,6 @@ private:
 	std::vector<uint>* totalIndices = nullptr;
 	std::vector<float4x4> modelMatrices;
 	std::vector<float> textureIDs;
-
-	std::vector<uint> boxIndices; // Used to display bounding boxes.
 
 	uint VAO = 0; // Vertex Array
 	uint VBO = 0; // Vertex buffer
@@ -75,12 +64,6 @@ private:
 
 	uint OBBIndexO = 0; // Elements buffer object for OBB
 	uint AABBIndexO = 0; // Elements buffer object for AABB
-
-	uint VertexLineVAO = 0; // Lines to display Vertex Normals
-	uint VertexLineVBO = 0;
-
-	uint FaceLineVAO = 0; // Lines to display Face Normals
-	uint FaceLineVBO = 0;
 
 	uint OBBLineVAO = 0; // Lines to display OBB
 	uint OBBLineVBO = 0;

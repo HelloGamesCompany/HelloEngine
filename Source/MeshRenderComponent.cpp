@@ -61,6 +61,9 @@ void MeshRenderComponent::CreateMesh(uint resourceUID)
 
 void MeshRenderComponent::OnTransformCallback(float4x4 worldMatrix)
 {
+	if (this->_gameObject->IsPendingToDelete())
+		return;
+
 	Mesh& mesh = GetMesh();
 	mesh.modelMatrix = worldMatrix.Transposed();
 	mesh.CalculateBoundingBoxes();
@@ -78,6 +81,7 @@ void MeshRenderComponent::OnDisable()
 
 Mesh& MeshRenderComponent::GetMesh()
 {
+	
 	if (!_isTransparent)
 	{
 		InstanceRenderer* manager = Application::Instance()->renderer3D->renderManager.GetRenderManager(_meshID);

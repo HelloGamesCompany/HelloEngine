@@ -588,4 +588,38 @@ void ResourceMesh::CalculateNormalsAndAABB()
 		vertexPositions[i] = meshInfo.vertices[i].position;
 	}
 	localAABB.Enclose(&vertexPositions[0], meshInfo.vertices.size());
+
+	// OpenGL buffers
+	// vertex normals buffers
+	glGenVertexArrays(1, &VertexNormalsVAO);
+	glBindVertexArray(VertexNormalsVAO);
+
+	// Create Vertex Buffer Object
+	glGenBuffers(1, &VertexNormalsVBO);
+
+	glBindBuffer(GL_ARRAY_BUFFER, VertexNormalsVBO);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(float3) * vertexNormals.size(), &vertexNormals[0], GL_STATIC_DRAW);
+
+	// vertex positions
+	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(float3), (void*)0);
+
+	glBindVertexArray(0);
+
+	// Face normals buffers
+	glGenVertexArrays(1, &FaceNormalsVAO);
+	glBindVertexArray(FaceNormalsVAO);
+
+	// Create Vertex Buffer Object
+	glGenBuffers(1, &FaceNormalsVBO);
+
+	glBindBuffer(GL_ARRAY_BUFFER, FaceNormalsVBO);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(float3) * faceNormals.size(), &faceNormals[0], GL_STATIC_DRAW);
+
+	// vertex positions
+	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(float3), (void*)0);
+
+	glBindVertexArray(0);
+
 }

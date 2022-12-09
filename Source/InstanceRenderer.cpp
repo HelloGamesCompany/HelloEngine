@@ -7,34 +7,27 @@
 InstanceRenderer::InstanceRenderer()
 {
     instancedShader = new Shader("Resources/shaders/instanced.vertex.shader", "Resources/shaders/instanced.fragment.shader");
-    lineShader = new Shader("Resources/shaders/lines.vertex.shader", "Resources/shaders/lines.fragment.shader");
-    localLineShader = new Shader("Resources/shaders/localLines.vertex.shader", "Resources/shaders/localLines.fragment.shader");
     perMeshShader = new Shader("Resources/shaders/basic.vertex.shader", "Resources/shaders/basic.fragment.shader");
 }
 
 InstanceRenderer::~InstanceRenderer()
 {
     RELEASE(instancedShader);
-    RELEASE(lineShader);
-    RELEASE(localLineShader);
     RELEASE(perMeshShader);
 }
 
 void InstanceRenderer::SetMeshInformation(ResourceMesh* resource)
 {
-    if (initialized) LOG("Tried to call RenderManager::SetMeshInformation more than once in a single Render Manager instance.");
+    if (initialized) 
+        LOG("Tried to call RenderManager::SetMeshInformation more than once in a single Render Manager instance.");
     
     // Set this RenderManager Mesh information.
     totalVertices = &resource->meshInfo.vertices;
     totalIndices = &resource->meshInfo.indices;
     this->resource = resource;
-    //this->totalVertices.insert(totalVertices.begin(), resource->meshInfo.vertices.begin(), resource->meshInfo.vertices.end());
-    //this->totalIndices.insert(totalIndices.begin(), resource->meshInfo.indices.begin(), resource->meshInfo.indices.end());
 
     CreateBuffers();
     CreateBasicBuffers();
-    CreateNormalsDisplayBuffer();
-    CreateAABB();
 
     initialized = true;
 }
@@ -67,14 +60,11 @@ void InstanceRenderer::Draw()
         {
             mesh.second.outOfFrustum = false;
         }
+
         if (!mesh.second.Update())
         {
             continue;
         }
-
-        // Check if this game camera is culling.
-        // Check if the current mesh is inside the camera culling
-        // If true, keep going. If false, go to next iteration.
 
         modelMatrices.push_back(mesh.second.modelMatrix); // Insert updated matrices
         textureIDs.push_back(mesh.second.OpenGLTextureID);
@@ -114,27 +104,6 @@ void InstanceRenderer::Draw()
         glBindVertexArray(0);
     }
 
-    // Drawing normals for every mesh instance
-    // TODO: We can optimize this. Add every mesh that has to draw any debug primitive inside a vector. Iterate that vector every frame. 
-    
-    if (Application::Instance()->camera->currentDrawingCamera->type == CameraType::SCENE)
-    {
-        int index = 0;
-        for (auto& mesh : meshes)
-        {
-            if (mesh.second.showVertexNormals) 
-                DrawVertexNormals(mesh.second);
-            if (mesh.second.showFaceNormals) 
-                DrawFaceNormals(mesh.second);
-            if (mesh.second.showAABB)
-                DrawBoundingBoxAABB(mesh.second);
-            if (mesh.second.showOBB)
-                DrawBoundingBoxOBB(mesh.second);
-
-            index++;
-        }
-    }
-
     // Reset model matrices.
     modelMatrices.clear();
     textureIDs.clear();
@@ -149,6 +118,7 @@ uint InstanceRenderer::AddMesh()
     }
     uint meshID = ++IDcounter; // We use a counter for easier debugging, but this could be an UUID.
     meshes[meshID].localAABB = resource->localAABB;
+    meshes[meshID].resource = this->resource;
 
     // If our instance capacity is too low, reserve more memory inside the opengl buffer.
     if (instanceNum < meshes.size())
@@ -247,188 +217,6 @@ void InstanceRenderer::CreateBasicBuffers()
     glBindVertexArray(0);
 
 
-}
-
-void InstanceRenderer::CreateNormalsDisplayBuffer()
-{
-    { 
-        glGenVertexArrays(1, &VertexLineVAO);
-        glBindVertexArray(VertexLineVAO);
-
-        // Create Vertex Buffer Object
-        glGenBuffers(1, &VertexLineVBO);
-
-        glBindBuffer(GL_ARRAY_BUFFER, VertexLineVBO);
-        glBufferData(GL_ARRAY_BUFFER, sizeof(float3) * resource->vertexNormals.size(), &resource->vertexNormals[0], GL_STATIC_DRAW);
-
-        // vertex positions
-        glEnableVertexAttribArray(0);
-        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(float3), (void*)0);
-
-        glBindVertexArray(0);
-    }
-
-    {
-        glGenVertexArrays(1, &FaceLineVAO);
-        glBindVertexArray(FaceLineVAO);
-
-        // Create Vertex Buffer Object
-        glGenBuffers(1, &FaceLineVBO);
-
-        glBindBuffer(GL_ARRAY_BUFFER, FaceLineVBO);
-        glBufferData(GL_ARRAY_BUFFER, sizeof(float3) * resource->faceNormals.size(), &resource->faceNormals[0], GL_STATIC_DRAW);
-
-        // vertex positions
-        glEnableVertexAttribArray(0);
-        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(float3), (void*)0);
-
-        glBindVertexArray(0);
-    }
-}
-
-void InstanceRenderer::CreateAABB()
-{
-    
-
-    boxIndices.push_back(0);    // 1
-    boxIndices.push_back(1);    // 2
-    boxIndices.push_back(0);    // 3
-    boxIndices.push_back(2);    // 4
-    boxIndices.push_back(2);    // 5
-    boxIndices.push_back(3);    // 6
-    boxIndices.push_back(1);    // 7
-    boxIndices.push_back(3);    // 8
-    boxIndices.push_back(0);    // 9
-    boxIndices.push_back(4);    // 10
-    boxIndices.push_back(4);    // 11
-    boxIndices.push_back(5);    // 12
-    boxIndices.push_back(4);    // 13
-    boxIndices.push_back(6);    // 14
-    boxIndices.push_back(6);    // 15
-    boxIndices.push_back(7);    // 16
-    boxIndices.push_back(7);    // 17
-    boxIndices.push_back(5);    // 18
-    boxIndices.push_back(1);    // 19
-    boxIndices.push_back(5);    // 20
-    boxIndices.push_back(3);    // 21
-    boxIndices.push_back(7);    // 22
-    boxIndices.push_back(2);    // 23
-    boxIndices.push_back(6);    // 24
-
-
-    // Set up buffer for OBB lines.
-    glGenVertexArrays(1, &OBBLineVAO);
-    glBindVertexArray(OBBLineVAO);
-
-    glGenBuffers(1, &OBBIndexO);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, OBBIndexO);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(uint) * boxIndices.size(), &boxIndices[0], GL_STATIC_DRAW);
-
-    glGenBuffers(1, &OBBLineVBO);
-    glBindBuffer(GL_ARRAY_BUFFER, OBBLineVBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(float3) * 8, nullptr, GL_DYNAMIC_DRAW);
-
-    glEnableVertexAttribArray(0);
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(float3), (void*)0);
-
-    glBindVertexArray(0);
-
-    // Set up buffer for AABB lines.
-    glGenVertexArrays(1, &AABBLineVAO);
-    glBindVertexArray(AABBLineVAO);
-
-    glGenBuffers(1, &AABBIndexO);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, AABBIndexO);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(uint) * boxIndices.size(), &boxIndices[0], GL_STATIC_DRAW);
-
-    glGenBuffers(1, &AABBLineVBO);
-    glBindBuffer(GL_ARRAY_BUFFER, AABBLineVBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(float3) * 8, nullptr, GL_DYNAMIC_DRAW);
-
-    glEnableVertexAttribArray(0);
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(float3), (void*)0);
-
-    glBindVertexArray(0);
-}
-
-void InstanceRenderer::DrawVertexNormals(Mesh& mesh)
-{
-    lineShader->Bind();
-    lineShader->SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
-    lineShader->SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
-    lineShader->SetFloat4("lineColor", 0.36f, 0.75f, 0.72f, 1.0f);
-
-    lineShader->SetMatFloat4v("model", &mesh.modelMatrix.v[0][0]);
-
-    glBindVertexArray(VertexLineVAO);
-
-    glDrawArrays(GL_LINES, 0, resource->vertexNormals.size());
-
-    glBindVertexArray(0);
-
-}
-
-void InstanceRenderer::DrawFaceNormals(Mesh& mesh)
-{
-    lineShader->Bind();
-    lineShader->SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
-    lineShader->SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
-    lineShader->SetFloat4("lineColor", 0.75f, 0.36f, 0.32f, 1.0f);
-
-    lineShader->SetMatFloat4v("model", &mesh.modelMatrix.v[0][0]);
-
-    glBindVertexArray(FaceLineVAO);
-
-    glDrawArrays(GL_LINES, 0, resource->faceNormals.size());
-
-    glBindVertexArray(0);
-
-}
-
-void InstanceRenderer::DrawBoundingBoxAABB(Mesh& mesh)
-{
-    float3 AABBPoints[8];
-
-    mesh.globalAABB.GetCornerPoints(AABBPoints);
-
-    glBindVertexArray(AABBLineVAO);
-
-    glBindBuffer(GL_ARRAY_BUFFER, AABBLineVBO);
-    void* ptr = glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY);
-    memcpy(ptr, &AABBPoints[0], 8 * sizeof(float3));
-    glUnmapBuffer(GL_ARRAY_BUFFER);
-
-    localLineShader->Bind();
-    localLineShader->SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
-    localLineShader->SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
-    localLineShader->SetFloat4("lineColor", 0.0f, 1.0f, 0.0f, 1.0f);
-
-    glDrawElements(GL_LINES, boxIndices.size(), GL_UNSIGNED_INT, 0);
-
-    glBindVertexArray(0);
-}
-
-void InstanceRenderer::DrawBoundingBoxOBB(Mesh& mesh)
-{
-    float3 OBBPoints[8];
-
-    mesh.globalOBB.GetCornerPoints(OBBPoints);
-
-    glBindVertexArray(OBBLineVAO);
-
-    glBindBuffer(GL_ARRAY_BUFFER, OBBLineVBO);
-    void* ptr = glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY);
-    memcpy(ptr, &OBBPoints[0], 8 * sizeof(float3));
-    glUnmapBuffer(GL_ARRAY_BUFFER);
-
-    localLineShader->Bind();
-    localLineShader->SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
-    localLineShader->SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
-    localLineShader->SetFloat4("lineColor", 1.0f, 0.0f, 0.0f, 1.0f);
-
-    glDrawElements(GL_LINES, boxIndices.size(), GL_UNSIGNED_INT, 0);
-
-    glBindVertexArray(0);
 }
 
 void InstanceRenderer::ReallocateMoreMemory()

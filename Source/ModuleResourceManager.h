@@ -82,6 +82,16 @@ public:
 		meshInfo.Clear();
 		vertexNormals.clear();
 		faceNormals.clear();
+
+		//glDeleteBuffers(1, &VertexNormalsVAO);
+		//glDeleteBuffers(1, &VertexNormalsVBO);
+		//glDeleteBuffers(1, &FaceNormalsVAO);
+		//glDeleteBuffers(1, &FaceNormalsVBO);
+
+		//VertexNormalsVAO = 0;
+		//VertexNormalsVBO = 0;
+		//FaceNormalsVAO = 0;
+		//FaceNormalsVBO = 0;
 	}
 
 	void CalculateNormalsAndAABB();
@@ -93,6 +103,11 @@ public:
 	std::vector<float3> vertexNormals;
 	std::vector<float3> faceNormals;
 	AABB localAABB;
+
+	uint VertexNormalsVAO = 0;
+	uint VertexNormalsVBO = 0;
+	uint FaceNormalsVAO = 0;
+	uint FaceNormalsVBO = 0;
 };
 
 class ModuleResourceManager : public Module

@@ -18,7 +18,6 @@ Mesh::Mesh()
 #ifdef STANDALONE
 	stencilShader = Shader("Resources/shaders/stencil.vertex.shader", "Resources/shaders/stencil.fragment.shader");
 #endif
-
 }
 
 Mesh::~Mesh()
@@ -91,6 +90,15 @@ void Mesh::Draw(bool useBasicShader)
 
 bool Mesh::Update()
 {
+	if (showVertexNormals)
+		Application::Instance()->renderer3D->renderManager.DrawVertexNormals(this);
+	if (showFaceNormals)
+		Application::Instance()->renderer3D->renderManager.DrawFaceNormals(this);
+	if (showAABB)
+		Application::Instance()->renderer3D->renderManager.DrawAABB(this);
+	if (showOBB)
+		Application::Instance()->renderer3D->renderManager.DrawOBB(this);
+
 	if (!draw || outOfFrustum) 
 		return false;
 	if (component && component->_gameObject->isSelected)
@@ -160,6 +168,7 @@ void Mesh::InitAsMesh(std::vector<Vertex>& vertices, std::vector<uint>& indices)
 
 void Mesh::InitWithResource(ResourceMesh* res)
 {
+	resource = res;
 	this->_vertices = &res->meshInfo.vertices;
 	this->_indices = &res->meshInfo.indices;
 }

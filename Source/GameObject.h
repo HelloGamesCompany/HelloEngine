@@ -51,6 +51,8 @@ public:
 
 	bool IsActive() { return _isActive; }
 
+	bool IsPendingToDelete() { return _isPendingToDelete; }
+
 	bool IsStatic() { return _isStatic; }
 
 	std::vector<GameObject*>* GetChildren() { return &_children; }

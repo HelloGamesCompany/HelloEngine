@@ -63,6 +63,7 @@ public:
 	bool isTransparent = false;
 
 private:
+	ResourceMesh* resource = nullptr;
 	MeshRenderComponent* component = nullptr;
 	bool _updateMatrix = true;
 
@@ -77,6 +78,7 @@ private:
 	Shader stencilShader;
 #endif
 
+	friend class RenderManager;
 	friend class MeshRenderComponent;
 	friend class InstanceRenderer;
 };

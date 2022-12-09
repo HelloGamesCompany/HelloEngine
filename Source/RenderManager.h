@@ -42,6 +42,11 @@ public:
 	void SetSelectedMesh(Mesh* mesh);
 	void DrawSelectedMesh();
 
+	void DrawVertexNormals(Mesh* mesh);
+	void DrawFaceNormals(Mesh* mesh);
+	void DrawOBB(Mesh* mesh);
+	void DrawAABB(Mesh* mesh);
+
 private:
 	void DrawTransparentMeshes();
 
@@ -57,6 +62,20 @@ private:
 	std::vector<uint> _emptyRenderManagers;
 
 	Mesh* selectedMesh = nullptr;
+
+	std::vector<uint> boxIndices; // Used to display bounding boxes.
+
+	// Shaders for drawing debug information
+	Shader* lineShader = nullptr;
+	Shader* localLineShader = nullptr;
+
+	uint AABBVAO = 0;
+	uint AABBVBO = 0;
+	uint OBBVAO = 0;
+	uint OBBVBO = 0;
+
+	uint AABBIBO = 0; // index buffer object shared by both OBB and ABB buffers above.
+	uint OBBIBO = 0;
 
 	// Primitives
 	uint cubeUID = 0;
