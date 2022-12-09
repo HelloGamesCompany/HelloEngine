@@ -229,7 +229,7 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
     ImGui::Columns(numOfColumns, "files columns", false);
 
     // Folders
-    ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.5, 0.5, 0.8, 1));
+    ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.3, 0.3, 0.3, 0));
     for (int i = 0; i < _fileTree->_currentDir->directories.size(); i++)
     {
         std::string directoryID = std::to_string(i).c_str() + _fileTree->_currentDir->directories[i]->name;

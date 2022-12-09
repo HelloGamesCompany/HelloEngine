@@ -147,7 +147,7 @@ private:
 	/// </summary>
 	static bool UpdateFileNodeRecursive(Directory*& dir, Directory*& lastDir);
 
-	static bool DeleteDirectoryRecursive(std::string directory);
+	static void DeleteDirectoryRecursive(std::string directory);
 };
 
 #endif // !__MODULE_PHYSFS_H__

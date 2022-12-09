@@ -73,7 +73,7 @@ bool ModuleFiles::S_Delete(const std::string& file)
 	if (!S_IsDirectory(file))
 		ret = PHYSFS_delete(file.c_str());
 
-	ret = DeleteDirectoryRecursive(file);
+	DeleteDirectoryRecursive(file);
 
 	return ret;
 }
@@ -619,7 +619,7 @@ bool ModuleFiles::S_UpdateMetaData(const std::string& file, const std::string& r
 	return true;
 }
 
-bool ModuleFiles::DeleteDirectoryRecursive(std::string directory)
+void ModuleFiles::DeleteDirectoryRecursive(std::string directory)
 {
 	if(directory[directory.size()-1] != '/')
 		directory.append("/");
@@ -639,7 +639,7 @@ bool ModuleFiles::DeleteDirectoryRecursive(std::string directory)
 			if (S_GetFileExtension(dirCheck) == "hellometa")
 				ModuleResourceManager::S_DeleteMetaFile(dirCheck);
 			else
-				S_Delete(dirCheck);
+				PHYSFS_delete(dirCheck.c_str());
 		}
 		// Folder case
 		else
@@ -647,6 +647,4 @@ bool ModuleFiles::DeleteDirectoryRecursive(std::string directory)
 	}
 
 	PHYSFS_delete(directory.c_str());
-
-	return true;
 }
