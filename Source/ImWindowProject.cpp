@@ -122,6 +122,9 @@ void ImWindowProject::Update()
     }
     ImGui::End();
 
+    if (_opemChangeNamePanel)
+        PanelCreateFolder();
+
     // If have any file to delete, delete this
     if (_deleteFile)
     {
@@ -366,6 +369,9 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
         if (ImGui::Selectable("Show in Explorer"))
             ModuleFiles::S_OpenFolder(_fileTree->_currentDir->path);
 
+        if (ImGui::Selectable("Create Folder"))
+            _opemChangeNamePanel = true;
+
         ImGui::EndPopup();
     }
 }
@@ -410,4 +416,38 @@ void ImWindowProject::CheckWindowFocus()
     // When Global Windows has deselected -> just the instante
     else if (_isWindowFocus)
         _isWindowFocus = false;
+}
+
+void ImWindowProject::PanelCreateFolder()
+{
+    ImGui::OpenPopup("Insert Name");
+    if (ImGui::BeginPopupModal("Insert Name", NULL, ImGuiWindowFlags_AlwaysAutoResize))
+    {
+        ImGui::Text("Name: "); ImGui::SameLine();
+        ImGui::InputText("##inputTextSceneSave", &_createFolderName);
+
+        if (ImGui::Button("Accept"))
+        {
+            if(ModuleFiles::S_MakeDir(_fileTree->_currentDir->path + _createFolderName))
+            {
+                _fileTree->_currentDir->directories.push_back(
+                    new Directory(
+                        _fileTree->_currentDir->path + _createFolderName + "/",
+                        _createFolderName, 
+                        _fileTree->_currentDir)
+                );
+            }
+
+            _createFolderName = "folder";
+            
+            _opemChangeNamePanel = false;
+        }
+
+        ImGui::SameLine();
+
+        if (ImGui::Button("Cancel"))
+            _opemChangeNamePanel = false;
+
+        ImGui::EndPopup();
+    }
 }

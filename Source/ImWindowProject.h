@@ -26,6 +26,8 @@ private:
 
 	void CheckWindowFocus();
 
+	void PanelCreateFolder();
+
 private:
 	Application* _app = nullptr;
 
@@ -41,13 +43,18 @@ private:
 
 	std::string _dragPath = "";
 
+	std::string _createFolderName = "folder";
+
 	uint _dragUID = 0;
 
 	SDL_Window* _window = nullptr;
 
 	bool _isWindowFocus = false;
 
+	bool _opemChangeNamePanel = false;
+
 	int _itemWidth = 80;
+
 	int _itemHeight = 80;
 
 	uint _fileImageID = 0;

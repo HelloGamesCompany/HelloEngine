@@ -42,12 +42,15 @@ bool ModuleFiles::S_Exists(const std::string& file)
 
 bool ModuleFiles::S_MakeDir(const std::string& dir)
 {
-	if (S_IsDirectory(dir) == false)
+	if (S_Exists(dir) == false)
 	{
 		PHYSFS_mkdir(dir.c_str());
 
 		return true;
 	}
+
+	LOG("% created faild, this directory is already exist.", &dir);
+
 	return false;
 }
 
