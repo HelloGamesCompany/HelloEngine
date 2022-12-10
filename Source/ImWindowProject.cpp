@@ -122,7 +122,7 @@ void ImWindowProject::Update()
     }
     ImGui::End();
 
-    if (_opemChangeNamePanel)
+    if (_openCreateFolderPanel)
         PanelCreateFolder();
 
     // If have any file to delete, delete this
@@ -370,7 +370,7 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
             ModuleFiles::S_OpenFolder(_fileTree->_currentDir->path);
 
         if (ImGui::Selectable("Create Folder"))
-            _opemChangeNamePanel = true;
+            _openCreateFolderPanel = true;
 
         ImGui::EndPopup();
     }
@@ -440,13 +440,13 @@ void ImWindowProject::PanelCreateFolder()
 
             _createFolderName = "folder";
             
-            _opemChangeNamePanel = false;
+            _openCreateFolderPanel = false;
         }
 
         ImGui::SameLine();
 
         if (ImGui::Button("Cancel"))
-            _opemChangeNamePanel = false;
+            _openCreateFolderPanel = false;
 
         ImGui::EndPopup();
     }

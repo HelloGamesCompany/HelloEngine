@@ -1,10 +1,10 @@
 #include "Headers.h"
 #include "physfs.h"
 #include "FileTree.hpp"
+#include "json.hpp"
 #include <algorithm>
 #include <ctime>
-#include "Console.h"
-#include "json.hpp"
+#include <sys/stat.h>
 
 using json = nlohmann::json;
 
@@ -49,7 +49,7 @@ bool ModuleFiles::S_MakeDir(const std::string& dir)
 		return true;
 	}
 
-	LOG("% created faild, this directory is already exist.", &dir);
+	LOG("% created faild, this directory is already exist.", &dir);	
 
 	return false;
 }
@@ -340,44 +340,54 @@ bool ModuleFiles::S_ExternalCopy(const std::string& src, std::string des, bool r
 {
 	 std::string workingDir = S_NormalizePath(std::filesystem::current_path().string());
 
+	 // Directory case
+	 if(std::filesystem::is_directory(src))
+	 {
+		 CopyExternalDirectoryRecursive(src, des);
+
+		 return true;
+	 }
+
+	 // File case
+
 	 // Change destination file to correspondent formmat
- 	 if (des[0] != '/')
+	 if (des[0] != '/')
 		 des.insert(des.begin(), '/');
 
-	des = workingDir + des + S_GetFileName(src);
+	 des = workingDir + des + S_GetFileName(src);
 
-	if (src == des)
-	{
-		Console::S_Log("Cannot import the same file twice. Change the file name first.");
-		return false;
-	}
+	 if (src == des)
+	 {
+		 Console::S_Log("Cannot import the same file twice. Change the file name first.");
+		 return false;
+	 }
 
-	std::ifstream srcFile(src, std::ios::binary);
-	if(srcFile.is_open() == 0)
-	{
-		LOG("Faild to oppen src file");
-		Console::S_Log("Faild to oppen src file");
-		srcFile.close();
-		return false;
-	}
+	 std::ifstream srcFile(src, std::ios::binary);
+	 if (srcFile.is_open() == 0)
+	 {
+		 LOG("Faild to oppen src file");
+		 Console::S_Log("Faild to oppen src file");
+		 srcFile.close();
+		 return false;
+	 }
 
-	std::ofstream desFile(des, std::ios::binary);
-	if (desFile.is_open() == 0)
-	{
-		LOG("Faild to create/oppend destination file");
-		Console::S_Log("Faild to create/oppend destination file");
-		desFile.close();
-		return false;
-	}
+	 std::ofstream desFile(des, std::ios::binary);
+	 if (desFile.is_open() == 0)
+	 {
+		 LOG("Faild to create/oppend destination file");
+		 Console::S_Log("Faild to create/oppend destination file");
+		 desFile.close();
+		 return false;
+	 }
 
-	// copy context
-	desFile << srcFile.rdbuf();
+	 // copy context
+	 desFile << srcFile.rdbuf();
 
-	srcFile.close();
+	 srcFile.close();
 
-	desFile.close();
+	 desFile.close();
 
-	return true;
+	 return true;
 }
 
 void ModuleFiles::S_UpdateFileTree(FileTree*& fileTree)
@@ -486,8 +496,14 @@ void ModuleFiles::S_OpenFolder(const std::string& path)
 
 std::string ModuleFiles::S_GetFileName(const std::string& file, bool getExtension)
 {
-	uint pos = file.find_last_of("/");
 	std::string ret = file;
+
+	// If the last character is '/', remove that.
+	if (ret[ret.size() - 1] == '/')
+		ret.pop_back();
+
+	uint pos = file.find_last_of("/");
+
 
 	if (pos != std::string::npos && file[pos] == file.back())
 	{
@@ -650,4 +666,38 @@ void ModuleFiles::DeleteDirectoryRecursive(std::string directory)
 	}
 
 	PHYSFS_delete(directory.c_str());
+}
+
+void ModuleFiles::CopyExternalDirectoryRecursive(const std::string& src, const std::string& des)
+{
+	// Fomalize src & des name
+	std::string newSrc = src;
+
+	newSrc = newSrc.back() == '/' ? newSrc : newSrc + '/';
+
+	std::string dirName = S_GetFileName(src, false);
+
+	std::string newDes = des;
+
+	newDes = newDes.back() == '/' ? newDes + dirName + '/' : newDes + '/' + dirName + '/';
+
+	// Create directory
+	S_MakeDir(newDes);
+
+	// Iterate all files in current directory
+	for (const auto& entry : std::filesystem::directory_iterator(src))
+	{
+		std::string tempSrc = newSrc + entry.path().filename().string();
+
+		// Directory case
+		if (entry.status().type() == std::filesystem::file_type::directory)
+		{
+			CopyExternalDirectoryRecursive(tempSrc, newDes);
+
+			continue;
+		}
+
+		// File case
+		S_ExternalCopy(tempSrc, newDes);
+	}
 }

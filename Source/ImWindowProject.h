@@ -43,20 +43,25 @@ private:
 
 	std::string _dragPath = "";
 
-	std::string _createFolderName = "folder";
-
 	uint _dragUID = 0;
 
 	SDL_Window* _window = nullptr;
 
 	bool _isWindowFocus = false;
 
-	bool _opemChangeNamePanel = false;
-
 	int _itemWidth = 80;
 
 	int _itemHeight = 80;
 
+	// ChangeFileName
+	bool _openChangeNamePanel = false;
+
+	// Create Folder
+	bool _openCreateFolderPanel = false;
+
+	std::string _createFolderName = "folder";
+
+	// icons 
 	uint _fileImageID = 0;
 	uint _folderImageID = 0;
 	uint _modelImageID = 0;

@@ -96,9 +96,9 @@ public:
 	static bool S_Copy(const std::string& src, std::string des, bool replace = true);
 
 	/// <summary>
-	/// Use for copy external file -> project folder.
+	/// Use for copy external file/directory -> project folder.
 	/// </summary>
-	/// <param name="src">: Should be global path + name</param>
+	/// <param name="src">: Should be global path + name </param>
 	/// <param name="des">: Should be local path</param>
 	/// <param name="replace">: Replace file if is aldready exist</param>
 	/// <returns></returns>
@@ -153,6 +153,8 @@ private:
 	static bool UpdateFileNodeRecursive(Directory*& dir, Directory*& lastDir);
 
 	static void DeleteDirectoryRecursive(std::string directory);
+
+	static void CopyExternalDirectoryRecursive(const std::string& src, const std::string& des);
 };
 
 #endif // !__MODULE_PHYSFS_H__
