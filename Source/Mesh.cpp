@@ -26,9 +26,6 @@ Mesh::~Mesh()
 	if (_VAO != 0)
 	{
 		CleanUp();
-		//glDeleteBuffers(1, &_VAO);
-		//glDeleteBuffers(1, &_VBO);
-		//glDeleteBuffers(1, &_IBO);
 	}
 	if (Application::Instance()->renderer3D->renderManager._selectedMesh == this)
 	{
@@ -38,35 +35,11 @@ Mesh::~Mesh()
 
 void Mesh::CreateBufferData()
 { 
-	// Create Vertex Array Object
-    glGenVertexArrays(1, &_VAO);
-    glBindVertexArray(_VAO);
-
-    // Create Vertex Buffer Object
-    glGenBuffers(1, &_VBO);
-
-    glBindBuffer(GL_ARRAY_BUFFER, _VBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * _vertices->size(), &_vertices->front(), GL_STATIC_DRAW);
-
-    // vertex positions
-    glEnableVertexAttribArray(0);
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)0);
-    // vertex normals
-    glEnableVertexAttribArray(1);
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, normals));
-    // vertex texture coords
-    glEnableVertexAttribArray(2);
-    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, texCoords));
-
-    // Create Index Buffer Object
-    glGenBuffers(1, &_IBO);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _IBO);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(uint) * _indices->size(), &_indices->front(), GL_STATIC_DRAW);
-
-    glBindVertexArray(0);
+	_VAO = resource->VAO;
+	_VBO = resource->VBO;
+	_IBO = resource->IBO;
 
 	drawPerMeshShader = new Shader("Resources/shaders/basic.vertex.shader", "Resources/shaders/basic.fragment.shader");
-
 }
 
 void Mesh::Draw(bool useBasicShader)

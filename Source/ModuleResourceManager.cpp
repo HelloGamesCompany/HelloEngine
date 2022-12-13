@@ -165,6 +165,7 @@ void ModuleResourceManager::S_LoadFileIntoResource(Resource* resource)
 	{
 		ResourceMesh* meshRes = (ResourceMesh*)resource;
 		meshRes->meshInfo.LoadFromBinaryFile(meshRes->resourcePath);
+		meshRes->CreateBuffers();
 		meshRes->CalculateNormalsAndAABB();
 	}
 	break;
@@ -403,6 +404,7 @@ void ModuleResourceManager::S_CreateResourceMesh(const std::string& filePath, ui
 	if (load)
 	{
 		newResource->meshInfo.LoadFromBinaryFile(filePath);
+		newResource->CreateBuffers();
 		newResource->CalculateNormalsAndAABB();
 	}
 	resources[UID] = newResource;
@@ -528,6 +530,36 @@ void ResourceModel::CreateResourceMeshesRecursive(ModelNode& node)
 	{
 		CreateResourceMeshesRecursive(node.children[i]);
 	}
+}
+
+void ResourceMesh::CreateBuffers()
+{
+	// Create Vertex Array Object
+	glGenVertexArrays(1, &VAO);
+	glBindVertexArray(VAO);
+
+	// Create Vertex Buffer Object
+	glGenBuffers(1, &VBO);
+
+	glBindBuffer(GL_ARRAY_BUFFER, VBO);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * meshInfo.vertices.size(), &meshInfo.vertices.front(), GL_STATIC_DRAW);
+
+	// vertex positions
+	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)0);
+	// vertex normals
+	glEnableVertexAttribArray(1);
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, normals));
+	// vertex texture coords
+	glEnableVertexAttribArray(2);
+	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, texCoords));
+
+	// Create Index Buffer Object
+	glGenBuffers(1, &IBO);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(uint) * meshInfo.indices.size(), &meshInfo.indices.front(), GL_STATIC_DRAW);
+
+	glBindVertexArray(0);
 }
 
 void ResourceMesh::CalculateNormalsAndAABB()

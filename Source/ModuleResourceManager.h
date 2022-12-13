@@ -83,17 +83,25 @@ public:
 		vertexNormals.clear();
 		faceNormals.clear();
 
-		//glDeleteBuffers(1, &VertexNormalsVAO);
-		//glDeleteBuffers(1, &VertexNormalsVBO);
-		//glDeleteBuffers(1, &FaceNormalsVAO);
-		//glDeleteBuffers(1, &FaceNormalsVBO);
+		glDeleteVertexArrays(1, &VAO);
+		glDeleteBuffers(1, &VBO);
+		glDeleteBuffers(1, &IBO);
 
-		//VertexNormalsVAO = 0;
-		//VertexNormalsVBO = 0;
-		//FaceNormalsVAO = 0;
-		//FaceNormalsVBO = 0;
+		glDeleteVertexArrays(1, &VertexNormalsVAO);
+		glDeleteBuffers(1, &VertexNormalsVBO);
+		glDeleteVertexArrays(1, &FaceNormalsVAO);
+		glDeleteBuffers(1, &FaceNormalsVBO);
+
+		VAO = 0;
+		VBO = 0;
+		IBO = 0;
+		VertexNormalsVAO = 0;
+		VertexNormalsVBO = 0;
+		FaceNormalsVAO = 0;
+		FaceNormalsVBO = 0;
 	}
 
+	void CreateBuffers();
 	void CalculateNormalsAndAABB();
 
 	MeshInfo meshInfo;
@@ -108,6 +116,10 @@ public:
 	uint VertexNormalsVBO = 0;
 	uint FaceNormalsVAO = 0;
 	uint FaceNormalsVBO = 0;
+
+	uint VAO = 0;
+	uint VBO = 0;
+	uint IBO = 0;
 };
 
 class ModuleResourceManager : public Module
