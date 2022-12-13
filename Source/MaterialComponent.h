@@ -29,6 +29,9 @@ public:
 
 	void Serialization(json& j) override;
 	void DeSerialization(json& j) override;
+
+	// To use when creating a new mesh inside an alredy created mesh render component.
+	void UpdateMaterial();
 private:
 	MeshRenderComponent* meshRenderer = nullptr;
 	ResourceTexture* currentResource = nullptr;

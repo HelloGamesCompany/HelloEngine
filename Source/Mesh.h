@@ -60,7 +60,7 @@ public:
 	AABB globalAABB;
 	AABB localAABB;
 
-	bool isTransparent = false;
+	bool isIndependent = false;
 
 private:
 	ResourceMesh* resource = nullptr;

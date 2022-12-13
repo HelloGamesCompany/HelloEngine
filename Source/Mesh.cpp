@@ -26,9 +26,13 @@ Mesh::~Mesh()
 	if (_VAO != 0)
 	{
 		CleanUp();
-		glDeleteBuffers(1, &_VAO);
-		glDeleteBuffers(1, &_VBO);
-		glDeleteBuffers(1, &_IBO);
+		//glDeleteBuffers(1, &_VAO);
+		//glDeleteBuffers(1, &_VBO);
+		//glDeleteBuffers(1, &_IBO);
+	}
+	if (Application::Instance()->renderer3D->renderManager._selectedMesh == this)
+	{
+		Application::Instance()->renderer3D->renderManager.SetSelectedMesh(nullptr);
 	}
 }
 
@@ -90,6 +94,9 @@ void Mesh::Draw(bool useBasicShader)
 
 bool Mesh::Update()
 {
+	if (!draw)
+		return false;
+
 	if (showVertexNormals)
 		Application::Instance()->renderer3D->renderManager.DrawVertexNormals(this);
 	if (showFaceNormals)
@@ -99,14 +106,14 @@ bool Mesh::Update()
 	if (showOBB)
 		Application::Instance()->renderer3D->renderManager.DrawOBB(this);
 
-	if (!draw || outOfFrustum) 
+	if (outOfFrustum) 
 		return false;
 	if (component && component->_gameObject->isSelected)
 	{
 		Application::Instance()->renderer3D->renderManager.SetSelectedMesh(this);
 		return false; // We dont want to render this object twice when selected.
 	}
-	if (isTransparent) // We dont use the TextureManager to set transparent textures.
+	if (isIndependent) // We dont use the TextureManager to set independent meshes's textures.
 		return true;
 	
 	if (textureID != -1.0f)
@@ -128,7 +135,7 @@ void Mesh::DrawAsSelected()
 	glStencilMask(0xFF);
 
 	// Draw model normal size
-	if (isTransparent)
+	if (isIndependent)
 		Draw();
 	else
 	{
@@ -147,7 +154,7 @@ void Mesh::DrawAsSelected()
 	stencilShader.SetMatFloat4v("model", &modelMatrix.v[0][0]);
 
 	// Draw model bigger size using the stencilShader
-	if (isTransparent)
+	if (isIndependent)
 		Draw(false);
 	else
 	{
@@ -175,8 +182,8 @@ void Mesh::InitWithResource(ResourceMesh* res)
 
 void Mesh::CleanUp()
 {	
-	RELEASE(_vertices);
-	RELEASE(_indices);
+	//RELEASE(_vertices);
+	//RELEASE(_indices);
 }
 
 void Mesh::CalculateBoundingBoxes()

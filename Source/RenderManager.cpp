@@ -152,12 +152,28 @@ void RenderManager::Draw()
 	_emptyRenderManagers.clear();
 	
 	// Draw meshes that must be rendered in an individual draw call.
-
+	DrawIndependentMeshes();
 	// Draw selected mesh
 	DrawSelectedMesh();
 
 	// Draw meshes that have transparency textures applied on their material.
 	DrawTransparentMeshes();
+}
+
+uint RenderManager::AddMesh(ResourceMesh* resource, MeshRenderType type)
+{
+	switch (type)
+	{
+	case MeshRenderType::INSTANCED:
+		return AddInstancedMesh(resource);
+		break;
+	case MeshRenderType::INDEPENDENT:
+		return AddIndependentMesh(resource);
+		break;
+	case MeshRenderType::TRANSPARENCY:
+		return AddTransparentMesh(resource);
+		break;
+	}
 }
 
 uint RenderManager::AddTransparentMesh(ResourceMesh* resource)
@@ -166,14 +182,28 @@ uint RenderManager::AddTransparentMesh(ResourceMesh* resource)
 
 	_transparencyMeshes[randomID].InitWithResource(resource);
 	_transparencyMeshes[randomID].localAABB = resource->localAABB;
-	_transparencyMeshes[randomID].isTransparent = true;
+	_transparencyMeshes[randomID].isIndependent = true;
 	_transparencyMeshes[randomID].CreateBufferData();
 
 	return randomID;
 }
 
-void RenderManager::AddIndependentMesh()
+uint RenderManager::AddIndependentMesh(ResourceMesh* resource)
 {
+	uint randomID = HelloUUID::GenerateUUID();
+
+	_independentMeshes[randomID].InitWithResource(resource);
+	_independentMeshes[randomID].localAABB = resource->localAABB;
+	_independentMeshes[randomID].isIndependent = true;
+	_independentMeshes[randomID].CreateBufferData();
+
+	return randomID;
+}
+
+uint RenderManager::AddInstancedMesh(ResourceMesh* resource)
+{
+	InstanceRenderer* manager = GetRenderManager(resource->UID); // Create a renderManager.
+	return manager->AddMesh();
 }
 
 void RenderManager::CreatePrimitive(GameObject* parent, PrimitiveType type)
@@ -220,17 +250,17 @@ void RenderManager::DestroyRenderManager(uint managerUID)
 
 void RenderManager::SetSelectedMesh(Mesh* mesh)
 {
-	selectedMesh = mesh;
+	_selectedMesh = mesh;
 }
 
 void RenderManager::DrawSelectedMesh()
 {
-	if (selectedMesh == nullptr)
+	if (_selectedMesh == nullptr)
 		return;
 
-	selectedMesh->DrawAsSelected();
+	_selectedMesh->DrawAsSelected();
 
-	selectedMesh = nullptr;
+	_selectedMesh = nullptr;
 }
 
 void RenderManager::DrawVertexNormals(Mesh* mesh)
@@ -313,6 +343,9 @@ void RenderManager::DrawAABB(Mesh* mesh)
 
 void RenderManager::DrawTransparentMeshes()
 {
+	if (_transparencyMeshes.empty())
+		return;
+
 	CameraObject* currentCamera = Application::Instance()->camera->currentDrawingCamera;
 
 	// Draw transparent objects with a draw call per mesh.
@@ -350,4 +383,37 @@ void RenderManager::DrawTransparentMeshes()
 	}
 
 	_orderedMeshes.clear();
+}
+
+void RenderManager::DrawIndependentMeshes()
+{
+	if (_independentMeshes.empty())
+		return;
+
+	CameraObject* currentCamera = Application::Instance()->camera->currentDrawingCamera;
+	for (auto& mesh : _independentMeshes)
+	{
+		// Do camera culling checks first
+		if (currentCamera->isCullingActive)
+		{
+			if (!currentCamera->IsInsideFrustum(mesh.second.globalAABB))
+			{
+				mesh.second.outOfFrustum = true;
+				continue;
+			}
+			else
+				mesh.second.outOfFrustum = false;
+		}
+		else if (currentCamera->type != CameraType::SCENE)
+		{
+			mesh.second.outOfFrustum = false;
+		}
+
+		// Update mesh. If the mesh should draw this frame, call Draw.
+		if (mesh.second.Update())
+		{
+			mesh.second.Draw();
+		}
+	}
+
 }

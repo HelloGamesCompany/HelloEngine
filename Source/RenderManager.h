@@ -3,6 +3,7 @@
 #include "InstanceRenderer.h"
 #include "TextureManager.h"
 #include "GameObject.h"
+#include "MeshRenderComponent.h"
 
 enum class PrimitiveType
 {
@@ -31,9 +32,11 @@ public:
 
 	void Draw();
 
-	uint AddTransparentMesh(ResourceMesh* resource);
+	uint AddMesh(ResourceMesh* resource, MeshRenderType type);
 
-	void AddIndependentMesh();
+	uint AddTransparentMesh(ResourceMesh* resource);
+	uint AddIndependentMesh(ResourceMesh* resource);
+	uint AddInstancedMesh(ResourceMesh* resource);
 
 	void CreatePrimitive(GameObject* parent, PrimitiveType type);
 
@@ -49,19 +52,20 @@ public:
 
 private:
 	void DrawTransparentMeshes();
+	void DrawIndependentMeshes();
 
 private:
 	std::map<uint, InstanceRenderer> _renderMap; // Render managers that use instance rendering to draw opaque meshes.
 	std::map<uint, Mesh> _transparencyMeshes; // Meshes with transparency that must be drawn with a draw call per mesh.
 	std::multimap<float, Mesh*> _orderedMeshes; // Meshes with transparency ordered from furthest to closest to the camera.
 	
-	std::map<uint, Mesh> _individualMeshes; // Opaque meshes that need to be drawn in an independent draw call.
+	std::map<uint, Mesh> _independentMeshes; // Opaque meshes that need to be drawn in an independent draw call.
 
 	TextureManager* _textureManager = nullptr;
 	
 	std::vector<uint> _emptyRenderManagers;
 
-	Mesh* selectedMesh = nullptr;
+	Mesh* _selectedMesh = nullptr;
 
 	std::vector<uint> boxIndices; // Used to display bounding boxes.
 
@@ -84,5 +88,6 @@ private:
 	uint cylinderUID = 0;
 
 	friend class MeshRenderComponent;
+	friend class Mesh;
 };
 
