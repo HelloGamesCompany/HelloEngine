@@ -1,10 +1,10 @@
 #include "Headers.h"
 #include "physfs.h"
 #include "FileTree.hpp"
+#include "json.hpp"
 #include <algorithm>
 #include <ctime>
-#include "Console.h"
-#include "json.hpp"
+#include <sys/stat.h>
 
 using json = nlohmann::json;
 
@@ -17,7 +17,10 @@ ModuleFiles::ModuleFiles():Module()
 	PHYSFS_init(0);
 
 	// Add Write Dir
-	if (PHYSFS_setWriteDir(".") == 0) LOG("File System error while creating write dir: %s\n", PHYSFS_getLastError());
+	if (PHYSFS_setWriteDir(".") == 0) 
+	{
+		LOG("File System error while creating write dir: %s\n", PHYSFS_getLastError());	
+	}
 
 	// Add Read Dir
 	S_AddPathToFileSystem(".");
@@ -39,17 +42,22 @@ bool ModuleFiles::S_Exists(const std::string& file)
 
 bool ModuleFiles::S_MakeDir(const std::string& dir)
 {
-	if (S_IsDirectory(dir) == false)
+	if (S_Exists(dir) == false)
 	{
 		PHYSFS_mkdir(dir.c_str());
+
 		return true;
 	}
+
+	LOG("% created faild, this directory is already exist.", &dir);	
+
 	return false;
 }
 
 bool ModuleFiles::S_IsDirectory(const std::string& file)
 {
 	PHYSFS_Stat fileState;
+
 	PHYSFS_stat(file.c_str(), &fileState);
 
 	return fileState.filetype == PHYSFS_FileType::PHYSFS_FILETYPE_DIRECTORY;
@@ -57,7 +65,20 @@ bool ModuleFiles::S_IsDirectory(const std::string& file)
 
 bool ModuleFiles::S_Delete(const std::string& file)
 {
-	return PHYSFS_delete(file.c_str());
+	bool ret = false;
+
+	if (!S_Exists(file))
+	{
+		LOG("Error to delete file, %s is not exist in the project", file);
+		return false;
+	}	
+
+	if (!S_IsDirectory(file))
+		ret = PHYSFS_delete(file.c_str());
+
+	DeleteDirectoryRecursive(file);
+
+	return ret;
 }
 
 /*
@@ -87,9 +108,7 @@ std::string ModuleFiles::S_NormalizePath(const std::string& path)
 	for (int i = 0; i < ret.size(); i++)
 	{
 		if (ret[i] == '\\')
-		{
 			ret[i] = '/';
-		}
 	}
 
 	return ret;
@@ -101,7 +120,8 @@ std::string ModuleFiles::S_UnNormalizePath(const std::string& path)
 
 	for (int i = 0; i < ret.size(); i++)
 	{
-		if (ret[i] == '/') ret[i] = '\\';
+		if (ret[i] == '/') 
+			ret[i] = '\\';
 	}
 
 	return ret;
@@ -113,8 +133,8 @@ bool ModuleFiles::S_AddPathToFileSystem(const std::string& path)
 
 	if (PHYSFS_mount(path.c_str(), nullptr, 1) == 0)
 	{
-		LOG("File System error while adding a path or zip: %s\n", PHYSFS_getLastError());
-	}
+		LOG("File System error while adding a path or zip: %s\n", PHYSFS_getLastError());	
+	}		
 	else
 		ret = true;
 
@@ -172,14 +192,21 @@ uint ModuleFiles::S_Load(const std::string& filePath, char** buffer)
 MetaFile ModuleFiles::S_LoadMeta(const std::string& filePath)
 {
 	char* data = nullptr;
+
 	S_Load(filePath, &data);
+
 	json file = json::parse(data);
 
 	MetaFile ret;
+
 	ret.lastModified = file["Last modify"];
+
 	ret.resourcePath = file["Resource path"];
+
 	ret.type = file["Resource type"];
+
 	ret.UID = file["UID"];
+
 	ret.name = file["Name"];
 
 	RELEASE(data);
@@ -197,8 +224,10 @@ uint ModuleFiles::S_Save(const std::string& filePath, char* buffer, uint size, b
 
 	do 
 	{
-		if (append)	des = PHYSFS_openAppend(filePath.c_str());
-		else des = PHYSFS_openWrite(filePath.c_str());
+		if (append)	
+			des = PHYSFS_openAppend(filePath.c_str());
+		else 
+			des = PHYSFS_openWrite(filePath.c_str());
 
 		if (!des)
 		{
@@ -223,7 +252,6 @@ uint ModuleFiles::S_Save(const std::string& filePath, char* buffer, uint size, b
 		if (append)
 		{
 			LOG("FILE SYSTEM: Append %u bytes to file '%s'", byteCount, filePath.c_str());
-
 			break;
 		}
 		
@@ -312,46 +340,54 @@ bool ModuleFiles::S_ExternalCopy(const std::string& src, std::string des, bool r
 {
 	 std::string workingDir = S_NormalizePath(std::filesystem::current_path().string());
 
-	 // Change destination file to correspondent formmat
- 	 if (des[0] != '/')
+	 // Directory case
+	 if(std::filesystem::is_directory(src))
 	 {
-		 des.insert(des.begin(), '/');
+		 CopyExternalDirectoryRecursive(src, des);
+
+		 return true;
 	 }
 
-	des = workingDir + des + S_GetFileName(src);
+	 // File case
 
-	if (src == des)
-	{
-		Console::S_Log("Cannot import the same file twice. Change the file name first.");
-		return false;
-	}
+	 // Change destination file to correspondent formmat
+	 if (des[0] != '/')
+		 des.insert(des.begin(), '/');
 
-	std::ifstream srcFile(src, std::ios::binary);
-	if(srcFile.is_open() == 0)
-	{
-		LOG("Faild to oppen src file");
-		Console::S_Log("Faild to oppen src file");
-		srcFile.close();
-		return false;
-	}
+	 des = workingDir + des + S_GetFileName(src);
 
-	std::ofstream desFile(des, std::ios::binary);
-	if (desFile.is_open() == 0)
-	{
-		LOG("Faild to create/oppend destination file");
-		Console::S_Log("Faild to create/oppend destination file");
-		desFile.close();
-		return false;
-	}
+	 if (src == des)
+	 {
+		 Console::S_Log("Cannot import the same file twice. Change the file name first.");
+		 return false;
+	 }
 
-	// copy context
-	desFile << srcFile.rdbuf();
+	 std::ifstream srcFile(src, std::ios::binary);
+	 if (srcFile.is_open() == 0)
+	 {
+		 LOG("Faild to oppen src file");
+		 Console::S_Log("Faild to oppen src file");
+		 srcFile.close();
+		 return false;
+	 }
 
-	srcFile.close();
+	 std::ofstream desFile(des, std::ios::binary);
+	 if (desFile.is_open() == 0)
+	 {
+		 LOG("Faild to create/oppend destination file");
+		 Console::S_Log("Faild to create/oppend destination file");
+		 desFile.close();
+		 return false;
+	 }
 
-	desFile.close();
+	 // copy context
+	 desFile << srcFile.rdbuf();
 
-	return true;
+	 srcFile.close();
+
+	 desFile.close();
+
+	 return true;
 }
 
 void ModuleFiles::S_UpdateFileTree(FileTree*& fileTree)
@@ -361,19 +397,17 @@ void ModuleFiles::S_UpdateFileTree(FileTree*& fileTree)
 	// Get FileTree last directory
 	Directory* LastDir = fileTree->_currentDir;
 
-	bool hasLastDir = UpdateFileNode(root, LastDir);
+	bool hasLastDir = UpdateFileNodeRecursive(root, LastDir);
+
 	if (!hasLastDir)
-	{
 		fileTree->_currentDir = root;
-	}
 	else
-	{
 		fileTree->_currentDir = LastDir;
-	}
+
 	fileTree->SetNewRoot(root);
 }
 
-bool ModuleFiles::UpdateFileNode(Directory*& dir, Directory*& lastDir)
+bool ModuleFiles::UpdateFileNodeRecursive(Directory*& dir, Directory*& lastDir)
 {
 	// Check if lastDir still exist
 	bool ret = false;
@@ -384,6 +418,7 @@ bool ModuleFiles::UpdateFileNode(Directory*& dir, Directory*& lastDir)
 	for (int i = 0; fileList[i] != nullptr; i++)
 	{
 		std::string dirCheck = dir->path + fileList[i];
+
 		// File case
 		if (!S_IsDirectory(dirCheck))
 		{
@@ -417,20 +452,20 @@ bool ModuleFiles::UpdateFileNode(Directory*& dir, Directory*& lastDir)
 		// If we have already found this
 		if (ret)
 		{
-			UpdateFileNode(currentDir, lastDir);
+			UpdateFileNodeRecursive(currentDir, lastDir);
 			continue;
 		}
 
 		// If we still haven't found, we check if current dir is we wanted
 		if (!lastDir || lastDir->path != currentDir->path)
 		{
-			ret = UpdateFileNode(currentDir, lastDir);
+			ret = UpdateFileNodeRecursive(currentDir, lastDir);
 			continue;
 		}
 
 		ret = true;
 		lastDir = currentDir;
-		UpdateFileNode(currentDir, lastDir);
+		UpdateFileNodeRecursive(currentDir, lastDir);
 	}
 	return ret;
 }
@@ -461,8 +496,14 @@ void ModuleFiles::S_OpenFolder(const std::string& path)
 
 std::string ModuleFiles::S_GetFileName(const std::string& file, bool getExtension)
 {
-	uint pos = file.find_last_of("/");
 	std::string ret = file;
+
+	// If the last character is '/', remove that.
+	if (ret[ret.size() - 1] == '/')
+		ret.pop_back();
+
+	uint pos = file.find_last_of("/");
+
 
 	if (pos != std::string::npos && file[pos] == file.back())
 	{
@@ -471,18 +512,12 @@ std::string ModuleFiles::S_GetFileName(const std::string& file, bool getExtensio
 	}
 
 	if (pos != std::string::npos)
-	{
 		ret = ret.substr(pos + 1, file.size() - 1);
-	}
 	else
-	{
 		ret = file;
-	}
 
 	if (!getExtension)
-	{
 		ret = S_RemoveExtension(ret);
-	}
 
 	return ret;
 }
@@ -505,9 +540,7 @@ std::string ModuleFiles::S_RemoveExtension(const std::string& file)
 	std::string ret = file;
 
 	if (pos != std::string::npos)
-	{
 		ret = file.substr(0, pos);
-	}
 
 	return ret;
 }
@@ -525,8 +558,10 @@ ResourceType ModuleFiles::S_GetResourceType(const std::string& filename)
 
 	if (fileExtension == "fbx" || fileExtension == "dae") 
 		return ResourceType::MODEL;
+
 	if (fileExtension == "tga" || fileExtension == "png" || fileExtension == "jpg" || fileExtension == "dds")
 		return ResourceType::TEXTURE;
+
 	if (fileExtension == "hscene") 
 		return ResourceType::SCENE;
 
@@ -543,7 +578,9 @@ bool ModuleFiles::S_CheckMetaExist(const std::string& file)
 bool ModuleFiles::S_CreateMetaData(const std::string& file, const std::string& resourcePath)
 {
 	std::string newFile = file + ".helloMeta";
+
 	std::string assetName = ModuleFiles::S_GetFileName(file);
+
 	// Create json object
 	json j;
 
@@ -601,3 +638,66 @@ bool ModuleFiles::S_UpdateMetaData(const std::string& file, const std::string& r
 	return true;
 }
 
+void ModuleFiles::DeleteDirectoryRecursive(std::string directory)
+{
+	if(directory[directory.size()-1] != '/')
+		directory.append("/");
+
+	// Get all files
+	char** fileList = PHYSFS_enumerateFiles(directory.c_str());
+
+	for (int i = 0; fileList[i] != nullptr; i++)
+	{
+		std::string dirCheck = directory + fileList[i];
+
+		std::cout << dirCheck << std::endl;
+
+		// File case
+		if (!S_IsDirectory(dirCheck))
+		{
+			if (S_GetFileExtension(dirCheck) == "hellometa")
+				ModuleResourceManager::S_DeleteMetaFile(dirCheck);
+			else
+				PHYSFS_delete(dirCheck.c_str());
+		}
+		// Folder case
+		else
+			DeleteDirectoryRecursive(dirCheck);
+	}
+
+	PHYSFS_delete(directory.c_str());
+}
+
+void ModuleFiles::CopyExternalDirectoryRecursive(const std::string& src, const std::string& des)
+{
+	// Fomalize src & des name
+	std::string newSrc = src;
+
+	newSrc = newSrc.back() == '/' ? newSrc : newSrc + '/';
+
+	std::string dirName = S_GetFileName(src, false);
+
+	std::string newDes = des;
+
+	newDes = newDes.back() == '/' ? newDes + dirName + '/' : newDes + '/' + dirName + '/';
+
+	// Create directory
+	S_MakeDir(newDes);
+
+	// Iterate all files in current directory
+	for (const auto& entry : std::filesystem::directory_iterator(src))
+	{
+		std::string tempSrc = newSrc + entry.path().filename().string();
+
+		// Directory case
+		if (entry.status().type() == std::filesystem::file_type::directory)
+		{
+			CopyExternalDirectoryRecursive(tempSrc, newDes);
+
+			continue;
+		}
+
+		// File case
+		S_ExternalCopy(tempSrc, newDes);
+	}
+}

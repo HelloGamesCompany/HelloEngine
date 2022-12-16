@@ -199,8 +199,7 @@ void ImWindowHierarchy::DrawOptions()
 
     if (_layerEditor->selectedGameObject != nullptr)
     {
-        ImGui::TextColored(ImVec4(1, 1, 0, 1), "Delete GameObject"); ImGui::SameLine(-ImGui::GetWindowWidth());
-        if (ImGui::Selectable("##"))
+        if (ImGui::Selectable("Delete GameObject##"))
         {
 #ifdef STANDALONE           
              ModuleCommand::S_DeleteGameObject(_layerEditor->selectedGameObject);

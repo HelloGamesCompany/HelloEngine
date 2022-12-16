@@ -41,10 +41,20 @@ public:
 
 	static bool S_CheckFinishWith(const std::string& file, const std::string& checker);
 
+	/// <summary>
+	/// 
+	/// </summary>
+	/// <param name="dir"> : Path with name</param>
+	/// <returns></returns>
 	static bool S_MakeDir(const std::string& dir);
 
 	static bool S_IsDirectory(const std::string& file);
 
+	/// <summary>
+	/// 
+	/// </summary>
+	/// <param name="file"> :$(SolutionDir)Output/relative path</param>
+	/// <returns></returns>
 	static bool S_Delete(const std::string& file);
 
 	/*static std::string S_GlobalToLocalPath(const std::string path);*/
@@ -66,6 +76,14 @@ public:
 
 	static MetaFile S_LoadMeta(const std::string& filePath);
 
+	/// <summary>
+	/// 
+	/// </summary>
+	/// <param name="filePath">: $(SolutionDir)Output/relative path </param>
+	/// <param name="buffer"></param>
+	/// <param name="size"></param>
+	/// <param name="append"></param>
+	/// <returns></returns>
 	static uint S_Save(const std::string& filePath, char* buffer, uint size, bool append);
 
 	/// <summary>
@@ -78,9 +96,9 @@ public:
 	static bool S_Copy(const std::string& src, std::string des, bool replace = true);
 
 	/// <summary>
-	/// Use for copy external file -> project folder.
+	/// Use for copy external file/directory -> project folder.
 	/// </summary>
-	/// <param name="src">: Should be global path + name</param>
+	/// <param name="src">: Should be global path + name </param>
 	/// <param name="des">: Should be local path</param>
 	/// <param name="replace">: Replace file if is aldready exist</param>
 	/// <returns></returns>
@@ -93,11 +111,10 @@ public:
 	static void S_UpdateFileTree(FileTree*& fileTree);
 
 	/// <summary>
-	/// Internal Function, do not use it!!!
-	/// ----- You maybe look for S_UpdateFileTree()
+	/// 
 	/// </summary>
-	static bool UpdateFileNode(Directory*& dir, Directory*& lastDir);
-
+	/// <param name="path">: $(SolutionDir)Output/relative path </param>
+	/// <returns></returns>
 	static unsigned long long S_CheckFileLastModify(const std::string& path);
 
 	/// <summary>
@@ -126,6 +143,18 @@ public:
 	static bool S_CreateMetaData(const std::string& file, const std::string& resourcePath);
 
 	static bool S_UpdateMetaData(const std::string& file, const std::string& resourcePath);
+
+private:
+
+	/// <summary>
+	/// Internal Function, do not use it!!!
+	/// ----- You maybe look for S_UpdateFileTree()
+	/// </summary>
+	static bool UpdateFileNodeRecursive(Directory*& dir, Directory*& lastDir);
+
+	static void DeleteDirectoryRecursive(std::string directory);
+
+	static void CopyExternalDirectoryRecursive(const std::string& src, const std::string& des);
 };
 
 #endif // !__MODULE_PHYSFS_H__

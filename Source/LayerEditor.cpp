@@ -71,7 +71,7 @@ void LayerEditor::Start()
 		style.Colors[ImGuiCol_Border] = ImVec4(255, 1, 1, 255);
 	}
 
-	// Setup ImGui style
+	// Setup ImGui ui style
 	{
 		style.Colors[ImGuiCol_ScrollbarBg] = style.Colors[ImGuiCol_TableHeaderBg] = ImVec4(0.1f, 0.1f, 0.1f, 1);
 
@@ -199,7 +199,6 @@ void LayerEditor::Update()
 			AddPopUpMessage("Saved scene: " + ModuleFiles::S_GetFileName(configScene));
 		}
 	}
-
 #endif // !STANDALONE
 }
 

@@ -122,6 +122,9 @@ void ImWindowProject::Update()
     }
     ImGui::End();
 
+    if (_openCreateFolderPanel)
+        PanelCreateFolder();
+
     // If have any file to delete, delete this
     if (_deleteFile)
     {
@@ -133,6 +136,16 @@ void ImWindowProject::Update()
         _deleteFile = nullptr;
 
         UpdateFileNodes();
+    }
+
+    // If have any folder to delete, delete this
+    if(_deleteDir)
+    {
+        ModuleFiles::S_Delete(_deleteDir->path);
+
+        UpdateFileNodes();
+
+        _deleteDir = nullptr;
     }
 }
 
@@ -219,12 +232,25 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
     ImGui::Columns(numOfColumns, "files columns", false);
 
     // Folders
-    ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.5, 0.5, 0.8, 1));
+    ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.3, 0.3, 0.3, 0));
     for (int i = 0; i < _fileTree->_currentDir->directories.size(); i++)
     {
-        if (ImGui::ImageButton(std::to_string(i).c_str(), (ImTextureID)_folderImageID, ImVec2(_itemWidth, _itemHeight)))
+        std::string directoryID = std::to_string(i).c_str() + _fileTree->_currentDir->directories[i]->name;
+
+        if (ImGui::ImageButton(directoryID.c_str(), (ImTextureID)_folderImageID, ImVec2(_itemWidth, _itemHeight)))
             newDir = _fileTree->_currentDir->directories[i];
         
+        // Right click
+        if (ImGui::BeginPopupContextItem()) // <-- use last item id as popup id
+        {
+            if (ImGui::Button("Delete##Folder"))
+            {
+                _deleteDir = _fileTree->_currentDir->directories[i];
+                ImGui::CloseCurrentPopup();
+            }
+            ImGui::EndPopup();
+        }
+
         if (ImGui::IsItemHovered())
             ImGui::SetTooltip(_fileTree->_currentDir->directories[i]->name.c_str());
 
@@ -256,8 +282,10 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
             break;
         }
 
+        std::string fileID = std::to_string(i).c_str() + _fileTree->_currentDir->files[i].name;
+
         // Draw Icon button
-        if (ImGui::ImageButton(std::to_string(i).c_str(), (ImTextureID)icon, ImVec2(_itemWidth, _itemHeight)))
+        if (ImGui::ImageButton(fileID.c_str(), (ImTextureID)icon, ImVec2(_itemWidth, _itemHeight)))
             _fileTree->_currentDir->files[i].pressed = !_fileTree->_currentDir->files[i].pressed;
 
         // Drag file
@@ -292,7 +320,7 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
         // Right click
         if (ImGui::BeginPopupContextItem()) // <-- use last item id as popup id
         {
-            if (ImGui::Button("Delete"))
+            if (ImGui::Button("Delete##File"))
             {
                 _deleteFile = &_fileTree->_currentDir->files[i];
                 ImGui::CloseCurrentPopup();
@@ -341,6 +369,9 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
         if (ImGui::Selectable("Show in Explorer"))
             ModuleFiles::S_OpenFolder(_fileTree->_currentDir->path);
 
+        if (ImGui::Selectable("Create Folder"))
+            _openCreateFolderPanel = true;
+
         ImGui::EndPopup();
     }
 }
@@ -385,4 +416,38 @@ void ImWindowProject::CheckWindowFocus()
     // When Global Windows has deselected -> just the instante
     else if (_isWindowFocus)
         _isWindowFocus = false;
+}
+
+void ImWindowProject::PanelCreateFolder()
+{
+    ImGui::OpenPopup("Insert Name");
+    if (ImGui::BeginPopupModal("Insert Name", NULL, ImGuiWindowFlags_AlwaysAutoResize))
+    {
+        ImGui::Text("Name: "); ImGui::SameLine();
+        ImGui::InputText("##inputTextSceneSave", &_createFolderName);
+
+        if (ImGui::Button("Accept"))
+        {
+            if(ModuleFiles::S_MakeDir(_fileTree->_currentDir->path + _createFolderName))
+            {
+                _fileTree->_currentDir->directories.push_back(
+                    new Directory(
+                        _fileTree->_currentDir->path + _createFolderName + "/",
+                        _createFolderName, 
+                        _fileTree->_currentDir)
+                );
+            }
+
+            _createFolderName = "folder";
+            
+            _openCreateFolderPanel = false;
+        }
+
+        ImGui::SameLine();
+
+        if (ImGui::Button("Cancel"))
+            _openCreateFolderPanel = false;
+
+        ImGui::EndPopup();
+    }
 }

@@ -26,6 +26,8 @@ private:
 
 	void CheckWindowFocus();
 
+	void PanelCreateFolder();
+
 private:
 	Application* _app = nullptr;
 
@@ -34,6 +36,8 @@ private:
 	Directory* _rootNode = nullptr;
 
 	File* _deleteFile = nullptr;
+
+	Directory* _deleteDir = nullptr;
 
 	FileTree* _fileTree = nullptr;
 
@@ -46,8 +50,18 @@ private:
 	bool _isWindowFocus = false;
 
 	int _itemWidth = 80;
+
 	int _itemHeight = 80;
 
+	// ChangeFileName
+	bool _openChangeNamePanel = false;
+
+	// Create Folder
+	bool _openCreateFolderPanel = false;
+
+	std::string _createFolderName = "folder";
+
+	// icons 
 	uint _fileImageID = 0;
 	uint _folderImageID = 0;
 	uint _modelImageID = 0;
