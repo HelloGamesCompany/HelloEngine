@@ -5,7 +5,7 @@
 #include "TransformComponent.h"
 #include "GameObject.h"
 #include "ModuleCamera3D.h"
-#include "RenderManager.h"
+#include "InstanceRenderer.h"
 #include "ModuleRenderer3D.h"
 
 #define _USE_MATH_DEFINES
@@ -18,7 +18,6 @@ Mesh::Mesh()
 #ifdef STANDALONE
 	stencilShader = Shader("Resources/shaders/stencil.vertex.shader", "Resources/shaders/stencil.fragment.shader");
 #endif
-
 }
 
 Mesh::~Mesh()
@@ -27,43 +26,20 @@ Mesh::~Mesh()
 	if (_VAO != 0)
 	{
 		CleanUp();
-		glDeleteBuffers(1, &_VAO);
-		glDeleteBuffers(1, &_VBO);
-		glDeleteBuffers(1, &_IBO);
+	}
+	if (Application::Instance()->renderer3D->renderManager._selectedMesh == this)
+	{
+		Application::Instance()->renderer3D->renderManager.SetSelectedMesh(nullptr);
 	}
 }
 
 void Mesh::CreateBufferData()
 { 
-	// Create Vertex Array Object
-    glGenVertexArrays(1, &_VAO);
-    glBindVertexArray(_VAO);
-
-    // Create Vertex Buffer Object
-    glGenBuffers(1, &_VBO);
-
-    glBindBuffer(GL_ARRAY_BUFFER, _VBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * _vertices->size(), &_vertices->front(), GL_STATIC_DRAW);
-
-    // vertex positions
-    glEnableVertexAttribArray(0);
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)0);
-    // vertex normals
-    glEnableVertexAttribArray(1);
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, normals));
-    // vertex texture coords
-    glEnableVertexAttribArray(2);
-    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, texCoords));
-
-    // Create Index Buffer Object
-    glGenBuffers(1, &_IBO);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _IBO);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(uint) * _indices->size(), &_indices->front(), GL_STATIC_DRAW);
-
-    glBindVertexArray(0);
+	_VAO = resource->VAO;
+	_VBO = resource->VBO;
+	_IBO = resource->IBO;
 
 	drawPerMeshShader = new Shader("Resources/shaders/basic.vertex.shader", "Resources/shaders/basic.fragment.shader");
-
 }
 
 void Mesh::Draw(bool useBasicShader)
@@ -91,13 +67,26 @@ void Mesh::Draw(bool useBasicShader)
 
 bool Mesh::Update()
 {
-	if (!draw || outOfFrustum) 
+	if (!draw)
+		return false;
+
+	if (showVertexNormals)
+		Application::Instance()->renderer3D->renderManager.DrawVertexNormals(this);
+	if (showFaceNormals)
+		Application::Instance()->renderer3D->renderManager.DrawFaceNormals(this);
+	if (showAABB)
+		Application::Instance()->renderer3D->renderManager.DrawAABB(this);
+	if (showOBB)
+		Application::Instance()->renderer3D->renderManager.DrawOBB(this);
+
+	if (outOfFrustum) 
 		return false;
 	if (component && component->_gameObject->isSelected)
 	{
+		Application::Instance()->renderer3D->renderManager.SetSelectedMesh(this);
 		return false; // We dont want to render this object twice when selected.
 	}
-	if (isTransparent) // We dont use the TextureManager to set transparent textures.
+	if (isIndependent) // We dont use the TextureManager to set independent meshes's textures.
 		return true;
 	
 	if (textureID != -1.0f)
@@ -119,11 +108,11 @@ void Mesh::DrawAsSelected()
 	glStencilMask(0xFF);
 
 	// Draw model normal size
-	if (isTransparent)
+	if (isIndependent)
 		Draw();
 	else
 	{
-		RenderManager* manager = Application::Instance()->renderer3D->modelRender.GetRenderManager(component->_meshID);
+		InstanceRenderer* manager = Application::Instance()->renderer3D->renderManager.GetRenderManager(component->_meshID);
 		manager->DrawInstance(this);
 	}
 
@@ -138,11 +127,11 @@ void Mesh::DrawAsSelected()
 	stencilShader.SetMatFloat4v("model", &modelMatrix.v[0][0]);
 
 	// Draw model bigger size using the stencilShader
-	if (isTransparent)
+	if (isIndependent)
 		Draw(false);
 	else
 	{
-		RenderManager* manager = Application::Instance()->renderer3D->modelRender.GetRenderManager(component->_meshID);
+		InstanceRenderer* manager = Application::Instance()->renderer3D->renderManager.GetRenderManager(component->_meshID);
 		manager->DrawInstance(this, false);
 	}
 
@@ -159,14 +148,15 @@ void Mesh::InitAsMesh(std::vector<Vertex>& vertices, std::vector<uint>& indices)
 
 void Mesh::InitWithResource(ResourceMesh* res)
 {
+	resource = res;
 	this->_vertices = &res->meshInfo.vertices;
 	this->_indices = &res->meshInfo.indices;
 }
 
 void Mesh::CleanUp()
 {	
-	RELEASE(_vertices);
-	RELEASE(_indices);
+	//RELEASE(_vertices);
+	//RELEASE(_indices);
 }
 
 void Mesh::CalculateBoundingBoxes()

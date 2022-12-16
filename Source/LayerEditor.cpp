@@ -225,7 +225,7 @@ void LayerEditor::PostUpdate()
 			_imWindows[i]->Update();
     }
 
-	Application::Instance()->renderer3D->modelRender.OnEditor();
+	Application::Instance()->renderer3D->renderManager.OnEditor();
 
 	if (_openLoadScene)
 		DrawPopUpLoadScene();

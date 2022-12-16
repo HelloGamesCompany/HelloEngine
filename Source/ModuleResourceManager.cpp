@@ -165,6 +165,8 @@ void ModuleResourceManager::S_LoadFileIntoResource(Resource* resource)
 	{
 		ResourceMesh* meshRes = (ResourceMesh*)resource;
 		meshRes->meshInfo.LoadFromBinaryFile(meshRes->resourcePath);
+		meshRes->CreateBuffers();
+		meshRes->CalculateNormalsAndAABB();
 	}
 	break;
 	}
@@ -400,8 +402,11 @@ void ModuleResourceManager::S_CreateResourceMesh(const std::string& filePath, ui
 
 	ResourceMesh* newResource = new ResourceMesh();
 	if (load)
+	{
 		newResource->meshInfo.LoadFromBinaryFile(filePath);
-
+		newResource->CreateBuffers();
+		newResource->CalculateNormalsAndAABB();
+	}
 	resources[UID] = newResource;
 	resources[UID]->debugName = name + ".hmesh";
 	resources[UID]->UID = UID;
@@ -411,6 +416,8 @@ void ModuleResourceManager::S_CreateResourceMesh(const std::string& filePath, ui
 		newResource->modelUID = model->UID;
 		newResource->indexInsideModel = model->modelMeshes.size();
 	}
+
+
 }
 
 void ModuleResourceManager::S_CreateResourceText(const std::string& filePath, uint UID, const std::string& name, bool load)
@@ -523,4 +530,128 @@ void ResourceModel::CreateResourceMeshesRecursive(ModelNode& node)
 	{
 		CreateResourceMeshesRecursive(node.children[i]);
 	}
+}
+
+void ResourceMesh::CreateBuffers()
+{
+	// Create Vertex Array Object
+	glGenVertexArrays(1, &VAO);
+	glBindVertexArray(VAO);
+
+	// Create Vertex Buffer Object
+	glGenBuffers(1, &VBO);
+
+	glBindBuffer(GL_ARRAY_BUFFER, VBO);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * meshInfo.vertices.size(), &meshInfo.vertices.front(), GL_STATIC_DRAW);
+
+	// vertex positions
+	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)0);
+	// vertex normals
+	glEnableVertexAttribArray(1);
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, normals));
+	// vertex texture coords
+	glEnableVertexAttribArray(2);
+	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, texCoords));
+
+	// Create Index Buffer Object
+	glGenBuffers(1, &IBO);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(uint) * meshInfo.indices.size(), &meshInfo.indices.front(), GL_STATIC_DRAW);
+
+	glBindVertexArray(0);
+}
+
+void ResourceMesh::CalculateNormalsAndAABB()
+{
+	// Vertex normals
+	vertexNormals.resize(meshInfo.vertices.size() * 2);
+	float lineMangitude = 0.5f;
+
+	int j = 0;
+	for (int i = 0; i < meshInfo.vertices.size() * 2; i++)
+	{
+		if (i % 2 == 0)
+		{
+			vertexNormals[i] = meshInfo.vertices[j].position;
+		}
+		else
+		{
+			vertexNormals[i] = meshInfo.vertices[j].position + (meshInfo.vertices[j].normals * lineMangitude);
+			j++;
+		}
+
+	}
+
+	// Face normals
+	faceNormals.resize((meshInfo.indices.size() / 3) * 2); // 3 vertices make a face; we need 2 points to display 1 face normal. 
+	lineMangitude = 0.5f;
+	int k = 0;
+	int l = 0;
+
+	int iterations = faceNormals.size() / 2;
+	for (int i = 0; i < iterations; i++)
+	{
+		float3 faceCenter = { 0,0,0 };
+		for (int j = 0; j < 3; j++)
+		{
+			faceCenter += meshInfo.vertices[meshInfo.indices[k++]].position;
+		}
+		faceCenter /= 3;
+		faceNormals.push_back(faceCenter);
+
+		float3 normalsDir = { 0,0,0 };
+		for (int j = 0; j < 3; j++)
+		{
+			normalsDir += meshInfo.vertices[meshInfo.indices[l++]].normals;
+		}
+		normalsDir /= 3;
+		normalsDir.Normalize();
+		faceNormals.push_back(faceCenter + (normalsDir * lineMangitude));
+	}
+
+	// AABB
+	localAABB.SetNegativeInfinity();
+
+	std::vector<float3> vertexPositions;
+	vertexPositions.resize(meshInfo.vertices.size());
+	for (int i = 0; i < meshInfo.vertices.size(); i++)
+	{
+		vertexPositions[i] = meshInfo.vertices[i].position;
+	}
+	localAABB.Enclose(&vertexPositions[0], meshInfo.vertices.size());
+
+	// OpenGL buffers
+	// vertex normals buffers
+	glGenVertexArrays(1, &VertexNormalsVAO);
+	glBindVertexArray(VertexNormalsVAO);
+
+	// Create Vertex Buffer Object
+	glGenBuffers(1, &VertexNormalsVBO);
+
+	glBindBuffer(GL_ARRAY_BUFFER, VertexNormalsVBO);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(float3) * vertexNormals.size(), &vertexNormals[0], GL_STATIC_DRAW);
+
+	// vertex positions
+	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(float3), (void*)0);
+
+	glBindVertexArray(0);
+
+	// Face normals buffers
+	glGenVertexArrays(1, &FaceNormalsVAO);
+	glBindVertexArray(FaceNormalsVAO);
+
+	// Create Vertex Buffer Object
+	glGenBuffers(1, &FaceNormalsVBO);
+
+	glBindBuffer(GL_ARRAY_BUFFER, FaceNormalsVBO);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(float3) * faceNormals.size(), &faceNormals[0], GL_STATIC_DRAW);
+
+	// vertex positions
+	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(float3), (void*)0);
+
+	glBindVertexArray(0);
+
 }

@@ -60,9 +60,10 @@ public:
 	AABB globalAABB;
 	AABB localAABB;
 
-	bool isTransparent = false;
+	bool isIndependent = false;
 
 private:
+	ResourceMesh* resource = nullptr;
 	MeshRenderComponent* component = nullptr;
 	bool _updateMatrix = true;
 
@@ -77,8 +78,9 @@ private:
 	Shader stencilShader;
 #endif
 
-	friend class MeshRenderComponent;
 	friend class RenderManager;
+	friend class MeshRenderComponent;
+	friend class InstanceRenderer;
 };
 
 #endif // !__PRIMITIVE_H__

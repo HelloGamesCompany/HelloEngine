@@ -4,16 +4,20 @@
 #include "Component.h"
 #include "ModuleResourceManager.h"
 
+enum class MeshRenderType
+{
+	INSTANCED,
+	INDEPENDENT,
+	TRANSPARENCY
+};
+
 class MeshRenderComponent : public Component
 {
 public:
 	MeshRenderComponent(GameObject* gameObject);
 	virtual ~MeshRenderComponent() override;
 
-	void InitAsLoadedMesh(uint meshID);
-	void InitAsNewMesh(std::vector<Vertex>& vertices, std::vector<uint>& indices);
-
-	void CreateMesh(uint resourceUID);
+	void CreateMesh(uint resourceUID, MeshRenderType type = MeshRenderType::INSTANCED);
 
 	void OnTransformCallback(float4x4 worldMatrix) override;
 
@@ -22,13 +26,15 @@ public:
 
 	Mesh& GetMesh();
 
+	void DestroyMesh();
+
 	std::vector<Vertex>& GetMeshVertices();
 	std::vector<uint>& GetMeshIndices();
 
 	void OnEditor() override;
 
-	void SetMeshAsTransparent();
-	void SetMeshAsOpaque();
+	/// Changes mesh render type to Transparency, Independent or Instance. 
+	void ChangeMeshRenderType(MeshRenderType type);
 
 	void MarkAsDead() override;
 	void MarkAsAlive() override;
@@ -46,6 +52,11 @@ private:
 	int _indexNum = 0;
 
 	bool _isTransparent = false;
+	MeshRenderType renderType = MeshRenderType::INSTANCED;
+
+	// Temporal. Delete later:
+	std::string _comboOptions[3] = { "INSTANCE", "INDEPENDENT", "TRANSPARENCY" };
+	uint currentCombo = 0;
 
 #ifdef STANDALONE
 	uint _resourceUID = 0;

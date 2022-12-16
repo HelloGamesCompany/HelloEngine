@@ -77,10 +77,49 @@ public:
 	ResourceMesh() { type = ResourceType::MESH; };
 	~ResourceMesh() {};
 
-	GameObject* meshParent = nullptr;
+	void UnLoad() override
+	{
+		meshInfo.Clear();
+		vertexNormals.clear();
+		faceNormals.clear();
+
+		glDeleteVertexArrays(1, &VAO);
+		glDeleteBuffers(1, &VBO);
+		glDeleteBuffers(1, &IBO);
+
+		glDeleteVertexArrays(1, &VertexNormalsVAO);
+		glDeleteBuffers(1, &VertexNormalsVBO);
+		glDeleteVertexArrays(1, &FaceNormalsVAO);
+		glDeleteBuffers(1, &FaceNormalsVBO);
+
+		VAO = 0;
+		VBO = 0;
+		IBO = 0;
+		VertexNormalsVAO = 0;
+		VertexNormalsVBO = 0;
+		FaceNormalsVAO = 0;
+		FaceNormalsVBO = 0;
+	}
+
+	void CreateBuffers();
+	void CalculateNormalsAndAABB();
+
 	MeshInfo meshInfo;
 	uint modelUID = 0;
 	uint indexInsideModel = 0;
+
+	std::vector<float3> vertexNormals;
+	std::vector<float3> faceNormals;
+	AABB localAABB;
+
+	uint VertexNormalsVAO = 0;
+	uint VertexNormalsVBO = 0;
+	uint FaceNormalsVAO = 0;
+	uint FaceNormalsVBO = 0;
+
+	uint VAO = 0;
+	uint VBO = 0;
+	uint IBO = 0;
 };
 
 class ModuleResourceManager : public Module

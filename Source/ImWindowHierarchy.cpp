@@ -4,7 +4,7 @@
 #include "ModuleLayers.h"
 #include "LayerEditor.h"
 #include "ModuleRenderer3D.h"
-#include "ModelRenderManager.h"
+#include "RenderManager.h"
 #include "ModuleResourceManager.h"
 #include "ModuleCommand.h"
 #include "MeshImporter.h"
@@ -224,7 +224,7 @@ void ImWindowHierarchy::DrawOptions()
         if (ImGui::Selectable(shapeNames[i].c_str()))
         {
             selectedShape = i;
-            _app->renderer3D->modelRender.CreatePrimitive(_layerEditor->selectedGameObject, (PrimitiveType)i);
+            _app->renderer3D->renderManager.CreatePrimitive(_layerEditor->selectedGameObject, (PrimitiveType)i);
         }
     }
 }

@@ -1,6 +1,6 @@
 #include "Headers.h"
 #include "MaterialComponent.h"
-#include "RenderManager.h"
+#include "InstanceRenderer.h"
 #include "GameObject.h"
 #include "TextureImporter.h"
 #include "ModuleResourceManager.h"
@@ -40,8 +40,8 @@ void MaterialComponent::ChangeTexture(ResourceTexture* resource)
 
 	currentResource = resource;
 
-	/*if (resource->isTransparent)
-		meshRenderer->SetMeshAsTransparent();*/
+	if (resource->isTransparent)
+		meshRenderer->ChangeMeshRenderType(MeshRenderType::TRANSPARENCY);
 
 	GetMesh().textureID = textureID;
 }
@@ -90,6 +90,10 @@ void MaterialComponent::DeSerialization(json& j)
 	ChangeTexture(resource);
 }
 
+void MaterialComponent::UpdateMaterial()
+{
+	GetMesh().textureID = textureID;
+}
 
 void MaterialComponent::OnEditor()
 {
