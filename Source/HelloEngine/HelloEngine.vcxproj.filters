@@ -13,92 +13,8 @@
     <ClCompile Include="MaterialComponent.cpp">
       <Filter>GameObject\Components</Filter>
     </ClCompile>
-    <ClCompile Include="External\MathGeoLib\include\Geometry\AABB.cpp">
-      <Filter>External\MathGeoLib</Filter>
-    </ClCompile>
-    <ClCompile Include="External\MathGeoLib\include\Math\BitOps.cpp">
-      <Filter>External\MathGeoLib</Filter>
-    </ClCompile>
-    <ClCompile Include="External\MathGeoLib\include\Time\Clock.cpp">
-      <Filter>External\MathGeoLib</Filter>
-    </ClCompile>
-    <ClCompile Include="External\MathGeoLib\include\Geometry\Circle.cpp">
-      <Filter>External\MathGeoLib</Filter>
-    </ClCompile>
-    <ClCompile Include="External\MathGeoLib\include\Geometry\Capsule.cpp">
-      <Filter>External\MathGeoLib</Filter>
-    </ClCompile>
-    <ClCompile Include="External\MathGeoLib\include\Geometry\Cone.cpp">
-      <Filter>External\MathGeoLib</Filter>
-    </ClCompile>
-    <ClCompile Include="External\MathGeoLib\include\Math\float2.cpp">
-      <Filter>External\MathGeoLib</Filter>
-    </ClCompile>
-    <ClCompile Include="External\MathGeoLib\include\Math\float3.cpp">
-      <Filter>External\MathGeoLib</Filter>
-    </ClCompile>
-    <ClCompile Include="External\MathGeoLib\include\Math\float3x3.cpp">
-      <Filter>External\MathGeoLib</Filter>
-    </ClCompile>
-    <ClCompile Include="External\MathGeoLib\include\Math\float3x4.cpp">
-      <Filter>External\MathGeoLib</Filter>
-    </ClCompile>
-    <ClCompile Include="External\MathGeoLib\include\Math\float4.cpp">
-      <Filter>External\MathGeoLib</Filter>
-    </ClCompile>
-    <ClCompile Include="External\MathGeoLib\include\Math\float4x4.cpp">
-      <Filter>External\MathGeoLib</Filter>
-    </ClCompile>
-    <ClCompile Include="External\imgui\ImGuizmo\ImCurveEdit.cpp">
-      <Filter>External\Imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="External\imgui\ImGuizmo\ImGradient.cpp">
-      <Filter>External\Imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="External\imgui\imgui.cpp">
-      <Filter>External\Imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="External\imgui\imgui_demo.cpp">
-      <Filter>External\Imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="External\imgui\imgui_draw.cpp">
-      <Filter>External\Imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="External\imgui\imgui_impl_opengl3.cpp">
-      <Filter>External\Imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="External\imgui\imgui_impl_sdl.cpp">
-      <Filter>External\Imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="External\imgui\imgui_tables.cpp">
-      <Filter>External\Imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="External\imgui\imgui_widgets.cpp">
-      <Filter>External\Imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="External\imgui\ImGuizmo\ImGuizmo.cpp">
-      <Filter>External\Imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="External\imgui\ImGuizmo\ImSequencer.cpp">
-      <Filter>External\Imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="External\MathGeoLib\include\Math\MathFunc.cpp">
-      <Filter>External\MathGeoLib</Filter>
-    </ClCompile>
-    <ClCompile Include="External\MathGeoLib\include\Math\MathLog.cpp">
-      <Filter>External\MathGeoLib</Filter>
-    </ClCompile>
-    <ClCompile Include="External\MathGeoLib\include\Math\MathOps.cpp">
-      <Filter>External\MathGeoLib</Filter>
-    </ClCompile>
-    <ClCompile Include="External\MathGeoLib\include\Geometry\Cylinder.cpp">
-      <Filter>External\MathGeoLib</Filter>
-    </ClCompile>
     <ClCompile Include="ImGuiUtils.cpp">
       <Filter>Utils</Filter>
-    </ClCompile>
-    <ClCompile Include="External\imgui\ImGuizmo\GraphEditor.cpp">
-      <Filter>External\Imgui</Filter>
     </ClCompile>
     <ClCompile Include="ImWindow.cpp">
       <Filter>Modules\Layers\WIndows</Filter>
@@ -135,48 +51,6 @@
     </ClCompile>
     <ClCompile Include="ImWindowScene.cpp">
       <Filter>Modules\Layers\WIndows</Filter>
-    </ClCompile>
-    <ClCompile Include="External\MathGeoLib\include\Geometry\LineSegment.cpp">
-      <Filter>External\MathGeoLib</Filter>
-    </ClCompile>
-    <ClCompile Include="External\MathGeoLib\include\Geometry\Line.cpp">
-      <Filter>External\MathGeoLib</Filter>
-    </ClCompile>
-    <ClCompile Include="External\MathGeoLib\include\Algorithm\Random\LCG.cpp">
-      <Filter>External\MathGeoLib</Filter>
-    </ClCompile>
-    <ClCompile Include="External\MathGeoLib\include\Math\Polynomial.cpp">
-      <Filter>External\MathGeoLib</Filter>
-    </ClCompile>
-    <ClCompile Include="External\MathGeoLib\include\Geometry\Polyhedron.cpp">
-      <Filter>External\MathGeoLib</Filter>
-    </ClCompile>
-    <ClCompile Include="External\MathGeoLib\include\Geometry\Polygon.cpp">
-      <Filter>External\MathGeoLib</Filter>
-    </ClCompile>
-    <ClCompile Include="External\MathGeoLib\include\Geometry\Plane.cpp">
-      <Filter>External\MathGeoLib</Filter>
-    </ClCompile>
-    <ClCompile Include="External\MathGeoLib\include\Geometry\OBB.cpp">
-      <Filter>External\MathGeoLib</Filter>
-    </ClCompile>
-    <ClCompile Include="External\mmgr\mmgr.cpp">
-      <Filter>External\mmgr</Filter>
-    </ClCompile>
-    <ClCompile Include="External\MathGeoLib\include\Math\TransformOps.cpp">
-      <Filter>External\MathGeoLib</Filter>
-    </ClCompile>
-    <ClCompile Include="External\MathGeoLib\include\Geometry\Triangle.cpp">
-      <Filter>External\MathGeoLib</Filter>
-    </ClCompile>
-    <ClCompile Include="External\MathGeoLib\include\Geometry\TriangleMesh.cpp">
-      <Filter>External\MathGeoLib</Filter>
-    </ClCompile>
-    <ClCompile Include="External\MathGeoLib\include\Geometry\Sphere.cpp">
-      <Filter>External\MathGeoLib</Filter>
-    </ClCompile>
-    <ClCompile Include="External\MathGeoLib\include\Math\SSEMath.cpp">
-      <Filter>External\MathGeoLib</Filter>
     </ClCompile>
     <ClCompile Include="Module.cpp">
       <Filter>Modules</Filter>
@@ -232,12 +106,6 @@
     <ClCompile Include="LayerGame.cpp">
       <Filter>Modules\Layers</Filter>
     </ClCompile>
-    <ClCompile Include="External\PugiXml\src\pugixml.cpp">
-      <Filter>External\PugiXml</Filter>
-    </ClCompile>
-    <ClCompile Include="External\MathGeoLib\include\Math\Quat.cpp">
-      <Filter>External\MathGeoLib</Filter>
-    </ClCompile>
     <ClCompile Include="Console.cpp">
       <Filter>Utils</Filter>
     </ClCompile>
@@ -271,17 +139,11 @@
     <ClCompile Include="QuickSave.cpp">
       <Filter>Utils</Filter>
     </ClCompile>
-    <ClCompile Include="External\MathGeoLib\include\Geometry\Ray.cpp">
-      <Filter>External\MathGeoLib</Filter>
-    </ClCompile>
     <ClCompile Include="Shader.cpp">
       <Filter>Other</Filter>
     </ClCompile>
     <ClCompile Include="Texture.cpp">
       <Filter>Other</Filter>
-    </ClCompile>
-    <ClCompile Include="External\MathGeoLib\include\Geometry\Frustum.cpp">
-      <Filter>External\MathGeoLib</Filter>
     </ClCompile>
     <ClCompile Include="RenderManager.cpp">
       <Filter>Managers</Filter>
@@ -316,6 +178,144 @@
     <ClCompile Include="XMLNode.cpp">
       <Filter>Modules\ModuleXML</Filter>
     </ClCompile>
+    <ClCompile Include="..\External\imgui\imgui.cpp">
+      <Filter>External\Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\imgui\imgui_demo.cpp">
+      <Filter>External\Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\imgui\imgui_draw.cpp">
+      <Filter>External\Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\imgui\imgui_impl_opengl3.cpp">
+      <Filter>External\Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\imgui\imgui_impl_sdl.cpp">
+      <Filter>External\Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\imgui\imgui_tables.cpp">
+      <Filter>External\Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\imgui\imgui_widgets.cpp">
+      <Filter>External\Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\imgui\ImGuizmo\GraphEditor.cpp">
+      <Filter>External\Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\imgui\ImGuizmo\ImCurveEdit.cpp">
+      <Filter>External\Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\imgui\ImGuizmo\ImGradient.cpp">
+      <Filter>External\Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\imgui\ImGuizmo\ImGuizmo.cpp">
+      <Filter>External\Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\imgui\ImGuizmo\ImSequencer.cpp">
+      <Filter>External\Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\MathGeoLib\include\Algorithm\Random\LCG.cpp">
+      <Filter>External\MathGeoLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\MathGeoLib\include\Geometry\AABB.cpp">
+      <Filter>External\MathGeoLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\MathGeoLib\include\Geometry\Capsule.cpp">
+      <Filter>External\MathGeoLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\MathGeoLib\include\Geometry\Circle.cpp">
+      <Filter>External\MathGeoLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\MathGeoLib\include\Geometry\Cone.cpp">
+      <Filter>External\MathGeoLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\MathGeoLib\include\Geometry\Cylinder.cpp">
+      <Filter>External\MathGeoLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\MathGeoLib\include\Geometry\Frustum.cpp">
+      <Filter>External\MathGeoLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\MathGeoLib\include\Geometry\Line.cpp">
+      <Filter>External\MathGeoLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\MathGeoLib\include\Geometry\LineSegment.cpp">
+      <Filter>External\MathGeoLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\MathGeoLib\include\Geometry\OBB.cpp">
+      <Filter>External\MathGeoLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\MathGeoLib\include\Geometry\Plane.cpp">
+      <Filter>External\MathGeoLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\MathGeoLib\include\Geometry\Polygon.cpp">
+      <Filter>External\MathGeoLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\MathGeoLib\include\Geometry\Polyhedron.cpp">
+      <Filter>External\MathGeoLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\MathGeoLib\include\Geometry\Ray.cpp">
+      <Filter>External\MathGeoLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\MathGeoLib\include\Geometry\Sphere.cpp">
+      <Filter>External\MathGeoLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\MathGeoLib\include\Geometry\Triangle.cpp">
+      <Filter>External\MathGeoLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\MathGeoLib\include\Geometry\TriangleMesh.cpp">
+      <Filter>External\MathGeoLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\MathGeoLib\include\Math\BitOps.cpp">
+      <Filter>External\MathGeoLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\MathGeoLib\include\Math\float2.cpp">
+      <Filter>External\MathGeoLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\MathGeoLib\include\Math\float3.cpp">
+      <Filter>External\MathGeoLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\MathGeoLib\include\Math\float3x3.cpp">
+      <Filter>External\MathGeoLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\MathGeoLib\include\Math\float3x4.cpp">
+      <Filter>External\MathGeoLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\MathGeoLib\include\Math\float4.cpp">
+      <Filter>External\MathGeoLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\MathGeoLib\include\Math\float4x4.cpp">
+      <Filter>External\MathGeoLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\MathGeoLib\include\Math\MathFunc.cpp">
+      <Filter>External\MathGeoLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\MathGeoLib\include\Math\MathLog.cpp">
+      <Filter>External\MathGeoLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\MathGeoLib\include\Math\MathOps.cpp">
+      <Filter>External\MathGeoLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\MathGeoLib\include\Math\Polynomial.cpp">
+      <Filter>External\MathGeoLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\MathGeoLib\include\Math\Quat.cpp">
+      <Filter>External\MathGeoLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\MathGeoLib\include\Math\SSEMath.cpp">
+      <Filter>External\MathGeoLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\MathGeoLib\include\Math\TransformOps.cpp">
+      <Filter>External\MathGeoLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\MathGeoLib\include\Time\Clock.cpp">
+      <Filter>External\MathGeoLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\mmgr\mmgr.cpp">
+      <Filter>External\mmgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\External\PugiXml\src\pugixml.cpp">
+      <Filter>External\PugiXml</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -330,164 +330,14 @@
     <ClInclude Include="MaterialComponent.h">
       <Filter>GameObject\Components</Filter>
     </ClInclude>
-    <ClInclude Include="External\MathGeoLib\include\Geometry\AABB.h">
-      <Filter>External\MathGeoLib</Filter>
-    </ClInclude>
-    <ClInclude Include="External\MathGeoLib\include\Math\BitOps.h">
-      <Filter>External\MathGeoLib</Filter>
-    </ClInclude>
-    <ClInclude Include="External\MathGeoLib\include\Geometry\AABB2D.h">
-      <Filter>External\MathGeoLib</Filter>
-    </ClInclude>
-    <ClInclude Include="External\MathGeoLib\include\Math\assume.h">
-      <Filter>External\MathGeoLib</Filter>
-    </ClInclude>
-    <ClInclude Include="External\MathGeoLib\include\Time\Clock.h">
-      <Filter>External\MathGeoLib</Filter>
-    </ClInclude>
-    <ClInclude Include="External\MathGeoLib\include\Geometry\Circle.h">
-      <Filter>External\MathGeoLib</Filter>
-    </ClInclude>
-    <ClInclude Include="External\MathGeoLib\include\Geometry\Capsule.h">
-      <Filter>External\MathGeoLib</Filter>
-    </ClInclude>
-    <ClInclude Include="External\MathGeoLib\include\Geometry\Cone.h">
-      <Filter>External\MathGeoLib</Filter>
-    </ClInclude>
-    <ClInclude Include="External\MathGeoLib\include\Math\Complex.h">
-      <Filter>External\MathGeoLib</Filter>
-    </ClInclude>
-    <ClInclude Include="External\MathGeoLib\include\Math\FloatCmp.h">
-      <Filter>External\MathGeoLib</Filter>
-    </ClInclude>
-    <ClInclude Include="External\MathGeoLib\include\Math\FixedPoint.h">
-      <Filter>External\MathGeoLib</Filter>
-    </ClInclude>
-    <ClInclude Include="External\MathGeoLib\include\Math\float2.h">
-      <Filter>External\MathGeoLib</Filter>
-    </ClInclude>
-    <ClInclude Include="External\MathGeoLib\include\Math\float3.h">
-      <Filter>External\MathGeoLib</Filter>
-    </ClInclude>
-    <ClInclude Include="External\MathGeoLib\include\Math\float3x3.h">
-      <Filter>External\MathGeoLib</Filter>
-    </ClInclude>
-    <ClInclude Include="External\MathGeoLib\include\Math\float3x4.h">
-      <Filter>External\MathGeoLib</Filter>
-    </ClInclude>
-    <ClInclude Include="External\MathGeoLib\include\Math\float4.h">
-      <Filter>External\MathGeoLib</Filter>
-    </ClInclude>
-    <ClInclude Include="External\MathGeoLib\include\Math\float4_neon.h">
-      <Filter>External\MathGeoLib</Filter>
-    </ClInclude>
-    <ClInclude Include="External\MathGeoLib\include\Math\float4_sse.h">
-      <Filter>External\MathGeoLib</Filter>
-    </ClInclude>
-    <ClInclude Include="External\MathGeoLib\include\Math\float4x4.h">
-      <Filter>External\MathGeoLib</Filter>
-    </ClInclude>
-    <ClInclude Include="External\MathGeoLib\include\Math\float4x4_neon.h">
-      <Filter>External\MathGeoLib</Filter>
-    </ClInclude>
-    <ClInclude Include="External\MathGeoLib\include\Math\float4x4_sse.h">
-      <Filter>External\MathGeoLib</Filter>
-    </ClInclude>
-    <ClInclude Include="External\MathGeoLib\include\Math\CoordinateAxisConvention.h">
-      <Filter>External\MathGeoLib</Filter>
-    </ClInclude>
-    <ClInclude Include="External\imgui\imconfig.h">
-      <Filter>External\Imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="External\imgui\ImGuizmo\ImCurveEdit.h">
-      <Filter>External\Imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="External\imgui\ImGuizmo\ImGradient.h">
-      <Filter>External\Imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="External\imgui\imgui.h">
-      <Filter>External\Imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="External\imgui\imgui_impl_opengl3.h">
-      <Filter>External\Imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="External\imgui\imgui_impl_opengl3_loader.h">
-      <Filter>External\Imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="External\imgui\imgui_impl_sdl.h">
-      <Filter>External\Imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="External\imgui\include\imgui_impl_sdl.h">
-      <Filter>External\Imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="External\imgui\imgui_internal.h">
-      <Filter>External\Imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="External\imgui\ImGuizmo\ImGuizmo.h">
-      <Filter>External\Imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="External\imgui\ImGuizmo\ImSequencer.h">
-      <Filter>External\Imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="External\imgui\imstb_rectpack.h">
-      <Filter>External\Imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="External\imgui\imstb_textedit.h">
-      <Filter>External\Imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="External\imgui\imstb_truetype.h">
-      <Filter>External\Imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="External\MathGeoLib\include\Math\MathAll.h">
-      <Filter>External\MathGeoLib</Filter>
-    </ClInclude>
-    <ClInclude Include="External\MathGeoLib\include\MathBuildConfig.h">
-      <Filter>External\MathGeoLib</Filter>
-    </ClInclude>
-    <ClInclude Include="External\MathGeoLib\include\Math\MathConstants.h">
-      <Filter>External\MathGeoLib</Filter>
-    </ClInclude>
-    <ClInclude Include="External\MathGeoLib\include\Math\MathFunc.h">
-      <Filter>External\MathGeoLib</Filter>
-    </ClInclude>
-    <ClInclude Include="External\MathGeoLib\include\MathGeoLib.h">
-      <Filter>External\MathGeoLib</Filter>
-    </ClInclude>
-    <ClInclude Include="External\MathGeoLib\include\MathGeoLibFwd.h">
-      <Filter>External\MathGeoLib</Filter>
-    </ClInclude>
-    <ClInclude Include="External\MathGeoLib\include\Math\MathLog.h">
-      <Filter>External\MathGeoLib</Filter>
-    </ClInclude>
-    <ClInclude Include="External\MathGeoLib\include\Math\MathNamespace.h">
-      <Filter>External\MathGeoLib</Filter>
-    </ClInclude>
-    <ClInclude Include="External\MathGeoLib\include\Math\MathTypes.h">
-      <Filter>External\MathGeoLib</Filter>
-    </ClInclude>
-    <ClInclude Include="External\MathGeoLib\include\Math\MatrixProxy.h">
-      <Filter>External\MathGeoLib</Filter>
-    </ClInclude>
-    <ClInclude Include="External\MathGeoLib\include\Geometry\Cylinder.h">
-      <Filter>External\MathGeoLib</Filter>
-    </ClInclude>
     <ClInclude Include="CycleArray.hpp">
       <Filter>Utils</Filter>
     </ClInclude>
     <ClInclude Include="FileTree.hpp">
       <Filter>Utils</Filter>
     </ClInclude>
-    <ClInclude Include="External\MathGeoLib\include\Geometry\HitInfo.h">
-      <Filter>External\MathGeoLib</Filter>
-    </ClInclude>
-    <ClInclude Include="External\MathGeoLib\include\Geometry\KDTree.h">
-      <Filter>External\MathGeoLib</Filter>
-    </ClInclude>
     <ClInclude Include="ImGuiUtils.h">
       <Filter>Utils</Filter>
-    </ClInclude>
-    <ClInclude Include="External\imgui\ImGuizmo\GraphEditor.h">
-      <Filter>External\Imgui</Filter>
     </ClInclude>
     <ClInclude Include="ImWindow.h">
       <Filter>Modules\Layers\WIndows</Filter>
@@ -524,69 +374,6 @@
     </ClInclude>
     <ClInclude Include="ImWindowScene.h">
       <Filter>Modules\Layers\WIndows</Filter>
-    </ClInclude>
-    <ClInclude Include="External\imgui\ImGuizmo\ImZoomSlider.h">
-      <Filter>External\Imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="External\MathGeoLib\include\Geometry\LineSegment.h">
-      <Filter>External\MathGeoLib</Filter>
-    </ClInclude>
-    <ClInclude Include="External\MathGeoLib\include\Geometry\Line.h">
-      <Filter>External\MathGeoLib</Filter>
-    </ClInclude>
-    <ClInclude Include="External\MathGeoLib\include\Algorithm\Random\LCG.h">
-      <Filter>External\MathGeoLib</Filter>
-    </ClInclude>
-    <ClInclude Include="External\MathGeoLib\include\Geometry\GeomType.h">
-      <Filter>External\MathGeoLib</Filter>
-    </ClInclude>
-    <ClInclude Include="External\MathGeoLib\include\Geometry\GeometryAll.h">
-      <Filter>External\MathGeoLib</Filter>
-    </ClInclude>
-    <ClInclude Include="External\mmgr\nommgr.h">
-      <Filter>External\mmgr</Filter>
-    </ClInclude>
-    <ClInclude Include="External\MathGeoLib\include\Math\Polynomial.h">
-      <Filter>External\MathGeoLib</Filter>
-    </ClInclude>
-    <ClInclude Include="External\MathGeoLib\include\Geometry\Polyhedron.h">
-      <Filter>External\MathGeoLib</Filter>
-    </ClInclude>
-    <ClInclude Include="External\MathGeoLib\include\Geometry\Polygon.h">
-      <Filter>External\MathGeoLib</Filter>
-    </ClInclude>
-    <ClInclude Include="External\MathGeoLib\include\Geometry\Plane.h">
-      <Filter>External\MathGeoLib</Filter>
-    </ClInclude>
-    <ClInclude Include="External\MathGeoLib\include\Geometry\PBVolume.h">
-      <Filter>External\MathGeoLib</Filter>
-    </ClInclude>
-    <ClInclude Include="External\MathGeoLib\include\Geometry\OBB.h">
-      <Filter>External\MathGeoLib</Filter>
-    </ClInclude>
-    <ClInclude Include="External\MathGeoLib\include\Math\myassert.h">
-      <Filter>External\MathGeoLib</Filter>
-    </ClInclude>
-    <ClInclude Include="External\mmgr\mmgr.h">
-      <Filter>External\mmgr</Filter>
-    </ClInclude>
-    <ClInclude Include="External\MathGeoLib\include\Math\TransformOps.h">
-      <Filter>External\MathGeoLib</Filter>
-    </ClInclude>
-    <ClInclude Include="External\MathGeoLib\include\Geometry\Triangle.h">
-      <Filter>External\MathGeoLib</Filter>
-    </ClInclude>
-    <ClInclude Include="External\MathGeoLib\include\Geometry\TriangleMesh.h">
-      <Filter>External\MathGeoLib</Filter>
-    </ClInclude>
-    <ClInclude Include="External\MathGeoLib\include\Math\SSEMath.h">
-      <Filter>External\MathGeoLib</Filter>
-    </ClInclude>
-    <ClInclude Include="External\MathGeoLib\include\Geometry\Sphere.h">
-      <Filter>External\MathGeoLib</Filter>
-    </ClInclude>
-    <ClInclude Include="External\MathGeoLib\include\Math\sse_mathfun.h">
-      <Filter>External\MathGeoLib</Filter>
     </ClInclude>
     <ClInclude Include="Module.h">
       <Filter>Modules</Filter>
@@ -648,23 +435,8 @@
     <ClInclude Include="LayerGame.h">
       <Filter>Modules\Layers</Filter>
     </ClInclude>
-    <ClInclude Include="External\PugiXml\src\pugiconfig.hpp">
-      <Filter>External\PugiXml</Filter>
-    </ClInclude>
-    <ClInclude Include="External\PugiXml\src\pugixml.hpp">
-      <Filter>External\PugiXml</Filter>
-    </ClInclude>
     <ClInclude Include="resource.h">
       <Filter>Resources</Filter>
-    </ClInclude>
-    <ClInclude Include="External\MathGeoLib\include\Math\quat_simd.h">
-      <Filter>External\MathGeoLib</Filter>
-    </ClInclude>
-    <ClInclude Include="External\MathGeoLib\include\Math\Quat.h">
-      <Filter>External\MathGeoLib</Filter>
-    </ClInclude>
-    <ClInclude Include="External\MathGeoLib\include\Geometry\QuadTree.h">
-      <Filter>External\MathGeoLib</Filter>
     </ClInclude>
     <ClInclude Include="Console.h">
       <Filter>Utils</Filter>
@@ -693,15 +465,6 @@
     <ClInclude Include="QuickSave.h">
       <Filter>Utils</Filter>
     </ClInclude>
-    <ClInclude Include="External\MathGeoLib\include\Math\Reinterpret.h">
-      <Filter>External\MathGeoLib</Filter>
-    </ClInclude>
-    <ClInclude Include="External\MathGeoLib\include\Math\Rect.h">
-      <Filter>External\MathGeoLib</Filter>
-    </ClInclude>
-    <ClInclude Include="External\MathGeoLib\include\Geometry\Ray.h">
-      <Filter>External\MathGeoLib</Filter>
-    </ClInclude>
     <ClInclude Include="Shader.h">
       <Filter>Other</Filter>
     </ClInclude>
@@ -710,9 +473,6 @@
     </ClInclude>
     <ClInclude Include="Timer.hpp">
       <Filter>Utils</Filter>
-    </ClInclude>
-    <ClInclude Include="External\MathGeoLib\include\Geometry\Frustum.h">
-      <Filter>External\MathGeoLib</Filter>
     </ClInclude>
     <ClInclude Include="RenderManager.h">
       <Filter>Managers</Filter>
@@ -750,35 +510,243 @@
     <ClInclude Include="XMLNode.h">
       <Filter>Modules\ModuleXML</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="External\MathGeoLib\include\Math\Matrix.inl">
-      <Filter>External\MathGeoLib</Filter>
-    </None>
-    <None Include="External\imgui\vulkan\generate_spv.sh">
+    <ClInclude Include="..\External\imgui\imconfig.h">
       <Filter>External\Imgui</Filter>
-    </None>
-    <None Include="External\imgui\vulkan\glsl_shader.vert">
+    </ClInclude>
+    <ClInclude Include="..\External\imgui\imgui.h">
       <Filter>External\Imgui</Filter>
-    </None>
-    <None Include="External\imgui\vulkan\glsl_shader.frag">
+    </ClInclude>
+    <ClInclude Include="..\External\imgui\imgui_impl_opengl3.h">
       <Filter>External\Imgui</Filter>
-    </None>
-    <None Include="External\MathGeoLib\include\Geometry\KDTree.inl">
+    </ClInclude>
+    <ClInclude Include="..\External\imgui\imgui_impl_opengl3_loader.h">
+      <Filter>External\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\imgui\imgui_impl_sdl.h">
+      <Filter>External\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\imgui\imgui_internal.h">
+      <Filter>External\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\imgui\imstb_rectpack.h">
+      <Filter>External\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\imgui\imstb_textedit.h">
+      <Filter>External\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\imgui\imstb_truetype.h">
+      <Filter>External\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\imgui\ImGuizmo\GraphEditor.h">
+      <Filter>External\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\imgui\ImGuizmo\ImCurveEdit.h">
+      <Filter>External\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\imgui\ImGuizmo\ImGradient.h">
+      <Filter>External\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\imgui\ImGuizmo\ImGuizmo.h">
+      <Filter>External\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\imgui\ImGuizmo\ImSequencer.h">
+      <Filter>External\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\imgui\ImGuizmo\ImZoomSlider.h">
+      <Filter>External\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\MathGeoLib\include\MathBuildConfig.h">
       <Filter>External\MathGeoLib</Filter>
-    </None>
-    <None Include="External\MathGeoLib\include\Geometry\TriangleMesh_IntersectRay_AVX.inl">
+    </ClInclude>
+    <ClInclude Include="..\External\MathGeoLib\include\MathGeoLib.h">
       <Filter>External\MathGeoLib</Filter>
-    </None>
-    <None Include="External\MathGeoLib\include\Geometry\TriangleMesh_IntersectRay_CPP.inl">
+    </ClInclude>
+    <ClInclude Include="..\External\MathGeoLib\include\MathGeoLibFwd.h">
       <Filter>External\MathGeoLib</Filter>
-    </None>
-    <None Include="External\MathGeoLib\include\Geometry\TriangleMesh_IntersectRay_SSE.inl">
+    </ClInclude>
+    <ClInclude Include="..\External\MathGeoLib\include\Algorithm\Random\LCG.h">
       <Filter>External\MathGeoLib</Filter>
-    </None>
-    <None Include="External\MathGeoLib\include\Geometry\QuadTree.inl">
+    </ClInclude>
+    <ClInclude Include="..\External\MathGeoLib\include\Geometry\AABB.h">
       <Filter>External\MathGeoLib</Filter>
-    </None>
+    </ClInclude>
+    <ClInclude Include="..\External\MathGeoLib\include\Geometry\AABB2D.h">
+      <Filter>External\MathGeoLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\MathGeoLib\include\Geometry\Capsule.h">
+      <Filter>External\MathGeoLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\MathGeoLib\include\Geometry\Circle.h">
+      <Filter>External\MathGeoLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\MathGeoLib\include\Geometry\Cone.h">
+      <Filter>External\MathGeoLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\MathGeoLib\include\Geometry\Cylinder.h">
+      <Filter>External\MathGeoLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\MathGeoLib\include\Geometry\Frustum.h">
+      <Filter>External\MathGeoLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\MathGeoLib\include\Geometry\GeometryAll.h">
+      <Filter>External\MathGeoLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\MathGeoLib\include\Geometry\GeomType.h">
+      <Filter>External\MathGeoLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\MathGeoLib\include\Geometry\HitInfo.h">
+      <Filter>External\MathGeoLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\MathGeoLib\include\Geometry\KDTree.h">
+      <Filter>External\MathGeoLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\MathGeoLib\include\Geometry\Line.h">
+      <Filter>External\MathGeoLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\MathGeoLib\include\Geometry\LineSegment.h">
+      <Filter>External\MathGeoLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\MathGeoLib\include\Geometry\OBB.h">
+      <Filter>External\MathGeoLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\MathGeoLib\include\Geometry\PBVolume.h">
+      <Filter>External\MathGeoLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\MathGeoLib\include\Geometry\Plane.h">
+      <Filter>External\MathGeoLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\MathGeoLib\include\Geometry\Polygon.h">
+      <Filter>External\MathGeoLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\MathGeoLib\include\Geometry\Polyhedron.h">
+      <Filter>External\MathGeoLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\MathGeoLib\include\Geometry\QuadTree.h">
+      <Filter>External\MathGeoLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\MathGeoLib\include\Geometry\Ray.h">
+      <Filter>External\MathGeoLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\MathGeoLib\include\Geometry\Sphere.h">
+      <Filter>External\MathGeoLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\MathGeoLib\include\Geometry\Triangle.h">
+      <Filter>External\MathGeoLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\MathGeoLib\include\Geometry\TriangleMesh.h">
+      <Filter>External\MathGeoLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\MathGeoLib\include\Math\assume.h">
+      <Filter>External\MathGeoLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\MathGeoLib\include\Math\BitOps.h">
+      <Filter>External\MathGeoLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\MathGeoLib\include\Math\Complex.h">
+      <Filter>External\MathGeoLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\MathGeoLib\include\Math\CoordinateAxisConvention.h">
+      <Filter>External\MathGeoLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\MathGeoLib\include\Math\FixedPoint.h">
+      <Filter>External\MathGeoLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\MathGeoLib\include\Math\float2.h">
+      <Filter>External\MathGeoLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\MathGeoLib\include\Math\float3.h">
+      <Filter>External\MathGeoLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\MathGeoLib\include\Math\float3x3.h">
+      <Filter>External\MathGeoLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\MathGeoLib\include\Math\float3x4.h">
+      <Filter>External\MathGeoLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\MathGeoLib\include\Math\float4.h">
+      <Filter>External\MathGeoLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\MathGeoLib\include\Math\float4_neon.h">
+      <Filter>External\MathGeoLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\MathGeoLib\include\Math\float4_sse.h">
+      <Filter>External\MathGeoLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\MathGeoLib\include\Math\float4x4.h">
+      <Filter>External\MathGeoLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\MathGeoLib\include\Math\float4x4_neon.h">
+      <Filter>External\MathGeoLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\MathGeoLib\include\Math\float4x4_sse.h">
+      <Filter>External\MathGeoLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\MathGeoLib\include\Math\FloatCmp.h">
+      <Filter>External\MathGeoLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\MathGeoLib\include\Math\MathAll.h">
+      <Filter>External\MathGeoLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\MathGeoLib\include\Math\MathConstants.h">
+      <Filter>External\MathGeoLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\MathGeoLib\include\Math\MathFunc.h">
+      <Filter>External\MathGeoLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\MathGeoLib\include\Math\MathLog.h">
+      <Filter>External\MathGeoLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\MathGeoLib\include\Math\MathNamespace.h">
+      <Filter>External\MathGeoLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\MathGeoLib\include\Math\MathTypes.h">
+      <Filter>External\MathGeoLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\MathGeoLib\include\Math\MatrixProxy.h">
+      <Filter>External\MathGeoLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\MathGeoLib\include\Math\myassert.h">
+      <Filter>External\MathGeoLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\MathGeoLib\include\Math\Polynomial.h">
+      <Filter>External\MathGeoLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\MathGeoLib\include\Math\Quat.h">
+      <Filter>External\MathGeoLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\MathGeoLib\include\Math\quat_simd.h">
+      <Filter>External\MathGeoLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\MathGeoLib\include\Math\Rect.h">
+      <Filter>External\MathGeoLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\MathGeoLib\include\Math\Reinterpret.h">
+      <Filter>External\MathGeoLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\MathGeoLib\include\Math\sse_mathfun.h">
+      <Filter>External\MathGeoLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\MathGeoLib\include\Math\SSEMath.h">
+      <Filter>External\MathGeoLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\MathGeoLib\include\Math\TransformOps.h">
+      <Filter>External\MathGeoLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\MathGeoLib\include\Time\Clock.h">
+      <Filter>External\MathGeoLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\mmgr\mmgr.h">
+      <Filter>External\mmgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\mmgr\nommgr.h">
+      <Filter>External\mmgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\PugiXml\src\pugiconfig.hpp">
+      <Filter>External\PugiXml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\External\PugiXml\src\pugixml.hpp">
+      <Filter>External\PugiXml</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="External">
@@ -845,5 +813,25 @@
     <Image Include="..\Output\Resources\icon.ico">
       <Filter>Resources</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\External\MathGeoLib\include\Geometry\KDTree.inl">
+      <Filter>External\MathGeoLib</Filter>
+    </None>
+    <None Include="..\External\MathGeoLib\include\Geometry\QuadTree.inl">
+      <Filter>External\MathGeoLib</Filter>
+    </None>
+    <None Include="..\External\MathGeoLib\include\Geometry\TriangleMesh_IntersectRay_AVX.inl">
+      <Filter>External\MathGeoLib</Filter>
+    </None>
+    <None Include="..\External\MathGeoLib\include\Geometry\TriangleMesh_IntersectRay_CPP.inl">
+      <Filter>External\MathGeoLib</Filter>
+    </None>
+    <None Include="..\External\MathGeoLib\include\Geometry\TriangleMesh_IntersectRay_SSE.inl">
+      <Filter>External\MathGeoLib</Filter>
+    </None>
+    <None Include="..\External\MathGeoLib\include\Math\Matrix.inl">
+      <Filter>External\MathGeoLib</Filter>
+    </None>
   </ItemGroup>
 </Project>
