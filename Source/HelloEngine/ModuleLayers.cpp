@@ -26,6 +26,9 @@ bool ModuleLayers::Init()
 
 bool ModuleLayers::Start()
 {
+    //TEMPORAL!!
+    testClass.Start();
+
     // Create Root GameObject (Scene)
 
     XMLNode sceneXML = Application::Instance()->xml->GetConfigXML();

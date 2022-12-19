@@ -39,6 +39,10 @@ void log(const char file[], int line, const char* format, ...);
 		}							\
 	}
 
+// to use with the HelloAPI project
+#define EXPORT_API __declspec(dllexport)
+
+
 template <class VALUE_TYPE> void SWAP(VALUE_TYPE& a, VALUE_TYPE& b)
 {
 	VALUE_TYPE tmp = a;

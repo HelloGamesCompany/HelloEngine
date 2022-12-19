@@ -13,9 +13,9 @@ namespace Htool
 
 using CArrayS = Htool::CycleArray<std::string>;
 
-namespace Engine
+extern "C"
 {
-	class Console
+	class EXPORT_API Console
 	{
 	public:
 		static void S_Init();
@@ -46,3 +46,9 @@ namespace Engine
 		static size_t _logCount;
 	};
 }
+
+
+	
+
+
+

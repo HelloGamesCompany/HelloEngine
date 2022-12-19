@@ -316,6 +316,7 @@
     <ClCompile Include="..\External\PugiXml\src\pugixml.cpp">
       <Filter>External\PugiXml</Filter>
     </ClCompile>
+    <ClCompile Include="GetFunctionTest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">

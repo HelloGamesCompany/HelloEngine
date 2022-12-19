@@ -1,7 +1,5 @@
 #pragma once
 
-using namespace Engine;
-
 namespace Htool
 {
 	template<class T>
