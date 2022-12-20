@@ -1,7 +1,7 @@
 #pragma once
 #include "Macro.h"
 
-class HELLO_ENGINE_API TestClass
+class HELLO_ENGINE_API TestClass 
 {
 public:
 

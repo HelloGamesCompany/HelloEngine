@@ -13,12 +13,21 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Scripts">
+      <UniqueIdentifier>{965e8be6-78e5-4a3d-a5f4-a61d6259a350}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CSL.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="Test.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="ScriptCreator.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="newScript.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
@@ -33,6 +42,9 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="Test.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="ScriptCreator.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

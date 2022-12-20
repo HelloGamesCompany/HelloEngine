@@ -13,36 +13,42 @@ namespace Htool
 
 using CArrayS = Htool::CycleArray<std::string>;
 
-class TO_API Console
+namespace Engine
 {
-public:
-	static void S_Init();
+	class TO_API Console
+	{
+	public:
 
-	static void S_Close();
+		static void S_Init();
 
-	static void S_Log(const std::string text);
+		static void S_Close();
 
-	static uint S_GetLog(std::string** buffer);
+		static void S_Log(const std::string text);
 
-	static std::map<std::string, uint> S_GetCollapseLog();
+		static uint S_GetLog(std::string** buffer);
 
-	static std::string S_GetLastLog();
+		static std::map<std::string, uint> S_GetCollapseLog();
 
-	static const char* S_GetLogCounts();
+		static std::string S_GetLastLog();
 
-	static void S_ClearLog();
+		static const char* S_GetLogCounts();
 
-	static void S_SaveLog();
+		static void S_ClearLog();
 
-private:
-	static CArrayS* _buffers;
+		static void S_SaveLog();
 
-	static std::map<std::string, uint> _buffersMap;
+	private:
+		static CArrayS* _buffers;
 
-	static std::string _logCountText;
+		static std::map<std::string, uint> _buffersMap;
 
-	static size_t _logCount;
-};
+		static std::string _logCountText;
+
+		static size_t _logCount;
+	};
+}
+
+
 
 
 

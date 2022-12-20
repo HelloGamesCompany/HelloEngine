@@ -4,6 +4,6 @@
 
 void API::CSL::Log(const std::string text)
 {
-	Console::S_Log(text);
+	Engine::Console::S_Log(text);
 }
 
