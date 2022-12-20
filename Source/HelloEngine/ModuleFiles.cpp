@@ -638,6 +638,35 @@ bool ModuleFiles::S_UpdateMetaData(const std::string& file, const std::string& r
 	return true;
 }
 
+void ModuleFiles::CreateScriptFile(const std::string& fileName, const std::string& path)
+{
+	// Create the .h file with the given file name.
+	std::string headerContext =
+		"#include \"HelloBehavior.h\"\n";
+	headerContext += "class " + fileName + " : HelloBehavior" + "\n{\npublic:\nvoid Start() override; \n}";
+
+	std::string headerName = path + fileName + ".h";
+
+	std::ofstream headerFile(headerName);
+	headerFile << headerContext;
+	headerFile.close();
+
+	// Create the .cpp file
+	std::string sourceContext =
+		"void " + fileName + "::Start()" + "\n{\n\n}";
+
+	std::string sourceName = path + fileName + ".cpp";
+
+	std::ofstream sourceFile(sourceName);
+	sourceFile << sourceContext;
+	sourceFile.close();
+
+	// Update DLL solution project to include scripts
+	AddScriptToDLLSolution(headerName, false);
+	AddScriptToDLLSolution(sourceName, true);
+
+}
+
 void ModuleFiles::DeleteDirectoryRecursive(std::string directory)
 {
 	if(directory[directory.size()-1] != '/')
@@ -701,3 +730,29 @@ void ModuleFiles::CopyExternalDirectoryRecursive(const std::string& src, const s
 		S_ExternalCopy(tempSrc, newDes);
 	}
 }
+
+void ModuleFiles::AddScriptToDLLSolution(const std::string& filePath, bool isSource)
+{
+	// Save in project
+	XMLNode project = Application::Instance()->xml->OpenXML(DLL_PROJ_PATH);
+	std::string itemName = isSource ? "ClCompile" : "ClInclude";
+
+	pugi::xml_node itemGroupProj = project.FindChildBreadth("ItemGroup", isSource ? 1 : 2).node;
+
+	itemGroupProj.append_child(itemName.c_str()).append_attribute("Include").set_value(filePath.c_str());
+
+	project.Save(".vcxproj");
+
+	// Save in filters (doesnt seem to work but could be optional)
+	//XMLNode filters = Application::Instance()->xml->OpenXML(DLL_FILTERS_PATH);
+
+	//pugi::xml_node itemGroupFil = project.FindChildBreadth("ItemGroup", isSource ? 1 : 2).node;
+	//
+	//pugi::xml_node newItem = itemGroupFil.append_child(itemName.c_str());
+	//newItem.append_attribute("Include").set_value(filePath.c_str());
+
+	//newItem.append_child("Filter").set_value("Scripts");
+
+	//filters.Save(".filters");
+}
+

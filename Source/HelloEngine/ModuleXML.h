@@ -24,7 +24,7 @@ public:
 	/// </summary>
 	/// <param name="path"> : XML path</param>
 	/// <returns></returns>
-	XMLNode OpenXML(std::string path);
+	XMLNode OpenXML(std::string path, bool usingPhysFS = true);
 
 	XMLNode CreateXML(std::string filePath, std::string rootNodeName);
 

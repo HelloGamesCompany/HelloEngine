@@ -150,15 +150,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CSL.cpp" />
-    <ClCompile Include="ScriptCreator.cpp" />
+    <ClCompile Include="HelloBehavior.cpp" />
     <ClCompile Include="Test.cpp" />
-    <ClCompile Include="newScript.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CSL.h" />
+    <ClInclude Include="HelloBehavior.h" />
     <ClInclude Include="HelloEngine.h" />
     <ClInclude Include="Macro.h" />
-    <ClInclude Include="ScriptCreator.h" />
     <ClInclude Include="Test.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

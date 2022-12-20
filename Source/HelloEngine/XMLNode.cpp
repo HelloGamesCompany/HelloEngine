@@ -3,10 +3,10 @@
 #include "Application.h"
 #include "ModuleXML.h"
 
-XMLNode XMLNode::FindChildBreadth(std::string name)
+XMLNode XMLNode::FindChildBreadth(std::string name, uint count)
 {
 	XMLNode ret = *this;
-
+	uint currentCount = 0;
 	// First search. This will only look into the current node children, and won't look into the next sibling's children.
 	pugi::xml_node n;
 
@@ -24,12 +24,17 @@ XMLNode XMLNode::FindChildBreadth(std::string name)
 		std::string nodeName = n.name();
 		if (nodeName == name)
 		{
-			ret.node = n;
-			return ret;
+			if (count > currentCount)
+				currentCount++;
+			else
+			{
+				ret.node = n;
+				return ret;
+			}
 		}
 	}
 
-	return FindChildBreadthRecursive(firstQueue, name);
+	return FindChildBreadthRecursive(firstQueue, name, count, currentCount);
 }
 
 XMLNode XMLNode::FindChildDepth(std::string name)
@@ -52,7 +57,7 @@ XMLNode XMLNode::FindChildDepth(std::string name)
 
 }
 
-XMLNode XMLNode::FindChildBreadthRecursive(std::queue<pugi::xml_node> q, std::string name)
+XMLNode XMLNode::FindChildBreadthRecursive(std::queue<pugi::xml_node> q, std::string name, uint count, uint currentCount)
 {
 	std::queue<pugi::xml_node> nextQueue; // the queue data structure that is going to be passed to the next function.
 
@@ -71,8 +76,11 @@ XMLNode XMLNode::FindChildBreadthRecursive(std::queue<pugi::xml_node> q, std::st
 			std::string nodeName = n.name();
 			if (nodeName == name) // Check every child of the current node 
 			{
-				ret.node = n; // If it is the correct child, return the XMLNode changing the current node.
-				return ret;
+				if (currentCount++ == count)
+				{
+					ret.node = n; // If it is the correct child, return the XMLNode changing the current node.
+					return ret;
+				}
 			}
 			if (n.first_child()) nextQueue.push(n.first_child()); // Save first child for the next recursive function.
 		}
@@ -80,11 +88,11 @@ XMLNode XMLNode::FindChildBreadthRecursive(std::queue<pugi::xml_node> q, std::st
 
 	if (nextQueue.empty()) // If the next queue is empty and we didn't return any child, log an error and return a copy of the first node.
 	{
-		LOG("XMLNode ERROR: The child of name %s was not found.", name.c_str());
+		LOG("XMLNode ERROR: The child of name %s was not found. Count: %d of %d", name.c_str(), currentCount, count);
 		return ret;
 	}
 
-	return FindChildBreadthRecursive(nextQueue, name);	// If the queue is not empty, we look into the next layer of children
+	return FindChildBreadthRecursive(nextQueue, name, count, currentCount);	// If the queue is not empty, we look into the next layer of children
 }
 
 XMLNode XMLNode::FindChildDepthRecursive(pugi::xml_node node, std::string name, bool& foundTarget)

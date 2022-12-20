@@ -21,7 +21,7 @@ bool ModuleXML::Init()
 	return true;
 }
 
-XMLNode ModuleXML::OpenXML(std::string path)
+XMLNode ModuleXML::OpenXML(std::string path, bool usingPhysFS)
 {
 	XMLNode ret;
 
@@ -39,19 +39,25 @@ XMLNode ModuleXML::OpenXML(std::string path)
 
 	pugi::xml_document* d = new pugi::xml_document();
 
-	EncryptDecryptXML(path, false);
+	//EncryptDecryptXML(path, false);
 
+	pugi::xml_parse_result result;
 	const char* cPath = path.c_str();
 
-	char* buf = nullptr;
+	if (usingPhysFS)
+	{
+		char* buf = nullptr;
 
-	uint bufSize = ModuleFiles::S_Load(path, &buf);
+		uint bufSize = ModuleFiles::S_Load(path, &buf);
 
-	// Old manner, 
-	//pugi::xml_parse_result result = d->load_file(cPath);
-
-	pugi::xml_parse_result result = d->load_buffer(buf, bufSize);
-
+		result = d->load_buffer(buf, bufSize);
+		RELEASE(buf);
+	}
+	else
+	{
+		pugi::xml_parse_result result = d->load_file(cPath);
+	}
+	
 	if (result == NULL)
 	{
 		LOG("Could not load xml file: %s. pugi error: %s", path.c_str(), result.description());
@@ -71,8 +77,6 @@ XMLNode ModuleXML::OpenXML(std::string path)
 	ret.node = n;
 
 	ret.xmlFile = xmlFiles.size()-1; // Uint that points to the index of the xml_document inside xmlFiles vector.
-
-	RELEASE(buf);
 
 	return ret;
 }

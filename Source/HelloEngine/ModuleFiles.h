@@ -10,6 +10,8 @@ class Directory;
 #define ASSETS_NAME "Assets"
 #define RESOURCE_PATH "Resources/"
 #define RESOURCE_NAME "Resources"
+#define DLL_PROJ_PATH "Assets/HelloAPI.vcxproj"
+#define DLL_FILTERS_PATH "Assets/HelloAPI.vcxproj.filters"
 
 enum class ResourceType
 {
@@ -144,6 +146,8 @@ public:
 
 	static bool S_UpdateMetaData(const std::string& file, const std::string& resourcePath);
 
+	static void CreateScriptFile(const std::string& fileName, const std::string& path);
+
 private:
 
 	/// <summary>
@@ -155,6 +159,8 @@ private:
 	static void DeleteDirectoryRecursive(std::string directory);
 
 	static void CopyExternalDirectoryRecursive(const std::string& src, const std::string& des);
+
+	static void AddScriptToDLLSolution(const std::string& filePath, bool isSource);
 };
 
 #endif // !__MODULE_PHYSFS_H__

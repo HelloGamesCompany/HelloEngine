@@ -24,10 +24,7 @@
     <ClCompile Include="Test.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="ScriptCreator.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="newScript.cpp">
+    <ClCompile Include="HelloBehavior.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
@@ -44,7 +41,7 @@
     <ClInclude Include="Test.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="ScriptCreator.h">
+    <ClInclude Include="HelloBehavior.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

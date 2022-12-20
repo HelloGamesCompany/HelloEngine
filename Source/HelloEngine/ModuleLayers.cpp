@@ -28,6 +28,7 @@ bool ModuleLayers::Start()
 {
     //TEMPORAL!!
     testClass.Start();
+    ModuleFiles::CreateScriptFile("NewScript", "Assets/Scripts/");
 
     // Create Root GameObject (Scene)
 

@@ -15,7 +15,7 @@ public:
 	/// </summary>
 	/// <param name="name">Child name</param>
 	/// <returns></returns>
-	XMLNode FindChildBreadth(std::string name);
+	XMLNode FindChildBreadth(std::string name, uint count = 0);
 
 	XMLNode FindChildDepth(std::string name);
 
@@ -33,7 +33,7 @@ public:
 
 private:
 
-	XMLNode FindChildBreadthRecursive(std::queue<pugi::xml_node> q, std::string name);
+	XMLNode FindChildBreadthRecursive(std::queue<pugi::xml_node> q, std::string name, uint count = 0, uint currentCount = 0);
 
 	XMLNode FindChildDepthRecursive(pugi::xml_node node, std::string name, bool& condition);
 
