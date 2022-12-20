@@ -7,7 +7,7 @@ TestClass::TestClass()
 
 void TestClass::Start()
 {
-	API::CSL::Log("Start!");
+	API::CSL::Log("Start! From DLL!!");
 }
 
 void TestClass::Test()

@@ -436,6 +436,7 @@
     <ClInclude Include="File_Model.h" />
     <ClInclude Include="FrameBuffer.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="GetFunctionTest.h" />
     <ClInclude Include="Headers.h" />
     <ClInclude Include="ImGuiUtils.h" />
     <ClInclude Include="ImWindowGame.h" />

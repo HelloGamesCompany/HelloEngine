@@ -1,15 +1,7 @@
 #include "Headers.h"
+#include "GetFunctionTest.h"
 
-
-class __declspec(dllexport) GetFunctionTest
+void FromEXE::TestFunction()
 {
-public:
-	void TestFunction()
-	{
-		printf("Test success!");
-	}
-
-};
-
-
-
+	printf("Test success!");
+}

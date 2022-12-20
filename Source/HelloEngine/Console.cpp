@@ -25,23 +25,18 @@ void Console::S_Close()
     RELEASE(_buffers);
 }
 
-extern "C"
+void Console::S_Log(const std::string text)
 {
-    __declspec(dllexport) void Console::S_Log(const std::string text)
-    {
-        _buffers->push_back("\nDebug.Log: " + text);
+    _buffers->push_back("\nDebug.Log: " + text);
 
-        auto it = _buffersMap.find(text);
+    auto it = _buffersMap.find(text);
 
-        if (it == _buffersMap.end()) _buffersMap.insert(std::make_pair(text, 0));
+    if (it == _buffersMap.end()) _buffersMap.insert(std::make_pair(text, 0));
 
-        _buffersMap[text]++;
+    _buffersMap[text]++;
 
-        _logCount++;
-    }
+    _logCount++;
 }
-
-
 
 uint Console::S_GetLog(std::string** buffer)
 {
