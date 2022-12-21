@@ -2,5 +2,5 @@
 class NewScript : HelloBehavior
 {
 public:
-void Start() override; 
-}
+	void Start() override;
+};

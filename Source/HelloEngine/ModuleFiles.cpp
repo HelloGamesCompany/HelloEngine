@@ -643,9 +643,9 @@ void ModuleFiles::CreateScriptFile(const std::string& fileName, const std::strin
 	// Create the .h file with the given file name.
 	std::string headerContext =
 		"#include \"HelloBehavior.h\"\n";
-	headerContext += "class " + fileName + " : HelloBehavior" + "\n{\npublic:\nvoid Start() override; \n}";
+	headerContext += "class " + fileName + " : HelloBehavior" + "\n{\npublic:\nvoid Start() override; \n};";
 
-	std::string headerName = path + fileName + ".h";
+	std::string headerName = "../../" + path + fileName + ".h";
 
 	std::ofstream headerFile(headerName);
 	headerFile << headerContext;
@@ -655,7 +655,7 @@ void ModuleFiles::CreateScriptFile(const std::string& fileName, const std::strin
 	std::string sourceContext =
 		"void " + fileName + "::Start()" + "\n{\n\n}";
 
-	std::string sourceName = path + fileName + ".cpp";
+	std::string sourceName = "../../" + path + fileName + ".cpp";
 
 	std::ofstream sourceFile(sourceName);
 	sourceFile << sourceContext;

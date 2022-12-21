@@ -5,9 +5,9 @@ public:
 	HelloBehavior();
 	virtual ~HelloBehavior();
 
-	void Start();
+	virtual void Start();
 
-	void Update();
+	virtual void Update();
 
 };
 

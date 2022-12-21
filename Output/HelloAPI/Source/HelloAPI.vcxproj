@@ -70,13 +70,13 @@
 	<PropertyGroup Label="UserMacros" />
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
 		<LinkIncremental>true</LinkIncremental>
-		<OutDir>$(SolutionDir)Source\HelloAPI\bin\$(Configuration)</OutDir>
-		<IntDir>$(SolutionDir)Source\HelloAPI\bin-int\$(Configuration)</IntDir>
+		<OutDir>$(SolutionDir)Output\HelloAPI\bin\$(Configuration)</OutDir>
+		<IntDir>$(SolutionDir)Output\HelloAPI\bin-int\$(Configuration)</IntDir>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
 		<LinkIncremental>false</LinkIncremental>
-		<OutDir>$(SolutionDir)Source\HelloAPI\bin\$(Configuration)</OutDir>
-		<IntDir>$(SolutionDir)Source\HelloAPI\bin-int\$(Configuration)</IntDir>
+		<OutDir>$(SolutionDir)Output\HelloAPI\bin\$(Configuration)</OutDir>
+		<IntDir>$(SolutionDir)Output\HelloAPI\bin-int\$(Configuration)</IntDir>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
 		<LinkIncremental>true</LinkIncremental>
@@ -90,7 +90,7 @@
 			<SDLCheck>true</SDLCheck>
 			<PreprocessorDefinitions>WIN32;HELLO_ENGINE_EXPORTS;GET_FROM_API;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
 			<ConformanceMode>true</ConformanceMode>
-			<AdditionalIncludeDirectories>$(SolutionDir)Source\</AdditionalIncludeDirectories>
+			<AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)Source\</AdditionalIncludeDirectories>
 		</ClCompile>
 		<Link>
 			<SubSystem>Console</SubSystem>
@@ -107,7 +107,7 @@
 			<SDLCheck>true</SDLCheck>
 			<PreprocessorDefinitions>WIN32;HELLO_ENGINE_EXPORTS;GET_FROM_API;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
 			<ConformanceMode>true</ConformanceMode>
-			<AdditionalIncludeDirectories>$(SolutionDir)Source\</AdditionalIncludeDirectories>
+			<AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)Source\</AdditionalIncludeDirectories>
 		</ClCompile>
 		<Link>
 			<SubSystem>Console</SubSystem>
@@ -150,7 +150,7 @@
 		<ClCompile Include="CSL.cpp" />
 		<ClCompile Include="HelloBehavior.cpp" />
 		<ClCompile Include="Test.cpp" />
-		<ClCompile Include="Assets/Scripts/NewScript.cpp" />
+		<ClCompile Include="../../Assets/Scripts/NewScript.cpp" />
 	</ItemGroup>
 	<ItemGroup>
 		<ClInclude Include="CSL.h" />
@@ -158,11 +158,7 @@
 		<ClInclude Include="HelloEngine.h" />
 		<ClInclude Include="Macro.h" />
 		<ClInclude Include="Test.h" />
-		<ClInclude Include="Assets/Scripts/NewScript.h" />
-		<ClInclude Include="Assets/Scripts/NewScript.h" />
-		<ClInclude Include="Assets/Scripts/NewScript.h" />
-		<ClInclude Include="Assets/Scripts/NewScript.h" />
-		<ClInclude Include="Assets/Scripts/NewScript.h" />
+		<ClInclude Include="../../Assets/Scripts/NewScript.h" />
 	</ItemGroup>
 	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 	<ImportGroup Label="ExtensionTargets" />

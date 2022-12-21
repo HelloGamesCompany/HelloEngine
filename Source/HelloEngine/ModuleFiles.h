@@ -10,8 +10,8 @@ class Directory;
 #define ASSETS_NAME "Assets"
 #define RESOURCE_PATH "Resources/"
 #define RESOURCE_NAME "Resources"
-#define DLL_PROJ_PATH "Assets/HelloAPI.vcxproj"
-#define DLL_FILTERS_PATH "Assets/HelloAPI.vcxproj.filters"
+#define DLL_PROJ_PATH "HelloAPI/Source/HelloAPI.vcxproj"
+#define DLL_FILTERS_PATH "HelloAPI/Source/HelloAPI.vcxproj.filters"
 
 enum class ResourceType
 {
