@@ -747,7 +747,7 @@ void ModuleFiles::AddScriptToDLLSolution(const std::string& filePath, bool isSou
 	//XMLNode filters = Application::Instance()->xml->OpenXML(DLL_FILTERS_PATH);
 
 	//pugi::xml_node itemGroupFil = project.FindChildBreadth("ItemGroup", isSource ? 1 : 2).node;
-	//
+	
 	//pugi::xml_node newItem = itemGroupFil.append_child(itemName.c_str());
 	//newItem.append_attribute("Include").set_value(filePath.c_str());
 

@@ -1,4 +1,4 @@
-void NewScript::Start()
-{
-
-}
+//void NewScript::Start()
+//{
+//
+//}
