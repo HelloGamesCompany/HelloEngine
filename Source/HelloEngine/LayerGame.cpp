@@ -31,6 +31,11 @@ void LayerGame::PreUpdate()
 	// Update time.
 	Time::UpdateRealTime();
 	Time::UpdateGameTime();
+
+	for (auto& script : _scripts)
+	{
+		script.second->Update();
+	}
 }
 
 void LayerGame::Update()
@@ -51,6 +56,12 @@ void LayerGame::Play()
 	Time::Reset();
 	Time::Start();
 	_isPlaying = true;
+
+	for (auto& script : _scripts)
+	{
+		script.second->Start();
+	}
+
 	/*_paused = false;*/
 }
 
@@ -77,6 +88,19 @@ void LayerGame::OneFrame()
 	if (!_isPlaying || !_paused) return;
 	Time::Start();
 	_oneFrame = true;
+}
+
+void LayerGame::AddScript(uint UID, HelloBehavior* script)
+{
+	_scripts[UID] = script;
+}
+
+void LayerGame::DestroyScripts()
+{
+	for (auto& script : _scripts)
+	{
+		RELEASE(script.second);
+	}
 }
 
 void LayerGame::CleanUp()

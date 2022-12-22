@@ -2,8 +2,6 @@
 #include "Module.h"
 #include "Layer.h"
 #include "GameObject.h"
-// TEMPORAL!
-#include "Test.h"
 
 class LayerEditor;
 
@@ -41,9 +39,6 @@ public:
 	void RequestLoadScene(const std::string& scenePath);
 
 public:
-	//TEMPORAL!!
-	TestClass testClass;
-
 	Layer* layers[(uint)LayersID::MAX] = { nullptr };
 
 	GameObject* rootGameObject = nullptr;
