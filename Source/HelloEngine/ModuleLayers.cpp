@@ -53,8 +53,11 @@ bool ModuleLayers::Start()
         ModuleResourceManager::S_SerializeScene(rootGameObject);
     }
 
-    layers[(uint)LayersID::EDITOR] = editor = new LayerEditor();
+    layers[(uint)LayersID::EDITOR] = new LayerEditor();
     layers[(uint)LayersID::GAME] = new LayerGame();
+
+    game = (LayerGame*)layers[(uint)LayersID::GAME];
+    editor = (LayerEditor*)layers[(uint)LayersID::EDITOR];
 
     for (int i = 0; i < (uint)LayersID::MAX; i++)
     {

@@ -6,6 +6,8 @@
 // DLL-----
 #include "HelloBehavior.h"
 
+class ScriptComponent;
+
 class LayerGame : public Layer
 {
 public:
@@ -23,18 +25,21 @@ public:
 	void Pause();
 	void OneFrame();
 
-	void TO_API AddScript(uint UID, HelloBehavior* script);
+	void AddScriptComponent(ScriptComponent* component);
+	void RemoveScriptComponent(ScriptComponent* component);
 
-	// Should be called before reloading DLL.
-	void DestroyScripts();
+	void HotReload();
 
 	void CleanUp() override;
 private:
-	std::map<uint, HelloBehavior*> _scripts;
+	std::map<uint, HelloBehavior*> _behaviorScripts;
+	std::vector<ScriptComponent*> _scriptComponents;
 	bool _isPlaying = false;
 	bool _paused = false;
 	bool _update = false;
 	bool _oneFrame = false;
+	bool _reloadedDLL = false;
+	HMODULE dllFile;
 
 	friend class LayerEditor;
 };

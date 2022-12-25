@@ -4,6 +4,7 @@
 #include "GameObject.h"
 
 class LayerEditor;
+class LayerGame;
 
 enum LayersID
 {
@@ -40,6 +41,8 @@ public:
 
 public:
 	Layer* layers[(uint)LayersID::MAX] = { nullptr };
+
+	LayerGame* game = nullptr;
 
 	GameObject* rootGameObject = nullptr;
 

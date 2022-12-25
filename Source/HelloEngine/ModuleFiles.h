@@ -20,6 +20,7 @@ enum class ResourceType
 	TEXTURE,
 	MODEL,
 	SCENE,
+	SCRIPT,
 };
 
 struct MetaFile

@@ -129,8 +129,11 @@ void ModuleResourceManager::S_ReImportFile(const std::string& filePath, Resource
 		ModuleFiles::S_UpdateMetaData(filePath, path);
 	}
 	break;
-	default:
-		break;
+	case ResourceType::SCRIPT:
+	{
+		// Call Hot reload
+		Application::Instance()->layers->game->HotReload();
+	}
 	}
 
 	RELEASE_ARRAY(buffer);

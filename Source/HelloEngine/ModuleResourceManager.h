@@ -122,6 +122,14 @@ public:
 	uint IBO = 0;
 };
 
+class ResourceScript : Resource
+{
+public:
+	ResourceScript();
+
+	std::string className = "";
+};
+
 class ModuleResourceManager : public Module
 {
 public:

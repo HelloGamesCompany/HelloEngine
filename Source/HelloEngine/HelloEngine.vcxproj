@@ -92,7 +92,7 @@
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;MathGeoLib.lib;glew32.lib;HelloAPI.lib;glew32s.lib;opengl32.lib;physfs.lib;DevIL.lib;ILU.lib;ILUT.lib;%(AdditionalDependencies);assimp-vc142-mtd.lib</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /y "$(SolutionDir)\Output\HelloAPI\bin\Debug\HelloAPI.dll" "$(SolutionDir)\Output"</Command>
+      <Command>xcopy /y "$(SolutionDir)\Output\HelloAPI\bin\Release\HelloAPI.dll" "$(SolutionDir)\Output"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -336,6 +336,7 @@
     <ClCompile Include="QuickSave.cpp" />
     <ClCompile Include="InstanceRenderer.cpp" />
     <ClCompile Include="SceneCameraObject.cpp" />
+    <ClCompile Include="ScriptComponent.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TextureImporter.cpp" />
@@ -480,6 +481,7 @@
     <ClInclude Include="InstanceRenderer.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="SceneCameraObject.h" />
+    <ClInclude Include="ScriptComponent.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TextureImporter.h" />
