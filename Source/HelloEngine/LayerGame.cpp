@@ -18,6 +18,8 @@ LayerGame::LayerGame()
 	CreateFunc createTest = (CreateFunc)GetProcAddress(dllFile, "CreateTest");
 	_behaviorScripts[0] = (HelloBehavior*)createTest();
 
+	ModuleFiles::S_CreateScriptFile("NewScript", "Scripts/");
+
 }
 
 LayerGame::~LayerGame()

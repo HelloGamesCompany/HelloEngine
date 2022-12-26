@@ -640,24 +640,30 @@ bool ModuleFiles::S_UpdateMetaData(const std::string& file, const std::string& r
 
 void ModuleFiles::S_CreateScriptFile(const std::string& fileName, const std::string& path)
 {
+	if (S_CheckFileNameInDLL(fileName))
+	{
+		Console::S_Log("Invalid name: A class with the given name: " + fileName + " alredy exists inside the DLL project.");
+		return;
+	}
+
 	// Create the .h file with the given file name.
 	std::string headerContext =
-		"#include \"HelloBehavior.h\"\n";
-	headerContext += "class " + fileName + " : HelloBehavior" + "\n{\npublic:\nvoid Start() override; \n};";
+		"#include \"HelloEngine/HelloBehavior.h\"\n";
+	headerContext += "class " + fileName + " : HelloBehavior" + "\n{\npublic:\nvoid Start() override; \nvoid Update() override;\n};";
 
-	std::string headerName = "../../" + path + fileName + ".h";
+	std::string headerName = "../../Assets/" + path + fileName + ".h";
 
-	std::ofstream headerFile(headerName);
+	std::ofstream headerFile("Assets/" +path + fileName + ".h");
 	headerFile << headerContext;
 	headerFile.close();
 
 	// Create the .cpp file
 	std::string sourceContext =
-		"void " + fileName + "::Start()" + "\n{\n\n}";
+		"#include \"" + fileName + ".h\"\n" + "void " + fileName + "::Start()" + "\n{\n\n}\n" + "void " + fileName + "::Update()" + "\n{\n\n}";
 
-	std::string sourceName = "../../" + path + fileName + ".cpp";
+	std::string sourceName = "../../Assets/" + path + fileName + ".cpp";
 
-	std::ofstream sourceFile(sourceName);
+	std::ofstream sourceFile("Assets/" + path + fileName + ".cpp");
 	sourceFile << sourceContext;
 	sourceFile.close();
 
