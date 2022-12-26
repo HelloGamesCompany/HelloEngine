@@ -319,6 +319,7 @@
     <ClCompile Include="ScriptComponent.cpp">
       <Filter>GameObject\Components</Filter>
     </ClCompile>
+    <ClCompile Include="HelloBehavior.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -753,6 +754,7 @@
     <ClInclude Include="ScriptComponent.h">
       <Filter>GameObject\Components</Filter>
     </ClInclude>
+    <ClInclude Include="HelloBehavior.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="External">

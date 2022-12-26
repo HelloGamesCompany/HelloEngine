@@ -7,9 +7,12 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HelloAPI", "Source\HelloAPI
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A5A13813-DB02-41B7-BBB2-42B51AE43A1C}.Debug|x86.ActiveCfg = Debug|Win32
+		{A5A13813-DB02-41B7-BBB2-42B51AE43A1C}.Debug|x86.Build.0 = Debug|Win32
 		{A5A13813-DB02-41B7-BBB2-42B51AE43A1C}.Release|x86.ActiveCfg = Release|Win32
 		{A5A13813-DB02-41B7-BBB2-42B51AE43A1C}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection

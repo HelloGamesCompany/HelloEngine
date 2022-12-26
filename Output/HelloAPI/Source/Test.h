@@ -1,14 +1,17 @@
 #pragma once
 #include "Macro.h"
-#include "HelloBehavior.h"
+#include "HelloEngine/HelloBehavior.h"
 
 class HELLO_ENGINE_API TestClass : HelloBehavior
-{
-public:
+ {
+ public:
 
 	TestClass();
+	virtual ~TestClass() {};
 
-	void Start() override;
+	void Start();
+
+	void Update();
 
 	void Test();
 };

@@ -10,7 +10,14 @@ typedef void* (*CreateFunc)();
 
 LayerGame::LayerGame()
 {
-	dllFile = LoadLibrary(TEXT("HelloAPI.dll"));
+	dllChangeTime = ModuleFiles::S_CheckFileLastModify(DLL_DIRECTORY);
+	CopyFile(TEXT(DLL_DIRECTORY), TEXT("APILibrary/HelloAPI.dll"), FALSE);
+	dllFile = LoadLibrary("APILibrary/HelloAPI.dll");
+
+	// TEMPORAL
+	CreateFunc createTest = (CreateFunc)GetProcAddress(dllFile, "CreateTest");
+	_behaviorScripts[0] = (HelloBehavior*)createTest();
+
 }
 
 LayerGame::~LayerGame()
@@ -23,8 +30,18 @@ void LayerGame::Start()
 
 void LayerGame::PreUpdate()
 {
-	// Set hot reload boolean to false every preupdate to prevent hot realoding more than once at a time.
-	_reloadedDLL = false;
+	// Check if saved time and change time is not equal.
+	time_t temp = ModuleFiles::S_CheckFileLastModify("HelloAPI/bin/Release/HelloAPI.dll");
+	if (temp != dllChangeTime)
+	{
+		dllChangeTime = temp;
+		_needsReload = true;
+	}
+
+	if (_needsReload && !_isPlaying)
+	{
+		HotReload();
+	}
 
 	if ((!_isPlaying || _paused) && !_oneFrame)
 	{
@@ -65,7 +82,14 @@ void LayerGame::Play()
 
 	for (auto& script : _behaviorScripts)
 	{
-		script.second->Start();
+		try
+		{
+			script.second->Start();
+		}
+		catch (...)
+		{
+			LOG("Error in Start ");
+		}
 	}
 }
 
@@ -114,21 +138,23 @@ void LayerGame::RemoveScriptComponent(ScriptComponent* component)
 
 void LayerGame::HotReload()
 {
-	if (_reloadedDLL)
-		return;
-
 	// Destroy every HellobEhavior in map
 	for (auto& script : _behaviorScripts)
 	{
 		RELEASE(script.second);
 	}
-
+	_behaviorScripts.clear();
 	// Free DLL
 	FreeLibrary(dllFile);
-	// Compile DLL
-	
+
+	// Move new dll into ouptut to use.
+	while (CopyFile(TEXT(DLL_DIRECTORY), TEXT("APILibrary/HelloAPI.dll"), FALSE) == FALSE)
+	{
+		printf("Changing DLL.");
+	}
+
 	// Load DLL
-	dllFile = LoadLibrary(TEXT("HelloAPI.dll"));
+	dllFile = LoadLibrary(TEXT("APILibrary/HelloAPI.dll"));
 
 	// Create every HElloBehavior in map
 	for (int i = 0; i < _scriptComponents.size(); ++i)
@@ -141,9 +167,17 @@ void LayerGame::HotReload()
 		_scriptComponents[i]->scriptUID = randomUID;
 	}
 
-	_reloadedDLL = true;
+	CreateFunc createTest = (CreateFunc)GetProcAddress(dllFile, "CreateTest");
+	_behaviorScripts[0] = (HelloBehavior*)createTest();
+
+	_needsReload = false;
 }
 
 void LayerGame::CleanUp()
 {
+	for (auto& script : _behaviorScripts)
+	{
+		RELEASE(script.second);
+	}
+	FreeLibrary(dllFile);
 }

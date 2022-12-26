@@ -6,6 +6,6 @@ namespace API
 {
 	namespace CSL
 	{
-		void Log(const std::string text);
+		void Log(const std::string& text);
 	}
 }
