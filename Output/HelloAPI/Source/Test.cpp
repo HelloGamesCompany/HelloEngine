@@ -12,7 +12,7 @@ void TestClass::Start()
 
 void TestClass::Update()
 {
-	API::CSL::Log("The DLL works! And  LATE hot reloading too!!");
+	API::CSL::Log("Update with Late hot reload");
 }
 
 void TestClass::Test()

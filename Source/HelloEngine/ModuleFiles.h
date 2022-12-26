@@ -147,7 +147,10 @@ public:
 
 	static bool S_UpdateMetaData(const std::string& file, const std::string& resourcePath);
 
-	static void CreateScriptFile(const std::string& fileName, const std::string& path);
+	static void S_CreateScriptFile(const std::string& fileName, const std::string& path);
+
+	/// Checks if the given name is already created inside the DLL project (ScriptingSLN/HelloAPI.vcxproj)
+	static bool S_CheckFileNameInDLL(const std::string& fileNameWithoutExtension);
 
 private:
 

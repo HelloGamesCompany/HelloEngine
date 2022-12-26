@@ -638,7 +638,7 @@ bool ModuleFiles::S_UpdateMetaData(const std::string& file, const std::string& r
 	return true;
 }
 
-void ModuleFiles::CreateScriptFile(const std::string& fileName, const std::string& path)
+void ModuleFiles::S_CreateScriptFile(const std::string& fileName, const std::string& path)
 {
 	// Create the .h file with the given file name.
 	std::string headerContext =
@@ -665,6 +665,28 @@ void ModuleFiles::CreateScriptFile(const std::string& fileName, const std::strin
 	AddScriptToDLLSolution(headerName, false);
 	AddScriptToDLLSolution(sourceName, true);
 
+}
+
+bool ModuleFiles::S_CheckFileNameInDLL(const std::string& fileNameWithoutExtension)
+{
+	XMLNode project = Application::Instance()->xml->OpenXML(DLL_PROJ_PATH);
+
+	// Checks inside the ItemGroup for header files. We assume that for every .h file with a given name there is a .cpp file of the same name.
+	pugi::xml_node itemGroupProj = project.FindChildBreadth("ItemGroup", 2).node;
+
+	pugi::xml_node n;
+	// Check for every file for a coincidence in name: (Done this way because we dont want two scripts with different paths but same class name!)
+	for (n = itemGroupProj.first_child(); n; n = n.next_sibling())
+	{
+		std::string scriptName = n.attribute("Include").as_string();
+		
+		// Compare string with fileName
+		if (scriptName.find(fileNameWithoutExtension + ".h") != std::string::npos) 
+		{
+			return true;
+		}
+	}
+	return false;
 }
 
 void ModuleFiles::DeleteDirectoryRecursive(std::string directory)
