@@ -10,6 +10,9 @@ public:
 
 	void OnEditor() override;
 
+	void OnEnable() override;
+	void OnDisable() override;
+
 	void Serialization(json& j) override;
 	void DeSerialization(json& j) override;
 

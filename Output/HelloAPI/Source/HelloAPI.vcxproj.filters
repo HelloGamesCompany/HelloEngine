@@ -24,9 +24,6 @@
     <ClCompile Include="Test.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="../../Assets/Scripts/CCC.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HelloEngine.h">
@@ -39,9 +36,6 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="Test.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="../../Assets/Scripts/CCC.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

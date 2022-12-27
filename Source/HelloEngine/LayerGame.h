@@ -12,6 +12,12 @@
 
 class ScriptComponent;
 
+struct BehaviorScript
+{
+	HelloBehavior* script = nullptr;
+	bool active = true;
+};
+
 class LayerGame : public Layer
 {
 public:
@@ -32,13 +38,15 @@ public:
 	void AddScriptComponent(ScriptComponent* component);
 	void RemoveScriptComponent(ScriptComponent* component);
 
+	void CreateBehaviorScript(ScriptComponent* component);
+	void DestroyBehaviorScript(ScriptComponent* component);
+
 	void HotReload();
 
 	void CleanUp() override;
-
 private:
 
-	std::map<uint, HelloBehavior*> _behaviorScripts;
+	std::map<uint, BehaviorScript> _behaviorScripts;
 	std::vector<ScriptComponent*> _scriptComponents;
 	bool _isPlaying = false;
 	bool _paused = false;
@@ -49,5 +57,6 @@ private:
 	time_t dllChangeTime;
 
 	friend class LayerEditor;
+	friend class ScriptComponent;
 };
 

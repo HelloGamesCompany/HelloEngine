@@ -12,6 +12,8 @@ ScriptComponent::ScriptComponent(GameObject* go) : Component(go)
 ScriptComponent::~ScriptComponent()
 {
 	Application::Instance()->layers->game->RemoveScriptComponent(this);
+	if (scriptResource != nullptr)
+		scriptResource->Dereference();
 }
 
 void ScriptComponent::OnEditor()
@@ -36,6 +38,18 @@ void ScriptComponent::OnEditor()
 	}
 }
 
+void ScriptComponent::OnEnable()
+{
+	if (scriptUID != 0)
+		Application::Instance()->layers->game->_behaviorScripts[scriptUID].active = true;
+}
+
+void ScriptComponent::OnDisable()
+{
+	if (scriptUID != 0)
+		Application::Instance()->layers->game->_behaviorScripts[scriptUID].active = false;
+}
+
 void ScriptComponent::Serialization(json& j)
 {
 }
@@ -52,7 +66,17 @@ void ScriptComponent::ImGuiDragScript()
 		{
 			const uint* drop = (uint*)payload->Data;
 
+			// If we had another script attached, destroy that script instance first
+			if (scriptUID != 0)
+			{
+				Application::Instance()->layers->game->DestroyBehaviorScript(this);
+				scriptResource->Dereference();
+			}
+
 			scriptResource = (ResourceScript*)Application::Instance()->resource->S_LoadResource(*drop);
+
+			// Create a new script object instance.
+			Application::Instance()->layers->game->CreateBehaviorScript(this);
 
 			std::string popUpmessage = "Loaded Script: " + scriptResource->className;
 			Application::Instance()->layers->editor->AddPopUpMessage(popUpmessage);

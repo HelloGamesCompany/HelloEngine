@@ -664,9 +664,11 @@ bool ModuleFiles::S_CreateScriptFile(const std::string& fileName, const std::str
 	}
 
 	// Create the .h file with the given file name.
-	std::string headerContext =
-		"#include \"HelloEngine/HelloBehavior.h\"\n";
-	headerContext += "class " + fileName + " : HelloBehavior" + "\n{\npublic:\nvoid Start() override; \nvoid Update() override;\n};";
+	std::string headerContext =	"#pragma once\n";
+	headerContext += "#include \"HelloEngine/HelloBehavior.h\"\n";
+	headerContext += "#include \"Macro.h\"\n";
+	headerContext += "class " + fileName + " : HelloBehavior" + "\n{\npublic:\nvoid Start() override; \nvoid Update() override;\n};\n";
+	headerContext += "HELLO_ENGINE_API_C " + fileName + "* Create" + fileName + "()\n{\n return new " + fileName + "();\n}";
 
 	std::string headerName = "../../" + path + fileName + ".h";
 
