@@ -85,14 +85,18 @@
 	<ItemGroup>
 		<ClCompile Include="CSL.cpp" />
 		<ClCompile Include="Test.cpp" />
-		<ClCompile Include="../../Assets/Scripts/NewScript.cpp" />
+		<ClCompile Include="../../Assets/Scripts/CCC.cpp" />
+		<ClCompile Include="../../Assets/Scripts/default.cpp" />
+		<ClCompile Include="../../Assets/Scripts/Hello.cpp" />
 	</ItemGroup>
 	<ItemGroup>
 		<ClInclude Include="CSL.h" />
 		<ClInclude Include="HelloEngine.h" />
 		<ClInclude Include="Macro.h" />
 		<ClInclude Include="Test.h" />
-		<ClInclude Include="../../Assets/Scripts/NewScript.h" />
+		<ClInclude Include="../../Assets/Scripts/CCC.h" />
+		<ClInclude Include="../../Assets/Scripts/default.h" />
+		<ClInclude Include="../../Assets/Scripts/Hello.h" />
 	</ItemGroup>
 	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 	<ImportGroup Label="ExtensionTargets" />

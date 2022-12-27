@@ -1,5 +1,5 @@
 #include "HelloEngine/HelloBehavior.h"
-class NewScript : HelloBehavior
+class Hello : HelloBehavior
 {
 public:
 void Start() override; 

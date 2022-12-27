@@ -7,6 +7,9 @@
 #include "ModuleWindow.h"
 #include "ModuleLayers.h"
 #include "TextureImporter.h"
+#include "ModuleLayers.h"
+#include "LayerEditor.h"
+
 
 ImWindowProject::ImWindowProject()
 {
@@ -26,6 +29,7 @@ ImWindowProject::ImWindowProject()
     // Init rootNode & currentNode
     UpdateFileNodes();
 
+    // Add onDropListener event
     _app->input->AddOnDropListener(std::bind(&ImWindowProject::OnDrop, this, std::placeholders::_1));
 
     // Load Icons 
@@ -50,7 +54,7 @@ ImWindowProject::ImWindowProject()
         _modelImageID = TextureImporter::LoadEditorDDS(buffer, size);
         RELEASE(buffer)
 
-            buffer = nullptr;
+        buffer = nullptr;
         size = ModuleFiles::S_Load("Resources/Editor/Images/scene.dds", &buffer);
         _sceneImageID = TextureImporter::LoadEditorDDS(buffer, size);
         RELEASE(buffer)
@@ -58,6 +62,16 @@ ImWindowProject::ImWindowProject()
         buffer = nullptr;
         size = ModuleFiles::S_Load("Resources/Editor/Images/image.dds", &buffer);
         _textureImageID = TextureImporter::LoadEditorDDS(buffer, size);
+        RELEASE(buffer)
+
+        buffer = nullptr;
+        size = ModuleFiles::S_Load("Resources/Editor/Images/h.dds", &buffer);
+        _hImageID = TextureImporter::LoadEditorDDS(buffer, size);
+        RELEASE(buffer)
+
+        buffer = nullptr;
+        size = ModuleFiles::S_Load("Resources/Editor/Images/cpp.dds", &buffer);
+        _cppImageID = TextureImporter::LoadEditorDDS(buffer, size);
         RELEASE(buffer)
     }   
 }
@@ -124,6 +138,9 @@ void ImWindowProject::Update()
 
     if (_openCreateFolderPanel)
         PanelCreateFolder();
+
+    else if (_openCreateScriptPanel)
+        PanelCreateScript();
 
     // If have any file to delete, delete this
     if (_deleteFile)
@@ -277,6 +294,12 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
         case ResourceType::TEXTURE:         
             icon = _textureImageID;
             break;
+        case ResourceType::HSCRIPT:
+            icon = _hImageID;
+            break;
+        case ResourceType::CPPSCRIPT:
+            icon = _cppImageID;
+            break;
         default:
             icon = _fileImageID;
             break;
@@ -372,6 +395,9 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
         if (ImGui::Selectable("Create Folder"))
             _openCreateFolderPanel = true;
 
+        if (ImGui::Selectable("Create Script"))
+            _openCreateScriptPanel = true;
+
         ImGui::EndPopup();
     }
 }
@@ -420,25 +446,25 @@ void ImWindowProject::CheckWindowFocus()
 
 void ImWindowProject::PanelCreateFolder()
 {
-    ImGui::OpenPopup("Insert Name");
-    if (ImGui::BeginPopupModal("Insert Name", NULL, ImGuiWindowFlags_AlwaysAutoResize))
+    ImGui::OpenPopup("Insert Name##Folder");
+    if (ImGui::BeginPopupModal("Insert Name##Folder", NULL, ImGuiWindowFlags_AlwaysAutoResize))
     {
         ImGui::Text("Name: "); ImGui::SameLine();
-        ImGui::InputText("##inputTextSceneSave", &_createFolderName);
+        ImGui::InputText("##inputTextFolderName", &_temporalName);
 
         if (ImGui::Button("Accept"))
         {
-            if(ModuleFiles::S_MakeDir(_fileTree->_currentDir->path + _createFolderName))
+            if(ModuleFiles::S_MakeDir(_fileTree->_currentDir->path + _temporalName))
             {
                 _fileTree->_currentDir->directories.push_back(
                     new Directory(
-                        _fileTree->_currentDir->path + _createFolderName + "/",
-                        _createFolderName, 
+                        _fileTree->_currentDir->path + _temporalName + "/",
+                        _temporalName, 
                         _fileTree->_currentDir)
                 );
             }
 
-            _createFolderName = "folder";
+            _temporalName = "default";
             
             _openCreateFolderPanel = false;
         }
@@ -446,7 +472,48 @@ void ImWindowProject::PanelCreateFolder()
         ImGui::SameLine();
 
         if (ImGui::Button("Cancel"))
+        {
+            _temporalName = "default";
+
             _openCreateFolderPanel = false;
+        }
+
+        ImGui::EndPopup();
+    }
+}
+
+void ImWindowProject::PanelCreateScript()
+{
+    ImGui::OpenPopup("Insert Name##Script");
+    if (ImGui::BeginPopupModal("Insert Name##Script", NULL, ImGuiWindowFlags_AlwaysAutoResize))
+    {
+        ImGui::Text("Name: "); ImGui::SameLine();
+        ImGui::InputText("##inputTextScriptName", &_temporalName);
+
+        if (ImGui::Button("Accept"))
+        {
+            if (ModuleFiles::S_CreateScriptFile(_temporalName, _fileTree->_currentDir->path.c_str()))
+            {
+                _fileTree->_currentDir->files.emplace_back(_fileTree->_currentDir->path + _temporalName + ".h", _temporalName + ".h", _fileTree->_currentDir);
+                _fileTree->_currentDir->files.emplace_back(_fileTree->_currentDir->path+ _temporalName + ".cpp", _temporalName+".cpp", _fileTree->_currentDir);
+            }
+            else
+                _app->layers->editor->AddPopUpMessage("The name is already exist");
+
+            _temporalName = "default";
+
+            _openCreateScriptPanel = false;
+        }
+
+        ImGui::SameLine();
+
+        if (ImGui::Button("Cancel"))
+        {
+            _temporalName = "default";
+
+            _openCreateScriptPanel = false;
+        }
+           
 
         ImGui::EndPopup();
     }

@@ -28,6 +28,8 @@ private:
 
 	void PanelCreateFolder();
 
+	void PanelCreateScript();
+
 private:
 	Application* _app = nullptr;
 
@@ -59,7 +61,10 @@ private:
 	// Create Folder
 	bool _openCreateFolderPanel = false;
 
-	std::string _createFolderName = "folder";
+	// Create Script
+	bool _openCreateScriptPanel = false;
+
+	std::string _temporalName = "default";
 
 	// icons 
 	uint _fileImageID = 0;
@@ -68,4 +73,6 @@ private:
 	uint _meshImageID = 0;
 	uint _sceneImageID = 0;
 	uint _textureImageID = 0;
+	uint _cppImageID = 0;
+	uint _hImageID = 0;
 };

@@ -426,7 +426,7 @@ bool ModuleFiles::UpdateFileNodeRecursive(Directory*& dir, Directory*& lastDir)
 			if(S_GetFileExtension(S_GetFileName(dirCheck)) == "hellometa")
 			{
 				// Check if this meta has an associated file.
-				std::string fileDir = dirCheck.substr(0, dirCheck.find_last_of(".")+1);
+				std::string fileDir = dirCheck.substr(0, dirCheck.find_last_of("."));
 
 				if (!S_Exists(fileDir))
 					ModuleResourceManager::S_DeleteMetaFile(dirCheck);
@@ -434,6 +434,17 @@ bool ModuleFiles::UpdateFileNodeRecursive(Directory*& dir, Directory*& lastDir)
 					ModuleResourceManager::S_CreateResource(S_LoadMeta(dirCheck));
 
 				continue;
+			}
+
+			if(dirCheck == "Assets/Scripts/CCC.cpp")
+			{
+				printf("break here");
+			}
+			
+
+			if (dirCheck == "Assets/Scripts/CCC.h")
+			{
+				printf("break here");
 			}
 
 			// Change directory construcotr to create meta data if necessary
@@ -565,6 +576,12 @@ ResourceType ModuleFiles::S_GetResourceType(const std::string& filename)
 	if (fileExtension == "hscene") 
 		return ResourceType::SCENE;
 
+	if (fileExtension == "h")
+		return ResourceType::HSCRIPT;
+
+	if (fileExtension == "cpp")
+		return ResourceType::CPPSCRIPT;
+
 	return ResourceType::UNDEFINED;
 }
 
@@ -638,12 +655,12 @@ bool ModuleFiles::S_UpdateMetaData(const std::string& file, const std::string& r
 	return true;
 }
 
-void ModuleFiles::S_CreateScriptFile(const std::string& fileName, const std::string& path)
+bool ModuleFiles::S_CreateScriptFile(const std::string& fileName, const std::string& path)
 {
 	if (S_CheckFileNameInDLL(fileName))
 	{
 		Console::S_Log("Invalid name: A class with the given name: " + fileName + " alredy exists inside the DLL project.");
-		return;
+		return false;
 	}
 
 	// Create the .h file with the given file name.
@@ -651,9 +668,9 @@ void ModuleFiles::S_CreateScriptFile(const std::string& fileName, const std::str
 		"#include \"HelloEngine/HelloBehavior.h\"\n";
 	headerContext += "class " + fileName + " : HelloBehavior" + "\n{\npublic:\nvoid Start() override; \nvoid Update() override;\n};";
 
-	std::string headerName = "../../Assets/" + path + fileName + ".h";
+	std::string headerName = "../../" + path + fileName + ".h";
 
-	std::ofstream headerFile("Assets/" +path + fileName + ".h");
+	std::ofstream headerFile(path + fileName + ".h");
 	headerFile << headerContext;
 	headerFile.close();
 
@@ -661,15 +678,17 @@ void ModuleFiles::S_CreateScriptFile(const std::string& fileName, const std::str
 	std::string sourceContext =
 		"#include \"" + fileName + ".h\"\n" + "void " + fileName + "::Start()" + "\n{\n\n}\n" + "void " + fileName + "::Update()" + "\n{\n\n}";
 
-	std::string sourceName = "../../Assets/" + path + fileName + ".cpp";
+	std::string sourceName = "../../" + path + fileName + ".cpp";
 
-	std::ofstream sourceFile("Assets/" + path + fileName + ".cpp");
+	std::ofstream sourceFile(path + fileName + ".cpp");
 	sourceFile << sourceContext;
 	sourceFile.close();
 
 	// Update DLL solution project to include scripts
 	AddScriptToDLLSolution(headerName, false);
 	AddScriptToDLLSolution(sourceName, true);
+
+	return true;
 
 }
 

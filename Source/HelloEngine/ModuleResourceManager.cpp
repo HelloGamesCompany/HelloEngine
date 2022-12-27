@@ -104,6 +104,12 @@ void ModuleResourceManager::S_ImportFile(const std::string& filePath)
 		RELEASE_ARRAY(buffer);
 	}
 	break;
+	case ResourceType::HSCRIPT:
+	case ResourceType::CPPSCRIPT:
+	{
+		ModuleFiles::S_CreateMetaData(filePath, "don't have resource path now");
+		break;
+	}
 	default:
 		break;
 	}
@@ -129,10 +135,10 @@ void ModuleResourceManager::S_ReImportFile(const std::string& filePath, Resource
 		ModuleFiles::S_UpdateMetaData(filePath, path);
 	}
 	break;
-	case ResourceType::SCRIPT:
+	case ResourceType::HSCRIPT:
 	{
 		// Call Hot reload
-		Application::Instance()->layers->game->HotReload();
+		// Application::Instance()->layers->game->HotReload();
 	}
 	}
 
