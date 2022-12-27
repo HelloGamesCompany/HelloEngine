@@ -122,10 +122,10 @@ public:
 	uint IBO = 0;
 };
 
-class ResourceScript : Resource
+class ResourceScript : public Resource
 {
 public:
-	ResourceScript();
+	ResourceScript() {};
 
 	std::string className = "";
 };

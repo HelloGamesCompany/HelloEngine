@@ -8,9 +8,15 @@ public:
 	ScriptComponent(GameObject* go);
 	~ScriptComponent();
 
+	void OnEditor() override;
+
+	void Serialization(json& j) override;
+	void DeSerialization(json& j) override;
 
 private:
-	uint scriptUID;
+	void ImGuiDragScript();
+private:
+	uint scriptUID = 0;
 	ResourceScript* scriptResource = nullptr;
 
 	friend class LayerGame;

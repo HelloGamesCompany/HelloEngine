@@ -7,6 +7,7 @@
 #include "CameraComponent.h"
 #include "LayerEditor.h"
 #include "ImGuizmo/ImGuizmo.h"
+#include "ScriptComponent.h"
 
 GameObject::GameObject(GameObject* parent, std::string name, std::string tag, uint ID) : name(name), tag(tag)
 {
@@ -100,7 +101,7 @@ void GameObject::OnEditor()
 	ImGui::Spacing();
 	if (ImGui::BeginCombo("Add Component", "Select"))
 	{
-		for (int n = 0; n < 3; n++)
+		for (int n = 0; n < 4; n++)
 		{
 			int selectedItem = n;
 			if (ImGui::Selectable(_comboValues[n].c_str(), false))
@@ -119,6 +120,9 @@ void GameObject::OnEditor()
 					if (!HasComponent<CameraComponent>())
 						AddComponent<CameraComponent>();
 					break;
+				case 3:
+					if (!HasComponent<ScriptComponent>())
+						AddComponent<ScriptComponent>();
 				}
 			}
 		}

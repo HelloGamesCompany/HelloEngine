@@ -17,9 +17,6 @@ LayerGame::LayerGame()
 	// TEMPORAL
 	CreateFunc createTest = (CreateFunc)GetProcAddress(dllFile, "CreateTest");
 	_behaviorScripts[0] = (HelloBehavior*)createTest();
-
-	//ModuleFiles::S_CreateScriptFile("NewScript", "Scripts/");
-
 }
 
 LayerGame::~LayerGame()
@@ -33,7 +30,7 @@ void LayerGame::Start()
 void LayerGame::PreUpdate()
 {
 	// Check if saved time and change time is not equal.
-	time_t temp = ModuleFiles::S_CheckFileLastModify("HelloAPI/bin/Release/HelloAPI.dll");
+	time_t temp = ModuleFiles::S_CheckFileLastModify(DLL_DIRECTORY);
 	if (temp != dllChangeTime)
 	{
 		dllChangeTime = temp;

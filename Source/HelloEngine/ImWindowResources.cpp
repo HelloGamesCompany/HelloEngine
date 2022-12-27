@@ -38,6 +38,17 @@ void ImWindowResources::Update()
 				}
 			}
 		}
+		if (ImGui::CollapsingHeader("Scripts"))
+		{
+			for (auto& resource : ModuleResourceManager::resources)
+			{
+				if (resource.second->type == ResourceType::CPPSCRIPT)
+				{
+					ImGui::Text(resource.second->debugName.c_str()); ImGui::SameLine();
+					ImGui::TextColored(ImVec4(1, 0, 1, 1), std::to_string(resource.second->referenceCount).c_str());
+				}
+			}
+		}
 	}
 	ImGui::End();
 }

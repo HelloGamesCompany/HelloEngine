@@ -392,6 +392,16 @@ void ModuleResourceManager::S_CreateResource(const MetaFile& metaFile)
 		resources[metaFile.UID] = new ResourceTexture();
 	}
 	break;
+	case ResourceType::HSCRIPT:
+	case ResourceType::CPPSCRIPT:
+	{
+		resources[metaFile.UID] = new ResourceScript();
+		// Get class name from path file name
+		ResourceScript* res = (ResourceScript*)resources[metaFile.UID];
+		res->className = ModuleFiles::S_GetFileName(metaFile.name, false);
+		res->debugName = res->className;
+	}
+	break;
 	default:
 		Console::S_Log("Cannot create a resource of an undefined meta file!");
 		return;

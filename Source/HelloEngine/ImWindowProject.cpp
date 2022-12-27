@@ -313,32 +313,35 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
 
         // Drag file
         ResourceType type = ModuleFiles::S_GetResourceType(_fileTree->_currentDir->files[i].name);
-        if (type == ResourceType::TEXTURE || type == ResourceType::MODEL || type == ResourceType::SCENE)
+
+        if (ImGui::BeginDragDropSource(ImGuiDragDropFlags_None))
         {
-            if (ImGui::BeginDragDropSource(ImGuiDragDropFlags_None))
+            switch (type)
             {
-                if (type == ResourceType::TEXTURE)
-                {
-                    // Find resource path
-                    _dragUID = _fileTree->_currentDir->files[i].metaFile.UID;
+            case ResourceType::TEXTURE:
+                // Find resource path
+                _dragUID = _fileTree->_currentDir->files[i].metaFile.UID;
 
-                    // Set payload to carry the index of our item (could be anything)
-                    ImGui::SetDragDropPayload("Texture", &_dragUID, sizeof(uint));
-                }
-                else if (type == ResourceType::MODEL)
-                {
-                    _dragUID = _fileTree->_currentDir->files[i].metaFile.UID;
+                // Set payload to carry the index of our item (could be anything)
+                ImGui::SetDragDropPayload("Texture", &_dragUID, sizeof(uint));
+                break;
+            case ResourceType::MODEL:
+                _dragUID = _fileTree->_currentDir->files[i].metaFile.UID;
 
-                    ImGui::SetDragDropPayload("Model", &_dragUID, sizeof(uint));
-                }
-                else if (type == ResourceType::SCENE)
-                {
-                    ImGui::SetDragDropPayload("Scene", &_fileTree->_currentDir->files[i].path, sizeof(std::string));
-                }
-
-                ImGui::EndDragDropSource();
+                ImGui::SetDragDropPayload("Model", &_dragUID, sizeof(uint));
+                break;
+            case ResourceType::SCENE:
+                ImGui::SetDragDropPayload("Scene", &_fileTree->_currentDir->files[i].path, sizeof(std::string));
+                break;
+            case ResourceType::HSCRIPT:
+            case ResourceType::CPPSCRIPT:
+                _dragUID = _fileTree->_currentDir->files[i].metaFile.UID;
+                ImGui::SetDragDropPayload("Script", &_dragUID, sizeof(uint));
+                break;
             }
+            ImGui::EndDragDropSource();
         }
+        
 
         // Right click
         if (ImGui::BeginPopupContextItem()) // <-- use last item id as popup id
