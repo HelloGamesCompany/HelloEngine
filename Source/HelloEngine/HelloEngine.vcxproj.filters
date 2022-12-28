@@ -322,6 +322,7 @@
     <ClCompile Include="HelloBehavior.cpp">
       <Filter>Other</Filter>
     </ClCompile>
+    <ClCompile Include="ScriptToInspectorInterface.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">

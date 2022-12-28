@@ -340,6 +340,7 @@
     <ClCompile Include="InstanceRenderer.cpp" />
     <ClCompile Include="SceneCameraObject.cpp" />
     <ClCompile Include="ScriptComponent.cpp" />
+    <ClCompile Include="ScriptToInspectorInterface.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TextureImporter.cpp" />

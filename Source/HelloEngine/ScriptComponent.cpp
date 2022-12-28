@@ -65,6 +65,12 @@ void ScriptComponent::Serialization(json& j)
 
 	_j["Script Resource"] = scriptResource ? scriptResource->UID : 0;
 
+	// Serialize every inspector field
+	for (int i = 0; i < inspectorFields.size(); ++i)
+	{
+		inspectorFields[i]->OnSerialize(_j["Inspector Fields"]);
+	}
+
 	j["Components"].push_back(_j);
 }
 
@@ -76,6 +82,11 @@ void ScriptComponent::DeSerialization(json& j)
 	{
 		// Create a new script object instance.
 		Application::Instance()->layers->game->CreateBehaviorScript(this);
+		// Deserialize every inspector field
+		for (int i = 0; i < inspectorFields.size(); ++i)
+		{
+			inspectorFields[i]->OnDeserialize(j["Inspector Fields"]);
+		}
 	}
 }
 
@@ -125,9 +136,4 @@ void ScriptComponent::DestroyInspectorFields()
 		RELEASE(inspectorFields[i]);
 	}
 	inspectorFields.clear();
-}
-
-void DragField::OnEditor()
-{
-	ImGui::DragFloat(valueName.c_str(), (float*)value);
 }
