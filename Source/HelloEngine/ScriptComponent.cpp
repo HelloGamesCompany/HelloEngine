@@ -66,10 +66,12 @@ void ScriptComponent::Serialization(json& j)
 	_j["Script Resource"] = scriptResource ? scriptResource->UID : 0;
 
 	// Serialize every inspector field
-	for (int i = 0; i < inspectorFields.size(); ++i)
+	SaveInspectorFields(&_j);
+
+	/*for (int i = 0; i < inspectorFields.size(); ++i)
 	{
 		inspectorFields[i]->OnSerialize(_j["Inspector Fields"]);
-	}
+	}*/
 
 	j["Components"].push_back(_j);
 }
@@ -83,20 +85,44 @@ void ScriptComponent::DeSerialization(json& j)
 		// Create a new script object instance.
 		Application::Instance()->layers->game->CreateBehaviorScript(this);
 		// Deserialize every inspector field
-		for (int i = 0; i < inspectorFields.size(); ++i)
-		{
-			inspectorFields[i]->OnDeserialize(j["Inspector Fields"]);
-		}
+		LoadInspectorFields(&j);
 	}
 }
 
-void ScriptComponent::AddDragFloat(std::string name, float* value)
+void ScriptComponent::AddDragFloat(const std::string& name, float* value)
 {
-	DragField* dragField = new DragField();
+	DragFieldFloat* dragField = new DragFieldFloat();
 	dragField->valueName = name;
 	dragField->value = value;
 
 	inspectorFields.push_back(dragField);
+}
+
+void ScriptComponent::AddDragInt(const std::string& name, int* value)
+{
+	DragFieldInt* dragField = new DragFieldInt();
+	dragField->valueName = name;
+	dragField->value = value;
+
+	inspectorFields.push_back(dragField);
+}
+
+void ScriptComponent::AddCheckBox(const std::string& name, bool* value)
+{
+	CheckBoxField* checkBoxField = new CheckBoxField();
+	checkBoxField->valueName = name;
+	checkBoxField->value = value;
+
+	inspectorFields.push_back(checkBoxField);
+}
+
+void ScriptComponent::AddInputBox(const std::string& name, std::string* value)
+{
+	InputBoxField* checkBoxField = new InputBoxField();
+	checkBoxField->valueName = name;
+	checkBoxField->value = value;
+
+	inspectorFields.push_back(checkBoxField);
 }
 
 void ScriptComponent::ImGuiDragScript()
@@ -136,4 +162,38 @@ void ScriptComponent::DestroyInspectorFields()
 		RELEASE(inspectorFields[i]);
 	}
 	inspectorFields.clear();
+}
+
+void ScriptComponent::SaveInspectorFields(json* j)
+{
+	// Serialize every inspector field
+	for (int i = 0; i < inspectorFields.size(); ++i)
+	{
+		inspectorFields[i]->OnSerialize(inspectorFieldsJSON["Inspector Fields"]);
+	}
+
+	if (j != nullptr)
+	{
+		json& _j = *j;
+		_j["Inspector Fields"] = inspectorFieldsJSON["Inspector Fields"];
+	}
+}
+
+void ScriptComponent::LoadInspectorFields(json* j)
+{
+	if (j != nullptr)
+	{
+		for (int i = 0; i < inspectorFields.size(); ++i)
+		{
+			json& _j = *j;
+			inspectorFields[i]->OnDeserialize(_j["Inspector Fields"]);
+		}
+	}
+	else
+	{
+		for (int i = 0; i < inspectorFields.size(); ++i)
+		{
+			inspectorFields[i]->OnDeserialize(inspectorFieldsJSON["Inspector Fields"]);
+		}
+	}
 }

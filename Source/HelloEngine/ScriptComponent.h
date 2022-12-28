@@ -18,14 +18,20 @@ public:
 	void DeSerialization(json& j) override;
 
 	// Add script variables to inspector methods:
-	void AddDragFloat(std::string name, float* value) override;
+	void AddDragFloat(const std::string& name, float* value) override;
+	void AddDragInt(const std::string& name, int* value) override;
+	void AddCheckBox(const std::string& name, bool* value) override;
+	void AddInputBox(const std::string& name, std::string* value) override;
 
 private:
 	void ImGuiDragScript();
 	void DestroyInspectorFields();
+	void SaveInspectorFields(json* j = nullptr);
+	void LoadInspectorFields(json* j = nullptr);
 private:
 	uint scriptUID = 0;
 	ResourceScript* scriptResource = nullptr;
+	json inspectorFieldsJSON;
 
 	friend class LayerGame;
 };

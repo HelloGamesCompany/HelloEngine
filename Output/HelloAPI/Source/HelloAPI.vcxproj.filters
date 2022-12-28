@@ -24,13 +24,10 @@
     <ClCompile Include="Test.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="../../Assets/Scripts/NewScript.cpp">
+    <ClCompile Include="../../Assets/Scripts/Creationtest.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="../../Assets/Scripts/SerializationTesting.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="../../Assets/Scripts/Hello.cpp">
+    <ClCompile Include="../../Assets/Scripts/testScript.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
@@ -47,13 +44,10 @@
     <ClInclude Include="Test.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="../../Assets/Scripts/NewScript.h">
+    <ClInclude Include="../../Assets/Scripts/Creationtest.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="../../Assets/Scripts/SerializationTesting.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="../../Assets/Scripts/Hello.h">
+    <ClInclude Include="../../Assets/Scripts/testScript.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

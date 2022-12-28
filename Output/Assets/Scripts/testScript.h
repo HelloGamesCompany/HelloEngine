@@ -2,17 +2,15 @@
 #include "HelloEngine/HelloBehavior.h"
 #include "HelloEngine/ScriptToInspectorInterface.h"
 #include "Macro.h"
-
-class NewScript : HelloBehavior
+class testScript : HelloBehavior
 {
 public:
 void Start() override; 
 void Update() override;
 };
-
-HELLO_ENGINE_API_C NewScript* CreateNewScript(ScriptToInspectorInterface* script)
+HELLO_ENGINE_API_C testScript* CreatetestScript(ScriptToInspectorInterface* script)
 {
-	NewScript* classInstance = new NewScript();
+testScript* classInstance = new testScript();
 
-	return classInstance;
+return classInstance;
 }
