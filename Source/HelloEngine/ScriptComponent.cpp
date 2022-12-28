@@ -6,7 +6,10 @@
 
 ScriptComponent::ScriptComponent(GameObject* go) : Component(go)
 {
+	_type = Component::Type::SCRIPT;
 	Application::Instance()->layers->game->AddScriptComponent(this);
+	//TEST
+	AddDragFloat("TestFloat", &testFloat);
 }
 
 ScriptComponent::~ScriptComponent()
@@ -14,6 +17,7 @@ ScriptComponent::~ScriptComponent()
 	Application::Instance()->layers->game->RemoveScriptComponent(this);
 	if (scriptResource != nullptr)
 		scriptResource->Dereference();
+	DestroyInspectorFields();
 }
 
 void ScriptComponent::OnEditor()
@@ -34,6 +38,11 @@ void ScriptComponent::OnEditor()
 			ImGui::TextWrapped("Loaded script: "); ImGui::SameLine();
 			ImGui::TextColored(ImVec4(1, 1, 0, 1), scriptResource->className.c_str());
 			ImGuiDragScript();
+			// Show script inspector variables.
+			for (int i = 0; i < inspectorFields.size(); ++i)
+			{
+				inspectorFields[i]->OnEditor();
+			}
 		}
 	}
 }
@@ -52,10 +61,33 @@ void ScriptComponent::OnDisable()
 
 void ScriptComponent::Serialization(json& j)
 {
+	json _j;
+
+	_j["Type"] = _type;
+
+	_j["Script Resource"] = scriptResource ? scriptResource->UID : 0;
+
+	j["Components"].push_back(_j);
 }
 
 void ScriptComponent::DeSerialization(json& j)
 {
+	scriptResource = (ResourceScript*)ModuleResourceManager::S_LoadResource(j["Script Resource"]);
+
+	if (scriptResource)
+	{
+		// Create a new script object instance.
+		Application::Instance()->layers->game->CreateBehaviorScript(this);
+	}
+}
+
+void ScriptComponent::AddDragFloat(std::string name, float* value)
+{
+	DragField* dragField = new DragField();
+	dragField->valueName = name;
+	dragField->value = value;
+
+	inspectorFields.push_back(dragField);
 }
 
 void ScriptComponent::ImGuiDragScript()
@@ -71,6 +103,7 @@ void ScriptComponent::ImGuiDragScript()
 			{
 				Application::Instance()->layers->game->DestroyBehaviorScript(this);
 				scriptResource->Dereference();
+				DestroyInspectorFields();
 			}
 
 			scriptResource = (ResourceScript*)Application::Instance()->resource->S_LoadResource(*drop);
@@ -85,4 +118,18 @@ void ScriptComponent::ImGuiDragScript()
 		ImGui::EndDragDropTarget();
 	}
 
+}
+
+void ScriptComponent::DestroyInspectorFields()
+{
+	for (int i = 0; i < inspectorFields.size(); ++i)
+	{
+		RELEASE(inspectorFields[i]);
+	}
+	inspectorFields.clear();
+}
+
+void DragField::OnEditor()
+{
+	ImGui::DragFloat(valueName.c_str(), (float*)value);
 }

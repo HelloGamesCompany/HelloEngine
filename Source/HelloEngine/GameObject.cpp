@@ -247,6 +247,10 @@ Component* GameObject::AddComponentOfType(Component::Type type)
 		newComponent = new CameraComponent(this);
 		_components.push_back(newComponent);
 		break;
+	case Component::Type::SCRIPT:
+		newComponent = new ScriptComponent(this);
+		_components.push_back(newComponent);
+		break;
 	}
 
 	return newComponent;

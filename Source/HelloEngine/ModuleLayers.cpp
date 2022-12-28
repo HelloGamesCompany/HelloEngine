@@ -26,10 +26,13 @@ bool ModuleLayers::Init()
 
 bool ModuleLayers::Start()
 {
-    //ModuleFiles::S_CreateScriptFile("NewScript", "Assets/Scripts/");
+    layers[(uint)LayersID::EDITOR] = new LayerEditor();
+    layers[(uint)LayersID::GAME] = new LayerGame();
+
+    game = (LayerGame*)layers[(uint)LayersID::GAME];
+    editor = (LayerEditor*)layers[(uint)LayersID::EDITOR];
 
     // Create Root GameObject (Scene)
-
     XMLNode sceneXML = Application::Instance()->xml->GetConfigXML();
 
     _sceneBeginPath = sceneXML.FindChildBreadth("currentScene").node.attribute("value").as_string();
@@ -52,12 +55,6 @@ bool ModuleLayers::Start()
         
         ModuleResourceManager::S_SerializeScene(rootGameObject);
     }
-
-    layers[(uint)LayersID::EDITOR] = new LayerEditor();
-    layers[(uint)LayersID::GAME] = new LayerGame();
-
-    game = (LayerGame*)layers[(uint)LayersID::GAME];
-    editor = (LayerEditor*)layers[(uint)LayersID::EDITOR];
 
     for (int i = 0; i < (uint)LayersID::MAX; i++)
     {

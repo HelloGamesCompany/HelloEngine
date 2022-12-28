@@ -15,6 +15,7 @@ public:
 		MESH_RENDERER,
 		MATERIAL,
 		CAMERA,
+		SCRIPT,
 		MAX
 	};
 
