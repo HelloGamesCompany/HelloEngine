@@ -14,7 +14,7 @@ HELLO_ENGINE_API_C Creationtest* CreateCreationtest(ScriptToInspectorInterface* 
 {
 	Creationtest* classInstance = new Creationtest();
 
-	script->AddDragFloat("creation test 2", &classInstance->creationTestFloat);
+	//script->AddDragFloat("creation test 2", &classInstance->creationTestFloat);
 
 	return classInstance;
 }

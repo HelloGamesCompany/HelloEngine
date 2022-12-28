@@ -17,7 +17,7 @@ HELLO_ENGINE_API_C SerializationTesting* CreateSerializationTesting(ScriptToInsp
 {
 	SerializationTesting* classInstance = new SerializationTesting();
 
-	script->AddDragFloat("Float from Script", &classInstance->floatFromScript);
+	//script->AddDragFloat("Float from Script", &classInstance->floatFromScript);
 	
 	return classInstance;
 }
