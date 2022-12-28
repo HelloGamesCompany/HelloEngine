@@ -8,8 +8,6 @@ ScriptComponent::ScriptComponent(GameObject* go) : Component(go)
 {
 	_type = Component::Type::SCRIPT;
 	Application::Instance()->layers->game->AddScriptComponent(this);
-	//TEST
-	AddDragFloat("TestFloat", &testFloat);
 }
 
 ScriptComponent::~ScriptComponent()

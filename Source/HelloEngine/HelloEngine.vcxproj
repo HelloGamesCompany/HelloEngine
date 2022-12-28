@@ -486,6 +486,7 @@
     <ClInclude Include="resource.h" />
     <ClInclude Include="SceneCameraObject.h" />
     <ClInclude Include="ScriptComponent.h" />
+    <ClInclude Include="ScriptToInspectorInterface.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TextureImporter.h" />

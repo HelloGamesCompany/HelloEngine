@@ -5,8 +5,9 @@
 #include "MeshImporter.h"
 #include "TextureImporter.h"
 #include "ScriptComponent.h"
+#include "ScriptToInspectorInterface.h"
 
-typedef void* (*CreateFunc)();
+typedef void* (*CreateFunc)(ScriptToInspectorInterface*);
 
 LayerGame::LayerGame()
 {
@@ -14,11 +15,7 @@ LayerGame::LayerGame()
 	CopyFile(TEXT(DLL_DIRECTORY), TEXT("APILibrary/HelloAPI.dll"), FALSE);
 	dllFile = LoadLibrary("APILibrary/HelloAPI.dll");
 
-	// TEMPORAL
-	CreateFunc createTest = (CreateFunc)GetProcAddress(dllFile, "CreateTest");
-	_behaviorScripts[0].script = (HelloBehavior*)createTest();
-
-	ModuleFiles::S_CreateScriptFile("NewScript", "Assets/Scripts/");
+	ModuleFiles::S_CreateScriptFile("Creationtest", "Assets/Scripts/");
 }
 
 LayerGame::~LayerGame()
@@ -137,11 +134,14 @@ void LayerGame::RemoveScriptComponent(ScriptComponent* component)
 void LayerGame::HotReload()
 {
 	// Destroy every HellobEhavior in map
-	for (auto& behaviorScript : _behaviorScripts)
+	for (int i = 0; i < _scriptComponents.size(); ++i)
 	{
-		RELEASE(behaviorScript.second.script);
+		DestroyBehaviorScript(_scriptComponents[i]);
+		_scriptComponents[i]->DestroyInspectorFields();
 	}
+
 	_behaviorScripts.clear();
+
 	// Free DLL
 	FreeLibrary(dllFile);
 
@@ -159,9 +159,6 @@ void LayerGame::HotReload()
 	{
 		CreateBehaviorScript(_scriptComponents[i]);
 	}
-
-	CreateFunc createTest = (CreateFunc)GetProcAddress(dllFile, "CreateTest");
-	_behaviorScripts[0].script = (HelloBehavior*)createTest();
 
 	_needsReload = false;
 }
@@ -183,7 +180,7 @@ void LayerGame::CreateBehaviorScript(ScriptComponent* component)
 	CreateFunc create = (CreateFunc)GetProcAddress(dllFile, ("Create" + component->scriptResource->className).c_str());
 
 	uint randomUID = HelloUUID::GenerateUUID();
-	_behaviorScripts[randomUID].script = (HelloBehavior*)create();
+	_behaviorScripts[randomUID].script = (HelloBehavior*)create(component);
 	_behaviorScripts[randomUID].active = component->IsEnabled();
 
 	component->scriptUID = randomUID;
