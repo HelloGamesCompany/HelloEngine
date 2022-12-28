@@ -6,5 +6,5 @@ void Creationtest::Start()
 }
 void Creationtest::Update()
 {
-	API::CSL::Log("Creationtest update 2");
+	API::CSL::Log("String name 2: " + stringTest);
 }

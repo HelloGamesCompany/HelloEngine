@@ -137,6 +137,7 @@ void LayerGame::HotReload()
 	for (int i = 0; i < _scriptComponents.size(); ++i)
 	{
 		DestroyBehaviorScript(_scriptComponents[i]);
+		_scriptComponents[i]->SaveInspectorFields();
 		_scriptComponents[i]->DestroyInspectorFields();
 	}
 
@@ -158,6 +159,7 @@ void LayerGame::HotReload()
 	for (int i = 0; i < _scriptComponents.size(); ++i)
 	{
 		CreateBehaviorScript(_scriptComponents[i]);
+		_scriptComponents[i]->LoadInspectorFields();
 	}
 
 	_needsReload = false;

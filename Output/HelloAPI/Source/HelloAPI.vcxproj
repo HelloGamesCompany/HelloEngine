@@ -89,6 +89,7 @@
     <ClCompile Include="CSL.cpp" />
     <ClCompile Include="Test.cpp" />
     <ClCompile Include="../../Assets/Scripts/Creationtest.cpp" />
+    <ClCompile Include="../../Assets/Scripts/testScript.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CSL.h" />
@@ -96,6 +97,7 @@
     <ClInclude Include="Macro.h" />
     <ClInclude Include="Test.h" />
     <ClInclude Include="../../Assets/Scripts/Creationtest.h" />
+    <ClInclude Include="../../Assets/Scripts/testScript.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />
