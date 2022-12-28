@@ -6,24 +6,36 @@
 
 #define MAX_KEYS 300
 
+// Init static variables
+KEY_STATE* ModuleInput::_keyboard = nullptr;
+KEY_STATE ModuleInput::_mouse_buttons[MAX_MOUSE_BUTTONS];
+int ModuleInput::_mouse_x = 0;
+int ModuleInput::_mouse_y = 0;
+int ModuleInput::_mouse_z = 0;
+int ModuleInput::_mouse_x_motion = 0;
+int ModuleInput::_mouse_y_motion = 0;
+std::function<void(std::string)> ModuleInput::_dropEvent = nullptr;
+
 ModuleInput::ModuleInput(bool start_enabled) : Module(start_enabled)
 {
-	keyboard = new KEY_STATE[MAX_KEYS];
-	memset(keyboard, KEY_IDLE, sizeof(KEY_STATE) * MAX_KEYS);
-	memset(mouse_buttons, KEY_IDLE, sizeof(KEY_STATE) * MAX_MOUSE_BUTTONS);
+	_keyboard = new KEY_STATE[MAX_KEYS];
+	memset(_keyboard, KEY_IDLE, sizeof(KEY_STATE) * MAX_KEYS);
+	memset(_mouse_buttons, KEY_IDLE, sizeof(KEY_STATE) * MAX_MOUSE_BUTTONS);
 }
 
 // Destructor
 ModuleInput::~ModuleInput()
 {
-	delete[] keyboard;
+	RELEASE_ARRAY(_keyboard);
 }
 
 // Called before render is available
 bool ModuleInput::Init()
 {
-	Console::S_Log("Init SDL input event system");
+	LOG("Init SDL input event system");
+
 	bool ret = true;
+	
 	SDL_Init(0);
 
 	if(SDL_InitSubSystem(SDL_INIT_EVENTS) < 0)
@@ -46,75 +58,84 @@ UpdateStatus ModuleInput::PreUpdate()
 	{
 		if(keys[i] == 1)
 		{
-			if(keyboard[i] == KEY_IDLE)
-				keyboard[i] = KEY_DOWN;
+			if(_keyboard[i] == KEY_IDLE)
+				_keyboard[i] = KEY_DOWN;
 			else
-				keyboard[i] = KEY_REPEAT;
+				_keyboard[i] = KEY_REPEAT;
 		}
 		else
 		{
-			if(keyboard[i] == KEY_REPEAT || keyboard[i] == KEY_DOWN)
-				keyboard[i] = KEY_UP;
+			if(_keyboard[i] == KEY_REPEAT || _keyboard[i] == KEY_DOWN)
+				_keyboard[i] = KEY_UP;
 			else
-				keyboard[i] = KEY_IDLE;
+				_keyboard[i] = KEY_IDLE;
 		}
 	}
 
-	Uint32 buttons = SDL_GetMouseState(&mouse_x, &mouse_y);
+	Uint32 buttons = SDL_GetMouseState(&_mouse_x, &_mouse_y);
 
-	mouse_x /= SCREEN_SIZE;
-	mouse_y /= SCREEN_SIZE;
-	mouse_z = 0;
+	_mouse_x /= SCREEN_SIZE;
+	_mouse_y /= SCREEN_SIZE;
+	_mouse_z = 0;
 
 	for(int i = 0; i < 5; ++i)
 	{
 		if(buttons & SDL_BUTTON(i))
 		{
-			if(mouse_buttons[i] == KEY_IDLE)
-				mouse_buttons[i] = KEY_DOWN;
+			if(_mouse_buttons[i] == KEY_IDLE)
+				_mouse_buttons[i] = KEY_DOWN;
 			else
-				mouse_buttons[i] = KEY_REPEAT;
+				_mouse_buttons[i] = KEY_REPEAT;
 		}
 		else
 		{
-			if(mouse_buttons[i] == KEY_REPEAT || mouse_buttons[i] == KEY_DOWN)
-				mouse_buttons[i] = KEY_UP;
+			if(_mouse_buttons[i] == KEY_REPEAT || _mouse_buttons[i] == KEY_DOWN)
+				_mouse_buttons[i] = KEY_UP;
 			else
-				mouse_buttons[i] = KEY_IDLE;
+				_mouse_buttons[i] = KEY_IDLE;
 		}
 	}
 
-	mouse_x_motion = mouse_y_motion = 0;
+	_mouse_x_motion = _mouse_y_motion = 0;
 
 	bool quit = false;
+
 	SDL_Event e;
+
 	while(SDL_PollEvent(&e))
 	{
 		ImGui_ImplSDL2_ProcessEvent(&e);
 		switch(e.type)
 		{
 			case SDL_MOUSEWHEEL:
-			mouse_z = e.wheel.y;
+			{
+				_mouse_z = e.wheel.y;
+			}
 			break;
 
 			case SDL_MOUSEMOTION:
-			mouse_x = e.motion.x / SCREEN_SIZE;
-			mouse_y = e.motion.y / SCREEN_SIZE;
+			{
+				_mouse_x = e.motion.x / SCREEN_SIZE;
+				_mouse_y = e.motion.y / SCREEN_SIZE;
 
-			mouse_x_motion = e.motion.xrel / SCREEN_SIZE;
-			mouse_y_motion = e.motion.yrel / SCREEN_SIZE;
+				_mouse_x_motion = e.motion.xrel / SCREEN_SIZE;
+				_mouse_y_motion = e.motion.yrel / SCREEN_SIZE;
+			}
 			break;
 
 			case SDL_QUIT:
-			quit = true;
+			{
+				quit = true;
+			}
 			break;
 
 			case (SDL_DROPFILE):
 			{
-				//TODO: Change method name to duplicate on drop or something
-				//FileSystem::LoadDroppedFile(e.drop.file);
-				if (onDrops) onDrops(e.drop.file);
-				SDL_free(e.drop.file);    // Free dropped_filedir memory
+				if (_dropEvent) 
+					_dropEvent(e.drop.file);
+				
+				// Free dropped_filedir memory
+				SDL_free(e.drop.file);    
 				break;
 			}
 
@@ -140,12 +161,12 @@ bool ModuleInput::CleanUp()
 	return true;
 }
 
-void ModuleInput::AddOnDropListener(std::function<void(std::string)> func)
+void ModuleInput::S_AddOnDropListener(std::function<void(std::string)> func)
 {
-	onDrops = func;
+	_dropEvent = func;
 }
 
-void ModuleInput::ClearOnDropListener()
+void ModuleInput::S_ClearOnDropListener()
 {
-	onDrops = nullptr;
+	_dropEvent = nullptr;
 }

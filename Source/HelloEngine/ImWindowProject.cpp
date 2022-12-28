@@ -30,7 +30,7 @@ ImWindowProject::ImWindowProject()
     UpdateFileNodes();
 
     // Add onDropListener event
-    _app->input->AddOnDropListener(std::bind(&ImWindowProject::OnDrop, this, std::placeholders::_1));
+    ModuleInput::S_AddOnDropListener(std::bind(&ImWindowProject::OnDrop, this, std::placeholders::_1));
 
     // Load Icons 
     {
@@ -78,7 +78,7 @@ ImWindowProject::ImWindowProject()
 
 ImWindowProject::~ImWindowProject()
 {
-    _app->input->ClearOnDropListener();
+    ModuleInput::S_ClearOnDropListener();
 }
 
 void ImWindowProject::Update()

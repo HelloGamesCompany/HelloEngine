@@ -172,12 +172,12 @@ void LayerEditor::Update()
 {
 #ifdef STANDALONE
 
-	if(_app->input->GetKey(SDL_SCANCODE_DELETE) == KEY_DOWN)
+	if(ModuleInput::S_GetKey(SDL_SCANCODE_DELETE) == KEY_DOWN)
 		ModuleCommand::S_DeleteGameObject(selectedGameObject);
 
-	if (_app->input->GetKey(SDL_SCANCODE_LCTRL) == KEY_REPEAT && _app->input->GetKey(SDL_SCANCODE_S) == KEY_DOWN)
+	if (ModuleInput::S_GetKey(SDL_SCANCODE_LCTRL) == KEY_REPEAT && ModuleInput::S_GetKey(SDL_SCANCODE_S) == KEY_DOWN)
 	{
-		if (_app->input->GetKey(SDL_SCANCODE_LALT) == KEY_REPEAT)
+		if (ModuleInput::S_GetKey(SDL_SCANCODE_LALT) == KEY_REPEAT)
 		{
 			// Restart selectedPath
 			Directory* rootDir = nullptr;

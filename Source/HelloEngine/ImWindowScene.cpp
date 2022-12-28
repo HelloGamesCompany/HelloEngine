@@ -87,7 +87,7 @@ void ImWindowScene::Update()
 					selected->transform->SetLocalFromGlobal(auxiliarMatrix, _imOperation == ImGuizmo::OPERATION::SCALE);
 				}
 
-				if (Application::Instance()->input->GetMouseButton(1) == KEY_UP && ImGui::IsWindowHovered() && manipulated)
+				if (ModuleInput::S_GetMouseButton(1) == KEY_UP && ImGui::IsWindowHovered() && manipulated)
 				{
 					manipulated = false;
 					// If this auxiliar matrix has not been transposed, transpose ir before giving it to the changetransform command
@@ -160,13 +160,13 @@ void ImWindowScene::Update()
 
 void ImWindowScene::DetectClick()
 {
-	if (ImGui::IsWindowHovered() && Application::Instance()->input->GetMouseButton(1) == KEY_DOWN && Application::Instance()->input->GetKey(SDL_SCANCODE_LALT) != KEY_REPEAT)
+	if (ImGui::IsWindowHovered() && ModuleInput::S_GetMouseButton(1) == KEY_DOWN && ModuleInput::S_GetKey(SDL_SCANCODE_LALT) != KEY_REPEAT)
 	{
 		// Get mouse position normalized inside this window-----------------------------------------------------
 		ImVec2 windowPos = ImGui::GetWindowPos();
 		ImVec2 windowSize = ImGui::GetWindowSize();
 
-		ImVec2 normalizedPos = { (float)Application::Instance()->input->GetMouseX(), (float)Application::Instance()->input->GetMouseY() };
+		ImVec2 normalizedPos = { (float)ModuleInput::S_GetMouseX(), (float)ModuleInput::S_GetMouseY() };
 
 		normalizedPos = { normalizedPos.x - windowPos.x,  normalizedPos.y - windowPos.y };
 
@@ -191,15 +191,15 @@ void ImWindowScene::DetectClick()
 
 void ImWindowScene::DetectImGuizmoInput()
 {
-	if (Application::Instance()->input->GetKey(SDL_SCANCODE_W) == KEY_DOWN)
+	if (ModuleInput::S_GetKey(SDL_SCANCODE_W) == KEY_DOWN)
 	{
 		_imOperation = ImGuizmo::OPERATION::TRANSLATE;
 	}
-	else if (Application::Instance()->input->GetKey(SDL_SCANCODE_E) == KEY_DOWN)
+	else if (ModuleInput::S_GetKey(SDL_SCANCODE_E) == KEY_DOWN)
 	{
 		_imOperation = ImGuizmo::OPERATION::ROTATE;
 	}
-	else if (Application::Instance()->input->GetKey(SDL_SCANCODE_R) == KEY_DOWN)
+	else if (ModuleInput::S_GetKey(SDL_SCANCODE_R) == KEY_DOWN)
 	{
 		_imOperation = ImGuizmo::OPERATION::SCALE;
 	}

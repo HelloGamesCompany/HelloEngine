@@ -125,9 +125,9 @@ void ImWindowConfiguration::Update()
 			ImGui::TextWrapped("\tMouse Input\t");
 
 			ImGui::TextWrapped("Mouse Position: x = "); ImGui::SameLine();
-			ImGui::TextColored(ImVec4(255, 255, 0, 255), "%d", app->input->GetMouseX()); ImGui::SameLine();
+			ImGui::TextColored(ImVec4(255, 255, 0, 255), "%d", ModuleInput::S_GetMouseX()); ImGui::SameLine();
 			ImGui::TextWrapped(" y = "); ImGui::SameLine();
-			ImGui::TextColored(ImVec4(255, 255, 0, 255), "%d", app->input->GetMouseY()); 
+			ImGui::TextColored(ImVec4(255, 255, 0, 255), "%d", ModuleInput::S_GetMouseY());
 		}
 
 		if(ImGui::CollapsingHeader("Render", ImGuiTreeNodeFlags_DefaultOpen))

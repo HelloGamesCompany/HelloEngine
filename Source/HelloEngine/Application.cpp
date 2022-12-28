@@ -38,7 +38,9 @@ bool Application::Init()
 
 	// Main Modules
 	AddModule(file);
+
 	AddModule(xml);
+
 	AddModule(window);
 
 	AddModule(input);
@@ -84,7 +86,8 @@ void Application::AddModule(Module* mod)
 // Call PreUpdate, Update and PostUpdate on all modules
 UpdateStatus Application::Update()
 {
-	if (_isExiting) return UpdateStatus::UPDATE_STOP;
+	if (_isExiting) 
+		return UpdateStatus::UPDATE_STOP;
 
 	UpdateStatus ret = UpdateStatus::UPDATE_CONTINUE;
 
@@ -140,12 +143,13 @@ bool Application::CleanUp()
 
 Application* Application::Instance()
 {
-	if (_app == nullptr) _app = new Application();
+	if (_app == nullptr) 
+		_app = new Application();
 
 	return _app;
 }
 
 std::string Application::GetEngineVersion()
 {
-	return "v0.5";
+	return "v1.5";
 }

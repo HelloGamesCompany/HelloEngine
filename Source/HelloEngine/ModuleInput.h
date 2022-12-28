@@ -17,67 +17,76 @@ enum KEY_STATE
 class ModuleInput : public Module
 {
 public:
-	
 	ModuleInput(bool start_enabled = true);
+
 	~ModuleInput();
 
 	bool Init();
+
 	UpdateStatus PreUpdate();
+
 	bool CleanUp();
 
-	KEY_STATE GetKey(int id) const
+	static KEY_STATE S_GetKey(int id)
 	{
-		return keyboard[id];
+		return _keyboard[id];
 	}
 
-	KEY_STATE GetMouseButton(int id) const
+	static KEY_STATE S_GetMouseButton(int id)
 	{
-		return mouse_buttons[id];
+		return _mouse_buttons[id];
 	}
 
-	void HandleMouseButton(int id) 
+	static void S_HandleMouseButton(int id)
 	{
-		mouse_buttons[id] = KEY_STATE::KEY_IDLE;
+		_mouse_buttons[id] = KEY_STATE::KEY_IDLE;
 	}
 
-	int GetMouseX() const
+	static int S_GetMouseX()
 	{
-		return mouse_x;
+		return _mouse_x;
 	}
 
-	int GetMouseY() const
+	static int S_GetMouseY()
 	{
-		return mouse_y;
+		return _mouse_y;
 	}
 
-	int GetMouseZ() const
+	static int S_GetMouseZ()
 	{
-		return mouse_z;
+		return _mouse_z;
 	}
 
-	int GetMouseXMotion() const
+	static int S_GetMouseXMotion()
 	{
-		return mouse_x_motion;
+		return _mouse_x_motion;
 	}
 
-	int GetMouseYMotion() const
+	static int S_GetMouseYMotion()
 	{
-		return mouse_y_motion;
+		return _mouse_y_motion;
 	}
 
-	void AddOnDropListener(std::function<void(std::string)> func);
+	static void S_AddOnDropListener(std::function<void(std::string)> func);
 
-	void ClearOnDropListener();
+	static void S_ClearOnDropListener();
 
 private:
-	KEY_STATE* keyboard = nullptr;
-	KEY_STATE mouse_buttons[MAX_MOUSE_BUTTONS];
-	int mouse_x = 0;
-	int mouse_y = 0;
-	int mouse_z = 0;
-	int mouse_x_motion = 0;
-	int mouse_y_motion = 0;
-	std::function<void(std::string)> onDrops = nullptr;
+	static KEY_STATE* _keyboard;
+
+	static KEY_STATE _mouse_buttons[MAX_MOUSE_BUTTONS];
+
+	static int _mouse_x;
+
+	static int _mouse_y;
+
+	static int _mouse_z;
+
+	static int _mouse_x_motion;
+
+	static int _mouse_y_motion;
+
+	static std::function<void(std::string)> _dropEvent;
 };
 
 #endif // !__MODULEINPUT_H__
