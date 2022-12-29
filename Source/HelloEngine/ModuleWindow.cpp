@@ -7,6 +7,13 @@
 #include "XMLNode.h"
 #include "ModuleXML.h"
 
+SDL_Window* ModuleWindow::window = nullptr;
+int ModuleWindow::width = 0;
+int ModuleWindow::height = 0;
+float ModuleWindow::brightness = 1.0f;
+SDL_Surface* ModuleWindow::_screen_surface = nullptr;
+std::string ModuleWindow::_title = "";
+
 ModuleWindow::ModuleWindow(bool start_enabled) : Module(start_enabled)
 {
 	window = nullptr;
@@ -71,7 +78,7 @@ bool ModuleWindow::Init()
 
 		window = SDL_CreateWindow(TITLE, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, flags);
 
-		SetBrightness(brightness);
+		S_SetBrightness(brightness);
 
 		if(window == NULL)
 		{
@@ -85,7 +92,7 @@ bool ModuleWindow::Init()
 		}
 	}
 
-	SetTitle("Hello Engine");
+	S_SetTitle("Hello Engine");
 
 	return ret;
 }
@@ -116,28 +123,28 @@ bool ModuleWindow::CleanUp()
 	return true;
 }
 
-void ModuleWindow::SetTitle(const char* title)
+void ModuleWindow::S_SetTitle(const char* title)
 {
 	_title = title;
 
 	SDL_SetWindowTitle(window, title);
 }
 
-void ModuleWindow::AddTitleExtraInfo(const std::string& context)
+void ModuleWindow::S_AddTitleExtraInfo(const std::string& context)
 {
 	std::string newTitle = _title + context;
 
 	SDL_SetWindowTitle(window, newTitle.c_str());
 }
 
-void ModuleWindow::SetBrightness(float bright)
+void ModuleWindow::S_SetBrightness(float bright)
 {
 	bright = MAX(0.2f, MIN(1.0f, bright)); // check if brightness is between 0.2 and 1.0 and assign it to the closest valid value.
 
 	SDL_SetWindowBrightness(window, bright);
 }
 
-int ModuleWindow::GetMaxRefreshRate()
+int ModuleWindow::S_GetMaxRefreshRate()
 {
 	SDL_DisplayMode display;
 	SDL_GetDisplayMode(0, 0, &display);

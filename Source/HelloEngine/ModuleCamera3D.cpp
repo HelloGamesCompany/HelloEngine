@@ -23,7 +23,7 @@ bool ModuleCamera3D::Start()
 {
 	sceneCamera = new SceneCameraObject(); // Needs to be allocated manually to avoid initializtion order issues.
 	sceneCamera->frameBuffer.SetBufferInfo();
-	sceneCamera->frameBuffer.SetDimensions(Application::Instance()->window->width, Application::Instance()->window->height);
+	sceneCamera->frameBuffer.SetDimensions(ModuleWindow::width, ModuleWindow::height);
 	sceneCamera->isCullingActive = false;
 	sceneCamera->cameraFrustum.farPlaneDistance = 4000;
 	return true;

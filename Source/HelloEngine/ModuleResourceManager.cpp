@@ -274,7 +274,7 @@ void ModuleResourceManager::S_SerializeScene(GameObject*& g)
 	// Change Title
 	std::string scenePath = " -- CurrentScene: " + savePath;
 
-	Application::Instance()->window->AddTitleExtraInfo(scenePath);
+	ModuleWindow::S_AddTitleExtraInfo(scenePath);
 
 	std::string buffer = j.dump();
 
@@ -293,7 +293,7 @@ bool ModuleResourceManager::S_DeserializeScene(const std::string& filePath)
 	// Change Title
 	std::string scenePath = " -- CurrentScene: " + filePath;
 
-	Application::Instance()->window->AddTitleExtraInfo(scenePath);
+	ModuleWindow::S_AddTitleExtraInfo(scenePath);
 
 	ModuleCommand::S_CleanCommandQueue();
 

@@ -19,7 +19,7 @@ ImWindowProject::ImWindowProject()
 
     _app = Application::Instance();
 
-    _window = _app->window->window;
+    _window = ModuleWindow::window;
 
     ModuleResourceManager::S_GetFileTree(_fileTree);
 

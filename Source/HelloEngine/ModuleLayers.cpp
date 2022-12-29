@@ -53,7 +53,7 @@ bool ModuleLayers::Start()
 
         std::string scenePath = " -- CurrentScene: " + newDir;
 
-        Application::Instance()->window->AddTitleExtraInfo(scenePath);
+        ModuleWindow::S_AddTitleExtraInfo(scenePath);
 
         sceneXML.FindChildBreadth("currentScene").node.attribute("value").set_value(newDir.c_str());
         

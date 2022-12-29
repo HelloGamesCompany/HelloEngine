@@ -26,13 +26,13 @@ bool ModuleRenderer3D::Init()
 	Console::S_Log("Initializing OpenGL 3.3");
 	
 	//Create context
-	context = SDL_GL_CreateContext(app->window->window);
+	context = SDL_GL_CreateContext(ModuleWindow::window);
 
 	Console::S_Log("Initializing Glew.");
 
 	GLenum er = glewInit();
 
-	SDL_GL_MakeCurrent(app->window->window, context);
+	SDL_GL_MakeCurrent(ModuleWindow::window, context);
 
 	if(ret == true)
 	{
@@ -79,7 +79,7 @@ bool ModuleRenderer3D::Init()
 	renderManager.Init();
 
 	// Projection matrix for
-	OnResize(app->window->width, app->window->height);
+	OnResize(ModuleWindow::width, ModuleWindow::height);
 
 	return ret;
 }
@@ -123,7 +123,7 @@ UpdateStatus ModuleRenderer3D::PostUpdate()
 
 	ModuleLayers::S_DrawEditor();
 
-	SDL_GL_SwapWindow(app->window->window);
+	SDL_GL_SwapWindow(ModuleWindow::window);
 
 	return UpdateStatus::UPDATE_CONTINUE;
 }
@@ -157,9 +157,8 @@ void ModuleRenderer3D::OnResize(int width, int height)
 	if (_cameras->activeGameCamera != nullptr)
 		_cameras->RequestFrameBufferRegen(_cameras->activeGameCamera, width, height);
 
-	app->window->width = width
-		;
-	app->window->height = height;
+	ModuleWindow::width = width;
+	ModuleWindow::height = height;
 }
 
 void ModuleRenderer3D::ToggleVSync(bool isOn)

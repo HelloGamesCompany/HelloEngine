@@ -19,11 +19,11 @@ ImWindowConfiguration::ImWindowConfiguration() : ImWindow()
 
 	systemRAM = SDL_GetSystemRAM();
 
-	windowWidth = &app->window->width;
+	windowWidth = &ModuleWindow::width;
 
-	windowHeight = &app->window->height;
+	windowHeight = &ModuleWindow::height;
 
-	windowBrightness = &app->window->brightness;
+	windowBrightness = &ModuleWindow::brightness;
 
 	isVSyncOn = &app->renderer3D->isVSync;
 
@@ -91,7 +91,7 @@ void ImWindowConfiguration::Update()
 
 			if (ImGui::SliderFloat("Brightness", windowBrightness, 0.2f, 1.0f))
 			{
-				app->window->SetBrightness(*windowBrightness);
+				ModuleWindow::S_SetBrightness(*windowBrightness);
 			}
 
 			ImGui::Checkbox("VSync", isVSyncOn);

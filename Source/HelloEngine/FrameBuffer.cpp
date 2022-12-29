@@ -4,8 +4,8 @@
 
 FrameBuffer::FrameBuffer()
 {
-	width = Application::Instance()->window->width;
-	height = Application::Instance()->window->height;
+	width = ModuleWindow::width;
+	height = ModuleWindow::height;
 }
 
 FrameBuffer::~FrameBuffer()

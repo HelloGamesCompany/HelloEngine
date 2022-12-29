@@ -120,7 +120,7 @@ void LayerEditor::Start()
 
 	// Init OpenGL
 	const char* glsl_version = "#version 130";
-	ImGui_ImplSDL2_InitForOpenGL(_app->window->window, _app->renderer3D->context);
+	ImGui_ImplSDL2_InitForOpenGL(ModuleWindow::window, _app->renderer3D->context);
 	ImGui_ImplOpenGL3_Init(glsl_version);
 
 	// Create ImGui editor windows
@@ -574,8 +574,8 @@ void LayerEditor::DrawPopUpMessages()
 	bool fadeOut = false;
 	bool hovering = false; // We need this variable to Push/Pop in the correct moment.
 
-	int width = _app->window->width;
-	int height = _app->window->height;
+	int width = ModuleWindow::width;
+	int height = ModuleWindow::height;
 
 	std::string id = "popUpMessage";
 

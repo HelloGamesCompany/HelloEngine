@@ -18,24 +18,26 @@ public:
 	bool Init();
 	bool CleanUp();
 
-	void SetTitle(const char* title);
-	void AddTitleExtraInfo(const std::string& context);
-	void SetBrightness(float bright);
-	int GetMaxRefreshRate();
+	static void S_SetTitle(const char* title);
+	static void S_AddTitleExtraInfo(const std::string& context);
+	static void S_SetBrightness(float bright);
+	static int S_GetMaxRefreshRate();
 
 public:
 	//The window we'll be rendering to
-	SDL_Window* window = nullptr;
+	static SDL_Window* window;
 
-	int width = 0, height = 0;
+	static int width;
 
-	float brightness = 1.0f;
+	static int height;
+
+	static float brightness;
 
 private:
 	//The surface contained by the window
-	SDL_Surface* _screen_surface = nullptr;
-
-	std::string _title = "";
+	static SDL_Surface* _screen_surface;
+	
+	static std::string _title;
 };
 
 #endif // __ModuleWindow_H__
