@@ -21,44 +21,41 @@ public:
 	ModuleLayers();
 	~ModuleLayers();
 
-	bool Init() override;
-
 	bool Start() override;
 
 	UpdateStatus PreUpdate() override;
 	UpdateStatus Update() override;
 	UpdateStatus PostUpdate() override;
 
-	void DrawLayers();
-
-	void DrawEditor();
-
 	bool CleanUp() override;
+	
+	static void S_DrawLayers();
 
-	uint AddGameObject(GameObject* go, uint ID = 0);
+	static void S_DrawEditor();
 
-	void RequestLoadScene(const std::string& scenePath);
+	static uint S_AddGameObject(GameObject* go, uint ID = 0);
+
+	static void S_RequestLoadScene(const std::string& scenePath);
 
 public:
-	Layer* layers[(uint)LayersID::MAX] = { nullptr };
+	static LayerGame* game;
 
-	LayerGame* game = nullptr;
+	static GameObject* rootGameObject;
 
-	GameObject* rootGameObject = nullptr;
+	static LayerEditor* editor;
 
-	LayerEditor* editor = nullptr;
-
-	std::map<uint, GameObject*> gameObjects;
+	static std::map<uint, GameObject*> gameObjects;
 
 private:
-	bool _requestScene = false;
+	static Layer* _layers[(uint)LayersID::MAX];
 
-	std::string _requestScenePath = "null";
+	static bool _requestScene;
 
-	std::string _sceneBeginPath = "null";
+	static std::string _requestScenePath;
 
-	std::vector<GameObject*> _deletedGameObjects;
+	static std::string _sceneBeginPath;
+
+	static std::vector<GameObject*> _deletedGameObjects;
 
 	friend class GameObject;
 };
-

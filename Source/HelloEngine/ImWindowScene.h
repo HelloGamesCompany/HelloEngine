@@ -23,8 +23,6 @@ private:
 	void DetectClick();
 
 private:
-	ModuleLayers* _moduleLayers = nullptr;
-
 	ModuleCamera3D* _moduleCamera = nullptr;
 
 	SceneCameraObject* _sceneCamera = nullptr;

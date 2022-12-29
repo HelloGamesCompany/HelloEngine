@@ -501,7 +501,7 @@ void ImWindowProject::PanelCreateScript()
                 _fileTree->_currentDir->files.emplace_back(_fileTree->_currentDir->path+ _temporalName + ".cpp", _temporalName+".cpp", _fileTree->_currentDir);
             }
             else
-                _app->layers->editor->AddPopUpMessage("The script with this name is already exist");
+                LayerEditor::S_AddPopUpMessage("The script with this name is already exist");
 
             _temporalName = "default";
 

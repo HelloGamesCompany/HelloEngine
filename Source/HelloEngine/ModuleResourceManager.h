@@ -24,7 +24,6 @@ protected:
 	virtual void UnLoad() {}
 
 public:
-
 	ResourceType type = ResourceType::UNDEFINED;
 	uint referenceCount = 0;
 	std::string resourcePath = "";
@@ -36,6 +35,7 @@ class ResourceTexture : public Resource
 {
 public:
 	ResourceTexture() { type = ResourceType::TEXTURE; }
+
 	~ResourceTexture() {}
 
 private:
@@ -61,12 +61,15 @@ class ResourceModel : public Resource
 {
 public:
 	ResourceModel() { type = ResourceType::MODEL; };
+
 	~ResourceModel() {};
 
 	void CreateResourceMeshes();
 
 	ModelNode modelInfo;
+
 	std::vector<ResourceMesh*> modelMeshes;
+
 private:
 	void CreateResourceMeshesRecursive(ModelNode& node);
 };
@@ -171,6 +174,7 @@ public:
 
 	// Only for internal engine usage!
 	static void S_CreateResourceMesh(const std::string& filePath, uint UID, const std::string& name, bool load = true, ResourceModel* model = nullptr);
+	
 	static void S_CreateResourceText(const std::string& filePath, uint UID, const std::string& name, bool load = true);
 
 	static Resource* S_LoadResource(const uint& UID);

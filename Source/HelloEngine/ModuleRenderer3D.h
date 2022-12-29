@@ -25,16 +25,13 @@ public:
 	void ToggleOpenGLWireframe(bool enable);
 
 	GameObject* RaycastFromMousePosition(LineSegment& ray, CameraObject* camera);
-
-
 public:
 	RenderManager renderManager;
 	SDL_GLContext context;
 	bool isVSync = false;
 
 private:
-	ModuleCamera3D* cameras = nullptr;
-
+	ModuleCamera3D* _cameras = nullptr;
 };
 
 #endif // !__MODULERENDERER3D_H__

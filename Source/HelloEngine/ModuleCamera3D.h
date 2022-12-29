@@ -34,17 +34,19 @@ public:
 
 public:
 	std::vector<CameraObject*> gameCameras;
+
 	CameraObject* activeGameCamera = nullptr;
+
 	SceneCameraObject* sceneCamera = nullptr;
 
 	CameraObject* currentDrawingCamera = nullptr;
 
 	bool updateSceneCamera = true;
-	bool updateGameCamera = true;
 
+	bool updateGameCamera = true;
 private:
-	CameraObject* frameBufferRegenCamera = nullptr;
-	int newBufferWidth = 0, newBufferHeight = 0;
+	CameraObject* _frameBufferRegenCamera = nullptr;
+	int _newBufferWidth = 0, _newBufferHeight = 0;
 };
 
 #endif // !__MODULECAMERA3D_H__

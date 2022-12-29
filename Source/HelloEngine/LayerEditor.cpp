@@ -28,10 +28,24 @@
 #include "TransformComponent.h"
 #include "TextureImporter.h"
 
+// Init static variables
+GameObject* LayerEditor::selectedGameObject = nullptr;
+ImWindow* LayerEditor::_imWindows[(uint)ImWindowID::MAX] = {nullptr};
+std::vector<PopUpMessage> LayerEditor::_popUpMessages;
+float LayerEditor::_messageTime = 3.0f;
+bool LayerEditor::_openLoadScene = false;
+bool LayerEditor::_openSaveScene = false;
+FileTree* LayerEditor::_fileTree = nullptr;
+std::string LayerEditor::_currentSelectedPath = "";
+std::string LayerEditor::_savingSceneName = "";
+bool LayerEditor::_requestUpdateFileTree = false;
+uint LayerEditor::_playImageID = 0;
+uint LayerEditor::_stopImageID = 0;
+uint LayerEditor::_pauseImageID = 0;
+uint LayerEditor::_nextImageID = 0;
 
 LayerEditor::LayerEditor()
 {
-	selectedGameObject = nullptr;
 }
 
 LayerEditor::~LayerEditor()
@@ -111,7 +125,7 @@ void LayerEditor::Start()
 
 	// Create ImGui editor windows
 	{
-		_imWindows[(uint)ImWindowID::CONFIGURATION] = configuration = new ImWindowConfiguration();		
+		_imWindows[(uint)ImWindowID::CONFIGURATION] = new ImWindowConfiguration();
 		_imWindows[(uint)ImWindowID::ABOUT] = new ImWindowAbout();
 		_imWindows[(uint)ImWindowID::CONSOLE] = new ImWindowConsole();
 		_imWindows[(uint)ImWindowID::PROJECT] = new ImWindowProject();
@@ -123,9 +137,6 @@ void LayerEditor::Start()
 		_imWindows[(uint)ImWindowID::PERFORMANCE] = new ImWindowPerformanceTest();
 		_imWindows[(uint)ImWindowID::RESOURCES] = new ImWindowResources();
 	}
-
-	// Get layer game for future implementation
-	_game = (LayerGame*)_app->layers->layers[(uint)LayersID::GAME];
 
 	// Reserve space for popUpMessages
 	_popUpMessages.reserve(20);
@@ -194,9 +205,9 @@ void LayerEditor::Update()
 			if (configScene == "null")
 				_openSaveScene = true;
 			else
-				ModuleResourceManager::S_SerializeScene(Application::Instance()->layers->rootGameObject);
+				ModuleResourceManager::S_SerializeScene(ModuleLayers::rootGameObject);
 			
-			AddPopUpMessage("Saved scene: " + ModuleFiles::S_GetFileName(configScene));
+			S_AddPopUpMessage("Saved scene: " + ModuleFiles::S_GetFileName(configScene));
 		}
 	}
 #endif // !STANDALONE
@@ -263,7 +274,7 @@ void LayerEditor::CleanUp()
 	ImGui::DestroyContext();
 }
 
-void LayerEditor::SetSelectGameObject(GameObject* g)
+void LayerEditor::S_SetSelectGameObject(GameObject* g)
 {
 	if (selectedGameObject)
 		selectedGameObject->isSelected = false;
@@ -278,7 +289,7 @@ void LayerEditor::SetSelectGameObject(GameObject* g)
 	inspector->SelectGameObject(g);
 }
 
-void LayerEditor::AddPopUpMessage(std::string message)
+void LayerEditor::S_AddPopUpMessage(std::string message)
 {
 	_popUpMessages.emplace_back(message);
 }
@@ -299,7 +310,7 @@ void LayerEditor::DrawPopUpLoadScene()
 
 		if (ImGui::Button("Open"))
 		{
-			Application::Instance()->layers->RequestLoadScene(_currentSelectedPath);
+			ModuleLayers::S_RequestLoadScene(_currentSelectedPath);
 			_openLoadScene = false;
 		}
 
@@ -337,13 +348,13 @@ void LayerEditor::DrawPopUpSaveScene()
 
 			sceneXML.FindChildBreadth("currentScene").node.attribute("value").set_value(scenePath.c_str());
 
-			ModuleResourceManager::S_SerializeScene(_app->layers->rootGameObject);
+			ModuleResourceManager::S_SerializeScene(ModuleLayers::rootGameObject);
 
 			_requestUpdateFileTree = true;
 
 			_openSaveScene = false;
 
-			AddPopUpMessage("Saved scene: " + _savingSceneName);
+			S_AddPopUpMessage("Saved scene: " + _savingSceneName);
 		}
 
 		ImGui::SameLine();
@@ -446,10 +457,10 @@ void LayerEditor::DrawMenuBar()
 				XMLNode sceneXML = Application::Instance()->xml->GetConfigXML();
 				sceneXML.FindChildBreadth("currentScene").node.attribute("value").set_value("null");
 
-				if (_app->layers->rootGameObject)
-					_app->layers->rootGameObject->Destroy();
+				if (ModuleLayers::rootGameObject)
+					ModuleLayers::rootGameObject->Destroy();
 
-				_app->layers->rootGameObject = new GameObject(nullptr, "Root", "None");
+				ModuleLayers::rootGameObject = new GameObject(nullptr, "Root", "None");
 			}
 
 			if (ImGui::MenuItem("Load Scene"))
@@ -463,9 +474,9 @@ void LayerEditor::DrawMenuBar()
 				if (configScene == "null")
 					_openSaveScene = true;
 				else
-					ModuleResourceManager::S_SerializeScene(Application::Instance()->layers->rootGameObject);
+					ModuleResourceManager::S_SerializeScene(ModuleLayers::rootGameObject);
 				
-				AddPopUpMessage("Saved scene: " + ModuleFiles::S_GetFileName(configScene));
+				S_AddPopUpMessage("Saved scene: " + ModuleFiles::S_GetFileName(configScene));
 			}
 
 			if (ImGui::MenuItem("Save Scene As (Ctrl + Alt + S)"))
@@ -517,36 +528,36 @@ void LayerEditor::DrawMenuBar()
 		int totalButtonsWidth = 72;
 		ImGui::SetCursorPos(ImVec2(contentRegion.x / 2 - totalButtonsWidth, 4));
 
-		if (!_game->_isPlaying)
+		if (!LayerGame::_isPlaying)
 		{
 			if (ImGui::ImageButton("Play", (ImTextureID)_playImageID, ImVec2(24, 24)))
-				_game->Play();
+				LayerGame::S_Play();
 			ImGui::SameLine();
 		}
 		else
 		{
 			if (ImGui::ImageButton("Stop", (ImTextureID)_stopImageID, ImVec2(24, 24)))
-				_game->Stop();
+				LayerGame::S_Stop();
 			ImGui::SameLine();
 		}
 
-		if (_game->_paused)
+		if (LayerGame::_paused)
 		{
 			ImGui::PopStyleColor();
 			ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(1.0f, 0.5f, 0.5f, 1.0f));
 		}
 
 		if (ImGui::ImageButton("Pause", (ImTextureID)_pauseImageID, ImVec2(24, 24)))
-			_game->Pause();
+			LayerGame::S_Pause();
 		ImGui::SameLine();
-		if (_game->_paused)
+		if (LayerGame::_paused)
 		{
 			ImGui::PopStyleColor();
 			ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.85f, 0.85f, 0.85f, 1.0f));
 		}
 
 		if (ImGui::ImageButton("Next", (ImTextureID)_nextImageID, ImVec2(24, 24)))
-			_game->OneFrame();
+			LayerGame::S_OneFrame();
 		
 		ImGui::End();
 	}

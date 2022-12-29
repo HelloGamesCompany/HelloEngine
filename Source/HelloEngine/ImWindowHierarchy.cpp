@@ -17,9 +17,7 @@ ImWindowHierarchy::ImWindowHierarchy()
 
     _app = Application::Instance();
 
-    _layerEditor = (LayerEditor*)_app->layers->layers[LayersID::EDITOR];
-
-    _gameObjectsReference = &_app->layers->gameObjects;
+    _gameObjectsReference = &ModuleLayers::gameObjects;
 
     _popUpOpen = false;
 
@@ -40,14 +38,14 @@ void ImWindowHierarchy::Update()
     {
         _hasSelectedAGameObject = false;
         
-        DrawGameObjectChildren(_app->layers->rootGameObject);
+        DrawGameObjectChildren(ModuleLayers::rootGameObject);
 
         ImGui::BeginChild("DropArea");
         {
             // WindowHierachy PopUp
             if(ImGui::BeginPopupContextWindow("WinodwHierachyPopUp", ImGuiPopupFlags_NoOpenOverExistingPopup | ImGuiPopupFlags_MouseButtonDefault_))
             {
-                _layerEditor->SetSelectGameObject(nullptr);
+                LayerEditor::S_SetSelectGameObject(nullptr);
 
                 DrawOptions();
 
@@ -70,7 +68,7 @@ void ImWindowHierarchy::Update()
 
                 std::string popUpmessage = "Loaded Mesh: ";
 
-                Application::Instance()->layers->editor->AddPopUpMessage(popUpmessage);
+                LayerEditor::S_AddPopUpMessage(popUpmessage);
 
             }
             else if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("Mesh"))
@@ -79,7 +77,7 @@ void ImWindowHierarchy::Update()
 
                 ResourceMesh* resource = (ResourceMesh*)ModuleResourceManager::resources[*drop];
 
-                GameObject* newGameObject = new GameObject(Application::Instance()->layers->rootGameObject, resource->debugName);
+                GameObject* newGameObject = new GameObject(ModuleLayers::rootGameObject, resource->debugName);
                 
                 MeshRenderComponent* meshRender = newGameObject->AddComponent<MeshRenderComponent>();
                 
@@ -87,7 +85,7 @@ void ImWindowHierarchy::Update()
 
                 std::string popUpmessage = "Loaded Mesh: " + resource->debugName;
 
-                Application::Instance()->layers->editor->AddPopUpMessage(popUpmessage);
+                LayerEditor::S_AddPopUpMessage(popUpmessage);
 
             }
             ImGui::EndDragDropTarget();
@@ -115,7 +113,7 @@ void ImWindowHierarchy::ProcessGameObject(GameObject* gameObject, int iteration)
 
     ImGuiTreeNodeFlags node_flags = _base_flags;
 
-    GameObject* temp = _layerEditor->GetSelectedGameObject();
+    GameObject* temp = LayerEditor::selectedGameObject;
 
     if (gameObject == temp)
         node_flags |= ImGuiTreeNodeFlags_Selected;
@@ -157,12 +155,12 @@ void ImWindowHierarchy::ProcessGameObject(GameObject* gameObject, int iteration)
         ImGui::IsMouseReleased(ImGuiMouseButton_::ImGuiMouseButton_Right))
         if (ImGui::IsItemHovered() && gameObject->_parent != nullptr)
         {
-            _layerEditor->SetSelectGameObject(gameObject);
+            LayerEditor::S_SetSelectGameObject(gameObject);
             _hasSelectedAGameObject = true;
         }
 
     // Draw PopUps
-    if(gameObject == _layerEditor->GetSelectedGameObject())
+    if(gameObject == LayerEditor::selectedGameObject)
     {
         if (gameObject->_parent)
         {
@@ -197,12 +195,12 @@ void ImWindowHierarchy::DrawOptions()
     int selectedShape = 0;
     std::string shapeNames[4] = { "Cube", "Sphere", "Cylinder", "Plane" };
 
-    if (_layerEditor->selectedGameObject != nullptr)
+    if (LayerEditor::selectedGameObject != nullptr)
     {
         if (ImGui::Selectable("Delete GameObject##"))
         {
 #ifdef STANDALONE           
-             ModuleCommand::S_DeleteGameObject(_layerEditor->selectedGameObject);
+             ModuleCommand::S_DeleteGameObject(LayerEditor::selectedGameObject);
 #else
             _layerEditor->selectedGameObject->Destroy()
 #endif // STANDALONE
@@ -211,7 +209,7 @@ void ImWindowHierarchy::DrawOptions()
     
     if (ImGui::Selectable("Create empty GameObject"))
     {
-        GameObject* parent = _layerEditor->selectedGameObject != nullptr ? _layerEditor->selectedGameObject : Application::Instance()->layers->rootGameObject;
+        GameObject* parent = LayerEditor::selectedGameObject ? LayerEditor::selectedGameObject : ModuleLayers::rootGameObject;
         GameObject* newGameObject = new GameObject(parent, "Empty");
     }
 
@@ -224,7 +222,7 @@ void ImWindowHierarchy::DrawOptions()
         if (ImGui::Selectable(shapeNames[i].c_str()))
         {
             selectedShape = i;
-            _app->renderer3D->renderManager.CreatePrimitive(_layerEditor->selectedGameObject, (PrimitiveType)i);
+            _app->renderer3D->renderManager.CreatePrimitive(LayerEditor::selectedGameObject, (PrimitiveType)i);
         }
     }
 }

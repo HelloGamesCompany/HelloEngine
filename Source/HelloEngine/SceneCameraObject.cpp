@@ -19,10 +19,7 @@ SceneCameraObject::~SceneCameraObject()
 void SceneCameraObject::UpdateInput()
 {
 	// Mouse motion ----------------
-	if (editor == nullptr) 
-		editor = Application::Instance()->layers->editor;
-	
-	GameObject* selectedGO = editor->selectedGameObject;
+	GameObject* selectedGO = LayerEditor::selectedGameObject;
 
 	float dx = -ModuleInput::S_GetMouseXMotion();
 

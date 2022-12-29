@@ -49,12 +49,12 @@ private:
 	/// <param name="encrypt">: true = encrypt, false =  decrypt</param>
 	void EncryptDecryptXML(std::string fileName, bool encrypt);
 private:
-	XMLNode config;
+	XMLNode _config;
 
-	XMLNode resource;
+	XMLNode _resource;
 
 	// <xml file, path>
-	std::vector<std::pair<pugi::xml_document*, std::string>> xmlFiles;
+	std::vector<std::pair<pugi::xml_document*, std::string>> _xmlFiles;
 };
 
 #endif

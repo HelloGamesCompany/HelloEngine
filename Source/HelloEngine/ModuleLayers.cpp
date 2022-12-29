@@ -10,6 +10,16 @@
 #include "ModuleInput.h"
 #include "ModuleWindow.h"
 
+LayerGame* ModuleLayers::game = nullptr;
+GameObject* ModuleLayers::rootGameObject = nullptr;
+LayerEditor* ModuleLayers::editor = nullptr;
+std::map<uint, GameObject*> ModuleLayers::gameObjects;
+Layer* ModuleLayers::_layers[(uint)LayersID::MAX] = { nullptr };
+bool ModuleLayers::_requestScene = false;
+std::string ModuleLayers:: _requestScenePath = "null";
+std::string ModuleLayers::_sceneBeginPath = "null";
+std::vector<GameObject*> ModuleLayers::_deletedGameObjects;
+
 ModuleLayers::ModuleLayers()
 {
 }
@@ -18,19 +28,13 @@ ModuleLayers::~ModuleLayers()
 {
 }
 
-bool ModuleLayers::Init()
-{
-  
-    return true;
-}
-
 bool ModuleLayers::Start()
 {
-    layers[(uint)LayersID::EDITOR] = new LayerEditor();
-    layers[(uint)LayersID::GAME] = new LayerGame();
+    _layers[(uint)LayersID::EDITOR] = new LayerEditor();
+    _layers[(uint)LayersID::GAME] = new LayerGame();
 
-    game = (LayerGame*)layers[(uint)LayersID::GAME];
-    editor = (LayerEditor*)layers[(uint)LayersID::EDITOR];
+    game = (LayerGame*)_layers[(uint)LayersID::GAME];
+    editor = (LayerEditor*)_layers[(uint)LayersID::EDITOR];
 
     // Create Root GameObject (Scene)
     XMLNode sceneXML = Application::Instance()->xml->GetConfigXML();
@@ -58,7 +62,8 @@ bool ModuleLayers::Start()
 
     for (int i = 0; i < (uint)LayersID::MAX; i++)
     {
-        if (layers[i] && layers[i]->IsEnabled()) layers[i]->Start();
+        if (_layers[i] && _layers[i]->IsEnabled()) 
+            _layers[i]->Start();
     }
 
     return true;
@@ -69,9 +74,7 @@ UpdateStatus ModuleLayers::PreUpdate()
     if(_requestScene)
     {
         if(!ModuleResourceManager::S_DeserializeScene(_requestScenePath))
-        {
             _requestScenePath = "null";
-        }
 
         _requestScene = false;
     }
@@ -84,7 +87,8 @@ UpdateStatus ModuleLayers::PreUpdate()
 
     for (int i = 0; i < (uint)LayersID::MAX; i++)
     {
-        if (layers[i] && layers[i]->IsEnabled()) layers[i]->PreUpdate();
+        if (_layers[i] && _layers[i]->IsEnabled()) 
+            _layers[i]->PreUpdate();
     }
     return UpdateStatus::UPDATE_CONTINUE;
 }
@@ -93,7 +97,8 @@ UpdateStatus ModuleLayers::Update()
 {
     for (int i = 0; i < (uint)LayersID::MAX; i++)
     {
-        if (layers[i] && layers[i]->IsEnabled()) layers[i]->Update();
+        if (_layers[i] && _layers[i]->IsEnabled()) 
+            _layers[i]->Update();
     }
     return UpdateStatus::UPDATE_CONTINUE;
 }
@@ -103,17 +108,19 @@ UpdateStatus ModuleLayers::PostUpdate()
     return UpdateStatus::UPDATE_CONTINUE;
 }
 
-void ModuleLayers::DrawLayers()
+void ModuleLayers::S_DrawLayers()
 {
     for (int i = 0; i < (uint)LayersID::EDITOR; i++)
     {
-        if (layers[i] && layers[i]->IsEnabled()) layers[i]->PostUpdate();
+        if (_layers[i] && _layers[i]->IsEnabled())
+            _layers[i]->PostUpdate();
     }
 }
 
-void ModuleLayers::DrawEditor()
+void ModuleLayers::S_DrawEditor()
 {
-    if (layers[(uint)LayersID::EDITOR] && layers[(uint)LayersID::EDITOR]->IsEnabled()) layers[(uint)LayersID::EDITOR]->PostUpdate();
+    if (_layers[(uint)LayersID::EDITOR] && _layers[(uint)LayersID::EDITOR]->IsEnabled()) 
+        _layers[(uint)LayersID::EDITOR]->PostUpdate();
 }
 
 bool ModuleLayers::CleanUp()
@@ -135,21 +142,24 @@ bool ModuleLayers::CleanUp()
 
     for (int i = 0; i < (uint)LayersID::MAX; i++)
     {
-       if (layers[i]) layers[i]->CleanUp();
-       RELEASE(layers[i]);
+       if (_layers[i]) 
+           _layers[i]->CleanUp();
+       
+       RELEASE(_layers[i]);
     }
+   
     RELEASE(rootGameObject);
     return true;
 }
 
-uint ModuleLayers::AddGameObject(GameObject* go, uint ID)
+uint ModuleLayers::S_AddGameObject(GameObject* go, uint ID)
 {
     ID = ID == 0 ? HelloUUID::GenerateUUID() : ID;
     gameObjects[ID] = go;
     return ID;
 }
 
-void ModuleLayers::RequestLoadScene(const std::string& scenePath)
+void ModuleLayers::S_RequestLoadScene(const std::string& scenePath)
 {
     _requestScenePath = scenePath;
 

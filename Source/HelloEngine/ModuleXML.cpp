@@ -5,11 +5,13 @@
 
 ModuleXML::ModuleXML() : Module()
 {
-	if (!ModuleFiles::S_Exists(CONFIG_DIR)) ModuleFiles::S_MakeDir(CONFIG_DIR);
+	if (!ModuleFiles::S_Exists(CONFIG_DIR)) 
+		ModuleFiles::S_MakeDir(CONFIG_DIR);
 
-	if (!ModuleFiles::S_Exists(CONFIG_PATH)) CreateDefaultConfigFile();
+	if (!ModuleFiles::S_Exists(CONFIG_PATH)) 
+		CreateDefaultConfigFile();
 
-	config = OpenXML(CONFIG_PATH);
+	_config = OpenXML(CONFIG_PATH);
 
 	//resource = OpenXML(RESOURCE_PATH);
 }
@@ -26,11 +28,11 @@ XMLNode ModuleXML::OpenXML(std::string path, bool usingPhysFS)
 	XMLNode ret;
 
 	// Check if the document has already been opened
-	for (int i = 0; i < xmlFiles.size(); i++)
+	for (int i = 0; i < _xmlFiles.size(); i++)
 	{
-		if (xmlFiles[i].second == path)
+		if (_xmlFiles[i].second == path)
 		{
-			ret.node = xmlFiles[i].first->first_child();
+			ret.node = _xmlFiles[i].first->first_child();
 			ret.xmlFile = i;
 			return ret;
 		}
@@ -71,12 +73,12 @@ XMLNode ModuleXML::OpenXML(std::string path, bool usingPhysFS)
 		// Add path and xml_document to the xmlFiles vector
 		std::pair<pugi::xml_document*, std::string> p(d, path);
 
-		xmlFiles.push_back(p);
+		_xmlFiles.push_back(p);
 	}
 
 	ret.node = n;
 
-	ret.xmlFile = xmlFiles.size()-1; // Uint that points to the index of the xml_document inside xmlFiles vector.
+	ret.xmlFile = _xmlFiles.size()-1; // Uint that points to the index of the xml_document inside xmlFiles vector.
 
 	return ret;
 }
@@ -110,22 +112,22 @@ XMLNode ModuleXML::CreateXML(std::string filePath, std::string rootNodeName)
 
 XMLNode ModuleXML::GetConfigXML()
 {
-	return config;
+	return _config;
 }
 
 XMLNode ModuleXML::GetResourceXML()
 {
-	return resource;
+	return _resource;
 }
 
 void ModuleXML::Save(int index, const std::string& extension)
 {
 	if (index >= 0)
 	{
-		std::string filePath = xmlFiles[index].second;
+		std::string filePath = _xmlFiles[index].second;
 		filePath = ModuleFiles::S_RemoveExtension(filePath);
 		filePath += extension;
-		xmlFiles[index].first->save_file(filePath.c_str());
+		_xmlFiles[index].first->save_file(filePath.c_str());
 
 		//uint size = strlen((char*)xmlFiles[index].first);
 
@@ -156,9 +158,9 @@ void ModuleXML::Save(int index, const std::string& extension)
 		return;
 	}
 	
-	for (int i = 0; i < xmlFiles.size(); i++)
+	for (int i = 0; i < _xmlFiles.size(); i++)
 	{
-		xmlFiles[i].first->save_file(xmlFiles[i].second.c_str());
+		_xmlFiles[i].first->save_file(_xmlFiles[i].second.c_str());
 		
 		//pugi::xml_writer_file w(xmlFiles[i].first);
 
@@ -181,12 +183,12 @@ void ModuleXML::Save(int index, const std::string& extension)
 
 bool ModuleXML::CleanUp()
 {
-	for (int i = 0; i < xmlFiles.size(); i++)
+	for (int i = 0; i < _xmlFiles.size(); i++)
 	{
-		RELEASE(xmlFiles[i].first);
+		RELEASE(_xmlFiles[i].first);
 	}
 
-	xmlFiles.clear();
+	_xmlFiles.clear();
 
 	return true;
 }

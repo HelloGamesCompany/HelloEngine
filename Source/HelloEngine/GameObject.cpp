@@ -11,7 +11,7 @@
 
 GameObject::GameObject(GameObject* parent, std::string name, std::string tag, uint ID) : name(name), tag(tag)
 {
-	_ID = Application::Instance()->layers->AddGameObject(this, ID);
+	_ID = ModuleLayers::S_AddGameObject(this, ID);
 	transform = AddComponent<TransformComponent>();
 	if (parent != nullptr)
 		parent->AddChild(this);
@@ -19,7 +19,7 @@ GameObject::GameObject(GameObject* parent, std::string name, std::string tag, ui
 
 GameObject::GameObject(GameObject* parent, std::string& name, std::string& tag, uint ID) : name(name), tag(tag)
 {
-	_ID = Application::Instance()->layers->AddGameObject(this, ID);
+	_ID = ModuleLayers::S_AddGameObject(this, ID);
 	transform = AddComponent<TransformComponent>();
 	if (parent != nullptr) 
 		parent->AddChild(this);
@@ -138,9 +138,9 @@ bool GameObject::MarkAsDead()
 {
 	if(!_isPendingToDelete)
 	{
-		if (Application::Instance()->layers->editor->selectedGameObject == this)
+		if (LayerEditor::selectedGameObject == this)
 		{
-			Application::Instance()->layers->editor->SetSelectGameObject(nullptr);
+			LayerEditor::S_SetSelectGameObject(nullptr);
 			ImGuizmo::Enable(false);
 		}
 
@@ -195,18 +195,18 @@ void GameObject::Destroy()
 	if (_isDestroyed)
 		return;
 
-	if (Application::Instance()->layers->editor->selectedGameObject == this)
+	if (LayerEditor::selectedGameObject == this)
 	{
-		Application::Instance()->layers->editor->SetSelectGameObject(nullptr);
+		LayerEditor::S_SetSelectGameObject(nullptr);
 		ImGuizmo::Enable(false);
 	}
 
 	_isPendingToDelete = true;
 	_isDestroyed = true;
 
-	Application::Instance()->layers->gameObjects.erase(_ID);
+	ModuleLayers::gameObjects.erase(_ID);
 
-	Application::Instance()->layers->_deletedGameObjects.push_back(this);
+	ModuleLayers::_deletedGameObjects.push_back(this);
 
 	for (int i = 0; i < _children.size(); i++)
 	{

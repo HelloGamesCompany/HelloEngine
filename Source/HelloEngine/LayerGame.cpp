@@ -7,13 +7,23 @@
 #include "ScriptComponent.h"
 #include "ScriptToInspectorInterface.h"
 
+std::map<uint, BehaviorScript> LayerGame::_behaviorScripts;
+std::vector<ScriptComponent*> LayerGame::_scriptComponents;
+bool LayerGame::_isPlaying = false;
+bool LayerGame::_paused = false;
+bool LayerGame::_update = false;
+bool LayerGame::_oneFrame = false;
+bool LayerGame::_needsReload = false;
+HMODULE LayerGame::_dllFile;
+time_t LayerGame::_dllChangeTime;
+
 typedef void* (*CreateFunc)(ScriptToInspectorInterface*);
 
 LayerGame::LayerGame()
 {
-	dllChangeTime = ModuleFiles::S_CheckFileLastModify(DLL_DIRECTORY);
+	_dllChangeTime = ModuleFiles::S_CheckFileLastModify(DLL_DIRECTORY);
 	CopyFile(TEXT(DLL_DIRECTORY), TEXT("APILibrary/HelloAPI.dll"), FALSE);
-	dllFile = LoadLibrary("APILibrary/HelloAPI.dll");
+	_dllFile = LoadLibrary("APILibrary/HelloAPI.dll");
 
 	ModuleFiles::S_CreateScriptFile("Creationtest", "Assets/Scripts/");
 }
@@ -30,15 +40,15 @@ void LayerGame::PreUpdate()
 {
 	// Check if saved time and change time is not equal.
 	time_t temp = ModuleFiles::S_CheckFileLastModify(DLL_DIRECTORY);
-	if (temp != dllChangeTime)
+	if (temp != _dllChangeTime)
 	{
-		dllChangeTime = temp;
+		_dllChangeTime = temp;
 		_needsReload = true;
 	}
 
 	if (_needsReload && !_isPlaying)
 	{
-		HotReload();
+		S_HotReload();
 	}
 
 	if ((!_isPlaying || _paused) && !_oneFrame)
@@ -72,7 +82,7 @@ void LayerGame::PostUpdate()
 		return;
 }
 
-void LayerGame::Play()
+void LayerGame::S_Play()
 {
 	// TODO: Save scene.
 	Time::Reset();
@@ -86,7 +96,7 @@ void LayerGame::Play()
 	}
 }
 
-void LayerGame::Stop()
+void LayerGame::S_Stop()
 {
 	Time::Reset();
 	_isPlaying = false;
@@ -94,7 +104,7 @@ void LayerGame::Stop()
 	// TODO: Reload scene.
 }
 
-void LayerGame::Pause()
+void LayerGame::S_Pause()
 {
 	//if (!_isPlaying)
 	//	return;
@@ -104,39 +114,39 @@ void LayerGame::Pause()
 		Time::Start();
 }
 
-void LayerGame::OneFrame()
+void LayerGame::S_OneFrame()
 {
 	if (!_isPlaying || !_paused) return;
 	Time::Start();
 	_oneFrame = true;
 }
 
-void LayerGame::AddScriptComponent(ScriptComponent* component)
+void LayerGame::S_AddScriptComponent(ScriptComponent* component)
 {
 	_scriptComponents.push_back(component);
-	CreateBehaviorScript(component);
+	S_CreateBehaviorScript(component);
 }
 
-void LayerGame::RemoveScriptComponent(ScriptComponent* component)
+void LayerGame::S_RemoveScriptComponent(ScriptComponent* component)
 {
 	for (int i = 0; i < _scriptComponents.size(); ++i)
 	{
 		if (component == _scriptComponents[i])
 		{
 			_scriptComponents.erase(_scriptComponents.begin() + i);
-			DestroyBehaviorScript(component);
+			S_DestroyBehaviorScript(component);
 			return;
 		}
 	}
 	LOG("Didn't found component in script components vector in layer game.");
 }
 
-void LayerGame::HotReload()
+void LayerGame::S_HotReload()
 {
 	// Destroy every HellobEhavior in map
 	for (int i = 0; i < _scriptComponents.size(); ++i)
 	{
-		DestroyBehaviorScript(_scriptComponents[i]);
+		S_DestroyBehaviorScript(_scriptComponents[i]);
 		_scriptComponents[i]->SaveInspectorFields();
 		_scriptComponents[i]->DestroyInspectorFields();
 	}
@@ -144,7 +154,7 @@ void LayerGame::HotReload()
 	_behaviorScripts.clear();
 
 	// Free DLL
-	FreeLibrary(dllFile);
+	FreeLibrary(_dllFile);
 
 	// Move new dll into ouptut to use.
 	while (CopyFile(TEXT(DLL_DIRECTORY), TEXT("APILibrary/HelloAPI.dll"), FALSE) == FALSE)
@@ -153,12 +163,12 @@ void LayerGame::HotReload()
 	}
 
 	// Load DLL
-	dllFile = LoadLibrary(TEXT("APILibrary/HelloAPI.dll"));
+	_dllFile = LoadLibrary(TEXT("APILibrary/HelloAPI.dll"));
 
 	// Create every HElloBehavior in map
 	for (int i = 0; i < _scriptComponents.size(); ++i)
 	{
-		CreateBehaviorScript(_scriptComponents[i]);
+		S_CreateBehaviorScript(_scriptComponents[i]);
 		_scriptComponents[i]->LoadInspectorFields();
 	}
 
@@ -171,15 +181,15 @@ void LayerGame::CleanUp()
 	{
 		RELEASE(script.second.script);
 	}
-	FreeLibrary(dllFile);
+	FreeLibrary(_dllFile);
 }
 
-void LayerGame::CreateBehaviorScript(ScriptComponent* component)
+void LayerGame::S_CreateBehaviorScript(ScriptComponent* component)
 {
 	if (component->scriptResource == nullptr)
 		return;
 
-	CreateFunc create = (CreateFunc)GetProcAddress(dllFile, ("Create" + component->scriptResource->className).c_str());
+	CreateFunc create = (CreateFunc)GetProcAddress(_dllFile, ("Create" + component->scriptResource->className).c_str());
 
 	uint randomUID = HelloUUID::GenerateUUID();
 	_behaviorScripts[randomUID].script = (HelloBehavior*)create(component);
@@ -188,7 +198,7 @@ void LayerGame::CreateBehaviorScript(ScriptComponent* component)
 	component->scriptUID = randomUID;
 }
 
-void LayerGame::DestroyBehaviorScript(ScriptComponent* component)
+void LayerGame::S_DestroyBehaviorScript(ScriptComponent* component)
 {
 	if (component->scriptUID != 0)
 		_behaviorScripts.erase(component->scriptUID);

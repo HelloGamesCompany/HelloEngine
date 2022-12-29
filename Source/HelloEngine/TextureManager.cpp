@@ -30,7 +30,7 @@ float TextureManager::BindTexture(uint texture)
 
 	bindedTexturesInfo.push_back({ texture, bindedTextures });
 
-	/*if (!Application::Instance()->layers->editor->configuration->renderConfigs["texture2D"].first)
+	/*if (!ModuleEditor::configuration->renderConfigs["texture2D"].first)
 	{
 		bindedTextures++;
 		return -1.0f;

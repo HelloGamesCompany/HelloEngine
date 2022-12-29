@@ -208,7 +208,8 @@ uint RenderManager::AddInstancedMesh(ResourceMesh* resource)
 
 void RenderManager::CreatePrimitive(GameObject* parent, PrimitiveType type)
 {
-	if (parent == nullptr) parent = Application::Instance()->layers->rootGameObject;
+	if (parent == nullptr) 
+		parent = ModuleLayers::rootGameObject;
 
 	switch (type)
 	{

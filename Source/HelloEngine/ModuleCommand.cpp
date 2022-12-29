@@ -28,14 +28,14 @@ UpdateStatus ModuleCommand::Update()
 		{
 			if (!Undo())
 			{
-				app->layers->editor->AddPopUpMessage("Cannot undo anymore!!!");
+				LayerEditor::S_AddPopUpMessage("Cannot undo anymore!!!");
 			}
 		}
 		if (ModuleInput::S_GetKey(SDL_SCANCODE_Y) == KEY_DOWN)
 		{
 			if (!Redo()) 
 			{
-				app->layers->editor->AddPopUpMessage("Cannot redo anymore!!!"); 
+				LayerEditor::S_AddPopUpMessage("Cannot redo anymore!!!");
 			}
 		}
 	}

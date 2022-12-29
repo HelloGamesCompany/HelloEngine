@@ -22,7 +22,7 @@ bool ModuleRenderer3D::Init()
 {
 	LOG("Creating 3D Renderer context");
 	bool ret = true;
-	cameras = app->camera;
+	_cameras = app->camera;
 	Console::S_Log("Initializing OpenGL 3.3");
 	
 	//Create context
@@ -95,33 +95,33 @@ UpdateStatus ModuleRenderer3D::PreUpdate()
 // PostUpdate present buffer to screen
 UpdateStatus ModuleRenderer3D::PostUpdate()
 {
-	if (cameras->sceneCamera->active)
+	if (_cameras->sceneCamera->active)
 	{
-		cameras->sceneCamera->frameBuffer.Bind();
+		_cameras->sceneCamera->frameBuffer.Bind();
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 		glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 
-		cameras->currentDrawingCamera = cameras->sceneCamera;
+		_cameras->currentDrawingCamera = _cameras->sceneCamera;
 
-		Application::Instance()->layers->DrawLayers();
+		ModuleLayers::S_DrawLayers();
 		renderManager.Draw();
-		cameras->DrawCameraFrustums();
+		_cameras->DrawCameraFrustums();
 	}
 
-	if (cameras->activeGameCamera != nullptr && cameras->activeGameCamera->active)
+	if (_cameras->activeGameCamera != nullptr && _cameras->activeGameCamera->active)
 	{
-		cameras->activeGameCamera->frameBuffer.Bind();
+		_cameras->activeGameCamera->frameBuffer.Bind();
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 		glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 
-		cameras->currentDrawingCamera = cameras->activeGameCamera;
+		_cameras->currentDrawingCamera = _cameras->activeGameCamera;
 
 		renderManager.Draw();
 	}
 
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
-	Application::Instance()->layers->DrawEditor();
+	ModuleLayers::S_DrawEditor();
 
 	SDL_GL_SwapWindow(app->window->window);
 
@@ -152,9 +152,13 @@ void ModuleRenderer3D::OnResize(int width, int height)
 {
 	glViewport(0, 0, width, height);
 
-	cameras->RequestFrameBufferRegen(cameras->sceneCamera, width, height);
-	if (cameras->activeGameCamera != nullptr) cameras->RequestFrameBufferRegen(cameras->activeGameCamera, width, height);
-	app->window->width = width;
+	_cameras->RequestFrameBufferRegen(_cameras->sceneCamera, width, height);
+
+	if (_cameras->activeGameCamera != nullptr)
+		_cameras->RequestFrameBufferRegen(_cameras->activeGameCamera, width, height);
+
+	app->window->width = width
+		;
 	app->window->height = height;
 }
 
@@ -178,7 +182,7 @@ void ModuleRenderer3D::ToggleOpenGLWireframe(bool enable)
 
 GameObject* ModuleRenderer3D::RaycastFromMousePosition(LineSegment& ray, CameraObject* camera)
 {
-	auto& gameObjects = Application::Instance()->layers->gameObjects;
+	auto& gameObjects = ModuleLayers::gameObjects;
 	bool hit = false;
 	std::vector<uint> hitGameobjects;
 	for (auto& gameObject : gameObjects)

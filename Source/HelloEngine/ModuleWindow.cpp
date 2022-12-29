@@ -10,7 +10,7 @@
 ModuleWindow::ModuleWindow(bool start_enabled) : Module(start_enabled)
 {
 	window = nullptr;
-	screen_surface = nullptr;
+	_screen_surface = nullptr;
 }
 
 // Destructor
@@ -81,7 +81,7 @@ bool ModuleWindow::Init()
 		else
 		{
 			//Get window surface
-			screen_surface = SDL_GetWindowSurface(window);
+			_screen_surface = SDL_GetWindowSurface(window);
 		}
 	}
 

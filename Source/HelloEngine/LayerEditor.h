@@ -32,6 +32,7 @@ struct PopUpMessage
 	std::string message = "";
 	
 	float currentMessageTime = 0.0f;
+
 	bool hovered = false;
 };
 
@@ -49,13 +50,15 @@ public:
 
 	void CleanUp() override;
 
-	void SetSelectGameObject(GameObject* g);
-	GameObject* GetSelectedGameObject() 
-	{
-		return selectedGameObject; 
-	}
+	static void S_SetSelectGameObject(GameObject* g);
 
-	void AddPopUpMessage(std::string message);
+	//GameObject* GetSelectedGameObject() 
+	//{
+	//	return selectedGameObject; 
+	//}
+
+	static void S_AddPopUpMessage(std::string message);
+
 private:
 	void DrawMenuBar();
 
@@ -67,35 +70,30 @@ private:
 	void DrawPopUpMessages();
 
 public:
-	ImWindowConfiguration* configuration = nullptr;
-	GameObject* selectedGameObject = nullptr;
+	static GameObject* selectedGameObject;
 
 private:
-	ImWindow* _imWindows[(uint)ImWindowID::MAX] = { nullptr };
-	LayerGame* _game = nullptr;
+	static ImWindow* _imWindows[(uint)ImWindowID::MAX];
 
 	Application* _app = nullptr;
 
-	int _gameWidth = 0, _gameHeight = 0;
-
 	//Popup message variables
-	std::vector<PopUpMessage> _popUpMessages;
-	float _messageTime = 3.0f;
+	static std::vector<PopUpMessage> _popUpMessages;
+	static float _messageTime;
 
 	// Scene popups
-	bool _openLoadScene = false;
-	bool _openSaveScene = false;
-	FileTree* _fileTree = nullptr;
-	std::string _currentSelectedPath = "";
-	std::string _savingSceneName = "";
-	bool _requestUpdateFileTree = false;
+	static bool _openLoadScene;
+	static bool _openSaveScene;
+	static FileTree* _fileTree;
+	static std::string _currentSelectedPath;
+	static std::string _savingSceneName;
+	static bool _requestUpdateFileTree;
 
 	// Play/Stop buttons
-	uint _playImageID = 0;
-	uint _stopImageID = 0;
-	uint _pauseImageID = 0;
-	uint _nextImageID = 0;
-
+	static uint _playImageID;
+	static uint _stopImageID;
+	static uint _pauseImageID;
+	static uint _nextImageID;
 
 	friend class ImWindowHierarchy;
 };

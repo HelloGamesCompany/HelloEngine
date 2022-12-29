@@ -47,9 +47,9 @@ void ModuleCamera3D::DrawCameraFrustums()
 
 void ModuleCamera3D::RequestFrameBufferRegen(CameraObject* camera, int width, int height)
 {
-	frameBufferRegenCamera = camera;
-	newBufferWidth = width;
-	newBufferHeight = height;
+	_frameBufferRegenCamera = camera;
+	_newBufferWidth = width;
+	_newBufferHeight = height;
 }
 
 CameraObject* ModuleCamera3D::CreateGameCamera()
@@ -67,10 +67,10 @@ CameraObject* ModuleCamera3D::CreateGameCamera()
 void ModuleCamera3D::SetCurrentActiveGameCamera(CameraObject* target)
 {
 	if (activeGameCamera != nullptr)
-	{
 		activeGameCamera->currentlyDisplaying = false;
-	}
+
 	activeGameCamera = target;
+
 	target->currentlyDisplaying = true;
 }
 
@@ -85,10 +85,9 @@ void ModuleCamera3D::EraseGameCamera(CameraObject* erasedCamera)
 			if (activeGameCamera == erasedCamera)
 			{
 				activeGameCamera = gameCameras.empty() ? nullptr : gameCameras[0];
+
 				if (activeGameCamera != nullptr)
-				{
 					activeGameCamera->currentlyDisplaying = true;
-				}
 			}
 			break;
 		}
@@ -99,10 +98,10 @@ void ModuleCamera3D::EraseGameCamera(CameraObject* erasedCamera)
 // -----------------------------------------------------------------
 UpdateStatus ModuleCamera3D::Update()
 {
-	if (frameBufferRegenCamera != nullptr)
+	if (_frameBufferRegenCamera != nullptr)
 	{
-		frameBufferRegenCamera->RegenerateFrameBuffer(newBufferWidth, newBufferHeight);
-		frameBufferRegenCamera = nullptr;
+		_frameBufferRegenCamera->RegenerateFrameBuffer(_newBufferWidth, _newBufferHeight);
+		_frameBufferRegenCamera = nullptr;
 	}
 
 	if (updateSceneCamera) sceneCamera->UpdateInput();

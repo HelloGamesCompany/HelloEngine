@@ -11,10 +11,6 @@ public:
 	~SceneCameraObject();
 
 	void UpdateInput();
-
-public:
-	LayerEditor* editor = nullptr;
-
 private:
 	/// <summary>
 	/// Focus on a point in space with an offset set by distance

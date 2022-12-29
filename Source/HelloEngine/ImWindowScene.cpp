@@ -16,7 +16,6 @@ ImWindowScene::ImWindowScene()
 
 	_moduleCamera = Application::Instance()->camera;
 	_sceneCamera = Application::Instance()->camera->sceneCamera;
-	_moduleLayers = Application::Instance()->layers;
 }
 
 ImWindowScene::~ImWindowScene()
@@ -59,7 +58,7 @@ void ImWindowScene::Update()
 
 			ImGui::Image((ImTextureID)_sceneCamera->frameBuffer.GetTexture(), ImGui::GetContentRegionAvail(), ImVec2(0, 1), ImVec2(1, 0));
 
-			GameObject* selected = _moduleLayers->editor->selectedGameObject;
+			GameObject* selected = LayerEditor::selectedGameObject;
 
 			if (selected != nullptr)
 			{
@@ -121,7 +120,7 @@ void ImWindowScene::Update()
 				MeshImporter::LoadModelIntoScene(resource);
 
 				std::string popUpmessage = "Loaded Mesh: ";
-				_moduleLayers->editor->AddPopUpMessage(popUpmessage);
+				LayerEditor::S_AddPopUpMessage(popUpmessage);
 
 			}
 			else if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("Mesh"))
@@ -130,22 +129,22 @@ void ImWindowScene::Update()
 
 				ResourceMesh* resource = (ResourceMesh*)ModuleResourceManager::resources[*drop];
 
-				GameObject* newGameObject = new GameObject(_moduleLayers->rootGameObject, resource->debugName);
+				GameObject* newGameObject = new GameObject(ModuleLayers::rootGameObject, resource->debugName);
 				MeshRenderComponent* meshRender = newGameObject->AddComponent<MeshRenderComponent>();
 				meshRender->CreateMesh(*drop);
 
 				std::string popUpmessage = "Loaded Mesh: " + resource->debugName;
-				_moduleLayers->editor->AddPopUpMessage(popUpmessage);
+				LayerEditor::S_AddPopUpMessage(popUpmessage);
 
 			}
 			else if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("Scene"))
 			{
 				const std::string drop = *(std::string*)payload->Data;
 
-				_moduleLayers->RequestLoadScene(drop);
+				ModuleLayers::S_RequestLoadScene(drop);
 
 				std::string popUpmessage = "Loaded Scene: " + ModuleFiles::S_GetFileName(drop, false);
-				_moduleLayers->editor->AddPopUpMessage(popUpmessage);
+				LayerEditor::S_AddPopUpMessage(popUpmessage);
 			}
 			ImGui::EndDragDropTarget();
 		}
@@ -185,7 +184,7 @@ void ImWindowScene::DetectClick()
 
 		LineSegment line = _sceneCamera->cameraFrustum.UnProjectLineSegment(positionX, positionY);
 		GameObject* hitGameObject = Application::Instance()->renderer3D->RaycastFromMousePosition(line, _sceneCamera);
-		_moduleLayers->editor->SetSelectGameObject(hitGameObject);
+		LayerEditor::S_SetSelectGameObject(hitGameObject);
 	}
 }
 

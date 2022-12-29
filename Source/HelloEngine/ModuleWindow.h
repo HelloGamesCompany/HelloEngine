@@ -28,12 +28,13 @@ public:
 	SDL_Window* window = nullptr;
 
 	int width = 0, height = 0;
+
 	float brightness = 1.0f;
 
-	//The surface contained by the window
-	SDL_Surface* screen_surface = nullptr;
-
 private:
+	//The surface contained by the window
+	SDL_Surface* _screen_surface = nullptr;
+
 	std::string _title = "";
 };
 

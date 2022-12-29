@@ -7,12 +7,12 @@
 ScriptComponent::ScriptComponent(GameObject* go) : Component(go)
 {
 	_type = Component::Type::SCRIPT;
-	Application::Instance()->layers->game->AddScriptComponent(this);
+	LayerGame::S_AddScriptComponent(this);
 }
 
 ScriptComponent::~ScriptComponent()
 {
-	Application::Instance()->layers->game->RemoveScriptComponent(this);
+	LayerGame::S_RemoveScriptComponent(this);
 	if (scriptResource != nullptr)
 		scriptResource->Dereference();
 	DestroyInspectorFields();
@@ -48,13 +48,13 @@ void ScriptComponent::OnEditor()
 void ScriptComponent::OnEnable()
 {
 	if (scriptUID != 0)
-		Application::Instance()->layers->game->_behaviorScripts[scriptUID].active = true;
+		LayerGame::_behaviorScripts[scriptUID].active = true;
 }
 
 void ScriptComponent::OnDisable()
 {
 	if (scriptUID != 0)
-		Application::Instance()->layers->game->_behaviorScripts[scriptUID].active = false;
+		LayerGame::_behaviorScripts[scriptUID].active = false;
 }
 
 void ScriptComponent::Serialization(json& j)
@@ -83,7 +83,7 @@ void ScriptComponent::DeSerialization(json& j)
 	if (scriptResource)
 	{
 		// Create a new script object instance.
-		Application::Instance()->layers->game->CreateBehaviorScript(this);
+		LayerGame::S_CreateBehaviorScript(this);
 		// Deserialize every inspector field
 		LoadInspectorFields(&j);
 	}
@@ -136,19 +136,18 @@ void ScriptComponent::ImGuiDragScript()
 			// If we had another script attached, destroy that script instance first
 			if (scriptUID != 0)
 			{
-				Application::Instance()->layers->game->DestroyBehaviorScript(this);
+				LayerGame::S_DestroyBehaviorScript(this);
 				scriptResource->Dereference();
 				DestroyInspectorFields();
 			}
 
-			scriptResource = (ResourceScript*)Application::Instance()->resource->S_LoadResource(*drop);
+			scriptResource = (ResourceScript*)ModuleResourceManager::S_LoadResource(*drop);
 
 			// Create a new script object instance.
-			Application::Instance()->layers->game->CreateBehaviorScript(this);
+			LayerGame::S_CreateBehaviorScript(this);
 
 			std::string popUpmessage = "Loaded Script: " + scriptResource->className;
-			Application::Instance()->layers->editor->AddPopUpMessage(popUpmessage);
-
+			LayerEditor::S_AddPopUpMessage(popUpmessage);
 		}
 		ImGui::EndDragDropTarget();
 	}

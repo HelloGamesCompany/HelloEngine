@@ -138,7 +138,7 @@ void ModuleResourceManager::S_ReImportFile(const std::string& filePath, Resource
 	case ResourceType::HSCRIPT:
 	{
 		// Call Hot reload
-		// Application::Instance()->layers->game->HotReload();
+		// LayerGame::HotReload();
 	}
 	}
 
@@ -283,8 +283,6 @@ void ModuleResourceManager::S_SerializeScene(GameObject*& g)
 
 bool ModuleResourceManager::S_DeserializeScene(const std::string& filePath)
 {
-	ModuleLayers* layers = Application::Instance()->layers;
-
 	char* buffer = nullptr;
 
 	uint size = ModuleFiles::S_Load(filePath, &buffer);
@@ -303,8 +301,8 @@ bool ModuleResourceManager::S_DeserializeScene(const std::string& filePath)
 	RELEASE(buffer);
 
 	// Create New GameObject for root GameObject
-	if(layers->rootGameObject)
-		layers->rootGameObject->Destroy();
+	if(ModuleLayers::rootGameObject)
+		ModuleLayers::rootGameObject->Destroy();
 
 	std::vector<std::pair<GameObject*, uint>> temp;
 
@@ -326,10 +324,10 @@ bool ModuleResourceManager::S_DeserializeScene(const std::string& filePath)
 	for (int i = 0; i < temp.size(); i++)
 	{
 		if (temp[i].second != 0)
-			temp[i].first->SetParent(layers->gameObjects[temp[i].second]);
+			temp[i].first->SetParent(ModuleLayers::gameObjects[temp[i].second]);
 	}
 
-	layers->rootGameObject = temp[0].first;
+	ModuleLayers::rootGameObject = temp[0].first;
 
 	return true;
 }
