@@ -1,10 +1,12 @@
 #include "Creationtest.h"
-#include "CSL.h"
+#include "API/API_Console.h"
+
 void Creationtest::Start()
 {
 
 }
 void Creationtest::Update()
 {
-	API::CSL::Log("String name 2: " + stringTest);
+
+	API::Console::Log("String name 2: " + stringTest);
 }

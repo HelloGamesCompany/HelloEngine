@@ -18,12 +18,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CSL.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="Test.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
     <ClCompile Include="../../Assets/Scripts/Creationtest.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
@@ -35,13 +29,7 @@
     <ClInclude Include="HelloEngine.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="CSL.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="Macro.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="Test.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="../../Assets/Scripts/Creationtest.h">

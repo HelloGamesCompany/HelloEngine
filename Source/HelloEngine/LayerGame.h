@@ -3,6 +3,7 @@
 #include "MeshRenderComponent.h"
 #include "GameObject.h"
 #include "HelloBehavior.h"
+#include <ctime>
 
 #ifdef _DEBUG
 #define DLL_DIRECTORY "HelloAPI/bin/Debug/HelloAPI.dll"

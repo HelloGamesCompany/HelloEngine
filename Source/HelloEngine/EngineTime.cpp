@@ -1,6 +1,5 @@
 #include "Headers.h"
 
-
 // Real Time
 float Time::_realTimeDeltaTime = 0;
 uint Time::_lastFrameTicks = 0;

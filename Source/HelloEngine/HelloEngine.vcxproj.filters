@@ -130,7 +130,7 @@
     <ClCompile Include="Headers.cpp">
       <Filter>Main</Filter>
     </ClCompile>
-    <ClCompile Include="Time.cpp">
+    <ClCompile Include="EngineTime.cpp">
       <Filter>Utils</Filter>
     </ClCompile>
     <ClCompile Include="UUID.cpp">
@@ -323,6 +323,7 @@
       <Filter>Other</Filter>
     </ClCompile>
     <ClCompile Include="ScriptToInspectorInterface.cpp" />
+    <ClCompile Include="API\API_Console.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -463,7 +464,7 @@
     <ClInclude Include="Headers.h">
       <Filter>Main</Filter>
     </ClInclude>
-    <ClInclude Include="Time.h">
+    <ClInclude Include="EngineTime.h">
       <Filter>Utils</Filter>
     </ClInclude>
     <ClInclude Include="UUID.h">
@@ -761,6 +762,8 @@
       <Filter>Other</Filter>
     </ClInclude>
     <ClInclude Include="ScriptToInspectorInterface.h" />
+    <ClInclude Include="API\API.h" />
+    <ClInclude Include="API\API_Console.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="External">
@@ -816,6 +819,9 @@
     </Filter>
     <Filter Include="Modules\ModuleXML">
       <UniqueIdentifier>{82a9b635-d1b3-4b5c-8667-9be45ff24f5b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="API">
+      <UniqueIdentifier>{9415a565-49db-4b37-8304-2d5e3b42f724}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

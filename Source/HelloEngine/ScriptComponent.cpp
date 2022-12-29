@@ -94,6 +94,7 @@ void ScriptComponent::AddDragFloat(const std::string& name, float* value)
 	DragFieldFloat* dragField = new DragFieldFloat();
 	dragField->valueName = name;
 	dragField->value = value;
+	dragField->className = scriptResource->className;
 
 	inspectorFields.push_back(dragField);
 }
@@ -103,6 +104,7 @@ void ScriptComponent::AddDragInt(const std::string& name, int* value)
 	DragFieldInt* dragField = new DragFieldInt();
 	dragField->valueName = name;
 	dragField->value = value;
+	dragField->className = scriptResource->className;
 
 	inspectorFields.push_back(dragField);
 }
@@ -112,17 +114,19 @@ void ScriptComponent::AddCheckBox(const std::string& name, bool* value)
 	CheckBoxField* checkBoxField = new CheckBoxField();
 	checkBoxField->valueName = name;
 	checkBoxField->value = value;
+	checkBoxField->className = scriptResource->className;
 
 	inspectorFields.push_back(checkBoxField);
 }
 
 void ScriptComponent::AddInputBox(const std::string& name, std::string* value)
 {
-	InputBoxField* checkBoxField = new InputBoxField();
-	checkBoxField->valueName = name;
-	checkBoxField->value = value;
+	InputBoxField* inputBoxField = new InputBoxField();
+	inputBoxField->valueName = name;
+	inputBoxField->value = value;
+	inputBoxField->className = scriptResource->className;
 
-	inspectorFields.push_back(checkBoxField);
+	inspectorFields.push_back(inputBoxField);
 }
 
 void ScriptComponent::ImGuiDragScript()

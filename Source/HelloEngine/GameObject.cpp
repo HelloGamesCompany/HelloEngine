@@ -121,8 +121,7 @@ void GameObject::OnEditor()
 						AddComponent<CameraComponent>();
 					break;
 				case 3:
-					if (!HasComponent<ScriptComponent>())
-						AddComponent<ScriptComponent>();
+					AddComponent<ScriptComponent>();
 				}
 			}
 		}
@@ -217,11 +216,13 @@ void GameObject::Destroy()
 
 void GameObject::RemoveChild(GameObject* child)
 {
-	if (!child) return;
+	if (!child) 
+		return;
 
 	for (int i = 0; i < _children.size(); ++i)
 	{
-		if (_children[i] == child) _children.erase(_children.begin() + i);
+		if (_children[i] == child)
+			_children.erase(_children.begin() + i);
 	}
 	child->_parent = nullptr;
 }

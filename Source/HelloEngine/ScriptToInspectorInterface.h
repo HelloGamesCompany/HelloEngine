@@ -13,6 +13,7 @@ class ScriptInspectorField
 public:
 	void* value = nullptr;
 	std::string valueName = "";
+	std::string className = "";
 	virtual void OnEditor() = 0;
 #ifndef HELLO_ENGINE_EXPORTS
 	virtual void OnSerialize(json& j) = 0;

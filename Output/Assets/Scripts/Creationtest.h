@@ -1,6 +1,6 @@
 #pragma once
-#include "HelloEngine/HelloBehavior.h"
-#include "HelloEngine/ScriptToInspectorInterface.h"
+#include "HelloBehavior.h"
+#include "ScriptToInspectorInterface.h"
 #include "Macro.h"
 class Creationtest : HelloBehavior
 {
@@ -18,8 +18,7 @@ HELLO_ENGINE_API_C Creationtest* CreateCreationtest(ScriptToInspectorInterface* 
 Creationtest* classInstance = new Creationtest();
 
 	script->AddDragFloat("creation test", &classInstance->creationTestFloat);
-	script->AddDragInt("int test", &classInstance->intTest);
-	script->AddCheckBox("bool test", &classInstance->boolTest);
+	script->AddDragInt("int test 2", &classInstance->intTest);
 	script->AddInputBox("string test", &classInstance->stringTest);
 
 	return classInstance;

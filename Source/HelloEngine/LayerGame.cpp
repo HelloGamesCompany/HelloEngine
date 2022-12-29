@@ -157,10 +157,12 @@ void LayerGame::S_HotReload()
 	FreeLibrary(_dllFile);
 
 	// Move new dll into ouptut to use.
-	while (CopyFile(TEXT(DLL_DIRECTORY), TEXT("APILibrary/HelloAPI.dll"), FALSE) == FALSE)
+	ModuleFiles::S_Copy(DLL_DIRECTORY, "APILibrary/", true);
+
+	/*while (CopyFile(TEXT(DLL_DIRECTORY), TEXT("APILibrary/HelloAPI.dll"), FALSE) == FALSE)
 	{
 		printf("Changing DLL.");
-	}
+	}*/
 
 	// Load DLL
 	_dllFile = LoadLibrary(TEXT("APILibrary/HelloAPI.dll"));

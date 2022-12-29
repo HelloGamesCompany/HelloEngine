@@ -3,7 +3,7 @@
 
 void DragFieldFloat::OnEditor()
 {
-	ImGui::DragFloat(valueName.c_str(), (float*)value);
+	ImGui::DragFloat((valueName + "##" + className).c_str(), (float*)value);
 }
 
 void DragFieldFloat::OnSerialize(json& j)
@@ -19,14 +19,14 @@ void DragFieldFloat::OnDeserialize(json& j)
 	{
 		if (j[i].find(valueName) != j[i].end())
 		{
-			*(float*)value = j[i][valueName.c_str()];
+			*(float*)value = j[i][valueName.c_str()];	
 		}
 	}
 }
 
 void DragFieldInt::OnEditor()
 {
-	ImGui::DragInt(valueName.c_str(), (int*)value);
+	ImGui::DragInt((valueName + "##" + className).c_str(), (int*)value);
 }
 
 void DragFieldInt::OnSerialize(json& j)
@@ -49,7 +49,7 @@ void DragFieldInt::OnDeserialize(json& j)
 
 void CheckBoxField::OnEditor()
 {
-	ImGui::Checkbox(valueName.c_str(), (bool*)value);
+	ImGui::Checkbox((valueName + "##" + className).c_str(), (bool*)value);
 }
 
 void CheckBoxField::OnSerialize(json& j)
@@ -72,7 +72,7 @@ void CheckBoxField::OnDeserialize(json& j)
 
 void InputBoxField::OnEditor()
 {
-	ImGui::InputText(valueName.c_str(), (std::string*)value);
+	ImGui::InputText((valueName + "##" + className).c_str(), (std::string*)value);
 }
 
 void InputBoxField::OnSerialize(json& j)
