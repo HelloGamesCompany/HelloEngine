@@ -284,6 +284,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="API\API_Console.cpp" />
+    <ClCompile Include="API_Input.cpp" />
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="CameraComponent.cpp" />
     <ClCompile Include="CameraObject.cpp" />
@@ -433,6 +434,8 @@
     <ClInclude Include="..\External\PugiXml\src\pugixml.hpp" />
     <ClInclude Include="API\API.h" />
     <ClInclude Include="API\API_Console.h" />
+    <ClInclude Include="API_Input.h" />
+    <ClInclude Include="API_KeyCode.h" />
     <ClInclude Include="Application.h" />
     <ClInclude Include="CameraComponent.h" />
     <ClInclude Include="CameraObject.h" />

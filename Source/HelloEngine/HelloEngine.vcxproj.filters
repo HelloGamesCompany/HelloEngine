@@ -322,8 +322,15 @@
     <ClCompile Include="HelloBehavior.cpp">
       <Filter>Other</Filter>
     </ClCompile>
-    <ClCompile Include="ScriptToInspectorInterface.cpp" />
-    <ClCompile Include="API\API_Console.cpp" />
+    <ClCompile Include="API\API_Console.cpp">
+      <Filter>API</Filter>
+    </ClCompile>
+    <ClCompile Include="ScriptToInspectorInterface.cpp">
+      <Filter>API</Filter>
+    </ClCompile>
+    <ClCompile Include="API_Input.cpp">
+      <Filter>API</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -761,9 +768,21 @@
     <ClInclude Include="HelloBehavior.h">
       <Filter>Other</Filter>
     </ClInclude>
-    <ClInclude Include="ScriptToInspectorInterface.h" />
-    <ClInclude Include="API\API.h" />
-    <ClInclude Include="API\API_Console.h" />
+    <ClInclude Include="API\API.h">
+      <Filter>API</Filter>
+    </ClInclude>
+    <ClInclude Include="API\API_Console.h">
+      <Filter>API</Filter>
+    </ClInclude>
+    <ClInclude Include="ScriptToInspectorInterface.h">
+      <Filter>API</Filter>
+    </ClInclude>
+    <ClInclude Include="API_Input.h">
+      <Filter>API</Filter>
+    </ClInclude>
+    <ClInclude Include="API_KeyCode.h">
+      <Filter>API</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="External">
