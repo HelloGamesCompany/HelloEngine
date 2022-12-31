@@ -328,7 +328,10 @@
     <ClCompile Include="ScriptToInspectorInterface.cpp">
       <Filter>API</Filter>
     </ClCompile>
-    <ClCompile Include="API_Input.cpp">
+    <ClCompile Include="API\API_Input.cpp">
+      <Filter>API</Filter>
+    </ClCompile>
+    <ClCompile Include="API\API_GameObject.cpp">
       <Filter>API</Filter>
     </ClCompile>
   </ItemGroup>
@@ -777,10 +780,13 @@
     <ClInclude Include="ScriptToInspectorInterface.h">
       <Filter>API</Filter>
     </ClInclude>
-    <ClInclude Include="API_Input.h">
+    <ClInclude Include="API\API_Input.h">
       <Filter>API</Filter>
     </ClInclude>
-    <ClInclude Include="API_KeyCode.h">
+    <ClInclude Include="API\API_KeyCode.h">
+      <Filter>API</Filter>
+    </ClInclude>
+    <ClInclude Include="API\API_GameObject.h">
       <Filter>API</Filter>
     </ClInclude>
   </ItemGroup>

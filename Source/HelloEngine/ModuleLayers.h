@@ -2,9 +2,11 @@
 #include "Module.h"
 #include "Layer.h"
 #include "GameObject.h"
+#include "API/API_GameObject.h"
 
 class LayerEditor;
 class LayerGame;
+
 
 enum LayersID
 {
@@ -34,6 +36,7 @@ public:
 	static void S_DrawEditor();
 
 	static uint S_AddGameObject(GameObject* go, uint ID = 0);
+	static void S_RemoveGameObject(uint ID);
 
 	static void S_RequestLoadScene(const std::string& scenePath);
 
@@ -45,6 +48,8 @@ public:
 	static LayerEditor* editor;
 
 	static std::map<uint, GameObject*> gameObjects;
+
+	static std::vector<API::API_GameObject*> apiGameObjects;
 
 private:
 	static Layer* _layers[(uint)LayersID::MAX];

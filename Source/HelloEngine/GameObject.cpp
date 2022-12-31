@@ -203,7 +203,7 @@ void GameObject::Destroy()
 	_isPendingToDelete = true;
 	_isDestroyed = true;
 
-	ModuleLayers::gameObjects.erase(_ID);
+	ModuleLayers::S_RemoveGameObject(_ID);
 
 	ModuleLayers::_deletedGameObjects.push_back(this);
 

@@ -18,4 +18,7 @@ void Creationtest::Update()
 	{
 		Console::Log("Left mouse button pressed");
 	}
+
+	std::string goName = testGameObject.GetName();
+	Console::Log("Game object name: " + goName);
 }

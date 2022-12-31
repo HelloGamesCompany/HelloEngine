@@ -2,6 +2,8 @@
 #include "HelloBehavior.h"
 #include "ScriptToInspectorInterface.h"
 #include "Macro.h"
+#include "API/API.h"
+
 class Creationtest : HelloBehavior
 {
 public:
@@ -12,7 +14,9 @@ public:
 	int intTest = 5;
 	bool boolTest = false;
 	std::string stringTest = "Hello world.";
+	API_GameObject testGameObject;
 };
+
 HELLO_ENGINE_API_C Creationtest* CreateCreationtest(ScriptToInspectorInterface* script)
 {
 Creationtest* classInstance = new Creationtest();
