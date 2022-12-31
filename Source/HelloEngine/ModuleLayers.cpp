@@ -157,6 +157,7 @@ bool ModuleLayers::CleanUp()
     }
    
     RELEASE(rootGameObject);
+    RELEASE(emptyAPITransform);
     return true;
 }
 
