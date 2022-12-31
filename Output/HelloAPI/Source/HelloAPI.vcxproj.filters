@@ -54,6 +54,9 @@
     <ClCompile Include="../../Assets/Scripts/prueba11.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+    <ClCompile Include="../../Assets/Scripts/Creationtest.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HelloEngine.h">
@@ -96,6 +99,9 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="../../Assets/Scripts/prueba11.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="../../Assets/Scripts/Creationtest.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

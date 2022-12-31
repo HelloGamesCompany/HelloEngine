@@ -129,6 +129,16 @@ void ScriptComponent::AddInputBox(const std::string& name, std::string* value)
 	inspectorFields.push_back(inputBoxField);
 }
 
+void ScriptComponent::AddDragBoxGameObject(const std::string& name, API::API_GameObject* value)
+{
+	DragBoxGameObject* dragBoxField = new DragBoxGameObject();
+	dragBoxField->valueName = name;
+	dragBoxField->value = value;
+	dragBoxField->className = scriptResource->className;
+
+	inspectorFields.push_back(dragBoxField);
+}
+
 void ScriptComponent::ImGuiDragScript()
 {
 	if (ImGui::BeginDragDropTarget())

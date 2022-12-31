@@ -158,8 +158,6 @@ bool GameObject::MarkAsDead()
 			_components[i]->MarkAsDead();
 		}
 
-
-
 		return true;
 	}	
 
@@ -206,6 +204,9 @@ void GameObject::Destroy()
 	ModuleLayers::S_RemoveGameObject(_ID);
 
 	ModuleLayers::_deletedGameObjects.push_back(this);
+
+	if (_parent != nullptr)
+		_parent->RemoveChild(this);
 
 	for (int i = 0; i < _children.size(); i++)
 	{

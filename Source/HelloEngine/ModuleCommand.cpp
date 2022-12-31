@@ -9,6 +9,7 @@
 #include "LayerEditor.h"
 
 CommandArray* ModuleCommand:: _commands = nullptr;
+bool ModuleCommand::_canUseCommand = true;
 
 ModuleCommand::ModuleCommand()
 {
@@ -22,6 +23,10 @@ ModuleCommand::~ModuleCommand()
 
 UpdateStatus ModuleCommand::Update()
 {
+	// This has been added to avoid Undo/Redo taking place when the game is being simulated.
+	if (!_canUseCommand)
+		return UpdateStatus::UPDATE_CONTINUE;
+
 	if(ModuleInput::S_GetKey(SDL_SCANCODE_LCTRL) == KEY_REPEAT)
 	{
 		if(ModuleInput::S_GetKey(SDL_SCANCODE_Z) == KEY_DOWN)

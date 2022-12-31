@@ -3,7 +3,7 @@
 #include "CommandChangeValue.hpp"
 #include "CommandArray.hpp"
 
-#define MAX_UNDO 20 // Actually is 21-1 = 20;
+#define MAX_UNDO 2 // Actually is 21-1 = 20;
 
 typedef Htool::CommandArray<Command*> CommandArray;
 
@@ -61,4 +61,8 @@ private:
 
 private:
 	static CommandArray* _commands;
+public:
+	static bool _canUseCommand;
+
+	friend class LayerGame;
 };

@@ -91,8 +91,6 @@ UpdateStatus ModuleLayers::PreUpdate()
     }
     _deletedGameObjects.clear();
 
-    apiGameObjects;
-
     for (int i = 0; i < (uint)LayersID::MAX; i++)
     {
         if (_layers[i] && _layers[i]->IsEnabled()) 
@@ -189,4 +187,13 @@ void ModuleLayers::S_RequestLoadScene(const std::string& scenePath)
     _requestScenePath = scenePath;
 
     _requestScene = true;
+}
+
+GameObject* ModuleLayers::S_GetGameObject(uint ID)
+{
+    if (gameObjects.find(ID) != gameObjects.end())
+    {
+        return gameObjects[ID];
+    }
+    return nullptr;
 }

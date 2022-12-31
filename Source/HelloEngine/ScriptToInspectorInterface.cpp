@@ -1,5 +1,7 @@
 #include "Headers.h"
 #include "ScriptToInspectorInterface.h"
+#include "API/API_GameObject.h"
+#include "ModuleLayers.h"
 
 void DragFieldFloat::OnEditor()
 {
@@ -91,4 +93,36 @@ void InputBoxField::OnDeserialize(json& j)
 			*(std::string*)value = j[i][valueName.c_str()];
 		}
 	}
+}
+
+void DragBoxGameObject::OnEditor()
+{
+	API::API_GameObject* go = (API::API_GameObject*)value;
+	
+	if (go->_gameObject == nullptr)
+		ImGui::TextColored(ImVec4(1, 1, 0, 1), "Drop a GameObject here");
+	else
+		ImGui::TextColored(ImVec4(1, 1, 0, 1), go->GetName().c_str());
+
+	if (ImGui::BeginDragDropTarget())
+	{
+		if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("APIGameObject"))
+		{
+			const uint* drop = (uint*)payload->Data;
+
+			GameObject* droppedGO = ModuleLayers::S_GetGameObject(*drop);
+
+			if (droppedGO != nullptr)
+				go->SetGameObject(droppedGO);
+		}
+		ImGui::EndDragDropTarget();
+	}
+}
+
+void DragBoxGameObject::OnSerialize(json& j)
+{
+}
+
+void DragBoxGameObject::OnDeserialize(json& j)
+{
 }

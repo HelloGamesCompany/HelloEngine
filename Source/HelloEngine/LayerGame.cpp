@@ -6,6 +6,7 @@
 #include "TextureImporter.h"
 #include "ScriptComponent.h"
 #include "ScriptToInspectorInterface.h"
+#include "ModuleCommand.h"
 
 std::map<uint, BehaviorScript> LayerGame::_behaviorScripts;
 std::vector<ScriptComponent*> LayerGame::_scriptComponents;
@@ -84,6 +85,7 @@ void LayerGame::PostUpdate()
 
 void LayerGame::S_Play()
 {
+	ModuleCommand::_canUseCommand = false;
 	// TODO: Save scene.
 	Time::Reset();
 	Time::Start();
@@ -98,6 +100,7 @@ void LayerGame::S_Play()
 
 void LayerGame::S_Stop()
 {
+	ModuleCommand::_canUseCommand = true;
 	Time::Reset();
 	_isPlaying = false;
 	_paused = false;

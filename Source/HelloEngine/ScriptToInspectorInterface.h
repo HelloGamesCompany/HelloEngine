@@ -2,6 +2,7 @@
 #include "Globals.h"
 #include <string>
 #include <vector>
+#include "API/API_GameObject.h"
 
 #ifndef HELLO_ENGINE_EXPORTS
 #include "json.hpp"
@@ -57,6 +58,15 @@ class InputBoxField : public ScriptInspectorField
 #endif
 };
 
+class DragBoxGameObject : public ScriptInspectorField
+{
+	void OnEditor() override;
+#ifndef HELLO_ENGINE_EXPORTS
+	void OnSerialize(json& j) override;
+	void OnDeserialize(json& j) override;
+#endif
+};
+
 class TO_API ScriptToInspectorInterface
 {
 public:
@@ -64,6 +74,7 @@ public:
 	virtual void AddDragInt(const std::string& name, int* value) = 0;
 	virtual void AddCheckBox(const std::string& name, bool* value) = 0;
 	virtual void AddInputBox(const std::string& name, std::string* value) = 0;
+	virtual void AddDragBoxGameObject(const std::string& name, API::API_GameObject* value) = 0;
 
 protected:
 	std::vector<ScriptInspectorField*> inspectorFields;

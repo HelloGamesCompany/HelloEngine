@@ -2,7 +2,7 @@
 #include "Globals.h"
 
 class GameObject;
-
+class DragBoxGameObject;
 
 namespace API
 {
@@ -27,5 +27,6 @@ namespace API
 		GameObject* _gameObject = nullptr;
 		API_Transform* _transform = nullptr;
 		friend class ModuleLayers;
+		friend class DragBoxGameObject;
 	};
 }

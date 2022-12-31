@@ -22,6 +22,7 @@ public:
 	void AddDragInt(const std::string& name, int* value) override;
 	void AddCheckBox(const std::string& name, bool* value) override;
 	void AddInputBox(const std::string& name, std::string* value) override;
+	void AddDragBoxGameObject(const std::string& name, API::API_GameObject* value) override;
 
 private:
 	void ImGuiDragScript();

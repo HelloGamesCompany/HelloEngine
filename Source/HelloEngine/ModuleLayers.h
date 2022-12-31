@@ -42,6 +42,8 @@ public:
 
 	static void S_RequestLoadScene(const std::string& scenePath);
 
+	static GameObject* S_GetGameObject(uint ID);
+
 public:
 	static LayerGame* game;
 
