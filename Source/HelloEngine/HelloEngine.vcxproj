@@ -278,9 +278,6 @@
     <ClCompile Include="..\External\MathGeoLib\include\Time\Clock.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="..\External\mmgr\mmgr.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-    </ClCompile>
     <ClCompile Include="..\External\PugiXml\src\pugixml.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
@@ -431,7 +428,6 @@
     <ClInclude Include="..\External\MathGeoLib\include\Math\sse_mathfun.h" />
     <ClInclude Include="..\External\MathGeoLib\include\Math\TransformOps.h" />
     <ClInclude Include="..\External\MathGeoLib\include\Time\Clock.h" />
-    <ClInclude Include="..\External\mmgr\mmgr.h" />
     <ClInclude Include="..\External\mmgr\nommgr.h" />
     <ClInclude Include="..\External\PugiXml\src\pugiconfig.hpp" />
     <ClInclude Include="..\External\PugiXml\src\pugixml.hpp" />

@@ -102,7 +102,7 @@ void DragBoxGameObject::OnEditor()
 	if (go->_gameObject == nullptr)
 		ImGui::TextColored(ImVec4(1, 1, 0, 1), "Drop a GameObject here");
 	else
-		ImGui::TextColored(ImVec4(1, 1, 0, 1), go->GetName().c_str());
+		ImGui::TextColored(ImVec4(1, 1, 0, 1), go->_gameObject->name.c_str());
 
 	if (ImGui::BeginDragDropTarget())
 	{

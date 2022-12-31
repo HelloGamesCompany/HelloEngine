@@ -310,9 +310,6 @@
     <ClCompile Include="..\External\MathGeoLib\include\Time\Clock.cpp">
       <Filter>External\MathGeoLib</Filter>
     </ClCompile>
-    <ClCompile Include="..\External\mmgr\mmgr.cpp">
-      <Filter>External\mmgr</Filter>
-    </ClCompile>
     <ClCompile Include="..\External\PugiXml\src\pugixml.cpp">
       <Filter>External\PugiXml</Filter>
     </ClCompile>
@@ -753,9 +750,6 @@
     </ClInclude>
     <ClInclude Include="..\External\MathGeoLib\include\Time\Clock.h">
       <Filter>External\MathGeoLib</Filter>
-    </ClInclude>
-    <ClInclude Include="..\External\mmgr\mmgr.h">
-      <Filter>External\mmgr</Filter>
     </ClInclude>
     <ClInclude Include="..\External\mmgr\nommgr.h">
       <Filter>External\mmgr</Filter>

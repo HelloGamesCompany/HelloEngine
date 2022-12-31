@@ -2,11 +2,11 @@
 
 #include "LayerGame.h"
 
-#include "nommgr.h"
+
 #include "assimp/Importer.hpp"
 #include "assimp/scene.h"
 #include "assimp/postprocess.h"
-#include "mmgr.h"
+
 
 class GameObject;
 struct ModelNode;
