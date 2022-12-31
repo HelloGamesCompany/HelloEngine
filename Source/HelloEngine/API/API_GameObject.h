@@ -3,8 +3,10 @@
 
 class GameObject;
 
+
 namespace API
 {
+	class API_Transform;
 	class TO_API API_GameObject
 	{
 	public:
@@ -16,11 +18,14 @@ namespace API
 		std::string GetName();
 		std::string GetTag();
 
+		/// Call this function to get an API_Transform pointer. WARNING: You should use this 
+		API::API_Transform* GetTransform();
+
 	private:
 		void SetGameObject(GameObject* gameObject);
 	private:
 		GameObject* _gameObject = nullptr;
-		
+		API_Transform* _transform = nullptr;
 		friend class ModuleLayers;
 	};
 }

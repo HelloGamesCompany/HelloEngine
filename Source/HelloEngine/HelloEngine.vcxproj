@@ -286,6 +286,7 @@
     <ClCompile Include="API\API_Console.cpp" />
     <ClCompile Include="API\API_GameObject.cpp" />
     <ClCompile Include="API\API_Input.cpp" />
+    <ClCompile Include="API\API_Transform.cpp" />
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="CameraComponent.cpp" />
     <ClCompile Include="CameraObject.cpp" />
@@ -438,6 +439,7 @@
     <ClInclude Include="API\API_GameObject.h" />
     <ClInclude Include="API\API_Input.h" />
     <ClInclude Include="API\API_KeyCode.h" />
+    <ClInclude Include="API\API_Transform.h" />
     <ClInclude Include="Application.h" />
     <ClInclude Include="CameraComponent.h" />
     <ClInclude Include="CameraObject.h" />

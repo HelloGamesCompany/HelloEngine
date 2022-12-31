@@ -15,6 +15,7 @@ public:
 	bool boolTest = false;
 	std::string stringTest = "Hello world.";
 	API_GameObject testGameObject;
+	API_Transform testTransform;
 };
 
 HELLO_ENGINE_API_C Creationtest* CreateCreationtest(ScriptToInspectorInterface* script)

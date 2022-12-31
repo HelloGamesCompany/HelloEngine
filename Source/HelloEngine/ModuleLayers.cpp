@@ -21,6 +21,8 @@ std::string ModuleLayers::_sceneBeginPath = "null";
 std::vector<GameObject*> ModuleLayers::_deletedGameObjects;
 std::vector<API::API_GameObject*> ModuleLayers::apiGameObjects;
 
+API::API_Transform* ModuleLayers::emptyAPITransform = nullptr;
+
 ModuleLayers::ModuleLayers()
 {
 }
@@ -31,6 +33,9 @@ ModuleLayers::~ModuleLayers()
 
 bool ModuleLayers::Start()
 {
+    // Create empty API components.
+    emptyAPITransform = new API::API_Transform();
+
     _layers[(uint)LayersID::EDITOR] = new LayerEditor();
     _layers[(uint)LayersID::GAME] = new LayerGame();
 

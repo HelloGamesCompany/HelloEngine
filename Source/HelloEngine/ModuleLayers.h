@@ -2,11 +2,13 @@
 #include "Module.h"
 #include "Layer.h"
 #include "GameObject.h"
+
+// Need to be inside the .h file, because classes inside a namespace cannot be forward declared ?
 #include "API/API_GameObject.h"
+#include "API/API_Transform.h"
 
 class LayerEditor;
 class LayerGame;
-
 
 enum LayersID
 {
@@ -50,6 +52,9 @@ public:
 	static std::map<uint, GameObject*> gameObjects;
 
 	static std::vector<API::API_GameObject*> apiGameObjects;
+
+	// Empty API_Components to return in case you try to access the component of an unexisting game object.
+	static API::API_Transform* emptyAPITransform;
 
 private:
 	static Layer* _layers[(uint)LayersID::MAX];

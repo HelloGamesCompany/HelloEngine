@@ -41,6 +41,16 @@ std::string API::API_GameObject::GetTag()
 	return _gameObject->tag;
 }
 
+API::API_Transform* API::API_GameObject::GetTransform()
+{
+	if (_gameObject == nullptr)
+	{
+		Console::S_Log("Trying to acces a NULLPTR GameObject's transform! Returning empty trasnform.");
+		return ModuleLayers::emptyAPITransform;
+	}
+	return _transform;
+}
+
 void API::API_GameObject::SetGameObject(GameObject* gameObject)
 {
 	_gameObject = gameObject;

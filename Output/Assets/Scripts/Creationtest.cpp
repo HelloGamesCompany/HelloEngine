@@ -11,7 +11,7 @@ void Creationtest::Update()
 
 	if (Input::GetKey(KeyCode::KEY_T) == KeyState::KEY_DOWN)
 	{
-		Console::Log("Key T pressed");
+		testTransform.Translate(1, 1, 1);
 	}
 
 	if (Input::GetMouseButton(MouseButton::LEFT) == KeyState::KEY_DOWN)

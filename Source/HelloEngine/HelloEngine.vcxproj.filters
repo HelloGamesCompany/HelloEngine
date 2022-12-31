@@ -334,6 +334,7 @@
     <ClCompile Include="API\API_GameObject.cpp">
       <Filter>API</Filter>
     </ClCompile>
+    <ClCompile Include="API\API_Transform.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -789,6 +790,7 @@
     <ClInclude Include="API\API_GameObject.h">
       <Filter>API</Filter>
     </ClInclude>
+    <ClInclude Include="API\API_Transform.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="External">
