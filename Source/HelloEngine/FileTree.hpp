@@ -41,6 +41,9 @@ struct File
 
 			metaPath = path + ".helloMeta";
 			metaFile = ModuleFiles::S_LoadMeta(metaPath);
+
+			ModuleResourceManager::S_CreateResource(metaFile);
+
 		}
 	};
 	std::string path;

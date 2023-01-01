@@ -21,14 +21,14 @@ API::API_GameObject::~API_GameObject()
 	}
 }
 
-std::string API::API_GameObject::GetName()
+const char* API::API_GameObject::GetName()
 {
 	if (_gameObject == nullptr)
 	{
 		Console::S_Log("Trying to acces a NULLPTR GameObject!");
 		return "NULL";
 	}
-	return _gameObject->name;
+	return _gameObject->name.c_str();
 }
 
 std::string API::API_GameObject::GetTag()

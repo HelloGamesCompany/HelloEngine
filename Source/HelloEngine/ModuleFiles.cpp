@@ -692,6 +692,35 @@ bool ModuleFiles::S_CreateScriptFile(const std::string& fileName, const std::str
 	AddScriptToDLLSolution(headerName, false);
 	AddScriptToDLLSolution(sourceName, true);
 
+	//char* buffer = nullptr;
+	//uint count;
+	//_dupenv_s(&buffer, &count, "mybuild");
+	
+	//TODO: Make this work on any computer. Check if msbuild is found. If not, warn them about it.
+
+#ifdef  _DEBUG
+	system("msbuild HelloAPI\\ScriptingSLN.sln /p:Configuration=Debug /property:Platform=x86 /v:diag");
+#else
+	system("msbuild HelloAPI\\ScriptingSLN.sln /p:Configuration=Release /property:Platform=x86 /v:diag");
+#endif //  _DEBUG
+
+
+	//std::string path;
+	//for (int i = 0; i < count; ++i)
+	//{
+	//	path += *buffer;
+	//	buffer++;
+	//}
+	//path.erase(path.size() - 1);
+
+	//std::string commandString = "\"" + path + "\\MSBuild.exe" + "\" " + "-version > result.txt";
+	//std::cout << "\"C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\MSBuild\\Current\\Bin\\MSBuild.exe\" -version > result.txt" << std::endl;
+	//std::cout << commandString.c_str() << std::endl;
+
+	//const char* commandChar;
+
+	//int res = system(commandString.c_str());
+
 	return true;
 
 }

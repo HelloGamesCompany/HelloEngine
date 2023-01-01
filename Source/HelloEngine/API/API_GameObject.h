@@ -15,7 +15,7 @@ namespace API
 
 		// Any necessary methods from the GameObject class, but with a nullptr check before calling.
 
-		std::string GetName();
+		const char* GetName();
 		std::string GetTag();
 
 		/// Call this function to get an API_Transform pointer. WARNING: You should use this 
