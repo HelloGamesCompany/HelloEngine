@@ -22,6 +22,7 @@ std::vector<GameObject*> ModuleLayers::_deletedGameObjects;
 std::vector<API::API_GameObject*> ModuleLayers::apiGameObjects;
 
 API::API_Transform* ModuleLayers::emptyAPITransform = nullptr;
+API::API_GameObject* ModuleLayers::emptyAPIGameObject = nullptr;
 
 ModuleLayers::ModuleLayers()
 {

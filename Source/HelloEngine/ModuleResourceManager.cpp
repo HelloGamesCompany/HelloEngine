@@ -306,25 +306,30 @@ bool ModuleResourceManager::S_DeserializeScene(const std::string& filePath)
 
 	std::vector<std::pair<GameObject*, uint>> temp;
 
+	// First  create game objects
 	for (int i = 0; i < sceneFile.size(); i++)
 	{
 		GameObject* g = new GameObject(nullptr, sceneFile[i]["Name"], sceneFile[i]["Tag"], sceneFile[i]["UID"]);
 
 		temp.push_back(std::make_pair(g, sceneFile[i]["ParentUID"]));
-
-		// Create components
-		json object = sceneFile[i]["Components"];
-		for (int j = 0; j < object.size(); j++)
-		{
-			Component::Type componentType = object[j]["Type"];
-			g->AddComponentSerialized(componentType, object[j]);
-		}
 	}
 
 	for (int i = 0; i < temp.size(); i++)
 	{
 		if (temp[i].second != 0)
 			temp[i].first->SetParent(ModuleLayers::gameObjects[temp[i].second]);
+	}
+
+	// then add their components
+	for (int i = 0; i < sceneFile.size(); i++)
+	{
+		// Create components
+		json object = sceneFile[i]["Components"];
+		for (int j = 0; j < object.size(); j++)
+		{
+			Component::Type componentType = object[j]["Type"];
+			temp[i].first->AddComponentSerialized(componentType, object[j]);
+		}
 	}
 
 	ModuleLayers::rootGameObject = temp[0].first;

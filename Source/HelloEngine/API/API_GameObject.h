@@ -28,5 +28,6 @@ namespace API
 		API_Transform* _transform = nullptr;
 		friend class ModuleLayers;
 		friend class DragBoxGameObject;
+		friend class API_Transform;
 	};
 }

@@ -139,6 +139,16 @@ void ScriptComponent::AddDragBoxGameObject(const std::string& name, API::API_Gam
 	inspectorFields.push_back(dragBoxField);
 }
 
+void ScriptComponent::AddDragBoxTransform(const std::string& name, API::API_Transform* value)
+{
+	DragBoxTransform* dragBoxField = new DragBoxTransform();
+	dragBoxField->valueName = name;
+	dragBoxField->value = value;
+	dragBoxField->className = scriptResource->className;
+
+	inspectorFields.push_back(dragBoxField);
+}
+
 void ScriptComponent::ImGuiDragScript()
 {
 	if (ImGui::BeginDragDropTarget())

@@ -59,6 +59,8 @@ public:
 
 	std::vector<GameObject*>* GetChildren() { return &_children; }
 
+	uint GetID() { return _ID; }
+
 	void OnEditor();
 
 #ifdef STANDALONE

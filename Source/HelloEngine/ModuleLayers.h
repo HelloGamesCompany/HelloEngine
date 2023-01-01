@@ -56,6 +56,7 @@ public:
 	static std::vector<API::API_GameObject*> apiGameObjects;
 
 	// Empty API_Components to return in case you try to access the component of an unexisting game object.
+	static API::API_GameObject* emptyAPIGameObject;
 	static API::API_Transform* emptyAPITransform;
 
 private:

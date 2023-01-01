@@ -67,6 +67,15 @@ class DragBoxGameObject : public ScriptInspectorField
 #endif
 };
 
+class DragBoxTransform : public ScriptInspectorField
+{
+	void OnEditor() override;
+#ifndef HELLO_ENGINE_EXPORTS
+	void OnSerialize(json& j) override;
+	void OnDeserialize(json& j) override;
+#endif
+};
+
 class TO_API ScriptToInspectorInterface
 {
 public:
@@ -75,6 +84,7 @@ public:
 	virtual void AddCheckBox(const std::string& name, bool* value) = 0;
 	virtual void AddInputBox(const std::string& name, std::string* value) = 0;
 	virtual void AddDragBoxGameObject(const std::string& name, API::API_GameObject* value) = 0;
+	virtual void AddDragBoxTransform(const std::string& name, API::API_Transform* value) = 0;
 
 protected:
 	std::vector<ScriptInspectorField*> inspectorFields;

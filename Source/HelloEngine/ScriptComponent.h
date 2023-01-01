@@ -23,7 +23,7 @@ public:
 	void AddCheckBox(const std::string& name, bool* value) override;
 	void AddInputBox(const std::string& name, std::string* value) override;
 	void AddDragBoxGameObject(const std::string& name, API::API_GameObject* value) override;
-
+	void AddDragBoxTransform(const std::string& name, API::API_Transform* value) override;
 private:
 	void ImGuiDragScript();
 	void DestroyInspectorFields();
