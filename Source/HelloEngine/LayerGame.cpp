@@ -17,6 +17,7 @@ bool LayerGame::_oneFrame = false;
 bool LayerGame::_needsReload = false;
 HMODULE LayerGame::_dllFile;
 time_t LayerGame::_dllChangeTime;
+bool LayerGame::detectInput = true;
 
 typedef void* (*CreateFunc)(ScriptToInspectorInterface*);
 

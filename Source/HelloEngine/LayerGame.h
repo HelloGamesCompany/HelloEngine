@@ -45,6 +45,8 @@ public:
 
 	static void S_HotReload();
 
+	static bool detectInput;
+
 private:
 	static std::map<uint, BehaviorScript> _behaviorScripts;
 	static std::vector<ScriptComponent*> _scriptComponents;

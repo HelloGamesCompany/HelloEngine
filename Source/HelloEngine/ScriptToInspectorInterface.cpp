@@ -185,8 +185,31 @@ void DragBoxTransform::OnEditor()
 
 void DragBoxTransform::OnSerialize(json& j)
 {
+	json _j;
+
+	API::API_Transform* transform = (API::API_Transform*)value;
+
+	if (transform->_transform != nullptr)
+	{
+		_j[valueName.c_str()] = transform->_transform->GetGameObject()->GetID();
+		j.push_back(_j);
+	}
 }
 
 void DragBoxTransform::OnDeserialize(json& j)
 {
+	for (int i = 0; i < j.size(); i++)
+	{
+		if (j[i].find(valueName) != j[i].end())
+		{
+			uint id = j[i][valueName.c_str()];
+			GameObject* gameObject = ModuleLayers::S_GetGameObject(id);
+
+			if (gameObject != nullptr)
+			{
+				API::API_Transform* transform = (API::API_Transform*)value;
+				transform->SetComponent(gameObject->transform);
+			}
+		}
+	}
 }

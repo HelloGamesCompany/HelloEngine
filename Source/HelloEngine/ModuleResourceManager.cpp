@@ -321,6 +321,7 @@ bool ModuleResourceManager::S_DeserializeScene(const std::string& filePath)
 	}
 
 	// then add their components
+	// TODO: Script components whould be the last to get serialied, because they may need to reference another components instances.
 	for (int i = 0; i < sceneFile.size(); i++)
 	{
 		// Create components

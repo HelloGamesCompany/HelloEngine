@@ -2,6 +2,7 @@
 #include "ImWindowGame.h"
 #include "ModuleCamera3D.h"
 #include "CameraObject.h"
+#include "LayerGame.h"
 
 ImWindowGame::ImWindowGame()
 {
@@ -16,6 +17,7 @@ void ImWindowGame::Update()
 {
 	if(ImGui::Begin(windowName.c_str()))
 	{
+		LayerGame::detectInput = ImGui::IsWindowFocused();
 		if (Application::Instance()->camera->activeGameCamera != nullptr) 
 		{
 			ImVec2 gameDimensions = ImGui::GetContentRegionAvail();
