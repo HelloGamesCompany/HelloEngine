@@ -2,7 +2,7 @@
 
 #include "Globals.h"
 
-static class Time
+static class EngineTime
 {
 public:
 	// Should be Real time and Game Time

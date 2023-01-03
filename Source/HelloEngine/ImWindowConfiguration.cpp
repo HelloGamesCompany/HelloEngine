@@ -103,21 +103,21 @@ void ImWindowConfiguration::Update()
 			ImGui::TextWrapped("\Time variables\t");
 
 			ImGui::TextWrapped("Real time delta time: "); ImGui::SameLine();
-			ImGui::TextColored(ImVec4(255, 255, 0, 255), "%.4f", Time::RealTimeDeltaTime()); 
+			ImGui::TextColored(ImVec4(255, 255, 0, 255), "%.4f", EngineTime::RealTimeDeltaTime()); 
 			ImGui::TextWrapped("Real time total time: "); ImGui::SameLine();
-			ImGui::TextColored(ImVec4(255, 255, 0, 255), "%.4f", Time::GameTimeInRealTimeCount());
+			ImGui::TextColored(ImVec4(255, 255, 0, 255), "%.4f", EngineTime::GameTimeInRealTimeCount());
 
 
 			ImGui::TextWrapped("Game delta time: "); ImGui::SameLine();
-			ImGui::TextColored(ImVec4(255, 255, 0, 255), "%.4f", Time::GameDeltaTime());
+			ImGui::TextColored(ImVec4(255, 255, 0, 255), "%.4f", EngineTime::GameDeltaTime());
 			ImGui::TextWrapped("Game total time: "); ImGui::SameLine();
-			ImGui::TextColored(ImVec4(255, 255, 0, 255), "%.4f", Time::GameTimeCount());
+			ImGui::TextColored(ImVec4(255, 255, 0, 255), "%.4f", EngineTime::GameTimeCount());
 			ImGui::TextWrapped("Game frame count: "); ImGui::SameLine();
-			ImGui::TextColored(ImVec4(255, 255, 0, 255), "%d", Time::GameFrameCount());
+			ImGui::TextColored(ImVec4(255, 255, 0, 255), "%d", EngineTime::GameFrameCount());
 
-			float tempTimeScale = Time::GetTimeScale();
+			float tempTimeScale = EngineTime::GetTimeScale();
 			if (ImGui::DragFloat("Time scale", &tempTimeScale, 0.05f))
-				Time::SetTimeScale(tempTimeScale);
+				EngineTime::SetTimeScale(tempTimeScale);
 		}
 
 		if (ImGui::CollapsingHeader("Input", ImGuiTreeNodeFlags_DefaultOpen))

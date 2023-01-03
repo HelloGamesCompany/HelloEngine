@@ -285,6 +285,7 @@
     <ClCompile Include="API\API_GameObject.cpp" />
     <ClCompile Include="API\API_Input.cpp" />
     <ClCompile Include="API\API_Scene.cpp" />
+    <ClCompile Include="API\API_Time.cpp" />
     <ClCompile Include="API\API_Transform.cpp" />
     <ClCompile Include="API\API_Game.cpp" />
     <ClCompile Include="Application.cpp" />
@@ -439,6 +440,7 @@
     <ClInclude Include="API\API_Input.h" />
     <ClInclude Include="API\API_KeyCode.h" />
     <ClInclude Include="API\API_Scene.h" />
+    <ClInclude Include="API\API_Time.h" />
     <ClInclude Include="API\API_Transform.h" />
     <ClInclude Include="API\API_Game.h" />
     <ClInclude Include="Application.h" />

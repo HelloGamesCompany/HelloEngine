@@ -18,6 +18,11 @@ namespace API
 		const char* GetName();
 		std::string GetTag();
 
+		// Destroys this GameObject instance from the scene. You can still use the API_GameObject class, but it wont make any effect.
+		void Destroy();
+
+		bool IsAlive() { return _gameObject != nullptr; }
+
 		/// Call this function to get an API_Transform pointer. WARNING: You should use this 
 		API::API_Transform* GetTransform();
 

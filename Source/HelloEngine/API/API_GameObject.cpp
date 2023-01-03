@@ -25,7 +25,7 @@ const char* API::API_GameObject::GetName()
 {
 	if (_gameObject == nullptr)
 	{
-		Console::S_Log("Trying to acces a NULLPTR GameObject!");
+		Console::S_Log("Trying to acces a NULLPTR GameObject! GetName()");
 		return "NULL";
 	}
 	return _gameObject->name.c_str();
@@ -35,17 +35,27 @@ std::string API::API_GameObject::GetTag()
 {
 	if (_gameObject == nullptr)
 	{
-		Console::S_Log("Trying to acces a NULLPTR GameObject!");
+		Console::S_Log("Trying to acces a NULLPTR GameObject! GetTag()");
 		return "NULL";
 	}
 	return _gameObject->tag;
+}
+
+void API::API_GameObject::Destroy()
+{
+	if (_gameObject == nullptr)
+	{
+		Console::S_Log("Trying to acces a NULLPTR GameObject. Destroy()");
+		return;
+	}
+	_gameObject->Destroy();
 }
 
 API::API_Transform* API::API_GameObject::GetTransform()
 {
 	if (_gameObject == nullptr)
 	{
-		Console::S_Log("Trying to acces a NULLPTR GameObject's transform! Returning empty trasnform.");
+		Console::S_Log("Trying to acces a NULLPTR GameObject's transform! Returning empty trasnform. GetTransform()");
 		return ModuleLayers::emptyAPITransform;
 	}
 	return _transform;

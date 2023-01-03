@@ -2,9 +2,17 @@
 void transformTest::Start()
 {
 	newGameObjectTest = Game::CreateGameObject("Name", "Tag");
+	gameObjectLife = 8.0f;
 }
 void transformTest::Update()
 {
+	gameObjectLife -= Time::GetDeltaTime();
+
+	if (gameObjectLife <= 0 && newGameObjectTest.IsAlive())
+	{
+		newGameObjectTest.Destroy();
+	}
+
 	// Load new scene
 	if (Input::GetKey(KeyCode::KEY_L) == KeyState::KEY_REPEAT)
 	{

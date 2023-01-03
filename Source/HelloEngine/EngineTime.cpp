@@ -1,24 +1,24 @@
 #include "Headers.h"
 
 // Real Time
-float Time::_realTimeDeltaTime = 0;
-uint Time::_lastFrameTicks = 0;
-double Time::_realTimeTotalTime = 0;
-uint Time::_startTicks = 0;
+float EngineTime::_realTimeDeltaTime = 0;
+uint EngineTime::_lastFrameTicks = 0;
+double EngineTime::_realTimeTotalTime = 0;
+uint EngineTime::_startTicks = 0;
 
 // Game Time
-float Time::_gameTimeDeltaTime = 0;
-uint Time::_frameCount = 0;
-double Time::_gameTimeTotalTime = 0;
-float Time::_timeScale = 1.0f;
+float EngineTime::_gameTimeDeltaTime = 0;
+uint EngineTime::_frameCount = 0;
+double EngineTime::_gameTimeTotalTime = 0;
+float EngineTime::_timeScale = 1.0f;
 
-void Time::Start()
+void EngineTime::Start()
 {
 	_startTicks = SDL_GetTicks();
 	_lastFrameTicks = 0;
 }
 
-void Time::UpdateRealTime()
+void EngineTime::UpdateRealTime()
 {
 	// Get real time in seconds (SDL_GetTicks() returns in miliseconds)
 	_realTimeDeltaTime = (SDL_GetTicks() - _lastFrameTicks - _startTicks) * 0.001f;
@@ -27,7 +27,7 @@ void Time::UpdateRealTime()
 
 }
 
-void Time::UpdateGameTime()
+void EngineTime::UpdateGameTime()
 {
 	_gameTimeDeltaTime = RealTimeDeltaTime() * _timeScale;
 	_gameTimeTotalTime += _gameTimeDeltaTime;
@@ -35,42 +35,42 @@ void Time::UpdateGameTime()
 	_frameCount++;
 }
 
-float Time::GameDeltaTime()
+float EngineTime::GameDeltaTime()
 {
 	return _gameTimeDeltaTime;
 }
 
-float Time::RealTimeDeltaTime()
+float EngineTime::RealTimeDeltaTime()
 {
 	return _realTimeDeltaTime;
 }
 
-uint Time::GameFrameCount()
+uint EngineTime::GameFrameCount()
 {
 	return _frameCount;
 }
 
-double Time::GameTimeCount()
+double EngineTime::GameTimeCount()
 {
 	return _gameTimeTotalTime;
 }
 
-double Time::GameTimeInRealTimeCount()
+double EngineTime::GameTimeInRealTimeCount()
 {
 	return _realTimeTotalTime;
 }
 
-void Time::SetTimeScale(float timeScale)
+void EngineTime::SetTimeScale(float timeScale)
 {
 	_timeScale = timeScale;
 }
 
-float Time::GetTimeScale()
+float EngineTime::GetTimeScale()
 {
 	return _timeScale;
 }
 
-void Time::Reset()
+void EngineTime::Reset()
 {
 	// Real Time
 	_realTimeDeltaTime = 0;

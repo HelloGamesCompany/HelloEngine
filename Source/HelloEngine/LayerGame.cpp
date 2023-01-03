@@ -64,8 +64,8 @@ void LayerGame::PreUpdate()
 	_update = true;
 	
 	// Update time.
-	Time::UpdateRealTime();
-	Time::UpdateGameTime();
+	EngineTime::UpdateRealTime();
+	EngineTime::UpdateGameTime();
 }
 
 void LayerGame::Update()
@@ -93,8 +93,8 @@ void LayerGame::S_Play()
 	currentScene = Application::Instance()->xml->GetConfigXML().FindChildBreadth("currentScene").node.attribute("value").as_string();
 	ModuleResourceManager::S_SerializeScene(ModuleLayers::rootGameObject);
 
-	Time::Reset();
-	Time::Start();
+	EngineTime::Reset();
+	EngineTime::Start();
 	_isPlaying = true;
 
 	for (auto& behaviorScript : _behaviorScripts)
@@ -107,7 +107,7 @@ void LayerGame::S_Play()
 void LayerGame::S_Stop()
 {
 	ModuleCommand::_canUseCommand = true;
-	Time::Reset();
+	EngineTime::Reset();
 	_isPlaying = false;
 	_paused = false;
 	// TODO: Reload scene.
@@ -122,13 +122,13 @@ void LayerGame::S_Pause()
 
 	_paused = !_paused;
 	if (!_paused)
-		Time::Start();
+		EngineTime::Start();
 }
 
 void LayerGame::S_OneFrame()
 {
 	if (!_isPlaying || !_paused) return;
-	Time::Start();
+	EngineTime::Start();
 	_oneFrame = true;
 }
 

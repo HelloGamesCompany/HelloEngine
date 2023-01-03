@@ -6,5 +6,6 @@
 #include "API_Transform.h"
 #include "API_Scene.h"
 #include "API_Game.h"
+#include "API_Time.h"
 
 using namespace API;

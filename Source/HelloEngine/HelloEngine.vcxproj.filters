@@ -334,6 +334,7 @@
     <ClCompile Include="API\API_Transform.cpp" />
     <ClCompile Include="API\API_Scene.cpp" />
     <ClCompile Include="API\API_Game.cpp" />
+    <ClCompile Include="API\API_Time.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -789,6 +790,7 @@
     <ClInclude Include="API\API_Transform.h" />
     <ClInclude Include="API\API_Scene.h" />
     <ClInclude Include="API\API_Game.h" />
+    <ClInclude Include="API\API_Time.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="External">

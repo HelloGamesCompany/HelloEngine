@@ -12,6 +12,7 @@ public:
 	
 	API_Transform transfromTestVariable;
 	API_GameObject newGameObjectTest;
+	float gameObjectLife = 8.0f;
 };
 
 HELLO_ENGINE_API_C transformTest* CreatetransformTest(ScriptToInspectorInterface* script)
