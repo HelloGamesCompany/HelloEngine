@@ -335,6 +335,9 @@
     <ClCompile Include="API\API_Scene.cpp" />
     <ClCompile Include="API\API_Game.cpp" />
     <ClCompile Include="API\API_Time.cpp" />
+    <ClCompile Include="..\External\mmgr\mmgr.cpp">
+      <Filter>External\mmgr</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -791,6 +794,9 @@
     <ClInclude Include="API\API_Scene.h" />
     <ClInclude Include="API\API_Game.h" />
     <ClInclude Include="API\API_Time.h" />
+    <ClInclude Include="..\External\mmgr\mmgr.h">
+      <Filter>External\mmgr</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="External">
