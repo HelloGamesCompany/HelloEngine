@@ -281,6 +281,20 @@ void ModuleResourceManager::S_SerializeScene(GameObject*& g)
 	ModuleFiles::S_Save(savePath, &buffer[0], buffer.size(), false);
 }
 
+void ModuleResourceManager::S_SerializeScene(GameObject*& g, const std::string& path)
+{
+	if (!g)
+		return;
+	// Create json
+	json j;
+	// Write json
+	SerializeSceneRecursive(g, j);
+
+	std::string buffer = j.dump();
+
+	ModuleFiles::S_Save(path, &buffer[0], buffer.size(), false);
+}
+
 bool ModuleResourceManager::S_DeserializeScene(const std::string& filePath)
 {
 	char* buffer = nullptr;

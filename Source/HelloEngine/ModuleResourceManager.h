@@ -162,6 +162,8 @@ public:
 	static void S_UpdateFileTree();
 
 	static void S_SerializeScene(GameObject*& g);
+	/// Save scene, to a given path, but not saving it as the current scene inside config.xml.
+	static void S_SerializeScene(GameObject*& g, const std::string& path);
 
 	static bool S_DeserializeScene(const std::string& filePath);
 

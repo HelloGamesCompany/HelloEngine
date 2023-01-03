@@ -208,10 +208,11 @@ void GameObject::Destroy()
 	if (_parent != nullptr)
 		_parent->RemoveChild(this);
 
-	for (int i = 0; i < _children.size(); i++)
+	while (!_children.empty())
 	{
-		_children[i]->Destroy();
+		_children[0]->Destroy();
 	}
+
 	_children.clear();
 }
 

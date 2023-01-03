@@ -7,6 +7,7 @@
 #include "ScriptComponent.h"
 #include "ScriptToInspectorInterface.h"
 #include "ModuleCommand.h"
+#include "ModuleLayers.h"
 
 std::map<uint, BehaviorScript> LayerGame::_behaviorScripts;
 std::vector<ScriptComponent*> LayerGame::_scriptComponents;
@@ -18,6 +19,7 @@ bool LayerGame::_needsReload = false;
 HMODULE LayerGame::_dllFile;
 time_t LayerGame::_dllChangeTime;
 bool LayerGame::detectInput = true;
+std::string LayerGame::currentScene = "";
 
 typedef void* (*CreateFunc)(ScriptToInspectorInterface*);
 
@@ -88,6 +90,9 @@ void LayerGame::S_Play()
 {
 	ModuleCommand::_canUseCommand = false;
 	// TODO: Save scene.
+	currentScene = Application::Instance()->xml->GetConfigXML().FindChildBreadth("currentScene").node.attribute("value").as_string();
+	ModuleResourceManager::S_SerializeScene(ModuleLayers::rootGameObject);
+
 	Time::Reset();
 	Time::Start();
 	_isPlaying = true;
@@ -106,6 +111,8 @@ void LayerGame::S_Stop()
 	_isPlaying = false;
 	_paused = false;
 	// TODO: Reload scene.
+	ModuleLayers::S_RequestLoadScene(currentScene);
+
 }
 
 void LayerGame::S_Pause()

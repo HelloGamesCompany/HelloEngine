@@ -57,6 +57,7 @@ private:
 	static bool _needsReload;
 	static HMODULE _dllFile;
 	static time_t _dllChangeTime;
+	static std::string currentScene;
 
 	friend class LayerEditor;
 	friend class ScriptComponent;
