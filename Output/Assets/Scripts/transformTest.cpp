@@ -1,11 +1,17 @@
 #include "transformTest.h"
 void transformTest::Start()
 {
-
+	newGameObjectTest = Game::CreateGameObject("Name", "Tag");
 }
 void transformTest::Update()
 {
+	// Load new scene
+	if (Input::GetKey(KeyCode::KEY_L) == KeyState::KEY_REPEAT)
+	{
+		Scene::LoadScene("bakerhouse.HScene");
+	}
 
+	// move object
 	if (Input::GetKey(KeyCode::KEY_W) == KeyState::KEY_REPEAT)
 	{
 		transfromTestVariable.Translate(0, 0, 0.2);

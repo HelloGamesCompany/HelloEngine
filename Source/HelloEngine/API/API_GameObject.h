@@ -22,6 +22,7 @@ namespace API
 		API::API_Transform* GetTransform();
 
 	private:
+		GameObject* GetGameObject() { return _gameObject; };
 		void SetGameObject(GameObject* gameObject);
 	private:
 		GameObject* _gameObject = nullptr;
@@ -29,5 +30,6 @@ namespace API
 		friend class ModuleLayers;
 		friend class DragBoxGameObject;
 		friend class API_Transform;
+		friend class Game;
 	};
 }

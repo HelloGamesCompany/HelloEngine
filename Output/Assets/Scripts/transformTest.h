@@ -11,6 +11,7 @@ public:
 	void Update() override;
 	
 	API_Transform transfromTestVariable;
+	API_GameObject newGameObjectTest;
 };
 
 HELLO_ENGINE_API_C transformTest* CreatetransformTest(ScriptToInspectorInterface* script)

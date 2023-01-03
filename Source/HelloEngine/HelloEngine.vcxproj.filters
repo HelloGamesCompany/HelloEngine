@@ -332,6 +332,8 @@
       <Filter>API</Filter>
     </ClCompile>
     <ClCompile Include="API\API_Transform.cpp" />
+    <ClCompile Include="API\API_Scene.cpp" />
+    <ClCompile Include="API\API_Game.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -785,6 +787,8 @@
       <Filter>API</Filter>
     </ClInclude>
     <ClInclude Include="API\API_Transform.h" />
+    <ClInclude Include="API\API_Scene.h" />
+    <ClInclude Include="API\API_Game.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="External">
