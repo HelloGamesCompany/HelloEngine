@@ -3,6 +3,8 @@
 #include "GameObject.h"
 #include "Console.h"
 #include "ModuleLayers.h"
+#include "ScriptComponent.h"
+#include "API_Transform.h"
 
 API::API_GameObject::API_GameObject()
 {
@@ -41,6 +43,17 @@ std::string API::API_GameObject::GetTag()
 	return _gameObject->tag;
 }
 
+void API::API_GameObject::AddScript(const char* className)
+{
+	if (_gameObject == nullptr)
+	{
+		Console::S_Log("Trying to acces a NULLPTR GameObject! AddScript()");
+		return;
+	}
+	ScriptComponent* scriptComponent = _gameObject->AddComponent<ScriptComponent>();
+	scriptComponent->AddScript(className);
+}
+
 void API::API_GameObject::Destroy()
 {
 	if (_gameObject == nullptr)
@@ -51,14 +64,16 @@ void API::API_GameObject::Destroy()
 	_gameObject->Destroy();
 }
 
-API::API_Transform* API::API_GameObject::GetTransform()
+API::API_Transform API::API_GameObject::GetTransform()
 {
 	if (_gameObject == nullptr)
 	{
-		Console::S_Log("Trying to acces a NULLPTR GameObject's transform! Returning empty trasnform. GetTransform()");
-		return ModuleLayers::emptyAPITransform;
+		Console::S_Log("Trying to acces a NULLPTR GameObject. GetTransform()");
+		return *ModuleLayers::emptyAPITransform;
 	}
-	return _transform;
+	API_Transform returnTransform;
+	returnTransform.SetComponent(_gameObject->transform);
+	return returnTransform;
 }
 
 void API::API_GameObject::SetGameObject(GameObject* gameObject)

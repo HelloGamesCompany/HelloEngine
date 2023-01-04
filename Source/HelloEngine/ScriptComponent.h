@@ -17,6 +17,8 @@ public:
 	void Serialization(json& j) override;
 	void DeSerialization(json& j) override;
 
+	void AddScript(std::string scriptName);
+
 	// Add script variables to inspector methods:
 	void AddDragFloat(const std::string& name, float* value) override;
 	void AddDragInt(const std::string& name, int* value) override;
@@ -33,7 +35,8 @@ private:
 	uint scriptUID = 0;
 	ResourceScript* scriptResource = nullptr;
 	json inspectorFieldsJSON;
-
+	std::string addedScript = "None"; // Name of a class that has been added using AddScript() method of API_Gameobject. Not attached to a Resource.
+									
 	friend class LayerGame;
 };
 

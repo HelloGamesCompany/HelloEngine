@@ -206,6 +206,8 @@ void LayerGame::S_CreateBehaviorScript(ScriptComponent* component)
 	_behaviorScripts[randomUID].script = (HelloBehavior*)create(component);
 	_behaviorScripts[randomUID].active = component->IsEnabled();
 
+	_behaviorScripts[randomUID].script->gameObject.SetGameObject(component->_gameObject);
+
 	component->scriptUID = randomUID;
 }
 
@@ -213,4 +215,28 @@ void LayerGame::S_DestroyBehaviorScript(ScriptComponent* component)
 {
 	if (component->scriptUID != 0)
 		_behaviorScripts.erase(component->scriptUID);
+}
+
+bool LayerGame::S_CreateBehaviorScriptByName(const std::string& className, ScriptComponent* component)
+{
+	CreateFunc create = (CreateFunc)GetProcAddress(_dllFile, ("Create" + className).c_str());
+
+	if (create == nullptr)
+	{
+		Console::S_Log("The given HelloBehavior class name doesnt exist: " + className + ". Script was not added.");
+		return false;
+	}
+
+	uint randomUID = HelloUUID::GenerateUUID();
+	_behaviorScripts[randomUID].script = (HelloBehavior*)create(component);
+	_behaviorScripts[randomUID].active = component->IsEnabled();
+
+	_behaviorScripts[randomUID].script->gameObject.SetGameObject(component->_gameObject);
+
+	component->scriptUID = randomUID;
+
+	// We assume this is only called from API, therefor, during game runtime. We all start after creating the Script.
+	_behaviorScripts[randomUID].script->Start();
+
+	return true;
 }

@@ -1,5 +1,5 @@
 #pragma once
-#include "HelloBehavior.h"
+#include "API/HelloBehavior.h"
 #include "ScriptToInspectorInterface.h"
 #include "Macro.h"
 

@@ -26,14 +26,14 @@ namespace API
 
 
 		/// WARNING: Do not destroy the API_Transform after using this. The API_GameObject returned is inside this class.
-		API_GameObject& GetGameObject();
+		API_GameObject GetGameObject();
 
 	private:
 		void SetComponent(TransformComponent* transformComponent);
 	private:
-		API_GameObject _APIGameObject;
 		TransformComponent* _transform = nullptr;
 
 		friend class DragBoxTransform;
+		friend class API_GameObject;
 	};
 }

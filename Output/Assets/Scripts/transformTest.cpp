@@ -6,11 +6,18 @@ void transformTest::Start()
 }
 void transformTest::Update()
 {
+
 	gameObjectLife -= Time::GetDeltaTime();
 
 	if (gameObjectLife <= 0 && newGameObjectTest.IsAlive())
 	{
 		newGameObjectTest.Destroy();
+	}
+
+	if (Input::GetKey(KeyCode::KEY_N) == KeyState::KEY_DOWN)
+	{
+		API_GameObject newBullet = Game::CreateGameObject("Bullet", "Projectile");
+		newBullet.AddScript("BulletBehavior");
 	}
 
 	// Load new scene

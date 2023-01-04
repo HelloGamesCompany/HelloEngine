@@ -1,7 +1,7 @@
 #include "Headers.h"
 #include "ScriptToInspectorInterface.h"
-#include "API/API_GameObject.h"
 #include "ModuleLayers.h"
+#include "API/API_Transform.h"
 
 void DragFieldFloat::OnEditor()
 {

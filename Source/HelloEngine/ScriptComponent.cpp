@@ -22,7 +22,7 @@ void ScriptComponent::OnEditor()
 {
 	if (ImGui::CollapsingHeader("Script", ImGuiTreeNodeFlags_DefaultOpen))
 	{
-		if (scriptResource == nullptr)
+		if (scriptResource == nullptr && addedScript == "None")
 		{
 			ImGui::TextColored(ImVec4(1,1,0,1), "Drag a .cpp or an .h file with a correct HelloBehavior children class.");
 			ImGuiDragScript();
@@ -34,7 +34,7 @@ void ScriptComponent::OnEditor()
 				auxiliaryBool ? Enable() : Disable();
 
 			ImGui::TextWrapped("Loaded script: "); ImGui::SameLine();
-			ImGui::TextColored(ImVec4(1, 1, 0, 1), scriptResource->className.c_str());
+			ImGui::TextColored(ImVec4(1, 1, 0, 1), scriptResource == nullptr ? addedScript.c_str() : scriptResource->className.c_str());
 			ImGuiDragScript();
 			// Show script inspector variables.
 			for (int i = 0; i < inspectorFields.size(); ++i)
@@ -89,12 +89,24 @@ void ScriptComponent::DeSerialization(json& j)
 	}
 }
 
+void ScriptComponent::AddScript(std::string scriptName)
+{
+	addedScript = scriptName;// We need to do this before calling next funciton because the addedScript is needed by the Create function.
+
+	// Create a new script object instance.
+	if (!LayerGame::S_CreateBehaviorScriptByName(scriptName, this))
+	{
+		addedScript = "None"; 
+		return;
+	}
+}
+
 void ScriptComponent::AddDragFloat(const std::string& name, float* value)
 {
 	DragFieldFloat* dragField = new DragFieldFloat();
 	dragField->valueName = name;
 	dragField->value = value;
-	dragField->className = scriptResource->className;
+	dragField->className = scriptResource == nullptr ? addedScript : scriptResource->className;
 
 	inspectorFields.push_back(dragField);
 }
@@ -104,7 +116,7 @@ void ScriptComponent::AddDragInt(const std::string& name, int* value)
 	DragFieldInt* dragField = new DragFieldInt();
 	dragField->valueName = name;
 	dragField->value = value;
-	dragField->className = scriptResource->className;
+	dragField->className = scriptResource == nullptr ? addedScript : scriptResource->className;
 
 	inspectorFields.push_back(dragField);
 }
@@ -114,7 +126,7 @@ void ScriptComponent::AddCheckBox(const std::string& name, bool* value)
 	CheckBoxField* checkBoxField = new CheckBoxField();
 	checkBoxField->valueName = name;
 	checkBoxField->value = value;
-	checkBoxField->className = scriptResource->className;
+	checkBoxField->className = scriptResource == nullptr ? addedScript : scriptResource->className;
 
 	inspectorFields.push_back(checkBoxField);
 }
@@ -124,7 +136,7 @@ void ScriptComponent::AddInputBox(const std::string& name, std::string* value)
 	InputBoxField* inputBoxField = new InputBoxField();
 	inputBoxField->valueName = name;
 	inputBoxField->value = value;
-	inputBoxField->className = scriptResource->className;
+	inputBoxField->className = scriptResource == nullptr ? addedScript : scriptResource->className;
 
 	inspectorFields.push_back(inputBoxField);
 }
@@ -134,7 +146,7 @@ void ScriptComponent::AddDragBoxGameObject(const std::string& name, API::API_Gam
 	DragBoxGameObject* dragBoxField = new DragBoxGameObject();
 	dragBoxField->valueName = name;
 	dragBoxField->value = value;
-	dragBoxField->className = scriptResource->className;
+	dragBoxField->className = scriptResource == nullptr ? addedScript : scriptResource->className;
 
 	inspectorFields.push_back(dragBoxField);
 }
@@ -144,7 +156,7 @@ void ScriptComponent::AddDragBoxTransform(const std::string& name, API::API_Tran
 	DragBoxTransform* dragBoxField = new DragBoxTransform();
 	dragBoxField->valueName = name;
 	dragBoxField->value = value;
-	dragBoxField->className = scriptResource->className;
+	dragBoxField->className = scriptResource == nullptr ? addedScript : scriptResource->className;
 
 	inspectorFields.push_back(dragBoxField);
 }

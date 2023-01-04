@@ -178,7 +178,6 @@ void ModuleLayers::S_RemoveGameObject(uint ID)
         if (apiGameObjects[i]->_gameObject == goPointer)
         {
             apiGameObjects[i]->_gameObject = nullptr;
-            break;
         }
     }
 }

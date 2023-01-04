@@ -308,7 +308,7 @@
     <ClCompile Include="Headers.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="HelloBehavior.cpp" />
+    <ClCompile Include="API\HelloBehavior.cpp" />
     <ClCompile Include="ImGuiUtils.cpp" />
     <ClCompile Include="ImWindowGame.cpp" />
     <ClCompile Include="ImWindowHierarchy.cpp" />
@@ -464,7 +464,7 @@
     <ClInclude Include="FrameBuffer.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Headers.h" />
-    <ClInclude Include="HelloBehavior.h" />
+    <ClInclude Include="API\HelloBehavior.h" />
     <ClInclude Include="ImGuiUtils.h" />
     <ClInclude Include="ImWindowGame.h" />
     <ClInclude Include="ImWindowHierarchy.h" />

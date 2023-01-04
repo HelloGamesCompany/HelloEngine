@@ -316,7 +316,7 @@
     <ClCompile Include="ScriptComponent.cpp">
       <Filter>GameObject\Components</Filter>
     </ClCompile>
-    <ClCompile Include="HelloBehavior.cpp">
+    <ClCompile Include="API\HelloBehavior.cpp">
       <Filter>Other</Filter>
     </ClCompile>
     <ClCompile Include="API\API_Console.cpp">
@@ -331,12 +331,20 @@
     <ClCompile Include="API\API_GameObject.cpp">
       <Filter>API</Filter>
     </ClCompile>
-    <ClCompile Include="API\API_Transform.cpp" />
-    <ClCompile Include="API\API_Scene.cpp" />
-    <ClCompile Include="API\API_Game.cpp" />
-    <ClCompile Include="API\API_Time.cpp" />
     <ClCompile Include="..\External\mmgr\mmgr.cpp">
       <Filter>External\mmgr</Filter>
+    </ClCompile>
+    <ClCompile Include="API\API_Game.cpp">
+      <Filter>API</Filter>
+    </ClCompile>
+    <ClCompile Include="API\API_Scene.cpp">
+      <Filter>API</Filter>
+    </ClCompile>
+    <ClCompile Include="API\API_Time.cpp">
+      <Filter>API</Filter>
+    </ClCompile>
+    <ClCompile Include="API\API_Transform.cpp">
+      <Filter>API</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -769,7 +777,7 @@
     <ClInclude Include="ScriptComponent.h">
       <Filter>GameObject\Components</Filter>
     </ClInclude>
-    <ClInclude Include="HelloBehavior.h">
+    <ClInclude Include="API\HelloBehavior.h">
       <Filter>Other</Filter>
     </ClInclude>
     <ClInclude Include="API\API.h">
@@ -790,12 +798,20 @@
     <ClInclude Include="API\API_GameObject.h">
       <Filter>API</Filter>
     </ClInclude>
-    <ClInclude Include="API\API_Transform.h" />
-    <ClInclude Include="API\API_Scene.h" />
-    <ClInclude Include="API\API_Game.h" />
-    <ClInclude Include="API\API_Time.h" />
     <ClInclude Include="..\External\mmgr\mmgr.h">
       <Filter>External\mmgr</Filter>
+    </ClInclude>
+    <ClInclude Include="API\API_Game.h">
+      <Filter>API</Filter>
+    </ClInclude>
+    <ClInclude Include="API\API_Scene.h">
+      <Filter>API</Filter>
+    </ClInclude>
+    <ClInclude Include="API\API_Time.h">
+      <Filter>API</Filter>
+    </ClInclude>
+    <ClInclude Include="API\API_Transform.h">
+      <Filter>API</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

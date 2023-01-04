@@ -2,7 +2,7 @@
 #include "Layer.h"
 #include "MeshRenderComponent.h"
 #include "GameObject.h"
-#include "HelloBehavior.h"
+#include "API/HelloBehavior.h"
 #include <ctime>
 
 #ifdef _DEBUG
@@ -42,6 +42,8 @@ public:
 
 	static void S_CreateBehaviorScript(ScriptComponent* component);
 	static void S_DestroyBehaviorScript(ScriptComponent* component);
+
+	static bool S_CreateBehaviorScriptByName(const std::string& className, ScriptComponent* component);
 
 	static void S_HotReload();
 
