@@ -15,6 +15,7 @@ class MeshRenderComponent : public Component
 {
 public:
 	MeshRenderComponent(GameObject* gameObject);
+	MeshRenderComponent(GameObject* gameObject, const MeshRenderComponent& copy);
 	virtual ~MeshRenderComponent() override;
 
 	void CreateMesh(uint resourceUID, MeshRenderType type = MeshRenderType::INSTANCED);

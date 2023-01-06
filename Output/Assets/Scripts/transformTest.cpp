@@ -4,9 +4,9 @@ void transformTest::Start()
 	newGameObjectTest = Game::CreateGameObject("Name", "Tag");
 	gameObjectLife = 8.0f;
 }
+
 void transformTest::Update()
 {
-
 	gameObjectLife -= Time::GetDeltaTime();
 
 	if (gameObjectLife <= 0 && newGameObjectTest.IsAlive())
@@ -18,6 +18,7 @@ void transformTest::Update()
 	{
 		API_GameObject newBullet = Game::CreateGameObject("Bullet", "Projectile");
 		newBullet.AddScript("BulletBehavior");
+		newBullet.AddMeshRenderer(this->meshRendererTest);
 	}
 
 	// Load new scene

@@ -161,6 +161,16 @@ void ScriptComponent::AddDragBoxTransform(const char* name, API::API_Transform* 
 	inspectorFields.push_back(dragBoxField);
 }
 
+void ScriptComponent::AddDragBoxMeshRenderer(const char* name, API::API_MeshRenderer* value)
+{
+	DragBoxMeshRenderer* dragBoxField = new DragBoxMeshRenderer();
+	dragBoxField->valueName = name;
+	dragBoxField->value = value;
+	dragBoxField->className = scriptResource == nullptr ? addedScript : scriptResource->className;
+
+	inspectorFields.push_back(dragBoxField);
+}
+
 void ScriptComponent::ImGuiDragScript()
 {
 	if (ImGui::BeginDragDropTarget())

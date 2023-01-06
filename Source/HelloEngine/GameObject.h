@@ -21,7 +21,17 @@ public:
 		return newComponent;
 	}
 
+	template <class T>
+	T* AddComponentCopied(const T& copy)
+	{
+		T* newComponent = new T(this, copy);
+		_components.push_back(newComponent);
+
+		return newComponent;
+	}
+
 	Component* AddComponentOfType(Component::Type type);
+	Component* AddComponentOfType(Component::Type type, const Component& copy);
 	void AddComponentSerialized(Component::Type type, json& jsonFile);
 
 	template<class T>

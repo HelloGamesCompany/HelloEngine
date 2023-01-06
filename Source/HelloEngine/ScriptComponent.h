@@ -26,6 +26,8 @@ public:
 	void AddInputBox(const char* name, std::string* value) override;
 	void AddDragBoxGameObject(const char* name, API::API_GameObject* value) override;
 	void AddDragBoxTransform(const char* name, API::API_Transform* value) override;
+	void AddDragBoxMeshRenderer(const char* name, API::API_MeshRenderer* value) override;
+
 private:
 	void ImGuiDragScript();
 	void DestroyInspectorFields();

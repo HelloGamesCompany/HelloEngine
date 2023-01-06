@@ -10,6 +10,8 @@ public:
 	void Start() override; 
 	void Update() override;
 
+	void Die();
+
 	float lifeTime = 5.0f;
 };
 

@@ -259,6 +259,36 @@ Component* GameObject::AddComponentOfType(Component::Type type)
 	return newComponent;
 }
 
+Component* GameObject::AddComponentOfType(Component::Type type, const Component& copy)
+{
+	Component* newComponent = nullptr;
+	switch (type)
+	{
+	case Component::Type::TRANSFORM:
+		Console::S_Log("Cannot add another transform to a gameobject");
+		return transform;
+		break;
+	case Component::Type::MESH_RENDERER:
+		newComponent = new MeshRenderComponent(this, *(MeshRenderComponent*)&copy);
+		_components.push_back(newComponent);
+		break;
+	case Component::Type::MATERIAL:
+		newComponent = new MaterialComponent(this);
+		_components.push_back(newComponent);
+		break;
+	case Component::Type::CAMERA:
+		newComponent = new CameraComponent(this);
+		_components.push_back(newComponent);
+		break;
+	case Component::Type::SCRIPT:
+		newComponent = new ScriptComponent(this);
+		_components.push_back(newComponent);
+		break;
+	}
+
+	return newComponent;
+}
+
 void GameObject::AddComponentSerialized(Component::Type type, json& jsonFile)
 {
 	Component* newComponent = AddComponentOfType(type);

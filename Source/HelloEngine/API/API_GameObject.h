@@ -9,6 +9,7 @@ class LayerGame;
 namespace API
 {
 	class API_Transform;
+	class API_MeshRenderer;
 	class TO_API API_GameObject
 	{
 	public:
@@ -22,12 +23,14 @@ namespace API
 
 		void AddScript(const char* className);
 
+		API_MeshRenderer AddMeshRenderer();
+		API_MeshRenderer AddMeshRenderer(API_MeshRenderer& copy);
+
 		// Destroys this GameObject instance from the scene. You can still use the API_GameObject class, but it wont make any effect.
 		void Destroy();
 
 		bool IsAlive() { return _gameObject != nullptr; }
 
-		/// Call this function to get an API_Transform pointer. WARNING: You should use this 
 		API::API_Transform GetTransform();
 
 	private:
@@ -38,6 +41,7 @@ namespace API
 		friend class ModuleLayers;
 		friend class DragBoxGameObject;
 		friend class API_Transform;
+		friend class API_MeshRenderer;
 		friend class Game;
 		friend class LayerGame;
 	};

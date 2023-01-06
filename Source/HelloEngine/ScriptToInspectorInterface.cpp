@@ -2,6 +2,8 @@
 #include "ScriptToInspectorInterface.h"
 #include "ModuleLayers.h"
 #include "API/API_Transform.h"
+#include "API/API_MeshRenderer.h"
+#include "MeshRenderComponent.h"
 
 void DragFieldFloat::OnEditor()
 {
@@ -209,6 +211,72 @@ void DragBoxTransform::OnDeserialize(json& j)
 			{
 				API::API_Transform* transform = (API::API_Transform*)value;
 				transform->SetComponent(gameObject->transform);
+			}
+		}
+	}
+}
+
+void DragBoxMeshRenderer::OnEditor()
+{
+	API::API_MeshRenderer* mesh = (API::API_MeshRenderer*)value;
+
+	ImGui::TextWrapped((valueName + ": ").c_str()); ImGui::SameLine();
+
+	if (mesh->_meshRenderer == nullptr)
+		ImGui::TextColored(ImVec4(1, 1, 0, 1), "NULL (Drag a MeshRenderer here)");
+	else
+	{
+		std::string gameObjectName(mesh->GetGameObject().GetName());
+		std::string text = "(" + gameObjectName + ")" + ": MeshRenderer";
+		ImGui::TextColored(ImVec4(1, 1, 0, 1), text.c_str());
+	}
+
+	if (ImGui::BeginDragDropTarget())
+	{
+		if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("APIGameObject"))
+		{
+			const uint* drop = (uint*)payload->Data;
+
+			GameObject* droppedGO = ModuleLayers::S_GetGameObject(*drop);
+			MeshRenderComponent* component = nullptr;
+
+			if (droppedGO != nullptr)
+				component = droppedGO->GetComponent<MeshRenderComponent>();
+			
+			mesh->SetComponent(component);
+		}
+		ImGui::EndDragDropTarget();
+	}
+}
+
+void DragBoxMeshRenderer::OnSerialize(json& j)
+{
+	json _j;
+
+	API::API_MeshRenderer* mesh = (API::API_MeshRenderer*)value;
+
+	if (mesh->_meshRenderer != nullptr)
+	{
+		_j[valueName.c_str()] = mesh->_meshRenderer->GetGameObject()->GetID();
+		j.push_back(_j);
+	}
+}
+
+void DragBoxMeshRenderer::OnDeserialize(json& j)
+{
+	for (int i = 0; i < j.size(); i++)
+	{
+		if (j[i].find(valueName) != j[i].end())
+		{
+			uint id = j[i][valueName.c_str()];
+			GameObject* gameObject = ModuleLayers::S_GetGameObject(id);
+			MeshRenderComponent* component = nullptr;
+			if (gameObject != nullptr)
+				component = gameObject->GetComponent<MeshRenderComponent>();
+			if (component != nullptr)
+			{
+				API::API_MeshRenderer* mesh = (API::API_MeshRenderer*)value;
+				mesh->SetComponent(component);
 			}
 		}
 	}

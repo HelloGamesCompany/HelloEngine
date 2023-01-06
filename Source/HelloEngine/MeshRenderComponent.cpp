@@ -19,6 +19,19 @@ MeshRenderComponent::MeshRenderComponent(GameObject* gameObject) : Component(gam
 	_needsTransformCallback = true;
 }
 
+MeshRenderComponent::MeshRenderComponent(GameObject* gameObject, const MeshRenderComponent& copy) : Component(gameObject)
+{
+	_type = Type::MESH_RENDERER;
+	_meshID = -1;
+	_instanceID = 0;
+	_needsTransformCallback = true;
+
+	if (copy._resource != nullptr)
+	{
+		CreateMesh(copy._resource->UID, copy.renderType);
+	}
+}
+
 MeshRenderComponent::~MeshRenderComponent()
 {
 	if (_meshID != -1)

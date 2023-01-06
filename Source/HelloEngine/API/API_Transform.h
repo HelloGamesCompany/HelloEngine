@@ -23,9 +23,6 @@ namespace API
 		//TODO: Create this methods when the Vector3 struct is created.
 		//GetPosition, GetRotation, GetScale.
 
-
-
-		/// WARNING: Do not destroy the API_Transform after using this. The API_GameObject returned is inside this class.
 		API_GameObject GetGameObject();
 
 	private:
