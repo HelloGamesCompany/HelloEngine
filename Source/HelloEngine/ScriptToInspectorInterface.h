@@ -12,9 +12,11 @@ using json = nlohmann::json;
 class ScriptInspectorField
 {
 public:
+	ScriptInspectorField();
 	void* value = nullptr;
 	std::string valueName = "";
 	std::string className = "";
+	uint UID = 0;
 	virtual void OnEditor() = 0;
 #ifndef HELLO_ENGINE_EXPORTS
 	virtual void OnSerialize(json& j) = 0;

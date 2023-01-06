@@ -20,7 +20,7 @@ ScriptComponent::~ScriptComponent()
 
 void ScriptComponent::OnEditor()
 {
-	if (ImGui::CollapsingHeader("Script", ImGuiTreeNodeFlags_DefaultOpen))
+	if (ImGui::CollapsingHeader("Script", ImGuiTreeNodeFlags_DefaultOpen | ImGuiTreeNodeFlags_AllowItemOverlap | ImGuiTreeNodeFlags_SpanAvailWidth))
 	{
 		if (scriptResource == nullptr && addedScript == "None")
 		{

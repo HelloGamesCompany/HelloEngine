@@ -101,6 +101,13 @@ void DragBoxGameObject::OnEditor()
 {
 	API::API_GameObject* go = (API::API_GameObject*)value;
 	
+	std::string buttonName = "X##" + std::to_string(UID);
+	if (ImGui::Button(buttonName.c_str()))
+	{
+		go->SetGameObject(nullptr);
+	}
+	ImGui::SameLine();
+
 	ImGui::TextWrapped((valueName + ": ").c_str()); ImGui::SameLine();
 
 	if (go->_gameObject == nullptr)
@@ -158,6 +165,13 @@ void DragBoxGameObject::OnDeserialize(json& j)
 void DragBoxTransform::OnEditor()
 {
 	API::API_Transform* transform = (API::API_Transform*)value;
+
+	std::string buttonName = "X##" + std::to_string(UID);
+	if (ImGui::Button(buttonName.c_str()))
+	{
+		transform->SetComponent(nullptr);
+	}
+	ImGui::SameLine();
 
 	ImGui::TextWrapped((valueName + ": ").c_str()); ImGui::SameLine();
 
@@ -220,10 +234,19 @@ void DragBoxMeshRenderer::OnEditor()
 {
 	API::API_MeshRenderer* mesh = (API::API_MeshRenderer*)value;
 
+	std::string buttonName = "X##" + std::to_string(UID);
+	if (ImGui::Button(buttonName.c_str()))
+	{
+		mesh->SetComponent(nullptr);
+	}
+	ImGui::SameLine();
+
 	ImGui::TextWrapped((valueName + ": ").c_str()); ImGui::SameLine();
 
 	if (mesh->_meshRenderer == nullptr)
+	{
 		ImGui::TextColored(ImVec4(1, 1, 0, 1), "NULL (Drag a MeshRenderer here)");
+	}
 	else
 	{
 		std::string gameObjectName(mesh->GetGameObject().GetName());
@@ -280,4 +303,9 @@ void DragBoxMeshRenderer::OnDeserialize(json& j)
 			}
 		}
 	}
+}
+
+ScriptInspectorField::ScriptInspectorField()
+{
+	UID = HelloUUID::GenerateUUID();
 }
