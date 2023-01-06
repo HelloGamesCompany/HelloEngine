@@ -101,7 +101,7 @@ void ScriptComponent::AddScript(std::string scriptName)
 	}
 }
 
-void ScriptComponent::AddDragFloat(const std::string& name, float* value)
+void ScriptComponent::AddDragFloat(const char* name, float* value)
 {
 	DragFieldFloat* dragField = new DragFieldFloat();
 	dragField->valueName = name;
@@ -111,7 +111,7 @@ void ScriptComponent::AddDragFloat(const std::string& name, float* value)
 	inspectorFields.push_back(dragField);
 }
 
-void ScriptComponent::AddDragInt(const std::string& name, int* value)
+void ScriptComponent::AddDragInt(const char* name, int* value)
 {
 	DragFieldInt* dragField = new DragFieldInt();
 	dragField->valueName = name;
@@ -121,7 +121,7 @@ void ScriptComponent::AddDragInt(const std::string& name, int* value)
 	inspectorFields.push_back(dragField);
 }
 
-void ScriptComponent::AddCheckBox(const std::string& name, bool* value)
+void ScriptComponent::AddCheckBox(const char* name, bool* value)
 {
 	CheckBoxField* checkBoxField = new CheckBoxField();
 	checkBoxField->valueName = name;
@@ -131,7 +131,7 @@ void ScriptComponent::AddCheckBox(const std::string& name, bool* value)
 	inspectorFields.push_back(checkBoxField);
 }
 
-void ScriptComponent::AddInputBox(const std::string& name, std::string* value)
+void ScriptComponent::AddInputBox(const char* name, std::string* value)
 {
 	InputBoxField* inputBoxField = new InputBoxField();
 	inputBoxField->valueName = name;
@@ -141,7 +141,7 @@ void ScriptComponent::AddInputBox(const std::string& name, std::string* value)
 	inspectorFields.push_back(inputBoxField);
 }
 
-void ScriptComponent::AddDragBoxGameObject(const std::string& name, API::API_GameObject* value)
+void ScriptComponent::AddDragBoxGameObject(const char* name, API::API_GameObject* value)
 {
 	DragBoxGameObject* dragBoxField = new DragBoxGameObject();
 	dragBoxField->valueName = name;
@@ -151,7 +151,7 @@ void ScriptComponent::AddDragBoxGameObject(const std::string& name, API::API_Gam
 	inspectorFields.push_back(dragBoxField);
 }
 
-void ScriptComponent::AddDragBoxTransform(const std::string& name, API::API_Transform* value)
+void ScriptComponent::AddDragBoxTransform(const char* name, API::API_Transform* value)
 {
 	DragBoxTransform* dragBoxField = new DragBoxTransform();
 	dragBoxField->valueName = name;

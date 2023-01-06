@@ -79,12 +79,12 @@ class DragBoxTransform : public ScriptInspectorField
 class TO_API ScriptToInspectorInterface
 {
 public:
-	virtual void AddDragFloat(const std::string& name, float* value) = 0;
-	virtual void AddDragInt(const std::string& name, int* value) = 0;
-	virtual void AddCheckBox(const std::string& name, bool* value) = 0;
-	virtual void AddInputBox(const std::string& name, std::string* value) = 0;
-	virtual void AddDragBoxGameObject(const std::string& name, API::API_GameObject* value) = 0;
-	virtual void AddDragBoxTransform(const std::string& name, API::API_Transform* value) = 0;
+	virtual void AddDragFloat(const char* name, float* value) = 0;
+	virtual void AddDragInt(const char* name, int* value) = 0;
+	virtual void AddCheckBox(const char* name, bool* value) = 0;
+	virtual void AddInputBox(const char* name, std::string* value) = 0;
+	virtual void AddDragBoxGameObject(const char* name, API::API_GameObject* value) = 0;
+	virtual void AddDragBoxTransform(const char* name, API::API_Transform* value) = 0;
 
 protected:
 	std::vector<ScriptInspectorField*> inspectorFields;

@@ -10,6 +10,13 @@
 #include "ModuleCommand.h"
 #include "ModuleResourceManager.h"
 
+#include "API/API_Vector2.h"
+#include "API/API_Vector3.h"
+
+using Vector2 = API::API_Vector2;
+
+using Vector3 = API::API_Vector3;
+
 Application* Application::_app = nullptr;
 
 Application::Application()
@@ -22,6 +29,24 @@ Application::~Application()
 
 bool Application::Init()
 {
+	float2 f(2, 3);
+
+	Vector2 v2(2, 2);
+
+	v2 = f;
+
+	Vector3 v3;
+
+	Vector3 v4(5);
+
+	v3 = v2;
+
+	v3 = Vector3::S_Identity();
+
+	float result = Vector3::S_Distance(v3, v4);
+
+	std::cout << v3 << std::endl;
+
 	window = new ModuleWindow(true);
 	file = new ModuleFiles();
 	input = new ModuleInput(true);

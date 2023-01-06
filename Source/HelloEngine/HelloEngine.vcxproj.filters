@@ -346,6 +346,12 @@
     <ClCompile Include="API\API_Transform.cpp">
       <Filter>API</Filter>
     </ClCompile>
+    <ClCompile Include="API\API_Vector3.cpp">
+      <Filter>API</Filter>
+    </ClCompile>
+    <ClCompile Include="API\API_Vector2.cpp">
+      <Filter>API</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -811,6 +817,12 @@
       <Filter>API</Filter>
     </ClInclude>
     <ClInclude Include="API\API_Transform.h">
+      <Filter>API</Filter>
+    </ClInclude>
+    <ClInclude Include="API\API_Vector3.h">
+      <Filter>API</Filter>
+    </ClInclude>
+    <ClInclude Include="API\API_Vector2.h">
       <Filter>API</Filter>
     </ClInclude>
   </ItemGroup>

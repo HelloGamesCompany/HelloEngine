@@ -291,6 +291,8 @@
     <ClCompile Include="API\API_Time.cpp" />
     <ClCompile Include="API\API_Transform.cpp" />
     <ClCompile Include="API\API_Game.cpp" />
+    <ClCompile Include="API\API_Vector2.cpp" />
+    <ClCompile Include="API\API_Vector3.cpp" />
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="CameraComponent.cpp" />
     <ClCompile Include="CameraObject.cpp" />
@@ -447,6 +449,8 @@
     <ClInclude Include="API\API_Time.h" />
     <ClInclude Include="API\API_Transform.h" />
     <ClInclude Include="API\API_Game.h" />
+    <ClInclude Include="API\API_Vector2.h" />
+    <ClInclude Include="API\API_Vector3.h" />
     <ClInclude Include="Application.h" />
     <ClInclude Include="CameraComponent.h" />
     <ClInclude Include="CameraObject.h" />
