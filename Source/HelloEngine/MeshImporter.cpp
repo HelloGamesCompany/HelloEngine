@@ -230,18 +230,18 @@ void MeshImporter::LoadNode(ModelNode& node, GameObject* parent)
 	nodeGameObject->transform->SetRotation(node.rotation);
 	nodeGameObject->transform->SetScale(node.scale);
 
-	// Check if this node could be joined with its only child into a single node.
-	if (node.children.size() == 1 && node.meshPath == "N")
-	{
-		if (node.children[0].meshPath != "N")
-		{
-			LoadMeshNode(node.children[0].meshPath, nodeGameObject);
+	//// Check if this node could be joined with its only child into a single node.
+	//if (node.children.size() == 1 && node.meshPath == "N")
+	//{
+	//	if (node.children[0].meshPath != "N")
+	//	{
+	//		LoadMeshNode(node.children[0].meshPath, nodeGameObject);
 
-			if (node.children[0].resourceMaterialUID != 0)
-				LoadTexture(node.children[0].resourceMaterialUID, nodeGameObject);
-		}
-		return; // TODO: This check could give problems with the animation bones loading (empty nodes with no meshes).
-	}
+	//		if (node.children[0].resourceMaterialUID != 0)
+	//			LoadTexture(node.children[0].resourceMaterialUID, nodeGameObject);
+	//	}
+	//	return; // TODO: This check could give problems with the animation bones loading (empty nodes with no meshes).
+	//}
 
 	if (node.meshPath != "N")
 	{
