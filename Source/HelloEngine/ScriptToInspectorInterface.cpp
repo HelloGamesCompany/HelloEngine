@@ -117,7 +117,7 @@ void DragBoxGameObject::OnEditor()
 
 	if (ImGui::BeginDragDropTarget())
 	{
-		if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("APIGameObject"))
+		if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("GameObject"))
 		{
 			const uint* drop = (uint*)payload->Data;
 
@@ -186,7 +186,7 @@ void DragBoxTransform::OnEditor()
 
 	if (ImGui::BeginDragDropTarget())
 	{
-		if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("APIGameObject"))
+		if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("GameObject"))
 		{
 			const uint* drop = (uint*)payload->Data;
 
@@ -256,7 +256,7 @@ void DragBoxMeshRenderer::OnEditor()
 
 	if (ImGui::BeginDragDropTarget())
 	{
-		if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("APIGameObject"))
+		if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("GameObject"))
 		{
 			const uint* drop = (uint*)payload->Data;
 

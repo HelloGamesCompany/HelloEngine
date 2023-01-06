@@ -135,13 +135,18 @@ void ImWindowHierarchy::ProcessGameObject(GameObject* gameObject, int iteration)
     // Drag & drop
     if (ImGui::BeginDragDropSource())
     {
-        ImGui::SetDragDropPayload("GameObject", nullptr, 0);
+        ImGui::SetDragDropPayload("GameObject", &gameObject->_ID, sizeof(uint));
         _draggingGameObject = gameObject;
         ImGui::Text("Change game object parent");
     
-        ImGui::SetDragDropPayload("APIGameObject", &gameObject->_ID, sizeof(uint));
         ImGui::EndDragDropSource();
     }
+    //if (ImGui::BeginDragDropSource())
+    //{
+    //    ImGui::SetDragDropPayload("APIGameObject", &gameObject->_ID, sizeof(uint));
+
+    //    ImGui::EndDragDropSource();
+    //}
     if (ImGui::BeginDragDropTarget())
     {
         if (ImGui::AcceptDragDropPayload("GameObject"))
