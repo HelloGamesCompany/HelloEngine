@@ -1,5 +1,13 @@
 #include "BulletBehavior.h"
-#include "API/API.h"
+
+HELLO_ENGINE_API_C BulletBehavior* CreateBulletBehavior(ScriptToInspectorInterface* script)
+{
+	BulletBehavior* classInstance = new BulletBehavior();
+	//Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
+	script->AddDragFloat("Lifetime", &classInstance->lifeTime);
+	return classInstance;
+}
+
 void BulletBehavior::Start()
 {
 
@@ -13,5 +21,5 @@ void BulletBehavior::Update()
 		this->gameObject.Destroy();
 	}
 
-	this->gameObject.GetTransform().Translate(0, 0, 0.2f);
+	this->gameObject.GetTransform().Translate(direction);
 }

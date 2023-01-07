@@ -5,6 +5,7 @@
 class GameObject;
 class DragBoxGameObject;
 class LayerGame;
+class HelloBehavior;
 
 namespace API
 {
@@ -21,7 +22,8 @@ namespace API
 		const char* GetName();
 		std::string GetTag();
 
-		void AddScript(const char* className);
+		HelloBehavior* AddScript(const char* className);
+		HelloBehavior* GetScript(const char* className);
 
 		API_MeshRenderer AddMeshRenderer();
 		API_MeshRenderer AddMeshRenderer(API_MeshRenderer& copy);

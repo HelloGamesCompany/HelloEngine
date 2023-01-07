@@ -1,4 +1,15 @@
 #include "transformTest.h"
+#include "BulletBehavior.h"
+
+HELLO_ENGINE_API_C transformTest* CreatetransformTest(ScriptToInspectorInterface* script)
+{
+	transformTest* classInstance = new transformTest();
+	script->AddDragBoxTransform("transform dragging test", &classInstance->transfromTestVariable);
+	script->AddDragBoxMeshRenderer("meshTest", &classInstance->meshRendererTest);
+
+	return classInstance;
+}
+
 void transformTest::Start()
 {
 	newGameObjectTest = Game::CreateGameObject("Name", "Tag");
@@ -14,11 +25,20 @@ void transformTest::Update()
 		newGameObjectTest.Destroy();
 	}
 
+	// Create bullet
 	if (Input::GetKey(KeyCode::KEY_N) == KeyState::KEY_DOWN)
 	{
+		// Create game object
 		API_GameObject newBullet = Game::CreateGameObject("Bullet", "Projectile");
-		newBullet.AddScript("BulletBehavior");
+		newBullet.GetTransform().SetPosition(this->gameObject.GetTransform().GetPosition());
+		// Add behavior
+		BulletBehavior* bulletScript = (BulletBehavior*)newBullet.AddScript("BulletBehavior");
+		// Add mesh renderer, copied from another mesh renderer properties.
 		newBullet.AddMeshRenderer(this->meshRendererTest);
+
+		// Set direction of the bullet
+		if (bulletScript != nullptr)
+			bulletScript->direction = transfromTestVariable.GetDown();
 	}
 
 	// Load new scene
@@ -30,27 +50,27 @@ void transformTest::Update()
 	// move object
 	if (Input::GetKey(KeyCode::KEY_W) == KeyState::KEY_REPEAT)
 	{
-		transfromTestVariable.Translate(0, 0, 0.2);
+		transfromTestVariable.Translate(transfromTestVariable.GetDown());
 	}
 	if (Input::GetKey(KeyCode::KEY_A) == KeyState::KEY_REPEAT)
 	{
-		transfromTestVariable.Translate(0.2, 0, 0);
+		transfromTestVariable.Translate(transfromTestVariable.GetRight());
 	}
 	if (Input::GetKey(KeyCode::KEY_S) == KeyState::KEY_REPEAT)
 	{
-		transfromTestVariable.Translate(0, 0, -0.2);
+		transfromTestVariable.Translate(transfromTestVariable.GetUp());
 	}
 	if (Input::GetKey(KeyCode::KEY_D) == KeyState::KEY_REPEAT)
 	{
-		transfromTestVariable.Translate(-0.2, 0, 0);
+		transfromTestVariable.Translate(transfromTestVariable.GetLeft());
 	}
 	if (Input::GetKey(KeyCode::KEY_Q) == KeyState::KEY_REPEAT)
 	{
-		transfromTestVariable.Rotate(0, 1, 0);
+		transfromTestVariable.Rotate(0, 0, 1);
 	}
 	if (Input::GetKey(KeyCode::KEY_E) == KeyState::KEY_REPEAT)
 	{
-		transfromTestVariable.Rotate(0, -1, 0);
+		transfromTestVariable.Rotate(0, 0, -1);
 	}
 	if (Input::GetKey(KeyCode::KEY_R) == KeyState::KEY_REPEAT)
 	{

@@ -91,6 +91,21 @@ float4x4 TransformComponent::GetGlobalMatrix(bool forceUpdate, bool updateLocal)
 	return _globalMatrix;
 }
 
+float3 TransformComponent::GetPosition()
+{
+	return GetGlobalMatrix().TranslatePart();
+}
+
+float3 TransformComponent::GetRotation()
+{
+	return GetGlobalMatrix().RotatePart().ToEulerXYZ();
+}
+
+float3 TransformComponent::GetScale()
+{
+	return GetGlobalMatrix().GetScale();
+}
+
 float3 TransformComponent::GetForward()
 {
 	return GetGlobalMatrix().RotatePart().Col(2).Normalized();

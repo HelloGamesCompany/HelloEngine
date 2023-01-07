@@ -1,10 +1,17 @@
 #pragma once
+#include "Globals.h"
+
+namespace math
+{
+	class float2;
+	class float3;
+}
 
 namespace API
 {
 	class API_Vector2;
 
-	class API_Vector3
+	class TO_API API_Vector3
 	{
 	public:
 		API_Vector3();
@@ -12,6 +19,8 @@ namespace API
 		API_Vector3(const float& x, const float& y, const float& z);
 
 		API_Vector3(const float& value);
+
+		API_Vector3(const math::float3& other);
 
 		~API_Vector3();
 
@@ -41,11 +50,13 @@ namespace API
 
 		API_Vector3& operator/=(const float& other);
 
-		friend std::ostream& operator<<(std::ostream& output, const API_Vector3& vec3)
-		{
-			output << "X : " << vec3.x << "\nY : " << vec3.y << "\nZ : " << vec3.z;
-			return output;
-		}
+		API_Vector3 operator -() const;
+
+		//friend std::ostream& operator<<(std::ostream& output, const API_Vector3& vec3)
+		//{
+		//	output << "X : " << vec3.x << "\nY : " << vec3.y << "\nZ : " << vec3.z;
+		//	return output;
+		//}
 
 		float Distance(const API_Vector3& other);
 

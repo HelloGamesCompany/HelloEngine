@@ -16,11 +16,3 @@ public:
 	float gameObjectLife = 8.0f;
 };
 
-HELLO_ENGINE_API_C transformTest* CreatetransformTest(ScriptToInspectorInterface* script)
-{
-	transformTest* classInstance = new transformTest();
-	script->AddDragBoxTransform("transform dragging test", &classInstance->transfromTestVariable);
-	script->AddDragBoxMeshRenderer("meshTest", &classInstance->meshRendererTest);
-
-	return classInstance;
-}

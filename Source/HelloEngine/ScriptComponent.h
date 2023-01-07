@@ -19,6 +19,9 @@ public:
 
 	void AddScript(std::string scriptName);
 
+	const std::string& GetScriptName();
+	HelloBehavior* GetScript();
+
 	// Add script variables to inspector methods:
 	void AddDragFloat(const char* name, float* value) override;
 	void AddDragInt(const char* name, int* value) override;

@@ -96,7 +96,6 @@
     <ClCompile Include="../../Assets/Scripts/BulletBehavior.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="HelloEngine.h" />
     <ClInclude Include="Macro.h" />
     <ClInclude Include="../../Assets/Scripts/Creationtest.h" />
     <ClInclude Include="../../Assets/Scripts/transformTest.h" />

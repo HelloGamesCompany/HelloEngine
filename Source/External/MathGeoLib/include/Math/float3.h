@@ -41,7 +41,14 @@
 #include "../../../Bullet/include/LinearMath/btVector3.h"
 #endif
 
+namespace API
+{
+	class API_Vector3;
+}
+
 MATH_BEGIN_NAMESPACE
+
+
 
 /// A vector of form (x,y,z).
 class float3
@@ -78,6 +85,8 @@ public:
 	/// Constructs a new float3 with the value (x, y, z).
 	/** @see x, y, z. */
 	float3(float x, float y, float z);
+
+	float3(const API::API_Vector3& vector);
 
 	/// Constructs a new float3 with the value (scalar, scalar, scalar).
 	/** @see x, y, z. */

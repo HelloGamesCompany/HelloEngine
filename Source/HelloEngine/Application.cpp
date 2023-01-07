@@ -33,19 +33,19 @@ bool Application::Init()
 
 	Vector2 v2(2, 2);
 
-	v2 = f;
+	v2 = -f;
 
 	Vector3 v3;
 
-	Vector3 v4(5);
+	Vector3 v4(5,2,3);
 
-	v3 = v2;
+	v3 = -v4;
 
 	v3 = Vector3::S_Identity();
 
 	float result = Vector3::S_Distance(v3, v4);
 
-	std::cout << v3 << std::endl;
+	//std::cout << v2 << std::endl;
 
 	window = new ModuleWindow(true);
 	file = new ModuleFiles();

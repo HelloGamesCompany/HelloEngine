@@ -2,7 +2,7 @@
 #include "API/HelloBehavior.h"
 #include "ScriptToInspectorInterface.h"
 #include "Macro.h"
-
+#include "API/API.h"
 
 class BulletBehavior : HelloBehavior
 {
@@ -13,12 +13,6 @@ public:
 	void Die();
 
 	float lifeTime = 5.0f;
+	API_Vector3 direction;
 };
 
-HELLO_ENGINE_API_C BulletBehavior* CreateBulletBehavior(ScriptToInspectorInterface* script)
-{
-	BulletBehavior* classInstance = new BulletBehavior();
-	//Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
-	script->AddDragFloat("Lifetime", &classInstance->lifeTime);
-	return classInstance;
-}

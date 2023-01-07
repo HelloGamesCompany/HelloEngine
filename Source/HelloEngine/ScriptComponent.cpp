@@ -101,6 +101,21 @@ void ScriptComponent::AddScript(std::string scriptName)
 	}
 }
 
+const std::string& ScriptComponent::GetScriptName()
+{
+	if (scriptResource != nullptr)
+		return scriptResource->className;
+	return addedScript;
+}
+
+HelloBehavior* ScriptComponent::GetScript()
+{
+	if (scriptResource == nullptr && addedScript == "None")
+		return nullptr;
+
+	return LayerGame::_behaviorScripts[scriptUID].script;
+}
+
 void ScriptComponent::AddDragFloat(const char* name, float* value)
 {
 	DragFieldFloat* dragField = new DragFieldFloat();

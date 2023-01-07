@@ -36,6 +36,7 @@
 #include "../Geometry/Triangle.h"
 #include "../Geometry/Capsule.h"
 #include "MathFunc.h"
+#include "API/API_Vector3.h"
 
 MATH_BEGIN_NAMESPACE
 
@@ -43,6 +44,10 @@ using namespace std;
 
 float3::float3(float x_, float y_, float z_)
 :x(x_), y(y_), z(z_)
+{
+}
+
+float3::float3(const API::API_Vector3& vector) : x(vector.x), y(vector.y), z(vector.z)
 {
 }
 

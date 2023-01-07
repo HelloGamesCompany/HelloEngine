@@ -44,15 +44,44 @@ std::string API::API_GameObject::GetTag()
 	return _gameObject->tag;
 }
 
-void API::API_GameObject::AddScript(const char* className)
+HelloBehavior* API::API_GameObject::AddScript(const char* className)
 {
 	if (_gameObject == nullptr)
 	{
 		Console::S_Log("Trying to acces a NULLPTR GameObject! AddScript()");
-		return;
+		return nullptr;
 	}
 	ScriptComponent* scriptComponent = _gameObject->AddComponent<ScriptComponent>();
 	scriptComponent->AddScript(className);
+	return scriptComponent->GetScript();
+}
+
+HelloBehavior* API::API_GameObject::GetScript(const char* className)
+{
+	if (_gameObject == nullptr)
+	{
+		Console::S_Log("Trying to acces a NULLPTR GameObject! GetScript()" + std::string(className));
+		return nullptr;
+	}
+	std::vector<ScriptComponent*> scripts;
+	std::vector<Component*> components = _gameObject->GetComponents();
+	std::string name(className); // Needs a string to compare to another string.
+
+	for (int i = 0; i < components.size(); ++i)
+	{
+		if (components[i]->GetType() == Component::Type::SCRIPT)
+			scripts.push_back((ScriptComponent*)components[i]);
+	}
+
+	for (int i = 0; i < scripts.size(); ++i)
+	{
+		if (scripts[i]->GetScriptName() == className)
+		{
+			return scripts[i]->GetScript();
+		}
+	}
+
+	return nullptr;
 }
 
 API::API_MeshRenderer API::API_GameObject::AddMeshRenderer()

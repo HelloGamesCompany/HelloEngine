@@ -16,6 +16,12 @@ API::API_Vector2::API_Vector2(const float& value) : x(value), y(value)
 {
 }
 
+API::API_Vector2::API_Vector2(const float2& other)
+{
+	this->x = other.x;
+	this->y = other.y;
+}
+
 API_Vector2::~API_Vector2()
 {
 }
@@ -153,6 +159,11 @@ API_Vector2& API_Vector2::operator/=(const float& other)
 	ret.y = (this->y /= other);
 
 	return ret;
+}
+
+API_Vector2 API::API_Vector2::operator-() const
+{
+	return API::API_Vector2(-x, -y);
 }
 
 float API::API_Vector2::Distance(const API_Vector2& other)
