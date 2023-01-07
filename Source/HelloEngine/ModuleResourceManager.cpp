@@ -10,6 +10,7 @@
 #include "json.hpp"
 #include "FileTree.hpp"
 #include "ModuleCommand.h"
+#include "ScriptComponent.h"
 
 #include "GameObject.h"
 #include "ModuleLayers.h"
@@ -343,6 +344,21 @@ bool ModuleResourceManager::S_DeserializeScene(const std::string& filePath)
 		for (int j = 0; j < object.size(); j++)
 		{
 			Component::Type componentType = object[j]["Type"];
+			if (componentType == Component::Type::SCRIPT)
+				continue;
+			temp[i].first->AddComponentSerialized(componentType, object[j]);
+		}
+	}
+
+	for (int i = 0; i < sceneFile.size(); i++)
+	{
+		// Create components
+		json object = sceneFile[i]["Components"];
+		for (int j = 0; j < object.size(); j++)
+		{
+			Component::Type componentType = object[j]["Type"];
+			if (componentType != Component::Type::SCRIPT)
+				continue;
 			temp[i].first->AddComponentSerialized(componentType, object[j]);
 		}
 	}
@@ -515,10 +531,23 @@ void ModuleResourceManager::SerializeSceneRecursive(const GameObject* g, json& j
 	_j["Name"] = g->name;
 	_j["Tag"] = g->tag;
 
+	// We delay the serialization of script components because they may need to reference another component when Deserialized.
+	// this way, ScriptComponents will always deserialize last, and will find any other component they need inside their game object.
+	std::vector<ScriptComponent*> scriptComponents;
 	for (int i = 0; i < g->_components.size(); i++)
 	{
+		if (g->_components[i]->GetType() == Component::Type::SCRIPT)
+		{
+			scriptComponents.push_back((ScriptComponent*)g->_components[i]);
+			continue;
+		}
 		// Serialize components
 		g->_components[i]->Serialization(_j);
+	}
+
+	for (int i = 0; i < scriptComponents.size(); ++i)
+	{
+		scriptComponents[i]->Serialization(_j);
 	}
 
 	j.push_back(_j);
