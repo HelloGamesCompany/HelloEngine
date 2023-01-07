@@ -13,6 +13,8 @@ public:
 	void Update() override;
 private:
 
+	int gamePosX = 1;
+	int gamePosY = 1;
 	int gameWidth = 1;
 	int gameHeight = 1;
 };

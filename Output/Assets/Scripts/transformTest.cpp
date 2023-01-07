@@ -38,7 +38,11 @@ void transformTest::Update()
 
 		// Set direction of the bullet
 		if (bulletScript != nullptr)
+		{
 			bulletScript->direction = transfromTestVariable.GetDown();
+			API_Vector3 rotation = API_Vector3(0,transfromTestVariable.GetRotation().z,0);
+			bulletScript->gameObject.GetTransform().SetRotation(rotation);
+		}
 	}
 
 	// Load new scene
@@ -64,16 +68,18 @@ void transformTest::Update()
 	{
 		transfromTestVariable.Translate(transfromTestVariable.GetLeft());
 	}
-	if (Input::GetKey(KeyCode::KEY_Q) == KeyState::KEY_REPEAT)
-	{
-		transfromTestVariable.Rotate(0, 0, 1);
-	}
-	if (Input::GetKey(KeyCode::KEY_E) == KeyState::KEY_REPEAT)
+	if (Input::GetMouseXMotion() > 0)
 	{
 		transfromTestVariable.Rotate(0, 0, -1);
+	}
+	if (Input::GetMouseXMotion() < 0)
+	{
+		transfromTestVariable.Rotate(0, 0, 1);
 	}
 	if (Input::GetKey(KeyCode::KEY_R) == KeyState::KEY_REPEAT)
 	{
 		transfromTestVariable.SetPosition(0, 0, 0);
 	}
+	Console::Log(std::to_string(Input::GetMouseXMotion()));
+
 }

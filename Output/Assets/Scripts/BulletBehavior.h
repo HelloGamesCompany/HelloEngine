@@ -4,7 +4,7 @@
 #include "Macro.h"
 #include "API/API.h"
 
-class BulletBehavior : HelloBehavior
+class BulletBehavior : public HelloBehavior
 {
 public:
 	void Start() override; 

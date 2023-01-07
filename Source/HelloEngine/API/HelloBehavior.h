@@ -10,7 +10,7 @@ public:
 
 	virtual void Start() {};
 	virtual void Update() {};
-protected:
+public:
 	API::API_GameObject gameObject;
 
 	friend class LayerGame;

@@ -353,6 +353,9 @@
       <Filter>API</Filter>
     </ClCompile>
     <ClCompile Include="API\API_MeshRenderer.cpp" />
+    <ClCompile Include="API\API_Engine.cpp">
+      <Filter>API</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -827,6 +830,9 @@
       <Filter>API</Filter>
     </ClInclude>
     <ClInclude Include="API\API_MeshRenderer.h" />
+    <ClInclude Include="API\API_Engine.h">
+      <Filter>API</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="External">

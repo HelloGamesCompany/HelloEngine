@@ -8,6 +8,7 @@
 #include "ScriptToInspectorInterface.h"
 #include "ModuleCommand.h"
 #include "ModuleLayers.h"
+#include "API/API_Engine.h"
 
 std::map<uint, BehaviorScript> LayerGame::_behaviorScripts;
 std::vector<ScriptComponent*> LayerGame::_scriptComponents;
@@ -20,6 +21,8 @@ HMODULE LayerGame::_dllFile;
 time_t LayerGame::_dllChangeTime;
 bool LayerGame::detectInput = true;
 std::string LayerGame::currentScene = "";
+bool LayerGame::_centerMouse = false;
+
 
 typedef void* (*CreateFunc)(ScriptToInspectorInterface*);
 
@@ -78,6 +81,7 @@ void LayerGame::Update()
 		if (behaviorScript.second.active)
 			behaviorScript.second.script->Update();
 	}
+	API::Engine::EnginePropertiesUpdate();
 }
 
 void LayerGame::PostUpdate()
@@ -102,6 +106,7 @@ void LayerGame::S_Play()
 		if (behaviorScript.second.active)
 			behaviorScript.second.script->Start();
 	}
+	API::Engine::ApplyEngineProperties();
 }
 
 void LayerGame::S_Stop()
@@ -112,7 +117,7 @@ void LayerGame::S_Stop()
 	_paused = false;
 	// TODO: Reload scene.
 	ModuleLayers::S_RequestLoadScene(currentScene);
-
+	API::Engine::UnApplyEngineProperties();
 }
 
 void LayerGame::S_Pause()

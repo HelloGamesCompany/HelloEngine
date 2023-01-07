@@ -60,8 +60,10 @@ private:
 	static HMODULE _dllFile;
 	static time_t _dllChangeTime;
 	static std::string currentScene;
+	static bool _centerMouse;
 
 	friend class LayerEditor;
 	friend class ScriptComponent;
+	friend class ImWindowGame;
 };
 

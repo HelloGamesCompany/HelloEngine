@@ -98,7 +98,7 @@ float3 TransformComponent::GetPosition()
 
 float3 TransformComponent::GetRotation()
 {
-	return GetGlobalMatrix().RotatePart().ToEulerXYZ();
+	return math::RadToDeg(GetGlobalMatrix().RotatePart().ToEulerXYZ());
 }
 
 float3 TransformComponent::GetScale()

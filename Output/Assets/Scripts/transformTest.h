@@ -4,7 +4,7 @@
 #include "Macro.h"
 #include "API/API.h"
 
-class transformTest : HelloBehavior
+class transformTest : public HelloBehavior
 {
 public:
 	void Start() override; 
