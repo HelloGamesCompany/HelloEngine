@@ -12,6 +12,7 @@ HELLO_ENGINE_API_C transformTest* CreatetransformTest(ScriptToInspectorInterface
 
 void transformTest::Start()
 {
+	Engine::centerMouse = true;
 	newGameObjectTest = Game::CreateGameObject("Name", "Tag");
 	gameObjectLife = 8.0f;
 }

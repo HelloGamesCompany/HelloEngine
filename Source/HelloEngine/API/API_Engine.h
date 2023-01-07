@@ -10,11 +10,6 @@ namespace API
 	public:
 		static bool hideMouse;
 		static bool centerMouse;
-		static bool isMouseCentered;
-		static int gameWindowX;
-		static int gameWindowY;
-		static int gameWindowWidth;
-		static int gameWindowHeight;
 
 	private:
 		static void EnginePropertiesUpdate();

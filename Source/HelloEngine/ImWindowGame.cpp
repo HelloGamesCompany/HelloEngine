@@ -36,10 +36,6 @@ void ImWindowGame::Update()
 				ImGui::Image((ImTextureID)Application::Instance()->camera->activeGameCamera->frameBuffer.GetTexture(), ImGui::GetContentRegionAvail(), ImVec2(0, 1), ImVec2(1, 0));
 			}
 		}
-		API::Engine::gameWindowX = ImGui::GetWindowPos().x;
-		API::Engine::gameWindowY = ImGui::GetWindowPos().y;
-		API::Engine::gameWindowWidth = ImGui::GetWindowContentRegionMax().x;
-		API::Engine::gameWindowHeight = ImGui::GetWindowContentRegionMax().y;
 	}
 
 	LayerGame::detectInput = isFocused;

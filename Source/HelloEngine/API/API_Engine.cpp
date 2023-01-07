@@ -4,18 +4,12 @@
 #include "LayerGame.h"
 
 bool API::Engine::hideMouse = false;
-bool API::Engine::centerMouse = true;
-bool API::Engine::isMouseCentered = false;
-int API::Engine::gameWindowX;
-int API::Engine::gameWindowY;
-int API::Engine::gameWindowWidth;
-int API::Engine::gameWindowHeight;
+bool API::Engine::centerMouse = false;
 
 void API::Engine::ApplyEngineProperties()
 {
 	// Mouse hide
 	SDL_ShowCursor(!hideMouse);
-	isMouseCentered = centerMouse;
 	SDL_SetRelativeMouseMode((SDL_bool)centerMouse);
 }
 
@@ -28,6 +22,5 @@ void API::Engine::UnApplyEngineProperties()
 {
 	// Mouse hide
 	SDL_ShowCursor(1);
-	isMouseCentered = false;
 	SDL_SetRelativeMouseMode(SDL_bool::SDL_FALSE);
 }
