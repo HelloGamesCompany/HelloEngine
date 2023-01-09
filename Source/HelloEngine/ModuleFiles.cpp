@@ -668,10 +668,8 @@ bool ModuleFiles::S_CreateScriptFile(const std::string& fileName, const std::str
 	headerContext += "#include \"API/HelloBehavior.h\"\n";
 	headerContext += "#include \"ScriptToInspectorInterface.h\"\n";
 	headerContext += "#include \"Macro.h\"\n\n";
-	headerContext += "#include \"API/API.h.h\"\n\n";
+	headerContext += "#include \"API/API.h\"\n\n";
 	headerContext += "class " + fileName + " : HelloBehavior" + "\n{\npublic:\n\tvoid Start() override; \n\tvoid Update() override;\n};\n\n";
-	headerContext += "HELLO_ENGINE_API_C " + fileName + "* Create" + fileName + "(ScriptToInspectorInterface* script)\n{\n\t" + fileName + "* classInstance = new " + fileName + 
-		"();\n\t//Show variables inside the inspector using script->AddDragInt(\"variableName\", &classInstance->variable);\n\treturn classInstance;\n}";
 
 	std::string headerName = "../../" + path + fileName + ".h";
 
@@ -680,8 +678,10 @@ bool ModuleFiles::S_CreateScriptFile(const std::string& fileName, const std::str
 	headerFile.close();
 
 	// Create the .cpp file
-	std::string sourceContext =
-		"#include \"" + fileName + ".h\"\n" + "void " + fileName + "::Start()" + "\n{\n\n}\n" + "void " + fileName + "::Update()" + "\n{\n\n}";
+	std::string sourceContext;
+	sourceContext += "#include \"" + fileName + ".h\"\n" + "HELLO_ENGINE_API_C " + fileName + "* Create" + fileName + "(ScriptToInspectorInterface* script)\n{\n\t" + fileName + "* classInstance = new " + fileName +
+		"();\n\t//Show variables inside the inspector using script->AddDragInt(\"variableName\", &classInstance->variable);\n\treturn classInstance;\n}\n\n";
+	sourceContext += "void " + fileName + "::Start()" + "\n{\n\n}\n" + "void " + fileName + "::Update()" + "\n{\n\n}";
 
 	std::string sourceName = "../../" + path + fileName + ".cpp";
 
