@@ -159,6 +159,9 @@ void LayerGame::S_RemoveScriptComponent(ScriptComponent* component)
 
 void LayerGame::S_HotReload()
 {
+	if (!ModuleFiles::S_IsMSBuildOn()) //Sleep when msBuild is not available (no automatic compile).
+		Sleep(1000);
+
 	// Destroy every HellobEhavior in map
 	for (int i = 0; i < _scriptComponents.size(); ++i)
 	{

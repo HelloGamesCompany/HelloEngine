@@ -3,7 +3,9 @@
 #include "ScriptToInspectorInterface.h"
 #include "Macro.h"
 
-class testcrash : HelloBehavior
+#include "API/API.h"
+
+class Test22 : HelloBehavior
 {
 public:
 	void Start() override; 

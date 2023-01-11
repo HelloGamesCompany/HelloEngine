@@ -5,7 +5,7 @@
 
 #include "API/API.h"
 
-class testtt : HelloBehavior
+class Tst5 : HelloBehavior
 {
 public:
 	void Start() override; 

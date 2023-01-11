@@ -8,6 +8,8 @@
 
 using json = nlohmann::json;
 
+bool ModuleFiles::_automaticCompilation = false;
+
 ModuleFiles::ModuleFiles():Module()
 {	
 	Console::S_Init();
@@ -26,6 +28,9 @@ ModuleFiles::ModuleFiles():Module()
 	S_AddPathToFileSystem(".");
 
 	//S_AddPathToFileSystem("Resources");
+
+	int res = system("msbuild -version");
+	_automaticCompilation = res == 0;
 }
 
 ModuleFiles::~ModuleFiles()
@@ -700,9 +705,11 @@ bool ModuleFiles::S_CreateScriptFile(const std::string& fileName, const std::str
 	//TODO: Make this work on any computer. Check if msbuild is found. If not, warn them about it.
 
 #ifdef  _DEBUG
-	system("msbuild HelloAPI\\ScriptingSLN.sln /p:Configuration=Debug /property:Platform=x86 /v:diag");
+	if (_automaticCompilation)
+		system("msbuild HelloAPI\\ScriptingSLN.sln /p:Configuration=Debug /property:Platform=x86");
 #else
-	system("msbuild HelloAPI\\ScriptingSLN.sln /p:Configuration=Release /property:Platform=x86 /v:diag");
+	if (_automaticCompilation)
+		system("msbuild HelloAPI\\ScriptingSLN.sln /p:Configuration=Release /property:Platform=x86");
 #endif //  _DEBUG
 
 

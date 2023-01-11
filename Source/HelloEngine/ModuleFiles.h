@@ -153,6 +153,8 @@ public:
 	/// Checks if the given name is already created inside the DLL project (ScriptingSLN/HelloAPI.vcxproj)
 	static bool S_CheckFileNameInDLL(const std::string& fileNameWithoutExtension);
 
+	static bool S_IsMSBuildOn() { return _automaticCompilation; }
+
 private:
 
 	/// <summary>
@@ -166,6 +168,9 @@ private:
 	static void CopyExternalDirectoryRecursive(const std::string& src, const std::string& des);
 
 	static void AddScriptToDLLSolution(const std::string& filePath, bool isSource);
+
+private:
+	static bool _automaticCompilation;
 };
 
 #endif // !__MODULE_PHYSFS_H__
