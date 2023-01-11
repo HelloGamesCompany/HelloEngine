@@ -1,0 +1,101 @@
+#ifndef __MODULE_ENGINE_H__
+#define __MODULE_ENGINE_H__
+
+#include "ImWindow.h"
+#include "Layer.h"
+#include "LayerGame.h"
+#include "FileTree.hpp"
+
+class Application;
+class ImWindowConfiguration;
+
+enum class ImWindowID
+{
+	CONFIGURATION,
+	PERFORMANCE,
+	CONSOLE,
+	PROJECT,
+	HIERARCHY,
+	INSPECTOR,
+	QUICKSAVE,
+	ABOUT,
+	GAME,
+	SCENE,
+	RESOURCES,
+	MAX,
+};
+
+struct PopUpMessage
+{
+	PopUpMessage(std::string message) :message(message) {}
+
+	std::string message = "";
+	
+	float currentMessageTime = 0.0f;
+
+	bool hovered = false;
+};
+
+class LayerEditor :public Layer
+{
+public:
+	LayerEditor();
+	~LayerEditor();
+
+	void Start() override;
+
+	void PreUpdate() override;
+	void Update() override;
+	void PostUpdate() override;
+
+	void CleanUp() override;
+
+	static void S_SetSelectGameObject(GameObject* g);
+
+	//GameObject* GetSelectedGameObject() 
+	//{
+	//	return selectedGameObject; 
+	//}
+
+	static void S_AddPopUpMessage(std::string message);
+
+private:
+	void DrawMenuBar();
+
+	// Draw scene open and save popups
+	void DrawPopUpLoadScene();
+	void DrawPopUpSaveScene();
+	void DrawAssetsTree(Directory*& newDir, Directory* node, const bool drawFiles);
+
+	void DrawPopUpMessages();
+
+public:
+	static GameObject* selectedGameObject;
+
+private:
+	static ImWindow* _imWindows[(uint)ImWindowID::MAX];
+
+	Application* _app = nullptr;
+
+	//Popup message variables
+	static std::vector<PopUpMessage> _popUpMessages;
+	static float _messageTime;
+
+	// Scene popups
+	static bool _openLoadScene;
+	static bool _openSaveScene;
+	static FileTree* _fileTree;
+	static std::string _currentSelectedPath;
+	static std::string _savingSceneName;
+	static bool _requestUpdateFileTree;
+
+	// Play/Stop buttons
+	static uint _playImageID;
+	static uint _stopImageID;
+	static uint _pauseImageID;
+	static uint _nextImageID;
+
+	friend class ImWindowHierarchy;
+};
+
+#endif // !__MODULE_ENGINE_H__
