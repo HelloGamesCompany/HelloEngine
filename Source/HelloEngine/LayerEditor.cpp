@@ -43,6 +43,8 @@ uint LayerEditor::_playImageID = 0;
 uint LayerEditor::_stopImageID = 0;
 uint LayerEditor::_pauseImageID = 0;
 uint LayerEditor::_nextImageID = 0;
+bool LayerEditor::_showCompilationWarning = false;
+
 
 LayerEditor::LayerEditor()
 {
@@ -166,6 +168,9 @@ void LayerEditor::Start()
 		_nextImageID = TextureImporter::LoadEditorDDS(buffer, size);
 		RELEASE(buffer);
 	}
+
+	// Check automatic compilation
+	_showCompilationWarning = !ModuleFiles::S_IsMSBuildOn();
 }
 
 void LayerEditor::PreUpdate()
@@ -224,6 +229,9 @@ void LayerEditor::PostUpdate()
 	ImGuizmo::BeginFrame();
 
 	ImGui::DockSpaceOverViewport(ImGui::GetMainViewport());
+
+	if (_showCompilationWarning)
+		DrawWarningForAutomaticCompilation();
 
 	DrawMenuBar();
 
@@ -650,5 +658,20 @@ void LayerEditor::DrawPopUpMessages()
 			ImGui::PopStyleVar();
 
 		ImGui::End();	
+	}
+}
+
+void LayerEditor::DrawWarningForAutomaticCompilation()
+{
+	ImGui::OpenPopup("Automatic compilation not enabled");
+	if (ImGui::BeginPopupModal("Automatic compilation not enabled", NULL, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize))
+	{
+		ImGui::Text("WARNING: The Automatic Compilation is not enabled!");
+		ImGui::Text("We recommend to enable this feature for a better workflow. Check the README file for instructions on how to set it up.");
+
+		if (ImGui::Button("Close"))
+			_showCompilationWarning = false;
+
+		ImGui::EndPopup();
 	}
 }

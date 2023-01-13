@@ -69,6 +69,8 @@ private:
 
 	void DrawPopUpMessages();
 
+	void DrawWarningForAutomaticCompilation();
+
 public:
 	static GameObject* selectedGameObject;
 
@@ -94,6 +96,9 @@ private:
 	static uint _stopImageID;
 	static uint _pauseImageID;
 	static uint _nextImageID;
+
+	// Compilation warning
+	static bool _showCompilationWarning;
 
 	friend class ImWindowHierarchy;
 };
