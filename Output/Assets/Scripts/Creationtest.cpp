@@ -9,6 +9,10 @@ HELLO_ENGINE_API_C Creationtest* CreateCreationtest(ScriptToInspectorInterface* 
 void Creationtest::Start()
 {
 
+
+
+
+
 }
 void Creationtest::Update()
 {

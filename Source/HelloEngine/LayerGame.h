@@ -46,6 +46,7 @@ public:
 	static bool S_CreateBehaviorScriptByName(const std::string& className, ScriptComponent* component);
 
 	static void S_HotReload();
+	static void S_RequestHotReload();
 
 	static bool detectInput;
 

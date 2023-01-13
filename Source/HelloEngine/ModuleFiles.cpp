@@ -697,21 +697,11 @@ bool ModuleFiles::S_CreateScriptFile(const std::string& fileName, const std::str
 	// Update DLL solution project to include scripts
 	AddScriptToDLLSolution(headerName, false);
 	AddScriptToDLLSolution(sourceName, true);
+	S_CompileDLLProject();
 
 	//char* buffer = nullptr;
 	//uint count;
 	//_dupenv_s(&buffer, &count, "mybuild");
-	
-	//TODO: Make this work on any computer. Check if msbuild is found. If not, warn them about it.
-
-#ifdef  _DEBUG
-	if (_automaticCompilation)
-		system("msbuild HelloAPI\\ScriptingSLN.sln /p:Configuration=Debug /property:Platform=x86");
-#else
-	if (_automaticCompilation)
-		system("msbuild HelloAPI\\ScriptingSLN.sln /p:Configuration=Release /property:Platform=x86");
-#endif //  _DEBUG
-
 
 	//std::string path;
 	//for (int i = 0; i < count; ++i)
@@ -753,6 +743,17 @@ bool ModuleFiles::S_CheckFileNameInDLL(const std::string& fileNameWithoutExtensi
 		}
 	}
 	return false;
+}
+
+void ModuleFiles::S_CompileDLLProject()
+{
+#ifdef  _DEBUG
+	if (_automaticCompilation)
+		system("msbuild HelloAPI\\ScriptingSLN.sln /p:Configuration=Debug /property:Platform=x86");
+#else
+	if (_automaticCompilation)
+		system("msbuild HelloAPI\\ScriptingSLN.sln /p:Configuration=Release /property:Platform=x86");
+#endif //  _DEBUG
 }
 
 void ModuleFiles::DeleteDirectoryRecursive(std::string directory)

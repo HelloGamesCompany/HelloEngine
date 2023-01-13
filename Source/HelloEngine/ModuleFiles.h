@@ -155,6 +155,8 @@ public:
 
 	static bool S_IsMSBuildOn() { return _automaticCompilation; }
 
+	static void S_CompileDLLProject();
+
 private:
 
 	/// <summary>

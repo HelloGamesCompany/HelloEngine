@@ -17,5 +17,5 @@ void InspectorTest::Start()
 }
 void InspectorTest::Update()
 {
-	Console::Log(testGameObject.GetName());
+	Console::Log("Test change release!!!!: ");
 }

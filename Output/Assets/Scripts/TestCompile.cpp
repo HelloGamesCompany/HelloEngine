@@ -9,7 +9,6 @@ HELLO_ENGINE_API_C TestCompile* CreateTestCompile(ScriptToInspectorInterface* sc
 void TestCompile::Start()
 {
 
-
 }
 void TestCompile::Update()
 {

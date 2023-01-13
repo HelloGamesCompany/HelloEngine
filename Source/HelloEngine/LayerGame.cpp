@@ -194,6 +194,11 @@ void LayerGame::S_HotReload()
 	_needsReload = false;
 }
 
+void LayerGame::S_RequestHotReload()
+{
+	_needsReload = true;
+}
+
 void LayerGame::CleanUp()
 {
 	for (auto& script : _behaviorScripts)

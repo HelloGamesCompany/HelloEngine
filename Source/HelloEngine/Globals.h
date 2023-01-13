@@ -5,7 +5,11 @@
 #include <stdio.h>
 #include <time.h> 
 
+#ifdef _DEBUG
 #define LOG(format, ...) log(__FILE__, __LINE__, format, __VA_ARGS__);
+#else
+#define LOG(x);
+#endif
 
 void log(const char file[], int line, const char* format, ...);
 
