@@ -157,6 +157,8 @@ public:
 
 	static void S_CompileDLLProject();
 
+	static void S_SetAutomaticCompilation(bool isOn);
+
 private:
 
 	/// <summary>
@@ -173,6 +175,7 @@ private:
 
 private:
 	static bool _automaticCompilation;
+	static bool _enabledAutomaticCompilation;
 };
 
 #endif // !__MODULE_PHYSFS_H__

@@ -9,6 +9,7 @@
 using json = nlohmann::json;
 
 bool ModuleFiles::_automaticCompilation = false;
+bool ModuleFiles::_enabledAutomaticCompilation = false;
 
 ModuleFiles::ModuleFiles():Module()
 {	
@@ -31,6 +32,7 @@ ModuleFiles::ModuleFiles():Module()
 
 	int res = system("msbuild -version");
 	_automaticCompilation = res == 0;
+	_enabledAutomaticCompilation = _automaticCompilation;
 }
 
 ModuleFiles::~ModuleFiles()
@@ -748,12 +750,17 @@ bool ModuleFiles::S_CheckFileNameInDLL(const std::string& fileNameWithoutExtensi
 void ModuleFiles::S_CompileDLLProject()
 {
 #ifdef  _DEBUG
-	if (_automaticCompilation)
+	if (_automaticCompilation && _enabledAutomaticCompilation)
 		system("msbuild HelloAPI\\ScriptingSLN.sln /p:Configuration=Debug /property:Platform=x86");
 #else
-	if (_automaticCompilation)
+	if (_automaticCompilation && _enabledAutomaticCompilation)
 		system("msbuild HelloAPI\\ScriptingSLN.sln /p:Configuration=Release /property:Platform=x86");
 #endif //  _DEBUG
+}
+
+void ModuleFiles::S_SetAutomaticCompilation(bool isOn)
+{
+	_enabledAutomaticCompilation = isOn;
 }
 
 void ModuleFiles::DeleteDirectoryRecursive(std::string directory)

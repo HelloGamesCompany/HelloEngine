@@ -101,6 +101,10 @@
 		<ClCompile Include="../../Assets/Scripts/Tst5.cpp" />
 		<ClCompile Include="../../Assets/Scripts/Test15.cpp" />
 		<ClCompile Include="../../Assets/Scripts/Test22.cpp" />
+		<ClCompile Include="../../Assets/Scripts/newScriptt.cpp" />
+		<ClCompile Include="../../Assets/Scripts/otherNewScript.cpp" />
+		<ClCompile Include="../../Assets/Scripts/test22222.cpp" />
+		<ClCompile Include="../../Assets/Scripts/test1235432.cpp" />
 	</ItemGroup>
 	<ItemGroup>
 		<ClInclude Include="Macro.h" />
@@ -115,6 +119,10 @@
 		<ClInclude Include="../../Assets/Scripts/Tst5.h" />
 		<ClInclude Include="../../Assets/Scripts/Test15.h" />
 		<ClInclude Include="../../Assets/Scripts/Test22.h" />
+		<ClInclude Include="../../Assets/Scripts/newScriptt.h" />
+		<ClInclude Include="../../Assets/Scripts/otherNewScript.h" />
+		<ClInclude Include="../../Assets/Scripts/test22222.h" />
+		<ClInclude Include="../../Assets/Scripts/test1235432.h" />
 	</ItemGroup>
 	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 	<ImportGroup Label="ExtensionTargets" />

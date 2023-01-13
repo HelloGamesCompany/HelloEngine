@@ -24,7 +24,6 @@ public:
 	void Update() override;
 
 public:
-	// string = config name, bool = conifg value, int = config openGL tag
 	std::map<std::string, std::pair<bool, int>> renderConfigs;
 
 
@@ -48,6 +47,8 @@ private:
 	float* windowBrightness = nullptr;
 
 	bool* isVSyncOn = nullptr;
+
+	bool automaticCompilation = false;
 
 
 	ModuleRenderer3D* moduleRenderer = nullptr;
