@@ -192,6 +192,11 @@ void ScriptComponent::ImGuiDragScript()
 	{
 		if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("Script"))
 		{
+			if (!LayerGame::S_IsCreatingBehaviorsEnabled())
+			{
+				LayerEditor::S_AddPopUpMessage("Cannot add Script file! Must compile DLL Solution first.");
+				return;
+			}
 			const uint* drop = (uint*)payload->Data;
 
 			// If we had another script attached, destroy that script instance first

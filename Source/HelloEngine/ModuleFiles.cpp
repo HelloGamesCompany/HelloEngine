@@ -5,6 +5,7 @@
 #include <algorithm>
 #include <ctime>
 #include <sys/stat.h>
+#include "LayerGame.h"
 
 using json = nlohmann::json;
 
@@ -750,11 +751,15 @@ bool ModuleFiles::S_CheckFileNameInDLL(const std::string& fileNameWithoutExtensi
 void ModuleFiles::S_CompileDLLProject()
 {
 #ifdef  _DEBUG
-	if (_automaticCompilation && _enabledAutomaticCompilation)
+	if (_automaticCompilation && _enabledAutomaticCompilation) // If automatic compilation is available / enabled, compile using MSBuild.
 		system("msbuild HelloAPI\\ScriptingSLN.sln /p:Configuration=Debug /property:Platform=x86");
+	else
+		LayerGame::S_DisableCreatingBehaviors(); // Else, dont allow behavior creating until HotReload!
 #else
-	if (_automaticCompilation && _enabledAutomaticCompilation)
+	if (_automaticCompilation && _enabledAutomaticCompilation)// If automatic compilation is available / enabled, compile using MSBuild.
 		system("msbuild HelloAPI\\ScriptingSLN.sln /p:Configuration=Release /property:Platform=x86");
+	else
+		LayerGame::S_DisableCreatingBehaviors(); // Else, dont allow behavior creating until HotReload!
 #endif //  _DEBUG
 }
 

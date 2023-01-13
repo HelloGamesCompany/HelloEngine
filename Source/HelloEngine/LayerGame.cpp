@@ -22,13 +22,14 @@ time_t LayerGame::_dllChangeTime;
 bool LayerGame::detectInput = true;
 std::string LayerGame::currentScene = "";
 bool LayerGame::_centerMouse = false;
+bool LayerGame::_canCreateBehaviors = true;
 
 
 typedef void* (*CreateFunc)(ScriptToInspectorInterface*);
 
 LayerGame::LayerGame()
 {
-	_dllChangeTime = ModuleFiles::S_CheckFileLastModify(DLL_DIRECTORY);
+	_dllChangeTime = ModuleFiles::S_CheckFileLastModify(CHECK_DIRECTORY);
 	CopyFile(TEXT(DLL_DIRECTORY), TEXT("APILibrary/HelloAPI.dll"), FALSE);
 	_dllFile = LoadLibrary("APILibrary/HelloAPI.dll");
 
@@ -46,7 +47,7 @@ void LayerGame::Start()
 void LayerGame::PreUpdate()
 {
 	// Check if saved time and change time is not equal.
-	time_t temp = ModuleFiles::S_CheckFileLastModify(DLL_DIRECTORY);
+	time_t temp = ModuleFiles::S_CheckFileLastModify(CHECK_DIRECTORY);
 	if (temp != _dllChangeTime)
 	{
 		_dllChangeTime = temp;
@@ -92,6 +93,9 @@ void LayerGame::PostUpdate()
 
 void LayerGame::S_Play()
 {
+	if (_needsReload)
+		return;
+
 	ModuleCommand::_canUseCommand = false;
 	// TODO: Save scene.
 	currentScene = Application::Instance()->xml->GetConfigXML().FindChildBreadth("currentScene").node.attribute("value").as_string();
@@ -184,6 +188,8 @@ void LayerGame::S_HotReload()
 	// Load DLL
 	_dllFile = LoadLibrary(TEXT("APILibrary/HelloAPI.dll"));
 
+	_canCreateBehaviors = true;
+
 	// Create every HElloBehavior in map
 	for (int i = 0; i < _scriptComponents.size(); ++i)
 	{
@@ -197,6 +203,16 @@ void LayerGame::S_HotReload()
 void LayerGame::S_RequestHotReload()
 {
 	_needsReload = true;
+}
+
+void LayerGame::S_DisableCreatingBehaviors()
+{
+	_canCreateBehaviors = false;
+}
+
+bool LayerGame::S_IsCreatingBehaviorsEnabled()
+{
+	return _canCreateBehaviors;
 }
 
 void LayerGame::CleanUp()

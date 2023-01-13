@@ -109,6 +109,7 @@ void ModuleResourceManager::S_ImportFile(const std::string& filePath)
 	case ResourceType::CPPSCRIPT:
 	{
 		ModuleFiles::S_CreateMetaData(filePath, "don't have resource path now");
+		
 		break;
 	}
 	default:

@@ -14,6 +14,7 @@ HELLO_ENGINE_API_C InspectorTest* CreateInspectorTest(ScriptToInspectorInterface
 void InspectorTest::Start()
 {
 
+
 }
 void InspectorTest::Update()
 {
