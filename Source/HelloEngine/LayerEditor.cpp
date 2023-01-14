@@ -507,7 +507,13 @@ void LayerEditor::DrawMenuBar()
 				std::string configScene = sceneXML.FindChildBreadth("currentScene").node.attribute("value").as_string();
 
 				if (configScene == "null")
+				{
+					Directory* rootDir = nullptr;
+					_fileTree->GetRootDir(rootDir);
+					_currentSelectedPath = rootDir->path;
+
 					_openSaveScene = true;
+				}
 				else
 					ModuleResourceManager::S_SerializeScene(ModuleLayers::rootGameObject);
 				
