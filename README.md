@@ -6,6 +6,42 @@ This is a 3D game engine. The engine state is under development right now.
 
 The goal is to create a complete game engine with Entity Component System, fast 3D rendering, resource manager, scripting language and other utilities.
 
+# How to use
+
+This Engine is only available for Windows 10. To correclty use the engine, you need Visual Studio 2019. Older versions may not work, and the engine hasn't been tested on newer versions. 
+
+# How to enable Automatic Compilation:
+
+If Automatic compilation doesn't work, it means that a path to the MSBuild.exe is missing in your system environment variables. To enable this feature, you must be an administrator on your current account. If you are not an administrator, the automatic compilation cannot be enabled.
+
+## 1: Find the current MSBuild.exe
+
+* Go to you Microsoft Visual Studio installation directory for the x86 version (usually at C:\Program Files (x86)\Microsoft Visual Studio).
+
+* Go to 2019\Community\MSBuild\Current\Bin
+
+* Copy the path (should be similar to C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin).
+
+## 2: Add it to your PATH in your **system** environment variables.
+
+* Open the "Edit System environment variables" window. On the Windows search bar, type "path" and open the first option.
+
+* Click on Environment Variables, at the end of the opened window.
+
+* At the bottom section, named System variables, find "Path" and double click on it.
+
+* Scroll to the bottom of the opened window, to an empty space, and add the copied path on step #1.
+
+## 3: Try if the "msbuild" command works correctly
+
+* Open the command prompt (typing cmd in the windows search bar).
+
+* Type "msbuild -version" and press Enter.
+
+* If this displays your current version of MSBuild, the Automatic Compilation should work the next time you open the Engine. 
+
+* If you are executing the engine from Visual Studio (you are a developer), make sure to close and open Visual Studio before executing again.
+
 # Most important features to be reviewed
 
 These are some additional features that are important to know about:
