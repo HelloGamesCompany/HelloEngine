@@ -33,8 +33,6 @@ LayerGame::LayerGame()
 	_dllChangeTime = ModuleFiles::S_CheckFileLastModify(CHECK_DIRECTORY);
 	CopyFile(TEXT(DLL_DIRECTORY), TEXT("APILibrary/HelloAPI.dll"), FALSE);
 	_dllFile = LoadLibrary("APILibrary/HelloAPI.dll");
-
-	ModuleFiles::S_CreateScriptFile("Creationtest", "Assets/Scripts/");
 }
 
 LayerGame::~LayerGame()

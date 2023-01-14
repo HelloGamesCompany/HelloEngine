@@ -28,27 +28,27 @@ namespace API
 
 		bool operator!=(const API_Vector3& other);
 
-		API_Vector3& operator= (const API_Vector2& other);
+		API_Vector3 operator= (const API_Vector2& other);
 
-		API_Vector3& operator= (const math::float3& other);
+		API_Vector3 operator= (const math::float3& other);
 
-		API_Vector3& operator= (const math::float2& other);
+		API_Vector3 operator= (const math::float2& other);
 
-		API_Vector3& operator+(const API_Vector3& other);
+		API_Vector3 operator+(const API_Vector3& other);
 
-		API_Vector3& operator-(const API_Vector3& other);
+		API_Vector3 operator-(const API_Vector3& other);
 
-		API_Vector3& operator+=(const API_Vector3& other);
+		API_Vector3 operator+=(const API_Vector3& other);
 
-		API_Vector3& operator-=(const API_Vector3& other);
+		API_Vector3 operator-=(const API_Vector3& other);
 
-		API_Vector3& operator*(const float& other);
+		API_Vector3 operator*(const float& other);
 
-		API_Vector3& operator/(const float& other);
+		API_Vector3 operator/(const float& other);
 
-		API_Vector3& operator*=(const float& other);
+		API_Vector3 operator*=(const float& other);
 
-		API_Vector3& operator/=(const float& other);
+		API_Vector3 operator/=(const float& other);
 
 		API_Vector3 operator -() const;
 

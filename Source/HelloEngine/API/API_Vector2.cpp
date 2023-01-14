@@ -42,7 +42,7 @@ bool API_Vector2::operator!=(const API_Vector2& other)
 	return true;
 }
 
-API_Vector2& API_Vector2::operator=(const API_Vector3& other)
+API_Vector2 API_Vector2::operator=(const API_Vector3& other)
 {
 	API_Vector2 ret;
 
@@ -55,7 +55,7 @@ API_Vector2& API_Vector2::operator=(const API_Vector3& other)
 	return ret;
 }
 
-API_Vector2& API::API_Vector2::operator=(const math::float3& other)
+API_Vector2 API::API_Vector2::operator=(const math::float3& other)
 {
 	API_Vector2 ret;
 
@@ -68,7 +68,7 @@ API_Vector2& API::API_Vector2::operator=(const math::float3& other)
 	return ret;
 }
 
-API_Vector2& API_Vector2::operator=(const math::float2& other)
+API_Vector2 API_Vector2::operator=(const math::float2& other)
 {
 	API_Vector2 ret;
 
@@ -81,7 +81,7 @@ API_Vector2& API_Vector2::operator=(const math::float2& other)
 	return ret;
 }
 
-API_Vector2& API_Vector2::operator+(const API_Vector2& other)
+API_Vector2 API_Vector2::operator+(const API_Vector2& other)
 {
 	API_Vector2 ret;
 
@@ -91,7 +91,7 @@ API_Vector2& API_Vector2::operator+(const API_Vector2& other)
 	return ret;
 }
 
-API_Vector2& API_Vector2::operator-(const API_Vector2& other)
+API_Vector2 API_Vector2::operator-(const API_Vector2& other)
 {
 	API_Vector2 ret;
 
@@ -101,7 +101,7 @@ API_Vector2& API_Vector2::operator-(const API_Vector2& other)
 	return ret;
 }
 
-API_Vector2& API_Vector2::operator+=(const API_Vector2& other)
+API_Vector2 API_Vector2::operator+=(const API_Vector2& other)
 {
 	API_Vector2 ret;
 
@@ -111,7 +111,7 @@ API_Vector2& API_Vector2::operator+=(const API_Vector2& other)
 	return ret;
 }
 
-API_Vector2& API_Vector2::operator-=(const API_Vector2& other)
+API_Vector2 API_Vector2::operator-=(const API_Vector2& other)
 {
 	API_Vector2 ret;
 
@@ -121,7 +121,7 @@ API_Vector2& API_Vector2::operator-=(const API_Vector2& other)
 	return ret;
 }
 
-API_Vector2& API_Vector2::operator*(const float& other)
+API_Vector2 API_Vector2::operator*(const float& other)
 {
 	API_Vector2 ret;
 
@@ -131,7 +131,7 @@ API_Vector2& API_Vector2::operator*(const float& other)
 	return ret;
 }
 
-API_Vector2& API_Vector2::operator/(const float& other)
+API_Vector2 API_Vector2::operator/(const float& other)
 {
 	API_Vector2 ret;
 
@@ -141,7 +141,7 @@ API_Vector2& API_Vector2::operator/(const float& other)
 	return ret;
 }
 
-API_Vector2& API_Vector2::operator*=(const float& other)
+API_Vector2 API_Vector2::operator*=(const float& other)
 {
 	API_Vector2 ret;
 
@@ -151,7 +151,7 @@ API_Vector2& API_Vector2::operator*=(const float& other)
 	return ret;
 }
 
-API_Vector2& API_Vector2::operator/=(const float& other)
+API_Vector2 API_Vector2::operator/=(const float& other)
 {
 	API_Vector2 ret;
 

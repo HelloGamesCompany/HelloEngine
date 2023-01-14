@@ -496,6 +496,13 @@ void LayerEditor::DrawMenuBar()
 					ModuleLayers::rootGameObject->Destroy();
 
 				ModuleLayers::rootGameObject = new GameObject(nullptr, "Root", "None");
+
+				// Restart selectedPath
+				Directory* rootDir = nullptr;
+				_fileTree->GetRootDir(rootDir);
+				_currentSelectedPath = rootDir->path;
+
+				_openSaveScene = true;
 			}
 
 			if (ImGui::MenuItem("Load Scene"))
