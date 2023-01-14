@@ -11,6 +11,11 @@ HELLO_ENGINE_API_C InspectorTest* CreateInspectorTest(ScriptToInspectorInterface
 	return classInstance;
 }
 
+void InspectorTest::Init()
+{
+	Console::Log("Always called!");
+}
+
 void InspectorTest::Start()
 {
 	Console::Log("Late Start!");

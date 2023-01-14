@@ -8,6 +8,7 @@ public:
 	HelloBehavior() {};
 	virtual ~HelloBehavior() {};
 
+	virtual void Init() {};
 	virtual void Start() {};
 	virtual void Update() {};
 public:

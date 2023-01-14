@@ -112,8 +112,11 @@ void LayerGame::S_Play()
 
 	for (auto& behaviorScript : _behaviorScripts)
 	{
+		behaviorScript.second.script->Init();
 		if (behaviorScript.second.active)
+		{
 			behaviorScript.second.script->Start();
+		}
 		else
 			behaviorScript.second.lateStart = true;
 	}
@@ -133,9 +136,6 @@ void LayerGame::S_Stop()
 
 void LayerGame::S_Pause()
 {
-	//if (!_isPlaying)
-	//	return;
-
 	_paused = !_paused;
 	if (!_paused)
 		EngineTime::Start();
