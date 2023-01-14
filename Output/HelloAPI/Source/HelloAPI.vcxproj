@@ -68,7 +68,7 @@
 			<AdditionalDependencies>HelloEngine.lib;%(AdditionalDependencies)</AdditionalDependencies>
 		</Link>
 		<PostBuildEvent>
-			<Command>cd. &gt; .check</Command>
+			<Command>cd. &gt; .checkR</Command>
 		</PostBuildEvent>
 	</ItemDefinitionGroup>
 	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -89,7 +89,7 @@
 			<SubSystem>Console</SubSystem>
 		</Link>
 		<PostBuildEvent>
-			<Command>cd. &gt; .check</Command>
+			<Command>cd. &gt; .checkD</Command>
 		</PostBuildEvent>
 	</ItemDefinitionGroup>
 	<ItemGroup>
@@ -118,6 +118,17 @@
 		<ClCompile Include="../../Assets/Scripts/asdasfdasd23423424.cpp" />
 		<ClCompile Include="../../Assets/Scripts/newscruiuiu.cpp" />
 		<ClCompile Include="../../Assets/Scripts/finalTest.cpp" />
+		<ClCompile Include="../../Assets/Scripts/test534654.cpp" />
+		<ClCompile Include="../../Assets/Scripts/fdsfdsfdsf.cpp" />
+		<ClCompile Include="../../Assets/Scripts/adadadadad.cpp" />
+		<ClCompile Include="../../Assets/Scripts/testDebugf.cpp" />
+		<ClCompile Include="../../Assets/Scripts/testdebug2.cpp" />
+		<ClCompile Include="../../Assets/Scripts/newwwwwwww.cpp" />
+		<ClCompile Include="../../Assets/Scripts/newewrwewewewe.cpp" />
+		<ClCompile Include="../../Assets/Scripts/asdfsdqwdasdqw.cpp" />
+		<ClCompile Include="../../Assets/Scripts/asdasda123123123.cpp" />
+		<ClCompile Include="../../Assets/Scripts/asdasd34234234.cpp" />
+		<ClCompile Include="../../Assets/Scripts/fdgsdrttgrdgre.cpp" />
 	</ItemGroup>
 	<ItemGroup>
 		<ClInclude Include="Macro.h" />
@@ -146,6 +157,17 @@
 		<ClInclude Include="../../Assets/Scripts/asdasfdasd23423424.h" />
 		<ClInclude Include="../../Assets/Scripts/newscruiuiu.h" />
 		<ClInclude Include="../../Assets/Scripts/finalTest.h" />
+		<ClInclude Include="../../Assets/Scripts/test534654.h" />
+		<ClInclude Include="../../Assets/Scripts/fdsfdsfdsf.h" />
+		<ClInclude Include="../../Assets/Scripts/adadadadad.h" />
+		<ClInclude Include="../../Assets/Scripts/testDebugf.h" />
+		<ClInclude Include="../../Assets/Scripts/testdebug2.h" />
+		<ClInclude Include="../../Assets/Scripts/newwwwwwww.h" />
+		<ClInclude Include="../../Assets/Scripts/newewrwewewewe.h" />
+		<ClInclude Include="../../Assets/Scripts/asdfsdqwdasdqw.h" />
+		<ClInclude Include="../../Assets/Scripts/asdasda123123123.h" />
+		<ClInclude Include="../../Assets/Scripts/asdasd34234234.h" />
+		<ClInclude Include="../../Assets/Scripts/fdgsdrttgrdgre.h" />
 	</ItemGroup>
 	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 	<ImportGroup Label="ExtensionTargets" />

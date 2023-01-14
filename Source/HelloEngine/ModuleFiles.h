@@ -154,6 +154,7 @@ public:
 	static bool S_CheckFileNameInDLL(const std::string& fileNameWithoutExtension);
 
 	static bool S_IsMSBuildOn() { return _automaticCompilation; }
+	static bool S_IsAutomaticCompilationOn() { return _automaticCompilation && _enabledAutomaticCompilation; }
 
 	static void S_CompileDLLProject();
 

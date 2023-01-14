@@ -24,6 +24,7 @@ bool LayerGame::detectInput = true;
 std::string LayerGame::currentScene = "";
 bool LayerGame::_centerMouse = false;
 bool LayerGame::_canCreateBehaviors = true;
+bool LayerGame::_compileDLL = false;
 
 typedef void* (*CreateFunc)(ScriptToInspectorInterface*);
 
@@ -46,6 +47,17 @@ void LayerGame::Start()
 
 void LayerGame::PreUpdate()
 {
+	static int oneFrameWait = 100;
+	if (_compileDLL)
+	{
+		if (oneFrameWait-- == 0)
+		{
+			ModuleFiles::S_CompileDLLProject();
+			_compileDLL = false;
+			oneFrameWait = 100;
+		}
+	}
+
 	// Check if saved time and change time is not equal.
 	time_t temp = ModuleFiles::S_CheckFileLastModify(CHECK_DIRECTORY);
 	if (temp != _dllChangeTime)
@@ -215,6 +227,15 @@ void LayerGame::S_HotReload()
 void LayerGame::S_RequestHotReload()
 {
 	_needsReload = true;
+}
+
+void LayerGame::S_RequestDLLCompile()
+{
+	// Only show compiling message when automatic compilation is ON.
+	if (ModuleFiles::S_IsAutomaticCompilationOn())
+		_compileDLL = true;
+	else
+		S_DisableCreatingBehaviors();
 }
 
 void LayerGame::S_DisableCreatingBehaviors()

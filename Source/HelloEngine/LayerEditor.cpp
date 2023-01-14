@@ -208,6 +208,16 @@ void LayerEditor::PostUpdate()
 
 	ImGui::DockSpaceOverViewport(ImGui::GetMainViewport());
 
+	if (LayerGame::_compileDLL)
+	{
+		ImGui::OpenPopup("Currently Compiling");
+		if (ImGui::BeginPopupModal("Currently Compiling", NULL, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_AlwaysAutoResize))
+		{
+			ImGui::Text("The ScriptingSLN is being compiled, please wait.");
+			ImGui::EndPopup();
+		}
+	}
+
 	if (_showCompilationWarning)
 		DrawWarningForAutomaticCompilation();
 

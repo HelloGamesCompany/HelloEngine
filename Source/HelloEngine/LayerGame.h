@@ -11,7 +11,11 @@
 #define DLL_DIRECTORY "HelloAPI/bin/Release/HelloAPI.dll"
 #endif
 
-#define CHECK_DIRECTORY "HelloAPI/Source/.check"
+#ifdef _DEBUG
+#define CHECK_DIRECTORY "HelloAPI/Source/.checkD"
+#else
+#define CHECK_DIRECTORY "HelloAPI/Source/.checkR"
+#endif
 
 class ScriptComponent;
 
@@ -50,6 +54,7 @@ public:
 
 	static void S_HotReload();
 	static void S_RequestHotReload();
+	static void S_RequestDLLCompile();
 
 	static void S_DisableCreatingBehaviors();
 	static bool S_IsCreatingBehaviorsEnabled();
@@ -69,6 +74,7 @@ private:
 	static std::string currentScene;
 	static bool _centerMouse;
 	static bool _canCreateBehaviors; // Boolean that gets put in false when a compilation has to be done in the DLL. For when automatic compilation is off.
+	static bool _compileDLL;
 
 	friend class LayerEditor;
 	friend class ScriptComponent;

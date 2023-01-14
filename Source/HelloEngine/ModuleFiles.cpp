@@ -700,7 +700,7 @@ bool ModuleFiles::S_CreateScriptFile(const std::string& fileName, const std::str
 	// Update DLL solution project to include scripts
 	AddScriptToDLLSolution(headerName, false);
 	AddScriptToDLLSolution(sourceName, true);
-	S_CompileDLLProject();
+	LayerGame::S_RequestDLLCompile();
 
 	//char* buffer = nullptr;
 	//uint count;

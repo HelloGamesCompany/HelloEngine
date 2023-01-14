@@ -141,7 +141,7 @@ void ModuleResourceManager::S_ReImportFile(const std::string& filePath, Resource
 	case ResourceType::CPPSCRIPT:
 	{
 		 // Compile DLL and call Hot reload
-		ModuleFiles::S_CompileDLLProject();
+		LayerGame::S_RequestDLLCompile();
 		LayerGame::S_RequestHotReload();
 		ModuleFiles::S_UpdateMetaData(filePath, "null");
 	}
