@@ -81,6 +81,5 @@ void transformTest::Update()
 	{
 		transfromTestVariable.SetPosition(0, 0, 0);
 	}
-	Console::Log(std::to_string(Input::GetMouseXMotion()));
 
 }

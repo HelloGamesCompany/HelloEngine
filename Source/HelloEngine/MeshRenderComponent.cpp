@@ -45,6 +45,15 @@ MeshRenderComponent::~MeshRenderComponent()
 
 void MeshRenderComponent::CreateMesh(uint resourceUID, MeshRenderType type)
 {
+	if (_resource != nullptr)
+	{
+		DestroyMesh();
+
+		_resource->Dereference();
+		_resourceUID = _resource->UID;
+		_resource = nullptr;
+	}
+
 	_resource = (ResourceMesh*)ModuleResourceManager::S_LoadResource(resourceUID);
 	
 	if (_resource == nullptr)
@@ -229,6 +238,25 @@ void MeshRenderComponent::OnEditor()
 			}
 			ImGui::EndCombo();
 		}
+
+		ImGui::TextColored(ImVec4(1, 1, 0, 1), _resource->debugName.c_str()); ImGui::SameLine();
+
+		// Create Droped mesh
+		if (ImGui::BeginDragDropTarget())
+		{
+			if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("Mesh"))
+			{
+				const uint* drop = (uint*)payload->Data;
+
+				CreateMesh(*drop);
+
+				std::string popUpmessage = "Loaded Mesh: ";
+				LayerEditor::S_AddPopUpMessage(popUpmessage);
+
+			}
+			ImGui::EndDragDropTarget();
+		}
+		ImGui::HelpMarker("You can find .hmesh files by clicking on any model file (FBX or DAE). They will appear below the file icon in the Project window.");
 	}
 }
 

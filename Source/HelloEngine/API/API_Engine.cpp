@@ -9,7 +9,10 @@ bool API::Engine::centerMouse = false;
 void API::Engine::ApplyEngineProperties()
 {
 	// Mouse hide
-	SDL_ShowCursor(!hideMouse);
+	if (hideMouse)
+		SDL_ShowCursor(0);
+	else
+		SDL_ShowCursor(1);
 	SDL_SetRelativeMouseMode((SDL_bool)centerMouse);
 }
 
