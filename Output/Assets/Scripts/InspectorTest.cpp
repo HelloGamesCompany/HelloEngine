@@ -13,7 +13,7 @@ HELLO_ENGINE_API_C InspectorTest* CreateInspectorTest(ScriptToInspectorInterface
 
 void InspectorTest::Start()
 {
-
+	Console::Log("Late Start!");
 
 }
 void InspectorTest::Update()

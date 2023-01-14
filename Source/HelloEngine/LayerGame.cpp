@@ -24,7 +24,6 @@ std::string LayerGame::currentScene = "";
 bool LayerGame::_centerMouse = false;
 bool LayerGame::_canCreateBehaviors = true;
 
-
 typedef void* (*CreateFunc)(ScriptToInspectorInterface*);
 
 LayerGame::LayerGame()
@@ -79,6 +78,12 @@ void LayerGame::Update()
 
 	for (auto& behaviorScript : _behaviorScripts)
 	{
+		if (behaviorScript.second.lateStart && behaviorScript.second.active)
+		{
+			behaviorScript.second.script->Start();
+			behaviorScript.second.lateStart = false;
+		}
+
 		if (behaviorScript.second.active)
 			behaviorScript.second.script->Update();
 	}
@@ -109,6 +114,8 @@ void LayerGame::S_Play()
 	{
 		if (behaviorScript.second.active)
 			behaviorScript.second.script->Start();
+		else
+			behaviorScript.second.lateStart = true;
 	}
 	API::Engine::ApplyEngineProperties();
 }

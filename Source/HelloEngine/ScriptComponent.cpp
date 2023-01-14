@@ -30,7 +30,7 @@ void ScriptComponent::OnEditor()
 		else
 		{
 			bool auxiliaryBool = _isEnabled;
-			if (ImGui::Checkbox("Active##Script", &auxiliaryBool))
+			if (ImGui::Checkbox(("Active##Script" + std::to_string(scriptUID)).c_str(), &auxiliaryBool))
 				auxiliaryBool ? Enable() : Disable();
 
 			ImGui::TextWrapped("Loaded script: "); ImGui::SameLine();

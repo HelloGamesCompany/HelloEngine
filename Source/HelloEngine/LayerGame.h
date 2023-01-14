@@ -19,6 +19,7 @@ struct BehaviorScript
 {
 	HelloBehavior* script = nullptr;
 	bool active = true;
+	bool lateStart = false;
 };
 
 class LayerGame : public Layer
