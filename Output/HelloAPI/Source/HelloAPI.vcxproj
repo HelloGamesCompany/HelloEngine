@@ -129,6 +129,8 @@
 		<ClCompile Include="../../Assets/Scripts/asdasda123123123.cpp" />
 		<ClCompile Include="../../Assets/Scripts/asdasd34234234.cpp" />
 		<ClCompile Include="../../Assets/Scripts/fdgsdrttgrdgre.cpp" />
+		<ClCompile Include="../../Assets/Scripts/adasdadadad.cpp" />
+		<ClCompile Include="../../Assets/Scripts/asdasd234234234.cpp" />
 	</ItemGroup>
 	<ItemGroup>
 		<ClInclude Include="Macro.h" />
@@ -168,6 +170,8 @@
 		<ClInclude Include="../../Assets/Scripts/asdasda123123123.h" />
 		<ClInclude Include="../../Assets/Scripts/asdasd34234234.h" />
 		<ClInclude Include="../../Assets/Scripts/fdgsdrttgrdgre.h" />
+		<ClInclude Include="../../Assets/Scripts/adasdadadad.h" />
+		<ClInclude Include="../../Assets/Scripts/asdasd234234234.h" />
 	</ItemGroup>
 	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 	<ImportGroup Label="ExtensionTargets" />

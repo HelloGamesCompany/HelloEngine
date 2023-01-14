@@ -47,14 +47,14 @@ void LayerGame::Start()
 
 void LayerGame::PreUpdate()
 {
-	static int oneFrameWait = 100;
+	static int frameWaitCompile = 40;
 	if (_compileDLL)
 	{
-		if (oneFrameWait-- == 0)
+		if (frameWaitCompile-- == 0)
 		{
 			ModuleFiles::S_CompileDLLProject();
 			_compileDLL = false;
-			oneFrameWait = 100;
+			frameWaitCompile = 40;
 		}
 	}
 
@@ -68,7 +68,12 @@ void LayerGame::PreUpdate()
 
 	if (_needsReload && !_isPlaying)
 	{
-		S_HotReload();
+		static int frameWaitHotReload = 40;
+		if (frameWaitHotReload-- == 0)
+		{
+			S_HotReload();
+			frameWaitHotReload = 40;
+		}
 	}
 
 	if ((!_isPlaying || _paused) && !_oneFrame)

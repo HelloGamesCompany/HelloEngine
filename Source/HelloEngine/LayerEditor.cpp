@@ -218,6 +218,16 @@ void LayerEditor::PostUpdate()
 		}
 	}
 
+	if (LayerGame::_needsReload)
+	{
+		ImGui::OpenPopup("Currently Hot Reloading");
+		if (ImGui::BeginPopupModal("Currently Hot Reloading", NULL, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_AlwaysAutoResize))
+		{
+			ImGui::Text("Hot Reloading. Please wait.");
+			ImGui::EndPopup();
+		}
+	}
+
 	if (_showCompilationWarning)
 		DrawWarningForAutomaticCompilation();
 
