@@ -114,6 +114,7 @@ void CameraComponent::Serialization(json& j)
 	_j["Orthographic size"] = cameraObject->_orthographicSize;
 	_j["Active culling"] = cameraObject->isCullingActive;
 	_j["Active camera"] = cameraObject->active;
+	_j["Enabled"] = _isEnabled;
 
 	j["Components"].push_back(_j);
 }
@@ -131,4 +132,8 @@ void CameraComponent::DeSerialization(json& j)
 
 	if (cameraObject->active)
 		Application::Instance()->camera->SetCurrentActiveGameCamera(cameraObject);
+
+	bool enabled = j["Enabled"];
+	if (!enabled)
+		Disable();
 }

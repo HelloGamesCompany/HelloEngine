@@ -9,6 +9,7 @@
 #include "ModuleCommand.h"
 #include "ModuleLayers.h"
 #include "API/API_Engine.h"
+#include "LayerEditor.h"
 
 std::map<uint, BehaviorScript> LayerGame::_behaviorScripts;
 std::vector<ScriptComponent*> LayerGame::_scriptComponents;
@@ -101,6 +102,8 @@ void LayerGame::S_Play()
 	if (_needsReload)
 		return;
 
+	LayerEditor::S_ChangeColors(true);
+
 	ModuleCommand::_canUseCommand = false;
 	// TODO: Save scene.
 	currentScene = Application::Instance()->xml->GetConfigXML().FindChildBreadth("currentScene").node.attribute("value").as_string();
@@ -125,6 +128,8 @@ void LayerGame::S_Play()
 
 void LayerGame::S_Stop()
 {
+	LayerEditor::S_ChangeColors(false);
+
 	ModuleCommand::_canUseCommand = true;
 	EngineTime::Reset();
 	_isPlaying = false;

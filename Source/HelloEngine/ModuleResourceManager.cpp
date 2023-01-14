@@ -380,6 +380,11 @@ bool ModuleResourceManager::S_DeserializeScene(const std::string& filePath)
 		}
 	}
 
+	for (int i = 0; i < sceneFile.size(); i++)
+	{
+		temp[i].first->SetActive(sceneFile[i]["Active"]);
+	}
+
 	ModuleLayers::rootGameObject = temp[0].first;
 
 	return true;
@@ -547,6 +552,7 @@ void ModuleResourceManager::SerializeSceneRecursive(const GameObject* g, json& j
 	_j["UID"] = g->_ID;
 	_j["Name"] = g->name;
 	_j["Tag"] = g->tag;
+	_j["Active"] = g->_isActive;
 
 	// We delay the serialization of script components because they may need to reference another component when Deserialized.
 	// this way, ScriptComponents will always deserialize last, and will find any other component they need inside their game object.

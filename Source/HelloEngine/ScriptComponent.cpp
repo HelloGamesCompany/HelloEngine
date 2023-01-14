@@ -71,10 +71,7 @@ void ScriptComponent::Serialization(json& j)
 	// Serialize every inspector field
 	SaveInspectorFields(&_j);
 
-	/*for (int i = 0; i < inspectorFields.size(); ++i)
-	{
-		inspectorFields[i]->OnSerialize(_j["Inspector Fields"]);
-	}*/
+	_j["Enabled"] = _isEnabled;
 
 	j["Components"].push_back(_j);
 }
@@ -90,6 +87,10 @@ void ScriptComponent::DeSerialization(json& j)
 		// Deserialize every inspector field
 		LoadInspectorFields(&j);
 	}
+
+	bool enabled = j["Enabled"];
+	if (!enabled)
+		Disable();
 }
 
 void ScriptComponent::AddScript(std::string scriptName)
@@ -264,4 +265,19 @@ void ScriptComponent::LoadInspectorFields(json* j)
 			inspectorFields[i]->OnDeserialize(inspectorFieldsJSON["Inspector Fields"]);
 		}
 	}
+}
+
+void ScriptComponent::MarkAsDead()
+{
+	SaveInspectorFields();
+	LayerGame::S_RemoveScriptComponent(this);
+	if (scriptResource != nullptr)
+		scriptResource->Dereference();
+	DestroyInspectorFields();
+}
+
+void ScriptComponent::MarkAsAlive()
+{
+	LayerGame::S_AddScriptComponent(this);
+	LoadInspectorFields();
 }

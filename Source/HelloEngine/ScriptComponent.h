@@ -36,6 +36,10 @@ private:
 	void DestroyInspectorFields();
 	void SaveInspectorFields(json* j = nullptr);
 	void LoadInspectorFields(json* j = nullptr);
+
+	void MarkAsDead() override;
+	void MarkAsAlive() override;
+
 private:
 	uint scriptUID = 0;
 	ResourceScript* scriptResource = nullptr;

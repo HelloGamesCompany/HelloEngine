@@ -191,6 +191,7 @@ void TransformComponent::Serialization(json& j)
 	_j["Position"] = { localTransform.position.x, localTransform.position.y, localTransform.position.z };
 	_j["Rotation"] = { localTransform.rotation.x, localTransform.rotation.y, localTransform.rotation.z };
 	_j["Scale"] = { localTransform.scale.x, localTransform.scale.y, localTransform.scale.z };
+	_j["Enabled"] = _isEnabled;
 	j["Components"].push_back(_j);
 }
 
@@ -202,6 +203,10 @@ void TransformComponent::DeSerialization(json& j)
 	localTransform.rotation = { tempRot[0], tempRot[1], tempRot[2] };
 	std::vector<float> tempScale = j["Scale"];
 	localTransform.scale = { tempScale[0], tempScale[1], tempScale[2] };
+
+	bool enabled = j["Enabled"];
+	if (!enabled)
+		Disable();
 
 	_dirtyFlag = true;
 }

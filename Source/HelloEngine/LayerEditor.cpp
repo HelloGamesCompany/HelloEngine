@@ -88,29 +88,7 @@ void LayerEditor::Start()
 	}
 
 	// Setup ImGui ui style
-	{
-		style.Colors[ImGuiCol_ScrollbarBg] = style.Colors[ImGuiCol_TableHeaderBg] = ImVec4(0.1f, 0.1f, 0.1f, 1);
-
-		style.Colors[ImGuiCol_WindowBg] = ImVec4(0.15f, 0.15f, 0.15f, 1);
-
-		style.Colors[ImGuiCol_TabUnfocusedActive] = ImVec4(0.2f, 0.2f, 0.2f, 1);
-
-		style.Colors[ImGuiCol_FrameBg] = style.Colors[ImGuiCol_Button] = style.Colors[ImGuiCol_TitleBg] = style.Colors[ImGuiCol_Header] =
-			style.Colors[ImGuiCol_TitleBgActive] = style.Colors[ImGuiCol_TabUnfocused] = style.Colors[ImGuiCol_Tab] =
-			ImVec4(0.25f, 0.25f, 0.25f, 1);
-
-		style.Colors[ImGuiCol_FrameBgHovered] = ImVec4(0.3f, 0.3f, 0.3f, 1);
-
-		style.Colors[ImGuiCol_ButtonHovered] = style.Colors[ImGuiCol_HeaderHovered] = style.Colors[ImGuiCol_FrameBgActive] =
-			style.Colors[ImGuiCol_DockingPreview] = style.Colors[ImGuiCol_TabActive] = style.Colors[ImGuiCol_SliderGrab] =
-			ImVec4(0.4f, 0.4f, 0.4f, 1);
-
-		style.Colors[ImGuiCol_ButtonActive] = style.Colors[ImGuiCol_TitleBgCollapsed] = style.Colors[ImGuiCol_SliderGrabActive] =
-			style.Colors[ImGuiCol_HeaderActive] = style.Colors[ImGuiCol_TabHovered] = style.Colors[ImGuiCol_CheckMark] =
-			ImVec4(0.65f, 0.65f, 0.65f, 1);
-
-		style.Colors[ImGuiCol_MenuBarBg] = ImVec4(0.1f, 0.1f, 0.1f, 1);
-	}
+	S_ChangeColors(false);
 	
 	// Setup font
 	char* buf = nullptr;
@@ -300,6 +278,35 @@ void LayerEditor::S_SetSelectGameObject(GameObject* g)
 void LayerEditor::S_AddPopUpMessage(std::string message)
 {
 	_popUpMessages.emplace_back(message);
+}
+
+void LayerEditor::S_ChangeColors(bool playMode)
+{
+	ImGuiStyle& style = ImGui::GetStyle();
+
+	float redIncrement = playMode ? 0.1f : 0.0f;
+
+	style.Colors[ImGuiCol_ScrollbarBg] = style.Colors[ImGuiCol_TableHeaderBg] = ImVec4(0.1f + redIncrement, 0.1f, 0.1f, 1);
+
+	style.Colors[ImGuiCol_WindowBg] = ImVec4(0.15f + redIncrement, 0.15f, 0.15f, 1);
+
+	style.Colors[ImGuiCol_TabUnfocusedActive] = ImVec4(0.2f + redIncrement, 0.2f, 0.2f, 1);
+
+	style.Colors[ImGuiCol_FrameBg] = style.Colors[ImGuiCol_Button] = style.Colors[ImGuiCol_TitleBg] = style.Colors[ImGuiCol_Header] =
+		style.Colors[ImGuiCol_TitleBgActive] = style.Colors[ImGuiCol_TabUnfocused] = style.Colors[ImGuiCol_Tab] =
+		ImVec4(0.25f + redIncrement, 0.25f, 0.25f, 1);
+
+	style.Colors[ImGuiCol_FrameBgHovered] = ImVec4(0.3f + redIncrement, 0.3f, 0.3f, 1);
+
+	style.Colors[ImGuiCol_ButtonHovered] = style.Colors[ImGuiCol_HeaderHovered] = style.Colors[ImGuiCol_FrameBgActive] =
+		style.Colors[ImGuiCol_DockingPreview] = style.Colors[ImGuiCol_TabActive] = style.Colors[ImGuiCol_SliderGrab] =
+		ImVec4(0.4f + redIncrement, 0.4f, 0.4f, 1);
+
+	style.Colors[ImGuiCol_ButtonActive] = style.Colors[ImGuiCol_TitleBgCollapsed] = style.Colors[ImGuiCol_SliderGrabActive] =
+		style.Colors[ImGuiCol_HeaderActive] = style.Colors[ImGuiCol_TabHovered] = style.Colors[ImGuiCol_CheckMark] =
+		ImVec4(0.65f + redIncrement, 0.65f, 0.65f, 1);
+
+	style.Colors[ImGuiCol_MenuBarBg] = ImVec4(0.1f + redIncrement, 0.1f, 0.1f, 1);
 }
 
 void LayerEditor::DrawPopUpLoadScene()

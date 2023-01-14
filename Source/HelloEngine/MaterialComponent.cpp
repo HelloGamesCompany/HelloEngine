@@ -77,6 +77,7 @@ void MaterialComponent::Serialization(json& j)
 
 	_j["Type"] = _type;
 	_j["ResourceUID"] = currentResource ? currentResource->UID : 0;
+	_j["Enabled"] = _isEnabled;
 	j["Components"].push_back(_j);
 }
 
@@ -89,8 +90,17 @@ void MaterialComponent::DeSerialization(json& j)
 		return;
 	}
 
-	ResourceTexture* resource = savedUID == 0 ? nullptr : (ResourceTexture*)ModuleResourceManager::S_LoadResource(j["ResourceUID"]);
-	ChangeTexture(resource);
+	SetMeshRenderer(_gameObject->GetComponent<MeshRenderComponent>());
+
+	if (meshRenderer != nullptr)
+	{
+		ResourceTexture* resource = savedUID == 0 ? nullptr : (ResourceTexture*)ModuleResourceManager::S_LoadResource(j["ResourceUID"]);
+		ChangeTexture(resource);
+	}
+
+	bool enabled = j["Enabled"];
+	if (!enabled)
+		Disable();
 }
 
 void MaterialComponent::UpdateMaterial()
@@ -193,5 +203,4 @@ void MaterialComponent::SetMeshRenderer(MeshRenderComponent* mesh)
 		textureID = -1;
 		return;
 	}
-	this->textureID = GetMesh().textureID;
 }

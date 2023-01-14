@@ -59,6 +59,8 @@ public:
 
 	static void S_AddPopUpMessage(std::string message);
 
+	static void S_ChangeColors(bool playMode);
+
 private:
 	void DrawMenuBar();
 

@@ -340,6 +340,8 @@ void MeshRenderComponent::Serialization(json& j)
 		_j["Index inside model"] = 0;
 	}
 
+	_j["Enabled"] = _isEnabled;
+
 	j["Components"].push_back(_j);
 }
 
@@ -347,26 +349,31 @@ void MeshRenderComponent::DeSerialization(json& j)
 {
 	ResourceModel* model = (ResourceModel*)ModuleResourceManager::resources[j["ModelUID"]];
 
-	if (model != nullptr)
+	if (model == nullptr)
 	{
-		uint index = j["Index inside model"];
-		if (index < model->modelMeshes.size())
+		Console::S_Log("A scene mesh render data was not found.");
+		return;
+	}
+	
+	uint index = j["Index inside model"];
+	if (index < model->modelMeshes.size())
+	{
+		ResourceMesh* resourceMesh = model->modelMeshes[index];
+		CreateMesh(resourceMesh->UID);
+
+		if (_meshID != -1)
 		{
-			ResourceMesh* resourceMesh = model->modelMeshes[index];
-			CreateMesh(resourceMesh->UID);
+			Mesh& m = GetMesh();
 
-			if (_meshID != -1)
-			{
-				Mesh& m = GetMesh();
-
-				m.showAABB = j["ShowAABB"];
-				m.showOBB = j["ShowOBB"];
-				m.showFaceNormals = j["ShowFaceNormals"];
-				m.showVertexNormals = j["ShowVertexNormals"];
-			}
-
-			return;
+			m.showAABB = j["ShowAABB"];
+			m.showOBB = j["ShowOBB"];
+			m.showFaceNormals = j["ShowFaceNormals"];
+			m.showVertexNormals = j["ShowVertexNormals"];
 		}
 	}
-	Console::S_Log("A scene mesh render data was not found.");
+	
+	bool enabled = j["Enabled"];
+	if (!enabled)
+		Disable();
+		
 }
