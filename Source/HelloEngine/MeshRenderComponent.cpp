@@ -40,6 +40,10 @@ MeshRenderComponent::~MeshRenderComponent()
 
 		if (_resource != nullptr)
 			_resource->Dereference();
+		if (_gameObject->HasComponent(Component::Type::MATERIAL))
+		{
+			_gameObject->GetComponent<MaterialComponent>()->SetMeshRenderer(nullptr);
+		}
 	}
 }
 
@@ -83,6 +87,7 @@ void MeshRenderComponent::CreateMesh(uint resourceUID, MeshRenderType type)
 
 	if (_gameObject->HasComponent<MaterialComponent>())
 	{
+		_gameObject->GetComponent<MaterialComponent>()->SetMeshRenderer(this);
 		_gameObject->GetComponent<MaterialComponent>()->UpdateMaterial();
 	}
 }
@@ -179,7 +184,8 @@ std::vector<uint>& MeshRenderComponent::GetMeshIndices()
 
 void MeshRenderComponent::OnEditor()
 {
-	if (ImGui::CollapsingHeader("Mesh Renderer", ImGuiTreeNodeFlags_DefaultOpen))
+	bool created = true;
+	if (ImGui::CollapsingHeader("Mesh Renderer", &created, ImGuiTreeNodeFlags_DefaultOpen))
 	{
 		if (_meshID == -1)
 		{
@@ -258,6 +264,8 @@ void MeshRenderComponent::OnEditor()
 		}
 		ImGui::HelpMarker("You can find .hmesh files by clicking on any model file (FBX or DAE). They will appear below the file icon in the Project window.");
 	}
+	if (!created)
+		this->_gameObject->DestroyComponent(this);
 }
 
 void MeshRenderComponent::ChangeMeshRenderType(MeshRenderType type)

@@ -348,7 +348,20 @@ bool ModuleResourceManager::S_DeserializeScene(const std::string& filePath)
 		for (int j = 0; j < object.size(); j++)
 		{
 			Component::Type componentType = object[j]["Type"];
-			if (componentType == Component::Type::SCRIPT)
+			if (componentType == Component::Type::SCRIPT || componentType == Component::Type::MATERIAL)
+				continue;
+			temp[i].first->AddComponentSerialized(componentType, object[j]);
+		}
+	}
+
+	for (int i = 0; i < sceneFile.size(); i++)
+	{
+		// Create components
+		json object = sceneFile[i]["Components"];
+		for (int j = 0; j < object.size(); j++)
+		{
+			Component::Type componentType = object[j]["Type"];
+			if (componentType != Component::Type::MATERIAL)
 				continue;
 			temp[i].first->AddComponentSerialized(componentType, object[j]);
 		}

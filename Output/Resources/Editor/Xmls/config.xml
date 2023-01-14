@@ -6,7 +6,7 @@
 		<brightness value="1" />
 	</window>
 	<renderer>
-		<vsync value="true" />
+		<vsync value="false" />
 		<framerate value="120" />
 	</renderer>
 	<scene>

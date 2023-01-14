@@ -40,6 +40,9 @@ public:
 		uint counter = 0;
 		for (const auto& component : _components)
 		{
+			if (component == nullptr)
+				continue;
+
 			if (typeid(*component) != typeid(T)) continue;
 	
 			if (counter == index) return (T*)component;
@@ -49,6 +52,9 @@ public:
 	}
 
 	std::vector<Component*> GetComponents() { return _components;}
+
+	void DestroyComponent(Component::Type type);
+	void DestroyComponent(Component* component);
 
 	GameObject* GetParent() { return _parent; }
 
@@ -86,12 +92,16 @@ public:
 	{
 		for (const auto& component : _components)
 		{
-			if (typeid(*component) != typeid(T)) continue;
+			if (component == nullptr)
+				continue;
 
-			return true;
+			if (typeid(*component) == typeid(T)) 
+				return true;
 		}
 		return false;
 	}
+
+	bool HasComponent(Component::Type type);
 
 public:
 	std::string name = "";

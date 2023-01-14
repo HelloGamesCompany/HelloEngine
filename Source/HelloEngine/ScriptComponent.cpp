@@ -20,7 +20,8 @@ ScriptComponent::~ScriptComponent()
 
 void ScriptComponent::OnEditor()
 {
-	if (ImGui::CollapsingHeader("Script", ImGuiTreeNodeFlags_DefaultOpen | ImGuiTreeNodeFlags_AllowItemOverlap | ImGuiTreeNodeFlags_SpanAvailWidth))
+	bool created = true;
+	if (ImGui::CollapsingHeader("Script", &created, ImGuiTreeNodeFlags_DefaultOpen | ImGuiTreeNodeFlags_AllowItemOverlap | ImGuiTreeNodeFlags_SpanAvailWidth))
 	{
 		if (scriptResource == nullptr && addedScript == "None")
 		{
@@ -43,6 +44,8 @@ void ScriptComponent::OnEditor()
 			}
 		}
 	}
+	if (!created)
+		_gameObject->DestroyComponent(this);
 }
 
 void ScriptComponent::OnEnable()

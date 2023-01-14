@@ -40,6 +40,32 @@ GameObject::~GameObject()
 	_children.clear();
 }
 
+void GameObject::DestroyComponent(Component::Type type)
+{
+	for (int i = 0; i < _components.size(); i++)
+	{
+		if (_components[i]->_type == type)
+		{
+			RELEASE(_components[i]);
+			_components.erase(_components.begin() + i);
+			break;
+		}
+	}
+}
+
+void GameObject::DestroyComponent(Component* component)
+{
+	for (int i = 0; i < _components.size(); i++)
+	{
+		if (_components[i] == component)
+		{
+			RELEASE(_components[i]);
+			_components.erase(_components.begin() + i);
+			break;
+		}
+	}
+}
+
 bool GameObject::AddChild(GameObject* child)
 {
 	if (!child) return false;
@@ -214,6 +240,18 @@ void GameObject::Destroy()
 	}
 
 	_children.clear();
+}
+
+bool GameObject::HasComponent(Component::Type type)
+{
+	for (const auto& component : _components)
+	{
+		if (component == nullptr) 
+			continue;
+		if (component->_type == type) 
+			return true;
+	}
+	return false;
 }
 
 void GameObject::RemoveChild(GameObject* child)

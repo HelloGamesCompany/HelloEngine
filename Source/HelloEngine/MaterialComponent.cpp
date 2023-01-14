@@ -18,6 +18,8 @@ MaterialComponent::~MaterialComponent()
 {
 	if (currentResource != nullptr)
 		currentResource->Dereference();
+	if (meshRenderer != nullptr)
+		ChangeTexture(nullptr);
 }
 
 Mesh& MaterialComponent::GetMesh()
@@ -31,6 +33,7 @@ void MaterialComponent::ChangeTexture(ResourceTexture* resource)
 	{
 		textureID = -1.0f;
 		currentResource = nullptr;
+		GetMesh().textureID = textureID;
 		return;
 	}
 	this->textureID = resource->OpenGLID;
@@ -97,8 +100,13 @@ void MaterialComponent::UpdateMaterial()
 
 void MaterialComponent::OnEditor()
 {
-	if (!ImGui::CollapsingHeader("Material", ImGuiTreeNodeFlags_DefaultOpen)) return;
-
+	bool created = true;
+	if (!ImGui::CollapsingHeader("Material", &created, ImGuiTreeNodeFlags_DefaultOpen)) return;
+	if (!created)
+	{
+		_gameObject->DestroyComponent(this);
+		return;
+	}
 	bool auxiliaryBool = _isEnabled;
 	if (ImGui::Checkbox("Active##Material", &auxiliaryBool))
 		auxiliaryBool ? Enable() : Disable();
@@ -180,5 +188,10 @@ void MaterialComponent::OnDisable()
 void MaterialComponent::SetMeshRenderer(MeshRenderComponent* mesh)
 {
 	this->meshRenderer = mesh;
+	if (meshRenderer == nullptr)
+	{
+		textureID = -1;
+		return;
+	}
 	this->textureID = GetMesh().textureID;
 }

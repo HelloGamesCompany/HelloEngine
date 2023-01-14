@@ -26,7 +26,8 @@ void CameraComponent::OnTransformCallback(float4x4 worldMatrix)
 
 void CameraComponent::OnEditor()
 {
-	if (ImGui::CollapsingHeader("Camera", ImGuiTreeNodeFlags_DefaultOpen))
+	bool created = true;
+	if (ImGui::CollapsingHeader("Camera", &created, ImGuiTreeNodeFlags_DefaultOpen))
 	{
 		bool auxiliaryBool = _isEnabled;
 		if (ImGui::Checkbox("Active##Camera", &auxiliaryBool))
@@ -66,6 +67,8 @@ void CameraComponent::OnEditor()
 			Application::Instance()->camera->SetCurrentActiveGameCamera(cameraObject);
 		}
 	}
+	if (!created)
+		_gameObject->DestroyComponent(this);
 }
 
 void CameraComponent::PerspectiveEditorOptions()
