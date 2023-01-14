@@ -12,6 +12,8 @@ This Engine is only available for Windows 10. To correclty use the engine, you n
 
 # How to enable Automatic Compilation:
 
+(If you are reading this on the downloaded version, check our repository to see the README with images: https://github.com/HelloGamesCompany/HelloEngine/)
+
 If Automatic compilation doesn't work, it means that a path to the MSBuild.exe is missing in your system environment variables. To enable this feature, you must be an administrator on your current account. If you are not an administrator, the automatic compilation cannot be enabled.
 
 ## 1: Find the current MSBuild.exe
