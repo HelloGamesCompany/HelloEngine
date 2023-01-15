@@ -136,4 +136,6 @@ void CameraComponent::DeSerialization(json& j)
 	bool enabled = j["Enabled"];
 	if (!enabled)
 		Disable();
+
+	_gameObject->transform->ForceUpdate();
 }
