@@ -35,11 +35,11 @@ void TankScript::Update()
 		// Set direction of the bullet
 		if (bulletScript != nullptr)
 		{
-
 			bulletScript->direction = turret.GetForward(); 
 			API_Vector3 rotation = turret.GetLocalRotation() + gameObject.GetTransform().GetLocalRotation();
 			bulletScript->gameObject.GetTransform().SetRotation(rotation);
 		}
+
 	}
 
 	// Turret control

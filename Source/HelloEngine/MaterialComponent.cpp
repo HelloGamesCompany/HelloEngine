@@ -33,7 +33,12 @@ void MaterialComponent::ChangeTexture(ResourceTexture* resource)
 	{
 		textureID = -1.0f;
 		currentResource = nullptr;
-		GetMesh().textureID = textureID;
+
+		if (_gameObject->HasComponent<MeshRenderComponent>())
+		{
+			if (meshRenderer != nullptr)
+				GetMesh().textureID = textureID;
+		}
 		return;
 	}
 	this->textureID = resource->OpenGLID;
