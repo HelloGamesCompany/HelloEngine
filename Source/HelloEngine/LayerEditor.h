@@ -61,6 +61,8 @@ public:
 
 	static void S_ChangeColors(bool playMode);
 
+	static void S_ShowCompilationError() { _showCompilationError = true; }
+
 private:
 	void DrawMenuBar();
 
@@ -72,6 +74,8 @@ private:
 	void DrawPopUpMessages();
 
 	void DrawWarningForAutomaticCompilation();
+
+	void DrawCompilationErrorWarning();
 
 public:
 	static GameObject* selectedGameObject;
@@ -101,7 +105,7 @@ private:
 
 	// Compilation warning
 	static bool _showCompilationWarning;
-
+	static bool _showCompilationError;
 	friend class ImWindowHierarchy;
 };
 

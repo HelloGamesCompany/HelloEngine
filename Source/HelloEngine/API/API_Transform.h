@@ -29,9 +29,13 @@ namespace API
 		void SetRotation(API_Vector3 rotation);
 		void SetScale(API_Vector3 scale);
 
-		API_Vector3 GetPosition();
-		API_Vector3 GetRotation();
-		API_Vector3 GetScale();
+		API_Vector3 GetLocalPosition();
+		API_Vector3 GetLocalRotation();
+		API_Vector3 GetLocalScale();
+
+		API_Vector3 GetGlobalPosition();
+		API_Vector3 GetGlobalRotation();
+		API_Vector3 GetGlobalScale();
 
 		API_Vector3 GetForward();
 		API_Vector3 GetRight();

@@ -131,34 +131,65 @@ void API::API_Transform::SetScale(API_Vector3 scale)
 	_transform->SetScale(scale);
 }
 
-API::API_Vector3 API::API_Transform::GetPosition()
+API::API_Vector3 API::API_Transform::GetLocalPosition()
 {
 	if (_transform == nullptr)
 	{
 		Console::S_Log("Trying to acces a NULLPTR Transform! GetPosition().");
 		return API::API_Vector3();
 	}
-	return _transform->GetPosition();
+	return _transform->GetLocalPosition();
 }
 
-API::API_Vector3 API::API_Transform::GetRotation()
+API::API_Vector3 API::API_Transform::GetLocalRotation()
 {
 	if (_transform == nullptr)
 	{
 		Console::S_Log("Trying to acces a NULLPTR Transform! GetRotation().");
 		return API::API_Vector3();
 	}
-	return _transform->GetRotation();
+	std::cout << _transform->GetGlobalRotation() << std::endl;
+	return _transform->GetLocalRotation();
 }
 
-API::API_Vector3 API::API_Transform::GetScale()
+API::API_Vector3 API::API_Transform::GetLocalScale()
 {
 	if (_transform == nullptr)
 	{
 		Console::S_Log("Trying to acces a NULLPTR Transform! GetScale().");
 		return API::API_Vector3();
 	}
-	return _transform->GetScale();
+	return _transform->GetLocalScale();
+}
+
+API::API_Vector3 API::API_Transform::GetGlobalPosition()
+{
+	if (_transform == nullptr)
+	{
+		Console::S_Log("Trying to acces a NULLPTR Transform! GetGlobalPosition().");
+		return API::API_Vector3();
+	}
+	return _transform->GetGlobalPosition();
+}
+
+API::API_Vector3 API::API_Transform::GetGlobalRotation()
+{
+	if (_transform == nullptr)
+	{
+		Console::S_Log("Trying to acces a NULLPTR Transform! GetGlobalRotation().");
+		return API::API_Vector3();
+	}
+	return _transform->GetGlobalRotation();
+}
+
+API::API_Vector3 API::API_Transform::GetGlobalScale()
+{
+	if (_transform == nullptr)
+	{
+		Console::S_Log("Trying to acces a NULLPTR Transform! GetGlobalScale().");
+		return API::API_Vector3();
+	}
+	return _transform->GetGlobalScale();
 }
 
 API::API_Vector3 API::API_Transform::GetForward()

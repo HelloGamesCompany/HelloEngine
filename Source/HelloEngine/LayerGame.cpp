@@ -45,14 +45,14 @@ void LayerGame::Start()
 
 void LayerGame::PreUpdate()
 {
-	static int frameWaitCompile = 40;
+	static int frameWaitCompile = 300;
 	if (_compileDLL)
 	{
 		if (frameWaitCompile-- == 0)
 		{
 			ModuleFiles::S_CompileDLLProject();
 			_compileDLL = false;
-			frameWaitCompile = 40;
+			frameWaitCompile = 300;
 		}
 	}
 
@@ -66,11 +66,11 @@ void LayerGame::PreUpdate()
 
 	if (_needsReload && !_isPlaying)
 	{
-		static int frameWaitHotReload = 40;
+		static int frameWaitHotReload = 100;
 		if (frameWaitHotReload-- == 0)
 		{
 			S_HotReload();
-			frameWaitHotReload = 40;
+			frameWaitHotReload = 100;
 		}
 	}
 
@@ -114,7 +114,7 @@ void LayerGame::PostUpdate()
 
 void LayerGame::S_Play()
 {
-	if (_needsReload)
+	if (_needsReload || _compileDLL)
 		return;
 
 	LayerEditor::S_ChangeColors(true);
@@ -230,6 +230,8 @@ void LayerGame::S_HotReload()
 void LayerGame::S_RequestHotReload()
 {
 	_needsReload = true;
+	if (_isPlaying)
+		LayerEditor::S_AddPopUpMessage("The changes will be applied when pressed Stop.");
 }
 
 void LayerGame::S_RequestDLLCompile()
@@ -266,6 +268,12 @@ void LayerGame::S_CreateBehaviorScript(ScriptComponent* component)
 		return;
 
 	CreateFunc create = (CreateFunc)GetProcAddress(_dllFile, ("Create" + component->scriptResource->className).c_str());
+
+	if (create == nullptr)
+	{
+		Console::S_Log("Error loading a script. The given script name doesnt exist: " + component->scriptResource->className);
+		return;
+	}
 
 	uint randomUID = HelloUUID::GenerateUUID();
 	_behaviorScripts[randomUID].script = (HelloBehavior*)create(component);

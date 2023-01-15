@@ -61,9 +61,13 @@ public:
 
 	float4x4 GetGlobalMatrix(bool forceUpdate = false, bool updateLocal = true);
 
-	float3 GetPosition();
-	float3 GetRotation();
-	float3 GetScale();
+	float3 GetGlobalPosition();
+	float3 GetGlobalRotation();
+	float3 GetGlobalScale();
+
+	float3 GetLocalPosition();
+	float3 GetLocalRotation();
+	float3 GetLocalScale();
 
 	float3 GetForward();
 	float3 GetRight();

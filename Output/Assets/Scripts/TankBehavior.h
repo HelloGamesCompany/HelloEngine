@@ -5,14 +5,14 @@
 
 #include "API/API.h"
 
-class Tank : HelloBehavior
+class TankBehavior : HelloBehavior
 {
 public:
 	void Start() override; 
 	void Update() override;
 
-public:
 	float movingSpeed = 1.0f;
 	API_Transform turret;
+	API_MeshRenderer bulletMesh;
 };
 

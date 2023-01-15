@@ -19,6 +19,7 @@ void BulletBehavior::Update()
 	if (lifeTime <= 0)
 	{
 		this->gameObject.Destroy();
+		return;
 	}
 
 	this->gameObject.GetTransform().Translate(direction);

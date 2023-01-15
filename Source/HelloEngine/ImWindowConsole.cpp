@@ -60,13 +60,11 @@ void ImWindowConsole::Update()
 
 		if(!_isCollapse) // if isn't collapsing
 		{
-			std::string* buffer = nullptr;
+			auto buffer = CSL::S_GetLog();
 
-			uint cslSize = CSL::S_GetLog(&buffer);
-
-			for (size_t i = 0; i < cslSize; buffer++, i++)
+			for (size_t i = 0; i < buffer.size(); ++i)
 			{
-				ImGui::Text((*buffer).c_str());
+				ImGui::Text(buffer[i].c_str());
 			}
 		}
 		else // if is collapsing

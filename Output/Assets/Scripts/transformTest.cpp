@@ -31,7 +31,7 @@ void transformTest::Update()
 	{
 		// Create game object
 		API_GameObject newBullet = Game::CreateGameObject("Bullet", "Projectile");
-		newBullet.GetTransform().SetPosition(this->gameObject.GetTransform().GetPosition());
+		newBullet.GetTransform().SetPosition(this->gameObject.GetTransform().GetGlobalPosition());
 		// Add behavior
 		BulletBehavior* bulletScript = (BulletBehavior*)newBullet.AddScript("BulletBehavior");
 		// Add mesh renderer, copied from another mesh renderer properties.
@@ -41,7 +41,7 @@ void transformTest::Update()
 		if (bulletScript != nullptr)
 		{
 			bulletScript->direction = transfromTestVariable.GetDown();
-			API_Vector3 rotation = API_Vector3(0,transfromTestVariable.GetRotation().z,0);
+			API_Vector3 rotation = API_Vector3(0,transfromTestVariable.GetLocalRotation().z,0);
 			bulletScript->gameObject.GetTransform().SetRotation(rotation);
 		}
 	}

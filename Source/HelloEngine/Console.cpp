@@ -2,7 +2,7 @@
 #include "ModuleFiles.h"
 #include "CycleArray.hpp"
 
-CArrayS* Console::_buffers = nullptr;
+std::vector<std::string> Console::_buffers;
 std::map<std::string, uint> Console::_buffersMap;
 std::string Console::_logCountText = "";
 size_t Console::_logCount = 0;
@@ -12,8 +12,6 @@ void Console::S_Init()
     static bool isInit = false;
 
     if (isInit) return;
-
-    _buffers = new CArrayS(MAX_CONSOLE_LOGS);
 }
 
 void Console::S_Close()
@@ -21,13 +19,11 @@ void Console::S_Close()
     static bool isClosed = false;
 
     if (isClosed) return;
-
-    RELEASE(_buffers);
 }
 
 void Console::S_Log(const std::string text)
 {
-    _buffers->push_back("\nDebug.Log: " + text);
+    _buffers.push_back("\nDebug.Log: " + text);
 
     auto it = _buffersMap.find(text);
 
@@ -38,11 +34,9 @@ void Console::S_Log(const std::string text)
     _logCount++;
 }
 
-uint Console::S_GetLog(std::string** buffer)
+const std::vector<std::string>& Console::S_GetLog()
 {
-    *buffer = _buffers->front();
-
-    return _buffers->size();
+    return _buffers;
 }
 
 std::map<std::string, uint> Console::S_GetCollapseLog()
@@ -52,7 +46,7 @@ std::map<std::string, uint> Console::S_GetCollapseLog()
 
 std::string Console::S_GetLastLog()
 {
-    return *(_buffers->front() + _buffers->size());
+    return _buffers.back();
 }
 
 const char* Console::S_GetLogCounts()
@@ -64,7 +58,7 @@ const char* Console::S_GetLogCounts()
 
 void Console::S_ClearLog()
 {
-    _buffers->reset();
+    _buffers.clear();
 
     _buffersMap.clear();
 
@@ -78,10 +72,11 @@ void Console::S_SaveLog()
     std::string buffer="DEBUG INFO:\n";
 
     // Read all context in the _buffers and put into buffer
-    auto* b = _buffers->front();
-
-    for (uint i = 0; i < _buffers->size(); i++, b++) buffer += *b;
-
+    for (int i = 0; i < _buffers.size(); ++i)
+    {
+        buffer += _buffers[i];
+    }
+    
     // Convert string buffer to char* buffer
     uint n = buffer.size() + 1;
 

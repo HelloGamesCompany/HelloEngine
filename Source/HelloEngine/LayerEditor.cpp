@@ -44,6 +44,7 @@ uint LayerEditor::_stopImageID = 0;
 uint LayerEditor::_pauseImageID = 0;
 uint LayerEditor::_nextImageID = 0;
 bool LayerEditor::_showCompilationWarning = false;
+bool LayerEditor::_showCompilationError = false;
 
 
 LayerEditor::LayerEditor()
@@ -208,28 +209,11 @@ void LayerEditor::PostUpdate()
 
 	ImGui::DockSpaceOverViewport(ImGui::GetMainViewport());
 
-	if (LayerGame::_compileDLL)
-	{
-		ImGui::OpenPopup("Currently Compiling");
-		if (ImGui::BeginPopupModal("Currently Compiling", NULL, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_AlwaysAutoResize))
-		{
-			ImGui::Text("The ScriptingSLN is being compiled, please wait.");
-			ImGui::EndPopup();
-		}
-	}
-
-	if (LayerGame::_needsReload)
-	{
-		ImGui::OpenPopup("Currently Hot Reloading");
-		if (ImGui::BeginPopupModal("Currently Hot Reloading", NULL, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_AlwaysAutoResize))
-		{
-			ImGui::Text("Hot Reloading. Please wait.");
-			ImGui::EndPopup();
-		}
-	}
-
 	if (_showCompilationWarning)
 		DrawWarningForAutomaticCompilation();
+
+	if (_showCompilationError)
+		DrawCompilationErrorWarning();
 
 	DrawMenuBar();
 
@@ -249,6 +233,26 @@ void LayerEditor::PostUpdate()
 
 	if (_openSaveScene)
 		DrawPopUpSaveScene();
+
+	if (LayerGame::_compileDLL)
+	{
+		ImGui::OpenPopup("Currently Compiling");
+		if (ImGui::BeginPopupModal("Currently Compiling", NULL, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_AlwaysAutoResize))
+		{
+			ImGui::Text("The ScriptingSLN is being compiled, please wait.");
+			ImGui::EndPopup();
+		}
+	}
+
+	if (LayerGame::_needsReload && !LayerGame::_isPlaying)
+	{
+		ImGui::OpenPopup("Currently Hot Reloading");
+		if (ImGui::BeginPopupModal("Currently Hot Reloading", NULL, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_AlwaysAutoResize))
+		{
+			ImGui::Text("Hot Reloading. Please wait.");
+			ImGui::EndPopup();
+		}
+	}
 
 	ImGui::Render();
 
@@ -711,6 +715,22 @@ void LayerEditor::DrawWarningForAutomaticCompilation()
 
 		if (ImGui::Button("Close"))
 			_showCompilationWarning = false;
+
+		ImGui::EndPopup();
+	}
+}
+
+void LayerEditor::DrawCompilationErrorWarning()
+{
+	ImGui::OpenPopup("Compilation failed");
+	if (ImGui::BeginPopupModal("Compilation failed", NULL, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize))
+	{
+		ImGui::TextColored(ImVec4(1,0,0,1), "WARNING: Compilation of the Scripting project failed.");
+		ImGui::Text("Last changes won't apply until compilation errors are solved.");
+		ImGui::Text("Please check the Scripting solution and fix any compilation errors and try again.");
+
+		if (ImGui::Button("Close"))
+			_showCompilationError = false;
 
 		ImGui::EndPopup();
 	}

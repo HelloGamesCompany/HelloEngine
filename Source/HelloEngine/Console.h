@@ -15,7 +15,7 @@ using CArrayS = Htool::CycleArray<std::string>;
 
 namespace Engine
 {
-	class TO_API Console
+	class Console
 	{
 	public:
 
@@ -25,7 +25,7 @@ namespace Engine
 
 		static void S_Log(const std::string text);
 
-		static uint S_GetLog(std::string** buffer);
+		static const std::vector<std::string>& S_GetLog();
 
 		static std::map<std::string, uint> S_GetCollapseLog();
 
@@ -38,7 +38,7 @@ namespace Engine
 		static void S_SaveLog();
 
 	private:
-		static CArrayS* _buffers;
+		static std::vector<std::string> _buffers;
 
 		static std::map<std::string, uint> _buffersMap;
 

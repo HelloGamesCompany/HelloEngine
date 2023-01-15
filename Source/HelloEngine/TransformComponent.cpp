@@ -91,19 +91,34 @@ float4x4 TransformComponent::GetGlobalMatrix(bool forceUpdate, bool updateLocal)
 	return _globalMatrix;
 }
 
-float3 TransformComponent::GetPosition()
+float3 TransformComponent::GetGlobalPosition()
 {
 	return GetGlobalMatrix().TranslatePart();
 }
 
-float3 TransformComponent::GetRotation()
+float3 TransformComponent::GetGlobalRotation()
 {
 	return math::RadToDeg(GetGlobalMatrix().RotatePart().ToEulerXYZ());
 }
 
-float3 TransformComponent::GetScale()
+float3 TransformComponent::GetGlobalScale()
 {
 	return GetGlobalMatrix().GetScale();
+}
+
+float3 TransformComponent::GetLocalPosition()
+{
+	return localTransform.position;
+}
+
+float3 TransformComponent::GetLocalRotation()
+{
+	return localTransform.rotation;
+}
+
+float3 TransformComponent::GetLocalScale()
+{
+	return localTransform.scale;
 }
 
 float3 TransformComponent::GetForward()

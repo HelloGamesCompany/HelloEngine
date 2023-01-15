@@ -6,6 +6,7 @@
 #include <ctime>
 #include <sys/stat.h>
 #include "LayerGame.h"
+#include "LayerEditor.h"
 
 using json = nlohmann::json;
 
@@ -750,17 +751,24 @@ bool ModuleFiles::S_CheckFileNameInDLL(const std::string& fileNameWithoutExtensi
 
 void ModuleFiles::S_CompileDLLProject()
 {
+	int res = 0;
 #ifdef  _DEBUG
 	if (_automaticCompilation && _enabledAutomaticCompilation) // If automatic compilation is available / enabled, compile using MSBuild.
-		system("msbuild HelloAPI\\ScriptingSLN.sln /p:Configuration=Debug /property:Platform=x86");
+		res = system("msbuild HelloAPI\\ScriptingSLN.sln /p:Configuration=Debug /property:Platform=x86");
 	else
 		LayerGame::S_DisableCreatingBehaviors(); // Else, dont allow behavior creating until HotReload!
 #else
 	if (_automaticCompilation && _enabledAutomaticCompilation)// If automatic compilation is available / enabled, compile using MSBuild.
-		system("msbuild HelloAPI\\ScriptingSLN.sln /p:Configuration=Release /property:Platform=x86");
+		res = system("msbuild HelloAPI\\ScriptingSLN.sln /p:Configuration=Release /property:Platform=x86");
 	else
 		LayerGame::S_DisableCreatingBehaviors(); // Else, dont allow behavior creating until HotReload!
 #endif //  _DEBUG
+
+	if (res == 1)
+	{
+		LayerEditor::S_ShowCompilationError();
+		Console::S_Log("Compilation Failed! Check the Scripting solution and save your changes after fixing the compilation errors.");
+	}
 }
 
 void ModuleFiles::S_SetAutomaticCompilation(bool isOn)
