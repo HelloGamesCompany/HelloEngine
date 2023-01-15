@@ -36,7 +36,7 @@ If the Scripting solution has been compiled, the script should now appear on the
 
 To add inspector variables, you must find the Create"ScriptName"() function inside your script .cpp file.
 
-In the Create function, access the "script" variables passed as an argument. This is the ScriptComponent.
+In the Create function, access the "script" variable passed as an argument. This is the ScriptComponent.
 
 Use any of the methods available (AddDragFloat, AddDragBoxGameObject) to add your variable into the Inspector.
 
@@ -47,11 +47,11 @@ Return to the Engine (compile manually if Automatic Compilation is not enabled) 
 ### What are API_GameObject, API_Transform ... ?
 
 The API_Object types are an interface class used to safely manage the current scene Entities and Components. These exist so you cannot accidentaly access a nullptr GameObject or Component.
-A console message appears when you try to use one of these API objects with a nullptr value, but the application doesnt stop running.
+A console message appears when you try to use one of these API objects with a nullptr value, but the application doesn't stop running.
 
 ### How to access other scripts
 
-To access other scripts, include their header file on your .cpp file to access their methods. Then you will need a form of getting that script instance. 
+To access other scripts, include their header file on your .cpp file to access their methods. Then you will need a way to access that script instance. 
 
 The recommended method is to use an inspector variable to access the other script's gameObject (API_GameObject). Then, use the GetScript method of the API_GameObject
 and cast the return value to a pointer of your own. 
