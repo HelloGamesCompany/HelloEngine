@@ -60,6 +60,11 @@ These are some additional features that are important to know about:
 
 HelloEngine allows to use Ctrl + Z and Ctrl + Y to Undo / Redo changes on ImGui Widgets. In this version, it only applies to Transform Component widgets inside Inspector.
 
+* C++ Scripiting system
+
+You can now create and use C++ scripts to add Behavior to any GameObject. From the scripts, you can access any game object in the scene, create new ones, and manipulate their components. For Information about how to use the Scripting system, check the SCRIPTING_INSTRUCTIONS.md file.
+
+
 * Instance Rendering
 
 Instance Rendering. To improve performance, HelloEngine uses Instance rendering to render every Mesh. It is not finished yet, but it can be noticable when instancing multiple meshes.
@@ -88,7 +93,55 @@ You can load separeted meshes from the model file by clicking on the model file 
 
 # Current version
 
-**Current state** : Level Editor (v0.5):
+**Current state** : Basic Scripting. (v1.0):
+
+Scripting system working.
+
+Automatic compilation.
+
+Hot Reload for scripting system.
+
+Script creation.
+
+Major bug fixing from Serialization, Camera, Entity Component and other systems.
+
+### Versions
+
+Early in development (v0.1)
+
+3D rendering available, but no mesh loading yet.
+
+Scene structure created, but no Entity component system yet.
+
+Added XML utilities to load Int, Float, Bool and String variables from a default XML file. This system is called QuickSave and mimics the PlayerPrefs system form Unity Engine.
+
+Geometry viewer: v0.2
+
+**Basic Features**
+
+3D rendering with FBX loading.
+
+Texture diffuse rendering applied to any mesh. 
+
+Entity Component System with Hierarchy. Allows change of parents and entities and components can be enabled/disabled.
+
+Basic Project window to manage files inside Assets
+
+Inspector window to manage component variables of selected entity.
+
+Console to log information about the engine.
+
+Transform component that uses child/parent relationship to apply transformations.
+
+Drag & drop to Import files into Project folder. This can be then used to be applied to Entities.
+
+Drag & drop of FBX files into the scene to load the Mesh.
+
+Drag & drop of png files into a MaterialComponent inside Inspector to change the texture currently being used.
+
+Viewing of memory consumption. 
+
+Level Editor (v0.5):
 
 **Basic Features**
 
@@ -126,38 +179,3 @@ Mouse picking of game objects inside the scene using Raycast method.
 
 Scene camera panning using middle mouse button.
 
-### Versions
-
-Early in development (v0.1)
-
-3D rendering available, but no mesh loading yet.
-
-Scene structure created, but no Entity component system yet.
-
-Added XML utilities to load Int, Float, Bool and String variables from a default XML file. This system is called QuickSave and mimics the PlayerPrefs system form Unity Engine.
-
-Geometry viewer: v0.2
-
-**Basic Features**
-
-3D rendering with FBX loading.
-
-Texture diffuse rendering applied to any mesh. 
-
-Entity Component System with Hierarchy. Allows change of parents and entities and components can be enabled/disabled.
-
-Basic Project window to manage files inside Assets
-
-Inspector window to manage component variables of selected entity.
-
-Console to log information about the engine.
-
-Transform component that uses child/parent relationship to apply transformations.
-
-Drag & drop to Import files into Project folder. This can be then used to be applied to Entities.
-
-Drag & drop of FBX files into the scene to load the Mesh.
-
-Drag & drop of png files into a MaterialComponent inside Inspector to change the texture currently being used.
-
-Viewing of memory consumption. 
