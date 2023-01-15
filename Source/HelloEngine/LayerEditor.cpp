@@ -45,6 +45,7 @@ uint LayerEditor::_pauseImageID = 0;
 uint LayerEditor::_nextImageID = 0;
 bool LayerEditor::_showCompilationWarning = false;
 bool LayerEditor::_showCompilationError = false;
+bool LayerEditor::_cannotCancel = false;
 
 
 LayerEditor::LayerEditor()
@@ -392,15 +393,18 @@ void LayerEditor::DrawPopUpSaveScene()
 			_requestUpdateFileTree = true;
 
 			_openSaveScene = false;
+			_cannotCancel = false;
 
 			S_AddPopUpMessage("Saved scene: " + _savingSceneName);
 		}
 
 		ImGui::SameLine();
 
-		if (ImGui::Button("Close"))
-			_openSaveScene = false;
-
+		if (!_cannotCancel)
+		{
+			if (ImGui::Button("Close"))
+				_openSaveScene = false;
+		}
 		ImGui::EndPopup();
 	}
 }
@@ -507,6 +511,7 @@ void LayerEditor::DrawMenuBar()
 				_currentSelectedPath = rootDir->path;
 
 				_openSaveScene = true;
+				_cannotCancel = true;
 			}
 
 			if (ImGui::MenuItem("Load Scene"))

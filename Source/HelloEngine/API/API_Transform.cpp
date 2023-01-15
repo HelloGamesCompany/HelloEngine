@@ -179,7 +179,10 @@ API::API_Vector3 API::API_Transform::GetGlobalRotation()
 		Console::S_Log("Trying to acces a NULLPTR Transform! GetGlobalRotation().");
 		return API::API_Vector3();
 	}
-	return _transform->GetGlobalRotation();
+	float3 rotation = _transform->GetGlobalRotation();
+	API_Vector3 vectorRotation = API_Vector3(rotation.x * RADTODEG, rotation.y * RADTODEG, rotation.z * RADTODEG);
+
+	return vectorRotation;
 }
 
 API::API_Vector3 API::API_Transform::GetGlobalScale()

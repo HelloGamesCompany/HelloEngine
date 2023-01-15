@@ -5,7 +5,7 @@
 
 #include "API/API.h"
 
-class TankBehavior : HelloBehavior
+class TankScript : HelloBehavior
 {
 public:
 	void Start() override; 
@@ -13,6 +13,7 @@ public:
 
 	float movingSpeed = 1.0f;
 	API_Transform turret;
+	API_Transform shootingPoint;
 	API_MeshRenderer bulletMesh;
 };
 

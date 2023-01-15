@@ -96,6 +96,7 @@ private:
 	static std::string _currentSelectedPath;
 	static std::string _savingSceneName;
 	static bool _requestUpdateFileTree;
+	static bool _cannotCancel;
 
 	// Play/Stop buttons
 	static uint _playImageID;

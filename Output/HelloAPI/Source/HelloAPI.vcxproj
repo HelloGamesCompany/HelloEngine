@@ -95,13 +95,13 @@
 	<ItemGroup>
 		<ClCompile Include="../../Assets/Scripts/transformTest.cpp" />
 		<ClCompile Include="../../Assets/Scripts/BulletBehavior.cpp" />
-		<ClCompile Include="../../Assets/Scripts/TankBehavior.cpp" />
+		<ClCompile Include="../../Assets/Scripts/TankScript.cpp" />
 	</ItemGroup>
 	<ItemGroup>
 		<ClInclude Include="Macro.h" />
 		<ClInclude Include="../../Assets/Scripts/transformTest.h" />
 		<ClInclude Include="../../Assets/Scripts/BulletBehavior.h" />
-		<ClInclude Include="../../Assets/Scripts/TankBehavior.h" />
+		<ClInclude Include="../../Assets/Scripts/TankScript.h" />
 	</ItemGroup>
 	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 	<ImportGroup Label="ExtensionTargets" />
