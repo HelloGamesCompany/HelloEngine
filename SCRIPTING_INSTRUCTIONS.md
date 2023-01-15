@@ -6,7 +6,7 @@ For the scripting system to work correclty, you must be on a Windows system, and
 
 ## Automatic Compilation
 
-If you are looking for how to acivate the Automatic Compilation feature, go to the README.md file for detailed instructions. We recommend the github web page version to visualize with images.
+If you are looking for how to acivate the Automatic Compilation feature, go to the [README.md](README.md) file for detailed instructions. We recommend the github web page version to visualize with images.
 
 ## How to use
 
