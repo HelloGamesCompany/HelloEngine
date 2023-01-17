@@ -146,7 +146,8 @@ bool ModuleLayers::CleanUp()
         sceneXML.FindChildBreadth("currentScene").node.attribute("value").set_value(newDir.c_str());
     }
 
-    ModuleResourceManager::S_SerializeScene(rootGameObject);
+    if (!LayerGame::S_IsPlaying())
+        ModuleResourceManager::S_SerializeScene(rootGameObject);
 
     for (int i = 0; i < (uint)LayersID::MAX; i++)
     {

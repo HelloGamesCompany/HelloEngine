@@ -30,12 +30,17 @@ private:
 
 	void PanelCreateScript();
 
+	void DrawDeleteMessage();
+
 private:
 	Application* _app = nullptr;
 
 	ImGuiTextFilter _filter;
 
 	Directory* _rootNode = nullptr;
+
+	bool _showDeleteMessage = false;
+	bool _deleteFileAccepted = false;
 
 	File* _deleteFile = nullptr;
 

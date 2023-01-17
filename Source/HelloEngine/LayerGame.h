@@ -59,6 +59,8 @@ public:
 	static void S_DisableCreatingBehaviors();
 	static bool S_IsCreatingBehaviorsEnabled();
 
+	static bool S_IsPlaying() { return _isPlaying; }
+
 	static bool detectInput;
 
 private:

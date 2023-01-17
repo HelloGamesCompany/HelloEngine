@@ -85,6 +85,9 @@ void ImWindowProject::Update()
 {
     CheckWindowFocus();
 
+    if (_showDeleteMessage)
+        DrawDeleteMessage();
+
    	if (ImGui::Begin(windowName.c_str(), &isEnabled, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoScrollbar))
 	{
         // Options, Filter
@@ -143,7 +146,7 @@ void ImWindowProject::Update()
         PanelCreateScript();
 
     // If have any file to delete, delete this
-    if (_deleteFile)
+    if (_deleteFile && _deleteFileAccepted)
     {
         ModuleFiles::S_Delete(_deleteFile->path);
 
@@ -151,18 +154,20 @@ void ImWindowProject::Update()
             ModuleResourceManager::S_DeleteMetaFile(_deleteFile->metaPath);
 
         _deleteFile = nullptr;
+        _deleteFileAccepted = false;
 
         UpdateFileNodes();
     }
 
     // If have any folder to delete, delete this
-    if(_deleteDir)
+    if(_deleteDir && _deleteFileAccepted)
     {
         ModuleFiles::S_Delete(_deleteDir->path);
 
         UpdateFileNodes();
 
         _deleteDir = nullptr;
+        _deleteFileAccepted = false;
     }
 }
 
@@ -263,6 +268,7 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
             if (ImGui::Button("Delete##Folder"))
             {
                 _deleteDir = _fileTree->_currentDir->directories[i];
+                _showDeleteMessage = true;
                 ImGui::CloseCurrentPopup();
             }
             ImGui::EndPopup();
@@ -349,6 +355,7 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
             if (ImGui::Button("Delete##File"))
             {
                 _deleteFile = &_fileTree->_currentDir->files[i];
+                _showDeleteMessage = true;
                 ImGui::CloseCurrentPopup();
             }
             ImGui::EndPopup();
@@ -518,6 +525,30 @@ void ImWindowProject::PanelCreateScript()
         }
            
 
+        ImGui::EndPopup();
+    }
+}
+
+void ImWindowProject::DrawDeleteMessage()
+{
+    ImGui::OpenPopup("Delete file");
+    if (ImGui::BeginPopupModal("Delete file", NULL, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize))
+    {
+        ImGui::Text("WARNING: This action cannot be undone!");
+        ImGui::Text("Are you sure you want to delete this file? Any reference to it on the current scene will be destroyed.");
+
+        if (ImGui::Button("Close"))
+        {
+            _deleteFile = nullptr;
+            _showDeleteMessage = false;
+        }
+        ImGui::SameLine();
+        
+        if (ImGui::Button("Delete"))
+        {
+            _deleteFileAccepted = true;
+            _showDeleteMessage = false;
+        }
         ImGui::EndPopup();
     }
 }
