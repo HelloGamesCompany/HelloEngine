@@ -42,6 +42,10 @@ public:
 
 	void Serialization(json& j) override;
 	void DeSerialization(json& j) override;
+
+	uint GetResourceUID();
+	void DestroyedResource();
+
 private:
 	ResourceMesh* _resource = nullptr;
 	int64_t _meshID = -1;

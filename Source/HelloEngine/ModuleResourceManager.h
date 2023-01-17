@@ -20,6 +20,10 @@ public:
 		if (referenceCount == 0)
 			UnLoad();
 	}
+
+	/// To be called when the Asset corresponding this Resource gets deleted.
+	virtual void Destroy() {}
+
 protected:
 	virtual void UnLoad() {}
 
@@ -50,6 +54,9 @@ private:
 	}
 
 public:
+	void Destroy() override;
+
+public:
 	std::string name = "";
 	uint OpenGLID = 0;
 	int width = 0;
@@ -69,6 +76,9 @@ public:
 	ModelNode modelInfo;
 
 	std::vector<ResourceMesh*> modelMeshes;
+
+public:
+	void Destroy() override;
 
 private:
 	void CreateResourceMeshesRecursive(ModelNode& node);
@@ -107,6 +117,9 @@ public:
 	void CreateBuffers();
 	void CalculateNormalsAndAABB();
 
+public:
+	void Destroy() override;
+
 	MeshInfo meshInfo;
 	uint modelUID = 0;
 	uint indexInsideModel = 0;
@@ -129,6 +142,8 @@ class ResourceScript : public Resource
 {
 public:
 	ResourceScript() {};
+
+	void Destroy() override;
 
 	std::string className = "";
 };

@@ -21,6 +21,9 @@ void InstanceRenderer::SetMeshInformation(ResourceMesh* resource)
     if (initialized) 
         LOG("Tried to call RenderManager::SetMeshInformation more than once in a single Render Manager instance.");
     
+    if (resource == nullptr)
+        return;
+
     // Set this RenderManager Mesh information.
     totalVertices = &resource->meshInfo.vertices;
     totalIndices = &resource->meshInfo.indices;
@@ -38,7 +41,10 @@ void InstanceRenderer::Draw()
     if (meshes.empty())
     {
         LOG("A Render Manager is being updated without any meshes!");
-        Application::Instance()->renderer3D->renderManager.DestroyRenderManager(resource->UID);
+        if (resource != nullptr)
+            Application::Instance()->renderer3D->renderManager.DestroyRenderManager(resource->UID);
+        else
+            Application::Instance()->renderer3D->renderManager.DestroyRenderManager(deletedResourceUID);
         return;
     }
 

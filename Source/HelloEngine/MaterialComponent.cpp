@@ -113,6 +113,18 @@ void MaterialComponent::UpdateMaterial()
 	GetMesh().textureID = textureID;
 }
 
+uint MaterialComponent::GetResourceUID()
+{
+	if (currentResource != nullptr)
+		return currentResource->UID;
+	return 0;
+}
+
+void MaterialComponent::DestroyedResource()
+{
+	ChangeTexture(nullptr);
+}
+
 void MaterialComponent::OnEditor()
 {
 	bool created = true;

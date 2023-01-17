@@ -31,6 +31,9 @@ public:
 	void AddDragBoxTransform(const char* name, API::API_Transform* value) override;
 	void AddDragBoxMeshRenderer(const char* name, API::API_MeshRenderer* value) override;
 
+	uint GetResourceUID();
+	void DestroyedResource();
+
 private:
 	void ImGuiDragScript();
 	void DestroyInspectorFields();

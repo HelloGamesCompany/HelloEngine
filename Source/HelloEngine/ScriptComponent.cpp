@@ -190,6 +190,22 @@ void ScriptComponent::AddDragBoxMeshRenderer(const char* name, API::API_MeshRend
 	inspectorFields.push_back(dragBoxField);
 }
 
+uint ScriptComponent::GetResourceUID()
+{
+	if (scriptResource != nullptr)
+		return scriptResource->UID;
+	return 0;
+}
+
+void ScriptComponent::DestroyedResource()
+{
+	if (scriptResource != nullptr)
+	{
+		LayerGame::S_DestroyBehaviorScript(this);
+		scriptResource = nullptr;
+	}
+}
+
 void ScriptComponent::ImGuiDragScript()
 {
 	if (ImGui::BeginDragDropTarget())

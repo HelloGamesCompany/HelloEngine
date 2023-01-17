@@ -377,3 +377,15 @@ void MeshRenderComponent::DeSerialization(json& j)
 		Disable();
 		
 }
+
+uint MeshRenderComponent::GetResourceUID()
+{
+	if (this->_resource != nullptr)
+		return _resource->UID;
+	return 0;
+}
+
+void MeshRenderComponent::DestroyedResource()
+{
+	CreateMesh(0);
+}

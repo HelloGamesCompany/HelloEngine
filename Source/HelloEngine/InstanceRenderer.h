@@ -32,6 +32,7 @@ public:
 public:
 	bool initialized = false;
 	ResourceMesh* resource = nullptr;
+	uint deletedResourceUID = 0;
 private:
 	void CreateBuffers();
 	void CreateBasicBuffers(); // Creates buffers for individual drawing.

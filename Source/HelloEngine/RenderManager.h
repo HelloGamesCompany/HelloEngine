@@ -88,6 +88,7 @@ private:
 	uint cylinderUID = 0;
 
 	friend class MeshRenderComponent;
+	friend class ResourceMesh;
 	friend class Mesh;
 };
 

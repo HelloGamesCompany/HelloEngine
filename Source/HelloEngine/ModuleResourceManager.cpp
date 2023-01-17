@@ -11,10 +11,14 @@
 #include "FileTree.hpp"
 #include "ModuleCommand.h"
 #include "ScriptComponent.h"
+#include "MaterialComponent.h"
 
 #include "GameObject.h"
 #include "ModuleLayers.h"
 #include "ModuleWindow.h"
+#include "RenderManager.h"
+#include "ModuleRenderer3D.h"
+#include "Component.h"
 
 // In create resource mesh method save my index and model UID.
 // Save ResourceModel UID and index.
@@ -419,6 +423,13 @@ void ModuleResourceManager::S_DeleteMetaFile(const std::string& file, bool onlyR
 	}
 	if (!onlyResources)
 		ModuleFiles::S_Delete(file);
+
+	if (resources.count(meta.UID) == 1)
+	{
+		resources[meta.UID]->Destroy();
+		RELEASE(resources[meta.UID]);
+		resources.erase(meta.UID);
+	}
 }
 
 void ModuleResourceManager::S_CreateResource(const MetaFile& metaFile)
@@ -518,6 +529,9 @@ Resource* ModuleResourceManager::S_LoadResource(const uint& UID)
 
 	Resource* ret = resources[UID];
 	
+	if (ret == nullptr)
+		return nullptr;
+
 	// Load resource
 	if (ret->referenceCount == 0)
 		S_LoadFileIntoResource(ret);
@@ -599,6 +613,17 @@ void ResourceModel::CreateResourceMeshes()
 	{
 		CreateResourceMeshesRecursive(modelInfo.children[i]);
 	}
+}
+
+void ResourceModel::Destroy()
+{
+	for (int i = 0; i < modelMeshes.size(); ++i)
+	{
+		modelMeshes[i]->Destroy();
+		ModuleResourceManager::resources.erase(modelMeshes[i]->UID);
+		RELEASE(modelMeshes[i]);
+	}
+	modelMeshes.clear();
 }
 
 void ResourceModel::CreateResourceMeshesRecursive(ModelNode& node)
@@ -743,4 +768,65 @@ void ResourceMesh::CalculateNormalsAndAABB()
 
 	glBindVertexArray(0);
 
+}
+
+void ResourceMesh::Destroy()
+{
+	for (auto& gameObject : ModuleLayers::gameObjects)
+	{
+		MeshRenderComponent* meshComponent = gameObject.second->GetComponent<MeshRenderComponent>();
+		if (meshComponent != nullptr)
+		{
+			if (meshComponent->GetResourceUID() == this->UID)
+				meshComponent->DestroyedResource();
+		}
+	}
+
+	RenderManager* renderManager = &Application::Instance()->renderer3D->renderManager;
+
+	for (auto& instanceRenderer : renderManager->_renderMap)
+	{
+		if (instanceRenderer.second.resource == nullptr)
+			continue;
+
+		if (instanceRenderer.second.resource->UID == this->UID)
+		{
+			instanceRenderer.second.resource = nullptr;
+			instanceRenderer.second.deletedResourceUID = this->UID;
+		}
+	}
+}
+
+void ResourceTexture::Destroy()
+{
+	for (auto& gameObject : ModuleLayers::gameObjects)
+	{
+		MaterialComponent* materialComponent = gameObject.second->GetComponent<MaterialComponent>();
+		if (materialComponent != nullptr)
+		{
+			if (materialComponent->GetResourceUID() == this->UID)
+				materialComponent->DestroyedResource();
+		}
+	}
+}
+
+void ResourceScript::Destroy()
+{
+	for (auto& gameObject : ModuleLayers::gameObjects)
+	{
+		std::vector<Component*> components = gameObject.second->GetComponents();
+
+		for (int i = 0; i < components.size(); ++i)
+		{
+			if (components[i]->GetType() == Component::Type::SCRIPT)
+			{
+				ScriptComponent* script = (ScriptComponent*)components[i];
+			
+				if (script->GetResourceUID() == this->UID)
+				{
+					script->DestroyedResource();
+				}
+			}
+		}
+	}
 }

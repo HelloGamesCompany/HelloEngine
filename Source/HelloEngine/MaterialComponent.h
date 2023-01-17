@@ -32,6 +32,9 @@ public:
 
 	// To use when creating a new mesh inside an alredy created mesh render component.
 	void UpdateMaterial();
+
+	uint GetResourceUID();
+	void DestroyedResource();
 private:
 	MeshRenderComponent* meshRenderer = nullptr;
 	ResourceTexture* currentResource = nullptr;
