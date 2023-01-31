@@ -149,6 +149,17 @@ std::string MeshImporter::ProcessMesh(aiMesh* mesh, const aiScene* scene, std::s
 		}
 	}
 
+	// TODO: This is only to prevent a crash when animation controllers get imported as a mesh (for some reason) and they have null indices that point to infinity. 
+	// Check that no indices are out of bounds (an index is pointing outside the bounds of the vertices array)
+	for (int i = 0; i < meshInfo.indices.size(); i++)
+	{
+		if (meshInfo.indices[i] >= meshInfo.vertices.size())
+		{
+			meshInfo.indices[i] = meshInfo.vertices.size() - 1;
+		}
+	}
+
+
 	meshInfo.hasTexture = 0; // TODO: Determine this with Material importer later on.
 
 	return meshInfo.SaveToBinaryFile(fileName);

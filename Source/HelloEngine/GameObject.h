@@ -11,7 +11,6 @@ public:
 	GameObject(GameObject* parent, std::string& name, std::string& tag, uint ID = 0);
 	~GameObject();
 
-	//TODO: Could do with an array of functions that creates a specific component
 	template <class T>
 	T* AddComponent()
 	{
