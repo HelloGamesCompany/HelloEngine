@@ -638,7 +638,7 @@ bool ModuleFiles::S_UpdateMetaData(const std::string& file, const std::string& r
 	std::string metaFile = file + ".helloMeta";
 
 	// Destroy resources attached to this meta file
-	ModuleResourceManager::S_DeleteMetaFile(metaFile, true);
+	ModuleResourceManager::S_DeleteMetaFile(metaFile, true, true);
 
 	char* data = nullptr;
 	ModuleFiles::S_Load(metaFile, &data);

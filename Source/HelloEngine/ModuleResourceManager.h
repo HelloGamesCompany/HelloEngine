@@ -185,7 +185,7 @@ public:
 	/// <summary>
 	/// Delete meta file and the resources attached to it. If you want to only destroy the resources, mark bool as true.
 	/// </summary>
-	static void S_DeleteMetaFile(const std::string& file, bool onlyResources = false);
+	static void S_DeleteMetaFile(const std::string& file, bool onlyResources = false, bool isReimporting = false);
 
 	static void S_CreateResource(const MetaFile& metaFile);
 

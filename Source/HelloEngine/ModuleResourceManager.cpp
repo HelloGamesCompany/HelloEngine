@@ -394,7 +394,7 @@ bool ModuleResourceManager::S_DeserializeScene(const std::string& filePath)
 	return true;
 }
 
-void ModuleResourceManager::S_DeleteMetaFile(const std::string& file, bool onlyResources)
+void ModuleResourceManager::S_DeleteMetaFile(const std::string& file, bool onlyResources, bool isReimporting)
 {
 	MetaFile meta = ModuleFiles::S_LoadMeta(file);
 
@@ -424,11 +424,14 @@ void ModuleResourceManager::S_DeleteMetaFile(const std::string& file, bool onlyR
 	if (!onlyResources)
 		ModuleFiles::S_Delete(file);
 
-	if (resources.count(meta.UID) == 1)
+	if (!isReimporting)
 	{
-		resources[meta.UID]->Destroy();
-		RELEASE(resources[meta.UID]);
-		resources.erase(meta.UID);
+		if (resources.count(meta.UID) == 1)
+		{
+			resources[meta.UID]->Destroy();
+			RELEASE(resources[meta.UID]);
+			resources.erase(meta.UID);
+		}
 	}
 }
 
