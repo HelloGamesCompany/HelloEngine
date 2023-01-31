@@ -481,10 +481,10 @@ void ModuleResourceManager::S_CreateResource(const MetaFile& metaFile)
 	resources[metaFile.UID]->UID = metaFile.UID;
 }
 
-void ModuleResourceManager::S_CreateResourceMesh(const std::string& filePath, uint UID, const std::string& name, bool load, ResourceModel* model)
+ResourceMesh* ModuleResourceManager::S_CreateResourceMesh(const std::string& filePath, uint UID, const std::string& name, bool load, ResourceModel* model)
 {
 	if (resources.count(UID) != 0)
-		return;
+		return nullptr;
 
 	ResourceMesh* newResource = new ResourceMesh();
 	if (load)
@@ -503,7 +503,7 @@ void ModuleResourceManager::S_CreateResourceMesh(const std::string& filePath, ui
 		newResource->indexInsideModel = model->modelMeshes.size();
 	}
 
-
+	return newResource;
 }
 
 void ModuleResourceManager::S_CreateResourceText(const std::string& filePath, uint UID, const std::string& name, bool load)

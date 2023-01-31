@@ -273,10 +273,11 @@ void MeshImporter::LoadMeshNode(std::string filePath, GameObject* parent)
 	std::string stringUID = ModuleFiles::S_GetFileName(filePath, false);
 	uint UID = std::stoul(stringUID);
 
-	if (!ModuleResourceManager::S_IsResourceCreated(UID))
-	{
-		ModuleResourceManager::S_CreateResourceMesh(filePath, UID, parent->name);
-	}
+	// Should not be necessary, because every resource gets created when imported or loaded a meta file.
+	//if (!ModuleResourceManager::S_IsResourceCreated(UID))
+	//{
+	//	ModuleResourceManager::S_CreateResourceMesh(filePath, UID, parent->name);
+	//}
 	
 	MeshRenderComponent* meshRender = parent->AddComponent<MeshRenderComponent>();
 	meshRender->CreateMesh(UID);

@@ -190,7 +190,7 @@ public:
 	static void S_CreateResource(const MetaFile& metaFile);
 
 	// Only for internal engine usage!
-	static void S_CreateResourceMesh(const std::string& filePath, uint UID, const std::string& name, bool load = true, ResourceModel* model = nullptr);
+	static ResourceMesh* S_CreateResourceMesh(const std::string& filePath, uint UID, const std::string& name, bool load = true, ResourceModel* model = nullptr);
 	
 	static void S_CreateResourceText(const std::string& filePath, uint UID, const std::string& name, bool load = true);
 

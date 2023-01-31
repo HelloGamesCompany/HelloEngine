@@ -28,12 +28,36 @@ void RenderManager::Init()
 	cylinderUID = 1158218481;
 	sphereUID = 2121897186;
 
-	// Create resources for 2121897186
-	ModuleResourceManager::S_CreateResourceMesh("Resources/Editor/Primitives/2677981019.hmesh", cubeUID, "Cube", false);
-	ModuleResourceManager::S_CreateResourceMesh("Resources/Editor/Primitives/2393626792.hmesh", planeUID, "Plane", false);
-	ModuleResourceManager::S_CreateResourceMesh("Resources/Editor/Primitives/1158218481.hmesh", cylinderUID, "Cylinder", false);
-	ModuleResourceManager::S_CreateResourceMesh("Resources/Editor/Primitives/2121897186.hmesh", sphereUID, "Sphere", false);
+	// Create resources for Primitives
+	ResourceMesh* cubeResource = ModuleResourceManager::S_CreateResourceMesh("Resources/Editor/Primitives/2677981019.hmesh", cubeUID, "Cube", false);
+	ResourceMesh* planeResource = ModuleResourceManager::S_CreateResourceMesh("Resources/Editor/Primitives/2393626792.hmesh", planeUID, "Plane", false);
+	ResourceMesh* cylinderResource = ModuleResourceManager::S_CreateResourceMesh("Resources/Editor/Primitives/1158218481.hmesh", cylinderUID, "Cylinder", false);
+	ResourceMesh* sphereResource = ModuleResourceManager::S_CreateResourceMesh("Resources/Editor/Primitives/2121897186.hmesh", sphereUID, "Sphere", false);
 
+	for (int i = 0; i < 4; ++i)
+	{
+		primitiveModels[i] = new ResourceModel();
+	}
+
+	// Create a Resource Model for every primitive. This is mandatory so Serialization can funciton properly.
+
+	ModuleResourceManager::resources[(uint)PrimitiveModelsUID::CUBE] = primitiveModels[(int)PrimitiveType::CUBE];
+	cubeResource->modelUID = (uint)PrimitiveModelsUID::CUBE;
+	primitiveModels[(int)PrimitiveType::CUBE]->modelMeshes.push_back(cubeResource);
+
+	ModuleResourceManager::resources[(uint)PrimitiveModelsUID::CYLINDER] = primitiveModels[(int)PrimitiveType::CYLINDER];
+	cylinderResource->modelUID = (uint)PrimitiveModelsUID::CYLINDER;
+	primitiveModels[(int)PrimitiveType::CYLINDER]->modelMeshes.push_back(cylinderResource);
+
+	ModuleResourceManager::resources[(uint)PrimitiveModelsUID::PLANE] = primitiveModels[(int)PrimitiveType::PLANE];
+	planeResource->modelUID = (uint)PrimitiveModelsUID::PLANE;
+	primitiveModels[(int)PrimitiveType::PLANE]->modelMeshes.push_back(planeResource);
+
+	ModuleResourceManager::resources[(uint)PrimitiveModelsUID::SPHERE] = primitiveModels[(int)PrimitiveType::SPHERE];
+	sphereResource->modelUID = (uint)PrimitiveModelsUID::SPHERE;
+	primitiveModels[(int)PrimitiveType::SPHERE]->modelMeshes.push_back(sphereResource);
+
+	// Init shaders
 	lineShader = new Shader("Resources/shaders/lines.vertex.shader", "Resources/shaders/lines.fragment.shader");
 	localLineShader = new Shader("Resources/shaders/localLines.vertex.shader", "Resources/shaders/localLines.fragment.shader");
 

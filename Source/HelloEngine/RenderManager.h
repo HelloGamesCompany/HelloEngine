@@ -13,6 +13,14 @@ enum class PrimitiveType
 	PLANE,
 };
 
+enum class PrimitiveModelsUID
+{
+	CUBE = 10,
+	SPHERE = 11,
+	CYLINDER = 12,
+	PLANE = 13
+};
+
 /// <summary>
 /// This class contains a colletion of RenderManagers. It dynamically creates and destroys Render Managers tu fullfill the task of having one per Unique mesh.
 /// Every Render Manager updates and draws their corresponding Models.
@@ -68,6 +76,9 @@ private:
 	Mesh* _selectedMesh = nullptr;
 
 	std::vector<uint> boxIndices; // Used to display bounding boxes.
+
+	// ModelResources for primitives
+	ResourceModel* primitiveModels[4];
 
 	// Shaders for drawing debug information
 	Shader* lineShader = nullptr;
