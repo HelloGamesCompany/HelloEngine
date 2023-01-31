@@ -34,7 +34,6 @@ ModuleLayers::~ModuleLayers()
 
 bool ModuleLayers::Start()
 {
-
     // Create empty API components.
     emptyAPITransform = new API::API_Transform();
 

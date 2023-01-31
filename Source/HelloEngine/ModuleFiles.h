@@ -138,7 +138,7 @@ public:
 
 	static std::string S_RemoveExtension(const std::string& file);
 
-	static std::string S_FilePath(const std::string& file);
+	static std::string S_GetFilePath(const std::string& file);
 
 	static ResourceType S_GetResourceType(const std::string& filename);
 
@@ -159,6 +159,8 @@ public:
 	static void S_CompileDLLProject();
 
 	static void S_SetAutomaticCompilation(bool isOn);
+
+	static void S_RemoveScriptFromDLLSolution(const std::string& fileName, bool isSource);
 
 private:
 

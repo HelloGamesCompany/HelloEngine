@@ -565,9 +565,9 @@ std::string ModuleFiles::S_RemoveExtension(const std::string& file)
 	return ret;
 }
 
-std::string ModuleFiles::S_FilePath(const std::string& file)
+std::string ModuleFiles::S_GetFilePath(const std::string& file)
 {
-	return "In process...";
+	return file.substr(0, file.find_last_of("\/")) + "/";
 }
 
 ResourceType ModuleFiles::S_GetResourceType(const std::string& filename)
@@ -776,6 +776,28 @@ void ModuleFiles::S_SetAutomaticCompilation(bool isOn)
 	_enabledAutomaticCompilation = isOn;
 }
 
+void ModuleFiles::S_RemoveScriptFromDLLSolution(const std::string& fileName, bool isSource)
+{
+	// Save in project
+	XMLNode project = Application::Instance()->xml->OpenXML(DLL_PROJ_PATH);
+	std::string itemName = isSource ? "ClCompile" : "ClInclude";
+
+	pugi::xml_node itemGroupProj = project.FindChildBreadth("ItemGroup", isSource ? 1 : 2).node;
+
+	for (const auto& child : itemGroupProj)
+	{
+		std::string path = child.attribute("Include").as_string();
+		std::string currentFileName = ModuleFiles::S_GetFileName(path, false);
+		if (fileName == currentFileName)
+		{
+			itemGroupProj.remove_child(child);
+			break;
+		}
+	}
+
+	project.Save(".vcxproj");
+}
+
 void ModuleFiles::DeleteDirectoryRecursive(std::string directory)
 {
 	if(directory[directory.size()-1] != '/')
@@ -851,17 +873,5 @@ void ModuleFiles::AddScriptToDLLSolution(const std::string& filePath, bool isSou
 	itemGroupProj.append_child(itemName.c_str()).append_attribute("Include").set_value(filePath.c_str());
 
 	project.Save(".vcxproj");
-
-	// Save in filters (doesnt seem to work but could be optional)
-	//XMLNode filters = Application::Instance()->xml->OpenXML(DLL_FILTERS_PATH);
-
-	//pugi::xml_node itemGroupFil = project.FindChildBreadth("ItemGroup", isSource ? 1 : 2).node;
-	
-	//pugi::xml_node newItem = itemGroupFil.append_child(itemName.c_str());
-	//newItem.append_attribute("Include").set_value(filePath.c_str());
-
-	//newItem.append_child("Filter").set_value("Scripts");
-
-	//filters.Save(".filters");
 }
 
