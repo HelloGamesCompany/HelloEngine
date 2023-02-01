@@ -391,6 +391,8 @@ bool ModuleResourceManager::S_DeserializeScene(const std::string& filePath)
 
 	ModuleLayers::rootGameObject = temp[0].first;
 
+	Application::Instance()->xml->GetConfigXML().FindChildBreadth("currentScene").node.attribute("value").set_value(filePath.c_str());
+
 	return true;
 }
 
