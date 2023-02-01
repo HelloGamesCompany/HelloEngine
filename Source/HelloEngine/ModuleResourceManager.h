@@ -24,6 +24,8 @@ public:
 	/// To be called when the Asset corresponding this Resource gets deleted.
 	virtual void Destroy() {}
 
+	virtual void ReImport(const std::string& filePath) {}
+
 protected:
 	virtual void UnLoad() {}
 
@@ -55,7 +57,7 @@ private:
 
 public:
 	void Destroy() override;
-
+	void ReImport(const std::string& filePath) override;
 public:
 	std::string name = "";
 	uint OpenGLID = 0;

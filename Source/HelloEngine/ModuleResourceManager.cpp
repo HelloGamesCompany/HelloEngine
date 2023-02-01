@@ -125,6 +125,7 @@ void ModuleResourceManager::S_ReImportFile(const std::string& filePath, Resource
 {
 	char* buffer = nullptr;
 	uint size = ModuleFiles::S_Load(filePath, &buffer);
+	MetaFile meta = ModuleFiles::S_LoadMeta(filePath + ".helloMeta");
 
 	// TODO: Restruct Inport parameters
 	switch (resourceType)
@@ -139,6 +140,7 @@ void ModuleResourceManager::S_ReImportFile(const std::string& filePath, Resource
 	{
 		std::string path = TextureImporter::ImportImage(ModuleFiles::S_GetFileName(filePath, false), buffer, size);
 		ModuleFiles::S_UpdateMetaData(filePath, path);
+		resources[meta.UID]->ReImport(path);
 	}
 	break;
 	case ResourceType::HSCRIPT:
@@ -855,6 +857,24 @@ void ResourceTexture::Destroy()
 			if (materialComponent->GetResourceUID() == this->UID)
 				materialComponent->DestroyedResource();
 		}
+	}
+}
+
+void ResourceTexture::ReImport(const std::string& filePath)
+{
+	UnLoad();
+
+	resourcePath = filePath;
+
+	// Only when reference count is > 0 ?
+	if (referenceCount > 0)
+	{
+		char* ddsBuffer = nullptr;
+		uint ddsSize = ModuleFiles::S_Load(filePath, &ddsBuffer);
+		// Load image
+		TextureImporter::Load(ddsBuffer, ddsSize, this);
+
+		RELEASE_ARRAY(ddsBuffer);
 	}
 }
 
