@@ -79,7 +79,7 @@ bool ModuleCommand::Undo()
 
 	if(!successful)
 	{
-		Console::S_Log("Wanrning: Do not undo anymore");
+		Console::S_Log("Wanrning: Do not undo anymore", LogType::WARNING);
 
 		return successful;
 	}

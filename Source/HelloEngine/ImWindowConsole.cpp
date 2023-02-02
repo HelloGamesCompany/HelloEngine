@@ -64,7 +64,7 @@ void ImWindowConsole::Update()
 
 			for (size_t i = 0; i < buffer.size(); ++i)
 			{
-				ImGui::Text(buffer[i].c_str());
+				ImGui::TextColored(textColors[(uint)buffer[i].type], buffer[i].message.c_str());
 			}
 		}
 		else // if is collapsing

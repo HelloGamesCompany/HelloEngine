@@ -2,7 +2,7 @@
 #include "ModuleFiles.h"
 #include "CycleArray.hpp"
 
-std::vector<std::string> Console::_buffers;
+std::vector<ConsoleMessage> Console::_buffers;
 std::map<std::string, uint> Console::_buffersMap;
 std::string Console::_logCountText = "";
 size_t Console::_logCount = 0;
@@ -21,9 +21,9 @@ void Console::S_Close()
     if (isClosed) return;
 }
 
-void Console::S_Log(const std::string text)
+void Console::S_Log(const std::string text, LogType type)
 {
-    _buffers.push_back("\nDebug.Log: " + text);
+    _buffers.emplace_back("\nConsole.Log: " + text, type);
 
     auto it = _buffersMap.find(text);
 
@@ -34,7 +34,7 @@ void Console::S_Log(const std::string text)
     _logCount++;
 }
 
-const std::vector<std::string>& Console::S_GetLog()
+const std::vector<ConsoleMessage>& Console::S_GetLog()
 {
     return _buffers;
 }
@@ -46,7 +46,7 @@ std::map<std::string, uint> Console::S_GetCollapseLog()
 
 std::string Console::S_GetLastLog()
 {
-    return _buffers.back();
+    return _buffers.back().message;
 }
 
 const char* Console::S_GetLogCounts()
@@ -74,7 +74,7 @@ void Console::S_SaveLog()
     // Read all context in the _buffers and put into buffer
     for (int i = 0; i < _buffers.size(); ++i)
     {
-        buffer += _buffers[i];
+        buffer += _buffers[i].message;
     }
     
     // Convert string buffer to char* buffer

@@ -13,6 +13,20 @@ namespace Htool
 
 using CArrayS = Htool::CycleArray<std::string>;
 
+enum class LogType
+{
+	INFO,
+	WARNING,
+	ERR
+};
+
+struct ConsoleMessage
+{
+	ConsoleMessage(std::string m, LogType t) : message(m), type(t) {}
+	std::string message;
+	LogType type;
+};
+
 namespace Engine
 {
 	class Console
@@ -23,9 +37,9 @@ namespace Engine
 
 		static void S_Close();
 
-		static void S_Log(const std::string text);
+		static void S_Log(const std::string text, LogType type = LogType::INFO);
 
-		static const std::vector<std::string>& S_GetLog();
+		static const std::vector<ConsoleMessage>& S_GetLog();
 
 		static std::map<std::string, uint> S_GetCollapseLog();
 
@@ -38,7 +52,7 @@ namespace Engine
 		static void S_SaveLog();
 
 	private:
-		static std::vector<std::string> _buffers;
+		static std::vector<ConsoleMessage> _buffers;
 
 		static std::map<std::string, uint> _buffersMap;
 

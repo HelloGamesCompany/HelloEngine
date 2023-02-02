@@ -73,6 +73,10 @@ bool ModuleLayers::Start()
             _layers[i]->Start();
     }
 
+    Console::S_Log("Error message test", LogType::ERR);
+    Console::S_Log("Warning message test", LogType::WARNING);
+
+
     return true;
 }
 
