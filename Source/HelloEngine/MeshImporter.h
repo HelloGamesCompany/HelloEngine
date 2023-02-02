@@ -32,7 +32,7 @@ class MeshImporter
 public:
 
 	// Returns path to the model custom file.
-	static std::string ImportModel(std::string path);
+	static std::string ImportModel(std::string path, uint UID = 0);
 
 	static GameObject* LoadModelIntoResource(ResourceModel* resource);
 

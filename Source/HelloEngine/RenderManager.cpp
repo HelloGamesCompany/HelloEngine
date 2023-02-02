@@ -150,12 +150,15 @@ void RenderManager::OnEditor()
 	ImGui::End();
 }
 
-InstanceRenderer* RenderManager::GetRenderManager(uint ID)
+InstanceRenderer* RenderManager::GetRenderManager(uint ID, bool create)
 {
 	// If there is no instance Renderer for this mesh resource
 	if (_renderMap.count(ID) == 0)
 	{
-		_renderMap[ID].SetMeshInformation((ResourceMesh*)ModuleResourceManager::resources[ID]);
+		if (create)
+			_renderMap[ID].SetMeshInformation((ResourceMesh*)ModuleResourceManager::resources[ID]);
+		else
+			return nullptr;
 	}
 
 	return &_renderMap[ID];
@@ -364,6 +367,11 @@ void RenderManager::DrawAABB(Mesh* mesh)
 	glDrawElements(GL_LINES, boxIndices.size(), GL_UNSIGNED_INT, 0);
 
 	glBindVertexArray(0);
+}
+
+void RenderManager::DestroyInstanceRenderers()
+{
+	_renderMap.clear();
 }
 
 void RenderManager::DrawTransparentMeshes()

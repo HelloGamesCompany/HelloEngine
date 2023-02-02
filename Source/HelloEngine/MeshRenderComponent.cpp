@@ -147,7 +147,7 @@ void MeshRenderComponent::DestroyMesh()
 	{
 	case MeshRenderType::INSTANCED:
 	{
-		InstanceRenderer* manager = Application::Instance()->renderer3D->renderManager.GetRenderManager(_meshID);
+		InstanceRenderer* manager = Application::Instance()->renderer3D->renderManager.GetRenderManager(_meshID, false);
 		if (manager != nullptr)
 			manager->GetMap().erase(_instanceID);
 	}
@@ -388,4 +388,14 @@ uint MeshRenderComponent::GetResourceUID()
 void MeshRenderComponent::DestroyedResource()
 {
 	CreateMesh(0);
+}
+
+void MeshRenderComponent::UnlinkResource()
+{
+	if (_resource != nullptr)
+	{
+		_resource->Dereference();
+		_resourceUID = _resource->UID;
+		_resource = nullptr;
+	}
 }

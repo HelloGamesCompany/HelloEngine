@@ -134,6 +134,10 @@ void ModuleResourceManager::S_ReImportFile(const std::string& filePath, Resource
 	{
 		std::string path = MeshImporter::ImportModel(filePath);
 		ModuleFiles::S_UpdateMetaData(filePath, path);
+		resources[meta.UID]->ReImport(path);
+		S_SerializeScene(ModuleLayers::rootGameObject);
+		std::string savePath = Application::Instance()->xml->GetConfigXML().FindChildBreadth("currentScene").node.attribute("value").as_string();
+		ModuleLayers::S_RequestLoadScene(savePath);
 	}
 	break;
 	case ResourceType::TEXTURE:
@@ -154,6 +158,8 @@ void ModuleResourceManager::S_ReImportFile(const std::string& filePath, Resource
 	}
 
 	RELEASE_ARRAY(buffer);
+
+	//S_SerializeScene(ModuleLayers::rootGameObject); // Serialize scene, so the reimported changes get applied next time the scene is loaded
 }
 
 void ModuleResourceManager::S_LoadFileIntoResource(Resource* resource)
@@ -328,6 +334,8 @@ bool ModuleResourceManager::S_DeserializeScene(const std::string& filePath)
 	// Create New GameObject for root GameObject
 	if(ModuleLayers::rootGameObject)
 		ModuleLayers::rootGameObject->Destroy();
+
+	Application::Instance()->renderer3D->renderManager.DestroyInstanceRenderers();
 
 	std::vector<std::pair<GameObject*, uint>> temp;
 
@@ -665,15 +673,75 @@ void ResourceModel::CreateResourceMeshes()
 	}
 }
 
+void ResourceModel::UpdateResourceMeshes()
+{
+	// Iterate ModelInfo to Reload all Mesh information, but load it into the corresponding already created Resource, if it exists.
+	if (modelInfo.meshPath != "N")
+	{
+		std::string stringUID = ModuleFiles::S_GetFileName(modelInfo.meshPath, false);
+		uint meshUID = std::stoul(stringUID);
+		
+		// If this mesh is inside the old mesh array dimensions, update old mesh with new mesh information
+		if (currentLoadedMesh < modelMeshes.size())
+		{
+			ResourceMesh* resource = modelMeshes[currentLoadedMesh];
+
+			resource->UnLoad();
+			ModuleResourceManager::resources.erase(resource->UID);
+			//resource->referenceCount = 0;
+			//if (resource->referenceCount > 0)
+			//{
+			//	resource->meshInfo.LoadFromBinaryFile(modelInfo.meshPath);
+			//	resource->CreateBuffers();
+			//	resource->CalculateNormalsAndAABB();
+			//}
+			resource->debugName = modelInfo.name + ".hmesh";
+			resource->UID = meshUID;
+			resource->resourcePath = modelInfo.meshPath;
+			resource->modelUID = UID;
+			ModuleResourceManager::resources[resource->UID] = resource;
+		}
+		else // If not, create a new Mesh Resource
+		{
+			ModuleResourceManager::S_CreateResourceMesh(modelInfo.meshPath, meshUID, modelInfo.name, false, this);
+			modelMeshes.push_back((ResourceMesh*)ModuleResourceManager::resources[meshUID]);
+		}
+		currentLoadedMesh++;
+	}
+
+	for (int i = 0; i < modelInfo.children.size(); i++)
+	{
+		UpdateResourceMeshesRecursive(modelInfo.children[i]);
+	}
+}
+
 void ResourceModel::Destroy()
 {
 	for (int i = 0; i < modelMeshes.size(); ++i)
+	{
+		if (modelMeshes[i] != nullptr)
+		{
+			modelMeshes[i]->Destroy();
+			ModuleResourceManager::resources.erase(modelMeshes[i]->UID);
+			RELEASE(modelMeshes[i]);
+		}
+	}
+	modelMeshes.clear();
+}
+
+void ResourceModel::ReImport(const std::string& filePath)
+{
+	resourcePath = filePath;
+	modelInfo.Reset();
+	modelInfo.ReadFromJSON(filePath);
+	currentLoadedMesh = 0;
+	UpdateResourceMeshes();
+	for (int i = currentLoadedMesh; i < modelMeshes.size(); ++i)
 	{
 		modelMeshes[i]->Destroy();
 		ModuleResourceManager::resources.erase(modelMeshes[i]->UID);
 		RELEASE(modelMeshes[i]);
 	}
-	modelMeshes.clear();
 }
 
 void ResourceModel::CreateResourceMeshesRecursive(ModelNode& node)
@@ -693,6 +761,48 @@ void ResourceModel::CreateResourceMeshesRecursive(ModelNode& node)
 	for (int i = 0; i < node.children.size(); i++)
 	{
 		CreateResourceMeshesRecursive(node.children[i]);
+	}
+}
+
+void ResourceModel::UpdateResourceMeshesRecursive(ModelNode& node)
+{
+	// Iterate model. Create resource mesh per mesh inside model.
+	if (node.meshPath != "N")
+	{
+		std::string stringUID = ModuleFiles::S_GetFileName(node.meshPath, false);
+		uint meshUID = std::stoul(stringUID);
+
+		// If this mesh is inside the old mesh array dimensions, update old mesh with new mesh information
+		if (currentLoadedMesh < modelMeshes.size())
+		{
+			ResourceMesh* resource = modelMeshes[currentLoadedMesh];
+			//resource->referenceCount = 0;
+			ModuleResourceManager::resources.erase(resource->UID);
+			resource->UnLoad();
+
+			/*if (resource->referenceCount > 0)
+			{
+				resource->meshInfo.LoadFromBinaryFile(node.meshPath);
+				resource->CreateBuffers();
+				resource->CalculateNormalsAndAABB();
+			}*/
+			resource->debugName = node.name + ".hmesh";
+			resource->UID = meshUID;
+			resource->resourcePath = node.meshPath;
+			resource->modelUID = UID;
+			ModuleResourceManager::resources[resource->UID] = resource;
+		}
+		else // If not, create a new Mesh Resource
+		{
+			ModuleResourceManager::S_CreateResourceMesh(node.meshPath, meshUID, node.name, false, this);
+			modelMeshes.push_back((ResourceMesh*)ModuleResourceManager::resources[meshUID]);
+		}
+		currentLoadedMesh++;
+	}
+
+	for (int i = 0; i < node.children.size(); i++)
+	{
+		UpdateResourceMeshesRecursive(node.children[i]);
 	}
 }
 
@@ -845,6 +955,10 @@ void ResourceMesh::Destroy()
 			instanceRenderer.second.deletedResourceUID = this->UID;
 		}
 	}
+}
+
+void ResourceMesh::ReImport(const std::string& filePath)
+{
 }
 
 void ResourceTexture::Destroy()

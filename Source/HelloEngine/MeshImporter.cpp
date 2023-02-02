@@ -12,7 +12,7 @@ Assimp::Importer MeshImporter::importer;
 GameObject* MeshImporter::returnGameObject = nullptr;
 std::string MeshImporter::currentPath = "";
 
-std::string MeshImporter::ImportModel(std::string path)
+std::string MeshImporter::ImportModel(std::string path, uint UID)
 {
 	// Load AiScene
 	const aiScene* scene = GetAiScene(path);
@@ -24,7 +24,8 @@ std::string MeshImporter::ImportModel(std::string path)
 		return "Null";
 	}
 
-	std::string modelFilePath = "Resources/Models/" + std::to_string(HelloUUID::GenerateUUID()) + ".hmodel";
+	std::string stringUID = UID == 0 ? std::to_string(HelloUUID::GenerateUUID()) : std::to_string(UID);
+	std::string modelFilePath = "Resources/Models/" + stringUID + ".hmodel";
 	currentPath = path;
 
 	ModelNode modelRootNode;
@@ -273,11 +274,10 @@ void MeshImporter::LoadMeshNode(std::string filePath, GameObject* parent)
 	std::string stringUID = ModuleFiles::S_GetFileName(filePath, false);
 	uint UID = std::stoul(stringUID);
 
-	// Should not be necessary, because every resource gets created when imported or loaded a meta file.
-	//if (!ModuleResourceManager::S_IsResourceCreated(UID))
-	//{
-	//	ModuleResourceManager::S_CreateResourceMesh(filePath, UID, parent->name);
-	//}
+	if (!ModuleResourceManager::S_IsResourceCreated(UID))
+	{
+		ModuleResourceManager::S_CreateResourceMesh(filePath, UID, parent->name);
+	}
 	
 	MeshRenderComponent* meshRender = parent->AddComponent<MeshRenderComponent>();
 	meshRender->CreateMesh(UID);

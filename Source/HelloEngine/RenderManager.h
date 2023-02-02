@@ -35,7 +35,7 @@ public:
 
 	void OnEditor();
 
-	InstanceRenderer* GetRenderManager(uint ID);
+	InstanceRenderer* GetRenderManager(uint ID, bool create = true);
 	uint GetMapSize() { return _renderMap.size(); };
 
 	void Draw();
@@ -57,6 +57,8 @@ public:
 	void DrawFaceNormals(Mesh* mesh);
 	void DrawOBB(Mesh* mesh);
 	void DrawAABB(Mesh* mesh);
+
+	void DestroyInstanceRenderers();
 
 private:
 	void DrawTransparentMeshes();

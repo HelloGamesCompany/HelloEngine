@@ -46,6 +46,8 @@ public:
 	uint GetResourceUID();
 	void DestroyedResource();
 
+	void UnlinkResource();
+
 private:
 	ResourceMesh* _resource = nullptr;
 	int64_t _meshID = -1;

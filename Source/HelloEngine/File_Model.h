@@ -21,6 +21,19 @@ struct ModelNode
 	std::vector<ModelNode> children;
 	uint UID = 0;
 
+	void Reset()
+	{
+		UID = 0;
+		children.clear();
+		childrenNum = 0;
+		position = float3::zero;
+		rotation = float3::zero;
+		scale = { 1,1,1 };
+		resourceMaterialUID = 0;
+		name = "Node";
+		meshPath = "N";
+	}
+
 	void WriteToJSON(std::string filename = "")
 	{
 		json file;
@@ -36,6 +49,10 @@ struct ModelNode
 	{
 		char* data = nullptr;
 		ModuleFiles::S_Load(filePath, &data);
+
+		if (data == nullptr)
+			return;
+
 		json file = json::parse(data);
 
 		std::vector<std::string> childrenUIDs = file["0"]["children"];

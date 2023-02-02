@@ -241,6 +241,15 @@ void GameObject::Destroy()
 		_children[0]->Destroy();
 	}
 
+	// A bit of hardcoding. This is necessary so the reimport system form models (changing resources, saving and loading) works properly.
+	// Basically, we need to nlink the meshRender resource from the component before destroying it, because when the components is deleted, the new scene has already been loaded,
+	// and that produces the old component to unlink from the new resource, except from the old one.
+	// TODO: Could fix this by searching for references at the moment of reimport. 
+	MeshRenderComponent* meshRender = GetComponent<MeshRenderComponent>();
+
+	if (meshRender != nullptr)
+		meshRender->UnlinkResource();
+
 	_children.clear();
 }
 

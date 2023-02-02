@@ -74,6 +74,7 @@ public:
 	~ResourceModel() {};
 
 	void CreateResourceMeshes();
+	void UpdateResourceMeshes();
 
 	ModelNode modelInfo;
 
@@ -81,9 +82,14 @@ public:
 
 public:
 	void Destroy() override;
+	void ReImport(const std::string& filePath) override;
 
 private:
 	void CreateResourceMeshesRecursive(ModelNode& node);
+	void UpdateResourceMeshesRecursive(ModelNode& node);
+
+	uint currentLoadedMesh = 0;
+
 };
 
 class ResourceMesh : public Resource
@@ -121,6 +127,7 @@ public:
 
 public:
 	void Destroy() override;
+	void ReImport(const std::string& filePath) override;
 
 	MeshInfo meshInfo;
 	uint modelUID = 0;
