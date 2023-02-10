@@ -73,6 +73,9 @@ void LayerGame::PreUpdate()
 			frameWaitHotReload = 100;
 		}
 	}
+#ifndef STANDALONE
+	_isPlaying = true; // Temporal code. Only to make the Runtime version to play automatically on start.
+#endif // !STANDALONE
 
 	if ((!_isPlaying || _paused) && !_oneFrame)
 	{
