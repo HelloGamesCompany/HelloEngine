@@ -134,17 +134,23 @@ void ModuleResourceManager::S_ReImportFile(const std::string& filePath, Resource
 	{
 		std::string path = MeshImporter::ImportModel(filePath);
 		ModuleFiles::S_UpdateMetaData(filePath, path);
-		resources[meta.UID]->ReImport(path);
-		S_SerializeScene(ModuleLayers::rootGameObject);
-		std::string savePath = Application::Instance()->xml->GetConfigXML().FindChildBreadth("currentScene").node.attribute("value").as_string();
-		ModuleLayers::S_RequestLoadScene(savePath);
+		if (resources[meta.UID] != nullptr)
+		{
+			resources[meta.UID]->ReImport(path);
+			S_SerializeScene(ModuleLayers::rootGameObject);
+			std::string savePath = Application::Instance()->xml->GetConfigXML().FindChildBreadth("currentScene").node.attribute("value").as_string();
+			ModuleLayers::S_RequestLoadScene(savePath);
+		}
 	}
 	break;
 	case ResourceType::TEXTURE:
 	{
 		std::string path = TextureImporter::ImportImage(ModuleFiles::S_GetFileName(filePath, false), buffer, size);
 		ModuleFiles::S_UpdateMetaData(filePath, path);
-		resources[meta.UID]->ReImport(path);
+		if (resources[meta.UID] != nullptr)
+		{
+			resources[meta.UID]->ReImport(path);
+		}
 	}
 	break;
 	case ResourceType::HSCRIPT:
@@ -331,11 +337,13 @@ bool ModuleResourceManager::S_DeserializeScene(const std::string& filePath)
 	json sceneFile = json::parse(buffer);
 	RELEASE(buffer);
 
+	Application::Instance()->renderer3D->renderManager.DestroyInstanceRenderers(); // To prevent duplicated instance renderers.
+	ModuleLayers::DestroyMeshes(); // When all meshes are destroyed, the Instance Renderers get destroyed as well. In this case, we want this to happen BEFORE we Deserialize the scene
+								   // If we let it happen afterwards, the old meshes will destroy the new Instance Renderers.
+
 	// Create New GameObject for root GameObject
 	if(ModuleLayers::rootGameObject)
 		ModuleLayers::rootGameObject->Destroy();
-
-	Application::Instance()->renderer3D->renderManager.DestroyInstanceRenderers();
 
 	std::vector<std::pair<GameObject*, uint>> temp;
 

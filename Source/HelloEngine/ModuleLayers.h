@@ -44,6 +44,9 @@ public:
 
 	static GameObject* S_GetGameObject(uint ID);
 
+	/// Iterate over every Game object and destroy their MeshRenderComponent mesh (the object, not the component itself).
+	static void DestroyMeshes();
+
 public:
 	static LayerGame* game;
 
