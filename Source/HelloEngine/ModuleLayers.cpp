@@ -204,3 +204,13 @@ GameObject* ModuleLayers::S_GetGameObject(uint ID)
     }
     return nullptr;
 }
+
+void ModuleLayers::DestroyMeshes()
+{
+    for (auto& gameObject : gameObjects)
+    {
+        MeshRenderComponent* mesh = gameObject.second->GetComponent<MeshRenderComponent>();
+        if (mesh != nullptr)
+            mesh->DestroyMesh();  
+    }
+}
