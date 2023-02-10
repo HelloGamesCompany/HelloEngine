@@ -92,9 +92,24 @@ UpdateStatus ModuleRenderer3D::PreUpdate()
 	return UpdateStatus::UPDATE_CONTINUE;
 }
 
+void ModuleRenderer3D::DrawGame()
+{
+	if (_cameras->activeGameCamera != nullptr && _cameras->activeGameCamera->active)
+	{
+		glBindFramebuffer(GL_FRAMEBUFFER, 0); // Bind to default buffer because a camera buffer is not necessary with only one display.
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+		glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+
+		_cameras->currentDrawingCamera = _cameras->activeGameCamera;
+
+		renderManager.Draw();
+	}
+}
+
 // PostUpdate present buffer to screen
 UpdateStatus ModuleRenderer3D::PostUpdate()
 {
+#ifdef STANDALONE
 	if (_cameras->sceneCamera->active)
 	{
 		_cameras->sceneCamera->frameBuffer.Bind();
@@ -122,6 +137,9 @@ UpdateStatus ModuleRenderer3D::PostUpdate()
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
 	ModuleLayers::S_DrawEditor();
+#else
+	DrawGame();
+#endif // STANDALONE
 
 	SDL_GL_SwapWindow(ModuleWindow::window);
 
@@ -243,3 +261,5 @@ GameObject* ModuleRenderer3D::RaycastFromMousePosition(LineSegment& ray, CameraO
 	
 	return nullptr;
 }
+
+

@@ -18,6 +18,7 @@ ScriptComponent::~ScriptComponent()
 	DestroyInspectorFields();
 }
 
+#ifdef STANDALONE
 void ScriptComponent::OnEditor()
 {
 	bool created = true;
@@ -25,7 +26,7 @@ void ScriptComponent::OnEditor()
 	{
 		if (scriptResource == nullptr && addedScript == "None")
 		{
-			ImGui::TextColored(ImVec4(1,1,0,1), "Drag a .cpp or an .h file with a correct HelloBehavior children class.");
+			ImGui::TextColored(ImVec4(1, 1, 0, 1), "Drag a .cpp or an .h file with a correct HelloBehavior children class.");
 			ImGuiDragScript();
 		}
 		else
@@ -47,6 +48,7 @@ void ScriptComponent::OnEditor()
 	if (!created)
 		_gameObject->DestroyComponent(this);
 }
+#endif // STANDALONE
 
 void ScriptComponent::OnEnable()
 {
@@ -283,6 +285,7 @@ void ScriptComponent::LoadInspectorFields(json* j)
 	}
 }
 
+#ifdef STANDALONE
 void ScriptComponent::MarkAsDead()
 {
 	SaveInspectorFields();
@@ -297,3 +300,5 @@ void ScriptComponent::MarkAsAlive()
 	LayerGame::S_AddScriptComponent(this);
 	LoadInspectorFields();
 }
+#endif // STANDALONE
+

@@ -76,9 +76,10 @@ public:
 
 	uint GetID() { return _ID; }
 
-	void OnEditor();
+
 
 #ifdef STANDALONE
+	void OnEditor();
 	bool MarkAsDead();
 
 	bool MarkAsAlive();
@@ -107,9 +108,7 @@ public:
 	std::string tag = "";
 	TransformComponent* transform = nullptr;
 
-#ifdef STANDALONE
 	bool isSelected = false;
-#endif
 
 private:
 	std::vector<Component*> _components;
@@ -125,18 +124,15 @@ private:
 
 	// On Editor variables
 	std::string _comboValues[COMPONENT_NUM] = { "Mesh Renderer", "Material", "Camera", "Script" };
-
-	friend class TransformComponent;
-
-#ifdef STANDALONE
 	bool _isPendingToDelete = false;
-
+#ifdef STANDALONE
 	std::vector<int> _childrenDeletedIndex;
-
-	friend class ImWindowHierarchy;
-	friend class ImWindowInspector;
-	friend class CommandSetParentGameObject;
 #endif // STANDALONE
+	friend class TransformComponent;
 	friend class ModuleRenderer3D;
 	friend class ModuleResourceManager;
+	friend class CommandSetParentGameObject;
+	friend class ImWindowHierarchy;
+	friend class ImWindowInspector;
+
 };

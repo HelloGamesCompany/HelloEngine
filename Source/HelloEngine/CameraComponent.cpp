@@ -24,6 +24,7 @@ void CameraComponent::OnTransformCallback(float4x4 worldMatrix)
 	cameraObject->cameraFrustum.up = _gameObject->transform->GetUp();
 }
 
+#ifdef STANDALONE
 void CameraComponent::OnEditor()
 {
 	bool created = true;
@@ -59,7 +60,7 @@ void CameraComponent::OnEditor()
 		//else
 		PerspectiveEditorOptions();
 
-		
+
 		ImGui::TextColored(cameraObject->currentlyDisplaying ? ImVec4(0, 1, 0, 1) : ImVec4(1, 0, 0, 1), cameraObject->currentlyDisplaying ? "Currently displaying" : "Not currently displaying");
 		ImGui::SameLine();
 		if (ImGui::Button("Set as drawing game camera."))
@@ -70,6 +71,7 @@ void CameraComponent::OnEditor()
 	if (!created)
 		_gameObject->DestroyComponent(this);
 }
+#endif // STANDALONE
 
 void CameraComponent::PerspectiveEditorOptions()
 {

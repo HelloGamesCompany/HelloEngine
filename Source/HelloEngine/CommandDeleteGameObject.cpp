@@ -5,7 +5,11 @@
 CommandDeleteGameObject::CommandDeleteGameObject(GameObject* gameObject)
 {
 	_gameObject = gameObject;
+#if STANDALONE
 	_gameObject->MarkAsDead();
+#endif // STANDALONE
+
+
 	_isGameObjectAlive = false;
 }
 
@@ -22,11 +26,15 @@ CommandDeleteGameObject::~CommandDeleteGameObject()
 void CommandDeleteGameObject::Undo()
 {
 	_isGameObjectAlive = true;
+#if STANDALONE
 	_gameObject->MarkAsAlive();
+#endif // STANDALONE
 }
 
 void CommandDeleteGameObject::Redo()
 {
 	_isGameObjectAlive = false;
+#if STANDALONE
 	_gameObject->MarkAsDead();
+#endif // STANDALONE
 }

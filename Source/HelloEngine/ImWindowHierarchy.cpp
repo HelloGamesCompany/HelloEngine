@@ -206,11 +206,7 @@ void ImWindowHierarchy::DrawOptions()
     {
         if (ImGui::Selectable("Delete GameObject##"))
         {
-#ifdef STANDALONE           
              ModuleCommand::S_DeleteGameObject(LayerEditor::selectedGameObject);
-#else
-            _layerEditor->selectedGameObject->Destroy()
-#endif // STANDALONE
         }
     }
     

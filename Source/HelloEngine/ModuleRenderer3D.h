@@ -25,6 +25,8 @@ public:
 	void ToggleOpenGLWireframe(bool enable);
 
 	GameObject* RaycastFromMousePosition(LineSegment& ray, CameraObject* camera);
+
+	void DrawGame();
 public:
 	RenderManager renderManager;
 	SDL_GLContext context;

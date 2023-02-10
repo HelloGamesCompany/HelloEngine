@@ -114,7 +114,7 @@ void GameObject::SetActive(bool active)
 	}
 
 }
-
+#ifdef STANDALONE
 void GameObject::OnEditor()
 {
 	if (_isPendingToDelete) return;
@@ -160,7 +160,7 @@ void GameObject::OnEditor()
 	ImGui::TextColored(ImVec4(1, 1, 1, 0.5f), std::to_string(_ID).c_str());
 }
 
-#ifdef STANDALONE
+
 bool GameObject::MarkAsDead()
 {
 	if(!_isPendingToDelete)
