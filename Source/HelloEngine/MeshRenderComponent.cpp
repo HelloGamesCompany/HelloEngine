@@ -182,6 +182,25 @@ std::vector<uint>& MeshRenderComponent::GetMeshIndices()
 	}
 }
 
+void MeshRenderComponent::ChangeMeshRenderType(MeshRenderType type)
+{
+	if (renderType == type)
+		return;
+
+	if (_resource == nullptr) 
+		return;
+
+	DestroyMesh();
+
+	CreateMesh(_resource->UID, type);
+
+	// Update mesh transfrom 
+	Mesh& mesh = GetMesh();
+	mesh.component = this;
+	mesh.modelMatrix = _gameObject->transform->GetGlobalMatrix(true).Transposed(); // Force dirty flag update.
+	mesh.CalculateBoundingBoxes();
+}
+#ifdef STANDALONE
 void MeshRenderComponent::OnEditor()
 {
 	bool created = true;
@@ -218,7 +237,7 @@ void MeshRenderComponent::OnEditor()
 		if (ImGui::Checkbox("Active##Mesh", &auxiliaryBool))
 			auxiliaryBool ? Enable() : Disable();
 
-		ImGui::TextWrapped("Mesh vertices: "); ImGui::SameLine(); 
+		ImGui::TextWrapped("Mesh vertices: "); ImGui::SameLine();
 		ImGui::TextColored(ImVec4(255, 255, 0, 255), std::to_string(_vertexNum).c_str());
 
 		ImGui::TextWrapped("Mesh indices: "); ImGui::SameLine();
@@ -268,25 +287,6 @@ void MeshRenderComponent::OnEditor()
 		this->_gameObject->DestroyComponent(this);
 }
 
-void MeshRenderComponent::ChangeMeshRenderType(MeshRenderType type)
-{
-	if (renderType == type)
-		return;
-
-	if (_resource == nullptr) 
-		return;
-
-	DestroyMesh();
-
-	CreateMesh(_resource->UID, type);
-
-	// Update mesh transfrom 
-	Mesh& mesh = GetMesh();
-	mesh.component = this;
-	mesh.modelMatrix = _gameObject->transform->GetGlobalMatrix(true).Transposed(); // Force dirty flag update.
-	mesh.CalculateBoundingBoxes();
-}
-
 void MeshRenderComponent::MarkAsDead()
 {
 	if (_meshID != -1)
@@ -306,6 +306,8 @@ void MeshRenderComponent::MarkAsAlive()
 {
 	CreateMesh(_resourceUID, renderType);
 }
+
+#endif
 
 void MeshRenderComponent::Serialization(json& j)
 {

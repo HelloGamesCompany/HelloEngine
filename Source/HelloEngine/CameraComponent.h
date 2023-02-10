@@ -10,7 +10,10 @@ public:
 
 	void OnTransformCallback(float4x4 worldMatrix) override;
 
+#ifdef STANDALONE
 	void OnEditor() override;
+#endif // STANDALONE
+
 	void PerspectiveEditorOptions();
 	void OrthographicEditorOptions();
 

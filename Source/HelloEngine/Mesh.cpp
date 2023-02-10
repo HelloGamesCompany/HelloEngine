@@ -120,12 +120,13 @@ void Mesh::DrawAsSelected()
 	glStencilMask(0x00);
 	glDisable(GL_DEPTH_TEST);
 
+#ifdef STANDALONE
 	stencilShader.Bind();
 	stencilShader.SetFloat("outlineSize", 0.04f);
 	stencilShader.SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
 	stencilShader.SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
 	stencilShader.SetMatFloat4v("model", &modelMatrix.v[0][0]);
-
+#endif
 	// Draw model bigger size using the stencilShader
 	if (isIndependent)
 		Draw(false);

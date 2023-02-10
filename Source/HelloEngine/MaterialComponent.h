@@ -12,7 +12,6 @@ public:
 	MaterialComponent(GameObject* go);
 	~MaterialComponent();
 
-	void OnEditor() override;
 
 	void OnEnable() override;
 	void OnDisable() override;
@@ -24,9 +23,15 @@ public:
 	void ChangeTexture(ResourceTexture* resource);
 	void ChangeTexture(int ID);
 
+#ifdef STANDALONE
+	void OnEditor() override;
+
 	void MarkAsDead() override;
 	void MarkAsAlive() override;
 
+#endif // STANDALONE
+
+	
 	void Serialization(json& j) override;
 	void DeSerialization(json& j) override;
 
@@ -41,9 +46,7 @@ private:
 
 	int textureID = -1;
 
-#ifdef STANDALONE
 	uint resourceUID = 0; // To be used when using MarkAsAlive only
-#endif // STANDALONE
 
 };
 

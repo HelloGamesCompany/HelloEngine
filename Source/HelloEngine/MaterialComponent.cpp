@@ -61,6 +61,7 @@ void MaterialComponent::ChangeTexture(int ID)
 	GetMesh().textureID = textureID;
 }
 
+#ifdef STANDALONE
 void MaterialComponent::MarkAsDead()
 {
 	if (currentResource != nullptr)
@@ -75,6 +76,9 @@ void MaterialComponent::MarkAsAlive()
 {
 	ChangeTexture((ResourceTexture*)ModuleResourceManager::S_LoadResource(resourceUID));
 }
+#endif // STANDALONE
+
+
 
 void MaterialComponent::Serialization(json& j)
 {
@@ -124,7 +128,7 @@ void MaterialComponent::DestroyedResource()
 {
 	ChangeTexture(nullptr);
 }
-
+#ifdef STANDALONE
 void MaterialComponent::OnEditor()
 {
 	bool created = true;
@@ -164,17 +168,17 @@ void MaterialComponent::OnEditor()
 		if (textureID != -1.0f && currentResource != nullptr)
 		{
 			ImGui::Image((ImTextureID)(uint)textureID, ImVec2(64, 64), ImVec2(0, 1), ImVec2(1, 0));
-			
+
 			imageName = currentResource->debugName;
 			width = currentResource->width;
 			height = currentResource->height;
 		}
-		else 
+		else
 		{
 			ImGui::Image((ImTextureID)0, ImVec2(64, 64), ImVec2(0, 1), ImVec2(1, 0));
 			imageName = "None";
 		}
-		
+
 		if (ImGui::BeginDragDropTarget())
 		{
 			if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("Texture"))
@@ -199,6 +203,7 @@ void MaterialComponent::OnEditor()
 		ImGui::TextColored(ImVec4(1, 1, 0, 1), std::to_string(height).c_str());
 	}
 }
+#endif // STANDALONE
 
 void MaterialComponent::OnEnable()
 {

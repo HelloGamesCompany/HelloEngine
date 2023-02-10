@@ -9,10 +9,12 @@ public:
 	ScriptComponent(GameObject* go);
 	~ScriptComponent();
 
+#ifdef STANDALONE
 	void OnEditor() override;
 
-	void OnEnable() override;
-	void OnDisable() override;
+	void MarkAsDead() override;
+	void MarkAsAlive() override;
+#endif // STANDALONE
 
 	void Serialization(json& j) override;
 	void DeSerialization(json& j) override;
@@ -34,14 +36,14 @@ public:
 	uint GetResourceUID();
 	void DestroyedResource();
 
+	void OnEnable() override;
+	void OnDisable() override;
+
 private:
 	void ImGuiDragScript();
 	void DestroyInspectorFields();
 	void SaveInspectorFields(json* j = nullptr);
 	void LoadInspectorFields(json* j = nullptr);
-
-	void MarkAsDead() override;
-	void MarkAsAlive() override;
 
 private:
 	uint scriptUID = 0;

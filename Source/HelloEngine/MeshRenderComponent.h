@@ -32,14 +32,15 @@ public:
 	std::vector<Vertex>& GetMeshVertices();
 	std::vector<uint>& GetMeshIndices();
 
-	void OnEditor() override;
-
 	/// Changes mesh render type to Transparency, Independent or Instance. 
 	void ChangeMeshRenderType(MeshRenderType type);
 
+#ifdef STANDALONE
+	void OnEditor() override;
+
 	void MarkAsDead() override;
 	void MarkAsAlive() override;
-
+#endif
 	void Serialization(json& j) override;
 	void DeSerialization(json& j) override;
 
@@ -64,10 +65,7 @@ private:
 	// Temporal. Delete later:
 	std::string _comboOptions[3] = { "INSTANCE", "INDEPENDENT", "TRANSPARENCY" };
 	uint currentCombo = 0;
-
-#ifdef STANDALONE
 	uint _resourceUID = 0;
-#endif // STANDALONE
 
 	friend class Mesh;
 };
