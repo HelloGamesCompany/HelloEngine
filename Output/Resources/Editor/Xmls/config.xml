@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <config>
 	<window>
-		<width value="1920" />
-		<height value="1017" />
+		<width value="1916" />
+		<height value="1006" />
 		<brightness value="1" />
 	</window>
 	<renderer>
@@ -13,7 +13,7 @@
 		<currentScene value="Assets/test.HScene" />
 	</scene>
 	<openGL>
-		<blend value="true" tag="0x0BE2" />
+		<blend value="false" tag="0x0BE2" />
 		<cullFace value="false" tag="0x0B44" />
 		<wireframe value="false" />
 	</openGL>

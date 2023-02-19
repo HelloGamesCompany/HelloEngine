@@ -27,14 +27,16 @@ void RenderManager::Init()
 	planeUID = 2393626792;
 	cylinderUID = 1158218481;
 	sphereUID = 2121897186;
+	plane2DUID = 2393626793;
 
 	// Create resources for Primitives
 	ResourceMesh* cubeResource = ModuleResourceManager::S_CreateResourceMesh("Resources/Editor/Primitives/2677981019.hmesh", cubeUID, "Cube", false);
 	ResourceMesh* planeResource = ModuleResourceManager::S_CreateResourceMesh("Resources/Editor/Primitives/2393626792.hmesh", planeUID, "Plane", false);
+	ResourceMesh* plane2DResource = ModuleResourceManager::S_CreateResourceMesh("Resources/Editor/Primitives/2393626792.hmesh", plane2DUID, "Plane2D", false);
 	ResourceMesh* cylinderResource = ModuleResourceManager::S_CreateResourceMesh("Resources/Editor/Primitives/1158218481.hmesh", cylinderUID, "Cylinder", false);
 	ResourceMesh* sphereResource = ModuleResourceManager::S_CreateResourceMesh("Resources/Editor/Primitives/2121897186.hmesh", sphereUID, "Sphere", false);
 
-	for (int i = 0; i < 4; ++i)
+	for (int i = 0; i < 5; ++i)
 	{
 		primitiveModels[i] = new ResourceModel();
 	}
@@ -52,6 +54,10 @@ void RenderManager::Init()
 	ModuleResourceManager::resources[(uint)PrimitiveModelsUID::PLANE] = primitiveModels[(int)PrimitiveType::PLANE];
 	planeResource->modelUID = (uint)PrimitiveModelsUID::PLANE;
 	primitiveModels[(int)PrimitiveType::PLANE]->modelMeshes.push_back(planeResource);
+
+	ModuleResourceManager::resources[(uint)PrimitiveModelsUID::PLANE2D] = primitiveModels[(int)PrimitiveType::PLANE2D];
+	plane2DResource->modelUID = (uint)PrimitiveModelsUID::PLANE2D;
+	primitiveModels[(int)PrimitiveType::PLANE2D]->modelMeshes.push_back(plane2DResource);
 
 	ModuleResourceManager::resources[(uint)PrimitiveModelsUID::SPHERE] = primitiveModels[(int)PrimitiveType::SPHERE];
 	sphereResource->modelUID = (uint)PrimitiveModelsUID::SPHERE;
@@ -187,19 +193,25 @@ void RenderManager::Draw()
 	DrawTransparentMeshes();
 }
 
+void RenderManager::Draw2D()
+{
+	// Draw all 2D meshes.
+	if (renderer2D != nullptr)
+		renderer2D->Draw2D();
+}
+
 uint RenderManager::AddMesh(ResourceMesh* resource, MeshRenderType type)
 {
 	switch (type)
 	{
 	case MeshRenderType::INSTANCED:
 		return AddInstancedMesh(resource);
-		break;
 	case MeshRenderType::INDEPENDENT:
 		return AddIndependentMesh(resource);
-		break;
 	case MeshRenderType::TRANSPARENCY:
 		return AddTransparentMesh(resource);
-		break;
+	case MeshRenderType::MESH2D:
+		return Add2DMesh();
 	}
 }
 
@@ -230,6 +242,14 @@ uint RenderManager::AddIndependentMesh(ResourceMesh* resource)
 uint RenderManager::AddInstancedMesh(ResourceMesh* resource)
 {
 	InstanceRenderer* manager = GetRenderManager(resource->UID); // Create a renderManager.
+	return manager->AddMesh();
+}
+
+uint RenderManager::Add2DMesh()
+{
+	InstanceRenderer* manager = GetRenderManager(plane2DUID); // Create a renderManager.
+	renderer2D = manager;
+	renderer2D->SetAs2D();
 	return manager->AddMesh();
 }
 
@@ -274,6 +294,9 @@ void RenderManager::CreatePrimitive(GameObject* parent, PrimitiveType type)
 void RenderManager::DestroyRenderManager(uint managerUID)
 {
 	_emptyRenderManagers.push_back(managerUID);
+	// If we are destroying the 2D renderer, set its pointer to nullptr.
+	if (_renderMap[managerUID].is2D)
+		renderer2D = nullptr;
 }
 
 void RenderManager::SetSelectedMesh(Mesh* mesh)

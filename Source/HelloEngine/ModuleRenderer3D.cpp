@@ -132,6 +132,8 @@ UpdateStatus ModuleRenderer3D::PostUpdate()
 		_cameras->currentDrawingCamera = _cameras->activeGameCamera;
 
 		renderManager.Draw();
+		// Draw all 2D meshes.
+		renderManager.Draw2D();
 	}
 
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);

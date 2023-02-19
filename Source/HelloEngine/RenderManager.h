@@ -11,6 +11,7 @@ enum class PrimitiveType
 	SPHERE,
 	CYLINDER,
 	PLANE,
+	PLANE2D, // Used in UI
 };
 
 enum class PrimitiveModelsUID
@@ -18,7 +19,8 @@ enum class PrimitiveModelsUID
 	CUBE = 10,
 	SPHERE = 11,
 	CYLINDER = 12,
-	PLANE = 13
+	PLANE = 13,
+	PLANE2D = 14,
 };
 
 /// <summary>
@@ -39,12 +41,14 @@ public:
 	uint GetMapSize() { return _renderMap.size(); };
 
 	void Draw();
+	void Draw2D();
 
 	uint AddMesh(ResourceMesh* resource, MeshRenderType type);
 
 	uint AddTransparentMesh(ResourceMesh* resource);
 	uint AddIndependentMesh(ResourceMesh* resource);
 	uint AddInstancedMesh(ResourceMesh* resource);
+	uint Add2DMesh();
 
 	void CreatePrimitive(GameObject* parent, PrimitiveType type);
 
@@ -80,7 +84,7 @@ private:
 	std::vector<uint> boxIndices; // Used to display bounding boxes.
 
 	// ModelResources for primitives
-	ResourceModel* primitiveModels[4];
+	ResourceModel* primitiveModels[5];
 
 	// Shaders for drawing debug information
 	Shader* lineShader = nullptr;
@@ -99,6 +103,9 @@ private:
 	uint sphereUID = 0;
 	uint planeUID = 0;
 	uint cylinderUID = 0;
+	uint plane2DUID = 0;
+
+	InstanceRenderer* renderer2D = nullptr;
 
 	friend class MeshRenderComponent;
 	friend class ResourceMesh;

@@ -92,6 +92,15 @@ void MeshRenderComponent::CreateMesh(uint resourceUID, MeshRenderType type)
 	}
 }
 
+void MeshRenderComponent::CreateMesh2D()
+{
+	// Create Instancerenderer2D and have a mehs in it.
+	_meshID = Application::Instance()->renderer3D->renderManager.plane2DUID;
+	_resource = (ResourceMesh*)ModuleResourceManager::S_LoadResource(_meshID);
+	_instanceID = Application::Instance()->renderer3D->renderManager.AddMesh(_resource, MeshRenderType::MESH2D);
+
+}
+
 void MeshRenderComponent::OnTransformCallback(float4x4 worldMatrix)
 {
 	if (this->_gameObject->IsPendingToDelete())
@@ -200,6 +209,13 @@ void MeshRenderComponent::ChangeMeshRenderType(MeshRenderType type)
 	mesh.modelMatrix = _gameObject->transform->GetGlobalMatrix(true).Transposed(); // Force dirty flag update.
 	mesh.CalculateBoundingBoxes();
 }
+
+void MeshRenderComponent::SetAs2D()
+{
+	is2D = true;
+	CreateMesh2D();
+}
+
 #ifdef STANDALONE
 void MeshRenderComponent::OnEditor()
 {
@@ -229,59 +245,72 @@ void MeshRenderComponent::OnEditor()
 			}
 			ImGui::HelpMarker("You can find .hmesh files by clicking on any model file (FBX or DAE). They will appear below the file icon in the Project window.");
 
+			if (ImGui::Button("Make2D"))
+			{
+				SetAs2D();
+			}
+
 			return;
 		}
 
-		Mesh& mesh = GetMesh();
 		bool auxiliaryBool = _isEnabled;
 		if (ImGui::Checkbox("Active##Mesh", &auxiliaryBool))
 			auxiliaryBool ? Enable() : Disable();
 
-		ImGui::TextWrapped("Mesh vertices: "); ImGui::SameLine();
-		ImGui::TextColored(ImVec4(255, 255, 0, 255), std::to_string(_vertexNum).c_str());
+		Mesh& mesh = GetMesh();
 
-		ImGui::TextWrapped("Mesh indices: "); ImGui::SameLine();
-		ImGui::TextColored(ImVec4(255, 255, 0, 255), std::to_string(_indexNum).c_str());
-
-		ImGui::Checkbox("Vertex Normals", &mesh.showVertexNormals); ImGui::SameLine();
-		ImGui::Checkbox("Face Normals", &mesh.showFaceNormals);
-
-		ImGui::Checkbox("AABB", &mesh.showAABB); ImGui::SameLine();
-		ImGui::Checkbox("OBB", &mesh.showOBB);
-
-		currentCombo = (int)renderType;
-
-		if (ImGui::BeginCombo("Render Type", _comboOptions[currentCombo].c_str()))
+		if (!is2D)
 		{
-			for (int i = 0; i < 3; i++)
+			ImGui::TextWrapped("Mesh vertices: "); ImGui::SameLine();
+			ImGui::TextColored(ImVec4(255, 255, 0, 255), std::to_string(_vertexNum).c_str());
+
+			ImGui::TextWrapped("Mesh indices: "); ImGui::SameLine();
+			ImGui::TextColored(ImVec4(255, 255, 0, 255), std::to_string(_indexNum).c_str());
+
+			ImGui::Checkbox("Vertex Normals", &mesh.showVertexNormals); ImGui::SameLine();
+			ImGui::Checkbox("Face Normals", &mesh.showFaceNormals);
+
+			ImGui::Checkbox("AABB", &mesh.showAABB); ImGui::SameLine();
+			ImGui::Checkbox("OBB", &mesh.showOBB);
+
+			currentCombo = (int)renderType;
+
+			if (ImGui::BeginCombo("Render Type", _comboOptions[currentCombo].c_str()))
 			{
-				bool selected = i == currentCombo;
-				if (ImGui::Selectable(_comboOptions[i].c_str(), &selected))
+				for (int i = 0; i < 3; i++)
 				{
-					ChangeMeshRenderType((MeshRenderType)i);
+					bool selected = i == currentCombo;
+					if (ImGui::Selectable(_comboOptions[i].c_str(), &selected))
+					{
+						ChangeMeshRenderType((MeshRenderType)i);
+					}
 				}
+				ImGui::EndCombo();
 			}
-			ImGui::EndCombo();
-		}
 
-		ImGui::TextColored(ImVec4(1, 1, 0, 1), _resource->debugName.c_str()); ImGui::SameLine();
+			ImGui::TextColored(ImVec4(1, 1, 0, 1), _resource->debugName.c_str()); ImGui::SameLine();
 
-		// Create Droped mesh
-		if (ImGui::BeginDragDropTarget())
-		{
-			if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("Mesh"))
+			// Create Droped mesh
+			if (ImGui::BeginDragDropTarget())
 			{
-				const uint* drop = (uint*)payload->Data;
+				if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("Mesh"))
+				{
+					const uint* drop = (uint*)payload->Data;
 
-				CreateMesh(*drop);
+					CreateMesh(*drop);
 
-				std::string popUpmessage = "Loaded Mesh: ";
-				LayerEditor::S_AddPopUpMessage(popUpmessage);
+					std::string popUpmessage = "Loaded Mesh: ";
+					LayerEditor::S_AddPopUpMessage(popUpmessage);
 
+				}
+				ImGui::EndDragDropTarget();
 			}
-			ImGui::EndDragDropTarget();
+			ImGui::HelpMarker("You can find .hmesh files by clicking on any model file (FBX or DAE). They will appear below the file icon in the Project window.");
 		}
-		ImGui::HelpMarker("You can find .hmesh files by clicking on any model file (FBX or DAE). They will appear below the file icon in the Project window.");
+		else
+		{
+			ImGui::TextColored(ImVec4(255, 255, 0, 255), "This is a 2D plane.");
+		}
 	}
 	if (!created)
 		this->_gameObject->DestroyComponent(this);
@@ -361,16 +390,23 @@ void MeshRenderComponent::DeSerialization(json& j)
 	if (index < model->modelMeshes.size())
 	{
 		ResourceMesh* resourceMesh = model->modelMeshes[index];
-		CreateMesh(resourceMesh->UID);
-
-		if (_meshID != -1)
+		if (resourceMesh->UID == Application::Instance()->renderer3D->renderManager.plane2DUID)
 		{
-			Mesh& m = GetMesh();
+			SetAs2D();
+		}
+		else
+		{
+			CreateMesh(resourceMesh->UID);
 
-			m.showAABB = j["ShowAABB"];
-			m.showOBB = j["ShowOBB"];
-			m.showFaceNormals = j["ShowFaceNormals"];
-			m.showVertexNormals = j["ShowVertexNormals"];
+			if (_meshID != -1)
+			{
+				Mesh& m = GetMesh();
+
+				m.showAABB = j["ShowAABB"];
+				m.showOBB = j["ShowOBB"];
+				m.showFaceNormals = j["ShowFaceNormals"];
+				m.showVertexNormals = j["ShowVertexNormals"];
+			}
 		}
 	}
 	

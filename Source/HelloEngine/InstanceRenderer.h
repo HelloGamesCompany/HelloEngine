@@ -19,6 +19,8 @@ public:
 
 	void Draw();
 
+	void Draw2D();
+
 	uint AddMesh();
 
 	std::map<uint, Mesh>& GetMap() { return meshes; };
@@ -29,6 +31,7 @@ public:
 	/// Draws an instance with an individual draw call.
 	void DrawInstance(Mesh* mesh, bool useBasicShader = true);
 
+	void SetAs2D();
 public:
 	bool initialized = false;
 	ResourceMesh* resource = nullptr;
@@ -45,6 +48,7 @@ private:
 
 	Shader* instancedShader = nullptr;
 	Shader* perMeshShader = nullptr;
+	Shader* mesh2DShader = nullptr;
 
 	std::map<uint, Mesh> meshes;
 	std::vector<Vertex>* totalVertices = nullptr;
@@ -78,6 +82,10 @@ private:
 	int instanceNum = 4; // Number of instances available in this RenderManager.
 
 	int IDcounter = 0;
+
+	// 2D drawing
+
+	bool is2D = false;
 
 	friend class RenderManager;
 	friend class MeshRenderComponent;
