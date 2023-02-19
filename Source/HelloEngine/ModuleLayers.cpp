@@ -10,6 +10,9 @@
 #include "ModuleInput.h"
 #include "ModuleWindow.h"
 
+//TEMPORAL
+#include "ComponentUI.h"
+
 LayerGame* ModuleLayers::game = nullptr;
 GameObject* ModuleLayers::rootGameObject = nullptr;
 LayerEditor* ModuleLayers::editor = nullptr;
@@ -23,6 +26,9 @@ std::vector<API::API_GameObject*> ModuleLayers::apiGameObjects;
 
 API::API_Transform* ModuleLayers::emptyAPITransform = nullptr;
 API::API_GameObject* ModuleLayers::emptyAPIGameObject = nullptr;
+
+//TEMPORAL
+std::vector<ComponentUI*> ModuleLayers::test;
 
 ModuleLayers::ModuleLayers()
 {
@@ -102,6 +108,11 @@ UpdateStatus ModuleLayers::PreUpdate()
     {
         if (_layers[i] && _layers[i]->IsEnabled()) 
             _layers[i]->PreUpdate();
+    }
+
+    for (int i = 0; i < test.size(); ++i)
+    {
+        test[i]->IsMouseOver();
     }
     return UpdateStatus::UPDATE_CONTINUE;
 }

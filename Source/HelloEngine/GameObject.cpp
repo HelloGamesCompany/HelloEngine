@@ -8,6 +8,7 @@
 #include "LayerEditor.h"
 #include "ImGuizmo/ImGuizmo.h"
 #include "ScriptComponent.h"
+#include "ComponentUI.h"
 
 GameObject::GameObject(GameObject* parent, std::string name, std::string tag, uint ID) : name(name), tag(tag)
 {
@@ -129,7 +130,7 @@ void GameObject::OnEditor()
 	ImGui::Spacing();
 	if (ImGui::BeginCombo("Add Component", "Select"))
 	{
-		for (int n = 0; n < 4; n++)
+		for (int n = 0; n < COMPONENT_NUM; n++)
 		{
 			int selectedItem = n;
 			if (ImGui::Selectable(_comboValues[n].c_str(), false))
@@ -150,6 +151,10 @@ void GameObject::OnEditor()
 					break;
 				case 3:
 					AddComponent<ScriptComponent>();
+					break;
+				case 4:
+					if (!HasComponent<ComponentUI>())
+						AddComponent<ComponentUI>();
 				}
 			}
 		}

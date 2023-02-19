@@ -358,6 +358,9 @@
     <ClCompile Include="API\API_MeshRenderer.cpp">
       <Filter>API</Filter>
     </ClCompile>
+    <ClCompile Include="ComponentUI.cpp">
+      <Filter>GameObject\Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -836,6 +839,9 @@
     </ClInclude>
     <ClInclude Include="API\API_MeshRenderer.h">
       <Filter>API</Filter>
+    </ClInclude>
+    <ClInclude Include="ComponentUI.h">
+      <Filter>GameObject\Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

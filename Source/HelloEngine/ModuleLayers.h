@@ -9,6 +9,7 @@
 
 class LayerEditor;
 class LayerGame;
+class ComponentUI;
 
 enum LayersID
 {
@@ -61,6 +62,8 @@ public:
 	// Empty API_Components to return in case you try to access the component of an unexisting game object.
 	static API::API_GameObject* emptyAPIGameObject;
 	static API::API_Transform* emptyAPITransform;
+
+	static std::vector<ComponentUI*> test;
 
 private:
 	static Layer* _layers[(uint)LayersID::MAX];
