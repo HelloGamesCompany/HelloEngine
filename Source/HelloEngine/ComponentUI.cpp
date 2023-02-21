@@ -47,13 +47,17 @@ bool ComponentUI::IsMouseOver()
     float windowWidth = ModuleWindow::width;
     float windowHeight = ModuleWindow::height;
 #else
-    float windowWidth = _gameWindow->gameWidth;
+    float windowWidth = _gameWindow->gameWidth + 15;
     float windowHeight = _gameWindow->gameHeight;
 #endif
     int positionX = globalPos.x * (windowWidth * 0.5f);
     int positionY = -globalPos.y * (windowHeight * 0.5f);
     int width = globalScale.x * windowWidth;
     int height = globalScale.y * windowHeight;
+
+    positionX += (1-globalScale.x) * windowWidth * 0.5f;
+    positionY += (1 - globalScale.y) * windowHeight * 0.5f;
+
 
 #ifdef STANDALONE
     // Get mouse position normalized inside this window-----------------------------------------------------
@@ -66,7 +70,7 @@ bool ComponentUI::IsMouseOver()
     float mousePosX = normalizedPos.x;
     float mousePosY = normalizedPos.y;
 
-    mousePosY -= 15; // Debugging code. ImGui gives an incorrect height.
+    mousePosY -= 18; // Debugging code. ImGui gives an incorrect height.
 
 #else
     float mousePosX = (float)ModuleInput::S_GetMouseX();
