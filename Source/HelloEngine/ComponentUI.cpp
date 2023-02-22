@@ -17,14 +17,13 @@ ComponentUI::ComponentUI(GameObject* gameObject) : Component(gameObject)
     _meshRenderer = gameObject->AddComponent<MeshRenderComponent>();
     _material = gameObject->AddComponent<MaterialComponent>();
 
-    _meshRenderer->SetAs2D();
+    // Notify both Mesh renderer and Material that they are handled by a UI Component. This makes them avoid certain behaviors that are not suitable for UI.
+    _meshRenderer->SetAs2D(); 
+    _material->SetAsUI();
 
 #ifdef STANDALONE
     _gameWindow = (ImWindowGame*)LayerEditor::_imWindows[(uint)ImWindowID::GAME];
 #endif // STANDALONE
-
-    ModuleLayers::test.push_back(this);
-
 }
 
 ComponentUI::~ComponentUI()
@@ -33,13 +32,6 @@ ComponentUI::~ComponentUI()
 
 bool ComponentUI::IsMouseOver()
 {
-    // Get ScaleX and ScaleY
-    // Get Window width and height (differnet in Runtime?)
-    // Four sides check
-
-    /*float screenOffset = app->FullScreenDesktop ? (float)app->renderer->displayMode.h / 720.0f : 1;
-    float widthOffset = app->FullScreenDesktop ? (app->renderer->displayMode.w - (1280.0f * screenOffset)) / 2 : 1;*/
-
     float3 globalScale = _gameObject->transform->GetGlobalScale();
     float3 globalPos = _gameObject->transform->GetGlobalPosition();
 
@@ -90,4 +82,25 @@ bool ComponentUI::IsMouseOver()
     Console::S_Log("Mouse Over!");
     return true;
 
+}
+
+void ComponentUI::Serialization(json& j)
+{
+    json _j;
+
+    _j["Type"] = _type;
+    _j["MaterialResource"] = _material->GetResourceUID();
+    _j["Enabled"] = _isEnabled;
+    j["Components"].push_back(_j);
+}
+
+void ComponentUI::DeSerialization(json& j)
+{
+    _material->ChangeTexture((ResourceTexture*)ModuleResourceManager::S_LoadResource(j["MaterialResource"]));
+
+    bool enabled = j["Enabled"];
+    if (!enabled)
+        Disable();
+
+    _gameObject->transform->ForceUpdate();
 }

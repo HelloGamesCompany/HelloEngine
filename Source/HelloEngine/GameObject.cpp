@@ -308,6 +308,9 @@ Component* GameObject::AddComponentOfType(Component::Type type)
 		newComponent = new ScriptComponent(this);
 		_components.push_back(newComponent);
 		break;
+	case Component::Type::UI:
+		newComponent = new ComponentUI(this);
+		_components.push_back(newComponent);
 	}
 
 	return newComponent;

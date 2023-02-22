@@ -27,9 +27,6 @@ std::vector<API::API_GameObject*> ModuleLayers::apiGameObjects;
 API::API_Transform* ModuleLayers::emptyAPITransform = nullptr;
 API::API_GameObject* ModuleLayers::emptyAPIGameObject = nullptr;
 
-//TEMPORAL
-std::vector<ComponentUI*> ModuleLayers::test;
-
 ModuleLayers::ModuleLayers()
 {
 }
@@ -110,10 +107,6 @@ UpdateStatus ModuleLayers::PreUpdate()
             _layers[i]->PreUpdate();
     }
 
-    for (int i = 0; i < test.size(); ++i)
-    {
-        test[i]->IsMouseOver();
-    }
     return UpdateStatus::UPDATE_CONTINUE;
 }
 

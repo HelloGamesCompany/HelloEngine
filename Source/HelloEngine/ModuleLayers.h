@@ -63,8 +63,6 @@ public:
 	static API::API_GameObject* emptyAPIGameObject;
 	static API::API_Transform* emptyAPITransform;
 
-	static std::vector<ComponentUI*> test;
-
 private:
 	static Layer* _layers[(uint)LayersID::MAX];
 

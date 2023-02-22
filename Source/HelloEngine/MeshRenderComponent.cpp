@@ -340,6 +340,10 @@ void MeshRenderComponent::MarkAsAlive()
 
 void MeshRenderComponent::Serialization(json& j)
 {
+	// We don't want to serialize 2D mesh renderers because their information is saved inside the ComponentUI. We assume every 2D Mesh Renderer is attached to a ComponentUI.
+	if (is2D)
+		return;
+
 	json _j;
 
 	_j["Type"] = _type;

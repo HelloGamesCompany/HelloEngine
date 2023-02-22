@@ -15,8 +15,8 @@ public:
 	bool IsMouseOver();
 
 	// TODO: This should be inherited by any componentUI children.
-	void Serialization(json& j) {};
-	void DeSerialization(json& j) {};
+	void Serialization(json& j);
+	void DeSerialization(json& j);
 
 private:
 #ifdef STANDALONE

@@ -31,7 +31,8 @@ public:
 
 #endif // STANDALONE
 
-	
+	void SetAsUI();
+
 	void Serialization(json& j) override;
 	void DeSerialization(json& j) override;
 
@@ -47,6 +48,8 @@ private:
 	int textureID = -1;
 
 	uint resourceUID = 0; // To be used when using MarkAsAlive only
+
+	bool isUI = false;
 
 };
 
