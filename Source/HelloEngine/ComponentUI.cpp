@@ -5,6 +5,7 @@
 #include "GameObject.h"
 #include "LayerEditor.h"
 #include "ImWindowGame.h"
+#include "LayerUI.h"
 
 //TEMPORAL
 #include "ModuleLayers.h"
@@ -24,10 +25,15 @@ ComponentUI::ComponentUI(GameObject* gameObject) : Component(gameObject)
 #ifdef STANDALONE
     _gameWindow = (ImWindowGame*)LayerEditor::_imWindows[(uint)ImWindowID::GAME];
 #endif // STANDALONE
+
+    _UUID = HelloUUID::GenerateUUID();
+
+    ModuleLayers::layerUI->AddUI(_UUID, this);
 }
 
 ComponentUI::~ComponentUI()
 {
+    ModuleLayers::layerUI->RemoveUI(_UUID);
 }
 
 bool ComponentUI::IsMouseOver()

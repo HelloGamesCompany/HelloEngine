@@ -333,6 +333,7 @@
     <ClCompile Include="ImWrapperInputBox.cpp" />
     <ClCompile Include="Layer.cpp" />
     <ClCompile Include="LayerGame.cpp" />
+    <ClCompile Include="LayerUI.cpp" />
     <ClCompile Include="Log.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MaterialComponent.cpp" />
@@ -494,6 +495,7 @@
     <ClInclude Include="ImWrapperInputBox.h" />
     <ClInclude Include="Layer.h" />
     <ClInclude Include="LayerGame.h" />
+    <ClInclude Include="LayerUI.h" />
     <ClInclude Include="MaterialComponent.h" />
     <ClInclude Include="MemLeaks.h" />
     <ClInclude Include="MeshImporter.h" />

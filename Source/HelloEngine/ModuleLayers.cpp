@@ -2,6 +2,7 @@
 #include "ModuleLayers.h"
 #include "LayerEditor.h"
 #include "LayerGame.h"
+#include "LayerUI.h"
 #include "MeshImporter.h"
 #include "TextureImporter.h"
 #include "TransformComponent.h"
@@ -14,6 +15,7 @@
 #include "ComponentUI.h"
 
 LayerGame* ModuleLayers::game = nullptr;
+LayerUI* ModuleLayers::layerUI = nullptr;
 GameObject* ModuleLayers::rootGameObject = nullptr;
 LayerEditor* ModuleLayers::editor = nullptr;
 std::map<uint, GameObject*> ModuleLayers::gameObjects;
@@ -44,9 +46,17 @@ bool ModuleLayers::Start()
     _layers[(uint)LayersID::EDITOR] = new LayerEditor();
 #endif
     _layers[(uint)LayersID::GAME] = new LayerGame();
+    _layers[(uint)LayersID::UI] = new LayerUI();
 
     game = (LayerGame*)_layers[(uint)LayersID::GAME];
+    layerUI = (LayerUI*)_layers[(uint)LayersID::UI];
     editor = (LayerEditor*)_layers[(uint)LayersID::EDITOR];
+
+    for (int i = 0; i < (uint)LayersID::MAX; i++)
+    {
+        if (_layers[i] && _layers[i]->IsEnabled())
+            _layers[i]->Start();
+    }
 
     // Create Root GameObject (Scene)
     XMLNode sceneXML = Application::Instance()->xml->GetConfigXML();
@@ -72,12 +82,6 @@ bool ModuleLayers::Start()
         ModuleResourceManager::S_SerializeScene(rootGameObject);
     }
 
-    for (int i = 0; i < (uint)LayersID::MAX; i++)
-    {
-        if (_layers[i] && _layers[i]->IsEnabled()) 
-            _layers[i]->Start();
-    }
-
     Console::S_Log("Error message test", LogType::ERR);
     Console::S_Log("Warning message test", LogType::WARNING);
 
@@ -101,7 +105,7 @@ UpdateStatus ModuleLayers::PreUpdate()
     }
     _deletedGameObjects.clear();
 
-    for (int i = 0; i < (uint)LayersID::MAX; i++)
+    for (int i = (uint)LayersID::MAX; i > 0; i--)
     {
         if (_layers[i] && _layers[i]->IsEnabled()) 
             _layers[i]->PreUpdate();

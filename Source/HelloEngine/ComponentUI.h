@@ -14,9 +14,11 @@ public:
 
 	bool IsMouseOver();
 
-	// TODO: This should be inherited by any componentUI children.
 	void Serialization(json& j);
 	void DeSerialization(json& j);
+
+	// This is a method to check all input necessary on the given UI. It is called at the PreUpdate method of LayerUI.
+	virtual void InputUpdate() { IsMouseOver(); };
 
 private:
 #ifdef STANDALONE
@@ -24,5 +26,7 @@ private:
 #endif
 	MeshRenderComponent* _meshRenderer = nullptr;
 	MaterialComponent* _material = nullptr;
+
+	uint _UUID = 0;
 };
 
