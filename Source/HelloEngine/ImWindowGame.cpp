@@ -28,6 +28,8 @@ void ImWindowGame::Update()
 				// If the size of this imgui window is different from the one stored.
 				gameWidth = gameDimensions.x;
 				gameHeight = gameDimensions.y;
+				gamePosX = ImGui::GetWindowPos().x;
+				gamePosY = ImGui::GetWindowPos().y;
 				Application::Instance()->camera->activeGameCamera->ChangeAspectRatio((float)gameWidth / (float)gameHeight);
 			}
 

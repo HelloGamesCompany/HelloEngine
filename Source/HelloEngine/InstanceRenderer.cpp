@@ -8,12 +8,14 @@ InstanceRenderer::InstanceRenderer()
 {
     instancedShader = new Shader("Resources/shaders/instanced.vertex.shader", "Resources/shaders/instanced.fragment.shader");
     perMeshShader = new Shader("Resources/shaders/basic.vertex.shader", "Resources/shaders/basic.fragment.shader");
+    mesh2DShader = new Shader("Resources/shaders/instanced2D.vertex.shader", "Resources/shaders/instanced.fragment.shader");
 }
 
 InstanceRenderer::~InstanceRenderer()
 {
     RELEASE(instancedShader);
     RELEASE(perMeshShader);
+    RELEASE(mesh2DShader);
 }
 
 void InstanceRenderer::SetMeshInformation(ResourceMesh* resource)
@@ -49,6 +51,9 @@ void InstanceRenderer::Draw()
     }
 
     CameraObject* currentCamera = Application::Instance()->camera->currentDrawingCamera;
+
+    if (is2D && currentCamera->type == CameraType::GAME)
+        return;
 
     for (auto& mesh : meshes)
     {
@@ -116,6 +121,59 @@ void InstanceRenderer::Draw()
     TextureManager::UnBindTextures();
 }
 
+void InstanceRenderer::Draw2D()
+{
+    if (!is2D)
+        return;
+
+    for (auto& mesh : meshes)
+    {
+        if (!mesh.second.Update())
+        {
+            continue;
+        }
+        modelMatrices.push_back(mesh.second.modelMatrix); // Insert updated matrices
+        textureIDs.push_back(mesh.second.OpenGLTextureID);
+        mesh.second.OpenGLTextureID = -1; // Reset this, in case the next frame our texture ID changes to -1.
+    }
+
+    if (!modelMatrices.empty())
+    {
+        // Update View and Projection matrices
+        mesh2DShader->Bind();
+
+        // Draw using Dynamic Geometry
+        glBindVertexArray(VAO);
+
+        // Update Model matrices
+        glBindBuffer(GL_ARRAY_BUFFER, MBO);
+        void* ptr = glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY);
+        memcpy(ptr, &modelMatrices.front(), modelMatrices.size() * sizeof(float4x4));
+        glUnmapBuffer(GL_ARRAY_BUFFER);
+
+        // Update TextureIDs
+        glBindBuffer(GL_ARRAY_BUFFER, TBO);
+        void* ptr2 = glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY);
+        memcpy(ptr2, &textureIDs.front(), textureIDs.size() * sizeof(float));
+        glUnmapBuffer(GL_ARRAY_BUFFER);
+
+        for (int i = 0; i < TextureManager::bindedTextures; i++)
+        {
+            mesh2DShader->SetInt(("textures[" + std::to_string(i) + "]").c_str(), i);
+        }
+
+        // Draw
+        glDrawElementsInstanced(GL_TRIANGLES, totalIndices->size(), GL_UNSIGNED_INT, 0, modelMatrices.size());
+        glBindVertexArray(0);
+    }
+
+    // Reset model matrices.
+    modelMatrices.clear();
+    textureIDs.clear();
+    TextureManager::UnBindTextures();
+
+}
+
 uint InstanceRenderer::AddMesh()
 {
     if (!initialized)
@@ -159,6 +217,11 @@ void InstanceRenderer::DrawInstance(Mesh* mesh, bool useBasicShader)
     glBindVertexArray(0);
 
     glBindTexture(GL_TEXTURE_2D, 0);
+}
+
+void InstanceRenderer::SetAs2D()
+{
+    is2D = true;
 }
 
 void InstanceRenderer::CreateBuffers()

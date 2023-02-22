@@ -16,6 +16,7 @@ public:
 		MATERIAL,
 		CAMERA,
 		SCRIPT,
+		UI,
 		MAX
 	};
 

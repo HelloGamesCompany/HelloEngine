@@ -108,6 +108,7 @@ private:
 	static bool _showCompilationWarning;
 	static bool _showCompilationError;
 	friend class ImWindowHierarchy;
+	friend class ComponentUI;
 };
 
 #endif // !__MODULE_ENGINE_H__

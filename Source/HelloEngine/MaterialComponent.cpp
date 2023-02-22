@@ -80,8 +80,17 @@ void MaterialComponent::MarkAsAlive()
 
 
 
+void MaterialComponent::SetAsUI()
+{
+	isUI = true;
+}
+
 void MaterialComponent::Serialization(json& j)
 {
+	// We don't want to serialize UI Materials because their information is saved inside the ComponentUI. We assume every UI Material is attached to a ComponentUI.
+	if (isUI)
+		return;
+
 	json _j;
 
 	_j["Type"] = _type;

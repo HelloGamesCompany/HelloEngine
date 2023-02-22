@@ -11,7 +11,6 @@ public:
 	~ImWindowGame();
 
 	void Update() override;
-private:
 
 	int gamePosX = 1;
 	int gamePosY = 1;

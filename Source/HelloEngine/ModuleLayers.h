@@ -9,6 +9,8 @@
 
 class LayerEditor;
 class LayerGame;
+class LayerUI;
+class ComponentUI;
 
 enum LayersID
 {
@@ -49,10 +51,10 @@ public:
 
 public:
 	static LayerGame* game;
+	static LayerEditor* editor;
+	static LayerUI* layerUI;
 
 	static GameObject* rootGameObject;
-
-	static LayerEditor* editor;
 
 	static std::map<uint, GameObject*> gameObjects;
 

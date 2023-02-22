@@ -8,7 +8,8 @@ enum class MeshRenderType
 {
 	INSTANCED,
 	INDEPENDENT,
-	TRANSPARENCY
+	TRANSPARENCY,
+	MESH2D,
 };
 
 class MeshRenderComponent : public Component
@@ -19,6 +20,8 @@ public:
 	virtual ~MeshRenderComponent() override;
 
 	void CreateMesh(uint resourceUID, MeshRenderType type = MeshRenderType::INSTANCED);
+
+	void CreateMesh2D();
 
 	void OnTransformCallback(float4x4 worldMatrix) override;
 
@@ -34,6 +37,8 @@ public:
 
 	/// Changes mesh render type to Transparency, Independent or Instance. 
 	void ChangeMeshRenderType(MeshRenderType type);
+
+	void SetAs2D();
 
 #ifdef STANDALONE
 	void OnEditor() override;
@@ -66,6 +71,9 @@ private:
 	std::string _comboOptions[3] = { "INSTANCE", "INDEPENDENT", "TRANSPARENCY" };
 	uint currentCombo = 0;
 	uint _resourceUID = 0;
+
+	// 2D rendering
+	bool is2D = false;
 
 	friend class Mesh;
 };
