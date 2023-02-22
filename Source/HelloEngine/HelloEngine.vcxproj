@@ -306,6 +306,7 @@
     <ClCompile Include="CommandSetParentGameObject.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="ComponentUI.cpp" />
+    <ClCompile Include="ComponentUIButton.cpp" />
     <ClCompile Include="Console.cpp" />
     <ClCompile Include="FrameBuffer.cpp" />
     <ClCompile Include="GameObject.cpp" />
@@ -470,6 +471,7 @@
     <ClInclude Include="CommandSetParentGameObject.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="ComponentUI.h" />
+    <ClInclude Include="ComponentUIButton.h" />
     <ClInclude Include="Console.h" />
     <ClInclude Include="CycleArray.hpp" />
     <ClInclude Include="FileTree.hpp" />

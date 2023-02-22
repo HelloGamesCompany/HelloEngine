@@ -1,5 +1,6 @@
 #pragma once
 #include "Component.h"
+#include "Globals.h"
 
 class MeshRenderComponent;
 class MaterialComponent;
@@ -24,6 +25,8 @@ private:
 #ifdef STANDALONE
 	ImWindowGame* _gameWindow = nullptr;
 #endif
+protected:
+
 	MeshRenderComponent* _meshRenderer = nullptr;
 	MaterialComponent* _material = nullptr;
 
