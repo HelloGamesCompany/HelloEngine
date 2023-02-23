@@ -15,4 +15,5 @@ void ComponentUIButton::InputUpdate()
 
 	if (IsMouseOver())
 		isFocused = true;
+
 }
