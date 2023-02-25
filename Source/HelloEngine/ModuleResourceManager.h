@@ -98,14 +98,14 @@ private:
 class ResourceMesh : public Resource
 {
 public:
-	ResourceMesh() { type = ResourceType::MESH; };
-	~ResourceMesh() {};
+    ResourceMesh() { type = ResourceType::MESH; };
+    ~ResourceMesh() {};
 
-	void UnLoad() override
-	{
-		meshInfo.Clear();
-		vertexNormals.clear();
-		faceNormals.clear();
+    void UnLoad() override
+    {
+        meshInfo.Clear();
+        vertexNormals.clear();
+        faceNormals.clear();
 
 		if (VAO == 0)
 			return;
@@ -114,22 +114,22 @@ public:
 		glDeleteBuffers(1, &VBO);
 		glDeleteBuffers(1, &IBO);
 
-		glDeleteVertexArrays(1, &VertexNormalsVAO);
-		glDeleteBuffers(1, &VertexNormalsVBO);
-		glDeleteVertexArrays(1, &FaceNormalsVAO);
-		glDeleteBuffers(1, &FaceNormalsVBO);
+        glDeleteVertexArrays(1, &VertexNormalsVAO);
+        glDeleteBuffers(1, &VertexNormalsVBO);
+        glDeleteVertexArrays(1, &FaceNormalsVAO);
+        glDeleteBuffers(1, &FaceNormalsVBO);
 
-		VAO = 0;
-		VBO = 0;
-		IBO = 0;
-		VertexNormalsVAO = 0;
-		VertexNormalsVBO = 0;
-		FaceNormalsVAO = 0;
-		FaceNormalsVBO = 0;
-	}
+        VAO = 0;
+        VBO = 0;
+        IBO = 0;
+        VertexNormalsVAO = 0;
+        VertexNormalsVBO = 0;
+        FaceNormalsVAO = 0;
+        FaceNormalsVBO = 0;
+    }
 
-	void CreateBuffers();
-	void CalculateNormalsAndAABB();
+    void CreateBuffers();
+    void CalculateNormalsAndAABB();
 
 public:
     void Destroy() override;
