@@ -442,19 +442,21 @@ void ModuleResourceManager::S_DeleteMetaFile(const std::string& file, bool onlyR
 			// Destroy the CppScript named like this .h
 			// 1: Get script name.
 			ResourceScript* hScriptResource = (ResourceScript*)resources[meta.UID];
-			std::string scriptName = hScriptResource->className;
+			if (hScriptResource != nullptr)
+			{
+				std::string scriptName = hScriptResource->className;
 
-			// 2: Search for this scirpt inside the current folder
-			std::string cppFilePath = ModuleFiles::S_GetFilePath(file);
-			cppFilePath += scriptName + ".cpp"; // We destroy the source file, not the meta file, so the meta is destroyed next frame. This avoids an infinite loop.
+				// 2: Search for this scirpt inside the current folder
+				std::string cppFilePath = ModuleFiles::S_GetFilePath(file);
+				cppFilePath += scriptName + ".cpp"; // We destroy the source file, not the meta file, so the meta is destroyed next frame. This avoids an infinite loop.
 
-			// 3: Destroy Cpp file
-			ModuleFiles::S_Delete(cppFilePath);
+				// 3: Destroy Cpp file
+				ModuleFiles::S_Delete(cppFilePath);
 
-			// 4: Unlink the destroyed script on the ScriptingSLN.
-			ModuleFiles::S_RemoveScriptFromDLLSolution(scriptName, false);
+				// 4: Unlink the destroyed script on the ScriptingSLN.
+				ModuleFiles::S_RemoveScriptFromDLLSolution(scriptName, false);
+			}
 		}
-
 	}
 	break;
 	case ResourceType::CPPSCRIPT:
@@ -464,17 +466,21 @@ void ModuleResourceManager::S_DeleteMetaFile(const std::string& file, bool onlyR
 			// Destroy the HScript named like this .cpp
 			// 1: Get script name.
 			ResourceScript* cppScriptResource = (ResourceScript*)resources[meta.UID];
-			std::string scriptName = cppScriptResource->className;
+			if (cppScriptResource != nullptr)
+			{
+				std::string scriptName = cppScriptResource->className;
 
-			// 2: Search for this scirpt inside the current folder
-			std::string hFilePath = ModuleFiles::S_GetFilePath(file);
-			hFilePath += scriptName + ".h"; // We destroy the source file, not the meta file, so the meta is destroyed next frame. This avoids an infinite loop.
+				// 2: Search for this scirpt inside the current folder
+				std::string hFilePath = ModuleFiles::S_GetFilePath(file);
+				hFilePath += scriptName + ".h"; // We destroy the source file, not the meta file, so the meta is destroyed next frame. This avoids an infinite loop.
 
-			// 3: Destroy h file
-			ModuleFiles::S_Delete(hFilePath);
+				// 3: Destroy h file
+				ModuleFiles::S_Delete(hFilePath);
 
-			// 4: Unlink the destroyed script on the ScriptingSLN.
-			ModuleFiles::S_RemoveScriptFromDLLSolution(scriptName, true);
+				// 4: Unlink the destroyed script on the ScriptingSLN.
+				ModuleFiles::S_RemoveScriptFromDLLSolution(scriptName, true);
+			}
+		
 		}
 	}
 	break;
@@ -489,7 +495,7 @@ void ModuleResourceManager::S_DeleteMetaFile(const std::string& file, bool onlyR
 
 	if (!isReimporting)
 	{
-		if (resources.count(meta.UID) == 1)
+		if (resources.count(meta.UID) == 1 && resources[meta.UID] != nullptr)
 		{
 			resources[meta.UID]->Destroy();
 			RELEASE(resources[meta.UID]);
