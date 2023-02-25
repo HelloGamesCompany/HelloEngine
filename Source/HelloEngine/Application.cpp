@@ -26,7 +26,7 @@ Application::Application()
 Application::~Application()
 {
 }
-
+//test
 bool Application::Init()
 {
 	float2 f(2, 3);
