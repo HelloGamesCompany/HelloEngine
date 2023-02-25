@@ -110,9 +110,9 @@ public:
 		if (VAO == 0)
 			return;
 
-		glDeleteVertexArrays(1, &VAO);
-		glDeleteBuffers(1, &VBO);
-		glDeleteBuffers(1, &IBO);
+        glDeleteVertexArrays(1, &VAO);
+        glDeleteBuffers(1, &VBO);
+        glDeleteBuffers(1, &IBO);
 
         glDeleteVertexArrays(1, &VertexNormalsVAO);
         glDeleteBuffers(1, &VertexNormalsVBO);
