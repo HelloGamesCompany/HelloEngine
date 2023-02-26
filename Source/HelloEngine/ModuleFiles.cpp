@@ -445,17 +445,6 @@ bool ModuleFiles::UpdateFileNodeRecursive(Directory*& dir, Directory*& lastDir)
 				continue;
 			}
 
-			if(dirCheck == "Assets/Scripts/CCC.cpp")
-			{
-				printf("break here");
-			}
-			
-
-			if (dirCheck == "Assets/Scripts/CCC.h")
-			{
-				printf("break here");
-			}
-
 			// Change directory construcotr to create meta data if necessary
 			dir->files.emplace_back(dirCheck, S_GetFileName(dirCheck), dir);
 
