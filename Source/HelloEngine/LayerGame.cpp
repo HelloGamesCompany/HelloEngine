@@ -214,7 +214,7 @@ void LayerGame::S_HotReload()
 	// Move new dll into ouptut to use.
 	while (CopyFile(TEXT(DLL_DIRECTORY), TEXT("APILibrary/HelloAPI.dll"), FALSE) == FALSE)
 	{
-		printf("Changing DLL.");
+		std::cout << "Error: " << GetLastError() << std::endl;
 	}
 
 	// Load DLL
