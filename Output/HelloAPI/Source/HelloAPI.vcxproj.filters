@@ -27,7 +27,7 @@
     <ClCompile Include="../../Assets/Scripts/TankScript.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="../../Assets/Scripts/deletetest.cpp">
+    <ClCompile Include="../../Assets/Scripts/HouseBehavior.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
@@ -44,7 +44,7 @@
     <ClInclude Include="../../Assets/Scripts/TankScript.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="../../Assets/Scripts/deletetest.h">
+    <ClInclude Include="../../Assets/Scripts/HouseBehavior.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

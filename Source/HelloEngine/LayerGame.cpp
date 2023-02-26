@@ -45,6 +45,7 @@ void LayerGame::Start()
 
 void LayerGame::PreUpdate()
 {
+#ifdef STANDALONE
 	static int frameWaitCompile = 300;
 	if (_compileDLL)
 	{
@@ -73,6 +74,7 @@ void LayerGame::PreUpdate()
 			frameWaitHotReload = 100;
 		}
 	}
+#endif
 #ifndef STANDALONE
 	_isPlaying = true; // Temporal code. Only to make the Runtime version to play automatically on start.
 #endif // !STANDALONE
@@ -212,7 +214,7 @@ void LayerGame::S_HotReload()
 	// Move new dll into ouptut to use.
 	while (CopyFile(TEXT(DLL_DIRECTORY), TEXT("APILibrary/HelloAPI.dll"), FALSE) == FALSE)
 	{
-		printf("Changing DLL.");
+		std::cout << "Error: " << GetLastError() << std::endl;
 	}
 
 	// Load DLL

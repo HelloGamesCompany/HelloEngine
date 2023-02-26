@@ -6,9 +6,9 @@
 #include <ctime>
 
 #ifdef _DEBUG
-#define DLL_DIRECTORY "HelloAPI/bin/Debug/HelloAPI.dll"
+#define DLL_DIRECTORY "HelloAPI/Lib/Deb/HelloAPI.dll"
 #else
-#define DLL_DIRECTORY "HelloAPI/bin/Release/HelloAPI.dll"
+#define DLL_DIRECTORY "HelloAPI/Lib/Rel/HelloAPI.dll"
 #endif
 
 #ifdef _DEBUG
