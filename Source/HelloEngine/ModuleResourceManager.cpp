@@ -161,6 +161,11 @@ void ModuleResourceManager::S_ReImportFile(const std::string& filePath, Resource
         LayerGame::S_RequestHotReload();
         ModuleFiles::S_UpdateMetaData(filePath, "null");
     }
+    break;
+    // RUBENAYORA
+    /*case prefab:
+    * destroy actual gameobject and load the prefab
+    */
     }
 
     RELEASE_ARRAY(buffer);
@@ -312,7 +317,7 @@ void ModuleResourceManager::S_SerializeToPrefab(GameObject*& g, const std::strin
     // Create json
     json j;
     // Write json
-    SerializeToPrefab(g, j, false);
+    g->_prefabUID = SerializeToPrefab(g, j, false);
 
     std::string buffer = j.dump();
 
@@ -766,15 +771,17 @@ void ModuleResourceManager::SerializeSceneRecursive(const GameObject* g, json& j
     }
 }
 
-void ModuleResourceManager::SerializeToPrefab(const GameObject* g, json& j, bool shouldHaveParent)
+uint ModuleResourceManager::SerializeToPrefab(const GameObject* g, json& j, bool shouldHaveParent)
 {
     json _j;
+    uint _newPrefabUID;// = crear UID
 
     _j["ParentUID"] = shouldHaveParent ? g->_parent->_ID : 0;
     _j["UID"] = g->_ID;
     _j["Name"] = g->name;
     _j["Tag"] = g->tag;
     _j["Active"] = g->_isActive;
+    _j["PrefabUID"] = _newPrefabUID;
 
     // We delay the serialization of script components because they may need to reference another component when Deserialized.
     // this way, ScriptComponents will always deserialize last, and will find any other component they need inside their game object.
@@ -803,6 +810,8 @@ void ModuleResourceManager::SerializeToPrefab(const GameObject* g, json& j, bool
         if (!g->_children[i]->_isPendingToDelete)
             SerializeToPrefab(g->_children[i], j);
     }
+
+    return _newPrefabUID;
 }
 
 void ResourceModel::CreateResourceMeshes()
