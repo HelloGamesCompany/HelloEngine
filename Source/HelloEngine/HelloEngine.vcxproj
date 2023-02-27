@@ -308,6 +308,7 @@
     <ClCompile Include="ComponentUI.cpp" />
     <ClCompile Include="ComponentUIButton.cpp" />
     <ClCompile Include="Console.cpp" />
+    <ClCompile Include="Emitter.cpp" />
     <ClCompile Include="FrameBuffer.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Globals.h">
@@ -340,6 +341,9 @@
     <ClCompile Include="MaterialComponent.cpp" />
     <ClCompile Include="MeshImporter.cpp" />
     <ClCompile Include="MeshRenderComponent.cpp" />
+    <ClCompile Include="Particle.cpp" />
+    <ClCompile Include="ParticleManager.cpp" />
+    <ClCompile Include="ParticleSystemComponent.cpp" />
     <ClCompile Include="RenderManager.cpp" />
     <ClCompile Include="Module.cpp" />
     <ClCompile Include="ModuleCamera3D.cpp" />
@@ -474,6 +478,7 @@
     <ClInclude Include="ComponentUIButton.h" />
     <ClInclude Include="Console.h" />
     <ClInclude Include="CycleArray.hpp" />
+    <ClInclude Include="Emitter.h" />
     <ClInclude Include="FileTree.hpp" />
     <ClInclude Include="File_Model.h" />
     <ClInclude Include="FrameBuffer.h" />
@@ -502,6 +507,9 @@
     <ClInclude Include="MemLeaks.h" />
     <ClInclude Include="MeshImporter.h" />
     <ClInclude Include="MeshRenderComponent.h" />
+    <ClInclude Include="Particle.h" />
+    <ClInclude Include="ParticleManager.h" />
+    <ClInclude Include="ParticleSystemComponent.h" />
     <ClInclude Include="RenderManager.h" />
     <ClInclude Include="Module.h" />
     <ClInclude Include="ModuleCamera3D.h" />
