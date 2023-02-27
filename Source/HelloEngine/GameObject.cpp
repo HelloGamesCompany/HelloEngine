@@ -18,6 +18,7 @@ GameObject::GameObject(GameObject* parent, std::string name, std::string tag, ui
         parent->AddChild(this);
 
     _prefabUID = 0;
+    _updatePrefab = true;
 }
 
 GameObject::GameObject(GameObject* parent, std::string& name, std::string& tag, uint ID) : name(name), tag(tag)
@@ -28,6 +29,7 @@ GameObject::GameObject(GameObject* parent, std::string& name, std::string& tag, 
         parent->AddChild(this);
 
     _prefabUID = 0;
+    _updatePrefab = true;
 }
 
 GameObject::~GameObject()

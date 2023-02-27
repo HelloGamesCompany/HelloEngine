@@ -164,6 +164,7 @@ void ModuleResourceManager::S_ReImportFile(const std::string& filePath, Resource
     break;
     // RUBENAYORA
     /*case prefab:
+    * if () gameObject->_updatePrefab == false --> dont update prefab automaticly
     * destroy actual gameobject and load the prefab
     */
     }
@@ -459,7 +460,7 @@ bool ModuleResourceManager::S_DeserializeScene(const std::string& filePath)
     for (int i = 0; i < sceneFile.size(); i++)
     {
         GameObject* g = new GameObject(nullptr, sceneFile[i]["Name"], sceneFile[i]["Tag"], sceneFile[i]["UID"]);
-
+        g->SetPrefabUID(sceneFile[i]["PrefabUID"]);
         temp.push_back(std::make_pair(g, sceneFile[i]["ParentUID"]));
     }
 
@@ -741,6 +742,7 @@ void ModuleResourceManager::SerializeSceneRecursive(const GameObject* g, json& j
     _j["Name"] = g->name;
     _j["Tag"] = g->tag;
     _j["Active"] = g->_isActive;
+    _j["PrefabUID"] = g->_prefabUID;
 
     // We delay the serialization of script components because they may need to reference another component when Deserialized.
     // this way, ScriptComponents will always deserialize last, and will find any other component they need inside their game object.
