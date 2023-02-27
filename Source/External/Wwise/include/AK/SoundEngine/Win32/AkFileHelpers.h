@@ -223,7 +223,7 @@ public:
 			fileAttributes = fileInfo.dwFileAttributes;
 		}
 #else
-		fileAttributes = GetFileAttributes(in_pszBasePath);
+		fileAttributes = GetFileAttributesW(in_pszBasePath);
 #endif
 		if (fileAttributes == INVALID_FILE_ATTRIBUTES)
 			return AK_Fail;  //something is wrong with your path!
@@ -266,7 +266,7 @@ public:
 
 	static AKRESULT CreateEmptyDirectory(const AkOSChar* in_pszDirectoryPath)
 	{
-		bool bSuccess = ::CreateDirectory(in_pszDirectoryPath, NULL) == TRUE;
+		bool bSuccess = ::CreateDirectoryW(in_pszDirectoryPath, NULL) == TRUE;
 		if (!bSuccess && ::GetLastError() != ERROR_ALREADY_EXISTS)
 			return AK_Fail;
 
@@ -275,7 +275,7 @@ public:
 
 	static AKRESULT RemoveEmptyDirectory(const AkOSChar* in_pszDirectoryPath)
 	{
-		bool bSuccess = ::RemoveDirectory(in_pszDirectoryPath) == TRUE;
+		bool bSuccess = ::RemoveDirectoryW(in_pszDirectoryPath) == TRUE;
 		if (!bSuccess)
 			return AK_Fail;
 
