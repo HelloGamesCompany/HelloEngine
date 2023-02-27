@@ -15,7 +15,7 @@ void ComponentUIButton::InputUpdate()
 {
 	// Add here any checks necessary with INPUT.
 
-	if (IsMouseOver()) {
+	/*if (IsMouseOver()) {
 		isFocused = true;
 		if (ModuleInput::S_GetMouseButton(1) == KEY_DOWN )
 		{
@@ -43,22 +43,16 @@ void ComponentUIButton::InputUpdate()
 	else
 	{
 		_gameObject->transform->SetPosition(float3{ 0,1,0 });
-	}
+	}*/
 
-	/*if (IsMouseOver()) {
+	if (IsMouseOver()) {
 		isFocused = true;
 		if (ModuleInput::S_GetMouseButton(1) == KEY_DOWN)
 		{
 			State = ButtonState::ONPRESS;
 		}
 	}
-	if (!IsMouseOver())
-		isFocused = false;
 
-	else
-	{
-		State = ButtonState::NORMAL;
-	}
 
 	switch (State)
 	{
@@ -72,5 +66,13 @@ void ComponentUIButton::InputUpdate()
 		break;
 	default:
 		break;
-	}*/
+	}
+
+	if (!IsMouseOver())
+		isFocused = false;
+
+	else if (ModuleInput::S_GetMouseButton(1) == KEY_UP)
+	{
+		State = ButtonState::NORMAL;
+	}
 }
