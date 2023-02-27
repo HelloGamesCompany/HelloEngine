@@ -27,7 +27,7 @@ void ComponentUIButton::InputUpdate()
 	
 
 
-	if (isFocused == true)
+	if (isFocused == true && ModuleInput::S_GetMouseButton(1) == KEY_DOWN)
 	{
 		switch (State)
 		{
@@ -35,8 +35,6 @@ void ComponentUIButton::InputUpdate()
 			break;
 		case ButtonState::ONPRESS:
 			_gameObject->transform->SetPosition(float3{ 0,0,0 });
-			break;
-		case ButtonState::ACTIVE:
 			break;
 		default:
 			break;
@@ -46,4 +44,33 @@ void ComponentUIButton::InputUpdate()
 	{
 		_gameObject->transform->SetPosition(float3{ 0,1,0 });
 	}
+
+	/*if (IsMouseOver()) {
+		isFocused = true;
+		if (ModuleInput::S_GetMouseButton(1) == KEY_DOWN)
+		{
+			State = ButtonState::ONPRESS;
+		}
+	}
+	if (!IsMouseOver())
+		isFocused = false;
+
+	else
+	{
+		State = ButtonState::NORMAL;
+	}
+
+	switch (State)
+	{
+	case ButtonState::NORMAL:
+		Console::S_Log("Im in Normal Mode");
+		//LOG("Im in Normal Mode");
+		break;
+	case ButtonState::ONPRESS:
+		Console::S_Log("Im get Presed");
+		//LOG("Im get Presed");
+		break;
+	default:
+		break;
+	}*/
 }

@@ -3,9 +3,7 @@
 
 enum class ButtonState {
 	NORMAL,
-	ONPRESS,
-	//PRESSED,
-	ACTIVE
+	ONPRESS
 };
 
 class ComponentUIButton : public ComponentUI
