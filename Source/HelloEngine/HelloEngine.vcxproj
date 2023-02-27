@@ -80,7 +80,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;STANDALONE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <AdditionalIncludeDirectories>$(SolutionDir)Source\HelloEngine;$(SolutionDir)Source\External\Glew\include;$(SolutionDir)Source\External\SDL\include;$(SolutionDir)Source\External\imgui;$(SolutionDir)Source\External\MathGeoLib\include;$(SolutionDir)Source\External\json\include\single_include\nlohmann;$(SolutionDir)Output\HelloAPI\Source;$(SolutionDir)Source\External\PugiXml\src;$(SolutionDir)Source\External\PhysFS\include;%(AdditionalIncludeDirectories);$(SolutionDir)Source\External\Assimp\include;$(SolutionDir)Source\External\DevIL\include;$(SolutionDir)Source\External\mmgr</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Source\HelloEngine;$(SolutionDir)Source\External\Glew\include;$(SolutionDir)Source\External\SDL\include;$(SolutionDir)Source\External\imgui;$(SolutionDir)Source\External\MathGeoLib\include;$(SolutionDir)Source\External\json\include\single_include\nlohmann;$(SolutionDir)Output\HelloAPI\Source;$(SolutionDir)Source\External\PugiXml\src;$(SolutionDir)Source\External\PhysFS\include;%(AdditionalIncludeDirectories);$(SolutionDir)Source\External\Assimp\include;$(SolutionDir)Source\External\DevIL\include;$(SolutionDir)Source\External\mmgr;$(SolutionDir)Source\External\Bullet\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>Headers.h</PrecompiledHeaderFile>
@@ -106,7 +106,7 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;STANDALONE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <AdditionalIncludeDirectories>$(SolutionDir)Source\HelloEngine;$(SolutionDir)Source\External\Glew\include;$(SolutionDir)Source\External\SDL\include;$(SolutionDir)Source\External\imgui;$(SolutionDir)Source\External\MathGeoLib\include;$(SolutionDir)Source\External\json\include\single_include\nlohmann;$(SolutionDir)Output\HelloAPI\Source;$(SolutionDir)Source\External\PugiXml\src;%(AdditionalIncludeDirectories);$(SolutionDir)Source\External\Assimp\include;$(SolutionDir)Source\External\PhysFS\include;$(SolutionDir)Source\External\DevIL\include;$(SolutionDir)Source\External\mmgr</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Source\HelloEngine;$(SolutionDir)Source\External\Glew\include;$(SolutionDir)Source\External\SDL\include;$(SolutionDir)Source\External\imgui;$(SolutionDir)Source\External\MathGeoLib\include;$(SolutionDir)Source\External\json\include\single_include\nlohmann;$(SolutionDir)Output\HelloAPI\Source;$(SolutionDir)Source\External\PugiXml\src;%(AdditionalIncludeDirectories);$(SolutionDir)Source\External\Assimp\include;$(SolutionDir)Source\External\PhysFS\include;$(SolutionDir)Source\External\DevIL\include;$(SolutionDir)Source\External\mmgr;$(SolutionDir)Source\External\Bullet\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <Optimization>Disabled</Optimization>
     </ClCompile>
@@ -148,6 +148,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\HelloEngine\Source\HelloEngine\ModulePhysics.cpp" />
     <ClCompile Include="..\External\imgui\imgui.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
@@ -368,6 +369,7 @@
     <ClCompile Include="XMLNode.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\HelloEngine\Source\HelloEngine\ModulePhysics.h" />
     <ClInclude Include="..\External\imgui\imconfig.h" />
     <ClInclude Include="..\External\imgui\imgui.h" />
     <ClInclude Include="..\External\imgui\ImGuizmo\GraphEditor.h" />
@@ -502,6 +504,7 @@
     <ClInclude Include="MemLeaks.h" />
     <ClInclude Include="MeshImporter.h" />
     <ClInclude Include="MeshRenderComponent.h" />
+    <ClInclude Include="Primitive.h" />
     <ClInclude Include="RenderManager.h" />
     <ClInclude Include="Module.h" />
     <ClInclude Include="ModuleCamera3D.h" />
