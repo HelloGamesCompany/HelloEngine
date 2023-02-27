@@ -14,6 +14,13 @@ enum class PrimitiveType
 	PLANE2D, // Used in UI
 };
 
+enum class UIType
+{
+	BUTTON,
+	CHECKBOX,
+	SLIDER,
+};
+
 enum class PrimitiveModelsUID
 {
 	CUBE = 10,
@@ -51,6 +58,7 @@ public:
 	uint Add2DMesh();
 
 	void CreatePrimitive(GameObject* parent, PrimitiveType type);
+	void CreateUI(GameObject* parent, UIType type);
 
 	void DestroyRenderManager(uint managerUID);
 

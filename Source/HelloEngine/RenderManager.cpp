@@ -7,6 +7,7 @@
 #include "MeshImporter.h"
 #include "CameraObject.h"
 #include "ModuleCamera3D.h"
+#include "ComponentUIButton.h"
 
 RenderManager::RenderManager()
 {
@@ -290,11 +291,43 @@ void RenderManager::CreatePrimitive(GameObject* parent, PrimitiveType type)
 		}
 		case PrimitiveType::PLANE2D:
 		{
-			GameObject* newGameObject = new GameObject(parent, "Canvas");
+			GameObject* canvas = new GameObject(parent, "Canvas", "CanvasUI");
 
 			//GameObject* cube = new GameObject(parent, "Canvas", "Primitive");
 			//MeshRenderComponent* meshRenderer = cube->AddComponent<MeshRenderComponent>();
 			//meshRenderer->CreateMesh(plane2DUID);
+			break;
+		}
+	}
+}
+
+void RenderManager::CreateUI(GameObject* parent, UIType type)
+{
+	if (parent == nullptr)
+		parent = ModuleLayers::rootGameObject;
+
+	switch (type)
+	{
+		case UIType::BUTTON:
+		{
+			GameObject* button = new GameObject(parent, "Button", "ButtonUI");
+			button->AddComponent<ComponentUIButton>();
+			/*MeshRenderComponent* meshRenderer = button->AddComponent<MeshRenderComponent>();
+			meshRenderer->CreateMesh(cubeUID);*/
+			break;
+		}
+		case UIType::SLIDER:
+		{
+			GameObject* cube = new GameObject(parent, "Sphere", "Primitive");
+			MeshRenderComponent* meshRenderer = cube->AddComponent<MeshRenderComponent>();
+			meshRenderer->CreateMesh(sphereUID);
+			break;
+		}
+		case UIType::CHECKBOX:
+		{
+			GameObject* cube = new GameObject(parent, "Cylinder", "Primitive");
+			MeshRenderComponent* meshRenderer = cube->AddComponent<MeshRenderComponent>();
+			meshRenderer->CreateMesh(cylinderUID);
 			break;
 		}
 	}
