@@ -47,6 +47,9 @@ public:
 private:
 	void UnLoad() override
 	{
+		if (OpenGLID == 0)
+			return;
+
 		glDeleteTextures(1, &OpenGLID);
 		name = "";
 		OpenGLID = 0;
@@ -103,6 +106,9 @@ public:
 		meshInfo.Clear();
 		vertexNormals.clear();
 		faceNormals.clear();
+
+		if (VAO == 0)
+			return;
 
 		glDeleteVertexArrays(1, &VAO);
 		glDeleteBuffers(1, &VBO);
