@@ -28,8 +28,8 @@ struct File
 					ModuleResourceManager::S_ReImportFile(path, metaFile.type);
 				else
 				{
-					ModuleResourceManager::S_ImportFile(path);
 					ModuleResourceManager::S_CreateResource(metaFile);
+					ModuleResourceManager::S_ReImportFile(path, metaFile.type);
 				}
 
 				metaFile = ModuleFiles::S_LoadMeta(metaPath);
