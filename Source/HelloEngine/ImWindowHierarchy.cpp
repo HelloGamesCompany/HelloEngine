@@ -200,7 +200,7 @@ void ImWindowHierarchy::ProcessGameObject(GameObject* gameObject, int iteration)
 void ImWindowHierarchy::DrawOptions()
 {
     int selectedShape = 0;
-    std::string shapeNames[4] = { "Cube", "Sphere", "Cylinder", "Plane" };
+    std::string shapeNames[5] = { "Cube", "Sphere", "Cylinder", "Plane", "Canvas"};
 
     if (LayerEditor::selectedGameObject != nullptr)
     {
@@ -220,7 +220,7 @@ void ImWindowHierarchy::DrawOptions()
     //ImGui::Text("Select Shape");
     //ImGui::Separator();
 
-    for (int i = 0; i < 4; i++)
+    for (int i = 0; i < 5; i++)
     {
         if (ImGui::Selectable(shapeNames[i].c_str()))
         {

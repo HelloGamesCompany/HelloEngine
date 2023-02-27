@@ -288,6 +288,15 @@ void RenderManager::CreatePrimitive(GameObject* parent, PrimitiveType type)
 			meshRenderer->CreateMesh(planeUID);
 			break;
 		}
+		case PrimitiveType::PLANE2D:
+		{
+			GameObject* newGameObject = new GameObject(parent, "Canvas");
+
+			//GameObject* cube = new GameObject(parent, "Canvas", "Primitive");
+			//MeshRenderComponent* meshRenderer = cube->AddComponent<MeshRenderComponent>();
+			//meshRenderer->CreateMesh(plane2DUID);
+			break;
+		}
 	}
 }
 
