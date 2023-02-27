@@ -78,6 +78,8 @@ public:
 
     std::string GetName() { return name; }
 
+    uint GetPrefabUID() { return _prefabUID; }
+
 
 
 #ifdef STANDALONE
@@ -123,6 +125,8 @@ private:
     bool _isStatic = false;
 
     uint _ID = 0; // ID =  0 is an invalid ID. First ID is 1.
+
+    uint _prefabUID;
 
     // On Editor variables
     std::string _comboValues[COMPONENT_NUM] = { "Mesh Renderer", "Material", "Camera", "Script", "UITest" };

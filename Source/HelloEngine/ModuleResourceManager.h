@@ -224,7 +224,7 @@ private:
     static void SerializeSceneRecursive(const GameObject* g, json& j);
 
     // Ruben Ayora
-    static void SerializeToPrefab(const GameObject* g, json& j, bool shouldHaveParent = true);
+    static uint SerializeToPrefab(const GameObject* g, json& j, bool shouldHaveParent = true);
 
 public:
     static std::map<std::string, Resource*> loadedResources;
