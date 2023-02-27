@@ -19,6 +19,7 @@ enum class UIType
 	BUTTON,
 	CHECKBOX,
 	SLIDER,
+	IMAGE,
 };
 
 enum class PrimitiveModelsUID

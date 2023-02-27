@@ -202,7 +202,7 @@ void ImWindowHierarchy::DrawOptions()
     int selectedShape = 0;
     int selectedUI = 0;
     std::string shapeNames[5] = { "Cube", "Sphere", "Cylinder", "Plane", "Canvas"};
-    std::string UINames[3] = { "Button", "CheckBox", "Slider"};
+    std::string UINames[4] = { "Button", "CheckBox", "Slider", "Image"};
 
     if (LayerEditor::selectedGameObject != nullptr)
     {
@@ -214,9 +214,9 @@ void ImWindowHierarchy::DrawOptions()
 
     if (LayerEditor::selectedGameObject != nullptr)
     {
-        if (LayerEditor::selectedGameObject->GetTag() == "CanvasUI")
+        if (LayerEditor::selectedGameObject->GetTag() == "UI")
         {
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 4; i++)
             {
                 if (ImGui::Selectable(UINames[i].c_str()))
                 {
@@ -226,7 +226,8 @@ void ImWindowHierarchy::DrawOptions()
             }
         }
     }
-
+    else
+    {    
         if (ImGui::Selectable("Create empty GameObject"))
         {
             GameObject* parent = LayerEditor::selectedGameObject ? LayerEditor::selectedGameObject : ModuleLayers::rootGameObject;
@@ -241,5 +242,5 @@ void ImWindowHierarchy::DrawOptions()
                 _app->renderer3D->renderManager.CreatePrimitive(LayerEditor::selectedGameObject, (PrimitiveType)i);
             }
         }
-    
+    }
 }

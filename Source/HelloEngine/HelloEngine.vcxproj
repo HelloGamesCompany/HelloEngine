@@ -307,6 +307,9 @@
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="ComponentUI.cpp" />
     <ClCompile Include="ComponentUIButton.cpp" />
+    <ClCompile Include="ComponentUICheckbox.cpp" />
+    <ClCompile Include="ComponentUIImage.cpp" />
+    <ClCompile Include="ComponentUISlider.cpp" />
     <ClCompile Include="Console.cpp" />
     <ClCompile Include="FrameBuffer.cpp" />
     <ClCompile Include="GameObject.cpp" />
@@ -472,6 +475,9 @@
     <ClInclude Include="Component.h" />
     <ClInclude Include="ComponentUI.h" />
     <ClInclude Include="ComponentUIButton.h" />
+    <ClInclude Include="ComponentUICheckbox.h" />
+    <ClInclude Include="ComponentUIImage.h" />
+    <ClInclude Include="ComponentUISlider.h" />
     <ClInclude Include="Console.h" />
     <ClInclude Include="CycleArray.hpp" />
     <ClInclude Include="FileTree.hpp" />
