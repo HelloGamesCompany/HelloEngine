@@ -76,6 +76,8 @@ public:
 
 	uint GetID() { return _ID; }
 
+	std::string GetTag() { return tag; }
+
 
 
 #ifdef STANDALONE
