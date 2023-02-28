@@ -164,8 +164,13 @@ void ModuleResourceManager::S_ReImportFile(const std::string& filePath, Resource
     break;
     // RUBENAYORA
     /*case prefab:
-    * if () gameObject->_updatePrefab == false --> dont update prefab automaticly
+    * for each gameobject in ModuleLayers::gameobjects
+    * {
+    * if (gameObject->_prefabUID == S_GetPrefabUID(filePath) && gameObject->_updatePrefab)
+    * {
     * destroy actual gameobject and load the prefab
+    * }
+    * }
     */
     }
 
@@ -362,7 +367,7 @@ bool ModuleResourceManager::S_DeserializeFromPrefab(const std::string& filePath,
     for (int i = 0; i < sceneFile.size(); i++)// DUDA
     {
         GameObject* g = new GameObject(nullptr, sceneFile[i]["Name"], sceneFile[i]["Tag"], sceneFile[i]["UID"]);
-
+        g->SetPrefabUID(sceneFile[i]["PrefabUID"]);
         temp.push_back(std::make_pair(g, sceneFile[i]["ParentUID"]));
     }
 
@@ -425,6 +430,23 @@ bool ModuleResourceManager::S_DeserializeFromPrefab(const std::string& filePath,
     Application::Instance()->xml->GetConfigXML().FindChildBreadth("currentScene").node.attribute("value").set_value(filePath.c_str());// DUDA
 
     return true;
+}
+
+uint ModuleResourceManager::S_GetPrefabUID(const std::string& filePath)
+{
+    char* buffer = nullptr;
+
+    uint size = ModuleFiles::S_Load(filePath, &buffer);
+
+    if (size == 0)
+        return false;
+
+    ModuleCommand::S_CleanCommandQueue();
+
+    json sceneFile = json::parse(buffer);
+    RELEASE(buffer);
+
+    return sceneFile[0]["PrefabUID"];
 }
 
 bool ModuleResourceManager::S_DeserializeScene(const std::string& filePath)

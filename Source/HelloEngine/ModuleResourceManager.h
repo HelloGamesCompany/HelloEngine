@@ -196,6 +196,8 @@ public:
 
     static bool S_DeserializeFromPrefab(const std::string& filePath, GameObject* parent);
 
+    static uint S_GetPrefabUID(const std::string& filePath);
+
     /// <summary>
     /// Delete meta file and the resources attached to it. If you want to only destroy the resources, mark bool as true.
     /// </summary>
