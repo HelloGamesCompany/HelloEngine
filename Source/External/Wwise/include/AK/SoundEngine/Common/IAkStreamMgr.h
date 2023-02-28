@@ -21,8 +21,7 @@ under the Apache License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
 OR CONDITIONS OF ANY KIND, either express or implied. See the Apache License for
 the specific language governing permissions and limitations under the License.
 
-  Version: v2021.1.5  Build: 7749
-  Copyright (c) 2006-2021 Audiokinetic Inc.
+  Copyright (c) 2023 Audiokinetic Inc.
 *******************************************************************************/
 
 /// \file 
@@ -81,7 +80,7 @@ enum AkOpenMode
 struct AkFileSystemFlags
 {
 	AkFileSystemFlags()
-		: uCacheID( AK_INVALID_FILE_ID ) {}
+		: uCacheID( AK_INVALID_FILE_ID ), uDirectoryHash( AK_INVALID_UNIQUE_ID ) {}
 
 	AkFileSystemFlags( AkUInt32 in_uCompanyID, AkUInt32 in_uCodecID, AkUInt32 in_uCustomParamSize, void * in_pCustomParam, bool in_bIsLanguageSpecific, AkFileID in_uCacheID )
 		: uCompanyID( in_uCompanyID )
@@ -89,8 +88,9 @@ struct AkFileSystemFlags
 		, uCustomParamSize( in_uCustomParamSize )
 		, pCustomParam( in_pCustomParam )
 		, bIsLanguageSpecific( in_bIsLanguageSpecific )
-		, uCacheID( in_uCacheID ) 
-		, uNumBytesPrefetch( 0 ) {}
+		, uCacheID( in_uCacheID )
+		, uNumBytesPrefetch( 0 )
+		, uDirectoryHash( AK_INVALID_UNIQUE_ID ) {}
 
     AkUInt32            uCompanyID;         ///< Company ID (Wwise uses AKCOMPANYID_AUDIOKINETIC, defined in AkTypes.h, for soundbanks and standard streaming files, and AKCOMPANYID_AUDIOKINETIC_EXTERNAL for streaming external sources).
     AkUInt32            uCodecID;           ///< File/codec type ID (defined in AkTypes.h)
@@ -104,6 +104,7 @@ struct AkFileSystemFlags
 	AkUInt32			uNumBytesPrefetch;	///< Indicates the number of bytes from the beginning of the file that should be streamed into cache via a caching stream. This field is only relevant when opening caching streams via 
 											///< AK::IAkStreamMgr::PinFileInCache() and AK::SoundEngine::PinEventInStreamCache().  When using AK::SoundEngine::PinEventInStreamCache(), 
 											///< it is initialized to the prefetch size stored in the sound bank, but may be changed by the file location resolver, or set to 0 to cancel caching.
+	AkUInt32            uDirectoryHash;     ///< If the implementation uses a hashed directory structure, this is the hash value that should be employed for determining the directory structure
 };
 
 /// Stream information.

@@ -21,8 +21,7 @@ under the Apache License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
 OR CONDITIONS OF ANY KIND, either express or implied. See the Apache License for
 the specific language governing permissions and limitations under the License.
 
-  Version: v2021.1.5  Build: 7749
-  Copyright (c) 2006-2021 Audiokinetic Inc.
+  Copyright (c) 2023 Audiokinetic Inc.
 *******************************************************************************/
 
 // AkSimd.h
@@ -248,6 +247,10 @@ static AkForceInline float32x4_t AKSIMD_SETV_V2F64(AkReal64 b, AkReal64 a)
 #define AKSIMD_STORE_V4F32X2( __addr__, __vName__ ) vst2q_f32( (float32_t*)(__addr__), (__vName__) )
 #define AKSIMD_STORE_V2F32X2( __addr__, __vName__ ) vst2_f32( (float32_t*)(__addr__), (__vName__) )
 
+/// Stores the lower double-precision, floating-point value.
+/// *p := a0 (see _mm_store_sd)
+#define AKSIMD_STORE1_V2F64( __addr__, __vec__ ) vst1q_lane_f64( (float64_t*)(__addr__), vreinterpretq_f64_f32(__vec__), 0 )
+
 //@}
 ////////////////////////////////////////////////////////////////////////
 
@@ -434,6 +437,13 @@ static AkForceInline AKSIMD_V4I32 AKSIMD_CONVERT_V4F32_TO_V4F16(AKSIMD_V4F32 vec
 #define AKSIMD_CAST_V4COND_TO_V4F32( __vec__ ) vreinterpretq_f32_u32(__vec__)
 
 #define AKSIMD_CAST_V4F32_TO_V4COND( __vec__ ) vreinterpretq_u32_f32(__vec__)
+
+/// Cast vector of type AKSIMD_V4COND to AKSIMD_V4I32.
+#define AKSIMD_CAST_V4COND_TO_V4I32( __vec__ ) (AKSIMD_V4COND)(__vec__)
+
+/// Cast vector of type AKSIMD_V4I32 to AKSIMD_V4COND.
+#define AKSIMD_CAST_V4I32_TO_V4COND( __vec__ ) (AKSIMD_V4COND)(__vec__)
+
 //@}
 ////////////////////////////////////////////////////////////////////////
 
@@ -542,10 +552,14 @@ static AkForceInline AKSIMD_V4F32 AKSIMD_NOT_V4F32( const AKSIMD_V4F32& in_vec )
 // If you get a link error, it's probably because the required
 // _AKSIMD_LOCAL::SHUFFLE_V4F32< zyxw > is not implemented in
 // <AK/SoundEngine/Platforms/arm_neon/AkSimdShuffle.h>.
-#if defined(__clang__) && defined(__has_builtin) && __has_builtin(__builtin_shufflevector)
-#define AKSIMD_SHUFFLE_V4F32( a, b, zyxw ) \
-	__builtin_shufflevector(a, b, (zyxw >> 0) & 0x3, (zyxw >> 2) & 0x3, ((zyxw >> 4) & 0x3) + 4, ((zyxw >> 6) & 0x3) + 4 )
-#else
+#if defined(__clang__)
+	#if defined(__has_builtin) && __has_builtin(__builtin_shufflevector)
+	#define AKSIMD_SHUFFLE_V4F32( a, b, zyxw ) \
+		__builtin_shufflevector(a, b, (zyxw >> 0) & 0x3, (zyxw >> 2) & 0x3, ((zyxw >> 4) & 0x3) + 4, ((zyxw >> 6) & 0x3) + 4 )
+	#endif
+#endif
+
+#ifndef AKSIMD_SHUFFLE_V4F32
 #define AKSIMD_SHUFFLE_V4F32( a, b, zyxw ) \
 	_AKSIMD_LOCAL::SHUFFLE_V4F32< zyxw >( a, b )
 

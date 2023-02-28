@@ -1,11 +1,10 @@
 #include "Headers.h"
 #include "ModuleAudio.h"
 
-
-#include <AK/SoundEngine/Common/AkMemoryMgr.h> // Memory Manager interface
-#include <AK/SoundEngine/Common/AkModule.h> // Default memory manager
-#include <AK/SoundEngine/Common/IAkStreamMgr.h> // Streaming Manager
-#include <AK/Tools/Common/AkPlatformFuncs.h> // Thread defines
+#include "AK/SoundEngine/Common/AkMemoryMgr.h" // Memory Manager interface
+#include "AK/SoundEngine/Common/AkModule.h" // Default memory manager
+#include "AK/SoundEngine/Common/IAkStreamMgr.h" // Streaming Manager
+#include "AK/Tools/Common/AkPlatformFuncs.h" // Thread defines
 //#include <AK/SoundEngine/Common/AkSoundEngine.h> // Sound Engine
 //#include <AK/MusicEngine/Common/AkMusicEngine.h> // Music Engine
 //#include <AK/SpatialAudio/Common/AkSpatialAudio.h> // Spatial Audio

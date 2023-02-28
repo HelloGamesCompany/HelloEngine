@@ -1,7 +1,7 @@
 #pragma once
 #include "Module.h"
 
-#include <AK/SoundEngine/Win32/AkFilePackageLowLevelIOBlocking.h>// Sample low-level I/O implementation
+#include "Ak/samples/AkFilePackageLowLevelIOBlocking.h"// Sample low-level I/O implementation
 
 class ModuleAudio : public Module
 {

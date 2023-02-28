@@ -21,8 +21,7 @@ under the Apache License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
 OR CONDITIONS OF ANY KIND, either express or implied. See the Apache License for
 the specific language governing permissions and limitations under the License.
 
-Version: v2021.1.5  Build: 7749
-Copyright (c) 2006-2021 Audiokinetic Inc.
+  Copyright (c) 2023 Audiokinetic Inc.
 *******************************************************************************/
 
 /// \file 
@@ -92,11 +91,13 @@ namespace ReverbEstimation
 			out_average.fAbsorptionHigh += texture.fAbsorptionHigh * surfaceArea;
 			totalSurfaceArea += surfaceArea;
 		}
-		AKASSERT(totalSurfaceArea > 0.0f);
-		out_average.fAbsorptionLow = out_average.fAbsorptionLow / totalSurfaceArea;
-		out_average.fAbsorptionMidLow = out_average.fAbsorptionMidLow / totalSurfaceArea;
-		out_average.fAbsorptionMidHigh = out_average.fAbsorptionMidHigh / totalSurfaceArea;
-		out_average.fAbsorptionHigh = out_average.fAbsorptionHigh / totalSurfaceArea;
+		if (totalSurfaceArea > 0.0f)
+		{
+			out_average.fAbsorptionLow = out_average.fAbsorptionLow / totalSurfaceArea;
+			out_average.fAbsorptionMidLow = out_average.fAbsorptionMidLow / totalSurfaceArea;
+			out_average.fAbsorptionMidHigh = out_average.fAbsorptionMidHigh / totalSurfaceArea;
+			out_average.fAbsorptionHigh = out_average.fAbsorptionHigh / totalSurfaceArea;
+		}
 	}
 
 	/// Estimate the time taken (in seconds) for the sound reverberation in a physical environment to decay by 60 dB.
@@ -147,7 +148,7 @@ namespace ReverbEstimation
 			return AKRESULT::AK_Fail;
 		}
 		const float minDimension = AkMin(AkMin(in_environmentExtentMeters.X, in_environmentExtentMeters.Y), in_environmentExtentMeters.Z);
-		out_timeToFirstReflectionMs = minDimension / in_speedOfSound;
+		out_timeToFirstReflectionMs = (minDimension / in_speedOfSound) * 1000.0f;
 		return AKRESULT::AK_Success;
 	}
 

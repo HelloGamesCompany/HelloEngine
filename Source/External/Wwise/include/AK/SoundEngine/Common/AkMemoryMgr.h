@@ -21,8 +21,7 @@ under the Apache License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
 OR CONDITIONS OF ANY KIND, either express or implied. See the Apache License for
 the specific language governing permissions and limitations under the License.
 
-  Version: v2021.1.5  Build: 7749
-  Copyright (c) 2006-2021 Audiokinetic Inc.
+  Copyright (c) 2023 Audiokinetic Inc.
 *******************************************************************************/
 
 /// \file
@@ -63,6 +62,7 @@ enum AkMemID
 	AkMemID_FilePackage,			///< File packager.
 	AkMemID_SoundEngine,			///< Base sound engine allocations (managers, etc).
 	AkMemID_Integration,			///< Game engine integration allocations.
+	AkMemID_JobMgr,                 ///< Allocations for Sound Engine jobs and job dependencies.
 
 	AkMemID_NUM,					///< Category count.
 	AkMemID_MASK = 0x1FFFFFFF,		///< Mask for category IDs.
@@ -146,6 +146,16 @@ namespace AK
 		/// \sa
 		/// - AkMemTermForThread
 		AK_EXTERNAPIFUNC( void, TermForThread )();
+
+		/// Allows you to "trim" a thread being used with the memory manager.
+		/// This is a function which will be called upon completion of job workers, or the end of other periods of work that may include memory allocations,
+		/// so that any thread-local state can be cleaned up or finalized. For example, this can be used to return thread-local heaps to global stores, or
+		/// finalizing other deferred operations, in order to return memory back for other systems to use.
+		/// This function is only required for optimization, and does not have to be defined. Unlike TermForThread, it is not be expected to be
+		/// called in all scenarios by Wwise.
+		/// \sa
+		/// - AkMemTrimForThread
+		AK_EXTERNAPIFUNC( void, TrimForThread )();
 
 		//@}
 

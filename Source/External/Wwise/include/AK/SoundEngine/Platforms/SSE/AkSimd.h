@@ -21,8 +21,7 @@ under the Apache License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
 OR CONDITIONS OF ANY KIND, either express or implied. See the Apache License for
 the specific language governing permissions and limitations under the License.
 
-  Version: v2021.1.5  Build: 7749
-  Copyright (c) 2006-2021 Audiokinetic Inc.
+  Copyright (c) 2023 Audiokinetic Inc.
 *******************************************************************************/
 
 // AkSimd.h
@@ -148,6 +147,10 @@ static AkForceInline AKSIMD_V4COND AKSIMD_SETMASK_V4COND( AkUInt32 x )
 /// Stores the lower single-precision, floating-point value.
 /// *p := a0 (see _mm_store_ss)
 #define AKSIMD_STORE1_V4F32( __addr__, __vec__ ) _mm_store_ss( (AkReal32*)(__addr__), (__vec__) )
+
+/// Stores the lower double-precision, floating-point value.
+/// *p := a0 (see _mm_store_sd)
+#define AKSIMD_STORE1_V2F64( __addr__, __vec__ ) _mm_store_sd( (AkReal64*)(__addr__), _mm_castps_pd(__vec__) )
 
 //@}
 ////////////////////////////////////////////////////////////////////////
@@ -343,8 +346,10 @@ static AKSIMD_V4F32 AKSIMD_COMPLEXMUL_SSE3( const AKSIMD_V4F32 vCIn1, const AKSI
 
 #if defined _MSC_VER && ( _MSC_VER <= 1600 )
 	#define AKSIMD_ASSERTFLUSHZEROMODE	AKASSERT( _MM_GET_FLUSH_ZERO_MODE(dummy) == _MM_FLUSH_ZERO_ON )
-#else
+#elif defined(AK_CPU_X86) || defined(AK_CPU_X86_64)
 	#define AKSIMD_ASSERTFLUSHZEROMODE	AKASSERT( _MM_GET_FLUSH_ZERO_MODE() == _MM_FLUSH_ZERO_ON )
+#else
+	#define AKSIMD_ASSERTFLUSHZEROMODE
 #endif
 
 //@}
@@ -700,6 +705,12 @@ static AkForceInline AKSIMD_V4I32 AKSIMD_CONVERT_V4F32_TO_V4F16(AKSIMD_V4F32 vec
 
 /// Cast vector of type AKSIMD_V4F32 to AKSIMD_V4COND.
 #define AKSIMD_CAST_V4F32_TO_V4COND( __vec__ ) (__vec__)
+
+/// Cast vector of type AKSIMD_V4COND to AKSIMD_V4I32.
+#define AKSIMD_CAST_V4COND_TO_V4I32( __vec__ )  _mm_castps_si128(__vec__)
+
+/// Cast vector of type AKSIMD_V4I32 to AKSIMD_V4COND.
+#define AKSIMD_CAST_V4I32_TO_V4COND( __vec__ ) _mm_castsi128_ps(__vec__)
 
 //@}
 ////////////////////////////////////////////////////////////////////////

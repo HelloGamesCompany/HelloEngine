@@ -364,6 +364,11 @@
     <ClCompile Include="LayerUI.cpp" />
     <ClCompile Include="ComponentUIButton.cpp" />
     <ClCompile Include="ModuleAudio.cpp" />
+    <ClCompile Include="..\External\Wwise\include\AK\samples\AkFilePackage.cpp" />
+    <ClCompile Include="..\External\Wwise\include\AK\samples\AkFilePackageLUT.cpp" />
+    <ClCompile Include="..\External\Wwise\include\AK\samples\AkMultipleFileLocation.cpp" />
+    <ClCompile Include="..\External\Wwise\include\AK\samples\AkDefaultIOHookBlocking.cpp" />
+    <ClCompile Include="..\External\Wwise\include\AK\samples\AkGeneratedSoundBanksResolver.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">

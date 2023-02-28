@@ -21,8 +21,7 @@ under the Apache License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
 OR CONDITIONS OF ANY KIND, either express or implied. See the Apache License for
 the specific language governing permissions and limitations under the License.
 
-  Version: v2021.1.5  Build: 7749
-  Copyright (c) 2006-2021 Audiokinetic Inc.
+  Copyright (c) 2023 Audiokinetic Inc.
 *******************************************************************************/
 
 // AkAllocator.h
@@ -31,6 +30,7 @@ the specific language governing permissions and limitations under the License.
 #define _AK_TOOLS_COMMON_AKALLOCATOR_H
 
 #include <AK/SoundEngine/Common/IAkPluginMemAlloc.h>
+#include <AK/Tools/Common/AkAssert.h>
 #include <AK/AkPlatforms.h>
 
 #ifdef AK_WIN
@@ -95,7 +95,7 @@ namespace AK
 			#ifdef AK_WIN
 				return _aligned_realloc(in_pMemAddress, in_uSize, in_uAlignment);
 			#else
-				AKASSERT(!"ReallocAligned is not supported: using realloc")
+				AKASSERT(!"ReallocAligned is not supported: using realloc");
 				return realloc(in_pMemAddress, in_uSize);
 			#endif
 			}

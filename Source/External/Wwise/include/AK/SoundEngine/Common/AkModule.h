@@ -21,8 +21,7 @@ under the Apache License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
 OR CONDITIONS OF ANY KIND, either express or implied. See the Apache License for
 the specific language governing permissions and limitations under the License.
 
-  Version: v2021.1.5  Build: 7749
-  Copyright (c) 2006-2021 Audiokinetic Inc.
+  Copyright (c) 2023 Audiokinetic Inc.
 *******************************************************************************/
 
 /// \file
@@ -40,6 +39,9 @@ typedef void ( AKSOUNDENGINE_CALL *AkMemInitForThread ) (
 	);
 
 typedef void ( AKSOUNDENGINE_CALL *AkMemTermForThread ) (
+	);
+
+typedef void ( AKSOUNDENGINE_CALL *AkMemTrimForThread ) (
 	);
 
 typedef void* ( AKSOUNDENGINE_CALL *AkMemMalloc ) (
@@ -141,6 +143,7 @@ struct AkMemSettings
 	//@{
 	AkMemInitForThread				pfInitForThread;				///< (Optional) Thread-specific allocator initialization hook.
 	AkMemTermForThread				pfTermForThread;				///< (Optional) Thread-specific allocator termination hook.
+	//AkMemTrimForThread				pfTrimForThread;			///< (Optional) Thread-specific allocator "trimming" hook. Used to relinquish memory resources when threads enter a period of inactivity.
 	AkMemMalloc						pfMalloc;						///< (Optional) Memory allocation hook.
 	AkMemMalign						pfMalign;						///< (Optional) Memory allocation hook.
 	AkMemRealloc					pfRealloc;						///< (Optional) Memory allocation hook.
@@ -153,6 +156,7 @@ struct AkMemSettings
 	/// @name Configuration.
 	//@{
 	AkUInt64						uMemAllocationSizeLimit;		///< When non-zero, limits the total amount of virtual and device memory allocated by AK::MemoryMgr.
+	bool							bUseDeviceMemAlways;			///< Use device memory for all allocations (on applicable platforms).
 	//@}
 
 	/// @name Page allocation hooks, used by rpmalloc. Default to AKPLATFORM::AllocVM et al.
@@ -174,6 +178,9 @@ struct AkMemSettings
 	AkMemDebugFree					pfDebugFree;					///< (Optional) Memory allocation debugging hook. Used for tracking calls to pfFree.
 	AkUInt32						uMemoryDebugLevel;				///< Default 0 disabled. 1 debug enabled. 2 stomp allocator enabled. 3 stomp allocator and debug enabled. User implementations may use multiple non-zero values to offer different features.
 	//@}
+
+	// Moved to end-of-struct to maintain stability across 2022.1 modules.
+	AkMemTrimForThread				pfTrimForThread;				///< (Optional) Thread-specific allocator "trimming" hook.
 };
 //@}
 
@@ -198,23 +205,25 @@ AK_EXTERNAPIFUNC( void, GetDefaultSettings ) (
 
 }
 
-#if defined AK_WIN || defined AK_LINUX || defined AK_SONY || defined AK_XBOX || defined AK_APPLE
-#define AK_CRT_ALLOCATOR
+#if defined AK_WIN || defined AK_LINUX || defined AK_SONY || defined AK_XBOX || defined AK_APPLE || defined AK_EMSCRIPTEN
+#define AK_CRT_ALLOCATOR_SUPPORTED
 #endif
 
-#ifdef AK_CRT_ALLOCATOR
-/// \name C runtime allocator functions for AkMemoryMgr
-//@{
-
+#ifdef AK_CRT_ALLOCATOR_SUPPORTED
 namespace AK
 {
 
 namespace MemoryMgr
 {
 
+/// @name C runtime allocator functions for the default implementation of the Memory Manager.
+//@{
+
 AK_EXTERNAPIFUNC( void, AkCrtAllocatorInitForThread )();
 
 AK_EXTERNAPIFUNC( void, AkCrtAllocatorTermForThread )();
+
+AK_EXTERNAPIFUNC( void, AkCrtAllocatorTrimForThread )();
 
 AK_EXTERNAPIFUNC( void*, AkCrtAllocatorMalloc )(
 	AkMemPoolId poolId,
@@ -252,15 +261,19 @@ AK_EXTERNAPIFUNC( size_t, AkCrtAllocatorSizeOfMemory )(
 	void* pAddress
 	);
 
-}
-
-}
-
 //@}
-#endif // AK_CRT_ALLOCATOR
 
-/// \name stomp allocator functions for AkMemoryMgr
-//@{
+}
+
+}
+
+#endif // AK_CRT_ALLOCATOR_SUPPORTED
+
+#if !defined AK_EMSCRIPTEN
+#define AK_STOMP_ALLOCATOR_SUPPORTED
+#endif
+
+#ifdef AK_STOMP_ALLOCATOR_SUPPORTED
 
 namespace AK
 {
@@ -268,9 +281,14 @@ namespace AK
 namespace MemoryMgr
 {
 
+/// @name Stomp allocator functions for the default implementation of the Memory Manager.
+//@{
+
 AK_EXTERNAPIFUNC( void, AkStompAllocatorInitForThread )();
 
 AK_EXTERNAPIFUNC( void, AkStompAllocatorTermForThread )();
+
+AK_EXTERNAPIFUNC( void, AkStompAllocatorTrimForThread )();
 
 AK_EXTERNAPIFUNC( void*, AkStompAllocatorMalloc )(
 	AkMemPoolId poolId,
@@ -308,9 +326,12 @@ AK_EXTERNAPIFUNC( size_t, AkStompAllocatorSizeOfMemory )(
 	void* pAddress
 	);
 
+//@}
+
 }
 
 }
+#endif // AK_STOMP_ALLOCATOR_SUPPORTED
 
 namespace AK
 {
@@ -318,7 +339,8 @@ namespace AK
 namespace MemoryMgr
 {
 
-/// debug tool hooks AkMemoryMgr
+/// @name Debug tool hooks for the default implementation of the Memory Manager.
+//@{
 
 AK_EXTERNAPIFUNC( AKRESULT, AkMemDebugToolInit )();
 
@@ -364,6 +386,8 @@ AK_EXTERNAPIFUNC( void, AkMemDebugToolFree ) (
 	AkMemPoolId poolId,
 	void* pAddress
 	);
+
+//@}
 
 }
 

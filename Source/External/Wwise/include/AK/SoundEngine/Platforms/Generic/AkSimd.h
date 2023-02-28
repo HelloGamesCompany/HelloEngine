@@ -21,8 +21,7 @@ under the Apache License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
 OR CONDITIONS OF ANY KIND, either express or implied. See the Apache License for
 the specific language governing permissions and limitations under the License.
 
-  Version: v2021.1.5  Build: 7749
-  Copyright (c) 2006-2021 Audiokinetic Inc.
+  Copyright (c) 2023 Audiokinetic Inc.
 *******************************************************************************/
 
 // AkSimd.h
@@ -70,18 +69,6 @@ typedef struct { AkReal32 m_data[4]; } AKSIMD_V4F32_UNALIGNED;		///< Unaligned V
 
 //@}
 ////////////////////////////////////////////////////////////////////////
-
-#ifndef AKSIMD_GETELEMENT_V4F32
-#define AKSIMD_GETELEMENT_V4F32( __vName, __num__ )				(__vName).m_data[(__num__)]
-#endif
-
-#ifndef AKSIMD_GETELEMENT_V2F32
-#define AKSIMD_GETELEMENT_V2F32( __vName, __num__ )				(__vName).m_data[(__num__)]
-#endif
-
-#ifndef AKSIMD_GETELEMENT_V4I32
-#define AKSIMD_GETELEMENT_V4I32( __vName, __num__ )				(__vName).m_data[(__num__)]
-#endif
 
 ////////////////////////////////////////////////////////////////////////
 /// @name Platform specific memory size alignment for allocation purposes

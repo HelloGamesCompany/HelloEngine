@@ -21,24 +21,16 @@ under the Apache License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
 OR CONDITIONS OF ANY KIND, either express or implied. See the Apache License for
 the specific language governing permissions and limitations under the License.
 
-  Version: v2021.1.5  Build: 7749
-  Copyright (c) 2006-2021 Audiokinetic Inc.
+  Copyright (c) 2023 Audiokinetic Inc.
 *******************************************************************************/
+
+#pragma once
 
 // Length of delay line is mapped on 4 frames boundary (i.e. may not be suited for reverberation for example)
 // This is not a delay line implementation, but rather just some services for memory managment related 
 // to specific delay line execution needs as detailed by clients
 #include <AK/AkPlatforms.h>
 #include <AK/SoundEngine/Common/AkSpeakerConfig.h>
-
-#ifdef AK_VOICE_MAX_NUM_CHANNELS
-#include "Generic/AkDelayLineMemory.h"
-#else
-//Default implementation
-
-#ifndef _AKDSP_DELAYLINEMEMORY_
-#define _AKDSP_DELAYLINEMEMORY_
-
 #include <AK/SoundEngine/Common/AkTypes.h>
 #include <AK/SoundEngine/Common/IAkPluginMemAlloc.h>
 #include <AK/Tools/Common/AkPlatformFuncs.h>
@@ -158,6 +150,3 @@ namespace AK
 
 	} // namespace DSP
 } // namespace AK
-
-#endif // _AKDSP_DELAYLINEMEMORY_
-#endif // AK_VOICE_MAX_NUM_CHANNELS

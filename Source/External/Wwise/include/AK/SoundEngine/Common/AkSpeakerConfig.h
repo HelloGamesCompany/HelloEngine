@@ -21,8 +21,7 @@ under the Apache License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
 OR CONDITIONS OF ANY KIND, either express or implied. See the Apache License for
 the specific language governing permissions and limitations under the License.
 
-  Version: v2021.1.5  Build: 7749
-  Copyright (c) 2006-2021 Audiokinetic Inc.
+  Copyright (c) 2023 Audiokinetic Inc.
 *******************************************************************************/
 
 #ifndef _AK_SPEAKERCONFIG_H_
@@ -498,6 +497,34 @@ struct AkChannelConfig
 	AkUInt32	uNumChannels : 8;	///< Number of channels.
 	AkUInt32	eConfigType : 4;	///< Channel config type (AkChannelConfigType).
 	AkUInt32	uChannelMask : 20;///< Channel mask (configuration). 
+
+	/// Construct standard channel config from channel mask
+	static AkForceInline AkChannelConfig Standard(AkUInt32 in_uChannelMask)
+	{
+		return AkChannelConfig(AK::ChannelMaskToNumChannels(in_uChannelMask), in_uChannelMask);
+	}
+
+	// Construct anonymous channel config from number of channels
+	static AkForceInline AkChannelConfig Anonymous(AkUInt32 in_uNumChannels)
+	{
+		return AkChannelConfig(in_uNumChannels, 0);
+	}
+
+	/// Construct ambisonic channel config from number of channels (NOT order)
+	static AkForceInline AkChannelConfig Ambisonic(AkUInt32 in_uNumChannels)
+	{
+		AkChannelConfig cfg;
+		cfg.SetAmbisonic(in_uNumChannels);
+		return cfg;
+	}
+
+	// Construct object-based channel config
+	static AkForceInline AkChannelConfig Object()
+	{
+		AkChannelConfig cfg;
+		cfg.SetObject();
+		return cfg;
+	}
 
 	/// Constructor. Clears / sets the channel config in "invalid" state (IsValid() returns false).
 	AkForceInline AkChannelConfig()

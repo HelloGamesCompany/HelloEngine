@@ -21,8 +21,7 @@ under the Apache License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
 OR CONDITIONS OF ANY KIND, either express or implied. See the Apache License for
 the specific language governing permissions and limitations under the License.
 
-Version: v2021.1.5  Build: 7749
-Copyright (c) 2006-2021 Audiokinetic Inc.
+  Copyright (c) 2023 Audiokinetic Inc.
 *******************************************************************************/
 
 // AkAtomic.h
@@ -31,7 +30,10 @@ Copyright (c) 2006-2021 Audiokinetic Inc.
 
 #include <Windows.h>
 
-#define AkThreadYield() SwitchToThread()
+// Sleep of 1 is as close as we can get on Microsoft platforms
+// SwitchToThread() is liable to cause the current thread to be unscheduled for 10-30ms
+#define AkThreadYield() Sleep(1);
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -102,6 +104,19 @@ __forceinline	int			AkAtomicCasPtr( AkAtomicPtr* pDest, void* proposed, void* ex
 #else
 __forceinline	void*		AkAtomicExchangePtr(AkAtomicPtr* pDest, void* value)						{ return InterlockedExchangePointer( ( void** )pDest, value ); }
 __forceinline	int			AkAtomicCasPtr(AkAtomicPtr* pDest, void* proposed, void* expected)			{ return InterlockedCompareExchangePointer( ( void** )pDest, proposed, expected ) == expected ? 1 : 0; }
+#endif
+
+#if defined(_MSC_VER)
+__forceinline void AkSpinHint(void)
+{
+#if defined(_M_IX86) || defined(_M_X64)
+	_mm_pause();
+#elif defined( _M_ARM ) || defined( _M_ARM64 )
+	__yield();
+#else
+	#error Unsupported platform for AkSpinHint
+#endif
+}
 #endif
 
 #ifdef __cplusplus

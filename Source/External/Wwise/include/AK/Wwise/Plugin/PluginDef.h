@@ -21,8 +21,7 @@ under the Apache License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
 OR CONDITIONS OF ANY KIND, either express or implied. See the Apache License for
 the specific language governing permissions and limitations under the License.
 
-  Version: v2021.1.5  Build: 7749
-  Copyright (c) 2006-2021 Audiokinetic Inc.
+  Copyright (c) 2023 Audiokinetic Inc.
 *******************************************************************************/
 
 /**
@@ -153,14 +152,14 @@ namespace AK
 				/// The name should be on a single line.
 				virtual void SetCurrentOperationName(const char * in_szOperationName) = 0;
 
-				/// Should be called at the beginning of the operation to set the min and max value 
+				/// Should be called at the beginning of the operation to set the min and max value
 				virtual void SetRange(uint32_t in_dwMinValue, uint32_t in_dwMaxValue) = 0;
 
 				/// Notify of the advancement of the task.
 				virtual void NotifyProgress(uint32_t in_dwProgress) = 0;
 
 				/// Check if the user has cancelled the task
-				virtual bool IsCancelled() = 0;
+				virtual bool IsCancelled() const = 0;
 
 				/// Display an error message to the user.
 				/// The message should be on a single line.
@@ -498,6 +497,8 @@ typedef struct ak_wwise_plugin_base_instance* ak_wwise_plugin_instance_ptr;					
 struct ak_wwise_plugin_interface_array_item;
 struct ak_wwise_plugin_info;
 struct ak_wwise_plugin_container;
+
+typedef void ak_wwise_plugin_widget;
 
 #ifdef __cplusplus
 /**
@@ -898,6 +899,16 @@ struct ak_wwise_plugin_sink_devices_instance_v1 AK_WWISE_PLUGIN_DERIVE_FROM_INST
 struct ak_wwise_plugin_test_service_instance_v1 AK_WWISE_PLUGIN_DERIVE_FROM_INSTANCE_BASE {};
 struct ak_wwise_plugin_test_service_instance_v2 AK_WWISE_PLUGIN_DERIVE_FROM_INSTANCE_BASE {};
 
+struct ak_wwise_plugin_frontend_v1;
+AK_WWISE_PLUGIN_DERIVE_FROM_FRONTEND_INSTANCE(ak_wwise_plugin_frontend_instance_v1);
+
+struct ak_wwise_plugin_host_frontend_model_instance_v1 AK_WWISE_PLUGIN_DERIVE_FROM_INSTANCE_BASE {};
+
+struct ak_wwise_plugin_host_frontend_model_args_v1 AK_WWISE_PLUGIN_DERIVE_FROM_INSTANCE_BASE
+{
+	const char* templateName;
+};
+
 #undef AK_WWISE_PLUGIN_DERIVE_FROM_INSTANCE_BASE
 
 /**
@@ -963,11 +974,13 @@ namespace AK::Wwise::Plugin
 	using CInterfaceArrayItem = ak_wwise_plugin_interface_array_item;													///< \copydoc ak_wwise_plugin_interface_array_item
 	using CPluginInfo = ak_wwise_plugin_info;																			///< \copydoc ak_wwise_plugin_info
 	using CPluginContainer = ak_wwise_plugin_container;																	///< \copydoc ak_wwise_plugin_container
+	using CWidget = ak_wwise_plugin_widget;
 
 	using BaseInterface = CBaseInterface;																				///< \copydoc ak_wwise_plugin_base_interface
 	using InterfacePtr = CInterfacePtr;
 	using InterfaceArrayItem = CInterfaceArrayItem;																		///< \copydoc ak_wwise_plugin_interface_array_item
 	using PluginInfo = CPluginInfo;																						///< \copydoc ak_wwise_plugin_info
 	using PluginContainer = CPluginContainer;																			///< \copydoc ak_wwise_plugin_container
+	using Widget = CWidget;
 }
 #endif

@@ -21,8 +21,7 @@ under the Apache License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
 OR CONDITIONS OF ANY KIND, either express or implied. See the Apache License for
 the specific language governing permissions and limitations under the License.
 
-  Version: v2021.1.5  Build: 7749
-  Copyright (c) 2006-2021 Audiokinetic Inc.
+  Copyright (c) 2023 Audiokinetic Inc.
 *******************************************************************************/
 
 // AkCommonDefs.h
@@ -199,37 +198,32 @@ enum AkSourceChannelOrdering
 
 namespace AK
 {
-	/// Interface to retrieve metering information about a buffer.
-	class IAkMetering
+	/// Struct containing metering information about a buffer. Depending on when this struct is generated, you may get metering data computed in the previous frame only. 
+	struct AkMetering
 	{
-	protected:
-		/// Virtual destructor on interface to avoid warnings.
-		virtual ~IAkMetering(){}
+		/// Peak of each channel in this frame.
+		/// Vector of linear peak levels, corresponding to each channel. NULL if AK_EnableBusMeter_Peak is not set (see IAkMixerPluginContext::SetMeteringFlags() or AK::SoundEngine::RegisterBusMeteringCallback()).
+		AK::SpeakerVolumes::VectorPtr peak;
 
-	public:
+		/// True peak of each channel (as defined by ITU-R BS.1770) in this frame.
+		/// Vector of linear true peak levels, corresponding to each channel. NULL if AK_EnableBusMeter_TruePeak is not set (see IAkMixerPluginContext::SetMeteringFlags() or AK::SoundEngine::RegisterBusMeteringCallback()).
+		AK::SpeakerVolumes::VectorPtr truePeak;
 
-		/// Get peak of each channel in this frame.
-		/// Depending on when this function is called, you may get metering data computed in the previous frame only. In order to force recomputing of
-		/// meter values, pass in_bForceCompute=true.
-		/// \return Vector of linear peak levels, corresponding to each channel. NULL if AK_EnableBusMeter_Peak is not set (see IAkMixerPluginContext::SetMeteringFlags() or AK::SoundEngine::RegisterBusMeteringCallback()).
-		virtual AK::SpeakerVolumes::ConstVectorPtr GetPeak() = 0;
+		/// RMS value of each channel in this frame.
+		/// Vector of linear rms levels, corresponding to each channel. NULL if AK_EnableBusMeter_RMS is not set (see IAkMixerPluginContext::SetMeteringFlags() or AK::SoundEngine::RegisterBusMeteringCallback()).
+		AK::SpeakerVolumes::VectorPtr rms;
 
-		/// Get true peak of each channel (as defined by ITU-R BS.1770) in this frame.
-		/// Depending on when this function is called, you may get metering data computed in the previous frame only. 
-		/// \return Vector of linear true peak levels, corresponding to each channel. NULL if AK_EnableBusMeter_TruePeak is not set (see IAkMixerPluginContext::SetMeteringFlags() or AK::SoundEngine::RegisterBusMeteringCallback()).
-		virtual AK::SpeakerVolumes::ConstVectorPtr GetTruePeak() = 0;
-
-		/// Get the RMS value of each channel in this frame.
-		/// Depending on when this function is called, you may get metering data computed in the previous frame only. In order to force recomputing of
-		/// meter values, pass in_bForceCompute=true.
-		/// \return Vector of linear rms levels, corresponding to each channel. NULL if AK_EnableBusMeter_RMS is not set (see IAkMixerPluginContext::SetMeteringFlags() or AK::SoundEngine::RegisterBusMeteringCallback()).
-		virtual AK::SpeakerVolumes::ConstVectorPtr GetRMS() = 0;
-		
-		/// Get the mean k-weighted power value in this frame, used to compute loudness (as defined by ITU-R BS.1770).
-		/// Depending on when this function is called, you may get metering data computed in the previous frame only.
-		/// \return Total linear k-weighted power of all channels. 0 if AK_EnableBusMeter_KPower is not set (see IAkMixerPluginContext::SetMeteringFlags() or AK::SoundEngine::RegisterBusMeteringCallback()).
-		virtual AkReal32 GetKWeightedPower() = 0;
+		/// Mean k-weighted power value in this frame, used to compute loudness (as defined by ITU-R BS.1770).
+		/// Total linear k-weighted power of all channels. 0 if AK_EnableBusMeter_KPower is not set (see IAkMixerPluginContext::SetMeteringFlags() or AK::SoundEngine::RegisterBusMeteringCallback()).
+		AkReal32 fMeanPowerK;
 	};
+
+	static inline bool IsBankCodecID(AkUInt32 in_codecID)
+	{
+		return in_codecID == AKCODECID_BANK ||
+			in_codecID == AKCODECID_BANK_EVENT ||
+			in_codecID == AKCODECID_BANK_BUS;
+	}
 }
 
 // 3D Audio Object.
@@ -311,6 +305,7 @@ struct AkAudioObject
 		:key(AK_INVALID_AUDIO_OBJECT_ID)
 		,cumulativeGain(1.f, 1.f)
 		,instigatorID(AK_INVALID_PIPELINE_ID)
+		,priority(AK_DEFAULT_PRIORITY)
 	{}
 
 	/// Destructor
@@ -328,17 +323,36 @@ struct AkAudioObject
 	/// Custom object metadata.
 	struct CustomMetadata
 	{
-		AkPluginID pluginID;		///< Full plugin ID (including company ID and plugin type. See AKMAKECLASSID macro.
+		AkPluginID pluginID;		///< Full plugin ID, including company ID and plugin type. See AKMAKECLASSID macro.
 		AK::IAkPluginParam* pParam;	///< Custom, pluggable medata.
 		AkUniqueID contextID;		///< (Profiling) ID of the sound or bus from which the custom metadata was fetched.
 	};
-	typedef AkArray<CustomMetadata, const CustomMetadata&, AkPluginArrayAllocator> ArrayCustomMetadata; ///< Array type for carrying custom metadata.
+
+	/// Array type for carrying custom metadata.
+	class ArrayCustomMetadata : public AkArray<CustomMetadata, const CustomMetadata&, AkPluginArrayAllocator>
+	{
+	public:
+		using ArrayType = AkArray<CustomMetadata, const CustomMetadata&, AkPluginArrayAllocator>;
+
+		ArrayType::Iterator FindByPluginID(AkPluginID pluginID) const
+		{
+			for (auto it = Begin(); it != End(); ++it)
+			{
+				if ((*it).pluginID == pluginID)
+					return it;
+			}
+			return End();
+		}
+	};
+
 	ArrayCustomMetadata arCustomMetadata;	///< Array of custom metadata, gathered from visited objects.
 
 	AkPipelineID instigatorID;		///< Profiling ID of the node from which the object stems (typically the voice, instance of an actor-mixer).
 
 	typedef AkString<AkPluginArrayAllocator, char> String;	///< String type for use in 3D audio objects.
 	String objectName;				///< Name string of the object, to appear in the object profiler. This is normally used by out-of-place object processors for naming their output objects. Built-in sound engine structures don't use it.
+
+	AkPriority priority;			///< Audio object playback priority. Object with a higher priority will be rendered using the hardware's object functionality on platforms that supports it, whereas objects with a lower priority will be downmixed to a lower resolution 3D bed. Audio object priorities should be retrieved, or set through IAkPluginServiceAudioObjectPriority to retain compatibility with future Wwise releases.
 
 	/// Copy object metadata (everything but the key) from another object.
 	void CopyContents(
@@ -350,6 +364,18 @@ struct AkAudioObject
 		arCustomMetadata.Copy(in_src.arCustomMetadata);
 		instigatorID = in_src.instigatorID;
 		objectName = in_src.objectName;	// AkString performs a shallow copy when it can, like here.
+		priority = in_src.priority;
+	}
+
+	void SetCustomMetadata(CustomMetadata* in_aCustomMetadata, AkUInt32 in_uLength)
+	{
+		if (arCustomMetadata.Resize(in_uLength))
+		{
+			for (int i = 0; i < (int)in_uLength; ++i)
+			{
+				arCustomMetadata[i] = in_aCustomMetadata[i];
+			}
+		}
 	}
 
 	/// Transfer function for transfer move policies.
@@ -363,6 +389,7 @@ struct AkAudioObject
 		arCustomMetadata.Transfer(in_from.arCustomMetadata);
 		instigatorID = in_from.instigatorID;
 		objectName.Transfer(in_from.objectName);
+		priority = in_from.priority;
 	}
 
 	/// Object processors may give an explicit name to objects. 
@@ -630,7 +657,7 @@ struct AkAudioObjects
 
 	AkUInt32 uNumObjects;				///< Number of audio objects.
 	AkAudioBuffer** ppObjectBuffers;	///< Array of pointers to audio object buffers.
-	AkAudioObject** ppObjects;		///< Array of pointers to audio objects.
+	AkAudioObject** ppObjects;			///< Array of pointers to audio objects.
 };
 
 #endif // _AK_COMMON_DEFS_H_

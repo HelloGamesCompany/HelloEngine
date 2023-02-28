@@ -21,8 +21,7 @@ under the Apache License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
 OR CONDITIONS OF ANY KIND, either express or implied. See the Apache License for
 the specific language governing permissions and limitations under the License.
 
-  Version: v2021.1.5  Build: 7749
-  Copyright (c) 2006-2021 Audiokinetic Inc.
+  Copyright (c) 2023 Audiokinetic Inc.
 *******************************************************************************/
 
 #ifndef _AK_PLATFORM_FUNCS_H_
@@ -40,6 +39,10 @@ the specific language governing permissions and limitations under the License.
 #include <math.h>
 #endif // _WIN64
 #include <intrin.h>
+
+#if defined(AK_XBOXSERIESX)
+#include <ammintrin.h>
+#endif
 
 //-----------------------------------------------------------------------------
 // Platform-specific thread properties definition.
@@ -77,6 +80,7 @@ namespace AK
 #define AK_DEFAULT_STACK_SIZE					(128*1024)
 #define AK_THREAD_PRIORITY_NORMAL				THREAD_PRIORITY_NORMAL
 #define AK_THREAD_PRIORITY_ABOVE_NORMAL			THREAD_PRIORITY_ABOVE_NORMAL
+#define AK_THREAD_PRIORITY_BELOW_NORMAL			THREAD_PRIORITY_BELOW_NORMAL
 #define AK_THREAD_PRIORITY_TIME_CRITICAL		THREAD_PRIORITY_TIME_CRITICAL
 #define AK_THREAD_MODE_BACKGROUND_BEGIN			THREAD_MODE_BACKGROUND_BEGIN
 
@@ -141,10 +145,16 @@ namespace AKPLATFORM
 	}
 
 	/// Platform Independent Helper
-	inline AKRESULT AkCreateSemaphore(AkSemaphore * out_semaphore, AkUInt32 in_initialCount)
+	AkForceInline void AkClearSemaphore(AkSemaphore& io_semaphore)
+	{
+		io_semaphore = NULL;
+	}
+
+	/// Platform Independent Helper
+	inline AKRESULT AkCreateSemaphore(AkSemaphore& out_semaphore, AkUInt32 in_initialCount)
 	{
 #ifdef AK_USE_UWP_API
-		(*out_semaphore) = ::CreateSemaphoreEx(
+		out_semaphore = ::CreateSemaphoreEx(
 			NULL,				// no security attributes
 			in_initialCount,	// initial count
 			INT_MAX,			// no maximum -- matches posix semaphore behaviour
@@ -152,7 +162,7 @@ namespace AKPLATFORM
 			0,					// reserved
 			STANDARD_RIGHTS_ALL | SEMAPHORE_MODIFY_STATE);
 #else
-		(*out_semaphore) = ::CreateSemaphore(
+		out_semaphore = ::CreateSemaphore(
 			NULL,				// no security attributes
 			in_initialCount,	// initial count
 			INT_MAX,			// no maximum -- matches posix semaphore behaviour
@@ -162,25 +172,21 @@ namespace AKPLATFORM
 	}
 
 	/// Platform Independent Helper
-	inline void AkDestroySemaphore(AkSemaphore * io_semaphore)
+	inline void AkDestroySemaphore(AkSemaphore& io_semaphore)
 	{
-		if (io_semaphore)
-		{
-			::CloseHandle(*io_semaphore);
-		}
-		io_semaphore = NULL;
+		::CloseHandle(io_semaphore);
 	}
 
 	/// Platform Independent Helper - Semaphore wait, aka Operation P. Decrements value of semaphore, and, if the semaphore would be less than 0, waits for the semaphore to be released.
-	inline void AkWaitForSemaphore(AkSemaphore * in_semaphore)
+	inline void AkWaitForSemaphore(AkSemaphore& in_semaphore)
 	{
-		AKVERIFY( ::WaitForSingleObject(*in_semaphore, INFINITE) == WAIT_OBJECT_0 );
+		AKVERIFY(::WaitForSingleObject(in_semaphore, INFINITE) == WAIT_OBJECT_0);
 	}
 
-	/// Platform Independent Helper - Semaphore signal, aka Operation V. Increments value of semaphore.
-	inline void AkReleaseSemaphore(AkSemaphore * in_semaphore)
+	/// Platform Independent Helper - Semaphore signal, aka Operation V. Increments value of semaphore by an arbitrary count.
+	inline void AkReleaseSemaphore(AkSemaphore& in_semaphore, AkUInt32 in_count)
 	{
-		AKVERIFY( ReleaseSemaphore(*in_semaphore, 1, NULL) >= 0 );
+		AKVERIFY(ReleaseSemaphore(in_semaphore, in_count, NULL) >= 0);
 	}
 
 	// Virtual Memory
@@ -368,6 +374,12 @@ namespace AKPLATFORM
 	}
 
 	/// Platform Independent Helper
+	inline void AkMemMove( void* pDest, const void* pSrc, AkUInt32 uSize )
+	{
+		memmove( pDest, pSrc, uSize );
+	}
+
+	/// Platform Independent Helper
 	inline void AkMemSet( void * pDest, AkInt32 iVal, AkUInt32 uSize )
 	{
 		memset( pDest, iVal, uSize );
@@ -401,6 +413,38 @@ namespace AKPLATFORM
     {
         return ( in_iNow - in_iStart ) / AK::g_fFreqRatio;
     }
+
+#if defined(AK_XBOXSERIESX)
+	// Waits for a limited amount of time for in_pVal to hit zero (without yielding the thread)
+	inline void AkLimitedSpinForZero(AkAtomic32* in_pVal)
+	{
+		// monitorx and waitx are available on certain AMD CPUs, so we can have a custom impl of AkLimitedSpinForZero
+		AkInt64 endSpinTime = 0;
+		AkInt64 currentTime = 0;
+		PerformanceCounter(&endSpinTime);
+		endSpinTime += AkInt64(AK::g_fFreqRatio * 0.01); // only spin for about 10us
+		while (true)
+		{
+			// set up monitorx on pVal
+			_mm_monitorx((void*)in_pVal, 0U, 0U);
+			// if pval is zero, skip out
+			if (AkAtomicLoad32(in_pVal) == 0)
+			{
+				break;
+			}
+			// wait until a store to pVal occurs (or ~1us passes)
+			_mm_mwaitx(2U, 0U, 1000U);
+
+			// Check if we've hit the deadline for the timeout
+			PerformanceCounter(&currentTime);
+			if (currentTime > endSpinTime)
+			{
+				break;
+			}
+		}
+	}
+#define AK_LIMITEDSPINFORZERO // mark AkLimitedSpinForZero as defined to avoid duplicate definitions
+#endif
 
 	/// String conversion helper. If io_pszAnsiString is null, the function returns the required size.
 	inline AkInt32 AkWideCharToChar( const wchar_t*	in_pszUnicodeString,
@@ -476,6 +520,24 @@ namespace AKPLATFORM
 	{
 		int iAvailableSize = (int)( in_uDestMaxNumChars - strlen( in_pDest ) - 1 );
 		strncat_s( in_pDest, in_uDestMaxNumChars, in_pSrc, AkMin( iAvailableSize, (int)strlen( in_pSrc ) ) );
+	}
+
+	inline int SafeStrFormat(wchar_t * in_pDest, size_t in_uDestMaxNumChars, const wchar_t* in_pszFmt, ...)
+	{
+		va_list args;
+		va_start(args, in_pszFmt);
+		int r = vswprintf(in_pDest, in_uDestMaxNumChars, in_pszFmt, args);
+		va_end(args);
+		return r;
+	}
+
+	inline int SafeStrFormat(char * in_pDest, size_t in_uDestMaxNumChars, const char* in_pszFmt, ...)
+	{
+		va_list args;
+		va_start(args, in_pszFmt);
+		int r = vsnprintf(in_pDest, in_uDestMaxNumChars, in_pszFmt, args);
+		va_end(args);
+		return r;
 	}
 
 	/// Stack allocations.
@@ -661,10 +723,21 @@ namespace AKPLATFORM
 	#define AK_CHAR_TO_UTF16(	in_pdDest, in_pSrc, in_MaxSize )	AKPLATFORM::AkCharToWideChar( in_pSrc, in_MaxSize, in_pdDest )
 	#define AK_OSCHAR_TO_UTF16(	in_pdDest, in_pSrc, in_MaxSize )	AKPLATFORM::SafeStrCpy(		in_pdDest, in_pSrc, in_MaxSize )
 
+	/// Detects whether the string represents an absolute path to a file
+	inline bool IsAbsolutePath(const AkOSChar* in_pszPath, size_t in_pathLen)
+	{
+		return
+			(in_pathLen >= 3 && in_pszPath[1] == ':' && in_pszPath[2] == '\\') || // Classic "C:\..." DOS-style path
+			(in_pathLen >= 2 && in_pszPath[0] == '\\'); // Uncommon "\..." absolute path from current drive, or UNC "\\..."
+	}
+
 	// Use with AkOSChar.
 	#define AK_PATH_SEPARATOR	(L"\\")
 	#define AK_LIBRARY_PREFIX	(L"")
 	#define AK_DYNAMIC_LIBRARY_EXTENSION	(L".dll")
+
+	#define AK_FILEHANDLE_TO_UINTPTR(_h) ((AkUIntPtr)_h)
+	#define AK_SET_FILEHANDLE_TO_UINTPTR(_h,_u) _h = (AkFileHandle)_u
 
 	#if defined(AK_ENABLE_PERF_RECORDING)
 	

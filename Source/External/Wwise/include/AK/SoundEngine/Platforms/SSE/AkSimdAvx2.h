@@ -21,8 +21,7 @@ under the Apache License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
 OR CONDITIONS OF ANY KIND, either express or implied. See the Apache License for
 the specific language governing permissions and limitations under the License.
 
-  Version: v2021.1.5  Build: 7749
-  Copyright (c) 2006-2021 Audiokinetic Inc.
+  Copyright (c) 2023 Audiokinetic Inc.
 *******************************************************************************/
 
 // AkSimdAvx2.h
@@ -173,6 +172,11 @@ static AkForceInline AKSIMD_V8F32 AKSIMD_COMPLEXMUL_AVX2(const AKSIMD_V8F32 cIn1
 /// in_shiftBy bits while shifting in zeros (see _mm_slli_epi32)
 #define AKSIMD_SHIFTLEFT_V8I32( __vec__, __shiftBy__ ) \
 	_mm256_slli_epi32( (__vec__), (__shiftBy__) )
+
+/// Shifts the 8 signed 32-bit integers in a right by in_shiftBy
+/// bits while shifting in zeroes (see _mm_srli_epi32)
+#define AKSIMD_SHIFTRIGHT_V8I32( __vec__, __shiftBy__ ) \
+	_mm256_srli_epi32( (__vec__), (__shiftBy__) )
 
 /// Shifts the 8 signed 32-bit integers in a right by in_shiftBy
 /// bits while shifting in the sign bit (see _mm_srai_epi32)

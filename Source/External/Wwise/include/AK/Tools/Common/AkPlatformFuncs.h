@@ -21,8 +21,7 @@ under the Apache License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
 OR CONDITIONS OF ANY KIND, either express or implied. See the Apache License for
 the specific language governing permissions and limitations under the License.
 
-  Version: v2021.1.5  Build: 7749
-  Copyright (c) 2006-2021 Audiokinetic Inc.
+  Copyright (c) 2023 Audiokinetic Inc.
 *******************************************************************************/
 
 // AkPlatformFuncs.h
@@ -49,7 +48,7 @@ the specific language governing permissions and limitations under the License.
 #include <AK/Tools/Mac/AkPlatformFuncs.h>
 #include <AK/Tools/POSIX/AkPlatformFuncs.h>
 
-#elif defined (AK_ANDROID)
+#elif defined( AK_ANDROID ) || defined ( AK_LINUX_AOSP ) 
 #include <AK/Tools/Android/AkPlatformFuncs.h>
 
 #elif defined (AK_PS4)
@@ -218,8 +217,45 @@ namespace AKPLATFORM
 		return ret;
 	}
 #endif
-}
 
+	// fallback implementation for when platform doesn't have its own implementation
+#if !defined(AK_LIMITEDSPINFORZERO)
+	// Waits for a limited amount of time for in_pVal to hit zero (without yielding the thread)
+	inline void AkLimitedSpinForZero(AkAtomic32* in_pVal)
+	{
+		AkInt64 endSpinTime = 0;
+		AkInt64 currentTime = 0;
+		PerformanceCounter(&endSpinTime);
+		endSpinTime += AkInt64(AK::g_fFreqRatio * 0.01); // only spin for about 10us
+		while (true)
+		{
+			// if pval is zero, skip out
+			if (AkAtomicLoad32(in_pVal) == 0)
+			{
+				break;
+			}
+			AkSpinHint();
+
+			// Check if we've hit the deadline for the timeout
+			PerformanceCounter(&currentTime);
+			if (currentTime > endSpinTime)
+			{
+				break;
+			}
+		}
+	}
+#endif
+
+	inline void AkSpinWaitForZero(AkAtomic32* in_pVal)
+	{
+		// do a limited spin on-the-spot until in_pVal hits zero
+		AkLimitedSpinForZero(in_pVal);
+
+		// if in_pVal is still non-zero, then the other thread is either blocked or waiting for us.  Yield for real.
+		while (AkAtomicLoad32(in_pVal))
+			AkThreadYield();
+	}
+}
 
 #ifndef AK_PERF_RECORDING_RESET
 #define AK_PERF_RECORDING_RESET()
@@ -229,24 +265,6 @@ namespace AKPLATFORM
 #endif
 #ifndef AK_PERF_RECORDING_STOP
 #define AK_PERF_RECORDING_STOP( __StorageName__, __uExecutionCountStart__, __uExecutionCountStop__ )	
-#endif
-
-#ifndef AK_INSTRUMENT_BEGIN
-	#define AK_INSTRUMENT_BEGIN( _zone_name_ )
-	#define AK_INSTRUMENT_END( _zone_name_ )
-	#define AK_INSTRUMENT_SCOPE( _zone_name_ )
-
-	#define AK_INSTRUMENT_BEGIN_C(_colour_, _zone_name_ )
-
-	#define AK_INSTRUMENT_IDLE_BEGIN( _zone_name_ )
-	#define AK_INSTRUMENT_IDLE_END( _zone_name_ )
-	#define AK_INSTRUMENT_IDLE_SCOPE( _zone_name_ )
-
-	#define AK_INSTRUMENT_STALL_BEGIN( _zone_name_ )
-	#define AK_INSTRUMENT_STALL_END( _zone_name_ )
-	#define AK_INSTRUMENT_STALL_SCOPE( _zone_name_ )
-
-	#define AK_INSTRUMENT_THREAD_START( _thread_name_ )
 #endif
 
 #endif // _AK_TOOLS_COMMON_AKPLATFORMFUNCS_H

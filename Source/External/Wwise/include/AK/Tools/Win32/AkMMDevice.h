@@ -21,8 +21,7 @@ under the Apache License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
 OR CONDITIONS OF ANY KIND, either express or implied. See the Apache License for
 the specific language governing permissions and limitations under the License.
 
-  Version: v2021.1.5  Build: 7749
-  Copyright (c) 2006-2021 Audiokinetic Inc.
+  Copyright (c) 2023 Audiokinetic Inc.
 *******************************************************************************/
 
 // AkMMDevice.h -- C++ RIAA object wrappers for Win32 MMDevice enumeration APIs
@@ -181,7 +180,10 @@ namespace AK
 			Device& operator=(Device&& other)
 			{
 				if (pDevice)
+				{
 					pDevice->Release();
+					pDevice = nullptr; // Do not remove, protects against this == &other
+				}
 				pDevice = other.pDevice;
 				idDevice = other.idDevice;
 				other.pDevice = nullptr;
@@ -191,7 +193,10 @@ namespace AK
 			Device& operator=(const Device& other)
 			{
 				if (pDevice)
+				{
 					pDevice->Release();
+					pDevice = nullptr; // Do not remove, protects against this == &other
+				}
 				pDevice = other.pDevice;
 				if (pDevice)
 					pDevice->AddRef();
@@ -202,7 +207,8 @@ namespace AK
 			Device& operator=(IMMDevice* pOther)
 			{
 				SetDevice(pOther);
-				pDevice->AddRef();
+				if (pDevice)
+					pDevice->AddRef();
 				return *this;
 			}
 

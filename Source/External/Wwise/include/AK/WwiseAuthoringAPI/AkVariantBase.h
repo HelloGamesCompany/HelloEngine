@@ -21,16 +21,13 @@ under the Apache License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
 OR CONDITIONS OF ANY KIND, either express or implied. See the Apache License for
 the specific language governing permissions and limitations under the License.
 
-  Version: v2021.1.5  Build: 7749
-  Copyright (c) 2006-2021 Audiokinetic Inc.
+  Copyright (c) 2023 Audiokinetic Inc.
 *******************************************************************************/
 
 #pragma once
 
 #include <stdint.h>
 #include <string>
-#include <locale>
-#include <codecvt>
 
 #if (defined(_HAS_CXX17) && _HAS_CXX17)
 #include <string_view>
@@ -162,14 +159,6 @@ namespace AK
 			}			
 #endif
 
-#ifdef _MFC_VER
-			inline AkVariantBase(const VARIANT& in_var)
-			{
-				m_eType = AkVariantType_none;
-				*this = in_var;
-			}
-#endif
-
 			void Nullify()
 			{
 				m_uint64 = 0;
@@ -195,17 +184,6 @@ namespace AK
 				m_eType = AkVariantType_guid;
 				return *this;
 			}
-
-#ifdef _MFC_VER
-			inline AkVariantBase& operator=(const GUID& in_val)
-			{
-				Clear();
-				m_data = new AkGuid();
-				memcpy(m_data, &in_val, sizeof(AkGuid));
-				m_eType = AkVariantType_guid;
-				return *this;
-			}
-#endif
 
 			inline AkVariantBase& operator=(const wchar_t* in_val)
 			{
@@ -239,78 +217,7 @@ namespace AK
 				return *this;
 			}
 
-#ifdef _MFC_VER
-			inline AkVariantBase& operator=(const VARIANT& in_var)
-			{
-				switch (in_var.vt)
-				{
-					// Integer
-				case VT_UI1: operator=(static_cast<uint8_t>(in_var.bVal)); break;
-
-				case VT_UI2: operator=(static_cast<uint16_t>(in_var.uiVal)); break;
-				case VT_UI4: operator=(static_cast<uint32_t>(in_var.ulVal)); break;
-				case VT_UI8: operator=(static_cast<uint64_t>(in_var.ullVal)); break;
-				case VT_I1: operator=(static_cast<int8_t>(in_var.cVal)); break;
-				case VT_I2: operator=(static_cast<int16_t>(in_var.iVal)); break;
-				case VT_I4: operator=(static_cast<int32_t>(in_var.lVal)); break;
-				case VT_I8: operator=(static_cast<int64_t>(in_var.llVal)); break;
-
-				case VT_INT: operator=(static_cast<int32_t>(in_var.intVal)); break;
-				case VT_UINT: operator=(static_cast<uint32_t>(in_var.uintVal)); break;
-
-				case VT_R4: operator=(static_cast<float>(in_var.fltVal)); break;
-				case VT_R8: operator=(static_cast<double>(in_var.dblVal)); break;
-
-				case VT_BOOL: operator=(in_var.boolVal == VARIANT_TRUE); break;
-				case VT_BSTR: operator=(in_var.bstrVal); break;
-				case VT_EMPTY: Clear(); Nullify(); break;
-
-				default:
-					AKASSERT(!"Unsupported type");
-				}
-
-				return *this;
-			}
-#endif
-
-			// Typecast ----------------------------------------------------------------------------
-
-#ifdef _MFC_VER
-			inline operator VARIANT() const
-			{
-				switch ( m_eType )
-				{
-				case AkVariantType_uint8: return CComVariant( m_uint8 );
-				case AkVariantType_uint16: return CComVariant( m_uint16 );
-				case AkVariantType_uint32: return CComVariant( m_uint32 );
-				case AkVariantType_uint64: return CComVariant( m_uint64 );
-
-				case AkVariantType_int8: return CComVariant( m_int8 );
-				case AkVariantType_int16: return CComVariant( m_int16 );
-				case AkVariantType_int32: return CComVariant( m_int32 );
-				case AkVariantType_int64: return CComVariant( m_int64 );
-
-				case AkVariantType_real32: return CComVariant( m_real32 );
-				case AkVariantType_real64: return CComVariant( m_real64 );
-
-				case AkVariantType_bool: return CComVariant( m_boolean );
-
-				case AkVariantType_string: return CComVariant( GetString().c_str() );
-				case AkVariantType_wstring: return CComVariant( GetWString().c_str() );
-
-				case AkVariantType_guid:
-				{
-					std::wstring strTemp;
-					AkGuidToWStr( GetGuid(), strTemp );
-					return CComVariant( strTemp.c_str() );
-				}
-
-				default:
-					AKASSERT(false && "Trying to convert an AkVariant that doesn't contain a basic type");
-				}
-				return CComVariant();
-			}
-#endif
+			// Helpers ----------------------------------------------------------------------------
 
 			inline bool IsString() const
 			{
@@ -327,16 +234,22 @@ namespace AK
 				return (m_eType == AkVariantType_wstring);
 			}
 
-			// Helpers ----------------------------------------------------------------------------
-
 			inline const std::wstring& GetWString() const
 			{
 				AKASSERT(m_eType == AkVariantType_wstring && "AkVariant: illegal typecast");
 				return *static_cast<const std::wstring*>(m_data);
 			}
-
-			inline const std::string& GetString() const
+			
+			const std::string& GetString() const
 			{
+				if (m_eType == AkVariantType_guid)
+				{
+					// Safeguard to prevent a crash in case a guid (and nothing else) is provided as a string to a
+					// function that does not support guids (which would pass schema validation and crash here).
+					static const std::string empty;
+					return empty;
+				}
+
 				AKASSERT(m_eType == AkVariantType_string && "AkVariant: illegal typecast");
 				return *static_cast<const std::string*>(m_data);
 			}
@@ -623,20 +536,6 @@ namespace AK
 
 		public:
 
-			static AkGuid AkGuidFromWStr(const std::wstring& in_wstr)
-			{
-				AkGuid guid;
-				WStrToAkGuid(in_wstr, guid);
-				return guid;
-			}
-
-			static AkGuid AkGuidFromStr(const std::string& in_str)
-			{
-				AkGuid guid;
-				StrToAkGuid(in_str, guid);
-				return guid;
-			}
-
 			static bool StrToAkGuid(const std::string& in_str, AkGuid& out_guid)
 			{
 				const char* psz = in_str.c_str();
@@ -737,12 +636,6 @@ namespace AK
 				return true;
 			}
 
-			static bool WStrToAkGuid(const std::wstring& in_wstr, AkGuid& out_guid)
-			{
-				static std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
-				return StrToAkGuid(converter.to_bytes(in_wstr), out_guid);
-			}
-
 			static void AkGuidToStr(const AkGuid& in_guid, std::string& out_str)
 			{
 				uint8_t* pby = (uint8_t*)&in_guid;
@@ -805,15 +698,6 @@ namespace AK
 				}
 
 				*psz++ = '}';
-			}
-
-			static void AkGuidToWStr(const AkGuid& in_guid, std::wstring& out_wstr)
-			{
-				std::string str;
-				AkGuidToStr(in_guid, str);
-
-				static std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
-				out_wstr = converter.from_bytes(str);
 			}
 
 		private:

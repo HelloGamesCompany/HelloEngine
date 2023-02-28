@@ -21,8 +21,7 @@ under the Apache License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
 OR CONDITIONS OF ANY KIND, either express or implied. See the Apache License for
 the specific language governing permissions and limitations under the License.
 
-  Version: v2021.1.5  Build: 7749
-  Copyright (c) 2006-2021 Audiokinetic Inc.
+  Copyright (c) 2023 Audiokinetic Inc.
 *******************************************************************************/
 
 // AkWinSoundEngine.h
@@ -46,11 +45,11 @@ struct IXAudio2;
 struct AkPlatformInitSettings
 {
     // Direct sound.
-    HWND			    hWnd;					///< Handle to the window associated to the audio.
+    HWND			    hWnd;					///< Handle of the window associated with the audio.
 												///< Each game must specify the HWND of the application for device detection purposes.
 												///< The value returned by GetDefaultPlatformInitSettings is the foreground HWND at 
-												///< the moment of the initialization of the sound engine and may not be the correct one for your game.
-												///< It is required that each game provides the correct HWND to be used.
+												///< the moment of the initialization of the sound engine and might not be the correct one for your game.
+												///< Each game must provide the correct HWND to use.
 									
 
     // Threading model.

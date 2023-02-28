@@ -21,15 +21,14 @@ under the Apache License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
 OR CONDITIONS OF ANY KIND, either express or implied. See the Apache License for
 the specific language governing permissions and limitations under the License.
 
-  Version: v2021.1.5  Build: 7749
-  Copyright (c) 2006-2021 Audiokinetic Inc.
+  Copyright (c) 2023 Audiokinetic Inc.
 *******************************************************************************/
 
 #pragma once
 /// \file
-/// Plug-in function necessary to link the Wwise Tone Generator plug-in in the sound engine.
+/// Plug-in function necessary to link the Tone Generator plug-in in the sound engine.
 /// <strong>WARNING</strong>: Include this file only if you wish to link statically with the plugins.  Dynamic Libaries (DLL, so, etc) are automatically detected and do not need this include file.
-/// <br><b>Wwise plugin name:</b>  Wwise Tone Generator
+/// <br><b>Wwise plugin name:</b> Tone Generator
 /// <br><b>Library file:</b> AkToneSource.lib
 
 

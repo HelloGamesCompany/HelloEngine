@@ -21,8 +21,7 @@ under the Apache License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
 OR CONDITIONS OF ANY KIND, either express or implied. See the Apache License for
 the specific language governing permissions and limitations under the License.
 
-  Version: v2021.1.5  Build: 7749
-  Copyright (c) 2006-2021 Audiokinetic Inc.
+  Copyright (c) 2023 Audiokinetic Inc.
 *******************************************************************************/
 
 // AkSoundEngine.h
@@ -154,48 +153,73 @@ struct AkOutputSettings
 											///< - All other outputs: use 0 to select the default for the selected audio device type (shareset)	
 
 	AkPanningRule	ePanningRule;			///< Rule for 3D panning of signals routed to a stereo bus. In AkPanningRule_Speakers mode, the angle of the front loudspeakers 
-											///< (uSpeakerAngles[0]) is used. In AkPanningRule_Headphones mode, the speaker angles are superseded with constant power panning
+											///< (uSpeakerAngles[0]) is used. In AkPanningRule_Headphones mode, the speaker angles are superseded by constant power panning
 											///< between two virtual microphones spaced 180 degrees apart.
 
 	AkChannelConfig	channelConfig;			///< Channel configuration for this output. Call AkChannelConfig::Clear() to let the engine use the default output configuration.  
 											///< Hardware might not support the selected configuration.
 };
 
-/// Possible values for the floor plane axis used in the Game Object 3D Viewer in Wwise
+/// Define the orientation of the the floor plane with respect to the X,Y,Z axes, and which axes represent the side, front and up vectors as a basis for rotations in Wwise.
+/// AkFloorPlane is used in to orient the Game Object 3D Viewer in Wwise, and in the transformation of geometry instances in Wwise Spatial Audio.
 enum AkFloorPlane
 {
-	AkFloorPlane_XZ = 0,
-	AkFloorPlane_XY,
-	AkFloorPlane_YZ,
-	AkFloorPlane_Default = AkFloorPlane_XZ
+	AkFloorPlane_XZ = 0,					///< The floor is oriented along the ZX-plane. The front vector points towards +Z, the up vector towards +Y, and the side vector towards +X.
+	AkFloorPlane_XY,						///< The floor is oriented along the XY-plane. The front vector points towards +X, the up vector towards +Z, and the side vector towards +Y.
+	AkFloorPlane_YZ,						///< The floor is oriented along the YZ-plane. The front vector points towards +Y, the up vector towards +X, and the side vector towards +Z.
+	AkFloorPlane_Default = AkFloorPlane_XZ	///< The Wwise default floor plane is ZX.
 };
 
-/// The execution context for a task.
-struct AkTaskContext
+// Function that the host runtime must call to allow for jobs to execute.
+// in_jobType is the type originally provided by AkJobMgrSettings::FuncRequestJobWorker.
+// in_uExecutionTimeUsec is the number of microseconds that the function should execute for before terminating.
+// Note that the deadline is only checked after each individual job completes execution, so the function may run slightly
+// longer than intended. The "in_uExecutionTimeUsec" should be considered a suggestion or guideline, not a strict rule.
+// A value of 0 means that the function will run until there are no more jobs ready to be immediately executed.
+AK_CALLBACK(void, AkJobWorkerFunc)(
+	AkJobType in_jobType,
+	AkUInt32 in_uExecutionTimeUsec
+	);
+
+/// Settings for the Sound Engine's internal job manager
+struct AkJobMgrSettings
 {
-    AkUInt32 uIdxThread;           ///< The current thread index [0, AkTaskSchedulerDesc::uNumSchedulerWorkerThreads[.
+	/// Callback function prototype definition used for handling requests from JobMgr for new workers to perform work.
+	AK_CALLBACK(void, FuncRequestJobWorker)(
+		AkJobWorkerFunc in_fnJobWorker, ///< Function passed to host runtime that should be executed. Note that the function provided will exist for as long as the soundengine code is loaded, and will always be the same.
+		AkJobType in_jobType,           ///< The type of job worker that has been requested. This should be passed forward to in_fnJobWorker
+		AkUInt32 in_uNumWorkers,        ///< Number of workers requested
+		void * in_pClientData           ///< Data provided by client in AkJobMgrSettings
+		);
+
+	FuncRequestJobWorker fnRequestJobWorker; ///< Function called by the job manager when a new worker needs to be requested. When null, all jobs will be executed on the same thread that calls RenderAudio().
+
+	AkUInt32 uMaxActiveWorkers[AK_NUM_JOB_TYPES]; ///< The maximum number of concurrent workers that will be requested. Must be >= 1 for each jobType.
+
+	AkUInt32 uNumMemorySlabs; ///< Number of memory slabs to pre-allocate for job manager memory. At least one slab per worker thread should be pre-allocated. Default is 1.
+	AkUInt32 uMemorySlabSize; ///< Size of each memory slab used for job manager memory. Must be a power of two. Default is 8K.
+
+	void* pClientData; ///< Arbitrary data that will be passed back to the client when calling FuncRequestJobWorker
 };
 
-/// Task function: process the [in_uIdxBegin,in_uIdxEnd[ range of items in the in_pData array.
-typedef void(*AkParallelForFunc)(void* in_pData, AkUInt32 in_uIdxBegin, AkUInt32 in_uIdxEnd, AkTaskContext in_ctx, void* in_pUserData);
+/// External (optional) callback for tracking performance of the sound engine that is called when a timer starts. (only called in Debug and Profile binaries; this is not called in Release)
+/// in_uPluginID may be non-zero when this function is called, to provide extra data about what context this Timer was started in.
+/// in_pszZoneName will point to a static string, so the pointer can be stored for later use, not just the contents of the string itself.
+AK_CALLBACK(void, AkProfilerPushTimerFunc)(
+	AkPluginID in_uPluginID,
+	const char* in_pszZoneName
+	);
 
-/// Description of the client task scheduler.
-struct AkTaskSchedulerDesc
-{
-    /// Execute in_func in parallel over the [in_uIdxBegin,in_uIdxEnd[ range of items in the in_pData array,
-	/// and wait for the work to finish.
-	typedef void(*ParallelForFunc)(
-		void * in_pData,            ///< A pointer to a data array.
-		AkUInt32 in_uIdxBegin,     ///< The first element of data to process.
-		AkUInt32 in_uIdxEnd,       ///< The one past the last element of data to process.
-		AkUInt32 in_uTileSize,     ///< The desired maximum tile size in which to subdivide the data.
-		AkParallelForFunc in_func, ///< The data processing function.
-		void * in_pUserData,       ///< User data to be passed into 'func'.
-		const char * in_szDebugName);    ///< Debug name for the workload.
-
-    ParallelForFunc fcnParallelFor;             ///< ParallelForFunc callback.
-    AkUInt32        uNumSchedulerWorkerThreads; ///< The number of worker threads in the schduler.
-};
+/// External (optional) function for tracking performance of the sound engine that is called when a timer stops. (only called in Debug and Profile binaries; this is not called in Release)
+AK_CALLBACK(void, AkProfilerPopTimerFunc)();
+	
+///< External (optional) function for tracking notable events in the sound engine, to act as a marker or bookmark. (only called in Debug and Profile binaries; this is not called in Release)
+/// in_uPluginID may be non-zero when this function is called, to provide extra data about what context this Marker was posted in.
+/// in_pszMarkerName will point to a static string, so the pointer can be stored for later use, not just the contents of the string itself.
+AK_CALLBACK(void, AkProfilerPostMarkerFunc)(
+	AkPluginID in_uPluginID,
+	const char* in_pszMarkerName
+	);
 
 /// Platform-independent initialization settings of the sound engine
 /// \sa 
@@ -215,8 +239,11 @@ struct AkInitSettings
 	AkUInt32			uNumSamplesPerFrame;		///< Number of samples per audio frame (256, 512, 1024, or 2048).
 
     AkUInt32            uMonitorQueuePoolSize;		///< Size of the monitoring queue, in bytes. This parameter is not used in Release build.
+	AkUInt32            uCpuMonitorQueueMaxSize;	///< Maximum size of the CPU monitoring queue, per thread, in bytes. This parameter is not used in Release build.
 	
 	AkOutputSettings	settingsMainOutput;			///< Main output device settings.
+	AkJobMgrSettings    settingsJobManager;         ///< Settings to configure the behavior of the Sound Engine's internal job manager
+
 	AkUInt32			uMaxHardwareTimeoutMs;		///< Amount of time to wait for HW devices to trigger an audio interrupt. If there is no interrupt after that time, the sound engine will revert to  silent mode and continue operating until the HW finally comes back. Default value: 2000 (2 seconds)
 
 	bool				bUseSoundBankMgrThread;		///< Use a separate thread for loading sound banks. Allows asynchronous operations.
@@ -226,14 +253,22 @@ struct AkInitSettings
 	void*				BGMCallbackCookie;			///< Application-defined user data for the audio source change event callback function.
 	AkOSChar *			szPluginDLLPath;			///< When using DLLs for plugins, specify their path. Leave NULL if DLLs are in the same folder as the game executable.
 
-	AkFloorPlane		eFloorPlane;				///< Floor plane axis for 3D game object viewing.
-	AkReal32			fGameUnitsToMeters;				///< The number of game units in a meter.
-    AkTaskSchedulerDesc taskSchedulerDesc;			///< The defined client task scheduler that AkSoundEngine will use to schedule internal tasks.	
+	AkFloorPlane		eFloorPlane;				///< Define the orientation of the the floor plane with respect to the X,Y,Z axes, and which axes represent the side, front and up vectors as a basis for rotations in Wwise.
+													///< AkFloorPlane is used in to orient the Game Object 3D Viewer in Wwise, and in the transformation of geometry instances in Wwise Spatial Audio.
+
+	AkReal32			fGameUnitsToMeters;			///< The number of game units in a meter.
+													///< This setting is used to adapt the size of elements in the Authoring's Game Object 3D Viewer and Audio Object 3D Viewer to meters.
+													///< This setting is also used to simulate real-world positioning of System Audio Objects, to improve the HRTF in some cases.
 
 	AkUInt32			uBankReadBufferSize;		///< The number of bytes read by the BankReader when new data needs to be loaded from disk during serialization. Increasing this trades memory usage for larger, but fewer, file-read events during bank loading.
 
 	AkReal32			fDebugOutOfRangeLimit;		///< Debug setting: Only used when bDebugOutOfRangeCheckEnabled is true.  This defines the maximum values samples can have.  Normal audio must be contained within +1/-1.  This limit should be set higher to allow temporary or short excursions out of range.  Default is 16.
+
 	bool				bDebugOutOfRangeCheckEnabled;	///< Debug setting: Enable checks for out-of-range (and NAN) floats in the processing code.  This incurs a small performance hit, but can be enabled in most scenarios.  Will print error messages in the log if invalid values are found at various point in the pipeline. Contact AK Support with the new error messages for more information.
+
+	AkProfilerPushTimerFunc fnProfilerPushTimer;	///< External (optional) function for tracking performance of the sound engine that is called when a timer starts. (only called in Debug and Profile binaries; this is not called in Release)
+	AkProfilerPopTimerFunc fnProfilerPopTimer;		///< External (optional) function for tracking performance of the sound engine that is called when a timer stops. (only called in Debug and Profile binaries; this is not called in Release)
+	AkProfilerPostMarkerFunc fnProfilerPostMarker;	///< External (optional) function for tracking significant events in the sound engine, to act as a marker or bookmark. (only called in Debug and Profile binaries; this is not called in Release)
 };
 
 /// Necessary settings for setting externally-loaded sources
@@ -284,16 +319,18 @@ namespace AK
 		///			default settings. This is not mandatory, but it helps avoid backward compatibility problems.
 		///		
 		/// \return 
-		/// - AK_Success if the initialization was successful
-		/// - AK_MemManagerNotInitialized if the memory manager is not available or not properly initialized
-		/// - AK_StreamMgrNotInitialized if the stream manager is not available or not properly initialized
-		/// - AK_SSEInstructionsNotSupported if the machine does not support SSE instruction (only on the PC)
-		/// - AK_InsufficientMemory or AK_Fail if there is not enough memory available to initialize the sound engine properly
-		/// - AK_InvalidParameter if some parameters are invalid
-		/// - AK_Fail if the sound engine is already initialized, or if the provided settings result in insufficient 
+		/// - \c AK_Success if the initialization was successful
+		/// - \c AK_MemManagerNotInitialized if the memory manager is not available or not properly initialized
+		/// - \c AK_StreamMgrNotInitialized if the stream manager is not available or not properly initialized
+		/// - \c AK_SSEInstructionsNotSupported if the machine does not support SSE instruction (only on the PC)
+		/// - \c AK_InsufficientMemory if there is not enough memory available to initialize the sound engine properly
+		/// - \c AK_InvalidParameter if some parameters are invalid
+		/// - \c AK_AlreadyInitialized if the sound engine is already initialized, or if the provided settings result in insufficient 
+		/// - \c AK_Fail for unknown errors, check with AK Support.
 		/// resources for the initialization.
 		/// \sa
 		/// - \ref soundengine_integration_init_advanced
+		/// - \ref workingwithsdks_initialization
 		/// - <tt>AK::SoundEngine::Term()</tt>
 		/// - <tt>AK::SoundEngine::GetDefaultInitSettings()</tt>
 		/// - <tt>AK::SoundEngine::GetDefaultPlatformInitSettings()</tt>
@@ -315,14 +352,11 @@ namespace AK
 		/// Gets the default values of the platform-specific initialization settings.
 		///
 		/// Windows Specific:
-		///		When initializing for Windows platform, the HWND value returned in the 
-		///		AkPlatformInitSettings structure is the foreground HWND at the moment of the 
-		///		initialization of the sound engine and may not be the correct one for your need.
-		///		Each game must specify the HWND that will be passed to DirectSound initialization.
-		///		It is required that each game provides the correct HWND to be used or it could cause
-		///		one of the following problem:
-		///				- Random Sound engine initialization failure.
-		///				- Audio focus to be located on the wrong window.
+		///		HWND is the handle of the window associated with the audio. 
+		///		Each game must specify the HWND of the application for device detection purposes. 
+		///		The value returned by GetDefaultPlatformInitSettings is the foreground HWND at
+		///		the moment of the initialization of the sound engine and might not be the correct one for your game.
+		///		Each game must provide the correct HWND to use.
 		///
 		/// \warning This function is not thread-safe.
 		/// \sa 
@@ -348,6 +382,9 @@ namespace AK
 		/// 
 		/// \warning This function is not thread-safe.
 		/// \warning Call this function only after the sound engine has been properly initialized.
+		/// \return
+		/// - \c AK_NotInitialized if <tt>AK::SoundEngine::Init()</tt> was not called
+		/// - \c AK_Success otherwise.		
 		AK_EXTERNAPIFUNC( AKRESULT, GetAudioSettings )(
 			AkAudioSettings &	out_audioSettings  	///< Returned audio settings
 			);
@@ -361,10 +398,12 @@ namespace AK
 		/// If the speaker configuration of the output is object-based, the speaker configuration of the
 		/// main mix is returned. To query more information on object-based output devices, see AK::SoundEngine::GetOutputDeviceConfiguration.
 		///
-		/// It is recommended to call GetSpeakerConfiguration anytime after receiving a callback from  RegisterAudioDeviceStatusCallback to know if the channel configuration has changed.
+		/// It is recommended to call GetSpeakerConfiguration anytime after receiving a callback from RegisterAudioDeviceStatusCallback to know if the channel configuration has changed.
 		/// 
-		/// \warning Call this function only after the sound engine has been properly initialized. If you are initializing the sound engine with AkInitSettings::bUseLEngineThread to false, it is required to call RenderAudio() at least once before calling this function to complete the sound engine initialization.
-		/// \return The output configuration. An empty AkChannelConfig not AkChannelConfig::IsValid() if device does not exist.
+		/// \warning Call this function only after the sound engine has been properly initialized. 
+		/// If you are initializing the sound engine with AkInitSettings::bUseLEngineThread to false, it is required to call RenderAudio() at least once before calling this function to complete the sound engine initialization. 
+		/// The Init.bnk must be loaded prior to this call.
+		/// \return The output configuration. An empty AkChannelConfig not AkChannelConfig::IsValid() if device does not exist or if the Init.bnk was not loaded yet.		
 		/// \sa 
 		/// - AkSpeakerConfig.h
 		/// - AkOutputSettings
@@ -383,7 +422,10 @@ namespace AK
 		/// before being sent to the output device.
 		///
 		/// \warning Call this function only after the sound engine has been properly initialized. If you are initializing the sound engine with AkInitSettings::bUseLEngineThread to false, it is required to call RenderAudio() at least once before calling this function to complete the sound engine initialization.
-		/// \return AK_Success if a device was found for in_idOutput, returns AK_Fail otherwise.
+		/// \return
+		/// - \c AK_Success if successful
+		/// - \c AK_IDNotFound is the output was not found in the system.
+		/// - \c AK_NotInitialized if the sound engine is not initialized
 		/// \sa
 		/// - AkSpeakerConfig.h
 		/// - AkOutputSettings
@@ -396,9 +438,13 @@ namespace AK
 
 		/// Gets the panning rule of the specified output.
 		/// \warning Call this function only after the sound engine has been properly initialized.
-		/// \return One of the supported configuration: 
+		/// Returns the supported configuration in out_ePanningRule: 
 		/// - AkPanningRule_Speakers
 		/// - AkPanningRule_Headphone
+		/// \return
+		/// - \c AK_Success if successful
+		/// - \c AK_IDNotFound is the output was not found in the system.
+		/// - \c AK_NotInitialized if the sound engine is not initialized
 		/// \sa 
 		/// - AkSpeakerConfig.h
 		AK_EXTERNAPIFUNC( AKRESULT, GetPanningRule )(
@@ -452,6 +498,8 @@ namespace AK
 		/// The speaker angles are expressed as an array of loudspeaker pairs, in degrees, relative to azimuth ]0,180].
 		/// Supported loudspeaker setups are always symmetric; the center speaker is always in the middle and thus not specified by angles.
 		/// Angles must be set in ascending order. 
+		/// Note:
+		/// - This function requires that the minimum speaker angle is at least 5 degrees; as well as the subsequent speaker pairs are at least 5 degrees apart.
 		/// Typical usage: 
 		/// - Initialize the sound engine and/or add secondary output(s).
 		/// - Get number of speaker angles and their value into an array using GetSpeakerAngles().
@@ -459,9 +507,10 @@ namespace AK
 		/// This function posts a message to the audio thread through the command queue, so it is thread safe. However the result may not be immediately read with GetSpeakerAngles().
 		/// \warning This function only applies to configurations (or subset of these configurations) that are standard and whose speakers are on the plane (2D).
 		/// \return 
-		/// - AK_Success if successful.
-		/// - AK_InvalidFloatValue if the value specified was NaN or Inf
-		/// - AK_InsufficientMemory if there wasn't enough memory in the message queue
+		/// - \c AK_Success if successful.
+		/// - \c AK_InvalidFloatValue if the value specified was NaN or Inf
+		/// - \c AK_InsufficientMemory if there wasn't enough memory in the message queue
+		/// - \c AK_InvalidParameter one of the parameter is invalid, check the debug log.
 		/// \sa GetSpeakerAngles()
 		AK_EXTERNAPIFUNC( AKRESULT, SetSpeakerAngles )(
 			const AkReal32 *	in_pfSpeakerAngles,			///< Array of loudspeaker pair angles, in degrees relative to azimuth [0,180].
@@ -474,9 +523,9 @@ namespace AK
 		/// This may be changed anytime once the sound engine was initialized.
 		/// If this function is not called, the used value will be the value specified in the platform specific project settings.
 		/// \return 
-		/// - AK_Success if successful
-		/// - AK_InvalidParameter if the threshold was not between 0 and -96.3 dB.
-		/// - AK_InvalidFloatValue if the value specified was NaN or Inf
+		/// - \c AK_Success if successful
+		/// - \c AK_InvalidParameter if the threshold was not between 0 and -96.3 dB.
+		/// - \c AK_InvalidFloatValue if the value specified was NaN or Inf
 		AK_EXTERNAPIFUNC( AKRESULT, SetVolumeThreshold )( 
 			AkReal32 in_fVolumeThresholdDB ///< Volume Threshold, must be a value between 0 and -96.3 dB
 			);
@@ -485,8 +534,8 @@ namespace AK
 		/// This may be changed anytime once the sound engine was initialized.
 		/// If this function is not called, the used value will be the value specified in the platform specific project settings.
 		/// \return 
-		/// - AK_InvalidParameter if the threshold was not between 1 and MaxUInt16.
-		/// - AK_Success if successful
+		/// - \c AK_InvalidParameter if the threshold was not between 1 and MaxUInt16.
+		/// - \c AK_Success if successful
 		AK_EXTERNAPIFUNC( AKRESULT, SetMaxNumVoicesLimit )( 
 			AkUInt16 in_maxNumberVoices ///< Maximum number of non-virtual voices.
 			);
@@ -526,9 +575,10 @@ namespace AK
 		/// \sa
 		/// - \ref register_effects
 		/// - \ref plugin_xml
-		/// \return AK_Success if successful, AK_InvalidParameter if invalid parameters were provided or Ak_Fail otherwise. Possible reasons for an AK_Fail result are:
-		/// - Insufficient memory to register the plug-in
-		/// - Plug-in ID already registered
+		/// \return 
+		/// - \c AK_Success if successful
+		/// - \c AK_InvalidParameter if invalid parameters were provided
+		/// - \c AK_InsufficientMemory if there isn't enough memory to register the plug-in
 		/// \remarks
 		/// Codecs and plug-ins must be registered before loading banks that use them.\n
 		/// Loading a bank referencing an unregistered plug-in or codec will result in a load bank success,
@@ -548,12 +598,12 @@ namespace AK
 		/// With dynamic linking, all plugins are automatically registered.
 		/// The plug-in DLL must be in the OS-specific library path or in the same location as the executable. If not, set AkInitSettings.szPluginDLLPath.
 		/// \return 
-		/// - Ak_Success if successful.  
-		/// - AK_FileNotFound if the DLL is not found in the OS path or if it has extraneous dependencies not found.  
-		/// - AK_InsufficientMemory if the system ran out of resources while loading the dynamic library
-		/// - AK_NotCompatible if the file was found but is not binary-compatible with the system's expected executable format
-		/// - AK_InvalidFile if the symbol g_pAKPluginList is not exported by the dynamic library
-		/// - AK_Fail if an unexpected system error was encountered
+		/// - \c AK_Success if successful.  
+		/// - \c AK_FileNotFound if the DLL is not found in the OS path or if it has extraneous dependencies not found.  
+		/// - \c AK_InsufficientMemory if the system ran out of resources while loading the dynamic library
+		/// - \c AK_NotCompatible if the file was found but is not binary-compatible with the system's expected executable format
+		/// - \c AK_InvalidFile if the symbol g_pAKPluginList is not exported by the dynamic library
+		/// - \c AK_Fail if an unexpected system error was encountered
 		AK_EXTERNAPIFUNC( AKRESULT, RegisterPluginDLL ) (
 			const AkOSChar* in_DllName,					///< Name of the DLL to load, without "lib" prefix or extension.  
 			const AkOSChar* in_DllPath = NULL			///< Optional path to the DLL. Will override szPLuginDLLPath that was set in AkInitSettings.
@@ -566,9 +616,10 @@ namespace AK
 		/// \endaknote		
 		/// \sa 
 		/// - \ref register_effects
-		/// \return AK_Success if successful, AK_InvalidParameter if invalid parameters were provided, or Ak_Fail otherwise. Possible reasons for an AK_Fail result are:
-		/// - Insufficient memory to register the codec
-		/// - Codec ID already registered
+		/// \return 
+		/// - \c AK_Success if successful
+		/// - \c AK_InvalidParameter if invalid parameters were provided
+		/// - \c AK_InsufficientMemory if there isn't enough memory to register the plug-in
 		/// \remarks
 		/// Codecs and plug-ins must be registered before loading banks that use them.\n
 		/// Loading a bank referencing an unregistered plug-in or codec will result in a load bank success,
@@ -592,6 +643,9 @@ namespace AK
 		/// If the callback is being timed, it will contribute to the Total Plug-in CPU measurement, and also appear in the Plug-ins tab of the Advanced Profiler by plug-in type and ID. 
 		/// It is illegal to call this function while already inside of a global callback.
 		/// This function might stall for several milliseconds before returning.
+		/// \return
+		/// - \c AK_Success if successful
+		/// - \c AK_InvalidParameter if parameters are out of range (check debug console or Wwise Profiler)
 		/// \sa 
 		/// - <tt>AK::SoundEngine::UnregisterGlobalCallback()</tt>
 		/// - AkGlobalCallbackFunc
@@ -610,6 +664,9 @@ namespace AK
 		/// It is legal to call this function while already inside of a global callback, If it is unregistering itself and not
 		/// another callback.
 		/// This function might stall for several milliseconds before returning.
+		/// \return
+		/// - \c AK_Success if successful
+		/// - \c AK_InvalidParameter if parameters are out of range (check debug console or Wwise Profiler)
 		/// \sa 
 		/// - <tt>AK::SoundEngine::RegisterGlobalCallback()</tt>
 		/// - AkGlobalCallbackFunc
@@ -709,14 +766,14 @@ namespace AK
 		/// Asynchronously posts an Event to the sound engine (by event ID).
 		/// The callback function can be used to be noticed when markers are reached or when the event is finished.
 		/// An array of wave file sources can be provided to resolve External Sources triggered by the event. 
-        /// \return The playing ID of the event launched, or AK_INVALID_PLAYING_ID if posting the event failed
+        /// \return The playing ID of the event launched, or AK_INVALID_PLAYING_ID if posting the event failed and an error will be displayed in the debug console and the Wwise Profiler.
 		/// \remarks
 		/// If used, the array of external sources should contain the information for each external source triggered by the
 		/// event. When triggering an event with multiple external sources, you need to differentiate each source 
 		/// by using the cookie property in the External Source in the Wwise project and in AkExternalSourceInfo.
 		/// \aknote If an event triggers the playback of more than one external source, they must be named uniquely in the project 
 		/// (therefore have a unique cookie) in order to tell them apart when filling the AkExternalSourceInfo structures.
-		/// \endaknote
+		/// \endaknote		
 		/// \sa 
 		/// - \ref concept_events
 		/// - \ref integrating_external_sources
@@ -738,14 +795,14 @@ namespace AK
 		/// Posts an Event to the sound engine (by Event name), using callbacks.
 		/// The callback function can be used to be noticed when markers are reached or when the event is finished.
 		/// An array of wave file sources can be provided to resolve External Sources triggered by the event. 
-        /// \return The playing ID of the event launched, or AK_INVALID_PLAYING_ID if posting the event failed
+        /// \return The playing ID of the event launched, or AK_INVALID_PLAYING_ID if posting the event failed and an error will be displayed in the debug console and the Wwise Profiler.
 		/// \remarks
 		/// If used, the array of external sources should contain the information for each external source triggered by the
 		/// event. When triggering an event with multiple external sources, you need to differentiate each source 
 		/// by using the cookie property in the External Source in the Wwise project and in AkExternalSourceInfo.
 		/// \aknote If an event triggers the playback of more than one external source, they must be named uniquely in the project 
 		/// (therefore have a unique cookie) in order to tell them appart when filling the AkExternalSourceInfo structures.
-		/// \endaknote
+		/// \endaknote		
 		/// \sa 
 		/// - \ref concept_events
 		/// - \ref integrating_external_sources
@@ -767,7 +824,7 @@ namespace AK
 		/// Posts an Event to the sound engine (by Event name), using callbacks.
 		/// The callback function can be used to be noticed when markers are reached or when the event is finished.
 		/// An array of Wave file sources can be provided to resolve External Sources triggered by the event. P
-        /// \return The playing ID of the event launched, or AK_INVALID_PLAYING_ID if posting the event failed
+        /// \return The playing ID of the event launched, or AK_INVALID_PLAYING_ID if posting the event failed and an error will be displayed in the debug console and the Wwise Profiler.
 		/// \remarks
 		/// If used, the array of external sources should contain the information for each external source triggered by the
 		/// event. When triggering an Event with multiple external sources, you need to differentiate each source 
@@ -807,6 +864,9 @@ namespace AK
 		};
 
 		/// Executes an action on all nodes that are referenced in the specified event in an action of type play.
+		/// \return
+		/// - \c AK_Success if the action was successfully queued.
+		/// - \c AK_IDNotFound if the Event was not found (not loaded or there is a typo in the ID)
 		/// \sa
 		/// - <tt>AK::SoundEngine::AkActionOnEventType</tt>
 		AK_EXTERNAPIFUNC( AKRESULT, ExecuteActionOnEvent )(
@@ -820,6 +880,9 @@ namespace AK
 
 #ifdef AK_SUPPORT_WCHAR
 		/// Executes an action on all nodes that are referenced in the specified event in an action of type play.
+		/// \return
+		/// - \c AK_Success if the action was successfully queued.
+		/// - \c AK_IDNotFound if the Event was not found (not loaded or there is a typo in the ID)
 		/// \sa
 		/// - <tt>AK::SoundEngine::AkActionOnEventType</tt>
 		AK_EXTERNAPIFUNC( AKRESULT, ExecuteActionOnEvent )(
@@ -833,6 +896,9 @@ namespace AK
 #endif //AK_SUPPORT_WCHAR
 
 		/// Executes an Action on all nodes that are referenced in the specified Event in an Action of type Play.
+		/// \return
+		/// - \c AK_Success if the action was successfully queued.
+		/// - \c AK_IDNotFound if the Event was not found (not loaded or there is a typo in the ID)
 		/// \sa
 		/// - <tt>AK::SoundEngine::AkActionOnEventType</tt>
 		AK_EXTERNAPIFUNC( AKRESULT, ExecuteActionOnEvent )(
@@ -852,6 +918,7 @@ namespace AK
 		/// To obtain the current absolute time, see AK::SoundEngine::GetSampleTick.
 		/// The duration of a sample can be determined from the sound engine's audio settings, via a call to AK::SoundEngine::GetAudioSettings.
 		/// If a playing ID is specified then that playing ID must be active. Otherwise a new playing ID will be assigned.
+		/// \return The playing ID of the event launched, or AK_INVALID_PLAYING_ID if posting the event failed and an error will be displayed in the debug console and the Wwise Profiler.
 		/// \sa
 		/// - <tt>AK::SoundEngine::GetAudioSettings</tt>
 		/// - <tt>AK::SoundEngine::GetSampleTick</tt>
@@ -873,6 +940,9 @@ namespace AK
 		/// with the specified Game Object. Invalid parameters are interpreted as wildcards. For example, calling
 		/// this function with in_eventID set to AK_INVALID_UNIQUE_ID will stop all MIDI notes for Game Object
 		/// in_gameObjectID.
+		/// \return 
+		/// - \c AK_Success if the stop command was queued
+		/// - \c AK_IDNotFound if the Event ID is unknown (not loaded or typo in the ID)
 		/// \sa
 		/// - <tt>AK::SoundEngine::PostMIDIOnEvent</tt>
 		/// - \ref soundengine_midi_event_playing_id
@@ -894,6 +964,9 @@ namespace AK
 		/// will get cached with active priority, while all other files will get cached with inactive priority.
 		/// \remarks in_uInactivePriority is only relevant for events that reference switch containers that are assigned to State Groups. This parameter is ignored for all other events, including events that only reference
 		/// switch containers that are assigned to Switch Groups. Files that are chosen based on a Switch Group have a different switch value per game object, and are all effectively considered active by the pin-to-cache system.
+		/// \return 
+		/// - \c AK_Success if command was queued
+		/// - \c AK_IDNotFound if the Event ID is unknown (not loaded or typo in the ID)
 		/// \sa
 		/// - <tt>AK::SoundEngine::GetBufferStatusForPinnedEvent</tt>
 		/// - <tt>AK::SoundEngine::UnpinEventInStreamCache</tt>
@@ -917,6 +990,9 @@ namespace AK
 		/// will get cached with active priority, while all other files will get cached with inactive priority.
 		/// \remarks in_uInactivePriority is only relevant for events that reference switch containers that are assigned to State Groups. This parameter is ignored for all other events, including events that only reference
 		/// switch containers that are assigned to Switch Groups. Files that are chosen based on a Switch Group have a different switch value per game object, and are all effectively considered active by the pin-to-cache system.
+		/// \return 
+		/// - \c AK_Success if command was queued
+		/// - \c AK_IDNotFound if the Event ID is unknown (not loaded or typo in the ID)
 		/// \sa
 		/// - <tt>AK::SoundEngine::GetBufferStatusForPinnedEvent</tt>
 		/// - <tt>AK::SoundEngine::UnpinEventInStreamCache</tt>
@@ -940,6 +1016,9 @@ namespace AK
 		/// will get cached with active priority, while all other files will get cached with inactive priority.
 		/// \remarks in_uInactivePriority is only relevant for events that reference switch containers that are assigned to State Groups. This parameter is ignored for all other events, including events that only reference
 		/// switch containers that are assigned to Switch Groups. Files that are chosen based on a Switch Group have a different switch value per game object, and are all effectively considered active by the pin-to-cache system.
+		/// \return 
+		/// - \c AK_Success if command was queued
+		/// - \c AK_IDNotFound if the Event ID is unknown (not loaded or typo in the ID)
 		/// \sa
 		/// - <tt>AK::SoundEngine::GetBufferStatusForPinnedEvent</tt>
 		/// - <tt>AK::SoundEngine::UnpinEventInStreamCache</tt>
@@ -953,6 +1032,9 @@ namespace AK
 
 		/// Releases the set of files that were previously requested to be pinned into cache via <tt>AK::SoundEngine::PinEventInStreamCache()</tt>. The file may still remain in stream cache
 		/// after <tt>AK::SoundEngine::UnpinEventInStreamCache()</tt> is called, until the memory is reused by the streaming memory manager in accordance with to its cache management algorithm.
+		/// \return 
+		/// - \c AK_Success if command was queued
+		/// - \c AK_IDNotFound if the Event ID is unknown (not loaded or typo in the ID)
 		/// \sa
 		/// - <tt>AK::SoundEngine::PinEventInStreamCache</tt>
 		/// - <tt>AK::SoundEngine::GetBufferStatusForPinnedEvent</tt>
@@ -963,6 +1045,9 @@ namespace AK
 #ifdef AK_SUPPORT_WCHAR
 		/// Releases the set of files that were previously requested to be pinned into cache via <tt>AK::SoundEngine::PinEventInStreamCache()</tt>. The file may still remain in stream cache
 		/// after <tt>AK::SoundEngine::UnpinEventInStreamCache()</tt> is called, until the memory is reused by the streaming memory manager in accordance with to its cache management algorithm.
+		/// \return 
+		/// - \c AK_Success if command was queued
+		/// - \c AK_IDNotFound if the Event ID is unknown (not loaded or typo in the ID)
 		/// \sa
 		/// - <tt>AK::SoundEngine::PinEventInStreamCache</tt>
 		/// - <tt>AK::SoundEngine::GetBufferStatusForPinnedEvent</tt>
@@ -973,6 +1058,9 @@ namespace AK
 
 		/// Releases the set of files that were previously requested to be pinned into cache via <tt>AK::SoundEngine::PinEventInStreamCache()</tt>. The file may still remain in stream cache
 		/// after <tt>AK::SoundEngine::UnpinEventInStreamCache()</tt> is called, until the memory is reused by the streaming memory manager in accordance with to its cache management algorithm.
+		/// \return 
+		/// - \c AK_Success if command was queued
+		/// - \c AK_IDNotFound if the Event ID is unknown (not loaded or typo in the ID)
 		/// \sa
 		/// - <tt>AK::SoundEngine::PinEventInStreamCache</tt>
 		/// - <tt>AK::SoundEngine::GetBufferStatusForPinnedEvent</tt>
@@ -984,6 +1072,9 @@ namespace AK
 		/// Retrieves the smallest buffer fill-percentage for each file referenced by the event, and whether 
 		/// the cache-pinned memory limit is preventing any of the files from filling up their buffer.
 		/// \remarks To set the limit for the maximum number of bytes that can be pinned to cache, see \c AkDeviceSettings 
+		/// \return 
+		/// - \c AK_Success if command was queued
+		/// - \c AK_IDNotFound if the Event ID is unknown (not loaded or typo in the ID)
 		/// \sa
 		/// - <tt>AK::SoundEngine::PinEventInStreamCache</tt>
 		/// - <tt>AK::SoundEngine::UnpinEventInStreamCache</tt>
@@ -998,6 +1089,9 @@ namespace AK
 		/// Retrieves the smallest buffer fill-percentage for each file referenced by the event, and whether 
 		/// the cache-pinned memory limit is preventing any of the files from filling up their buffer.
 		/// \remarks To set the limit for the maximum number of bytes that can be pinned to cache, see AkDeviceSettings 
+		/// \return 
+		/// - \c AK_Success if command was queued
+		/// - \c AK_IDNotFound if the Event ID is unknown (not loaded or typo in the ID)
 		/// \sa
 		/// - <tt>AK::SoundEngine::PinEventInStreamCache</tt>
 		/// - <tt>AK::SoundEngine::UnpinEventInStreamCache</tt>
@@ -1013,6 +1107,9 @@ namespace AK
 		/// Retrieves the smallest buffer fill-percentage for each file referenced by the event, and whether 
 		/// the cache-pinned memory limit is preventing any of the files from filling up their buffer.
 		/// \remarks To set the limit for the maximum number of bytes that can be pinned to cache, see AkDeviceSettings 
+		/// \return 
+		/// - \c AK_Success if command was queued
+		/// - \c AK_IDNotFound if the Event ID is unknown (not loaded or typo in the ID)
 		/// \sa
 		/// - <tt>AK::SoundEngine::PinEventInStreamCache</tt>
 		/// - <tt>AK::SoundEngine::UnpinEventInStreamCache</tt>
@@ -1064,6 +1161,9 @@ namespace AK
 		///			in the target segment depends on both the desired seeking position and the rule's "Sync To" property.
 		///		- If the specified time is greater than the destination segment's length, the modulo is taken.
 		///
+		/// \return 
+		/// - \c AK_Success if command was queued
+		/// - \c AK_IDNotFound if the Event ID is unknown (not loaded or typo in the ID)
 		/// \sa
 		/// - <tt>AK::SoundEngine::RenderAudio()</tt>
 		/// - <tt>AK::SoundEngine::PostEvent()</tt>
@@ -1119,7 +1219,9 @@ namespace AK
 		///			so the moment when seeking occurs depends on the rule's "Exit At" property. On the other hand, the starting position 
 		///			in the target segment depends on both the desired seeking position and the rule's "Sync To" property.
 		///		- If the specified time is greater than the destination segment's length, the modulo is taken.
-		///
+		/// \return 
+		/// - \c AK_Success if command was queued
+		/// - \c AK_IDNotFound if the Event ID is unknown (not loaded or typo in the ID)
 		/// \sa
 		/// - <tt>AK::SoundEngine::RenderAudio()</tt>
 		/// - <tt>AK::SoundEngine::PostEvent()</tt>
@@ -1176,6 +1278,9 @@ namespace AK
 		///			in the target segment depends on both the desired seeking position and the rule's "Sync To" property.
 		///		- If the specified time is greater than the destination segment's length, the modulo is taken.
 		///
+		/// \return 
+		/// - \c AK_Success if command was queued
+		/// - \c AK_IDNotFound if the Event ID is unknown (not loaded or typo in the ID)
 		/// \sa
 		/// - <tt>AK::SoundEngine::RenderAudio()</tt>
 		/// - <tt>AK::SoundEngine::PostEvent()</tt>
@@ -1381,9 +1486,10 @@ namespace AK
 		///		When you call this function from your thread, you therefore query the position that was updated in the previous audio frame.
 		///		If in_bExtrapolate is true (default), the returned position is extrapolated using the elapsed time since last 
 		///		sound engine update and the source's playback rate.
-		/// \return AK_Success if successful.
-		///			It returns AK_InvalidParameter if the provided pointer is not valid.
-		///			It returns AK_Fail if the playing ID is invalid (not playing yet, or finished playing).
+		/// \return 
+		/// - \c AK_Success if successful.
+		/// - \c AK_InvalidParameter if the provided pointer is not valid.
+		/// - \c AK_PlayingIDNotFound if the playing ID is invalid (not playing yet, or finished playing).
 		/// \sa 
 		/// - \ref soundengine_query_pos
 		/// - \ref concept_events
@@ -1405,9 +1511,10 @@ namespace AK
 		///     position array (out_puPositions) will not be updated.
 		/// - The io_pcPositions pointer must be non-NULL.
 		///     out_puPositions may be NULL if *io_pcPositions == 0, otherwise it must be non-NULL.
-		/// \return AK_Success if successful.
-		///			It returns AK_InvalidParameter if the provided pointers are not valid.
-		///			It returns AK_Fail if the playing ID is invalid (not playing yet, or finished playing).
+		/// \return 
+		/// - \c AK_Success if successful.
+		/// - \c AK_InvalidParameter if the provided pointer is not valid.
+		/// - \c AK_PlayingIDNotFound if the playing ID is invalid (not playing yet, or finished playing).
 		/// \sa 
 		/// - \ref soundengine_query_pos
 		/// - \ref concept_events
@@ -1430,8 +1537,8 @@ namespace AK
 		/// - The returned buffering amount and state is not completely accurate with some hardware-accelerated codecs. In such cases, the amount of stream buffering is generally underestimated.
 		///		On the other hand, it is not guaranteed that the source will be ready to produce data at the next audio frame even if out_bIsBuffering has turned to false.
 		/// \return 
-		///	- AK_Success if successful.
-		/// - AK_Fail if the source data associated with this playing ID is not found, for example if PostEvent() was not called with AK_EnableGetSourceStreamBuffering, or if the header was not parsed.
+		/// - \c AK_Success if successful.
+		/// - \c AK_PlayingIDNotFound if the source data associated with this playing ID is not found, for example if PostEvent() was not called with AK_EnableGetSourceStreamBuffering, or if the header was not parsed.
 		/// \sa 
 		/// - \ref concept_events
 		AK_EXTERNAPIFUNC( AKRESULT, GetSourceStreamBuffering )(
@@ -1470,10 +1577,12 @@ namespace AK
 
 		/// Sets the random seed value. Can be used to synchronize randomness
 		/// across instances of the Sound Engine.
-		/// \remark This seeds the number generator used for all container randomizations;
-		/// 		since it acts globally, this should be called right before any PostEvent
-		///			call where randomness synchronization is required, and cannot guarantee
-		///			similar results for continuous containers.
+		/// \remark This seeds the number generator used for all container randomizations 
+		///         and the plug-in RNG; since it acts globally, this should be called right 
+		///         before any PostEvent call where randomness synchronization is required,
+		///         and cannot guarantee similar results for continuous containers.
+		/// \sa
+		/// - <tt>AK::IAkPluginServiceRNG</tt>
 		AK_EXTERNAPIFUNC( void, SetRandomSeed )( 
 			AkUInt32 in_uSeed													///< Random seed.
 			);
@@ -1517,8 +1626,8 @@ namespace AK
 		
         /// Registers a game object.
 		/// \return
-		/// - AK_Success if successful
-		///	- AK_Fail if the specified AkGameObjectID is invalid (0 and -1 are invalid)
+		/// - \c AK_Success if successful
+		/// - \c AK_InvalidParameter if the specified AkGameObjectID is invalid (0 and -1 are invalid)
 		/// \remark Registering a game object twice does nothing. Unregistering it once unregisters it no 
 		///			matter how many times it has been registered.
 		/// \sa 
@@ -1531,8 +1640,8 @@ namespace AK
 
 		/// Registers a game object.
 		/// \return
-		/// - AK_Success if successful
-		///	- AK_Fail if the specified AkGameObjectID is invalid (0 and -1 are invalid)
+		/// - \c AK_Success if successful
+		/// - \c AK_InvalidParameter if the specified AkGameObjectID is invalid (0 and -1 are invalid)
 		/// \remark Registering a game object twice does nothing. Unregistering it once unregisters it no 
 		///			matter how many times it has been registered.
 		/// \sa 
@@ -1546,8 +1655,8 @@ namespace AK
 
         /// Unregisters a game object.
 		/// \return 
-		/// - AK_Success if successful
-		///	- AK_Fail if the specified AkGameObjectID is invalid (0 is an invalid ID)
+		/// - \c AK_Success if successful
+		/// - \c AK_InvalidParameter if the specified AkGameObjectID is invalid (0 is an invalid ID)
 		/// \remark Registering a game object twice does nothing. Unregistering it once unregisters it no 
 		///			matter how many times it has been registered. Unregistering a game object while it is 
 		///			in use is allowed, but the control over the parameters of this game object is lost.
@@ -1562,33 +1671,37 @@ namespace AK
 	        											/// AK_INVALID_GAME_OBJECT to unregister all game objects.
 	        );
 
-    /// Unregister all game objects, or all game objects with a particular matching set of property flags.
-	/// This function to can be used to unregister all game objects.  
-	/// \return
-	/// - AK_Success if successful
-	/// \remark Registering a game object twice does nothing. Unregistering it once unregisters it no 
-	///			matter how many times it has been registered. Unregistering a game object while it is 
-	///			in use is allowed, but the control over the parameters of this game object is lost.
-	///			For example, if a sound associated with this game object is a 3D moving sound, it will 
-	///			stop moving once the game object is unregistered, and there will be no way to recover 
-	///			the control over this game object.
-	/// \sa 
-	/// - <tt>AK::SoundEngine::RegisterGameObj()</tt>
-	/// - <tt>AK::SoundEngine::UnregisterGameObj()</tt>
-	/// - \ref concept_gameobjects
-    AK_EXTERNAPIFUNC( AKRESULT, UnregisterAllGameObj )(
-		);
+		/// Unregister all game objects, or all game objects with a particular matching set of property flags.
+		/// This function to can be used to unregister all game objects.  
+		/// \return
+		/// - \c AK_Success if successful
+		/// \remark Registering a game object twice does nothing. Unregistering it once unregisters it no 
+		///			matter how many times it has been registered. Unregistering a game object while it is 
+		///			in use is allowed, but the control over the parameters of this game object is lost.
+		///			For example, if a sound associated with this game object is a 3D moving sound, it will 
+		///			stop moving once the game object is unregistered, and there will be no way to recover 
+		///			the control over this game object.
+		/// \sa 
+		/// - <tt>AK::SoundEngine::RegisterGameObj()</tt>
+		/// - <tt>AK::SoundEngine::UnregisterGameObj()</tt>
+		/// - \ref concept_gameobjects
+		AK_EXTERNAPIFUNC( AKRESULT, UnregisterAllGameObj )(
+			);
 
        	/// Sets the position of a game object.
 		/// \warning The object's orientation vector (in_Position.Orientation) must be normalized.
 		/// \return 
-		/// - AK_Success when successful
-		/// - AK_InvalidParameter if parameters are not valid.
+		/// - \c AK_Success when successful
+		/// - \c AK_InvalidParameter if parameters are not valid, for example: 
+		/// + in_Position makes an invalid transform 
+		/// + in_eFlags is not one of the valid enum values 
+		/// + the game object ID is in the reserved ID range.
 		/// \sa 
 		/// - \ref soundengine_3dpositions
         AK_EXTERNAPIFUNC( AKRESULT, SetPosition )( 
 			AkGameObjectID in_GameObjectID,		///< Game Object identifier
-			const AkSoundPosition & in_Position	///< Position to set; in_Position.Orientation must be normalized.
+			const AkSoundPosition & in_Position,///< Position to set; in_Position.Orientation must be normalized.
+			AkSetPositionFlags in_eFlags = AkSetPositionFlags_Default ///< Optional flags to independently set the position of the emitter or listener component.
 		    );
 
 		/// Sets multiple positions to a single game object.
@@ -1596,8 +1709,12 @@ namespace AK
 		/// This can be used to simulate wall openings, area sounds, or multiple objects emitting the same sound in the same area.
 		/// \aknote Calling <tt>AK::SoundEngine::SetMultiplePositions()</tt> with only one position is the same as calling <tt>AK::SoundEngine::SetPosition()</tt> \endaknote
 		/// \return 
-		/// - AK_Success when successful
-		/// - AK_InvalidParameter if parameters are not valid.
+		/// - \c AK_Success when successful
+		/// - \c AK_CommandTooLarge if the number of positions is too large for the command queue. Reduce the number of positions.
+		/// - \c AK_InvalidParameter if parameters are not valid, for example: 
+		/// + in_Position makes an invalid transform 
+		/// + in_eFlags is not one of the valid enum values 
+		/// + the game object ID is in the reserved ID range.
 		/// \sa 
 		/// - \ref soundengine_3dpositions
 		/// - \ref soundengine_3dpositions_multiplepos
@@ -1606,7 +1723,8 @@ namespace AK
 			AkGameObjectID in_GameObjectID,						///< Game Object identifier.
 			const AkSoundPosition * in_pPositions,				///< Array of positions to apply.
 			AkUInt16 in_NumPositions,							///< Number of positions specified in the provided array.
-			MultiPositionType in_eMultiPositionType = MultiPositionType_MultiDirections ///< \ref AK::SoundEngine::MultiPositionType
+			MultiPositionType in_eMultiPositionType = MultiPositionType_MultiDirections, ///< \ref AK::SoundEngine::MultiPositionType
+			AkSetPositionFlags in_eFlags = AkSetPositionFlags_Default ///< Optional flags to independently set the position of the emitter or listener component.
 		    );
 
 		/// Sets multiple positions to a single game object, with flexible assignment of input channels.
@@ -1614,8 +1732,9 @@ namespace AK
 		/// This can be used to simulate wall openings, area sounds, or multiple objects emitting the same sound in the same area.
 		/// \aknote Calling <tt>AK::SoundEngine::SetMultiplePositions()</tt> with only one position is the same as calling <tt>AK::SoundEngine::SetPosition()</tt> \endaknote
 		/// \return 
-		/// - AK_Success when successful
-		/// - AK_InvalidParameter if parameters are not valid.
+		/// - \c AK_Success when successful
+		/// - \c AK_CommandTooLarge if the number of positions is too large for the command queue. Reduce the number of positions.
+		/// - \c AK_InvalidParameter if parameters are not valid.
 		/// \sa 
 		/// - \ref soundengine_3dpositions
 		/// - \ref soundengine_3dpositions_multiplepos
@@ -1624,18 +1743,38 @@ namespace AK
 			AkGameObjectID in_GameObjectID,						///< Game Object identifier.
 			const AkChannelEmitter * in_pPositions,			///< Array of positions to apply, each using its own channel mask.
 			AkUInt16 in_NumPositions,							///< Number of positions specified in the provided array.
-			MultiPositionType in_eMultiPositionType = MultiPositionType_MultiDirections ///< \ref AK::SoundEngine::MultiPositionType
+			MultiPositionType in_eMultiPositionType = MultiPositionType_MultiDirections, ///< \ref AK::SoundEngine::MultiPositionType
+			AkSetPositionFlags in_eFlags = AkSetPositionFlags_Default ///< Optional flags to independently set the position of the emitter or listener component.
 		    );
 
         /// Sets the scaling factor of a Game Object.
 		/// Modify the attenuation computations on this Game Object to simulate sounds with a larger or smaller area of effect.
 		/// \return 
-		/// - AK_Success when successful
-		/// - AK_InvalidParameter if the scaling factor specified was 0 or negative.
-		/// - AK_InvalidFloatValue if the value specified was NaN or Inf
+		/// - \c AK_Success when successful
+		/// - \c AK_InvalidParameter if the scaling factor specified was 0 or negative.
+		/// - \c AK_InvalidFloatValue if the value specified was NaN or Inf
 		AK_EXTERNAPIFUNC( AKRESULT, SetScalingFactor )(
 			AkGameObjectID in_GameObjectID,				///< Game object identifier
 			AkReal32 in_fAttenuationScalingFactor		///< Scaling Factor, 1 means 100%, 0.5 means 50%, 2 means 200%, and so on.
+			);
+
+		/// Use the position of a separate game object for distance calculations for a specified listener.
+		/// When <tt>AK::SoundEngine::SetDistanceProbe()</tt> is called, Wwise calculates distance attenuation and filtering 
+		/// based on the distance between the distance probe Game Object (\c in_distanceProbeGameObjectID) and the emitter Game Object's position.
+		/// In third-person perspective applications, the distance probe Game Object may be set to the player character's position, 
+		/// and the listener Game Object's position to that of the camera. In this scenario, attenuation is based on 
+		/// the distance between the character and the sound, whereas panning, spatialization, and spread and focus calculations are base on the camera.
+		/// Both Game Objects, \c in_listenerGameObjectID and \c in_distanceProbeGameObjectID must have been previously registered using <tt>AK::SoundEngine::RegisterGameObj</tt>.
+		/// This funciton is optional. if <tt>AK::SoundEngine::SetDistanceProbe()</tt> is never called, distance calculations are based on the listener Game Object position.
+		/// To clear the distance probe, and revert to using the listener position for distance calculations, pass \c AK_INVALID_GAME_OBJECT to \c in_distanceProbeGameObjectID.
+		/// \aknote If the distance probe Game Object is assigned multiple positions, then the first position is used for distance calculations by the listener. \endaknote
+		/// \return 
+		/// - \c AK_Success when successful
+		/// \sa 
+		/// - <tt>AK::SoundEngine::SetPosition()</tt>
+		AK_EXTERNAPIFUNC(AKRESULT, SetDistanceProbe)(
+			AkGameObjectID in_listenerGameObjectID,		///< Game object identifier for the listener. Must have been previously registered via RegisterGameObj.
+			AkGameObjectID in_distanceProbeGameObjectID	///< Game object identifier for the distance probe, or \c AK_INVALID_GAME_OBJECT to reset distance probe.  If valid, must have been previously registered via RegisterGameObj.
 			);
 
         //@}
@@ -1647,8 +1786,8 @@ namespace AK
 		/// Unload all currently loaded banks.
 		/// It also internally calls ClearPreparedEvents() since at least one bank must have been loaded to allow preparing events.
 		/// \return 
-		/// - AK_Success if successful
-		///	- AK_Fail if the sound engine was not correctly initialized or if there is not enough memory to handle the command
+		/// - \c AK_Success if successful
+		/// - \c AK_NotInitialized if the sound engine was not correctly initialized or if there is not enough memory to handle the command
 		/// \sa 
 		/// - <tt>AK::SoundEngine::UnloadBank()</tt>
 		/// - <tt>AK::SoundEngine::LoadBank()</tt>
@@ -1659,9 +1798,9 @@ namespace AK
         /// The sound engine uses default values unless explicitly set by calling this method.
 		/// \warning This function must be called before loading banks.
 		/// \return 
-		/// - AK_Success if successful
-		/// - AK_Fail if the sound engine was not correctly initialized
-		/// - AK_InvalidParameter if some parameters are invalid
+		/// - \c AK_Success if successful
+		/// - \c AK_NotInitialized if the sound engine was not correctly initialized
+		/// - \c AK_InvalidParameter if some parameters are invalid, check the debug console
 		/// \sa 
 		/// - \ref soundengine_banks
         /// - \ref streamingdevicemanager
@@ -1672,21 +1811,24 @@ namespace AK
 
 #ifdef AK_SUPPORT_WCHAR
 		/// Load a bank synchronously (by Unicode string).\n
-		/// The bank name is passed to the Stream Manager.
+		/// The bank name and type are passed to the Stream Manager.
 		/// Refer to \ref soundengine_banks_general for a discussion on using strings and IDs.
 		/// A bank load request will be posted, and consumed by the Bank Manager thread.
 		/// The function returns when the request has been completely processed.
 		/// \return 
 		/// The bank ID, which is obtained by hashing the bank name (see GetIDFromString()). 
 		/// You may use this ID with UnloadBank().
-		///	- AK_Success: Load or unload successful.
-		/// - AK_InsufficientMemory: Insufficient memory to store bank data.
-		/// - AK_BankReadError: I/O error.
-		/// - AK_WrongBankVersion: Invalid bank version: make sure the version of Wwise that 
-		/// you used to generate the SoundBanks matches that of the SDK you are currently using.
-		/// - AK_InvalidFile: File specified could not be opened.
-		/// - AK_InvalidParameter: Invalid parameter, invalid memory alignment.		
-		/// - AK_Fail: Load or unload failed for any other reason. (Most likely small allocation failure)
+		/// - \c AK_Success: Load or unload successful.
+		/// - \c AK_BankAlreadyLoaded: This bank is already loaded, nothing done.
+		/// - \c AK_InsufficientMemory: Insufficient memory to store bank data.
+		/// - \c AK_BankReadError: I/O error.
+		/// - \c AK_WrongBankVersion: Invalid bank version: make sure the version of Wwise that you used to generate the SoundBanks matches that of the SDK you are currently using.
+		/// - \c AK_InvalidFile: File specified could not be opened.
+		/// - \c AK_InvalidParameter: Invalid parameter, invalid memory alignment.		
+		/// - \c AK_NotInitialized if the sound engine was not correctly initialized
+		/// - \c AK_InvalidParameter if some parameters are invalid, check the debug console
+		/// - \c AK_InvalidBankType if the bank type parameter is out of range.
+		/// - \c AK_Fail: Load or unload failed for any other reason. (Most likely small allocation failure, check the debug console)
 		/// \remarks
 		/// - The initialization bank must be loaded first.
 		/// - All SoundBanks subsequently loaded must come from the same Wwise project as the
@@ -1712,27 +1854,31 @@ namespace AK
 		/// - \ref streamingmanager_lowlevel
 		/// - \ref sdk_bank_training
 		AK_EXTERNAPIFUNC( AKRESULT, LoadBank )(
-	        const wchar_t*      in_pszString,		    ///< Name of the bank to load
-            AkBankID &          out_bankID				///< Returned bank ID
+	        const wchar_t*      in_pszString,					///< Name of the bank to load
+            AkBankID &          out_bankID,						///< Returned bank ID
+			AkBankType			in_bankType = AkBankType_User	///< Type of the bank to load
 	        );
 #endif //AK_SUPPORT_WCHAR
 
 		/// Loads a bank synchronously.\n
-		/// The bank name is passed to the Stream Manager.
+		/// The bank name and type are passed to the Stream Manager.
 		/// Refer to \ref soundengine_banks_general for a discussion on using strings and IDs.
 		/// A bank load request will be posted, and consumed by the Bank Manager thread.
 		/// The function returns when the request has been completely processed.
 		/// \return 
 		/// The bank ID, which is obtained by hashing the bank name (see GetIDFromString()). 
 		/// You may use this ID with UnloadBank().
-		///	- AK_Success: Load or unload successful.
-		/// - AK_InsufficientMemory: Insufficient memory to store bank data.
-		/// - AK_BankReadError: I/O error.
-		/// - AK_WrongBankVersion: Invalid bank version: make sure the version of Wwise that 
+		/// - \c AK_Success: Load or unload successful.
+		/// - \c AK_BankAlreadyLoaded: This bank is already loaded, nothing done.
+		/// - \c AK_InsufficientMemory: Insufficient memory to store bank data.
+		/// - \c AK_BankReadError: I/O error.
+		/// - \c AK_WrongBankVersion: Invalid bank version: make sure the version of Wwise that 
 		/// you used to generate the SoundBanks matches that of the SDK you are currently using.
-		/// - AK_InvalidFile: File specified could not be opened.
-		/// - AK_InvalidParameter: Invalid parameter, invalid memory alignment.		
-		/// - AK_Fail: Load or unload failed for any other reason. (Most likely small allocation failure)
+		/// - \c AK_InvalidFile: File specified could not be opened.
+		/// - \c AK_NotInitialized if the sound engine was not correctly initialized
+		/// - \c AK_InvalidParameter if some parameters are invalid, check the debug console
+		/// - \c AK_InvalidBankType if the bank type parameter is out of range.
+		/// - \c AK_Fail: Load or unload failed for any other reason. (Most likely small allocation failure)
 		/// \remarks
 		/// - The initialization bank must be loaded first.
 		/// - All SoundBanks subsequently loaded must come from the same Wwise project as the
@@ -1758,8 +1904,9 @@ namespace AK
 		/// - \ref streamingmanager_lowlevel
 		/// - \ref sdk_bank_training
 		AK_EXTERNAPIFUNC( AKRESULT, LoadBank )(
-	        const char*         in_pszString,		    ///< Name of the bank to load
-            AkBankID &          out_bankID				///< Returned bank ID
+	        const char*         in_pszString,					///< Name of the bank to load
+            AkBankID &          out_bankID,						///< Returned bank ID
+			AkBankType			in_bankType = AkBankType_User	///< Type of the bank to load
 	        );
 
         /// Loads a bank synchronously (by ID).\n
@@ -1769,14 +1916,19 @@ namespace AK
 		/// A bank load request will be posted, and consumed by the Bank Manager thread.
 		/// The function returns when the request has been completely processed.
 		/// \return 
-		///	- AK_Success: Load or unload successful.
-		/// - AK_InsufficientMemory: Insufficient memory to store bank data.
-		/// - AK_BankReadError: I/O error.
-		/// - AK_WrongBankVersion: Invalid bank version: make sure the version of Wwise that 
+		/// - \c AK_Success: Load or unload successful.
+		/// - \c AK_BankAlreadyLoaded: This bank is already loaded, nothing done.
+		/// - \c AK_InsufficientMemory: Insufficient memory to store bank data.
+		/// - \c AK_BankReadError: I/O error. The bank is either shorter than expected or its data corrupted.
+		/// - \c AK_WrongBankVersion: Invalid bank version: make sure the version of Wwise that 
 		/// you used to generate the SoundBanks matches that of the SDK you are currently using.
-		/// - AK_InvalidFile: File specified could not be opened.
-		/// - AK_InvalidParameter: Invalid parameter, invalid memory alignment.		
-		/// - AK_Fail: Load or unload failed for any other reason. (Most likely small allocation failure)
+		/// - \c AK_InvalidFile: File specified could not be opened.
+		/// - \c AK_NotInitialized if the sound engine was not correctly initialized
+		/// - \c AK_InvalidParameter if some parameters are invalid, check the debug console or Wwise Profiler
+		/// - \c AK_InvalidBankType if the bank type parameter is out of range.
+		/// - \c AK_FileNotFound if the bank file was not found on disk.
+		/// - \c AK_FilePermissionError if the file permissions are wrong for the file
+		/// - \c AK_Fail: Load or unload failed for any other reason. , check the debug console or Wwise Profiler
 		/// \remarks
 		/// - The initialization bank must be loaded first.
 		/// - All SoundBanks subsequently loaded must come from the same Wwise project as the
@@ -1795,10 +1947,11 @@ namespace AK
 		/// - \ref integrating_elements_plugins
 		/// - \ref sdk_bank_training
 		AK_EXTERNAPIFUNC( AKRESULT, LoadBank )(
-	        AkBankID			in_bankID              ///< Bank ID of the bank to load
-            );
+	        AkBankID			in_bankID,						///< Bank ID of the bank to load
+			AkBankType			in_bankType = AkBankType_User	///< Type of the bank to load
+			);
 
-		/// Loads a bank synchronously (from in-memory data, in-place).\n
+		/// Loads a bank synchronously (from in-memory data, in-place, user bank only).\n
 		///
 		/// IMPORTANT: Banks loaded from memory with in-place data MUST be unloaded using the UnloadBank function
 		/// providing the same memory pointer. Make sure you are using the correct UnloadBank(...) overload
@@ -1811,14 +1964,18 @@ namespace AK
 		/// \return 
 		/// The bank ID, which is stored in the first few bytes of the bank file. You may use this 
 		/// ID with UnloadBank().
-		///	- AK_Success: Load or unload successful.
-		/// - AK_InsufficientMemory: Insufficient memory to store bank data.
-		/// - AK_BankReadError: I/O error.
-		/// - AK_WrongBankVersion: Invalid bank version: make sure the version of Wwise that 
+		/// - \c AK_Success: Load or unload successful.
+		/// - \c AK_BankAlreadyLoaded: This bank is already loaded, nothing done.
+		/// - \c AK_InsufficientMemory: Insufficient memory to store bank data.
+		/// - \c AK_BankReadError: I/O error.
+		/// - \c AK_WrongBankVersion: Invalid bank version: make sure the version of Wwise that 
 		/// you used to generate the SoundBanks matches that of the SDK you are currently using.
-		/// - AK_InvalidFile: File specified could not be opened.
-		/// - AK_InvalidParameter: Invalid parameter, invalid memory alignment.		
-		/// - AK_Fail: Load or unload failed for any other reason. (Most likely small allocation failure)
+		/// - \c AK_InvalidFile: File specified could not be opened.
+		/// - \c AK_NotInitialized if the sound engine was not correctly initialized
+		/// - \c AK_InvalidParameter if some parameters are invalid, check the debug console 
+		/// - \c AK_InvalidBankType if the bank is not a user-defined bank.
+		/// - \c AK_DataAlignmentError if the data pointer is not aligned properly 
+		/// - \c AK_Fail: Load or unload failed for any other reason. (Most likely small allocation failure)
 		/// \remarks
 		/// - The initialization bank must be loaded first.
 		/// - All SoundBanks subsequently loaded must come from the same Wwise project as the
@@ -1846,7 +2003,59 @@ namespace AK
             AkBankID &          out_bankID				///< Returned bank ID
 	        );
 
-		/// Loads a bank synchronously (from in-memory data, out-of-place).\n
+		/// Loads a bank synchronously (from in-memory data, in-place, any bank type).\n
+		///
+		/// IMPORTANT: Banks loaded from memory with in-place data MUST be unloaded using the UnloadBank function
+		/// providing the same memory pointer. Make sure you are using the correct UnloadBank(...) overload
+		///
+		/// Use LoadBankMemoryView when you want to manage I/O on your side. Load the bank file
+		/// in a buffer and pass its address to the sound engine.
+		/// In-memory loading is in-place: *** the memory must be valid until the bank is unloaded. ***
+		/// A bank load request will be posted, and consumed by the Bank Manager thread.
+		/// The function returns when the request has been completely processed.
+		/// \return 
+		/// The bank ID, which is stored in the first few bytes of the bank file. You may use this 
+		/// ID with UnloadBank().
+		/// - \c AK_Success: Load or unload successful.
+		/// - \c AK_BankAlreadyLoaded: This bank is already loaded, nothing done.
+		/// - \c AK_InsufficientMemory: Insufficient memory to store bank data.
+		/// - \c AK_BankReadError: I/O error.
+		/// - \c AK_WrongBankVersion: Invalid bank version: make sure the version of Wwise that 
+		/// you used to generate the SoundBanks matches that of the SDK you are currently using.
+		/// - \c AK_InvalidFile: File specified could not be opened.
+		/// - \c AK_NotInitialized if the sound engine was not correctly initialized
+		/// - \c AK_InvalidParameter if some parameters are invalid, check the debug console 
+		/// - \c AK_DataAlignmentError if the data pointer is not aligned properly 
+		/// - \c AK_Fail: Load or unload failed for any other reason. (Most likely small allocation failure)
+		/// \remarks
+		/// - The initialization bank must be loaded first.
+		/// - All SoundBanks subsequently loaded must come from the same Wwise project as the
+		///   initialization bank. If you need to load SoundBanks from a different project, you
+		///   must first unload ALL banks, including the initialization bank, then load the
+		///   initialization bank from the other project, and finally load banks from that project.
+		/// - Codecs and plug-ins must be registered before loading banks that use them.
+		/// - Loading a bank referencing an unregistered plug-in or codec will result in a load bank success,
+		/// but the plug-ins will not be used. More specifically, playing a sound that uses an unregistered effect plug-in 
+		/// will result in audio playback without applying the said effect. If an unregistered source plug-in is used by an event's audio objects, 
+		/// posting the event will fail.
+		/// - The memory must be aligned on platform-specific AK_BANK_PLATFORM_DATA_ALIGNMENT bytes (see AkTypes.h).
+		/// - (XboxOne only): If the bank may contain XMA in memory data, the memory must be allocated using the Device memory allocator.
+		/// - Avoid using this function for banks containing a lot of events or structure data: this data will be unpacked into the sound engine heap,
+		///   making the supplied bank memory redundant. For event/structure-only banks, prefer LoadBankMemoryCopy().
+		/// \sa 
+		/// - <tt>AK::SoundEngine::UnloadBank()</tt>
+		/// - <tt>AK::SoundEngine::ClearBanks()</tt>
+		/// - \ref soundengine_banks
+		/// - \ref integrating_elements_plugins
+		/// - \ref sdk_bank_training
+		AK_EXTERNAPIFUNC( AKRESULT, LoadBankMemoryView )(
+	        const void *		in_pInMemoryBankPtr,	///< Pointer to the in-memory bank to load (pointer is stored in sound engine, memory must remain valid)
+			AkUInt32			in_uInMemoryBankSize,	///< Size of the in-memory bank to load
+            AkBankID &          out_bankID,				///< Returned bank ID
+			AkBankType &		out_bankType			///< Returned bank type
+			);
+
+		/// Loads a bank synchronously (from in-memory data, out-of-place, user bank only).\n
 		///
 		/// NOTE: Banks loaded from in-memory with out-of-place data must be unloaded using the standard UnloadBank function
 		/// (with no memory pointer). Make sure you are using the correct UnloadBank(...) overload
@@ -1861,14 +2070,18 @@ namespace AK
 		/// \return 
 		/// The bank ID, which is stored in the first few bytes of the bank file. You may use this 
 		/// ID with UnloadBank().
-		///	- AK_Success: Load or unload successful.
-		/// - AK_InsufficientMemory: Insufficient memory to store bank data.
-		/// - AK_BankReadError: I/O error.
-		/// - AK_WrongBankVersion: Invalid bank version: make sure the version of Wwise that 
+		/// - \c AK_Success: Load or unload successful.
+		/// - \c AK_BankAlreadyLoaded: This bank is already loaded, nothing done.
+		/// - \c AK_InsufficientMemory: Insufficient memory to store bank data.
+		/// - \c AK_BankReadError: I/O error.
+		/// - \c AK_WrongBankVersion: Invalid bank version: make sure the version of Wwise that 
 		/// you used to generate the SoundBanks matches that of the SDK you are currently using.
-		/// - AK_InvalidFile: File specified could not be opened.
-		/// - AK_InvalidParameter: Invalid parameter, invalid memory alignment.		
-		/// - AK_Fail: Load or unload failed for any other reason. (Most likely small allocation failure)
+		/// - \c AK_InvalidFile: File specified could not be opened.
+		/// - \c AK_NotInitialized if the sound engine was not correctly initialized
+		/// - \c AK_InvalidParameter if some parameters are invalid, check the debug console
+		/// - \c AK_InvalidBankType if the bank is not a user-defined bank.
+		/// - \c AK_DataAlignmentError if the data pointer is not aligned properly 
+		/// - \c AK_Fail: Load or unload failed for any other reason. (Most likely small allocation failure)
 		/// \remarks
 		/// - The initialization bank must be loaded first.
 		/// - All SoundBanks subsequently loaded must come from the same Wwise project as the
@@ -1890,6 +2103,56 @@ namespace AK
 			const void *		in_pInMemoryBankPtr,	///< Pointer to the in-memory bank to load (pointer is not stored in sound engine, memory can be released after return)
 			AkUInt32			in_uInMemoryBankSize,	///< Size of the in-memory bank to load
 			AkBankID &          out_bankID				///< Returned bank ID
+			);
+
+		/// Loads a bank synchronously (from in-memory data, out-of-place, any bank type).\n
+		///
+		/// NOTE: Banks loaded from in-memory with out-of-place data must be unloaded using the standard UnloadBank function
+		/// (with no memory pointer). Make sure you are using the correct UnloadBank(...) overload
+		///
+		/// Use LoadBankMemoryCopy when you want to manage I/O on your side. Load the bank file
+		/// in a buffer and pass its address to the sound engine, the media section of the bank will be copied into newly 
+		/// allocated memory.  
+		/// In-memory loading is out-of-place: the buffer can be release as soon as the function returns. The advantage of using this
+		/// over the in-place version is that there is no duplication of bank structures.
+		/// A bank load request will be posted, and consumed by the Bank Manager thread.
+		/// The function returns when the request has been completely processed.
+		/// \return 
+		/// The bank ID, which is stored in the first few bytes of the bank file. You may use this 
+		/// ID with UnloadBank().
+		/// - \c AK_Success: Load or unload successful.
+		/// - \c AK_BankAlreadyLoaded: This bank is already loaded, nothing done.
+		/// - \c AK_InsufficientMemory: Insufficient memory to store bank data.
+		/// - \c AK_BankReadError: I/O error.
+		/// - \c AK_WrongBankVersion: Invalid bank version: make sure the version of Wwise that 
+		/// you used to generate the SoundBanks matches that of the SDK you are currently using.
+		/// - \c AK_InvalidFile: File specified could not be opened.
+		/// - \c AK_NotInitialized if the sound engine was not correctly initialized
+		/// - \c AK_InvalidParameter if some parameters are invalid, check the debug console
+		/// - \c AK_DataAlignmentError if the data pointer is not aligned properly 
+		/// - \c AK_Fail: Load or unload failed for any other reason. (Most likely small allocation failure)
+		/// \remarks
+		/// - The initialization bank must be loaded first.
+		/// - All SoundBanks subsequently loaded must come from the same Wwise project as the
+		///   initialization bank. If you need to load SoundBanks from a different project, you
+		///   must first unload ALL banks, including the initialization bank, then load the
+		///   initialization bank from the other project, and finally load banks from that project.
+		/// - Codecs and plug-ins must be registered before loading banks that use them.
+		/// - Loading a bank referencing an unregistered plug-in or codec will result in a load bank success,
+		/// but the plug-ins will not be used. More specifically, playing a sound that uses an unregistered effect plug-in 
+		/// will result in audio playback without applying the said effect. If an unregistered source plug-in is used by an event's audio objects, 
+		/// posting the event will fail.
+		/// \sa 
+		/// - <tt>AK::SoundEngine::UnloadBank()</tt>
+		/// - <tt>AK::SoundEngine::ClearBanks()</tt>
+		/// - \ref soundengine_banks
+		/// - \ref integrating_elements_plugins
+		/// - \ref sdk_bank_training
+		AK_EXTERNAPIFUNC( AKRESULT, LoadBankMemoryCopy )(
+			const void *		in_pInMemoryBankPtr,	///< Pointer to the in-memory bank to load (pointer is not stored in sound engine, memory can be released after return)
+			AkUInt32			in_uInMemoryBankSize,	///< Size of the in-memory bank to load
+			AkBankID &          out_bankID,				///< Returned bank ID
+			AkBankType &		out_bankType			///< Returned bank type
 			);
 
 		/// Synchronously decodes Vorbis-encoded and Opus-encoded (Software version) media in a SoundBank. The file should already be read in memory before the decode operation. The out_pDecodedBankPtr can then be used with variants of LoadBank that load from in-memory data.
@@ -1942,10 +2205,11 @@ namespace AK
 		/// - \ref streamingmanager_lowlevel
 		/// - \ref sdk_bank_training
 		AK_EXTERNAPIFUNC( AKRESULT, LoadBank )(
-	        const wchar_t*      in_pszString,           ///< Name/path of the bank to load
-			AkBankCallbackFunc  in_pfnBankCallback,	    ///< Callback function
-			void *              in_pCookie,				///< Callback cookie (reserved to user, passed to the callback function, and also to  <tt>AK::StreamMgr::IAkFileLocationResolver::Open()</tt> as AkFileSystemFlags::pCustomParam)
- 			AkBankID &          out_bankID				///< Returned bank ID
+	        const wchar_t*      in_pszString,					///< Name/path of the bank to load
+			AkBankCallbackFunc  in_pfnBankCallback,				///< Callback function
+			void *              in_pCookie,						///< Callback cookie (reserved to user, passed to the callback function, and also to  <tt>AK::StreamMgr::IAkFileLocationResolver::Open()</tt> as AkFileSystemFlags::pCustomParam)
+			AkBankID &          out_bankID,						///< Returned bank ID
+			AkBankType			in_bankType = AkBankType_User	///< Type of the bank to load
 	        );
 #endif //AK_SUPPORT_WCHAR
 
@@ -1955,7 +2219,8 @@ namespace AK
 		/// A bank load request will be posted to the Bank Manager consumer thread.
 		/// The function returns immediately.
 		/// \return 
-		/// AK_Success if the scheduling was successful, AK_Fail otherwise.
+		/// - \c AK_Success if the scheduling was successful,
+		/// - \c AK_InvalidBankType if in_bankType was invalid
 		/// Use a callback to be notified when completed, and get the status of the request.
 		/// The bank ID, which is obtained by hashing the bank name (see GetIDFromString()). 
 		/// You may use this ID with UnloadBank().
@@ -1987,10 +2252,11 @@ namespace AK
 		/// - \ref streamingmanager_lowlevel
 		/// - \ref sdk_bank_training
 		AK_EXTERNAPIFUNC( AKRESULT, LoadBank )(
-	        const char*         in_pszString,			///< Name/path of the bank to load
-			AkBankCallbackFunc  in_pfnBankCallback,	    ///< Callback function
-			void *              in_pCookie,				///< Callback cookie (reserved to user, passed to the callback function, and also to  <tt>AK::StreamMgr::IAkFileLocationResolver::Open()</tt> as AkFileSystemFlags::pCustomParam)
-  			AkBankID &          out_bankID				///< Returned bank ID
+	        const char*         in_pszString,					///< Name/path of the bank to load
+			AkBankCallbackFunc  in_pfnBankCallback,				///< Callback function
+			void *              in_pCookie,						///< Callback cookie (reserved to user, passed to the callback function, and also to  <tt>AK::StreamMgr::IAkFileLocationResolver::Open()</tt> as AkFileSystemFlags::pCustomParam)
+			AkBankID &          out_bankID,						///< Returned bank ID
+			AkBankType			in_bankType = AkBankType_User	///< Type of the bank to load
 	        );
 
         /// Loads a bank asynchronously (by ID).\n
@@ -2000,7 +2266,8 @@ namespace AK
 		/// A bank load request will be posted to the Bank Manager consumer thread.
 		/// The function returns immediately.
 		/// \return 
-		/// AK_Success if the scheduling was successful, AK_Fail otherwise.
+		/// - \c AK_Success if the scheduling was successful,
+		/// - \c AK_InvalidBankType if in_bankType was invalid
 		/// Use a callback to be notified when completed, and get the status of the request.
 		/// The bank ID, which is obtained by hashing the bank name (see GetIDFromString()). 
 		/// You may use this ID with \c UnloadBank().
@@ -2027,12 +2294,13 @@ namespace AK
 		/// - \ref integrating_elements_plugins
 		/// - \ref sdk_bank_training
 		AK_EXTERNAPIFUNC( AKRESULT, LoadBank )(
-	        AkBankID			in_bankID,				///< Bank ID of the bank to load
-			AkBankCallbackFunc  in_pfnBankCallback,	    ///< Callback function
-			void *              in_pCookie				///< Callback cookie (reserved to user, passed to the callback function, and also to  <tt>AK::StreamMgr::IAkFileLocationResolver::Open()</tt> as AkFileSystemFlags::pCustomParam)
+	        AkBankID			in_bankID,						///< Bank ID of the bank to load
+			AkBankCallbackFunc  in_pfnBankCallback,				///< Callback function
+			void *              in_pCookie,						///< Callback cookie (reserved to user, passed to the callback function, and also to  <tt>AK::StreamMgr::IAkFileLocationResolver::Open()</tt> as AkFileSystemFlags::pCustomParam)
+			AkBankType			in_bankType = AkBankType_User	///< Type of the bank to load
  	        );
 
-		/// Loads a bank asynchronously (from in-memory data, in-place).\n
+		/// Loads a bank asynchronously (from in-memory data, in-place, user bank only).\n
 		///
 		/// IMPORTANT: Banks loaded from memory with in-place data MUST be unloaded using the UnloadBank function
 		/// providing the same memory pointer. Make sure you are using the correct UnloadBank(...) overload
@@ -2043,7 +2311,9 @@ namespace AK
 		/// A bank load request will be posted to the Bank Manager consumer thread.
 		/// The function returns immediately.
 		/// \return 
-		/// AK_Success if the scheduling was successful, AK_Fail otherwise, or AK_InvalidParameter if memory alignment is not correct.
+		/// - \c AK_Success if the scheduling was successful,
+		/// - \c AK_InvalidBankType if the bank is not a user-defined bank.
+		/// - \c AK_DataAlignmentError if the data pointer is not aligned properly
 		/// Use a callback to be notified when completed, and get the status of the request.
 		/// The bank ID, which is obtained by hashing the bank name (see GetIDFromString()). 
 		/// You may use this ID with UnloadBank().
@@ -2077,7 +2347,54 @@ namespace AK
 			AkBankID &          out_bankID				///< Returned bank ID
 	        );
 
-		/// Loads a bank asynchronously (from in-memory data, out-of-place).\n
+		/// Loads a bank asynchronously (from in-memory data, in-place, any bank type).\n
+		///
+		/// IMPORTANT: Banks loaded from memory with in-place data MUST be unloaded using the UnloadBank function
+		/// providing the same memory pointer. Make sure you are using the correct UnloadBank(...) overload
+		///
+		/// Use LoadBankMemoryView when you want to manage I/O on your side. Load the bank file
+		/// in a buffer and pass its address to the sound engine.
+		/// In-memory loading is in-place: *** the memory must be valid until the bank is unloaded. ***
+		/// A bank load request will be posted to the Bank Manager consumer thread.
+		/// The function returns immediately.
+		/// \return 
+		/// - \c AK_Success if the scheduling was successful,
+		/// - \c AK_DataAlignmentError if the data pointer is not aligned properly
+		/// Use a callback to be notified when completed, and get the status of the request.
+		/// The bank ID, which is obtained by hashing the bank name (see GetIDFromString()). 
+		/// You may use this ID with UnloadBank().
+		/// \remarks
+		/// - The initialization bank must be loaded first.
+		/// - All SoundBanks subsequently loaded must come from the same Wwise project as the
+		///   initialization bank. If you need to load SoundBanks from a different project, you
+		///   must first unload ALL banks, including the initialization bank, then load the
+		///   initialization bank from the other project, and finally load banks from that project.
+		/// - Codecs and plug-ins must be registered before loading banks that use them.
+		/// - Loading a bank referencing an unregistered plug-in or codec will result in a load bank success,
+		/// but the plug-ins will not be used. More specifically, playing a sound that uses an unregistered effect plug-in 
+		/// will result in audio playback without applying the said effect. If an unregistered source plug-in is used by an event's audio objects, 
+		/// posting the event will fail.
+		/// - The memory must be aligned on platform-specific AK_BANK_PLATFORM_DATA_ALIGNMENT bytes (see AkTypes.h).
+		/// - (XboxOne only): If the bank may contain XMA in memory data, the memory must be allocated using the Device memory allocator.
+		/// - Avoid using this function for banks containing a lot of events or structure data: this data will be unpacked into the sound engine heap,
+		///   making the supplied bank memory redundant. For event/structure-only banks, prefer LoadBankMemoryCopy().
+		/// \sa 
+		/// - <tt>AK::SoundEngine::UnloadBank()</tt>
+		/// - <tt>AK::SoundEngine::ClearBanks()</tt>
+		/// - AkBankCallbackFunc
+		/// - \ref soundengine_banks
+		/// - \ref integrating_elements_plugins
+		/// - \ref sdk_bank_training
+		AK_EXTERNAPIFUNC( AKRESULT, LoadBankMemoryView )(
+			const void *		in_pInMemoryBankPtr,	///< Pointer to the in-memory bank to load (pointer is stored in sound engine, memory must remain valid)
+			AkUInt32			in_uInMemoryBankSize,	///< Size of the in-memory bank to load
+			AkBankCallbackFunc  in_pfnBankCallback,	    ///< Callback function
+			void *              in_pCookie,				///< Callback cookie
+			AkBankID &          out_bankID,				///< Returned bank ID
+			AkBankType &		out_bankType			///< Returned bank type
+	        );
+
+		/// Loads a bank asynchronously (from in-memory data, out-of-place, user bank only).\n
 		///
 		/// NOTE: Banks loaded from in-memory with out-of-place data must be unloaded using the standard UnloadBank function
 		/// (with no memory pointer). Make sure you are using the correct UnloadBank(...) overload
@@ -2090,7 +2407,55 @@ namespace AK
 		/// A bank load request will be posted to the Bank Manager consumer thread.
 		/// The function returns immediately.
 		/// \return 
-		/// AK_Success if the scheduling was successful, AK_Fail otherwise, or AK_InvalidParameter if memory alignment is not correct.
+		/// - \c AK_Success if the scheduling was successful,
+		/// - \c AK_InvalidBankType if the bank is not a user-defined bank.
+		/// - \c AK_DataAlignmentError if the data pointer is not aligned properly 
+		/// Use a callback to be notified when completed, and get the status of the request.
+		/// The bank ID, which is obtained by hashing the bank name (see GetIDFromString()). 
+		/// You may use this ID with UnloadBank().
+		/// \remarks
+		/// - The initialization bank must be loaded first.
+		/// - All SoundBanks subsequently loaded must come from the same Wwise project as the
+		///   initialization bank. If you need to load SoundBanks from a different project, you
+		///   must first unload ALL banks, including the initialization bank, then load the
+		///   initialization bank from the other project, and finally load banks from that project.
+		/// - Codecs and plug-ins must be registered before loading banks that use them.
+		/// - Loading a bank referencing an unregistered plug-in or codec will result in a load bank success,
+		/// but the plug-ins will not be used. More specifically, playing a sound that uses an unregistered effect plug-in 
+		/// will result in audio playback without applying the said effect. If an unregistered source plug-in is used by an event's audio objects, 
+		/// posting the event will fail.
+		/// \sa 
+		/// - <tt>AK::SoundEngine::UnloadBank()</tt>
+		/// - <tt>AK::SoundEngine::ClearBanks()</tt>
+		/// - AkBankCallbackFunc
+		/// - \ref soundengine_banks
+		/// - \ref integrating_elements_plugins
+		/// - \ref sdk_bank_training
+		AK_EXTERNAPIFUNC(AKRESULT, LoadBankMemoryCopy)(
+			const void* in_pInMemoryBankPtr,	///< Pointer to the in-memory bank to load (pointer is not stored in sound engine, memory can be released after callback)
+			AkUInt32			in_uInMemoryBankSize,	///< Size of the in-memory bank to load
+			AkBankCallbackFunc  in_pfnBankCallback,	    ///< Callback function
+			void* in_pCookie,				///< Callback cookie
+			AkBankID& out_bankID,				///< Returned bank ID
+			AkBankType& out_bankType			///< Returned bank type
+			);
+
+		/// Loads a bank asynchronously (from in-memory data, out-of-place, any bank type).\n
+		///
+		/// NOTE: Banks loaded from in-memory with out-of-place data must be unloaded using the standard UnloadBank function
+		/// (with no memory pointer). Make sure you are using the correct UnloadBank(...) overload
+		///
+		/// Use LoadBankMemoryCopy when you want to manage I/O on your side. Load the bank file
+		/// in a buffer and pass its address to the sound engine, the media section of the bank will be copied into newly allocated 
+		/// memory.
+		/// In-memory loading is out-of-place: the buffer can be released after the callback function is called. The advantage of using this
+		/// over the in-place version is that there is no duplication of bank structures.
+		/// A bank load request will be posted to the Bank Manager consumer thread.
+		/// The function returns immediately.
+		/// \return 
+		/// - \c AK_Success if the scheduling was successful,
+		/// - \c AK_InvalidBankType if in_bankType was invalid
+		/// - \c AK_DataAlignmentError if the data pointer is not aligned properly 
 		/// Use a callback to be notified when completed, and get the status of the request.
 		/// The bank ID, which is obtained by hashing the bank name (see GetIDFromString()). 
 		/// You may use this ID with UnloadBank().
@@ -2117,7 +2482,8 @@ namespace AK
 			AkUInt32			in_uInMemoryBankSize,	///< Size of the in-memory bank to load
 			AkBankCallbackFunc  in_pfnBankCallback,	    ///< Callback function
 			void *              in_pCookie,				///< Callback cookie
-			AkBankID &          out_bankID				///< Returned bank ID
+			AkBankID &          out_bankID,				///< Returned bank ID
+			AkBankType &		out_bankType			///< Returned bank type
 			);
 
 #ifdef AK_SUPPORT_WCHAR
@@ -2136,8 +2502,9 @@ namespace AK
 		/// - <tt>AK::SoundEngine::ClearBanks()</tt>
 		/// - \ref soundengine_banks
         AK_EXTERNAPIFUNC( AKRESULT, UnloadBank )(
-	        const wchar_t*      in_pszString,           ///< Name of the bank to unload
-			const void *		in_pInMemoryBankPtr		///< Memory pointer from where the bank was initially loaded from. (REQUIRED to determine which bank associated to a memory pointer must be unloaded). Pass NULL if NULL was passed when loading the bank or if LoadBankMemoryCopy was used to load the bank.
+	        const wchar_t*      in_pszString,					///< Name of the bank to unload
+			const void *		in_pInMemoryBankPtr,			///< Memory pointer from where the bank was initially loaded from. (REQUIRED to determine which bank associated to a memory pointer must be unloaded). Pass NULL if NULL was passed when loading the bank or if LoadBankMemoryCopy was used to load the bank.
+			AkBankType			in_bankType = AkBankType_User	///< Type of the bank to unload
 	        );
 #endif //AK_SUPPORT_WCHAR
 
@@ -2156,8 +2523,9 @@ namespace AK
 		/// - <tt>AK::SoundEngine::ClearBanks()</tt>
 		/// - \ref soundengine_banks
         AK_EXTERNAPIFUNC( AKRESULT, UnloadBank )(
-	        const char*         in_pszString,           ///< Name of the bank to unload
-			const void *		in_pInMemoryBankPtr		///< Memory pointer from where the bank was initially loaded from. (REQUIRED to determine which bank associated to a memory pointer must be unloaded). Pass NULL if NULL was passed when loading the bank or if LoadBankMemoryCopy was used to load the bank.
+	        const char*         in_pszString,					///< Name of the bank to unload
+			const void *		in_pInMemoryBankPtr,			///< Memory pointer from where the bank was initially loaded from. (REQUIRED to determine which bank associated to a memory pointer must be unloaded). Pass NULL if NULL was passed when loading the bank or if LoadBankMemoryCopy was used to load the bank.
+			AkBankType			in_bankType = AkBankType_User	///< Type of the bank to unload
 	        );
 
 		/// Unloads a bank synchronously (by ID and memory pointer).\n
@@ -2170,8 +2538,9 @@ namespace AK
 		/// - <tt>AK::SoundEngine::ClearBanks()</tt>
 		/// - \ref soundengine_banks
         AK_EXTERNAPIFUNC( AKRESULT, UnloadBank )(
-	        AkBankID            in_bankID,              ///< ID of the bank to unload
-			const void *		in_pInMemoryBankPtr		///< Memory pointer from where the bank was initially loaded from. (REQUIRED to determine which bank associated to a memory pointer must be unloaded). Pass NULL if NULL was passed when loading the bank or if LoadBankMemoryCopy was used to load the bank.
+	        AkBankID            in_bankID,						///< ID of the bank to unload
+			const void *		in_pInMemoryBankPtr,			///< Memory pointer from where the bank was initially loaded from. (REQUIRED to determine which bank associated to a memory pointer must be unloaded). Pass NULL if NULL was passed when loading the bank or if LoadBankMemoryCopy was used to load the bank.
+			AkBankType			in_bankType = AkBankType_User	///< Type of the bank to unload
  	        );
 
 #ifdef AK_SUPPORT_WCHAR
@@ -2191,10 +2560,11 @@ namespace AK
 		/// - AkBankCallbackFunc
 		/// - \ref soundengine_banks
 		AK_EXTERNAPIFUNC( AKRESULT, UnloadBank )(
-	        const wchar_t*      in_pszString,           ///< Name of the bank to unload
-			const void *		in_pInMemoryBankPtr,	///< Memory pointer from where the bank was initially loaded from. (REQUIRED to determine which bank associated to a memory pointer must be unloaded). Pass NULL if NULL was passed when loading the bank or if LoadBankMemoryCopy was used to load the bank.
-			AkBankCallbackFunc  in_pfnBankCallback,	    ///< Callback function
-			void *              in_pCookie 				///< Callback cookie (reserved to user, passed to the callback function)
+	        const wchar_t*      in_pszString,					///< Name of the bank to unload
+			const void *		in_pInMemoryBankPtr,			///< Memory pointer from where the bank was initially loaded from. (REQUIRED to determine which bank associated to a memory pointer must be unloaded). Pass NULL if NULL was passed when loading the bank or if LoadBankMemoryCopy was used to load the bank.
+			AkBankCallbackFunc  in_pfnBankCallback,				///< Callback function
+			void *              in_pCookie,						///< Callback cookie (reserved to user, passed to the callback function)
+			AkBankType			in_bankType = AkBankType_User	///< Type of the bank to unload
 	        );
 #endif //AK_SUPPORT_WCHAR
 
@@ -2214,10 +2584,11 @@ namespace AK
 		/// - AkBankCallbackFunc
 		/// - \ref soundengine_banks
 		AK_EXTERNAPIFUNC( AKRESULT, UnloadBank )(
-	        const char*         in_pszString,           ///< Name of the bank to unload
-			const void *		in_pInMemoryBankPtr,	///< Memory pointer from where the bank was initially loaded from. (REQUIRED to determine which bank associated to a memory pointer must be unloaded). Pass NULL if NULL was passed when loading the bank or if LoadBankMemoryCopy was used to load the bank.
-			AkBankCallbackFunc  in_pfnBankCallback,	    ///< Callback function
-			void *              in_pCookie 				///< Callback cookie (reserved to user, passed to the callback function)
+	        const char*         in_pszString,				    ///< Name of the bank to unload
+			const void *		in_pInMemoryBankPtr,			///< Memory pointer from where the bank was initially loaded from. (REQUIRED to determine which bank associated to a memory pointer must be unloaded). Pass NULL if NULL was passed when loading the bank or if LoadBankMemoryCopy was used to load the bank.
+			AkBankCallbackFunc  in_pfnBankCallback,				///< Callback function
+			void *              in_pCookie,						///< Callback cookie (reserved to user, passed to the callback function)
+			AkBankType			in_bankType = AkBankType_User	///< Type of the bank to unload
 	        );
 
 		/// Unloads a bank asynchronously (by ID and memory pointer).\n
@@ -2232,10 +2603,11 @@ namespace AK
 		/// - AkBankCallbackFunc
 		/// - \ref soundengine_banks
 		AK_EXTERNAPIFUNC( AKRESULT, UnloadBank )(
-	        AkBankID            in_bankID,				///< ID of the bank to unload
-			const void *		in_pInMemoryBankPtr,	///< Memory pointer from where the bank was initially loaded from. (REQUIRED to determine which bank associated to a memory pointer must be unloaded). Pass NULL if NULL was passed when loading the bank or if LoadBankMemoryCopy was used to load the bank.
-			AkBankCallbackFunc  in_pfnBankCallback,		///< Callback function
-			void *              in_pCookie				///< Callback cookie (reserved to user, passed to the callback function)
+	        AkBankID            in_bankID,						///< ID of the bank to unload
+			const void *		in_pInMemoryBankPtr,			///< Memory pointer from where the bank was initially loaded from. (REQUIRED to determine which bank associated to a memory pointer must be unloaded). Pass NULL if NULL was passed when loading the bank or if LoadBankMemoryCopy was used to load the bank.
+			AkBankCallbackFunc  in_pfnBankCallback,				///< Callback function
+			void *              in_pCookie,						///< Callback cookie (reserved to user, passed to the callback function)
+			AkBankType			in_bankType = AkBankType_User	///< Type of the bank to unload
 	        );
 
 		/// Cancels all Event callbacks associated with a specific callback cookie specified while loading Banks of preparing Events.\n
@@ -2289,8 +2661,9 @@ namespace AK
 		///	for example, a game may have a tool mode that uses PrepareEvent() to load loose files on-demand and, also, a game mode that uses LoadBank() to load the bank in entirety.
 		AK_EXTERNAPIFUNC( AKRESULT, PrepareBank )(
 			AK::SoundEngine::PreparationType	in_PreparationType,			///< Preparation type ( Preparation_Load or Preparation_Unload )
-			const wchar_t*        in_pszString,								///< Name of the bank to Prepare/Unprepare.
-			AK::SoundEngine::AkBankContent	in_uFlags = AkBankContent_All	///< Structures only (including events) or all content.
+			const wchar_t*						in_pszString,				///< Name of the bank to Prepare/Unprepare.
+			AK::SoundEngine::AkBankContent	in_uFlags = AkBankContent_All,	///< Structures only (including events) or all content.
+			AkBankType						in_bankType = AkBankType_User	///< Type of the bank to Prepare/Unprepare.
 			);
 #endif //AK_SUPPORT_WCHAR
 
@@ -2309,8 +2682,9 @@ namespace AK
 		///		for example, a game may have a tool mode that uses PrepareEvent() to load loose files on-demand and, also, a game mode that uses \c LoadBank() to load the bank in entirety.
 		AK_EXTERNAPIFUNC( AKRESULT, PrepareBank )(
 			AK::SoundEngine::PreparationType	in_PreparationType,			///< Preparation type ( Preparation_Load or Preparation_Unload )
-			const char*           in_pszString,								///< Name of the bank to Prepare/Unprepare.
-			AK::SoundEngine::AkBankContent	in_uFlags = AkBankContent_All	///< Structures only (including events) or all content.
+			const char*							in_pszString,				///< Name of the bank to Prepare/Unprepare.
+			AK::SoundEngine::AkBankContent	in_uFlags = AkBankContent_All,	///< Structures only (including events) or all content.
+			AkBankType						in_bankType = AkBankType_User	///< Type of the bank to Prepare/Unprepare.
 			);
 
 		/// \n\aknote Requires that the "Use SoundBank names" option be unchecked in the Wwise Project Settings. \endaknote
@@ -2328,9 +2702,10 @@ namespace AK
 		///		access media content contained within SoundBanks and requires that the media be available as loose files in the file system. This flag may be useful to implement multiple loading configurations;
 		///		for example, a game may have a tool mode that uses PrepareEvent() to load loose files on-demand and, also, a game mode that uses LoadBank() to load the bank in entirety.
 		AK_EXTERNAPIFUNC( AKRESULT, PrepareBank )(
-			AK::SoundEngine::PreparationType	in_PreparationType,			///< Preparation type ( Preparation_Load or Preparation_Unload )
-			AkBankID            in_bankID,									///< ID of the bank to Prepare/Unprepare.
-			AK::SoundEngine::AkBankContent	in_uFlags = AkBankContent_All	///< Structures only (including events) or all content.
+			AK::SoundEngine::PreparationType	in_PreparationType,				///< Preparation type ( Preparation_Load or Preparation_Unload )
+			AkBankID							in_bankID,						///< ID of the bank to Prepare/Unprepare.
+			AK::SoundEngine::AkBankContent		in_uFlags = AkBankContent_All,	///< Structures only (including events) or all content.
+			AkBankType							in_bankType = AkBankType_User	///< Type of the bank to Prepare/Unprepare.
 			);
 
 #ifdef AK_SUPPORT_WCHAR
@@ -2349,10 +2724,11 @@ namespace AK
 		///		for example, a game may have a tool mode that uses PrepareEvent() to load loose files on-demand and, also, a game mode that uses LoadBank() to load the bank in entirety.
 		AK_EXTERNAPIFUNC( AKRESULT, PrepareBank )(
 			AK::SoundEngine::PreparationType	in_PreparationType,			///< Preparation type ( Preparation_Load or Preparation_Unload )
-			const wchar_t*      in_pszString,								///< Name of the bank to Prepare/Unprepare.
+			const wchar_t*		in_pszString,								///< Name of the bank to Prepare/Unprepare.
 			AkBankCallbackFunc	in_pfnBankCallback,							///< Callback function
 			void *              in_pCookie,									///< Callback cookie (reserved to user, passed to the callback function)
-			AK::SoundEngine::AkBankContent	in_uFlags = AkBankContent_All	///< Structures only (including events) or all content.
+			AK::SoundEngine::AkBankContent	in_uFlags = AkBankContent_All,	///< Structures only (including events) or all content.
+			AkBankType						in_bankType = AkBankType_User	///< Type of the bank to Prepare/Unprepare.
 			);
 #endif //AK_SUPPORT_WCHAR
 
@@ -2371,10 +2747,11 @@ namespace AK
 		///		for example, a game may have a tool mode that uses PrepareEvent() to load loose files on-demand and, also, a game mode that uses LoadBank() to load the bank in entirety.
 		AK_EXTERNAPIFUNC( AKRESULT, PrepareBank )(
 			AK::SoundEngine::PreparationType	in_PreparationType,			///< Preparation type ( Preparation_Load or Preparation_Unload )
-			const char*         in_pszString,								///< Name of the bank to Prepare/Unprepare.
+			const char*			in_pszString,								///< Name of the bank to Prepare/Unprepare.
 			AkBankCallbackFunc	in_pfnBankCallback,							///< Callback function
 			void *              in_pCookie,									///< Callback cookie (reserved to user, passed to the callback function)
-			AK::SoundEngine::AkBankContent	in_uFlags = AkBankContent_All	///< Structures only (including events) or all content.
+			AK::SoundEngine::AkBankContent	in_uFlags = AkBankContent_All,	///< Structures only (including events) or all content.
+			AkBankType						in_bankType = AkBankType_User	///< Type of the bank to Prepare/Unprepare.
 			);
 
 		/// \n\aknote Requires that the "Use SoundBank names" option be unchecked in the Wwise Project Settings. \endaknote
@@ -2392,17 +2769,18 @@ namespace AK
 		///		access media content contained within SoundBanks and requires that the media be available as loose files in the file system. This flag may be useful to implement multiple loading configurations;
 		///		for example, a game may have a tool mode that uses \c PrepareEvent() to load loose files on-demand and, also, a game mode that uses \c LoadBank() to load the bank in entirety.
 		AK_EXTERNAPIFUNC( AKRESULT, PrepareBank )(
-			AK::SoundEngine::PreparationType		in_PreparationType,				///< Preparation type ( Preparation_Load or Preparation_Unload )
-			AkBankID            in_bankID,						///< ID of the bank to Prepare/Unprepare.
+			AK::SoundEngine::PreparationType		in_PreparationType,			///< Preparation type ( Preparation_Load or Preparation_Unload )
+			AkBankID			in_bankID,						///< ID of the bank to Prepare/Unprepare.
 			AkBankCallbackFunc	in_pfnBankCallback,				///< Callback function
 			void *              in_pCookie,						///< Callback cookie (reserved to user, passed to the callback function)
-			AK::SoundEngine::AkBankContent		in_uFlags = AkBankContent_All	///< Structures only (including events) or all content.
+			AK::SoundEngine::AkBankContent	in_uFlags = AkBankContent_All,	///< Structures only (including events) or all content.
+			AkBankType						in_bankType = AkBankType_User	///< Type of the bank to Prepare/Unprepare.
 			);
 		
 		/// Clear all previously prepared events.\n
 		/// \return
-		/// - AK_Success if successful.
-		///	- AK_Fail if the sound engine was not correctly initialized or if there is not enough memory to handle the command.
+		/// - \c AK_Success if successful.
+		/// - \c AK_Fail if the sound engine was not correctly initialized or if there is not enough memory to handle the command.
 		/// \remarks
 		/// The function \c ClearBanks() also clears all prepared events.
 		/// \sa
@@ -2424,15 +2802,15 @@ namespace AK
 		/// \endaknote
 		/// The function returns when the request is completely processed.
 		/// \return 
-		///	- AK_Success: Prepare/un-prepare successful.
-		/// - AK_IDNotFound: At least one of the event/game sync identifiers passed to PrepareEvent() does not exist.
-		/// - AK_InsufficientMemory: Insufficient memory to store bank data.
-		/// - AK_BankReadError: I/O error.
-		/// - AK_WrongBankVersion: Invalid bank version: make sure the version of Wwise that 
+		/// - \c AK_Success: Prepare/un-prepare successful.
+		/// - \c AK_IDNotFound: At least one of the event/game sync identifiers passed to PrepareEvent() does not exist.
+		/// - \c AK_InsufficientMemory: Insufficient memory to store bank data.
+		/// - \c AK_BankReadError: I/O error.
+		/// - \c AK_WrongBankVersion: Invalid bank version: make sure the version of Wwise that 
 		/// you used to generate the SoundBanks matches that of the SDK you are currently using.
-		/// - AK_InvalidFile: File specified could not be opened.
-		/// - AK_InvalidParameter: Invalid parameter, invalid memory alignment.		
-		/// - AK_Fail: Load or unload failed for any other reason. (Most likely small allocation failure)
+		/// - \c AK_InvalidFile: File specified could not be opened.
+		/// - \c AK_InvalidParameter: Invalid parameter, invalid memory alignment.		
+		/// - \c AK_Fail: Load or unload failed for any other reason. (Most likely small allocation failure)
 		/// \remarks
 		/// Whenever at least one event fails to be resolved, the actions performed for all 
 		/// other events are cancelled.
@@ -2463,15 +2841,15 @@ namespace AK
 		/// \endaknote
 		/// The function returns when the request is completely processed.
 		/// \return 
-		///	- AK_Success: Prepare/un-prepare successful.
-		/// - AK_IDNotFound: At least one of the event/game sync identifiers passed to PrepareEvent() does not exist.
-		/// - AK_InsufficientMemory: Insufficient memory to store bank data.
-		/// - AK_BankReadError: I/O error.
-		/// - AK_WrongBankVersion: Invalid bank version: make sure the version of Wwise that 
+		/// - \c AK_Success: Prepare/un-prepare successful.
+		/// - \c AK_IDNotFound: At least one of the event/game sync identifiers passed to PrepareEvent() does not exist.
+		/// - \c AK_InsufficientMemory: Insufficient memory to store bank data.
+		/// - \c AK_BankReadError: I/O error.
+		/// - \c AK_WrongBankVersion: Invalid bank version: make sure the version of Wwise that 
 		/// you used to generate the SoundBanks matches that of the SDK you are currently using.
-		/// - AK_InvalidFile: File specified could not be opened.
-		/// - AK_InvalidParameter: Invalid parameter, invalid memory alignment.		
-		/// - AK_Fail: Load or unload failed for any other reason. (Most likely small allocation failure)
+		/// - \c AK_InvalidFile: File specified could not be opened.
+		/// - \c AK_InvalidParameter: Invalid parameter, invalid memory alignment.		
+		/// - \c AK_Fail: Load or unload failed for any other reason. (Most likely small allocation failure)
 		/// \remarks
 		/// Whenever at least one event fails to be resolved, the actions performed for all 
 		/// other events are cancelled.
@@ -2502,15 +2880,15 @@ namespace AK
 		/// \endaknote
 		/// The function returns when the request is completely processed.
 		/// \return 
-		///	- AK_Success: Prepare/un-prepare successful.
-		/// - AK_IDNotFound: At least one of the event/game sync identifiers passed to PrepareEvent() does not exist.
-		/// - AK_InsufficientMemory: Insufficient memory to store bank data.
-		/// - AK_BankReadError: I/O error.
-		/// - AK_WrongBankVersion: Invalid bank version: make sure the version of Wwise that 
+		/// - \c AK_Success: Prepare/un-prepare successful.
+		/// - \c AK_IDNotFound: At least one of the event/game sync identifiers passed to PrepareEvent() does not exist.
+		/// - \c AK_InsufficientMemory: Insufficient memory to store bank data.
+		/// - \c AK_BankReadError: I/O error.
+		/// - \c AK_WrongBankVersion: Invalid bank version: make sure the version of Wwise that 
 		/// you used to generate the SoundBanks matches that of the SDK you are currently using.
-		/// - AK_InvalidFile: File specified could not be opened.
-		/// - AK_InvalidParameter: Invalid parameter, invalid memory alignment.		
-		/// - AK_Fail: Load or unload failed for any other reason. (Most likely small allocation failure)
+		/// - \c AK_InvalidFile: File specified could not be opened.
+		/// - \c AK_InvalidParameter: Invalid parameter, invalid memory alignment.		
+		/// - \c AK_Fail: Load or unload failed for any other reason. (Most likely small allocation failure)
 		/// \remarks
 		/// Whenever at least one event fails to be resolved, the actions performed for all 
 		/// other events are cancelled.
@@ -2624,7 +3002,7 @@ namespace AK
 
 		/// Indicates the location of a specific Media ID in memory
 		/// The sources are identified by their ID (refer to \ref soundengine_banks_general for a discussion on using strings and IDs).
-		/// \return AK_Success if operation was successful, AK_InvalidParameter if in_pSourceSettings is invalid, and AK_Fail otherwise.
+		/// \return AK_Success if operation was successful, AK_InvalidParameter if in_pSourceSettings is invalid or media sizes are 0.
 		AK_EXTERNAPIFUNC( AKRESULT, SetMedia )( 
 			AkSourceSettings *	in_pSourceSettings,		///< Array of Source Settings
 			AkUInt32			in_uNumSourceSettings	///< Number of Source Settings in the array
@@ -2640,9 +3018,9 @@ namespace AK
 		/// alive until the sound engine is terminated.
 		/// \endaknote
 		/// \return
-		/// - AK_Success: Operation was successful, and the memory can be released on the client side.
-		/// - AK_ResourceInUse: Specified media is still in use by the sound engine, the client should not release the memory.
-		/// - AK_InvalidParameter: in_pSourceSettings is invalid
+		/// - \c AK_Success: Operation was successful, and the memory can be released on the client side.
+		/// - \c AK_ResourceInUse: Specified media is still in use by the sound engine, the client should not release the memory.
+		/// - \c AK_InvalidParameter: in_pSourceSettings is invalid
 		AK_EXTERNAPIFUNC( AKRESULT, UnsetMedia )( 
 			AkSourceSettings *	in_pSourceSettings,		///< Array of Source Settings
 			AkUInt32			in_uNumSourceSettings	///< Number of Source Settings in the array
@@ -2650,16 +3028,16 @@ namespace AK
 
 		/// Removes the specified source from the list of loaded media, only if this media is not already in use.
 		/// The sources are identified by their ID (refer to \ref soundengine_banks_general for a discussion on using strings and IDs).
-		/// \aknote Media that is still in use by the sound engine should not be unset. 
-		/// If this function returns AK_ResourceInUse, then the operation is a no-op and the client must not release memory for this media.
+		/// \aknote Media that is still in use by the sound engine should not be unset. It is marked for removal to prevent additional use.
+		/// If this function returns AK_ResourceInUse, then the client must not release memory for this media.
 		/// Instead, the client should retry the TryUnsetMedia operation later with the same parameters and check for AK_Success.
 		/// \endaknote
 		/// If out_pUnsetResults is not null, then it is assumed to point to an array of result codes of the same length as in_pSourceSettings.
 		/// out_pUnsetResults will be filled with either AK_Success or AK_ResourceInUse, indicating which media was still in use and not unset.
 		/// \return
-		/// - AK_Success: Operation was successful, and the memory can be released on the client side.
-		/// - AK_ResourceInUse: Specified media is still in use by the sound engine, and the media was not unset. Do not release memory, and try again later.
-		/// - AK_InvalidParameter: in_pSourceSettings is invalid
+		/// - \c AK_Success: Operation was successful, and the memory can be released on the client side.
+		/// - \c AK_ResourceInUse: Specified media is still in use by the sound engine, and the media was not unset. Do not release memory, and try again later.
+		/// - \c AK_InvalidParameter: in_pSourceSettings is invalid
 		AK_EXTERNAPIFUNC(AKRESULT, TryUnsetMedia)(
 			AkSourceSettings* in_pSourceSettings,       ///< Array of Source Settings
 			AkUInt32          in_uNumSourceSettings,    ///< Number of Source Settings in the array
@@ -2676,15 +3054,15 @@ namespace AK
 		/// game sync values specified, and load the required banks, if applicable. 
 		/// The function returns when the request has been completely processed. 
 		/// \return 
-		///	- AK_Success: Prepare/un-prepare successful.
-		/// - AK_IDNotFound: At least one of the event/game sync identifiers passed to PrepareGameSyncs() does not exist.
-		/// - AK_InsufficientMemory: Insufficient memory to store bank data.
-		/// - AK_BankReadError: I/O error.
-		/// - AK_WrongBankVersion: Invalid bank version: make sure the version of Wwise that 
+		/// - \c AK_Success: Prepare/un-prepare successful.
+		/// - \c AK_IDNotFound: At least one of the event/game sync identifiers passed to PrepareGameSyncs() does not exist.
+		/// - \c AK_InsufficientMemory: Insufficient memory to store bank data.
+		/// - \c AK_BankReadError: I/O error.
+		/// - \c AK_WrongBankVersion: Invalid bank version: make sure the version of Wwise that 
 		/// you used to generate the SoundBanks matches that of the SDK you are currently using.
-		/// - AK_InvalidFile: File specified could not be opened.
-		/// - AK_InvalidParameter: Invalid parameter, invalid memory alignment.		
-		/// - AK_Fail: Load or unload failed for any other reason. (Most likely small allocation failure)
+		/// - \c AK_InvalidFile: File specified could not be opened.
+		/// - \c AK_InvalidParameter: Invalid parameter, invalid memory alignment.		
+		/// - \c AK_Fail: Load or unload failed for any other reason. (Most likely small allocation failure)
 		/// \remarks
 		/// You need to call PrepareGameSyncs() if the sound engine was initialized with AkInitSettings::bEnableGameSyncPreparation 
 		/// set to true. When set to false, the sound engine automatically prepares all game syncs when preparing events,
@@ -2714,15 +3092,15 @@ namespace AK
 		/// game sync values specified, and load the required banks, if applicable. 
 		/// The function returns when the request has been completely processed. 
 		/// \return 
-		///	- AK_Success: Prepare/un-prepare successful.
-		/// - AK_IDNotFound: At least one of the event/game sync identifiers passed to PrepareGameSyncs() does not exist.
-		/// - AK_InsufficientMemory: Insufficient memory to store bank data.
-		/// - AK_BankReadError: I/O error.
-		/// - AK_WrongBankVersion: Invalid bank version: make sure the version of Wwise that 
+		/// - \c AK_Success: Prepare/un-prepare successful.
+		/// - \c AK_IDNotFound: At least one of the event/game sync identifiers passed to PrepareGameSyncs() does not exist.
+		/// - \c AK_InsufficientMemory: Insufficient memory to store bank data.
+		/// - \c AK_BankReadError: I/O error.
+		/// - \c AK_WrongBankVersion: Invalid bank version: make sure the version of Wwise that 
 		/// you used to generate the SoundBanks matches that of the SDK you are currently using.
-		/// - AK_InvalidFile: File specified could not be opened.
-		/// - AK_InvalidParameter: Invalid parameter, invalid memory alignment.		
-		/// - AK_Fail: Load or unload failed for any other reason. (Most likely small allocation failure)
+		/// - \c AK_InvalidFile: File specified could not be opened.
+		/// - \c AK_InvalidParameter: Invalid parameter, invalid memory alignment.		
+		/// - \c AK_Fail: Load or unload failed for any other reason. (Most likely small allocation failure)
 		/// \remarks
 		/// You need to call PrepareGameSyncs() if the sound engine was initialized with AkInitSettings::bEnableGameSyncPreparation 
 		/// set to true. When set to false, the sound engine automatically prepares all game syncs when preparing events,
@@ -2751,15 +3129,15 @@ namespace AK
 		/// game sync values specified, and load the required banks, if applicable. 
 		/// The function returns when the request has been completely processed. 
 		/// \return 
-		///	- AK_Success: Prepare/un-prepare successful.
-		/// - AK_IDNotFound: At least one of the event/game sync identifiers passed to PrepareGameSyncs() does not exist.
-		/// - AK_InsufficientMemory: Insufficient memory to store bank data.
-		/// - AK_BankReadError: I/O error.
-		/// - AK_WrongBankVersion: Invalid bank version: make sure the version of Wwise that 
+		/// - \c AK_Success: Prepare/un-prepare successful.
+		/// - \c AK_IDNotFound: At least one of the event/game sync identifiers passed to PrepareGameSyncs() does not exist.
+		/// - \c AK_InsufficientMemory: Insufficient memory to store bank data.
+		/// - \c AK_BankReadError: I/O error.
+		/// - \c AK_WrongBankVersion: Invalid bank version: make sure the version of Wwise that 
 		/// you used to generate the SoundBanks matches that of the SDK you are currently using.
-		/// - AK_InvalidFile: File specified could not be opened.
-		/// - AK_InvalidParameter: Invalid parameter, invalid memory alignment.		
-		/// - AK_Fail: Load or unload failed for any other reason. (Most likely small allocation failure)
+		/// - \c AK_InvalidFile: File specified could not be opened.
+		/// - \c AK_InvalidParameter: Invalid parameter, invalid memory alignment.		
+		/// - \c AK_Fail: Load or unload failed for any other reason. (Most likely small allocation failure)
 		/// \remarks
 		/// You need to call \c PrepareGameSyncs() if the sound engine was initialized with \c AkInitSettings::bEnableGameSyncPreparation 
 		/// set to \c true. When set to \c false, the sound engine automatically prepares all game syncs when preparing Events,
@@ -2884,7 +3262,9 @@ namespace AK
 		/// Sets a game object's associated listeners.
 		/// All listeners that have previously been added via AddListener or set via SetListeners will be removed and replaced with the listeners in the array in_pListenerGameObjs.
 		/// Calling this function will override the default set of listeners and in_emitterGameObj will now reference its own, unique set of listeners.
-		/// \return Always returns AK_Success
+		/// \return 
+		/// - \c AK_Success if successful
+		/// - \c AK_CommandTooLarge if the number of positions is too large for the command queue. Reduce the number of positions.
 		/// \sa 
 		/// - <tt>AK::SoundEngine::AddListener</tt>
 		/// - <tt>AK::SoundEngine::RemoveListener</tt>
@@ -2975,9 +3355,9 @@ namespace AK
 		/// standard up/downmix rules apply.
 		/// - Sounds with 3D Spatialization set to None will not be affected by these parameters.
 		/// \return 
-		/// \c AK_Success if message was successfully posted to sound engine queue
-		/// \c AK_InvalidFloatValue if the value specified was NaN or Inf
-		/// \c AK_InsufficientMemory if there wasn't enough memory in the message queue		
+		/// - \c AK_Success if message was successfully posted to sound engine queue
+		/// - \c AK_InvalidFloatValue if the value specified was NaN or Inf
+		/// - \c AK_InsufficientMemory if there wasn't enough memory in the message queue		
 		/// \sa 
 		/// - \ref soundengine_listeners_spatial
 		AK_EXTERNAPIFUNC( AKRESULT, SetListenerSpatialization )(
@@ -3007,8 +3387,9 @@ namespace AK
 		/// Refer to \ref soundengine_rtpc_pergameobject, \ref soundengine_rtpc_buses and 
 		/// \ref soundengine_rtpc_effects for more details on RTPC scope.
 		/// \return 
-		/// \c AK_Success if the value was successfully set
-		/// \c AK_InvalidFloatValue if the value specified was NaN, Inf or FLT_MAX (3.402823e+38)
+		/// - \c AK_Success if the value was successfully set
+		/// - \c AK_InvalidFloatValue if the value specified was NaN, Inf or FLT_MAX (3.402823e+38)
+		/// - \c AK_InvalidID if in_rtpcID is AK_INVALID_UNIQUE_ID (0)
 		/// \sa 
 		/// - \ref soundengine_rtpc
 		/// - <tt>AK::SoundEngine::GetIDFromString()</tt>
@@ -3035,9 +3416,9 @@ namespace AK
 		/// Refer to \ref soundengine_rtpc_pergameobject, \ref soundengine_rtpc_buses and 
 		/// \ref soundengine_rtpc_effects for more details on RTPC scope.
 		/// \return 
-		/// \c AK_Success if the value was successfully set
-		/// \c AK_InvalidFloatValue if the value specified was NaN, Inf or FLT_MAX (3.402823e+38)		
-		/// \c AK_IDNotFound if in_pszRtpcName is NULL.
+		/// - \c AK_Success if the value was successfully set
+		/// - \c AK_InvalidFloatValue if the value specified was NaN, Inf or FLT_MAX (3.402823e+38)		
+		/// - \c AK_InvalidID if in_pszRtpcName is NULL.
 		/// \aknote Strings are case-insensitive. \endaknote
 		/// \sa 
 		/// - \ref soundengine_rtpc
@@ -3064,9 +3445,9 @@ namespace AK
 		/// Refer to \ref soundengine_rtpc_pergameobject, \ref soundengine_rtpc_buses and 
 		/// \ref soundengine_rtpc_effects for more details on RTPC scope.
 		/// \return 
-		/// \c AK_Success if the value was successfully set
-		/// \c AK_InvalidFloatValue if the value specified was NaN, Inf or FLT_MAX (3.402823e+38)	
-		/// \c AK_IDNotFound if in_pszRtpcName is NULL.
+		/// - \c AK_Success if the value was successfully set
+		/// - \c AK_InvalidFloatValue if the value specified was NaN, Inf or FLT_MAX (3.402823e+38)	
+		/// - \c AK_InvalidID if in_pszRtpcName is NULL.
 		/// \aknote Strings are case-insensitive. \endaknote
 		/// \sa 
 		/// - \ref soundengine_rtpc
@@ -3089,10 +3470,10 @@ namespace AK
 		/// function at every game frame, you should not use in_uValueChangeDuration, as it would have no effect and it is less efficient.
 		/// Refer to \ref soundengine_rtpc_pergameobject, \ref soundengine_rtpc_buses and 
 		/// \ref soundengine_rtpc_effects for more details on RTPC scope.
-		/// - AK_Success if successful
-		/// - AK_PlayingIDNotFound if in_playingID is not found.
-		/// - AK_IDNotFound if in_pszRtpcName is NULL.
-		/// - AK_InvalidFloatValue if the value specified was NaN, Inf or FLT_MAX (3.402823e+38)
+		/// - \c AK_Success if successful
+		/// - \c AK_PlayingIDNotFound if in_playingID is not found.
+		/// - \c AK_InvalidID if in_pszRtpcName is NULL.
+		/// - \c AK_InvalidFloatValue if the value specified was NaN, Inf or FLT_MAX (3.402823e+38)
 		/// \sa 
 		/// - \ref soundengine_rtpc
 		/// - <tt>AK::SoundEngine::GetIDFromString()</tt>
@@ -3116,10 +3497,10 @@ namespace AK
 		/// function at every game frame, you should not use in_uValueChangeDuration, as it would have no effect and it is less efficient.
 		/// Refer to \ref soundengine_rtpc_pergameobject, \ref soundengine_rtpc_buses and 
 		/// \ref soundengine_rtpc_effects for more details on RTPC scope.
-		/// - AK_Success if successful
-		/// - AK_PlayingIDNotFound if in_playingID is not found.
-		/// - AK_IDNotFound if in_pszRtpcName is NULL.
-		/// - AK_InvalidFloatValue if the value specified was NaN, Inf or FLT_MAX (3.402823e+38)
+		/// - \c AK_Success if successful
+		/// - \c AK_PlayingIDNotFound if in_playingID is not found.
+		/// - \c AK_InvalidID if in_pszRtpcName is NULL.
+		/// - \c AK_InvalidFloatValue if the value specified was NaN, Inf or FLT_MAX (3.402823e+38)
 		/// \sa 
 		/// - \ref soundengine_rtpc
 		/// - <tt>AK::SoundEngine::GetIDFromString()</tt>
@@ -3143,10 +3524,10 @@ namespace AK
 		/// function at every game frame, you should not use in_uValueChangeDuration, as it would have no effect and it is less efficient.
 		/// Refer to \ref soundengine_rtpc_pergameobject, \ref soundengine_rtpc_buses and 
 		/// \ref soundengine_rtpc_effects for more details on RTPC scope.
-		/// - AK_Success if successful
-		/// - AK_PlayingIDNotFound if in_playingID is not found.
-		/// - AK_IDNotFound if in_pszRtpcName is NULL.
-		/// - AK_InvalidFloatValue if the value specified was NaN, Inf or FLT_MAX (3.402823e+38)
+		/// - \c AK_Success if successful
+		/// - \c AK_PlayingIDNotFound if in_playingID is not found.
+		/// - \c AK_InvalidID if in_pszRtpcName is NULL.
+		/// - \c AK_InvalidFloatValue if the value specified was NaN, Inf or FLT_MAX (3.402823e+38)
 		/// \sa 
 		/// - \ref soundengine_rtpc
 		/// - <tt>AK::SoundEngine::GetIDFromString()</tt>
@@ -3171,6 +3552,8 @@ namespace AK
 		/// Refer to \ref soundengine_rtpc_pergameobject, \ref soundengine_rtpc_buses and 
 		/// \ref soundengine_rtpc_effects for more details on RTPC scope.
 		/// \return 
+		/// - \c AK_Success when successful
+		/// - \c AK_InvalidID if in_rtpcID is AK_INVALID_UNIQUE_ID (0)
 		/// \sa 
 		/// - \ref soundengine_rtpc
 		/// - <tt>AK::SoundEngine::GetIDFromString()</tt>
@@ -3196,8 +3579,8 @@ namespace AK
 		/// Refer to \ref soundengine_rtpc_pergameobject, \ref soundengine_rtpc_buses and 
 		/// \ref soundengine_rtpc_effects for more details on RTPC scope.
 		/// \return 
-		/// - AK_Success if successful
-		/// - AK_IDNotFound if in_pszParamName is NULL.
+		/// - \c AK_Success if successful
+		/// - \c AK_InvalidID if in_pszParamName is NULL.
 		/// \aknote Strings are case-insensitive. \endaknote
 		/// \sa 
 		/// - \ref soundengine_rtpc
@@ -3223,8 +3606,8 @@ namespace AK
 		/// Refer to \ref soundengine_rtpc_pergameobject, \ref soundengine_rtpc_buses and 
 		/// \ref soundengine_rtpc_effects for more details on RTPC scope.
 		/// \return 
-		/// - AK_Success if successful
-		/// - AK_IDNotFound if in_pszParamName is NULL.
+		/// - \c AK_Success if successful
+		/// - \c AK_InvalidID if in_pszParamName is NULL.
 		/// \aknote Strings are case-insensitive. \endaknote
 		/// \sa 
 		/// - \ref soundengine_rtpc
@@ -3251,8 +3634,8 @@ namespace AK
 #ifdef AK_SUPPORT_WCHAR
 		/// Sets the State of a Switch Group (by Unicode string names).
 		/// \return 
-		/// - AK_Success if successful
-		/// - AK_IDNotFound if the switch or Switch Group name was not resolved to an existing ID\n
+		/// - \c AK_Success if successful
+		/// - \c AK_InvalidID if the switch or Switch Group name was not resolved to an existing ID\n
 		/// Make sure that the banks were generated with the "include string" option.
 		/// \aknote Strings are case-insensitive. \endaknote
 		/// \sa 
@@ -3266,8 +3649,8 @@ namespace AK
 
 		/// Sets the state of a Switch Group.
 		/// \return 
-		/// - AK_Success if successful
-		/// - AK_IDNotFound if the switch or Switch Group name was not resolved to an existing ID\n
+		/// - \c AK_Success if successful
+		/// - \c AK_InvalidID if the switch or Switch Group name was not resolved to an existing ID\n
 		/// Make sure that the banks were generated with the "include string" option.
 		/// \aknote Strings are case-insensitive. \endaknote
 		/// \sa 
@@ -3291,8 +3674,8 @@ namespace AK
 #ifdef AK_SUPPORT_WCHAR
 		/// Posts the specified trigger (by Unicode string name).
 		/// \return 
-		/// - AK_Success if successful
-		/// - AK_IDNotFound if the trigger name was not resolved to an existing ID\n
+		/// - \c AK_Success if successful
+		/// - \c AK_InvalidID if the trigger name was null
 		/// Make sure that the banks were generated with the "include string" option.
 		/// \aknote Strings are case-insensitive. \endaknote
 		/// \sa 
@@ -3305,8 +3688,8 @@ namespace AK
 
 		/// Posts the specified trigger.
 		/// \return 
-		/// - AK_Success if successful
-		/// - AK_IDNotFound if the trigger name was not resolved to an existing ID\n
+		/// - \c AK_Success if successful
+		/// - \c AK_InvalidID if the trigger name was null
 		/// Make sure that the banks were generated with the "include string" option.
 		/// \aknote Strings are case-insensitive. \endaknote
 		/// \sa 
@@ -3329,8 +3712,8 @@ namespace AK
 #ifdef AK_SUPPORT_WCHAR
 		/// Sets the state of a State Group (by Unicode string names).
 		/// \return 
-		/// - AK_Success if successful
-		/// - AK_IDNotFound if the state or State Group name was not resolved to an existing ID\n
+		/// - \c AK_Success if successful
+		/// - \c AK_InvalidID if the state or State Group name was null
 		/// Make sure that the banks were generated with the "include string" option.
 		/// \aknote Strings are case-insensitive. \endaknote
 		/// \sa 
@@ -3344,8 +3727,8 @@ namespace AK
 
 		/// Sets the state of a State Group.
 		/// \return 
-		/// - AK_Success if successful
-		/// - AK_IDNotFound if the state or State Group name was not resolved to an existing ID\n
+		/// - \c AK_Success if successful
+		/// - \c AK_InvalidID if the state or State Group name was null
 		/// Make sure that the banks were generated with the "include string" option.
 		/// \aknote Strings are case-insensitive. \endaknote
 		/// \sa 
@@ -3370,9 +3753,9 @@ namespace AK
 		/// - \ref soundengine_environments_id_vs_string
 		/// - <tt>AK::SoundEngine::GetIDFromString()</tt>
 		/// \return 
-		/// - AK_Success if successful
-		///	- AK_InvalidParameter if a duplicated environment is found in the array
-		/// - AK_InvalidFloatValue if the value specified was NaN or Inf
+		/// - \c AK_Success if successful
+		/// - \c AK_InvalidParameter if a duplicated environment is found in the array
+		/// - \c AK_InvalidFloatValue if the value specified was NaN or Inf
 		AK_EXTERNAPIFUNC( AKRESULT, SetGameObjectAuxSendValues )( 
 			AkGameObjectID		in_gameObjectID,		///< Associated game object ID
 			AkAuxSendValue*		in_aAuxSendValues,		///< Variable-size array of AkAuxSendValue structures
@@ -3393,9 +3776,10 @@ namespace AK
 		/// - <tt>AK::IAkMixerInputContext</tt>
 		/// - <tt>AK::IAkMixerPluginContext</tt>
 		/// \return 
-		/// - AK_Success if successful
-		/// - AK_IDNotFound if the bus is not found
-		/// - AK_InsufficientMemory if there is not enough memory to complete the operation
+		/// - \c AK_Success if successful
+		/// - \c AK_IDNotFound if the bus is not found
+		/// - \c AK_NotInitialized if the sound engine is not initialized
+		/// - \c AK_InsufficientMemory if there is not enough memory to complete the operation
 		AK_EXTERNAPIFUNC( AKRESULT, RegisterBusVolumeCallback )( 
 			AkUniqueID in_busID,						///< Bus ID, as obtained by GetIDFromString( bus_name ).
 			AkBusCallbackFunc in_pfnCallback,			///< Callback function.
@@ -3403,18 +3787,19 @@ namespace AK
 			);
 
 		/// Registers a callback to be called to allow the game to access metering data from any mixing bus. You may use this to monitor loudness at any point of the mixing hierarchy 
-		/// by querying the peak, RMS, True Peak and K-weighted power (according to loudness standard ITU BS.1770). See \ref goingfurther_speakermatrixcallback for an example.
+		/// by accessing the peak, RMS, True Peak and K-weighted power (according to loudness standard ITU BS.1770). See \ref goingfurther_speakermatrixcallback for an example.
 		/// The callback must be registered once per bus ID.
 		/// Call with in_pfnCallback = NULL to unregister.
 		/// \aknote The bus in_busID needs to be a mixing bus.\endaknote
 		/// \sa 
 		/// - \ref goingfurther_speakermatrixcallback
 		/// - AkBusMeteringCallbackFunc
-		/// - <tt>AK::IAkMetering</tt>
+		/// - <tt>AK::AkMetering</tt>
 		/// \return 
-		/// - AK_Success if successful
-		/// - AK_IDNotFound if the bus is not found
-		/// - AK_InsufficientMemory if there is not enough memory to complete the operation
+		/// - \c AK_Success if successful
+		/// - \c AK_IDNotFound if the bus is not found
+		/// - \c AK_NotInitialized if the sound engine is not initialized
+		/// - \c AK_InsufficientMemory if there is not enough memory to complete the operation
 		AK_EXTERNAPIFUNC( AKRESULT, RegisterBusMeteringCallback )( 
 			AkUniqueID in_busID,						///< Bus ID, as obtained by GetIDFromString( bus_name ).
 			AkBusMeteringCallbackFunc in_pfnCallback,	///< Callback function.
@@ -3423,17 +3808,18 @@ namespace AK
 			);
 
 		/// Registers a callback to be called to allow the game to access metering data from any output device. You may use this to monitor loudness as sound leaves the Wwise sound engine 
-		/// by querying the peak, RMS, True Peak and K-weighted power (according to loudness standard ITU BS.1770). See \ref goingfurther_speakermatrixcallback for an example.
+		/// by accessing the peak, RMS, True Peak and K-weighted power (according to loudness standard ITU BS.1770). See \ref goingfurther_speakermatrixcallback for an example.
 		/// The callback must be registered once per device shareset ID.
 		/// Call with in_pfnCallback = NULL to unregister.
 		/// \sa 
 		/// - \ref goingfurther_speakermatrixcallback
 		/// - AkOutputDeviceMeteringCallbackFunc
-		/// - <tt>AK::IAkMetering</tt>
+		/// - <tt>AK::AkMetering</tt>
 		/// \return 
-		/// - AK_Success if successful
-		/// - AK_DeviceNotFound if the device is not found
-		/// - AK_InsufficientMemory if there is not enough memory to complete the operation
+		/// - \c AK_Success if successful
+		/// - \c AK_DeviceNotFound if the device is not found
+		/// - \c AK_NotInitialized if the sound engine is not initialized
+		/// - \c AK_InsufficientMemory if there is not enough memory to complete the operation
 		AK_EXTERNAPIFUNC( AKRESULT, RegisterOutputDeviceMeteringCallback )( 
 			AkOutputDeviceID in_idOutput,				///< Output ID, as returned from AddOutput or GetOutputID.  You can pass 0 for the main (default) output
 			AkOutputDeviceMeteringCallbackFunc in_pfnCallback,	///< Callback function.
@@ -3451,8 +3837,8 @@ namespace AK
 		/// - \ref soundengine_environments_setting_dry_environment
 		/// - \ref soundengine_environments_id_vs_string
 		/// \return 
-		/// - AK_Success when successful
-		/// - AK_InvalidFloatValue if the value specified was NaN or Inf
+		/// - \c AK_Success when successful
+		/// - \c AK_InvalidFloatValue if the value specified was NaN or Inf
 		AK_EXTERNAPIFUNC( AKRESULT, SetGameObjectOutputBusVolume )( 
 			AkGameObjectID		in_emitterObjID,		///< Associated emitter game object ID
 			AkGameObjectID		in_listenerObjID,		///< Associated listener game object ID. Pass AK_INVALID_GAME_OBJECT to set the Output Bus Volume for all connected listeners.
@@ -3461,6 +3847,9 @@ namespace AK
 			);
 
 		/// Sets an Effect ShareSet at the specified audio node and Effect slot index.
+		/// \aknote
+		/// Replacing effects is preferably done through a Set Effect Event Action.
+		/// \endaknote
 		/// The target node cannot be a Bus, to set effects on a bus, use SetBusEffect() instead.
 		/// \aknote The option "Override Parent" in 
 		/// the Effect section in Wwise must be enabled for this node, otherwise the parent's effect will 
@@ -3474,6 +3863,9 @@ namespace AK
 			);
 
 		/// Sets an Effect ShareSet at the specified bus and Effect slot index.
+		/// \aknote
+		/// Replacing effects is preferably done through a Set Effect Event Action.
+		/// \endaknote
 		/// The Bus can either be an Audio Bus or an Auxiliary Bus.
 		/// This adds a reference on the audio node to an existing ShareSet.
 		/// \aknote This function has unspecified behavior when adding an Effect to a currently playing
@@ -3484,7 +3876,10 @@ namespace AK
 		/// the Effect section in Wwise must be enabled for this node, otherwise the parent's Effect will 
 		/// still be the one in use and the call to SetBusEffect will have no impact.
 		/// \endaknote
-		/// \return Always returns AK_Success
+		/// \return
+		/// - \c AK_Success when successfully posted.
+		/// - \c AK_IDNotFound if the Bus isn't found by in_audioNodeID
+		/// - \c AK_InvalidParameter if in_uFXIndex isn't in range
 		AK_EXTERNAPIFUNC( AKRESULT, SetBusEffect )( 
 			AkUniqueID in_audioNodeID,					///< Bus Short ID.
 			AkUInt32 in_uFXIndex,						///< Effect slot index (0-3)
@@ -3493,6 +3888,9 @@ namespace AK
 
 #ifdef AK_SUPPORT_WCHAR
 		/// Sets an Effect ShareSet at the specified Bus and Effect slot index.
+		/// \aknote
+		/// Replacing effects is preferably done through a Set Effect Event Action.
+		/// \endaknote
 		/// The Bus can either be an Audio Bus or an Auxiliary Bus.
 		/// This adds a reference on the audio node to an existing ShareSet.
 		/// \aknote This function has unspecified behavior when adding an Effect to a currently playing
@@ -3503,7 +3901,11 @@ namespace AK
 		/// the Effect section in Wwise must be enabled for this node, otherwise the parent's Effect will 
 		/// still be the one in use and the call to \c SetBusEffect will have no impact.
 		/// \endaknote
-		/// \returns AK_IDNotFound is name not resolved, returns AK_Success otherwise.
+		/// \returns 
+		/// - \c AK_Success when successfully posted.
+		/// - \c AK_IDNotFound if the Bus name doesn't point to a valid bus.
+		/// - \c AK_InvalidID if in_pszBusName is null
+		/// - \c AK_InvalidParameter if in_uFXIndex isn't in range or in_pszBusName is null
 		AK_EXTERNAPIFUNC( AKRESULT, SetBusEffect )( 
 			const wchar_t* in_pszBusName,				///< Bus name
 			AkUInt32 in_uFXIndex,						///< Effect slot index (0-3)
@@ -3512,17 +3914,25 @@ namespace AK
 #endif //AK_SUPPORT_WCHAR
 
 		/// Sets an Effect ShareSet at the specified Bus and Effect slot index.
+		/// \aknote
+		/// Replacing effects is preferably done through a Set Effect Event Action.
+		/// \endaknote
 		/// The Bus can either be an Audio Bus or an Auxiliary Bus.
 		/// This adds a reference on the audio node to an existing ShareSet.
 		/// \aknote This function has unspecified behavior when adding an Effect to a currently playing
 		/// Bus which does not have any effects, or removing the last Effect on a currently playing bus.
 		/// \endaknote
+		/// \aknote Make sure the new effect shareset is included in a soundbank, and that sound bank is loaded. Otherwise you will see errors in the Capture Log.\endaknote
 		/// \aknote This function will replace existing Effects on the node. If the target node is not at 
 		/// the top of the hierarchy and is in the Actor-Mixer Hierarchy, the option "Override Parent" in 
 		/// the Effect section in Wwise must be enabled for this node, otherwise the parent's Effect will 
 		/// still be the one in use and the call to SetBusEffect will have no impact.
 		/// \endaknote
-		/// \returns AK_IDNotFound is name not resolved, returns AK_Success otherwise.
+		/// \returns 
+		/// - \c AK_Success when successfully posted.
+		/// - \c AK_IDNotFound if the Bus name doesn't point to a valid bus.
+		/// - \c AK_InvalidParameter if in_uFXIndex isn't in range
+		/// - \c AK_InvalidID if in_pszBusName is null
 		AK_EXTERNAPIFUNC( AKRESULT, SetBusEffect )( 
 			const char* in_pszBusName,		///< Bus name
 			AkUInt32 in_uFXIndex,			///< Effect slot index (0-3)
@@ -3530,20 +3940,26 @@ namespace AK
 			);
 
 		/// Sets an audio device effect shareset on the specified output device and effect slot index.
+		/// \aknote
+		/// Replacing effects is preferably done through a Set Effect Event Action.
+		/// \endaknote
+		/// \aknote Make sure the new effect shareset is included in a soundbank, and that sound bank is loaded. Otherwise you will see errors in the Capture Log.\endaknote
 		/// \aknote This function will replace existing effects of the audio device shareset. \endaknote
 		/// \aknote Audio device effects support is limited to one shareset per plug-in type at any time. \endaknote
-		/// \aknote Monitor errors are reported in the Wwise Capture Log if the effect cannot be set on the output device. \endaknote
-		/// \returns Always returns AK_Success.
+		/// \aknote Errors are reported in the Wwise Capture Log if the effect cannot be set on the output device. \endaknote
+
+		/// \returns Always returns AK_Success
 		AK_EXTERNAPIFUNC(AKRESULT, SetOutputDeviceEffect)(
-			AkOutputDeviceID in_outputDeviceID,				///< Output ID, as returned from AddOutput or GetOutputID. You can pass 0 for the main (default) output
+			AkOutputDeviceID in_outputDeviceID,				///< Output ID, as returned from AddOutput or GetOutputID. Most of the time this should be 0 to designate the main (default) output
 			AkUInt32 in_uFXIndex,							///< Effect slot index (0-3)
-			AkUniqueID in_FXShareSetID						///< Effect ShareSet ID; pass AK_INVALID_UNIQUE_ID to use the effect from the Audio Device ShareSet.
+			AkUniqueID in_FXShareSetID						///< Effect ShareSet ID
 			);
 
 		/// Sets a Mixer ShareSet at the specified bus.
 		/// \aknote This function has unspecified behavior when adding a mixer to a currently playing
 		/// Bus which does not have any Effects or mixer, or removing the last mixer on a currently playing Bus.
 		/// \endaknote
+		/// \aknote Make sure the new mixer shareset is included in a soundbank, and that sound bank is loaded. Otherwise you will see errors in the Capture Log.\endaknote
 		/// \aknote This function will replace existing mixers on the node. 
 		/// \endaknote
 		/// \return Always returns AK_Success
@@ -3557,9 +3973,12 @@ namespace AK
 		/// \aknote This function has unspecified behavior when adding a mixer to a currently playing
 		/// bus which does not have any effects nor mixer, or removing the last mixer on a currently playing bus.
 		/// \endaknote
+		/// \aknote Make sure the new mixer shareset is included in a soundbank, and that sound bank is loaded. Otherwise you will see errors in the Capture Log.\endaknote
 		/// \aknote This function will replace existing mixers on the node. 
 		/// \endaknote
-		/// \returns AK_IDNotFound is name not resolved, returns AK_Success otherwise.
+		/// \returns 
+		/// - \c AK_Success when successful
+		/// - \c AK_InvalidID if in_pszBusName is null
 		AK_EXTERNAPIFUNC( AKRESULT, SetMixer )( 
 			const wchar_t* in_pszBusName,				///< Bus name
 			AkUniqueID in_shareSetID					///< ShareSets ID; pass AK_INVALID_UNIQUE_ID to remove.
@@ -3570,9 +3989,12 @@ namespace AK
 		/// \aknote This function has unspecified behavior when adding a mixer to a currently playing
 		/// bus which does not have any effects nor mixer, or removing the last mixer on a currently playing bus.
 		/// \endaknote
-		/// \aknote This function will replace existing mixers on the node.
+		/// \aknote Make sure the new mixer shareset is included in a soundbank, and that sound bank is loaded. Otherwise you will see errors in the Capture Log.\endaknote
+		/// \aknote This function will replace existing mixers on the node.		 
 		/// \endaknote
-		/// \returns AK_IDNotFound is name not resolved, returns AK_Success otherwise.
+		/// \returns 
+		/// - \c AK_Success when successful
+		/// - \c AK_InvalidID if in_pszBusName is null
 		AK_EXTERNAPIFUNC( AKRESULT, SetMixer )( 
 			const char* in_pszBusName,		///< Bus name
 			AkUniqueID in_shareSetID		///< ShareSets ID; pass AK_INVALID_UNIQUE_ID to remove.
@@ -3591,7 +4013,9 @@ namespace AK
 		/// Forces channel configuration for the specified bus.
 		/// \aknote You cannot change the configuration of the master bus.\endaknote
 		/// 
-		/// \returns AK_IDNotFound is name not resolved, returns AK_Success otherwise.
+		/// \returns 
+		/// - \c AK_Success when successful
+		/// - \c AK_InvalidID if in_pszBusName is null
 		AK_EXTERNAPIFUNC(AKRESULT, SetBusConfig)(
 			const wchar_t* in_pszBusName,				///< Bus name
 			AkChannelConfig in_channelConfig			///< Desired channel configuration. An invalid configuration (from default constructor) means "as parent".
@@ -3601,7 +4025,9 @@ namespace AK
 		/// Forces channel configuration for the specified bus.
 		/// \aknote You cannot change the configuration of the master bus.\endaknote
 		/// 
-		/// \returns AK_IDNotFound is name not resolved, returns AK_Success otherwise.
+		/// \returns 
+		/// - \c AK_Success when successful
+		/// - \c AK_InvalidID if in_pszBusName is null
 		AK_EXTERNAPIFUNC(AKRESULT, SetBusConfig)(
 			const char* in_pszBusName,					///< Bus name
 			AkChannelConfig in_channelConfig			///< Desired channel configuration. An invalid configuration (from default constructor) means "as parent".
@@ -3625,6 +4051,11 @@ namespace AK
 		/// and each obstruction/occlusion pair will affect the corresponding position defined at the same index.
 		/// \aknote In the case the number of obstruction/occlusion pairs is smaller than the number of positions, remaining positions' 
 		/// obstrucion/occlusion values are set to 0.0. \endaknote
+		/// \return
+		/// - \c AK_Success if successful
+		/// - \c AK_CommandTooLarge if the number of obstruction values is too large for the command queue.
+		/// - \c AK_InvalidParameter if one of the parameter is out of range (check the debug console)
+		/// - \c AK_InvalidFloatValue if one of the occlusion/obstruction values is NaN or Inf.
 		/// \sa
 		/// - \ref soundengine_obsocc
 		/// - \ref soundengine_environments
@@ -3644,6 +4075,9 @@ namespace AK
 		/// Random Containers). 
 		/// \remarks
 		/// This function acquires the main audio lock, and may block the caller for several milliseconds.
+		/// \return
+		/// - \c AK_Success when successful
+		/// - \c AK_Fail is in_pBytes could not be parsed (corruption or data is truncated)
 		/// \sa 
 		/// - <tt>AK::SoundEngine::SetContainerHistory()</tt>
 		AK_EXTERNAPIFUNC( AKRESULT, GetContainerHistory)(
@@ -3656,6 +4090,9 @@ namespace AK
 		/// ID. History for unloaded structures and unknown game objects will be skipped.
 		/// \remarks
 		/// This function acquires the main audio lock, and may block the caller for several milliseconds.
+		/// \return 
+		/// - \c AK_Success if successful
+		/// - \c AK_InsufficientMemory if not enough memory is available for IReadBytes operation
 		/// \sa 
 		/// - <tt>AK::SoundEngine::GetContainerHistory()</tt>
 		AK_EXTERNAPIFUNC(AKRESULT, SetContainerHistory)(
@@ -3684,6 +4121,10 @@ namespace AK
 		///			AkFileSystemFlags are passed: uCompanyID = AKCOMPANYID_AUDIOKINETIC and uCodecID = AKCODECID_PCM,
 		///			and the AkOpenMode is AK_OpenModeWriteOvrwr. Refer to \ref streamingmanager_lowlevel_location for
 		///			more details on managing the deployment of your Wwise generated data.
+		/// \return
+		/// - \c AK_Success when successful
+		/// - \c AK_InvalidParameter if in_CaptureFileName is null.
+		/// - \c AK_InsufficientMemory if not enough memory is available.
 		/// \sa 
 		/// - <tt>AK::SoundEngine::StopOutputCapture()</tt>
 		/// - <tt>AK::StreamMgr::SetFileLocationResolver()</tt>
@@ -3701,7 +4142,10 @@ namespace AK
 		AK_EXTERNAPIFUNC( AKRESULT, StopOutputCapture )();
 
 		/// Adds text marker in audio output file. 
-		/// \return AK_Success if successful, AK_Fail if there was a problem adding the output marker.
+		/// \return 
+		/// - \c AK_Success when successful
+		/// - \c AK_InvalidParameter if in_MarkerText is null.
+		/// - \c AK_InsufficientMemory if not enough memory is available.
 		/// \sa 
 		/// - <tt>AK::SoundEngine::StartOutputCapture()</tt>
 		AK_EXTERNAPIFUNC( AKRESULT, AddOutputCaptureMarker )(
@@ -3714,6 +4158,11 @@ namespace AK
 
 		/// Registers a callback used for retrieving audio samples.
 		/// The callback will be called from the audio thread during real-time rendering and from the main thread during offline rendering.
+		/// \return
+		/// - \c AK_Success when successful
+		/// - \c AK_DeviceNotFound if the audio device ID doesn't match to a device in use.
+		/// - \c AK_InvalidParameter when in_pfnCallback is null
+		/// - \c AK_NotInitialized if the sound engine is not initialized at this time
 		/// \sa
 		/// - <tt>AK::SoundEngine::AddOutput()</tt>
 		/// - <tt>AK::SoundEngine::GetOutputID()</tt>
@@ -3725,6 +4174,11 @@ namespace AK
 			);
 
 		/// Unregisters a callback used for retrieving audio samples.
+		/// \return
+		/// - \c AK_Success when successful
+		/// - \c AK_DeviceNotFound if the audio device ID doesn't match to a device in use.
+		/// - \c AK_InvalidParameter when in_pfnCallback is null
+		/// - \c AK_NotInitialized if the sound engine is not initialized at this time
 		/// \sa
 		/// - <tt>AK::SoundEngine::AddOutput()</tt>
 		/// - <tt>AK::SoundEngine::GetOutputID()</tt>
@@ -3736,7 +4190,11 @@ namespace AK
 			);
 
 		/// Starts recording the sound engine profiling information into a file. This file can be read
-		/// by Wwise Authoring. Note that this profiling session will record all data types possible.
+		/// by Wwise Authoring. The file is created at the base path. If you have integrated Wwise I/O,
+		/// you can use <tt>CAkDefaultIOHookBlocking::SetBasePath()</tt> (or <tt>CAkDefaultIOHookBlocking::AddBasePath()</tt>)
+		/// to change the location where the file is saved. The profiling session records all data types possible.
+		/// Note that this call captures peak metering for all the busses loaded and mixing
+		/// while this call is invoked.
 		/// \remark This function is provided as a utility tool only. It does nothing if it is 
 		///			called in the release configuration and returns AK_NotCompatible.
 		AK_EXTERNAPIFUNC( AKRESULT, StartProfilerCapture )( 
@@ -3787,20 +4245,21 @@ namespace AK
 		/// \sa AK::AkDeviceStatusCallbackFunc
 		/// \return 
 		/// The following codes are returned directly from the function, as opposed to the AkDeviceStatusCallback
-		/// - AK_NotImplemented: Feature not supported, some platforms don't have other outputs.
-		/// - AK_InvalidParameter: Out of range parameters or unsupported parameter combinations (see parameter list below).
-		/// - AK_IDNotFound: The audioDeviceShareset on in_settings doesn't exist.  Possibly, the Init bank isn't loaded yet or was not updated with latest changes.
-		/// - AK_DeviceNotReady: The idDevice on in_settings doesn't match with a valid hardware device.  Either the device doesn't exist or is disabled.  Disconnected devices (headphones) are not considered "not ready" therefore won't cause this error.
-		/// - AK_Success: Parameters are valid.
+		/// - \c AK_NotImplemented: Feature not supported, some platforms don't have other outputs.
+		/// - \c AK_InvalidParameter: Out of range parameters or unsupported parameter combinations (see parameter list below).
+		/// - \c AK_IDNotFound: The audioDeviceShareset on in_settings doesn't exist.  Possibly, the Init bank isn't loaded yet or was not updated with latest changes.
+		/// - \c AK_DeviceNotReady: The idDevice on in_settings doesn't match with a valid hardware device.  Either the device doesn't exist or is disabled.  Disconnected devices (headphones) are not considered "not ready" therefore won't cause this error.
+		/// - \c AK_NotInitialized: If AK::SoundEngine::Init was not called or if the Init.bnk was not loaded before the call.
+		/// - \c AK_Success: Parameters are valid.
 		/// 
 		/// The following codes are returned from the callback.
-		/// - AK_InsufficientMemory : Not enough memory to complete the operation.
-		/// - AK_IDNotFound: The audioDeviceShareset on in_settings doesn't exist.  Possibly, the Init bank isn't loaded yet or was not updated with latest changes.
-		/// - AK_PluginNotRegistered: The audioDeviceShareset exists but the plug-in it refers to is not installed or statically linked with the game.
-		/// - AK_NotCompatible: The hardware does not support this type of output. Wwise will try to use the System output instead, and a separate callback will fire when that completes.
-		/// - AK_DeviceNotCompatible: The hardware does not support this type of output. Wwise will NOT fallback to any other type of output.
-		/// - AK_Fail: Generic code for any non-permanent conditions (e.g. disconnection) that prevent the use of the output. Wwise has created the output and sounds will be routed to it, but this output is currently silent until the temporary condition resolves.
-		/// - AK_NoDistinctListener: Outputs of the same type (same ShareSet, like controller speakers) must have distinct Listeners to make a proper routing. This doesn't happen if there is only one output of that type.
+		/// - \c AK_InsufficientMemory : Not enough memory to complete the operation.
+		/// - \c AK_IDNotFound: The audioDeviceShareset on in_settings doesn't exist.  Possibly, the Init bank isn't loaded yet or was not updated with latest changes.
+		/// - \c AK_PluginNotRegistered: The audioDeviceShareset exists but the plug-in it refers to is not installed or statically linked with the game.
+		/// - \c AK_NotCompatible: The hardware does not support this type of output. Wwise will try to use the System output instead, and a separate callback will fire when that completes.
+		/// - \c AK_DeviceNotCompatible: The hardware does not support this type of output. Wwise will NOT fallback to any other type of output.
+		/// - \c AK_Fail: Generic code for any non-permanent conditions (e.g. disconnection) that prevent the use of the output. Wwise has created the output and sounds will be routed to it, but this output is currently silent until the temporary condition resolves.
+		/// - \c AK_NoDistinctListener: Outputs of the same type (same ShareSet, like controller speakers) must have distinct Listeners to make a proper routing. This doesn't happen if there is only one output of that type.
 		AK_EXTERNAPIFUNC(AKRESULT, AddOutput)(			
 			const AkOutputSettings & in_Settings,			///< Creation parameters for this output.  \ref AkOutputSettings							
 			AkOutputDeviceID *out_pDeviceID = NULL,			///< (Optional) Output ID to use with all other Output management functions.  Leave to NULL if not required. \ref AK::SoundEngine::GetOutputID
@@ -3833,12 +4292,12 @@ namespace AK
 		/// \sa AK::SoundEngine::RegisterAudioDeviceStatusCallback
 		/// \sa AK::AkDeviceStatusCallbackFunc
 		/// \return 
-		/// - AK_InvalidID: The audioDeviceShareset on in_settings was not valid.
-		/// - AK_IDNotFound: The audioDeviceShareset on in_settings doesn't exist.  Possibly, the Init bank isn't loaded yet or was not updated with latest changes.
-		/// - AK_DeviceNotReady: The idDevice on in_settings doesn't match with a valid hardware device.  Either the device doesn't exist or is disabled.  Disconnected devices (headphones) are not considered "not ready" therefore won't cause this error.
-		/// - AK_DeviceNotFound: The in_outputDeviceId provided does not match with any of the output devices that the sound engine is currently using.
-		/// - AK_InvalidParameter: Out of range parameters or unsupported parameter combinations on in_settings
-		/// - AK_Success: parameters were valid, and the remove and add will occur.
+		/// - \c AK_InvalidID: The audioDeviceShareset on in_settings was not valid.
+		/// - \c AK_IDNotFound: The audioDeviceShareset on in_settings doesn't exist.  Possibly, the Init bank isn't loaded yet or was not updated with latest changes.
+		/// - \c AK_DeviceNotReady: The idDevice on in_settings doesn't match with a valid hardware device.  Either the device doesn't exist or is disabled.  Disconnected devices (headphones) are not considered "not ready" therefore won't cause this error.
+		/// - \c AK_DeviceNotFound: The in_outputDeviceId provided does not match with any of the output devices that the sound engine is currently using.
+		/// - \c AK_InvalidParameter: Out of range parameters or unsupported parameter combinations on in_settings
+		/// - \c AK_Success: parameters were valid, and the remove and add will occur.
 		AK_EXTERNAPIFUNC(AKRESULT, ReplaceOutput)(
 			const AkOutputSettings & in_Settings,				///< Creation parameters for this output.  \ref AkOutputSettings
 			AkOutputDeviceID in_outputDeviceId,					///< AkOutputDeviceID of the output to replace. Use 0 to target the current main output, regardless of its id.  Otherwise, use the AkOuptutDeviceID returned from AddOutput() or ReplaceOutput(), or generated by GetOutputID()
@@ -3880,7 +4339,8 @@ namespace AK
 
 		/// Sets the Audio Device to which a master bus outputs.  This overrides the setting in the Wwise project.	
 		/// Can only be set on top-level busses. The Init bank should be successfully loaded prior to this call.
-		/// SetBusDevice must be preceded by a call to AddOutput for the new device shareset to be registered as an output.
+		/// \aknote This function is useful only if used before the creation of an output, at the beginning of the sound engine setup. 
+		/// Once active outputs using this Bus have been created, it is imperative to use AK::SoundEngine:ReplaceOutput instead to change the type of output.
 		/// \return 
 		/// AK_IDNotFound when either the Bus ID or the Device ID are not present in the Init bank or the bank was not loaded
 		/// AK_InvalidParameter when the specified bus is not a Master Bus.  This function can be called only on busses that have no parent bus.
@@ -3891,7 +4351,8 @@ namespace AK
 
 		/// Sets the Audio Device to which a master bus outputs.  This overrides the setting in the Wwise project.	
 		/// Can only be set on top-level busses. The Init bank should be successfully loaded prior to this call.
-		/// SetBusDevice must be preceded by a call to AddOutput for the new device shareset to be registered as an output.
+		/// \aknote This function is useful only if used before the creation of an output, at the beginning of the sound engine setup. 
+		/// Once active outputs using this Bus have been created, it is imperative to use AK::SoundEngine:ReplaceOutput instead to change the type of output.
 		/// \return 
 		/// AK_IDNotFound when either the Bus ID or the Device ID are not present in the Init bank or the bank was not loaded
 		/// AK_InvalidParameter when the specified bus is not a Master Bus.  This function can be called only on busses that have no parent bus.
@@ -3917,8 +4378,11 @@ namespace AK
 		/// This call is only valid for sink plug-ins that support device enumeration.
 		/// Prerequisites: the plug-in must have been initialized by loading the init bank or by calling \ref AK::SoundEngine::RegisterPlugin.
 		/// \return
-		/// AK_NotImplemented if the sink plug-in does not implement device enumeration
-		/// AK_PluginNotRegistered if the plug-in has not been registered yet either by loading the init bank or by calling RegisterPluginDLL.
+		/// - \c AK_NotImplemented if the sink plug-in does not implement device enumeration
+		/// - \c AK_PluginNotRegistered if the plug-in has not been registered yet either by loading the init bank or by calling RegisterPluginDLL.
+		/// - \c AK_NotCompatible if no device of this type are supported on the current platform
+		/// - \c AK_Fail in case of system device manager failure (OS related)
+		/// 
 		AK_EXTERNAPIFUNC(AKRESULT, GetDeviceList) (
 			AkUInt32 in_ulCompanyID,					///< Company identifier (as declared in the plug-in description XML file)
 			AkUInt32 in_ulPluginID,						///< Plug-in identifier (as declared in the plug-in description XML file)
@@ -3942,8 +4406,8 @@ namespace AK
 
 		/// Sets the volume of a output device.		
 		/// \return
-		/// - AK_Success if successful		
-		/// - AK_InvalidFloatValue if the value specified was NaN or Inf
+		/// - \c AK_Success if successful		
+		/// - \c AK_InvalidFloatValue if the value specified was NaN or Inf
 		AK_EXTERNAPIFUNC( AKRESULT, SetOutputVolume )(
 			AkOutputDeviceID in_idOutput,	///< Output ID to set the volume on.  As returned from AddOutput or GetOutputID
 			AkReal32 in_fVolume				///< Volume (0.0 = Muted, 1.0 = Volume max)
@@ -3979,7 +4443,8 @@ namespace AK
 		/// \sa WakeupFromSuspend
 		/// \sa \ref workingwithsdks_system_calls
 		AK_EXTERNAPIFUNC( AKRESULT, Suspend )(
-			bool in_bRenderAnyway = false /// If set to true, audio processing will still occur, but not outputted. When set to false, no audio will be processed at all, even upon reception of RenderAudio().
+			bool in_bRenderAnyway = false, ///< If set to true, audio processing will still occur, but not outputted. When set to false, no audio will be processed at all, even upon reception of RenderAudio().
+			bool in_bFadeOut = true        ///< Delay the suspend by one audio frame in order to fade-out. When false, the suspend takes effect immediately but audio may glitch.
 			);
 
 		/// This function should be called to wake up the sound engine and start processing audio again. This needs to be called if the console has a background mode or some suspended state.
@@ -3987,7 +4452,9 @@ namespace AK
 		/// Consult \ref workingwithsdks_system_calls to learn when it is appropriate to call this function for each platform.
 		/// \sa Suspend
 		/// \sa \ref workingwithsdks_system_calls
-		AK_EXTERNAPIFUNC( AKRESULT, WakeupFromSuspend )(); 
+		AK_EXTERNAPIFUNC( AKRESULT, WakeupFromSuspend )(
+			AkUInt32 in_uDelayMs = 0      /// Delay (in milliseconds) before the wake up occurs. Rounded up to audio frame granularity. Adding a delay is useful if there is a possibility that another OS event may override the wake-up in the near future.
+		);
 
 		/// Obtains the current audio output buffer tick. This corresponds to the number of buffers produced by
 		/// the sound engine since initialization. 

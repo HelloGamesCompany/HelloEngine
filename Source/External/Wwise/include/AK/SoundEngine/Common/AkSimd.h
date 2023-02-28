@@ -21,8 +21,7 @@ under the Apache License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
 OR CONDITIONS OF ANY KIND, either express or implied. See the Apache License for
 the specific language governing permissions and limitations under the License.
 
-  Version: v2021.1.5  Build: 7749
-  Copyright (c) 2006-2021 Audiokinetic Inc.
+  Copyright (c) 2023 Audiokinetic Inc.
 *******************************************************************************/
 
 // AkSimd.h
@@ -35,8 +34,15 @@ the specific language governing permissions and limitations under the License.
 
 #include <AK/SoundEngine/Common/AkTypes.h>
 
+/// Get the element at index __num__ in vector __vName
+#define AKSIMD_GETELEMENT_V4F32( __vName, __num__ )			((AkReal32*)&(__vName))[(__num__)]
+#define AKSIMD_GETELEMENT_V2F32( __vName, __num__ )			((AkReal32*)&(__vName))[(__num__)]
+#define AKSIMD_GETELEMENT_V2F64( __vName, __num__ )			((AkReal64*)&(__vName))[(__num__)]
+#define AKSIMD_GETELEMENT_V4I32( __vName, __num__ )			((AkInt32*)&(__vName))[(__num__)]
+#define AKSIMD_GETELEMENT_V2I64( __vName, __num__ )			((AkInt64*)&(__vName))[(__num__)]
+
+//////////////////////////////////////////////////////////////////////////
 // Platform-specific section.
-//----------------------------------------------------------------------------------------------------
 
 #if defined( AK_WIN ) || defined( AK_XBOX )
 	
@@ -82,6 +88,9 @@ the specific language governing permissions and limitations under the License.
 #else
 	#error Unsupported platform, or platform-specific SIMD not defined
 #endif
+
+//////////////////////////////////////////////////////////////////////////
+// Other helpers
 
 #ifndef AKSIMD_ASSERTFLUSHZEROMODE
 	#define AKSIMD_ASSERTFLUSHZEROMODE

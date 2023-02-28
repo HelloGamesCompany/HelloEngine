@@ -89,7 +89,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>DebugFull</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)Source\External\SDL\lib\x86;$(SolutionDir)Output\APILibrary;$(SolutionDir)Source\External\Glew\libx86;$(SolutionDir)Source\External\MathGeoLib\libx86\Debug;$(SolutionDir)Source\External\PhysFS\libx86;$(SolutionDir)Source\External\Assimp\libx86\Debug;$(SolutionDir)Source\External\DevIL\lib;$(SolutionDir)Source\External\Bullet\lib;$(SolutionDir)Source\External\Wwise\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)Source\External\SDL\lib\x86;$(SolutionDir)Output\APILibrary;$(SolutionDir)Source\External\Glew\libx86;$(SolutionDir)Source\External\MathGeoLib\libx86\Debug;$(SolutionDir)Source\External\PhysFS\libx86;$(SolutionDir)Source\External\Assimp\libx86\Debug;$(SolutionDir)Source\External\DevIL\lib;$(SolutionDir)Source\External\Bullet\lib;$(SolutionDir)Source\External\Wwise\Deb</AdditionalLibraryDirectories>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;MathGeoLib.lib;glew32.lib;glew32s.lib;opengl32.lib;physfs.lib;DevIL.lib;ILU.lib;ILUT.lib;%(AdditionalDependencies);assimp-vc142-mtd.lib;BulletCollision_debug.lib;BulletDynamics_debug.lib;LinearMath_debug.lib;AkMemoryMgr.lib;AkMusicEngine.lib;AkRoomVerbFX.lib;AkSoundEngine.lib;AkSpatialAudio.lib;AkStreamMgr.lib</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
@@ -115,7 +115,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>DebugFull</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)Source\External\SDL\lib\x86;$(SolutionDir)Output\APILibrary;$(SolutionDir)Source\External\Glew\libx86;$(SolutionDir)Source\External\MathGeoLib\libx86\Release;$(SolutionDir)Source\External\Assimp\libx86\Release;$(SolutionDir)Source\External\PhysFS\libx86;$(SolutionDir)Source\External\DevIL\lib;$(SolutionDir)Source\External\Bullet\lib;$(SolutionDir)Source\External\Wwise\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)Source\External\SDL\lib\x86;$(SolutionDir)Output\APILibrary;$(SolutionDir)Source\External\Glew\libx86;$(SolutionDir)Source\External\MathGeoLib\libx86\Release;$(SolutionDir)Source\External\Assimp\libx86\Release;$(SolutionDir)Source\External\PhysFS\libx86;$(SolutionDir)Source\External\DevIL\lib;$(SolutionDir)Source\External\Bullet\lib;$(SolutionDir)Source\External\Wwise\Rel</AdditionalLibraryDirectories>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;MathGeoLib.lib;glew32.lib;opengl32.lib;DevIL.lib;ILU.lib;ILUT.lib;assimp-vc142-mt.lib;physfs.lib;BulletCollision.lib;BulletDynamics.lib;LinearMath.lib;%(AdditionalDependencies);AkMemoryMgr.lib;AkMusicEngine.lib;AkRoomVerbFX.lib;AkSoundEngine.lib;AkSpatialAudio.lib;AkStreamMgr.lib;CommunicationCentral.lib</AdditionalDependencies>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
@@ -142,8 +142,8 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>DebugFull</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)Source\External\SDL\lib\x86;$(SolutionDir)Output\HelloAPI\bin\$(Configuration);$(SolutionDir)Source\External\Glew\libx86;$(SolutionDir)Source\External\MathGeoLib\libx86\Release;$(SolutionDir)Source\External\Assimp\libx86\Release;$(SolutionDir)Source\External\PhysFS\libx86;$(SolutionDir)Source\External\DevIL\lib;$(SolutionDir)Source\External\Bullet\lib;$(SolutionDir)Source\External\Wwise\lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;MathGeoLib.lib;glew32.lib;opengl32.lib;DevIL.lib;ILU.lib;shell32.lib;ILUT.lib;assimp-vc142-mt.lib;physfs.lib;BulletCollision.lib;BulletDynamics.lib;LinearMath.lib;AkMemoryMgr.lib;AkMusicEngine.lib;AkRoomVerbFX.lib;AkSoundEngine.lib;AkSpatialAudio.lib;AkStreamMgr.lib;CommunicationCentral.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)Source\External\SDL\lib\x86;$(SolutionDir)Output\HelloAPI\bin\$(Configuration);$(SolutionDir)Source\External\Glew\libx86;$(SolutionDir)Source\External\MathGeoLib\libx86\Release;$(SolutionDir)Source\External\Assimp\libx86\Release;$(SolutionDir)Source\External\PhysFS\libx86;$(SolutionDir)Source\External\DevIL\lib;$(SolutionDir)Source\External\Bullet\lib;$(SolutionDir)Source\External\Wwise\Run</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;MathGeoLib.lib;glew32.lib;opengl32.lib;DevIL.lib;ILU.lib;shell32.lib;ILUT.lib;assimp-vc142-mt.lib;physfs.lib;BulletCollision.lib;BulletDynamics.lib;LinearMath.lib;AkMemoryMgr.lib;AkMusicEngine.lib;AkRoomVerbFX.lib;AkSoundEngine.lib;AkSpatialAudio.lib;AkStreamMgr.lib</AdditionalDependencies>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
   </ItemDefinitionGroup>
@@ -286,6 +286,11 @@
     <ClCompile Include="..\External\PugiXml\src\pugixml.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="..\External\Wwise\include\AK\samples\AkDefaultIOHookBlocking.cpp" />
+    <ClCompile Include="..\External\Wwise\include\AK\samples\AkFilePackage.cpp" />
+    <ClCompile Include="..\External\Wwise\include\AK\samples\AkFilePackageLUT.cpp" />
+    <ClCompile Include="..\External\Wwise\include\AK\samples\AkGeneratedSoundBanksResolver.cpp" />
+    <ClCompile Include="..\External\Wwise\include\AK\samples\AkMultipleFileLocation.cpp" />
     <ClCompile Include="API\API_Console.cpp" />
     <ClCompile Include="API\API_GameObject.cpp" />
     <ClCompile Include="API\API_Input.cpp" />

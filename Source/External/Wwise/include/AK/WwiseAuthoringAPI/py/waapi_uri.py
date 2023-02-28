@@ -22,13 +22,14 @@ under the Apache License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
 OR CONDITIONS OF ANY KIND, either express or implied. See the Apache License for
 the specific language governing permissions and limitations under the License.
 
-  Version: <VERSION>  Build: <BUILDNUMBER>
-  Copyright (c) <COPYRIGHTYEAR> Audiokinetic Inc.
+  Copyright (c) 2023 Audiokinetic Inc.
 
 '''
 class WAAPI_URI:
     # Retrieve global Wwise information.
     ak_wwise_core_getinfo = u"ak.wwise.core.getInfo"
+    # Retrieve information about the current project opened, including platforms, languages and project directories.
+    ak_wwise_core_getprojectinfo = u"ak.wwise.core.getProjectInfo"
     # Bring Wwise main window to foreground. Refer to SetForegroundWindow and AllowSetForegroundWindow on MSDN for more information on the restrictions. Refer to ak.wwise.core.getInfo to obtain the Wwise process ID for AllowSetForegroundWindow.
     ak_wwise_ui_bringtoforeground = u"ak.wwise.ui.bringToForeground"
     # Asynchronously post an Event to the sound engine (by event ID). See <tt>AK::SoundEngine::PostEvent</tt>.
@@ -53,8 +54,12 @@ class WAAPI_URI:
     ak_soundengine_posttrigger = u"ak.soundengine.postTrigger"
     # Sets the State of a Switch Group. See <tt>AK::SoundEngine::SetSwitch</tt>.
     ak_soundengine_setswitch = u"ak.soundengine.setSwitch"
+    # Gets the current state of a Switch Group for a given Game Object.
+    ak_soundengine_getswitch = u"ak.soundengine.getSwitch"
     # Sets the State of a State Group. See <tt>AK::SoundEngine::SetState</tt>.
     ak_soundengine_setstate = u"ak.soundengine.setState"
+    # Gets the current state of a State Group. When using setState just prior to getState, allow a brief delay (no more than 10ms) for the information to update in the sound engine.
+    ak_soundengine_getstate = u"ak.soundengine.getState"
     # Resets the value of a real-time parameter control to its default value, as specified in the Wwise project. See <tt>AK::SoundEngine::ResetRTPCValue</tt>.
     ak_soundengine_resetrtpcvalue = u"ak.soundengine.resetRTPCValue"
     # Sets the value of a real-time parameter control. See <tt>AK::SoundEngine::SetRTPCValue</tt>.
@@ -91,7 +96,7 @@ class WAAPI_URI:
     ak_wwise_core_object_setname = u"ak.wwise.core.object.setName"
     # Sets an object's reference value. Refer to \ref wobjects_index for more information on the references available on each object type.
     ak_wwise_core_object_setreference = u"ak.wwise.core.object.setReference"
-    # Sets a property value of an object for a specific platform. Refer to \ref wobjects_index for more information on the properties available on each object type. Refer to \ref ak_wwise_core_object_setreference to set a reference to an object.
+    # Sets a property value of an object for a specific platform. Refer to \ref wobjects_index for more information on the properties available on each object type. Refer to \ref ak_wwise_core_object_setreference to set a reference to an object. Refer to \ref ak_wwise_core_object_get to obtain the value of a property for an object.
     ak_wwise_core_object_setproperty = u"ak.wwise.core.object.setProperty"
     # Sets the randomizer values of a property of an object for a specific platform. Refer to \ref wobjects_index for more information on the properties available on each object type.
     ak_wwise_core_object_setrandomizer = u"ak.wwise.core.object.setRandomizer"
@@ -115,14 +120,20 @@ class WAAPI_URI:
     ak_wwise_core_switchcontainer_getassignments = u"ak.wwise.core.switchContainer.getAssignments"
     # Creates an object of type 'type', as a child of 'parent'. Refer to \ref waapi_import for more information about creating objects. Also refer to \ref ak_wwise_core_audio_import to import audio files to Wwise.
     ak_wwise_core_object_create = u"ak.wwise.core.object.create"
+    # Allows for batch processing of the following operations: Object creation in a child hierarchy, Object creation in a list, Setting name, notes, properties and references. Refer to \ref waapi_import for more information about creating objects. Also refer to \ref ak_wwise_core_audio_import to import audio files to Wwise.
+    ak_wwise_core_object_set = u"ak.wwise.core.object.set"
     # Moves an object to the given parent. Returns the moved object.
     ak_wwise_core_object_move = u"ak.wwise.core.object.move"
     # Copies an object to the given parent.
     ak_wwise_core_object_copy = u"ak.wwise.core.object.copy"
     # Deletes the specified object.
     ak_wwise_core_object_delete = u"ak.wwise.core.object.delete"
-    # Performs a query and returns specified data for each object in the query result. The query can specify either a 'waql' argument or a 'from' argument with an optional 'transform' argument. Refer to \ref waql_introduction or \ref waapi_query for more information.
+    # Performs a query and returns the data, as specified in the options, for each object in the query result. The query can specify either a 'waql' argument or a 'from' argument with an optional 'transform' argument. Refer to \ref waql_introduction or \ref waapi_query for more information. Refer to \ref waapi_query_return to learn about options.
     ak_wwise_core_object_get = u"ak.wwise.core.object.get"
+    # Compares properties and lists of the source object with those in the target object.
+    ak_wwise_core_object_diff = u"ak.wwise.core.object.diff"
+    # Pastes properties, references and lists from one object to any number of target objects. Only those properties, references and lists which differ between source and target are pasted. Refer to \ref wobjects_index for more information on the properties, references and lists available on each object type.
+    ak_wwise_core_object_pasteproperties = u"ak.wwise.core.object.pasteProperties"
     # Creates Wwise objects and imports audio files. This function uses the same importation processor available through the Tab Delimited import in the Audio File Importer. The function returns an array of all objects created, replaced or re-used. Use the options to specify how the objects are returned. For more information, refer to \ref waapi_import.
     ak_wwise_core_audio_import = u"ak.wwise.core.audio.import"
     # Scripted object creation and audio file import from a tab-delimited file.
@@ -135,21 +146,23 @@ class WAAPI_URI:
     ak_wwise_core_remote_getavailableconsoles = u"ak.wwise.core.remote.getAvailableConsoles"
     # Retrieves the connection status.
     ak_wwise_core_remote_getconnectionstatus = u"ak.wwise.core.remote.getConnectionStatus"
-    # Begins an undo group. Make sure to call \ref ak_wwise_core_undo_endgroup exactly once for every ak.wwise.core.beginUndoGroup call you make. Calls to ak.wwise.core.undo.beginGroup can be nested.
+    # Begins an undo group. Make sure to call \ref ak_wwise_core_undo_endgroup exactly once for every ak.wwise.core.beginUndoGroup call you make. Calls to ak.wwise.core.undo.beginGroup can be nested. When closing a WAMP session, a check is made to ensure that all undo groups are closed. If not, a cancelGroup is called for each of the groups still open.
     ak_wwise_core_undo_begingroup = u"ak.wwise.core.undo.beginGroup"
     # Cancels the last undo group. Please note that this does not revert the operations made since the last \ref ak_wwise_core_undo_begingroup call.
     ak_wwise_core_undo_cancelgroup = u"ak.wwise.core.undo.cancelGroup"
     # Ends the last undo group.
     ak_wwise_core_undo_endgroup = u"ak.wwise.core.undo.endGroup"
+    # Undoes the last operation in the Undo stack.
+    ak_wwise_core_undo_undo = u"ak.wwise.core.undo.undo"
     # Retrieves the list of all object types registered in Wwise's object model. This function returns the equivalent of \ref wobjects_index .
     # \deprecated in favor of ak.wwise.core.object.getTypes
     ak_wwise_core_plugin_getlist = u"ak.wwise.core.plugin.getList"
     # Retrieves the list of all object types registered in Wwise's object model. This function returns the equivalent of \ref wobjects_index .
     ak_wwise_core_object_gettypes = u"ak.wwise.core.object.getTypes"
-    # Retrieves information about an object property.
+    # Retrieves information about an object property. Note that this function does not return the value of a property. To retrieve the value of a property, refer to \ref ak_wwise_core_object_get and \ref waapi_query_return.
     # \deprecated in favor of ak.wwise.core.object.getPropertyInfo
     ak_wwise_core_plugin_getproperty = u"ak.wwise.core.plugin.getProperty"
-    # Retrieves information about an object property.
+    # Retrieves information about an object property. Note that this function does not return the value of a property. To retrieve the value of a property, refer to \ref ak_wwise_core_object_get and \ref waapi_query_return.
     ak_wwise_core_object_getpropertyinfo = u"ak.wwise.core.object.getPropertyInfo"
     # Retrieves the list of property and reference names for an object.
     # \deprecated in favor of ak.wwise.core.object.getPropertyAndReferenceNames
@@ -175,10 +188,18 @@ class WAAPI_URI:
     ak_wwise_core_soundbank_getinclusions = u"ak.wwise.core.soundbank.getInclusions"
     # Modifies a SoundBank's inclusion list. The 'operation' argument determines how the 'inclusions' argument modifies the SoundBank's inclusion list; 'inclusions' may be added to / removed from / replace the SoundBank's inclusion list.
     ak_wwise_core_soundbank_setinclusions = u"ak.wwise.core.soundbank.setInclusions"
-    # Generate a list of SoundBank with import definition defined in the WAAPI request. If you choose to not write the soundbanks to disk, subscribe to \ref ak_wwise_core_soundbank_generated to get SoundBank structure info and the bank data as base64.
+    # Generate a list of SoundBank with import definition defined in the WAAPI request. If you choose to not write the SoundBanks to disk, subscribe to \ref ak_wwise_core_soundbank_generated to get SoundBank structure info and the bank data as base64.
     ak_wwise_core_soundbank_generate = u"ak.wwise.core.soundbank.generate"
+    # Imports SoundBank definitions from the specified file. Multiple files can be specified. See the WAAPI log for status messages.
+    ak_wwise_core_soundbank_processdefinitionfiles = u"ak.wwise.core.soundbank.processDefinitionFiles"
+    # Converts the external sources files for the project as detailed in the wsources file, and places them into either the default folder, or the folder specified by the output argument. External Sources are a special type of source that you can put in a Sound object in Wwise. It indicates that the real sound data will be provided at run time. While External Source conversion is also triggered by SoundBank generation, this operation can be used to process sources not contained in the Wwise Project. Please refer to Wwise SDK help page "Integrating External Sources".
+    ak_wwise_core_soundbank_convertexternalsources = u"ak.wwise.core.soundbank.convertExternalSources"
+    # Sets which version of the source is being used for the specified sound. Use \ref ak_wwise_core_object_get with the 'activeSource' return option to get the active source of a sound.
+    ak_wwise_core_sound_setactivesource = u"ak.wwise.core.sound.setActiveSource"
     # Migrate and save the project.
     ak_wwise_cli_migrate = u"ak.wwise.cli.migrate"
+    # Load the project and do nothing else. This is useful to see the log for verification purposes without actually migrating and saving.
+    ak_wwise_cli_verify = u"ak.wwise.cli.verify"
     # Imports a tab-delimited file to create and modify different object hierarchies. The project is automatically migrated (if required). It is also automatically saved following the import.
     ak_wwise_cli_tabdelimitedimport = u"ak.wwise.cli.tabDelimitedImport"
     # Starts a command-line Wwise Authoring API server, to which client applications, using the Wwise Authoring API, can connect.
@@ -189,7 +210,7 @@ class WAAPI_URI:
     ak_wwise_cli_dumpobjects = u"ak.wwise.cli.dumpObjects"
     # Adds a new platform to a project. The platform must not already exist.
     ak_wwise_cli_addnewplatform = u"ak.wwise.cli.addNewPlatform"
-    # External Sources conversion. Converts the external sources files for the specified project. Optionally, additional WSOURCES can be specified. External Sources are a special type of source that you can put in a Sound object in Wwise. It indicates that the real sound data will be provided at run time. While External Source conversion is also triggered by SoundBank generation, this operation can be used to process sources not contained in the Wwise Project. Please refer to Wwise SDK help page "Integrating External Sources".
+    # External Sources conversion. Converts the external sources files for the specified project. Optionally, additional WSOURCES can be specified. External Sources are a special type of source that you can put in a Sound object in Wwise. It indicates that the real sound data will be provided at run time. While External Source conversion is also triggered by SoundBank generation, this operation can be used to process sources not contained in the Wwise Project. Please refer to \ref integrating_external_sources.
     ak_wwise_cli_convertexternalsource = u"ak.wwise.cli.convertExternalSource"
     # SoundBank generation. SoundBank generation is performed according to the settings stored in the project. Custom user settings are ignored when SoundBank generation is launched from the command line. However, some of these settings can be overridden from the command line.
     ak_wwise_cli_generatesoundbank = u"ak.wwise.cli.generateSoundbank"
@@ -203,6 +224,8 @@ class WAAPI_URI:
     ak_wwise_core_log_get = u"ak.wwise.core.log.get"
     # Creates a transport object for the given Wwise object. The return transport object can be used to play, stop, pause and resume the Wwise object via the other transport functions.
     ak_wwise_core_transport_create = u"ak.wwise.core.transport.create"
+    # Prepare the object and its dependencies for playback. Use this function before calling PostEventSync or PostMIDIOnEventSync from IAkGlobalPluginContext.
+    ak_wwise_core_transport_prepare = u"ak.wwise.core.transport.prepare"
     # Destroys the given transport object.
     ak_wwise_core_transport_destroy = u"ak.wwise.core.transport.destroy"
     # Gets the state of the given transport object.
@@ -221,6 +244,8 @@ class WAAPI_URI:
     ak_wwise_ui_commands_unregister = u"ak.wwise.ui.commands.unregister"
     # Retrieves the Audio Objects at a specific profiler capture time.
     ak_wwise_core_profiler_getaudioobjects = u"ak.wwise.core.profiler.getAudioObjects"
+    # Retrieves the game objects at a specific profiler capture time.
+    ak_wwise_core_profiler_getgameobjects = u"ak.wwise.core.profiler.getGameObjects"
     # Retrieves the voices at a specific profiler capture time.
     ak_wwise_core_profiler_getvoices = u"ak.wwise.core.profiler.getVoices"
     # Retrieves active RTPCs at a specific profiler capture time.
@@ -269,7 +294,7 @@ class WAAPI_URI:
     ak_wwise_core_object_propertychanged = u"ak.wwise.core.object.propertyChanged"
     # Sent when a single SoundBank is generated. This could be sent multiple times during SoundBank generation, for every SoundBank generated and for every platform. To generate SoundBanks, refer to \ref ak_wwise_core_soundbank_generate or \ref ak_wwise_ui_commands_execute with one of the SoundBank generation commands. Refer to \ref globalcommandsids for the list of commands.
     ak_wwise_core_soundbank_generated = u"ak.wwise.core.soundbank.generated"
-    # Sent when all soundbanks are generated.
+    # Sent when all SoundBanks are generated.
     ak_wwise_core_soundbank_generationdone = u"ak.wwise.core.soundbank.generationDone"
     # Sent when an item is added to the log. This could be used to retrieve items added to the SoundBank generation log. To retrieve the complete log, refer to \ref ak_wwise_core_log_get.
     ak_wwise_core_log_itemadded = u"ak.wwise.core.log.itemAdded"
@@ -291,3 +316,13 @@ class WAAPI_URI:
     ak_wwise_ui_commands_executed = u"ak.wwise.ui.commands.executed"
     # Sent when a new entry is added to the capture log. Note that all entries are being sent. No filtering is applied as opposed to the Capture Log view.
     ak_wwise_core_profiler_capturelog_itemadded = u"ak.wwise.core.profiler.captureLog.itemAdded"
+    # Sent when a game object has been registered.
+    ak_wwise_core_profiler_gameobjectregistered = u"ak.wwise.core.profiler.gameObjectRegistered"
+    # Sent when a game object has been unregistered.
+    ak_wwise_core_profiler_gameobjectunregistered = u"ak.wwise.core.profiler.gameObjectUnregistered"
+    # Sent when the game objects have been reset, such as closing a connection to a game while profiling.
+    ak_wwise_core_profiler_gameobjectreset = u"ak.wwise.core.profiler.gameObjectReset"
+    # Sent when a state group state has been changed. This subscription does not require the profiler capture log to be started.
+    ak_wwise_core_profiler_statechanged = u"ak.wwise.core.profiler.stateChanged"
+    # Sent when a switch group state has been changed. This function does not require the profiler capture log to be started.
+    ak_wwise_core_profiler_switchchanged = u"ak.wwise.core.profiler.switchChanged"
