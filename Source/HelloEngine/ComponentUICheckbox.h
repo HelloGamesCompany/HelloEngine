@@ -4,6 +4,7 @@
 enum class CheckboxState {
 	NORMAL,
 	HOVERED,
+	HOVEREDACTIVE,
 	ONPRESS,
 	ACTIVE
 };

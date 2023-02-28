@@ -15,53 +15,45 @@ void ComponentUICheckbox::InputUpdate()
 {
 	// Add here any checks necessary with INPUT.
 
-	/*if (IsMouseOver()) {
-		isFocused = true;
-		if (ModuleInput::S_GetMouseButton(1) == KEY_DOWN )
-		{
-			State = ButtonState::ONPRESS;
-		}
-	}
-	if (!IsMouseOver())
-		isFocused = false;
-	
+	// PROBLEMA A SOLUCIONAR: NO PODEM TENIR ACTIVE I HOVERED AL MATEI TEMPS (EN PROCES DE PENSAR UNA SOLUCIÓ) 
 
-
-	if (isFocused == true && ModuleInput::S_GetMouseButton(1) == KEY_DOWN)
-	{
-		switch (State)
-		{
-		case ButtonState::NORMAL:
-			break;
-		case ButtonState::ONPRESS:
-			_gameObject->transform->SetPosition(float3{ 0,0,0 });
-			break;
-		default:
-			break;
-		}
-	}
-	else
-	{
-		_gameObject->transform->SetPosition(float3{ 0,1,0 });
-	}*/
 
 	if (IsMouseOver()) {
-		isFocused = true;
-		if (ModuleInput::S_GetMouseButton(1) == KEY_DOWN)
+		if (ModuleInput::S_GetMouseButton(1) != KEY_DOWN)
+		{
+			State = CheckboxState::HOVERED;
+		}
+
+		if (ModuleInput::S_GetMouseButton(1) == KEY_UP)
 		{
 			State = CheckboxState::ONPRESS;
 		}
 	}
 
+	if (State == CheckboxState::ONPRESS)
+	{
+		if (State != CheckboxState::ACTIVE)
+			State = CheckboxState::ACTIVE;
+
+		else
+			State = CheckboxState::NORMAL;
+	}
 
 	switch (State)
 	{
 	case CheckboxState::NORMAL:
-		Console::S_Log("Im in Normal Mode");
+		Console::S_Log("Im in Disble");
 		//LOG("Im in Normal Mode");
+		break;
+	case CheckboxState::HOVERED:
+		Console::S_Log("Im Hovered");
 		break;
 	case CheckboxState::ONPRESS:
 		Console::S_Log("Im get Presed");
+		//LOG("Im get Presed");
+		break;
+	case CheckboxState::ACTIVE:
+		Console::S_Log("Im Active");
 		//LOG("Im get Presed");
 		break;
 	default:
@@ -69,9 +61,6 @@ void ComponentUICheckbox::InputUpdate()
 	}
 
 	if (!IsMouseOver())
-		isFocused = false;
-
-	else if (ModuleInput::S_GetMouseButton(1) == KEY_UP)
 	{
 		State = CheckboxState::NORMAL;
 	}
