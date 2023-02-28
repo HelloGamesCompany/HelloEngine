@@ -9,5 +9,8 @@ class ComponentUIImage : public ComponentUI
 	~ComponentUIImage();
 
 	void InputUpdate() override;
+
+	void Serialization(json& j) override;
+	void DeSerialization(json& j) override;
 };
 
