@@ -222,9 +222,6 @@ void ImWindowConfiguration::Update()
 
 		if(ImGui::CollapsingHeader("Render", ImGuiTreeNodeFlags_DefaultOpen))
 		{
-			// iter.first = config name,
-			// iter.second.first = conifg value,
-			// iter.second.second = config openGL tag
 			for (auto& iter : renderConfigs)
 			{
 				ImGui::Checkbox(iter.first.c_str(), &iter.second.first);
