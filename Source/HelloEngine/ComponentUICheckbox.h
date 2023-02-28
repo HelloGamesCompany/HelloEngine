@@ -17,6 +17,9 @@ class ComponentUICheckbox : public ComponentUI
 	~ComponentUICheckbox();
 
 	void InputUpdate() override;
+	void Serialization(json& j) override;
+	void DeSerialization(json& j) override;
+
 	CheckboxState State;
 private:
 	bool isFocused = false;

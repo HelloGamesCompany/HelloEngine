@@ -6,6 +6,7 @@
 ComponentUIButton::ComponentUIButton(GameObject* gameObject) : ComponentUI(gameObject)
 {
 	State = ButtonState::NORMAL;
+	_type = Component::Type::UI_BUTTON;
 }
 
 ComponentUIButton::~ComponentUIButton()
@@ -77,10 +78,10 @@ void ComponentUIButton::DeSerialization(json& j)
 	_material->ChangeTexture((ResourceTexture*)ModuleResourceManager::S_LoadResource(j["MaterialResource"]));
 
 	bool enabled = j["Enabled"];
-	State = j["State"];
 	if (!enabled)
 		Disable();
 
 	_gameObject->transform->ForceUpdate();
 
+	State = j["State"];
 }

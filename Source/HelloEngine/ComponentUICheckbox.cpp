@@ -1,6 +1,7 @@
 #include "Headers.h"
 #include "ComponentUICheckbox.h"
 #include "GameObject.h"
+#include "MaterialComponent.h"
 
 ComponentUICheckbox::ComponentUICheckbox(GameObject* gameObject) : ComponentUI(gameObject)
 {
@@ -64,4 +65,28 @@ void ComponentUICheckbox::InputUpdate()
 	{
 		State = CheckboxState::NORMAL;
 	}
+}
+
+void ComponentUICheckbox::Serialization(json& j)
+{
+	json _j;
+
+	_j["Type"] = _type;
+	_j["MaterialResource"] = _material->GetResourceUID();
+	_j["Enabled"] = _isEnabled;
+	_j["State"] = State;
+	j["Components"].push_back(_j);
+}
+
+void ComponentUICheckbox::DeSerialization(json& j)
+{
+	_material->ChangeTexture((ResourceTexture*)ModuleResourceManager::S_LoadResource(j["MaterialResource"]));
+
+	bool enabled = j["Enabled"];
+	if (!enabled)
+		Disable();
+
+	_gameObject->transform->ForceUpdate();
+
+	State = j["State"];
 }

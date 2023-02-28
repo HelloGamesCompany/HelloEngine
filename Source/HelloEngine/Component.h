@@ -17,6 +17,10 @@ public:
 		CAMERA,
 		SCRIPT,
 		UI,
+		UI_BUTTON,
+		UI_SLIDER,
+		UI_CHECKBOX,
+		UI_IMAGE,
 		MAX
 	};
 

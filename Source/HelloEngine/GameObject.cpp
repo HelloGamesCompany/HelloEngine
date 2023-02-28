@@ -10,6 +10,9 @@
 #include "ScriptComponent.h"
 #include "ComponentUI.h"
 #include "ComponentUIButton.h"
+#include "ComponentUISlider.h"
+#include "ComponentUICheckbox.h"
+#include "ComponentUIImage.h"
 
 GameObject::GameObject(GameObject* parent, std::string name, std::string tag, uint ID) : name(name), tag(tag)
 {
@@ -312,6 +315,23 @@ Component* GameObject::AddComponentOfType(Component::Type type)
 	case Component::Type::UI:
 		newComponent = new ComponentUI(this);
 		_components.push_back(newComponent);
+		break;
+	case Component::Type::UI_BUTTON:
+		newComponent = new ComponentUIButton(this);
+		_components.push_back(newComponent);
+		break;
+	case Component::Type::UI_SLIDER:
+		newComponent = new ComponentUISlider(this);
+		_components.push_back(newComponent);
+		break;
+	case Component::Type::UI_CHECKBOX:
+		newComponent = new ComponentUICheckbox(this);
+		_components.push_back(newComponent);
+		break;
+	case Component::Type::UI_IMAGE:
+		newComponent = new ComponentUIImage(this);
+		_components.push_back(newComponent);
+		break;
 	}
 
 	return newComponent;
