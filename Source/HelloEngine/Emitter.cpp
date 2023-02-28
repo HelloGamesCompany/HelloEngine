@@ -39,9 +39,12 @@ void Emitter::EmitParticles(ParticleProperties& particleProps)
 	//text = particleProps.texture;
 	// Velocity
 	particle.speed = particleProps.speed;
-	particle.speed.x += particleProps.acceleration.x * (random.Float() - 0.5f);
-	particle.speed.y += particleProps.acceleration.y * (random.Float() - 0.5f);
-	particle.speed.z += particleProps.acceleration.z * (random.Float() - 0.5f);
+	particle.speed.x += particleProps.speedVariation.x * (random.Float() - 0.5f);
+	particle.speed.y += particleProps.speedVariation.y * (random.Float() - 0.5f);
+	particle.speed.z += particleProps.speedVariation.z * (random.Float() - 0.5f);
+
+	// Acceleration
+	particle.acceleration = particleProps.acceleration;
 
 	// Color
 	particle.startColor = particleProps.startColor;
@@ -50,10 +53,8 @@ void Emitter::EmitParticles(ParticleProperties& particleProps)
 	particle.Lifetime = particleProps.Lifetime;
 	particle.remainingLifetime = particleProps.Lifetime;
 
-	//ListIndex = --ListIndex % ParticleList.size();
-
 	currentparticle--;
-	
+
 }
 
 void Emitter::Draw(Shader* shader, Quat BBrot)
@@ -62,6 +63,31 @@ void Emitter::Draw(Shader* shader, Quat BBrot)
 
 void Emitter::UpdateParticles()
 {
+	for (int i = 0; i < ParticleList.size(); i++)
+	{
+		if (!ParticleList[i].Active)
+			continue;
+
+		if (ParticleList[i].remainingLifetime <= 0.0f)
+		{
+			ParticleList[i].Active = false;
+			continue;
+		}
+
+		//Compute all the calculus needed to move the particles
+
+		//Remaining life minus dt
+		ParticleList[i].remainingLifetime -= EngineTime::GameDeltaTime();
+
+		if (ParticleList[i].remainingLifetime > 0.0f)
+		{
+			// velocity = acceleration * dt
+			ParticleList[i].speed += ParticleList[i].acceleration * EngineTime::GameDeltaTime();
+
+			// pos += velocity * dt
+			ParticleList[i].position += ParticleList[i].speed * EngineTime::GameDeltaTime();
+		}
+	}
 }
 
 

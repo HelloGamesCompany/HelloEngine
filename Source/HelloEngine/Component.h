@@ -17,6 +17,7 @@ public:
 		CAMERA,
 		SCRIPT,
 		UI,
+		PARTICLE_SYSTEM,
 		MAX
 	};
 

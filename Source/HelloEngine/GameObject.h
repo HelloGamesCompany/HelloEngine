@@ -2,7 +2,7 @@
 #include "Component.h"
 #include "TransformComponent.h"
 
-#define COMPONENT_NUM 5
+#define COMPONENT_NUM 6
 
 class GameObject
 {

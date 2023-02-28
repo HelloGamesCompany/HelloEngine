@@ -9,6 +9,7 @@
 #include "ImGuizmo/ImGuizmo.h"
 #include "ScriptComponent.h"
 #include "ComponentUI.h"
+#include "ParticleSystemComponent.h"
 
 GameObject::GameObject(GameObject* parent, std::string name, std::string tag, uint ID) : name(name), tag(tag)
 {
@@ -155,6 +156,11 @@ void GameObject::OnEditor()
 				case 4:
 					if (!HasComponent<ComponentUI>())
 						AddComponent<ComponentUI>();
+					break;
+				case 5:
+					if (!HasComponent<ParticleSystemComponent>())
+						AddComponent<ParticleSystemComponent>();
+					break;
 				}
 			}
 		}
@@ -311,6 +317,11 @@ Component* GameObject::AddComponentOfType(Component::Type type)
 	case Component::Type::UI:
 		newComponent = new ComponentUI(this);
 		_components.push_back(newComponent);
+		break;
+	case Component::Type::PARTICLE_SYSTEM:
+		newComponent = new ParticleSystemComponent(this);
+		_components.push_back(newComponent);
+		break;
 	}
 
 	return newComponent;
@@ -339,6 +350,10 @@ Component* GameObject::AddComponentOfType(Component::Type type, const Component&
 		break;
 	case Component::Type::SCRIPT:
 		newComponent = new ScriptComponent(this);
+		_components.push_back(newComponent);
+		break;
+	case Component::Type::PARTICLE_SYSTEM:
+		newComponent = new ParticleSystemComponent(this);
 		_components.push_back(newComponent);
 		break;
 	}
