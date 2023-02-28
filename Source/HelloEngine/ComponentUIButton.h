@@ -16,6 +16,9 @@ class ComponentUIButton : public ComponentUI
 	~ComponentUIButton();
 
 	void InputUpdate() override;
+	void Serialization(json& j) override;
+	void DeSerialization(json& j) override;
+
 	ButtonState State;
 private:
 	bool isFocused = false;

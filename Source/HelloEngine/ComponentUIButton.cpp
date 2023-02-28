@@ -1,6 +1,7 @@
 #include "Headers.h"
 #include "ComponentUIButton.h"
 #include "GameObject.h"
+#include "MaterialComponent.h"
 
 ComponentUIButton::ComponentUIButton(GameObject* gameObject) : ComponentUI(gameObject)
 {
@@ -58,4 +59,28 @@ void ComponentUIButton::InputUpdate()
 	{
 		State = ButtonState::NORMAL;
 	}
+}
+
+void ComponentUIButton::Serialization(json& j)
+{
+	json _j;
+
+	_j["Type"] = _type;
+	_j["MaterialResource"] = _material->GetResourceUID();
+	_j["Enabled"] = _isEnabled;
+	_j["State"] = State;
+	j["Components"].push_back(_j);
+}
+
+void ComponentUIButton::DeSerialization(json& j)
+{
+	_material->ChangeTexture((ResourceTexture*)ModuleResourceManager::S_LoadResource(j["MaterialResource"]));
+
+	bool enabled = j["Enabled"];
+	State = j["State"];
+	if (!enabled)
+		Disable();
+
+	_gameObject->transform->ForceUpdate();
+
 }
