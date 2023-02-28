@@ -6,6 +6,7 @@
 ComponentUICheckbox::ComponentUICheckbox(GameObject* gameObject) : ComponentUI(gameObject)
 {
 	State = CheckboxState::NORMAL;
+	_type = Component::Type::UI_CHECKBOX;
 }
 
 ComponentUICheckbox::~ComponentUICheckbox()

@@ -5,7 +5,7 @@
 
 ComponentUIImage::ComponentUIImage(GameObject* gameObject) : ComponentUI(gameObject)
 {
-
+	_type = Component::Type::UI_IMAGE;
 }
 
 ComponentUIImage::~ComponentUIImage()
