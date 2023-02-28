@@ -3,9 +3,9 @@
 
 enum class CheckboxState {
 	NORMAL,
+	HOVERED,
 	ONPRESS,
-	ONHOLD,
-	ONUNHOLD
+	ACTIVE
 };
 
 class ComponentUICheckbox : public ComponentUI

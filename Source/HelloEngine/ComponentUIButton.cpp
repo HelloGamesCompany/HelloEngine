@@ -15,41 +15,20 @@ void ComponentUIButton::InputUpdate()
 {
 	// Add here any checks necessary with INPUT.
 
-	/*if (IsMouseOver()) {
-		isFocused = true;
-		if (ModuleInput::S_GetMouseButton(1) == KEY_DOWN )
-		{
-			State = ButtonState::ONPRESS;
-		}
-	}
-	if (!IsMouseOver())
-		isFocused = false;
-	
-
-
-	if (isFocused == true && ModuleInput::S_GetMouseButton(1) == KEY_DOWN)
-	{
-		switch (State)
-		{
-		case ButtonState::NORMAL:
-			break;
-		case ButtonState::ONPRESS:
-			_gameObject->transform->SetPosition(float3{ 0,0,0 });
-			break;
-		default:
-			break;
-		}
-	}
-	else
-	{
-		_gameObject->transform->SetPosition(float3{ 0,1,0 });
-	}*/
-
 	if (IsMouseOver()) {
-		isFocused = true;
-		if (ModuleInput::S_GetMouseButton(1) == KEY_DOWN)
+		if (State != ButtonState::ONHOLD)
+		{
+			State = ButtonState::HOVERED;
+		}
+
+		if (ModuleInput::S_GetMouseButton(1) == KEY_UP)
 		{
 			State = ButtonState::ONPRESS;
+		}
+
+		if (ModuleInput::S_GetMouseButton(1) == KEY_REPEAT)
+		{
+			State = ButtonState::ONHOLD;
 		}
 	}
 
@@ -60,8 +39,15 @@ void ComponentUIButton::InputUpdate()
 		Console::S_Log("Im in Normal Mode");
 		//LOG("Im in Normal Mode");
 		break;
+	case ButtonState::HOVERED:
+		Console::S_Log("Im Hovered");
+		break;
 	case ButtonState::ONPRESS:
 		Console::S_Log("Im get Presed");
+		//LOG("Im get Presed");
+		break;
+	case ButtonState::ONHOLD:
+		Console::S_Log("Im Holded");
 		//LOG("Im get Presed");
 		break;
 	default:
@@ -69,9 +55,6 @@ void ComponentUIButton::InputUpdate()
 	}
 
 	if (!IsMouseOver())
-		isFocused = false;
-
-	else if (ModuleInput::S_GetMouseButton(1) == KEY_UP)
 	{
 		State = ButtonState::NORMAL;
 	}
