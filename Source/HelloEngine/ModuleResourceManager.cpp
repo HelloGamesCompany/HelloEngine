@@ -164,9 +164,10 @@ void ModuleResourceManager::S_ReImportFile(const std::string& filePath, Resource
     break;
     // RUBENAYORA
     /*case prefab:
+    * uint filePrefabUID = S_GetPrefabUID(filePath);
     * for each gameobject in ModuleLayers::gameobjects
     * {
-    * if (gameObject->_prefabUID == S_GetPrefabUID(filePath) && gameObject->_updatePrefab)
+    * if (gameObject->_prefabUID == filePrefabUID && gameObject->_updatePrefab)
     * {
     * destroy actual gameobject and load the prefab
     * }
