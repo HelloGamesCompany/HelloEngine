@@ -10,13 +10,17 @@ enum class SliderState {
 
 class ComponentUISlider : public ComponentUI
 {
-	public:
-
+public:
 	ComponentUISlider(GameObject* gameObject);
 	~ComponentUISlider();
 
 	void InputUpdate() override;
+
 	SliderState State;
+
+	float widthSlider;
+	float heightSlider;
+
 private:
 	bool isFocused = false;
 };

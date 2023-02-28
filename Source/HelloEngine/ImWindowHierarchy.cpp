@@ -225,6 +225,23 @@ void ImWindowHierarchy::DrawOptions()
                 }
             }
         }
+        else
+        {
+            if (ImGui::Selectable("Create empty GameObject"))
+            {
+                GameObject* parent = LayerEditor::selectedGameObject ? LayerEditor::selectedGameObject : ModuleLayers::rootGameObject;
+                GameObject* newGameObject = new GameObject(parent, "Empty");
+            }
+
+            for (int i = 0; i < 5; i++)
+            {
+                if (ImGui::Selectable(shapeNames[i].c_str()))
+                {
+                    selectedShape = i;
+                    _app->renderer3D->renderManager.CreatePrimitive(LayerEditor::selectedGameObject, (PrimitiveType)i);
+                }
+            }
+        }
     }
     else
     {    

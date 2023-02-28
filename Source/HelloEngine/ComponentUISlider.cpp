@@ -5,6 +5,8 @@
 ComponentUISlider::ComponentUISlider(GameObject* gameObject) : ComponentUI(gameObject)
 {
 	State = SliderState::NORMAL;
+	widthSlider = 0.7f;
+	heightSlider = 0.3f;
 }
 
 ComponentUISlider::~ComponentUISlider()
