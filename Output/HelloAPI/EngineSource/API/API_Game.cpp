@@ -20,7 +20,7 @@ API::API_GameObject API::Game::CreateGameObject(const char* name, const char* ta
 			newGameObject = new GameObject(newParent, name, tag);
 		else
 		{
-			Engine::Console::S_Log("Tried to create a new GameObject with a null parent using Game::CreateGameObject. Parent ignored.");
+			Engine::Console::S_Log("Tried to create a new GameObject with a null parent using Game::CreateGameObject. Parent ignored.", LogType::WARNING);
 			newGameObject = new GameObject(ModuleLayers::rootGameObject, name, tag);
 		}
 	}
