@@ -18,7 +18,6 @@ GameObject::GameObject(GameObject* parent, std::string name, std::string tag, ui
         parent->AddChild(this);
 
     _prefabUID = 0;
-    _updatePrefab = true;
 }
 
 GameObject::GameObject(GameObject* parent, std::string& name, std::string& tag, uint ID) : name(name), tag(tag)
@@ -29,7 +28,6 @@ GameObject::GameObject(GameObject* parent, std::string& name, std::string& tag, 
         parent->AddChild(this);
 
     _prefabUID = 0;
-    _updatePrefab = true;
 }
 
 GameObject::~GameObject()
@@ -173,9 +171,14 @@ void GameObject::OnEditor()
     // Ruben Ayora
     if (_prefabUID != 0)
     {
+        ImGui::Text(std::to_string(_prefabUID).c_str());
         if (ImGui::Button("Override prefab"))
         {
             // Find prefab(asset) with _prefabUID and override it
+        }
+        if (ImGui::Button("Revert prefab"))
+        {
+            // Find prefab(asset) with _prefabUID and override this one with it
         }
     }
 }
