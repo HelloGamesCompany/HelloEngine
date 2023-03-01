@@ -34,6 +34,7 @@ void ComponentUICheckbox::InputUpdate()
 
 	if (State == CheckboxState::ONPRESS)
 	{
+
 		if (State != CheckboxState::ACTIVE)
 			State = CheckboxState::ACTIVE;
 

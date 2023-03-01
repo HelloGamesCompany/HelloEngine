@@ -21,6 +21,6 @@ class ComponentUIButton : public ComponentUI
 
 	ButtonState State;
 private:
-	bool isFocused = false;
+	double gameTimeCopy = 0;
 };
 

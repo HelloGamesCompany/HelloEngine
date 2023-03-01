@@ -18,22 +18,30 @@ void ComponentUIButton::InputUpdate()
 	// Add here any checks necessary with INPUT.
 
 	if (IsMouseOver()) {
-		if (State != ButtonState::ONHOLD)
+		//esta seleccionat
+		if (State != ButtonState::ONHOLD && ModuleInput::S_GetMouseButton(1) != KEY_REPEAT )
 		{
 			State = ButtonState::HOVERED;
+			gameTimeCopy = EngineTime::GameTimeCount();
 		}
 
+		//ha sigut clicat
 		if (ModuleInput::S_GetMouseButton(1) == KEY_UP)
 		{
 			State = ButtonState::ONPRESS;
 		}
-
+		//esta sent mantenit clickat
 		if (ModuleInput::S_GetMouseButton(1) == KEY_REPEAT)
 		{
-			State = ButtonState::ONHOLD;
+			if (EngineTime::GameTimeCount() >= gameTimeCopy + 0.5)
+			{
+				State = ButtonState::ONHOLD;
+			}
+			LOG("copty time %.f", gameTimeCopy);
 		}
 	}
 
+	
 
 	switch (State)
 	{
