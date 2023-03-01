@@ -4,7 +4,6 @@
 #include "btBulletCollisionCommon.h"
 #include "btBulletDynamicsCommon.h"
 
-
 class Primitive;
 class PhysBody3D;
 
@@ -12,7 +11,7 @@ class ModulePhysics : public Module
 {
 public:
 
-	ModulePhysics(bool start_enabled = true);
+	ModulePhysics();
 
 	virtual ~ModulePhysics();
 
@@ -29,6 +28,7 @@ public:
 	bool CleanUp() override;
 
 	PhysBody3D* CreatePhysBody(const Primitive* primitive, float mass = 1.0f);
+	void RemovePhysBody(PhysBody3D* physBody);
 	//PhysBody3D* CreatePhysBody();
 	//PhysBody3D* CreatePhysBody();
 

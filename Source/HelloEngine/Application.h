@@ -14,6 +14,7 @@ class ModuleXML;
 class ModuleFiles;
 class ModuleCommand;
 class ModuleResourceManager;
+class ModulePhysics;
 
 class Application
 {
@@ -59,6 +60,7 @@ public:
 	ModuleFiles* file = nullptr;
 	ModuleCommand* command = nullptr;
 	ModuleResourceManager* resource = nullptr;
+	ModulePhysics* physic = nullptr;
 	float fps = 1.0f/60.0f;
 	int frameCap = 60;
 	Timer	timer;

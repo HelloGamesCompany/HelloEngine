@@ -1,9 +1,11 @@
 #include "Headers.h"
 #include "ModulePhysics.h"
 #include "Primitive.h"
+#include "LayerGame.h"
 
-ModulePhysics::ModulePhysics(bool start_enabled)
+ModulePhysics::ModulePhysics()
 {
+	//world = new btDiscreteDynamicsWorld(dispatcher, broad_phase, solver, collision_conf);
 }
 
 ModulePhysics::~ModulePhysics()
@@ -22,17 +24,29 @@ bool ModulePhysics::Start()
 
 UpdateStatus ModulePhysics::PreUpdate()
 {
-	return UpdateStatus();
+	//world->stepSimulation(dt, 15);
+
+	if (LayerGame::S_IsPlaying()) 
+{
+		//world->stepSimulation(EngineTime::GameDeltaTime(), 15);
+	}
+	else 
+	{
+		//world->stepSimulation(0);
+	}
+
+	return UpdateStatus::UPDATE_CONTINUE;
 }
 
 UpdateStatus ModulePhysics::Update()
 {
-	return UpdateStatus();
+	//world->updateAabbs();
+	return UpdateStatus::UPDATE_CONTINUE;
 }
 
 UpdateStatus ModulePhysics::PostUpdate()
 {
-	return UpdateStatus();
+	return UpdateStatus::UPDATE_CONTINUE;
 }
 
 bool ModulePhysics::CleanUp()
@@ -47,8 +61,6 @@ PhysBody3D* ModulePhysics::CreatePhysBody(const Primitive* primitive, float mass
 
 	switch (primitive->GetType())
 	{
-	case PrimitiveTypes::Primitive_Plane:
-		break;
 	case PrimitiveTypes::Primitive_Cube: 
 	{
 		PrimCube* cube = (PrimCube*)primitive;
@@ -72,7 +84,7 @@ PhysBody3D* ModulePhysics::CreatePhysBody(const Primitive* primitive, float mass
 	}
 	break;
 	default:
-		break;
+		return nullptr;
 	}
 	//shapes.push_back(colShape);
 
@@ -93,4 +105,9 @@ PhysBody3D* ModulePhysics::CreatePhysBody(const Primitive* primitive, float mass
 	//bodies.push_back(pbody);
 
 	return nullptr;
+}
+
+void ModulePhysics::RemovePhysBody(PhysBody3D* physBody)
+{
+	//world->removeRigidBody(physBody->body);
 }
