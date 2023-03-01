@@ -8,6 +8,16 @@
 class Primitive;
 //class PhysBody3D;
 
+enum class ColliderShape
+{
+	BOX,
+	SPHERE,
+	CYLINDER,
+	Count,
+	NONE,
+
+};
+
 class ModulePhysics : public Module
 {
 public:

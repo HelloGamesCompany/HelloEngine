@@ -16,7 +16,7 @@ public:
 	void GetTransform(float* matrix) const;
 	//float4x4 GetColTransform(float4x4 matrix);
 	void SetTransform(const float* matrix) const;
-	void SetColTransform(float4x4 matrix);
+	//void SetColTransform(float4x4 matrix);
 	void SetPos(float x, float y, float z);
 
 public:
