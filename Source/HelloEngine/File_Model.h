@@ -163,26 +163,23 @@ struct MeshInfo
 		std::string filePath = "Resources/Meshes/" + std::to_string(HelloUUID::GenerateUUID()) + ".hmesh";
 
 		//Bone map to vectors
-		std::vector<std::string> boneMapKeys;
+		std::string fullMapKeyString = "";
 		std::vector<BoneData> boneMapValues;
 		for (std::map<std::string, BoneData>::iterator it = boneDataMap.begin(); it != boneDataMap.end(); ++it) {
-			boneMapKeys.push_back(it->first);
+			//All bone map keys into one long string
+			fullMapKeyString += it->first;
+			fullMapKeyString += "\n";
+
 			boneMapValues.push_back(it->second);
-		}
-		uint stringSize = 0;
-		for (int i = 0; i < boneMapKeys.size(); ++i)
-		{
-			stringSize += sizeof(char) * boneMapKeys[i].size();
 		}
 
 		uint verticesSize = vertices.size() * sizeof(Vertex);
 		uint indicesSize = indices.size() * sizeof(uint);
-		uint boneMapKeysSize = boneMapKeys.size() * sizeof(char);
 		uint boneMapValuesSize = boneMapValues.size() * sizeof(BoneData);
 		
-		uint header[4] = { vertices.size(), indices.size(), stringSize, boneMapValues.size() }; // Num of vertices, num of indices, has or not a texture.
+		uint header[4] = { vertices.size(), indices.size(), fullMapKeyString.size(), boneMapValues.size()};
 
-		uint fileSize = verticesSize + indicesSize + stringSize + boneMapValuesSize; // Vertex + indices + boneMapKeysSize + boneMapKeysValue
+		uint fileSize = verticesSize + indicesSize + fullMapKeyString.size() + boneMapValuesSize; // Vertex + indices + boneMapKeysSize + boneMapKeysValue
 
 		char* fileBuffer = new char[fileSize];
 		char* cursor = fileBuffer;
@@ -201,11 +198,11 @@ struct MeshInfo
 		cursor += verticesSize;
 
 		//Save boneDataMap((
-		if (stringSize != 0)
+		if (fullMapKeyString.size() != 0)
 		{
 			//Save Keys of boneDataMap
-			memcpy(cursor, &boneMapKeys[0], stringSize);
-			cursor += stringSize;
+			memcpy(cursor, &fullMapKeyString[0], fullMapKeyString.size());
+			cursor += fullMapKeyString.size();
 
 			//Save Values of boneDataMap
 			memcpy(cursor, &boneMapValues[0], boneMapValuesSize);
@@ -244,18 +241,28 @@ struct MeshInfo
 		memcpy(&vertices[0], cursor, verticesSize);
 		cursor += verticesSize;
 
-		uint boneMapKeysSize = header[2] * sizeof(std::string);
+		uint boneMapKeysSize = header[2] * sizeof(char);
 		if (boneMapKeysSize != 0)
 		{
-			boneMapKeys.resize(header[2]);
-			memcpy(&boneMapKeys[0], cursor, boneMapKeysSize);
+			std::string fullMapKeyString;
+			fullMapKeyString.resize(header[2]);
+			memcpy(&fullMapKeyString[0], cursor, boneMapKeysSize);
 			cursor += boneMapKeysSize;
+
+			//fullMapKeyString into boneMapKeys (Vector)
+			std::stringstream ss(fullMapKeyString);
+			std::string tmp;
+			while (std::getline(ss, tmp, '\n')) {
+				boneMapKeys.emplace_back(tmp);
+			}
+
 
 			uint boneMapValuesSize = header[3] * sizeof(BoneData);
 			boneMapValues.resize(header[3]);
 			memcpy(&boneMapValues[0], cursor, boneMapValuesSize);
 			cursor += boneMapValuesSize;
 		
+
 			//BoneMap vectors to map.
 			for (int i = 0; i < boneMapKeys.size(); ++i)
 			{
