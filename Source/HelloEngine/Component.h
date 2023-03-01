@@ -17,6 +17,7 @@ public:
 		CAMERA,
 		SCRIPT,
 		UI,
+		PHYSICS,
 		MAX
 	};
 
