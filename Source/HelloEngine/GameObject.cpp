@@ -176,6 +176,8 @@ void GameObject::OnEditor()
         if (ImGui::Button("Override prefab"))
         {
             // Find prefab(asset) with _prefabUID and override it
+            ResourcePrefab* aux = (ResourcePrefab*)ModuleResourceManager::resources[_prefabUID];
+            ModuleResourceManager::S_OverridePrefab(this, aux->path, _prefabUID);
         }
         if (ImGui::Button("Revert prefab"))
         {
