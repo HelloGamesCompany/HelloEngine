@@ -26,6 +26,9 @@ public:
 private:
 
 	bool InitSoundEngine();
+	void TerminateSoundEngine();
+
+	void ProcessAudio();
 
 
 	//// We're using the default Low-Level I/O implementation that's part

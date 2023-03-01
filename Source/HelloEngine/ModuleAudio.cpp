@@ -5,12 +5,12 @@
 #include "AK/SoundEngine/Common/AkModule.h" // Default memory manager
 #include "AK/SoundEngine/Common/IAkStreamMgr.h" // Streaming Manager
 #include "AK/Tools/Common/AkPlatformFuncs.h" // Thread defines
-//#include <AK/SoundEngine/Common/AkSoundEngine.h> // Sound Engine
-//#include <AK/MusicEngine/Common/AkMusicEngine.h> // Music Engine
-//#include <AK/SpatialAudio/Common/AkSpatialAudio.h> // Spatial Audio
+#include "AK/SoundEngine/Common/AkSoundEngine.h" // Sound Engine
+#include "AK/MusicEngine/Common/AkMusicEngine.h" // Music Engine
+#include "AK/SpatialAudio/Common/AkSpatialAudio.h" // Spatial Audio
 //// Include for communication between Wwise and the game -- Not needed in the release version
 //#ifndef AK_OPTIMIZED
-//#include <AK/Comm/AkCommunication.h>
+//#include "AK/Comm/AkCommunication.h"
 //#endif // AK_OPTIMIZED
 
 
@@ -20,6 +20,7 @@ ModuleAudio::ModuleAudio(bool start_enabled)
 
 ModuleAudio::~ModuleAudio()
 {
+    TerminateSoundEngine();
 }
 
 bool ModuleAudio::Init()
@@ -64,65 +65,65 @@ bool ModuleAudio::InitSoundEngine()
         return false;
     }
 
-    //AkStreamMgrSettings stmSettings;
-    //AK::StreamMgr::GetDefaultSettings(stmSettings);
+    AkStreamMgrSettings stmSettings;
+    AK::StreamMgr::GetDefaultSettings(stmSettings);
 
-    //// Customize the Stream Manager settings here.
-    //if (!AK::StreamMgr::Create(stmSettings))
-    //{
-    //    Console::S_Log("Could not create the Streaming Manager");
-    //    return false;
-    //}
-    //
-    //AkDeviceSettings deviceSettings;
-    //AK::StreamMgr::GetDefaultDeviceSettings(deviceSettings);
+    // Customize the Stream Manager settings here.
+    if (!AK::StreamMgr::Create(stmSettings))
+    {
+        Console::S_Log("Could not create the Streaming Manager");
+        return false;
+    }
+    
+    AkDeviceSettings deviceSettings;
+    AK::StreamMgr::GetDefaultDeviceSettings(deviceSettings);
 
-    //// Customize the streaming device settings here.
-    //// CAkFilePackageLowLevelIOBlocking::Init() creates a streaming device
-    //// in the Stream Manager, and registers itself as the File Location Resolver.
+    // Customize the streaming device settings here.
+    // CAkFilePackageLowLevelIOBlocking::Init() creates a streaming device
+    // in the Stream Manager, and registers itself as the File Location Resolver.
 
-    //if (g_lowLevelIO.Init(deviceSettings) != AK_Success)
-    //{
-    //    Console::S_Log("Could not create the streaming device and Low-Level I/O system");
-    //    return false;
-    //}
+    if (g_lowLevelIO.Init(deviceSettings) != AK_Success)
+    {
+        Console::S_Log("Could not create the streaming device and Low-Level I/O system");
+        return false;
+    }
 
-    //// Create the Sound Engine
-    //// Using default initialization parameters
-
-    //AkInitSettings initSettings;
-    //AkPlatformInitSettings platformInitSettings;
-    //AK::SoundEngine::GetDefaultInitSettings(initSettings);
-    //AK::SoundEngine::GetDefaultPlatformInitSettings(platformInitSettings);
-
-    //if (AK::SoundEngine::Init(&initSettings, &platformInitSettings) != AK_Success)
-    //{
-    //    Console::S_Log("Could not initialize the Sound Engine.");
-    //    return false;
-    //}
-
-    //// Initialize the music engine
-    //// Using default initialization parameters
-
-    //AkMusicSettings musicInit;
-    //AK::MusicEngine::GetDefaultInitSettings(musicInit);
-
-    //if (AK::MusicEngine::Init(&musicInit) != AK_Success)
-    //{
-    //    Console::S_Log("Could not initialize the Music Engine.");
-    //    return false;
-    //}
-
-    // Initialize Spatial Audio
+    // Create the Sound Engine
     // Using default initialization parameters
 
-    //AkSpatialAudioInitSettings settings; // The constructor fills AkSpatialAudioInitSettings with the recommended default settings. 
+    AkInitSettings initSettings;
+    AkPlatformInitSettings platformInitSettings;
+    AK::SoundEngine::GetDefaultInitSettings(initSettings);
+    AK::SoundEngine::GetDefaultPlatformInitSettings(platformInitSettings);
 
-    //if (AK::SpatialAudio::Init(settings) != AK_Success)
-    //{
-    //    Console::S_Log("Could not initialize the Spatial Audio.");
-    //    return false;
-    //}
+    if (AK::SoundEngine::Init(&initSettings, &platformInitSettings) != AK_Success)
+    {
+        Console::S_Log("Could not initialize the Sound Engine.");
+        return false;
+    }
+
+    // Initialize the music engine
+    // Using default initialization parameters
+
+    AkMusicSettings musicInit;
+    AK::MusicEngine::GetDefaultInitSettings(musicInit);
+
+    if (AK::MusicEngine::Init(&musicInit) != AK_Success)
+    {
+        Console::S_Log("Could not initialize the Music Engine.");
+        return false;
+    }
+
+    //Initialize Spatial Audio
+    //Using default initialization parameters
+
+    AkSpatialAudioInitSettings settings; // The constructor fills AkSpatialAudioInitSettings with the recommended default settings. 
+
+    if (AK::SpatialAudio::Init(settings) != AK_Success)
+    {
+        Console::S_Log("Could not initialize the Spatial Audio.");
+        return false;
+    }
 
 //#ifndef AK_OPTIMIZED
 //
@@ -137,4 +138,30 @@ bool ModuleAudio::InitSoundEngine()
 //#endif // AK_OPTIMIZEDs
 
     return true;
+}
+
+void ModuleAudio::TerminateSoundEngine()
+{
+#ifndef AK_OPTIMIZED
+    // Terminate Communication Services
+    /*AK::Comm::Term();*/
+#endif // AK_OPTIMIZED
+
+    AK::MusicEngine::Term();
+    AK::SoundEngine::Term();
+
+    g_lowLevelIO.Term();
+
+    if (AK::IAkStreamMgr::Get())
+        AK::IAkStreamMgr::Get()->Destroy();
+
+    AK::MemoryMgr::Term();
+}
+
+void ModuleAudio::ProcessAudio()
+{
+    /*We call AK::SoundEngine::RenderAudio() so the sound engine processes all pending bank load/unload requests, events, position changes, states, switches, RTPCs, etc. 
+    If communications are enabled, they are also processed within RenderAudio().*/
+    AK::SoundEngine::RenderAudio();
+
 }
