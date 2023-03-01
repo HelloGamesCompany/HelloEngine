@@ -1,12 +1,26 @@
 #include "Headers.h"
 #include "ComponentUISlider.h"
 #include "GameObject.h"
+#include "MaterialComponent.h"
 
 ComponentUISlider::ComponentUISlider(GameObject* gameObject) : ComponentUI(gameObject)
 {
 	State = SliderState::NORMAL;
-	widthSlider = 0.7f;
-	heightSlider = 0.3f;
+	float widthSlider = 0.7f;
+	float heightSlider = 0.1f;
+	float buttonSliderPosX= 0.0f;
+
+	float3 buttonSliderPos = {buttonSliderPosX,0,0 };
+
+	if (gameObject->GetTag() == "UIsliderBar")
+	{
+		gameObject->transform->SetScale({widthSlider,heightSlider,0});
+	}
+	if (gameObject->GetTag() == "UIsliderButton")
+	{
+		gameObject->transform->SetScale({ 0.2,0.2,0 });
+	}
+
 }
 
 ComponentUISlider::~ComponentUISlider()
@@ -15,66 +29,63 @@ ComponentUISlider::~ComponentUISlider()
 
 void ComponentUISlider::InputUpdate()
 {
-	// Add here any checks necessary with INPUT.
 
-	/*if (IsMouseOver()) {
-		isFocused = true;
-		if (ModuleInput::S_GetMouseButton(1) == KEY_DOWN )
-		{
-			State = ButtonState::ONPRESS;
+	//_gameObject->transform->SetScale(widthSlider, heightSlider, heightSlider);
+
+	if (_gameObject->GetTag() == "UIsliderButton") {
+
+		if (IsMouseOver()) {
+			isFocused = true;
+			if (ModuleInput::S_GetMouseButton(1) == KEY_DOWN)
+			{
+				State = SliderState::ONPRESS;
+			}
 		}
-	}
-	if (!IsMouseOver())
-		isFocused = false;
-	
 
-
-	if (isFocused == true && ModuleInput::S_GetMouseButton(1) == KEY_DOWN)
-	{
 		switch (State)
 		{
-		case ButtonState::NORMAL:
+		case SliderState::NORMAL:
+			Console::S_Log("Im in Normal Mode");
+			//LOG("Im in Normal Mode");
 			break;
-		case ButtonState::ONPRESS:
-			_gameObject->transform->SetPosition(float3{ 0,0,0 });
+		case SliderState::ONPRESS:
+			Console::S_Log("Im get Presed");
+			_gameObject->transform->SetPosition({(float)ModuleInput::S_GetMouseX(), 0, 0 });
+			//LOG("Im get Presed");
 			break;
 		default:
 			break;
 		}
-	}
-	else
-	{
-		_gameObject->transform->SetPosition(float3{ 0,1,0 });
-	}*/
 
-	if (IsMouseOver()) {
-		isFocused = true;
-		if (ModuleInput::S_GetMouseButton(1) == KEY_DOWN)
+		if (!IsMouseOver())
+			isFocused = false;
+
+		else if (ModuleInput::S_GetMouseButton(1) == KEY_UP)
 		{
-			State = SliderState::ONPRESS;
+			State = SliderState::NORMAL;
 		}
 	}
+}
 
+void ComponentUISlider::Serialization(json& j)
+{
+	json _j;
 
-	switch (State)
-	{
-	case SliderState::NORMAL:
-		Console::S_Log("Im in Normal Mode");
-		//LOG("Im in Normal Mode");
-		break;
-	case SliderState::ONPRESS:
-		Console::S_Log("Im get Presed");
-		//LOG("Im get Presed");
-		break;
-	default:
-		break;
-	}
+	_j["Type"] = _type;
+	_j["MaterialResource"] = _material->GetResourceUID();
+	//_j["widthSlider"] = widthSlider;
+	//_j["heightSlider"] = heightSlider;
+	_j["Enabled"] = _isEnabled;
+	j["Components"].push_back(_j);
+}
 
-	if (!IsMouseOver())
-		isFocused = false;
+void ComponentUISlider::DeSerialization(json& j)
+{
+	_material->ChangeTexture((ResourceTexture*)ModuleResourceManager::S_LoadResource(j["MaterialResource"]));
 
-	else if (ModuleInput::S_GetMouseButton(1) == KEY_UP)
-	{
-		State = SliderState::NORMAL;
-	}
+	bool enabled = j["Enabled"];
+	if (!enabled)
+		Disable();
+
+	_gameObject->transform->ForceUpdate();
 }

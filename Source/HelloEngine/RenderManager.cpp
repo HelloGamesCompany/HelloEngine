@@ -320,7 +320,11 @@ void RenderManager::CreateUI(GameObject* parent, UIType type)
 		case UIType::SLIDER:
 		{
 			GameObject* slider = new GameObject(parent, "Slider", "UI");
-			slider->AddComponent<ComponentUISlider>();
+			GameObject* sliderButton = new GameObject(slider, "SliderButton", "UIsliderButton");
+			GameObject* sliderBar = new GameObject(slider, "SliderBar", "UIsliderBar");
+			//slider->AddComponent<ComponentUISlider>();
+			sliderBar->AddComponent<ComponentUISlider>();
+			sliderButton->AddComponent<ComponentUISlider>();
 			break;
 		}
 		case UIType::CHECKBOX:

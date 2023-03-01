@@ -18,10 +18,12 @@ public:
 
 	SliderState State;
 
-	float widthSlider;
-	float heightSlider;
 
 private:
+
+	void Serialization(json& j) override;
+	void DeSerialization(json& j) override;
+
 	bool isFocused = false;
 };
 
