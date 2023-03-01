@@ -21,6 +21,7 @@ enum class ImWindowID
 	ABOUT,
 	GAME,
 	SCENE,
+	UI,
 	RESOURCES,
 	MAX,
 };

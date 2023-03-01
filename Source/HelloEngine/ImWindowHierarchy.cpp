@@ -214,7 +214,7 @@ void ImWindowHierarchy::DrawOptions()
 
     if (LayerEditor::selectedGameObject != nullptr)
     {
-        if (LayerEditor::selectedGameObject->GetTag() == "UI")
+        if (LayerEditor::selectedGameObject->GetTag() == "UI" || "UIsliderButton" || "UIsliderBar")
         {
             for (int i = 0; i < 4; i++)
             {

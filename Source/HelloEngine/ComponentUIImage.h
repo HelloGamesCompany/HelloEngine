@@ -12,5 +12,12 @@ class ComponentUIImage : public ComponentUI
 
 	void Serialization(json& j) override;
 	void DeSerialization(json& j) override;
+
+private: 
+	float _fillImage;
+#ifdef STANDALONE
+	void OnEditor() override;
+
+#endif // STANDALONE
 };
 

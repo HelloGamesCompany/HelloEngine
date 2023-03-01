@@ -333,6 +333,7 @@
     <ClCompile Include="ImWindowQuickSave.cpp" />
     <ClCompile Include="ImWindowResources.cpp" />
     <ClCompile Include="ImWindowScene.cpp" />
+    <ClCompile Include="ImWindowUI.cpp" />
     <ClCompile Include="ImWrapper.cpp" />
     <ClCompile Include="ImWrapperInputBox.cpp" />
     <ClCompile Include="Layer.cpp" />
@@ -499,6 +500,7 @@
     <ClInclude Include="ImWindowQuickSave.h" />
     <ClInclude Include="ImWindowResources.h" />
     <ClInclude Include="ImWindowScene.h" />
+    <ClInclude Include="ImWindowUI.h" />
     <ClInclude Include="ImWrapper.h" />
     <ClInclude Include="ImWrapperInputBox.h" />
     <ClInclude Include="Layer.h" />

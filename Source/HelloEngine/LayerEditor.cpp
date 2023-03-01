@@ -18,6 +18,7 @@
 #include "ImWindowInspector.h"
 #include "ImWindowQuickSave.h"
 #include "ImWindowScene.h"
+#include "ImWindowUI.h"
 #include "ImWindowGame.h"
 #include "ImWindowPerformanceTest.h"
 #include "ImWindowResources.h"
@@ -115,6 +116,7 @@ void LayerEditor::Start()
 		_imWindows[(uint)ImWindowID::INSPECTOR] = new ImWindowInspector();
 		_imWindows[(uint)ImWindowID::HIERARCHY] = new ImWindowHierarchy();
 		_imWindows[(uint)ImWindowID::SCENE] = new ImWindowScene();
+		_imWindows[(uint)ImWindowID::UI] = new ImWindowUI();
 		_imWindows[(uint)ImWindowID::GAME] = new ImWindowGame();
 		_imWindows[(uint)ImWindowID::PERFORMANCE] = new ImWindowPerformanceTest();
 		_imWindows[(uint)ImWindowID::RESOURCES] = new ImWindowResources();

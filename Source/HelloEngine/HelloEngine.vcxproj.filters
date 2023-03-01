@@ -366,6 +366,9 @@
     <ClCompile Include="ComponentUICheckbox.cpp" />
     <ClCompile Include="ComponentUIImage.cpp" />
     <ClCompile Include="ComponentUISlider.cpp" />
+    <ClCompile Include="ImWindowUI.cpp">
+      <Filter>Modules\Layers\WIndows</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -853,6 +856,9 @@
     <ClInclude Include="ComponentUICheckbox.h" />
     <ClInclude Include="ComponentUIImage.h" />
     <ClInclude Include="ComponentUISlider.h" />
+    <ClInclude Include="ImWindowUI.h">
+      <Filter>Modules\Layers\WIndows</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="External">
