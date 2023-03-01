@@ -30,7 +30,7 @@ public:
 	void DrawGame();
 public:
 	RenderManager renderManager;
-	ParticleManager particleManger;
+	ParticleManager particleManager;
 	SDL_GLContext context;
 	bool isVSync = false;
 

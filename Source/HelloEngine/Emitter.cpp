@@ -1,17 +1,21 @@
 #include "Headers.h"
 #include "Emitter.h"
 #include "ModuleRenderer3D.h"
+#include "InstanceRenderer.h"
 
 Emitter::Emitter()
 {
 	app = Application::Instance();
 	//To-Do: crea pushBack a ParticleManager->EmitterList
-	app->renderer3D->particleManger.EmitterList.emplace_back(this);
+	app->renderer3D->particleManager.EmitterList.emplace_back(this);
+
+	SetParticlePoolSize(1000);
 	
 }
 
 Emitter::~Emitter()
 {
+	app->renderer3D->particleManager.RemoveEmitterInList(this);
 }
 
 void Emitter::SetParticlePoolSize(uint size)
@@ -56,12 +60,17 @@ void Emitter::EmitParticles(ParticleProperties& particleProps)
 	particle.Lifetime = particleProps.Lifetime;
 	particle.remainingLifetime = particleProps.Lifetime;
 
+	particle.SetTransformMatrix();
+
 	currentparticle--;
 
 }
 
-void Emitter::Draw(Shader* shader, Quat BBrot)
+void Emitter::Draw()
 {
+
+	manager->Draw();
+
 }
 
 void Emitter::UpdateParticles()
@@ -89,7 +98,21 @@ void Emitter::UpdateParticles()
 
 			// pos += velocity * dt
 			ParticleList[i].position += ParticleList[i].speed * EngineTime::GameDeltaTime();
+
+			float life = ParticleList[i].remainingLifetime / ParticleList[i].Lifetime;
+
+			ParticleList[i].scale = Lerp(ParticleList[i].endSize, ParticleList[i].startSize, life);
+
+			ParticleList[i].SetTransformMatrix();
+
+			manager = app->renderer3D->renderManager.GetRenderManager(_meshID);
+			Mesh& meshReference = manager->GetMap()[ParticleList[i]._instanceID];
+
+			meshReference.modelMatrix = ParticleList[i].transformMat;
 		}
+
+		
+
 	}
 }
 

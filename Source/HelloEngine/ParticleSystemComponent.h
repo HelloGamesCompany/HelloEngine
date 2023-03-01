@@ -33,5 +33,8 @@ private:
     Application* app;
     Emitter ParticleEmitter;
     ParticleProperties particleProps;    
+
+
+    friend class ParticleManager;
 };
 

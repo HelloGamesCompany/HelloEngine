@@ -3,6 +3,8 @@
 #include "ModuleRenderer3D.h"
 #include "RenderManager.h"
 #include "ParticleManager.h"
+#include "LayerEditor.h"
+
 
 
 ParticleSystemComponent::ParticleSystemComponent(GameObject* gameObject) : Component(gameObject)
@@ -11,6 +13,20 @@ ParticleSystemComponent::ParticleSystemComponent(GameObject* gameObject) : Compo
 	_resource = nullptr;
 	app = Application::Instance();
 	
+	ParticleEmitter.component = this;
+
+	//Default Particle
+	particleProps.position = _gameObject->transform->GetGlobalPosition();
+	//particleProps.rot = float3::zero;
+	particleProps.startsize = float3::one;
+	particleProps.endsize = float3::zero;
+	particleProps.speed = float3(1.0f, 2.0f, 1.0f);
+	particleProps.acceleration = float3(1.0f, 1.0f, 1.0f);
+	particleProps.speedVariation = float3(2.0f, 3.0f, 2.0f);
+	particleProps.startColor = float4(255.0f, 255.0f, 255.0f, 1.0f); //r g b a
+	particleProps.endColor = float4(0.0f, 0.0f, 0.0f, 0.0f); //r g b a
+
+	particleProps.Lifetime = 10.0f;
 	
 }
 
@@ -38,6 +54,13 @@ void ParticleSystemComponent::CreateEmitterMesh(uint resourceUID)
 		return;
 	}
 
+	ParticleEmitter._meshID = resourceUID;
+
+	for (Particle& var : ParticleEmitter.ParticleList)
+	{
+		var._instanceID = Application::Instance()->renderer3D->renderManager.AddMesh(_resource, MeshRenderType::INSTANCED);
+	}
+
 }
 
 void ParticleSystemComponent::OnEnable()
@@ -56,7 +79,14 @@ void ParticleSystemComponent::DestroyEmitterMesh()
 
 	InstanceRenderer* manager = Application::Instance()->renderer3D->renderManager.GetRenderManager(ParticleEmitter._meshID, false);
 	if (manager != nullptr)
-		//manager->GetMap().erase(_instanceID);
+	{
+
+		for (Particle& var : ParticleEmitter.ParticleList)
+		{
+			manager->GetMap().erase(var._instanceID);
+		}
+		
+	}
 
 	ParticleEmitter._meshID = -1;
 }
@@ -80,10 +110,10 @@ void ParticleSystemComponent::OnEditor()
 				{
 					const uint* drop = (uint*)payload->Data;
 
-					//CreateMesh(*drop);
+					CreateEmitterMesh(*drop);
 
 					std::string popUpmessage = "Loaded Mesh: ";
-					//LayerEditor::S_AddPopUpMessage(popUpmessage);
+					LayerEditor::S_AddPopUpMessage(popUpmessage);
 
 				}
 				ImGui::EndDragDropTarget();

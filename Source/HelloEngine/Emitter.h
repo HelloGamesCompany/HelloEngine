@@ -4,6 +4,9 @@
 
 class Shader;
 class Application;
+class InstanceRenderer;
+class ParticleSystemComponent;
+class ParticleManager;
 
 class Emitter
 {
@@ -13,7 +16,9 @@ public:
 
 	~Emitter();
 
-	void Draw(Shader* shader, Quat BBrot);
+	//void Draw(Shader* shader, Quat BBrot);
+
+	void Draw();
 
 	void InitBuffers();
 
@@ -41,9 +46,14 @@ private:
 
 	LCG random;
 
-	
+	ParticleSystemComponent* component = nullptr;
+
+	InstanceRenderer* manager;
 
 	int currentparticle;
+
+	friend class ParticleSystemComponent;
+	friend class ParticleManager;
 
 };
 

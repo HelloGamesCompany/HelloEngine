@@ -123,7 +123,7 @@ private:
 	uint _ID = 0; // ID =  0 is an invalid ID. First ID is 1.
 
 	// On Editor variables
-	std::string _comboValues[COMPONENT_NUM] = { "Mesh Renderer", "Material", "Camera", "Script", "UITest"};
+	std::string _comboValues[COMPONENT_NUM] = { "Mesh Renderer", "Material", "Camera", "Script", "UITest","Particle System"};
 	bool _isPendingToDelete = false;
 #ifdef STANDALONE
 	std::vector<int> _childrenDeletedIndex;
