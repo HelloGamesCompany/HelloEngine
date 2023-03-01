@@ -200,7 +200,7 @@ public:
     static bool S_DeserializeScene(const std::string& filePath);
 
     // Ruben Ayora
-    static void S_SerializeToPrefab(GameObject* g, const std::string& folderPath);
+    static void S_SerializeToPrefab(GameObject* g, const std::string& folderPath, bool isFilePath = false);
 
     static bool S_DeserializeFromPrefab(const std::string& filePath, GameObject* parent, bool loadingScene = false);
     static void S_DeserializePrefabsScripts(const std::string& filePath, std::vector<std::pair<GameObject*, uint>>& tempPrefab);
@@ -229,7 +229,7 @@ private:
     static void SerializeSceneRecursive(const GameObject* g, json& j);
 
     // Ruben Ayora
-    static uint SerializeToPrefab(const GameObject* g, json& j, uint prefabUID = 0, bool shouldHaveParent = true);
+    static uint SerializeToPrefab(const GameObject* g, json& j, uint prefabUID = 0, uint parentUID = 0);
 
 public:
     static std::map<std::string, Resource*> loadedResources;

@@ -323,18 +323,18 @@ void ModuleResourceManager::S_SerializeScene(GameObject*& g)
 }
 
 // Ruben Ayora
-void ModuleResourceManager::S_SerializeToPrefab(GameObject* g, const std::string& folderPath) // called when dragging a gameobject from scene to project window
+void ModuleResourceManager::S_SerializeToPrefab(GameObject* g, const std::string& folderPath, bool isFilePath)
 {
     if (!g)
         return;
     // Create json
     json j;
     // Write json
-    g->_prefabUID = SerializeToPrefab(g, j, false);
+    g->_prefabUID = SerializeToPrefab(g, j);
 
     std::string buffer = j.dump();
 
-    std::string prefabPath = folderPath + "/" + g->GetName() + ".HPrefab";
+    std::string prefabPath = isFilePath ? folderPath : folderPath + "/" + g->GetName() + ".HPrefab";
 
     ModuleFiles::S_Save(prefabPath, &buffer[0], buffer.size(), false);
 }
@@ -433,6 +433,7 @@ bool ModuleResourceManager::S_DeserializeFromPrefab(const std::string& filePath,
         temp[i].first->SetActive(sceneFile[i]["Active"]);
     }
 
+    S_SerializeToPrefab(temp[0].first, filePath, true);
 
     return true;
 }
@@ -864,15 +865,15 @@ void ModuleResourceManager::SerializeSceneRecursive(const GameObject* g, json& j
     }
 }
 
-uint ModuleResourceManager::SerializeToPrefab(const GameObject* g, json& j, uint prefabUID, bool shouldHaveParent)
+uint ModuleResourceManager::SerializeToPrefab(const GameObject* g, json& j, uint prefabUID, uint parentUID)
 {
     json _j;
     uint _newPrefabUID;
     if (prefabUID == 0) _newPrefabUID = HelloUUID::GenerateUUID();
     else _newPrefabUID = prefabUID;
 
-    _j["ParentUID"] = shouldHaveParent ? g->_parent->_ID : 0;
-    _j["UID"] = g->_ID;
+    _j["ParentUID"] = parentUID;
+    _j["UID"] = HelloUUID::GenerateUUID();
     _j["Name"] = g->name;
     _j["Tag"] = g->tag;
     _j["Active"] = g->_isActive;
@@ -903,7 +904,7 @@ uint ModuleResourceManager::SerializeToPrefab(const GameObject* g, json& j, uint
     {
         // Recursive to serialize children
         if (!g->_children[i]->_isPendingToDelete)
-            SerializeToPrefab(g->_children[i], j, _newPrefabUID);
+            SerializeToPrefab(g->_children[i], j, _newPrefabUID, _j["UID"]);
     }
 
     return _newPrefabUID;
