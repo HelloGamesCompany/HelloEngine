@@ -45,6 +45,9 @@ struct Particle
 	float3 startSize;
 	//End size of the particle
 	float3 endSize;
+
+	//ID of the instance
+	uint _instanceID;
 	
 	bool Active = false;
 	

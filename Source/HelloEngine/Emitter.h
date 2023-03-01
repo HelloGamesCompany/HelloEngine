@@ -23,6 +23,10 @@ public:
 
 	void SetParticlePoolSize(uint size);
 
+public:
+
+	int64_t _meshID = -1;
+
 private:
 
 	float3 position;
@@ -36,6 +40,8 @@ private:
 	GLuint EBO;
 
 	LCG random;
+
+	
 
 	int currentparticle;
 
