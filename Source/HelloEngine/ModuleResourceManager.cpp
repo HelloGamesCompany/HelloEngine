@@ -517,18 +517,18 @@ bool ModuleResourceManager::S_DeserializeScene(const std::string& filePath)
 
         GameObject* g = new GameObject(nullptr, sceneFile[i]["Name"], sceneFile[i]["Tag"], sceneFile[i]["UID"]);
         g->SetPrefabUID(prefabUID);
-        if (prefabUID != 0)
+        /*if (prefabUID != 0)
         {
             loadedPrefabs[prefabUID].push_back(std::make_pair(g, sceneFile[i]["ParentUID"]));
             tempPrefab.push_back(std::make_pair(g, prefabUID));
-        }
+        }*/
         temp.push_back(std::make_pair(g, sceneFile[i]["ParentUID"]));
     }
 
     for (int i = 0; i < temp.size(); i++)
     {
         if (temp[i].second != 0)
-            if (temp[i].first->_prefabUID == 0) temp[i].first->SetParent(ModuleLayers::gameObjects[temp[i].second]);
+            /*if (temp[i].first->_prefabUID == 0)*/ temp[i].first->SetParent(ModuleLayers::gameObjects[temp[i].second]);
     }
 
     for (int i = 0; i < tempPrefab.size(); i++)
@@ -551,7 +551,7 @@ bool ModuleResourceManager::S_DeserializeScene(const std::string& filePath)
             Component::Type componentType = object[j]["Type"];
             if (componentType == Component::Type::SCRIPT || componentType == Component::Type::MATERIAL)
                 continue;
-            if (temp[i].first->_prefabUID == 0) temp[i].first->AddComponentSerialized(componentType, object[j]);
+            /*if (temp[i].first->_prefabUID == 0)*/ temp[i].first->AddComponentSerialized(componentType, object[j]);
         }
     }
 
@@ -564,7 +564,7 @@ bool ModuleResourceManager::S_DeserializeScene(const std::string& filePath)
             Component::Type componentType = object[j]["Type"];
             if (componentType != Component::Type::MATERIAL)
                 continue;
-            if (temp[i].first->_prefabUID == 0) temp[i].first->AddComponentSerialized(componentType, object[j]);
+            /*if (temp[i].first->_prefabUID == 0)*/ temp[i].first->AddComponentSerialized(componentType, object[j]);
         }
     }
 
@@ -577,7 +577,7 @@ bool ModuleResourceManager::S_DeserializeScene(const std::string& filePath)
             Component::Type componentType = object[j]["Type"];
             if (componentType != Component::Type::SCRIPT)
                 continue;
-            if (temp[i].first->_prefabUID == 0) temp[i].first->AddComponentSerialized(componentType, object[j]);
+            /*if (temp[i].first->_prefabUID == 0)*/ temp[i].first->AddComponentSerialized(componentType, object[j]);
         }
     }
 
