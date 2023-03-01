@@ -36,6 +36,10 @@ std::string MeshImporter::ImportModel(std::string path, uint UID)
 
 	modelRootNode.WriteToJSON(modelFilePath);
 
+	if (scene->HasAnimations()) {
+		ProcessAnimation(scene);
+	}
+
 	currentPath = "";
 
 	return modelFilePath;
@@ -250,6 +254,44 @@ std::map<std::string, BoneData> MeshImporter::ProcessBones(std::vector<Vertex>* 
 	}
 
 	return boneDataMap;
+}
+
+void MeshImporter::ProcessAnimation(const aiScene* scene)
+{
+	Animation3d anim;
+
+	//Check ONLY 1 animation
+	aiAnimation* importedAnimation = scene->mAnimations[0];
+	anim.durationTicks = importedAnimation->mDuration;
+	anim.ticksPerSecond = importedAnimation->mTicksPerSecond;
+	
+	//Get all bones info
+	for (int c = 0; c < importedAnimation->mNumChannels; c++)
+	{
+		aiNodeAnim* impBone = importedAnimation->mChannels[c];
+		
+		AnimatedBone bone;
+		bone.name = impBone->mNodeName.C_Str();
+		
+		for (int p = 0; p < impBone->mNumPositionKeys; p++) {
+			aiVector3D pos = impBone->mPositionKeys[p].mValue;
+			bone.positions[impBone->mPositionKeys[p].mTime] = float3(pos.x, pos.y, pos.z);
+		}
+
+		for (int r = 0; r < impBone->mNumRotationKeys; r++) {
+			aiQuaternion impRot = impBone->mRotationKeys[r].mValue;
+			Quat rot = Quat(impRot.x, impRot.y, impRot.z, impRot.w);
+			bone.rotations[impBone->mRotationKeys[r].mTime] = rot.ToEulerXYZ();
+		}
+
+		for (int s = 0; s < impBone->mNumScalingKeys; s++) {
+			aiVector3D sca = impBone->mScalingKeys[s].mValue;
+			bone.scales[impBone->mScalingKeys[s].mTime] = float3(sca.x, sca.y, sca.z);
+		}
+
+		anim.bones.push_back(bone);
+	}
+
 }
 
 void MeshImporter::SetVertexBoneData(Vertex& vertex, int boneId, float weight)
