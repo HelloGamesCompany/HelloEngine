@@ -3,10 +3,10 @@
 #include <vector>
 #include "btBulletCollisionCommon.h"
 #include "btBulletDynamicsCommon.h"
-
+#include "PhysBody3D.h"
 
 class Primitive;
-class PhysBody3D;
+//class PhysBody3D;
 
 class ModulePhysics : public Module
 {
