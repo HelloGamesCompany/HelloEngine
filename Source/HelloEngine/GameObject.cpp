@@ -182,6 +182,10 @@ void GameObject::OnEditor()
         if (ImGui::Button("Revert prefab"))
         {
             // Find prefab(asset) with _prefabUID and override this one with it
+            ResourcePrefab* aux = (ResourcePrefab*)ModuleResourceManager::resources[_prefabUID];
+            GameObject* newGameObject = ModuleResourceManager::S_DeserializeFromPrefab(aux->path, this->_parent);
+            //newGameObject->GetComponent<TransformComponent>()->SetTransform(this->GetComponent<TransformComponent>()->GetGlobalMatrix());
+            Destroy();
         }
         if (ImGui::Button("Unpack from prefab"))
         {

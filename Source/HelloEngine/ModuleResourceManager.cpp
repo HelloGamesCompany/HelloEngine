@@ -354,14 +354,14 @@ void ModuleResourceManager::S_SerializeScene(GameObject*& g, const std::string& 
 }
 
 // Ruben Ayora
-bool ModuleResourceManager::S_DeserializeFromPrefab(const std::string& filePath, GameObject* parent, bool loadingScene)
+GameObject* ModuleResourceManager::S_DeserializeFromPrefab(const std::string& filePath, GameObject* parent, bool loadingScene)
 {
     char* buffer = nullptr;
 
     uint size = ModuleFiles::S_Load(filePath, &buffer);
 
     if (size == 0)
-        return false;
+        return nullptr;
 
     json sceneFile = json::parse(buffer);
     RELEASE(buffer);
@@ -435,7 +435,7 @@ bool ModuleResourceManager::S_DeserializeFromPrefab(const std::string& filePath,
 
     S_OverridePrefab(temp[0].first, filePath, sceneFile[0]["PrefabUID"]);
 
-    return true;
+    return temp[0].first;
 }
 
 void ModuleResourceManager::S_DeserializePrefabsScripts(const std::string& filePath, std::vector<std::pair<GameObject*, uint>>& tempPrefab)
