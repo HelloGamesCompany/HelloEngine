@@ -1,9 +1,12 @@
 #include "Headers.h"
 #include "Emitter.h"
+#include "ModuleRenderer3D.h"
 
 Emitter::Emitter()
 {
-
+	app = Application::Instance();
+	//To-Do: crea pushBack a ParticleManager->EmitterList
+	app->renderer3D->particleManger.EmitterList.emplace_back(this);
 	
 }
 

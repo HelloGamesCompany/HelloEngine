@@ -3,6 +3,7 @@
 #include "Particle.h"
 #include "Emitter.h"
 
+class Application;
 class ParticleSystemComponent : public Component
 {
 public:
@@ -19,6 +20,9 @@ public:
     void Serialization(json& j) override;
     void DeSerialization(json& j) override;
 
+
+private:
+    Application* app;
     Emitter ParticleEmitter;
     ParticleProperties particleProps;    
 };

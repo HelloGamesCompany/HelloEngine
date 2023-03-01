@@ -1,11 +1,14 @@
 #include "Headers.h"
 #include "ParticleSystemComponent.h"
+#include "ModuleRenderer3D.h"
 #include "ParticleManager.h"
+
 
 ParticleSystemComponent::ParticleSystemComponent(GameObject* gameObject) : Component(gameObject)
 {
 	_type = Type::PARTICLE_SYSTEM;
-	//To-Do: crea pushBack a ParticleManager->EmitterList
+	
+	
 }
 
 ParticleSystemComponent::~ParticleSystemComponent()

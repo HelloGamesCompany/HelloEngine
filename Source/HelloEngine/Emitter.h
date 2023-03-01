@@ -3,6 +3,7 @@
 #include "Algorithm/Random/LCG.h"
 
 class Shader;
+class Application;
 
 class Emitter
 {
@@ -27,6 +28,8 @@ private:
 	float3 position;
 
 	std::vector<Particle> ParticleList;
+
+	Application* app;
 
 	GLuint VAO;
 	GLuint VBO;
