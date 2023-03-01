@@ -5,6 +5,8 @@
 #include "Shader.h"
 
 
+#define MAX_BONE_WEIGHTS 4
+
 class MeshRenderComponent;
 class ResourceMesh;
 
@@ -15,6 +17,20 @@ struct Vertex
 	float3 position = { 0,0,0 };
 	float3 normals = { 0,0,0 };
 	float2 texCoords = { 0,0 };
+
+	//Bone indexes that influence this vertex
+	int boneIds[MAX_BONE_WEIGHTS];
+	//Weights from each bone 
+	float weights[MAX_BONE_WEIGHTS];
+};
+
+struct BoneData
+{
+	//The final index in the boneMatrix
+	int id;
+
+	//Offset matrix. Transform model's vertex to bone space.
+	float4x4 offset;
 };
 
 class Mesh

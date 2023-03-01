@@ -114,6 +114,10 @@ std::string MeshImporter::ProcessMesh(aiMesh* mesh, const aiScene* scene, std::s
 	for (unsigned int i = 0; i < mesh->mNumVertices; i++)
 	{
 		Vertex vertex;
+
+		//Sets Bone data to default
+		SetVertexBoneData(vertex);
+
 		vertex.position.x = mesh->mVertices[i].x;
 		vertex.position.y = mesh->mVertices[i].y;
 		vertex.position.z = mesh->mVertices[i].z;
@@ -160,6 +164,10 @@ std::string MeshImporter::ProcessMesh(aiMesh* mesh, const aiScene* scene, std::s
 		}
 	}
 
+	if (mesh->HasBones())
+	{
+		meshInfo.boneDataMap = ProcessBones(&meshInfo.vertices, mesh, scene);
+	}
 
 	meshInfo.hasTexture = 0; // TODO: Determine this with Material importer later on.
 
@@ -187,6 +195,74 @@ uint MeshImporter::ProcessTexture(const std::string& textureName)
 	}
 
 	return 0;
+}
+
+std::map<std::string, BoneData> MeshImporter::ProcessBones(std::vector<Vertex>* vertices, aiMesh* mesh, const aiScene* scene)
+{
+	std::map<std::string, BoneData> boneDataMap;
+
+	int boneCounter = 0;
+	for (int boneIndex = 0; boneIndex < mesh->mNumBones; ++boneIndex)
+	{
+		int boneId = -1;
+		std::string name = mesh->mBones[boneIndex]->mName.C_Str();
+
+		if (boneDataMap.find(name) == boneDataMap.end())
+		{  //Creates a new bone into the map
+			BoneData newBoneData;
+			newBoneData.id = boneCounter;
+
+
+			//Get bone offset matrix
+			aiVector3D translation, scaling;
+			aiQuaternion rotation;
+			mesh->mBones[boneIndex]->mOffsetMatrix.Decompose(scaling, rotation, translation);
+
+			float3 pos(translation.x, translation.y, translation.z);
+			float3 scale(scaling.x, scaling.y, scaling.z);
+			Quat rot(rotation.x, rotation.y, rotation.z, rotation.w);
+
+			float4x4 offsetMat = float4x4::FromTRS(pos, rot, scale);
+			newBoneData.offset = offsetMat;
+
+
+			boneDataMap[name] = newBoneData;
+			boneId = boneCounter;
+			boneCounter++;
+		}
+		else
+		{
+			boneId = boneDataMap[name].id;
+		}
+
+		assert(boneId != -1);
+		auto weights = mesh->mBones[boneIndex]->mWeights;
+		int numWeights = mesh->mBones[boneIndex]->mNumWeights;
+
+		for (int weightIndex = 0; weightIndex < numWeights; ++weightIndex)
+		{
+			int vertexId = weights[weightIndex].mVertexId;
+			float weight = weights[weightIndex].mWeight;
+			assert(vertexId <= vertices->size());
+
+			SetVertexBoneData(vertices->at(vertexId), boneId, weight);
+		}
+	}
+
+	return boneDataMap;
+}
+
+void MeshImporter::SetVertexBoneData(Vertex& vertex, int boneId, float weight)
+{
+	for (int i = 0; i < MAX_BONE_WEIGHTS; ++i)
+	{
+		if (vertex.boneIds[i] < 0)
+		{
+			vertex.boneIds[i] = boneId;
+			vertex.weights[i] = weight;
+			//break;
+		}
+	}
 }
 
 GameObject* MeshImporter::LoadModelIntoResource(ResourceModel* resource)

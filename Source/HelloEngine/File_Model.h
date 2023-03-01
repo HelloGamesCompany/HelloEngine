@@ -146,6 +146,8 @@ struct MeshInfo
 	std::vector<Vertex> vertices;
 	std::vector<uint> indices;
 	uint hasTexture = 0; // For now, this only implies a diffuse texture.
+	std::map<std::string, BoneData> boneDataMap;
+
 
 	void Clear()
 	{
@@ -160,12 +162,27 @@ struct MeshInfo
 	{
 		std::string filePath = "Resources/Meshes/" + std::to_string(HelloUUID::GenerateUUID()) + ".hmesh";
 
-		uint header[3] = { vertices.size(), indices.size(), hasTexture }; // Num of vertices, num of indices, has or not a texture.
+		//Bone map to vectors
+		std::vector<std::string> boneMapKeys;
+		std::vector<BoneData> boneMapValues;
+		for (std::map<std::string, BoneData>::iterator it = boneDataMap.begin(); it != boneDataMap.end(); ++it) {
+			boneMapKeys.push_back(it->first);
+			boneMapValues.push_back(it->second);
+		}
+		uint stringSize = 0;
+		for (int i = 0; i < boneMapKeys.size(); ++i)
+		{
+			stringSize += sizeof(char) * boneMapKeys[i].size();
+		}
 
 		uint verticesSize = vertices.size() * sizeof(Vertex);
 		uint indicesSize = indices.size() * sizeof(uint);
+		uint boneMapKeysSize = boneMapKeys.size() * sizeof(char);
+		uint boneMapValuesSize = boneMapValues.size() * sizeof(BoneData);
+		
+		uint header[4] = { vertices.size(), indices.size(), stringSize, boneMapValues.size() }; // Num of vertices, num of indices, has or not a texture.
 
-		uint fileSize = verticesSize + indicesSize + sizeof(uint); // Vertex + indices + hasTexture.
+		uint fileSize = verticesSize + indicesSize + stringSize + boneMapValuesSize; // Vertex + indices + boneMapKeysSize + boneMapKeysValue
 
 		char* fileBuffer = new char[fileSize];
 		char* cursor = fileBuffer;
@@ -183,6 +200,18 @@ struct MeshInfo
 		memcpy(cursor, &vertices[0], verticesSize);
 		cursor += verticesSize;
 
+		//Save boneDataMap((
+		if (stringSize != 0)
+		{
+			//Save Keys of boneDataMap
+			memcpy(cursor, &boneMapKeys[0], stringSize);
+			cursor += stringSize;
+
+			//Save Values of boneDataMap
+			memcpy(cursor, &boneMapValues[0], boneMapValuesSize);
+			cursor += boneMapValuesSize;
+		}	
+
 		ModuleFiles::S_Save(filePath, fileBuffer, fileSize, false);
 
 		RELEASE(fileBuffer);
@@ -192,13 +221,16 @@ struct MeshInfo
 
 	void LoadFromBinaryFile(const std::string& filePath)
 	{
+		std::vector<std::string> boneMapKeys;
+		std::vector<BoneData> boneMapValues;
+
 		char* buffer = nullptr;
 		uint size = ModuleFiles::S_Load(filePath, &buffer);
 
 		char* cursor = buffer;
 
-		uint header[3];
-		uint headerSize = sizeof(uint) * 3;
+		uint header[4];
+		uint headerSize = sizeof(uint) * 4;
 		memcpy(header, cursor, headerSize);
 		cursor += headerSize;
 
@@ -212,7 +244,24 @@ struct MeshInfo
 		memcpy(&vertices[0], cursor, verticesSize);
 		cursor += verticesSize;
 
-		hasTexture = header[2];
+		uint boneMapKeysSize = header[2] * sizeof(std::string);
+		if (boneMapKeysSize != 0)
+		{
+			boneMapKeys.resize(header[2]);
+			memcpy(&boneMapKeys[0], cursor, boneMapKeysSize);
+			cursor += boneMapKeysSize;
+
+			uint boneMapValuesSize = header[3] * sizeof(BoneData);
+			boneMapValues.resize(header[3]);
+			memcpy(&boneMapValues[0], cursor, boneMapValuesSize);
+			cursor += boneMapValuesSize;
+		
+			//BoneMap vectors to map.
+			for (int i = 0; i < boneMapKeys.size(); ++i)
+			{
+				boneDataMap.emplace(boneMapKeys[i], boneMapValues[i]);
+			}
+		}
 
 		RELEASE(buffer);
 	}
