@@ -202,7 +202,7 @@ public:
     // Ruben Ayora
     static void S_SerializeToPrefab(GameObject* g, const std::string& folderPath);
 
-    static bool S_DeserializeFromPrefab(const std::string& filePath, GameObject* parent, bool lodingScene = false);
+    static bool S_DeserializeFromPrefab(const std::string& filePath, GameObject* parent, bool loadingScene = false);
     static void S_DeserializePrefabsScripts(const std::string& filePath, std::vector<std::pair<GameObject*, uint>>& tempPrefab);
 
     static uint S_GetPrefabUID(const std::string& filePath);

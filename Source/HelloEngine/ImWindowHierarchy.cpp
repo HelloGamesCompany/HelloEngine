@@ -88,6 +88,17 @@ void ImWindowHierarchy::Update()
                 LayerEditor::S_AddPopUpMessage(popUpmessage);
 
             }
+            else if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("Prefab"))
+            {
+                const std::string* drop = (std::string*)payload->Data;
+
+                ModuleResourceManager::S_DeserializeFromPrefab(*drop, ModuleLayers::rootGameObject);
+
+                std::string popUpmessage = "Prefab Loaded: " + *drop;
+
+                LayerEditor::S_AddPopUpMessage(popUpmessage);
+
+            }
             ImGui::EndDragDropTarget();
         }
     }

@@ -354,7 +354,7 @@ void ModuleResourceManager::S_SerializeScene(GameObject*& g, const std::string& 
 }
 
 // Ruben Ayora
-bool ModuleResourceManager::S_DeserializeFromPrefab(const std::string& filePath, GameObject* parent, bool lodingScene)
+bool ModuleResourceManager::S_DeserializeFromPrefab(const std::string& filePath, GameObject* parent, bool loadingScene)
 {
     char* buffer = nullptr;
 
@@ -380,7 +380,7 @@ bool ModuleResourceManager::S_DeserializeFromPrefab(const std::string& filePath,
     {
         if (temp[i].second != 0)
             temp[i].first->SetParent(ModuleLayers::gameObjects[temp[i].second]);
-        else
+        else if (!loadingScene)
             temp[i].first->SetParent(parent);
     }
 
@@ -412,7 +412,7 @@ bool ModuleResourceManager::S_DeserializeFromPrefab(const std::string& filePath,
         }
     }
 
-    if (!lodingScene)
+    if (!loadingScene)
     {
         for (int i = 0; i < sceneFile.size(); i++)
         {
@@ -433,9 +433,6 @@ bool ModuleResourceManager::S_DeserializeFromPrefab(const std::string& filePath,
         temp[i].first->SetActive(sceneFile[i]["Active"]);
     }
 
-    //ModuleLayers::rootGameObject = temp[0].first;
-
-    Application::Instance()->xml->GetConfigXML().FindChildBreadth("currentScene").node.attribute("value").set_value(filePath.c_str());
 
     return true;
 }
@@ -522,19 +519,16 @@ bool ModuleResourceManager::S_DeserializeScene(const std::string& filePath)
         g->SetPrefabUID(prefabUID);
         if (prefabUID != 0)
         {
-            loadedPrefabs[prefabUID].push_back(std::make_pair(g, sceneFile[i]["ParentUID"]));// ERROR
-            tempPrefab.push_back(std::make_pair(g, sceneFile[i]["ParentUID"]));
+            loadedPrefabs[prefabUID].push_back(std::make_pair(g, sceneFile[i]["ParentUID"]));
+            tempPrefab.push_back(std::make_pair(g, prefabUID));
         }
-        else
-        {
-            temp.push_back(std::make_pair(g, sceneFile[i]["ParentUID"]));
-        }
+        temp.push_back(std::make_pair(g, sceneFile[i]["ParentUID"]));
     }
 
     for (int i = 0; i < temp.size(); i++)
     {
         if (temp[i].second != 0)
-            temp[i].first->SetParent(ModuleLayers::gameObjects[temp[i].second]);
+            if (temp[i].first->_prefabUID == 0) temp[i].first->SetParent(ModuleLayers::gameObjects[temp[i].second]);
     }
 
     for (int i = 0; i < tempPrefab.size(); i++)
@@ -557,7 +551,7 @@ bool ModuleResourceManager::S_DeserializeScene(const std::string& filePath)
             Component::Type componentType = object[j]["Type"];
             if (componentType == Component::Type::SCRIPT || componentType == Component::Type::MATERIAL)
                 continue;
-            temp[i].first->AddComponentSerialized(componentType, object[j]);
+            if (temp[i].first->_prefabUID == 0) temp[i].first->AddComponentSerialized(componentType, object[j]);
         }
     }
 
@@ -570,7 +564,7 @@ bool ModuleResourceManager::S_DeserializeScene(const std::string& filePath)
             Component::Type componentType = object[j]["Type"];
             if (componentType != Component::Type::MATERIAL)
                 continue;
-            temp[i].first->AddComponentSerialized(componentType, object[j]);
+            if (temp[i].first->_prefabUID == 0) temp[i].first->AddComponentSerialized(componentType, object[j]);
         }
     }
 
@@ -583,7 +577,7 @@ bool ModuleResourceManager::S_DeserializeScene(const std::string& filePath)
             Component::Type componentType = object[j]["Type"];
             if (componentType != Component::Type::SCRIPT)
                 continue;
-            temp[i].first->AddComponentSerialized(componentType, object[j]);
+            if (temp[i].first->_prefabUID == 0) temp[i].first->AddComponentSerialized(componentType, object[j]);
         }
     }
 
