@@ -51,9 +51,7 @@ void ModuleCamera3D::DrawCameraFrustums()
 
 void ModuleCamera3D::RequestFrameBufferRegen(CameraObject* camera, int width, int height)
 {
-	_frameBufferRegenCamera = camera;
-	_newBufferWidth = width;
-	_newBufferHeight = height;
+	_frameBufferRegenCamera.push_back(std::make_pair(camera, std::make_pair(width, height)));
 }
 
 CameraObject* ModuleCamera3D::CreateGameCamera()
@@ -102,11 +100,15 @@ void ModuleCamera3D::EraseGameCamera(CameraObject* erasedCamera)
 // -----------------------------------------------------------------
 UpdateStatus ModuleCamera3D::Update()
 {
-	if (_frameBufferRegenCamera != nullptr)
+	for (int i = 0; i < _frameBufferRegenCamera.size(); ++i)
 	{
-		_frameBufferRegenCamera->RegenerateFrameBuffer(_newBufferWidth, _newBufferHeight);
-		_frameBufferRegenCamera = nullptr;
+		if (_frameBufferRegenCamera[i].first != nullptr)
+		{
+			_frameBufferRegenCamera[i].first->RegenerateFrameBuffer(_frameBufferRegenCamera[i].second.first, _frameBufferRegenCamera[i].second.second);
+		}
 	}
+	_frameBufferRegenCamera.clear();
+	
 #ifdef STANDALONE
 	if (updateSceneCamera) sceneCamera->UpdateInput();
 #endif // STANDALONE
