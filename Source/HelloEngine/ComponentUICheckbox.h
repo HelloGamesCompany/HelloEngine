@@ -22,6 +22,7 @@ class ComponentUICheckbox : public ComponentUI
 
 	CheckboxState State;
 private:
-	bool isFocused = false;
+	bool checkActive = false;
+
 };
 

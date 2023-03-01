@@ -21,7 +21,7 @@ void ComponentUICheckbox::InputUpdate()
 
 
 	if (IsMouseOver()) {
-		if (ModuleInput::S_GetMouseButton(1) != KEY_DOWN)
+		if (ModuleInput::S_GetMouseButton(1) != KEY_DOWN && State != CheckboxState::HOVEREDACTIVE && State != CheckboxState::ACTIVE)
 		{
 			State = CheckboxState::HOVERED;
 		}
@@ -29,17 +29,25 @@ void ComponentUICheckbox::InputUpdate()
 		if (ModuleInput::S_GetMouseButton(1) == KEY_UP)
 		{
 			State = CheckboxState::ONPRESS;
+			
+			if (checkActive == false)
+			{
+				checkActive = true;
+			}
+
+			else if (checkActive == true)
+			{
+				checkActive = false;
+			}
+
 		}
-	}
 
-	if (State == CheckboxState::ONPRESS)
-	{
+		if (State == CheckboxState::ACTIVE)
+		{
+			State = CheckboxState::HOVEREDACTIVE;
+		}
 
-		if (State != CheckboxState::ACTIVE)
-			State = CheckboxState::ACTIVE;
 
-		else
-			State = CheckboxState::NORMAL;
 	}
 
 	switch (State)
@@ -50,6 +58,9 @@ void ComponentUICheckbox::InputUpdate()
 		break;
 	case CheckboxState::HOVERED:
 		Console::S_Log("Im Hovered");
+		break;
+	case CheckboxState::HOVEREDACTIVE:
+		Console::S_Log("Im Hovered and Active");
 		break;
 	case CheckboxState::ONPRESS:
 		Console::S_Log("Im get Presed");
@@ -63,9 +74,26 @@ void ComponentUICheckbox::InputUpdate()
 		break;
 	}
 
+	if (State == CheckboxState::ONPRESS)
+	{
+		if (checkActive == true)
+			State = CheckboxState::ACTIVE;
+
+		else if(checkActive == false )
+			State = CheckboxState::NORMAL;
+	}
+
 	if (!IsMouseOver())
 	{
-		State = CheckboxState::NORMAL;
+		if (State != CheckboxState::HOVEREDACTIVE && State != CheckboxState::ACTIVE)
+		{
+			State = CheckboxState::NORMAL;
+		}
+
+		if (State == CheckboxState::HOVEREDACTIVE)
+		{
+			State = CheckboxState::ACTIVE;
+		}
 	}
 }
 
@@ -77,6 +105,7 @@ void ComponentUICheckbox::Serialization(json& j)
 	_j["MaterialResource"] = _material->GetResourceUID();
 	_j["Enabled"] = _isEnabled;
 	_j["State"] = State;
+	//_j["checkActive"] = checkActive;
 	j["Components"].push_back(_j);
 }
 
@@ -91,4 +120,5 @@ void ComponentUICheckbox::DeSerialization(json& j)
 	_gameObject->transform->ForceUpdate();
 
 	State = j["State"];
+	//checkActive = j["checkActive"];
 }
