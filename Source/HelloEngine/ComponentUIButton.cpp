@@ -26,7 +26,7 @@ void ComponentUIButton::InputUpdate()
 		}
 
 		//ha sigut clicat
-		if (ModuleInput::S_GetMouseButton(1) == KEY_UP)
+		if (ModuleInput::S_GetMouseButton(1) == KEY_UP && State != ButtonState::ONHOLD)
 		{
 			State = ButtonState::ONPRESS;
 		}
@@ -37,7 +37,11 @@ void ComponentUIButton::InputUpdate()
 			{
 				State = ButtonState::ONHOLD;
 			}
-			LOG("copty time %.f", gameTimeCopy);
+		}
+
+		else if(State == ButtonState::ONHOLD)
+		{
+			State = ButtonState::HOVERED;
 		}
 	}
 
@@ -67,6 +71,7 @@ void ComponentUIButton::InputUpdate()
 	if (!IsMouseOver())
 	{
 		State = ButtonState::NORMAL;
+		gameTimeCopy = EngineTime::GameTimeCount();
 	}
 }
 
