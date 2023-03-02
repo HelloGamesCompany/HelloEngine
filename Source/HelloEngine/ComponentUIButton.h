@@ -22,7 +22,7 @@ class ComponentUIButton : public ComponentUI
 	ButtonState State;
 private:
 	double gameTimeCopy = 0;
-
+	float colors[4] = { 0,0,0,0 };
 #ifdef STANDALONE
 	void OnEditor() override;
 

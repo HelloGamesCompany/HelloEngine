@@ -54,6 +54,7 @@ void ComponentUIButton::InputUpdate()
 	{
 	case ButtonState::NORMAL:
 		Console::S_Log("Im in Normal Mode");
+		
 		//LOG("Im in Normal Mode");
 		break;
 	case ButtonState::HOVERED:
@@ -118,7 +119,23 @@ void ComponentUIButton::OnEditor()
 	if (ImGui::Checkbox("Active##Material", &auxiliaryBool))
 		auxiliaryBool ? Enable() : Disable();*/
 
+
+
 	ImGui::Text("Im a BUTTON");
+	ImGui::Text("States Colors:");
+
+	ImGui::Text("NORMAL");
+	ImGui::SameLine();
+	ImGui::ColorEdit4("color", colors);
+	//ImGui::Text("HOVERED");
+	//ImGui::SameLine();
+	//ImGui::ColorEdit3("color", colors);
+	//ImGui::Text("ONPRESS");
+	//ImGui::SameLine();
+	//ImGui::ColorEdit3("color", colors);
+	//ImGui::Text("ONHOLD");
+	//ImGui::SameLine();
+	//ImGui::ColorEdit3("color", colors);
 
 }
 #endif // STANDALONE
