@@ -13,6 +13,8 @@ ComponentUISlider::ComponentUISlider(GameObject* gameObject) : ComponentUI(gameO
 	float heightSlider = 0.1f;
 	float buttonSliderPosX= 0.0f;
 
+	//_gameWindow = (ImWindowGame*)LayerEditor::_imWindows[(uint)ImWindowID::GAME];
+
 	float3 buttonSliderPos = {buttonSliderPosX,0,0 };
 
 	if (gameObject->GetTag() == "UIsliderBar")
