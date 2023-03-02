@@ -2,6 +2,9 @@
 #include "ComponentUISlider.h"
 #include "GameObject.h"
 #include "MaterialComponent.h"
+#include "ImWindowGame.h"
+#include "LayerEditor.h"
+
 
 ComponentUISlider::ComponentUISlider(GameObject* gameObject) : ComponentUI(gameObject)
 {
@@ -29,7 +32,9 @@ ComponentUISlider::~ComponentUISlider()
 
 void ComponentUISlider::InputUpdate()
 {
-
+	float windowPos = { (float)_gameWindow->gamePosX };
+	float normalizedPos = { (float)ModuleInput::S_GetMouseX()};
+	normalizedPos = { normalizedPos - windowPos };
 	//_gameObject->transform->SetScale(widthSlider, heightSlider, heightSlider);
 
 	if (_gameObject->GetTag() == "UIsliderButton") {
@@ -50,7 +55,7 @@ void ComponentUISlider::InputUpdate()
 			break;
 		case SliderState::ONPRESS:
 			Console::S_Log("Im get Presed");
-			_gameObject->transform->SetPosition({(float)ModuleInput::S_GetMouseX(), 0, 0 });
+			_gameObject->transform->SetPosition({normalizedPos, 0, 0 });
 			//LOG("Im get Presed");
 			break;
 		default:
