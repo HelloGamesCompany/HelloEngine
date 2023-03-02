@@ -38,6 +38,22 @@ void PhysicsComponent::Serialization(json& j)
 	_j["Type"] = _type;
 	
 	_j["Enabled"] = _isEnabled;
+
+	_j["ShapeSelected"] = shapeSelected;
+
+	_j["IsShapeSelected"] = { isShapeSelected[0], isShapeSelected[1], isShapeSelected[2] };
+	_j["IsShapeCreated"] = { isShapeCreated[0], isShapeCreated[1], isShapeCreated[2] };
+
+	_j["IsStatic"] = isStatic;
+
+	_j["ColPosition"] = { colPos[0], colPos[1], colPos[2] };
+	_j["ColRotation"] = { colRot[0], colRot[1], colRot[2] };
+	_j["ColScale"] = { colScl[0], colScl[1], colScl[2] };
+
+	_j["SphereRadius"] = sphereRadius;
+
+	_j["CylinderRadiusHeight"] = { cylRadiusHeight[0], cylRadiusHeight[1]};
+
 	j["Components"].push_back(_j);
 }
 
@@ -46,6 +62,35 @@ void PhysicsComponent::DeSerialization(json& j)
 	bool enabled = j["Enabled"];
 	if (!enabled)
 		Disable();
+
+	shapeSelected = j["ShapeSelected"];
+
+	std::vector<bool> isShapeSelectedTemp = j["IsShapeSelected"];
+	isShapeSelected[0] = isShapeSelectedTemp[0];
+	isShapeSelected[1] = isShapeSelectedTemp[1];
+	isShapeSelected[2] = isShapeSelectedTemp[2];
+
+	std::vector<bool> isShapeCreatedTemp = j["IsShapeCreated"];
+	isShapeCreated[0] = isShapeCreatedTemp[0];
+	isShapeCreated[1] = isShapeCreatedTemp[1];
+	isShapeCreated[2] = isShapeCreatedTemp[2];
+
+	isStatic = j["IsStatic"];
+
+	std::vector<float> colPosTemp = j["ColPosition"];
+	colPos = { colPosTemp[0], colPosTemp[1], colPosTemp[2] };
+
+	std::vector<float> colRotTemp = j["ColRotation"];
+	colRot = { colRotTemp[0], colRotTemp[1], colRotTemp[2] };
+
+	std::vector<float> colSclTemp = j["ColScale"];
+	colScl = { colSclTemp[0], colSclTemp[1], colSclTemp[2] };
+
+	sphereRadius = j["SphereRadius"];
+
+	std::vector<float> cylRadiusHeightTemp = j["CylinderRadiusHeight"];
+	cylRadiusHeight = { cylRadiusHeightTemp[0], cylRadiusHeightTemp[1] };
+
 }
 
 void PhysicsComponent::OnEditor()

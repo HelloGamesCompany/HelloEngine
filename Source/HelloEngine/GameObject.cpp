@@ -317,6 +317,11 @@ Component* GameObject::AddComponentOfType(Component::Type type)
 	case Component::Type::UI:
 		newComponent = new ComponentUI(this);
 		_components.push_back(newComponent);
+		break;
+	case Component::Type::PHYSICS:
+		newComponent = new PhysicsComponent(this);
+		_components.push_back(newComponent);
+		break;
 	}
 
 	return newComponent;
@@ -345,6 +350,10 @@ Component* GameObject::AddComponentOfType(Component::Type type, const Component&
 		break;
 	case Component::Type::SCRIPT:
 		newComponent = new ScriptComponent(this);
+		_components.push_back(newComponent);
+		break;
+	case Component::Type::PHYSICS:
+		newComponent = new PhysicsComponent(this);
 		_components.push_back(newComponent);
 		break;
 	}
