@@ -96,3 +96,23 @@ void ComponentUISlider::DeSerialization(json& j)
 
 	_gameObject->transform->ForceUpdate();
 }
+
+#ifdef STANDALONE
+void ComponentUISlider::OnEditor()
+{
+	bool created = true;
+	if (!ImGui::CollapsingHeader("Slider", &created, ImGuiTreeNodeFlags_DefaultOpen)) return;
+	if (!created)
+	{
+		_gameObject->DestroyComponent(this);
+		return;
+	}
+
+	/*bool auxiliaryBool = _isEnabled;
+	if (ImGui::Checkbox("Active##Material", &auxiliaryBool))
+		auxiliaryBool ? Enable() : Disable();*/
+
+	ImGui::Text("Im a Slider");
+
+}
+#endif // STANDALONE

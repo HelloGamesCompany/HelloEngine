@@ -24,5 +24,9 @@ class ComponentUICheckbox : public ComponentUI
 private:
 	bool checkActive = false;
 
+#ifdef STANDALONE
+	void OnEditor() override;
+
+#endif // STANDALONE
 };
 

@@ -15,6 +15,7 @@ class ComponentUIImage : public ComponentUI
 
 private: 
 	float _fillImage;
+
 #ifdef STANDALONE
 	void OnEditor() override;
 

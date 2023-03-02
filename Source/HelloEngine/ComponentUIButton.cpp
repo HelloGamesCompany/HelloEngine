@@ -7,6 +7,9 @@ ComponentUIButton::ComponentUIButton(GameObject* gameObject) : ComponentUI(gameO
 {
 	State = ButtonState::NORMAL;
 	_type = Component::Type::UI_BUTTON;
+
+	gameObject->transform->SetScale({ 0.2,0.2,0 });
+
 }
 
 ComponentUIButton::~ComponentUIButton()
@@ -98,3 +101,24 @@ void ComponentUIButton::DeSerialization(json& j)
 
 	State = j["State"];
 }
+
+#ifdef STANDALONE
+void ComponentUIButton::OnEditor()
+{
+
+	bool created = true;
+	if (!ImGui::CollapsingHeader("Button", &created, ImGuiTreeNodeFlags_DefaultOpen)) return;
+	if (!created)
+	{
+		_gameObject->DestroyComponent(this);
+		return;
+	}
+
+	/*bool auxiliaryBool = _isEnabled;
+	if (ImGui::Checkbox("Active##Material", &auxiliaryBool))
+		auxiliaryBool ? Enable() : Disable();*/
+
+	ImGui::Text("Im a BUTTON");
+
+}
+#endif // STANDALONE

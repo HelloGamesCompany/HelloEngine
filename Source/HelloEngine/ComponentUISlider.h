@@ -27,5 +27,10 @@ private:
 	ImWindowGame* _gameWindow = nullptr;
 
 	bool isFocused = false;
+
+#ifdef STANDALONE
+	void OnEditor() override;
+
+#endif // STANDALONE
 };
 

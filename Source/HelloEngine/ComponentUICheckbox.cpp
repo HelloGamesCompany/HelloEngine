@@ -122,3 +122,23 @@ void ComponentUICheckbox::DeSerialization(json& j)
 	State = j["State"];
 	//checkActive = j["checkActive"];
 }
+
+#ifdef STANDALONE
+void ComponentUICheckbox::OnEditor()
+{
+	bool created = true;
+	if (!ImGui::CollapsingHeader("Check Box", &created, ImGuiTreeNodeFlags_DefaultOpen)) return;
+	if (!created)
+	{
+		_gameObject->DestroyComponent(this);
+		return;
+	}
+
+	/*bool auxiliaryBool = _isEnabled;
+	if (ImGui::Checkbox("Active##Material", &auxiliaryBool))
+		auxiliaryBool ? Enable() : Disable();*/
+
+	ImGui::Text("Im a Slider");
+
+}
+#endif // STANDALONE

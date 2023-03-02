@@ -22,5 +22,10 @@ class ComponentUIButton : public ComponentUI
 	ButtonState State;
 private:
 	double gameTimeCopy = 0;
+
+#ifdef STANDALONE
+	void OnEditor() override;
+
+#endif // STANDALONE
 };
 
