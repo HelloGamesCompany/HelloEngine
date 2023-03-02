@@ -18,14 +18,26 @@ class ResourceModel;
 
 struct AnimatedBone
 {
+	AnimatedBone(std::string name, int nKeyframes): name(name)
+	{
+		keyframes = new float3x4[nKeyframes];
+		for (int i = 0; i < nKeyframes; i++) {
+			keyframes[i] = float3x4::identity;
+		}
+	}
+
+	~AnimatedBone()
+	{
+		delete[] keyframes;
+	}
+
 	std::string name = "";
-	std::map<int, float3> positions;
-	std::map<int, float3> rotations;
-	std::map<int, float3> scales;
+	float3x4* keyframes;
 };
 
-struct Animation3d
+class Animation3d
 {
+public:
 	int durationTicks = 0;
 	double ticksPerSecond = 0;
 	std::vector<AnimatedBone> bones;
