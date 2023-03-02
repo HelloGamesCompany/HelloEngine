@@ -1,12 +1,17 @@
 #pragma once
 #include "Component.h"
 #include "Globals.h"
+#include "PhysBody3D.h"
+#include "ModulePhysics.h"
 
 class PhysicsComponent : public Component
 {
-private:
+public:
 
 	PhysicsComponent(GameObject* gameObject);
+
+private:
+
 	~PhysicsComponent();
 	
 	void OnEditor() override;
@@ -26,6 +31,7 @@ private:
 	PhysBody3D* physBody;
 
 	ColliderShape shapeSelected;
+
 	bool isShapeSelected[3];
 	bool isShapeCreated[3];
 	bool isStatic;

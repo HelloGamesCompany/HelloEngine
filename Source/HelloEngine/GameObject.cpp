@@ -9,6 +9,7 @@
 #include "ImGuizmo/ImGuizmo.h"
 #include "ScriptComponent.h"
 #include "ComponentUI.h"
+#include "PhysicsComponent.h"
 
 GameObject::GameObject(GameObject* parent, std::string name, std::string tag, uint ID) : name(name), tag(tag)
 {
@@ -155,6 +156,11 @@ void GameObject::OnEditor()
 				case 4:
 					if (!HasComponent<ComponentUI>())
 						AddComponent<ComponentUI>();
+					break;
+				case 5:
+					if (!HasComponent<PhysicsComponent>())
+						AddComponent<PhysicsComponent>();
+					break;
 				}
 			}
 		}
