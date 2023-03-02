@@ -20,8 +20,6 @@ public:
 
 	void Draw();
 
-	void InitBuffers();
-
 	void EmitParticles(ParticleProperties& properties);
 
 	void UpdateParticles();

@@ -20,13 +20,13 @@ ParticleSystemComponent::ParticleSystemComponent(GameObject* gameObject) : Compo
 	//particleProps.rot = float3::zero;
 	particleProps.startsize = float3::one;
 	particleProps.endsize = float3::zero;
-	particleProps.speed = float3(1.0f, 2.0f, 1.0f);
+	particleProps.speed = float3(0.0f, 1.0f, 0.0f);
 	particleProps.acceleration = float3(1.0f, 1.0f, 1.0f);
-	particleProps.speedVariation = float3(2.0f, 3.0f, 2.0f);
+	particleProps.speedVariation = float3(1.0f, 1.0f, 1.0f);
 	particleProps.startColor = float4(255.0f, 255.0f, 255.0f, 1.0f); //r g b a
 	particleProps.endColor = float4(0.0f, 0.0f, 0.0f, 0.0f); //r g b a
 
-	particleProps.Lifetime = 10.0f;
+	particleProps.Lifetime = 5.0f;
 	
 }
 
@@ -59,6 +59,9 @@ void ParticleSystemComponent::CreateEmitterMesh(uint resourceUID)
 	for (Particle& var : ParticleEmitter.ParticleList)
 	{
 		var._instanceID = Application::Instance()->renderer3D->renderManager.AddMesh(_resource, MeshRenderType::INSTANCED);
+		//This line is needed because when you add mesh into the rendermanager it will be drawn, 
+		//when we are at this point we don't want to draw the mesh of the particle till the engine is playing
+		Application::Instance()->renderer3D->renderManager.GetRenderManager(resourceUID)->GetMap()[var._instanceID].draw = false;
 	}
 
 }

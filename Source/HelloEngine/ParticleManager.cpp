@@ -5,6 +5,7 @@
 #include "ParticleSystemComponent.h"
 #include "GameObject.h"
 #include "TransformComponent.h"
+#include "LayerGame.h"
 
 ParticleManager::ParticleManager()
 {
@@ -26,7 +27,7 @@ void ParticleManager::Update()
 	for (Emitter* var : EmitterList)
 	{
 		if(var->component != nullptr)
-		particleProps.position = var->component->_gameObject->transform->GetGlobalPosition();
+		var->component->particleProps.position = var->component->_gameObject->transform->GetGlobalPosition();
 
 		var->EmitParticles(var->component->particleProps);
 
@@ -39,14 +40,19 @@ void ParticleManager::Update()
 
 void ParticleManager::Draw()
 {
-	Update();
 
-	// DRAW EMITTER
-
-	for (Emitter* var : EmitterList)
+	if (LayerGame::S_IsPlaying())
 	{
-		var->Draw();
+		Update();
+
+		// DRAW EACH EMITTER
+
+		for (Emitter* var : EmitterList)
+		{
+			var->Draw();
+		}
 	}
+	
 }
 
 void ParticleManager::RemoveEmitterInList(Emitter* emitter)

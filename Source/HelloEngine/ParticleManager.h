@@ -17,7 +17,6 @@ public:
 	void RemoveEmitterInList(Emitter* emitter);
 
 	std::vector<Emitter*> EmitterList;
-	ParticleProperties particleProps;
 
 };
 

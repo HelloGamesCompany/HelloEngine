@@ -25,10 +25,6 @@ void Emitter::SetParticlePoolSize(uint size)
 	ParticleList.resize(size);
 }
 
-void Emitter::InitBuffers()
-{
-}
-
 void Emitter::EmitParticles(ParticleProperties& particleProps)
 {
 
@@ -82,6 +78,10 @@ void Emitter::UpdateParticles()
 
 		if (ParticleList[i].remainingLifetime <= 0.0f)
 		{
+			Mesh& meshReference = manager->GetMap()[ParticleList[i]._instanceID];
+
+			meshReference.draw = false;
+
 			ParticleList[i].Active = false;
 			continue;
 		}
@@ -107,6 +107,8 @@ void Emitter::UpdateParticles()
 
 			manager = app->renderer3D->renderManager.GetRenderManager(_meshID);
 			Mesh& meshReference = manager->GetMap()[ParticleList[i]._instanceID];
+
+			meshReference.draw = true;
 
 			meshReference.modelMatrix = ParticleList[i].transformMat;
 		}
