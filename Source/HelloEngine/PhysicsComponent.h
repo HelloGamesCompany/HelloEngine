@@ -30,6 +30,8 @@ private:
 
 	PhysBody3D* physBody;
 
+	float mass;
+
 	ColliderShape shapeSelected;
 
 	bool isShapeSelected[3];

@@ -97,14 +97,14 @@ PhysBody3D* ModulePhysics::CreatePhysBody(const Primitive* primitive, float mass
 	btRigidBody::btRigidBodyConstructionInfo rbInfo(mass, myMotionState, colShape, localInertia);
 
 	btRigidBody* body = new btRigidBody(rbInfo);
-	//PhysBody3D* pbody = new PhysBody3D(body);
+	PhysBody3D* pbody = new PhysBody3D(body);
 
-	//body->setUserPointer(pbody);
+	body->setUserPointer(pbody);
 	world->addRigidBody(body);
 
 	//bodies.push_back(pbody);
 
-	return nullptr;
+	return pbody;
 }
 
 void ModulePhysics::RemovePhysBody(PhysBody3D* physBody)

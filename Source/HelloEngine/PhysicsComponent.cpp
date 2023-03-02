@@ -1,11 +1,15 @@
 #include "Headers.h"
 #include "PhysicsComponent.h"
 #include "Primitive.h"
+#include "GameObject.h"
+#include "Component.h"
 
 PhysicsComponent::PhysicsComponent(GameObject* gameObject) : Component(gameObject)
 {
 	_type = Component::Type::PHYSICS;
 	physBody = nullptr;
+
+	mass = 0;
 
 	shapeSelected = ColliderShape::NONE;
 
@@ -39,6 +43,8 @@ void PhysicsComponent::Serialization(json& j)
 	
 	_j["Enabled"] = _isEnabled;
 
+	_j["Mass"] = mass;
+
 	_j["ShapeSelected"] = shapeSelected;
 
 	_j["IsShapeSelected"] = { isShapeSelected[0], isShapeSelected[1], isShapeSelected[2] };
@@ -62,6 +68,8 @@ void PhysicsComponent::DeSerialization(json& j)
 	bool enabled = j["Enabled"];
 	if (!enabled)
 		Disable();
+
+	mass = j["Mass"];
 
 	shapeSelected = j["ShapeSelected"];
 
@@ -102,137 +110,132 @@ void PhysicsComponent::OnEditor()
 				CallUpdateShape();
 			}
 		}
-	}
 
-	if (physBody == nullptr)
-	{
-		ImGui::Text("This object has no collider attached to it.");
-		ImGui::Text("Select one shape and create one.");
+		if (ImGui::DragFloat("Mass: ", &mass, 0.1)) {
+			CallUpdateShape();
+		};
 
-		ImGui::Checkbox("Box", &isShapeSelected[0]);
+		if (physBody == nullptr)
+		{
+			ImGui::Text("This object has no collider attached to it.");
+			ImGui::Text("Select one shape and create one.");
 
-		ImGui::Checkbox("Sphere", &isShapeSelected[1]);
+			ImGui::Checkbox("Box", &isShapeSelected[0]);
 
-		ImGui::Checkbox("Cylinder", &isShapeSelected[2]);
+			ImGui::Checkbox("Sphere", &isShapeSelected[1]);
 
-		CheckShapes();
+			ImGui::Checkbox("Cylinder", &isShapeSelected[2]);
 
-		if (shapeSelected != ColliderShape::NONE) {
-			if (ImGui::Button("Create Collider"))
+			CheckShapes();
+
+			if (shapeSelected != ColliderShape::NONE) {
+				if (ImGui::Button("Create Collider"))
+				{
+					CreateCollider();
+				}
+			}
+
+		}
+		else {
+			const char* colliderType = "";
+			switch (shapeSelected)
 			{
-				CreateCollider();
+			case ColliderShape::BOX:
+			{
+				colliderType = "Box";
 			}
-		}
-
-	}
-	else {
-		const char* colliderType = "";
-		switch (shapeSelected)
-		{
-		case ColliderShape::BOX:
-		{
-			colliderType = "Box";
-		}
-		break;
-		case ColliderShape::SPHERE:
-		{
-			colliderType = "Sphere";
-		}
-		break;
-		case ColliderShape::CYLINDER:
-		{
-			colliderType = "Cylinder";
-		}
-		break;
-		default:
 			break;
-		}
-		std::string colName = "Collider Attached: ";
-		colName += colliderType;
-		ImGui::Text(colName.c_str());
-
-		switch (shapeSelected)
-		{
-		case ColliderShape::BOX:
-		{
-			
-			if (ImGui::DragFloat3("Position: ", colPos.ptr(), 0.1)) {
-				CallUpdateShape();
+			case ColliderShape::SPHERE:
+			{
+				colliderType = "Sphere";
 			}
-			
-			if (ImGui::DragFloat3("Rotation: ", colRot.ptr(), 0.1)) {
-				CallUpdateShape();
-			}
-			
-			if (ImGui::DragFloat3("Scale: ", colScl.ptr(), 0.1)) {
-				CallUpdateShape();
-			}
-		}
-		break;
-		case ColliderShape::SPHERE:
-		{
-			if (ImGui::DragFloat3("Position: ", colPos.ptr(), 0.1)) {
-				CallUpdateShape();
-			}
-			
-			if (ImGui::DragFloat3("Rotation: ", colRot.ptr(), 0.1)) {
-				CallUpdateShape();
-			}
-			if (ImGui::DragFloat("Radius: ", &sphereRadius, 0.1)) {
-				CallUpdateShape();
-			}
-		}
-		break;
-		case ColliderShape::CYLINDER:
-		{
-			
-			if (ImGui::DragFloat3("Position: ", colPos.ptr(), 0.1)) {
-				CallUpdateShape();
-			}
-			ImGui::Text("X	");
-			ImGui::SameLine();
-			ImGui::Text("Y	");
-			ImGui::SameLine();
-			ImGui::Text("Z	");
-			if (ImGui::DragFloat3("Rotation: ", colRot.ptr(), 0.1)) {
-				CallUpdateShape();
-			}
-			if (ImGui::DragFloat2("Radius & Height: ", cylRadiusHeight.ptr(), 0.1)) {
-				CallUpdateShape();
-			}
-		}
-		break;
-		default:
 			break;
+			case ColliderShape::CYLINDER:
+			{
+				colliderType = "Cylinder";
+			}
+			break;
+			default:
+				break;
+			}
+			std::string colName = "Collider Attached: ";
+			colName += colliderType;
+			ImGui::Text(colName.c_str());
+
+			switch (shapeSelected)
+			{
+			case ColliderShape::BOX:
+			{
+				if (ImGui::DragFloat3("Position: ", colPos.ptr(), 0.1)) {
+					CallUpdateShape();
+				}
+
+				if (ImGui::DragFloat3("Rotation: ", colRot.ptr(), 0.1)) {
+					CallUpdateShape();
+				}
+
+				if (ImGui::DragFloat3("Scale: ", colScl.ptr(), 0.1)) {
+					CallUpdateShape();
+				}
+			}
+			break;
+			case ColliderShape::SPHERE:
+			{
+				if (ImGui::DragFloat3("Position: ", colPos.ptr(), 0.1)) {
+					CallUpdateShape();
+				}
+
+				if (ImGui::DragFloat3("Rotation: ", colRot.ptr(), 0.1)) {
+					CallUpdateShape();
+				}
+				if (ImGui::DragFloat("Radius: ", &sphereRadius, 0.1)) {
+					CallUpdateShape();
+				}
+			}
+			break;
+			case ColliderShape::CYLINDER:
+			{
+
+				if (ImGui::DragFloat3("Position: ", colPos.ptr(), 0.1)) {
+					CallUpdateShape();
+				}
+				ImGui::Text("X	");
+				ImGui::SameLine();
+				ImGui::Text("Y	");
+				ImGui::SameLine();
+				ImGui::Text("Z	");
+				if (ImGui::DragFloat3("Rotation: ", colRot.ptr(), 0.1)) {
+					CallUpdateShape();
+				}
+				if (ImGui::DragFloat2("Radius & Height: ", cylRadiusHeight.ptr(), 0.1)) {
+					CallUpdateShape();
+				}
+			}
+			break;
+			default:
+				break;
+			}
+
+
+
+
+			if (ImGui::Button("Remove Collider"))
+			{
+
+				//RemoveCollider();
+
+			}
+
+			//if (ImGui::Button("Apply Changes"))
+			//{
+			//	//RemoveCollider();
+			//}
 		}
-
-
-
-
-		if (ImGui::Button("Remove Collider"))
-		{
-
-			//RemoveCollider();
-
-		}
-
-		//if (ImGui::Button("Apply Changes"))
-		//{
-		//	//RemoveCollider();
-		//}
 	}
 }
 
 void PhysicsComponent::CallUpdateShape()
 {
-	float mass;
-
-	if (isStatic == true) {
-		mass = 0.f;
-	}
-	else {
-		mass = 1.f;
-	}
 
 	/*switch (shapeSelected)
 	{
@@ -254,31 +257,28 @@ void PhysicsComponent::CallUpdateShape()
 void PhysicsComponent::CreateCollider()
 {
 	
-	float mass;
+	/*float mass;
 	if (isStatic == true) {
 		mass = 0.f;
 	}
 	else {
 		mass = 1.f;
-	}
+	}*/
 
 	switch (shapeSelected)
 	{
 		case ColliderShape::BOX:
 		{
 			PrimCube cube;
-			//GO->GOtrans->setIdentity(cube.transform);
+			cube.transform = cube.transform.identity;
 
-			//cube.SetPos(colPos.x, colPos.y, colPos.z);
-			////cube.SetRotation();
-			//cube.size.x = GO->GOtrans->GetScale().x;
-			//cube.size.y = GO->GOtrans->GetScale().y;
-			//cube.size.z = GO->GOtrans->GetScale().z;
+			cube.size.x = _gameObject->GetComponent<TransformComponent>()->GetGlobalScale().x;//GetScale().x;
+			cube.size.y = _gameObject->GetComponent<TransformComponent>()->GetGlobalScale().y;
+			cube.size.z = _gameObject->GetComponent<TransformComponent>()->GetGlobalScale().z;
+			cube.transform.Translate(_gameObject->GetComponent<TransformComponent>()->GetGlobalPosition());
+			/*cube.setPos*/
 
-
-			//cube.color = Green;
-
-
+			physBody = Application::Instance()->physic->CreatePhysBody(&cube, mass);
 			//collider = phys->AddBody(cube, mass);
 			//AddColliderRelations();
 
