@@ -1,6 +1,4 @@
 #pragma once
-#ifndef __PhysBody3D_H__
-#define __PhysBody3D_H__
 
 #include "MathGeoLib.h"
 #include "btBulletDynamicsCommon.h"
@@ -9,6 +7,7 @@ struct PhysBody3D
 {
 	friend class ModulePhysics3D;
 public:
+	PhysBody3D() {};
 	PhysBody3D(btRigidBody* body);
 	~PhysBody3D();
 
@@ -24,6 +23,3 @@ public:
 	float4x4 globalTrans;
 	float4x4 transformMat;
 };
-
-#endif // __PhysBody3D_H__
-

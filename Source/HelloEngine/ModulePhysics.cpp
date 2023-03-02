@@ -1,15 +1,27 @@
 #include "Headers.h"
 #include "ModulePhysics.h"
 #include "Primitive.h"
+#include "PhysBody3D.h"
 #include "LayerGame.h"
 
 ModulePhysics::ModulePhysics()
 {
-	//world = new btDiscreteDynamicsWorld(dispatcher, broad_phase, solver, collision_conf);
+	collision_conf = new btDefaultCollisionConfiguration();
+	dispatcher = new btCollisionDispatcher(collision_conf);
+	broad_phase = new btDbvtBroadphase();
+	solver = new btSequentialImpulseConstraintSolver();
+	world = new btDiscreteDynamicsWorld(dispatcher, broad_phase, solver, collision_conf);
 }
 
 ModulePhysics::~ModulePhysics()
 {
+	RemovePhysBody(testBody);
+	RELEASE(testBody);
+	RELEASE(world);
+	RELEASE(solver);
+	RELEASE(broad_phase);
+	RELEASE(dispatcher);
+	RELEASE(collision_conf);
 }
 
 bool ModulePhysics::Init()
@@ -19,20 +31,20 @@ bool ModulePhysics::Init()
 
 bool ModulePhysics::Start()
 {
+	PrimCube cube = PrimCube(2);
+	testBody = CreatePhysBody(&cube);
 	return true;
 }
 
 UpdateStatus ModulePhysics::PreUpdate()
 {
-	//world->stepSimulation(dt, 15);
-
-	if (LayerGame::S_IsPlaying()) 
-{
-		//world->stepSimulation(EngineTime::GameDeltaTime(), 15);
-	}
-	else 
+	if (LayerGame::S_IsPlaying())
 	{
-		//world->stepSimulation(0);
+		world->stepSimulation(EngineTime::GameDeltaTime(), 15);
+	}
+	else
+	{
+		world->stepSimulation(0);
 	}
 
 	return UpdateStatus::UPDATE_CONTINUE;
@@ -40,7 +52,7 @@ UpdateStatus ModulePhysics::PreUpdate()
 
 UpdateStatus ModulePhysics::Update()
 {
-	//world->updateAabbs();
+	world->updateAabbs();
 	return UpdateStatus::UPDATE_CONTINUE;
 }
 
@@ -51,7 +63,42 @@ UpdateStatus ModulePhysics::PostUpdate()
 
 bool ModulePhysics::CleanUp()
 {
-	return false;
+	for (int i = world->getNumCollisionObjects() - 1; i >= 0; i--)
+	{
+		btCollisionObject* obj = world->getCollisionObjectArray()[i];
+		world->removeCollisionObject(obj);
+	}
+
+	for (int i = 0; i < constraints.size(); i++)
+	{
+		world->removeConstraint(constraints[i]);
+		RELEASE(constraints[i]);
+	}
+
+	constraints.clear();
+
+	for (int i = 0; i < motions.size(); i++)
+	{
+		RELEASE(motions[i]);
+	}
+
+	motions.clear();
+
+	for (int i = 0; i < shapes.size(); i++)
+	{
+		RELEASE(shapes[i]);
+	}
+
+	shapes.clear();
+
+	//for (int i = 0; i < bodies.size(); i++)
+	//{
+	//	RELEASE(bodies[i]);
+	//}
+
+	//bodies.clear();
+
+	return true;
 }
 
 PhysBody3D* ModulePhysics::CreatePhysBody(const Primitive* primitive, float mass)
@@ -61,7 +108,7 @@ PhysBody3D* ModulePhysics::CreatePhysBody(const Primitive* primitive, float mass
 
 	switch (primitive->GetType())
 	{
-	case PrimitiveTypes::Primitive_Cube: 
+	case PrimitiveTypes::Primitive_Cube:
 	{
 		PrimCube* cube = (PrimCube*)primitive;
 		colShape = new btBoxShape(btVector3(cube->size.x * 0.5f, cube->size.y * 0.5f, cube->size.z * 0.5f));
@@ -86,14 +133,15 @@ PhysBody3D* ModulePhysics::CreatePhysBody(const Primitive* primitive, float mass
 	default:
 		return nullptr;
 	}
-	//shapes.push_back(colShape);
+	shapes.push_back(colShape);
 
 	btVector3 localInertia(0, 0, 0);
+
 	if (mass != 0.f)
 		colShape->calculateLocalInertia(mass, localInertia);
 
 	btDefaultMotionState* myMotionState = new btDefaultMotionState(startTransform);
-	//motions.push_back(myMotionState);
+	motions.push_back(myMotionState);
 	btRigidBody::btRigidBodyConstructionInfo rbInfo(mass, myMotionState, colShape, localInertia);
 
 	btRigidBody* body = new btRigidBody(rbInfo);
@@ -102,12 +150,12 @@ PhysBody3D* ModulePhysics::CreatePhysBody(const Primitive* primitive, float mass
 	body->setUserPointer(pbody);
 	world->addRigidBody(body);
 
-	//bodies.push_back(pbody);
+	bodies.push_back(pbody);
 
 	return pbody;
 }
 
 void ModulePhysics::RemovePhysBody(PhysBody3D* physBody)
 {
-	//world->removeRigidBody(physBody->body);
+	world->removeRigidBody(physBody->body);
 }

@@ -3,15 +3,12 @@
 
 PhysBody3D::PhysBody3D(btRigidBody* body)
 {
-	body = nullptr;
+	this->body = body;
 }
 
 PhysBody3D::~PhysBody3D()
 {
-	delete body;
-	body = nullptr;
-
-	delete this;
+	//RELEASE(body);
 }
 
 void PhysBody3D::Push(float x, float y, float z)

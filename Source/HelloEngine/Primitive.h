@@ -13,7 +13,7 @@ enum class PrimitiveTypes
 struct Primitive
 {
 public:
-	PrimitiveTypes	GetType() const 
+	PrimitiveTypes	GetType() const
 	{
 		return type;
 	};
@@ -29,6 +29,13 @@ protected:
 struct PrimCube : public Primitive
 {
 public:
+	PrimCube(float size = 1)
+	{
+		this->size.x = size;
+		this->size.y = size;
+		this->size.z = size;
+		type = PrimitiveTypes::Primitive_Cube;
+	}
 	float3 size;
 };
 
@@ -36,6 +43,11 @@ public:
 struct PrimSphere : public Primitive
 {
 public:
+	PrimSphere(float radius = 1) 
+	{
+		this->radius = radius; 
+		type = PrimitiveTypes::Primitive_Sphere;
+	}
 	float radius;
 };
 
@@ -43,6 +55,12 @@ public:
 struct PrimCylinder : public Primitive
 {
 public:
+	PrimCylinder(float radius = 0.5f, float height = 1) 
+	{
+		this->radius = radius;
+		this->height = height;
+		type = PrimitiveTypes::Primitive_Cylinder;
+	}
 	float radius;
 	float height;
 };

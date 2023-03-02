@@ -1,12 +1,10 @@
 #pragma once
 #include "Module.h"
-#include <vector>
 #include "btBulletCollisionCommon.h"
 #include "btBulletDynamicsCommon.h"
-#include "PhysBody3D.h"
 
 class Primitive;
-//class PhysBody3D;
+class PhysBody3D;
 
 enum class ColliderShape
 {
@@ -45,12 +43,18 @@ public:
 
 private:
 
+	btDefaultCollisionConfiguration* collision_conf = nullptr;
+	btCollisionDispatcher* dispatcher = nullptr;
+	btBroadphaseInterface* broad_phase = nullptr;
+	btSequentialImpulseConstraintSolver* solver = nullptr;
 	btDiscreteDynamicsWorld* world = nullptr;
 
 	bool debugDraw = false;
 
-	//std::vector <btCollisionShape*> shapes;
-	//std::vector <PhysBody3D*> bodies;
-	//std::vector <btDefaultMotionState*> motions;
-	//std::vector <btTypedConstraint*> constraints;
+	PhysBody3D* testBody = nullptr;
+
+	std::vector <btCollisionShape*> shapes;
+	std::vector <PhysBody3D*> bodies;
+	std::vector <btDefaultMotionState*> motions;
+	std::vector <btTypedConstraint*> constraints;
 };
