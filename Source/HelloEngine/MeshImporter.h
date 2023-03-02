@@ -20,27 +20,32 @@ struct AnimatedBone
 {
 	AnimatedBone(std::string name, int nKeyframes): name(name)
 	{
-		keyframes = new float3x4[nKeyframes];
+		keyframes.resize(nKeyframes);
+
 		for (int i = 0; i < nKeyframes; i++) {
 			keyframes[i] = float3x4::identity;
 		}
 	}
 
-	~AnimatedBone()
-	{
-		delete[] keyframes;
-	}
-
 	std::string name = "";
-	float3x4* keyframes;
+	std::vector<float3x4> keyframes;
 };
 
 class Animation3d
 {
 public:
-	int durationTicks = 0;
+	Animation3d() {}
+	~Animation3d() 
+	{
+		for (int i = 0; i < bones.size(); i++)
+		{
+			RELEASE(bones[i]);
+		}
+	}
+
+	uint durationTicks = 0;
 	double ticksPerSecond = 0;
-	std::vector<AnimatedBone> bones;
+	std::vector<AnimatedBone*> bones;
 };
 
 //***************
