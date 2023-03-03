@@ -10,5 +10,8 @@ class PlayerGamepadMovement : HelloBehavior
 public:
 	void Start() override; 
 	void Update() override;
+
+	//player velocity
+	float vel = 1.0f;
 };
 
