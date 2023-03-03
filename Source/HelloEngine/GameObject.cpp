@@ -173,6 +173,8 @@ void GameObject::OnEditor()
     {
         ImGui::TextColored(ImVec4(1, 1, 1, 0.5f), "Prefab UID: "); ImGui::SameLine();
         ImGui::TextColored(ImVec4(1, 1, 1, 0.5f), std::to_string(_prefabUID).c_str());
+
+        if (_parent->_prefabUID != 0) return;
         if (ImGui::Button("Override prefab"))
         {
             // Find prefab(asset) with _prefabUID and override it

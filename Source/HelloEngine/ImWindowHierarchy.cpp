@@ -123,6 +123,7 @@ void ImWindowHierarchy::ProcessGameObject(GameObject* gameObject, int iteration)
         return;
 
     ImGuiTreeNodeFlags node_flags = _base_flags;
+    if (gameObject->_prefabUID != 0) node_flags |= ImGuiTreeNodeFlags_Framed;
 
     GameObject* temp = LayerEditor::selectedGameObject;
 
