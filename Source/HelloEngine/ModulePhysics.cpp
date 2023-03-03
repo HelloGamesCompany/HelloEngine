@@ -41,14 +41,23 @@ bool ModulePhysics::Start()
 
 UpdateStatus ModulePhysics::PreUpdate()
 {
-	if (LayerGame::S_IsPlaying())
+
+	testBody->Push(100, 100, 100);
+
+
+	world->stepSimulation(0.16, 15);
+
+	//std::cout << "\ndt:" << EngineTime::GameDeltaTime()<<std::endl;
+
+	std::cout <<"\n-------------------------\nx" << testBody->GetPos().x << "\ny" << testBody->GetPos().y << "\nz" << testBody->GetPos().z;
+	/*if (LayerGame::S_IsPlaying())
 	{
 		world->stepSimulation(EngineTime::GameDeltaTime(), 15);
 	}
 	else
 	{
 		world->stepSimulation(0);
-	}
+	}*/
 
 	return UpdateStatus::UPDATE_CONTINUE;
 }

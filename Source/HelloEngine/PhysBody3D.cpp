@@ -44,3 +44,11 @@ void PhysBody3D::SetPos(float x, float y, float z)
 		body->setWorldTransform(t);
 	}
 }
+
+float3 PhysBody3D::GetPos()
+{
+	//btScalar* scalar;
+	//body->getWorldTransform().getOpenGLMatrix(scalar);
+	//
+	//return float3(vec.x(), vec.y(), vec.z());
+}
