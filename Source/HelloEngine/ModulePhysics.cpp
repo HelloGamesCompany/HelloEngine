@@ -4,6 +4,8 @@
 #include "PhysBody3D.h"
 #include "LayerGame.h"
 
+btDiscreteDynamicsWorld* ModulePhysics::world = nullptr;
+
 ModulePhysics::ModulePhysics()
 {
 	collision_conf = new btDefaultCollisionConfiguration();
@@ -15,7 +17,7 @@ ModulePhysics::ModulePhysics()
 
 ModulePhysics::~ModulePhysics()
 {
-	RemovePhysBody(testBody);
+	S_RemovePhysBody(testBody);
 	RELEASE(testBody);
 	RELEASE(world);
 	RELEASE(solver);
@@ -33,6 +35,7 @@ bool ModulePhysics::Start()
 {
 	PrimCube cube = PrimCube(2);
 	testBody = CreatePhysBody(&cube);
+
 	return true;
 }
 
@@ -104,7 +107,7 @@ bool ModulePhysics::CleanUp()
 PhysBody3D* ModulePhysics::CreatePhysBody(const Primitive* primitive, float mass)
 {
 	btCollisionShape* colShape = nullptr;
-	btTransform startTransform;
+	btTransform setUpTransform;
 
 	switch (primitive->GetType())
 	{
@@ -112,27 +115,27 @@ PhysBody3D* ModulePhysics::CreatePhysBody(const Primitive* primitive, float mass
 	{
 		PrimCube* cube = (PrimCube*)primitive;
 		colShape = new btBoxShape(btVector3(cube->size.x * 0.5f, cube->size.y * 0.5f, cube->size.z * 0.5f));
-
-		startTransform.setFromOpenGLMatrix(cube->transform.ptr());
+		setUpTransform.setFromOpenGLMatrix(cube->transform.ptr());
 	}
 	break;
 	case PrimitiveTypes::Primitive_Sphere:
 	{
 		PrimSphere* sphere = (PrimSphere*)primitive;
 		colShape = new btSphereShape(sphere->radius);
-		startTransform.setFromOpenGLMatrix(sphere->transform.ptr());
+		setUpTransform.setFromOpenGLMatrix(sphere->transform.ptr());
 	}
 	break;
 	case PrimitiveTypes::Primitive_Cylinder:
 	{
 		PrimCylinder* cylinder = (PrimCylinder*)primitive;
 		colShape = new btCylinderShapeX(btVector3(cylinder->height * 0.5f, cylinder->radius, 0.0f));
-		startTransform.setFromOpenGLMatrix(cylinder->transform.ptr());
+		setUpTransform.setFromOpenGLMatrix(cylinder->transform.ptr());
 	}
 	break;
 	default:
 		return nullptr;
 	}
+
 	shapes.push_back(colShape);
 
 	btVector3 localInertia(0, 0, 0);
@@ -140,7 +143,7 @@ PhysBody3D* ModulePhysics::CreatePhysBody(const Primitive* primitive, float mass
 	if (mass != 0.f)
 		colShape->calculateLocalInertia(mass, localInertia);
 
-	btDefaultMotionState* myMotionState = new btDefaultMotionState(startTransform);
+	btDefaultMotionState* myMotionState = new btDefaultMotionState(setUpTransform);
 	motions.push_back(myMotionState);
 	btRigidBody::btRigidBodyConstructionInfo rbInfo(mass, myMotionState, colShape, localInertia);
 
@@ -148,14 +151,16 @@ PhysBody3D* ModulePhysics::CreatePhysBody(const Primitive* primitive, float mass
 	PhysBody3D* pbody = new PhysBody3D(body);
 
 	body->setUserPointer(pbody);
+
 	world->addRigidBody(body);
 
-	bodies.push_back(pbody);
+	//bodies.push_back(pbody);
 
 	return pbody;
 }
 
-void ModulePhysics::RemovePhysBody(PhysBody3D* physBody)
+void ModulePhysics::S_RemovePhysBody(PhysBody3D* physBody)
 {
 	world->removeRigidBody(physBody->body);
+	RELEASE(physBody->body);
 }

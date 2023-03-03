@@ -37,7 +37,8 @@ public:
 	bool CleanUp() override;
 
 	PhysBody3D* CreatePhysBody(const Primitive* primitive, float mass = 1.0f);
-	void RemovePhysBody(PhysBody3D* physBody);
+	
+	static void S_RemovePhysBody(PhysBody3D* physBody);
 	//PhysBody3D* CreatePhysBody();
 	//PhysBody3D* CreatePhysBody();
 
@@ -47,7 +48,7 @@ private:
 	btCollisionDispatcher* dispatcher = nullptr;
 	btBroadphaseInterface* broad_phase = nullptr;
 	btSequentialImpulseConstraintSolver* solver = nullptr;
-	btDiscreteDynamicsWorld* world = nullptr;
+	static btDiscreteDynamicsWorld* world;
 
 	bool debugDraw = false;
 
