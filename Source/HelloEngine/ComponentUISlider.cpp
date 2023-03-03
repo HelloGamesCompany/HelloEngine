@@ -5,21 +5,19 @@
 #include "ImWindowGame.h"
 #include "LayerEditor.h"
 
-
 ComponentUISlider::ComponentUISlider(GameObject* gameObject) : ComponentUI(gameObject)
 {
+	_type = Component::Type::UI_SLIDER;
+
 	State = SliderState::NORMAL;
-	float widthSlider = 0.7f;
-	float heightSlider = 0.1f;
-	float buttonSliderPosX= 0.0f;
+	
+	_gameWindow = (ImWindowGame*)LayerEditor::_imWindows[(uint)ImWindowID::GAME];
 
-	//_gameWindow = (ImWindowGame*)LayerEditor::_imWindows[(uint)ImWindowID::GAME];
 
-	float3 buttonSliderPos = {buttonSliderPosX,0,0 };
 
 	if (gameObject->GetTag() == "UIsliderBar")
 	{
-		gameObject->transform->SetScale({widthSlider,heightSlider,0});
+		gameObject->transform->SetScale({ 0.7f,0.1f,0});
 	}
 	if (gameObject->GetTag() == "UIsliderButton")
 	{
@@ -34,10 +32,14 @@ ComponentUISlider::~ComponentUISlider()
 
 void ComponentUISlider::InputUpdate()
 {
+	//double normalizedX = -1.0 + 2.0 * (double)Mouse.getX() / window.width;
+	//double normalizedY = 1.0 - 2.0 * (double)Mouse.getY() / window.height;
+
 	float windowPos = { (float)_gameWindow->gamePosX };
-	float normalizedPos = { (float)ModuleInput::S_GetMouseX()};
-	normalizedPos = { normalizedPos - windowPos };
+	normalizedPos = { (float)ModuleInput::S_GetMouseX()};
+	//normalizedPos = { normalizedPos - windowPos };
 	//_gameObject->transform->SetScale(widthSlider, heightSlider, heightSlider);
+	
 
 	if (_gameObject->GetTag() == "UIsliderButton") {
 
@@ -57,7 +59,24 @@ void ComponentUISlider::InputUpdate()
 			break;
 		case SliderState::ONPRESS:
 			Console::S_Log("Im get Presed");
-			_gameObject->transform->SetPosition({normalizedPos, 0, 0 });
+			if (ModuleInput::S_GetMouseButton(1) == KEY_REPEAT) 
+			{
+				if (ModuleInput::S_GetKey(SDL_SCANCODE_D) == KEY_DOWN) 
+				{
+					if (mousePosX < 1.0f) 
+					{
+						mousePosX += 0.1f;
+					}
+				}
+				else if (ModuleInput::S_GetKey(SDL_SCANCODE_A) == KEY_DOWN)
+				{
+					if (mousePosX > -1.0f)
+					{
+						mousePosX -= 0.1f;
+					}
+				}
+			}
+			_gameObject->transform->SetPosition({ mousePosX, 0, 0 });
 			//LOG("Im get Presed");
 			break;
 		default:
@@ -67,7 +86,7 @@ void ComponentUISlider::InputUpdate()
 		if (!IsMouseOver())
 			isFocused = false;
 
-		else if (ModuleInput::S_GetMouseButton(1) == KEY_UP)
+		if (ModuleInput::S_GetMouseButton(1) == KEY_UP)
 		{
 			State = SliderState::NORMAL;
 		}
@@ -80,8 +99,8 @@ void ComponentUISlider::Serialization(json& j)
 
 	_j["Type"] = _type;
 	_j["MaterialResource"] = _material->GetResourceUID();
-	//_j["widthSlider"] = widthSlider;
-	//_j["heightSlider"] = heightSlider;
+	_j["PositionButton"] = normalizedPos;
+	_j["StateButton"] = State;
 	_j["Enabled"] = _isEnabled;
 	j["Components"].push_back(_j);
 }
@@ -93,6 +112,9 @@ void ComponentUISlider::DeSerialization(json& j)
 	bool enabled = j["Enabled"];
 	if (!enabled)
 		Disable();
+	
+	normalizedPos = j["PositionButton"];
+	State = j["StateButton"];
 
 	_gameObject->transform->ForceUpdate();
 }

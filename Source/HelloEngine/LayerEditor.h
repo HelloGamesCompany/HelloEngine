@@ -110,6 +110,7 @@ private:
 	static bool _showCompilationError;
 	friend class ImWindowHierarchy;
 	friend class ComponentUI;
+	friend class ComponentUISlider;
 };
 
 #endif // !__MODULE_ENGINE_H__
