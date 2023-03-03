@@ -1,6 +1,8 @@
 #include "Headers.h"
 #include "PhysBody3D.h"
 #include "ModulePhysics.h"
+#include "Application.h"
+#include "ModuleRenderer3D.h"
 
 PhysBody3D::PhysBody3D(btRigidBody* body)
 {
@@ -45,10 +47,19 @@ void PhysBody3D::SetPos(float x, float y, float z)
 	}
 }
 
-float3 PhysBody3D::GetPos()
+//float3 PhysBody3D::GetPos()
+//{
+//	//btScalar* scalar;
+//	//body->getWorldTransform().getOpenGLMatrix(scalar);
+//	//
+//	//return float3(vec.x(), vec.y(), vec.z());
+//}
+
+
+void PhysBody3D::Update()
 {
-	//btScalar* scalar;
-	//body->getWorldTransform().getOpenGLMatrix(scalar);
-	//
-	//return float3(vec.x(), vec.y(), vec.z());
+	if (isRenderingCol == true) {
+		Application::Instance()->renderer3D->renderManager.DrawCollider(this);//renderer3D->renderManager.DrawOBB(this);
+	}
 }
+

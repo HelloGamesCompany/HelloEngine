@@ -392,6 +392,41 @@ void RenderManager::DrawAABB(Mesh* mesh)
 	glBindVertexArray(0);
 }
 
+void RenderManager::DrawCollider(PhysBody3D* physBody)
+{
+
+
+	float* a;
+	float* b;
+	float* c;
+
+	btTransform aa;
+	btVector3 bb;
+	btVector3 cc;
+
+	physBody->body->getCollisionShape()->getAabb(aa, bb, cc);
+
+	/*float3 AABBPoints[8];
+
+	mesh->globalAABB.GetCornerPoints(AABBPoints);
+
+	glBindVertexArray(ColliderVertexBuffer);
+
+	glBindBuffer(GL_ARRAY_BUFFER, ColliderVertexBuffer);
+	void* ptr = glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY);
+	memcpy(ptr, &AABBPoints[0], 8 * sizeof(float3));
+	glUnmapBuffer(GL_ARRAY_BUFFER);
+
+	localLineShader->Bind();
+	localLineShader->SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
+	localLineShader->SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
+	localLineShader->SetFloat4("lineColor", 0.0f, 1.0f, 0.0f, 1.0f);
+
+	glDrawElements(GL_LINES, boxIndices.size(), GL_UNSIGNED_INT, 0);
+
+	glBindVertexArray(0);*/
+}
+
 void RenderManager::DestroyInstanceRenderers()
 {
 	_renderMap.clear();

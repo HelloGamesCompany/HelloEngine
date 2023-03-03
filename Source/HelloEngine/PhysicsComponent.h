@@ -45,6 +45,8 @@ private:
 	float sphereRadius;
 	float2 cylRadiusHeight;
 
+	bool isRenderingCol;
+
 };
 
 

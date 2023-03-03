@@ -49,7 +49,7 @@ UpdateStatus ModulePhysics::PreUpdate()
 
 	//std::cout << "\ndt:" << EngineTime::GameDeltaTime()<<std::endl;
 
-	std::cout <<"\n-------------------------\nx" << testBody->GetPos().x << "\ny" << testBody->GetPos().y << "\nz" << testBody->GetPos().z;
+	//std::cout <<"\n-------------------------\nx" << testBody->GetPos().x << "\ny" << testBody->GetPos().y << "\nz" << testBody->GetPos().z;
 	/*if (LayerGame::S_IsPlaying())
 	{
 		world->stepSimulation(EngineTime::GameDeltaTime(), 15);
@@ -65,6 +65,9 @@ UpdateStatus ModulePhysics::PreUpdate()
 UpdateStatus ModulePhysics::Update()
 {
 	world->updateAabbs();
+	for (int i = 0; i < physBodies.size(); i++) {
+		physBodies[i]->Update();
+	}
 	return UpdateStatus::UPDATE_CONTINUE;
 }
 
@@ -163,7 +166,7 @@ PhysBody3D* ModulePhysics::CreatePhysBody(const Primitive* primitive, float mass
 
 	world->addRigidBody(body);
 
-	//bodies.push_back(pbody);
+	physBodies.push_back(pbody);
 
 	return pbody;
 }

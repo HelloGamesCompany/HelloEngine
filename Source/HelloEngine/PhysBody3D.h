@@ -16,10 +16,12 @@ public:
 	void SetTransform(const float* matrix) const;
 	//void SetColTransform(float4x4 matrix);
 	void SetPos(float x, float y, float z);
-	float3 GetPos();
+	//float3 GetPos();
+	void Update();
 
 public:
 	btRigidBody* body = nullptr;
 	float4x4 globalTrans;
 	float4x4 transformMat;
+	bool isRenderingCol;
 };

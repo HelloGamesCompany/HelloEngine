@@ -55,7 +55,7 @@ private:
 	PhysBody3D* testBody = nullptr;
 
 	std::vector <btCollisionShape*> shapes;
-	std::vector <PhysBody3D*> bodies;
+	std::vector <PhysBody3D*> physBodies;
 	std::vector <btDefaultMotionState*> motions;
 	std::vector <btTypedConstraint*> constraints;
 };

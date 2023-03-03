@@ -4,6 +4,7 @@
 #include "TextureManager.h"
 #include "GameObject.h"
 #include "MeshRenderComponent.h"
+#include "PhysBody3D.h"
 
 enum class PrimitiveType
 {
@@ -61,6 +62,7 @@ public:
 	void DrawFaceNormals(Mesh* mesh);
 	void DrawOBB(Mesh* mesh);
 	void DrawAABB(Mesh* mesh);
+	void DrawCollider(PhysBody3D* mesh);
 
 	void DestroyInstanceRenderers();
 
@@ -97,6 +99,8 @@ private:
 
 	uint AABBIBO = 0; // index buffer object shared by both OBB and ABB buffers above.
 	uint OBBIBO = 0;
+
+	uint ColliderVertexBuffer = 0;
 
 	// Primitives
 	uint cubeUID = 0;

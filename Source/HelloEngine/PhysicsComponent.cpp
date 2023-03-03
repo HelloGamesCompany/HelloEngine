@@ -162,6 +162,10 @@ void PhysicsComponent::OnEditor()
 			colName += colliderType;
 			ImGui::Text(colName.c_str());
 
+			if (ImGui::Checkbox("Render", &isRenderingCol)) {
+				physBody->isRenderingCol = true;
+			}
+
 			switch (shapeSelected)
 			{
 			case ColliderShape::BOX:
@@ -316,6 +320,8 @@ void PhysicsComponent::CreateCollider()
 		default:
 			break;
 	}
+
+	
 	
 
 }
