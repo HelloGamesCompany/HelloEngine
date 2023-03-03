@@ -13,6 +13,9 @@
 //#include "AK/Comm/AkCommunication.h"
 //#endif // AK_OPTIMIZED
 
+#include "LayerGame.h"
+#include "Wwise_IDs.h"
+
 
 ModuleAudio::ModuleAudio(bool start_enabled)
 {
@@ -20,12 +23,14 @@ ModuleAudio::ModuleAudio(bool start_enabled)
 
 ModuleAudio::~ModuleAudio()
 {
+    TerminateSoundBanks();
     TerminateSoundEngine();
 }
 
 bool ModuleAudio::Init()
 {
     InitSoundEngine();
+    InitSoundBanks();
     return true;
 }
 
@@ -36,6 +41,21 @@ bool ModuleAudio::Start()
 
 UpdateStatus ModuleAudio::PreUpdate()
 {
+    if (LayerGame::S_IsPlaying())
+    {
+        if (!isPlayingBackground)
+        {
+            isPlayingBackground = true;
+
+            AkGameObjectID listenerID = RegisterGameObject(HelloUUID::GenerateUUID());
+            SetDefaultListener(listenerID);
+
+            AkGameObjectID sourceID = RegisterGameObject(HelloUUID::GenerateUUID());
+            AkPlayingID playing = AK::SoundEngine::PostEvent(AK::EVENTS::PLAY_BACKGROUND_MUSIC, sourceID);
+            playing = 1;
+        }
+    }
+    ProcessAudio();
     return UpdateStatus::UPDATE_CONTINUE;
 }
 
@@ -52,6 +72,19 @@ UpdateStatus ModuleAudio::PostUpdate()
 bool ModuleAudio::CleanUp()
 {
     return true;
+}
+
+AkGameObjectID ModuleAudio::RegisterGameObject(AkGameObjectID id)
+{
+    AK::SoundEngine::RegisterGameObj(id);
+    return id;
+}
+
+void ModuleAudio::SetDefaultListener(const AkGameObjectID id)
+{
+    AK::SpatialAudio::RegisterListener(id);
+    AK::SoundEngine::SetDefaultListeners(&id, 1);
+
 }
 
 bool ModuleAudio::InitSoundEngine()
@@ -162,6 +195,27 @@ void ModuleAudio::ProcessAudio()
 {
     /*We call AK::SoundEngine::RenderAudio() so the sound engine processes all pending bank load/unload requests, events, position changes, states, switches, RTPCs, etc. 
     If communications are enabled, they are also processed within RenderAudio().*/
-    AK::SoundEngine::RenderAudio();
+    AKRESULT eResult = AK::SoundEngine::RenderAudio();
+    if (eResult != AK_Success)
+    {
+        Console::S_Log("Error in ProcessAudio()");
+    }
+}
 
+void ModuleAudio::InitSoundBanks()
+{
+    g_lowLevelIO.SetBasePath(AKTEXT("Assets/Wwise/Banks"));
+
+    AKRESULT eResult = AK::SoundEngine::LoadBank(L"Init.bnk", _initBank);
+
+    if (eResult == AK_Success)
+    {
+        eResult = AK::SoundEngine::LoadBank(L"BackgroundMusic.bnk", _testBank);
+    }
+}
+
+void ModuleAudio::TerminateSoundBanks()
+{
+    AK::SoundEngine::UnloadBank(L"Test.bnk", NULL);
+    AK::SoundEngine::UnloadBank(L"Init.bnk", NULL);
 }

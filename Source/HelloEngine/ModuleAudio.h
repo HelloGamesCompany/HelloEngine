@@ -22,6 +22,9 @@ public:
 
 	bool CleanUp() override;
 
+	AkGameObjectID RegisterGameObject(AkGameObjectID id);
+	void SetDefaultListener(const AkGameObjectID id);
+
 
 private:
 
@@ -30,9 +33,18 @@ private:
 
 	void ProcessAudio();
 
+	void InitSoundBanks();
+	void TerminateSoundBanks();
 
 	//// We're using the default Low-Level I/O implementation that's part
 	//// of the SDK's sample code, with the file package extension
 	CAkFilePackageLowLevelIOBlocking g_lowLevelIO;
+
+	AkBankID _initBank;
+	AkBankID _testBank;
+
+	// Temporal
+	bool isPlayingBackground = false;
+
 };
 
