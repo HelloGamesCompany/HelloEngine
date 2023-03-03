@@ -48,7 +48,7 @@ void MaterialComponent::ChangeTexture(ResourceTexture* resource)
 
 	currentResource = resource;
 
-	if (resource->isTransparent)
+	if (resource->isTransparent && !isUI)
 		meshRenderer->ChangeMeshRenderType(MeshRenderType::TRANSPARENCY);
 
 	GetMesh().textureID = textureID;
