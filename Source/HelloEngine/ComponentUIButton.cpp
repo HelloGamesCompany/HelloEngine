@@ -183,7 +183,4 @@ void ComponentUIButton::OnEditor()
 	//ImGui::TextColored(ImVec4(1, 1, 0, 1), std::to_string(height).c_str());
 }
 
-
-
-}
 #endif // STANDALONE
