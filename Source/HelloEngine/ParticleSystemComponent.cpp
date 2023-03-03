@@ -100,6 +100,15 @@ void ParticleSystemComponent::OnEditor()
 	bool created = true;
 	if (ImGui::CollapsingHeader("Particle System", &created, ImGuiTreeNodeFlags_DefaultOpen))
 	{
+		if (ImGui::Button("Play"))
+		{
+			playOnScene = true;
+		}
+		if (ImGui::Button("Pause"))
+		{
+			playOnScene = false;
+		}
+
 		if (ParticleEmitter._meshID == -1)
 		{
 			ImGui::TextWrapped("No mesh loaded! Drag an .hmesh file below to load a mesh ");

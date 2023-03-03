@@ -21,36 +21,37 @@ void ParticleManager::Init()
 {
 }
 
-void ParticleManager::Update()
+void ParticleManager::Update(Emitter& emitter)
 {
 	// EMIT AND UPDATE EMITTER
-	for (Emitter* var : EmitterList)
-	{
-		if(var->component != nullptr)
-		var->component->particleProps.position = var->component->_gameObject->transform->GetGlobalPosition();
-
-		var->EmitParticles(var->component->particleProps);
-
-		var->UpdateParticles();
-		
-	}
 	
+	if(emitter.component != nullptr)
+		emitter.component->particleProps.position = emitter.component->_gameObject->transform->GetGlobalPosition();
+
+	emitter.EmitParticles(emitter.component->particleProps);
+
+	emitter.UpdateParticles();
 
 }
 
 void ParticleManager::Draw()
 {
 
-	if (LayerGame::S_IsPlaying())
+	for (Emitter* var : EmitterList)
 	{
-		Update();
 
-		// DRAW EACH EMITTER
-
-		for (Emitter* var : EmitterList)
+		if (LayerGame::S_IsPlaying() || var->component->playOnScene)
 		{
+			//UPDATE EACH EMITTER
+
+			Update(*(var));
+
+			// DRAW EACH EMITTER
+			
 			var->Draw();
+			
 		}
+
 	}
 	
 }
@@ -67,3 +68,5 @@ void ParticleManager::RemoveEmitterInList(Emitter* emitter)
 	}
 
 }
+
+

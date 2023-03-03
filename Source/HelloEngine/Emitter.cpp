@@ -2,6 +2,7 @@
 #include "Emitter.h"
 #include "ModuleRenderer3D.h"
 #include "InstanceRenderer.h"
+#include "LayerGame.h"
 
 Emitter::Emitter()
 {
@@ -86,34 +87,49 @@ void Emitter::UpdateParticles()
 			continue;
 		}
 
-		//Compute all the calculus needed to move the particles
-
-		//Remaining life minus dt
-		ParticleList[i].remainingLifetime -= EngineTime::GameDeltaTime();
-
-		if (ParticleList[i].remainingLifetime > 0.0f)
+		if (LayerGame::S_IsPlaying() == false)
 		{
+			//Compute all the calculus needed to move the particles
+
+			//Remaining life minus dt
+			ParticleList[i].remainingLifetime -= EngineTime::EngineTimeDeltaTime();
+
+
+			// velocity = acceleration * dt
+			ParticleList[i].speed += ParticleList[i].acceleration * EngineTime::EngineTimeDeltaTime();
+
+
+			// pos += velocity * dt
+			ParticleList[i].position += ParticleList[i].speed * EngineTime::EngineTimeDeltaTime();
+		}
+		else 
+		{
+			//Compute all the calculus needed to move the particles
+
+			//Remaining life minus dt
+			ParticleList[i].remainingLifetime -= EngineTime::GameDeltaTime();
+
+
 			// velocity = acceleration * dt
 			ParticleList[i].speed += ParticleList[i].acceleration * EngineTime::GameDeltaTime();
 
+
 			// pos += velocity * dt
 			ParticleList[i].position += ParticleList[i].speed * EngineTime::GameDeltaTime();
-
-			float life = ParticleList[i].remainingLifetime / ParticleList[i].Lifetime;
-
-			ParticleList[i].scale = Lerp(ParticleList[i].endSize, ParticleList[i].startSize, life);
-
-			ParticleList[i].SetTransformMatrix();
-
-			manager = app->renderer3D->renderManager.GetRenderManager(_meshID);
-			Mesh& meshReference = manager->GetMap()[ParticleList[i]._instanceID];
-
-			meshReference.draw = true;
-
-			meshReference.modelMatrix = ParticleList[i].transformMat;
 		}
+	
+		float life = ParticleList[i].remainingLifetime / ParticleList[i].Lifetime;
 
-		
+		ParticleList[i].scale = Lerp(ParticleList[i].endSize, ParticleList[i].startSize, life);
+
+		ParticleList[i].SetTransformMatrix();
+
+		manager = app->renderer3D->renderManager.GetRenderManager(_meshID);
+		Mesh& meshReference = manager->GetMap()[ParticleList[i]._instanceID];
+
+		meshReference.draw = true;
+
+		meshReference.modelMatrix = ParticleList[i].transformMat;
 
 	}
 }

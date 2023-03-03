@@ -32,7 +32,8 @@ private:
     uint _resourceUID;
     Application* app;
     Emitter ParticleEmitter;
-    ParticleProperties particleProps;    
+    ParticleProperties particleProps;   
+    bool playOnScene = false;
 
 
     friend class ParticleManager;
