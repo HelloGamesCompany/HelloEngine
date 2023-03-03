@@ -165,6 +165,17 @@ void ImWindowHierarchy::ProcessGameObject(GameObject* gameObject, int iteration)
             ModuleCommand::S_SetParentGameObject(_draggingGameObject, gameObject);
             _draggingGameObject = nullptr;
         }
+        else if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("Prefab"))
+        {
+            const std::string* drop = (std::string*)payload->Data;
+
+            ModuleResourceManager::S_DeserializeFromPrefab(*drop, gameObject);
+
+            std::string popUpmessage = "Prefab Loaded: " + *drop;
+
+            LayerEditor::S_AddPopUpMessage(popUpmessage);
+
+        }
         ImGui::EndDragDropTarget();
     }
 
