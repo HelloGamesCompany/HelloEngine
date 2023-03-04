@@ -136,12 +136,12 @@ void PhysicsComponent::OnEditor()
 	{
 		if (ImGui::Checkbox("Static", &isStatic)) {
 			if (physBody != nullptr) {
-				CallUpdateShape();
+				CallUpdateMass();
 			}
 		}
 
-		if (ImGui::DragFloat("Mass: ", &mass, 0.1)) {
-			CallUpdateShape();
+		if (ImGui::DragFloat("Mass: ", &mass, 0.01)) {
+			CallUpdateMass();
 		};
 
 		if (physBody == nullptr)
@@ -192,7 +192,7 @@ void PhysicsComponent::OnEditor()
 			ImGui::Text(colName.c_str());
 
 			if (ImGui::Checkbox("Render", &physBody->isRenderingCol)) {
-				//physBody->isRenderingCol = true;
+
 			}
 
 			switch (shapeSelected)
@@ -200,29 +200,29 @@ void PhysicsComponent::OnEditor()
 			case ColliderShape::BOX:
 			{
 				if (ImGui::DragFloat3("Position: ", colPos.ptr(), 0.1)) {
-					CallUpdateShape();
+					CallUpdatePos();
 				}
 
 				if (ImGui::DragFloat3("Rotation: ", colRot.ptr(), 0.1)) {
-					CallUpdateShape();
+					//CallUpdatePos();
 				}
 
 				if (ImGui::DragFloat3("Scale: ", colScl.ptr(), 0.1)) {
-					CallUpdateShape();
+					//CallUpdatePos();
 				}
 			}
 			break;
 			case ColliderShape::SPHERE:
 			{
 				if (ImGui::DragFloat3("Position: ", colPos.ptr(), 0.1)) {
-					CallUpdateShape();
+					CallUpdatePos();
 				}
 
 				if (ImGui::DragFloat3("Rotation: ", colRot.ptr(), 0.1)) {
-					CallUpdateShape();
+					//CallUpdatePos();
 				}
 				if (ImGui::DragFloat("Radius: ", &sphereRadius, 0.1)) {
-					CallUpdateShape();
+					//CallUpdatePos();
 				}
 			}
 			break;
@@ -230,13 +230,13 @@ void PhysicsComponent::OnEditor()
 			{
 
 				if (ImGui::DragFloat3("Position: ", colPos.ptr(), 0.1)) {
-					CallUpdateShape();
+					CallUpdatePos();
 				}
 				if (ImGui::DragFloat3("Rotation: ", colRot.ptr(), 0.1)) {
-					CallUpdateShape();
+				//	CallUpdateShape();
 				}
 				if (ImGui::DragFloat2("Radius & Height: ", cylRadiusHeight.ptr(), 0.1)) {
-					CallUpdateShape();
+					//CallUpdateShape();
 				}
 			}
 			break;
@@ -254,25 +254,21 @@ void PhysicsComponent::OnEditor()
 	}
 }
 
-void PhysicsComponent::CallUpdateShape()
+void PhysicsComponent::CallUpdatePos()
 {
 	ModulePhysics::UpdatePhysBodyPos(physBody, colPos);
+}
 
-	/*switch (shapeSelected)
-	{
-	case CPhysics::ColliderShape::BOX:
-		phys->UpdateBoxColliderSize(collider, colPos, colRot, colScl, mass);
-		break;
-	case CPhysics::ColliderShape::SPHERE:
-		phys->UpdateSphereColliderSize(collider, colPos, colRot, sphereRadius, mass);
-		break;
-	case CPhysics::ColliderShape::CYLINDER:
-		phys->UpdateCylinderColliderSize(collider, colPos, colRot, cylRadiusHeight, mass);
-		break;
-	default:
-		break;
-	}*/
-
+void PhysicsComponent::CallUpdateMass()
+{
+	if (isStatic == false) {
+		btVector3 inertia(0, 0, 0);
+		physBody->body->setMassProps(mass, inertia);
+	}
+	else {
+		btVector3 inertia(0, 0, 0);
+		physBody->body->setMassProps(0, inertia);
+	}
 }
 
 void PhysicsComponent::CreateCollider()

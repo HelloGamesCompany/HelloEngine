@@ -22,7 +22,8 @@ private:
 	//Physics
 	void CheckShapes();
 
-	void CallUpdateShape();
+	void CallUpdatePos();
+	void CallUpdateMass();
 
 	void CreateCollider();
 
