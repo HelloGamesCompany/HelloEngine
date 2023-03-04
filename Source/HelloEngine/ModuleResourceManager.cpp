@@ -168,17 +168,6 @@ void ModuleResourceManager::S_ReImportFile(const std::string& filePath, Resource
         ModuleFiles::S_UpdateMetaData(filePath, "null");
     }
     break;
-    // RUBENAYORA
-    /*case prefab:
-    * uint filePrefabUID = S_GetPrefabUID(filePath);
-    * for each gameobject in ModuleLayers::gameobjects
-    * {
-    * if (gameObject->_prefabUID == filePrefabUID)
-    * {
-    * destroy actual gameobject and load the prefab
-    * }
-    * }
-    */
     }
 
     RELEASE_ARRAY(buffer);
@@ -327,14 +316,17 @@ void ModuleResourceManager::S_SerializeToPrefab(GameObject* g, const std::string
 {
     if (!g)
         return;
+
+    std::string prefabPath = folderPath + "/" + g->GetName() + ".HPrefab";
+
+    uint prefabUID = S_GetPrefabUID(prefabPath);
+
     // Create json
     json j;
     // Write json
-    g->_prefabUID = SerializeToPrefab(g, j);
+    g->_prefabUID = SerializeToPrefab(g, j, prefabUID);
 
     std::string buffer = j.dump();
-
-    std::string prefabPath = folderPath + "/" + g->GetName() + ".HPrefab";
 
     ModuleFiles::S_Save(prefabPath, &buffer[0], buffer.size(), false);
 }
@@ -471,7 +463,7 @@ uint ModuleResourceManager::S_GetPrefabUID(const std::string& filePath)
     uint size = ModuleFiles::S_Load(filePath, &buffer);
 
     if (size == 0)
-        return false;
+        return 0;
 
     json sceneFile = json::parse(buffer);
     RELEASE(buffer);
