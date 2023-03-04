@@ -411,7 +411,6 @@ void RenderManager::DrawColliderBox(PhysBody3D* physBody)
 	uint mult = 1;
 
 	
-
 	AABBPoints[0].x = (float)physBody->body->getCenterOfMassTransform().getOrigin().getX() + 1 * mult;
 	AABBPoints[0].y = (float)physBody->body->getCenterOfMassTransform().getOrigin().getY() - 1 * mult;
 	AABBPoints[0].z = (float)physBody->body->getCenterOfMassTransform().getOrigin().getZ() - 1 * mult;
@@ -444,9 +443,6 @@ void RenderManager::DrawColliderBox(PhysBody3D* physBody)
 	AABBPoints[7].x = (float)physBody->body->getCenterOfMassTransform().getOrigin().getX() - 1 * mult;
 	AABBPoints[7].y = (float)physBody->body->getCenterOfMassTransform().getOrigin().getY() + 1 * mult;
 	AABBPoints[7].z = (float)physBody->body->getCenterOfMassTransform().getOrigin().getZ() + 1 * mult;
-
-
-	
 
 	glBindVertexArray(AABBVAO);
 

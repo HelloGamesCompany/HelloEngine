@@ -233,3 +233,13 @@ void ModulePhysics::S_RemovePhysBody(PhysBody3D* physBody)
 		}
 	}
 }
+
+void ModulePhysics::UpdatePhysBodyPos(PhysBody3D* physBody, float3 posVec)
+{
+	physBody->SetPos(posVec.x, posVec.y, posVec.z);
+}
+
+void ModulePhysics::UpdatePhysBodyPos(PhysBody3D* physBody, float x, float y, float z)
+{
+	physBody->SetPos(x, y, z);
+}

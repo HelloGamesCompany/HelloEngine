@@ -40,6 +40,9 @@ public:
 	
 	static void S_RemovePhysBody(PhysBody3D* physBody);
 
+	static void UpdatePhysBodyPos(PhysBody3D* physBody, float3 posVec);
+	static void UpdatePhysBodyPos(PhysBody3D* physBody, float x, float y, float z);
+
 	//TODO: this is temporaly here
 	static std::vector <PhysBody3D*> physBodies;
 

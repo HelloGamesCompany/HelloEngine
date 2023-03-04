@@ -256,7 +256,7 @@ void PhysicsComponent::OnEditor()
 
 void PhysicsComponent::CallUpdateShape()
 {
-
+	ModulePhysics::UpdatePhysBodyPos(physBody, colPos);
 
 	/*switch (shapeSelected)
 	{
