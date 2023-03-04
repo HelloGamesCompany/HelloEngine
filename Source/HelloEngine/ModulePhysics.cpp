@@ -106,7 +106,7 @@ UpdateStatus ModulePhysics::Update()
 	
 	for (int i = 0; i < physBodies.size(); i++) {
 
-		physBodies[i]->RenderCollider();
+		//physBodies[i]->RenderCollider();
 
 		if (LayerGame::S_IsPlaying())
 		{

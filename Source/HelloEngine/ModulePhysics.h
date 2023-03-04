@@ -39,8 +39,9 @@ public:
 	PhysBody3D* CreatePhysBody(const Primitive* primitive, float mass = 1.0f);
 	
 	static void S_RemovePhysBody(PhysBody3D* physBody);
-	//PhysBody3D* CreatePhysBody();
-	//PhysBody3D* CreatePhysBody();
+
+	//TODO: this is temporaly here
+	static std::vector <PhysBody3D*> physBodies;
 
 private:
 
@@ -56,7 +57,7 @@ private:
 	//PhysBody3D* testBody2 = nullptr;
 
 	std::vector <btCollisionShape*> shapes;
-	static std::vector <PhysBody3D*> physBodies;
+	//static std::vector <PhysBody3D*> physBodies;
 	std::vector <btDefaultMotionState*> motions;
 	std::vector <btTypedConstraint*> constraints;
 };

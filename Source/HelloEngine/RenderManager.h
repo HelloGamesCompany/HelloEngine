@@ -100,8 +100,6 @@ private:
 	uint AABBIBO = 0; // index buffer object shared by both OBB and ABB buffers above.
 	uint OBBIBO = 0;
 
-	uint ColliderVertexBuffer = 0;
-
 	// Primitives
 	uint cubeUID = 0;
 	uint sphereUID = 0;

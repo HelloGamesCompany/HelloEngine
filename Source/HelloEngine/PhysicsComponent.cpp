@@ -41,11 +41,22 @@ void PhysicsComponent::Serialization(json& j)
 {
 	json _j;
 
-	_j["HasPhysBody"] = (physBody != nullptr ? true : false);
-
 	_j["Type"] = _type;
 	
 	_j["Enabled"] = _isEnabled;
+
+	if (physBody != nullptr) {
+		_j["HasPhysBody"] = true;
+		_j["IsRenderingCol"] = physBody->isRenderingCol;
+	}
+	else {
+		_j["HasPhysBody"] = false;
+		_j["IsRenderingCol"] = false;
+	}
+
+	 
+
+	
 
 	_j["Mass"] = mass;
 
@@ -93,6 +104,8 @@ void PhysicsComponent::DeSerialization(json& j)
 
 	isStatic = j["IsStatic"];
 
+	
+
 	std::vector<float> colPosTemp = j["ColPosition"];
 	colPos = { colPosTemp[0], colPosTemp[1], colPosTemp[2] };
 
@@ -110,7 +123,10 @@ void PhysicsComponent::DeSerialization(json& j)
 	if (j["HasPhysBody"] == true)
 	{
 		CreateCollider();
+		physBody->isRenderingCol = j["IsRenderingCol"];
 	}
+
+	
 
 }
 
@@ -176,7 +192,7 @@ void PhysicsComponent::OnEditor()
 			ImGui::Text(colName.c_str());
 
 			if (ImGui::Checkbox("Render", &physBody->isRenderingCol)) {
-				physBody->isRenderingCol = true;
+				//physBody->isRenderingCol = true;
 			}
 
 			switch (shapeSelected)
@@ -228,20 +244,12 @@ void PhysicsComponent::OnEditor()
 				break;
 			}
 
-
-
-
 			if (ImGui::Button("Remove Collider"))
 			{
 
 				RemoveCollider();
 
 			}
-
-			//if (ImGui::Button("Apply Changes"))
-			//{
-			//	//RemoveCollider();
-			//}
 		}
 	}
 }
@@ -288,14 +296,11 @@ void PhysicsComponent::CreateCollider()
 			cube.size.x = _gameObject->GetComponent<TransformComponent>()->GetGlobalScale().x;//GetScale().x;
 			cube.size.y = _gameObject->GetComponent<TransformComponent>()->GetGlobalScale().y;
 			cube.size.z = _gameObject->GetComponent<TransformComponent>()->GetGlobalScale().z;
-			cube.transform.Translate(_gameObject->GetComponent<TransformComponent>()->GetGlobalPosition());
-			/*cube.setPos*/
-			//cube.
+			//cube.transform.Translate(_gameObject->GetComponent<TransformComponent>()->GetGlobalPosition());
 
 			physBody = Application::Instance()->physic->CreatePhysBody(&cube, mass);
-			physBody->gameObjectUID = _gameObject->GetID();
-			//collider = phys->AddBody(cube, mass);
-			//AddColliderRelations();
+
+
 
 		}
 		break;
@@ -303,35 +308,28 @@ void PhysicsComponent::CreateCollider()
 		{
 			PrimSphere sphere;
 
-			/*sphere.SetPos(colPos.x, colPos.y, colPos.z);
-			sphere.SetRotation(ra, rvec);
-			sphere.radius = 1.0f;
+			sphere.radius = _gameObject->GetComponent<TransformComponent>()->GetGlobalScale().y;
 
-			sphere.color = Green;
+			physBody = Application::Instance()->physic->CreatePhysBody(&sphere, mass);
 
-			collider = phys->AddBody(sphere, mass);
-			AddColliderRelations();*/
 		}
 		break;
 		case ColliderShape::CYLINDER:
 		{
 			PrimCylinder cylinder;
 
-			//cylinder.SetPos(colPos.x, colPos.y, colPos.z);
-			//cylinder.SetRotation(ra, rvec);
-			//cylinder.radius = 1.0f;
-			//cylinder.height = 1.0f;
-			//cylinder.color = Green;
+			cylinder.radius = _gameObject->GetComponent<TransformComponent>()->GetGlobalScale().x;
+			cylinder.height = _gameObject->GetComponent<TransformComponent>()->GetGlobalScale().y;
 
-			//collider = phys->AddBody(cylinder, mass);
-			////collider->SetTransform(&GO->GOtrans->matrix);
-			//AddColliderRelations();
+			physBody = Application::Instance()->physic->CreatePhysBody(&cylinder, mass);
+
 		}
 		break;
 		default:
 			break;
 	}
 
+	physBody->gameObjectUID = _gameObject->GetID();
 	physBody->SetPos(colPos.x, colPos.y, colPos.z);
 	
 
