@@ -59,7 +59,7 @@ void PhysBody3D::SetPos(float x, float y, float z)
 void PhysBody3D::Update()
 {
 	if (isRenderingCol == true) {
-		Application::Instance()->renderer3D->renderManager.DrawCollider(this);//renderer3D->renderManager.DrawOBB(this);
+		Application::Instance()->renderer3D->renderManager.DrawColliderBox(this);//renderer3D->renderManager.DrawOBB(this);
 	}
 }
 

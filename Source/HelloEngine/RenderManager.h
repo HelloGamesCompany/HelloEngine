@@ -62,7 +62,7 @@ public:
 	void DrawFaceNormals(Mesh* mesh);
 	void DrawOBB(Mesh* mesh);
 	void DrawAABB(Mesh* mesh);
-	void DrawCollider(PhysBody3D* mesh);
+	void DrawColliderBox(PhysBody3D* mesh);
 
 	void DestroyInstanceRenderers();
 
