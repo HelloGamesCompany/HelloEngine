@@ -22,6 +22,8 @@ public:
 	float3 GetVelocity();
 	void Update();
 
+	void RenderCollider();
+
 public:
 	btRigidBody* body = nullptr;
 	float4x4 globalTrans;

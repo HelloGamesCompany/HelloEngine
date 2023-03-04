@@ -26,6 +26,8 @@ private:
 
 	void CreateCollider();
 
+	void RemoveCollider();
+
 private:
 
 	PhysBody3D* physBody = nullptr;
@@ -44,8 +46,6 @@ private:
 
 	float sphereRadius;
 	float2 cylRadiusHeight;
-
-	bool isRenderingCol;
 
 };
 

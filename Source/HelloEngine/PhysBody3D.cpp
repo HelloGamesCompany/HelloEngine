@@ -8,6 +8,7 @@
 PhysBody3D::PhysBody3D(btRigidBody* body)
 {
 	this->body = body;
+	isRenderingCol = false;
 }
 
 PhysBody3D::~PhysBody3D()
@@ -77,9 +78,7 @@ float3 PhysBody3D::GetVelocity()
 
 void PhysBody3D::Update()
 {
-	if (isRenderingCol == true) {
-		Application::Instance()->renderer3D->renderManager.DrawColliderBox(this);//renderer3D->renderManager.DrawOBB(this);
-	}
+
 	//btTransform worldTransform = body->getWorldTransform();
 	//btScalar matrix;
 	//worldTransform.getOpenGLMatrix(&matrix);
@@ -91,5 +90,13 @@ void PhysBody3D::Update()
 		go->transform->SetPosition(GetPos());
 		go->transform->SetRotation(GetRotation());
 	}
+}
+
+void PhysBody3D::RenderCollider()
+{
+	if (isRenderingCol == true) {
+		Application::Instance()->renderer3D->renderManager.DrawColliderBox(this);
+	}
+
 }
 
