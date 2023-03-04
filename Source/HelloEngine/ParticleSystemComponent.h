@@ -2,6 +2,7 @@
 #include "Component.h"
 #include "Particle.h"
 #include "Emitter.h"
+#include "P_MainModule.h"
 
 class Application;
 class ResourceMesh;
@@ -35,7 +36,10 @@ private:
     ParticleProperties particleProps;   
     bool playOnScene = false;
 
+    //Particle System Modules
+    P_MainModule mainModule;
 
     friend class ParticleManager;
+    friend class P_MainModule;
 };
 

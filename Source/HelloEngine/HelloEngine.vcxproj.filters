@@ -375,6 +375,9 @@
     <ClCompile Include="Particle.cpp">
       <Filter>Utils</Filter>
     </ClCompile>
+    <ClCompile Include="P_MainModule.cpp">
+      <Filter>GameObject\Components\ParticleModules</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -871,6 +874,9 @@
     <ClInclude Include="Particle.h">
       <Filter>Utils</Filter>
     </ClInclude>
+    <ClInclude Include="P_MainModule.h">
+      <Filter>GameObject\Components\ParticleModules</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="External">
@@ -929,6 +935,9 @@
     </Filter>
     <Filter Include="API">
       <UniqueIdentifier>{9415a565-49db-4b37-8304-2d5e3b42f724}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Components\ParticleModules">
+      <UniqueIdentifier>{912b9e95-e0aa-441c-af06-f32abe99351d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

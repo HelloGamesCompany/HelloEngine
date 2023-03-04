@@ -14,6 +14,7 @@ ParticleSystemComponent::ParticleSystemComponent(GameObject* gameObject) : Compo
 	app = Application::Instance();
 	
 	ParticleEmitter.component = this;
+	mainModule.component = this;
 
 	//Default Particle
 	particleProps.position = _gameObject->transform->GetGlobalPosition();
@@ -21,10 +22,10 @@ ParticleSystemComponent::ParticleSystemComponent(GameObject* gameObject) : Compo
 	particleProps.startsize = float3::one;
 	particleProps.endsize = float3::zero;
 	particleProps.speed = float3(0.0f, 1.0f, 0.0f);
-	particleProps.acceleration = float3(1.0f, 1.0f, 1.0f);
+	particleProps.acceleration = float3(0.0f, 0.0f, 0.0f);
 	particleProps.speedVariation = float3(1.0f, 1.0f, 1.0f);
 	particleProps.startColor = float4(255.0f, 255.0f, 255.0f, 1.0f); //r g b a
-	particleProps.endColor = float4(0.0f, 0.0f, 0.0f, 0.0f); //r g b a
+	particleProps.endColor = float4(255.0f, 255.0f, 255.0f, 1.0f); //r g b a
 
 	particleProps.Lifetime = 5.0f;
 	
@@ -104,6 +105,7 @@ void ParticleSystemComponent::OnEditor()
 		{
 			playOnScene = true;
 		}
+		ImGui::SameLine();
 		if (ImGui::Button("Pause"))
 		{
 			playOnScene = false;
@@ -132,9 +134,10 @@ void ParticleSystemComponent::OnEditor()
 			}
 			ImGui::HelpMarker("You can find .hmesh files by clicking on any model file (FBX or DAE). They will appear below the file icon in the Project window.");
 
-
 			return;
 		}
+
+		mainModule.OnEditor();
 	}
 }
 

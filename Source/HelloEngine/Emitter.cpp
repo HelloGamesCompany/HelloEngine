@@ -7,7 +7,6 @@
 Emitter::Emitter()
 {
 	app = Application::Instance();
-	//To-Do: crea pushBack a ParticleManager->EmitterList
 	app->renderer3D->particleManager.EmitterList.emplace_back(this);
 
 	SetParticlePoolSize(1000);
