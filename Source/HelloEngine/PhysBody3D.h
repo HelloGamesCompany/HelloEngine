@@ -11,12 +11,14 @@ public:
 	~PhysBody3D();
 
 	void Push(float x, float y, float z);
+	void SetVelocity(float x, float y, float z);
 	void GetTransform(float* matrix) const;
 	//float4x4 GetColTransform(float4x4 matrix);
 	void SetTransform(const float* matrix) const;
 	//void SetColTransform(float4x4 matrix);
 	void SetPos(float x, float y, float z);
-	//float3 GetPos();
+	float3 GetPos();
+	float3 GetVelocity();
 	void Update();
 
 public:

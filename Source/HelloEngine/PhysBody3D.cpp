@@ -21,6 +21,12 @@ void PhysBody3D::Push(float x, float y, float z)
 		body->applyCentralImpulse(btVector3(x, y, z));
 }
 
+void PhysBody3D::SetVelocity(float x, float y, float z)
+{
+	if (body)
+		body->setLinearVelocity(btVector3(x, y, z));
+}
+
 void PhysBody3D::GetTransform(float* matrix) const
 {
 	if (body && matrix)
@@ -47,13 +53,19 @@ void PhysBody3D::SetPos(float x, float y, float z)
 	}
 }
 
-//float3 PhysBody3D::GetPos()
-//{
-//	//btScalar* scalar;
-//	//body->getWorldTransform().getOpenGLMatrix(scalar);
-//	//
-//	//return float3(vec.x(), vec.y(), vec.z());
-//}
+float3 PhysBody3D::GetPos()
+{
+	btVector3 vec = body->getWorldTransform().getOrigin();
+
+	return float3(vec.x(), vec.y(), vec.z());
+}
+
+float3 PhysBody3D::GetVelocity()
+{
+	btVector3 vec = body->getLinearVelocity();
+
+	return float3(vec.x(), vec.y(), vec.z());
+}
 
 
 void PhysBody3D::Update()

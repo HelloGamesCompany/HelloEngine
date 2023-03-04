@@ -12,7 +12,6 @@ ModulePhysics::ModulePhysics()
 	dispatcher = new btCollisionDispatcher(collision_conf);
 	broad_phase = new btDbvtBroadphase();
 	solver = new btSequentialImpulseConstraintSolver();
-	world = new btDiscreteDynamicsWorld(dispatcher, broad_phase, solver, collision_conf);
 }
 
 ModulePhysics::~ModulePhysics()
@@ -33,23 +32,25 @@ bool ModulePhysics::Init()
 
 bool ModulePhysics::Start()
 {
+	world = new btDiscreteDynamicsWorld(dispatcher, broad_phase, solver, collision_conf);
+	world->setGravity(btVector3(0.0f, -10.0f, 0.0f));
+
 	PrimCube cube = PrimCube(2);
 	testBody = CreatePhysBody(&cube);
-
+	//testBody->SetVelocity(12, 10, 10);
+	testBody->SetPos(10, 10, 10);
 	return true;
 }
 
 UpdateStatus ModulePhysics::PreUpdate()
 {
+	world->stepSimulation(Application::Instance()->GetDeltaTime(), 15);
 
-	testBody->Push(100, 100, 100);
-
-
-	world->stepSimulation(0.16, 15);
-
+	//testBody->Push(1, 1, 1);
+	testBody->body->activate(true);
 	//std::cout << "\ndt:" << EngineTime::GameDeltaTime()<<std::endl;
-
-	//std::cout <<"\n-------------------------\nx" << testBody->GetPos().x << "\ny" << testBody->GetPos().y << "\nz" << testBody->GetPos().z;
+	//std::cout << "\n-------------------------\nx" << testBody->GetVelocity().x << "\ny" << testBody->GetVelocity().y << "\nz" << testBody->GetVelocity().z;
+	std::cout <<"\n-------------------------\nx" << testBody->GetPos().x << "\ny" << testBody->GetPos().y << "\nz" << testBody->GetPos().z;
 	/*if (LayerGame::S_IsPlaying())
 	{
 		world->stepSimulation(EngineTime::GameDeltaTime(), 15);
@@ -65,6 +66,7 @@ UpdateStatus ModulePhysics::PreUpdate()
 UpdateStatus ModulePhysics::Update()
 {
 	world->updateAabbs();
+
 	for (int i = 0; i < physBodies.size(); i++) {
 		physBodies[i]->Update();
 	}
@@ -160,6 +162,9 @@ PhysBody3D* ModulePhysics::CreatePhysBody(const Primitive* primitive, float mass
 	btRigidBody::btRigidBodyConstructionInfo rbInfo(mass, myMotionState, colShape, localInertia);
 
 	btRigidBody* body = new btRigidBody(rbInfo);
+
+	//body->setActivationState(DISABLE_DEACTIVATION);
+
 	PhysBody3D* pbody = new PhysBody3D(body);
 
 	body->setUserPointer(pbody);

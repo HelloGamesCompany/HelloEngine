@@ -34,6 +34,11 @@ public:
 		frameCap = maxFrames;
 	}
 
+	float GetDeltaTime() 
+	{
+		return _dt;
+	}
+
 	bool IsExit()
 	{
 		return _isExiting;
@@ -66,7 +71,7 @@ public:
 	Timer	timer;
 
 private:
-	float	_dt = 0;
+	float _dt = 0;
 	std::vector<Module*> _list_modules;
 	static Application* _app;
 	bool _isExiting = false;
