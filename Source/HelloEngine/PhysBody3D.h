@@ -26,4 +26,5 @@ public:
 	float4x4 globalTrans;
 	float4x4 transformMat;
 	bool isRenderingCol;
+	uint gameObjectUID = 0;
 };

@@ -283,6 +283,7 @@ void PhysicsComponent::CreateCollider()
 			/*cube.setPos*/
 
 			physBody = Application::Instance()->physic->CreatePhysBody(&cube, mass);
+			physBody->gameObjectUID = _gameObject->GetID();
 			//collider = phys->AddBody(cube, mass);
 			//AddColliderRelations();
 
