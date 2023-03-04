@@ -23,7 +23,7 @@ ImWindowHierarchy::ImWindowHierarchy()
 
     _hasSelectedAGameObject = false;
 
-    _draggingGameObject = nullptr;
+    LayerEditor::draggedGameObject = nullptr;
 
     _base_flags = ImGuiTreeNodeFlags_DefaultOpen | ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_OpenOnDoubleClick | ImGuiTreeNodeFlags_SpanAvailWidth | ImGuiTreeNodeFlags_AllowItemOverlap;
 }
@@ -136,7 +136,7 @@ void ImWindowHierarchy::ProcessGameObject(GameObject* gameObject, int iteration)
     if (ImGui::BeginDragDropSource())
     {
         ImGui::SetDragDropPayload("GameObject", &gameObject->_ID, sizeof(uint));
-        _draggingGameObject = gameObject;
+        LayerEditor::draggedGameObject = gameObject;
         ImGui::Text("Change game object parent");
     
         ImGui::EndDragDropSource();
@@ -151,8 +151,8 @@ void ImWindowHierarchy::ProcessGameObject(GameObject* gameObject, int iteration)
     {
         if (ImGui::AcceptDragDropPayload("GameObject"))
         {
-            ModuleCommand::S_SetParentGameObject(_draggingGameObject, gameObject);
-            _draggingGameObject = nullptr;
+            ModuleCommand::S_SetParentGameObject(LayerEditor::draggedGameObject, gameObject);
+            LayerEditor::draggedGameObject = nullptr;
         }
         ImGui::EndDragDropTarget();
     }

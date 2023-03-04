@@ -359,6 +359,7 @@
     <ClCompile Include="ScriptComponent.cpp" />
     <ClCompile Include="ScriptToInspectorInterface.cpp" />
     <ClCompile Include="Shader.cpp" />
+    <ClCompile Include="SkinnedMeshRenderComponent.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TextureImporter.cpp" />
     <ClCompile Include="TextureManager.cpp" />
@@ -522,6 +523,7 @@
     <ClInclude Include="ScriptComponent.h" />
     <ClInclude Include="ScriptToInspectorInterface.h" />
     <ClInclude Include="Shader.h" />
+    <ClInclude Include="SkinnedMeshRenderComponent.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TextureImporter.h" />
     <ClInclude Include="TextureManager.h" />

@@ -6,6 +6,7 @@
 
 
 #define MAX_BONE_WEIGHTS 4
+#define MAX_BONES 100
 
 class MeshRenderComponent;
 class ResourceMesh;
@@ -19,9 +20,9 @@ struct Vertex
 	float2 texCoords = { 0,0 };
 
 	//Bone indexes that influence this vertex
-	int boneIds[MAX_BONE_WEIGHTS];
+	int boneIds[MAX_BONE_WEIGHTS] = {-1, -1, -1, -1};
 	//Weights from each bone 
-	float weights[MAX_BONE_WEIGHTS];
+	float weights[MAX_BONE_WEIGHTS] = {0, 0, 0, 0};
 };
 
 struct BoneData
@@ -89,6 +90,7 @@ private:
 	uint _IBO = 0;
 	Shader* drawPerMeshShader = nullptr;
 	// ----------------------------------------------------------------------------------------------------
+	Shader* boneMeshShader = nullptr;
 
 #ifdef STANDALONE
 	Shader stencilShader;

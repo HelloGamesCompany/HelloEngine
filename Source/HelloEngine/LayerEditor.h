@@ -79,6 +79,7 @@ private:
 
 public:
 	static GameObject* selectedGameObject;
+	static GameObject* draggedGameObject;
 
 private:
 	static ImWindow* _imWindows[(uint)ImWindowID::MAX];

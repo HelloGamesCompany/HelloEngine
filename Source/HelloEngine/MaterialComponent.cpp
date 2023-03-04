@@ -5,13 +5,20 @@
 #include "TextureImporter.h"
 #include "ModuleResourceManager.h"
 #include "TextureManager.h"
+#include "SkinnedMeshRenderComponent.h"
 
 MaterialComponent::MaterialComponent(GameObject* go) : Component(go)
 {
 	_type = Component::Type::MATERIAL;
 	MeshRenderComponent* meshRenderer = go->GetComponent<MeshRenderComponent>();
-	if (!meshRenderer) return;
-	SetMeshRenderer(meshRenderer);
+	SkinnedMeshRenderComponent* skinnedMeshRenderer;
+	if (!meshRenderer)
+	{
+		SkinnedMeshRenderComponent* skinnedMeshRenderer = go->GetComponent<SkinnedMeshRenderComponent>();
+		if(!skinnedMeshRenderer) return;
+
+		SetSkinnedMeshRenderer(skinnedMeshRenderer);
+	} else SetMeshRenderer(meshRenderer);
 }
 
 MaterialComponent::~MaterialComponent()
@@ -24,6 +31,8 @@ MaterialComponent::~MaterialComponent()
 
 Mesh& MaterialComponent::GetMesh()
 {
+	if (skinnedMeshRenderer != nullptr) return skinnedMeshRenderer->GetMesh();
+	
 	return meshRenderer->GetMesh();
 }
 
@@ -108,9 +117,18 @@ void MaterialComponent::DeSerialization(json& j)
 		return;
 	}
 
-	SetMeshRenderer(_gameObject->GetComponent<MeshRenderComponent>());
+	if (_gameObject->HasComponent<MeshRenderComponent>())
+	{
+		SetMeshRenderer(_gameObject->GetComponent<MeshRenderComponent>());
+	}
+	else
+	{
+		SetSkinnedMeshRenderer(_gameObject->GetComponent<SkinnedMeshRenderComponent>());
+	}
 
-	if (meshRenderer != nullptr)
+	
+
+	if (meshRenderer != nullptr || skinnedMeshRenderer)
 	{
 		ResourceTexture* resource = savedUID == 0 ? nullptr : (ResourceTexture*)ModuleResourceManager::S_LoadResource(j["ResourceUID"]);
 		ChangeTexture(resource);
@@ -151,15 +169,20 @@ void MaterialComponent::OnEditor()
 	if (ImGui::Checkbox("Active##Material", &auxiliaryBool))
 		auxiliaryBool ? Enable() : Disable();
 
-	if (!meshRenderer)
+	if (!meshRenderer && !skinnedMeshRenderer)
 	{
 		ImGui::TextColored(ImVec4(1, 0, 0, 1), "No MeshRenderComponent detected!");
 
 		if (ImGui::Button("Search MeshRenderComponent"))
 		{
 			MeshRenderComponent* meshRenderer = _gameObject->GetComponent<MeshRenderComponent>();
-			if (!meshRenderer) return;
-			SetMeshRenderer(meshRenderer);
+			if (!meshRenderer)
+			{
+				SkinnedMeshRenderComponent* skinnedMeshRenderer = _gameObject->GetComponent<SkinnedMeshRenderComponent>();
+				if (!skinnedMeshRenderer) return;
+
+				SetSkinnedMeshRenderer(skinnedMeshRenderer);
+			} else 	SetMeshRenderer(meshRenderer);
 		}
 	}
 	else
@@ -229,6 +252,16 @@ void MaterialComponent::OnDisable()
 void MaterialComponent::SetMeshRenderer(MeshRenderComponent* mesh)
 {
 	this->meshRenderer = mesh;
+	if (meshRenderer == nullptr)
+	{
+		textureID = -1;
+		return;
+	}
+}
+
+void MaterialComponent::SetSkinnedMeshRenderer(SkinnedMeshRenderComponent* mesh)
+{
+	this->skinnedMeshRenderer = mesh;
 	if (meshRenderer == nullptr)
 	{
 		textureID = -1;

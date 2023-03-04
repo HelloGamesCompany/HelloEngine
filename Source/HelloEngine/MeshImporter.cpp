@@ -7,6 +7,7 @@
 #include "MaterialComponent.h"
 #include "LayerEditor.h"
 #include "File_Model.h"
+#include "SkinnedMeshRenderComponent.h"
 
 Assimp::Importer MeshImporter::importer;
 GameObject* MeshImporter::returnGameObject = nullptr;
@@ -114,9 +115,6 @@ std::string MeshImporter::ProcessMesh(aiMesh* mesh, const aiScene* scene, std::s
 	for (unsigned int i = 0; i < mesh->mNumVertices; i++)
 	{
 		Vertex vertex;
-
-		//Sets Bone data to default
-		SetVertexBoneData(vertex);
 
 		vertex.position.x = mesh->mVertices[i].x;
 		vertex.position.y = mesh->mVertices[i].y;
@@ -260,7 +258,7 @@ void MeshImporter::SetVertexBoneData(Vertex& vertex, int boneId, float weight)
 		{
 			vertex.boneIds[i] = boneId;
 			vertex.weights[i] = weight;
-			//break;
+			break;
 		}
 	}
 }
@@ -357,6 +355,15 @@ void MeshImporter::LoadMeshNode(std::string filePath, GameObject* parent)
 	
 	MeshRenderComponent* meshRender = parent->AddComponent<MeshRenderComponent>();
 	meshRender->CreateMesh(UID);
+
+	//TODO: Temporal Solution, Should be improved
+	if (meshRender->HasBones())
+	{
+		parent->DestroyComponent(meshRender);
+
+		SkinnedMeshRenderComponent* skinnedMeshRender = parent->AddComponent<SkinnedMeshRenderComponent>();
+		skinnedMeshRender->CreateMesh(UID);
+	}
 }
 
 void MeshImporter::LoadTexture(uint resourceUID, GameObject* parent)

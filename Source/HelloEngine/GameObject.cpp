@@ -5,6 +5,7 @@
 #include "MeshRenderComponent.h"
 #include "MaterialComponent.h"
 #include "CameraComponent.h"
+#include "SkinnedMeshRenderComponent.h"
 #include "LayerEditor.h"
 #include "ImGuizmo/ImGuizmo.h"
 #include "ScriptComponent.h"
@@ -155,6 +156,10 @@ void GameObject::OnEditor()
 				case 4:
 					if (!HasComponent<ComponentUI>())
 						AddComponent<ComponentUI>();
+					break;
+				case 5:
+					if (!HasComponent<SkinnedMeshRenderComponent>())
+						AddComponent<SkinnedMeshRenderComponent>();
 				}
 			}
 		}
@@ -296,6 +301,10 @@ Component* GameObject::AddComponentOfType(Component::Type type)
 		newComponent = new MeshRenderComponent(this);
 		_components.push_back(newComponent);
 		break;
+	case Component::Type::SKINNING:
+		newComponent = new SkinnedMeshRenderComponent(this);
+		_components.push_back(newComponent);
+		break;
 	case Component::Type::MATERIAL:
 		newComponent = new MaterialComponent(this);
 		_components.push_back(newComponent);
@@ -327,6 +336,10 @@ Component* GameObject::AddComponentOfType(Component::Type type, const Component&
 		break;
 	case Component::Type::MESH_RENDERER:
 		newComponent = new MeshRenderComponent(this, *(MeshRenderComponent*)&copy);
+		_components.push_back(newComponent);
+		break;
+	case Component::Type::SKINNING:
+		newComponent = new SkinnedMeshRenderComponent(this, *(SkinnedMeshRenderComponent*) &copy);
 		_components.push_back(newComponent);
 		break;
 	case Component::Type::MATERIAL:

@@ -17,6 +17,7 @@ public:
 		CAMERA,
 		SCRIPT,
 		UI,
+		SKINNING,
 		MAX
 	};
 

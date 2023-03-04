@@ -25,8 +25,6 @@ private:
 private:
 	std::map<uint, GameObject*>* _gameObjectsReference = nullptr;
 
-	GameObject* _draggingGameObject = nullptr;
-
 	ImGuiTreeNodeFlags _base_flags = 0;
 
 	bool _popUpOpen = false;

@@ -153,6 +153,7 @@ struct MeshInfo
 	{
 		vertices.clear();
 		indices.clear();
+		boneDataMap.clear();
 	}
 
 	/// <summary>
@@ -161,6 +162,9 @@ struct MeshInfo
 	std::string SaveToBinaryFile(std::string fileName)
 	{
 		std::string filePath = "Resources/Meshes/" + std::to_string(HelloUUID::GenerateUUID()) + ".hmesh";
+
+		std::string corruptionPrev;
+		corruptionPrev.resize(128);
 
 		//Bone map to vectors
 		std::string fullMapKeyString = "";
@@ -179,7 +183,7 @@ struct MeshInfo
 		
 		uint header[4] = { vertices.size(), indices.size(), fullMapKeyString.size(), boneMapValues.size()};
 
-		uint fileSize = verticesSize + indicesSize + fullMapKeyString.size() + boneMapValuesSize; // Vertex + indices + boneMapKeysSize + boneMapKeysValue
+		uint fileSize = verticesSize + indicesSize + fullMapKeyString.size() + boneMapValuesSize + corruptionPrev.size(); // Vertex + indices + boneMapKeysSize + boneMapKeysValue
 
 		char* fileBuffer = new char[fileSize];
 		char* cursor = fileBuffer;
@@ -208,6 +212,11 @@ struct MeshInfo
 			memcpy(cursor, &boneMapValues[0], boneMapValuesSize);
 			cursor += boneMapValuesSize;
 		}	
+
+		//Data corruption prevention
+		// Save vertices
+		memcpy(cursor, &corruptionPrev[0], corruptionPrev.size());
+		cursor += corruptionPrev.size();
 
 		ModuleFiles::S_Save(filePath, fileBuffer, fileSize, false);
 

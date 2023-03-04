@@ -7,6 +7,7 @@
 #include "ModuleRenderer3D.h"
 #include "MeshImporter.h"
 #include "ModuleCommand.h"
+#include "SkinnedMeshRenderComponent.h"
 
 ImWindowScene::ImWindowScene()
 {
@@ -130,8 +131,19 @@ void ImWindowScene::Update()
 				ResourceMesh* resource = (ResourceMesh*)ModuleResourceManager::resources[*drop];
 
 				GameObject* newGameObject = new GameObject(ModuleLayers::rootGameObject, resource->debugName);
+
 				MeshRenderComponent* meshRender = newGameObject->AddComponent<MeshRenderComponent>();
 				meshRender->CreateMesh(*drop);
+
+				//TODO: Temporal Solution, Should be improved
+				if (meshRender->HasBones())
+				{
+					newGameObject->DestroyComponent(meshRender);
+
+					SkinnedMeshRenderComponent* skinnedMeshRender = newGameObject->AddComponent<SkinnedMeshRenderComponent>();
+					skinnedMeshRender->CreateMesh(*drop);
+				}
+
 
 				std::string popUpmessage = "Loaded Mesh: " + resource->debugName;
 				LayerEditor::S_AddPopUpMessage(popUpmessage);
