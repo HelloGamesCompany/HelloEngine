@@ -18,6 +18,7 @@ public:
 	//void SetColTransform(float4x4 matrix);
 	void SetPos(float x, float y, float z);
 	float3 GetPos();
+	float3 GetRotation();
 	float3 GetVelocity();
 	void Update();
 

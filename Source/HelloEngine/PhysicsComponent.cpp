@@ -33,6 +33,8 @@ PhysicsComponent::PhysicsComponent(GameObject* gameObject) : Component(gameObjec
 
 PhysicsComponent::~PhysicsComponent()
 {
+	if (physBody != nullptr)
+		ModulePhysics::S_RemovePhysBody(physBody);
 }
 
 void PhysicsComponent::Serialization(json& j)

@@ -28,7 +28,7 @@ private:
 
 private:
 
-	PhysBody3D* physBody;
+	PhysBody3D* physBody = nullptr;
 
 	float mass;
 

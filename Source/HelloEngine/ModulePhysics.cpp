@@ -6,6 +6,7 @@
 #include "ModuleLayers.h"
 
 btDiscreteDynamicsWorld* ModulePhysics::world = nullptr;
+std::vector <PhysBody3D*> ModulePhysics::physBodies;
 
 ModulePhysics::ModulePhysics()
 {
@@ -103,9 +104,13 @@ UpdateStatus ModulePhysics::Update()
 {
 	world->updateAabbs();
 
-	for (int i = 0; i < physBodies.size(); i++) {
-		physBodies[i]->Update();
+	if (LayerGame::S_IsPlaying())
+	{
+		for (int i = 0; i < physBodies.size(); i++) {
+			physBodies[i]->Update();
+		}
 	}
+
 	return UpdateStatus::UPDATE_CONTINUE;
 }
 
@@ -216,4 +221,12 @@ void ModulePhysics::S_RemovePhysBody(PhysBody3D* physBody)
 {
 	world->removeRigidBody(physBody->body);
 	RELEASE(physBody->body);
+	for (int i = 0; i < physBodies.size(); ++i)
+	{
+		if (physBodies[i] == physBody)
+		{
+			RELEASE(physBodies[i]);
+			physBodies.erase(physBodies.begin() + i);
+		}
+	}
 }
