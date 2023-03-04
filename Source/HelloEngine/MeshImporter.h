@@ -12,6 +12,44 @@ class GameObject;
 struct ModelNode;
 class ResourceModel;
 
+//****************
+//TODO: CHANGE PLACE
+//****************
+
+struct AnimatedBone
+{
+	AnimatedBone(std::string name, int nKeyframes): name(name)
+	{
+		keyframes.resize(nKeyframes);
+
+		for (int i = 0; i < nKeyframes; i++) {
+			keyframes[i] = float3x4::identity;
+		}
+	}
+
+	std::string name = "";
+	std::vector<float3x4> keyframes;
+};
+
+class Animation3d
+{
+public:
+	Animation3d() {}
+	~Animation3d() 
+	{
+		for (int i = 0; i < bones.size(); i++)
+		{
+			RELEASE(bones[i]);
+		}
+	}
+
+	uint durationTicks = 0;
+	double ticksPerSecond = 0;
+	std::vector<AnimatedBone*> bones;
+};
+
+//***************
+
 struct MeshCacheData
 {
 	uint numOfMeshes = 0;
@@ -44,8 +82,10 @@ private:
 	static void ProcessNode(aiNode* node, const aiScene* scene, ModelNode& parentNode);
 	static std::string ProcessMesh(aiMesh* mesh, const aiScene* scene, std::string fileName);
 	static uint ProcessTexture(const std::string& textureName);
-
 	static std::map<std::string, BoneData> ProcessBones(std::vector<Vertex>* vertices, aiMesh* mesh, const aiScene* scene);
+
+	static void ProcessAnimation(const aiScene* scene);
+
 	static void SetVertexBoneData(Vertex& vertex, int boneId = -1, float weight = 0);
 
 	static void LoadNode(ModelNode& node, GameObject* parent);
