@@ -132,7 +132,8 @@ void PhysicsComponent::DeSerialization(json& j)
 
 void PhysicsComponent::OnEditor()
 {
-	if (ImGui::CollapsingHeader("Physics", ImGuiTreeNodeFlags_DefaultOpen))
+	bool created = true;
+	if (ImGui::CollapsingHeader("Physics", &created, ImGuiTreeNodeFlags_DefaultOpen))
 	{
 		if (ImGui::Checkbox("Static", &isStatic)) {
 			if (physBody != nullptr) {
@@ -161,6 +162,7 @@ void PhysicsComponent::OnEditor()
 				if (ImGui::Button("Create Collider"))
 				{
 					CreateCollider();
+					physBody->isRenderingCol = true;
 				}
 			}
 
@@ -252,6 +254,8 @@ void PhysicsComponent::OnEditor()
 			}
 		}
 	}
+	if (!created)
+		this->_gameObject->DestroyComponent(this);
 }
 
 void PhysicsComponent::CallUpdatePos()
