@@ -63,6 +63,8 @@ public:
 	void DrawOBB(Mesh* mesh);
 	void DrawAABB(Mesh* mesh);
 	void DrawColliderBox(PhysBody3D* mesh);
+	void DrawColliderSphere(PhysBody3D* mesh);
+	void DrawColliderCylinder(PhysBody3D* mesh);
 
 	void DestroyInstanceRenderers();
 

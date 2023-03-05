@@ -92,10 +92,25 @@ void PhysBody3D::Update()
 	}
 }
 
+void PhysBody3D::SetShape(ColliderShape shape)
+{
+	colShape = shape;
+}
+
 void PhysBody3D::RenderCollider()
 {
 	if (isRenderingCol == true) {
-		Application::Instance()->renderer3D->renderManager.DrawColliderBox(this);
+		switch (colShape) {
+		case ColliderShape::BOX:
+			Application::Instance()->renderer3D->renderManager.DrawColliderBox(this);
+			break;
+		case ColliderShape::SPHERE:
+			Application::Instance()->renderer3D->renderManager.DrawColliderSphere(this);
+			break;
+		case ColliderShape::CYLINDER:
+			break;
+		}
+		
 	}
 
 }

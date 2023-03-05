@@ -211,6 +211,25 @@ PhysBody3D* ModulePhysics::CreatePhysBody(const Primitive* primitive, float mass
 
 	PhysBody3D* pbody = new PhysBody3D(body);
 
+	switch (primitive->GetType())
+	{
+		case PrimitiveTypes::Primitive_Cube:
+		{
+			pbody->SetShape(ColliderShape::BOX);
+		}
+		break;
+		case PrimitiveTypes::Primitive_Sphere:
+		{
+			pbody->SetShape(ColliderShape::SPHERE);
+		}
+		break;
+		case PrimitiveTypes::Primitive_Cylinder:
+		{
+			pbody->SetShape(ColliderShape::CYLINDER);
+		}
+		break;
+	}
+
 	body->setUserPointer(pbody);
 
 	world->addRigidBody(body);

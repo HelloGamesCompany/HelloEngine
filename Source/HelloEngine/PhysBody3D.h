@@ -2,11 +2,11 @@
 
 #include "MathGeoLib.h"
 #include "btBulletDynamicsCommon.h"
+#include "ModulePhysics.h"
 
 struct PhysBody3D
 {
 public:
-	PhysBody3D() {};
 	PhysBody3D(btRigidBody* body);
 	~PhysBody3D();
 
@@ -22,6 +22,7 @@ public:
 	float3 GetVelocity();
 	void Update();
 
+	void SetShape(ColliderShape shape);
 	void RenderCollider();
 
 public:
@@ -30,4 +31,6 @@ public:
 	float4x4 transformMat;
 	bool isRenderingCol;
 	uint gameObjectUID = 0;
+
+	ColliderShape colShape;
 };
