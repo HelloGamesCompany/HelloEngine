@@ -103,7 +103,10 @@ private:
 
 	bool _dirtyFlag = true;
 	bool _calculateLocal = true;
+	bool _ignorePhysBody = false;
 
 	friend class GameObject;
 	friend class ImWindowScene;
+	friend class PhysBody3D;
+	friend class PhysicsComponent;
 };

@@ -24,10 +24,6 @@ PhysicsComponent::PhysicsComponent(GameObject* gameObject) : Component(gameObjec
 
 	isStatic = false;
 
-	colPos = gameObject->GetComponent<TransformComponent>()->GetGlobalPosition();
-	colRot = gameObject->GetComponent<TransformComponent>()->GetGlobalRotation();
-	colScl = gameObject->GetComponent<TransformComponent>()->GetGlobalScale();
-
 	sphereRadius = 0;
 	cylRadiusHeight = {0,0};
 }
@@ -68,9 +64,9 @@ void PhysicsComponent::Serialization(json& j)
 
 	_j["IsStatic"] = isStatic;
 
-	_j["ColPosition"] = { colPos[0], colPos[1], colPos[2] };
-	_j["ColRotation"] = { colRot[0], colRot[1], colRot[2] };
-	_j["ColScale"] = { colScl[0], colScl[1], colScl[2] };
+	_j["ColPosition"] = { physBody->colPos[0], physBody->colPos[1], physBody->colPos[2] };
+	_j["ColRotation"] = { physBody->colRot[0], physBody->colRot[1],physBody->colRot[2] };
+	_j["ColScale"] = { physBody->colScl[0], physBody->colScl[1], physBody->colScl[2] };
 
 	_j["SphereRadius"] = sphereRadius;
 
@@ -101,15 +97,7 @@ void PhysicsComponent::DeSerialization(json& j)
 
 	isStatic = j["IsStatic"];
 
-	std::vector<float> colPosTemp = j["ColPosition"];
-	colPos = { colPosTemp[0], colPosTemp[1], colPosTemp[2] };
-
-	std::vector<float> colRotTemp = j["ColRotation"];
-	colRot = { colRotTemp[0], colRotTemp[1], colRotTemp[2] };
-
-	std::vector<float> colSclTemp = j["ColScale"];
-	colScl = { colSclTemp[0], colSclTemp[1], colSclTemp[2] };
-
+	
 	sphereRadius = j["SphereRadius"];
 
 	std::vector<float> cylRadiusHeightTemp = j["CylinderRadiusHeight"];
@@ -119,11 +107,16 @@ void PhysicsComponent::DeSerialization(json& j)
 	{
 		CreateCollider();
 		physBody->isRenderingCol = j["IsRenderingCol"];
+		std::vector<float> colPosTemp = j["ColPosition"];
+		physBody->colPos = { colPosTemp[0], colPosTemp[1], colPosTemp[2] };
 
+		std::vector<float> colRotTemp = j["ColRotation"];
+		physBody->colRot = { colRotTemp[0], colRotTemp[1], colRotTemp[2] };
+
+		std::vector<float> colSclTemp = j["ColScale"];
+		physBody->colScl = { colSclTemp[0], colSclTemp[1], colSclTemp[2] };
+		CallUpdatePos();
 	}
-
-	
-
 }
 
 void PhysicsComponent::OnEditor()
@@ -197,26 +190,26 @@ void PhysicsComponent::OnEditor()
 			{
 			case ColliderShape::BOX:
 			{
-				if (ImGui::DragFloat3("Position: ", colPos.ptr(), 0.1)) {
+				if (ImGui::DragFloat3("Position: ", physBody->colPos.ptr(), 0.1)) {
 					CallUpdatePos();
 				}
 
-				if (ImGui::DragFloat3("Rotation: ", colRot.ptr(), 0.1)) {
+				if (ImGui::DragFloat3("Rotation: ", physBody->colRot.ptr(), 0.1)) {
 					//CallUpdatePos();
 				}
 
-				if (ImGui::DragFloat3("Scale: ", colScl.ptr(), 0.1)) {
+				if (ImGui::DragFloat3("Scale: ", physBody->colScl.ptr(), 0.1)) {
 					//CallUpdatePos();
 				}
 			}
 			break;
 			case ColliderShape::SPHERE:
 			{
-				if (ImGui::DragFloat3("Position: ", colPos.ptr(), 0.1)) {
+				if (ImGui::DragFloat3("Position: ", physBody->colPos.ptr(), 0.1)) {
 					CallUpdatePos();
 				}
 
-				if (ImGui::DragFloat3("Rotation: ", colRot.ptr(), 0.1)) {
+				if (ImGui::DragFloat3("Rotation: ", physBody->colRot.ptr(), 0.1)) {
 					//CallUpdatePos();
 				}
 				if (ImGui::DragFloat("Radius: ", &sphereRadius, 0.1)) {
@@ -227,10 +220,10 @@ void PhysicsComponent::OnEditor()
 			case ColliderShape::CYLINDER:
 			{
 
-				if (ImGui::DragFloat3("Position: ", colPos.ptr(), 0.1)) {
+				if (ImGui::DragFloat3("Position: ", physBody->colPos.ptr(), 0.1)) {
 					CallUpdatePos();
 				}
-				if (ImGui::DragFloat3("Rotation: ", colRot.ptr(), 0.1)) {
+				if (ImGui::DragFloat3("Rotation: ", physBody->colRot.ptr(), 0.1)) {
 				//	CallUpdateShape();
 				}
 				if (ImGui::DragFloat2("Radius & Height: ", cylRadiusHeight.ptr(), 0.1)) {
@@ -256,7 +249,7 @@ void PhysicsComponent::OnEditor()
 
 void PhysicsComponent::CallUpdatePos()
 {
-	ModulePhysics::UpdatePhysBodyPos(physBody, colPos);
+	ModulePhysics::UpdatePhysBodyPos(physBody, physBody->colPos);
 }
 
 void PhysicsComponent::CallUpdateMass()
@@ -326,7 +319,7 @@ void PhysicsComponent::CreateCollider()
 	}
 
 	physBody->gameObjectUID = _gameObject->GetID();
-	physBody->SetPos(colPos.x, colPos.y, colPos.z);
+	physBody->SetPos(physBody->colPos.x, physBody->colPos.y, physBody->colPos.z);
 	CallUpdatePos();
 }
 
@@ -338,7 +331,14 @@ void PhysicsComponent::RemoveCollider()
 
 void PhysicsComponent::OnTransformCallback(float4x4 worldMatrix)
 {
-	CallUpdatePos();
+	if (_gameObject->transform->_ignorePhysBody) // If this transformation has to be ignored...
+	{
+		_gameObject->transform->_ignorePhysBody = false; // ... set the flag to false, so next transformation doesn't get ignored, and return.
+		return;
+	}
+
+	if (physBody != nullptr)
+		CallUpdatePos();
 }
 
 void PhysicsComponent::CheckShapes() {

@@ -42,10 +42,6 @@ private:
 	bool isShapeCreated[3];
 	bool isStatic;
 
-	float3 colPos;
-	float3 colRot;
-	float3 colScl;
-
 	float sphereRadius;
 	float2 cylRadiusHeight;
 

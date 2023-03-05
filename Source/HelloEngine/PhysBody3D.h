@@ -32,5 +32,9 @@ public:
 	bool isRenderingCol;
 	uint gameObjectUID = 0;
 
+	float3 colPos;
+	float3 colRot;
+	float3 colScl;
+
 	ColliderShape colShape;
 };
