@@ -100,6 +100,13 @@ void ModuleResourceManager::S_ImportFile(const std::string& filePath)
 		ModuleFiles::S_CreateMetaData(filePath, path);
 	}
 	break;
+	case ResourceType::ANIMATION:
+	{
+
+
+		//std::string path = MeshImporter::
+	}
+	break;
 	case ResourceType::TEXTURE:
 	{
 		char* buffer = nullptr;
@@ -201,6 +208,13 @@ void ModuleResourceManager::S_LoadFileIntoResource(Resource* resource)
 		meshRes->CalculateNormalsAndAABB();
 	}
 	break;
+	case ResourceType::ANIMATION:
+	{
+		ResourceAnimation* animRes = (ResourceAnimation*)resource;
+		animRes->animation.LoadFromBinaryFile(animRes->resourcePath);
+
+	}
+	break;
 	}
 
 	RELEASE_ARRAY(buffer);
@@ -299,7 +313,7 @@ void ModuleResourceManager::S_SerializeScene(GameObject*& g)
 
 	ModuleWindow::S_AddTitleExtraInfo(scenePath);
 
-	std::string buffer = j.dump();
+	std::string buffer = j.dump(4);
 
 	ModuleFiles::S_Save(savePath, &buffer[0], buffer.size(), false);
 }
@@ -313,7 +327,7 @@ void ModuleResourceManager::S_SerializeScene(GameObject*& g, const std::string& 
 	// Write json
 	SerializeSceneRecursive(g, j);
 
-	std::string buffer = j.dump();
+	std::string buffer = j.dump(4);
 
 	ModuleFiles::S_Save(path, &buffer[0], buffer.size(), false);
 }
@@ -516,6 +530,11 @@ void ModuleResourceManager::S_CreateResource(const MetaFile& metaFile)
 		resources[metaFile.UID] = new ResourceMesh();
 	}
 	break;
+	case ResourceType::ANIMATION:
+	{
+		resources[metaFile.UID] = new ResourceAnimation();
+	}
+	break;
 	case ResourceType::MODEL:
 	{
 		ResourceModel* resourceModel = new ResourceModel();
@@ -576,6 +595,25 @@ ResourceMesh* ModuleResourceManager::S_CreateResourceMesh(const std::string& fil
 	}
 
 	return newResource;
+}
+
+void ModuleResourceManager::S_CreateResourceAnimation(const std::string& filePath, uint UID, const std::string& name, bool load)
+{
+	if (resources.count(UID) != 0)
+		return;
+
+	ResourceAnimation* newResource = new ResourceAnimation();
+	
+	if (load)
+	{
+		newResource->animation.LoadFromBinaryFile(filePath);
+	}
+
+	newResource->debugName = name + ".hanim";
+	newResource->UID = UID;
+	newResource->resourcePath = filePath;
+
+	resources[UID] = newResource;
 }
 
 void ModuleResourceManager::S_CreateResourceText(const std::string& filePath, uint UID, const std::string& name, bool load)
@@ -983,6 +1021,16 @@ void ResourceMesh::Destroy()
 
 void ResourceMesh::ReImport(const std::string& filePath)
 {
+}
+
+void ResourceAnimation::Destroy()
+{
+
+}
+
+void ResourceAnimation::ReImport(const std::string& filePath)
+{
+
 }
 
 void ResourceTexture::Destroy()

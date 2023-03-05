@@ -366,6 +366,9 @@
     <ClCompile Include="SkinnedMeshRenderComponent.cpp">
       <Filter>GameObject\Components</Filter>
     </ClCompile>
+    <ClCompile Include="AnimationComponent.cpp">
+      <Filter>GameObject\Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -853,8 +856,8 @@
     <ClInclude Include="SkinnedMeshRenderComponent.h">
       <Filter>GameObject\Components</Filter>
     </ClInclude>
-    <ClInclude Include="AnimationModel.h">
-      <Filter>Other</Filter>
+    <ClInclude Include="AnimationComponent.h">
+      <Filter>GameObject\Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

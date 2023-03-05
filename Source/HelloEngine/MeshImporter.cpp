@@ -8,7 +8,6 @@
 #include "LayerEditor.h"
 #include "File_Model.h"
 #include "SkinnedMeshRenderComponent.h"
-#include "AnimationModel.h"
 
 Assimp::Importer MeshImporter::importer;
 GameObject* MeshImporter::returnGameObject = nullptr;
@@ -39,7 +38,17 @@ std::string MeshImporter::ImportModel(std::string path, uint UID)
 	modelRootNode.WriteToJSON(modelFilePath);
 
 	if (scene->HasAnimations()) {
-		ProcessAnimation(scene);
+		std::string pathRes = ProcessAnimation(scene); //binary
+		std::string assetPath = ModuleFiles::S_GetFilePath(path);
+		assetPath += scene->mAnimations[0]->mName.C_Str();
+		assetPath += ".anim";
+
+		//Generate empty file for animation
+		char buffer = 'A';
+		ModuleFiles::S_Save(assetPath, &buffer, sizeof(char), false);
+
+		//Save
+		ModuleFiles::S_CreateMetaData(assetPath, pathRes);
 	}
 
 	currentPath = "";
@@ -255,49 +264,51 @@ std::map<std::string, BoneData> MeshImporter::ProcessBones(std::vector<Vertex>* 
 	return boneDataMap;
 }
 
-void MeshImporter::ProcessAnimation(const aiScene* scene)
+std::string MeshImporter::ProcessAnimation(const aiScene* scene)
 {
-	Animation3d* anim = new Animation3d();
-
+	Animation3D anim;
 	//Check ONLY 1 animation
 	aiAnimation* importedAnimation = scene->mAnimations[0];
-	anim->durationTicks = importedAnimation->mDuration;
-	anim->ticksPerSecond = importedAnimation->mTicksPerSecond;
-	anim->bones.reserve(importedAnimation->mNumChannels);
+	anim.durationTicks = importedAnimation->mDuration;
+	anim.ticksPerSecond = importedAnimation->mTicksPerSecond;
+	anim.bones.reserve(importedAnimation->mNumChannels);
 
 	//Get all bones info
 	for (int c = 0; c < importedAnimation->mNumChannels; c++)
 	{
 		aiNodeAnim* impBone = importedAnimation->mChannels[c];
 
-		AnimatedBone* bone = new AnimatedBone(impBone->mNodeName.C_Str(), anim->durationTicks + 1);
+		AnimatedBone bone;// = new AnimatedBone(impBone.mNodeName.C_Str(), anim.durationTicks + 1);
+		bone.name = impBone->mNodeName.C_Str();
+		bone.SizeKeyframes(anim.durationTicks + 1);
 
 		//Build keyframe matrixes
 		for (int p = 1; p < impBone->mNumPositionKeys; p++) {
 			aiVector3D pos = impBone->mPositionKeys[p].mValue;
 
-			bone->keyframes[(int)impBone->mPositionKeys[p].mTime].SetTranslatePart(float3(pos.x, pos.y, pos.z));
+			bone.keyframes[(int)impBone->mPositionKeys[p].mTime].SetTranslatePart(float3(pos.x, pos.y, pos.z));
 		}
 
 		for (int r = 1; r < impBone->mNumRotationKeys; r++) {
 			aiQuaternion impRot = impBone->mRotationKeys[r].mValue;
 			Quat rot = Quat(impRot.x, impRot.y, impRot.z, impRot.w);
 
-			bone->keyframes[(int)impBone->mRotationKeys[r].mTime].SetRotatePart(rot);
+			bone.keyframes[(int)impBone->mRotationKeys[r].mTime].SetRotatePart(rot);
 		}
 
 		for (int s = 1; s < impBone->mNumScalingKeys; s++) {
 			aiVector3D sca = impBone->mScalingKeys[s].mValue;
 
-			bone->keyframes[(int)impBone->mScalingKeys[s].mTime][0][0] *= sca.x;
-			bone->keyframes[(int)impBone->mScalingKeys[s].mTime][1][1] *= sca.y;
-			bone->keyframes[(int)impBone->mScalingKeys[s].mTime][2][2] *= sca.z;
+			bone.keyframes[(int)impBone->mScalingKeys[s].mTime][0][0] *= sca.x;
+			bone.keyframes[(int)impBone->mScalingKeys[s].mTime][1][1] *= sca.y;
+			bone.keyframes[(int)impBone->mScalingKeys[s].mTime][2][2] *= sca.z;
 		}
 
-		anim->bones.push_back(bone);
+		anim.bones.push_back(bone);
 	}
 
-	RELEASE(anim);
+	//RELEASE(anim);
+	return anim.SaveToBinaryFile();
 }
 
 void MeshImporter::SetVertexBoneData(Vertex& vertex, int boneId, float weight)

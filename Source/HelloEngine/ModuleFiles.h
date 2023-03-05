@@ -22,6 +22,7 @@ enum class ResourceType
 	SCENE,
 	HSCRIPT,
 	CPPSCRIPT,
+	ANIMATION
 };
 
 struct MetaFile

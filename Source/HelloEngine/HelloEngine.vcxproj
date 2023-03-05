@@ -286,6 +286,7 @@
     <ClCompile Include="..\External\PugiXml\src\pugixml.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="AnimationComponent.cpp" />
     <ClCompile Include="API\API_Console.cpp" />
     <ClCompile Include="API\API_GameObject.cpp" />
     <ClCompile Include="API\API_Input.cpp" />
@@ -448,7 +449,7 @@
     <ClInclude Include="..\External\mmgr\nommgr.h" />
     <ClInclude Include="..\External\PugiXml\src\pugiconfig.hpp" />
     <ClInclude Include="..\External\PugiXml\src\pugixml.hpp" />
-    <ClInclude Include="AnimationModel.h" />
+    <ClInclude Include="AnimationComponent.h" />
     <ClInclude Include="API\API.h" />
     <ClInclude Include="API\API_Console.h" />
     <ClInclude Include="API\API_GameObject.h" />

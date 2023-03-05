@@ -153,6 +153,28 @@ public:
 	uint IBO = 0;
 };
 
+class ResourceAnimation : public Resource
+{
+public:
+	ResourceAnimation() { type = ResourceType::ANIMATION; };
+	~ResourceAnimation() {};
+
+	void UnLoad() override
+	{
+		animation.Clear();
+	}
+
+public:
+	void Destroy() override;
+	void ReImport(const std::string& filePath) override;
+
+	Animation3D animation;
+	uint animUID = 0;
+
+
+};
+
+
 class ResourceScript : public Resource
 {
 public:
@@ -207,6 +229,8 @@ public:
 	// Only for internal engine usage!
 	static ResourceMesh* S_CreateResourceMesh(const std::string& filePath, uint UID, const std::string& name, bool load = true, ResourceModel* model = nullptr);
 	
+	static void S_CreateResourceAnimation(const std::string& filePath, uint UID, const std::string& name, bool load = true);
+
 	static void S_CreateResourceText(const std::string& filePath, uint UID, const std::string& name, bool load = true);
 
 	static Resource* S_LoadResource(const uint& UID);

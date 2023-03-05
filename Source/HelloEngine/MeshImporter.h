@@ -46,7 +46,7 @@ private:
 	static uint ProcessTexture(const std::string& textureName);
 	static std::map<std::string, BoneData> ProcessBones(std::vector<Vertex>* vertices, aiMesh* mesh, const aiScene* scene);
 
-	static void ProcessAnimation(const aiScene* scene);
+	static std::string ProcessAnimation(const aiScene* scene);
 
 	static void SetVertexBoneData(Vertex& vertex, int boneId = -1, float weight = 0);
 

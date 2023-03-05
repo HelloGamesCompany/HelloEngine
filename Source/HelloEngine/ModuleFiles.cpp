@@ -568,6 +568,9 @@ ResourceType ModuleFiles::S_GetResourceType(const std::string& filename)
 	if (fileExtension == "fbx" || fileExtension == "dae") 
 		return ResourceType::MODEL;
 
+	if (fileExtension == "anim")
+		return ResourceType::ANIMATION;
+
 	if (fileExtension == "tga" || fileExtension == "png" || fileExtension == "jpg" || fileExtension == "dds")
 		return ResourceType::TEXTURE;
 
@@ -614,7 +617,7 @@ bool ModuleFiles::S_CreateMetaData(const std::string& file, const std::string& r
 	j["Name"] = assetName;
 
 	// write to string
-	std::string meta = j.dump();
+	std::string meta = j.dump(4);
 
 	ModuleFiles::S_Save(newFile, &meta[0], meta.size(), false);
 
@@ -644,7 +647,7 @@ bool ModuleFiles::S_UpdateMetaData(const std::string& file, const std::string& r
 	j["Resource path"] = resourcePath;
 
 	// write to string
-	std::string meta = j.dump();
+	std::string meta = j.dump(4);
 
 	ModuleFiles::S_Save(metaFile, &meta[0], meta.size(), false);
 
