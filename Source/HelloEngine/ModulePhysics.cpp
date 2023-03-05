@@ -35,10 +35,13 @@ bool ModulePhysics::Start()
 	world = new btDiscreteDynamicsWorld(dispatcher, broad_phase, solver, collision_conf);
 	world->setGravity(btVector3(0.0f, -10.0f, 0.0f));
 
+	// Testing------------------------------------------
 	PrimCube cube = PrimCube(2);
 	testBody = CreatePhysBody(&cube);
 	//testBody->SetVelocity(12, 10, 10);
 	testBody->SetPos(10, 10, 10);
+	// Testing------------------------------------------
+
 	return true;
 }
 
@@ -47,7 +50,6 @@ UpdateStatus ModulePhysics::PreUpdate()
 	world->stepSimulation(Application::Instance()->GetDeltaTime(), 15);
 
 	//testBody->Push(1, 1, 1);
-	testBody->body->activate(true);
 	//std::cout << "\ndt:" << EngineTime::GameDeltaTime()<<std::endl;
 	//std::cout << "\n-------------------------\nx" << testBody->GetVelocity().x << "\ny" << testBody->GetVelocity().y << "\nz" << testBody->GetVelocity().z;
 	std::cout <<"\n-------------------------\nx" << testBody->GetPos().x << "\ny" << testBody->GetPos().y << "\nz" << testBody->GetPos().z;
@@ -163,7 +165,7 @@ PhysBody3D* ModulePhysics::CreatePhysBody(const Primitive* primitive, float mass
 
 	btRigidBody* body = new btRigidBody(rbInfo);
 
-	//body->setActivationState(DISABLE_DEACTIVATION);
+	body->setActivationState(DISABLE_DEACTIVATION);
 
 	PhysBody3D* pbody = new PhysBody3D(body);
 

@@ -10,10 +10,9 @@ public:
 
 	PhysicsComponent(GameObject* gameObject);
 
-private:
-
 	~PhysicsComponent();
-	
+
+private:
 	void OnEditor() override;
 
 	void Serialization(json& j) override;
@@ -28,7 +27,7 @@ private:
 
 private:
 
-	PhysBody3D* physBody;
+	PhysBody3D* physBody = nullptr;
 
 	float mass;
 
@@ -46,7 +45,6 @@ private:
 	float2 cylRadiusHeight;
 
 	bool isRenderingCol;
-
 };
 
 
