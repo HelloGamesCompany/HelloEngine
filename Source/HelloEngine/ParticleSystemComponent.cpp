@@ -16,6 +16,8 @@ ParticleSystemComponent::ParticleSystemComponent(GameObject* gameObject) : Compo
 	ParticleEmitter.component = this;
 	mainModule.component = this;
 
+	_gameObject->AddComponentOfType(Type::BILLBOARD);
+
 	//Default Particle
 	particleProps.position = _gameObject->transform->GetGlobalPosition();
 	//particleProps.rot = float3::zero;
@@ -139,6 +141,28 @@ void ParticleSystemComponent::OnEditor()
 
 		mainModule.OnEditor();
 	}
+}
+
+void ParticleSystemComponent::MarkAsDead()
+{
+	if (ParticleEmitter._meshID != -1)
+	{
+		DestroyEmitterMesh();
+
+		if (_resource != nullptr)
+		{
+			_resource->Dereference();
+			_resourceUID = _resource->UID;
+			_resource = nullptr;
+		}
+
+		app->renderer3D->particleManager.RemoveEmitterInList(&ParticleEmitter);
+	}
+}
+
+void ParticleSystemComponent::MarkAsAlive()
+{
+	CreateEmitterMesh(_resourceUID);
 }
 
 void ParticleSystemComponent::Serialization(json& j)

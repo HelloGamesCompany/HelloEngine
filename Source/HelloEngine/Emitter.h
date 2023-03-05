@@ -22,7 +22,7 @@ public:
 
 	void EmitParticles(ParticleProperties& properties);
 
-	void UpdateParticles();
+	void UpdateParticles(Quat rotation);
 
 	void SetParticlePoolSize(uint size);
 
@@ -31,16 +31,12 @@ public:
 	int64_t _meshID = -1;
 
 private:
-
+	//Position Emitter
 	float3 position;
-
+	
 	std::vector<Particle> ParticleList;
 
 	Application* app;
-
-	GLuint VAO;
-	GLuint VBO;
-	GLuint EBO;
 
 	LCG random;
 
@@ -49,6 +45,8 @@ private:
 	InstanceRenderer* manager;
 
 	int currentparticle;
+
+	Quat BBRotAroundZ;
 
 	friend class ParticleSystemComponent;
 	friend class ParticleManager;

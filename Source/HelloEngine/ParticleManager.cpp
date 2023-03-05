@@ -6,6 +6,7 @@
 #include "GameObject.h"
 #include "TransformComponent.h"
 #include "LayerGame.h"
+#include "BillBoardComponent.h"
 
 ParticleManager::ParticleManager()
 {
@@ -21,34 +22,26 @@ void ParticleManager::Init()
 {
 }
 
-void ParticleManager::Update(Emitter& emitter)
-{
-	// EMIT AND UPDATE EMITTER
-	
-	if(emitter.component != nullptr)
-		emitter.component->particleProps.position = emitter.component->_gameObject->transform->GetGlobalPosition();
-
-	emitter.EmitParticles(emitter.component->particleProps);
-
-	emitter.UpdateParticles();
-
-}
-
 void ParticleManager::Draw()
 {
 
-	for (Emitter* var : EmitterList)
+	for (Emitter* emitter : EmitterList)
 	{
 
-		if (LayerGame::S_IsPlaying() || var->component->playOnScene)
+		if (LayerGame::S_IsPlaying() || emitter->component->playOnScene)
 		{
 			//UPDATE EACH EMITTER
 
-			Update(*(var));
+			if (emitter->component != nullptr)
+				emitter->component->particleProps.position = emitter->component->_gameObject->transform->GetGlobalPosition();
+
+			emitter->EmitParticles(emitter->component->particleProps);
+
+			emitter->UpdateParticles(emitter->component->GetGameObject()->GetComponent<BillBoardComponent>()->GetBBRotation());
 
 			// DRAW EACH EMITTER
 			
-			var->Draw();
+			//var->Draw();
 			
 		}
 

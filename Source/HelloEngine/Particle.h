@@ -6,6 +6,8 @@ struct ParticleProperties
 	float3 position;
 	//Speed and SpeedVariation of the particle
 	float3 speed, speedVariation, acceleration;
+	//Particle Rotation
+	float3 rotation;
 	//Starting and Ending color of the particle
 	float4 startColor, endColor;
 	//Starting and Ending size of the particle
@@ -55,6 +57,7 @@ struct Particle
 	//float rotationSpeed;
 
 	//Calculate the Transform Matrix of the particle
-	void SetTransformMatrix();
+	void SetTransformMatrix(Quat rot);
+
 };
 

@@ -34,13 +34,14 @@ Particle::~Particle()
 {
 }
 
-void Particle::SetTransformMatrix()
+void Particle::SetTransformMatrix(Quat rot = Quat::identity)
 {
 	float x = rotation.x * DEGTORAD;
 	float y = rotation.y * DEGTORAD;
 	float z = rotation.z * DEGTORAD;
 
-	Quat q = Quat::FromEulerXYZ(x, y, z);
+	Quat q = rot * Quat::FromEulerXYZ(x, y, z);
 
 	transformMat = float4x4::FromTRS(position, q, scale).Transposed();
 }
+

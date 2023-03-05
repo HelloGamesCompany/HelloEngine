@@ -22,11 +22,16 @@ public:
 
 #ifdef STANDALONE
     void OnEditor() override;
+
+    void MarkAsDead() override;
+    void MarkAsAlive() override;
 #endif
     void Serialization(json& j) override;
     void DeSerialization(json& j) override;
 
 
+public:
+    bool playOnScene = false;
 private:
     
     ResourceMesh* _resource;
@@ -34,7 +39,7 @@ private:
     Application* app;
     Emitter ParticleEmitter;
     ParticleProperties particleProps;   
-    bool playOnScene = false;
+    
 
     //Particle System Modules
     P_MainModule mainModule;

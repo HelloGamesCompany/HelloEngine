@@ -3,19 +3,26 @@
 #include "ModuleRenderer3D.h"
 #include "InstanceRenderer.h"
 #include "LayerGame.h"
+#include "ParticleSystemComponent.h"
 
 Emitter::Emitter()
 {
 	app = Application::Instance();
 	app->renderer3D->particleManager.EmitterList.emplace_back(this);
 
-	SetParticlePoolSize(1000);
+	BBRotAroundZ = Quat::identity;
+
+	SetParticlePoolSize(1);
 	
 }
 
 Emitter::~Emitter()
 {
-	app->renderer3D->particleManager.RemoveEmitterInList(this);
+	if (_meshID != -1)
+	{
+		app->renderer3D->particleManager.RemoveEmitterInList(this);
+	}
+
 }
 
 void Emitter::SetParticlePoolSize(uint size)
@@ -56,7 +63,7 @@ void Emitter::EmitParticles(ParticleProperties& particleProps)
 	particle.Lifetime = particleProps.Lifetime;
 	particle.remainingLifetime = particleProps.Lifetime;
 
-	particle.SetTransformMatrix();
+	particle.SetTransformMatrix(BBRotAroundZ);
 
 	currentparticle--;
 
@@ -65,11 +72,11 @@ void Emitter::EmitParticles(ParticleProperties& particleProps)
 void Emitter::Draw()
 {
 
-	manager->Draw();
+	//manager->Draw();
 
 }
 
-void Emitter::UpdateParticles()
+void Emitter::UpdateParticles(Quat rotation)
 {
 	for (int i = 0; i < ParticleList.size(); i++)
 	{
@@ -86,7 +93,7 @@ void Emitter::UpdateParticles()
 			continue;
 		}
 
-		if (LayerGame::S_IsPlaying() == false)
+		if (LayerGame::S_IsPlaying() == false && component->playOnScene)
 		{
 			//Compute all the calculus needed to move the particles
 
@@ -121,9 +128,12 @@ void Emitter::UpdateParticles()
 
 		ParticleList[i].scale = Lerp(ParticleList[i].endSize, ParticleList[i].startSize, life);
 
-		ParticleList[i].SetTransformMatrix();
+		BBRotAroundZ = rotation; 
+
+		ParticleList[i].SetTransformMatrix(rotation);
 
 		manager = app->renderer3D->renderManager.GetRenderManager(_meshID);
+		
 		Mesh& meshReference = manager->GetMap()[ParticleList[i]._instanceID];
 
 		meshReference.draw = true;

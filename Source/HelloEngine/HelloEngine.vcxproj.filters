@@ -378,6 +378,9 @@
     <ClCompile Include="P_MainModule.cpp">
       <Filter>GameObject\Components\ParticleModules</Filter>
     </ClCompile>
+    <ClCompile Include="BillBoardComponent.cpp">
+      <Filter>GameObject\Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -876,6 +879,9 @@
     </ClInclude>
     <ClInclude Include="P_MainModule.h">
       <Filter>GameObject\Components\ParticleModules</Filter>
+    </ClInclude>
+    <ClInclude Include="BillBoardComponent.h">
+      <Filter>GameObject\Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

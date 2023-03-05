@@ -18,6 +18,7 @@ public:
 		SCRIPT,
 		UI,
 		PARTICLE_SYSTEM,
+		BILLBOARD,
 		MAX
 	};
 

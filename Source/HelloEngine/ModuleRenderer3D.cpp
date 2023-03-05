@@ -122,8 +122,8 @@ UpdateStatus ModuleRenderer3D::PostUpdate()
 		_cameras->currentDrawingCamera = _cameras->sceneCamera;
 
 		ModuleLayers::S_DrawLayers();
-		renderManager.Draw();
 		particleManager.Draw();
+		renderManager.Draw();
 		_cameras->DrawCameraFrustums();
 	}
 
@@ -134,9 +134,10 @@ UpdateStatus ModuleRenderer3D::PostUpdate()
 		glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 
 		_cameras->currentDrawingCamera = _cameras->activeGameCamera;
-
-		renderManager.Draw();
+		
 		particleManager.Draw();
+		renderManager.Draw();
+		
 		// Draw all 2D meshes.
 		renderManager.Draw2D();
 	}
