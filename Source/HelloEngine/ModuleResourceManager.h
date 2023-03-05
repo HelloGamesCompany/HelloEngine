@@ -163,6 +163,14 @@ public:
     std::string className = "";
 };
 
+class ResourcePrefab : public Resource
+{
+public:
+    ResourcePrefab() {};
+
+    std::string path;
+};
+
 class ModuleResourceManager : public Module
 {
 public:
@@ -198,9 +206,14 @@ public:
     static bool S_DeserializeScene(const std::string& filePath);
 
     // Ruben Ayora
-    static void S_SerializeToPrefab(GameObject*& g, const std::string& folderPath);
+    static void S_SerializeToPrefab(GameObject* g, const std::string& folderPath);
 
-    static bool S_DeserializeFromPrefab(const std::string& filePath, GameObject* parent);
+    static GameObject* S_DeserializeFromPrefab(const std::string& filePath, GameObject* parent, bool loadingScene = false);
+    static void S_DeserializePrefabsScripts(const std::string& filePath, std::vector<std::pair<GameObject*, uint>>& tempPrefab);
+
+    static uint S_GetPrefabUID(const std::string& filePath);
+
+    static void S_OverridePrefab(GameObject* g, const std::string& filePath, uint prefabUID);
 
     /// <summary>
     /// Delete meta file and the resources attached to it. If you want to only destroy the resources, mark bool as true.
@@ -224,7 +237,7 @@ private:
     static void SerializeSceneRecursive(const GameObject* g, json& j);
 
     // Ruben Ayora
-    static uint SerializeToPrefab(const GameObject* g, json& j, bool shouldHaveParent = true);
+    static uint SerializeToPrefab(const GameObject* g, json& j, uint prefabUID = 0, uint parentUID = 0);
 
 public:
     static std::map<std::string, Resource*> loadedResources;

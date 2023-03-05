@@ -80,6 +80,7 @@ public:
 
     uint GetPrefabUID() { return _prefabUID; }
     void SetPrefabUID(uint prefabUID) { _prefabUID = prefabUID; }
+    void SetAllChildsPrefabUID(uint prefabUID);
 
 
 

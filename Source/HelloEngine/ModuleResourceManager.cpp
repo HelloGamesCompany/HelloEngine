@@ -116,6 +116,12 @@ void ModuleResourceManager::S_ImportFile(const std::string& filePath)
 
         break;
     }
+    case ResourceType::PREFAB:
+    {
+        ModuleFiles::S_CreateMetaData(filePath, filePath, S_GetPrefabUID(filePath));
+
+        break;
+    }
     default:
         break;
     }
@@ -162,11 +168,6 @@ void ModuleResourceManager::S_ReImportFile(const std::string& filePath, Resource
         ModuleFiles::S_UpdateMetaData(filePath, "null");
     }
     break;
-    // RUBENAYORA
-    /*case prefab:
-    * if () gameObject->_updatePrefab == false --> dont update prefab automaticly
-    * destroy actual gameobject and load the prefab
-    */
     }
 
     RELEASE_ARRAY(buffer);
@@ -311,18 +312,23 @@ void ModuleResourceManager::S_SerializeScene(GameObject*& g)
 }
 
 // Ruben Ayora
-void ModuleResourceManager::S_SerializeToPrefab(GameObject*& g, const std::string& folderPath) // called when dragging a gameobject from scene to project window
+void ModuleResourceManager::S_SerializeToPrefab(GameObject* g, const std::string& folderPath)
 {
     if (!g)
         return;
+
+    std::string prefabPath = folderPath + "/" + g->GetName() + ".HPrefab";
+
+    uint prefabUID = S_GetPrefabUID(prefabPath);
+
     // Create json
     json j;
     // Write json
-    g->_prefabUID = SerializeToPrefab(g, j, false);
+    g->_prefabUID = SerializeToPrefab(g, j, prefabUID);
+
+    g->SetAllChildsPrefabUID(g->_prefabUID);
 
     std::string buffer = j.dump();
-
-    std::string prefabPath = folderPath + "/" + g->GetName() + ".HPrefab";
 
     ModuleFiles::S_Save(prefabPath, &buffer[0], buffer.size(), false);
 }
@@ -342,16 +348,14 @@ void ModuleResourceManager::S_SerializeScene(GameObject*& g, const std::string& 
 }
 
 // Ruben Ayora
-bool ModuleResourceManager::S_DeserializeFromPrefab(const std::string& filePath, GameObject* parent)
+GameObject* ModuleResourceManager::S_DeserializeFromPrefab(const std::string& filePath, GameObject* parent, bool loadingScene)
 {
     char* buffer = nullptr;
 
     uint size = ModuleFiles::S_Load(filePath, &buffer);
 
     if (size == 0)
-        return false;
-
-    ModuleCommand::S_CleanCommandQueue();
+        return nullptr;
 
     json sceneFile = json::parse(buffer);
     RELEASE(buffer);
@@ -359,10 +363,10 @@ bool ModuleResourceManager::S_DeserializeFromPrefab(const std::string& filePath,
     std::vector<std::pair<GameObject*, uint>> temp;
 
     // First  create game objects
-    for (int i = 0; i < sceneFile.size(); i++)// DUDA
+    for (int i = 0; i < sceneFile.size(); i++)
     {
         GameObject* g = new GameObject(nullptr, sceneFile[i]["Name"], sceneFile[i]["Tag"], sceneFile[i]["UID"]);
-
+        g->SetPrefabUID(sceneFile[i]["PrefabUID"]);
         temp.push_back(std::make_pair(g, sceneFile[i]["ParentUID"]));
     }
 
@@ -370,7 +374,7 @@ bool ModuleResourceManager::S_DeserializeFromPrefab(const std::string& filePath,
     {
         if (temp[i].second != 0)
             temp[i].first->SetParent(ModuleLayers::gameObjects[temp[i].second]);
-        else
+        else if (!loadingScene)
             temp[i].first->SetParent(parent);
     }
 
@@ -402,6 +406,44 @@ bool ModuleResourceManager::S_DeserializeFromPrefab(const std::string& filePath,
         }
     }
 
+    if (!loadingScene)
+    {
+        for (int i = 0; i < sceneFile.size(); i++)
+        {
+            // Create components
+            json object = sceneFile[i]["Components"];
+            for (int j = 0; j < object.size(); j++)
+            {
+                Component::Type componentType = object[j]["Type"];
+                if (componentType != Component::Type::SCRIPT)
+                    continue;
+                temp[i].first->AddComponentSerialized(componentType, object[j]);
+            }
+        }
+    }
+
+    for (int i = 0; i < sceneFile.size(); i++)
+    {
+        temp[i].first->SetActive(sceneFile[i]["Active"]);
+    }
+
+    S_OverridePrefab(temp[0].first, filePath, sceneFile[0]["PrefabUID"]);
+
+    return temp[0].first;
+}
+
+void ModuleResourceManager::S_DeserializePrefabsScripts(const std::string& filePath, std::vector<std::pair<GameObject*, uint>>& tempPrefab)
+{
+    char* buffer = nullptr;
+
+    uint size = ModuleFiles::S_Load(filePath, &buffer);
+
+    if (size == 0)
+        return;
+
+    json sceneFile = json::parse(buffer);
+    RELEASE(buffer);
+
     for (int i = 0; i < sceneFile.size(); i++)
     {
         // Create components
@@ -411,20 +453,40 @@ bool ModuleResourceManager::S_DeserializeFromPrefab(const std::string& filePath,
             Component::Type componentType = object[j]["Type"];
             if (componentType != Component::Type::SCRIPT)
                 continue;
-            temp[i].first->AddComponentSerialized(componentType, object[j]);
+            tempPrefab[i].first->AddComponentSerialized(componentType, object[j]);
         }
     }
+}
 
-    for (int i = 0; i < sceneFile.size(); i++)
-    {
-        temp[i].first->SetActive(sceneFile[i]["Active"]);
-    }
+uint ModuleResourceManager::S_GetPrefabUID(const std::string& filePath)
+{
+    char* buffer = nullptr;
 
-    //ModuleLayers::rootGameObject = temp[0].first;
+    uint size = ModuleFiles::S_Load(filePath, &buffer);
 
-    Application::Instance()->xml->GetConfigXML().FindChildBreadth("currentScene").node.attribute("value").set_value(filePath.c_str());// DUDA
+    if (size == 0)
+        return 0;
 
-    return true;
+    json sceneFile = json::parse(buffer);
+    RELEASE(buffer);
+
+    return sceneFile[0]["PrefabUID"];
+}
+
+void ModuleResourceManager::S_OverridePrefab(GameObject* g, const std::string& filePath, uint prefabUID)
+{
+    if (!g)
+        return;
+    // Create json
+    json j;
+    // Write json
+    g->_prefabUID = SerializeToPrefab(g, j, prefabUID);
+
+    std::string buffer = j.dump();
+
+    std::string prefabPath = filePath;
+
+    ModuleFiles::S_Save(prefabPath, &buffer[0], buffer.size(), false);
 }
 
 bool ModuleResourceManager::S_DeserializeScene(const std::string& filePath)
@@ -459,16 +521,33 @@ bool ModuleResourceManager::S_DeserializeScene(const std::string& filePath)
     // First  create game objects
     for (int i = 0; i < sceneFile.size(); i++)
     {
+        uint prefabUID = sceneFile[i]["PrefabUID"];
+        //if (loadedPrefabs.count(prefabUID) > 0 && !sceneFile[i]["FirstOnPrefab"]) continue;
+
         GameObject* g = new GameObject(nullptr, sceneFile[i]["Name"], sceneFile[i]["Tag"], sceneFile[i]["UID"]);
-        g->SetPrefabUID(sceneFile[i]["PrefabUID"]);
+        g->SetPrefabUID(prefabUID);
+        /*if (prefabUID != 0)
+        {
+            loadedPrefabs[prefabUID].push_back(std::make_pair(g, sceneFile[i]["ParentUID"]));
+            tempPrefab.push_back(std::make_pair(g, prefabUID));
+        }*/
         temp.push_back(std::make_pair(g, sceneFile[i]["ParentUID"]));
     }
 
     for (int i = 0; i < temp.size(); i++)
     {
         if (temp[i].second != 0)
-            temp[i].first->SetParent(ModuleLayers::gameObjects[temp[i].second]);
+            /*if (temp[i].first->_prefabUID == 0)*/ temp[i].first->SetParent(ModuleLayers::gameObjects[temp[i].second]);
     }
+
+    /*for (int i = 0; i < tempPrefab.size(); i++)
+    {
+        if (tempPrefab[i].second != 0)
+        {
+            ResourcePrefab* aux = (ResourcePrefab*)resources[tempPrefab[i].second];
+            S_DeserializeFromPrefab(aux->path, tempPrefab[i].first, true);
+        }
+    }*/
 
     // then add their components
     // TODO: Script components whould be the last to get serialied, because they may need to reference another components instances.
@@ -481,7 +560,7 @@ bool ModuleResourceManager::S_DeserializeScene(const std::string& filePath)
             Component::Type componentType = object[j]["Type"];
             if (componentType == Component::Type::SCRIPT || componentType == Component::Type::MATERIAL)
                 continue;
-            temp[i].first->AddComponentSerialized(componentType, object[j]);
+            /*if (temp[i].first->_prefabUID == 0)*/ temp[i].first->AddComponentSerialized(componentType, object[j]);
         }
     }
 
@@ -494,7 +573,7 @@ bool ModuleResourceManager::S_DeserializeScene(const std::string& filePath)
             Component::Type componentType = object[j]["Type"];
             if (componentType != Component::Type::MATERIAL)
                 continue;
-            temp[i].first->AddComponentSerialized(componentType, object[j]);
+            /*if (temp[i].first->_prefabUID == 0)*/ temp[i].first->AddComponentSerialized(componentType, object[j]);
         }
     }
 
@@ -507,9 +586,15 @@ bool ModuleResourceManager::S_DeserializeScene(const std::string& filePath)
             Component::Type componentType = object[j]["Type"];
             if (componentType != Component::Type::SCRIPT)
                 continue;
-            temp[i].first->AddComponentSerialized(componentType, object[j]);
+            /*if (temp[i].first->_prefabUID == 0)*/ temp[i].first->AddComponentSerialized(componentType, object[j]);
         }
     }
+
+    /*for (auto& prefab : loadedPrefabs)
+    {
+        ResourcePrefab* aux = (ResourcePrefab*)resources[prefab.first];
+        S_DeserializePrefabsScripts(aux->path, prefab.second);
+    }*/
 
     for (int i = 0; i < sceneFile.size(); i++)
     {
@@ -644,6 +729,13 @@ void ModuleResourceManager::S_CreateResource(const MetaFile& metaFile)
         res->debugName = res->className;
     }
     break;
+    case ResourceType::PREFAB:
+    {
+        resources[metaFile.UID] = new ResourcePrefab();
+        ResourcePrefab* r = (ResourcePrefab*)resources[metaFile.UID];
+        r->path = metaFile.resourcePath;
+    }
+    break;
     default:
         Console::S_Log("Cannot create a resource of an undefined meta file!");
         return;
@@ -743,6 +835,14 @@ void ModuleResourceManager::SerializeSceneRecursive(const GameObject* g, json& j
     _j["Tag"] = g->tag;
     _j["Active"] = g->_isActive;
     _j["PrefabUID"] = g->_prefabUID;
+    if (g->_prefabUID != 0 && g->_parent->_prefabUID != 0)
+    {
+        _j["FirstOnPrefab"] = false;
+    }
+    else
+    {
+        _j["FirstOnPrefab"] = true;
+    }
 
     // We delay the serialization of script components because they may need to reference another component when Deserialized.
     // this way, ScriptComponents will always deserialize last, and will find any other component they need inside their game object.
@@ -773,13 +873,15 @@ void ModuleResourceManager::SerializeSceneRecursive(const GameObject* g, json& j
     }
 }
 
-uint ModuleResourceManager::SerializeToPrefab(const GameObject* g, json& j, bool shouldHaveParent)
+uint ModuleResourceManager::SerializeToPrefab(const GameObject* g, json& j, uint prefabUID, uint parentUID)
 {
     json _j;
-    uint _newPrefabUID;// = crear UID
+    uint _newPrefabUID;
+    if (prefabUID == 0) _newPrefabUID = HelloUUID::GenerateUUID();
+    else _newPrefabUID = prefabUID;
 
-    _j["ParentUID"] = shouldHaveParent ? g->_parent->_ID : 0;
-    _j["UID"] = g->_ID;
+    _j["ParentUID"] = parentUID;
+    _j["UID"] = HelloUUID::GenerateUUID();
     _j["Name"] = g->name;
     _j["Tag"] = g->tag;
     _j["Active"] = g->_isActive;
@@ -810,7 +912,7 @@ uint ModuleResourceManager::SerializeToPrefab(const GameObject* g, json& j, bool
     {
         // Recursive to serialize children
         if (!g->_children[i]->_isPendingToDelete)
-            SerializeToPrefab(g->_children[i], j);
+            SerializeToPrefab(g->_children[i], j, _newPrefabUID, _j["UID"]);
     }
 
     return _newPrefabUID;
