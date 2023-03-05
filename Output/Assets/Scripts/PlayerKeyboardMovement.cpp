@@ -4,7 +4,7 @@ HELLO_ENGINE_API_C PlayerKeyboardMovement* CreatePlayerKeyboardMovement(ScriptTo
 	PlayerKeyboardMovement* classInstance = new PlayerKeyboardMovement();
 	//Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
 
-	script->AddDragFloat("Velocity", &classInstance->vel);
+	script->AddDragFloat("Velocity", &classInstance->velk);
 
 	return classInstance;
 }
@@ -16,31 +16,66 @@ void PlayerKeyboardMovement::Start()
 void PlayerKeyboardMovement::Update()
 {
 	//float vel = 0.2;
+	//MouseAim();
 
+	//MOVEMENT TO FORWARD
 	if (Input::GetKey(KeyCode::KEY_W) == KeyState::KEY_REPEAT)
 	{
 		//gameObject.GetTransform().Translate(gameObject.GetTransform().GetForward()* vel );
-		gameObject.GetTransform().Translate((0,0,1.0f)*vel);
-		Console::Log("WWWWWWW");
+		gameObject.GetTransform().Translate(0,0,1.0f * velk);
+		//Console::Log("WWWWWWW");
 	}
+
+	//MOVEMENT TO RIGHT
 	if (Input::GetKey(KeyCode::KEY_D) == KeyState::KEY_REPEAT)
 	{
 		//gameObject.GetTransform().Translate(gameObject.GetTransform().GetLeft() * vel);
-		gameObject.GetTransform().Translate((-1.0f, 0, 0) * vel);
-		Console::Log("DDDDDDDDDD");
+		gameObject.GetTransform().Translate(-1.0f * velk, 0, 0 );
+		//Console::Log("DDDDDDDDDD");
 	}
+
+	//MOVEMENT TO BACKWARD
 	if (Input::GetKey(KeyCode::KEY_S) == KeyState::KEY_REPEAT)
-		{
+	{
 			//gameObject.GetTransform().Translate(gameObject.GetTransform().GetBackward() * vel);
-			gameObject.GetTransform().Translate((0, 0, -1.0f) * vel);
-			Console::Log("SSSSSSSSSSSS");
-		}
+			gameObject.GetTransform().Translate(0, 0, -1.0f * velk);
+			//Console::Log("SSSSSSSSSSSS");
+		
+	}
+
+	//MOVEMENT TO LEFT
 	if (Input::GetKey(KeyCode::KEY_A) == KeyState::KEY_REPEAT)
-		{
+	{
 			//gameObject.GetTransform().Translate(gameObject.GetTransform().GetRight() * vel);
-			gameObject.GetTransform().Translate((1.0f, 0, 0) * vel);
-			Console::Log("AAAAAAAA");
-		}
+			gameObject.GetTransform().Translate(1.0f * velk, 0, 0 );
+			//Console::Log("AAAAAAAA");
+	}
+
+
+	//AIM TO TOP
+	if (Input::GetKey(KeyCode::KEY_UP) == KeyState::KEY_REPEAT)
+	{
+		gameObject.GetTransform().SetRotation(0,0,0);
+		
+	}
+	//AIM TO RIGHT
+	if (Input::GetKey(KeyCode::KEY_RIGHT) == KeyState::KEY_REPEAT)
+	{
+		gameObject.GetTransform().SetRotation(0,270,0);
+		
+	}
+	//AIM TO DOWN
+	if (Input::GetKey(KeyCode::KEY_DOWN) == KeyState::KEY_REPEAT)
+	{
+		gameObject.GetTransform().SetRotation(0,180,0);
+		
+	}
+	//AIM TO LEFT
+	if (Input::GetKey(KeyCode::KEY_LEFT) == KeyState::KEY_REPEAT)
+	{
+		gameObject.GetTransform().SetRotation(0,90,0);
+		
+	}
 	
 	/*if (Input::GetMouseXMotion() < 0)
 	{
@@ -53,4 +88,55 @@ void PlayerKeyboardMovement::Update()
 	}*/
 
 
+
+	if (Input::GetKey(KeyCode::KEY_G) == KeyState::KEY_DOWN)
+	{
+		
+		std::to_string(Input::GetMouseX());
+		;
+		Console::Log("POS X: ");
+		Console::Log( std::to_string(Input::GetMouseX()) );
+		Console::Log( "POS Y: ");
+		Console::Log( std::to_string(Input::GetMouseY()) );
+		//Console::Log( std::to_string(angle) );
+
+	}
 }
+
+void PlayerKeyboardMovement::MouseAim()
+{
+	API_Vector2 mousePos;
+	mousePos.x = Input::GetMouseX();
+	mousePos.y = Input::GetMouseY();
+
+	API_Vector2 playerPos = (gameObject.GetTransform().GetGlobalPosition().x, gameObject.GetTransform().GetGlobalPosition().y);
+	playerPos.x = gameObject.GetTransform().GetGlobalPosition().x;
+	playerPos.y = gameObject.GetTransform().GetGlobalPosition().y;
+	API_Vector2 lookDir = (mousePos.x - playerPos.x, mousePos.y - playerPos.y);
+	lookDir.x = (mousePos.x - playerPos.x);
+	lookDir.y = (mousePos.y - playerPos.y);
+	API_Vector2 normLookDir = lookDir / sqrt(pow(lookDir.x, 2) + pow(lookDir.y, 2));
+	normLookDir.x = lookDir.x / sqrt(pow(lookDir.x, 2) + pow(lookDir.y, 2));
+	normLookDir.y = lookDir.y / sqrt(pow(lookDir.x, 2) + pow(lookDir.y, 2));
+
+
+	float angle = atan2(normLookDir.y, normLookDir.x) * RADTODEG - 90.0f;
+
+	if (Input::GetKey(KeyCode::KEY_F) == KeyState::KEY_DOWN)
+	{
+		Console::Log(std::to_string(angle));
+
+		Console::Log(std::to_string(Input::GetMouseX()));
+		Console::Log(std::to_string(Input::GetMouseY()));
+
+		Console::Log(std::to_string(mousePos.x));
+		Console::Log(std::to_string(mousePos.y));
+
+
+	}
+
+
+	gameObject.GetTransform().SetRotation(0, angle, 0);
+}
+
+

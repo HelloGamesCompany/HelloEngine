@@ -11,7 +11,7 @@ public:
 	void Start() override; 
 	void Update() override;
 
-	//player velocity
+	//player velocity on gamepad
 	float vel = 1.0f;
 };
 

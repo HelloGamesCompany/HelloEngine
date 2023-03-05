@@ -47,22 +47,47 @@ void PlayerGamepadMovement::Update()
 
 	//RIGHT AXIS
 
-	if ((Input::GetGamePadAxis(GamePadAxis::AXIS_RIGHTX) > 10000) && (gameObject.GetTransform().GetLocalRotation().y >= 270 /*(API_Vector3)(0, 270, 0 )*/))
-	{
-		gameObject.GetTransform().Rotate(0,-1,0);
-	}
-	if ((Input::GetGamePadAxis(GamePadAxis::AXIS_RIGHTX) < -10000) && (gameObject.GetTransform().GetLocalRotation().y >= 90 ))
-	{
-		gameObject.GetTransform().Rotate(0, 1, 0);
-	}
+	//if ((Input::GetGamePadAxis(GamePadAxis::AXIS_RIGHTX) > 10000) && (gameObject.GetTransform().GetLocalRotation().y >= 270 /*(API_Vector3)(0, 270, 0 )*/))
+	//{
+	//	gameObject.GetTransform().Rotate(0,-1,0);
+	//}
+	//if ((Input::GetGamePadAxis(GamePadAxis::AXIS_RIGHTX) < -10000) && (gameObject.GetTransform().GetLocalRotation().y >= 90 ))
+	//{
+	//	gameObject.GetTransform().Rotate(0, 1, 0);
+	//}
 
-	if (Input::GetGamePadAxis(GamePadAxis::AXIS_RIGHTY) > 10000 && (gameObject.GetTransform().GetLocalRotation().y >= (360||0)))
+	//if (Input::GetGamePadAxis(GamePadAxis::AXIS_RIGHTY) > 10000 && (gameObject.GetTransform().GetLocalRotation().y >= (360||0)))
+	//{
+	//	gameObject.GetTransform().Rotate(0, -1, 0);
+	//}
+	//if (Input::GetGamePadAxis(GamePadAxis::AXIS_RIGHTY) < -10000 && (gameObject.GetTransform().GetLocalRotation().y >= 180))
+	//{
+	//	gameObject.GetTransform().Rotate(0, 1, 0);
+	//}
+
+	//AIM TO TOP
+	if (Input::GetGamePadButton(GamePadButton::BUTTON_UP) == KeyState::KEY_REPEAT ||Input::GetGamePadAxis(GamePadAxis::AXIS_RIGHTY) < -10000)
 	{
-		gameObject.GetTransform().Rotate(0, -1, 0);
+		gameObject.GetTransform().SetRotation(0, 0, 0);
+
 	}
-	if (Input::GetGamePadAxis(GamePadAxis::AXIS_RIGHTY) < -10000 && (gameObject.GetTransform().GetLocalRotation().y >= 180))
+	//AIM TO RIGHT
+	if (Input::GetGamePadButton(GamePadButton::BUTTON_RIGHT) == KeyState::KEY_REPEAT || Input::GetGamePadAxis(GamePadAxis::AXIS_RIGHTX) > 10000)
 	{
-		gameObject.GetTransform().Rotate(0, 1, 0);
+		gameObject.GetTransform().SetRotation(0, 270, 0);
+
+	}
+	//AIM TO DOWN
+	if (Input::GetGamePadButton(GamePadButton::BUTTON_DOWN) == KeyState::KEY_REPEAT || Input::GetGamePadAxis(GamePadAxis::AXIS_RIGHTY) > 10000 )
+	{
+		gameObject.GetTransform().SetRotation(0, 180, 0);
+
+	}
+	//AIM TO LEFT
+	if (Input::GetGamePadButton(GamePadButton::BUTTON_LEFT) == KeyState::KEY_REPEAT || Input::GetGamePadAxis(GamePadAxis::AXIS_RIGHTX) < -10000)
+	{
+		gameObject.GetTransform().SetRotation(0, 90, 0);
+
 	}
 
 	if (Input::GetGamePadButton(GamePadButton::BUTTON_A) == KeyState::KEY_DOWN)
@@ -72,7 +97,7 @@ void PlayerGamepadMovement::Update()
 
 	if (Input::GetGamePadButton(GamePadButton::BUTTON_X) == KeyState::KEY_DOWN)
 	{
-		int a = gameObject.GetTransform().GetLocalRotation().y;
+		int a = gameObject.GetTransform().GetGlobalRotation().y;
 		
 		Console::Log(std::to_string(a));
 	}

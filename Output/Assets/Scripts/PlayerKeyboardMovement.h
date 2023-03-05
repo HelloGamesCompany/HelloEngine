@@ -11,7 +11,12 @@ public:
 	void Start() override; 
 	void Update() override;
 
-	//player velocity
-	float vel = 1.0f;
+	void MouseAim();
+
+	//player velocity on keyboard
+	float velk = 1.0f;
+
+	
+
 };
 
