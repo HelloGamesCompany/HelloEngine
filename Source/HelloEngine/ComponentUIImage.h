@@ -15,6 +15,8 @@ class ComponentUIImage : public ComponentUI
 
 private: 
 	float _fillImage;
+	float _auxFillImage;
+	ImWindowGame* _gameWindow = nullptr;
 
 #ifdef STANDALONE
 	void OnEditor() override;
