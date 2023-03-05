@@ -124,18 +124,24 @@ void PhysBody3D::SetShape(ColliderShape shape)
 }
 
 void PhysBody3D::RenderCollider()
+
 {
 	if (isRenderingCol == true) {
 		switch (colShape) {
 		case ColliderShape::BOX:
-			Application::Instance()->renderer3D->renderManager.DrawColliderBox(this);
+			if (ModuleLayers::gameObjects.count(gameObjectUID) != 0)
+			{
+				GameObject* go = ModuleLayers::gameObjects[gameObjectUID];
+				Application::Instance()->renderer3D->renderManager.DrawColliderBox(this, float4(go->GetComponent<PhysicsComponent>()->renderColColor), go->GetComponent<PhysicsComponent>()->wireframeSize);
+			}
+			
 			break;
 		case ColliderShape::SPHERE:
 			// TODO: This check will not be necessary once we stop creating PhysBodies without game objects!!!
 			if (ModuleLayers::gameObjects.count(gameObjectUID) != 0)
 			{
 				GameObject* go = ModuleLayers::gameObjects[gameObjectUID];
-				Application::Instance()->renderer3D->renderManager.DrawColliderSphere(this, go->GetComponent<PhysicsComponent>()->sphereRadius);
+				Application::Instance()->renderer3D->renderManager.DrawColliderSphere(this, go->GetComponent<PhysicsComponent>()->sphereRadius, float4(go->GetComponent<PhysicsComponent>()->renderColColor), go->GetComponent<PhysicsComponent>()->wireframeSize, go->GetComponent<PhysicsComponent>()->sphereVerSlices, go->GetComponent<PhysicsComponent>()->sphereHorSlices);
 			}
 			
 			break;
@@ -144,7 +150,7 @@ void PhysBody3D::RenderCollider()
 			if (ModuleLayers::gameObjects.count(gameObjectUID) != 0)
 			{
 				GameObject* go = ModuleLayers::gameObjects[gameObjectUID];
-				Application::Instance()->renderer3D->renderManager.DrawColliderCylinder(this, go->GetComponent<PhysicsComponent>()->cylRadiusHeight);
+				Application::Instance()->renderer3D->renderManager.DrawColliderCylinder(this, go->GetComponent<PhysicsComponent>()->cylRadiusHeight, float4(go->GetComponent<PhysicsComponent>()->renderColColor), go->GetComponent<PhysicsComponent>()->wireframeSize, go->GetComponent<PhysicsComponent>()->cylinderVerSlices);
 			}
 			
 			break;

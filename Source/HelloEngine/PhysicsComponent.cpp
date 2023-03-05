@@ -3,6 +3,8 @@
 #include "Primitive.h"
 #include "GameObject.h"
 #include "Component.h"
+#include "ModuleRenderer3D.h"
+#include "RenderManager.h"
 
 PhysicsComponent::PhysicsComponent(GameObject* gameObject) : Component(gameObject)
 {
@@ -22,8 +24,19 @@ PhysicsComponent::PhysicsComponent(GameObject* gameObject) : Component(gameObjec
 
 	isStatic = false;
 
-	sphereRadius = 0;
-	cylRadiusHeight = {0,0};
+	sphereRadius = 1;
+	cylRadiusHeight = {1,1};
+
+	renderColColor[0] = 0.5f;
+	renderColColor[1] = 0.0f;
+	renderColColor[2] = 0.5f;
+	renderColColor[3] = 1.0f;
+
+	wireframeSize = 3.0f;
+
+	sphereVerSlices = 16;
+	sphereHorSlices = 16;
+	cylinderVerSlices = 16;
 }
 
 PhysicsComponent::~PhysicsComponent()
@@ -187,8 +200,103 @@ void PhysicsComponent::OnEditor()
 			ImGui::Text(colName.c_str());
 
 			if (ImGui::Checkbox("Render", &physBody->isRenderingCol)) {
+				if (physBody->isRenderingCol == true) {
+					switch (shapeSelected)
+					{
+					case ColliderShape::SPHERE:
+					{
+						if (sphereVerSlices < 3) {
+							sphereVerSlices = 3;
+						}
+						if (sphereVerSlices > MAX_VERTICAL_SLICES_SPHERE) {
+							sphereVerSlices = MAX_VERTICAL_SLICES_SPHERE;
+						}
 
+						if (sphereHorSlices < 1) {
+							sphereHorSlices = 1;
+						}
+						if (sphereHorSlices > MAX_HORIZONTAL_SLICES_SPHERE) {
+							sphereHorSlices = MAX_HORIZONTAL_SLICES_SPHERE;
+						}
+						Application::Instance()->renderer3D->renderManager.CalculateSphereBuffer(sphereVerSlices, sphereHorSlices);
+						
+					}
+					break;
+					case ColliderShape::CYLINDER:
+					{
+						if (cylinderVerSlices < 3) {
+							cylinderVerSlices = 3;
+						}
+						if (cylinderVerSlices > MAX_VERTICAL_SLICES_CYLINDER) {
+							cylinderVerSlices = MAX_VERTICAL_SLICES_CYLINDER;
+						}
+						Application::Instance()->renderer3D->renderManager.CalculateCylinderBuffer(cylinderVerSlices);
+					}
+					break;
+					default:
+						break;
+					}
+				}
+				
 			}
+
+			//ImGui::SameLine();
+
+			if (physBody->isRenderingCol == true) {
+
+				if (ImGui::ColorEdit4("Color", renderColColor)) {
+					
+				}
+
+				//ImGui::SameLine();
+
+				if (ImGui::DragFloat("Line Size: ", &wireframeSize, 0.1)) {
+
+				}
+
+				switch (shapeSelected)
+				{
+				case ColliderShape::SPHERE:
+				{
+					if (ImGui::DragInt("Ver. Slices: ", &sphereVerSlices, 1)) {
+						if (sphereVerSlices < 3) {
+							sphereVerSlices = 3;
+						}
+						if (sphereVerSlices > MAX_VERTICAL_SLICES_SPHERE) {
+							sphereVerSlices = MAX_VERTICAL_SLICES_SPHERE;
+						}
+						Application::Instance()->renderer3D->renderManager.CalculateSphereBuffer(sphereVerSlices, sphereHorSlices);
+					}
+					if (ImGui::DragInt("Hor. Slices: ", &sphereHorSlices, 1)) {
+						if (sphereHorSlices < 1) {
+							sphereHorSlices = 1;
+						}
+						if (sphereHorSlices > MAX_HORIZONTAL_SLICES_SPHERE) {
+							sphereHorSlices = MAX_HORIZONTAL_SLICES_SPHERE;
+						}
+						Application::Instance()->renderer3D->renderManager.CalculateSphereBuffer(sphereVerSlices, sphereHorSlices);
+
+					}
+				}
+				break;
+				case ColliderShape::CYLINDER:
+				{
+					if (ImGui::DragInt("Ver. Slices: ", &cylinderVerSlices, 1)) {
+						if (cylinderVerSlices < 3) {
+							cylinderVerSlices = 3;
+						}
+						if (cylinderVerSlices > MAX_VERTICAL_SLICES_CYLINDER) {
+							cylinderVerSlices = MAX_VERTICAL_SLICES_CYLINDER;
+						}
+						Application::Instance()->renderer3D->renderManager.CalculateCylinderBuffer(cylinderVerSlices);
+					}
+				}
+				break;
+				default:
+					break;
+				}
+			}
+			
 
 			switch (shapeSelected)
 			{

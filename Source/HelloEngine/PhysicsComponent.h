@@ -45,8 +45,12 @@ private:
 public:
 	float sphereRadius;
 	float2 cylRadiusHeight;
+	float renderColColor[4];
+	float wireframeSize;
 
-	bool isRenderingCol;
+	int sphereHorSlices;
+	int sphereVerSlices;
 
 	float temporalMass = 1;
+	int cylinderVerSlices;
 };

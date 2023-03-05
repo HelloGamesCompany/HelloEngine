@@ -6,6 +6,10 @@
 #include "MeshRenderComponent.h"
 #include "PhysBody3D.h"
 
+#define MAX_VERTICAL_SLICES_SPHERE 32
+#define MAX_HORIZONTAL_SLICES_SPHERE 32
+#define MAX_VERTICAL_SLICES_CYLINDER 32
+
 enum class PrimitiveType
 {
 	CUBE,
@@ -62,13 +66,15 @@ public:
 	void DrawFaceNormals(Mesh* mesh);
 	void DrawOBB(Mesh* mesh);
 	void DrawAABB(Mesh* mesh);
-	void DrawColliderBox(PhysBody3D* phsyBody);
-	void DrawColliderSphere(PhysBody3D* phsyBody, float radius = 0.f);
-	void DrawColliderCylinder(PhysBody3D* phsyBody, float2 radiusHeight = { 1.0f, 1.0f } );
+	void DrawColliderBox(PhysBody3D* phsyBody, float4 color = { 0.5f, 0.0f, 0.5f, 1.0f }, float wireSize = 3.0f);
+	void DrawColliderSphere(PhysBody3D* phsyBody, float radius = 0.f, float4 color = { 0.5f, 0.0f, 0.5f, 1.0f }, float wireSize = 3.0f, uint verSlices = 16, uint horSlices = 16);
+	void DrawColliderCylinder(PhysBody3D* phsyBody, float2 radiusHeight = { 1.0f, 1.0f } , float4 color = { 0.5f, 0.0f, 0.5f, 1.0f }, float wireSize = 3.0f, uint verSlices = 16);
+
+	void CalculateSphereBuffer(uint verSlices = 16, uint horSlices = 16);
+	void CalculateCylinderBuffer(uint verSlices = 16);
 
 	void DestroyInstanceRenderers();
 
-private:
 	void DrawTransparentMeshes();
 	void DrawIndependentMeshes();
 
@@ -89,12 +95,12 @@ private:
 	std::vector<uint> sphereIndices;
 	std::vector<uint> cylinderIndices;
 
-	const uint sphereVerticalSlices = 16;
-	const uint sphereHorizontalSlices = 16;
-	const uint sphereVertexNum = sphereVerticalSlices * sphereHorizontalSlices + 2;
+	/*const uint sphereVerticalSlices = MAX_VERTICAL_SLICES_SPHERE;
+	const uint sphereHorizontalSlices = MAX_HORIZONTAL_SLICES_SPHERE;*/
+	/*const uint sphereVertexNum = sphereVerticalSlices * sphereHorizontalSlices + 2;*/
 
-	const uint cylinderVerticalSlices = 16;
-	const uint cylinderVertexNum = sphereVerticalSlices * 2;
+	//const uint cylinderVerticalSlices = MAX_VERTICAL_SLICES_SPHERE;
+	//const uint cylinderVertexNum = sphereVerticalSlices * 2;
 
 	// ModelResources for primitives
 	ResourceModel* primitiveModels[5];
