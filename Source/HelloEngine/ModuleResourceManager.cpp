@@ -326,6 +326,8 @@ void ModuleResourceManager::S_SerializeToPrefab(GameObject* g, const std::string
     // Write json
     g->_prefabUID = SerializeToPrefab(g, j, prefabUID);
 
+    g->SetAllChildsPrefabUID(g->_prefabUID);
+
     std::string buffer = j.dump();
 
     ModuleFiles::S_Save(prefabPath, &buffer[0], buffer.size(), false);

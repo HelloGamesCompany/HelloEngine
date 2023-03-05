@@ -197,6 +197,15 @@ void GameObject::OnEditor()
     }
 }
 
+void GameObject::SetAllChildsPrefabUID(uint prefabUID)
+{
+    for (auto& go : _children)
+    {
+        go->SetPrefabUID(prefabUID);
+        go->SetAllChildsPrefabUID(prefabUID);
+    }
+}
+
 
 bool GameObject::MarkAsDead()
 {
