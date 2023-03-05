@@ -42,8 +42,10 @@ private:
 	bool isShapeCreated[3];
 	bool isStatic;
 
+	bool isRenderingCol;
+
+public:
 	float sphereRadius;
 	float2 cylRadiusHeight;
 
-	bool isRenderingCol;
 };

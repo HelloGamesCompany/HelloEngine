@@ -62,9 +62,9 @@ public:
 	void DrawFaceNormals(Mesh* mesh);
 	void DrawOBB(Mesh* mesh);
 	void DrawAABB(Mesh* mesh);
-	void DrawColliderBox(PhysBody3D* mesh);
-	void DrawColliderSphere(PhysBody3D* mesh);
-	void DrawColliderCylinder(PhysBody3D* mesh);
+	void DrawColliderBox(PhysBody3D* phsyBody);
+	void DrawColliderSphere(PhysBody3D* phsyBody, float radius = 0.f);
+	void DrawColliderCylinder(PhysBody3D* phsyBody, float2 radiusHeight = { 1.0f, 1.0f } );
 
 	void DestroyInstanceRenderers();
 

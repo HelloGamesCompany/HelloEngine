@@ -4,11 +4,13 @@
 #include "Application.h"
 #include "ModuleRenderer3D.h"
 #include "ModuleLayers.h"
+#include "PhysicsComponent.h"
 
 PhysBody3D::PhysBody3D(btRigidBody* body)
 {
 	this->body = body;
 	isRenderingCol = false;
+	colShape = ColliderShape::NONE;
 }
 
 PhysBody3D::~PhysBody3D()
@@ -108,10 +110,22 @@ void PhysBody3D::RenderCollider()
 			Application::Instance()->renderer3D->renderManager.DrawColliderBox(this);
 			break;
 		case ColliderShape::SPHERE:
-			Application::Instance()->renderer3D->renderManager.DrawColliderSphere(this);
+			// TODO: This check will not be necessary once we stop creating PhysBodies without game objects!!!
+			if (ModuleLayers::gameObjects.count(gameObjectUID) != 0)
+			{
+				GameObject* go = ModuleLayers::gameObjects[gameObjectUID];
+				Application::Instance()->renderer3D->renderManager.DrawColliderSphere(this, go->GetComponent<PhysicsComponent>()->sphereRadius);
+			}
+			
 			break;
 		case ColliderShape::CYLINDER:
-			Application::Instance()->renderer3D->renderManager.DrawColliderCylinder(this);
+			// TODO: This check will not be necessary once we stop creating PhysBodies without game objects!!!
+			if (ModuleLayers::gameObjects.count(gameObjectUID) != 0)
+			{
+				GameObject* go = ModuleLayers::gameObjects[gameObjectUID];
+				Application::Instance()->renderer3D->renderManager.DrawColliderCylinder(this, go->GetComponent<PhysicsComponent>()->cylRadiusHeight);
+			}
+			
 			break;
 		}
 		

@@ -564,11 +564,9 @@ void RenderManager::DrawColliderBox(PhysBody3D* physBody)
 	
 }
 
-void RenderManager::DrawColliderSphere(PhysBody3D* physBody)
+void RenderManager::DrawColliderSphere(PhysBody3D* physBody, float radius)
 {
-	const float radius = 1.0f;
-
-	const float3 origin(0, 0, 0);
+	const float3 origin = (float3)physBody->body->getCenterOfMassTransform().getOrigin();
 	const float3 startingPointY = origin - float3(0, radius, 0);
 	const float diferenceBetweenSlicesY = (radius * 2) / (sphereHorizontalSlices + 1);
 
@@ -576,12 +574,12 @@ void RenderManager::DrawColliderSphere(PhysBody3D* physBody)
 
 	SpherePoints.push_back(startingPointY);
 
-	for (int i = 1; i < sphereHorizontalSlices+1; i++) 
+	for (int i = 1; i < sphereHorizontalSlices + 1; i++) 
 	{
 		for (int j = 0; j < sphereVerticalSlices; j++) 
 		{
 			float tempY = startingPointY.y + diferenceBetweenSlicesY * i;
-			float tempYRad = sqrt(1 - Pow(tempY,2));
+			float tempYRad = sqrt(Pow(radius, 2) - Pow(-radius + diferenceBetweenSlicesY * i,2));
 			float tempX = origin.x + tempYRad * cos(2 * math::pi * j / sphereVerticalSlices);
 			float tempZ = origin.z + tempYRad * sin(2 * math::pi * j / sphereVerticalSlices);
 
@@ -613,17 +611,17 @@ void RenderManager::DrawColliderSphere(PhysBody3D* physBody)
 	
 }
 
-void RenderManager::DrawColliderCylinder(PhysBody3D* physBody)
+void RenderManager::DrawColliderCylinder(PhysBody3D* physBody, float2 radiusHeight)
 {
-	const float radius = 1.0f;
-	const float height = 1.0f;
+	const float radius = radiusHeight.x;
+	const float height = radiusHeight.y;
 
-	const float3 origin(0, 0, 0);
+	const float3 origin = (float3)physBody->body->getCenterOfMassTransform().getOrigin();
 	const float3 startingPointY = origin - float3(0, -(height / 2), 0);
 	const float3 endingPointY = origin - float3(0, +(height / 2), 0);
 
 	std::vector<float3> CylinderPoints;
-	//CylinderPoints.push_back(startingPointY);
+
 	//Down
 	for (int i = 0; i < cylinderVerticalSlices; i++)
 	{
