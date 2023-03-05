@@ -130,11 +130,6 @@ void RenderManager::Init()
 
 	glBindVertexArray(0);
 
-	//for (int i = 0; i < sphereVertexNum; i++) {
-	//	//sphereIndices.push_back(i);
-	//}
-
-
 	for (int j = 1; j < sphereVerticalSlices + 1; j++) {
 		sphereIndices.push_back(0);
 		sphereIndices.push_back(j);
@@ -169,7 +164,6 @@ void RenderManager::Init()
 		sphereIndices.push_back(sphereHorizontalSlices * sphereVerticalSlices + 1);
 
 		//Horizontal
-		
 		if (i == sphereVerticalSlices - 1) {
 			sphereIndices.push_back((sphereHorizontalSlices * (sphereVerticalSlices - 1) + 1) + i);
 			sphereIndices.push_back(sphereHorizontalSlices * (sphereVerticalSlices - 1) + 1);
@@ -181,9 +175,6 @@ void RenderManager::Init()
 
 		
 	}
-
-
-	//sphereIndices.push_back(0);
 	
 	// Set up buffer for Sphere lines.
 	glGenVertexArrays(1, &SPVAO);
@@ -196,6 +187,45 @@ void RenderManager::Init()
 	glGenBuffers(1, &SPVBO);
 	glBindBuffer(GL_ARRAY_BUFFER, SPVBO);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(float3) * sphereVertexNum, nullptr, GL_DYNAMIC_DRAW);
+
+	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(float3), (void*)0);
+
+	glBindVertexArray(0);
+	
+	//Vertical
+	for (int i = 0; i < cylinderVerticalSlices; i++) {
+		cylinderIndices.push_back(i);
+		cylinderIndices.push_back(i + cylinderVerticalSlices);
+	}
+	
+	//Horizontal
+	for (int i = 0; i < 2; i++) {
+		for (int j = 0; j < cylinderVerticalSlices; j++) {
+			if (j == cylinderVerticalSlices - 1) {
+				cylinderIndices.push_back(i * cylinderVerticalSlices + j);
+				cylinderIndices.push_back(i * cylinderVerticalSlices);
+			}
+			else {
+				cylinderIndices.push_back(i * cylinderVerticalSlices + j);
+				cylinderIndices.push_back(i * cylinderVerticalSlices + j + 1);
+			}
+
+		}
+	}
+	
+
+	// Set up buffer for Cylinder lines.
+	glGenVertexArrays(1, &CYVAO);
+	glBindVertexArray(CYVAO);
+
+	glGenBuffers(1, &CYIBO);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, CYIBO);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(uint) * cylinderIndices.size(), &cylinderIndices[0], GL_STATIC_DRAW);
+
+	glGenBuffers(1, &CYVBO);
+	glBindBuffer(GL_ARRAY_BUFFER, CYVBO);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(float3) * cylinderVertexNum, nullptr, GL_DYNAMIC_DRAW);
 
 	glEnableVertexAttribArray(0);
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(float3), (void*)0);
@@ -536,8 +566,6 @@ void RenderManager::DrawColliderBox(PhysBody3D* physBody)
 
 void RenderManager::DrawColliderSphere(PhysBody3D* physBody)
 {
-
-	
 	const float radius = 1.0f;
 
 	const float3 origin(0, 0, 0);
@@ -558,43 +586,12 @@ void RenderManager::DrawColliderSphere(PhysBody3D* physBody)
 			float tempZ = origin.z + tempYRad * sin(2 * math::pi * j / sphereVerticalSlices);
 
 			float3 tempPoint = float3(tempX, tempY, tempZ);
-			//float3 vecOriginToPoint = float3( tempPoint - origin).Normalized();
-			//SpherePoints.push_back(radius* vecOriginToPoint.Normalized());
 			SpherePoints.push_back(tempPoint);
 		}
 		
 	}
 
 	SpherePoints.push_back(origin + float3(0, radius, 0));
-
-	/*AABBPoints[0] = float3(0, 0, 0);
-	AABBPoints[1] = float3(1, 1, 0);
-	AABBPoints[2] = float3(2, 2, 0);*/
-
-
-	//std::vector<uint> sphereIndices; // Used to display bounding boxes.
-
-	//sphereIndices.clear();
-
-	/*for (int i = 1; i < sphereVerticalSlices+1; i++) {
-		sphereIndices.push_back(0);
-		sphereIndices.push_back(i);
-	}*/
-
-	/*sphereIndices.push_back(0);
-	sphereIndices.push_back(1);
-	sphereIndices.push_back(0);
-	sphereIndices.push_back(0);*/
-	//sphereIndices.push_back(0);
-	//sphereIndices.push_back(0);
-	/*sphereIndices.push_back(0);
-	sphereIndices.push_back(3);
-	sphereIndices.push_back(0);
-	sphereIndices.push_back(4);*/
-
-	/*for (int i = 0; i < SpherePoints.size(); i++) {
-		sphereIndices.push_back(i);
-	}*/
 
 	glBindVertexArray(SPVAO);
 
@@ -618,48 +615,42 @@ void RenderManager::DrawColliderSphere(PhysBody3D* physBody)
 
 void RenderManager::DrawColliderCylinder(PhysBody3D* physBody)
 {
-	float3 AABBPoints[8];
+	const float radius = 1.0f;
+	const float height = 1.0f;
 
-	uint mult = 1;
+	const float3 origin(0, 0, 0);
+	const float3 startingPointY = origin - float3(0, -(height / 2), 0);
+	const float3 endingPointY = origin - float3(0, +(height / 2), 0);
 
-	AABBPoints[0].x = (float)physBody->body->getCenterOfMassTransform().getOrigin().getX() + 1 * mult;
-	AABBPoints[0].y = (float)physBody->body->getCenterOfMassTransform().getOrigin().getY() - 1 * mult;
-	AABBPoints[0].z = (float)physBody->body->getCenterOfMassTransform().getOrigin().getZ() - 1 * mult;
+	std::vector<float3> CylinderPoints;
+	//CylinderPoints.push_back(startingPointY);
+	//Down
+	for (int i = 0; i < cylinderVerticalSlices; i++)
+	{
+		float tempY = startingPointY.y;
+		float tempX = origin.x + radius * cos(2 * math::pi * i / cylinderVerticalSlices);
+		float tempZ = origin.z + radius * sin(2 * math::pi * i / cylinderVerticalSlices);
 
-	AABBPoints[1].x = (float)physBody->body->getCenterOfMassTransform().getOrigin().getX() + 1 * mult;
-	AABBPoints[1].y = (float)physBody->body->getCenterOfMassTransform().getOrigin().getY() + 1 * mult;
-	AABBPoints[1].z = (float)physBody->body->getCenterOfMassTransform().getOrigin().getZ() - 1 * mult;
+		float3 tempPoint = float3(tempX, tempY, tempZ);
+		CylinderPoints.push_back(tempPoint);
+	}
 
-	AABBPoints[2].x = (float)physBody->body->getCenterOfMassTransform().getOrigin().getX() - 1 * mult;
-	AABBPoints[2].y = (float)physBody->body->getCenterOfMassTransform().getOrigin().getY() - 1 * mult;
-	AABBPoints[2].z = (float)physBody->body->getCenterOfMassTransform().getOrigin().getZ() - 1 * mult;
+	//Up
+	for (int i = 0; i < cylinderVerticalSlices; i++)
+	{
+		float tempY = endingPointY.y;
+		float tempX = origin.x + radius * cos(2 * math::pi * i / cylinderVerticalSlices);
+		float tempZ = origin.z + radius * sin(2 * math::pi * i / cylinderVerticalSlices);
 
-	AABBPoints[3].x = (float)physBody->body->getCenterOfMassTransform().getOrigin().getX() - 1 * mult;
-	AABBPoints[3].y = (float)physBody->body->getCenterOfMassTransform().getOrigin().getY() + 1 * mult;
-	AABBPoints[3].z = (float)physBody->body->getCenterOfMassTransform().getOrigin().getZ() - 1 * mult;
+		float3 tempPoint = float3(tempX, tempY, tempZ);
+		CylinderPoints.push_back(tempPoint);
+	}
 
+	glBindVertexArray(CYVAO);
 
-	AABBPoints[4].x = (float)physBody->body->getCenterOfMassTransform().getOrigin().getX() + 1 * mult;
-	AABBPoints[4].y = (float)physBody->body->getCenterOfMassTransform().getOrigin().getY() - 1 * mult;
-	AABBPoints[4].z = (float)physBody->body->getCenterOfMassTransform().getOrigin().getZ() + 1 * mult;
-
-	AABBPoints[5].x = (float)physBody->body->getCenterOfMassTransform().getOrigin().getX() + 1 * mult;
-	AABBPoints[5].y = (float)physBody->body->getCenterOfMassTransform().getOrigin().getY() + 1 * mult;
-	AABBPoints[5].z = (float)physBody->body->getCenterOfMassTransform().getOrigin().getZ() + 1 * mult;
-
-	AABBPoints[6].x = (float)physBody->body->getCenterOfMassTransform().getOrigin().getX() - 1 * mult;
-	AABBPoints[6].y = (float)physBody->body->getCenterOfMassTransform().getOrigin().getY() - 1 * mult;
-	AABBPoints[6].z = (float)physBody->body->getCenterOfMassTransform().getOrigin().getZ() + 1 * mult;
-
-	AABBPoints[7].x = (float)physBody->body->getCenterOfMassTransform().getOrigin().getX() - 1 * mult;
-	AABBPoints[7].y = (float)physBody->body->getCenterOfMassTransform().getOrigin().getY() + 1 * mult;
-	AABBPoints[7].z = (float)physBody->body->getCenterOfMassTransform().getOrigin().getZ() + 1 * mult;
-
-	glBindVertexArray(AABBVAO);
-
-	glBindBuffer(GL_ARRAY_BUFFER, AABBVBO);
+	glBindBuffer(GL_ARRAY_BUFFER, CYVBO);
 	void* ptr = glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY);
-	memcpy(ptr, &AABBPoints[0], 8 * sizeof(float3));
+	memcpy(ptr, &CylinderPoints.at(0), CylinderPoints.size() * sizeof(float3));
 	glUnmapBuffer(GL_ARRAY_BUFFER);
 
 	localLineShader->Bind();
@@ -667,7 +658,10 @@ void RenderManager::DrawColliderCylinder(PhysBody3D* physBody)
 	localLineShader->SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
 	localLineShader->SetFloat4("lineColor", 0.5f, 0.0f, 0.5f, 1.0f);
 
-	glDrawElements(GL_LINES, boxIndices.size(), GL_UNSIGNED_INT, 0);
+	glLineWidth(3.0f);
+	glPointSize(10.f);
+	glDrawElements(GL_LINES, cylinderIndices.size(), GL_UNSIGNED_INT, 0);
+	glLineWidth(1.0f);
 
 	glBindVertexArray(0);
 }
