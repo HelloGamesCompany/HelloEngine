@@ -28,6 +28,8 @@ private:
 
 	void RemoveCollider();
 
+	void OnTransformCallback(float4x4 worldMatrix);
+
 private:
 
 	PhysBody3D* physBody = nullptr;

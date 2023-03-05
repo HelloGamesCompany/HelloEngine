@@ -8,6 +8,7 @@ PhysicsComponent::PhysicsComponent(GameObject* gameObject) : Component(gameObjec
 {
 	_type = Component::Type::PHYSICS;
 	physBody = nullptr;
+	_needsTransformCallback = true;
 
 	mass = 0;
 
@@ -84,10 +85,6 @@ void PhysicsComponent::DeSerialization(json& j)
 	if (!enabled)
 		Disable();
 
-
-	
-
-
 	mass = j["Mass"];
 
 	shapeSelected = j["ShapeSelected"];
@@ -103,8 +100,6 @@ void PhysicsComponent::DeSerialization(json& j)
 	isShapeCreated[2] = isShapeCreatedTemp[2];
 
 	isStatic = j["IsStatic"];
-
-	
 
 	std::vector<float> colPosTemp = j["ColPosition"];
 	colPos = { colPosTemp[0], colPosTemp[1], colPosTemp[2] };
@@ -124,6 +119,7 @@ void PhysicsComponent::DeSerialization(json& j)
 	{
 		CreateCollider();
 		physBody->isRenderingCol = j["IsRenderingCol"];
+
 	}
 
 	
@@ -327,14 +323,18 @@ void PhysicsComponent::CreateCollider()
 
 	physBody->gameObjectUID = _gameObject->GetID();
 	physBody->SetPos(colPos.x, colPos.y, colPos.z);
-	
-
+	CallUpdatePos();
 }
 
 void PhysicsComponent::RemoveCollider()
 {
 	ModulePhysics::S_RemovePhysBody(physBody);
 	physBody = nullptr;
+}
+
+void PhysicsComponent::OnTransformCallback(float4x4 worldMatrix)
+{
+	CallUpdatePos();
 }
 
 void PhysicsComponent::CheckShapes() {

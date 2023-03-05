@@ -261,7 +261,8 @@ void ModulePhysics::S_RemovePhysBody(PhysBody3D* physBody)
 
 void ModulePhysics::UpdatePhysBodyPos(PhysBody3D* physBody, float3 posVec)
 {
-	physBody->SetPos(posVec.x, posVec.y, posVec.z);
+	float3 currentTransformPos = ModuleLayers::gameObjects[physBody->gameObjectUID]->transform->GetGlobalPosition();
+	physBody->SetPos(posVec.x + currentTransformPos.x, posVec.y + currentTransformPos.y, posVec.z + currentTransformPos.z);
 }
 
 void ModulePhysics::UpdatePhysBodyPos(PhysBody3D* physBody, float x, float y, float z)
