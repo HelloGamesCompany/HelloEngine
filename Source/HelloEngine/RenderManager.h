@@ -87,10 +87,14 @@ private:
 
 	std::vector<uint> boxIndices; // Used to display bounding boxes.
 	std::vector<uint> sphereIndices;
+	std::vector<uint> cylinderIndices;
 
 	const uint sphereVerticalSlices = 16;
 	const uint sphereHorizontalSlices = 16;
 	const uint sphereVertexNum = sphereVerticalSlices * sphereHorizontalSlices + 2;
+
+	const uint cylinderVerticalSlices = 16;
+	const uint cylinderVertexNum = sphereVerticalSlices * 2;
 
 	// ModelResources for primitives
 	ResourceModel* primitiveModels[5];
@@ -101,14 +105,20 @@ private:
 
 	uint AABBVAO = 0;
 	uint AABBVBO = 0;
+
 	uint OBBVAO = 0;
 	uint OBBVBO = 0;
+
 	uint SPVAO = 0;
 	uint SPVBO = 0;
+
+	uint CYVAO = 0;
+	uint CYVBO = 0;
 
 	uint AABBIBO = 0; // index buffer object shared by both OBB and ABB buffers above.
 	uint OBBIBO = 0;
 	uint SPIBO = 0;
+	uint CYIBO = 0;
 
 	// Primitives
 	uint cubeUID = 0;

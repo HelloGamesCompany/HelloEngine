@@ -108,6 +108,7 @@ void PhysBody3D::RenderCollider()
 			Application::Instance()->renderer3D->renderManager.DrawColliderSphere(this);
 			break;
 		case ColliderShape::CYLINDER:
+			Application::Instance()->renderer3D->renderManager.DrawColliderCylinder(this);
 			break;
 		}
 		
