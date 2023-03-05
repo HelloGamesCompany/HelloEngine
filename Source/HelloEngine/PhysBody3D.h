@@ -17,6 +17,8 @@ public:
 	void SetTransform(const float* matrix) const;
 	//void SetColTransform(float4x4 matrix);
 	void SetPos(float x, float y, float z);
+	void SetRotation(float x, float y, float z);
+	void SetScale(float x, float y, float z);
 	float3 GetPos();
 	float3 GetRotation();
 	float3 GetVelocity();
@@ -31,10 +33,11 @@ public:
 	float4x4 transformMat;
 	bool isRenderingCol;
 	uint gameObjectUID = 0;
+	float mass = 0;
 
-	float3 colPos;
-	float3 colRot;
-	float3 colScl;
+	float3 colPos = { 0,0,0 };
+	float3 colRot = { 0,0,0 };
+	float3 colScl = { 1,1,1 };
 
 	ColliderShape colShape;
 };

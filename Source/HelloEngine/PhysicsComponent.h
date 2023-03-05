@@ -22,6 +22,8 @@ private:
 	void CheckShapes();
 
 	void CallUpdatePos();
+	void CallUpdateRotation();
+	void CallUpdateScale();
 	void CallUpdateMass();
 
 	void CreateCollider();
@@ -34,8 +36,6 @@ private:
 
 	PhysBody3D* physBody = nullptr;
 
-	float mass;
-
 	ColliderShape shapeSelected;
 
 	bool isShapeSelected[3];
@@ -46,4 +46,6 @@ private:
 	float2 cylRadiusHeight;
 
 	bool isRenderingCol;
+
+	float temporalMass = 0;
 };

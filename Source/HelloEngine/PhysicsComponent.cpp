@@ -10,8 +10,6 @@ PhysicsComponent::PhysicsComponent(GameObject* gameObject) : Component(gameObjec
 	physBody = nullptr;
 	_needsTransformCallback = true;
 
-	mass = 0;
-
 	shapeSelected = ColliderShape::NONE;
 
 	isShapeSelected[0] = false;
@@ -51,12 +49,6 @@ void PhysicsComponent::Serialization(json& j)
 		_j["IsRenderingCol"] = false;
 	}
 
-	 
-
-	
-
-	_j["Mass"] = mass;
-
 	_j["ShapeSelected"] = shapeSelected;
 
 	_j["IsShapeSelected"] = { isShapeSelected[0], isShapeSelected[1], isShapeSelected[2] };
@@ -64,9 +56,14 @@ void PhysicsComponent::Serialization(json& j)
 
 	_j["IsStatic"] = isStatic;
 
-	_j["ColPosition"] = { physBody->colPos[0], physBody->colPos[1], physBody->colPos[2] };
-	_j["ColRotation"] = { physBody->colRot[0], physBody->colRot[1],physBody->colRot[2] };
-	_j["ColScale"] = { physBody->colScl[0], physBody->colScl[1], physBody->colScl[2] };
+	if (physBody != nullptr)
+	{
+		_j["Mass"] = physBody->mass;
+
+		_j["ColPosition"] = { physBody->colPos[0], physBody->colPos[1], physBody->colPos[2] };
+		_j["ColRotation"] = { physBody->colRot[0], physBody->colRot[1],physBody->colRot[2] };
+		_j["ColScale"] = { physBody->colScl[0], physBody->colScl[1], physBody->colScl[2] };
+	}
 
 	_j["SphereRadius"] = sphereRadius;
 
@@ -80,8 +77,6 @@ void PhysicsComponent::DeSerialization(json& j)
 	bool enabled = j["Enabled"];
 	if (!enabled)
 		Disable();
-
-	mass = j["Mass"];
 
 	shapeSelected = j["ShapeSelected"];
 
@@ -105,7 +100,10 @@ void PhysicsComponent::DeSerialization(json& j)
 
 	if (j["HasPhysBody"] == true)
 	{
+		temporalMass = j["Mass"];
 		CreateCollider();
+		physBody->mass = temporalMass;
+		CallUpdateMass();
 		physBody->isRenderingCol = j["IsRenderingCol"];
 		std::vector<float> colPosTemp = j["ColPosition"];
 		physBody->colPos = { colPosTemp[0], colPosTemp[1], colPosTemp[2] };
@@ -130,8 +128,12 @@ void PhysicsComponent::OnEditor()
 			}
 		}
 
-		if (ImGui::DragFloat("Mass: ", &mass, 0.01)) {
-			CallUpdateMass();
+		if (ImGui::DragFloat("Mass: ", &temporalMass, 0.01)) {
+			if (physBody != nullptr)
+			{
+				physBody->mass = temporalMass;
+				CallUpdateMass();
+			}
 		};
 
 		if (physBody == nullptr)
@@ -195,11 +197,11 @@ void PhysicsComponent::OnEditor()
 				}
 
 				if (ImGui::DragFloat3("Rotation: ", physBody->colRot.ptr(), 0.1)) {
-					//CallUpdatePos();
+					CallUpdateRotation();
 				}
 
 				if (ImGui::DragFloat3("Scale: ", physBody->colScl.ptr(), 0.1)) {
-					//CallUpdatePos();
+					CallUpdateScale();
 				}
 			}
 			break;
@@ -249,14 +251,26 @@ void PhysicsComponent::OnEditor()
 
 void PhysicsComponent::CallUpdatePos()
 {
-	ModulePhysics::UpdatePhysBodyPos(physBody, physBody->colPos);
+	ModulePhysics::UpdatePhysBodyPos(physBody);
+}
+
+void PhysicsComponent::CallUpdateRotation()
+{
+	ModulePhysics::UpdatePhysBodyRotation(physBody);
+}
+
+void PhysicsComponent::CallUpdateScale()
+{
+	ModulePhysics::UpdatePhysBodyScale(physBody);
 }
 
 void PhysicsComponent::CallUpdateMass()
 {
 	if (isStatic == false) {
-		btVector3 inertia(0, 0, 0);
-		physBody->body->setMassProps(mass, inertia);
+		btVector3 inertia;
+		btCollisionShape* shape = physBody->body->getCollisionShape();
+		shape->calculateLocalInertia(physBody->mass, inertia);
+		physBody->body->setMassProps(physBody->mass, inertia);
 	}
 	else {
 		btVector3 inertia(0, 0, 0);
@@ -287,7 +301,7 @@ void PhysicsComponent::CreateCollider()
 			cube.size.z = _gameObject->GetComponent<TransformComponent>()->GetGlobalScale().z;
 			//cube.transform.Translate(_gameObject->GetComponent<TransformComponent>()->GetGlobalPosition());
 
-			physBody = Application::Instance()->physic->CreatePhysBody(&cube, mass);
+			physBody = Application::Instance()->physic->CreatePhysBody(&cube, 1);
 
 
 
@@ -299,7 +313,7 @@ void PhysicsComponent::CreateCollider()
 
 			sphere.radius = _gameObject->GetComponent<TransformComponent>()->GetGlobalScale().y;
 
-			physBody = Application::Instance()->physic->CreatePhysBody(&sphere, mass);
+			physBody = Application::Instance()->physic->CreatePhysBody(&sphere, 1);
 
 		}
 		break;
@@ -310,7 +324,7 @@ void PhysicsComponent::CreateCollider()
 			cylinder.radius = _gameObject->GetComponent<TransformComponent>()->GetGlobalScale().x;
 			cylinder.height = _gameObject->GetComponent<TransformComponent>()->GetGlobalScale().y;
 
-			physBody = Application::Instance()->physic->CreatePhysBody(&cylinder, mass);
+			physBody = Application::Instance()->physic->CreatePhysBody(&cylinder, 1);
 
 		}
 		break;

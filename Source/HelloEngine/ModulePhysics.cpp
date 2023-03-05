@@ -259,13 +259,18 @@ void ModulePhysics::S_RemovePhysBody(PhysBody3D* physBody)
 	}
 }
 
-void ModulePhysics::UpdatePhysBodyPos(PhysBody3D* physBody, float3 posVec)
+void ModulePhysics::UpdatePhysBodyPos(PhysBody3D* physBody)
 {
 	float3 currentTransformPos = ModuleLayers::gameObjects[physBody->gameObjectUID]->transform->GetGlobalPosition();
-	physBody->SetPos(posVec.x + currentTransformPos.x, posVec.y + currentTransformPos.y, posVec.z + currentTransformPos.z);
+	physBody->SetPos(physBody->colPos.x + currentTransformPos.x, physBody->colPos.y + currentTransformPos.y, physBody->colPos.z + currentTransformPos.z);
 }
 
-void ModulePhysics::UpdatePhysBodyPos(PhysBody3D* physBody, float x, float y, float z)
+void ModulePhysics::UpdatePhysBodyRotation(PhysBody3D* physBody)
 {
-	physBody->SetPos(x, y, z);
+	physBody->SetRotation(physBody->colRot.x, physBody->colRot.y, physBody->colRot.z);
+}
+
+void ModulePhysics::UpdatePhysBodyScale(PhysBody3D* physBody)
+{
+	physBody->SetScale(physBody->colScl.x, physBody->colScl.y, physBody->colScl.z);
 }

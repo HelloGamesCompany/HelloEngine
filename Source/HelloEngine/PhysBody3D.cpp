@@ -45,12 +45,33 @@ void PhysBody3D::SetTransform(const float* matrix) const
 
 void PhysBody3D::SetPos(float x, float y, float z)
 {
-	if (body) 
-	{
-		btTransform t = body->getWorldTransform();
-		t.setOrigin(btVector3(x, y, z));
-		body->setWorldTransform(t);
-	}
+	if (!body)
+		return;
+
+	btTransform t = body->getWorldTransform();
+	t.setOrigin(btVector3(x, y, z));
+	body->setWorldTransform(t);
+}
+
+void PhysBody3D::SetRotation(float x, float y, float z)
+{
+	if (!body)
+		return;
+
+	btTransform t = body->getWorldTransform();
+	btQuaternion quat;
+	quat.setEulerZYX(z, y, x);
+	t.setRotation(quat);
+	body->setWorldTransform(t);
+}
+
+void PhysBody3D::SetScale(float x, float y, float z)
+{
+	btCollisionShape* shape = body->getCollisionShape();
+	shape->setLocalScaling({ x, y, z });
+	btVector3 inertia;
+	shape->calculateLocalInertia(mass, inertia);
+	body->setMassProps(mass, inertia);
 }
 
 float3 PhysBody3D::GetPos()
