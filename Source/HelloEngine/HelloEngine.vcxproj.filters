@@ -853,6 +853,9 @@
     <ClInclude Include="SkinnedMeshRenderComponent.h">
       <Filter>GameObject\Components</Filter>
     </ClInclude>
+    <ClInclude Include="AnimationModel.h">
+      <Filter>Other</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="External">

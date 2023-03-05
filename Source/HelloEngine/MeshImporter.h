@@ -12,44 +12,6 @@ class GameObject;
 struct ModelNode;
 class ResourceModel;
 
-//****************
-//TODO: CHANGE PLACE
-//****************
-
-struct AnimatedBone
-{
-	AnimatedBone(std::string name, int nKeyframes): name(name)
-	{
-		keyframes.resize(nKeyframes);
-
-		for (int i = 0; i < nKeyframes; i++) {
-			keyframes[i] = float3x4::identity;
-		}
-	}
-
-	std::string name = "";
-	std::vector<float3x4> keyframes;
-};
-
-class Animation3d
-{
-public:
-	Animation3d() {}
-	~Animation3d() 
-	{
-		for (int i = 0; i < bones.size(); i++)
-		{
-			RELEASE(bones[i]);
-		}
-	}
-
-	uint durationTicks = 0;
-	double ticksPerSecond = 0;
-	std::vector<AnimatedBone*> bones;
-};
-
-//***************
-
 struct MeshCacheData
 {
 	uint numOfMeshes = 0;

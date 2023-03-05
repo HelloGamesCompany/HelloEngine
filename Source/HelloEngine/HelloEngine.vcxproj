@@ -448,6 +448,7 @@
     <ClInclude Include="..\External\mmgr\nommgr.h" />
     <ClInclude Include="..\External\PugiXml\src\pugiconfig.hpp" />
     <ClInclude Include="..\External\PugiXml\src\pugixml.hpp" />
+    <ClInclude Include="AnimationModel.h" />
     <ClInclude Include="API\API.h" />
     <ClInclude Include="API\API_Console.h" />
     <ClInclude Include="API\API_GameObject.h" />

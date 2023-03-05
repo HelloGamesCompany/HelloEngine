@@ -8,6 +8,7 @@
 #include "LayerEditor.h"
 #include "File_Model.h"
 #include "SkinnedMeshRenderComponent.h"
+#include "AnimationModel.h"
 
 Assimp::Importer MeshImporter::importer;
 GameObject* MeshImporter::returnGameObject = nullptr;
@@ -295,8 +296,6 @@ void MeshImporter::ProcessAnimation(const aiScene* scene)
 
 		anim->bones.push_back(bone);
 	}
-
-	//TESTING
 
 	RELEASE(anim);
 }
