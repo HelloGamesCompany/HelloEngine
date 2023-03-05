@@ -7,132 +7,141 @@
 class GameObject
 {
 public:
-	GameObject(GameObject* parent, std::string name = "Default", std::string tag = "Default", uint ID = 0);
-	GameObject(GameObject* parent, std::string& name, std::string& tag, uint ID = 0);
-	~GameObject();
+    GameObject(GameObject* parent, std::string name = "Default", std::string tag = "Default", uint ID = 0);
+    GameObject(GameObject* parent, std::string& name, std::string& tag, uint ID = 0);
+    ~GameObject();
 
-	template <class T>
-	T* AddComponent()
-	{
-		T* newComponent = new T(this);
-		_components.push_back(newComponent);
+    template <class T>
+    T* AddComponent()
+    {
+        T* newComponent = new T(this);
+        _components.push_back(newComponent);
 
-		return newComponent;
-	}
+        return newComponent;
+    }
 
-	template <class T>
-	T* AddComponentCopied(const T& copy)
-	{
-		T* newComponent = new T(this, copy);
-		_components.push_back(newComponent);
+    template <class T>
+    T* AddComponentCopied(const T& copy)
+    {
+        T* newComponent = new T(this, copy);
+        _components.push_back(newComponent);
 
-		return newComponent;
-	}
+        return newComponent;
+    }
 
-	Component* AddComponentOfType(Component::Type type);
-	Component* AddComponentOfType(Component::Type type, const Component& copy);
-	void AddComponentSerialized(Component::Type type, json& jsonFile);
+    Component* AddComponentOfType(Component::Type type);
+    Component* AddComponentOfType(Component::Type type, const Component& copy);
+    void AddComponentSerialized(Component::Type type, json& jsonFile);
 
-	template<class T>
-	T* GetComponent(uint index = 0)
-	{
-		uint counter = 0;
-		for (const auto& component : _components)
-		{
-			if (component == nullptr)
-				continue;
+    template<class T>
+    T* GetComponent(uint index = 0)
+    {
+        uint counter = 0;
+        for (const auto& component : _components)
+        {
+            if (component == nullptr)
+                continue;
 
-			if (typeid(*component) != typeid(T)) continue;
-	
-			if (counter == index) return (T*)component;
-			else counter++;
-		}
-		return nullptr;
-	}
+            if (typeid(*component) != typeid(T)) continue;
 
-	std::vector<Component*> GetComponents() { return _components;}
+            if (counter == index) return (T*)component;
+            else counter++;
+        }
+        return nullptr;
+    }
 
-	void DestroyComponent(Component::Type type);
-	void DestroyComponent(Component* component);
+    std::vector<Component*> GetComponents() { return _components; }
 
-	GameObject* GetParent() { return _parent; }
+    void DestroyComponent(Component::Type type);
+    void DestroyComponent(Component* component);
 
-	bool AddChild(GameObject* child);
+    GameObject* GetParent() { return _parent; }
 
-	// Only to be called when a GameObject is destroyed! no Game Object should be without a parent.
-	void RemoveChild(GameObject* child);
+    bool AddChild(GameObject* child);
 
-	bool SetParent(GameObject* parent);
+    // Only to be called when a GameObject is destroyed! no Game Object should be without a parent.
+    void RemoveChild(GameObject* child);
 
-	void SetActive(bool active);
+    bool SetParent(GameObject* parent);
 
-	bool IsActive() { return _isActive; }
+    void SetActive(bool active);
 
-	bool IsPendingToDelete() { return _isPendingToDelete; }
+    bool IsActive() { return _isActive; }
 
-	bool IsStatic() { return _isStatic; }
+    bool IsPendingToDelete() { return _isPendingToDelete; }
 
-	std::vector<GameObject*>* GetChildren() { return &_children; }
+    bool IsStatic() { return _isStatic; }
 
-	uint GetID() { return _ID; }
+    std::vector<GameObject*>* GetChildren() { return &_children; }
+
+    uint GetID() { return _ID; }
+
+    std::string GetName() { return name; }
+
+    uint GetPrefabUID() { return _prefabUID; }
+    void SetPrefabUID(uint prefabUID) { _prefabUID = prefabUID; }
+    void SetAllChildsPrefabUID(uint prefabUID);
 
 
 
 #ifdef STANDALONE
-	void OnEditor();
-	bool MarkAsDead();
+    void OnEditor();
+    bool MarkAsDead();
 
-	bool MarkAsAlive();
+    bool MarkAsAlive();
 #endif // STANDALONE
 
-	void Destroy();
+    void Destroy();
 
-	template <class T>
-	bool HasComponent()
-	{
-		for (const auto& component : _components)
-		{
-			if (component == nullptr)
-				continue;
+    template <class T>
+    bool HasComponent()
+    {
+        for (const auto& component : _components)
+        {
+            if (component == nullptr)
+                continue;
 
-			if (typeid(*component) == typeid(T)) 
-				return true;
-		}
-		return false;
-	}
+            if (typeid(*component) == typeid(T))
+                return true;
+        }
+        return false;
+    }
 
-	bool HasComponent(Component::Type type);
+    bool HasComponent(Component::Type type);
 
 public:
-	std::string name = "";
-	std::string tag = "";
-	TransformComponent* transform = nullptr;
+    std::string name = "";
+    std::string tag = "";
+    TransformComponent* transform = nullptr;
 
-	bool isSelected = false;
+    bool isSelected = false;
 
 private:
-	std::vector<Component*> _components;
-	std::vector<GameObject*> _children;
+    std::vector<Component*> _components;
+    std::vector<GameObject*> _children;
 
-	GameObject* _parent = nullptr;
+    GameObject* _parent = nullptr;
 
-	bool _isActive = true;
-	bool _isDestroyed = false;
-	bool _isStatic = false;
+    bool _isActive = true;
+    bool _isDestroyed = false;
+    bool _isStatic = false;
 
-	uint _ID = 0; // ID =  0 is an invalid ID. First ID is 1.
+    uint _ID = 0; // ID =  0 is an invalid ID. First ID is 1.
 
-	// On Editor variables
-	std::string _comboValues[COMPONENT_NUM] = { "Mesh Renderer", "Material", "Camera", "Script", "UITest"};
-	bool _isPendingToDelete = false;
+    uint _prefabUID;
+    bool _updatePrefab;
+
+    // On Editor variables
+    std::string _comboValues[COMPONENT_NUM] = { "Mesh Renderer", "Material", "Camera", "Script", "UITest" };
+    bool _isPendingToDelete = false;
 #ifdef STANDALONE
-	std::vector<int> _childrenDeletedIndex;
+    std::vector<int> _childrenDeletedIndex;
 #endif // STANDALONE
-	friend class TransformComponent;
-	friend class ModuleRenderer3D;
-	friend class ModuleResourceManager;
-	friend class CommandSetParentGameObject;
-	friend class ImWindowHierarchy;
-	friend class ImWindowInspector;
+    friend class TransformComponent;
+    friend class ModuleRenderer3D;
+    friend class ModuleResourceManager;
+    friend class CommandSetParentGameObject;
+    friend class ImWindowHierarchy;
+    friend class ImWindowInspector;
 
 };
