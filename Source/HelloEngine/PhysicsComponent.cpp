@@ -114,6 +114,8 @@ void PhysicsComponent::DeSerialization(json& j)
 		std::vector<float> colSclTemp = j["ColScale"];
 		physBody->colScl = { colSclTemp[0], colSclTemp[1], colSclTemp[2] };
 		CallUpdatePos();
+		CallUpdateRotation();
+		CallUpdateScale();
 	}
 }
 
@@ -296,9 +298,9 @@ void PhysicsComponent::CreateCollider()
 			PrimCube cube;
 			cube.transform = cube.transform.identity;
 
-			cube.size.x = _gameObject->GetComponent<TransformComponent>()->GetGlobalScale().x;//GetScale().x;
-			cube.size.y = _gameObject->GetComponent<TransformComponent>()->GetGlobalScale().y;
-			cube.size.z = _gameObject->GetComponent<TransformComponent>()->GetGlobalScale().z;
+			cube.size.x = 1;//GetScale().x;
+			cube.size.y = 1;
+			cube.size.z = 1;
 			//cube.transform.Translate(_gameObject->GetComponent<TransformComponent>()->GetGlobalPosition());
 
 			physBody = Application::Instance()->physic->CreatePhysBody(&cube, 1);
@@ -311,7 +313,7 @@ void PhysicsComponent::CreateCollider()
 		{
 			PrimSphere sphere;
 
-			sphere.radius = _gameObject->GetComponent<TransformComponent>()->GetGlobalScale().y;
+			sphere.radius = _gameObject->GetComponent<TransformComponent>()->GetGlobalScale().y * WORLD_TO_RENDER_RELATION;
 
 			physBody = Application::Instance()->physic->CreatePhysBody(&sphere, 1);
 
@@ -321,8 +323,8 @@ void PhysicsComponent::CreateCollider()
 		{
 			PrimCylinder cylinder;
 
-			cylinder.radius = _gameObject->GetComponent<TransformComponent>()->GetGlobalScale().x;
-			cylinder.height = _gameObject->GetComponent<TransformComponent>()->GetGlobalScale().y;
+			cylinder.radius = _gameObject->GetComponent<TransformComponent>()->GetGlobalScale().x * WORLD_TO_RENDER_RELATION;
+			cylinder.height = _gameObject->GetComponent<TransformComponent>()->GetGlobalScale().y * WORLD_TO_RENDER_RELATION;
 
 			physBody = Application::Instance()->physic->CreatePhysBody(&cylinder, 1);
 

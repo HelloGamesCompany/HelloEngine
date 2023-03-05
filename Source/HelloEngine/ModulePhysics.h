@@ -6,6 +6,8 @@
 class Primitive;
 class PhysBody3D;
 
+#define WORLD_TO_RENDER_RELATION 0.5f;
+
 enum class ColliderShape
 {
 	BOX,

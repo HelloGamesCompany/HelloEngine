@@ -509,40 +509,40 @@ void RenderManager::DrawColliderBox(PhysBody3D* physBody)
 {
 	float3 AABBPoints[8];
 
-	uint mult = 1;
+	float mult = WORLD_TO_RENDER_RELATION;
 
-	AABBPoints[0].x = (float)physBody->body->getCenterOfMassTransform().getOrigin().getX() + 1 * mult;
-	AABBPoints[0].y = (float)physBody->body->getCenterOfMassTransform().getOrigin().getY() - 1 * mult;
-	AABBPoints[0].z = (float)physBody->body->getCenterOfMassTransform().getOrigin().getZ() - 1 * mult;
+	AABBPoints[0].x = (float)physBody->body->getCenterOfMassTransform().getOrigin().getX() + physBody->colScl.x * mult;
+	AABBPoints[0].y = (float)physBody->body->getCenterOfMassTransform().getOrigin().getY() - physBody->colScl.y * mult;
+	AABBPoints[0].z = (float)physBody->body->getCenterOfMassTransform().getOrigin().getZ() - physBody->colScl.z * mult;
 
-	AABBPoints[1].x = (float)physBody->body->getCenterOfMassTransform().getOrigin().getX() + 1 * mult;
-	AABBPoints[1].y = (float)physBody->body->getCenterOfMassTransform().getOrigin().getY() + 1 * mult;
-	AABBPoints[1].z = (float)physBody->body->getCenterOfMassTransform().getOrigin().getZ() - 1 * mult;
+	AABBPoints[1].x = (float)physBody->body->getCenterOfMassTransform().getOrigin().getX() + physBody->colScl.x * mult;
+	AABBPoints[1].y = (float)physBody->body->getCenterOfMassTransform().getOrigin().getY() + physBody->colScl.y * mult;
+	AABBPoints[1].z = (float)physBody->body->getCenterOfMassTransform().getOrigin().getZ() - physBody->colScl.z * mult;
 
-	AABBPoints[2].x = (float)physBody->body->getCenterOfMassTransform().getOrigin().getX() - 1 * mult;
-	AABBPoints[2].y = (float)physBody->body->getCenterOfMassTransform().getOrigin().getY() - 1 * mult;
-	AABBPoints[2].z = (float)physBody->body->getCenterOfMassTransform().getOrigin().getZ() - 1 * mult;
+	AABBPoints[2].x = (float)physBody->body->getCenterOfMassTransform().getOrigin().getX() - physBody->colScl.x * mult;
+	AABBPoints[2].y = (float)physBody->body->getCenterOfMassTransform().getOrigin().getY() - physBody->colScl.y * mult;
+	AABBPoints[2].z = (float)physBody->body->getCenterOfMassTransform().getOrigin().getZ() - physBody->colScl.z * mult;
 
-	AABBPoints[3].x = (float)physBody->body->getCenterOfMassTransform().getOrigin().getX() - 1 * mult;
-	AABBPoints[3].y = (float)physBody->body->getCenterOfMassTransform().getOrigin().getY() + 1 * mult;
-	AABBPoints[3].z = (float)physBody->body->getCenterOfMassTransform().getOrigin().getZ() - 1 * mult;
+	AABBPoints[3].x = (float)physBody->body->getCenterOfMassTransform().getOrigin().getX() - physBody->colScl.x * mult;
+	AABBPoints[3].y = (float)physBody->body->getCenterOfMassTransform().getOrigin().getY() + physBody->colScl.y * mult;
+	AABBPoints[3].z = (float)physBody->body->getCenterOfMassTransform().getOrigin().getZ() - physBody->colScl.z * mult;
 
 	
-	AABBPoints[4].x = (float)physBody->body->getCenterOfMassTransform().getOrigin().getX() + 1 * mult;
-	AABBPoints[4].y = (float)physBody->body->getCenterOfMassTransform().getOrigin().getY() - 1 * mult;
-	AABBPoints[4].z = (float)physBody->body->getCenterOfMassTransform().getOrigin().getZ() + 1 * mult;
+	AABBPoints[4].x = (float)physBody->body->getCenterOfMassTransform().getOrigin().getX() + physBody->colScl.x * mult;
+	AABBPoints[4].y = (float)physBody->body->getCenterOfMassTransform().getOrigin().getY() - physBody->colScl.y * mult;
+	AABBPoints[4].z = (float)physBody->body->getCenterOfMassTransform().getOrigin().getZ() + physBody->colScl.z * mult;
 
-	AABBPoints[5].x = (float)physBody->body->getCenterOfMassTransform().getOrigin().getX() + 1 * mult;
-	AABBPoints[5].y = (float)physBody->body->getCenterOfMassTransform().getOrigin().getY() + 1 * mult;
-	AABBPoints[5].z = (float)physBody->body->getCenterOfMassTransform().getOrigin().getZ() + 1 * mult;
+	AABBPoints[5].x = (float)physBody->body->getCenterOfMassTransform().getOrigin().getX() + physBody->colScl.x * mult;
+	AABBPoints[5].y = (float)physBody->body->getCenterOfMassTransform().getOrigin().getY() + physBody->colScl.y * mult;
+	AABBPoints[5].z = (float)physBody->body->getCenterOfMassTransform().getOrigin().getZ() + physBody->colScl.z * mult;
 
-	AABBPoints[6].x = (float)physBody->body->getCenterOfMassTransform().getOrigin().getX() - 1 * mult;
-	AABBPoints[6].y = (float)physBody->body->getCenterOfMassTransform().getOrigin().getY() - 1 * mult;
-	AABBPoints[6].z = (float)physBody->body->getCenterOfMassTransform().getOrigin().getZ() + 1 * mult;
+	AABBPoints[6].x = (float)physBody->body->getCenterOfMassTransform().getOrigin().getX() - physBody->colScl.x * mult;
+	AABBPoints[6].y = (float)physBody->body->getCenterOfMassTransform().getOrigin().getY() - physBody->colScl.y * mult;
+	AABBPoints[6].z = (float)physBody->body->getCenterOfMassTransform().getOrigin().getZ() + physBody->colScl.z * mult;
 
-	AABBPoints[7].x = (float)physBody->body->getCenterOfMassTransform().getOrigin().getX() - 1 * mult;
-	AABBPoints[7].y = (float)physBody->body->getCenterOfMassTransform().getOrigin().getY() + 1 * mult;
-	AABBPoints[7].z = (float)physBody->body->getCenterOfMassTransform().getOrigin().getZ() + 1 * mult;
+	AABBPoints[7].x = (float)physBody->body->getCenterOfMassTransform().getOrigin().getX() - physBody->colScl.x * mult;
+	AABBPoints[7].y = (float)physBody->body->getCenterOfMassTransform().getOrigin().getY() + physBody->colScl.y * mult;
+	AABBPoints[7].z = (float)physBody->body->getCenterOfMassTransform().getOrigin().getZ() + physBody->colScl.z * mult;
 
 	glBindVertexArray(AABBVAO);
 
