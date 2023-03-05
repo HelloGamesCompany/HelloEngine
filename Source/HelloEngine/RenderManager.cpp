@@ -130,9 +130,60 @@ void RenderManager::Init()
 
 	glBindVertexArray(0);
 
-	for (int i = 0; i < sphereVertexNum; i++) {
-		sphereIndices.push_back(i);
+	//for (int i = 0; i < sphereVertexNum; i++) {
+	//	//sphereIndices.push_back(i);
+	//}
+
+
+	for (int j = 1; j < sphereVerticalSlices + 1; j++) {
+		sphereIndices.push_back(0);
+		sphereIndices.push_back(j);
 	}
+	
+	for (int i = 0; i < sphereHorizontalSlices - 1; i++) {
+
+		//Vertical
+		for (int j = 0; j < sphereVerticalSlices; j++) {
+			sphereIndices.push_back((i * sphereVerticalSlices + 1) + j);
+			sphereIndices.push_back(((i + 1) * sphereVerticalSlices + 1) + j);
+		}
+
+		//Horizontal
+		for (int j = 0; j < sphereVerticalSlices; j++) {
+			if (j == sphereVerticalSlices - 1) {
+				sphereIndices.push_back((i * sphereVerticalSlices + 1) + j);
+				sphereIndices.push_back((i * sphereVerticalSlices + 1));
+			}
+			else {
+				sphereIndices.push_back((i * sphereVerticalSlices + 1) + j);
+				sphereIndices.push_back((i * sphereVerticalSlices + 1) + j + 1);
+			}
+			
+		}
+	}
+
+	for (int i = 0; i < sphereVerticalSlices; i++) {
+
+		//Vertical
+		sphereIndices.push_back((sphereHorizontalSlices * (sphereVerticalSlices - 1) + 1) + i);
+		sphereIndices.push_back(sphereHorizontalSlices * sphereVerticalSlices + 1);
+
+		//Horizontal
+		
+		if (i == sphereVerticalSlices - 1) {
+			sphereIndices.push_back((sphereHorizontalSlices * (sphereVerticalSlices - 1) + 1) + i);
+			sphereIndices.push_back(sphereHorizontalSlices * (sphereVerticalSlices - 1) + 1);
+		}
+		else {
+			sphereIndices.push_back((sphereHorizontalSlices * (sphereVerticalSlices - 1) + 1) + i);
+			sphereIndices.push_back((sphereHorizontalSlices * (sphereVerticalSlices - 1) + 1) + i + 1);
+		}
+
+		
+	}
+
+
+	//sphereIndices.push_back(0);
 	
 	// Set up buffer for Sphere lines.
 	glGenVertexArrays(1, &SPVAO);
@@ -475,11 +526,12 @@ void RenderManager::DrawColliderBox(PhysBody3D* physBody)
 	localLineShader->SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
 	localLineShader->SetFloat4("lineColor", 0.5f, 0.0f, 0.5f, 1.0f); 
 
-	glLineWidth(5.0f);
-
+	glLineWidth(3.0f);
 	glDrawElements(GL_LINES, boxIndices.size(), GL_UNSIGNED_INT, 0);
+	glLineWidth(1.0f);
 
 	glBindVertexArray(0);
+	
 }
 
 void RenderManager::DrawColliderSphere(PhysBody3D* physBody)
@@ -520,14 +572,29 @@ void RenderManager::DrawColliderSphere(PhysBody3D* physBody)
 	AABBPoints[2] = float3(2, 2, 0);*/
 
 
-	std::vector<uint> sphereIndices; // Used to display bounding boxes.
+	//std::vector<uint> sphereIndices; // Used to display bounding boxes.
 
-	for (int i = 0; i < SpherePoints.size(); i++) {
+	//sphereIndices.clear();
+
+	/*for (int i = 1; i < sphereVerticalSlices+1; i++) {
+		sphereIndices.push_back(0);
 		sphereIndices.push_back(i);
-	}
+	}*/
+
 	/*sphereIndices.push_back(0);
 	sphereIndices.push_back(1);
-	sphereIndices.push_back(2);*/
+	sphereIndices.push_back(0);
+	sphereIndices.push_back(0);*/
+	//sphereIndices.push_back(0);
+	//sphereIndices.push_back(0);
+	/*sphereIndices.push_back(0);
+	sphereIndices.push_back(3);
+	sphereIndices.push_back(0);
+	sphereIndices.push_back(4);*/
+
+	/*for (int i = 0; i < SpherePoints.size(); i++) {
+		sphereIndices.push_back(i);
+	}*/
 
 	glBindVertexArray(SPVAO);
 
@@ -541,10 +608,12 @@ void RenderManager::DrawColliderSphere(PhysBody3D* physBody)
 	localLineShader->SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
 	localLineShader->SetFloat4("lineColor", 0.5f, 0.0f, 0.5f, 1.0f);
 
-	glPointSize(7.0f);
-	glDrawElements(GL_POINTS, sphereIndices.size(), GL_UNSIGNED_INT, 0);
+	glLineWidth(3.0f);
+	glDrawElements(GL_LINES, sphereIndices.size(), GL_UNSIGNED_INT, 0);
+	glLineWidth(1.0f);
 
 	glBindVertexArray(0);
+	
 }
 
 void RenderManager::DrawColliderCylinder(PhysBody3D* physBody)

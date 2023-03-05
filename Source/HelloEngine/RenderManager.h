@@ -88,8 +88,8 @@ private:
 	std::vector<uint> boxIndices; // Used to display bounding boxes.
 	std::vector<uint> sphereIndices;
 
-	const uint sphereVerticalSlices = 8;
-	const uint sphereHorizontalSlices = 8;
+	const uint sphereVerticalSlices = 16;
+	const uint sphereHorizontalSlices = 16;
 	const uint sphereVertexNum = sphereVerticalSlices * sphereHorizontalSlices + 2;
 
 	// ModelResources for primitives
