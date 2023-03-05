@@ -370,7 +370,7 @@
       <Filter>Modules\Physics</Filter>
     </ClCompile>
     <ClCompile Include="PhysicsComponent.cpp">
-      <Filter>Modules\Physics</Filter>
+      <Filter>GameObject\Components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -866,7 +866,7 @@
       <Filter>Modules\Physics</Filter>
     </ClInclude>
     <ClInclude Include="PhysicsComponent.h">
-      <Filter>Modules\Physics</Filter>
+      <Filter>GameObject\Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
