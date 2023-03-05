@@ -2,7 +2,7 @@
 #include "Component.h"
 #include "TransformComponent.h"
 
-#define COMPONENT_NUM 6
+#define COMPONENT_NUM 7
 
 class GameObject
 {
@@ -123,7 +123,7 @@ private:
 	uint _ID = 0; // ID =  0 is an invalid ID. First ID is 1.
 
 	// On Editor variables
-	std::string _comboValues[COMPONENT_NUM] = { "Mesh Renderer", "Material", "Camera", "Script", "UITest", "Skinned Mesh Renderer"};
+	std::string _comboValues[COMPONENT_NUM] = { "Mesh Renderer", "Material", "Camera", "Script", "UITest", "Skinned Mesh Renderer", "Animation Player"};
 	bool _isPendingToDelete = false;
 #ifdef STANDALONE
 	std::vector<int> _childrenDeletedIndex;

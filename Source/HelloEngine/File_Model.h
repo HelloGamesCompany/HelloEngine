@@ -285,16 +285,6 @@ struct MeshInfo
 
 struct AnimatedBone
 {
-	/*AnimatedBone() {}
-	AnimatedBone(std::string name, int nKeyframes) : name(name)
-	{
-		keyframes.resize(nKeyframes);
-
-		for (int i = 0; i < nKeyframes; i++) {
-			keyframes[i] = float3x4::identity;
-		}
-	}*/
-
 	void SizeKeyframes(int nKeyframes)
 	{
 		keyframes.resize(nKeyframes);
@@ -324,42 +314,78 @@ public:
 	std::string SaveToBinaryFile()
 	{
 		std::string filePath = "Resources/Animations/" + std::to_string(HelloUUID::GenerateUUID()) + ".hanim";
+		
+		std::string corruptionPrev;
+		corruptionPrev.resize(128);
 
-		//Get all bones buffer size
-		uint bonearraysize = 0;
-		for (int i = 0; i < bones.size(); i++)
+		std::vector<uint> keyframeAmount;
+		std::string boneNamesString = "";
+
+		std::vector<float3x4> totalKeyframes;
+		//float3x4 total[1];
+
+		//int j = sizeof(float3x4);
+		//Keyframes vector
+		for (int i = 0; i < bones.size(); ++i)
 		{
-			bonearraysize += sizeof(uint) + sizeof(bones[i].name.c_str()) + bones[i].keyframes.size() * sizeof(float3x4);
+			keyframeAmount.push_back(bones[i].keyframes.size());
+			boneNamesString += bones[i].name;
+			boneNamesString += "\n";
+
+			for (int k = 0; k < bones[i].keyframes.size(); ++k)
+			{
+				totalKeyframes.push_back(bones[i].keyframes[k]);
+				//total[j] = bones[i].keyframes[k];
+				//j++;
+			}
 		}
 
-		uint header[3] = { durationTicks, ticksPerSecond, bones.size() };
+		uint durationTicksSize = sizeof(uint);
+		uint ticksPerSecondSize = sizeof(uint);
+		uint keyframeAmountSize = keyframeAmount.size() * sizeof(uint);
+		uint totalKeyframeSize = (totalKeyframes.size() + 1) * sizeof(float3x4);
 
-		uint fileSize = sizeof(header) + bonearraysize;
+		uint header[5] = {1, 1, boneNamesString.size(), keyframeAmount.size(), totalKeyframes.size()};
+
+		uint fileSize = durationTicksSize + ticksPerSecondSize + boneNamesString.size() + keyframeAmountSize + totalKeyframeSize + corruptionPrev.size();
+		
 		char* fileBuffer = new char[fileSize];
 		char* cursor = fileBuffer;
 
-		// Save header
-		memcpy(cursor, header, sizeof(header));
-		cursor += sizeof(header);
+		//Save header
+		uint headerSize = sizeof(header);
+		memcpy(cursor, header, headerSize);
+		cursor += headerSize;
 
-		// Save bones
-		for (int i = 0; i < bones.size(); i++)
+		//Save durationTicks
+		memcpy(cursor, &durationTicks, durationTicksSize);
+		cursor += durationTicksSize;
+
+		//Save ticksPerSecond
+		memcpy(cursor, &ticksPerSecond, ticksPerSecondSize);
+		cursor += ticksPerSecondSize;
+
+		//Save boneNamesString
+		memcpy(cursor, &boneNamesString[0], boneNamesString.size());
+		cursor += boneNamesString.size();
+
+		//Save KeyFrameAmount
+		memcpy(cursor, &keyframeAmount[0], keyframeAmountSize);
+		cursor += keyframeAmountSize;
+
+		//Save totalKeyFramesize
+
+		for (int i = 0; i < totalKeyframes.size(); ++i)
 		{
-			//Save string size
-			uint stringsize = bones[i].name.size();
-			memcpy(cursor, &stringsize, sizeof(uint));
-			cursor += sizeof(uint);
-
-			//Save string
-			uint nameSize = sizeof(bones[i].name.c_str());
-			memcpy(cursor, bones[i].name.c_str(), nameSize);
-			cursor += nameSize;
-
-			//Save keyframe array
-			uint keyframeSize = bones[i].keyframes.size() * sizeof(float3x4);
-			memcpy(cursor, &bones[i].keyframes[0], keyframeSize);
-			//cursor += keyframeSize;
+			memcpy(cursor, &totalKeyframes[i], sizeof(float3x4));
+			cursor += sizeof(float3x4);
 		}
+
+		
+
+		//Data corruption prevention
+		memcpy(cursor, &corruptionPrev[0], corruptionPrev.size());
+		cursor += corruptionPrev.size();
 
 		ModuleFiles::S_Save(filePath, fileBuffer, fileSize, false);
 
@@ -370,36 +396,70 @@ public:
 
 	void LoadFromBinaryFile(const std::string& filePath)
 	{
+		std::string boneNamesString;
+		std::vector<uint> keyframeAmount;
+		std::vector<float3x4> totalKeyframes;
+
 		char* buffer = nullptr;
 		ModuleFiles::S_Load(filePath, &buffer);
 
 		char* cursor = buffer;
 
-		uint header[3];
-		uint headerSize = sizeof(uint) * 4;
+		//Load headers
+		uint header[5];
+		uint headerSize = sizeof(uint) * 5;
 		memcpy(header, cursor, headerSize);
 		cursor += headerSize;
 
-		durationTicks = header[0];
-		ticksPerSecond = header[1];
-		bones.resize(header[2]);
+		//Load durationTicks
+		uint durationTicksSize = header[0] * sizeof(uint);
+		memcpy(&durationTicks, cursor, durationTicksSize);
+		cursor += durationTicksSize;
 
-		for (int i = 0; i < header[2]; i++)
-		{
-			AnimatedBone* bone = new AnimatedBone();
+		//Load ticksPerSecond
+		uint ticksPerSecondSize = header[1] * sizeof(uint);
+		memcpy(&ticksPerSecond, cursor, ticksPerSecondSize);
+		cursor += ticksPerSecondSize;
 
-			uint stringsize;
-			memcpy(&stringsize, cursor, sizeof(uint));
-			cursor += sizeof(uint);
+		//Load boneNamesString
+		uint boneNamesStringSize = header[2] * sizeof(char);
+		boneNamesString.resize(header[2]);
+		memcpy(&boneNamesString[0], cursor, boneNamesStringSize);
+		cursor += boneNamesStringSize;
 
-			bone->name.resize(stringsize);
-			memcpy(&bone->name[0], cursor, stringsize);
-			cursor += stringsize;
+		//Load keyframeAmount
+		uint keyframeAmountSize = header[3] * sizeof(uint);
+		keyframeAmount.resize(header[3]);
+		memcpy(&keyframeAmount[0], cursor, keyframeAmountSize);
+		cursor += keyframeAmountSize;
 
-			bone->keyframes.resize(durationTicks + 1);
-			memcpy(&bone->keyframes[0], cursor, (durationTicks + 1) * sizeof(float3x4));
-			//cursor += (durationTicks + 1) * sizeof(float3x4);
+		//Load totalKeyframe
+		uint totalKeyframeSize = header[4] * sizeof(float3x4);
+		totalKeyframes.resize(header[4]);
+		memcpy(&totalKeyframes[0], cursor, totalKeyframeSize);
+		cursor += totalKeyframeSize;
+
+		//Initialize bones with names
+		std::stringstream ss(boneNamesString);
+		std::string tmp;
+		while (std::getline(ss, tmp, '\n')) {
+			AnimatedBone aux;
+			aux.name = tmp;
+			bones.emplace_back(aux);
 		}
+
+
+		int j = 0;
+		for (int i = 0; i < keyframeAmount.size(); ++i)
+		{
+			for (int k = 0; k < keyframeAmount[i]; ++k)
+			{
+				bones[i].keyframes.push_back(totalKeyframes[j]);
+				j++;
+			}
+			
+		}
+
 
 		RELEASE(buffer);
 	}

@@ -18,6 +18,7 @@ public:
 		SCRIPT,
 		UI,
 		SKINNING,
+		ANIMATION_PLAYER,
 		MAX
 	};
 

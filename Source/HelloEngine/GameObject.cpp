@@ -10,6 +10,7 @@
 #include "ImGuizmo/ImGuizmo.h"
 #include "ScriptComponent.h"
 #include "ComponentUI.h"
+#include "AnimationComponent.h"
 
 GameObject::GameObject(GameObject* parent, std::string name, std::string tag, uint ID) : name(name), tag(tag)
 {
@@ -160,6 +161,10 @@ void GameObject::OnEditor()
 				case 5:
 					if (!HasComponent<SkinnedMeshRenderComponent>())
 						AddComponent<SkinnedMeshRenderComponent>();
+					break;
+				case 6:
+					if (!HasComponent<AnimationComponent>())
+						AddComponent<AnimationComponent>();
 				}
 			}
 		}
@@ -319,6 +324,9 @@ Component* GameObject::AddComponentOfType(Component::Type type)
 		break;
 	case Component::Type::UI:
 		newComponent = new ComponentUI(this);
+		_components.push_back(newComponent);
+	case Component::Type::ANIMATION_PLAYER:
+		newComponent = new AnimationComponent(this);
 		_components.push_back(newComponent);
 	}
 

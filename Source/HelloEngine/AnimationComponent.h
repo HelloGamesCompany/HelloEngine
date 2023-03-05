@@ -10,10 +10,18 @@ public:
 	AnimationComponent(GameObject* gameObject);
 	~AnimationComponent();
 
+	void Serialization(json& j) override;
+	void DeSerialization(json& j) override;
 #ifdef STANDALONE
 	void OnEditor() override;
+
+private:
+	void AnimationDropArea();
+
 #endif
 	
-	ResourceAnimation* resource = nullptr;
+public:
+
+	ResourceAnimation* _resource = nullptr;
 };
 
