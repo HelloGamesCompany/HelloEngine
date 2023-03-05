@@ -129,6 +129,27 @@ void RenderManager::Init()
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(float3), (void*)0);
 
 	glBindVertexArray(0);
+
+	for (int i = 0; i < sphereVertexNum; i++) {
+		sphereIndices.push_back(i);
+	}
+	
+	// Set up buffer for Sphere lines.
+	glGenVertexArrays(1, &SPVAO);
+	glBindVertexArray(SPVAO);
+
+	glGenBuffers(1, &SPIBO);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, SPIBO);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(uint) * sphereIndices.size(), &sphereIndices[0], GL_STATIC_DRAW);
+
+	glGenBuffers(1, &SPVBO);
+	glBindBuffer(GL_ARRAY_BUFFER, SPVBO);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(float3) * sphereVertexNum, nullptr, GL_DYNAMIC_DRAW);
+
+	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(float3), (void*)0);
+
+	glBindVertexArray(0);
 }
 
 void RenderManager::OnEditor()
@@ -454,6 +475,8 @@ void RenderManager::DrawColliderBox(PhysBody3D* physBody)
 	localLineShader->SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
 	localLineShader->SetFloat4("lineColor", 0.5f, 0.0f, 0.5f, 1.0f); 
 
+	glLineWidth(5.0f);
+
 	glDrawElements(GL_LINES, boxIndices.size(), GL_UNSIGNED_INT, 0);
 
 	glBindVertexArray(0);
@@ -462,61 +485,66 @@ void RenderManager::DrawColliderBox(PhysBody3D* physBody)
 void RenderManager::DrawColliderSphere(PhysBody3D* physBody)
 {
 
-	const int NUM_SEGMENTS = 32;
-	const int NUM_SLICES = 16;
-	const float SPHERE_RADIUS = 1.0f;
+	
+	const float radius = 1.0f;
 
-	std::vector<float3> sphere_vertices;
+	const float3 origin(0, 0, 0);
+	const float3 startingPointY = origin - float3(0, radius, 0);
+	const float diferenceBetweenSlicesY = (radius * 2) / (sphereHorizontalSlices + 1);
 
-	for (int j = 0; j <= NUM_SLICES; ++j) {
-		float theta = j * math::pi / NUM_SLICES;
-		float sin_theta = std::sin(theta);
-		float cos_theta = std::cos(theta);
+	std::vector<float3> SpherePoints;
 
-		for (int i = 0; i <= NUM_SEGMENTS; ++i) {
-			float phi = i * 2 * math::pi / NUM_SEGMENTS;
-			float sin_phi = std::sin(phi);
-			float cos_phi = std::cos(phi);
+	SpherePoints.push_back(startingPointY);
 
-			float3 vertex(cos_phi * sin_theta, cos_theta, sin_phi * sin_theta);
-			sphere_vertices.push_back(vertex * SPHERE_RADIUS);
+	for (int i = 1; i < sphereHorizontalSlices+1; i++) 
+	{
+		for (int j = 0; j < sphereVerticalSlices; j++) 
+		{
+			float tempY = startingPointY.y + diferenceBetweenSlicesY * i;
+			float tempYRad = sqrt(1 - Pow(tempY,2));
+			float tempX = origin.x + tempYRad * cos(2 * math::pi * j / sphereVerticalSlices);
+			float tempZ = origin.z + tempYRad * sin(2 * math::pi * j / sphereVerticalSlices);
+
+			float3 tempPoint = float3(tempX, tempY, tempZ);
+			//float3 vecOriginToPoint = float3( tempPoint - origin).Normalized();
+			//SpherePoints.push_back(radius* vecOriginToPoint.Normalized());
+			SpherePoints.push_back(tempPoint);
 		}
+		
 	}
 
-	// Generate the sphere indices
-	std::vector<unsigned int> sphere_indices;
-	for (int j = 0; j < NUM_SLICES; ++j) {
-		for (int i = 0; i < NUM_SEGMENTS; ++i) {
-			int index0 = j * (NUM_SEGMENTS + 1) + i;
-			int index1 = index0 + 1;
-			int index2 = index0 + (NUM_SEGMENTS + 1);
-			int index3 = index2 + 1;
-			sphere_indices.push_back(index0);
-			sphere_indices.push_back(index2);
-			sphere_indices.push_back(index1);
-			sphere_indices.push_back(index1);
-			sphere_indices.push_back(index2);
-			sphere_indices.push_back(index3);
-		}
+	SpherePoints.push_back(origin + float3(0, radius, 0));
+
+	/*AABBPoints[0] = float3(0, 0, 0);
+	AABBPoints[1] = float3(1, 1, 0);
+	AABBPoints[2] = float3(2, 2, 0);*/
+
+
+	std::vector<uint> sphereIndices; // Used to display bounding boxes.
+
+	for (int i = 0; i < SpherePoints.size(); i++) {
+		sphereIndices.push_back(i);
 	}
+	/*sphereIndices.push_back(0);
+	sphereIndices.push_back(1);
+	sphereIndices.push_back(2);*/
 
+	glBindVertexArray(SPVAO);
 
+	glBindBuffer(GL_ARRAY_BUFFER, SPVBO);
+	void* ptr = glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY);
+	memcpy(ptr, &SpherePoints.at(0), SpherePoints.size() * sizeof(float3));
+	glUnmapBuffer(GL_ARRAY_BUFFER);
 
-	//glBindVertexArray(AABBVAO);
+	localLineShader->Bind();
+	localLineShader->SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
+	localLineShader->SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
+	localLineShader->SetFloat4("lineColor", 0.5f, 0.0f, 0.5f, 1.0f);
 
-	//glBindBuffer(GL_ARRAY_BUFFER, AABBVBO);
-	//void* ptr = glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY);
-	//memcpy(ptr, &sphere_vertices[0], sphere_vertices.size() * sizeof(float3));
-	//glUnmapBuffer(GL_ARRAY_BUFFER);
+	glPointSize(7.0f);
+	glDrawElements(GL_POINTS, sphereIndices.size(), GL_UNSIGNED_INT, 0);
 
-	//localLineShader->Bind();
-	//localLineShader->SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
-	//localLineShader->SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
-	//localLineShader->SetFloat4("lineColor", 0.5f, 0.0f, 0.5f, 1.0f);
-
-	//glDrawElements(GL_LINE, sphere_indices.size(), GL_UNSIGNED_INT, 0);
-
-	//glBindVertexArray(0);
+	glBindVertexArray(0);
 }
 
 void RenderManager::DrawColliderCylinder(PhysBody3D* physBody)

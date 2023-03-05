@@ -86,6 +86,11 @@ private:
 	Mesh* _selectedMesh = nullptr;
 
 	std::vector<uint> boxIndices; // Used to display bounding boxes.
+	std::vector<uint> sphereIndices;
+
+	const uint sphereVerticalSlices = 8;
+	const uint sphereHorizontalSlices = 8;
+	const uint sphereVertexNum = sphereVerticalSlices * sphereHorizontalSlices + 2;
 
 	// ModelResources for primitives
 	ResourceModel* primitiveModels[5];
@@ -98,9 +103,12 @@ private:
 	uint AABBVBO = 0;
 	uint OBBVAO = 0;
 	uint OBBVBO = 0;
+	uint SPVAO = 0;
+	uint SPVBO = 0;
 
 	uint AABBIBO = 0; // index buffer object shared by both OBB and ABB buffers above.
 	uint OBBIBO = 0;
+	uint SPIBO = 0;
 
 	// Primitives
 	uint cubeUID = 0;

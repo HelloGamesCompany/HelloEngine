@@ -39,9 +39,9 @@ bool ModulePhysics::Start()
 
 	// Testing------------------------------------------
 	PrimCube cube = PrimCube(2);
-	testBody = CreatePhysBody(&cube);
+	///////testBody = CreatePhysBody(&cube);
 	//testBody->SetVelocity(12, 10, 10);
-	testBody->SetPos(10, 10, 10);
+	///////testBody->SetPos(10, 10, 10);
 	//PrimCube cube = PrimCube(2);
 	//testBody = CreatePhysBody(&cube);
 	//testBody2 = CreatePhysBody(&cube);
