@@ -11,6 +11,7 @@
 #include "ComponentUI.h"
 #include "PhysicsComponent.h"
 
+
 GameObject::GameObject(GameObject* parent, std::string name, std::string tag, uint ID) : name(name), tag(tag)
 {
 	_ID = ModuleLayers::S_AddGameObject(this, ID);
@@ -116,7 +117,22 @@ void GameObject::SetActive(bool active)
 	}
 
 }
+
+void GameObject::OnCollisionEnter(PhysBody3D* other)
+{
+	for (int i = 0; i < _components.size(); ++i)
+	{
+		if (_components[i]->_type == Component::Type::SCRIPT)
+		{
+			// Callback to Scripting
+			ScriptComponent* script = (ScriptComponent*)_components[i];
+			script->OnCollisionEnter(other);
+		}
+	}
+}
+
 #ifdef STANDALONE
+
 void GameObject::OnEditor()
 {
 	if (_isPendingToDelete) return;

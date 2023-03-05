@@ -3,8 +3,10 @@
 #include "Primitive.h"
 #include "PhysBody3D.h"
 #include "LayerGame.h"
+#include "ModuleLayers.h"
 
 btDiscreteDynamicsWorld* ModulePhysics::world = nullptr;
+std::vector <PhysBody3D*> ModulePhysics::physBodies;
 
 ModulePhysics::ModulePhysics()
 {
@@ -16,8 +18,8 @@ ModulePhysics::ModulePhysics()
 
 ModulePhysics::~ModulePhysics()
 {
-	S_RemovePhysBody(testBody);
-	RELEASE(testBody);
+	//S_RemovePhysBody(testBody);
+	//RELEASE(testBody);
 	RELEASE(world);
 	RELEASE(solver);
 	RELEASE(broad_phase);
@@ -40,6 +42,17 @@ bool ModulePhysics::Start()
 	testBody = CreatePhysBody(&cube);
 	//testBody->SetVelocity(12, 10, 10);
 	testBody->SetPos(10, 10, 10);
+	//PrimCube cube = PrimCube(2);
+	//testBody = CreatePhysBody(&cube);
+	//testBody2 = CreatePhysBody(&cube);
+	////testBody->SetVelocity(12, 10, 10);
+	//testBody->SetPos(10, 0, 0);
+	//testBody2->SetPos(-10, 0, 0);
+	//testBody->SetVelocity(-0.05f, 0, 0);
+	//testBody2->SetVelocity(0.05f, 0, 0);
+
+	//testBody->body->setGravity(btVector3(0, 0, 0));
+	//testBody2->body->setGravity(btVector3(0, 0, 0));
 	// Testing------------------------------------------
 
 	return true;
@@ -47,20 +60,48 @@ bool ModulePhysics::Start()
 
 UpdateStatus ModulePhysics::PreUpdate()
 {
-	world->stepSimulation(Application::Instance()->GetDeltaTime(), 15);
+	//world->stepSimulation(Application::Instance()->GetDeltaTime(), 15);
 
-	//testBody->Push(1, 1, 1);
-	//std::cout << "\ndt:" << EngineTime::GameDeltaTime()<<std::endl;
-	//std::cout << "\n-------------------------\nx" << testBody->GetVelocity().x << "\ny" << testBody->GetVelocity().y << "\nz" << testBody->GetVelocity().z;
-	std::cout <<"\n-------------------------\nx" << testBody->GetPos().x << "\ny" << testBody->GetPos().y << "\nz" << testBody->GetPos().z;
-	/*if (LayerGame::S_IsPlaying())
+	////testBody->Push(1, 1, 1);
+	//testBody->body->activate(true);
+	////std::cout << "\ndt:" << EngineTime::GameDeltaTime()<<std::endl;
+	////std::cout << "\n-------------------------\nx" << testBody->GetVelocity().x << "\ny" << testBody->GetVelocity().y << "\nz" << testBody->GetVelocity().z;
+	//std::cout <<"\n-------------------------\nx" << testBody->GetPos().x << "\ny" << testBody->GetPos().y << "\nz" << testBody->GetPos().z;
+	if (LayerGame::S_IsPlaying())
 	{
 		world->stepSimulation(EngineTime::GameDeltaTime(), 15);
 	}
 	else
 	{
 		world->stepSimulation(0);
-	}*/
+	}
+
+	//std::cout << "\n-------------------------\nx" << testBody->GetPos().x << "\ny" << testBody->GetPos().y << "\nz" << testBody->GetPos().z;
+	//std::cout << "\n-------------------------\nx" << testBody2->GetPos().x << "\ny" << testBody2->GetPos().y << "\nz" << testBody2->GetPos().z;
+	int numManifolds = world->getDispatcher()->getNumManifolds();
+	for (int i = 0; i < numManifolds; i++)
+	{
+		btPersistentManifold* contactManifold = world->getDispatcher()->getManifoldByIndexInternal(i);
+		btCollisionObject* obA = (btCollisionObject*)(contactManifold->getBody0());
+		btCollisionObject* obB = (btCollisionObject*)(contactManifold->getBody1());
+
+		int numContacts = contactManifold->getNumContacts();
+		if (numContacts > 0)
+		{
+			PhysBody3D* pBodyA = (PhysBody3D*)obA->getUserPointer();
+			PhysBody3D* pBodyB = (PhysBody3D*)obB->getUserPointer();
+
+			if (pBodyA && pBodyB)
+			{
+				if (ModuleLayers::gameObjects.count(pBodyA->gameObjectUID) != 0 && ModuleLayers::gameObjects[pBodyA->gameObjectUID] != nullptr)
+					ModuleLayers::gameObjects[pBodyA->gameObjectUID]->OnCollisionEnter(pBodyB);
+
+				if (ModuleLayers::gameObjects.count(pBodyB->gameObjectUID) != 0 && ModuleLayers::gameObjects[pBodyB->gameObjectUID] != nullptr)
+					ModuleLayers::gameObjects[pBodyB->gameObjectUID]->OnCollisionEnter(pBodyA);
+
+			}
+		}
+	}
 
 	return UpdateStatus::UPDATE_CONTINUE;
 }
@@ -70,8 +111,15 @@ UpdateStatus ModulePhysics::Update()
 	world->updateAabbs();
 
 	for (int i = 0; i < physBodies.size(); i++) {
-		physBodies[i]->Update();
+
+		//physBodies[i]->RenderCollider();
+
+		if (LayerGame::S_IsPlaying())
+		{
+			physBodies[i]->Update();
+		}
 	}
+
 	return UpdateStatus::UPDATE_CONTINUE;
 }
 
@@ -169,6 +217,25 @@ PhysBody3D* ModulePhysics::CreatePhysBody(const Primitive* primitive, float mass
 
 	PhysBody3D* pbody = new PhysBody3D(body);
 
+	switch (primitive->GetType())
+	{
+		case PrimitiveTypes::Primitive_Cube:
+		{
+			pbody->SetShape(ColliderShape::BOX);
+		}
+		break;
+		case PrimitiveTypes::Primitive_Sphere:
+		{
+			pbody->SetShape(ColliderShape::SPHERE);
+		}
+		break;
+		case PrimitiveTypes::Primitive_Cylinder:
+		{
+			pbody->SetShape(ColliderShape::CYLINDER);
+		}
+		break;
+	}
+
 	body->setUserPointer(pbody);
 
 	world->addRigidBody(body);
@@ -182,4 +249,22 @@ void ModulePhysics::S_RemovePhysBody(PhysBody3D* physBody)
 {
 	world->removeRigidBody(physBody->body);
 	RELEASE(physBody->body);
+	for (int i = 0; i < physBodies.size(); ++i)
+	{
+		if (physBodies[i] == physBody)
+		{
+			RELEASE(physBodies[i]);
+			physBodies.erase(physBodies.begin() + i);
+		}
+	}
+}
+
+void ModulePhysics::UpdatePhysBodyPos(PhysBody3D* physBody, float3 posVec)
+{
+	physBody->SetPos(posVec.x, posVec.y, posVec.z);
+}
+
+void ModulePhysics::UpdatePhysBodyPos(PhysBody3D* physBody, float x, float y, float z)
+{
+	physBody->SetPos(x, y, z);
 }

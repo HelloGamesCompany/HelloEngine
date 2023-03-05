@@ -21,9 +21,12 @@ private:
 	//Physics
 	void CheckShapes();
 
-	void CallUpdateShape();
+	void CallUpdatePos();
+	void CallUpdateMass();
 
 	void CreateCollider();
+
+	void RemoveCollider();
 
 private:
 
@@ -46,5 +49,3 @@ private:
 
 	bool isRenderingCol;
 };
-
-

@@ -4,6 +4,8 @@
 
 #define COMPONENT_NUM 6
 
+struct PhysBody3D;
+
 class GameObject
 {
 public:
@@ -76,6 +78,7 @@ public:
 
 	uint GetID() { return _ID; }
 
+	void OnCollisionEnter(PhysBody3D* other);
 
 
 #ifdef STANDALONE

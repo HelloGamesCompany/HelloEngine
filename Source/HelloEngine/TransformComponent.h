@@ -42,6 +42,8 @@ public:
 
 	void SetTransform(float4x4& localTransformMatrix, bool ignoreRotation = false);
 
+	void SetTransform(float* matrix);
+
 	void SetLocalFromGlobal(float4x4& globalMatrix, bool ignoreRotation = false);
 
 	/// <summary>

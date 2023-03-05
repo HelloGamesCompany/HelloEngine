@@ -1,4 +1,5 @@
 #include "Headers.h"
+#include "ModulePhysics.h"
 #include "RenderManager.h"
 #include "ModuleLayers.h"
 #include "MeshRenderComponent.h"
@@ -7,6 +8,7 @@
 #include "MeshImporter.h"
 #include "CameraObject.h"
 #include "ModuleCamera3D.h"
+
 
 RenderManager::RenderManager()
 {
@@ -191,6 +193,12 @@ void RenderManager::Draw()
 
 	// Draw meshes that have transparency textures applied on their material.
 	DrawTransparentMeshes();
+
+
+	///TODO: This is temporaly here 
+	for (int i = 0; i < ModulePhysics::physBodies.size(); i++) {
+		ModulePhysics::physBodies[i]->RenderCollider();
+	}
 }
 
 void RenderManager::Draw2D()
@@ -394,38 +402,42 @@ void RenderManager::DrawAABB(Mesh* mesh)
 
 void RenderManager::DrawColliderBox(PhysBody3D* physBody)
 {
-	//float* a;
-	//float* b;
-	//float* c;
-
-	//btTransform aa;
-	//btVector3 bb;
-	//btVector3 cc;
-
-	//physBody->body->getCollisionShape()->getAabb(aa, bb, cc);
-
-	/*float3 AABBPoints[8];
-
-	mesh->globalAABB.GetCornerPoints(AABBPoints);
-
-	glBindVertexArray(ColliderVertexBuffer);
-
-	glBindBuffer(GL_ARRAY_BUFFER, ColliderVertexBuffer);
-	void* ptr = glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY);
-	memcpy(ptr, &AABBPoints[0], 8 * sizeof(float3));
-	glUnmapBuffer(GL_ARRAY_BUFFER);
-
-	localLineShader->Bind();
-	localLineShader->SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
-	localLineShader->SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
-	localLineShader->SetFloat4("lineColor", 0.0f, 1.0f, 0.0f, 1.0f);
-
-	glDrawElements(GL_LINES, boxIndices.size(), GL_UNSIGNED_INT, 0);
-
-	glBindVertexArray(0);*/
-
-	// TODO: Llenar este array con los vertices del physBody----------------------
 	float3 AABBPoints[8];
+
+	uint mult = 1;
+
+	AABBPoints[0].x = (float)physBody->body->getCenterOfMassTransform().getOrigin().getX() + 1 * mult;
+	AABBPoints[0].y = (float)physBody->body->getCenterOfMassTransform().getOrigin().getY() - 1 * mult;
+	AABBPoints[0].z = (float)physBody->body->getCenterOfMassTransform().getOrigin().getZ() - 1 * mult;
+
+	AABBPoints[1].x = (float)physBody->body->getCenterOfMassTransform().getOrigin().getX() + 1 * mult;
+	AABBPoints[1].y = (float)physBody->body->getCenterOfMassTransform().getOrigin().getY() + 1 * mult;
+	AABBPoints[1].z = (float)physBody->body->getCenterOfMassTransform().getOrigin().getZ() - 1 * mult;
+
+	AABBPoints[2].x = (float)physBody->body->getCenterOfMassTransform().getOrigin().getX() - 1 * mult;
+	AABBPoints[2].y = (float)physBody->body->getCenterOfMassTransform().getOrigin().getY() - 1 * mult;
+	AABBPoints[2].z = (float)physBody->body->getCenterOfMassTransform().getOrigin().getZ() - 1 * mult;
+
+	AABBPoints[3].x = (float)physBody->body->getCenterOfMassTransform().getOrigin().getX() - 1 * mult;
+	AABBPoints[3].y = (float)physBody->body->getCenterOfMassTransform().getOrigin().getY() + 1 * mult;
+	AABBPoints[3].z = (float)physBody->body->getCenterOfMassTransform().getOrigin().getZ() - 1 * mult;
+
+	
+	AABBPoints[4].x = (float)physBody->body->getCenterOfMassTransform().getOrigin().getX() + 1 * mult;
+	AABBPoints[4].y = (float)physBody->body->getCenterOfMassTransform().getOrigin().getY() - 1 * mult;
+	AABBPoints[4].z = (float)physBody->body->getCenterOfMassTransform().getOrigin().getZ() + 1 * mult;
+
+	AABBPoints[5].x = (float)physBody->body->getCenterOfMassTransform().getOrigin().getX() + 1 * mult;
+	AABBPoints[5].y = (float)physBody->body->getCenterOfMassTransform().getOrigin().getY() + 1 * mult;
+	AABBPoints[5].z = (float)physBody->body->getCenterOfMassTransform().getOrigin().getZ() + 1 * mult;
+
+	AABBPoints[6].x = (float)physBody->body->getCenterOfMassTransform().getOrigin().getX() - 1 * mult;
+	AABBPoints[6].y = (float)physBody->body->getCenterOfMassTransform().getOrigin().getY() - 1 * mult;
+	AABBPoints[6].z = (float)physBody->body->getCenterOfMassTransform().getOrigin().getZ() + 1 * mult;
+
+	AABBPoints[7].x = (float)physBody->body->getCenterOfMassTransform().getOrigin().getX() - 1 * mult;
+	AABBPoints[7].y = (float)physBody->body->getCenterOfMassTransform().getOrigin().getY() + 1 * mult;
+	AABBPoints[7].z = (float)physBody->body->getCenterOfMassTransform().getOrigin().getZ() + 1 * mult;
 
 	glBindVertexArray(AABBVAO);
 
@@ -437,7 +449,123 @@ void RenderManager::DrawColliderBox(PhysBody3D* physBody)
 	localLineShader->Bind();
 	localLineShader->SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
 	localLineShader->SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
-	localLineShader->SetFloat4("lineColor", 0.0f, 1.0f, 0.0f, 1.0f); // TODO: Cambiar el color de la caja para uno que sea de físicas.
+	localLineShader->SetFloat4("lineColor", 0.5f, 0.0f, 0.5f, 1.0f); 
+
+	glDrawElements(GL_LINES, boxIndices.size(), GL_UNSIGNED_INT, 0);
+
+	glBindVertexArray(0);
+}
+
+void RenderManager::DrawColliderSphere(PhysBody3D* physBody)
+{
+
+	const int NUM_SEGMENTS = 32;
+	const int NUM_SLICES = 16;
+	const float SPHERE_RADIUS = 1.0f;
+
+	std::vector<float3> sphere_vertices;
+
+	for (int j = 0; j <= NUM_SLICES; ++j) {
+		float theta = j * math::pi / NUM_SLICES;
+		float sin_theta = std::sin(theta);
+		float cos_theta = std::cos(theta);
+
+		for (int i = 0; i <= NUM_SEGMENTS; ++i) {
+			float phi = i * 2 * math::pi / NUM_SEGMENTS;
+			float sin_phi = std::sin(phi);
+			float cos_phi = std::cos(phi);
+
+			float3 vertex(cos_phi * sin_theta, cos_theta, sin_phi * sin_theta);
+			sphere_vertices.push_back(vertex * SPHERE_RADIUS);
+		}
+	}
+
+	// Generate the sphere indices
+	std::vector<unsigned int> sphere_indices;
+	for (int j = 0; j < NUM_SLICES; ++j) {
+		for (int i = 0; i < NUM_SEGMENTS; ++i) {
+			int index0 = j * (NUM_SEGMENTS + 1) + i;
+			int index1 = index0 + 1;
+			int index2 = index0 + (NUM_SEGMENTS + 1);
+			int index3 = index2 + 1;
+			sphere_indices.push_back(index0);
+			sphere_indices.push_back(index2);
+			sphere_indices.push_back(index1);
+			sphere_indices.push_back(index1);
+			sphere_indices.push_back(index2);
+			sphere_indices.push_back(index3);
+		}
+	}
+
+
+
+	//glBindVertexArray(AABBVAO);
+
+	//glBindBuffer(GL_ARRAY_BUFFER, AABBVBO);
+	//void* ptr = glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY);
+	//memcpy(ptr, &sphere_vertices[0], sphere_vertices.size() * sizeof(float3));
+	//glUnmapBuffer(GL_ARRAY_BUFFER);
+
+	//localLineShader->Bind();
+	//localLineShader->SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
+	//localLineShader->SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
+	//localLineShader->SetFloat4("lineColor", 0.5f, 0.0f, 0.5f, 1.0f);
+
+	//glDrawElements(GL_LINE, sphere_indices.size(), GL_UNSIGNED_INT, 0);
+
+	//glBindVertexArray(0);
+}
+
+void RenderManager::DrawColliderCylinder(PhysBody3D* physBody)
+{
+	float3 AABBPoints[8];
+
+	uint mult = 1;
+
+	AABBPoints[0].x = (float)physBody->body->getCenterOfMassTransform().getOrigin().getX() + 1 * mult;
+	AABBPoints[0].y = (float)physBody->body->getCenterOfMassTransform().getOrigin().getY() - 1 * mult;
+	AABBPoints[0].z = (float)physBody->body->getCenterOfMassTransform().getOrigin().getZ() - 1 * mult;
+
+	AABBPoints[1].x = (float)physBody->body->getCenterOfMassTransform().getOrigin().getX() + 1 * mult;
+	AABBPoints[1].y = (float)physBody->body->getCenterOfMassTransform().getOrigin().getY() + 1 * mult;
+	AABBPoints[1].z = (float)physBody->body->getCenterOfMassTransform().getOrigin().getZ() - 1 * mult;
+
+	AABBPoints[2].x = (float)physBody->body->getCenterOfMassTransform().getOrigin().getX() - 1 * mult;
+	AABBPoints[2].y = (float)physBody->body->getCenterOfMassTransform().getOrigin().getY() - 1 * mult;
+	AABBPoints[2].z = (float)physBody->body->getCenterOfMassTransform().getOrigin().getZ() - 1 * mult;
+
+	AABBPoints[3].x = (float)physBody->body->getCenterOfMassTransform().getOrigin().getX() - 1 * mult;
+	AABBPoints[3].y = (float)physBody->body->getCenterOfMassTransform().getOrigin().getY() + 1 * mult;
+	AABBPoints[3].z = (float)physBody->body->getCenterOfMassTransform().getOrigin().getZ() - 1 * mult;
+
+
+	AABBPoints[4].x = (float)physBody->body->getCenterOfMassTransform().getOrigin().getX() + 1 * mult;
+	AABBPoints[4].y = (float)physBody->body->getCenterOfMassTransform().getOrigin().getY() - 1 * mult;
+	AABBPoints[4].z = (float)physBody->body->getCenterOfMassTransform().getOrigin().getZ() + 1 * mult;
+
+	AABBPoints[5].x = (float)physBody->body->getCenterOfMassTransform().getOrigin().getX() + 1 * mult;
+	AABBPoints[5].y = (float)physBody->body->getCenterOfMassTransform().getOrigin().getY() + 1 * mult;
+	AABBPoints[5].z = (float)physBody->body->getCenterOfMassTransform().getOrigin().getZ() + 1 * mult;
+
+	AABBPoints[6].x = (float)physBody->body->getCenterOfMassTransform().getOrigin().getX() - 1 * mult;
+	AABBPoints[6].y = (float)physBody->body->getCenterOfMassTransform().getOrigin().getY() - 1 * mult;
+	AABBPoints[6].z = (float)physBody->body->getCenterOfMassTransform().getOrigin().getZ() + 1 * mult;
+
+	AABBPoints[7].x = (float)physBody->body->getCenterOfMassTransform().getOrigin().getX() - 1 * mult;
+	AABBPoints[7].y = (float)physBody->body->getCenterOfMassTransform().getOrigin().getY() + 1 * mult;
+	AABBPoints[7].z = (float)physBody->body->getCenterOfMassTransform().getOrigin().getZ() + 1 * mult;
+
+	glBindVertexArray(AABBVAO);
+
+	glBindBuffer(GL_ARRAY_BUFFER, AABBVBO);
+	void* ptr = glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY);
+	memcpy(ptr, &AABBPoints[0], 8 * sizeof(float3));
+	glUnmapBuffer(GL_ARRAY_BUFFER);
+
+	localLineShader->Bind();
+	localLineShader->SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
+	localLineShader->SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
+	localLineShader->SetFloat4("lineColor", 0.5f, 0.0f, 0.5f, 1.0f);
 
 	glDrawElements(GL_LINES, boxIndices.size(), GL_UNSIGNED_INT, 0);
 

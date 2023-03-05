@@ -2,11 +2,11 @@
 
 #include "MathGeoLib.h"
 #include "btBulletDynamicsCommon.h"
+#include "ModulePhysics.h"
 
 struct PhysBody3D
 {
 public:
-	PhysBody3D() {};
 	PhysBody3D(btRigidBody* body);
 	~PhysBody3D();
 
@@ -18,12 +18,19 @@ public:
 	//void SetColTransform(float4x4 matrix);
 	void SetPos(float x, float y, float z);
 	float3 GetPos();
+	float3 GetRotation();
 	float3 GetVelocity();
 	void Update();
+
+	void SetShape(ColliderShape shape);
+	void RenderCollider();
 
 public:
 	btRigidBody* body = nullptr;
 	float4x4 globalTrans;
 	float4x4 transformMat;
 	bool isRenderingCol;
+	uint gameObjectUID = 0;
+
+	ColliderShape colShape;
 };

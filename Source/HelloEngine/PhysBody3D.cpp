@@ -3,16 +3,16 @@
 #include "ModulePhysics.h"
 #include "Application.h"
 #include "ModuleRenderer3D.h"
+#include "ModuleLayers.h"
 
 PhysBody3D::PhysBody3D(btRigidBody* body)
 {
 	this->body = body;
+	isRenderingCol = false;
 }
 
 PhysBody3D::~PhysBody3D()
 {
-	if (body)
-		ModulePhysics::S_RemovePhysBody(this);
 }
 
 void PhysBody3D::Push(float x, float y, float z)
@@ -60,6 +60,14 @@ float3 PhysBody3D::GetPos()
 	return float3(vec.x(), vec.y(), vec.z());
 }
 
+float3 PhysBody3D::GetRotation()
+{
+	btVector3 vec;
+	body->getWorldTransform().getBasis().getEulerZYX(vec[0], vec[1], vec[2]);
+
+	return float3(vec.z(), vec.y(), vec.x());
+}
+
 float3 PhysBody3D::GetVelocity()
 {
 	btVector3 vec = body->getLinearVelocity();
@@ -70,8 +78,40 @@ float3 PhysBody3D::GetVelocity()
 
 void PhysBody3D::Update()
 {
-	if (isRenderingCol == true) {
-		Application::Instance()->renderer3D->renderManager.DrawColliderBox(this);//renderer3D->renderManager.DrawOBB(this);
+
+	//btTransform worldTransform = body->getWorldTransform();
+	//btScalar matrix;
+	//worldTransform.getOpenGLMatrix(&matrix);
+	
+	// TODO: This check will not be necessary once we stop creating PhysBodies without game objects!!!
+	if (ModuleLayers::gameObjects.count(gameObjectUID) != 0)
+	{
+		GameObject* go = ModuleLayers::gameObjects[gameObjectUID];
+		go->transform->SetPosition(GetPos());
+		go->transform->SetRotation(GetRotation());
 	}
+}
+
+void PhysBody3D::SetShape(ColliderShape shape)
+{
+	colShape = shape;
+}
+
+void PhysBody3D::RenderCollider()
+{
+	if (isRenderingCol == true) {
+		switch (colShape) {
+		case ColliderShape::BOX:
+			Application::Instance()->renderer3D->renderManager.DrawColliderBox(this);
+			break;
+		case ColliderShape::SPHERE:
+			Application::Instance()->renderer3D->renderManager.DrawColliderSphere(this);
+			break;
+		case ColliderShape::CYLINDER:
+			break;
+		}
+		
+	}
+
 }
 

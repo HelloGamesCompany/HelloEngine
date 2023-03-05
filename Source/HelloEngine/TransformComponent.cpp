@@ -50,6 +50,13 @@ void TransformComponent::SetTransform(float4x4& localTransformMatrix, bool ignor
 	UpdateDirtyFlagNoLocal();
 }
 
+void TransformComponent::SetTransform(float* matrix)
+{
+	_localMatrix.Set(matrix);
+
+	UpdateDirtyFlagNoLocal();
+}
+
 void TransformComponent::SetLocalFromGlobal(float4x4& globalMatrix, bool ignoreRotation)
 {
 	float4x4 parentGlobal = _gameObject->_parent->transform->_globalMatrix;
