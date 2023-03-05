@@ -1,5 +1,6 @@
 #pragma once
 #include "ComponentUI.h"
+#include "ModuleResourceManager.h"
 
 enum class ButtonState {
 	NORMAL,
@@ -23,6 +24,9 @@ class ComponentUIButton : public ComponentUI
 private:
 	double gameTimeCopy = 0;
 	float colors[4] = { 0,0,0,0 };
+	GameObject* uiObject;
+	int textureID = -1;
+	ResourceTexture* currentResource = nullptr;
 #ifdef STANDALONE
 	void OnEditor() override;
 

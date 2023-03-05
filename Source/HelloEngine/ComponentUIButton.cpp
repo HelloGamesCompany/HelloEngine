@@ -3,13 +3,14 @@
 #include "GameObject.h"
 #include "MaterialComponent.h"
 
+
 ComponentUIButton::ComponentUIButton(GameObject* gameObject) : ComponentUI(gameObject)
 {
 	State = ButtonState::NORMAL;
 	_type = Component::Type::UI_BUTTON;
 
 	gameObject->transform->SetScale({ 0.2,0.2,0 });
-
+	uiObject = gameObject;
 }
 
 ComponentUIButton::~ComponentUIButton()
@@ -142,45 +143,45 @@ void ComponentUIButton::OnEditor()
 	
 	//Oneditor de Material Component
 
-	//std::string imageName;
-	//int width = 0;
-	//int height = 0;
-	//if (textureID != -1.0f && currentResource != nullptr)
-	//{
-	//	ImGui::Image((ImTextureID)(uint)textureID, ImVec2(64, 64), ImVec2(0, 1), ImVec2(1, 0));
-	//
-	//	imageName = currentResource->debugName;
-	//	width = currentResource->width;
-	//	height = currentResource->height;
-	//}
-	//else
-	//{
-	//	ImGui::Image((ImTextureID)0, ImVec2(64, 64), ImVec2(0, 1), ImVec2(1, 0));
-	//	imageName = "None";
-	//}
-	//
-	//if (ImGui::BeginDragDropTarget())
-	//{
-	//	if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("Texture"))
-	//	{
-	//		//Drop asset from Asset window to scene window
-	//		const uint* drop = (uint*)payload->Data;
-	//
-	//		ResourceTexture* resource = (ResourceTexture*)ModuleResourceManager::S_LoadResource(*drop);
-	//
-	//		ChangeTexture(resource);
-	//	}
-	//	ImGui::EndDragDropTarget();
-	//}
-	//
-	//ImGui::TextWrapped("Path: "); ImGui::SameLine();
-	//ImGui::TextColored(ImVec4(1, 1, 0, 1), imageName.c_str());
-	//
-	//ImGui::TextWrapped("Width: "); ImGui::SameLine();
-	//ImGui::TextColored(ImVec4(1, 1, 0, 1), std::to_string(width).c_str());
-	//
-	//ImGui::TextWrapped("Height: "); ImGui::SameLine();
-	//ImGui::TextColored(ImVec4(1, 1, 0, 1), std::to_string(height).c_str());
+	std::string imageName;
+	int width = 0;
+	int height = 0;
+	if (textureID != -1.0f && currentResource != nullptr)
+	{
+		ImGui::Image((ImTextureID)(uint)textureID, ImVec2(64, 64), ImVec2(0, 1), ImVec2(1, 0));
+	
+		imageName = currentResource->debugName;
+		width = currentResource->width;
+		height = currentResource->height;
+	}
+	else
+	{
+		ImGui::Image((ImTextureID)0, ImVec2(64, 64), ImVec2(0, 1), ImVec2(1, 0));
+		imageName = "None";
+	}
+	
+	/*if (ImGui::BeginDragDropTarget())
+	{
+		if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("Texture"))
+		{
+			//Drop asset from Asset window to scene window
+			const uint* drop = (uint*)payload->Data;
+	
+			ResourceTexture* resource = (ResourceTexture*)ModuleResourceManager::S_LoadResource(*drop);
+	
+			MaterialComponent::ChangeTexture(resource);
+		}
+		ImGui::EndDragDropTarget();
+	}*/
+	
+	ImGui::TextWrapped("Path: "); ImGui::SameLine();
+	ImGui::TextColored(ImVec4(1, 1, 0, 1), imageName.c_str());
+	
+	ImGui::TextWrapped("Width: "); ImGui::SameLine();
+	ImGui::TextColored(ImVec4(1, 1, 0, 1), std::to_string(width).c_str());
+	
+	ImGui::TextWrapped("Height: "); ImGui::SameLine();
+	ImGui::TextColored(ImVec4(1, 1, 0, 1), std::to_string(height).c_str());
 }
 
 #endif // STANDALONE
