@@ -1002,6 +1002,7 @@
     </Filter>
     <Filter Include="GameObject\Components\ParticleModules">
       <UniqueIdentifier>{912b9e95-e0aa-441c-af06-f32abe99351d}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Modules\Physics">
       <UniqueIdentifier>{d7a935dd-bee4-4eab-b7b6-c21c40a5f340}</UniqueIdentifier>
     </Filter>
