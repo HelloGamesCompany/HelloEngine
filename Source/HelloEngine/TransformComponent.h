@@ -61,7 +61,9 @@ public:
     /// </summary>
     void Rotate(float3 rotate);
 
-    float4x4 GetGlobalMatrix(bool forceUpdate = false, bool updateLocal = true);
+	float4x4 GetGlobalMatrix(bool forceUpdate = false, bool updateLocal = true);
+	float4x4 GetLocalMatrix() { return _localMatrix; }
+
 
     float3 GetGlobalPosition();
     float3 GetGlobalRotation();

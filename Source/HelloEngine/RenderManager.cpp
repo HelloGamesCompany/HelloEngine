@@ -25,18 +25,18 @@ void RenderManager::Init()
 {
 	_textureManager = new TextureManager();
 
-	cubeUID = 2677981019;
-	planeUID = 2393626792;
-	cylinderUID = 1158218481;
-	sphereUID = 2121897186;
-	plane2DUID = 2393626793;
+	cubeUID = 2523359550;
+	planeUID = 90291865;
+	cylinderUID = 2734209052;
+	sphereUID = 4243659739;
+	plane2DUID = 90291866;
 
 	// Create resources for Primitives
-	ResourceMesh* cubeResource = ModuleResourceManager::S_CreateResourceMesh("Resources/Editor/Primitives/2677981019.hmesh", cubeUID, "Cube", false);
-	ResourceMesh* planeResource = ModuleResourceManager::S_CreateResourceMesh("Resources/Editor/Primitives/2393626792.hmesh", planeUID, "Plane", false);
-	ResourceMesh* plane2DResource = ModuleResourceManager::S_CreateResourceMesh("Resources/Editor/Primitives/2393626792.hmesh", plane2DUID, "Plane2D", false);
-	ResourceMesh* cylinderResource = ModuleResourceManager::S_CreateResourceMesh("Resources/Editor/Primitives/1158218481.hmesh", cylinderUID, "Cylinder", false);
-	ResourceMesh* sphereResource = ModuleResourceManager::S_CreateResourceMesh("Resources/Editor/Primitives/2121897186.hmesh", sphereUID, "Sphere", false);
+	ResourceMesh* cubeResource = ModuleResourceManager::S_CreateResourceMesh("Resources/Editor/Primitives/2523359550.hmesh", cubeUID, "Cube", false);
+	ResourceMesh* planeResource = ModuleResourceManager::S_CreateResourceMesh("Resources/Editor/Primitives/90291865.hmesh", planeUID, "Plane", false);
+	ResourceMesh* plane2DResource = ModuleResourceManager::S_CreateResourceMesh("Resources/Editor/Primitives/90291865.hmesh", plane2DUID, "Plane2D", false);
+	ResourceMesh* cylinderResource = ModuleResourceManager::S_CreateResourceMesh("Resources/Editor/Primitives/2734209052.hmesh", cylinderUID, "Cylinder", false);
+	ResourceMesh* sphereResource = ModuleResourceManager::S_CreateResourceMesh("Resources/Editor/Primitives/4243659739.hmesh", sphereUID, "Sphere", false);
 
 	for (int i = 0; i < 5; ++i)
 	{

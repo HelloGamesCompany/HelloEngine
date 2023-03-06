@@ -356,6 +356,10 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
                 _dragUID = _fileTree->_currentDir->files[i].metaFile.UID;
                 ImGui::SetDragDropPayload("Script", &_dragUID, sizeof(uint));
                 break;
+            case ResourceType::ANIMATION:
+                _dragUID = _fileTree->_currentDir->files[i].metaFile.UID;
+                ImGui::SetDragDropPayload("Animation", &_dragUID, sizeof(uint));
+                break;
             case ResourceType::PREFAB:
                 ImGui::SetDragDropPayload("Prefab", &_fileTree->_currentDir->files[i].path, sizeof(std::string));
                 break;

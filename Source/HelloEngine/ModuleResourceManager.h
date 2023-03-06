@@ -153,6 +153,28 @@ public:
     uint IBO = 0;
 };
 
+class ResourceAnimation : public Resource
+{
+public:
+	ResourceAnimation() { type = ResourceType::ANIMATION; };
+	~ResourceAnimation() {};
+
+	void UnLoad() override
+	{
+		animation.Clear();
+	}
+
+public:
+	void Destroy() override;
+	void ReImport(const std::string& filePath) override;
+
+	Animation3D animation;
+	uint animUID = 0;
+
+
+};
+
+
 class ResourceScript : public Resource
 {
 public:
@@ -214,7 +236,10 @@ public:
     static uint S_GetPrefabUID(const std::string& filePath);
 
     static void S_OverridePrefab(GameObject* g, const std::string& filePath, uint prefabUID);
+	
+	static void S_CreateResourceAnimation(const std::string& filePath, uint UID, const std::string& name, bool load = true);
 
+	static void S_CreateResourceText(const std::string& filePath, uint UID, const std::string& name, bool load = true);
     /// <summary>
     /// Delete meta file and the resources attached to it. If you want to only destroy the resources, mark bool as true.
     /// </summary>
@@ -224,8 +249,6 @@ public:
 
     // Only for internal engine usage!
     static ResourceMesh* S_CreateResourceMesh(const std::string& filePath, uint UID, const std::string& name, bool load = true, ResourceModel* model = nullptr);
-
-    static void S_CreateResourceText(const std::string& filePath, uint UID, const std::string& name, bool load = true);
 
     static Resource* S_LoadResource(const uint& UID);
 

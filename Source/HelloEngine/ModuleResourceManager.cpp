@@ -83,39 +83,46 @@ bool ModuleResourceManager::Init()
 
 void ModuleResourceManager::S_ImportFile(const std::string& filePath)
 {
-    ResourceType type = ModuleFiles::S_GetResourceType(filePath);
+	ResourceType type = ModuleFiles::S_GetResourceType(filePath);
 
-    if (type == ResourceType::UNDEFINED)
-    {
-        Console::S_Log("Tried to import an undefined file. Filename: " + filePath);
-        return;
-    }
+	if (type == ResourceType::UNDEFINED)
+	{
+		Console::S_Log("Tried to import an undefined file. Filename: " + filePath);
+		return;
+	}
 
-    // TODO: Restruct Inport parameters
-    switch (type)
-    {
-    case ResourceType::MODEL:
-    {
-        std::string path = MeshImporter::ImportModel(filePath);
-        ModuleFiles::S_CreateMetaData(filePath, path);
-    }
-    break;
-    case ResourceType::TEXTURE:
-    {
-        char* buffer = nullptr;
-        uint size = ModuleFiles::S_Load(filePath, &buffer);
-        std::string path = TextureImporter::ImportImage(ModuleFiles::S_GetFileName(filePath, false), buffer, size);
-        ModuleFiles::S_CreateMetaData(filePath, path);
-        RELEASE_ARRAY(buffer);
-    }
-    break;
-    case ResourceType::HSCRIPT:
-    case ResourceType::CPPSCRIPT:
-    {
-        ModuleFiles::S_CreateMetaData(filePath, "don't have resource path now");
+	// TODO: Restruct Inport parameters
+	switch (type)
+	{
+	case ResourceType::MODEL:
+	{
+		std::string path = MeshImporter::ImportModel(filePath);
+		ModuleFiles::S_CreateMetaData(filePath, path);
+	}
+	break;
+	case ResourceType::ANIMATION:
+	{
 
-        break;
-    }
+
+		//std::string path = MeshImporter::
+	}
+	break;
+	case ResourceType::TEXTURE:
+	{
+		char* buffer = nullptr;
+		uint size = ModuleFiles::S_Load(filePath, &buffer);
+		std::string path = TextureImporter::ImportImage(ModuleFiles::S_GetFileName(filePath, false), buffer, size);
+		ModuleFiles::S_CreateMetaData(filePath, path);
+		RELEASE_ARRAY(buffer);
+	}
+	break;
+	case ResourceType::HSCRIPT:
+	case ResourceType::CPPSCRIPT:
+	{
+		ModuleFiles::S_CreateMetaData(filePath, "don't have resource path now");
+		
+		break;
+	}
     case ResourceType::PREFAB:
     {
         ModuleFiles::S_CreateMetaData(filePath, filePath, S_GetPrefabUID(filePath));
@@ -124,7 +131,7 @@ void ModuleResourceManager::S_ImportFile(const std::string& filePath)
     }
     default:
         break;
-    }
+	}
 }
 
 void ModuleResourceManager::S_ReImportFile(const std::string& filePath, ResourceType resourceType)
@@ -177,40 +184,47 @@ void ModuleResourceManager::S_ReImportFile(const std::string& filePath, Resource
 
 void ModuleResourceManager::S_LoadFileIntoResource(Resource* resource)
 {
-    char* buffer = nullptr;
-    uint size = ModuleFiles::S_Load(resource->resourcePath, &buffer);
+	char* buffer = nullptr;
+	uint size = ModuleFiles::S_Load(resource->resourcePath, &buffer);
 
-    if (size == 0)
-        return;
+	if (size == 0)
+		return;
 
-    switch (resource->type)
-    {
-    case ResourceType::MODEL:
-    {
-        // When loading a Model, we need to load each mesh of the model into separate Mesh Resources.
-        // A meta file of a model IS NOT a ResourceMesh instance.
-        // When loading a Model, all Resources of that model get loaded, but there is no ResourceModel.
-        ResourceModel* modelRes = (ResourceModel*)resource;
-        MeshImporter::LoadModelIntoResource(modelRes);
-    }
-    break;
-    case ResourceType::TEXTURE:
-    {
-        ResourceTexture* textureRes = (ResourceTexture*)resource;
-        TextureImporter::Load(buffer, size, textureRes);
-    }
-    break;
-    case ResourceType::MESH:
-    {
-        ResourceMesh* meshRes = (ResourceMesh*)resource;
-        meshRes->meshInfo.LoadFromBinaryFile(meshRes->resourcePath);
-        meshRes->CreateBuffers();
-        meshRes->CalculateNormalsAndAABB();
-    }
-    break;
-    }
+	switch (resource->type)
+	{
+	case ResourceType::MODEL:
+	{
+		// When loading a Model, we need to load each mesh of the model into separate Mesh Resources.
+		// A meta file of a model IS NOT a ResourceMesh instance.
+		// When loading a Model, all Resources of that model get loaded, but there is no ResourceModel.
+		ResourceModel* modelRes = (ResourceModel*)resource;
+		MeshImporter::LoadModelIntoResource(modelRes);
+	}
+	break;
+	case ResourceType::TEXTURE:
+	{
+		ResourceTexture* textureRes = (ResourceTexture*)resource;
+		TextureImporter::Load(buffer, size, textureRes);
+	}
+	break;
+	case ResourceType::MESH:
+	{
+		ResourceMesh* meshRes = (ResourceMesh*)resource;
+		meshRes->meshInfo.LoadFromBinaryFile(meshRes->resourcePath);
+		meshRes->CreateBuffers();
+		meshRes->CalculateNormalsAndAABB();
+	}
+	break;
+	case ResourceType::ANIMATION:
+	{
+		ResourceAnimation* animRes = (ResourceAnimation*)resource;
+		animRes->animation.LoadFromBinaryFile(animRes->resourcePath);
 
-    RELEASE_ARRAY(buffer);
+	}
+	break;
+	}
+
+	RELEASE_ARRAY(buffer);
 }
 
 Resource* ModuleResourceManager::S_LoadFile(const std::string& filePath)
@@ -306,7 +320,7 @@ void ModuleResourceManager::S_SerializeScene(GameObject*& g)
 
     ModuleWindow::S_AddTitleExtraInfo(scenePath);
 
-    std::string buffer = j.dump();
+	std::string buffer = j.dump(4);
 
     ModuleFiles::S_Save(savePath, &buffer[0], buffer.size(), false);
 }
@@ -342,7 +356,7 @@ void ModuleResourceManager::S_SerializeScene(GameObject*& g, const std::string& 
     // Write json
     SerializeSceneRecursive(g, j);
 
-    std::string buffer = j.dump();
+	std::string buffer = j.dump(4);
 
     ModuleFiles::S_Save(path, &buffer[0], buffer.size(), false);
 }
@@ -694,41 +708,46 @@ void ModuleResourceManager::S_DeleteMetaFile(const std::string& file, bool onlyR
 
 void ModuleResourceManager::S_CreateResource(const MetaFile& metaFile)
 {
-    if (resources.count(metaFile.UID) != 0)
-        return;
+	if (resources.count(metaFile.UID) != 0)
+		return;
 
-    switch (metaFile.type)
-    {
-    case ResourceType::MESH:
-    {
-        resources[metaFile.UID] = new ResourceMesh();
-    }
-    break;
-    case ResourceType::MODEL:
-    {
-        ResourceModel* resourceModel = new ResourceModel();
-        resources[metaFile.UID] = resourceModel;
-        resources[metaFile.UID]->UID = metaFile.UID;
-        resourceModel->resourcePath = metaFile.resourcePath;
-        resourceModel->modelInfo.ReadFromJSON(resourceModel->resourcePath);
-        resourceModel->CreateResourceMeshes();
-    }
-    break;
-    case ResourceType::TEXTURE:
-    {
-        resources[metaFile.UID] = new ResourceTexture();
-    }
-    break;
-    case ResourceType::HSCRIPT:
-    case ResourceType::CPPSCRIPT:
-    {
-        resources[metaFile.UID] = new ResourceScript();
-        // Get class name from path file name
-        ResourceScript* res = (ResourceScript*)resources[metaFile.UID];
-        res->className = ModuleFiles::S_GetFileName(metaFile.name, false);
-        res->debugName = res->className;
-    }
-    break;
+	switch (metaFile.type)
+	{
+	case ResourceType::MESH:
+	{
+		resources[metaFile.UID] = new ResourceMesh();
+	}
+	break;
+	case ResourceType::ANIMATION:
+	{
+		resources[metaFile.UID] = new ResourceAnimation();
+	}
+	break;
+	case ResourceType::MODEL:
+	{
+		ResourceModel* resourceModel = new ResourceModel();
+		resources[metaFile.UID] = resourceModel;
+		resources[metaFile.UID]->UID = metaFile.UID;
+		resourceModel->resourcePath = metaFile.resourcePath;
+		resourceModel->modelInfo.ReadFromJSON(resourceModel->resourcePath);
+		resourceModel->CreateResourceMeshes();
+	}
+	break;
+	case ResourceType::TEXTURE:
+	{
+		resources[metaFile.UID] = new ResourceTexture();
+	}
+	break;
+	case ResourceType::HSCRIPT:
+	case ResourceType::CPPSCRIPT:
+	{
+		resources[metaFile.UID] = new ResourceScript();
+		// Get class name from path file name
+		ResourceScript* res = (ResourceScript*)resources[metaFile.UID];
+		res->className = ModuleFiles::S_GetFileName(metaFile.name, false);
+		res->debugName = res->className;
+	}
+	break;    
     case ResourceType::PREFAB:
     {
         resources[metaFile.UID] = new ResourcePrefab();
@@ -736,16 +755,16 @@ void ModuleResourceManager::S_CreateResource(const MetaFile& metaFile)
         r->path = metaFile.resourcePath;
     }
     break;
-    default:
-        Console::S_Log("Cannot create a resource of an undefined meta file!");
-        return;
-    }
+	default:
+		Console::S_Log("Cannot create a resource of an undefined meta file!");
+		return;
+	}
 
-    resources[metaFile.UID]->referenceCount = 0;
-    resources[metaFile.UID]->resourcePath = metaFile.resourcePath;
-    resources[metaFile.UID]->type = metaFile.type;
-    resources[metaFile.UID]->debugName = metaFile.name;
-    resources[metaFile.UID]->UID = metaFile.UID;
+	resources[metaFile.UID]->referenceCount = 0;
+	resources[metaFile.UID]->resourcePath = metaFile.resourcePath;
+	resources[metaFile.UID]->type = metaFile.type;
+	resources[metaFile.UID]->debugName = metaFile.name;
+	resources[metaFile.UID]->UID = metaFile.UID;
 }
 
 ResourceMesh* ModuleResourceManager::S_CreateResourceMesh(const std::string& filePath, uint UID, const std::string& name, bool load, ResourceModel* model)
@@ -771,6 +790,25 @@ ResourceMesh* ModuleResourceManager::S_CreateResourceMesh(const std::string& fil
     }
 
     return newResource;
+}
+
+void ModuleResourceManager::S_CreateResourceAnimation(const std::string& filePath, uint UID, const std::string& name, bool load)
+{
+	if (resources.count(UID) != 0)
+		return;
+
+	ResourceAnimation* newResource = new ResourceAnimation();
+	
+	if (load)
+	{
+		newResource->animation.LoadFromBinaryFile(filePath);
+	}
+
+	newResource->debugName = name + ".hanim";
+	newResource->UID = UID;
+	newResource->resourcePath = filePath;
+
+	resources[UID] = newResource;
 }
 
 void ModuleResourceManager::S_CreateResourceText(const std::string& filePath, uint UID, const std::string& name, bool load)
@@ -1071,32 +1109,42 @@ void ResourceModel::UpdateResourceMeshesRecursive(ModelNode& node)
 
 void ResourceMesh::CreateBuffers()
 {
-    // Create Vertex Array Object
-    glGenVertexArrays(1, &VAO);
-    glBindVertexArray(VAO);
+	// Create Vertex Array Object
+	glGenVertexArrays(1, &VAO);
+	glBindVertexArray(VAO);
 
-    // Create Vertex Buffer Object
-    glGenBuffers(1, &VBO);
+	// Create Vertex Buffer Object
+	glGenBuffers(1, &VBO);
 
-    glBindBuffer(GL_ARRAY_BUFFER, VBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * meshInfo.vertices.size(), &meshInfo.vertices.front(), GL_STATIC_DRAW);
+	glBindBuffer(GL_ARRAY_BUFFER, VBO);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * meshInfo.vertices.size(), &meshInfo.vertices.front(), GL_STATIC_DRAW);
 
-    // vertex positions
-    glEnableVertexAttribArray(0);
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)0);
-    // vertex normals
-    glEnableVertexAttribArray(1);
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, normals));
-    // vertex texture coords
-    glEnableVertexAttribArray(2);
-    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, texCoords));
+	// vertex positions
+	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)0);
+	// vertex normals
+	glEnableVertexAttribArray(1);
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, normals));
+	// vertex texture coords
+	glEnableVertexAttribArray(2);
+	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, texCoords));
 
-    // Create Index Buffer Object
-    glGenBuffers(1, &IBO);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(uint) * meshInfo.indices.size(), &meshInfo.indices.front(), GL_STATIC_DRAW);
+	if (meshInfo.boneDataMap.size() != 0)
+	{
+		// bone Ids
+		glEnableVertexAttribArray(3);
+		glVertexAttribIPointer(3, 4, GL_INT, sizeof(Vertex), (void*)offsetof(Vertex, boneIds));
+		// bone weights
+		glEnableVertexAttribArray(4);
+		glVertexAttribPointer(4, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, weights));
+	}
 
-    glBindVertexArray(0);
+	// Create Index Buffer Object
+	glGenBuffers(1, &IBO);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(uint) * meshInfo.indices.size(), &meshInfo.indices.front(), GL_STATIC_DRAW);
+
+	glBindVertexArray(0);
 }
 
 void ResourceMesh::CalculateNormalsAndAABB()
@@ -1222,6 +1270,16 @@ void ResourceMesh::Destroy()
 
 void ResourceMesh::ReImport(const std::string& filePath)
 {
+}
+
+void ResourceAnimation::Destroy()
+{
+
+}
+
+void ResourceAnimation::ReImport(const std::string& filePath)
+{
+
 }
 
 void ResourceTexture::Destroy()

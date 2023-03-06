@@ -15,13 +15,14 @@ class Directory;
 
 enum class ResourceType
 {
-    UNDEFINED,
-    MESH,
-    TEXTURE,
-    MODEL,
-    SCENE,
-    HSCRIPT,
-    CPPSCRIPT,
+	UNDEFINED,
+	MESH,
+	TEXTURE,
+	MODEL,
+	SCENE,
+	HSCRIPT,
+	CPPSCRIPT,
+	ANIMATION,
     PREFAB,
 };
 

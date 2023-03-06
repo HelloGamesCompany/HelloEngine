@@ -363,6 +363,12 @@
     </ClCompile>
     <ClCompile Include="LayerUI.cpp" />
     <ClCompile Include="ComponentUIButton.cpp" />
+    <ClCompile Include="SkinnedMeshRenderComponent.cpp">
+      <Filter>GameObject\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimationComponent.cpp">
+      <Filter>GameObject\Components</Filter>
+    </ClCompile>
     <ClCompile Include="ParticleSystemComponent.cpp">
       <Filter>GameObject\Components</Filter>
     </ClCompile>
@@ -883,6 +889,12 @@
     </ClInclude>
     <ClInclude Include="LayerUI.h" />
     <ClInclude Include="ComponentUIButton.h" />
+    <ClInclude Include="SkinnedMeshRenderComponent.h">
+      <Filter>GameObject\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimationComponent.h">
+      <Filter>GameObject\Components</Filter>
+    </ClInclude>
     <ClInclude Include="ParticleSystemComponent.h">
       <Filter>GameObject\Components</Filter>
     </ClInclude>

@@ -44,6 +44,11 @@ private:
 	static void ProcessNode(aiNode* node, const aiScene* scene, ModelNode& parentNode);
 	static std::string ProcessMesh(aiMesh* mesh, const aiScene* scene, std::string fileName);
 	static uint ProcessTexture(const std::string& textureName);
+	static std::map<std::string, BoneData> ProcessBones(std::vector<Vertex>* vertices, aiMesh* mesh, const aiScene* scene);
+
+	static std::string ProcessAnimation(const aiScene* scene);
+
+	static void SetVertexBoneData(Vertex& vertex, int boneId = -1, float weight = 0);
 
 	static void LoadNode(ModelNode& node, GameObject* parent);
 	static void LoadMeshNode(std::string filePath, GameObject* parent);

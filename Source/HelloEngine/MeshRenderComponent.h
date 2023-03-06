@@ -19,7 +19,7 @@ public:
 	MeshRenderComponent(GameObject* gameObject, const MeshRenderComponent& copy);
 	virtual ~MeshRenderComponent() override;
 
-	void CreateMesh(uint resourceUID, MeshRenderType type = MeshRenderType::INSTANCED);
+	virtual void CreateMesh(uint resourceUID, MeshRenderType type = MeshRenderType::INSTANCED);
 
 	void CreateMesh2D();
 
@@ -40,6 +40,8 @@ public:
 
 	void SetAs2D();
 
+	bool HasBones() { return _hasBones; }
+
 #ifdef STANDALONE
 	void OnEditor() override;
 
@@ -54,7 +56,12 @@ public:
 
 	void UnlinkResource();
 
-private:
+#ifdef STANDALONE
+protected:
+	void MeshDropArea();
+
+#endif
+protected:
 	ResourceMesh* _resource = nullptr;
 	int64_t _meshID = -1;
 	uint _instanceID = 0;
@@ -65,6 +72,7 @@ private:
 	int _indexNum = 0;
 
 	bool _isTransparent = false;
+	bool _hasBones = false;
 	MeshRenderType renderType = MeshRenderType::INSTANCED;
 
 	// Temporal. Delete later:

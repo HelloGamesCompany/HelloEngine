@@ -5,10 +5,12 @@
 #include "MeshRenderComponent.h"
 #include "MaterialComponent.h"
 #include "CameraComponent.h"
+#include "SkinnedMeshRenderComponent.h"
 #include "LayerEditor.h"
 #include "ImGuizmo/ImGuizmo.h"
 #include "ScriptComponent.h"
 #include "ComponentUI.h"
+#include "AnimationComponent.h"
 #include "ParticleSystemComponent.h"
 #include "BillBoardComponent.h"
 #include "PhysicsComponent.h"
@@ -188,6 +190,14 @@ void GameObject::OnEditor()
 				case 6:
 					if (!HasComponent<ParticleSystemComponent>())
 						AddComponent<ParticleSystemComponent>();
+                case 7:
+					if (!HasComponent<SkinnedMeshRenderComponent>())
+						AddComponent<SkinnedMeshRenderComponent>();
+					break;
+				case 8:
+					if (!HasComponent<AnimationComponent>())
+						AddComponent<AnimationComponent>();
+                        break;
 					break;
 				}	
             }
@@ -367,6 +377,10 @@ Component* GameObject::AddComponentOfType(Component::Type type)
 		newComponent = new MeshRenderComponent(this);
 		_components.push_back(newComponent);
 		break;
+	case Component::Type::SKINNING:
+		newComponent = new SkinnedMeshRenderComponent(this);
+		_components.push_back(newComponent);
+		break;
 	case Component::Type::MATERIAL:
 		newComponent = new MaterialComponent(this);
 		_components.push_back(newComponent);
@@ -395,6 +409,10 @@ Component* GameObject::AddComponentOfType(Component::Type type)
 		newComponent = new PhysicsComponent(this);
 		_components.push_back(newComponent);
 		break;
+    case Component::Type::ANIMATION_PLAYER:
+		newComponent = new AnimationComponent(this);
+		_components.push_back(newComponent);
+        break;
 	}
 
 	return newComponent;
@@ -411,6 +429,10 @@ Component* GameObject::AddComponentOfType(Component::Type type, const Component&
 		break;
 	case Component::Type::MESH_RENDERER:
 		newComponent = new MeshRenderComponent(this, *(MeshRenderComponent*)&copy);
+		_components.push_back(newComponent);
+		break;
+	case Component::Type::SKINNING:
+		newComponent = new SkinnedMeshRenderComponent(this, *(SkinnedMeshRenderComponent*) &copy);
 		_components.push_back(newComponent);
 		break;
 	case Component::Type::MATERIAL:
