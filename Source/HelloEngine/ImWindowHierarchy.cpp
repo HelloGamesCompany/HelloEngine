@@ -23,7 +23,7 @@ ImWindowHierarchy::ImWindowHierarchy()
 
     _hasSelectedAGameObject = false;
 
-    _draggingGameObject = nullptr;
+    LayerEditor::draggedGameObject = nullptr;
 
     _base_flags = ImGuiTreeNodeFlags_DefaultOpen | ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_OpenOnDoubleClick | ImGuiTreeNodeFlags_SpanAvailWidth | ImGuiTreeNodeFlags_AllowItemOverlap;
 }
@@ -88,6 +88,17 @@ void ImWindowHierarchy::Update()
                 LayerEditor::S_AddPopUpMessage(popUpmessage);
 
             }
+            else if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("Prefab"))
+            {
+                const std::string* drop = (std::string*)payload->Data;
+
+                ModuleResourceManager::S_DeserializeFromPrefab(*drop, ModuleLayers::rootGameObject);
+
+                std::string popUpmessage = "Prefab Loaded: " + *drop;
+
+                LayerEditor::S_AddPopUpMessage(popUpmessage);
+
+            }
             ImGui::EndDragDropTarget();
         }
     }
@@ -112,6 +123,7 @@ void ImWindowHierarchy::ProcessGameObject(GameObject* gameObject, int iteration)
         return;
 
     ImGuiTreeNodeFlags node_flags = _base_flags;
+    if (gameObject->_prefabUID != 0) node_flags |= ImGuiTreeNodeFlags_Framed;
 
     GameObject* temp = LayerEditor::selectedGameObject;
 
@@ -136,7 +148,7 @@ void ImWindowHierarchy::ProcessGameObject(GameObject* gameObject, int iteration)
     if (ImGui::BeginDragDropSource())
     {
         ImGui::SetDragDropPayload("GameObject", &gameObject->_ID, sizeof(uint));
-        _draggingGameObject = gameObject;
+        LayerEditor::draggedGameObject = gameObject;
         ImGui::Text("Change game object parent");
     
         ImGui::EndDragDropSource();
@@ -151,8 +163,19 @@ void ImWindowHierarchy::ProcessGameObject(GameObject* gameObject, int iteration)
     {   
         if (ImGui::AcceptDragDropPayload("GameObject"))
         {
-            ModuleCommand::S_SetParentGameObject(_draggingGameObject, gameObject);
-            _draggingGameObject = nullptr;
+            ModuleCommand::S_SetParentGameObject(LayerEditor::draggedGameObject, gameObject);
+            LayerEditor::draggedGameObject = nullptr;
+        }
+        else if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("Prefab"))
+        {
+            const std::string* drop = (std::string*)payload->Data;
+
+            ModuleResourceManager::S_DeserializeFromPrefab(*drop, gameObject);
+
+            std::string popUpmessage = "Prefab Loaded: " + *drop;
+
+            LayerEditor::S_AddPopUpMessage(popUpmessage);
+
         }
         ImGui::EndDragDropTarget();
     }

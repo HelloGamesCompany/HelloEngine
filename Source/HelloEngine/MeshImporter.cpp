@@ -7,6 +7,7 @@
 #include "MaterialComponent.h"
 #include "LayerEditor.h"
 #include "File_Model.h"
+#include "SkinnedMeshRenderComponent.h"
 
 Assimp::Importer MeshImporter::importer;
 GameObject* MeshImporter::returnGameObject = nullptr;
@@ -35,6 +36,20 @@ std::string MeshImporter::ImportModel(std::string path, uint UID)
 	}
 
 	modelRootNode.WriteToJSON(modelFilePath);
+
+	if (scene->HasAnimations()) {
+		std::string pathRes = ProcessAnimation(scene); //binary
+		std::string assetPath = ModuleFiles::S_GetFilePath(path);
+		assetPath += scene->mAnimations[0]->mName.C_Str();
+		assetPath += ".anim";
+
+		//Generate empty file for animation
+		char buffer = 'A';
+		ModuleFiles::S_Save(assetPath, &buffer, sizeof(char), false);
+
+		//Save
+		ModuleFiles::S_CreateMetaData(assetPath, pathRes);
+	}
 
 	currentPath = "";
 
@@ -114,6 +129,7 @@ std::string MeshImporter::ProcessMesh(aiMesh* mesh, const aiScene* scene, std::s
 	for (unsigned int i = 0; i < mesh->mNumVertices; i++)
 	{
 		Vertex vertex;
+
 		vertex.position.x = mesh->mVertices[i].x;
 		vertex.position.y = mesh->mVertices[i].y;
 		vertex.position.z = mesh->mVertices[i].z;
@@ -160,6 +176,10 @@ std::string MeshImporter::ProcessMesh(aiMesh* mesh, const aiScene* scene, std::s
 		}
 	}
 
+	if (mesh->HasBones())
+	{
+		meshInfo.boneDataMap = ProcessBones(&meshInfo.vertices, mesh, scene);
+	}
 
 	meshInfo.hasTexture = 0; // TODO: Determine this with Material importer later on.
 
@@ -187,6 +207,121 @@ uint MeshImporter::ProcessTexture(const std::string& textureName)
 	}
 
 	return 0;
+}
+
+std::map<std::string, BoneData> MeshImporter::ProcessBones(std::vector<Vertex>* vertices, aiMesh* mesh, const aiScene* scene)
+{
+	std::map<std::string, BoneData> boneDataMap;
+
+	int boneCounter = 0;
+	for (int boneIndex = 0; boneIndex < mesh->mNumBones; ++boneIndex)
+	{
+		int boneId = -1;
+		std::string name = mesh->mBones[boneIndex]->mName.C_Str();
+
+		if (boneDataMap.find(name) == boneDataMap.end())
+		{  //Creates a new bone into the map
+			BoneData newBoneData;
+			newBoneData.id = boneCounter;
+
+
+			//Get bone offset matrix
+			aiVector3D translation, scaling;
+			aiQuaternion rotation;
+			mesh->mBones[boneIndex]->mOffsetMatrix.Decompose(scaling, rotation, translation);
+
+			float3 pos(translation.x, translation.y, translation.z);
+			float3 scale(scaling.x, scaling.y, scaling.z);
+			Quat rot(rotation.x, rotation.y, rotation.z, rotation.w);
+
+			float4x4 offsetMat = float4x4::FromTRS(pos, rot, scale);
+			newBoneData.offset = offsetMat;
+
+
+			boneDataMap[name] = newBoneData;
+			boneId = boneCounter;
+			boneCounter++;
+		}
+		else
+		{
+			boneId = boneDataMap[name].id;
+		}
+
+		assert(boneId != -1);
+		auto weights = mesh->mBones[boneIndex]->mWeights;
+		int numWeights = mesh->mBones[boneIndex]->mNumWeights;
+
+		for (int weightIndex = 0; weightIndex < numWeights; ++weightIndex)
+		{
+			int vertexId = weights[weightIndex].mVertexId;
+			float weight = weights[weightIndex].mWeight;
+			assert(vertexId <= vertices->size());
+
+			SetVertexBoneData(vertices->at(vertexId), boneId, weight);
+		}
+	}
+
+	return boneDataMap;
+}
+
+std::string MeshImporter::ProcessAnimation(const aiScene* scene)
+{
+	Animation3D anim;
+	//Check ONLY 1 animation
+	aiAnimation* importedAnimation = scene->mAnimations[0];
+	anim.durationTicks = importedAnimation->mDuration;
+	anim.ticksPerSecond = importedAnimation->mTicksPerSecond;
+	anim.bones.reserve(importedAnimation->mNumChannels);
+
+	//Get all bones info
+	for (int c = 0; c < importedAnimation->mNumChannels; c++)
+	{
+		aiNodeAnim* impBone = importedAnimation->mChannels[c];
+
+		AnimatedBone bone;// = new AnimatedBone(impBone.mNodeName.C_Str(), anim.durationTicks + 1);
+		bone.name = impBone->mNodeName.C_Str();
+		bone.SizeKeyframes(anim.durationTicks + 1);
+
+		//Build keyframe matrixes
+		for (int p = 1; p < impBone->mNumPositionKeys; p++) {
+			aiVector3D pos = impBone->mPositionKeys[p].mValue;
+
+			bone.keyframes[(int)impBone->mPositionKeys[p].mTime].SetTranslatePart(float3(pos.x, pos.y, pos.z));
+		}
+
+		for (int r = 1; r < impBone->mNumRotationKeys; r++) {
+			aiQuaternion impRot = impBone->mRotationKeys[r].mValue;
+			Quat rot = Quat(impRot.x, impRot.y, impRot.z, impRot.w);
+
+			bone.keyframes[(int)impBone->mRotationKeys[r].mTime].SetRotatePart(rot);
+		}
+
+		for (int s = 1; s < impBone->mNumScalingKeys; s++) {
+			aiVector3D sca = impBone->mScalingKeys[s].mValue;
+
+			bone.keyframes[(int)impBone->mScalingKeys[s].mTime][0][0] *= sca.x;
+			bone.keyframes[(int)impBone->mScalingKeys[s].mTime][1][1] *= sca.y;
+			bone.keyframes[(int)impBone->mScalingKeys[s].mTime][2][2] *= sca.z;
+		}
+
+		anim.bones.push_back(bone);
+	}
+
+	//RELEASE(anim);
+	return anim.SaveToBinaryFile();
+}
+
+void MeshImporter::SetVertexBoneData(Vertex& vertex, int boneId, float weight)
+{
+	for (int i = 0; i < MAX_BONE_WEIGHTS; ++i)
+	{
+		if (vertex.boneIds[i] < 0)
+		{
+			vertex.boneIds[i] = boneId;
+			vertex.weights[i] = weight;
+			break;
+		}
+	}
 }
 
 GameObject* MeshImporter::LoadModelIntoResource(ResourceModel* resource)
@@ -281,6 +416,15 @@ void MeshImporter::LoadMeshNode(std::string filePath, GameObject* parent)
 	
 	MeshRenderComponent* meshRender = parent->AddComponent<MeshRenderComponent>();
 	meshRender->CreateMesh(UID);
+
+	//TODO: Temporal Solution, Should be improved
+	if (meshRender->HasBones())
+	{
+		parent->DestroyComponent(meshRender);
+
+		SkinnedMeshRenderComponent* skinnedMeshRender = parent->AddComponent<SkinnedMeshRenderComponent>();
+		skinnedMeshRender->CreateMesh(UID);
+	}
 }
 
 void MeshImporter::LoadTexture(uint resourceUID, GameObject* parent)

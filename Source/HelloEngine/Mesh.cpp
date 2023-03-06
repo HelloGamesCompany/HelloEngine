@@ -8,6 +8,8 @@
 #include "InstanceRenderer.h"
 #include "ModuleRenderer3D.h"
 
+#include "SkinnedMeshRenderComponent.h"
+
 #define _USE_MATH_DEFINES
 
 #include <math.h>
@@ -23,6 +25,7 @@ Mesh::Mesh()
 Mesh::~Mesh()
 {
 	RELEASE(drawPerMeshShader);
+	RELEASE(boneMeshShader);
 	if (_VAO != 0)
 	{
 		CleanUp();
@@ -40,6 +43,7 @@ void Mesh::CreateBufferData()
 	_IBO = resource->IBO;
 
 	drawPerMeshShader = new Shader("Resources/shaders/basic.vertex.shader", "Resources/shaders/basic.fragment.shader");
+	boneMeshShader = new Shader("Resources/shaders/basicBone.vertex.shader", "Resources/shaders/basicBone.fragment.shader");
 }
 
 void Mesh::Draw(bool useBasicShader)
@@ -50,10 +54,32 @@ void Mesh::Draw(bool useBasicShader)
 		{
 			glBindTexture(GL_TEXTURE_2D, textureID);
 		}
-		drawPerMeshShader->Bind();
-		drawPerMeshShader->SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
-		drawPerMeshShader->SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
-		drawPerMeshShader->SetMatFloat4v("model", &modelMatrix.v[0][0]);
+
+		if (component->_hasBones)
+		{
+			boneMeshShader->Bind();
+			boneMeshShader->SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
+			boneMeshShader->SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
+			boneMeshShader->SetMatFloat4v("model", &modelMatrix.v[0][0]);
+
+			SkinnedMeshRenderComponent* aux = (SkinnedMeshRenderComponent*) component;
+
+			if (aux->goBonesArr.size() != 0) aux->UpdateBones();
+
+			for (int i = 0; i < aux->goBonesArr.size(); ++i)
+			{
+				boneMeshShader->SetMatFloat4v("finalBonesMatrices[" + std::to_string(i) + "]", &aux->goBonesArr[i].Transposed().v[0][0]);
+			}
+
+		}
+		else
+		{
+			drawPerMeshShader->Bind();
+			drawPerMeshShader->SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
+			drawPerMeshShader->SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
+			drawPerMeshShader->SetMatFloat4v("model", &modelMatrix.v[0][0]);
+		}
+		
 	}
 
 	glBindVertexArray(_VAO);

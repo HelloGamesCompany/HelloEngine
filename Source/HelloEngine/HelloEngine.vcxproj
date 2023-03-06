@@ -77,10 +77,10 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;STANDALONE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;STANDALONE;WINDOWS_IGNORE_PACKING_MISMATCH;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <AdditionalIncludeDirectories>$(SolutionDir)Source\HelloEngine;$(SolutionDir)Source\External\Glew\include;$(SolutionDir)Source\External\SDL\include;$(SolutionDir)Source\External\imgui;$(SolutionDir)Source\External\MathGeoLib\include;$(SolutionDir)Source\External\json\include\single_include\nlohmann;$(SolutionDir)Output\HelloAPI\Source;$(SolutionDir)Source\External\PugiXml\src;$(SolutionDir)Source\External\PhysFS\include;%(AdditionalIncludeDirectories);$(SolutionDir)Source\External\Assimp\include;$(SolutionDir)Source\External\DevIL\include;$(SolutionDir)Source\External\mmgr</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Source\HelloEngine;$(SolutionDir)Source\External\Glew\include;$(SolutionDir)Source\External\SDL\include;$(SolutionDir)Source\External\imgui;$(SolutionDir)Source\External\MathGeoLib\include;$(SolutionDir)Source\External\json\include\single_include\nlohmann;$(SolutionDir)Output\HelloAPI\Source;$(SolutionDir)Source\External\PugiXml\src;$(SolutionDir)Source\External\PhysFS\include;%(AdditionalIncludeDirectories);$(SolutionDir)Source\External\Assimp\include;$(SolutionDir)Source\External\DevIL\include;$(SolutionDir)Source\External\mmgr;$(SolutionDir)Source\External\Bullet\include;$(SolutionDir)Source\External\Wwise\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>Headers.h</PrecompiledHeaderFile>
@@ -89,8 +89,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>DebugFull</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)Source\External\SDL\lib\x86;$(SolutionDir)Output\APILibrary;$(SolutionDir)Source\External\Glew\libx86;$(SolutionDir)Source\External\MathGeoLib\libx86\Debug;$(SolutionDir)Source\External\PhysFS\libx86;$(SolutionDir)Source\External\Assimp\libx86\Debug;$(SolutionDir)Source\External\DevIL\lib;$(SolutionDir)Source\External\Bullet\lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;MathGeoLib.lib;glew32.lib;glew32s.lib;opengl32.lib;physfs.lib;DevIL.lib;ILU.lib;ILUT.lib;%(AdditionalDependencies);assimp-vc142-mtd.lib;BulletCollision_debug.lib;BulletDynamics_debug.lib;LinearMath_debug.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)Source\External\SDL\lib\x86;$(SolutionDir)Output\APILibrary;$(SolutionDir)Source\External\Glew\libx86;$(SolutionDir)Source\External\MathGeoLib\libx86\Debug;$(SolutionDir)Source\External\PhysFS\libx86;$(SolutionDir)Source\External\Assimp\libx86\Debug;$(SolutionDir)Source\External\DevIL\lib;$(SolutionDir)Source\External\Bullet\lib;$(SolutionDir)Source\External\Wwise\Deb</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;MathGeoLib.lib;glew32.lib;glew32s.lib;opengl32.lib;physfs.lib;DevIL.lib;ILU.lib;ILUT.lib;%(AdditionalDependencies);assimp-vc142-mtd.lib;BulletCollision_debug.lib;BulletDynamics_debug.lib;LinearMath_debug.lib;AkMemoryMgr.lib;AkMusicEngine.lib;AkRoomVerbFX.lib;AkSoundEngine.lib;AkSpatialAudio.lib;AkStreamMgr.lib</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>
@@ -106,7 +106,7 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;STANDALONE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <AdditionalIncludeDirectories>$(SolutionDir)Source\HelloEngine;$(SolutionDir)Source\External\Glew\include;$(SolutionDir)Source\External\SDL\include;$(SolutionDir)Source\External\imgui;$(SolutionDir)Source\External\MathGeoLib\include;$(SolutionDir)Source\External\json\include\single_include\nlohmann;$(SolutionDir)Output\HelloAPI\Source;$(SolutionDir)Source\External\PugiXml\src;%(AdditionalIncludeDirectories);$(SolutionDir)Source\External\Assimp\include;$(SolutionDir)Source\External\PhysFS\include;$(SolutionDir)Source\External\DevIL\include;$(SolutionDir)Source\External\mmgr</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Source\HelloEngine;$(SolutionDir)Source\External\Glew\include;$(SolutionDir)Source\External\SDL\include;$(SolutionDir)Source\External\imgui;$(SolutionDir)Source\External\MathGeoLib\include;$(SolutionDir)Source\External\json\include\single_include\nlohmann;$(SolutionDir)Output\HelloAPI\Source;$(SolutionDir)Source\External\PugiXml\src;%(AdditionalIncludeDirectories);$(SolutionDir)Source\External\Assimp\include;$(SolutionDir)Source\External\PhysFS\include;$(SolutionDir)Source\External\DevIL\include;$(SolutionDir)Source\External\mmgr;$(SolutionDir)Source\External\Bullet\include;$(SolutionDir)Source\External\Wwise\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <Optimization>Disabled</Optimization>
     </ClCompile>
@@ -115,8 +115,8 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>DebugFull</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)Source\External\SDL\lib\x86;$(SolutionDir)Output\APILibrary;$(SolutionDir)Source\External\Glew\libx86;$(SolutionDir)Source\External\MathGeoLib\libx86\Release;$(SolutionDir)Source\External\Assimp\libx86\Release;$(SolutionDir)Source\External\PhysFS\libx86;$(SolutionDir)Source\External\DevIL\lib;$(SolutionDir)Source\External\Bullet\lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;MathGeoLib.lib;glew32.lib;opengl32.lib;DevIL.lib;ILU.lib;ILUT.lib;assimp-vc142-mt.lib;physfs.lib;BulletCollision.lib;BulletDynamics.lib;LinearMath.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)Source\External\SDL\lib\x86;$(SolutionDir)Output\APILibrary;$(SolutionDir)Source\External\Glew\libx86;$(SolutionDir)Source\External\MathGeoLib\libx86\Release;$(SolutionDir)Source\External\Assimp\libx86\Release;$(SolutionDir)Source\External\PhysFS\libx86;$(SolutionDir)Source\External\DevIL\lib;$(SolutionDir)Source\External\Bullet\lib;$(SolutionDir)Source\External\Wwise\Rel</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;MathGeoLib.lib;glew32.lib;opengl32.lib;DevIL.lib;ILU.lib;ILUT.lib;assimp-vc142-mt.lib;physfs.lib;BulletCollision.lib;BulletDynamics.lib;LinearMath.lib;%(AdditionalDependencies);AkMemoryMgr.lib;AkMusicEngine.lib;AkRoomVerbFX.lib;AkSoundEngine.lib;AkSpatialAudio.lib;AkStreamMgr.lib;CommunicationCentral.lib</AdditionalDependencies>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
     <PostBuildEvent>
@@ -130,10 +130,10 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;AK_OPTIMIZED;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <AdditionalIncludeDirectories>$(SolutionDir)Source\HelloEngine;$(SolutionDir)Source\External\Glew\include;$(SolutionDir)Source\External\SDL\include;$(SolutionDir)Source\External\imgui;$(SolutionDir)Source\External\MathGeoLib\include;$(SolutionDir)Source\External\json\include\single_include\nlohmann;$(SolutionDir)Output\HelloAPI\Source;$(SolutionDir)Source\External\PugiXml\src;%(AdditionalIncludeDirectories);$(SolutionDir)Source\External\Assimp\include;$(SolutionDir)Source\External\PhysFS\include;$(SolutionDir)Source\External\DevIL\include;$(SolutionDir)Source\External\mmgr</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Source\HelloEngine;$(SolutionDir)Source\External\Glew\include;$(SolutionDir)Source\External\SDL\include;$(SolutionDir)Source\External\imgui;$(SolutionDir)Source\External\MathGeoLib\include;$(SolutionDir)Source\External\json\include\single_include\nlohmann;$(SolutionDir)Output\HelloAPI\Source;$(SolutionDir)Source\External\PugiXml\src;%(AdditionalIncludeDirectories);$(SolutionDir)Source\External\Assimp\include;$(SolutionDir)Source\External\PhysFS\include;$(SolutionDir)Source\External\DevIL\include;$(SolutionDir)Source\External\mmgr;$(SolutionDir)Source\External\Bullet\include;$(SolutionDir)Source\External\Wwise\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <Optimization>Disabled</Optimization>
     </ClCompile>
@@ -142,8 +142,8 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>DebugFull</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)Source\External\SDL\lib\x86;$(SolutionDir)Output\HelloAPI\bin\$(Configuration);$(SolutionDir)Source\External\Glew\libx86;$(SolutionDir)Source\External\MathGeoLib\libx86\Release;$(SolutionDir)Source\External\Assimp\libx86\Release;$(SolutionDir)Source\External\PhysFS\libx86;$(SolutionDir)Source\External\DevIL\lib;$(SolutionDir)Source\External\Bullet\lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;MathGeoLib.lib;glew32.lib;opengl32.lib;DevIL.lib;ILU.lib;shell32.lib;ILUT.lib;assimp-vc142-mt.lib;physfs.lib;BulletCollision.lib;BulletDynamics.lib;LinearMath.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)Source\External\SDL\lib\x86;$(SolutionDir)Output\HelloAPI\bin\$(Configuration);$(SolutionDir)Source\External\Glew\libx86;$(SolutionDir)Source\External\MathGeoLib\libx86\Release;$(SolutionDir)Source\External\Assimp\libx86\Release;$(SolutionDir)Source\External\PhysFS\libx86;$(SolutionDir)Source\External\DevIL\lib;$(SolutionDir)Source\External\Bullet\lib;$(SolutionDir)Source\External\Wwise\Run</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;MathGeoLib.lib;glew32.lib;opengl32.lib;DevIL.lib;ILU.lib;shell32.lib;ILUT.lib;assimp-vc142-mt.lib;physfs.lib;BulletCollision.lib;BulletDynamics.lib;LinearMath.lib;AkMemoryMgr.lib;AkMusicEngine.lib;AkRoomVerbFX.lib;AkSoundEngine.lib;AkSpatialAudio.lib;AkStreamMgr.lib</AdditionalDependencies>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
   </ItemDefinitionGroup>
@@ -286,10 +286,17 @@
     <ClCompile Include="..\External\PugiXml\src\pugixml.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="AnimationComponent.cpp" />
+    <ClCompile Include="..\External\Wwise\include\AK\samples\AkDefaultIOHookBlocking.cpp" />
+    <ClCompile Include="..\External\Wwise\include\AK\samples\AkFilePackage.cpp" />
+    <ClCompile Include="..\External\Wwise\include\AK\samples\AkFilePackageLUT.cpp" />
+    <ClCompile Include="..\External\Wwise\include\AK\samples\AkGeneratedSoundBanksResolver.cpp" />
+    <ClCompile Include="..\External\Wwise\include\AK\samples\AkMultipleFileLocation.cpp" />
     <ClCompile Include="API\API_Console.cpp" />
     <ClCompile Include="API\API_GameObject.cpp" />
     <ClCompile Include="API\API_Input.cpp" />
     <ClCompile Include="API\API_MeshRenderer.cpp" />
+    <ClCompile Include="API\API_RigidBody.cpp" />
     <ClCompile Include="API\API_Scene.cpp" />
     <ClCompile Include="API\API_Time.cpp" />
     <ClCompile Include="API\API_Transform.cpp" />
@@ -298,6 +305,7 @@
     <ClCompile Include="API\API_Vector3.cpp" />
     <ClCompile Include="API\API_Engine.cpp" />
     <ClCompile Include="Application.cpp" />
+    <ClCompile Include="BillBoardComponent.cpp" />
     <ClCompile Include="CameraComponent.cpp" />
     <ClCompile Include="CameraObject.cpp" />
     <ClCompile Include="Command.cpp" />
@@ -311,6 +319,7 @@
     <ClCompile Include="ComponentUIImage.cpp" />
     <ClCompile Include="ComponentUISlider.cpp" />
     <ClCompile Include="Console.cpp" />
+    <ClCompile Include="Emitter.cpp" />
     <ClCompile Include="FrameBuffer.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Globals.h">
@@ -344,6 +353,14 @@
     <ClCompile Include="MaterialComponent.cpp" />
     <ClCompile Include="MeshImporter.cpp" />
     <ClCompile Include="MeshRenderComponent.cpp" />
+    <ClCompile Include="Particle.cpp" />
+    <ClCompile Include="ParticleManager.cpp" />
+    <ClCompile Include="ParticleSystemComponent.cpp" />
+    <ClCompile Include="P_MainModule.cpp" />
+    <ClCompile Include="ModulePhysics.cpp" />
+    <ClCompile Include="PhysBody3D.cpp" />
+    <ClCompile Include="PhysicsComponent.cpp" />
+    <ClCompile Include="ModuleAudio.cpp" />
     <ClCompile Include="RenderManager.cpp" />
     <ClCompile Include="Module.cpp" />
     <ClCompile Include="ModuleCamera3D.cpp" />
@@ -363,6 +380,7 @@
     <ClCompile Include="ScriptComponent.cpp" />
     <ClCompile Include="ScriptToInspectorInterface.cpp" />
     <ClCompile Include="Shader.cpp" />
+    <ClCompile Include="SkinnedMeshRenderComponent.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TextureImporter.cpp" />
     <ClCompile Include="TextureManager.cpp" />
@@ -451,12 +469,14 @@
     <ClInclude Include="..\External\mmgr\nommgr.h" />
     <ClInclude Include="..\External\PugiXml\src\pugiconfig.hpp" />
     <ClInclude Include="..\External\PugiXml\src\pugixml.hpp" />
+    <ClInclude Include="AnimationComponent.h" />
     <ClInclude Include="API\API.h" />
     <ClInclude Include="API\API_Console.h" />
     <ClInclude Include="API\API_GameObject.h" />
     <ClInclude Include="API\API_Input.h" />
     <ClInclude Include="API\API_KeyCode.h" />
     <ClInclude Include="API\API_MeshRenderer.h" />
+    <ClInclude Include="API\API_RigidBody.h" />
     <ClInclude Include="API\API_Scene.h" />
     <ClInclude Include="API\API_Time.h" />
     <ClInclude Include="API\API_Transform.h" />
@@ -465,6 +485,7 @@
     <ClInclude Include="API\API_Vector3.h" />
     <ClInclude Include="API\API_Engine.h" />
     <ClInclude Include="Application.h" />
+    <ClInclude Include="BillBoardComponent.h" />
     <ClInclude Include="CameraComponent.h" />
     <ClInclude Include="CameraObject.h" />
     <ClInclude Include="Command.h" />
@@ -481,6 +502,7 @@
     <ClInclude Include="ComponentUISlider.h" />
     <ClInclude Include="Console.h" />
     <ClInclude Include="CycleArray.hpp" />
+    <ClInclude Include="Emitter.h" />
     <ClInclude Include="FileTree.hpp" />
     <ClInclude Include="File_Model.h" />
     <ClInclude Include="FrameBuffer.h" />
@@ -510,6 +532,15 @@
     <ClInclude Include="MemLeaks.h" />
     <ClInclude Include="MeshImporter.h" />
     <ClInclude Include="MeshRenderComponent.h" />
+    <ClInclude Include="Particle.h" />
+    <ClInclude Include="ParticleManager.h" />
+    <ClInclude Include="ParticleSystemComponent.h" />
+    <ClInclude Include="P_MainModule.h" />
+    <ClInclude Include="ModulePhysics.h" />
+    <ClInclude Include="PhysBody3D.h" />
+    <ClInclude Include="PhysicsComponent.h" />
+    <ClInclude Include="Primitive.h" />
+    <ClInclude Include="ModuleAudio.h" />
     <ClInclude Include="RenderManager.h" />
     <ClInclude Include="Module.h" />
     <ClInclude Include="ModuleCamera3D.h" />
@@ -530,6 +561,7 @@
     <ClInclude Include="ScriptComponent.h" />
     <ClInclude Include="ScriptToInspectorInterface.h" />
     <ClInclude Include="Shader.h" />
+    <ClInclude Include="SkinnedMeshRenderComponent.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TextureImporter.h" />
     <ClInclude Include="TextureManager.h" />

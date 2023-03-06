@@ -9,75 +9,75 @@ struct Directory;
 class ImWindowProject : public ImWindow
 {
 public:
-	ImWindowProject();
+    ImWindowProject();
 
-	~ImWindowProject();
+    ~ImWindowProject();
 
-	void Update() override;
+    void Update() override;
 
-	void UpdateFileNodes();
-
-private:
-	void DrawTreeNodePanelLeft(Directory*& newDir, Directory* node, const bool drawFiles = true) const;
-
-	void DrawTreeNodePanelRight(Directory*& newDir);
-
-	void OnDrop(const std::string filePath);
-
-	void CheckWindowFocus();
-
-	void PanelCreateFolder();
-
-	void PanelCreateScript();
-
-	void DrawDeleteMessage();
+    void UpdateFileNodes();
 
 private:
-	Application* _app = nullptr;
+    void DrawTreeNodePanelLeft(Directory*& newDir, Directory* node, const bool drawFiles = true) const;
 
-	ImGuiTextFilter _filter;
+    void DrawTreeNodePanelRight(Directory*& newDir);
 
-	Directory* _rootNode = nullptr;
+    void OnDrop(const std::string filePath);
 
-	bool _showDeleteMessage = false;
-	bool _deleteFileAccepted = false;
+    void CheckWindowFocus();
 
-	File* _deleteFile = nullptr;
+    void PanelCreateFolder();
 
-	Directory* _deleteDir = nullptr;
+    void PanelCreateScript();
 
-	FileTree* _fileTree = nullptr;
+    void DrawDeleteMessage();
 
-	std::string _dragPath = "";
+private:
+    Application* _app = nullptr;
 
-	uint _dragUID = 0;
+    ImGuiTextFilter _filter;
 
-	SDL_Window* _window = nullptr;
+    Directory* _rootNode = nullptr;
 
-	bool _isWindowFocus = false;
+    bool _showDeleteMessage = false;
+    bool _deleteFileAccepted = false;
 
-	int _itemWidth = 80;
+    File* _deleteFile = nullptr;
 
-	int _itemHeight = 80;
+    Directory* _deleteDir = nullptr;
 
-	// ChangeFileName
-	bool _openChangeNamePanel = false;
+    FileTree* _fileTree = nullptr;
 
-	// Create Folder
-	bool _openCreateFolderPanel = false;
+    std::string _dragPath = "";
 
-	// Create Script
-	bool _openCreateScriptPanel = false;
+    uint _dragUID = 0;
 
-	std::string _temporalName = "default";
+    SDL_Window* _window = nullptr;
 
-	// icons 
-	uint _fileImageID = 0;
-	uint _folderImageID = 0;
-	uint _modelImageID = 0;
-	uint _meshImageID = 0;
-	uint _sceneImageID = 0;
-	uint _textureImageID = 0;
-	uint _cppImageID = 0;
-	uint _hImageID = 0;
+    bool _isWindowFocus = false;
+
+    int _itemWidth = 80;
+
+    int _itemHeight = 80;
+
+    // ChangeFileName
+    bool _openChangeNamePanel = false;
+
+    // Create Folder
+    bool _openCreateFolderPanel = false;
+
+    // Create Script
+    bool _openCreateScriptPanel = false;
+
+    std::string _temporalName = "default";
+
+    // icons 
+    uint _fileImageID = 0;
+    uint _folderImageID = 0;
+    uint _modelImageID = 0;
+    uint _meshImageID = 0;
+    uint _sceneImageID = 0;
+    uint _textureImageID = 0;
+    uint _cppImageID = 0;
+    uint _hImageID = 0;
 };

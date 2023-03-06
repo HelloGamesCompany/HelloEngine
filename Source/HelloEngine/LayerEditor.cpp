@@ -31,6 +31,7 @@
 
 // Init static variables
 GameObject* LayerEditor::selectedGameObject = nullptr;
+GameObject* LayerEditor::draggedGameObject = nullptr;
 ImWindow* LayerEditor::_imWindows[(uint)ImWindowID::MAX] = {nullptr};
 std::vector<PopUpMessage> LayerEditor::_popUpMessages;
 float LayerEditor::_messageTime = 3.0f;
@@ -164,6 +165,10 @@ void LayerEditor::PreUpdate()
 		ImWindowProject* projectWindow = (ImWindowProject*)_imWindows[(uint)ImWindowID::PROJECT];
 		projectWindow->UpdateFileNodes();
 	}
+
+	//Update Engine Time
+
+	EngineTime::UpdateEngineTime();
 }
 
 void LayerEditor::Update()

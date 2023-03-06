@@ -3,6 +3,8 @@
 #include "ModuleResourceManager.h"
 #include "ScriptToInspectorInterface.h"
 
+struct PhysBody3D;
+
 class ScriptComponent : public Component, public ScriptToInspectorInterface
 {
 public:
@@ -38,6 +40,8 @@ public:
 
 	void OnEnable() override;
 	void OnDisable() override;
+
+	void OnCollisionEnter(PhysBody3D* other);
 
 private:
 	void ImGuiDragScript();
