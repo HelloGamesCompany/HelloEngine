@@ -290,6 +290,7 @@
     <ClCompile Include="API\API_GameObject.cpp" />
     <ClCompile Include="API\API_Input.cpp" />
     <ClCompile Include="API\API_MeshRenderer.cpp" />
+    <ClCompile Include="API\API_RigidBody.cpp" />
     <ClCompile Include="API\API_Scene.cpp" />
     <ClCompile Include="API\API_Time.cpp" />
     <ClCompile Include="API\API_Transform.cpp" />
@@ -456,6 +457,7 @@
     <ClInclude Include="API\API_Input.h" />
     <ClInclude Include="API\API_KeyCode.h" />
     <ClInclude Include="API\API_MeshRenderer.h" />
+    <ClInclude Include="API\API_RigidBody.h" />
     <ClInclude Include="API\API_Scene.h" />
     <ClInclude Include="API\API_Time.h" />
     <ClInclude Include="API\API_Transform.h" />

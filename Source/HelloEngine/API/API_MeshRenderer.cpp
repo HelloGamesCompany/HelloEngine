@@ -14,7 +14,7 @@ API::API_MeshRenderer::~API_MeshRenderer()
 
 API::API_GameObject API::API_MeshRenderer::GetGameObject()
 {
-	if (_meshRenderer == nullptr)
+	if (!_meshRenderer)
 	{
 		Engine::Console::S_Log("Trying to acces a NULLPTR GameObject. GetTransform()");
 		return *ModuleLayers::emptyAPIGameObject;

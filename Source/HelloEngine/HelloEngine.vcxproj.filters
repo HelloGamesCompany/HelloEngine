@@ -372,6 +372,9 @@
     <ClCompile Include="PhysicsComponent.cpp">
       <Filter>GameObject\Components</Filter>
     </ClCompile>
+    <ClCompile Include="API\API_RigidBody.cpp">
+      <Filter>API</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -867,6 +870,9 @@
     </ClInclude>
     <ClInclude Include="PhysicsComponent.h">
       <Filter>GameObject\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="API\API_RigidBody.h">
+      <Filter>API</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

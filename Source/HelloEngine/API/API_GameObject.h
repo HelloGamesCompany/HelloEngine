@@ -44,6 +44,7 @@ namespace API
 		friend class DragBoxGameObject;
 		friend class API_Transform;
 		friend class API_MeshRenderer;
+		friend class API_RigidBody;
 		friend class Game;
 		friend class LayerGame;
 	};
