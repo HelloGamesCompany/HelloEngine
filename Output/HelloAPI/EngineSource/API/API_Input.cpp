@@ -17,6 +17,20 @@ KeyState API::Input::GetMouseButton(MouseButton mouseButton)
 	return (KeyState)ModuleInput::S_GetMouseButton((int)mouseButton);
 }
 
+TO_API KeyState API::Input::GetGamePadButton(GamePadButton gamePadButton)
+{
+	if (!LayerGame::detectInput)
+		return KeyState::KEY_IDLE;
+	return (KeyState)ModuleInput::S_GetGamePadButton((GamePad)gamePadButton);
+}
+
+TO_API int API::Input::GetGamePadAxis(GamePadAxis gamePadAxis)
+{
+	if (!LayerGame::detectInput)
+		return 0;
+	return ModuleInput::S_GetGamePadAxis((SDL_GameControllerAxis)gamePadAxis);
+}
+
 int API::Input::GetMouseX()
 {
 	if (!LayerGame::detectInput)
