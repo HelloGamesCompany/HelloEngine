@@ -37,6 +37,11 @@ void API::API_RigidBody::SetVelocity(API_Vector3 vec)
 
 API::API_Vector3 API::API_RigidBody::GetVelocity()
 {
+	if (!_rigidBody)
+	{
+		Engine::Console::S_Log("Trying to get a NULLPTR Rigidbody");
+		return API_Vector3::S_Zero();
+	}
 	return _rigidBody->GetVelocity();
 }
 

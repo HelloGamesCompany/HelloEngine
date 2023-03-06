@@ -10,7 +10,7 @@ public:
 	void Start() override; 
 	void Update() override;
 
-	void Die();
+	void OnCollisionEnter(API_RigidBody other);
 
 	float lifeTime = 5.0f;
 	API_Vector3 direction;

@@ -1,9 +1,11 @@
 #pragma once
 
 #include "Globals.h"
-#include "API_GameObject.h"
+#include "API/API_GameObject.h"
+#include "API/API_Vector3.h"
 
 class PhysicsComponent;
+class ScriptComponent;
 
 namespace API
 {
@@ -25,5 +27,6 @@ namespace API
 		PhysicsComponent* _rigidBody = nullptr;
 
 		friend class API_GameObject;
+		friend class ScriptComponent;
 	};
 }
