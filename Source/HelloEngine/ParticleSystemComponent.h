@@ -2,7 +2,7 @@
 #include "Component.h"
 #include "Particle.h"
 #include "Emitter.h"
-#include "P_MainModule.h"
+#include "P_Module.h"
 
 class Application;
 class ResourceMesh;
@@ -39,12 +39,12 @@ private:
     Application* app;
     Emitter ParticleEmitter;
     ParticleProperties particleProps;   
-    
 
     //Particle System Modules
-    P_MainModule mainModule;
+    std::vector<P_Module*> ParticleModules;
 
     friend class ParticleManager;
+    friend class P_Module;
     friend class P_MainModule;
 };
 

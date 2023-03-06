@@ -361,6 +361,7 @@
     <ClCompile Include="PhysBody3D.cpp" />
     <ClCompile Include="PhysicsComponent.cpp" />
     <ClCompile Include="ModuleAudio.cpp" />
+    <ClCompile Include="P_Module.cpp" />
     <ClCompile Include="RenderManager.cpp" />
     <ClCompile Include="Module.cpp" />
     <ClCompile Include="ModuleCamera3D.cpp" />
@@ -541,6 +542,7 @@
     <ClInclude Include="PhysicsComponent.h" />
     <ClInclude Include="Primitive.h" />
     <ClInclude Include="ModuleAudio.h" />
+    <ClInclude Include="P_Module.h" />
     <ClInclude Include="RenderManager.h" />
     <ClInclude Include="Module.h" />
     <ClInclude Include="ModuleCamera3D.h" />

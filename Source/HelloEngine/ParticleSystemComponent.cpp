@@ -4,6 +4,7 @@
 #include "RenderManager.h"
 #include "ParticleManager.h"
 #include "LayerEditor.h"
+#include "P_MainModule.h"
 
 
 
@@ -14,7 +15,11 @@ ParticleSystemComponent::ParticleSystemComponent(GameObject* gameObject) : Compo
 	app = Application::Instance();
 	
 	ParticleEmitter.component = this;
-	mainModule.component = this;
+
+	//Initialize Particle System Modules
+	P_Module* mainModule = (P_Module*)new P_MainModule();
+	mainModule->component = this;
+	ParticleModules.push_back(mainModule);
 
 	_gameObject->AddComponentOfType(Type::BILLBOARD);
 
@@ -31,10 +36,16 @@ ParticleSystemComponent::ParticleSystemComponent(GameObject* gameObject) : Compo
 
 	particleProps.Lifetime = 5.0f;
 	
+
 }
 
 ParticleSystemComponent::~ParticleSystemComponent()
 {
+	for (int i = 0; i < ParticleModules.size(); i++)
+	{
+		RELEASE(ParticleModules[i]);
+	}
+	ParticleModules.clear();
 }
 
 void ParticleSystemComponent::CreateEmitterMesh(uint resourceUID)
@@ -139,7 +150,10 @@ void ParticleSystemComponent::OnEditor()
 			return;
 		}
 
-		mainModule.OnEditor();
+		for (int i = 0; i < ParticleModules.size(); i++)
+		{
+			ParticleModules[i]->OnEditor();
+		}
 	}
 }
 

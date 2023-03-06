@@ -411,6 +411,9 @@
     <ClCompile Include="..\External\Wwise\include\AK\samples\AkMultipleFileLocation.cpp" />
     <ClCompile Include="..\External\Wwise\include\AK\samples\AkDefaultIOHookBlocking.cpp" />
     <ClCompile Include="..\External\Wwise\include\AK\samples\AkGeneratedSoundBanksResolver.cpp" />
+    <ClCompile Include="P_Module.cpp">
+      <Filter>GameObject\Components\ParticleModules</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -941,6 +944,9 @@
       <Filter>API</Filter>
     </ClInclude>
     <ClInclude Include="ModuleAudio.h" />
+    <ClInclude Include="P_Module.h">
+      <Filter>GameObject\Components\ParticleModules</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="External">

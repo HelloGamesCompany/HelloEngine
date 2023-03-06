@@ -70,35 +70,5 @@
         "PrefabUID": 0,
         "Tag": "Default",
         "UID": 1998316341
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "Empty",
-        "ParentUID": 3551592759,
-        "PrefabUID": 0,
-        "Tag": "Default",
-        "UID": 3980562759
     }
 ]
