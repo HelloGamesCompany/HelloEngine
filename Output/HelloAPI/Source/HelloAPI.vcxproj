@@ -97,6 +97,7 @@
 		<ClCompile Include="../../Assets/Scripts/BulletBehavior.cpp" />
 		<ClCompile Include="../../Assets/Scripts/TankScript.cpp" />
 		<ClCompile Include="../../Assets/Scripts/HouseBehavior.cpp" />
+		<ClCompile Include="../../Assets/Scripts/GamePadTest.cpp" />
 	</ItemGroup>
 	<ItemGroup>
 		<ClInclude Include="Macro.h" />
@@ -104,6 +105,7 @@
 		<ClInclude Include="../../Assets/Scripts/BulletBehavior.h" />
 		<ClInclude Include="../../Assets/Scripts/TankScript.h" />
 		<ClInclude Include="../../Assets/Scripts/HouseBehavior.h" />
+		<ClInclude Include="../../Assets/Scripts/GamePadTest.h" />
 	</ItemGroup>
 	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 	<ImportGroup Label="ExtensionTargets" />

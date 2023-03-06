@@ -136,13 +136,92 @@ void ImWindowConfiguration::Update()
 			ImGui::TextColored(ImVec4(255, 255, 0, 255), "%d", ModuleInput::S_GetMouseX()); ImGui::SameLine();
 			ImGui::TextWrapped(" y = "); ImGui::SameLine();
 			ImGui::TextColored(ImVec4(255, 255, 0, 255), "%d", ModuleInput::S_GetMouseY());
+
+			if (ImGui::CollapsingHeader("GamePad Input"))
+			{
+				ImGui::TextWrapped("Button A pressed: "); ImGui::SameLine();
+				ImGui::TextColored(ImVec4(255, 255, 0, 255), ModuleInput::S_GetGamePadButton(GamePad::BUTTON_A) == KEY_STATE::KEY_ERROR ||
+					ModuleInput::S_GetGamePadButton(GamePad::BUTTON_A) == KEY_STATE::KEY_IDLE ? "Released" : "Pressed");
+
+				ImGui::TextWrapped("Button B pressed: "); ImGui::SameLine();
+				ImGui::TextColored(ImVec4(255, 255, 0, 255), ModuleInput::S_GetGamePadButton(GamePad::BUTTON_B) == KEY_STATE::KEY_ERROR ||
+					ModuleInput::S_GetGamePadButton(GamePad::BUTTON_B) == KEY_STATE::KEY_IDLE ? "Released" : "Pressed");
+
+				ImGui::TextWrapped("Button X pressed: "); ImGui::SameLine();
+				ImGui::TextColored(ImVec4(255, 255, 0, 255), ModuleInput::S_GetGamePadButton(GamePad::BUTTON_X) == KEY_STATE::KEY_ERROR ||
+					ModuleInput::S_GetGamePadButton(GamePad::BUTTON_X) == KEY_STATE::KEY_IDLE ? "Released" : "Pressed");
+
+				ImGui::TextWrapped("Button Y pressed: "); ImGui::SameLine();
+				ImGui::TextColored(ImVec4(255, 255, 0, 255), ModuleInput::S_GetGamePadButton(GamePad::BUTTON_Y) == KEY_STATE::KEY_ERROR ||
+					ModuleInput::S_GetGamePadButton(GamePad::BUTTON_Y) == KEY_STATE::KEY_IDLE ? "Released" : "Pressed");
+
+				ImGui::TextWrapped("Button Up pressed: "); ImGui::SameLine();
+				ImGui::TextColored(ImVec4(255, 255, 0, 255), ModuleInput::S_GetGamePadButton(GamePad::BUTTON_UP) == KEY_STATE::KEY_ERROR ||
+					ModuleInput::S_GetGamePadButton(GamePad::BUTTON_UP) == KEY_STATE::KEY_IDLE ? "Released" : "Pressed");
+
+				ImGui::TextWrapped("Button Down pressed: "); ImGui::SameLine();
+				ImGui::TextColored(ImVec4(255, 255, 0, 255), ModuleInput::S_GetGamePadButton(GamePad::BUTTON_DOWN) == KEY_STATE::KEY_ERROR ||
+					ModuleInput::S_GetGamePadButton(GamePad::BUTTON_DOWN) == KEY_STATE::KEY_IDLE ? "Released" : "Pressed");
+
+				ImGui::TextWrapped("Button Left pressed: "); ImGui::SameLine();
+				ImGui::TextColored(ImVec4(255, 255, 0, 255), ModuleInput::S_GetGamePadButton(GamePad::BUTTON_LEFT) == KEY_STATE::KEY_ERROR ||
+					ModuleInput::S_GetGamePadButton(GamePad::BUTTON_LEFT) == KEY_STATE::KEY_IDLE ? "Released" : "Pressed");
+
+				ImGui::TextWrapped("Button Right pressed: "); ImGui::SameLine();
+				ImGui::TextColored(ImVec4(255, 255, 0, 255), ModuleInput::S_GetGamePadButton(GamePad::BUTTON_RIGHT) == KEY_STATE::KEY_ERROR ||
+					ModuleInput::S_GetGamePadButton(GamePad::BUTTON_RIGHT) == KEY_STATE::KEY_IDLE ? "Released" : "Pressed");
+
+				ImGui::TextWrapped("Button Left Shoulder pressed: "); ImGui::SameLine();
+				ImGui::TextColored(ImVec4(255, 255, 0, 255), ModuleInput::S_GetGamePadButton(GamePad::BUTTON_LEFT_SHOULDER) == KEY_STATE::KEY_ERROR ||
+					ModuleInput::S_GetGamePadButton(GamePad::BUTTON_LEFT_SHOULDER) == KEY_STATE::KEY_IDLE ? "Released" : "Pressed");
+
+				ImGui::TextWrapped("Button Right Shoulder pressed: "); ImGui::SameLine();
+				ImGui::TextColored(ImVec4(255, 255, 0, 255), ModuleInput::S_GetGamePadButton(GamePad::BUTTON_RIGHT_SHOULDER) == KEY_STATE::KEY_ERROR ||
+					ModuleInput::S_GetGamePadButton(GamePad::BUTTON_RIGHT_SHOULDER) == KEY_STATE::KEY_IDLE ? "Released" : "Pressed");
+
+				ImGui::TextWrapped("Button Start pressed: "); ImGui::SameLine();
+				ImGui::TextColored(ImVec4(255, 255, 0, 255), ModuleInput::S_GetGamePadButton(GamePad::BUTTON_START) == KEY_STATE::KEY_ERROR ||
+					ModuleInput::S_GetGamePadButton(GamePad::BUTTON_START) == KEY_STATE::KEY_IDLE ? "Released" : "Pressed");
+
+				ImGui::TextWrapped("Button Back pressed: "); ImGui::SameLine();
+				ImGui::TextColored(ImVec4(255, 255, 0, 255), ModuleInput::S_GetGamePadButton(GamePad::BUTTON_BACK) == KEY_STATE::KEY_ERROR ||
+					ModuleInput::S_GetGamePadButton(GamePad::BUTTON_BACK) == KEY_STATE::KEY_IDLE ? "Released" : "Pressed");
+
+				ImGui::TextWrapped("Button Select pressed: "); ImGui::SameLine();
+				ImGui::TextColored(ImVec4(255, 255, 0, 255), ModuleInput::S_GetGamePadButton(GamePad::BUTTON_SELECT) == KEY_STATE::KEY_ERROR ||
+					ModuleInput::S_GetGamePadButton(GamePad::BUTTON_SELECT) == KEY_STATE::KEY_IDLE ? "Released" : "Pressed");
+
+				ImGui::TextWrapped("Button Left Stick pressed: "); ImGui::SameLine();
+				ImGui::TextColored(ImVec4(255, 255, 0, 255), ModuleInput::S_GetGamePadButton(GamePad::BUTTON_LEFT_STICK) == KEY_STATE::KEY_ERROR ||
+					ModuleInput::S_GetGamePadButton(GamePad::BUTTON_LEFT_STICK) == KEY_STATE::KEY_IDLE ? "Released" : "Pressed");
+
+				ImGui::TextWrapped("Button Right Stick pressed: "); ImGui::SameLine();
+				ImGui::TextColored(ImVec4(255, 255, 0, 255), ModuleInput::S_GetGamePadButton(GamePad::BUTTON_RIGHT_STICK) == KEY_STATE::KEY_ERROR ||
+					ModuleInput::S_GetGamePadButton(GamePad::BUTTON_RIGHT_STICK) == KEY_STATE::KEY_IDLE ? "Released" : "Pressed");
+
+				ImGui::TextWrapped("LeftJoystick Horizontal Axis: "); ImGui::SameLine();
+				ImGui::TextColored(ImVec4(255, 255, 0, 255), "%d", ModuleInput::S_GetGamePadAxis(SDL_GameControllerAxis::SDL_CONTROLLER_AXIS_LEFTX));
+
+				ImGui::TextWrapped("LeftJoystick Vertical Axis: "); ImGui::SameLine();
+				ImGui::TextColored(ImVec4(255, 255, 0, 255), "%d", ModuleInput::S_GetGamePadAxis(SDL_GameControllerAxis::SDL_CONTROLLER_AXIS_LEFTY));
+
+				ImGui::TextWrapped("RightJoystick Horizontal Axis: "); ImGui::SameLine();
+				ImGui::TextColored(ImVec4(255, 255, 0, 255), "%d", ModuleInput::S_GetGamePadAxis(SDL_GameControllerAxis::SDL_CONTROLLER_AXIS_RIGHTX));
+
+				ImGui::TextWrapped("RightJoystick Vertical Axis: "); ImGui::SameLine();
+				ImGui::TextColored(ImVec4(255, 255, 0, 255), "%d", ModuleInput::S_GetGamePadAxis(SDL_GameControllerAxis::SDL_CONTROLLER_AXIS_RIGHTY));
+
+				ImGui::TextWrapped("Left Trigger Axis: "); ImGui::SameLine();
+				ImGui::TextColored(ImVec4(255, 255, 0, 255), "%d", ModuleInput::S_GetGamePadAxis(SDL_GameControllerAxis::SDL_CONTROLLER_AXIS_TRIGGERLEFT));
+
+				ImGui::TextWrapped("Right Trigger Axis: "); ImGui::SameLine();
+				ImGui::TextColored(ImVec4(255, 255, 0, 255), "%d", ModuleInput::S_GetGamePadAxis(SDL_GameControllerAxis::SDL_CONTROLLER_AXIS_TRIGGERRIGHT));
+			}
+
 		}
 
 		if(ImGui::CollapsingHeader("Render", ImGuiTreeNodeFlags_DefaultOpen))
 		{
-			// iter.first = config name,
-			// iter.second.first = conifg value,
-			// iter.second.second = config openGL tag
 			for (auto& iter : renderConfigs)
 			{
 				ImGui::Checkbox(iter.first.c_str(), &iter.second.first);
