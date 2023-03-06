@@ -62,9 +62,17 @@ void PhysBody3D::SetRotation(float x, float y, float z)
 
 	btTransform t = body->getWorldTransform();
 	btQuaternion quat;
-	quat.setEulerZYX(z, y, x);
+	quat.setEulerZYX(math::DegToRad(z), math::DegToRad(y), math::DegToRad(x));
 	t.setRotation(quat);
 	body->setWorldTransform(t);
+
+	float3 originalRotation = ModuleLayers::gameObjects[gameObjectUID]->transform->GetGlobalRotation();
+	float3 currentRotation = { x,y,z };
+
+	Quat originalQuat = Quat::FromEulerXYZ(originalRotation.x, originalRotation.y, originalRotation.z);
+	Quat currentQuat = Quat::FromEulerXYZ(DegToRad(currentRotation.x), DegToRad(currentRotation.y), DegToRad(currentRotation.z));
+
+	colRotationOffset = originalQuat.Inverted() * currentQuat;
 }
 
 void PhysBody3D::SetScale(float x, float y, float z)
@@ -114,7 +122,11 @@ void PhysBody3D::Update()
 									 // The idea here is, if any other transformation occurs after this, it will be applied, but this one won't. Check PhysComponent::OnTransformCallback()
 		go->transform->SetPosition(GetPos() - colPos);
 		go->transform->_ignorePhysBody = true;
-		go->transform->SetRotation(GetRotation());
+	
+		float3 rot = GetRotation();
+		Quat rotQuat = Quat::FromEulerXYZ(rot.x, rot.y, rot.z);
+		Quat finalRot = rotQuat * colRotationOffset.Inverted();
+		go->transform->SetRotation(math::RadToDeg(finalRot.ToEulerXYZ()));
 	}
 }
 

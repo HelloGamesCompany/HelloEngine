@@ -462,7 +462,10 @@ void PhysicsComponent::OnTransformCallback(float4x4 worldMatrix)
 	}
 
 	if (physBody != nullptr)
+	{
 		CallUpdatePos();
+		CallUpdateRotation();
+	}
 }
 
 void PhysicsComponent::CheckShapes() {

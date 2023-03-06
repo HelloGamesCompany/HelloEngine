@@ -37,6 +37,7 @@ public:
 
 	float3 colPos = { 0,0,0 };
 	float3 colRot = { 0,0,0 };
+	Quat colRotationOffset = Quat::identity;
 	float3 colScl = { 1,1,1 };
 
 	ColliderShape colShape;
