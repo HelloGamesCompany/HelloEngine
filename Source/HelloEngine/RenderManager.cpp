@@ -781,6 +781,7 @@ void RenderManager::CalculateCylinderBuffer(uint verSlices)
 void RenderManager::DestroyInstanceRenderers()
 {
 	_renderMap.clear();
+	renderer2D = nullptr;
 }
 
 void RenderManager::DrawTransparentMeshes()
