@@ -45,8 +45,7 @@ public:
 
 	bool updateGameCamera = true;
 private:
-	CameraObject* _frameBufferRegenCamera = nullptr;
-	int _newBufferWidth = 0, _newBufferHeight = 0;
+	std::vector<std::pair<CameraObject*, std::pair<int, int>>>  _frameBufferRegenCamera;
 };
 
 #endif // !__MODULECAMERA3D_H__
