@@ -14,107 +14,113 @@
 
 GameObject::GameObject(GameObject* parent, std::string name, std::string tag, uint ID) : name(name), tag(tag)
 {
-	_ID = ModuleLayers::S_AddGameObject(this, ID);
-	transform = AddComponent<TransformComponent>();
-	if (parent != nullptr)
-		parent->AddChild(this);
+    _ID = ModuleLayers::S_AddGameObject(this, ID);
+    transform = AddComponent<TransformComponent>();
+    if (parent != nullptr)
+        parent->AddChild(this);
+
+    _prefabUID = 0;
+    _updatePrefab = true;
 }
 
 GameObject::GameObject(GameObject* parent, std::string& name, std::string& tag, uint ID) : name(name), tag(tag)
 {
-	_ID = ModuleLayers::S_AddGameObject(this, ID);
-	transform = AddComponent<TransformComponent>();
-	if (parent != nullptr) 
-		parent->AddChild(this);
+    _ID = ModuleLayers::S_AddGameObject(this, ID);
+    transform = AddComponent<TransformComponent>();
+    if (parent != nullptr)
+        parent->AddChild(this);
+
+    _prefabUID = 0;
+    _updatePrefab = true;
 }
 
 GameObject::~GameObject()
 {
-	for (int i = 0; i < _components.size(); i++)
-	{
-		RELEASE(_components[i]);
-	}
-	_components.clear();
+    for (int i = 0; i < _components.size(); i++)
+    {
+        RELEASE(_components[i]);
+    }
+    _components.clear();
 
-	for (int i = 0; i < _children.size(); i++)
-	{
-		RELEASE(_children[i]);
-	}
-	_children.clear();
+    for (int i = 0; i < _children.size(); i++)
+    {
+        RELEASE(_children[i]);
+    }
+    _children.clear();
 }
 
 void GameObject::DestroyComponent(Component::Type type)
 {
-	for (int i = 0; i < _components.size(); i++)
-	{
-		if (_components[i]->_type == type)
-		{
-			RELEASE(_components[i]);
-			_components.erase(_components.begin() + i);
-			break;
-		}
-	}
+    for (int i = 0; i < _components.size(); i++)
+    {
+        if (_components[i]->_type == type)
+        {
+            RELEASE(_components[i]);
+            _components.erase(_components.begin() + i);
+            break;
+        }
+    }
 }
 
 void GameObject::DestroyComponent(Component* component)
 {
-	for (int i = 0; i < _components.size(); i++)
-	{
-		if (_components[i] == component)
-		{
-			RELEASE(_components[i]);
-			_components.erase(_components.begin() + i);
-			break;
-		}
-	}
+    for (int i = 0; i < _components.size(); i++)
+    {
+        if (_components[i] == component)
+        {
+            RELEASE(_components[i]);
+            _components.erase(_components.begin() + i);
+            break;
+        }
+    }
 }
 
 bool GameObject::AddChild(GameObject* child)
 {
-	if (!child) return false;
-	if (child->_parent == this) return false;
+    if (!child) return false;
+    if (child->_parent == this) return false;
 
-	GameObject* p = _parent;
+    GameObject* p = _parent;
 
-	while (p)
-	{
-		if (p == child) return false;
+    while (p)
+    {
+        if (p == child) return false;
 
-		p = p->_parent;
-	}
+        p = p->_parent;
+    }
 
-	_children.push_back(child);
+    _children.push_back(child);
 
-	if (child->_parent) 
-		child->_parent->RemoveChild(child);
+    if (child->_parent)
+        child->_parent->RemoveChild(child);
 
-	child->_parent = this;
+    child->_parent = this;
 
-	transform->ForceUpdate();
+    transform->ForceUpdate();
 
-	return true;
+    return true;
 }
 
 bool GameObject::SetParent(GameObject* parent)
 {
-	return parent->AddChild(this);
+    return parent->AddChild(this);
 }
 
 void GameObject::SetActive(bool active)
 {
-	if (_isActive == active)
-		return;
-	_isActive = active;
+    if (_isActive == active)
+        return;
+    _isActive = active;
 
-	for (auto* component : _components)
-	{
-		_isActive ? component->EnableFromGameObject() : component->DisableFromGameObject();
-	}
+    for (auto* component : _components)
+    {
+        _isActive ? component->EnableFromGameObject() : component->DisableFromGameObject();
+    }
 
-	for (auto* child : _children)
-	{
-		child->SetActive(active);
-	}
+    for (auto* child : _children)
+    {
+        child->SetActive(active);
+    }
 
 }
 
@@ -135,174 +141,212 @@ void GameObject::OnCollisionEnter(PhysBody3D* other)
 
 void GameObject::OnEditor()
 {
-	if (_isPendingToDelete) return;
+    if (_isPendingToDelete) return;
 
-	for (auto* component : _components)
-	{
-		component->OnEditor();
-	}
+    for (auto* component : _components)
+    {
+        component->OnEditor();
+    }
 
-	ImGui::Separator();
+    ImGui::Separator();
 
-	ImGui::Spacing();
-	if (ImGui::BeginCombo("Add Component", "Select"))
-	{
-		for (int n = 0; n < COMPONENT_NUM; n++)
-		{
-			int selectedItem = n;
-			if (ImGui::Selectable(_comboValues[n].c_str(), false))
-			{
-				switch (n)
-				{
-				case 0:
-					if (!HasComponent<MeshRenderComponent>())
-						AddComponent<MeshRenderComponent>();
-					break;
-				case 1:
-					if (!HasComponent<MaterialComponent>())
-						AddComponent<MaterialComponent>();
-					break;
-				case 2:
-					if (!HasComponent<CameraComponent>())
-						AddComponent<CameraComponent>();
-					break;
-				case 3:
-					AddComponent<ScriptComponent>();
-					break;
-				case 4:
-					if (!HasComponent<ComponentUI>())
-						AddComponent<ComponentUI>();
-					break;
-				case 5:
-					if (!HasComponent<PhysicsComponent>())
-						AddComponent<PhysicsComponent>();
-					break;
-				}
-			}
-		}
-		ImGui::EndCombo();
-	}
+    ImGui::Spacing();
+    if (ImGui::BeginCombo("Add Component", "Select"))
+    {
+        for (int n = 0; n < COMPONENT_NUM; n++)
+        {
+            int selectedItem = n;
+            if (ImGui::Selectable(_comboValues[n].c_str(), false))
+            {
+                switch (n)
+                {
+                case 0:
+                    if (!HasComponent<MeshRenderComponent>())
+                        AddComponent<MeshRenderComponent>();
+                    break;
+                case 1:
+                    if (!HasComponent<MaterialComponent>())
+                        AddComponent<MaterialComponent>();
+                    break;
+                case 2:
+                    if (!HasComponent<CameraComponent>())
+                        AddComponent<CameraComponent>();
+                    break;
+                case 3:
+                    AddComponent<ScriptComponent>();
+                    break;
+                case 4:
+                    if (!HasComponent<ComponentUI>())
+                        AddComponent<ComponentUI>();
+                    break;
+                case 5:
+                    if (!HasComponent<PhysicsComponent>())
+                        AddComponent<PhysicsComponent>();
+                    break;
+                }				
 
-	ImGui::TextColored(ImVec4(1, 1, 1, 0.5f), "GameObject UID: "); ImGui::SameLine();
-	ImGui::TextColored(ImVec4(1, 1, 1, 0.5f), std::to_string(_ID).c_str());
+            }
+        }
+        ImGui::EndCombo();
+    }
+
+    ImGui::TextColored(ImVec4(1, 1, 1, 0.5f), "GameObject UID: "); ImGui::SameLine();
+    ImGui::TextColored(ImVec4(1, 1, 1, 0.5f), std::to_string(_ID).c_str());
+
+    // Ruben Ayora
+    if (_prefabUID != 0)
+    {
+        ImGui::TextColored(ImVec4(1, 1, 1, 0.5f), "Prefab UID: "); ImGui::SameLine();
+        ImGui::TextColored(ImVec4(1, 1, 1, 0.5f), std::to_string(_prefabUID).c_str());
+
+        if (_parent->_prefabUID != 0) return;
+        if (ImGui::Button("Override prefab"))
+        {
+            // Find prefab(asset) with _prefabUID and override it
+            ResourcePrefab* aux = (ResourcePrefab*)ModuleResourceManager::resources[_prefabUID];
+            ModuleResourceManager::S_OverridePrefab(this, aux->path, _prefabUID);
+        }
+        if (ImGui::Button("Revert prefab"))
+        {
+            // Find prefab(asset) with _prefabUID and override this one with it
+            ResourcePrefab* aux = (ResourcePrefab*)ModuleResourceManager::resources[_prefabUID];
+            GameObject* newGameObject = ModuleResourceManager::S_DeserializeFromPrefab(aux->path, this->_parent);
+            TransformComponent* t = this->GetComponent<TransformComponent>();
+            newGameObject->GetComponent<TransformComponent>()->SetTransform(t->GetGlobalPosition(), t->GetGlobalScale(), t->GetLocalRotation());
+            Destroy();
+        }
+        if (ImGui::Button("Unpack from prefab"))
+        {
+            _prefabUID = 0;
+        }
+    }
+}
+
+void GameObject::SetAllChildsPrefabUID(uint prefabUID)
+{
+    for (auto& go : _children)
+    {
+        go->SetPrefabUID(prefabUID);
+        go->SetAllChildsPrefabUID(prefabUID);
+    }
 }
 
 
 bool GameObject::MarkAsDead()
 {
-	if(!_isPendingToDelete)
-	{
-		if (LayerEditor::selectedGameObject == this)
-		{
-			LayerEditor::S_SetSelectGameObject(nullptr);
-			ImGuizmo::Enable(false);
-		}
+    if (!_isPendingToDelete)
+    {
+        if (LayerEditor::selectedGameObject == this)
+        {
+            LayerEditor::S_SetSelectGameObject(nullptr);
+            ImGuizmo::Enable(false);
+        }
 
-		_isPendingToDelete = true;
+        _isPendingToDelete = true;
 
-		for (int i = 0; i < _children.size(); i++)
-		{
-			if(_children[i]->MarkAsDead())
-			{
-				_childrenDeletedIndex.push_back(i);
-			}
-		}
+        for (int i = 0; i < _children.size(); i++)
+        {
+            if (_children[i]->MarkAsDead())
+            {
+                _childrenDeletedIndex.push_back(i);
+            }
+        }
 
-		for (int i = 0; i < _components.size(); i++)
-		{
-			_components[i]->MarkAsDead();
-		}
+        for (int i = 0; i < _components.size(); i++)
+        {
+            _components[i]->MarkAsDead();
+        }
 
-		return true;
-	}	
+        return true;
+    }
 
-	return false;
+    return false;
 }
 
 bool GameObject::MarkAsAlive()
 {
-	if(_isPendingToDelete)
-	{
-		_isPendingToDelete = false;
+    if (_isPendingToDelete)
+    {
+        _isPendingToDelete = false;
 
-		for (int i = 0; i < _childrenDeletedIndex.size(); i++)
-		{
-			_children[_childrenDeletedIndex[i]]->MarkAsAlive();
-		}
+        for (int i = 0; i < _childrenDeletedIndex.size(); i++)
+        {
+            _children[_childrenDeletedIndex[i]]->MarkAsAlive();
+        }
 
-		for (int i = 0; i < _components.size(); i++)
-		{
-			_components[i]->MarkAsAlive();
-		}
-	
-		return true;
-	}	
+        for (int i = 0; i < _components.size(); i++)
+        {
+            _components[i]->MarkAsAlive();
+        }
 
-	return false;
+        return true;
+    }
+
+    return false;
 }
 #endif // STANDALONE
 
 void GameObject::Destroy()
 {
-	if (_isDestroyed)
-		return;
+    if (_isDestroyed)
+        return;
 
-	if (LayerEditor::selectedGameObject == this)
-	{
-		LayerEditor::S_SetSelectGameObject(nullptr);
-		ImGuizmo::Enable(false);
-	}
+    if (LayerEditor::selectedGameObject == this)
+    {
+        LayerEditor::S_SetSelectGameObject(nullptr);
+        ImGuizmo::Enable(false);
+    }
 
-	_isPendingToDelete = true;
-	_isDestroyed = true;
+    _isPendingToDelete = true;
+    _isDestroyed = true;
 
-	ModuleLayers::S_RemoveGameObject(_ID);
+    ModuleLayers::S_RemoveGameObject(_ID);
 
-	ModuleLayers::_deletedGameObjects.push_back(this);
+    ModuleLayers::_deletedGameObjects.push_back(this);
 
-	if (_parent != nullptr)
-		_parent->RemoveChild(this);
+    if (_parent != nullptr)
+        _parent->RemoveChild(this);
 
-	while (!_children.empty())
-	{
-		_children[0]->Destroy();
-	}
+    while (!_children.empty())
+    {
+        _children[0]->Destroy();
+    }
 
-	// A bit of hardcoding. This is necessary so the reimport system form models (changing resources, saving and loading) works properly.
-	// Basically, we need to nlink the meshRender resource from the component before destroying it, because when the components is deleted, the new scene has already been loaded,
-	// and that produces the old component to unlink from the new resource, except from the old one.
-	// TODO: Could fix this by searching for references at the moment of reimport. 
-	MeshRenderComponent* meshRender = GetComponent<MeshRenderComponent>();
+    // A bit of hardcoding. This is necessary so the reimport system form models (changing resources, saving and loading) works properly.
+    // Basically, we need to nlink the meshRender resource from the component before destroying it, because when the components is deleted, the new scene has already been loaded,
+    // and that produces the old component to unlink from the new resource, except from the old one.
+    // TODO: Could fix this by searching for references at the moment of reimport. 
+    MeshRenderComponent* meshRender = GetComponent<MeshRenderComponent>();
 
-	if (meshRender != nullptr)
-		meshRender->UnlinkResource();
+    if (meshRender != nullptr)
+        meshRender->UnlinkResource();
 
-	_children.clear();
+    _children.clear();
 }
 
 bool GameObject::HasComponent(Component::Type type)
 {
-	for (const auto& component : _components)
-	{
-		if (component == nullptr) 
-			continue;
-		if (component->_type == type) 
-			return true;
-	}
-	return false;
+    for (const auto& component : _components)
+    {
+        if (component == nullptr)
+            continue;
+        if (component->_type == type)
+            return true;
+    }
+    return false;
 }
 
 void GameObject::RemoveChild(GameObject* child)
 {
-	if (!child) 
-		return;
+    if (!child)
+        return;
 
-	for (int i = 0; i < _children.size(); ++i)
-	{
-		if (_children[i] == child)
-			_children.erase(_children.begin() + i);
-	}
-	child->_parent = nullptr;
+    for (int i = 0; i < _children.size(); ++i)
+    {
+        if (_children[i] == child)
+            _children.erase(_children.begin() + i);
+    }
+    child->_parent = nullptr;
 }
 
 Component* GameObject::AddComponentOfType(Component::Type type)
@@ -379,6 +423,6 @@ Component* GameObject::AddComponentOfType(Component::Type type, const Component&
 
 void GameObject::AddComponentSerialized(Component::Type type, json& jsonFile)
 {
-	Component* newComponent = AddComponentOfType(type);
-	newComponent->DeSerialization(jsonFile);
+    Component* newComponent = AddComponentOfType(type);
+    newComponent->DeSerialization(jsonFile);
 }

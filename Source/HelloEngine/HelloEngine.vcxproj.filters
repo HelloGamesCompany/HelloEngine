@@ -375,6 +375,12 @@
     <ClCompile Include="API\API_RigidBody.cpp">
       <Filter>API</Filter>
     </ClCompile>
+    <ClCompile Include="ModuleAudio.cpp" />
+    <ClCompile Include="..\External\Wwise\include\AK\samples\AkFilePackage.cpp" />
+    <ClCompile Include="..\External\Wwise\include\AK\samples\AkFilePackageLUT.cpp" />
+    <ClCompile Include="..\External\Wwise\include\AK\samples\AkMultipleFileLocation.cpp" />
+    <ClCompile Include="..\External\Wwise\include\AK\samples\AkDefaultIOHookBlocking.cpp" />
+    <ClCompile Include="..\External\Wwise\include\AK\samples\AkGeneratedSoundBanksResolver.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -874,6 +880,7 @@
     <ClInclude Include="API\API_RigidBody.h">
       <Filter>API</Filter>
     </ClInclude>
+    <ClInclude Include="ModuleAudio.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="External">
