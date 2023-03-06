@@ -24,137 +24,137 @@ ImWindowUI::~ImWindowUI()
 
 void ImWindowUI::Update()
 {
-	if (ImGui::Begin(windowName.c_str(), 0, ImGuiWindowFlags_MenuBar))
-	{
-		if (ImGui::BeginMenuBar())
-		{
-			std::string option = "Change to ";
-			option += _imMode == ImGuizmo::MODE::LOCAL ? "GLOBAL" : "LOCAL";
-			if (ImGui::MenuItem(option.c_str()))
-			{
-				_imMode = _imMode == ImGuizmo::MODE::LOCAL ? ImGuizmo::MODE::WORLD : ImGuizmo::MODE::LOCAL;
-			}
-			ImGui::EndMenuBar();
-		}
+	//if (ImGui::Begin(windowName.c_str(), 0, ImGuiWindowFlags_MenuBar))
+	//{
+	//	if (ImGui::BeginMenuBar())
+	//	{
+	//		std::string option = "Change to ";
+	//		option += _imMode == ImGuizmo::MODE::LOCAL ? "GLOBAL" : "LOCAL";
+	//		if (ImGui::MenuItem(option.c_str()))
+	//		{
+	//			_imMode = _imMode == ImGuizmo::MODE::LOCAL ? ImGuizmo::MODE::WORLD : ImGuizmo::MODE::LOCAL;
+	//		}
+	//		ImGui::EndMenuBar();
+	//	}
 
-		ImGui::BeginChild("DropArea");
-		{
-			_sceneCamera->active = true;
+	//	ImGui::BeginChild("DropArea");
+	//	{
+	//		_sceneCamera->active = true;
 
-			_moduleCamera->updateSceneCamera = ImGui::IsWindowHovered();
+	//		_moduleCamera->updateSceneCamera = ImGui::IsWindowHovered();
 
-			ImVec2 sceneDimensions = ImGui::GetContentRegionAvail();
+	//		ImVec2 sceneDimensions = ImGui::GetContentRegionAvail();
 
-			if (sceneDimensions.x != _sceneWidth || sceneDimensions.y != _sceneHeight)
-			{
-				// If the size of this imgui window is different from the one stored.
-				_sceneWidth = sceneDimensions.x;
-				_sceneHeight = sceneDimensions.y;
-				_sceneCamera->ChangeAspectRatio((float)_sceneWidth / (float)_sceneHeight);
-			}
-			//ImGuizmo::DrawGrid(Application::Instance()->camera->sceneCamera.GetViewMatrix(), Application::Instance()->camera->sceneCamera.GetProjectionMatrix(), &identity.v[0][0], 100);
+	//		if (sceneDimensions.x != _sceneWidth || sceneDimensions.y != _sceneHeight)
+	//		{
+	//			// If the size of this imgui window is different from the one stored.
+	//			_sceneWidth = sceneDimensions.x;
+	//			_sceneHeight = sceneDimensions.y;
+	//			_sceneCamera->ChangeAspectRatio((float)_sceneWidth / (float)_sceneHeight);
+	//		}
+	//		//ImGuizmo::DrawGrid(Application::Instance()->camera->sceneCamera.GetViewMatrix(), Application::Instance()->camera->sceneCamera.GetProjectionMatrix(), &identity.v[0][0], 100);
 
-			DetectImGuizmoInput();
+	//		DetectImGuizmoInput();
 
-			ImGui::Image((ImTextureID)_sceneCamera->frameBuffer.GetTexture(), ImGui::GetContentRegionAvail(), ImVec2(0, 1), ImVec2(1, 0));
+	//		ImGui::Image((ImTextureID)_sceneCamera->frameBuffer.GetTexture(), ImGui::GetContentRegionAvail(), ImVec2(0, 1), ImVec2(1, 0));
 
-			GameObject* selected = LayerEditor::selectedGameObject;
+	//		GameObject* selected = LayerEditor::selectedGameObject;
 
-			if (selected != nullptr)
-			{
-				ImGuizmo::Enable(true);
-				float4x4 auxiliarMatrix = selected->transform->GetGlobalMatrix();
-				auxiliarMatrix.Transpose();
+	//		if (selected != nullptr)
+	//		{
+	//			ImGuizmo::Enable(true);
+	//			float4x4 auxiliarMatrix = selected->transform->GetGlobalMatrix();
+	//			auxiliarMatrix.Transpose();
 
-				// Could be done only when one of the 4 variables changes.
-				ImGuizmo::SetRect(ImGui::GetWindowPos().x, ImGui::GetWindowPos().y, ImGui::GetWindowWidth(), ImGui::GetWindowHeight());
-				ImGuizmo::SetDrawlist();
+	//			// Could be done only when one of the 4 variables changes.
+	//			ImGuizmo::SetRect(ImGui::GetWindowPos().x, ImGui::GetWindowPos().y, ImGui::GetWindowWidth(), ImGui::GetWindowHeight());
+	//			ImGuizmo::SetDrawlist();
 
-				static bool firstClick = false;
-				static bool manipulated = false;
-				static float4x4 currentGlobal;
+	//			static bool firstClick = false;
+	//			static bool manipulated = false;
+	//			static float4x4 currentGlobal;
 
-				if (ImGuizmo::Manipulate(_sceneCamera->GetViewMatrix(), _sceneCamera->GetProjectionMatrix(), _imOperation, _imMode, &auxiliarMatrix.v[0][0]))
-				{
-					manipulated = true;
-					if (!firstClick && ImGui::IsWindowHovered())
-					{
-						currentGlobal = selected->transform->GetGlobalMatrix();
-						firstClick = true;
-					}
-					auxiliarMatrix.Transpose();
-					selected->transform->SetLocalFromGlobal(auxiliarMatrix, _imOperation == ImGuizmo::OPERATION::SCALE);
-				}
+	//			if (ImGuizmo::Manipulate(_sceneCamera->GetViewMatrix(), _sceneCamera->GetProjectionMatrix(), _imOperation, _imMode, &auxiliarMatrix.v[0][0]))
+	//			{
+	//				manipulated = true;
+	//				if (!firstClick && ImGui::IsWindowHovered())
+	//				{
+	//					currentGlobal = selected->transform->GetGlobalMatrix();
+	//					firstClick = true;
+	//				}
+	//				auxiliarMatrix.Transpose();
+	//				selected->transform->SetLocalFromGlobal(auxiliarMatrix, _imOperation == ImGuizmo::OPERATION::SCALE);
+	//			}
 
-				if (ModuleInput::S_GetMouseButton(1) == KEY_UP && ImGui::IsWindowHovered() && manipulated)
-				{
-					manipulated = false;
-					// If this auxiliar matrix has not been transposed, transpose ir before giving it to the changetransform command
-					if (auxiliarMatrix.Col(3).xyz() == float3(0,0,0) && auxiliarMatrix.Col(3).w == 1)
-						auxiliarMatrix.Transpose();
+	//			if (ModuleInput::S_GetMouseButton(1) == KEY_UP && ImGui::IsWindowHovered() && manipulated)
+	//			{
+	//				manipulated = false;
+	//				// If this auxiliar matrix has not been transposed, transpose ir before giving it to the changetransform command
+	//				if (auxiliarMatrix.Col(3).xyz() == float3(0,0,0) && auxiliarMatrix.Col(3).w == 1)
+	//					auxiliarMatrix.Transpose();
 
-					ModuleCommand::S_ChangeTransform(auxiliarMatrix, currentGlobal, _imOperation == ImGuizmo::OPERATION::SCALE,
-						std::bind(&TransformComponent::SetLocalFromGlobal, selected->transform, std::placeholders::_1, std::placeholders::_2));
-					firstClick = false;
-				}
+	//				ModuleCommand::S_ChangeTransform(auxiliarMatrix, currentGlobal, _imOperation == ImGuizmo::OPERATION::SCALE,
+	//					std::bind(&TransformComponent::SetLocalFromGlobal, selected->transform, std::placeholders::_1, std::placeholders::_2));
+	//				firstClick = false;
+	//			}
 
-			}
+	//		}
 
-			if (!ImGuizmo::IsUsing())
-				DetectClick();
+	//		if (!ImGuizmo::IsUsing())
+	//			DetectClick();
 
-			ImGui::SameLine(); ImGui::Button("Change to LOCAL");
-		}
-		ImGui::EndChild();
+	//		ImGui::SameLine(); ImGui::Button("Change to LOCAL");
+	//	}
+	//	ImGui::EndChild();
 
-		// Create Droped mesh
-		if (ImGui::BeginDragDropTarget())
-		{
-			if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("Model"))
-			{
-				//Drop asset from Asset window to scene window
-				const uint* drop = (uint*)payload->Data;
+	//	// Create Droped mesh
+	//	if (ImGui::BeginDragDropTarget())
+	//	{
+	//		if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("Model"))
+	//		{
+	//			//Drop asset from Asset window to scene window
+	//			const uint* drop = (uint*)payload->Data;
 
-				ResourceModel* resource = (ResourceModel*)ModuleResourceManager::S_LoadResource(*drop);
+	//			ResourceModel* resource = (ResourceModel*)ModuleResourceManager::S_LoadResource(*drop);
 
-				MeshImporter::LoadModelIntoScene(resource);
+	//			MeshImporter::LoadModelIntoScene(resource);
 
-				std::string popUpmessage = "Loaded Mesh: ";
-				LayerEditor::S_AddPopUpMessage(popUpmessage);
+	//			std::string popUpmessage = "Loaded Mesh: ";
+	//			LayerEditor::S_AddPopUpMessage(popUpmessage);
 
-			}
-			else if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("Mesh"))
-			{
-				const uint* drop = (uint*)payload->Data;
+	//		}
+	//		else if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("Mesh"))
+	//		{
+	//			const uint* drop = (uint*)payload->Data;
 
-				ResourceMesh* resource = (ResourceMesh*)ModuleResourceManager::resources[*drop];
+	//			ResourceMesh* resource = (ResourceMesh*)ModuleResourceManager::resources[*drop];
 
-				GameObject* newGameObject = new GameObject(ModuleLayers::rootGameObject, resource->debugName);
-				MeshRenderComponent* meshRender = newGameObject->AddComponent<MeshRenderComponent>();
-				meshRender->CreateMesh(*drop);
+	//			GameObject* newGameObject = new GameObject(ModuleLayers::rootGameObject, resource->debugName);
+	//			MeshRenderComponent* meshRender = newGameObject->AddComponent<MeshRenderComponent>();
+	//			meshRender->CreateMesh(*drop);
 
-				std::string popUpmessage = "Loaded Mesh: " + resource->debugName;
-				LayerEditor::S_AddPopUpMessage(popUpmessage);
+	//			std::string popUpmessage = "Loaded Mesh: " + resource->debugName;
+	//			LayerEditor::S_AddPopUpMessage(popUpmessage);
 
-			}
-			else if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("Scene"))
-			{
-				const std::string drop = *(std::string*)payload->Data;
+	//		}
+	//		else if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("Scene"))
+	//		{
+	//			const std::string drop = *(std::string*)payload->Data;
 
-				ModuleLayers::S_RequestLoadScene(drop);
+	//			ModuleLayers::S_RequestLoadScene(drop);
 
-				std::string popUpmessage = "Loaded Scene: " + ModuleFiles::S_GetFileName(drop, false);
-				LayerEditor::S_AddPopUpMessage(popUpmessage);
-			}
-			ImGui::EndDragDropTarget();
-		}
-	}
-	else
-	{
-		_sceneCamera->active = false;
-	}
-	
-	ImGui::End();
+	//			std::string popUpmessage = "Loaded Scene: " + ModuleFiles::S_GetFileName(drop, false);
+	//			LayerEditor::S_AddPopUpMessage(popUpmessage);
+	//		}
+	//		ImGui::EndDragDropTarget();
+	//	}
+	//}
+	//else
+	//{
+	//	_sceneCamera->active = false;
+	//}
+	//
+	//ImGui::End();
 }
 
 void ImWindowUI::DetectClick()
