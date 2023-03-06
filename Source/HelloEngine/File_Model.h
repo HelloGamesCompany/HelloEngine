@@ -42,8 +42,6 @@ struct ModelNode
 
 		std::string data = file.dump();
 
-		std::cout << filename << std::endl;
-
 		ModuleFiles::S_Save(filename, &data[0], data.size(), false);
 	}
 
@@ -219,8 +217,6 @@ struct MeshInfo
 		// Save vertices
 		memcpy(cursor, &corruptionPrev[0], corruptionPrev.size());
 		cursor += corruptionPrev.size();
-
-		std::cout << filePath << std::endl;
 
 		ModuleFiles::S_Save(filePath, fileBuffer, fileSize, false);
 

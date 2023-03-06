@@ -10,6 +10,10 @@
 #include "ImGuizmo/ImGuizmo.h"
 #include "ScriptComponent.h"
 #include "ComponentUI.h"
+#include "ComponentUIButton.h"
+#include "ComponentUISlider.h"
+#include "ComponentUICheckbox.h"
+#include "ComponentUIImage.h"
 #include "AnimationComponent.h"
 #include "ParticleSystemComponent.h"
 #include "BillBoardComponent.h"
@@ -160,80 +164,48 @@ void GameObject::OnEditor()
         for (int n = 0; n < COMPONENT_NUM; n++)
         {
             int selectedItem = n;
-			if (ImGui::Selectable(_comboValues[n].c_str(), false))
-			{
-				switch (n)
-				{
-				case 0:
-					if (!HasComponent<MeshRenderComponent>())
-						AddComponent<MeshRenderComponent>();
-					break;
-				case 1:
-					if (!HasComponent<MaterialComponent>())
-						AddComponent<MaterialComponent>();
-					break;
-				case 2:
-					if (!HasComponent<CameraComponent>())
-						AddComponent<CameraComponent>();
-					break;
-				case 3:
-					AddComponent<ScriptComponent>();
-					break;
-				case 4:
-					if (!HasComponent<ComponentUI>())
-						AddComponent<ComponentUI>();
-					break;
+            if (ImGui::Selectable(_comboValues[n].c_str(), false))
+            {
+                switch (n)
+                {
+                case 0:
+                    if (!HasComponent<MeshRenderComponent>())
+                        AddComponent<MeshRenderComponent>();
+                    break;
+                case 1:
+                    if (!HasComponent<MaterialComponent>())
+                        AddComponent<MaterialComponent>();
+                    break;
+                case 2:
+                    if (!HasComponent<CameraComponent>())
+                        AddComponent<CameraComponent>();
+                    break;
+                case 3:
+                    AddComponent<ScriptComponent>();
+                    break;
+                case 4:
+                    if (!HasComponent<ComponentUIButton>())
+                        AddComponent<ComponentUIButton>();
+                    break;
                 case 5:
                     if (!HasComponent<PhysicsComponent>())
                         AddComponent<PhysicsComponent>();
                     break;
-				case 6:
-					if (!HasComponent<ParticleSystemComponent>())
-						AddComponent<ParticleSystemComponent>();
+                case 6:
+                    if (!HasComponent<ParticleSystemComponent>())
+                        AddComponent<ParticleSystemComponent>();
                 case 7:
-					if (!HasComponent<SkinnedMeshRenderComponent>())
-						AddComponent<SkinnedMeshRenderComponent>();
-					break;
-				case 8:
-					if (!HasComponent<AnimationComponent>())
-						AddComponent<AnimationComponent>();
-                        break;
-					break;
-				}	
+                    if (!HasComponent<SkinnedMeshRenderComponent>())
+                        AddComponent<SkinnedMeshRenderComponent>();
+                    break;
+                case 8:
+                    if (!HasComponent<AnimationComponent>())
+                        AddComponent<AnimationComponent>();
+                    break;
+                }
             }
         }
         ImGui::EndCombo();
-    }
-
-    ImGui::TextColored(ImVec4(1, 1, 1, 0.5f), "GameObject UID: "); ImGui::SameLine();
-    ImGui::TextColored(ImVec4(1, 1, 1, 0.5f), std::to_string(_ID).c_str());
-
-    // Ruben Ayora
-    if (_prefabUID != 0)
-    {
-        ImGui::TextColored(ImVec4(1, 1, 1, 0.5f), "Prefab UID: "); ImGui::SameLine();
-        ImGui::TextColored(ImVec4(1, 1, 1, 0.5f), std::to_string(_prefabUID).c_str());
-
-        if (_parent->_prefabUID != 0) return;
-        if (ImGui::Button("Override prefab"))
-        {
-            // Find prefab(asset) with _prefabUID and override it
-            ResourcePrefab* aux = (ResourcePrefab*)ModuleResourceManager::resources[_prefabUID];
-            ModuleResourceManager::S_OverridePrefab(this, aux->path, _prefabUID);
-        }
-        if (ImGui::Button("Revert prefab"))
-        {
-            // Find prefab(asset) with _prefabUID and override this one with it
-            ResourcePrefab* aux = (ResourcePrefab*)ModuleResourceManager::resources[_prefabUID];
-            GameObject* newGameObject = ModuleResourceManager::S_DeserializeFromPrefab(aux->path, this->_parent);
-            TransformComponent* t = this->GetComponent<TransformComponent>();
-            newGameObject->GetComponent<TransformComponent>()->SetTransform(t->GetGlobalPosition(), t->GetGlobalScale(), t->GetLocalRotation());
-            Destroy();
-        }
-        if (ImGui::Button("Unpack from prefab"))
-        {
-            _prefabUID = 0;
-        }
     }
 }
 
@@ -395,6 +367,22 @@ Component* GameObject::AddComponentOfType(Component::Type type)
 		break;
 	case Component::Type::UI:
 		newComponent = new ComponentUI(this);
+		_components.push_back(newComponent);
+		break;
+	case Component::Type::UI_BUTTON:
+		newComponent = new ComponentUIButton(this);
+		_components.push_back(newComponent);
+		break;
+	case Component::Type::UI_SLIDER:
+		newComponent = new ComponentUISlider(this);
+		_components.push_back(newComponent);
+		break;
+	case Component::Type::UI_CHECKBOX:
+		newComponent = new ComponentUICheckbox(this);
+		_components.push_back(newComponent);
+		break;
+	case Component::Type::UI_IMAGE:
+		newComponent = new ComponentUIImage(this);
 		_components.push_back(newComponent);
 		break;
 	case Component::Type::PARTICLE_SYSTEM:

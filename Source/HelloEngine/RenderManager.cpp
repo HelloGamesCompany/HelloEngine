@@ -8,6 +8,10 @@
 #include "MeshImporter.h"
 #include "CameraObject.h"
 #include "ModuleCamera3D.h"
+#include "ComponentUIButton.h"
+#include "ComponentUISlider.h"
+#include "ComponentUICheckbox.h"
+#include "ComponentUIImage.h"
 
 
 RenderManager::RenderManager()
@@ -304,6 +308,53 @@ void RenderManager::CreatePrimitive(GameObject* parent, PrimitiveType type)
 			GameObject* cube = new GameObject(parent, "Plane", "Primitive");
 			MeshRenderComponent* meshRenderer = cube->AddComponent<MeshRenderComponent>();
 			meshRenderer->CreateMesh(planeUID);
+			break;
+		}
+		case PrimitiveType::PLANE2D:
+		{
+			GameObject* canvas = new GameObject(parent, "Canvas", "UI");
+
+			//GameObject* cube = new GameObject(parent, "Canvas", "Primitive");
+			//MeshRenderComponent* meshRenderer = cube->AddComponent<MeshRenderComponent>();
+			//meshRenderer->CreateMesh(plane2DUID);
+			break;
+		}
+	}
+}
+
+void RenderManager::CreateUI(GameObject* parent, UIType type)
+{
+	if (parent == nullptr)
+		parent = ModuleLayers::rootGameObject;
+
+	switch (type)
+	{
+		case UIType::BUTTON:
+		{
+			GameObject* button = new GameObject(parent, "Button", "UI");
+			button->AddComponent<ComponentUIButton>();
+			break;
+		}
+		case UIType::SLIDER:
+		{
+			GameObject* slider = new GameObject(parent, "Slider", "UI");
+			GameObject* sliderButton = new GameObject(slider, "SliderButton", "UIsliderButton");
+			GameObject* sliderBar = new GameObject(slider, "SliderBar", "UIsliderBar");
+			//slider->AddComponent<ComponentUISlider>();
+			sliderBar->AddComponent<ComponentUISlider>();
+			sliderButton->AddComponent<ComponentUISlider>();
+			break;
+		}
+		case UIType::CHECKBOX:
+		{
+			GameObject* checkBox = new GameObject(parent, "CheckBox", "UI");
+			checkBox->AddComponent<ComponentUICheckbox>();
+			break;
+		}
+		case UIType::IMAGE:
+		{
+			GameObject* checkBox = new GameObject(parent, "Image", "UI");
+			checkBox->AddComponent<ComponentUIImage>();
 			break;
 		}
 	}

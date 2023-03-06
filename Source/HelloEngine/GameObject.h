@@ -80,6 +80,8 @@ public:
 
     std::string GetName() { return name; }
 
+	std::string GetTag() { return tag; }
+
     uint GetPrefabUID() { return _prefabUID; }
     void SetPrefabUID(uint prefabUID) { _prefabUID = prefabUID; }
     void SetAllChildsPrefabUID(uint prefabUID);
@@ -135,7 +137,7 @@ private:
     bool _updatePrefab;
 
 	// On Editor variables
-	std::string _comboValues[COMPONENT_NUM] = { "Mesh Renderer", "Material", "Camera", "Script", "UITest", "Physics","Particle System","Skinned Mesh Renderer", "Animation Player"};
+	std::string _comboValues[COMPONENT_NUM] = { "Mesh Renderer", "Material", "Camera", "Script", "UI Button", "Physics","Particle System","Skinned Mesh Renderer", "Animation Player"};
 	bool _isPendingToDelete = false;
 #ifdef STANDALONE
     std::vector<int> _childrenDeletedIndex;

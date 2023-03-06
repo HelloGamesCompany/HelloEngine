@@ -363,6 +363,12 @@
     </ClCompile>
     <ClCompile Include="LayerUI.cpp" />
     <ClCompile Include="ComponentUIButton.cpp" />
+    <ClCompile Include="ComponentUICheckbox.cpp" />
+    <ClCompile Include="ComponentUIImage.cpp" />
+    <ClCompile Include="ComponentUISlider.cpp" />
+    <ClCompile Include="ImWindowUI.cpp">
+      <Filter>Modules\Layers\WIndows</Filter>
+    </ClCompile>
     <ClCompile Include="SkinnedMeshRenderComponent.cpp">
       <Filter>GameObject\Components</Filter>
     </ClCompile>
@@ -889,6 +895,12 @@
     </ClInclude>
     <ClInclude Include="LayerUI.h" />
     <ClInclude Include="ComponentUIButton.h" />
+    <ClInclude Include="ComponentUICheckbox.h" />
+    <ClInclude Include="ComponentUIImage.h" />
+    <ClInclude Include="ComponentUISlider.h" />
+    <ClInclude Include="ImWindowUI.h">
+      <Filter>Modules\Layers\WIndows</Filter>
+    </ClInclude>
     <ClInclude Include="SkinnedMeshRenderComponent.h">
       <Filter>GameObject\Components</Filter>
     </ClInclude>

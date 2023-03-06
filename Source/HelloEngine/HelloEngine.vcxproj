@@ -315,6 +315,9 @@
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="ComponentUI.cpp" />
     <ClCompile Include="ComponentUIButton.cpp" />
+    <ClCompile Include="ComponentUICheckbox.cpp" />
+    <ClCompile Include="ComponentUIImage.cpp" />
+    <ClCompile Include="ComponentUISlider.cpp" />
     <ClCompile Include="Console.cpp" />
     <ClCompile Include="Emitter.cpp" />
     <ClCompile Include="FrameBuffer.cpp" />
@@ -339,6 +342,7 @@
     <ClCompile Include="ImWindowQuickSave.cpp" />
     <ClCompile Include="ImWindowResources.cpp" />
     <ClCompile Include="ImWindowScene.cpp" />
+    <ClCompile Include="ImWindowUI.cpp" />
     <ClCompile Include="ImWrapper.cpp" />
     <ClCompile Include="ImWrapperInputBox.cpp" />
     <ClCompile Include="Layer.cpp" />
@@ -493,6 +497,9 @@
     <ClInclude Include="Component.h" />
     <ClInclude Include="ComponentUI.h" />
     <ClInclude Include="ComponentUIButton.h" />
+    <ClInclude Include="ComponentUICheckbox.h" />
+    <ClInclude Include="ComponentUIImage.h" />
+    <ClInclude Include="ComponentUISlider.h" />
     <ClInclude Include="Console.h" />
     <ClInclude Include="CycleArray.hpp" />
     <ClInclude Include="Emitter.h" />
@@ -515,6 +522,7 @@
     <ClInclude Include="ImWindowQuickSave.h" />
     <ClInclude Include="ImWindowResources.h" />
     <ClInclude Include="ImWindowScene.h" />
+    <ClInclude Include="ImWindowUI.h" />
     <ClInclude Include="ImWrapper.h" />
     <ClInclude Include="ImWrapperInputBox.h" />
     <ClInclude Include="Layer.h" />
