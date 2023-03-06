@@ -11,7 +11,7 @@ HELLO_ENGINE_API_C PlayerKeyboardMovement* CreatePlayerKeyboardMovement(ScriptTo
 
 void PlayerKeyboardMovement::Start()
 {
-
+	_angle = 0.0f;
 }
 void PlayerKeyboardMovement::Update()
 {
@@ -66,30 +66,6 @@ void PlayerKeyboardMovement::Update()
 		gameObject.GetTransform().SetRotation(0,90,0);
 	}
 	
-	/*if (Input::GetMouseXMotion() < 0)
-	{
-		gameObject.GetTransform().Rotate(0, 1, 0);
-		
-	}
-	if (Input::GetMouseXMotion() > 0)
-	{
-		gameObject.GetTransform().Rotate(0, -1, 0);
-	}*/
-
-
-
-	if (Input::GetKey(KeyCode::KEY_G) == KeyState::KEY_DOWN)
-	{
-		
-		std::to_string(Input::GetMouseX());
-		;
-		Console::Log("POS X: ");
-		Console::Log( std::to_string(Input::GetMouseX()) );
-		Console::Log( "POS Y: ");
-		Console::Log( std::to_string(Input::GetMouseY()) );
-		//Console::Log( std::to_string(angle) );
-
-	}
 }
 
 void PlayerKeyboardMovement::MouseAim()
@@ -112,11 +88,11 @@ void PlayerKeyboardMovement::MouseAim()
 	
 
 	//float angle = atan2(normLookDir.y, normLookDir.x) * RADTODEG - 90.0f;
-	float angle = atan2(normLookDir.y, normLookDir.x) * RADTODEG  ;
+	 _angle = atan2(normLookDir.y, normLookDir.x) * RADTODEG  ;
 
 	if (Input::GetKey(KeyCode::KEY_F) == KeyState::KEY_DOWN)
 	{
-		Console::Log(std::to_string(angle));
+		Console::Log(std::to_string(_angle));
 
 		Console::Log(std::to_string(Input::GetMouseX()));
 		Console::Log(std::to_string(Input::GetMouseY()));
@@ -126,7 +102,7 @@ void PlayerKeyboardMovement::MouseAim()
 
 		
 	}
-	gameObject.GetTransform().SetRotation(0,-angle, 0);
+	gameObject.GetTransform().SetRotation(0,-_angle, 0);
 }
 
 

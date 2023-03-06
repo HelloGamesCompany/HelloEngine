@@ -16,7 +16,8 @@ public:
 	//player velocity on keyboard
 	float velk = 1.0f;
 
-	 
+private:
+	float _angle;
 
 };
 

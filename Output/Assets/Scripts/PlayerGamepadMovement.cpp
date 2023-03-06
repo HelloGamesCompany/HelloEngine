@@ -12,7 +12,7 @@ HELLO_ENGINE_API_C PlayerGamepadMovement* CreatePlayerGamepadMovement(ScriptToIn
 
 void PlayerGamepadMovement::Start()
 {
-	_angle = 180.0f;
+	_angle = 0.0f;
 }
 void PlayerGamepadMovement::Update()
 {
@@ -83,12 +83,9 @@ void PlayerGamepadMovement::GamepadAim()
 {
 
 	API_Vector2 mousePos;
-	//mousePos.x = Input::GetMouseX() - SCREEN_WIDTH / 2;
-	//mousePos.y = Input::GetMouseY() - SCREEN_HEIGHT / 2;
 	
 	mousePos.x = Input::GetGamePadAxis(GamePadAxis::AXIS_RIGHTX);
 	mousePos.y = -Input::GetGamePadAxis(GamePadAxis::AXIS_RIGHTY);
-
 
 
 	API_Vector2 playerPos ;
