@@ -6,6 +6,13 @@ namespace API
 {
 	namespace Console
 	{
-		TO_API void Log(const std::string& text);
+		enum class MessageType
+		{
+			INFO,
+			WARNING,
+			ERR
+		};
+
+		TO_API void Log(const std::string& text, API::Console::MessageType type = API::Console::MessageType::INFO);
 	}
 }
