@@ -9,6 +9,8 @@
 #include "ModuleFiles.h"
 #include "ModuleCommand.h"
 #include "ModuleResourceManager.h"
+#include "ModulePhysics.h"
+#include "ModuleAudio.h"
 
 #include "API/API_Vector2.h"
 #include "API/API_Vector3.h"
@@ -56,6 +58,8 @@ bool Application::Init()
 	xml = new ModuleXML();
 	command = new ModuleCommand();
 	resource = new ModuleResourceManager();
+	physic = new ModulePhysics();
+	audio = new ModuleAudio();
 
 	// The order of calls is very important!
 	// Modules will Init() Start() and Update in this order
@@ -69,6 +73,9 @@ bool Application::Init()
 	AddModule(window);
 
 	AddModule(input);
+
+	AddModule(physic);
+	AddModule(audio);
 
 	AddModule(resource);
 

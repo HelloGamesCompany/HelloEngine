@@ -19,6 +19,7 @@ public:
 		UI,
 		PARTICLE_SYSTEM,
 		BILLBOARD,
+		PHYSICS,
 		MAX
 	};
 
