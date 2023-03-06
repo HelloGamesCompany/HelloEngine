@@ -10,7 +10,6 @@ ComponentUIButton::ComponentUIButton(GameObject* gameObject) : ComponentUI(gameO
 	State = ButtonState::NORMAL;
 	_type = Component::Type::UI_BUTTON;
 
-	gameObject->transform->SetScale({ 0.2,0.2,0 });
 	uiObject = gameObject;
 }
 
@@ -54,9 +53,6 @@ void ComponentUIButton::Serialization(json& j)
 	_j["MaterialResource"] = _material->GetResourceUID();
 	_j["Enabled"] = _isEnabled;
 	_j["State"] = State;
-	_j["ScaleX"] = _gameObject->transform->GetLocalScale().x;
-	_j["ScaleY"] = _gameObject->transform->GetLocalScale().y;
-	_j["ScaleZ"] = _gameObject->transform->GetLocalScale().z;
 	j["Components"].push_back(_j);
 }
 
@@ -67,8 +63,6 @@ void ComponentUIButton::DeSerialization(json& j)
 	bool enabled = j["Enabled"];
 	if (!enabled)
 		Disable();
-
-	_gameObject->transform->SetScale({ j["ScaleX"], j["ScaleY"], j["ScaleZ"] });
 
 	_gameObject->transform->ForceUpdate();
 
@@ -125,14 +119,6 @@ void ComponentUIButton::OnEditor()
 		_gameObject->DestroyComponent(this);
 		return;
 	}
-
-	/*bool auxiliaryBool = _isEnabled;
-	if (ImGui::Checkbox("Active##Material", &auxiliaryBool))
-		auxiliaryBool ? Enable() : Disable();*/
-
-
-
-	ImGui::Text("Im a BUTTON");
 	ImGui::Text("States Colors:");
 
 	ImGui::Text("NORMAL"); ImGui::SameLine();
@@ -165,12 +151,7 @@ void ComponentUIButton::OnEditor()
 	}*/
 	//else
 	{
-		Mesh& mesh = _material->GetMesh();
-
-		if (ImGui::Button("Set Checkers Texture"))
-		{
-			_material->ChangeTexture(TextureImporter::CheckerImage());
-		}
+		//Mesh& mesh = _material->GetMesh();
 
 		std::string imageName;
 		int width = 0;

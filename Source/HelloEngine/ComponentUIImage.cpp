@@ -9,8 +9,6 @@ ComponentUIImage::ComponentUIImage(GameObject* gameObject) : ComponentUI(gameObj
 {
 	_type = Component::Type::UI_IMAGE;
 
-	gameObject->transform->SetScale({ 0.5,0.5,0.5 });
-
 	_fillImage = 1.f;
 	_gameWindow = (ImWindowGame*)LayerEditor::_imWindows[(uint)ImWindowID::GAME];
 }
@@ -34,9 +32,6 @@ void ComponentUIImage::Serialization(json& j)
 	_j["MaterialResource"] = _material->GetResourceUID();
 	_j["Enabled"] = _isEnabled;
 	_j["FillImage"] = _fillImage;
-	_j["ScaleX"] = _gameObject->transform->GetLocalScale().x;
-	_j["ScaleY"] = _gameObject->transform->GetLocalScale().y;
-	_j["ScaleZ"] = _gameObject->transform->GetLocalScale().z;
 	j["Components"].push_back(_j);
 }
 
@@ -50,7 +45,6 @@ void ComponentUIImage::DeSerialization(json& j)
 
 	_fillImage = j["FillImage"];
 
-	_gameObject->transform->SetScale({ j["ScaleX"], j["ScaleY"], j["ScaleZ"]});
 	_gameObject->transform->ForceUpdate();
 
 }
