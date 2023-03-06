@@ -21,36 +21,7 @@ ComponentUIButton::~ComponentUIButton()
 void ComponentUIButton::InputUpdate()
 {
 	// Add here any checks necessary with INPUT.
-
-	if (IsMouseOver()) {
-		//esta seleccionat
-		if (State != ButtonState::ONHOLD && ModuleInput::S_GetMouseButton(1) != KEY_REPEAT )
-		{
-			State = ButtonState::HOVERED;
-			gameTimeCopy = EngineTime::GameTimeCount();
-		}
-
-		//ha sigut clicat
-		if (ModuleInput::S_GetMouseButton(1) == KEY_UP && State != ButtonState::ONHOLD)
-		{
-			State = ButtonState::ONPRESS;
-		}
-		//esta sent mantenit clickat
-		if (ModuleInput::S_GetMouseButton(1) == KEY_REPEAT)
-		{
-			if (EngineTime::GameTimeCount() >= gameTimeCopy + 0.5)
-			{
-				State = ButtonState::ONHOLD;
-			}
-		}
-
-		else if(State == ButtonState::ONHOLD)
-		{
-			State = ButtonState::HOVERED;
-		}
-	}
-
-	
+	State = ChangeState(State);
 
 	switch (State)
 	{
@@ -72,12 +43,6 @@ void ComponentUIButton::InputUpdate()
 		break;
 	default:
 		break;
-	}
-
-	if (!IsMouseOver())
-	{
-		State = ButtonState::NORMAL;
-		gameTimeCopy = EngineTime::GameTimeCount();
 	}
 }
 
@@ -103,6 +68,45 @@ void ComponentUIButton::DeSerialization(json& j)
 	_gameObject->transform->ForceUpdate();
 
 	State = j["State"];
+}
+
+ButtonState ComponentUIButton::ChangeState(ButtonState State)
+{
+	if (IsMouseOver()) {
+		//esta seleccionat
+		if (State != ButtonState::ONHOLD && ModuleInput::S_GetMouseButton(1) != KEY_REPEAT)
+		{
+			State = ButtonState::HOVERED;
+			gameTimeCopy = EngineTime::GameTimeCount();
+		}
+
+		//ha sigut clicat
+		if (ModuleInput::S_GetMouseButton(1) == KEY_UP && State != ButtonState::ONHOLD)
+		{
+			State = ButtonState::ONPRESS;
+		}
+		//esta sent mantenit clickat
+		if (ModuleInput::S_GetMouseButton(1) == KEY_REPEAT)
+		{
+			if (EngineTime::GameTimeCount() >= gameTimeCopy + 0.5)
+			{
+				State = ButtonState::ONHOLD;
+			}
+		}
+
+		else if (State == ButtonState::ONHOLD)
+		{
+			State = ButtonState::HOVERED;
+		}
+	}
+
+	if (!IsMouseOver())
+	{
+		State = ButtonState::NORMAL;
+		gameTimeCopy = EngineTime::GameTimeCount();
+	}
+
+	return State;
 }
 
 #ifdef STANDALONE

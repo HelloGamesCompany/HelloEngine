@@ -19,37 +19,8 @@ void ComponentUICheckbox::InputUpdate()
 
 	// PROBLEMA A SOLUCIONAR: NO PODEM TENIR ACTIVE I HOVERED AL MATEI TEMPS (EN PROCES DE PENSAR UNA SOLUCIÓ) 
 
-
-	if (IsMouseOver()) {
-		if (ModuleInput::S_GetMouseButton(1) != KEY_DOWN && State != CheckboxState::HOVEREDACTIVE && State != CheckboxState::ACTIVE)
-		{
-			State = CheckboxState::HOVERED;
-		}
-
-		if (ModuleInput::S_GetMouseButton(1) == KEY_UP)
-		{
-			State = CheckboxState::ONPRESS;
-			
-			if (checkActive == false)
-			{
-				checkActive = true;
-			}
-
-			else if (checkActive == true)
-			{
-				checkActive = false;
-			}
-
-		}
-
-		if (State == CheckboxState::ACTIVE)
-		{
-			State = CheckboxState::HOVEREDACTIVE;
-		}
-
-
-	}
-
+	State = ChangeState(State);
+	
 	switch (State)
 	{
 	case CheckboxState::NORMAL:
@@ -74,27 +45,7 @@ void ComponentUICheckbox::InputUpdate()
 		break;
 	}
 
-	if (State == CheckboxState::ONPRESS)
-	{
-		if (checkActive == true)
-			State = CheckboxState::ACTIVE;
 
-		else if(checkActive == false )
-			State = CheckboxState::NORMAL;
-	}
-
-	if (!IsMouseOver())
-	{
-		if (State != CheckboxState::HOVEREDACTIVE && State != CheckboxState::ACTIVE)
-		{
-			State = CheckboxState::NORMAL;
-		}
-
-		if (State == CheckboxState::HOVEREDACTIVE)
-		{
-			State = CheckboxState::ACTIVE;
-		}
-	}
 }
 
 void ComponentUICheckbox::Serialization(json& j)
@@ -123,6 +74,61 @@ void ComponentUICheckbox::DeSerialization(json& j)
 	//checkActive = j["checkActive"];
 }
 
+CheckboxState ComponentUICheckbox::ChangeState(CheckboxState State)
+{
+	if (IsMouseOver()) {
+		if (ModuleInput::S_GetMouseButton(1) != KEY_DOWN && State != CheckboxState::HOVEREDACTIVE && State != CheckboxState::ACTIVE)
+		{
+			State = CheckboxState::HOVERED;
+		}
+
+		if (ModuleInput::S_GetMouseButton(1) == KEY_UP)
+		{
+			State = CheckboxState::ONPRESS;
+
+			if (checkActive == false)
+			{
+				checkActive = true;
+			}
+
+			else if (checkActive == true)
+			{
+				checkActive = false;
+			}
+
+		}
+
+		if (State == CheckboxState::ACTIVE)
+		{
+			State = CheckboxState::HOVEREDACTIVE;
+		}
+	}
+
+	if (State == CheckboxState::ONPRESS)
+	{
+		if (checkActive == true)
+			State = CheckboxState::ACTIVE;
+
+		else if (checkActive == false)
+			State = CheckboxState::NORMAL;
+	}
+
+	if (!IsMouseOver())
+	{
+		if (State != CheckboxState::HOVEREDACTIVE && State != CheckboxState::ACTIVE)
+		{
+			State = CheckboxState::NORMAL;
+		}
+
+		if (State == CheckboxState::HOVEREDACTIVE)
+		{
+			State = CheckboxState::ACTIVE;
+		}
+	}
+
+	return State;
+}
+
 #ifdef STANDALONE
 void ComponentUICheckbox::OnEditor()
 {
@@ -138,7 +144,22 @@ void ComponentUICheckbox::OnEditor()
 	if (ImGui::Checkbox("Active##Material", &auxiliaryBool))
 		auxiliaryBool ? Enable() : Disable();*/
 
-	ImGui::Text("Im a Slider");
+	ImGui::Text("Im a CHECK BOX");
+	ImGui::Text("States Colors:");
 
+	ImGui::Text("NORMAL"); ImGui::SameLine();
+	ImGui::ColorEdit4("color", colors);
+	//ImGui::Text("HOVERED");
+	//ImGui::SameLine();
+	//ImGui::ColorEdit3("color", colors);
+	//ImGui::Text("ONPRESS");
+	//ImGui::SameLine();
+	//ImGui::ColorEdit3("color", colors);
+	//ImGui::Text("ONHOLD");
+	//ImGui::SameLine();
+	//ImGui::ColorEdit3("color", colors);
+	ImGui::Separator();
+	ImGui::Text("States Textures:");
+	ImGui::Text("Normal:"); ImGui::SameLine();
 }
 #endif // STANDALONE
