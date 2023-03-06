@@ -54,6 +54,9 @@ void ComponentUIButton::Serialization(json& j)
 	_j["MaterialResource"] = _material->GetResourceUID();
 	_j["Enabled"] = _isEnabled;
 	_j["State"] = State;
+	_j["ScaleX"] = _gameObject->transform->GetLocalScale().x;
+	_j["ScaleY"] = _gameObject->transform->GetLocalScale().y;
+	_j["ScaleZ"] = _gameObject->transform->GetLocalScale().z;
 	j["Components"].push_back(_j);
 }
 
@@ -64,6 +67,8 @@ void ComponentUIButton::DeSerialization(json& j)
 	bool enabled = j["Enabled"];
 	if (!enabled)
 		Disable();
+
+	_gameObject->transform->SetScale({ j["ScaleX"], j["ScaleY"], j["ScaleZ"] });
 
 	_gameObject->transform->ForceUpdate();
 

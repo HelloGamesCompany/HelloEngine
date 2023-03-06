@@ -102,6 +102,9 @@ void ComponentUISlider::Serialization(json& j)
 	_j["PositionButton"] = normalizedPos;
 	_j["StateButton"] = State;
 	_j["Enabled"] = _isEnabled;
+	_j["ScaleX"] = _gameObject->transform->GetLocalScale().x;
+	_j["ScaleY"] = _gameObject->transform->GetLocalScale().y;
+	_j["ScaleZ"] = _gameObject->transform->GetLocalScale().z;
 	j["Components"].push_back(_j);
 }
 
@@ -115,6 +118,8 @@ void ComponentUISlider::DeSerialization(json& j)
 	
 	normalizedPos = j["PositionButton"];
 	State = j["StateButton"];
+
+	_gameObject->transform->SetScale({ j["ScaleX"], j["ScaleY"], j["ScaleZ"] });
 
 	_gameObject->transform->ForceUpdate();
 }

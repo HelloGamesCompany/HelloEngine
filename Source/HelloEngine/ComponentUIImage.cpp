@@ -34,6 +34,9 @@ void ComponentUIImage::Serialization(json& j)
 	_j["MaterialResource"] = _material->GetResourceUID();
 	_j["Enabled"] = _isEnabled;
 	_j["FillImage"] = _fillImage;
+	_j["ScaleX"] = _gameObject->transform->GetLocalScale().x;
+	_j["ScaleY"] = _gameObject->transform->GetLocalScale().y;
+	_j["ScaleZ"] = _gameObject->transform->GetLocalScale().z;
 	j["Components"].push_back(_j);
 }
 
@@ -47,7 +50,7 @@ void ComponentUIImage::DeSerialization(json& j)
 
 	_fillImage = j["FillImage"];
 
-
+	_gameObject->transform->SetScale({ j["ScaleX"], j["ScaleY"], j["ScaleZ"]});
 	_gameObject->transform->ForceUpdate();
 
 }
