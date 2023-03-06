@@ -4,6 +4,11 @@
 #include "TextureManager.h"
 #include "GameObject.h"
 #include "MeshRenderComponent.h"
+#include "PhysBody3D.h"
+
+#define MAX_VERTICAL_SLICES_SPHERE 32
+#define MAX_HORIZONTAL_SLICES_SPHERE 32
+#define MAX_VERTICAL_SLICES_CYLINDER 32
 
 enum class PrimitiveType
 {
@@ -61,10 +66,15 @@ public:
 	void DrawFaceNormals(Mesh* mesh);
 	void DrawOBB(Mesh* mesh);
 	void DrawAABB(Mesh* mesh);
+	void DrawColliderBox(PhysBody3D* phsyBody, float4 color = { 0.5f, 0.0f, 0.5f, 1.0f }, float wireSize = 3.0f);
+	void DrawColliderSphere(PhysBody3D* phsyBody, float radius = 0.f, float4 color = { 0.5f, 0.0f, 0.5f, 1.0f }, float wireSize = 3.0f, uint verSlices = 16, uint horSlices = 16);
+	void DrawColliderCylinder(PhysBody3D* phsyBody, float2 radiusHeight = { 1.0f, 1.0f } , float4 color = { 0.5f, 0.0f, 0.5f, 1.0f }, float wireSize = 3.0f, uint verSlices = 16);
+
+	void CalculateSphereBuffer(uint verSlices = 16, uint horSlices = 16);
+	void CalculateCylinderBuffer(uint verSlices = 16);
 
 	void DestroyInstanceRenderers();
 
-private:
 	void DrawTransparentMeshes();
 	void DrawIndependentMeshes();
 
@@ -82,6 +92,15 @@ private:
 	Mesh* _selectedMesh = nullptr;
 
 	std::vector<uint> boxIndices; // Used to display bounding boxes.
+	std::vector<uint> sphereIndices;
+	std::vector<uint> cylinderIndices;
+
+	/*const uint sphereVerticalSlices = MAX_VERTICAL_SLICES_SPHERE;
+	const uint sphereHorizontalSlices = MAX_HORIZONTAL_SLICES_SPHERE;*/
+	/*const uint sphereVertexNum = sphereVerticalSlices * sphereHorizontalSlices + 2;*/
+
+	//const uint cylinderVerticalSlices = MAX_VERTICAL_SLICES_SPHERE;
+	//const uint cylinderVertexNum = sphereVerticalSlices * 2;
 
 	// ModelResources for primitives
 	ResourceModel* primitiveModels[5];
@@ -92,11 +111,20 @@ private:
 
 	uint AABBVAO = 0;
 	uint AABBVBO = 0;
+
 	uint OBBVAO = 0;
 	uint OBBVBO = 0;
 
+	uint SPVAO = 0;
+	uint SPVBO = 0;
+
+	uint CYVAO = 0;
+	uint CYVBO = 0;
+
 	uint AABBIBO = 0; // index buffer object shared by both OBB and ABB buffers above.
 	uint OBBIBO = 0;
+	uint SPIBO = 0;
+	uint CYIBO = 0;
 
 	// Primitives
 	uint cubeUID = 0;
@@ -107,6 +135,7 @@ private:
 
 	InstanceRenderer* renderer2D = nullptr;
 
+	friend class Emitter;
 	friend class MeshRenderComponent;
 	friend class ResourceMesh;
 	friend class Mesh;

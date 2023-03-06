@@ -25,7 +25,7 @@ ImWindowConfiguration::ImWindowConfiguration() : ImWindow()
 
 	windowBrightness = &ModuleWindow::brightness;
 
-	isVSyncOn = &app->renderer3D->isVSync;
+	isVSyncOn = app->renderer3D->isVSync;
 
 	frameLimit = app->frameCap;
 
@@ -102,8 +102,8 @@ void ImWindowConfiguration::Update()
 				ModuleWindow::S_SetBrightness(*windowBrightness);
 			}
 
-			ImGui::Checkbox("VSync", isVSyncOn);
-			app->renderer3D->ToggleVSync(*isVSyncOn);	
+			ImGui::Checkbox("VSync", &isVSyncOn);
+			app->renderer3D->ToggleVSync(isVSyncOn);	
 		}
 
 		if (ImGui::CollapsingHeader("Game Time", ImGuiTreeNodeFlags_DefaultOpen))

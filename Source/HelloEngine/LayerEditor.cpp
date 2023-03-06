@@ -163,6 +163,10 @@ void LayerEditor::PreUpdate()
 		ImWindowProject* projectWindow = (ImWindowProject*)_imWindows[(uint)ImWindowID::PROJECT];
 		projectWindow->UpdateFileNodes();
 	}
+
+	//Update Engine Time
+
+	EngineTime::UpdateEngineTime();
 }
 
 void LayerEditor::Update()

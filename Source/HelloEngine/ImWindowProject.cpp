@@ -13,9 +13,9 @@
 
 ImWindowProject::ImWindowProject()
 {
-	windowName = "Project";
+    windowName = "Project";
 
-	isEnabled = true;
+    isEnabled = true;
 
     _app = Application::Instance();
 
@@ -54,26 +54,26 @@ ImWindowProject::ImWindowProject()
         _modelImageID = TextureImporter::LoadEditorDDS(buffer, size);
         RELEASE(buffer)
 
-        buffer = nullptr;
+            buffer = nullptr;
         size = ModuleFiles::S_Load("Resources/Editor/Images/scene.dds", &buffer);
         _sceneImageID = TextureImporter::LoadEditorDDS(buffer, size);
         RELEASE(buffer)
 
-        buffer = nullptr;
+            buffer = nullptr;
         size = ModuleFiles::S_Load("Resources/Editor/Images/image.dds", &buffer);
         _textureImageID = TextureImporter::LoadEditorDDS(buffer, size);
         RELEASE(buffer)
 
-        buffer = nullptr;
+            buffer = nullptr;
         size = ModuleFiles::S_Load("Resources/Editor/Images/h.dds", &buffer);
         _hImageID = TextureImporter::LoadEditorDDS(buffer, size);
         RELEASE(buffer)
 
-        buffer = nullptr;
+            buffer = nullptr;
         size = ModuleFiles::S_Load("Resources/Editor/Images/cpp.dds", &buffer);
         _cppImageID = TextureImporter::LoadEditorDDS(buffer, size);
         RELEASE(buffer)
-    }   
+    }
 }
 
 ImWindowProject::~ImWindowProject()
@@ -88,8 +88,8 @@ void ImWindowProject::Update()
     if (_showDeleteMessage)
         DrawDeleteMessage();
 
-   	if (ImGui::Begin(windowName.c_str(), &isEnabled, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoScrollbar))
-	{
+    if (ImGui::Begin(windowName.c_str(), &isEnabled, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoScrollbar))
+    {
         // Options, Filter
         //if (ImGui::Button("Options")) ImGui::OpenPopup("Options");
         //ImGui::SameLine();
@@ -132,7 +132,19 @@ void ImWindowProject::Update()
                 DrawTreeNodePanelRight(newDir);
             ImGui::EndChild();
         }
-        
+
+        if (ImGui::BeginDragDropTarget())
+        {
+            if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("GameObject"))
+            {
+                //Drop asset from Asset window to scene window
+                const uint* drop = (uint*)payload->Data;
+
+                ModuleResourceManager::S_SerializeToPrefab(ModuleLayers::gameObjects[*drop], _fileTree->_currentDir->path);
+            }
+            ImGui::EndDragDropTarget();
+        }
+
         // Change current directory
         if (newDir)
             _fileTree->_currentDir = newDir;
@@ -160,7 +172,7 @@ void ImWindowProject::Update()
     }
 
     // If have any folder to delete, delete this
-    if(_deleteDir && _deleteFileAccepted)
+    if (_deleteDir && _deleteFileAccepted)
     {
         ModuleFiles::S_Delete(_deleteDir->path);
 
@@ -175,10 +187,10 @@ void ImWindowProject::DrawTreeNodePanelLeft(Directory*& newDir, Directory* node,
 {
     ImGuiTreeNodeFlags node_flags = ImGuiTreeNodeFlags_None | ImGuiTreeNodeFlags_OpenOnArrow;
 
-    if(node == _fileTree->_currentDir)
+    if (node == _fileTree->_currentDir)
         node_flags |= ImGuiTreeNodeFlags_Selected;
 
-    if(node->directories.empty())
+    if (node->directories.empty())
         node_flags |= ImGuiTreeNodeFlags_Leaf;
 
     if (ImGui::TreeNodeEx(node->name.c_str(), node_flags))
@@ -192,12 +204,12 @@ void ImWindowProject::DrawTreeNodePanelLeft(Directory*& newDir, Directory* node,
             DrawTreeNodePanelLeft(newDir, node->directories[i], drawFiles);
 
         // Draw Files
-        if(drawFiles)
+        if (drawFiles)
             for (int i = 0; i < node->files.size(); i++)
             {
                 ImGui::Text(node->files[i].name.c_str());
             }
-                
+
         ImGui::TreePop();
     }
 }
@@ -239,14 +251,14 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
         {
             // Do nothing here, just fixed space
         }
-           
+
         ImGui::PopStyleColor(1);
     }
-    
+
     ImGui::Separator();
 
     // Calculate num of colomns we can have
-    int numOfColumns = (ImGui::GetContentRegionAvail().x / _itemWidth) -1;
+    int numOfColumns = (ImGui::GetContentRegionAvail().x / _itemWidth) - 1;
 
     if (numOfColumns == 0)
         numOfColumns++;
@@ -261,7 +273,7 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
 
         if (ImGui::ImageButton(directoryID.c_str(), (ImTextureID)_folderImageID, ImVec2(_itemWidth, _itemHeight)))
             newDir = _fileTree->_currentDir->directories[i];
-        
+
         // Right click
         if (ImGui::BeginPopupContextItem()) // <-- use last item id as popup id
         {
@@ -297,7 +309,7 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
         case ResourceType::SCENE:
             icon = _sceneImageID;
             break;
-        case ResourceType::TEXTURE:         
+        case ResourceType::TEXTURE:
             icon = _textureImageID;
             break;
         case ResourceType::HSCRIPT:
@@ -348,10 +360,12 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
                 _dragUID = _fileTree->_currentDir->files[i].metaFile.UID;
                 ImGui::SetDragDropPayload("Animation", &_dragUID, sizeof(uint));
                 break;
+            case ResourceType::PREFAB:
+                ImGui::SetDragDropPayload("Prefab", &_fileTree->_currentDir->files[i].path, sizeof(std::string));
+                break;
             }
             ImGui::EndDragDropSource();
         }
-        
 
         // Right click
         if (ImGui::BeginPopupContextItem()) // <-- use last item id as popup id
@@ -427,7 +441,7 @@ void ImWindowProject::OnDrop(const std::string filePath)
 
     // File case
     File file = File(relativePath, ModuleFiles::S_GetFileName(pathNormalized), _fileTree->_currentDir);//_fileTree->_currentDir->files.emplace_back(relativePath, ModuleFiles::S_GetFileName(pathNormalized), _fileTree->_currentDir);
-    
+
     _fileTree->_currentDir->files.push_back(file);
 }
 
@@ -468,18 +482,18 @@ void ImWindowProject::PanelCreateFolder()
 
         if (ImGui::Button("Accept"))
         {
-            if(ModuleFiles::S_MakeDir(_fileTree->_currentDir->path + _temporalName))
+            if (ModuleFiles::S_MakeDir(_fileTree->_currentDir->path + _temporalName))
             {
                 _fileTree->_currentDir->directories.push_back(
                     new Directory(
                         _fileTree->_currentDir->path + _temporalName + "/",
-                        _temporalName, 
+                        _temporalName,
                         _fileTree->_currentDir)
                 );
             }
 
             _temporalName = "default";
-            
+
             _openCreateFolderPanel = false;
         }
 
@@ -509,7 +523,7 @@ void ImWindowProject::PanelCreateScript()
             if (ModuleFiles::S_CreateScriptFile(_temporalName, _fileTree->_currentDir->path.c_str()))
             {
                 _fileTree->_currentDir->files.emplace_back(_fileTree->_currentDir->path + _temporalName + ".h", _temporalName + ".h", _fileTree->_currentDir);
-                _fileTree->_currentDir->files.emplace_back(_fileTree->_currentDir->path+ _temporalName + ".cpp", _temporalName+".cpp", _fileTree->_currentDir);
+                _fileTree->_currentDir->files.emplace_back(_fileTree->_currentDir->path + _temporalName + ".cpp", _temporalName + ".cpp", _fileTree->_currentDir);
             }
             else
                 LayerEditor::S_AddPopUpMessage("The script with this name is already exist");
@@ -527,7 +541,7 @@ void ImWindowProject::PanelCreateScript()
 
             _openCreateScriptPanel = false;
         }
-           
+
 
         ImGui::EndPopup();
     }
@@ -547,7 +561,7 @@ void ImWindowProject::DrawDeleteMessage()
             _showDeleteMessage = false;
         }
         ImGui::SameLine();
-        
+
         if (ImGui::Button("Delete"))
         {
             _deleteFileAccepted = true;

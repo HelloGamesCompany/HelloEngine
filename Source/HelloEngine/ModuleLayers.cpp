@@ -24,7 +24,7 @@ bool ModuleLayers::_requestScene = false;
 std::string ModuleLayers:: _requestScenePath = "null";
 std::string ModuleLayers::_sceneBeginPath = "null";
 std::vector<GameObject*> ModuleLayers::_deletedGameObjects;
-std::vector<API::API_GameObject*> ModuleLayers::apiGameObjects;
+std::map<uint, API::API_GameObject*> ModuleLayers::apiGameObjects;
 
 API::API_Transform* ModuleLayers::emptyAPITransform = nullptr;
 API::API_GameObject* ModuleLayers::emptyAPIGameObject = nullptr;
@@ -184,17 +184,10 @@ uint ModuleLayers::S_AddGameObject(GameObject* go, uint ID)
 
 void ModuleLayers::S_RemoveGameObject(uint ID)
 {
-    GameObject* goPointer = gameObjects[ID];
-    gameObjects.erase(ID);
+    if (apiGameObjects.count(ID) != 0)
+        apiGameObjects[ID]->_gameObject = nullptr;
 
-    // Look for the deleted game object inside the API_GameObject vector.
-    for (int i = 0; i < apiGameObjects.size(); ++i)
-    {
-        if (apiGameObjects[i]->_gameObject == goPointer)
-        {
-            apiGameObjects[i]->_gameObject = nullptr;
-        }
-    }
+    gameObjects.erase(ID);
 }
 
 void ModuleLayers::S_RequestLoadScene(const std::string& scenePath)

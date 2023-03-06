@@ -532,9 +532,6 @@ public:
 		return m_rigidbodyFlags;
 	}
 
-
-	
-
 	///perform implicit force computation in world space
 	btVector3 computeGyroscopicImpulseImplicit_World(btScalar dt) const;
 	
