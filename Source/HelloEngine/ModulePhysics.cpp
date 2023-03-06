@@ -67,14 +67,33 @@ UpdateStatus ModulePhysics::PreUpdate()
 	////std::cout << "\ndt:" << EngineTime::GameDeltaTime()<<std::endl;
 	////std::cout << "\n-------------------------\nx" << testBody->GetVelocity().x << "\ny" << testBody->GetVelocity().y << "\nz" << testBody->GetVelocity().z;
 	//std::cout <<"\n-------------------------\nx" << testBody->GetPos().x << "\ny" << testBody->GetPos().y << "\nz" << testBody->GetPos().z;
+#ifdef _DEBUG
 	if (LayerGame::S_IsPlaying())
 	{
+		float a = EngineTime::GameDeltaTime();
+		Console::S_Log(std::to_string(a));
 		world->stepSimulation(EngineTime::GameDeltaTime(), 15);
 	}
 	else
 	{
 		world->stepSimulation(0);
 	}
+#elif STANDALONE
+	if (LayerGame::S_IsPlaying())
+	{
+		float a = EngineTime::GameDeltaTime();
+		Console::S_Log(std::to_string(a));
+		world->stepSimulation(1.0f / Application::Instance()->frameCap, 15);
+}
+	else
+	{
+		world->stepSimulation(0);
+	}
+#else
+	world->stepSimulation(1.0f / Application::Instance()->frameCap, 15);
+
+#endif
+	
 
 	//std::cout << "\n-------------------------\nx" << testBody->GetPos().x << "\ny" << testBody->GetPos().y << "\nz" << testBody->GetPos().z;
 	//std::cout << "\n-------------------------\nx" << testBody2->GetPos().x << "\ny" << testBody2->GetPos().y << "\nz" << testBody2->GetPos().z;

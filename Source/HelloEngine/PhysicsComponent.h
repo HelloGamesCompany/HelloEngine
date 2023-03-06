@@ -13,7 +13,11 @@ public:
 	~PhysicsComponent();
 
 private:
+#ifdef STANDALONE
 	void OnEditor() override;
+#endif // STANDALONE
+
+
 
 	void Serialization(json& j) override;
 	void DeSerialization(json& j) override;

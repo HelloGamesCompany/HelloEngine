@@ -133,7 +133,7 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <AdditionalIncludeDirectories>$(SolutionDir)Source\HelloEngine;$(SolutionDir)Source\External\Glew\include;$(SolutionDir)Source\External\SDL\include;$(SolutionDir)Source\External\imgui;$(SolutionDir)Source\External\MathGeoLib\include;$(SolutionDir)Source\External\json\include\single_include\nlohmann;$(SolutionDir)Output\HelloAPI\Source;$(SolutionDir)Source\External\PugiXml\src;%(AdditionalIncludeDirectories);$(SolutionDir)Source\External\Assimp\include;$(SolutionDir)Source\External\PhysFS\include;$(SolutionDir)Source\External\DevIL\include;$(SolutionDir)Source\External\mmgr</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Source\HelloEngine;$(SolutionDir)Source\External\Glew\include;$(SolutionDir)Source\External\SDL\include;$(SolutionDir)Source\External\imgui;$(SolutionDir)Source\External\MathGeoLib\include;$(SolutionDir)Source\External\json\include\single_include\nlohmann;$(SolutionDir)Output\HelloAPI\Source;$(SolutionDir)Source\External\PugiXml\src;%(AdditionalIncludeDirectories);$(SolutionDir)Source\External\Assimp\include;$(SolutionDir)Source\External\PhysFS\include;$(SolutionDir)Source\External\DevIL\include;$(SolutionDir)Source\External\mmgr;$(SolutionDir)Source\External\Bullet\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <Optimization>Disabled</Optimization>
     </ClCompile>

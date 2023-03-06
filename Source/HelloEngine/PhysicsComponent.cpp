@@ -131,7 +131,7 @@ void PhysicsComponent::DeSerialization(json& j)
 		CallUpdateScale();
 	}
 }
-
+#ifdef STANDALONE
 void PhysicsComponent::OnEditor()
 {
 	bool created = true;
@@ -219,7 +219,7 @@ void PhysicsComponent::OnEditor()
 							sphereHorSlices = MAX_HORIZONTAL_SLICES_SPHERE;
 						}
 						Application::Instance()->renderer3D->renderManager.CalculateSphereBuffer(sphereVerSlices, sphereHorSlices);
-						
+
 					}
 					break;
 					case ColliderShape::CYLINDER:
@@ -237,7 +237,7 @@ void PhysicsComponent::OnEditor()
 						break;
 					}
 				}
-				
+
 			}
 
 			//ImGui::SameLine();
@@ -245,7 +245,7 @@ void PhysicsComponent::OnEditor()
 			if (physBody->isRenderingCol == true) {
 
 				if (ImGui::ColorEdit4("Color", renderColColor)) {
-					
+
 				}
 
 				//ImGui::SameLine();
@@ -296,7 +296,7 @@ void PhysicsComponent::OnEditor()
 					break;
 				}
 			}
-			
+
 
 			switch (shapeSelected)
 			{
@@ -336,7 +336,7 @@ void PhysicsComponent::OnEditor()
 					CallUpdatePos();
 				}
 				if (ImGui::DragFloat3("Rotation: ", physBody->colRot.ptr(), 0.1)) {
-				//	CallUpdateShape();
+					//	CallUpdateShape();
 				}
 				if (ImGui::DragFloat2("Radius & Height: ", cylRadiusHeight.ptr(), 0.1)) {
 					//CallUpdateShape();
@@ -358,6 +358,9 @@ void PhysicsComponent::OnEditor()
 	if (!created)
 		this->_gameObject->DestroyComponent(this);
 }
+#endif // STANDALONE
+
+
 
 void PhysicsComponent::CallUpdatePos()
 {
