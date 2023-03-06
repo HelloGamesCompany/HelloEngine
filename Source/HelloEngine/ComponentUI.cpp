@@ -85,7 +85,7 @@ bool ComponentUI::IsMouseOver()
         return false;
 #endif // STANDALONE
 
-    Console::S_Log("Mouse Over!");
+    //Console::S_Log("Mouse Over!");
     return true;
 
 }

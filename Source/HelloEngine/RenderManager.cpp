@@ -1,4 +1,5 @@
 #include "Headers.h"
+#include "ModulePhysics.h"
 #include "RenderManager.h"
 #include "ModuleLayers.h"
 #include "MeshRenderComponent.h"
@@ -7,6 +8,11 @@
 #include "MeshImporter.h"
 #include "CameraObject.h"
 #include "ModuleCamera3D.h"
+#include "ComponentUIButton.h"
+#include "ComponentUISlider.h"
+#include "ComponentUICheckbox.h"
+#include "ComponentUIImage.h"
+
 
 RenderManager::RenderManager()
 {
@@ -23,18 +29,18 @@ void RenderManager::Init()
 {
 	_textureManager = new TextureManager();
 
-	cubeUID = 2677981019;
-	planeUID = 2393626792;
-	cylinderUID = 1158218481;
-	sphereUID = 2121897186;
-	plane2DUID = 2393626793;
+	cubeUID = 2523359550;
+	planeUID = 90291865;
+	cylinderUID = 2734209052;
+	sphereUID = 4243659739;
+	plane2DUID = 90291866;
 
 	// Create resources for Primitives
-	ResourceMesh* cubeResource = ModuleResourceManager::S_CreateResourceMesh("Resources/Editor/Primitives/2677981019.hmesh", cubeUID, "Cube", false);
-	ResourceMesh* planeResource = ModuleResourceManager::S_CreateResourceMesh("Resources/Editor/Primitives/2393626792.hmesh", planeUID, "Plane", false);
-	ResourceMesh* plane2DResource = ModuleResourceManager::S_CreateResourceMesh("Resources/Editor/Primitives/2393626792.hmesh", plane2DUID, "Plane2D", false);
-	ResourceMesh* cylinderResource = ModuleResourceManager::S_CreateResourceMesh("Resources/Editor/Primitives/1158218481.hmesh", cylinderUID, "Cylinder", false);
-	ResourceMesh* sphereResource = ModuleResourceManager::S_CreateResourceMesh("Resources/Editor/Primitives/2121897186.hmesh", sphereUID, "Sphere", false);
+	ResourceMesh* cubeResource = ModuleResourceManager::S_CreateResourceMesh("Resources/Editor/Primitives/2523359550.hmesh", cubeUID, "Cube", false);
+	ResourceMesh* planeResource = ModuleResourceManager::S_CreateResourceMesh("Resources/Editor/Primitives/90291865.hmesh", planeUID, "Plane", false);
+	ResourceMesh* plane2DResource = ModuleResourceManager::S_CreateResourceMesh("Resources/Editor/Primitives/90291865.hmesh", plane2DUID, "Plane2D", false);
+	ResourceMesh* cylinderResource = ModuleResourceManager::S_CreateResourceMesh("Resources/Editor/Primitives/2734209052.hmesh", cylinderUID, "Cylinder", false);
+	ResourceMesh* sphereResource = ModuleResourceManager::S_CreateResourceMesh("Resources/Editor/Primitives/4243659739.hmesh", sphereUID, "Sphere", false);
 
 	for (int i = 0; i < 5; ++i)
 	{
@@ -127,6 +133,13 @@ void RenderManager::Init()
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(float3), (void*)0);
 
 	glBindVertexArray(0);
+
+	CalculateSphereBuffer();
+	CalculateCylinderBuffer();
+
+	
+	
+	
 }
 
 void RenderManager::OnEditor()
@@ -191,6 +204,15 @@ void RenderManager::Draw()
 
 	// Draw meshes that have transparency textures applied on their material.
 	DrawTransparentMeshes();
+
+#ifdef STANDALONE
+	for (int i = 0; i < ModulePhysics::physBodies.size(); i++) 
+	{
+		ModulePhysics::physBodies[i]->RenderCollider();
+	}
+#endif // STANDALONE
+
+
 }
 
 void RenderManager::Draw2D()
@@ -286,6 +308,53 @@ void RenderManager::CreatePrimitive(GameObject* parent, PrimitiveType type)
 			GameObject* cube = new GameObject(parent, "Plane", "Primitive");
 			MeshRenderComponent* meshRenderer = cube->AddComponent<MeshRenderComponent>();
 			meshRenderer->CreateMesh(planeUID);
+			break;
+		}
+		case PrimitiveType::PLANE2D:
+		{
+			GameObject* canvas = new GameObject(parent, "Canvas", "UI");
+
+			//GameObject* cube = new GameObject(parent, "Canvas", "Primitive");
+			//MeshRenderComponent* meshRenderer = cube->AddComponent<MeshRenderComponent>();
+			//meshRenderer->CreateMesh(plane2DUID);
+			break;
+		}
+	}
+}
+
+void RenderManager::CreateUI(GameObject* parent, UIType type)
+{
+	if (parent == nullptr)
+		parent = ModuleLayers::rootGameObject;
+
+	switch (type)
+	{
+		case UIType::BUTTON:
+		{
+			GameObject* button = new GameObject(parent, "Button", "UI");
+			button->AddComponent<ComponentUIButton>();
+			break;
+		}
+		case UIType::SLIDER:
+		{
+			GameObject* slider = new GameObject(parent, "Slider", "UI");
+			GameObject* sliderButton = new GameObject(slider, "SliderButton", "UIsliderButton");
+			GameObject* sliderBar = new GameObject(slider, "SliderBar", "UIsliderBar");
+			//slider->AddComponent<ComponentUISlider>();
+			sliderBar->AddComponent<ComponentUISlider>();
+			sliderButton->AddComponent<ComponentUISlider>();
+			break;
+		}
+		case UIType::CHECKBOX:
+		{
+			GameObject* checkBox = new GameObject(parent, "CheckBox", "UI");
+			checkBox->AddComponent<ComponentUICheckbox>();
+			break;
+		}
+		case UIType::IMAGE:
+		{
+			GameObject* checkBox = new GameObject(parent, "Image", "UI");
+			checkBox->AddComponent<ComponentUIImage>();
 			break;
 		}
 	}
@@ -388,6 +457,323 @@ void RenderManager::DrawAABB(Mesh* mesh)
 	localLineShader->SetFloat4("lineColor", 0.0f, 1.0f, 0.0f, 1.0f);
 
 	glDrawElements(GL_LINES, boxIndices.size(), GL_UNSIGNED_INT, 0);
+
+	glBindVertexArray(0);
+}
+
+void RenderManager::DrawColliderBox(PhysBody3D* physBody, float4 color, float wireSize)
+{
+	float3 AABBPoints[8];
+
+	float mult = WORLD_TO_RENDER_RELATION;
+
+	btBoxShape* shape = (btBoxShape*)physBody->body->getCollisionShape();
+	btTransform transform = physBody->body->getWorldTransform();
+	btQuaternion rotation = transform.getRotation();
+	btVector3 origin = transform.getOrigin();
+
+	btVector3 rotationAxis = rotation.getAxis();
+	btScalar rotationAngle = rotation.getAngle();
+
+	btVector3 eulerRotation;
+	btMatrix3x3 rotationMatrix(rotation);
+	rotationMatrix.getEulerZYX(eulerRotation[0], eulerRotation[1], eulerRotation[2]);
+
+	btVector3 aabbMin, aabbMax;
+	shape->getAabb(transform, aabbMin, aabbMax);
+
+	float minX = aabbMin.getX();
+	float minY = aabbMin.getY();
+	float minZ = aabbMin.getZ();
+	float maxX = aabbMax.getX();
+	float maxY = aabbMax.getY();
+	float maxZ = aabbMax.getZ();
+
+	btVector3 corners[8];
+
+	corners[0] = btVector3(minX, minY, minZ);
+	corners[1] = btVector3(minX, minY, maxZ);
+	corners[2] = btVector3(minX, maxY, minZ);
+	corners[3] = btVector3(minX, maxY, maxZ);
+	corners[4] = btVector3(maxX, minY, minZ);
+	corners[5] = btVector3(maxX, minY, maxZ);
+	corners[6] = btVector3(maxX, maxY, minZ);
+	corners[7] = btVector3(maxX, maxY, maxZ);
+
+	for (int i = 0; i < 8; i++) {
+		shape->getVertex(i, corners[i]);
+		corners[i] = transform * corners[i];
+	}
+
+	for (int i = 0; i < 8; i++) {
+		AABBPoints[i] = { corners[i][0], corners[i][1],corners[i][2] };
+	}
+
+	//AABBPoints[0].x = (float)physBody->body->getCenterOfMassTransform().getOrigin().getX() * mult;
+	//AABBPoints[0].y = (float)physBody->body->getCenterOfMassTransform().getOrigin().getY() * mult;
+	//AABBPoints[0].z = (float)physBody->body->getCenterOfMassTransform().getOrigin().getZ() * mult;
+
+	//AABBPoints[1].x = (float)physBody->body->getCenterOfMassTransform().getOrigin().getX() * mult;
+	//AABBPoints[1].y = (float)physBody->body->getCenterOfMassTransform().getOrigin().getY() * mult;
+	//AABBPoints[1].z = (float)physBody->body->getCenterOfMassTransform().getOrigin().getZ() * mult;
+
+	//AABBPoints[2].x = (float)physBody->body->getCenterOfMassTransform().getOrigin().getX() * mult;
+	//AABBPoints[2].y = (float)physBody->body->getCenterOfMassTransform().getOrigin().getY() * mult;
+	//AABBPoints[2].z = (float)physBody->body->getCenterOfMassTransform().getOrigin().getZ() * mult;
+
+	//AABBPoints[3].x = (float)physBody->body->getCenterOfMassTransform().getOrigin().getX() * mult;
+	//AABBPoints[3].y = (float)physBody->body->getCenterOfMassTransform().getOrigin().getY() * mult;
+	//AABBPoints[3].z = (float)physBody->body->getCenterOfMassTransform().getOrigin().getZ() * mult;
+
+	//
+	//AABBPoints[4].x = (float)physBody->body->getCenterOfMassTransform().getOrigin().getX() * mult;
+	//AABBPoints[4].y = (float)physBody->body->getCenterOfMassTransform().getOrigin().getY() * mult;
+	//AABBPoints[4].z = (float)physBody->body->getCenterOfMassTransform().getOrigin().getZ() * mult;
+
+	//AABBPoints[5].x = (float)physBody->body->getCenterOfMassTransform().getOrigin().getX() * mult;
+	//AABBPoints[5].y = (float)physBody->body->getCenterOfMassTransform().getOrigin().getY() * mult;
+	//AABBPoints[5].z = (float)physBody->body->getCenterOfMassTransform().getOrigin().getZ() * mult;
+
+	//AABBPoints[6].x = (float)physBody->body->getCenterOfMassTransform().getOrigin().getX() * mult;
+	//AABBPoints[6].y = (float)physBody->body->getCenterOfMassTransform().getOrigin().getY() * mult;
+	//AABBPoints[6].z = (float)physBody->body->getCenterOfMassTransform().getOrigin().getZ() * mult;
+
+	//AABBPoints[7].x = (float)physBody->body->getCenterOfMassTransform().getOrigin().getX() * mult;
+	//AABBPoints[7].y = (float)physBody->body->getCenterOfMassTransform().getOrigin().getY() * mult;
+	//AABBPoints[7].z = (float)physBody->body->getCenterOfMassTransform().getOrigin().getZ() * mult;
+
+	glBindVertexArray(AABBVAO);
+
+	glBindBuffer(GL_ARRAY_BUFFER, AABBVBO);
+	void* ptr = glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY);
+	memcpy(ptr, &AABBPoints[0], 8 * sizeof(float3));
+	glUnmapBuffer(GL_ARRAY_BUFFER);
+
+	localLineShader->Bind();
+	localLineShader->SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
+	localLineShader->SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
+
+	localLineShader->SetFloat4("lineColor", color[0], color[1], color[2], color[3]);
+
+	glLineWidth(wireSize);
+	glDrawElements(GL_LINES, boxIndices.size(), GL_UNSIGNED_INT, 0);
+	glLineWidth(1.0f);
+
+	glBindVertexArray(0);
+	
+}
+
+void RenderManager::DrawColliderSphere(PhysBody3D* physBody, float radius, float4 color, float wireSize, uint verSlices, uint horSlices)
+{
+	const float3 origin = (float3)physBody->body->getCenterOfMassTransform().getOrigin();
+	const float3 startingPointY = origin - float3(0, radius, 0);
+	const float diferenceBetweenSlicesY = (radius * 2) / (horSlices + 1);
+
+	std::vector<float3> SpherePoints;
+
+	SpherePoints.push_back(startingPointY);
+
+	for (int i = 1; i < horSlices + 1; i++)
+	{
+		for (int j = 0; j < verSlices; j++)
+		{
+			float tempY = startingPointY.y + diferenceBetweenSlicesY * i;
+			float tempYRad = sqrt(Pow(radius, 2) - Pow(-radius + diferenceBetweenSlicesY * i,2));
+			float tempX = origin.x + tempYRad * cos(2 * math::pi * j / verSlices);
+			float tempZ = origin.z + tempYRad * sin(2 * math::pi * j / verSlices);
+
+			float3 tempPoint = float3(tempX, tempY, tempZ);
+			SpherePoints.push_back(tempPoint);
+		}
+		
+	}
+
+	SpherePoints.push_back(origin + float3(0, radius, 0));
+
+	glBindVertexArray(SPVAO);
+
+	glBindBuffer(GL_ARRAY_BUFFER, SPVBO);
+	void* ptr = glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY);
+	memcpy(ptr, &SpherePoints.at(0), SpherePoints.size() * sizeof(float3));
+	glUnmapBuffer(GL_ARRAY_BUFFER);
+
+	localLineShader->Bind();
+	localLineShader->SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
+	localLineShader->SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
+	localLineShader->SetFloat4("lineColor", color[0], color[1], color[2], color[3]);
+
+	glLineWidth(wireSize);
+	glDrawElements(GL_LINES, sphereIndices.size() , GL_UNSIGNED_INT, 0);
+	glLineWidth(1.0f);
+
+	glBindVertexArray(0);
+	
+}
+
+void RenderManager::DrawColliderCylinder(PhysBody3D* physBody, float2 radiusHeight, float4 color, float wireSize, uint verSlices)
+{
+	const float radius = radiusHeight.x;
+	const float height = radiusHeight.y;
+
+	const float3 origin = (float3)physBody->body->getCenterOfMassTransform().getOrigin();
+	const float3 startingPointY = origin - float3(0, -(height / 2), 0);
+	const float3 endingPointY = origin - float3(0, +(height / 2), 0);
+
+	std::vector<float3> CylinderPoints;
+
+	//Down
+	for (int i = 0; i < verSlices; i++)
+	{
+		float tempY = startingPointY.y;
+		float tempX = origin.x + radius * cos(2 * math::pi * i / verSlices);
+		float tempZ = origin.z + radius * sin(2 * math::pi * i / verSlices);
+
+		float3 tempPoint = float3(tempX, tempY, tempZ);
+		CylinderPoints.push_back(tempPoint);
+	}
+
+	//Up
+	for (int i = 0; i < verSlices; i++)
+	{
+		float tempY = endingPointY.y;
+		float tempX = origin.x + radius * cos(2 * math::pi * i / verSlices);
+		float tempZ = origin.z + radius * sin(2 * math::pi * i / verSlices);
+
+		float3 tempPoint = float3(tempX, tempY, tempZ);
+		CylinderPoints.push_back(tempPoint);
+	}
+
+	glBindVertexArray(CYVAO);
+
+	glBindBuffer(GL_ARRAY_BUFFER, CYVBO);
+	void* ptr = glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY);
+	memcpy(ptr, &CylinderPoints.at(0), CylinderPoints.size() * sizeof(float3));
+	glUnmapBuffer(GL_ARRAY_BUFFER);
+
+	localLineShader->Bind();
+	localLineShader->SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
+	localLineShader->SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
+	localLineShader->SetFloat4("lineColor", color[0], color[1], color[2], color[3]);
+
+	glLineWidth(wireSize);
+	glDrawElements(GL_LINES, cylinderIndices.size(), GL_UNSIGNED_INT, 0);
+	glLineWidth(1.0f);
+
+	glBindVertexArray(0);
+}
+
+void RenderManager::CalculateSphereBuffer(uint verSlices, uint horSlices)
+{
+	// Set up buffer for Sphere lines.
+
+	sphereIndices.clear();
+
+	for (int j = 1; j < verSlices + 1; j++) {
+		sphereIndices.push_back(0);
+		sphereIndices.push_back(j);
+	}
+
+	for (int i = 0; i < horSlices - 1; i++) {
+
+		//Vertical
+		for (int j = 0; j < verSlices; j++) {
+			sphereIndices.push_back((i * verSlices + 1) + j);
+			sphereIndices.push_back(((i + 1) * verSlices + 1) + j);
+		}
+
+		//Horizontal
+		for (int j = 0; j < verSlices; j++) {
+			if (j == verSlices - 1) {
+				sphereIndices.push_back((i * verSlices + 1) + j);
+				sphereIndices.push_back((i * verSlices + 1));
+			}
+			else {
+				sphereIndices.push_back((i * verSlices + 1) + j);
+				sphereIndices.push_back((i * verSlices + 1) + j + 1);
+			}
+
+		}
+	}
+
+	for (int i = 0; i < verSlices ; i++) {
+
+		//Vertical
+		sphereIndices.push_back(((horSlices - 1 ) * verSlices + 1) + i);
+		sphereIndices.push_back(horSlices * verSlices + 1);
+
+		//Horizontal
+		if (i == verSlices - 1) {
+			sphereIndices.push_back(((horSlices-1) * verSlices + 1) + i);
+			sphereIndices.push_back((horSlices - 1) * verSlices  + 1);
+		}
+		else {
+			sphereIndices.push_back(((horSlices - 1) * verSlices + 1) + i);
+			sphereIndices.push_back(((horSlices - 1) * verSlices + 1) + i + 1);
+		}
+
+
+	}
+
+	glGenVertexArrays(1, &SPVAO);
+	glBindVertexArray(SPVAO);
+
+	glGenBuffers(1, &SPIBO);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, SPIBO);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(uint) * sphereIndices.size(), &sphereIndices[0], GL_STATIC_DRAW);
+
+	glGenBuffers(1, &SPVBO);
+	glBindBuffer(GL_ARRAY_BUFFER, SPVBO);
+	const uint sphereVertexNum = verSlices * horSlices + 2;
+	glBufferData(GL_ARRAY_BUFFER, sizeof(float3) * sphereVertexNum, nullptr, GL_DYNAMIC_DRAW);
+
+	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(float3), (void*)0);
+
+	glBindVertexArray(0);
+}
+
+void RenderManager::CalculateCylinderBuffer(uint verSlices)
+{
+
+	cylinderIndices.clear();
+
+	//Vertical
+	for (int i = 0; i < verSlices; i++) {
+		cylinderIndices.push_back(i);
+		cylinderIndices.push_back(i + verSlices);
+	}
+
+	//Horizontal
+	for (int i = 0; i < 2; i++) {
+		for (int j = 0; j < verSlices; j++) {
+			if (j == verSlices - 1) {
+				cylinderIndices.push_back(i * verSlices + j);
+				cylinderIndices.push_back(i * verSlices);
+			}
+			else {
+				cylinderIndices.push_back(i * verSlices + j);
+				cylinderIndices.push_back(i * verSlices + j + 1);
+			}
+
+		}
+	}
+
+
+	// Set up buffer for Cylinder lines.
+	glGenVertexArrays(1, &CYVAO);
+	glBindVertexArray(CYVAO);
+
+	glGenBuffers(1, &CYIBO);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, CYIBO);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(uint) * cylinderIndices.size(), &cylinderIndices[0], GL_STATIC_DRAW);
+
+	glGenBuffers(1, &CYVBO);
+	glBindBuffer(GL_ARRAY_BUFFER, CYVBO);
+	const uint cylinderVertexNum = verSlices * 2;
+	glBufferData(GL_ARRAY_BUFFER, sizeof(float3) * cylinderVertexNum, nullptr, GL_DYNAMIC_DRAW);
+
+	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(float3), (void*)0);
 
 	glBindVertexArray(0);
 }

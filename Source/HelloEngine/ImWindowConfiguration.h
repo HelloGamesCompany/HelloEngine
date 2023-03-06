@@ -46,7 +46,7 @@ private:
 
 	float* windowBrightness = nullptr;
 
-	bool* isVSyncOn = nullptr;
+	bool isVSyncOn;
 
 	bool automaticCompilation = false;
 

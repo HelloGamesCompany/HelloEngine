@@ -363,6 +363,54 @@
     </ClCompile>
     <ClCompile Include="LayerUI.cpp" />
     <ClCompile Include="ComponentUIButton.cpp" />
+    <ClCompile Include="ComponentUICheckbox.cpp" />
+    <ClCompile Include="ComponentUIImage.cpp" />
+    <ClCompile Include="ComponentUISlider.cpp" />
+    <ClCompile Include="ImWindowUI.cpp">
+      <Filter>Modules\Layers\WIndows</Filter>
+    </ClCompile>
+    <ClCompile Include="SkinnedMeshRenderComponent.cpp">
+      <Filter>GameObject\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimationComponent.cpp">
+      <Filter>GameObject\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleSystemComponent.cpp">
+      <Filter>GameObject\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleManager.cpp">
+      <Filter>Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="Emitter.cpp">
+      <Filter>Other</Filter>
+    </ClCompile>
+    <ClCompile Include="Particle.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="P_MainModule.cpp">
+      <Filter>GameObject\Components\ParticleModules</Filter>
+    </ClCompile>
+    <ClCompile Include="BillBoardComponent.cpp">
+      <Filter>GameObject\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="ModulePhysics.cpp">
+      <Filter>Modules\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysBody3D.cpp">
+      <Filter>Modules\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsComponent.cpp">
+      <Filter>GameObject\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="API\API_RigidBody.cpp">
+      <Filter>API</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleAudio.cpp" />
+    <ClCompile Include="..\External\Wwise\include\AK\samples\AkFilePackage.cpp" />
+    <ClCompile Include="..\External\Wwise\include\AK\samples\AkFilePackageLUT.cpp" />
+    <ClCompile Include="..\External\Wwise\include\AK\samples\AkMultipleFileLocation.cpp" />
+    <ClCompile Include="..\External\Wwise\include\AK\samples\AkDefaultIOHookBlocking.cpp" />
+    <ClCompile Include="..\External\Wwise\include\AK\samples\AkGeneratedSoundBanksResolver.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -847,6 +895,52 @@
     </ClInclude>
     <ClInclude Include="LayerUI.h" />
     <ClInclude Include="ComponentUIButton.h" />
+    <ClInclude Include="ComponentUICheckbox.h" />
+    <ClInclude Include="ComponentUIImage.h" />
+    <ClInclude Include="ComponentUISlider.h" />
+    <ClInclude Include="ImWindowUI.h">
+      <Filter>Modules\Layers\WIndows</Filter>
+    </ClInclude>
+    <ClInclude Include="SkinnedMeshRenderComponent.h">
+      <Filter>GameObject\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimationComponent.h">
+      <Filter>GameObject\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleSystemComponent.h">
+      <Filter>GameObject\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleManager.h">
+      <Filter>Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="Emitter.h">
+      <Filter>Other</Filter>
+    </ClInclude>
+    <ClInclude Include="Particle.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="P_MainModule.h">
+      <Filter>GameObject\Components\ParticleModules</Filter>
+    </ClInclude>
+    <ClInclude Include="BillBoardComponent.h">
+      <Filter>GameObject\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Primitive.h">
+      <Filter>Modules\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="ModulePhysics.h">
+      <Filter>Modules\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysBody3D.h">
+      <Filter>Modules\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsComponent.h">
+      <Filter>GameObject\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="API\API_RigidBody.h">
+      <Filter>API</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleAudio.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="External">
@@ -905,6 +999,11 @@
     </Filter>
     <Filter Include="API">
       <UniqueIdentifier>{9415a565-49db-4b37-8304-2d5e3b42f724}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Components\ParticleModules">
+      <UniqueIdentifier>{912b9e95-e0aa-441c-af06-f32abe99351d}</UniqueIdentifier>
+    <Filter Include="Modules\Physics">
+      <UniqueIdentifier>{d7a935dd-bee4-4eab-b7b6-c21c40a5f340}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

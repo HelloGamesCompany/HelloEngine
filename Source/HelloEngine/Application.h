@@ -14,6 +14,8 @@ class ModuleXML;
 class ModuleFiles;
 class ModuleCommand;
 class ModuleResourceManager;
+class ModulePhysics;
+class ModuleAudio;
 
 class Application
 {
@@ -31,6 +33,11 @@ public:
 	{
 		fps = 1.0f / (float)maxFrames;
 		frameCap = maxFrames;
+	}
+
+	float GetDeltaTime() 
+	{
+		return _dt;
 	}
 
 	bool IsExit()
@@ -59,12 +66,14 @@ public:
 	ModuleFiles* file = nullptr;
 	ModuleCommand* command = nullptr;
 	ModuleResourceManager* resource = nullptr;
+	ModulePhysics* physic = nullptr;
+	ModuleAudio* audio = nullptr;
 	float fps = 1.0f/60.0f;
 	int frameCap = 60;
 	Timer	timer;
 
 private:
-	float	_dt = 0;
+	float _dt = 0;
 	std::vector<Module*> _list_modules;
 	static Application* _app;
 	bool _isExiting = false;
