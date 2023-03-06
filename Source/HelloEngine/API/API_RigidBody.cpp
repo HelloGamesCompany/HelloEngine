@@ -24,6 +24,22 @@ API::API_GameObject API::API_RigidBody::GetGameObject()
 	return returnGO;
 }
 
+void API::API_RigidBody::SetVelocity(API_Vector3 vec)
+{
+	if (!_rigidBody)
+	{
+		Engine::Console::S_Log("Trying to acces a NULLPTR Rigidbody");
+		return;
+	}	
+
+	_rigidBody->SetVelocity(vec);
+}
+
+API::API_Vector3 API::API_RigidBody::GetVelocity()
+{
+	return _rigidBody->GetVelocity();
+}
+
 PhysicsComponent* API::API_RigidBody::GetComponent()
 {
 	if (!_rigidBody) 
