@@ -40,9 +40,11 @@ public:
 
 public:
 
-    BILLBOARDTYPE typeofBBoard = BILLBOARDTYPE::WORLDALIGN;
+    BILLBOARDTYPE typeofBBoard = BILLBOARDTYPE::NO_ALIGN;
 
     std::string BBtype[4] = { "Screen Align","World Align","Axis Align","No Align" };
+
+    std::string currentBBoard;
 
     Application* app;
 

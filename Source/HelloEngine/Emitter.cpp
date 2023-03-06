@@ -18,10 +18,8 @@ Emitter::Emitter()
 
 Emitter::~Emitter()
 {
-	if (_meshID != -1)
-	{
-		app->renderer3D->particleManager.RemoveEmitterInList(this);
-	}
+
+	app->renderer3D->particleManager.RemoveEmitterInList(this);
 
 }
 
@@ -139,6 +137,8 @@ void Emitter::UpdateParticles(Quat rotation)
 		meshReference.draw = true;
 
 		meshReference.modelMatrix = ParticleList[i].transformMat;
+
+		meshReference.CalculateBoundingBoxes();
 
 	}
 }

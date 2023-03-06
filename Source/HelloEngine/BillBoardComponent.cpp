@@ -9,6 +9,7 @@ BillBoardComponent::BillBoardComponent(GameObject* gameObject) : Component(gameO
 	_type = Type::BILLBOARD;
 	app = Application::Instance();
 
+	currentBBoard = "No Align";
 }
 
 BillBoardComponent::~BillBoardComponent()
@@ -109,6 +110,7 @@ Quat BillBoardComponent::AxisAlignBBoard()
 {
 
 	//Vector from gameobject to cam
+
 	zBBoardAxis = (app->camera->currentDrawingCamera->cameraFrustum.pos - GetGameObject()->transform->GetGlobalMatrix().TranslatePart()).Normalized();
 
 	//Vector UP is the same as the cam
@@ -116,11 +118,11 @@ Quat BillBoardComponent::AxisAlignBBoard()
 
 	//COMPUTE CROSS PRODUCT IN ORDER TO GET THE REMAINING AXIS
 
-	xBBoardAxis = yBBoardAxis.Cross(zBBoardAxis).Normalized();
+	xBBoardAxis = { 1.0f,0.0f,0.0f };
 
 	//COMPUTE Y AXIS AGAIN IN ORDER TO BE SURE THAT THE ANGLE BETWEEN Z AND Y IS 90 degrees
 
-	yBBoardAxis = zBBoardAxis.Cross(xBBoardAxis).Normalized();
+	//yBBoardAxis = zBBoardAxis.Cross(xBBoardAxis).Normalized();
 
 	//Gather the axis into a 3x3 matrix
 	float3x3 rotBBoard = float3x3::identity;
@@ -132,6 +134,43 @@ Quat BillBoardComponent::AxisAlignBBoard()
 
 void BillBoardComponent::OnEditor()
 {
+	
+	if (ImGui::CollapsingHeader("BillBoard: ", ImGuiTreeNodeFlags_DefaultOpen))
+	{
+		if (ImGui::BeginMenu("Select your BillBoard"))
+		{
+
+			if (ImGui::MenuItem("Screen Align BillBoard"))
+			{
+				typeofBBoard = BILLBOARDTYPE::SCREENALIGN;
+				currentBBoard = BBtype[0];
+			}
+			else if (ImGui::MenuItem("World Align BillBoard"))
+			{
+				typeofBBoard = BILLBOARDTYPE::WORLDALIGN;
+				currentBBoard = BBtype[1];
+			}
+			else if (ImGui::MenuItem("Axis Align BillBoard"))
+			{
+				typeofBBoard = BILLBOARDTYPE::AXISALIGN;
+				currentBBoard = BBtype[2];
+			}
+			else if (ImGui::MenuItem("No Align BillBoard"))
+			{
+				typeofBBoard = BILLBOARDTYPE::NO_ALIGN;
+				rotation = Quat::identity;
+				currentBBoard = BBtype[3];
+			}
+
+			
+
+
+			ImGui::End();
+		}
+
+		ImGui::TextColored(ImVec4(0, 1, 0, 1), currentBBoard.c_str());
+	}
+
 }
 
 void BillBoardComponent::Serialization(json& j)
