@@ -5,6 +5,8 @@
 #include "MeshRenderComponent.h"
 #include "ModuleResourceManager.h"
 
+class SkinnedMeshRenderComponent;
+
 class MaterialComponent : public Component
 {
 public:
@@ -17,6 +19,7 @@ public:
 	void OnDisable() override;
 
 	void SetMeshRenderer(MeshRenderComponent* mesh);
+	void SetSkinnedMeshRenderer(SkinnedMeshRenderComponent* mesh);
 
 	Mesh& GetMesh();
 
@@ -43,6 +46,7 @@ public:
 	void DestroyedResource();
 private:
 	MeshRenderComponent* meshRenderer = nullptr;
+	SkinnedMeshRenderComponent* skinnedMeshRenderer = nullptr;
 	ResourceTexture* currentResource = nullptr;
 
 	int textureID = -1;

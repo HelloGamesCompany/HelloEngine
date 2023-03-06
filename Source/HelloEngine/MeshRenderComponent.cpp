@@ -17,6 +17,7 @@ MeshRenderComponent::MeshRenderComponent(GameObject* gameObject) : Component(gam
 	_meshID = -1;
 	_instanceID = 0;
 	_needsTransformCallback = true;
+	_hasBones = false;
 }
 
 MeshRenderComponent::MeshRenderComponent(GameObject* gameObject, const MeshRenderComponent& copy) : Component(gameObject)
@@ -78,6 +79,8 @@ void MeshRenderComponent::CreateMesh(uint resourceUID, MeshRenderType type)
 	{
 		_meshID = Application::Instance()->renderer3D->renderManager.AddMesh(_resource, type);
 	}
+
+	if (_resource->meshInfo.boneDataMap.size() != 0) _hasBones = true;
 
 	_vertexNum = _resource->meshInfo.vertices.size();
 	_indexNum = _resource->meshInfo.indices.size();
@@ -226,23 +229,9 @@ void MeshRenderComponent::OnEditor()
 		{
 			ImGui::TextWrapped("No mesh loaded! Drag an .hmesh file below to load a mesh ");
 
-			ImGui::TextColored(ImVec4(1, 1, 0, 1), "Drag .hmesh here"); ImGui::SameLine();
-
 			// Create Droped mesh
-			if (ImGui::BeginDragDropTarget())
-			{
-				if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("Mesh"))
-				{
-					const uint* drop = (uint*)payload->Data;
+			MeshDropArea();
 
-					CreateMesh(*drop);
-
-					std::string popUpmessage = "Loaded Mesh: ";
-					LayerEditor::S_AddPopUpMessage(popUpmessage);
-
-				}
-				ImGui::EndDragDropTarget();
-			}
 			ImGui::HelpMarker("You can find .hmesh files by clicking on any model file (FBX or DAE). They will appear below the file icon in the Project window.");
 
 			if (ImGui::Button("Make2D"))
@@ -291,20 +280,14 @@ void MeshRenderComponent::OnEditor()
 			ImGui::TextColored(ImVec4(1, 1, 0, 1), _resource->debugName.c_str()); ImGui::SameLine();
 
 			// Create Droped mesh
-			if (ImGui::BeginDragDropTarget())
+			MeshDropArea();
+
+			//Has Bones user feedback
+			if (_hasBones)
 			{
-				if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("Mesh"))
-				{
-					const uint* drop = (uint*)payload->Data;
-
-					CreateMesh(*drop);
-
-					std::string popUpmessage = "Loaded Mesh: ";
-					LayerEditor::S_AddPopUpMessage(popUpmessage);
-
-				}
-				ImGui::EndDragDropTarget();
+				ImGui::TextColored(ImVec4(255, 0, 0, 255), "This mesh has bones, consider using 'Skinned Mesh Renderer' component.");
 			}
+
 			ImGui::HelpMarker("You can find .hmesh files by clicking on any model file (FBX or DAE). They will appear below the file icon in the Project window.");
 		}
 		else
@@ -314,6 +297,28 @@ void MeshRenderComponent::OnEditor()
 	}
 	if (!created)
 		this->_gameObject->DestroyComponent(this);
+}
+
+void MeshRenderComponent::MeshDropArea()
+{
+	ImGui::NewLine();
+	ImGui::TextColored(ImVec4(1, 1, 0, 1), "Drag .hmesh here"); ImGui::SameLine();
+
+	if (ImGui::BeginDragDropTarget())
+	{
+		if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("Mesh"))
+		{
+			const uint* drop = (uint*)payload->Data;
+
+			CreateMesh(*drop);
+
+			std::string popUpmessage = "Loaded Mesh: ";
+			LayerEditor::S_AddPopUpMessage(popUpmessage);
+
+		}
+		ImGui::EndDragDropTarget();
+	}
+	ImGui::NewLine();
 }
 
 void MeshRenderComponent::MarkAsDead()

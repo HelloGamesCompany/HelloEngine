@@ -23,7 +23,7 @@ ImWindowHierarchy::ImWindowHierarchy()
 
     _hasSelectedAGameObject = false;
 
-    _draggingGameObject = nullptr;
+    LayerEditor::draggedGameObject = nullptr;
 
     _base_flags = ImGuiTreeNodeFlags_DefaultOpen | ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_OpenOnDoubleClick | ImGuiTreeNodeFlags_SpanAvailWidth | ImGuiTreeNodeFlags_AllowItemOverlap;
 }
@@ -88,6 +88,17 @@ void ImWindowHierarchy::Update()
                 LayerEditor::S_AddPopUpMessage(popUpmessage);
 
             }
+            else if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("Prefab"))
+            {
+                const std::string* drop = (std::string*)payload->Data;
+
+                ModuleResourceManager::S_DeserializeFromPrefab(*drop, ModuleLayers::rootGameObject);
+
+                std::string popUpmessage = "Prefab Loaded: " + *drop;
+
+                LayerEditor::S_AddPopUpMessage(popUpmessage);
+
+            }
             ImGui::EndDragDropTarget();
         }
     }
@@ -112,6 +123,7 @@ void ImWindowHierarchy::ProcessGameObject(GameObject* gameObject, int iteration)
         return;
 
     ImGuiTreeNodeFlags node_flags = _base_flags;
+    if (gameObject->_prefabUID != 0) node_flags |= ImGuiTreeNodeFlags_Framed;
 
     GameObject* temp = LayerEditor::selectedGameObject;
 
@@ -136,7 +148,7 @@ void ImWindowHierarchy::ProcessGameObject(GameObject* gameObject, int iteration)
     if (ImGui::BeginDragDropSource())
     {
         ImGui::SetDragDropPayload("GameObject", &gameObject->_ID, sizeof(uint));
-        _draggingGameObject = gameObject;
+        LayerEditor::draggedGameObject = gameObject;
         ImGui::Text("Change game object parent");
     
         ImGui::EndDragDropSource();
@@ -148,11 +160,22 @@ void ImWindowHierarchy::ProcessGameObject(GameObject* gameObject, int iteration)
     //    ImGui::EndDragDropSource();
     //}
     if (ImGui::BeginDragDropTarget())
-    {
+    {   
         if (ImGui::AcceptDragDropPayload("GameObject"))
         {
-            ModuleCommand::S_SetParentGameObject(_draggingGameObject, gameObject);
-            _draggingGameObject = nullptr;
+            ModuleCommand::S_SetParentGameObject(LayerEditor::draggedGameObject, gameObject);
+            LayerEditor::draggedGameObject = nullptr;
+        }
+        else if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("Prefab"))
+        {
+            const std::string* drop = (std::string*)payload->Data;
+
+            ModuleResourceManager::S_DeserializeFromPrefab(*drop, gameObject);
+
+            std::string popUpmessage = "Prefab Loaded: " + *drop;
+
+            LayerEditor::S_AddPopUpMessage(popUpmessage);
+
         }
         ImGui::EndDragDropTarget();
     }
@@ -200,7 +223,9 @@ void ImWindowHierarchy::ProcessGameObject(GameObject* gameObject, int iteration)
 void ImWindowHierarchy::DrawOptions()
 {
     int selectedShape = 0;
-    std::string shapeNames[4] = { "Cube", "Sphere", "Cylinder", "Plane" };
+    int selectedUI = 0;
+    std::string shapeNames[5] = { "Cube", "Sphere", "Cylinder", "Plane", "Canvas"};
+    std::string UINames[4] = { "Button", "CheckBox", "Slider", "Image"};
 
     if (LayerEditor::selectedGameObject != nullptr)
     {
@@ -209,23 +234,53 @@ void ImWindowHierarchy::DrawOptions()
              ModuleCommand::S_DeleteGameObject(LayerEditor::selectedGameObject);
         }
     }
-    
-    if (ImGui::Selectable("Create empty GameObject"))
-    {
-        GameObject* parent = LayerEditor::selectedGameObject ? LayerEditor::selectedGameObject : ModuleLayers::rootGameObject;
-        GameObject* newGameObject = new GameObject(parent, "Empty");
-    }
 
-    //ImGui::Separator();
-    //ImGui::Text("Select Shape");
-    //ImGui::Separator();
-
-    for (int i = 0; i < 4; i++)
+    if (LayerEditor::selectedGameObject != nullptr)
     {
-        if (ImGui::Selectable(shapeNames[i].c_str()))
+        if (LayerEditor::selectedGameObject->GetTag() == "UI" || "UIsliderButton" || "UIsliderBar")
         {
-            selectedShape = i;
-            _app->renderer3D->renderManager.CreatePrimitive(LayerEditor::selectedGameObject, (PrimitiveType)i);
+            for (int i = 0; i < 4; i++)
+            {
+                if (ImGui::Selectable(UINames[i].c_str()))
+                {
+                    selectedUI = i;
+                    _app->renderer3D->renderManager.CreateUI(LayerEditor::selectedGameObject, (UIType)i);
+                }
+            }
+        }
+        else
+        {
+            if (ImGui::Selectable("Create empty GameObject"))
+            {
+                GameObject* parent = LayerEditor::selectedGameObject ? LayerEditor::selectedGameObject : ModuleLayers::rootGameObject;
+                GameObject* newGameObject = new GameObject(parent, "Empty");
+            }
+
+            for (int i = 0; i < 5; i++)
+            {
+                if (ImGui::Selectable(shapeNames[i].c_str()))
+                {
+                    selectedShape = i;
+                    _app->renderer3D->renderManager.CreatePrimitive(LayerEditor::selectedGameObject, (PrimitiveType)i);
+                }
+            }
+        }
+    }
+    else
+    {    
+        if (ImGui::Selectable("Create empty GameObject"))
+        {
+            GameObject* parent = LayerEditor::selectedGameObject ? LayerEditor::selectedGameObject : ModuleLayers::rootGameObject;
+            GameObject* newGameObject = new GameObject(parent, "Empty");
+        }
+
+        for (int i = 0; i < 5; i++)
+        {
+            if (ImGui::Selectable(shapeNames[i].c_str()))
+            {
+                selectedShape = i;
+                _app->renderer3D->renderManager.CreatePrimitive(LayerEditor::selectedGameObject, (PrimitiveType)i);
+            }
         }
     }
 }

@@ -18,6 +18,7 @@
 #include "ImWindowInspector.h"
 #include "ImWindowQuickSave.h"
 #include "ImWindowScene.h"
+#include "ImWindowUI.h"
 #include "ImWindowGame.h"
 #include "ImWindowPerformanceTest.h"
 #include "ImWindowResources.h"
@@ -30,6 +31,7 @@
 
 // Init static variables
 GameObject* LayerEditor::selectedGameObject = nullptr;
+GameObject* LayerEditor::draggedGameObject = nullptr;
 ImWindow* LayerEditor::_imWindows[(uint)ImWindowID::MAX] = {nullptr};
 std::vector<PopUpMessage> LayerEditor::_popUpMessages;
 float LayerEditor::_messageTime = 3.0f;
@@ -115,6 +117,7 @@ void LayerEditor::Start()
 		_imWindows[(uint)ImWindowID::INSPECTOR] = new ImWindowInspector();
 		_imWindows[(uint)ImWindowID::HIERARCHY] = new ImWindowHierarchy();
 		_imWindows[(uint)ImWindowID::SCENE] = new ImWindowScene();
+		_imWindows[(uint)ImWindowID::UI] = new ImWindowUI();
 		_imWindows[(uint)ImWindowID::GAME] = new ImWindowGame();
 		_imWindows[(uint)ImWindowID::PERFORMANCE] = new ImWindowPerformanceTest();
 		_imWindows[(uint)ImWindowID::RESOURCES] = new ImWindowResources();
@@ -162,6 +165,10 @@ void LayerEditor::PreUpdate()
 		ImWindowProject* projectWindow = (ImWindowProject*)_imWindows[(uint)ImWindowID::PROJECT];
 		projectWindow->UpdateFileNodes();
 	}
+
+	//Update Engine Time
+
+	EngineTime::UpdateEngineTime();
 }
 
 void LayerEditor::Update()

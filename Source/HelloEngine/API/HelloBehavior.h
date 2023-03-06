@@ -11,6 +11,9 @@ public:
 	virtual void Init() {};
 	virtual void Start() {};
 	virtual void Update() {};
+
+	// TODO: Create an API_PhysBody that can be accesed thorugh scripting and have that as an argument of OnCollision methods.
+	virtual void OnCollisionEnter() {};
 public:
 	API::API_GameObject gameObject;
 

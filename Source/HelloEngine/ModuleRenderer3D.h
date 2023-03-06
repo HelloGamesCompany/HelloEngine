@@ -3,6 +3,7 @@
 
 #include "Module.h"
 #include "RenderManager.h"
+#include "ParticleManager.h"
 
 class CameraObject;
 
@@ -29,6 +30,7 @@ public:
 	void DrawGame();
 public:
 	RenderManager renderManager;
+	ParticleManager particleManager;
 	SDL_GLContext context;
 	bool isVSync = false;
 

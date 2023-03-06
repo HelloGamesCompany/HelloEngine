@@ -1,0 +1,143 @@
+#include "Headers.h"
+#include "BillBoardComponent.h"
+#include "ModuleCamera3D.h"
+#include "GameObject.h"
+
+BillBoardComponent::BillBoardComponent(GameObject* gameObject) : Component(gameObject)
+{
+
+	_type = Type::BILLBOARD;
+	app = Application::Instance();
+
+}
+
+BillBoardComponent::~BillBoardComponent()
+{
+
+}
+
+void BillBoardComponent::OnEnable()
+{
+}
+
+void BillBoardComponent::OnDisable()
+{
+}
+
+Quat BillBoardComponent::GetBBRotation()
+{
+
+	switch (typeofBBoard)
+	{
+	case BILLBOARDTYPE::NO_ALIGN:
+
+		rotation = Quat::identity;
+		break;
+	case BILLBOARDTYPE::SCREENALIGN:
+
+		rotation = ScreenAlignBBoard();
+
+		break;
+	case BILLBOARDTYPE::WORLDALIGN:
+
+		rotation = WorldAlignBBoard();
+
+		break;
+	case BILLBOARDTYPE::AXISALIGN:
+
+		rotation = AxisAlignBBoard();
+
+		break;
+	default:
+		break;
+	}
+
+	return rotation;
+}
+
+Quat BillBoardComponent::ScreenAlignBBoard()
+{
+
+	//GET INFO ABOUT CAM AXIS
+	float3 activecamfront = app->camera->currentDrawingCamera->cameraFrustum.front;
+	//Vector UP is the same as the cam
+	float3 activecamup = app->camera->currentDrawingCamera->cameraFrustum.up;
+
+	//Z-AXIS MUST BE INVERTED 
+	zBBoardAxis = -activecamfront;
+	//Y-AXIS KEEPS THE SAME VALUE
+	yBBoardAxis = activecamup;
+
+	//COMPUTE CROSS PRODUCT IN ORDER TO GET THE REMAINING AXIS
+	xBBoardAxis = yBBoardAxis.Cross(zBBoardAxis).Normalized();
+
+	//Gather the axis into a 3x3 matrix
+	float3x3 rotBBoard;
+	rotBBoard.Set(xBBoardAxis.x, xBBoardAxis.y, xBBoardAxis.z, yBBoardAxis.x, yBBoardAxis.y, yBBoardAxis.z, zBBoardAxis.x, zBBoardAxis.y, zBBoardAxis.z);
+
+	return rotBBoard.Inverted().ToQuat();
+
+}
+
+Quat BillBoardComponent::WorldAlignBBoard()
+{
+
+	//Vector from gameobject to cam
+	zBBoardAxis = (app->camera->currentDrawingCamera->cameraFrustum.pos - GetGameObject()->transform->GetGlobalMatrix().TranslatePart()).Normalized();
+
+	//Vector UP is the same as the cam
+
+	yBBoardAxis = app->camera->currentDrawingCamera->cameraFrustum.up;
+
+	//COMPUTE CROSS PRODUCT IN ORDER TO GET THE REMAINING AXIS
+
+	xBBoardAxis = yBBoardAxis.Cross(zBBoardAxis).Normalized();
+
+	//COMPUTE Y AXIS AGAIN IN ORDER TO BE SURE THAT THE ANGLE BETWEEN Z AND Y IS 90 degrees
+
+	yBBoardAxis = zBBoardAxis.Cross(xBBoardAxis).Normalized();
+
+	//Gather the axis into a 3x3 matrix
+	float3x3 rotBBoard;
+	rotBBoard.Set(xBBoardAxis.x, xBBoardAxis.y, xBBoardAxis.z, yBBoardAxis.x, yBBoardAxis.y, yBBoardAxis.z, zBBoardAxis.x, zBBoardAxis.y, zBBoardAxis.z);
+
+	return rotBBoard.Inverted().ToQuat();
+
+}
+
+Quat BillBoardComponent::AxisAlignBBoard()
+{
+
+	//Vector from gameobject to cam
+	zBBoardAxis = (app->camera->currentDrawingCamera->cameraFrustum.pos - GetGameObject()->transform->GetGlobalMatrix().TranslatePart()).Normalized();
+
+	//Vector UP is the same as the cam
+	yBBoardAxis = { 0.0f,1.0f,0.0f };
+
+	//COMPUTE CROSS PRODUCT IN ORDER TO GET THE REMAINING AXIS
+
+	xBBoardAxis = yBBoardAxis.Cross(zBBoardAxis).Normalized();
+
+	//COMPUTE Y AXIS AGAIN IN ORDER TO BE SURE THAT THE ANGLE BETWEEN Z AND Y IS 90 degrees
+
+	yBBoardAxis = zBBoardAxis.Cross(xBBoardAxis).Normalized();
+
+	//Gather the axis into a 3x3 matrix
+	float3x3 rotBBoard = float3x3::identity;
+	rotBBoard.Set(xBBoardAxis.x, xBBoardAxis.y, xBBoardAxis.z, yBBoardAxis.x, yBBoardAxis.y, yBBoardAxis.z, zBBoardAxis.x, zBBoardAxis.y, zBBoardAxis.z);
+
+	 
+	return rotBBoard.Inverted().ToQuat();
+}
+
+void BillBoardComponent::OnEditor()
+{
+}
+
+void BillBoardComponent::Serialization(json& j)
+{
+}
+
+void BillBoardComponent::DeSerialization(json& j)
+{
+}

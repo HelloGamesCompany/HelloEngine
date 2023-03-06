@@ -21,6 +21,7 @@ enum class ImWindowID
 	ABOUT,
 	GAME,
 	SCENE,
+	UI,
 	RESOURCES,
 	MAX,
 };
@@ -79,6 +80,7 @@ private:
 
 public:
 	static GameObject* selectedGameObject;
+	static GameObject* draggedGameObject;
 
 private:
 	static ImWindow* _imWindows[(uint)ImWindowID::MAX];
@@ -109,6 +111,8 @@ private:
 	static bool _showCompilationError;
 	friend class ImWindowHierarchy;
 	friend class ComponentUI;
+	friend class ComponentUISlider;
+	friend class ComponentUIImage;
 };
 
 #endif // !__MODULE_ENGINE_H__

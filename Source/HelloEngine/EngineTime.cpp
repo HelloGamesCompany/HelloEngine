@@ -12,6 +12,12 @@ uint EngineTime::_frameCount = 0;
 double EngineTime::_gameTimeTotalTime = 0;
 float EngineTime::_timeScale = 1.0f;
 
+// Engine Time
+float EngineTime::_engineTimeDeltaTime = 0;
+uint EngineTime::_enginelastFrameTicks = 0;
+double EngineTime::_engineTimeTotalTime = 0;
+uint EngineTime::_enginestartTicks = 0;
+
 void EngineTime::Start()
 {
 	_startTicks = SDL_GetTicks();
@@ -24,6 +30,15 @@ void EngineTime::UpdateRealTime()
 	_realTimeDeltaTime = (SDL_GetTicks() - _lastFrameTicks - _startTicks) * 0.001f;
 	_lastFrameTicks = SDL_GetTicks() - _startTicks;
 	_realTimeTotalTime += _realTimeDeltaTime;
+
+}
+
+void EngineTime::UpdateEngineTime()
+{
+	// Get real time in seconds (SDL_GetTicks() returns in miliseconds)
+	_engineTimeDeltaTime = (SDL_GetTicks() - _enginelastFrameTicks - _enginestartTicks) * 0.001f;
+	_enginelastFrameTicks = SDL_GetTicks() - _enginestartTicks;
+	_engineTimeTotalTime += _engineTimeDeltaTime;
 
 }
 
@@ -43,6 +58,11 @@ float EngineTime::GameDeltaTime()
 float EngineTime::RealTimeDeltaTime()
 {
 	return _realTimeDeltaTime;
+}
+
+float EngineTime::EngineTimeDeltaTime()
+{
+	return _engineTimeDeltaTime;
 }
 
 uint EngineTime::GameFrameCount()
