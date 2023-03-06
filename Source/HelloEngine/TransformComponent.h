@@ -42,7 +42,9 @@ public:
 
     void SetTransform(float4x4& localTransformMatrix, bool ignoreRotation = false);
 
-    void SetLocalFromGlobal(float4x4& globalMatrix, bool ignoreRotation = false);
+	void SetTransform(float* matrix);
+
+	void SetLocalFromGlobal(float4x4& globalMatrix, bool ignoreRotation = false);
 
     /// <summary>
     /// Current position is transalted by the given vector
@@ -99,9 +101,12 @@ private:
 
     TransformValues tempTransform;
 
-    bool _dirtyFlag = true;
-    bool _calculateLocal = true;
+	bool _dirtyFlag = true;
+	bool _calculateLocal = true;
+	bool _ignorePhysBody = false;
 
-    friend class GameObject;
-    friend class ImWindowScene;
+	friend class GameObject;
+	friend class ImWindowScene;
+	friend class PhysBody3D;
+	friend class PhysicsComponent;
 };

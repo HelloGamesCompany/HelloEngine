@@ -2,7 +2,9 @@
 #include "Component.h"
 #include "TransformComponent.h"
 
-#define COMPONENT_NUM 5
+#define COMPONENT_NUM 6
+
+struct PhysBody3D;
 
 class GameObject
 {
@@ -82,6 +84,7 @@ public:
     void SetPrefabUID(uint prefabUID) { _prefabUID = prefabUID; }
     void SetAllChildsPrefabUID(uint prefabUID);
 
+	void OnCollisionEnter(PhysBody3D* other);
 
 
 #ifdef STANDALONE
@@ -131,9 +134,9 @@ private:
     uint _prefabUID;
     bool _updatePrefab;
 
-    // On Editor variables
-    std::string _comboValues[COMPONENT_NUM] = { "Mesh Renderer", "Material", "Camera", "Script", "UITest" };
-    bool _isPendingToDelete = false;
+	// On Editor variables
+	std::string _comboValues[COMPONENT_NUM] = { "Mesh Renderer", "Material", "Camera", "Script", "UITest", "Physics"};
+	bool _isPendingToDelete = false;
 #ifdef STANDALONE
     std::vector<int> _childrenDeletedIndex;
 #endif // STANDALONE

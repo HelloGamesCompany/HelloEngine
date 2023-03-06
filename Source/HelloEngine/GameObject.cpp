@@ -9,6 +9,8 @@
 #include "ImGuizmo/ImGuizmo.h"
 #include "ScriptComponent.h"
 #include "ComponentUI.h"
+#include "PhysicsComponent.h"
+
 
 GameObject::GameObject(GameObject* parent, std::string name, std::string tag, uint ID) : name(name), tag(tag)
 {
@@ -121,7 +123,22 @@ void GameObject::SetActive(bool active)
     }
 
 }
+
+void GameObject::OnCollisionEnter(PhysBody3D* other)
+{
+	for (int i = 0; i < _components.size(); ++i)
+	{
+		if (_components[i]->_type == Component::Type::SCRIPT)
+		{
+			// Callback to Scripting
+			ScriptComponent* script = (ScriptComponent*)_components[i];
+			script->OnCollisionEnter(other);
+		}
+	}
+}
+
 #ifdef STANDALONE
+
 void GameObject::OnEditor()
 {
     if (_isPendingToDelete) return;
@@ -161,7 +178,13 @@ void GameObject::OnEditor()
                 case 4:
                     if (!HasComponent<ComponentUI>())
                         AddComponent<ComponentUI>();
-                }
+                    break;
+                case 5:
+                    if (!HasComponent<PhysicsComponent>())
+                        AddComponent<PhysicsComponent>();
+                    break;
+                }				
+
             }
         }
         ImGui::EndCombo();
@@ -328,65 +351,74 @@ void GameObject::RemoveChild(GameObject* child)
 
 Component* GameObject::AddComponentOfType(Component::Type type)
 {
-    Component* newComponent = nullptr;
-    switch (type)
-    {
-    case Component::Type::TRANSFORM:
-        Console::S_Log("Cannot add another transform to a gameobject");
-        return transform;
-        break;
-    case Component::Type::MESH_RENDERER:
-        newComponent = new MeshRenderComponent(this);
-        _components.push_back(newComponent);
-        break;
-    case Component::Type::MATERIAL:
-        newComponent = new MaterialComponent(this);
-        _components.push_back(newComponent);
-        break;
-    case Component::Type::CAMERA:
-        newComponent = new CameraComponent(this);
-        _components.push_back(newComponent);
-        break;
-    case Component::Type::SCRIPT:
-        newComponent = new ScriptComponent(this);
-        _components.push_back(newComponent);
-        break;
-    case Component::Type::UI:
-        newComponent = new ComponentUI(this);
-        _components.push_back(newComponent);
-    }
+	Component* newComponent = nullptr;
+	switch (type)
+	{
+	case Component::Type::TRANSFORM:
+		Console::S_Log("Cannot add another transform to a gameobject");
+		return transform;
+		break;
+	case Component::Type::MESH_RENDERER:
+		newComponent = new MeshRenderComponent(this);
+		_components.push_back(newComponent);
+		break;
+	case Component::Type::MATERIAL:
+		newComponent = new MaterialComponent(this);
+		_components.push_back(newComponent);
+		break;
+	case Component::Type::CAMERA:
+		newComponent = new CameraComponent(this);
+		_components.push_back(newComponent);
+		break;
+	case Component::Type::SCRIPT:
+		newComponent = new ScriptComponent(this);
+		_components.push_back(newComponent);
+		break;
+	case Component::Type::UI:
+		newComponent = new ComponentUI(this);
+		_components.push_back(newComponent);
+		break;
+	case Component::Type::PHYSICS:
+		newComponent = new PhysicsComponent(this);
+		_components.push_back(newComponent);
+		break;
+	}
 
-    return newComponent;
+	return newComponent;
 }
 
 Component* GameObject::AddComponentOfType(Component::Type type, const Component& copy)
 {
-    Component* newComponent = nullptr;
-    switch (type)
-    {
-    case Component::Type::TRANSFORM:
-        Console::S_Log("Cannot add another transform to a gameobject");
-        return transform;
-        break;
-    case Component::Type::MESH_RENDERER:
-        newComponent = new MeshRenderComponent(this, *(MeshRenderComponent*)&copy);
-        _components.push_back(newComponent);
-        break;
-    case Component::Type::MATERIAL:
-        newComponent = new MaterialComponent(this);
-        _components.push_back(newComponent);
-        break;
-    case Component::Type::CAMERA:
-        newComponent = new CameraComponent(this);
-        _components.push_back(newComponent);
-        break;
-    case Component::Type::SCRIPT:
-        newComponent = new ScriptComponent(this);
-        _components.push_back(newComponent);
-        break;
-    }
+	Component* newComponent = nullptr;
+	switch (type)
+	{
+	case Component::Type::TRANSFORM:
+		Console::S_Log("Cannot add another transform to a gameobject");
+		return transform;
+		break;
+	case Component::Type::MESH_RENDERER:
+		newComponent = new MeshRenderComponent(this, *(MeshRenderComponent*)&copy);
+		_components.push_back(newComponent);
+		break;
+	case Component::Type::MATERIAL:
+		newComponent = new MaterialComponent(this);
+		_components.push_back(newComponent);
+		break;
+	case Component::Type::CAMERA:
+		newComponent = new CameraComponent(this);
+		_components.push_back(newComponent);
+		break;
+	case Component::Type::SCRIPT:
+		newComponent = new ScriptComponent(this);
+		_components.push_back(newComponent);
+		break;
+	case Component::Type::PHYSICS:
+		newComponent = new PhysicsComponent(this);
+		_components.push_back(newComponent);
+		break;
+	}
 
-    return newComponent;
+	return newComponent;
 }
 
 void GameObject::AddComponentSerialized(Component::Type type, json& jsonFile)

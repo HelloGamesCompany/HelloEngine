@@ -3,6 +3,7 @@
 #include "ModuleLayers.h"
 #include "LayerGame.h"
 #include "LayerEditor.h"
+#include "ModulePhysics.h"
 
 ScriptComponent::ScriptComponent(GameObject* go) : Component(go)
 {
@@ -60,6 +61,15 @@ void ScriptComponent::OnDisable()
 {
 	if (scriptUID != 0)
 		LayerGame::_behaviorScripts[scriptUID].active = false;
+}
+
+void ScriptComponent::OnCollisionEnter(PhysBody3D* other)
+{
+	HelloBehavior* script = GetScript();
+	if (script != nullptr)
+	{
+		script->OnCollisionEnter();
+	}
 }
 
 void ScriptComponent::Serialization(json& j)
