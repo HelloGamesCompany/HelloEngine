@@ -250,7 +250,7 @@ void PhysicsComponent::OnEditor()
 
 				//ImGui::SameLine();
 
-				if (ImGui::DragFloat("Line Size: ", &wireframeSize, 0.1)) {
+				if (ImGui::DragFloat("Line Size: ", &wireframeSize, 0.1f, 0.5f, 100.f)) {
 
 				}
 
@@ -258,22 +258,22 @@ void PhysicsComponent::OnEditor()
 				{
 				case ColliderShape::SPHERE:
 				{
-					if (ImGui::DragInt("Ver. Slices: ", &sphereVerSlices, 1)) {
-						if (sphereVerSlices < 3) {
+					if (ImGui::DragInt("Ver. Slices: ", &sphereVerSlices, 1, 3, MAX_VERTICAL_SLICES_SPHERE)) {
+						/*if (sphereVerSlices < 3) {
 							sphereVerSlices = 3;
 						}
 						if (sphereVerSlices > MAX_VERTICAL_SLICES_SPHERE) {
 							sphereVerSlices = MAX_VERTICAL_SLICES_SPHERE;
-						}
+						}*/
 						Application::Instance()->renderer3D->renderManager.CalculateSphereBuffer(sphereVerSlices, sphereHorSlices);
 					}
-					if (ImGui::DragInt("Hor. Slices: ", &sphereHorSlices, 1)) {
-						if (sphereHorSlices < 1) {
+					if (ImGui::DragInt("Hor. Slices: ", &sphereHorSlices, 1, 1, MAX_HORIZONTAL_SLICES_SPHERE)) {
+						/*if (sphereHorSlices < 1) {
 							sphereHorSlices = 1;
 						}
 						if (sphereHorSlices > MAX_HORIZONTAL_SLICES_SPHERE) {
 							sphereHorSlices = MAX_HORIZONTAL_SLICES_SPHERE;
-						}
+						}*/
 						Application::Instance()->renderer3D->renderManager.CalculateSphereBuffer(sphereVerSlices, sphereHorSlices);
 
 					}
@@ -281,13 +281,13 @@ void PhysicsComponent::OnEditor()
 				break;
 				case ColliderShape::CYLINDER:
 				{
-					if (ImGui::DragInt("Ver. Slices: ", &cylinderVerSlices, 1)) {
-						if (cylinderVerSlices < 3) {
+					if (ImGui::DragInt("Ver. Slices: ", &cylinderVerSlices, 1, 3, MAX_VERTICAL_SLICES_CYLINDER)) {
+					/*	if (cylinderVerSlices < 3) {
 							cylinderVerSlices = 3;
 						}
 						if (cylinderVerSlices > MAX_VERTICAL_SLICES_CYLINDER) {
 							cylinderVerSlices = MAX_VERTICAL_SLICES_CYLINDER;
-						}
+						}*/
 						Application::Instance()->renderer3D->renderManager.CalculateCylinderBuffer(cylinderVerSlices);
 					}
 				}
