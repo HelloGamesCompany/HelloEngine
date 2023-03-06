@@ -13,5 +13,10 @@ public:
 
 	//player velocity on gamepad
 	float vel = 1.0f;
+
+	void GamepadAim();
+
+private:
+	float _angle;
 };
 
