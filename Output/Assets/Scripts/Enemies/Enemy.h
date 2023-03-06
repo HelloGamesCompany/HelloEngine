@@ -8,16 +8,16 @@
 class Enemy : HelloBehavior
 {
 public:
-	void Start() override; 
-	void Update() override;
+    void Start() override;
+    void Update() override;
 
-	void TakeDamage(float damage, float resistanceDamage);
-	void Die();
+    void TakeDamage(float damage, float resistanceDamage);
+    void Die();
 
-	float maxHp = 100.0f;
-	float currentHp;
-	float maxResistance = 100.0f;
-	float currentResistance;
-	float speed = 0.0f;
+    float maxHp = 100.0f;
+    float currentHp;
+    float maxResistance = 100.0f;
+    float currentResistance;
+    float speed = 0.0f;
 };
 
