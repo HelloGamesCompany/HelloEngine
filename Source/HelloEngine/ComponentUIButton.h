@@ -26,7 +26,12 @@ private:
 	float colors[4] = { 0,0,0,0 };
 	GameObject* uiObject;
 	int textureID = -1;
+
+	MeshRenderComponent* meshRenderer = nullptr;
 	ResourceTexture* currentResource = nullptr;
+
+
+
 #ifdef STANDALONE
 	void OnEditor() override;
 
