@@ -12,6 +12,9 @@ public:
 
 	~PhysicsComponent();
 
+	void SetVelocity(float3 vec);
+	float3 GetVelocity();
+
 private:
 	void OnEditor() override;
 

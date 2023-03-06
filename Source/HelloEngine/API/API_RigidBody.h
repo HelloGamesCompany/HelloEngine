@@ -15,6 +15,9 @@ namespace API
 
 		API_GameObject GetGameObject();
 
+		void SetVelocity(API_Vector3 vec);
+		API_Vector3 GetVelocity();
+
 	private:
 		PhysicsComponent* GetComponent();
 		void SetComponent(PhysicsComponent* component);
