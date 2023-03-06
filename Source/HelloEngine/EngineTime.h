@@ -17,11 +17,14 @@ public:
 
 	static void UpdateRealTime();
 	static void UpdateGameTime();
+	static void UpdateEngineTime();
 
 	/// Get Game deltaTime in seconds.
 	static float GameDeltaTime();
 	/// Get Real Time deltaTime in seconds.
 	static float RealTimeDeltaTime();
+	/// Get Engine Time deltaTime in seconds.
+	static float EngineTimeDeltaTime();
 
 	/// Get frame count since game start.
 	static uint GameFrameCount();
@@ -49,6 +52,13 @@ private:
 	static uint _frameCount;
 	static double _gameTimeTotalTime;
 	static float _timeScale;
+
+	// Engine Time 
+	static float _engineTimeDeltaTime;
+	static uint _enginelastFrameTicks;
+	static double _engineTimeTotalTime;
+	static uint _enginestartTicks;
+
 	
 };
 

@@ -304,6 +304,7 @@
     <ClCompile Include="API\API_Vector3.cpp" />
     <ClCompile Include="API\API_Engine.cpp" />
     <ClCompile Include="Application.cpp" />
+    <ClCompile Include="BillBoardComponent.cpp" />
     <ClCompile Include="CameraComponent.cpp" />
     <ClCompile Include="CameraObject.cpp" />
     <ClCompile Include="Command.cpp" />
@@ -314,6 +315,7 @@
     <ClCompile Include="ComponentUI.cpp" />
     <ClCompile Include="ComponentUIButton.cpp" />
     <ClCompile Include="Console.cpp" />
+    <ClCompile Include="Emitter.cpp" />
     <ClCompile Include="FrameBuffer.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Globals.h">
@@ -346,6 +348,10 @@
     <ClCompile Include="MaterialComponent.cpp" />
     <ClCompile Include="MeshImporter.cpp" />
     <ClCompile Include="MeshRenderComponent.cpp" />
+    <ClCompile Include="Particle.cpp" />
+    <ClCompile Include="ParticleManager.cpp" />
+    <ClCompile Include="ParticleSystemComponent.cpp" />
+    <ClCompile Include="P_MainModule.cpp" />
     <ClCompile Include="ModulePhysics.cpp" />
     <ClCompile Include="PhysBody3D.cpp" />
     <ClCompile Include="PhysicsComponent.cpp" />
@@ -472,6 +478,7 @@
     <ClInclude Include="API\API_Vector3.h" />
     <ClInclude Include="API\API_Engine.h" />
     <ClInclude Include="Application.h" />
+    <ClInclude Include="BillBoardComponent.h" />
     <ClInclude Include="CameraComponent.h" />
     <ClInclude Include="CameraObject.h" />
     <ClInclude Include="Command.h" />
@@ -485,6 +492,7 @@
     <ClInclude Include="ComponentUIButton.h" />
     <ClInclude Include="Console.h" />
     <ClInclude Include="CycleArray.hpp" />
+    <ClInclude Include="Emitter.h" />
     <ClInclude Include="FileTree.hpp" />
     <ClInclude Include="File_Model.h" />
     <ClInclude Include="FrameBuffer.h" />
@@ -513,6 +521,10 @@
     <ClInclude Include="MemLeaks.h" />
     <ClInclude Include="MeshImporter.h" />
     <ClInclude Include="MeshRenderComponent.h" />
+    <ClInclude Include="Particle.h" />
+    <ClInclude Include="ParticleManager.h" />
+    <ClInclude Include="ParticleSystemComponent.h" />
+    <ClInclude Include="P_MainModule.h" />
     <ClInclude Include="ModulePhysics.h" />
     <ClInclude Include="PhysBody3D.h" />
     <ClInclude Include="PhysicsComponent.h" />

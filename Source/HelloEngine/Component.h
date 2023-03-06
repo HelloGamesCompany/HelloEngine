@@ -17,6 +17,8 @@ public:
 		CAMERA,
 		SCRIPT,
 		UI,
+		PARTICLE_SYSTEM,
+		BILLBOARD,
 		PHYSICS,
 		MAX
 	};

@@ -9,6 +9,8 @@
 #include "ImGuizmo/ImGuizmo.h"
 #include "ScriptComponent.h"
 #include "ComponentUI.h"
+#include "ParticleSystemComponent.h"
+#include "BillBoardComponent.h"
 #include "PhysicsComponent.h"
 
 
@@ -156,35 +158,38 @@ void GameObject::OnEditor()
         for (int n = 0; n < COMPONENT_NUM; n++)
         {
             int selectedItem = n;
-            if (ImGui::Selectable(_comboValues[n].c_str(), false))
-            {
-                switch (n)
-                {
-                case 0:
-                    if (!HasComponent<MeshRenderComponent>())
-                        AddComponent<MeshRenderComponent>();
-                    break;
-                case 1:
-                    if (!HasComponent<MaterialComponent>())
-                        AddComponent<MaterialComponent>();
-                    break;
-                case 2:
-                    if (!HasComponent<CameraComponent>())
-                        AddComponent<CameraComponent>();
-                    break;
-                case 3:
-                    AddComponent<ScriptComponent>();
-                    break;
-                case 4:
-                    if (!HasComponent<ComponentUI>())
-                        AddComponent<ComponentUI>();
-                    break;
+			if (ImGui::Selectable(_comboValues[n].c_str(), false))
+			{
+				switch (n)
+				{
+				case 0:
+					if (!HasComponent<MeshRenderComponent>())
+						AddComponent<MeshRenderComponent>();
+					break;
+				case 1:
+					if (!HasComponent<MaterialComponent>())
+						AddComponent<MaterialComponent>();
+					break;
+				case 2:
+					if (!HasComponent<CameraComponent>())
+						AddComponent<CameraComponent>();
+					break;
+				case 3:
+					AddComponent<ScriptComponent>();
+					break;
+				case 4:
+					if (!HasComponent<ComponentUI>())
+						AddComponent<ComponentUI>();
+					break;
                 case 5:
                     if (!HasComponent<PhysicsComponent>())
                         AddComponent<PhysicsComponent>();
                     break;
-                }				
-
+				case 6:
+					if (!HasComponent<ParticleSystemComponent>())
+						AddComponent<ParticleSystemComponent>();
+					break;
+				}	
             }
         }
         ImGui::EndCombo();
@@ -378,6 +383,14 @@ Component* GameObject::AddComponentOfType(Component::Type type)
 		newComponent = new ComponentUI(this);
 		_components.push_back(newComponent);
 		break;
+	case Component::Type::PARTICLE_SYSTEM:
+		newComponent = new ParticleSystemComponent(this);
+		_components.push_back(newComponent);
+		break;
+	case Component::Type::BILLBOARD:
+		newComponent = new BillBoardComponent(this);
+        _components.push_back(newComponent);
+        break;
 	case Component::Type::PHYSICS:
 		newComponent = new PhysicsComponent(this);
 		_components.push_back(newComponent);
@@ -412,6 +425,13 @@ Component* GameObject::AddComponentOfType(Component::Type type, const Component&
 		newComponent = new ScriptComponent(this);
 		_components.push_back(newComponent);
 		break;
+	case Component::Type::PARTICLE_SYSTEM:
+		newComponent = new ParticleSystemComponent(this);
+		_components.push_back(newComponent);
+		break;
+	case Component::Type::BILLBOARD:
+		newComponent = new BillBoardComponent(this);
+        break;
 	case Component::Type::PHYSICS:
 		newComponent = new PhysicsComponent(this);
 		_components.push_back(newComponent);
