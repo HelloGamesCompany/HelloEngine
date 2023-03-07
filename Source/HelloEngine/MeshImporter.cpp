@@ -39,7 +39,7 @@ std::string MeshImporter::ImportModel(std::string path, uint UID)
 
 	if (scene->HasAnimations()) {
 		std::string pathRes = ProcessAnimation(scene); //binary
-		std::string assetPath = ModuleFiles::S_GetFilePath(path);
+		/*std::string assetPath = ModuleFiles::S_GetFilePath(path);
 		assetPath += scene->mAnimations[0]->mName.C_Str();
 		assetPath += ".anim";
 
@@ -48,7 +48,7 @@ std::string MeshImporter::ImportModel(std::string path, uint UID)
 		ModuleFiles::S_Save(assetPath, &buffer, sizeof(char), false);
 
 		//Save
-		ModuleFiles::S_CreateMetaData(assetPath, pathRes);
+		ModuleFiles::S_CreateMetaData(assetPath, pathRes);*/
 	}
 
 	currentPath = "";
@@ -304,8 +304,8 @@ std::string MeshImporter::ProcessAnimation(const aiScene* scene)
 		anim.bones.push_back(bone);
 	}
 
-	//RELEASE(anim);
-	//return anim.SaveToBinaryFile();
+	return "";
+	return anim.SaveToBinaryFile();
 }
 
 void MeshImporter::SetVertexBoneData(Vertex& vertex, int boneId, float weight)
