@@ -18,6 +18,8 @@
 #endif
 
 class ScriptComponent;
+class AnimationComponent;
+
 
 struct BehaviorScript
 {

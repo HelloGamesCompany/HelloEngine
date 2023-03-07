@@ -95,7 +95,7 @@ void AnimationComponent::PlayAnimation()
 	LayerGame::S_AddAnimationComponent(this);
 
 	animStartPlayTime = EngineTime::EngineTimeDeltaTime() * 1000;
-	animEndPlayTime = animStartPlayTime + (_resource->animation.durationTicks * _resource->animation.bones[0].keyframes.size());
+	//animEndPlayTime = animStartPlayTime + (_resource->animation.durationTicks * _resource->animation.bones[0].keyframes.size());
 	currentTime = animStartPlayTime;
 
 }
