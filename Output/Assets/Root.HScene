@@ -125,12 +125,12 @@
             },
             {
                 "Enabled": true,
-                "MaterialResource": 0,
+                "MaterialResource": 3183721300,
                 "State": 0,
                 "Type": 12,
-                "hoverImage": 0,
-                "idleImage": 0,
-                "pressImage": 0
+                "hoverImage": 1400576420,
+                "idleImage": 3183721300,
+                "pressImage": 2294469981
             }
         ],
         "FirstOnPrefab": true,
@@ -138,6 +138,6 @@
         "ParentUID": 3742638858,
         "PrefabUID": 0,
         "Tag": "UI",
-        "UID": 637758965
+        "UID": 2926074052
     }
 ]
