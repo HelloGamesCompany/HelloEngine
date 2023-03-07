@@ -92,6 +92,11 @@ bool ModuleWindow::Init()
 		}
 	}
 
+#ifndef STANDALONE
+	S_SetTitle("Project Wastelanders - Vertical Slice 1");
+	SDL_SetWindowFullscreen(window, SDL_WINDOW_FULLSCREEN_DESKTOP);
+#endif // !STANDALONE
+
 	S_SetTitle("Hello Engine");
 
 	return ret;
