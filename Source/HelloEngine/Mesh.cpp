@@ -64,7 +64,7 @@ void Mesh::Draw(bool useBasicShader)
 
 			SkinnedMeshRenderComponent* aux = (SkinnedMeshRenderComponent*) component;
 
-			if (aux->goBonesArr.size() != 0) aux->UpdateBones();
+			//if (aux->goBonesArr.size() != 0) aux->UpdateBones();
 
 			for (int i = 0; i < aux->goBonesArr.size(); ++i)
 			{

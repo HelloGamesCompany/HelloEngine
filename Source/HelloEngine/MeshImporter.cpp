@@ -286,7 +286,7 @@ std::string MeshImporter::ProcessAnimation(const aiScene* scene)
 		for (int p = 1; p < impBone->mNumPositionKeys; p++) {
 			aiVector3D pos = impBone->mPositionKeys[p].mValue;
 
-			bone.keyframes[(int)impBone->mPositionKeys[p].mTime].SetTranslatePart(float3(pos.x, pos.y, pos.z));
+ 			bone.keyframes[(int)impBone->mPositionKeys[p].mTime].SetTranslatePart(float3(pos.x, pos.y, pos.z));
 		}
 
 		for (int r = 1; r < impBone->mNumRotationKeys; r++) {
