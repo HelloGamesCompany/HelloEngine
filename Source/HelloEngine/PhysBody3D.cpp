@@ -11,6 +11,11 @@ PhysBody3D::PhysBody3D(btRigidBody* body)
 	this->body = body;
 	isRenderingCol = false;
 	colShape = ColliderShape::NONE;
+
+	isStatic = false;
+	isKinematic = false;
+	isTrigger = false;
+
 }
 
 PhysBody3D::~PhysBody3D()
@@ -50,9 +55,23 @@ void PhysBody3D::SetPos(float x, float y, float z)
 	if (!body)
 		return;
 
+	/*if (isKinematic == true) {
+		btTransform t = body->getWorldTransform();
+		t.setOrigin(btVector3(x, y, z));
+		body->getMotionState()->setWorldTransform(t);
+	}
+	else {*/
 	btTransform t = body->getWorldTransform();
 	t.setOrigin(btVector3(x, y, z));
 	body->setWorldTransform(t);
+	if (isKinematic == true) {
+		body->getMotionState()->setWorldTransform(t);
+	}
+	
+
+	//}
+
+	
 }
 
 void PhysBody3D::SetRotation(float x, float y, float z)
@@ -79,6 +98,14 @@ void PhysBody3D::SetScale(float x, float y, float z)
 {
 	btCollisionShape* shape = body->getCollisionShape();
 	shape->setLocalScaling({ x, y, z });
+	if (isStatic == false && isKinematic == false) {
+		SetMass();
+	}
+}
+
+void PhysBody3D::SetMass()
+{
+	btCollisionShape* shape = body->getCollisionShape();
 	btVector3 inertia;
 	shape->calculateLocalInertia(mass, inertia);
 	body->setMassProps(mass, inertia);

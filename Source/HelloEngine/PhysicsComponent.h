@@ -53,10 +53,6 @@ private:
 	bool isShapeSelected[3];
 	bool isShapeCreated[3];
 
-	bool isStatic;
-	bool isKinematic;
-	bool isTrigger;
-
 public:
 	float sphereRadius;
 	float2 cylRadiusHeight;

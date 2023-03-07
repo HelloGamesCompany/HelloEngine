@@ -174,7 +174,7 @@
             {
                 "Active camera": true,
                 "Active culling": false,
-                "Aspect ratio": 0.7729007601737976,
+                "Aspect ratio": 0.6639344096183777,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -389,9 +389,9 @@
             {
                 "Enabled": true,
                 "Position": [
-                    1.1825798749923706,
-                    39.46493148803711,
-                    -33.06703186035156
+                    -3.0373635292053223,
+                    18.27899932861328,
+                    -33.42764663696289
                 ],
                 "Rotation": [
                     -0.0,
@@ -417,8 +417,8 @@
             },
             {
                 "ColPosition": [
-                    0.0,
-                    0.0,
+                    0.30000001192092896,
+                    9.100000381469727,
                     0.0
                 ],
                 "ColRotation": [
@@ -427,9 +427,9 @@
                     0.0
                 ],
                 "ColScale": [
-                    1.0,
-                    1.0,
-                    1.0
+                    5.0,
+                    5.0,
+                    5.0
                 ],
                 "CylinderRadiusHeight": [
                     1.0,
@@ -451,7 +451,7 @@
                 ],
                 "IsStatic": false,
                 "IsTrigger": false,
-                "Mass": 100.0,
+                "Mass": 1.3600000143051147,
                 "ShapeSelected": 0,
                 "SphereRadius": 1.0,
                 "Type": 8
@@ -470,8 +470,8 @@
             {
                 "Enabled": true,
                 "Position": [
-                    0.8010830879211426,
-                    0.0,
+                    -3.3989999294281006,
+                    -5.099999904632568,
                     -34.59147262573242
                 ],
                 "Rotation": [
@@ -498,19 +498,19 @@
             },
             {
                 "ColPosition": [
-                    0.0,
-                    0.0,
+                    1.0,
+                    -3.0999999046325684,
                     0.0
                 ],
                 "ColRotation": [
                     0.0,
-                    9.399999618530273,
+                    0.0,
                     0.0
                 ],
                 "ColScale": [
-                    17.399999618530273,
-                    6.400000095367432,
-                    23.0
+                    21.600000381469727,
+                    29.600000381469727,
+                    19.200000762939453
                 ],
                 "CylinderRadiusHeight": [
                     1.0,
@@ -518,7 +518,7 @@
                 ],
                 "Enabled": true,
                 "HasPhysBody": true,
-                "IsKinematic": false,
+                "IsKinematic": true,
                 "IsRenderingCol": true,
                 "IsShapeCreated": [
                     true,
@@ -530,9 +530,9 @@
                     false,
                     false
                 ],
-                "IsStatic": true,
-                "IsTrigger": true,
-                "Mass": 5.0,
+                "IsStatic": false,
+                "IsTrigger": false,
+                "Mass": 0.0,
                 "ShapeSelected": 0,
                 "SphereRadius": 1.0,
                 "Type": 8

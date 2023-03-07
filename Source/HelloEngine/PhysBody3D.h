@@ -19,6 +19,7 @@ public:
 	void SetPos(float x, float y, float z);
 	void SetRotation(float x, float y, float z);
 	void SetScale(float x, float y, float z);
+	void SetMass();
 	float3 GetPos();
 	float3 GetRotation();
 	float3 GetVelocity();
@@ -34,6 +35,10 @@ public:
 	bool isRenderingCol;
 	uint gameObjectUID = 0;
 	float mass = 0;
+
+	bool isStatic;
+	bool isKinematic;
+	bool isTrigger;
 
 	float3 colPos = { 0,0,0 };
 	float3 colRot = { 0,0,0 };
