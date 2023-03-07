@@ -44,6 +44,8 @@ private:
 
 	void OnTransformCallback(float4x4 worldMatrix);
 
+	
+
 private:
 
 	PhysBody3D* physBody = nullptr;
@@ -54,8 +56,12 @@ private:
 	bool isShapeCreated[3];
 
 	float gravity[3];
+	
 
 public:
+	float localGlobalGravity[3];
+	float globalGravity[3];
+
 	float sphereRadius;
 	float2 cylRadiusHeight;
 	float renderColColor[4];

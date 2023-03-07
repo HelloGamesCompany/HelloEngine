@@ -39,6 +39,14 @@ PhysicsComponent::PhysicsComponent(GameObject* gameObject) : Component(gameObjec
 	gravity[0] = { 0 };
 	gravity[1] = { -9.8 };
 	gravity[2] = { 0 };
+
+	globalGravity[0] = { 0 };
+	globalGravity[1] = { -9.8 };
+	globalGravity[2] = { 0 };
+
+	localGlobalGravity[0] = { 0 };
+	localGlobalGravity[1] = { -9.8 };
+	localGlobalGravity[2] = { 0 };
 }
 
 PhysicsComponent::~PhysicsComponent()
@@ -82,6 +90,9 @@ void PhysicsComponent::Serialization(json& j)
 	_j["IsShapeSelected"] = { isShapeSelected[0], isShapeSelected[1], isShapeSelected[2] };
 	_j["IsShapeCreated"] = { isShapeCreated[0], isShapeCreated[1], isShapeCreated[2] };
 
+	float3 getGrav = Application::Instance()->physic->GetGlobalGravity();
+	_j["GlobalGravity"] = { getGrav[0], getGrav[1], getGrav[2] };
+
 	if (physBody != nullptr)
 	{
 		_j["Mass"] = physBody->mass;
@@ -95,6 +106,7 @@ void PhysicsComponent::Serialization(json& j)
 		_j["IsTrigger"] = physBody->isTrigger;
 
 		_j["Gravity"] = { gravity[0], gravity[1], gravity[2] };
+		
 	}
 	else
 	{
@@ -139,6 +151,17 @@ void PhysicsComponent::DeSerialization(json& j)
 	std::vector<float> cylRadiusHeightTemp = j["CylinderRadiusHeight"];
 	cylRadiusHeight = { cylRadiusHeightTemp[0], cylRadiusHeightTemp[1] };
 
+	std::vector<float> newGrav = j["GlobalGravity"];
+	ModulePhysics::SetGlobalGravityAtFirst(float3(newGrav[0], newGrav[1], newGrav[2]));
+
+	globalGravity[0] = newGrav[0];
+	globalGravity[1] = newGrav[1];
+	globalGravity[2] = newGrav[2];
+
+	localGlobalGravity[0] = newGrav[0];
+	localGlobalGravity[1] = newGrav[1];
+	localGlobalGravity[2] = newGrav[2];
+
 	if (j["HasPhysBody"] == true)
 	{
 		temporalMass = j["Mass"];
@@ -150,7 +173,10 @@ void PhysicsComponent::DeSerialization(json& j)
 		physBody->isTrigger = j["IsTrigger"];
 
 		std::vector<float> newGrav = j["Gravity"];
-		physBody->SetGravity(float3(newGrav[0], newGrav[1], newGrav[2]));
+		gravity[0] = newGrav[0];
+		gravity[1] = newGrav[1];
+		gravity[2] = newGrav[2];
+		physBody->SetGravity(float3(gravity[0], gravity[1], gravity[2]));
 		
 		physBody->isRenderingCol = j["IsRenderingCol"];
 		std::vector<float> colPosTemp = j["ColPosition"];
@@ -178,6 +204,16 @@ void PhysicsComponent::OnEditor()
 	bool created = true;
 	if (ImGui::CollapsingHeader("Physics", &created, ImGuiTreeNodeFlags_DefaultOpen))
 	{
+		if (ImGui::DragFloat3("Global Gravity", localGlobalGravity, 0.01)) {
+			
+			if ((localGlobalGravity[0] != globalGravity[0]) || (localGlobalGravity[1] != globalGravity[1]) || (localGlobalGravity[2] != globalGravity[2])) {
+				//if (ImGui::Button("Apply")) {
+					Application::Instance()->physic->PrepareNewGravityAtLast(float3(localGlobalGravity[0], localGlobalGravity[1], localGlobalGravity[2]));
+				//}
+
+			}
+		}
+		
 		
 
 		if (ImGui::DragFloat("Mass: ", &temporalMass, 0.01, 0, 99999.999)) {
@@ -260,7 +296,7 @@ void PhysicsComponent::OnEditor()
 				}
 			}
 
-			if (ImGui::DragFloat3("Gravity", gravity)) {
+			if (ImGui::DragFloat3("Gravity", gravity, 0.01)) {
 				if (physBody != nullptr) {
 					physBody->SetGravity(float3(gravity[0], gravity[1], gravity[2]));
 				}

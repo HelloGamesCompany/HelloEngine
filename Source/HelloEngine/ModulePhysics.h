@@ -49,6 +49,16 @@ public:
 	//TODO: this is temporaly here
 	static std::vector <PhysBody3D*> physBodies;
 
+	static void SetGlobalGravity(float3 grav);
+	static void SetGlobalGravityAtFirst(float3 grav);
+
+	float3 GetGlobalGravity();
+	bool hasToChangeGravity;
+	float3 gravityToChange;
+
+	void PrepareNewGravityAtLast(float3 grav);
+	void SetNewGravityAtLast();
+
 private:
 
 	btDefaultCollisionConfiguration* collision_conf = nullptr;

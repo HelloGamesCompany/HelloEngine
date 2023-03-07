@@ -174,7 +174,7 @@
             {
                 "Active camera": true,
                 "Active culling": false,
-                "Aspect ratio": 0.6639344096183777,
+                "Aspect ratio": 0.6542810797691345,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -436,9 +436,14 @@
                     1.0
                 ],
                 "Enabled": true,
+                "GlobalGravity": [
+                    0.0,
+                    -5.800000190734863,
+                    0.0
+                ],
                 "Gravity": [
                     0.0,
-                    -9.800000190734863,
+                    -15.920000076293945,
                     0.0
                 ],
                 "HasPhysBody": true,
@@ -456,7 +461,7 @@
                 ],
                 "IsStatic": false,
                 "IsTrigger": false,
-                "Mass": 1.3600000143051147,
+                "Mass": 15.920000076293945,
                 "ShapeSelected": 0,
                 "SphereRadius": 1.0,
                 "Type": 8
@@ -522,6 +527,11 @@
                     1.0
                 ],
                 "Enabled": true,
+                "GlobalGravity": [
+                    0.0,
+                    -5.800000190734863,
+                    0.0
+                ],
                 "Gravity": [
                     0.0,
                     -9.800000190734863,
@@ -542,7 +552,7 @@
                 ],
                 "IsStatic": true,
                 "IsTrigger": false,
-                "Mass": 0.0,
+                "Mass": 1.2200000286102295,
                 "ShapeSelected": 0,
                 "SphereRadius": 1.0,
                 "Type": 8
