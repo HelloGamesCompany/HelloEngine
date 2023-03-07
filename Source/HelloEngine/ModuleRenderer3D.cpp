@@ -79,6 +79,7 @@ bool ModuleRenderer3D::Init()
 	renderManager.Init();
 
 	// Projection matrix for
+	
 	OnResize(ModuleWindow::width, ModuleWindow::height);
 
 	return ret;

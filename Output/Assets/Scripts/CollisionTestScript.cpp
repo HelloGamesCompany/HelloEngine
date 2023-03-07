@@ -9,6 +9,7 @@ HELLO_ENGINE_API_C CollisionTestScript* CreateCollisionTestScript(ScriptToInspec
 void CollisionTestScript::Start()
 {
 	this->camera.SetAsActiveCamera();
+
 }
 void CollisionTestScript::Update()
 {

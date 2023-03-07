@@ -130,10 +130,12 @@ Quat BillBoardComponent::AxisAlignBBoard()
 	return rotBBoard.Inverted().ToQuat();
 }
 
+#ifdef STANDALONE
+
 void BillBoardComponent::OnEditor()
 {
 }
-
+#endif
 void BillBoardComponent::Serialization(json& j)
 {
 }
@@ -141,3 +143,4 @@ void BillBoardComponent::Serialization(json& j)
 void BillBoardComponent::DeSerialization(json& j)
 {
 }
+

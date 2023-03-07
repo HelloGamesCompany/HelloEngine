@@ -3,7 +3,9 @@
 #include "ModuleLayers.h"
 #include "API/API_Transform.h"
 #include "API/API_MeshRenderer.h"
+#include "API/API_Camera.h"
 #include "MeshRenderComponent.h"
+#include "CameraComponent.h"
 
 void DragFieldFloat::OnEditor()
 {
@@ -308,4 +310,79 @@ void DragBoxMeshRenderer::OnDeserialize(json& j)
 ScriptInspectorField::ScriptInspectorField()
 {
 	UID = HelloUUID::GenerateUUID();
+}
+
+void DragBoxCamera::OnEditor()
+{
+	API::API_Camera* camera = (API::API_Camera*)value;
+
+	std::string buttonName = "X##" + std::to_string(UID);
+	if (ImGui::Button(buttonName.c_str()))
+	{
+		camera->SetComponent(nullptr);
+	}
+	ImGui::SameLine();
+
+	ImGui::TextWrapped((valueName + ": ").c_str()); ImGui::SameLine();
+
+	if (camera->_camera == nullptr)
+	{
+		ImGui::TextColored(ImVec4(1, 1, 0, 1), "NULL (Drag a CameraComponent here)");
+	}
+	else
+	{
+		std::string gameObjectName(camera->GetGameObject().GetName());
+		std::string text = "(" + gameObjectName + ")" + ": CameraComponent";
+		ImGui::TextColored(ImVec4(1, 1, 0, 1), text.c_str());
+	}
+
+	if (ImGui::BeginDragDropTarget())
+	{
+		if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("GameObject"))
+		{
+			const uint* drop = (uint*)payload->Data;
+
+			GameObject* droppedGO = ModuleLayers::S_GetGameObject(*drop);
+			CameraComponent* component = nullptr;
+
+			if (droppedGO != nullptr)
+				component = droppedGO->GetComponent<CameraComponent>();
+
+			camera->SetComponent(component);
+		}
+		ImGui::EndDragDropTarget();
+	}
+}
+
+void DragBoxCamera::OnSerialize(json& j)
+{
+	json _j;
+
+	API::API_Camera* camera = (API::API_Camera*)value;
+
+	if (camera->_camera != nullptr)
+	{
+		_j[valueName.c_str()] = camera->_camera->GetGameObject()->GetID();
+		j.push_back(_j);
+	}
+}
+
+void DragBoxCamera::OnDeserialize(json& j)
+{
+	for (int i = 0; i < j.size(); i++)
+	{
+		if (j[i].find(valueName) != j[i].end())
+		{
+			uint id = j[i][valueName.c_str()];
+			GameObject* gameObject = ModuleLayers::S_GetGameObject(id);
+			CameraComponent* component = nullptr;
+			if (gameObject != nullptr)
+				component = gameObject->GetComponent<CameraComponent>();
+			if (component != nullptr)
+			{
+				API::API_Camera* camera = (API::API_Camera*)value;
+				camera->SetComponent(component);
+			}
+		}
+	}
 }

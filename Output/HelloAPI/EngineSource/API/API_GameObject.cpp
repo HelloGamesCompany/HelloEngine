@@ -9,18 +9,14 @@
 
 API::API_GameObject::API_GameObject()
 {
-	ModuleLayers::apiGameObjects.push_back(this);
+
 }
 
 API::API_GameObject::~API_GameObject()
 {
-	for (int i = 0; i < ModuleLayers::apiGameObjects.size(); ++i)
+	if (_gameObject != nullptr)
 	{
-		if (ModuleLayers::apiGameObjects[i] == this)
-		{
-			ModuleLayers::apiGameObjects.erase(ModuleLayers::apiGameObjects.begin() + i);
-			break;
-		}
+		ModuleLayers::apiGameObjects.erase(_gameObject->GetID());
 	}
 }
 
@@ -152,4 +148,6 @@ API::API_Transform API::API_GameObject::GetTransform()
 void API::API_GameObject::SetGameObject(GameObject* gameObject)
 {
 	_gameObject = gameObject;
+	if (_gameObject != nullptr)
+		ModuleLayers::apiGameObjects[gameObject->GetID()] = this;
 }

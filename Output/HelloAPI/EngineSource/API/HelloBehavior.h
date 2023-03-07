@@ -1,6 +1,7 @@
 #pragma once
 #include "Globals.h"
 #include "API/API_GameObject.h"
+#include "API/API_RigidBody.h"
 
 class TO_API HelloBehavior
 {
@@ -11,6 +12,9 @@ public:
 	virtual void Init() {};
 	virtual void Start() {};
 	virtual void Update() {};
+
+	// TODO: Create an API_PhysBody that can be accesed thorugh scripting and have that as an argument of OnCollision methods.
+	virtual void OnCollisionEnter(API::API_RigidBody other) {};
 public:
 	API::API_GameObject gameObject;
 

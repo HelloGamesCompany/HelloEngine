@@ -8,6 +8,7 @@
 #include "ModuleLayers.h"
 #include "CameraComponent.h"
 #include "SceneCameraObject.h"
+#include "ModuleRenderer3D.h"
 
 ModuleCamera3D::ModuleCamera3D(bool start_enabled) : Module(start_enabled)
 {
@@ -74,6 +75,11 @@ void ModuleCamera3D::SetCurrentActiveGameCamera(CameraObject* target)
 	activeGameCamera = target;
 
 	target->currentlyDisplaying = true;
+
+#ifndef STANDALONE
+	Application::Instance()->renderer3D->OnResize(ModuleWindow::width, ModuleWindow::height);
+#endif // !STANDALONE
+
 }
 
 void ModuleCamera3D::EraseGameCamera(CameraObject* erasedCamera)

@@ -181,11 +181,7 @@
             },
             {
                 "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "camera": 2736385152
-                    }
-                ],
+                "Inspector Fields": null,
                 "Script Resource": 311365708,
                 "Type": 5
             }

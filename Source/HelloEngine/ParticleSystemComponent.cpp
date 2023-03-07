@@ -97,6 +97,8 @@ void ParticleSystemComponent::DestroyEmitterMesh()
 	ParticleEmitter._meshID = -1;
 }
 
+#ifdef STANDALONE
+
 void ParticleSystemComponent::OnEditor()
 {
 
@@ -164,6 +166,7 @@ void ParticleSystemComponent::MarkAsAlive()
 {
 	CreateEmitterMesh(_resourceUID);
 }
+#endif
 
 void ParticleSystemComponent::Serialization(json& j)
 {

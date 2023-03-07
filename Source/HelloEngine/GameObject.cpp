@@ -209,16 +209,6 @@ void GameObject::OnEditor()
     }
 }
 
-void GameObject::SetAllChildsPrefabUID(uint prefabUID)
-{
-    for (auto& go : _children)
-    {
-        go->SetPrefabUID(prefabUID);
-        go->SetAllChildsPrefabUID(prefabUID);
-    }
-}
-
-
 bool GameObject::MarkAsDead()
 {
     if (!_isPendingToDelete)
@@ -272,6 +262,15 @@ bool GameObject::MarkAsAlive()
     return false;
 }
 #endif // STANDALONE
+
+void GameObject::SetAllChildsPrefabUID(uint prefabUID)
+{
+    for (auto& go : _children)
+    {
+        go->SetPrefabUID(prefabUID);
+        go->SetAllChildsPrefabUID(prefabUID);
+    }
+}
 
 void GameObject::Destroy()
 {
