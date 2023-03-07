@@ -125,9 +125,12 @@
             },
             {
                 "Enabled": true,
-                "MaterialResource": 1400576420,
+                "MaterialResource": 0,
                 "State": 0,
-                "Type": 12
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
             }
         ],
         "FirstOnPrefab": true,

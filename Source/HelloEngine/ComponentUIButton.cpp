@@ -67,15 +67,24 @@ void ComponentUIButton::DeSerialization(json& j)
 
 	uint savedUIDIdle = j["idleImage"];
 	idleButton = savedUIDIdle == 0 ? nullptr : (ResourceTexture*)ModuleResourceManager::S_LoadResource(j["idleImage"]);
-	textureIDIdle = idleButton->OpenGLID;
+	if (idleButton != nullptr)
+		textureIDIdle = idleButton->OpenGLID;
+	else
+		textureIDIdle = -1;
 
 	uint savedUIDHover = j["hoverImage"];
 	hoverButton = savedUIDHover == 0 ? nullptr : (ResourceTexture*)ModuleResourceManager::S_LoadResource(j["hoverImage"]);
-	textureIDHover = hoverButton->OpenGLID;
+	if (hoverButton != nullptr)
+		textureIDHover = hoverButton->OpenGLID;
+	else
+		textureIDHover = -1;
 
 	uint savedUIDPress = j["pressImage"];
 	pressButton = savedUIDPress == 0 ? nullptr : (ResourceTexture*)ModuleResourceManager::S_LoadResource(j["pressImage"]);
-	textureIDPress = pressButton->OpenGLID;
+	if (pressButton != nullptr)
+		textureIDPress = pressButton->OpenGLID;
+	else
+		textureIDPress = -1;
 
 	State = j["State"];
 
