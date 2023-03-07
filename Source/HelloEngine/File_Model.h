@@ -445,8 +445,8 @@ public:
 				//Position
 			std::vector<float> posKey;
 			std::vector<float3> posVal;
-			posKey.resize(bones[i].positions.size());
-			posVal.resize(bones[i].positions.size());
+			posKey.reserve(bones[i].positions.size());
+			posVal.reserve(bones[i].positions.size());
 			for (std::map<float, float3>::iterator it = bones[i].positions.begin(); it != bones[i].positions.end(); it++)
 			{
 				posKey.push_back(it->first);
@@ -460,8 +460,8 @@ public:
 				//Rotation
 			std::vector<float> rotKey;
 			std::vector<Quat> rotVal;
-			rotKey.resize(bones[i].rotations.size());
-			rotVal.resize(bones[i].rotations.size());
+			rotKey.reserve(bones[i].rotations.size());
+			rotVal.reserve(bones[i].rotations.size());
 			for (std::map<float, Quat>::iterator it = bones[i].rotations.begin(); it != bones[i].rotations.end(); it++)
 			{
 				rotKey.push_back(it->first);
@@ -475,8 +475,8 @@ public:
 				//Scale
 			std::vector<float> scaKey;
 			std::vector<float3> scaVal;
-			scaKey.resize(bones[i].scales.size());
-			scaVal.resize(bones[i].scales.size());
+			scaKey.reserve(bones[i].scales.size());
+			scaVal.reserve(bones[i].scales.size());
 			for (std::map<float, float3>::iterator it = bones[i].scales.begin(); it != bones[i].scales.end(); it++)
 			{
 				scaKey.push_back(it->first);
@@ -514,15 +514,8 @@ public:
 		memcpy(header, cursor, headerSize);
 		cursor += headerSize;
 
-		//Load durationTicks
-		uint durationTicksSize = header[0] * sizeof(uint);
-		memcpy(&durationTicks, cursor, durationTicksSize);
-		cursor += durationTicksSize;
-
-		//Load ticksPerSecond
-		uint ticksPerSecondSize = header[1] * sizeof(uint);
-		memcpy(&ticksPerSecond, cursor, ticksPerSecondSize);
-		cursor += ticksPerSecondSize;
+		durationTicks = header[0];
+		ticksPerSecond = header[1];
 
 		//Load boneNamesString
 		uint boneNamesStringSize = header[3] * sizeof(char);
@@ -531,7 +524,7 @@ public:
 		cursor += boneNamesStringSize;
 
 		//Load numBones
-		bones.resize(header[2]);
+		bones.reserve(header[2]);
 
 		//Initialize bones with names
 		std::stringstream ss(boneNamesString);
@@ -553,34 +546,48 @@ public:
 				//Position
 			std::vector<float> posKey;
 			std::vector<float3> posVal;
-			posKey.resize(header[0]);
-			posVal.resize(header[0]);
-			memcpy(&posKey[0], cursor, header[0] * sizeof(float));
-			cursor += header[0] * sizeof(float);
-			memcpy(&posVal[0], cursor, header[0] * sizeof(float3));
-			cursor += header[0] * sizeof(float3);
+			posKey.resize(boneHeader[0]);
+			posVal.resize(boneHeader[0]);
+			memcpy(&posKey[0], cursor, boneHeader[0] * sizeof(float));
+			cursor += boneHeader[0] * sizeof(float);
+			memcpy(&posVal[0], cursor, boneHeader[0] * sizeof(float3));
+			cursor += boneHeader[0] * sizeof(float3);
 
 				//Rotation
 			std::vector<float> rotKey;
 			std::vector<Quat> rotVal;
-			rotKey.resize(header[1]);
-			rotVal.resize(header[1]);
-			memcpy(&rotKey[0], cursor, header[1] * sizeof(float));
-			cursor += header[1] * sizeof(float);
-			memcpy(&rotVal[0], cursor, header[1] * sizeof(Quat));
-			cursor += header[1] * sizeof(Quat);
+			rotKey.resize(boneHeader[1]);
+			rotVal.resize(boneHeader[1]);
+			memcpy(&rotKey[0], cursor, boneHeader[1] * sizeof(float));
+			cursor += boneHeader[1] * sizeof(float);
+			memcpy(&rotVal[0], cursor, boneHeader[1] * sizeof(Quat));
+			cursor += boneHeader[1] * sizeof(Quat);
 
 				//Scale
 			std::vector<float> scaKey;
 			std::vector<float3> scaVal;
-			scaKey.resize(header[2]);
-			scaVal.resize(header[2]);
-			memcpy(&scaKey[0], cursor, header[2] * sizeof(float));
-			cursor += header[2] * sizeof(float);
-			memcpy(&scaVal[0], cursor, header[2] * sizeof(float3));
-			cursor += header[2] * sizeof(float3);
+			scaKey.resize(boneHeader[2]);
+			scaVal.resize(boneHeader[2]);
+			memcpy(&scaKey[0], cursor, boneHeader[2] * sizeof(float));
+			cursor += boneHeader[2] * sizeof(float);
+			memcpy(&scaVal[0], cursor, boneHeader[2] * sizeof(float3));
+			cursor += boneHeader[2] * sizeof(float3);
 
-			//BUILD MAP WITH THIS VECTORS
+			//Build Maps
+			for (int k = 0; k < posKey.size(); ++k)
+			{
+				bones[i].positions[posKey[k]] = posVal[k];
+			}
+
+			for (int k = 0; k < rotKey.size(); ++k)
+			{
+				bones[i].rotations[rotKey[k]] = rotVal[k];
+			}
+
+			for (int k = 0; k < scaKey.size(); ++k)
+			{
+				bones[i].scales[scaKey[k]] = scaVal[k];
+			}
 		}
 
 
