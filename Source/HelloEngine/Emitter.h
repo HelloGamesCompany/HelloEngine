@@ -26,9 +26,12 @@ public:
 
 	void SetParticlePoolSize(uint size);
 
+	void ResetEmitter();
+
 public:
 
 	int64_t _meshID = -1;
+	bool loop;
 
 private:
 	//Position Emitter

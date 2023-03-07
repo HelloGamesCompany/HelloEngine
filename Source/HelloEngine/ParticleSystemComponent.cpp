@@ -145,6 +145,14 @@ void ParticleSystemComponent::OnEditor()
 		{
 			playOnScene = false;
 		}
+		ImGui::SameLine();
+		if (ImGui::Button("Stop"))
+		{
+			playOnScene = false;
+			if (!LayerGame::S_IsPlaying()) {
+				ParticleEmitter.ResetEmitter();
+			}
+		}
 
 		if (ParticleEmitter._meshID == -1)
 		{
