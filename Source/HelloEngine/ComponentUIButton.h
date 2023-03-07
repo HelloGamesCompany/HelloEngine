@@ -29,7 +29,6 @@ private:
 	int textureIDIdle = -1;
 	int textureIDHover = -1;
 	int textureIDPress = -1;
-	int textureIDHold = -1;
 
 	MeshRenderComponent* meshRenderer = nullptr;
 	ResourceTexture* currentResource = nullptr;
@@ -37,7 +36,6 @@ private:
 	ResourceTexture* idleButton = nullptr;
 	ResourceTexture* hoverButton = nullptr;
 	ResourceTexture* pressButton = nullptr;
-	ResourceTexture* holdButton = nullptr;
 
 
 

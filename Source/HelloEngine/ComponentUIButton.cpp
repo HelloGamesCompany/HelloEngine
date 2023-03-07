@@ -49,6 +49,9 @@ void ComponentUIButton::Serialization(json& j)
 	_j["MaterialResource"] = _material->GetResourceUID();
 	_j["Enabled"] = _isEnabled;
 	_j["State"] = State;
+	_j["idleImage"] = idleButton ? idleButton->UID : 0;
+	_j["hoverImage"] = hoverButton ? hoverButton->UID : 0;
+	_j["pressImage"] = pressButton ? pressButton->UID : 0;
 	j["Components"].push_back(_j);
 }
 
@@ -62,7 +65,37 @@ void ComponentUIButton::DeSerialization(json& j)
 
 	_gameObject->transform->ForceUpdate();
 
+	uint savedUIDIdle = j["idleImage"];
+	idleButton = savedUIDIdle == 0 ? nullptr : (ResourceTexture*)ModuleResourceManager::S_LoadResource(j["idleImage"]);
+	textureIDIdle = idleButton->OpenGLID;
+
+	uint savedUIDHover = j["hoverImage"];
+	hoverButton = savedUIDHover == 0 ? nullptr : (ResourceTexture*)ModuleResourceManager::S_LoadResource(j["hoverImage"]);
+	textureIDHover = hoverButton->OpenGLID;
+
+	uint savedUIDPress = j["pressImage"];
+	pressButton = savedUIDPress == 0 ? nullptr : (ResourceTexture*)ModuleResourceManager::S_LoadResource(j["pressImage"]);
+	textureIDPress = pressButton->OpenGLID;
+
 	State = j["State"];
+
+	switch (State)
+	{
+	case ButtonState::NORMAL:
+		_material->ChangeTexture(idleButton);
+		break;
+	case ButtonState::HOVERED:
+		_material->ChangeTexture(hoverButton);
+		break;
+	case ButtonState::ONPRESS:
+		_material->ChangeTexture(pressButton);
+		break;
+	case ButtonState::ONHOLD:
+		_material->ChangeTexture(pressButton);
+		break;
+	default:
+		break;
+	}
 }
 
 ButtonState ComponentUIButton::ChangeState(ButtonState State)
@@ -138,23 +171,7 @@ void ComponentUIButton::OnEditor()
 	ImGui::Text("States Textures:");
 	ImGui::Text("Normal:"); ImGui::SameLine();
 
-
-	//Oneditor de Material Component
-	/*if (!meshRenderer)
 	{
-		ImGui::TextColored(ImVec4(1, 0, 0, 1), "No MeshRenderComponent detected!");
-
-		if (ImGui::Button("Search MeshRenderComponent"))
-		{
-			MeshRenderComponent* meshRenderer = _gameObject->GetComponent<MeshRenderComponent>();
-			if (!meshRenderer) return;
-			_material->SetMeshRenderer(meshRenderer);
-		}
-	}*/
-	//else
-	{
-		//Mesh& mesh = _material->GetMesh();
-
 		std::string imageName;
 		int width = 0;
 		int height = 0;
@@ -198,6 +215,8 @@ void ComponentUIButton::OnEditor()
 	}
 
 	//////////////////////////////////////////////////////////////////////////////////////
+	ImGui::Text("");
+	ImGui::Text("");
 	ImGui::Text("Hovered:"); ImGui::SameLine();
 	{
 		//Mesh& mesh = _material->GetMesh();
@@ -243,6 +262,8 @@ void ComponentUIButton::OnEditor()
 		ImGui::TextColored(ImVec4(1, 1, 0, 1), std::to_string(height).c_str());
 	}
 	///////////////////////////////////////////////////////////////////////////////////////////
+	ImGui::Text("");
+	ImGui::Text("");
 	ImGui::Text("Press:"); ImGui::SameLine();
 	{
 		//Mesh& mesh = _material->GetMesh();
