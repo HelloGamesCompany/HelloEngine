@@ -4,6 +4,8 @@
 #include "LayerGame.h"
 #include "LayerEditor.h"
 #include "ModulePhysics.h"
+#include "PhysBody3D.h"
+#include "PhysicsComponent.h"
 
 ScriptComponent::ScriptComponent(GameObject* go) : Component(go)
 {
@@ -68,7 +70,11 @@ void ScriptComponent::OnCollisionEnter(PhysBody3D* other)
 	HelloBehavior* script = GetScript();
 	if (script != nullptr)
 	{
-		script->OnCollisionEnter();
+		GameObject* otherGO = ModuleLayers::gameObjects[other->gameObjectUID];
+		PhysicsComponent* otherComponent = otherGO->GetComponent<PhysicsComponent>();
+		API::API_RigidBody apiRB;
+		apiRB.SetComponent(otherComponent);
+		script->OnCollisionEnter(apiRB);
 	}
 }
 

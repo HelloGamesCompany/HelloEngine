@@ -45,6 +45,19 @@ PhysicsComponent::~PhysicsComponent()
 		RemoveCollider();
 }
 
+void PhysicsComponent::SetVelocity(float3 vec)
+{
+	if (!physBody)
+		return;
+
+	physBody->SetVelocity(vec.x, vec.y, vec.z);
+}
+
+float3 PhysicsComponent::GetVelocity()
+{
+	return physBody->GetVelocity();
+}
+
 void PhysicsComponent::Serialization(json& j)
 {
 	json _j;
