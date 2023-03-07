@@ -36,8 +36,8 @@ ParticleSystemComponent::ParticleSystemComponent(GameObject* gameObject) : Compo
 	particleProps.endColor = float4(255.0f, 255.0f, 255.0f, 1.0f); //r g b a
 
 	particleProps.Lifetime = 5.0f;
-	
 
+	StartDelayCpy = 0.0f;
 }
 
 ParticleSystemComponent::~ParticleSystemComponent()

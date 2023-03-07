@@ -16,6 +16,9 @@ void P_MainModule::OnEditor()
 	{
 		ImGui::DragFloat("Life Time", &component->particleProps.Lifetime);
 		ImGui::Checkbox("Looping", &component->ParticleEmitter.loop);
+		if (ImGui::DragFloat("Start Delay", &component->StartDelayCpy)) {
+			component->ParticleEmitter.StartDelay = component->StartDelayCpy;
+		}
 
 		ImGui::DragFloat3("Begin Scale", &component->particleProps.startsize[0], 0.1f);
 		ImGui::DragFloat3("End Scale", &component->particleProps.endsize[0], 0.1f);

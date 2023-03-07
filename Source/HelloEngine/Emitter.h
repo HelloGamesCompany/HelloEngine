@@ -31,7 +31,6 @@ public:
 public:
 
 	int64_t _meshID = -1;
-	bool loop;
 
 private:
 	//Position Emitter
@@ -48,11 +47,16 @@ private:
 	InstanceRenderer* manager;
 
 	int currentparticle;
+	bool loop;
+	
+	float StartDelay;
 
 	Quat BBRotAroundZ;
 
 	friend class ParticleSystemComponent;
 	friend class ParticleManager;
+	friend class P_Module;
+	friend class P_MainModule;
 
 };
 
