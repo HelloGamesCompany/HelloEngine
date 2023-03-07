@@ -36,8 +36,6 @@ ParticleSystemComponent::ParticleSystemComponent(GameObject* gameObject) : Compo
 	particleProps.endColor = float4(255.0f, 255.0f, 255.0f, 1.0f); //r g b a
 
 	particleProps.Lifetime = 5.0f;
-
-	StartDelayCpy = 0.0f;
 }
 
 ParticleSystemComponent::~ParticleSystemComponent()
@@ -138,19 +136,26 @@ void ParticleSystemComponent::OnEditor()
 	{
 		if (ImGui::Button("Play"))
 		{
-			playOnScene = true;
+			if (ParticleEmitter.Duration > 0 || ParticleEmitter.loop)
+			{
+				playOnScene = true;
+			}
 		}
 		ImGui::SameLine();
 		if (ImGui::Button("Pause"))
 		{
-			playOnScene = false;
+			if(ParticleEmitter.Duration > 0 || ParticleEmitter.loop)
+				playOnScene = false;
 		}
 		ImGui::SameLine();
 		if (ImGui::Button("Stop"))
 		{
-			playOnScene = false;
-			if (!LayerGame::S_IsPlaying()) {
-				ParticleEmitter.ResetEmitter();
+			if(playOnScene)
+			{
+				playOnScene = false;
+				if (!LayerGame::S_IsPlaying()) {
+					ParticleEmitter.ResetEmitter();
+				}
 			}
 		}
 

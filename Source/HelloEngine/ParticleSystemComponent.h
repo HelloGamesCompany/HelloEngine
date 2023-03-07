@@ -43,8 +43,6 @@ private:
     Emitter ParticleEmitter;
     ParticleProperties particleProps;   
 
-    float StartDelayCpy;
-
     //Particle System Modules
     std::vector<P_Module*> ParticleModules;
 

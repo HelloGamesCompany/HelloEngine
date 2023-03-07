@@ -48,10 +48,16 @@ private:
 
 	int currentparticle;
 	bool loop;
+	bool stop;
 	
 	float StartDelay;
+	float StartDelayCpy;
+
+	float Duration;
+	float DurationCpy;
 
 	Quat BBRotAroundZ;
+
 
 	friend class ParticleSystemComponent;
 	friend class ParticleManager;
