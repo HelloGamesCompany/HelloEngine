@@ -25,20 +25,16 @@ void ComponentUIButton::InputUpdate()
 	switch (State)
 	{
 	case ButtonState::NORMAL:
-		Console::S_Log("Im in Normal Mode");
-		
-		//LOG("Im in Normal Mode");
+
 		break;
 	case ButtonState::HOVERED:
-		Console::S_Log("Im Hovered");
+
 		break;
 	case ButtonState::ONPRESS:
-		Console::S_Log("Im get Presed");
-		//LOG("Im get Presed");
+
 		break;
 	case ButtonState::ONHOLD:
-		Console::S_Log("Im Holded");
-		//LOG("Im get Presed");
+
 		break;
 	default:
 		break;
@@ -83,14 +79,15 @@ ButtonState ComponentUIButton::ChangeState(ButtonState State)
 		//ha sigut clicat
 		if (ModuleInput::S_GetMouseButton(1) == KEY_UP && State != ButtonState::ONHOLD)
 		{
-			_material->ChangeTexture(textureIDPress);
-
 			State = ButtonState::ONPRESS;
 		}
 		//esta sent mantenit clickat
-		if (ModuleInput::S_GetMouseButton(1) == KEY_REPEAT)
+		if (ModuleInput::S_GetMouseButton(1) == KEY_DOWN && State != ButtonState::ONHOLD)
 		{
 			_material->ChangeTexture(textureIDPress);
+		}
+		if (ModuleInput::S_GetMouseButton(1) == KEY_REPEAT)
+		{
 			if (EngineTime::GameTimeCount() >= gameTimeCopy + 0.5)
 			{
 				State = ButtonState::ONHOLD;
@@ -103,7 +100,7 @@ ButtonState ComponentUIButton::ChangeState(ButtonState State)
 		}
 	}
 
-	if (!IsMouseOver())
+	if (!IsMouseOver() && State != ButtonState::NORMAL)
 	{
 		_material->ChangeTexture(textureIDIdle);
 		State = ButtonState::NORMAL;
