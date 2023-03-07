@@ -523,6 +523,7 @@ bool ModuleResourceManager::S_DeserializeScene(const std::string& filePath)
     RELEASE(buffer);
 
     Application::Instance()->renderer3D->renderManager.DestroyInstanceRenderers(); // To prevent duplicated instance renderers.
+    Application::Instance()->renderer3D->particleManager.RemoveAllEmitters(); // Remove emitters to avoid calling them before deleting them.
     ModuleLayers::DestroyMeshes(); // When all meshes are destroyed, the Instance Renderers get destroyed as well. In this case, we want this to happen BEFORE we Deserialize the scene
     // If we let it happen afterwards, the old meshes will destroy the new Instance Renderers.
 
@@ -535,7 +536,7 @@ bool ModuleResourceManager::S_DeserializeScene(const std::string& filePath)
     // First  create game objects
     for (int i = 0; i < sceneFile.size(); i++)
     {
-        uint prefabUID = sceneFile[i]["PrefabUID"];
+        uint prefabUID = 0;
         //if (loadedPrefabs.count(prefabUID) > 0 && !sceneFile[i]["FirstOnPrefab"]) continue;
 
         GameObject* g = new GameObject(nullptr, sceneFile[i]["Name"], sceneFile[i]["Tag"], sceneFile[i]["UID"]);

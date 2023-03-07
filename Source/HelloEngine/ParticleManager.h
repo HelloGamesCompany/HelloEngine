@@ -15,6 +15,8 @@ public:
 
 	void RemoveEmitterInList(Emitter* emitter);
 
+	void RemoveAllEmitters();
+
 	std::vector<Emitter*> EmitterList;
 
 };
