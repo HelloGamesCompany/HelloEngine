@@ -23,6 +23,7 @@ PhysicsComponent::PhysicsComponent(GameObject* gameObject) : Component(gameObjec
 	isShapeCreated[2] = false;
 
 	isStatic = false;
+	isTrigger = false;
 
 	sphereRadius = 1;
 	cylRadiusHeight = {1,1};
@@ -82,6 +83,8 @@ void PhysicsComponent::Serialization(json& j)
 
 	_j["IsStatic"] = isStatic;
 
+	_j["IsTrigger"] = isTrigger;
+
 	if (physBody != nullptr)
 	{
 		_j["Mass"] = physBody->mass;
@@ -118,7 +121,8 @@ void PhysicsComponent::DeSerialization(json& j)
 
 	isStatic = j["IsStatic"];
 
-	
+	isTrigger = j["IsTrigger"];
+
 	sphereRadius = j["SphereRadius"];
 
 	std::vector<float> cylRadiusHeightTemp = j["CylinderRadiusHeight"];
@@ -126,10 +130,12 @@ void PhysicsComponent::DeSerialization(json& j)
 
 	if (j["HasPhysBody"] == true)
 	{
+		
 		temporalMass = j["Mass"];
 		CreateCollider();
 		physBody->mass = temporalMass;
-		CallUpdateMass();
+		
+		//CallUpdateTrigger();
 		physBody->isRenderingCol = j["IsRenderingCol"];
 		std::vector<float> colPosTemp = j["ColPosition"];
 		physBody->colPos = { colPosTemp[0], colPosTemp[1], colPosTemp[2] };
@@ -142,6 +148,8 @@ void PhysicsComponent::DeSerialization(json& j)
 		CallUpdatePos();
 		CallUpdateRotation();
 		CallUpdateScale();
+
+		CallUpdateMass();
 	}
 }
 #ifdef STANDALONE
@@ -153,6 +161,12 @@ void PhysicsComponent::OnEditor()
 		if (ImGui::Checkbox("Static", &isStatic)) {
 			if (physBody != nullptr) {
 				CallUpdateMass();
+			}
+		}
+
+		if (ImGui::Checkbox("Trigger", &isTrigger)) {
+			if (physBody != nullptr) {
+				CallUpdateTrigger();
 			}
 		}
 
@@ -253,16 +267,11 @@ void PhysicsComponent::OnEditor()
 
 			}
 
-			//ImGui::SameLine();
-
 			if (physBody->isRenderingCol == true) {
 
 				if (ImGui::ColorEdit4("Color", renderColColor)) {
 
 				}
-
-				//ImGui::SameLine();
-
 				if (ImGui::DragFloat("Line Size: ", &wireframeSize, 0.1f, 0.5f, 100.f)) {
 
 				}
@@ -272,35 +281,16 @@ void PhysicsComponent::OnEditor()
 				case ColliderShape::SPHERE:
 				{
 					if (ImGui::DragInt("Ver. Slices: ", &sphereVerSlices, 1, 3, MAX_VERTICAL_SLICES_SPHERE)) {
-						/*if (sphereVerSlices < 3) {
-							sphereVerSlices = 3;
-						}
-						if (sphereVerSlices > MAX_VERTICAL_SLICES_SPHERE) {
-							sphereVerSlices = MAX_VERTICAL_SLICES_SPHERE;
-						}*/
 						Application::Instance()->renderer3D->renderManager.CalculateSphereBuffer(sphereVerSlices, sphereHorSlices);
 					}
 					if (ImGui::DragInt("Hor. Slices: ", &sphereHorSlices, 1, 1, MAX_HORIZONTAL_SLICES_SPHERE)) {
-						/*if (sphereHorSlices < 1) {
-							sphereHorSlices = 1;
-						}
-						if (sphereHorSlices > MAX_HORIZONTAL_SLICES_SPHERE) {
-							sphereHorSlices = MAX_HORIZONTAL_SLICES_SPHERE;
-						}*/
 						Application::Instance()->renderer3D->renderManager.CalculateSphereBuffer(sphereVerSlices, sphereHorSlices);
-
 					}
 				}
 				break;
 				case ColliderShape::CYLINDER:
 				{
 					if (ImGui::DragInt("Ver. Slices: ", &cylinderVerSlices, 1, 3, MAX_VERTICAL_SLICES_CYLINDER)) {
-					/*	if (cylinderVerSlices < 3) {
-							cylinderVerSlices = 3;
-						}
-						if (cylinderVerSlices > MAX_VERTICAL_SLICES_CYLINDER) {
-							cylinderVerSlices = MAX_VERTICAL_SLICES_CYLINDER;
-						}*/
 						Application::Instance()->renderer3D->renderManager.CalculateCylinderBuffer(cylinderVerSlices);
 					}
 				}
@@ -404,16 +394,19 @@ void PhysicsComponent::CallUpdateMass()
 	}
 }
 
-void PhysicsComponent::CreateCollider()
+void PhysicsComponent::CallUpdateTrigger()
 {
-	
-	/*float mass;
-	if (isStatic == true) {
-		mass = 0.f;
+	if (isTrigger == true) {
+		physBody->body->setCollisionFlags(physBody->body->getCollisionFlags() | btCollisionObject::CF_NO_CONTACT_RESPONSE);
 	}
 	else {
-		mass = 1.f;
-	}*/
+		physBody->body->setCollisionFlags(physBody->body->getCollisionFlags() & ~btCollisionObject::CF_NO_CONTACT_RESPONSE);
+
+	}
+}
+
+void PhysicsComponent::CreateCollider()
+{
 
 	switch (shapeSelected)
 	{
@@ -428,8 +421,6 @@ void PhysicsComponent::CreateCollider()
 			//cube.transform.Translate(_gameObject->GetComponent<TransformComponent>()->GetGlobalPosition());
 
 			physBody = Application::Instance()->physic->CreatePhysBody(&cube, 1);
-
-
 
 		}
 		break;

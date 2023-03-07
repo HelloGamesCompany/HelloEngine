@@ -110,7 +110,7 @@
             {
                 "Enabled": true,
                 "Position": [
-                    -3.885904550552368,
+                    -3.8659398555755615,
                     -0.05925041437149048,
                     0.0
                 ],
@@ -174,7 +174,7 @@
             {
                 "Active camera": true,
                 "Active culling": false,
-                "Aspect ratio": 1.2943854331970215,
+                "Aspect ratio": 0.6136363744735718,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -382,5 +382,165 @@
         "PrefabUID": 0,
         "Tag": "UI",
         "UID": 3761869891
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    1.1825798749923706,
+                    39.46493148803711,
+                    -17.47718620300293
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    13.139608383178711,
+                    12.043149948120117,
+                    8.683611869812012
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 10,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "ColPosition": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "HasPhysBody": true,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsShapeSelected": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsStatic": false,
+                "IsTrigger": false,
+                "Mass": 1.1699999570846558,
+                "ShapeSelected": 0,
+                "SphereRadius": 1.0,
+                "Type": 8
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube",
+        "ParentUID": 898015426,
+        "PrefabUID": 0,
+        "Tag": "Primitive",
+        "UID": 1130998839
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    11.184330940246582,
+                    0.0,
+                    -34.59147262573242
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    11.822864532470703,
+                    1.0,
+                    10.49514102935791
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 10,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "ColPosition": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    9.399999618530273,
+                    0.0
+                ],
+                "ColScale": [
+                    17.399999618530273,
+                    6.400000095367432,
+                    23.0
+                ],
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "HasPhysBody": true,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsShapeSelected": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsStatic": false,
+                "IsTrigger": false,
+                "Mass": 0.0,
+                "ShapeSelected": 0,
+                "SphereRadius": 1.0,
+                "Type": 8
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube",
+        "ParentUID": 898015426,
+        "PrefabUID": 0,
+        "Tag": "Primitive",
+        "UID": 1634732451
     }
 ]

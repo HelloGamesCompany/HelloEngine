@@ -32,6 +32,7 @@ private:
 	void CallUpdateRotation();
 	void CallUpdateScale();
 	void CallUpdateMass();
+	void CallUpdateTrigger();
 
 	void CreateCollider();
 
@@ -48,6 +49,7 @@ private:
 	bool isShapeSelected[3];
 	bool isShapeCreated[3];
 	bool isStatic;
+	bool isTrigger;
 
 public:
 	float sphereRadius;
