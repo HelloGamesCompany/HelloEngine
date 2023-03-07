@@ -12,5 +12,7 @@ public:
 	void Update() override;
 
 	void OnCollisionEnter(API_RigidBody other);
+
+	API_Camera camera;
 };
 

@@ -411,6 +411,7 @@
     <ClCompile Include="..\External\Wwise\include\AK\samples\AkMultipleFileLocation.cpp" />
     <ClCompile Include="..\External\Wwise\include\AK\samples\AkDefaultIOHookBlocking.cpp" />
     <ClCompile Include="..\External\Wwise\include\AK\samples\AkGeneratedSoundBanksResolver.cpp" />
+    <ClCompile Include="API\API_Camera.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -941,6 +942,7 @@
       <Filter>API</Filter>
     </ClInclude>
     <ClInclude Include="ModuleAudio.h" />
+    <ClInclude Include="API\API_Camera.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="External">

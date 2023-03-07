@@ -34,6 +34,8 @@ public:
 	void AddDragBoxGameObject(const char* name, API::API_GameObject* value) override;
 	void AddDragBoxTransform(const char* name, API::API_Transform* value) override;
 	void AddDragBoxMeshRenderer(const char* name, API::API_MeshRenderer* value) override;
+	void AddDragBoxCamera(const char* name, API::API_Camera* value) override;
+
 
 	uint GetResourceUID();
 	void DestroyedResource();

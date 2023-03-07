@@ -304,6 +304,7 @@
     <ClCompile Include="API\API_Vector2.cpp" />
     <ClCompile Include="API\API_Vector3.cpp" />
     <ClCompile Include="API\API_Engine.cpp" />
+    <ClCompile Include="API\API_Camera.cpp" />
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="BillBoardComponent.cpp" />
     <ClCompile Include="CameraComponent.cpp" />
@@ -484,6 +485,7 @@
     <ClInclude Include="API\API_Vector2.h" />
     <ClInclude Include="API\API_Vector3.h" />
     <ClInclude Include="API\API_Engine.h" />
+    <ClInclude Include="API\API_Camera.h" />
     <ClInclude Include="Application.h" />
     <ClInclude Include="BillBoardComponent.h" />
     <ClInclude Include="CameraComponent.h" />

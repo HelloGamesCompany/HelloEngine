@@ -2,13 +2,13 @@
 HELLO_ENGINE_API_C CollisionTestScript* CreateCollisionTestScript(ScriptToInspectorInterface* script)
 {
 	CollisionTestScript* classInstance = new CollisionTestScript();
-	//Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
+	script->AddDragBoxCamera("camera", &classInstance->camera);
 	return classInstance;
 }
 
 void CollisionTestScript::Start()
 {
-
+	this->camera.SetAsActiveCamera();
 }
 void CollisionTestScript::Update()
 {

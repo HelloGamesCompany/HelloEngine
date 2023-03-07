@@ -23,6 +23,8 @@ public:
 	void Serialization(json& j) override;
 	void DeSerialization(json& j) override;
 
+	void SetAsActiveGameCamera();
+
 public:
 	CameraObject* cameraObject = nullptr;
 	bool isCurrentlyDisplaying = false;

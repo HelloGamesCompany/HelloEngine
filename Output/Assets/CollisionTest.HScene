@@ -181,7 +181,11 @@
             },
             {
                 "Enabled": true,
-                "Inspector Fields": null,
+                "Inspector Fields": [
+                    {
+                        "camera": 2736385152
+                    }
+                ],
                 "Script Resource": 311365708,
                 "Type": 5
             }
@@ -192,5 +196,89 @@
         "PrefabUID": 0,
         "Tag": "Primitive",
         "UID": 1252818937
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    16.575252532958984,
+                    9.321002960205078,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    -80.25759887695313,
+                    0.0
+                ],
+                "Scale": [
+                    0.9999997615814209,
+                    1.0,
+                    0.9999997615814209
+                ],
+                "Type": 1
+            },
+            {
+                "Active camera": true,
+                "Active culling": true,
+                "Aspect ratio": 0.7463651299476624,
+                "Enabled": true,
+                "FOV": 60.0,
+                "Far plane": 1000.0,
+                "Frustum type": 2,
+                "Near plane": 0.009999999776482582,
+                "Orthographic size": 10.0,
+                "Type": 4
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Camera 1",
+        "ParentUID": 288998730,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 814541440
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -24.950349807739258,
+                    7.659736633300781,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    76.90614318847656,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0000004768371582,
+                    1.0,
+                    1.0000004768371582
+                ],
+                "Type": 1
+            },
+            {
+                "Active camera": true,
+                "Active culling": true,
+                "Aspect ratio": 0.7463651299476624,
+                "Enabled": true,
+                "FOV": 60.0,
+                "Far plane": 1000.0,
+                "Frustum type": 2,
+                "Near plane": 0.009999999776482582,
+                "Orthographic size": 10.0,
+                "Type": 4
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Camera 2",
+        "ParentUID": 288998730,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2736385152
     }
 ]

@@ -208,6 +208,16 @@ void ScriptComponent::AddDragBoxMeshRenderer(const char* name, API::API_MeshRend
 	inspectorFields.push_back(dragBoxField);
 }
 
+void ScriptComponent::AddDragBoxCamera(const char* name, API::API_Camera* value)
+{
+	DragBoxCamera* dragBoxField = new DragBoxCamera();
+	dragBoxField->valueName = name;
+	dragBoxField->value = value;
+	dragBoxField->className = scriptResource == nullptr ? addedScript : scriptResource->className;
+
+	inspectorFields.push_back(dragBoxField);
+}
+
 uint ScriptComponent::GetResourceUID()
 {
 	if (scriptResource != nullptr)
