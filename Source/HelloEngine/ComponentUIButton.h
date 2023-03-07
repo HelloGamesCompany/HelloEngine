@@ -26,10 +26,18 @@ private:
 	double gameTimeCopy = 0;
 	float colors[4] = { 0,0,0,0 };
 	GameObject* uiObject;
-	int textureID = -1;
+	int textureIDIdle = -1;
+	int textureIDHover = -1;
+	int textureIDPress = -1;
+	int textureIDHold = -1;
 
 	MeshRenderComponent* meshRenderer = nullptr;
 	ResourceTexture* currentResource = nullptr;
+
+	ResourceTexture* idleButton = nullptr;
+	ResourceTexture* hoverButton = nullptr;
+	ResourceTexture* pressButton = nullptr;
+	ResourceTexture* holdButton = nullptr;
 
 
 
