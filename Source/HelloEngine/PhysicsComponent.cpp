@@ -23,6 +23,7 @@ PhysicsComponent::PhysicsComponent(GameObject* gameObject) : Component(gameObjec
 	isShapeCreated[2] = false;
 
 	isStatic = false;
+	isKinematic = false;
 	isTrigger = false;
 
 	sphereRadius = 1;
@@ -82,7 +83,7 @@ void PhysicsComponent::Serialization(json& j)
 	_j["IsShapeCreated"] = { isShapeCreated[0], isShapeCreated[1], isShapeCreated[2] };
 
 	_j["IsStatic"] = isStatic;
-
+	_j["IsKinematic"] = isKinematic;
 	_j["IsTrigger"] = isTrigger;
 
 	if (physBody != nullptr)
@@ -120,7 +121,7 @@ void PhysicsComponent::DeSerialization(json& j)
 	isShapeCreated[2] = isShapeCreatedTemp[2];
 
 	isStatic = j["IsStatic"];
-
+	isKinematic = j["IsKinematic"];
 	isTrigger = j["IsTrigger"];
 
 	sphereRadius = j["SphereRadius"];
@@ -130,12 +131,10 @@ void PhysicsComponent::DeSerialization(json& j)
 
 	if (j["HasPhysBody"] == true)
 	{
-		
 		temporalMass = j["Mass"];
 		CreateCollider();
 		physBody->mass = temporalMass;
 		
-		//CallUpdateTrigger();
 		physBody->isRenderingCol = j["IsRenderingCol"];
 		std::vector<float> colPosTemp = j["ColPosition"];
 		physBody->colPos = { colPosTemp[0], colPosTemp[1], colPosTemp[2] };
@@ -150,6 +149,7 @@ void PhysicsComponent::DeSerialization(json& j)
 		CallUpdateScale();
 
 		CallUpdateMass();
+		CallUpdateColliderType();
 	}
 }
 #ifdef STANDALONE
@@ -160,13 +160,25 @@ void PhysicsComponent::OnEditor()
 	{
 		if (ImGui::Checkbox("Static", &isStatic)) {
 			if (physBody != nullptr) {
-				CallUpdateMass();
+				if (isStatic == true) {
+					isKinematic = false;
+				}
+				CallUpdateColliderType();
+			}
+		}
+
+		if (ImGui::Checkbox("Kinematic", &isKinematic)) {
+			if (physBody != nullptr) {
+				if (isKinematic == true) {
+					isStatic = false;
+				}
+				CallUpdateColliderType();
 			}
 		}
 
 		if (ImGui::Checkbox("Trigger", &isTrigger)) {
 			if (physBody != nullptr) {
-				CallUpdateTrigger();
+				CallUpdateColliderType();
 			}
 		}
 
@@ -382,15 +394,19 @@ void PhysicsComponent::CallUpdateScale()
 
 void PhysicsComponent::CallUpdateMass()
 {
-	if (isStatic == false) {
 		btVector3 inertia;
 		btCollisionShape* shape = physBody->body->getCollisionShape();
 		shape->calculateLocalInertia(physBody->mass, inertia);
 		physBody->body->setMassProps(physBody->mass, inertia);
+}
+
+void PhysicsComponent::CallUpdateStatic()
+{
+	if (isStatic == true) {
+		physBody->body->setCollisionFlags(physBody->body->getCollisionFlags() | btCollisionObject::CF_STATIC_OBJECT);
 	}
 	else {
-		btVector3 inertia(0, 0, 0);
-		physBody->body->setMassProps(0, inertia);
+		physBody->body->setCollisionFlags(physBody->body->getCollisionFlags() & ~btCollisionObject::CF_STATIC_OBJECT);
 	}
 }
 
@@ -401,8 +417,24 @@ void PhysicsComponent::CallUpdateTrigger()
 	}
 	else {
 		physBody->body->setCollisionFlags(physBody->body->getCollisionFlags() & ~btCollisionObject::CF_NO_CONTACT_RESPONSE);
-
 	}
+}
+
+void PhysicsComponent::CallUpdateKinematic()
+{
+	if (isKinematic == true) {
+		physBody->body->setCollisionFlags(physBody->body->getCollisionFlags() | btCollisionObject::CF_KINEMATIC_OBJECT);
+	}
+	else {
+		physBody->body->setCollisionFlags(physBody->body->getCollisionFlags() & ~btCollisionObject::CF_KINEMATIC_OBJECT);
+	}
+}
+
+void PhysicsComponent::CallUpdateColliderType()
+{
+	CallUpdateStatic();
+	CallUpdateKinematic();
+	CallUpdateTrigger();
 }
 
 void PhysicsComponent::CreateCollider()

@@ -174,7 +174,7 @@
             {
                 "Active camera": true,
                 "Active culling": false,
-                "Aspect ratio": 0.6136363744735718,
+                "Aspect ratio": 0.7729007601737976,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -391,7 +391,7 @@
                 "Position": [
                     1.1825798749923706,
                     39.46493148803711,
-                    -17.47718620300293
+                    -33.06703186035156
                 ],
                 "Rotation": [
                     -0.0,
@@ -399,9 +399,9 @@
                     -0.0
                 ],
                 "Scale": [
-                    13.139608383178711,
-                    12.043149948120117,
-                    8.683611869812012
+                    2.0,
+                    2.0,
+                    2.0
                 ],
                 "Type": 1
             },
@@ -437,6 +437,7 @@
                 ],
                 "Enabled": true,
                 "HasPhysBody": true,
+                "IsKinematic": false,
                 "IsRenderingCol": true,
                 "IsShapeCreated": [
                     true,
@@ -450,7 +451,7 @@
                 ],
                 "IsStatic": false,
                 "IsTrigger": false,
-                "Mass": 1.1699999570846558,
+                "Mass": 100.0,
                 "ShapeSelected": 0,
                 "SphereRadius": 1.0,
                 "Type": 8
@@ -469,7 +470,7 @@
             {
                 "Enabled": true,
                 "Position": [
-                    11.184330940246582,
+                    0.8010830879211426,
                     0.0,
                     -34.59147262573242
                 ],
@@ -517,6 +518,7 @@
                 ],
                 "Enabled": true,
                 "HasPhysBody": true,
+                "IsKinematic": false,
                 "IsRenderingCol": true,
                 "IsShapeCreated": [
                     true,
@@ -528,9 +530,9 @@
                     false,
                     false
                 ],
-                "IsStatic": false,
-                "IsTrigger": false,
-                "Mass": 0.0,
+                "IsStatic": true,
+                "IsTrigger": true,
+                "Mass": 5.0,
                 "ShapeSelected": 0,
                 "SphereRadius": 1.0,
                 "Type": 8

@@ -32,7 +32,11 @@ private:
 	void CallUpdateRotation();
 	void CallUpdateScale();
 	void CallUpdateMass();
+
+	void CallUpdateStatic();
 	void CallUpdateTrigger();
+	void CallUpdateKinematic();
+	void CallUpdateColliderType();
 
 	void CreateCollider();
 
@@ -48,7 +52,9 @@ private:
 
 	bool isShapeSelected[3];
 	bool isShapeCreated[3];
+
 	bool isStatic;
+	bool isKinematic;
 	bool isTrigger;
 
 public:
