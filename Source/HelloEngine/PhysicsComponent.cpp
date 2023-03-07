@@ -35,6 +35,10 @@ PhysicsComponent::PhysicsComponent(GameObject* gameObject) : Component(gameObjec
 	sphereVerSlices = 16;
 	sphereHorSlices = 16;
 	cylinderVerSlices = 16;
+
+	gravity[0] = { 0 };
+	gravity[1] = { -9.8 };
+	gravity[2] = { 0 };
 }
 
 PhysicsComponent::~PhysicsComponent()
@@ -89,6 +93,8 @@ void PhysicsComponent::Serialization(json& j)
 		_j["IsStatic"] = physBody->isStatic;
 		_j["IsKinematic"] = physBody->isKinematic;
 		_j["IsTrigger"] = physBody->isTrigger;
+
+		_j["Gravity"] = { gravity[0], gravity[1], gravity[2] };
 	}
 	else
 	{
@@ -142,6 +148,9 @@ void PhysicsComponent::DeSerialization(json& j)
 		physBody->isStatic = j["IsStatic"];
 		physBody->isKinematic = j["IsKinematic"];
 		physBody->isTrigger = j["IsTrigger"];
+
+		std::vector<float> newGrav = j["Gravity"];
+		physBody->SetGravity(float3(newGrav[0], newGrav[1], newGrav[2]));
 		
 		physBody->isRenderingCol = j["IsRenderingCol"];
 		std::vector<float> colPosTemp = j["ColPosition"];
@@ -248,6 +257,12 @@ void PhysicsComponent::OnEditor()
 			if (ImGui::Checkbox("Trigger", &physBody->isTrigger)) {
 				if (physBody != nullptr) {
 					CallUpdateColliderType();
+				}
+			}
+
+			if (ImGui::DragFloat3("Gravity", gravity)) {
+				if (physBody != nullptr) {
+					physBody->SetGravity(float3(gravity[0], gravity[1], gravity[2]));
 				}
 			}
 

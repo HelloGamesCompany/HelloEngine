@@ -157,6 +157,11 @@ void PhysBody3D::Update()
 	}
 }
 
+void PhysBody3D::SetGravity(float3 grav)
+{
+	body->setGravity(btVector3(grav[0], grav[1], grav[2]));
+}
+
 void PhysBody3D::SetShape(ColliderShape shape)
 {
 	colShape = shape;

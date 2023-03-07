@@ -53,6 +53,8 @@ private:
 	bool isShapeSelected[3];
 	bool isShapeCreated[3];
 
+	float gravity[3];
+
 public:
 	float sphereRadius;
 	float2 cylRadiusHeight;

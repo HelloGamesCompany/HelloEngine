@@ -436,6 +436,11 @@
                     1.0
                 ],
                 "Enabled": true,
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
                 "HasPhysBody": true,
                 "IsKinematic": false,
                 "IsRenderingCol": true,
@@ -517,8 +522,13 @@
                     1.0
                 ],
                 "Enabled": true,
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
                 "HasPhysBody": true,
-                "IsKinematic": true,
+                "IsKinematic": false,
                 "IsRenderingCol": true,
                 "IsShapeCreated": [
                     true,
@@ -530,7 +540,7 @@
                     false,
                     false
                 ],
-                "IsStatic": false,
+                "IsStatic": true,
                 "IsTrigger": false,
                 "Mass": 0.0,
                 "ShapeSelected": 0,
