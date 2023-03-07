@@ -2,7 +2,8 @@
 
 #include <string>
 #include <vector>
-#include "Math/float4x4.h"
+#include <cassert>
+#include "MathGeoLib.h"
 #include "ModuleXML.h"
 #include "Mesh.h"
 #include "json.hpp"
@@ -285,17 +286,92 @@ struct MeshInfo
 
 struct AnimatedBone
 {
-	void SizeKeyframes(int nKeyframes)
-	{
-		keyframes.resize(nKeyframes);
+	std::string name = "";
 
-		for (int i = 0; i < nKeyframes; i++) {
-			keyframes[i] = float3x4::identity;
+	std::map<float, float3> positions;
+	std::map<float, float3> scales;
+	std::map<float, Quat> rotations;
+	
+	float3 GetInterpolatedValue_f3(std::map<float, float3>& map, float animTime) {
+		if (map.find(animTime) != map.end())
+		{
+			return map[animTime];
+		}
+		else
+		{
+			std::map<float, float3>::iterator last, next;
+			next = map.upper_bound(animTime);
+
+			//Check Error
+			if (next == map.begin())
+			{
+				return map.begin()->second;
+			}
+			else if(next == map.end()) {
+				return map.rbegin()->second;
+			}
+
+			last = next;
+			last--;
+
+			//Get normalised lerp time
+			float normAnimTime = (animTime - last->first) / (next->first - last->first);
+			
+			return float3::Lerp(last->second, next->second, normAnimTime);
 		}
 	}
 
-	std::string name = "";
-	std::vector<float3x4> keyframes;
+	Quat GetInterpolatedValue_Quat(std::map<float, Quat>& map, float animTime) {
+		if (map.find(animTime) != map.end())
+		{
+			return map[animTime];
+		}
+		else
+		{
+			std::map<float, Quat>::iterator last, next;
+			next = map.upper_bound(animTime);
+
+			//Check Error
+			if (next == map.begin())
+			{
+				return map.begin()->second;
+			}
+			else if (next == map.end()) {
+				return map.rbegin()->second;
+			}
+
+			last = next;
+			last--;
+
+			//Get normalised lerp time
+			float normAnimTime = (animTime - last->first) / (next->first - last->first);
+
+			return Quat::Slerp(last->second, next->second, normAnimTime);
+		}
+	}
+
+	float3x4 GetMatrix(float animTime) {
+		float3x4 matrix = float3x4::identity;
+
+		//Get Interpolated Values on this TIME to build the keyframe info
+		if (!positions.empty())
+		{
+			matrix.SetTranslatePart(GetInterpolatedValue_f3(positions, animTime));
+		}
+		if (!rotations.empty())
+		{
+			matrix.SetRotatePart(GetInterpolatedValue_Quat(rotations, animTime));
+		}
+		if (!scales.empty())
+		{
+			float3 scale = GetInterpolatedValue_f3(scales, animTime);
+			matrix[0][0] *= scale.x;
+			matrix[1][1] *= scale.y;
+			matrix[2][2] *= scale.z;
+		}
+
+		return matrix;
+	}
 };
 
 struct Animation3D
@@ -318,70 +394,99 @@ public:
 		std::string corruptionPrev;
 		corruptionPrev.resize(128);
 
-		std::vector<uint> keyframeAmount;
+		//Bone names together
 		std::string boneNamesString = "";
+		
+		//Size in bytes of map info in bones
+		uint boneMapTotalSize = 0;
 
-		std::vector<float3x4> totalKeyframes;
-		//float3x4 total[1];
-
-		//int j = sizeof(float3x4);
-		//Keyframes vector
+		//Get all bone names & map sizes
 		for (int i = 0; i < bones.size(); ++i)
 		{
-			keyframeAmount.push_back(bones[i].keyframes.size());
 			boneNamesString += bones[i].name;
 			boneNamesString += "\n";
 
-			for (int k = 0; k < bones[i].keyframes.size(); ++k)
-			{
-				totalKeyframes.push_back(bones[i].keyframes[k]);
-				//total[j] = bones[i].keyframes[k];
-				//j++;
-			}
+			boneMapTotalSize += bones[i].positions.size() * (sizeof(float) + sizeof(float3));
+			boneMapTotalSize += bones[i].rotations.size() * (sizeof(float) + sizeof(Quat));
+			boneMapTotalSize += bones[i].scales.size() * (sizeof(float) + sizeof(float3));
 		}
 
-		uint durationTicksSize = sizeof(uint);
-		uint ticksPerSecondSize = sizeof(uint);
-		uint keyframeAmountSize = keyframeAmount.size() * sizeof(uint);
-		uint totalKeyframeSize = (totalKeyframes.size() + 1) * sizeof(float3x4);
+		//Info about [positions, rotations, scales] sizes in bones
+		uint boneMapsInfoSize = bones.size() * 3 * sizeof(uint);
 
-		uint header[5] = {1, 1, boneNamesString.size(), keyframeAmount.size(), totalKeyframes.size()};
+		//General Info + Number of bones and size of big String
+		uint header[4] = {durationTicks, ticksPerSecond, bones.size(), boneNamesString.size()};
 
-		uint fileSize = durationTicksSize + ticksPerSecondSize + boneNamesString.size() + keyframeAmountSize + totalKeyframeSize + corruptionPrev.size();
+		//Size of header, big string, bone map values, bone info about map sizes, corruption
+		uint fileSize = (sizeof(uint) * 4) + (sizeof(char) * boneNamesString.size()) + boneMapTotalSize + boneMapsInfoSize + corruptionPrev.size();
 		
 		char* fileBuffer = new char[fileSize];
 		char* cursor = fileBuffer;
 
 		//Save header
-		uint headerSize = sizeof(header);
+		uint headerSize = sizeof(uint) * 4;
 		memcpy(cursor, header, headerSize);
 		cursor += headerSize;
-
-		//Save durationTicks
-		memcpy(cursor, &durationTicks, durationTicksSize);
-		cursor += durationTicksSize;
-
-		//Save ticksPerSecond
-		memcpy(cursor, &ticksPerSecond, ticksPerSecondSize);
-		cursor += ticksPerSecondSize;
 
 		//Save boneNamesString
 		memcpy(cursor, &boneNamesString[0], boneNamesString.size());
 		cursor += boneNamesString.size();
 
-		//Save KeyFrameAmount
-		memcpy(cursor, &keyframeAmount[0], keyframeAmountSize);
-		cursor += keyframeAmountSize;
-
-		//Save totalKeyFramesize
-
-		for (int i = 0; i < totalKeyframes.size(); ++i)
+		//Bones
+		for (int i = 0; i < bones.size(); ++i)
 		{
-			memcpy(cursor, &totalKeyframes[i], sizeof(float3x4));
-			cursor += sizeof(float3x4);
-		}
+			//Map size values
+			uint boneHeader[3] = { bones[i].positions.size(), bones[i].rotations.size(), bones[i].scales.size() };
+			uint boneHeaderSize = sizeof(uint) * 3;
+			memcpy(cursor, boneHeader, boneHeaderSize);
+			cursor += boneHeaderSize;
 
-		
+			//Map values
+				//Position
+			std::vector<float> posKey;
+			std::vector<float3> posVal;
+			posKey.resize(bones[i].positions.size());
+			posVal.resize(bones[i].positions.size());
+			for (std::map<float, float3>::iterator it = bones[i].positions.begin(); it != bones[i].positions.end(); it++)
+			{
+				posKey.push_back(it->first);
+				posVal.push_back(it->second);
+			}
+			memcpy(cursor, &posKey[0], bones[i].positions.size() * sizeof(float));
+			cursor += bones[i].positions.size() * sizeof(float);
+			memcpy(cursor, &posVal[0], bones[i].positions.size() * sizeof(float3));
+			cursor += bones[i].positions.size() * sizeof(float3);
+
+				//Rotation
+			std::vector<float> rotKey;
+			std::vector<Quat> rotVal;
+			rotKey.resize(bones[i].rotations.size());
+			rotVal.resize(bones[i].rotations.size());
+			for (std::map<float, Quat>::iterator it = bones[i].rotations.begin(); it != bones[i].rotations.end(); it++)
+			{
+				rotKey.push_back(it->first);
+				rotVal.push_back(it->second);
+			}
+			memcpy(cursor, &rotKey[0], bones[i].rotations.size() * sizeof(float));
+			cursor += bones[i].rotations.size() * sizeof(float);
+			memcpy(cursor, &rotVal[0], bones[i].rotations.size() * sizeof(Quat));
+			cursor += bones[i].rotations.size() * sizeof(Quat);
+				
+				//Scale
+			std::vector<float> scaKey;
+			std::vector<float3> scaVal;
+			scaKey.resize(bones[i].scales.size());
+			scaVal.resize(bones[i].scales.size());
+			for (std::map<float, float3>::iterator it = bones[i].scales.begin(); it != bones[i].scales.end(); it++)
+			{
+				scaKey.push_back(it->first);
+				scaVal.push_back(it->second);
+			}
+			memcpy(cursor, &scaKey[0], bones[i].scales.size() * sizeof(float));
+			cursor += bones[i].scales.size() * sizeof(float);
+			memcpy(cursor, &scaVal[0], bones[i].scales.size() * sizeof(float3));
+			cursor += bones[i].scales.size() * sizeof(float3);
+		}
 
 		//Data corruption prevention
 		memcpy(cursor, &corruptionPrev[0], corruptionPrev.size());
@@ -397,8 +502,6 @@ public:
 	void LoadFromBinaryFile(const std::string& filePath)
 	{
 		std::string boneNamesString;
-		std::vector<uint> keyframeAmount;
-		std::vector<float3x4> totalKeyframes;
 
 		char* buffer = nullptr;
 		ModuleFiles::S_Load(filePath, &buffer);
@@ -406,8 +509,8 @@ public:
 		char* cursor = buffer;
 
 		//Load headers
-		uint header[5];
-		uint headerSize = sizeof(uint) * 5;
+		uint header[4];
+		uint headerSize = sizeof(uint) * 4;
 		memcpy(header, cursor, headerSize);
 		cursor += headerSize;
 
@@ -422,22 +525,13 @@ public:
 		cursor += ticksPerSecondSize;
 
 		//Load boneNamesString
-		uint boneNamesStringSize = header[2] * sizeof(char);
-		boneNamesString.resize(header[2]);
+		uint boneNamesStringSize = header[3] * sizeof(char);
+		boneNamesString.resize(header[3]);
 		memcpy(&boneNamesString[0], cursor, boneNamesStringSize);
 		cursor += boneNamesStringSize;
 
-		//Load keyframeAmount
-		uint keyframeAmountSize = header[3] * sizeof(uint);
-		keyframeAmount.resize(header[3]);
-		memcpy(&keyframeAmount[0], cursor, keyframeAmountSize);
-		cursor += keyframeAmountSize;
-
-		//Load totalKeyframe
-		uint totalKeyframeSize = header[4] * sizeof(float3x4);
-		totalKeyframes.resize(header[4]);
-		memcpy(&totalKeyframes[0], cursor, totalKeyframeSize);
-		cursor += totalKeyframeSize;
+		//Load numBones
+		bones.resize(header[2]);
 
 		//Initialize bones with names
 		std::stringstream ss(boneNamesString);
@@ -445,19 +539,48 @@ public:
 		while (std::getline(ss, tmp, '\n')) {
 			AnimatedBone aux;
 			aux.name = tmp;
-			bones.emplace_back(aux);
+			bones.push_back(aux);
 		}
 
-
-		int j = 0;
-		for (int i = 0; i < keyframeAmount.size(); ++i)
+		//Read all bones
+		for (uint i = 0; i < header[2]; i++) 
 		{
-			for (int k = 0; k < keyframeAmount[i]; ++k)
-			{
-				bones[i].keyframes.push_back(totalKeyframes[j]);
-				j++;
-			}
-			
+			//Map Sizes
+			uint boneHeader[3];
+			memcpy(boneHeader, cursor, sizeof(uint) * 3);
+			cursor += sizeof(uint) * 3;
+
+				//Position
+			std::vector<float> posKey;
+			std::vector<float3> posVal;
+			posKey.resize(header[0]);
+			posVal.resize(header[0]);
+			memcpy(&posKey[0], cursor, header[0] * sizeof(float));
+			cursor += header[0] * sizeof(float);
+			memcpy(&posVal[0], cursor, header[0] * sizeof(float3));
+			cursor += header[0] * sizeof(float3);
+
+				//Rotation
+			std::vector<float> rotKey;
+			std::vector<Quat> rotVal;
+			rotKey.resize(header[1]);
+			rotVal.resize(header[1]);
+			memcpy(&rotKey[0], cursor, header[1] * sizeof(float));
+			cursor += header[1] * sizeof(float);
+			memcpy(&rotVal[0], cursor, header[1] * sizeof(Quat));
+			cursor += header[1] * sizeof(Quat);
+
+				//Scale
+			std::vector<float> scaKey;
+			std::vector<float3> scaVal;
+			scaKey.resize(header[2]);
+			scaVal.resize(header[2]);
+			memcpy(&scaKey[0], cursor, header[2] * sizeof(float));
+			cursor += header[2] * sizeof(float);
+			memcpy(&scaVal[0], cursor, header[2] * sizeof(float3));
+			cursor += header[2] * sizeof(float3);
+
+			//BUILD MAP WITH THIS VECTORS
 		}
 
 
