@@ -75,7 +75,7 @@ ButtonState ComponentUIButton::ChangeState(ButtonState State)
 		//esta seleccionat
 		if (State != ButtonState::ONHOLD && ModuleInput::S_GetMouseButton(1) != KEY_REPEAT)
 		{
-			_material->ChangeTexture(hoverButton);
+			_material->ChangeTexture(textureIDHover);
 			State = ButtonState::HOVERED;
 			gameTimeCopy = EngineTime::GameTimeCount();
 		}
@@ -83,11 +83,14 @@ ButtonState ComponentUIButton::ChangeState(ButtonState State)
 		//ha sigut clicat
 		if (ModuleInput::S_GetMouseButton(1) == KEY_UP && State != ButtonState::ONHOLD)
 		{
+			_material->ChangeTexture(textureIDPress);
+
 			State = ButtonState::ONPRESS;
 		}
 		//esta sent mantenit clickat
 		if (ModuleInput::S_GetMouseButton(1) == KEY_REPEAT)
 		{
+			_material->ChangeTexture(textureIDPress);
 			if (EngineTime::GameTimeCount() >= gameTimeCopy + 0.5)
 			{
 				State = ButtonState::ONHOLD;
@@ -102,6 +105,7 @@ ButtonState ComponentUIButton::ChangeState(ButtonState State)
 
 	if (!IsMouseOver())
 	{
+		_material->ChangeTexture(textureIDIdle);
 		State = ButtonState::NORMAL;
 		gameTimeCopy = EngineTime::GameTimeCount();
 	}
@@ -180,9 +184,8 @@ void ComponentUIButton::OnEditor()
 				const uint* drop = (uint*)payload->Data;
 
 				idleButton = (ResourceTexture*)ModuleResourceManager::S_LoadResource(*drop);
-				textureIDIdle = idleButton->UID;
-				//currentResource = idleButton;
-				//_material->ChangeTexture(resource);
+				textureIDIdle = idleButton->OpenGLID;
+				_material->ChangeTexture(idleButton);
 			}
 			ImGui::EndDragDropTarget();
 		}
@@ -198,7 +201,7 @@ void ComponentUIButton::OnEditor()
 	}
 
 	//////////////////////////////////////////////////////////////////////////////////////
-	ImGui::Text("Normal:"); ImGui::SameLine();
+	ImGui::Text("Hovered:"); ImGui::SameLine();
 	{
 		//Mesh& mesh = _material->GetMesh();
 
@@ -228,8 +231,7 @@ void ComponentUIButton::OnEditor()
 				const uint* drop = (uint*)payload->Data;
 
 				hoverButton = (ResourceTexture*)ModuleResourceManager::S_LoadResource(*drop);
-				textureIDHover = hoverButton->UID;
-				//_material->ChangeTexture(hoverButton);
+				textureIDHover = hoverButton->OpenGLID;
 			}
 			ImGui::EndDragDropTarget();
 		}
@@ -244,7 +246,7 @@ void ComponentUIButton::OnEditor()
 		ImGui::TextColored(ImVec4(1, 1, 0, 1), std::to_string(height).c_str());
 	}
 	///////////////////////////////////////////////////////////////////////////////////////////
-	ImGui::Text("Normal:"); ImGui::SameLine();
+	ImGui::Text("Press:"); ImGui::SameLine();
 	{
 		//Mesh& mesh = _material->GetMesh();
 
@@ -274,8 +276,7 @@ void ComponentUIButton::OnEditor()
 				const uint* drop = (uint*)payload->Data;
 
 				pressButton = (ResourceTexture*)ModuleResourceManager::S_LoadResource(*drop);
-				textureIDPress = pressButton->UID;
-				//_material->ChangeTexture(resource);
+				textureIDPress = pressButton->OpenGLID;
 			}
 			ImGui::EndDragDropTarget();
 		}
