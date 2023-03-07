@@ -10,17 +10,16 @@ HELLO_ENGINE_API_C BulletBehavior* CreateBulletBehavior(ScriptToInspectorInterfa
 
 void BulletBehavior::Start()
 {
+	API_Vector3 vector = { 1,2,3 };
 
+	Console::Log("X: " + std::to_string(vector.x) + "Y: " + std::to_string(vector.y) + "Z: " + std::to_string(vector.z));
 }
 void BulletBehavior::Update()
 {
-	lifeTime -= Time::GetDeltaTime();
 
-	if (lifeTime <= 0)
-	{
-		this->gameObject.Destroy();
-		return;
-	}
+}
 
-	this->gameObject.GetTransform().Translate(direction);
+void BulletBehavior::OnCollisionEnter(API_RigidBody other)
+{
+	Console::Log("Collision");
 }
