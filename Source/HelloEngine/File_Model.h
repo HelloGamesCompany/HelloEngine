@@ -2,7 +2,8 @@
 
 #include <string>
 #include <vector>
-#include "Math/float4x4.h"
+#include <cassert>
+#include "MathGeoLib.h"
 #include "ModuleXML.h"
 #include "Mesh.h"
 #include "json.hpp"
@@ -285,17 +286,52 @@ struct MeshInfo
 
 struct AnimatedBone
 {
-	void SizeKeyframes(int nKeyframes)
-	{
-		keyframes.resize(nKeyframes);
+	std::string name = "";
 
-		for (int i = 0; i < nKeyframes; i++) {
-			keyframes[i] = float3x4::identity;
+	std::map<float, float3> positions;
+	std::map<float, float3> scales;
+	std::map<float, Quat> rotations;
+	
+	template<typename T> T GetInterpolatedValue(std::map<float, T>& map, float animTime) {
+		if (map.find(animTime) != map.end())
+		{
+			return map[animTime];
+		}
+		else 
+		{
+			float lastkey = map.lower_bound(animTime);
+			float nextkey = map.upper_bound(animTime);
+
+			//Get normalised lerp time
+			float normAnimTime = (animTime - lastkey) / (nextkey - lastkey);
+
+			if (typeof(T) == typeof(float3)) 
+			{
+				return float3::Lerp(map[lastkey], map[nextkey], normAnimTime);
+			}
+			else if (typeof(T) == typeof(Quat))
+			{
+				return Quat::Slerp(map[lastkey], map[nextkey], normAnimTime);
+			}
+			else {
+				assert("Can't Interpolate values that are not [float3, Quat]"); //ERROR
+			}
 		}
 	}
 
-	std::string name = "";
-	std::vector<float3x4> keyframes;
+	float3x4 GetMatrix(float animTime) {
+		float3x4 matrix;
+
+		//Get Interpolated Values on this TIME to build the keyframe info
+		matrix.SetTranslatePart(GetInterpolatedValue<float3>(positions, animTime));
+		matrix.SetRotatePart(GetInterpolatedValue<Quat>(rotations, animTime));
+		float3 scale = GetInterpolatedValue<float3>(scales, animTime);
+		matrix[0][0] *= scale.x;
+		matrix[1][1] *= scale.y;
+		matrix[2][2] *= scale.z;
+
+		return matrix;
+	}
 };
 
 struct Animation3D
@@ -313,7 +349,7 @@ public:
 	/// Returns path to created binary file.
 	std::string SaveToBinaryFile()
 	{
-		std::string filePath = "Resources/Animations/" + std::to_string(HelloUUID::GenerateUUID()) + ".hanim";
+		/*std::string filePath = "Resources/Animations/" + std::to_string(HelloUUID::GenerateUUID()) + ".hanim";
 		
 		std::string corruptionPrev;
 		corruptionPrev.resize(128);
@@ -391,12 +427,12 @@ public:
 
 		RELEASE(fileBuffer);
 
-		return filePath;
+		return filePath;*/
 	}
 
 	void LoadFromBinaryFile(const std::string& filePath)
 	{
-		std::string boneNamesString;
+		/*std::string boneNamesString;
 		std::vector<uint> keyframeAmount;
 		std::vector<float3x4> totalKeyframes;
 
@@ -461,6 +497,6 @@ public:
 		}
 
 
-		RELEASE(buffer);
+		RELEASE(buffer);*/
 	}
 };
