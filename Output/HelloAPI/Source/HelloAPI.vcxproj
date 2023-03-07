@@ -102,6 +102,7 @@
 		<ClCompile Include="../../Assets/Scripts/PlayerGamepadMovement.cpp" />
 		<ClCompile Include="../../Assets/Scripts/Projectile.cpp" />
 		<ClCompile Include="../../Assets/Scripts/Enemies/Enemy.cpp" />
+		<ClCompile Include="../../Assets/Scripts/CollisionTestScript.cpp" />
 	</ItemGroup>
 	<ItemGroup>
 		<ClInclude Include="Macro.h" />
@@ -114,6 +115,7 @@
 		<ClInclude Include="../../Assets/Scripts/PlayerGamepadMovement.h" />
 		<ClInclude Include="../../Assets/Scripts/Projectile.h" />
 		<ClInclude Include="../../Assets/Scripts/Enemies/Enemy.h" />
+		<ClInclude Include="../../Assets/Scripts/CollisionTestScript.h" />
 	</ItemGroup>
 	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 	<ImportGroup Label="ExtensionTargets" />
