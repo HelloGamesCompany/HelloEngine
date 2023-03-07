@@ -157,7 +157,7 @@
                 "Position": [
                     -4.784321308135986,
                     1.660491943359375,
-                    -7.916499137878418
+                    -31.742265701293945
                 ],
                 "Rotation": [
                     14.143915176391602,
@@ -174,7 +174,7 @@
             {
                 "Active camera": true,
                 "Active culling": false,
-                "Aspect ratio": 0.7463651299476624,
+                "Aspect ratio": 0.6042003035545349,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -389,7 +389,7 @@
             {
                 "Enabled": true,
                 "Position": [
-                    59.61062240600586,
+                    22.037485122680664,
                     0.0,
                     0.0
                 ],
@@ -559,7 +559,7 @@
                 "Enabled": true,
                 "Index inside model": 0,
                 "ModelUID": 1718773129,
-                "RootBoneUuid": 3569150220,
+                "RootBoneUuid": -1,
                 "ShowAABB": false,
                 "ShowFaceNormals": false,
                 "ShowOBB": false,
