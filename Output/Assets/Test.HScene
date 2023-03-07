@@ -53,7 +53,7 @@
             },
             {
                 "Active camera": true,
-                "Active culling": true,
+                "Active culling": false,
                 "Aspect ratio": 1.9754902124404907,
                 "Enabled": true,
                 "FOV": 60.0,
@@ -70,5 +70,46 @@
         "PrefabUID": 0,
         "Tag": "Default",
         "UID": 1998316341
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 1776610971,
+                "ParticleModules": {
+                    "ModuleMain": {
+                        "LifeTime": 15.0
+                    }
+                },
+                "Type": 6
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Empty",
+        "ParentUID": 3551592759,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1236012682
     }
 ]

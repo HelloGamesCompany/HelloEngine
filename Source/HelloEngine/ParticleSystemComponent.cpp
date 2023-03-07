@@ -14,7 +14,7 @@ ParticleSystemComponent::ParticleSystemComponent(GameObject* gameObject) : Compo
 	_type = Type::PARTICLE_SYSTEM;
 	_resource = nullptr;
 	app = Application::Instance();
-	
+
 	ParticleEmitter.component = this;
 
 	//Initialize Particle System Modules
@@ -30,7 +30,7 @@ ParticleSystemComponent::ParticleSystemComponent(GameObject* gameObject) : Compo
 	particleProps.startsize = float3::one;
 	particleProps.endsize = float3::zero;
 	particleProps.speed = float3(0.0f, 1.0f, 0.0f);
-	particleProps.acceleration = float3(0.0f, 0.0f, 0.0f);
+	particleProps.acceleration = float3(1.0f, 1.0f, 1.0f);
 	particleProps.speedVariation = float3(1.0f, 1.0f, 1.0f);
 	particleProps.startColor = float4(255.0f, 255.0f, 255.0f, 1.0f); //r g b a
 	particleProps.endColor = float4(255.0f, 255.0f, 255.0f, 1.0f); //r g b a
@@ -72,7 +72,7 @@ void ParticleSystemComponent::CreateEmitterMesh(uint resourceUID)
 	for (Particle& var : ParticleEmitter.ParticleList)
 	{
 		var._instanceID = Application::Instance()->renderer3D->renderManager.AddMesh(_resource, MeshRenderType::INSTANCED);
-		//This line is needed because when you add mesh into the rendermanager it will be drawn, 
+		//This line is needed because when you add mesh into the rendermanager it will be drawn,
 		//when we are at this point we don't want to draw the mesh of the particle till the engine is playing
 		Application::Instance()->renderer3D->renderManager.GetRenderManager(resourceUID)->GetMap()[var._instanceID].draw = false;
 	}
@@ -87,7 +87,7 @@ Mesh& ParticleSystemComponent::GetEmitterMesh()
 		{
 			Mesh& temp = ParticleEmitter.manager->GetMap()[ParticleEmitter.ParticleList[i]._instanceID];
 
-			//Fa falta guardar la posició de cada mesh ?
+			//Fa falta guardar la posiciï¿½ de cada mesh ?
 
 			return temp;
 		}
@@ -117,7 +117,7 @@ void ParticleSystemComponent::DestroyEmitterMesh()
 		{
 			manager->GetMap().erase(var._instanceID);
 		}
-		
+
 	}
 
 	ParticleEmitter._meshID = -1;
@@ -138,21 +138,21 @@ void ParticleSystemComponent::OnEditor()
 		{
 			if (ParticleEmitter.Duration > 0 || ParticleEmitter.loop)
 			{
-				playOnScene = true;
+				SetPlayOnScene(true);
 			}
 		}
 		ImGui::SameLine();
 		if (ImGui::Button("Pause"))
 		{
 			if(ParticleEmitter.Duration > 0 || ParticleEmitter.loop)
-				playOnScene = false;
+				SetPlayOnScene(false);
 		}
 		ImGui::SameLine();
 		if (ImGui::Button("Stop"))
 		{
-			if(playOnScene)
+			if(GetPlayOnScene())
 			{
-				playOnScene = false;
+				SetPlayOnScene(false);
 				if (!LayerGame::S_IsPlaying()) {
 					ParticleEmitter.ResetEmitter();
 				}
@@ -236,6 +236,8 @@ void ParticleSystemComponent::Serialization(json& j)
 	if (ParticleModules.empty() == false)
 	{
 		_j["ParticleModules"]["ModuleMain"]["LifeTime"] = particleProps.Lifetime;
+		/*_j["ParticleModules"]["ModuleMain"]["Duration"] = ParticleEmitter.Duration;
+		_j["ParticleModules"]["ModuleMain"]["Delay"] = ParticleEmitter.StartDelay;*/
 	}
 
 	_j["Enabled"] = _isEnabled;
@@ -258,12 +260,25 @@ void ParticleSystemComponent::DeSerialization(json& j)
 	if (index < model->modelMeshes.size())
 	{
 		ResourceMesh* resourceMesh = model->modelMeshes[index];
-		
-		
+
+
 		CreateEmitterMesh(resourceMesh->UID);
-		
+
 	}
+	particleProps.Lifetime = j["ParticleModules"]["ModuleMain"]["LifeTime"];
+	/*ParticleEmitter.Duration = j["ParticleModules"]["ModuleMain"]["Duration"];
+	ParticleEmitter.StartDelay = j["ParticleModules"]["ModuleMain"]["Delay"];*/
 
 	bool enabled = j["Enabled"];
 
+}
+
+void ParticleSystemComponent::SetPlayOnGame(bool playongame)
+{
+	this->playOnGame = playongame;
+}
+
+void ParticleSystemComponent::SetPlayOnScene(bool playonscene)
+{
+	this->playOnScene = playonscene;
 }

@@ -15,7 +15,7 @@ Emitter::Emitter()
 	loop = true;
 	stop = false;
 	SetParticlePoolSize(100);
-	
+
 	StartDelay = 0.0f;
 	StartDelayCpy = 0.0f;
 	Duration = 0.0f;
@@ -120,7 +120,7 @@ void Emitter::UpdateParticles(Quat rotation)
 			continue;
 		}
 
-		if (LayerGame::S_IsPlaying() == false && component->playOnScene)
+		if (LayerGame::S_IsPlaying() == false && component->GetPlayOnScene())
 		{
 			if (StartDelay <= 0) {
 				if (Duration > 0) {
@@ -143,7 +143,7 @@ void Emitter::UpdateParticles(Quat rotation)
 				StartDelay -= EngineTime::EngineTimeDeltaTime();
 			}
 		}
-		else 
+		else if(LayerGame::S_IsPlaying() == false && component->GetPlayOnScene())
 		{
 			if (StartDelay <= 0) {
 
@@ -190,5 +190,3 @@ void Emitter::UpdateParticles(Quat rotation)
 		}
 	}
 }
-
-

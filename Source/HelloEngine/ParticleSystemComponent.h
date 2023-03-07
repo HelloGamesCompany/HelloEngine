@@ -32,10 +32,23 @@ public:
     void Serialization(json& j) override;
     void DeSerialization(json& j) override;
 
+    bool GetPlayOnScene() { return playOnScene; }
 
-public:
-    bool playOnScene = false;
+    bool GetPlayOnGame() { return playOnGame; }
+
+    Emitter GetParticleSystemEmitter() { return ParticleEmitter; }
+
+    void SetPlayOnGame(bool playongame);
+
 private:
+
+    void SetPlayOnScene(bool playonscene);
+    
+private:
+    //Only for testing with particles on Scene
+    bool playOnScene = false;
+    //Play Particles on Game
+    bool playOnGame = false;
     
     ResourceMesh* _resource;
     uint _resourceUID;

@@ -414,6 +414,9 @@
     <ClCompile Include="P_Module.cpp">
       <Filter>GameObject\Components\ParticleModules</Filter>
     </ClCompile>
+    <ClCompile Include="API\API_ParticleSystem.cpp">
+      <Filter>API</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -946,6 +949,9 @@
     <ClInclude Include="ModuleAudio.h" />
     <ClInclude Include="P_Module.h">
       <Filter>GameObject\Components\ParticleModules</Filter>
+    </ClInclude>
+    <ClInclude Include="API\API_ParticleSystem.h">
+      <Filter>API</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
