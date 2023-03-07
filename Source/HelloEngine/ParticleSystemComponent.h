@@ -3,6 +3,7 @@
 #include "Particle.h"
 #include "Emitter.h"
 #include "P_Module.h"
+#include "Mesh.h"
 
 class Application;
 class ResourceMesh;
@@ -14,6 +15,8 @@ public:
     ~ParticleSystemComponent();
 
     void CreateEmitterMesh(uint resourceUID);
+
+    Mesh& GetEmitterMesh();
 
     void DestroyEmitterMesh();
 

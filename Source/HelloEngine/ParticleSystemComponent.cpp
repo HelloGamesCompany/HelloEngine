@@ -8,6 +8,7 @@
 
 
 
+
 ParticleSystemComponent::ParticleSystemComponent(GameObject* gameObject) : Component(gameObject)
 {
 	_type = Type::PARTICLE_SYSTEM;
@@ -80,6 +81,22 @@ void ParticleSystemComponent::CreateEmitterMesh(uint resourceUID)
 
 }
 
+Mesh& ParticleSystemComponent::GetEmitterMesh()
+{
+	for (int i = 0; i < ParticleEmitter.ParticleList.size(); i++)
+	{
+		if (ParticleEmitter._meshID != -1)
+		{
+			Mesh& temp = ParticleEmitter.manager->GetMap()[ParticleEmitter.ParticleList[i]._instanceID];
+
+			//Fa falta guardar la posició de cada mesh ?
+
+			return temp;
+		}
+	}
+	// TODO: insert return statement here
+}
+
 void ParticleSystemComponent::OnEnable()
 {
 }
@@ -107,6 +124,11 @@ void ParticleSystemComponent::DestroyEmitterMesh()
 
 	ParticleEmitter._meshID = -1;
 }
+
+#ifdef STANDALONE
+
+
+
 
 void ParticleSystemComponent::OnEditor()
 {
@@ -179,10 +201,56 @@ void ParticleSystemComponent::MarkAsAlive()
 	CreateEmitterMesh(_resourceUID);
 }
 
+#endif // !STANDALONE
+
 void ParticleSystemComponent::Serialization(json& j)
 {
+	json _j;
+
+	_j["Type"] = _type;
+
+	if (_resource != nullptr)
+	{
+		_j["ModelUID"] = _resource->modelUID;
+		_j["Index inside model"] = _resource->indexInsideModel;
+	}
+	else
+	{
+		_j["ModelUID"] = 0;
+		_j["Index inside model"] = 0;
+	}
+
+	if (ParticleModules.empty() == false)
+	{
+		_j["ParticleModules"]["ModuleMain"]["LifeTime"] = particleProps.Lifetime;
+	}
+
+	_j["Enabled"] = _isEnabled;
+
+	j["Components"].push_back(_j);
 }
 
 void ParticleSystemComponent::DeSerialization(json& j)
 {
+
+	ResourceModel* model = (ResourceModel*)ModuleResourceManager::resources[j["ModelUID"]];
+
+	if (model == nullptr)
+	{
+		Console::S_Log("A scene mesh render data was not found.");
+		return;
+	}
+
+	uint index = j["Index inside model"];
+	if (index < model->modelMeshes.size())
+	{
+		ResourceMesh* resourceMesh = model->modelMeshes[index];
+		
+		
+		CreateEmitterMesh(resourceMesh->UID);
+		
+	}
+
+	bool enabled = j["Enabled"];
+
 }
