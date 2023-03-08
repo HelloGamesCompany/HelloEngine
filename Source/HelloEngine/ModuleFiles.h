@@ -164,9 +164,6 @@ public:
 
     static void S_RemoveScriptFromDLLSolution(const std::string& fileName, bool isSource);
 
-    // Checks if the given resource type has a resource inside the Resources folder. Some resources do not have information saved in Resources
-    static bool S_HasRealResource(ResourceType type);
-
 private:
 
     /// <summary>

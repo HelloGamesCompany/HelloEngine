@@ -20,17 +20,6 @@ struct File
             metaPath = path + ".helloMeta";
             metaFile = ModuleFiles::S_LoadMeta(metaPath);
 
-            // If the given resource path doesnt exist and this Resource NEEDS a referenced file inside Resources
-            if (!ModuleFiles::S_Exists(metaFile.resourcePath) && ModuleFiles::S_HasRealResource(metaFile.type))
-            {
-                ModuleResourceManager::S_ImportFile(path);
-
-                metaPath = path + ".helloMeta";
-                metaFile = ModuleFiles::S_LoadMeta(metaPath);
-
-                ModuleResourceManager::S_CreateResource(metaFile);
-            }
-
 			// Check if this meta file has a different modify time than the file.
 			unsigned long long modifyTime = ModuleFiles::S_CheckFileLastModify(path);
 			if (metaFile.lastModified != modifyTime)

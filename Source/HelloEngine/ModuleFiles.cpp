@@ -803,14 +803,6 @@ void ModuleFiles::S_RemoveScriptFromDLLSolution(const std::string& fileName, boo
     project.Save(".vcxproj");
 }
 
-bool ModuleFiles::S_HasRealResource(ResourceType type)
-{
-    if (type == ResourceType::CPPSCRIPT || type == ResourceType::HSCRIPT || type == ResourceType::PREFAB || type == ResourceType::SCENE)
-        return false;
-    else
-        return true;
-}
-
 void ModuleFiles::DeleteDirectoryRecursive(std::string directory)
 {
     if (directory[directory.size() - 1] != '/')
