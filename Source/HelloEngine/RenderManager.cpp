@@ -12,7 +12,7 @@
 #include "ComponentUISlider.h"
 #include "ComponentUICheckbox.h"
 #include "ComponentUIImage.h"
-
+#include "Math/float4x4.h"
 
 RenderManager::RenderManager()
 {
@@ -619,8 +619,81 @@ void RenderManager::DrawColliderCylinder(PhysBody3D* physBody, float2 radiusHeig
 	const float3 startingPointY = origin - float3(0, -(height / 2), 0);
 	const float3 endingPointY = origin - float3(0, +(height / 2), 0);
 
-	std::vector<float3> CylinderPoints;
 
+	const btQuaternion rotBtQuat = physBody->body->getCenterOfMassTransform().getRotation();
+
+	float3 rotAxis = (float3)rotBtQuat.getAxis();
+	float rotAngle = (float)rotBtQuat.getAngle();
+	Quat rotQuat = Quat::RotateAxisAngle(rotAxis, DegToRad(rotAngle));
+
+
+
+	
+
+	/*float rad = rotQuat.Angle();
+	btScalar rotBtAngle = RadToDeg(rad);*/
+	
+	//float rotAngle = (float)rotBtAngle;
+
+	//float3 rotAxis;
+
+	//rotAxis.x = rotQuat.Axis().x;
+	//rotAxis.y = rotQuat.Axis().y;
+	//rotAxis.z = rotQuat.Axis().z;
+
+	////SCLrotAxis.Normalized();
+
+	//float rotMatrix[16];
+
+	
+		
+	/*rotMatrix[0] = (cos(rotAngle) + pow(rotAxis.x, 2) * (1 - cos(rotAngle)));
+	rotMatrix[4] = rotAxis.x * rotAxis.y * (1 - cos(rotAngle)) - rotAxis.z * sin(rotAngle);
+	rotMatrix[8] = rotAxis.x * rotAxis.z * (1 - cos(rotAngle)) + rotAxis.y * sin(rotAngle);
+	rotMatrix[12] = 0;
+
+	rotMatrix[1] = rotAxis.y * rotAxis.x * (1 - cos(rotAngle)) + rotAxis.z * sin(rotAngle);
+	rotMatrix[5] = cos(rotAngle) + pow(rotAxis.y, 2) * (1 - cos(rotAngle));
+	rotMatrix[9] = rotAxis.y * rotAxis.z * (1 - cos(rotAngle)) - rotAxis.x * sin(rotAngle);
+	rotMatrix[13] = 0;
+
+	rotMatrix[2] = rotAxis.z * rotAxis.x * (1 - cos(rotAngle)) - rotAxis.y * sin(rotAngle);
+	rotMatrix[6] = rotAxis.z * rotAxis.y * (1 - cos(rotAngle)) + rotAxis.x * sin(rotAngle);
+	rotMatrix[10] = cos(rotAngle) + pow(rotAxis.z, 2) * (1 - cos(rotAngle));
+	rotMatrix[14] = 0;
+
+	rotMatrix[3] = 0;
+	rotMatrix[7] = 0;
+	rotMatrix[11] = 0;
+	rotMatrix[15] = 1;*/
+
+	//rotMatrix[0] = (cos(rotAngle) + pow(rotAxis.x, 2) * (1 - cos(rotAngle)));
+	//rotMatrix[3] = rotAxis.x * rotAxis.y * (1 - cos(rotAngle)) - rotAxis.z * sin(rotAngle);
+	//rotMatrix[6] = rotAxis.x * rotAxis.z * (1 - cos(rotAngle)) + rotAxis.y * sin(rotAngle);
+	////rotMatrix[9] = 0;
+
+	//rotMatrix[1] = rotAxis.y * rotAxis.x * (1 - cos(rotAngle)) + rotAxis.z * sin(rotAngle);
+	//rotMatrix[4] = cos(rotAngle) + pow(rotAxis.y, 2) * (1 - cos(rotAngle));
+	//rotMatrix[7] = rotAxis.y * rotAxis.z * (1 - cos(rotAngle)) - rotAxis.x * sin(rotAngle);
+	////rotMatrix[10] = 0;
+
+	//rotMatrix[2] = rotAxis.z * rotAxis.x * (1 - cos(rotAngle)) - rotAxis.y * sin(rotAngle);
+	//rotMatrix[5] = rotAxis.z * rotAxis.y * (1 - cos(rotAngle)) + rotAxis.x * sin(rotAngle);
+	//rotMatrix[8] = cos(rotAngle) + pow(rotAxis.z, 2) * (1 - cos(rotAngle));
+	//rotMatrix[11] = 0;
+
+	//rotMatrix[3] = 0;
+	//rotMatrix[7] = 0;
+	//rotMatrix[11] = 0;
+	//rotMatrix[15] = 1;
+
+
+
+
+
+	
+	std::vector<float3> CylinderPoints;
+	
 	//Down
 	for (int i = 0; i < verSlices; i++)
 	{
@@ -629,7 +702,9 @@ void RenderManager::DrawColliderCylinder(PhysBody3D* physBody, float2 radiusHeig
 		float tempZ = origin.z + radius * sin(2 * math::pi * i / verSlices);
 
 		float3 tempPoint = float3(tempX, tempY, tempZ);
-		CylinderPoints.push_back(tempPoint);
+		float3 rotatedVec = rotQuat * tempPoint;
+
+		CylinderPoints.push_back(rotatedVec);
 	}
 
 	//Up
@@ -640,7 +715,8 @@ void RenderManager::DrawColliderCylinder(PhysBody3D* physBody, float2 radiusHeig
 		float tempZ = origin.z + radius * sin(2 * math::pi * i / verSlices);
 
 		float3 tempPoint = float3(tempX, tempY, tempZ);
-		CylinderPoints.push_back(tempPoint);
+		float3 rotatedVec = rotQuat * tempPoint;
+		CylinderPoints.push_back(rotatedVec);
 	}
 
 	glBindVertexArray(CYVAO);

@@ -401,7 +401,7 @@ void PhysicsComponent::OnEditor()
 				}
 
 				if (ImGui::DragFloat3("Rotation: ", physBody->colRot.ptr(), 0.1)) {
-					//CallUpdatePos();
+					//CallUpdateRotation();
 				}
 				if (ImGui::DragFloat("Radius: ", &sphereRadius, 0.1)) {
 					//CallUpdatePos();
@@ -415,10 +415,16 @@ void PhysicsComponent::OnEditor()
 					CallUpdatePos();
 				}
 				if (ImGui::DragFloat3("Rotation: ", physBody->colRot.ptr(), 0.1)) {
-					//	CallUpdateShape();
+					CallUpdateRotation();
 				}
 				if (ImGui::DragFloat2("Radius & Height: ", cylRadiusHeight.ptr(), 0.1)) {
-					//CallUpdateShape();
+					CallUpdateScale();
+					//btCollisionShape* shape = physBody->body->getCollisionShape();
+					//shape->setLocalScaling({ cylRadiusHeight.x, cylRadiusHeight.y, cylRadiusHeight.x });
+					/*if (isStatic == false && isKinematic == false) {
+						SetMass();
+					}*/
+				//	physBody->
 				}
 			}
 			break;
@@ -453,7 +459,19 @@ void PhysicsComponent::CallUpdateRotation()
 
 void PhysicsComponent::CallUpdateScale()
 {
-	ModulePhysics::UpdatePhysBodyScale(physBody);
+	switch (shapeSelected)
+	{
+	case ColliderShape::BOX:
+		ModulePhysics::UpdatePhysBodyScaleBox(physBody);
+		break;
+	case ColliderShape::SPHERE:
+		ModulePhysics::UpdatePhysBodyScaleSphere(physBody, sphereRadius);
+		break;
+	case ColliderShape::CYLINDER:
+		ModulePhysics::UpdatePhysBodyScaleCylinder(physBody, cylRadiusHeight.x, cylRadiusHeight.y);
+		break;
+	}
+	
 }
 
 void PhysicsComponent::CallUpdateMass()

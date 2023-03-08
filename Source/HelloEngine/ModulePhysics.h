@@ -44,7 +44,9 @@ public:
 
 	static void UpdatePhysBodyPos(PhysBody3D* physBody);
 	static void UpdatePhysBodyRotation(PhysBody3D* physBody);
-	static void UpdatePhysBodyScale(PhysBody3D* physBody);
+	static void UpdatePhysBodyScaleBox(PhysBody3D* physBody);
+	static void UpdatePhysBodyScaleSphere(PhysBody3D* physBody, float radius);
+	static void UpdatePhysBodyScaleCylinder(PhysBody3D* physBody, float radius, float height);
 
 	//TODO: this is temporaly here
 	static std::vector <PhysBody3D*> physBodies;

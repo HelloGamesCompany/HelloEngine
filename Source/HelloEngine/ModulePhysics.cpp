@@ -311,9 +311,19 @@ void ModulePhysics::UpdatePhysBodyRotation(PhysBody3D* physBody)
 	physBody->SetRotation(physBody->colRot.x, physBody->colRot.y, physBody->colRot.z);
 }
 
-void ModulePhysics::UpdatePhysBodyScale(PhysBody3D* physBody)
+void ModulePhysics::UpdatePhysBodyScaleBox(PhysBody3D* physBody)
 {
 	physBody->SetScale(physBody->colScl.x, physBody->colScl.y, physBody->colScl.z);
+}
+
+void ModulePhysics::UpdatePhysBodyScaleSphere(PhysBody3D* physBody, float radius)
+{
+	physBody->SetScale(radius, radius, radius);
+}
+
+void ModulePhysics::UpdatePhysBodyScaleCylinder(PhysBody3D* physBody, float radius, float height)
+{
+	physBody->SetScale(radius * 4.5f, height, radius * 4.5f);
 }
 
 void ModulePhysics::SetGlobalGravity(float3 grav)
