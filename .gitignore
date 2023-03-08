@@ -349,4 +349,5 @@ MigrationBackup/
 .ionide/
 
 Output/Xmls/config.xml
-localData/*
+localData/*"Output/Resources/" 
+"Output/Resources/" 
