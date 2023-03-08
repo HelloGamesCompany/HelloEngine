@@ -20,6 +20,9 @@ namespace API
 		void SetVelocity(API_Vector3 vec);
 		API_Vector3 GetVelocity();
 
+		void SetGravity(API_Vector3 gravity);
+		API_Vector3 GetGravity();
+
 	private:
 		PhysicsComponent* GetComponent();
 		void SetComponent(PhysicsComponent* component);
@@ -28,5 +31,6 @@ namespace API
 
 		friend class API_GameObject;
 		friend class ScriptComponent;
+		friend class DragBoxRigidBody;
 	};
 }

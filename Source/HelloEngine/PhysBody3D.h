@@ -24,6 +24,8 @@ public:
 	float3 GetVelocity();
 	void Update();
 
+	void SetGravity(float3 grav);
+
 	void SetShape(ColliderShape shape);
 	void RenderCollider();
 
