@@ -6,6 +6,7 @@ HELLO_ENGINE_API_C ProjectilePull* CreateProjectilePull(ScriptToInspectorInterfa
     script->AddDragBoxGameObject("Bullet", &classInstance->projectileGO);
     script->AddDragInt("Pull Size", &classInstance->pullSize);
     script->AddDragBoxMeshRenderer("Projectile Mesh", &classInstance->mesh);
+    script->AddDragBoxGameObject("Player", &classInstance->playerGO);
     return classInstance;
 }
 
@@ -37,14 +38,12 @@ API_GameObject ProjectilePull::GetFirstActiveProjectile()
     return pull.at(0);
 }
 
-void ProjectilePull::LauchProjectile(float projectileSpeed, float projectileDamage, float projectileResistanceDamage, float projectileLifetime, float aimAngle, API_Transform shootingSpawn, API_MeshRenderer projectileMesh)
+void ProjectilePull::LauchProjectile(float projectileSpeed, float projectileDamage, float projectileResistanceDamage, float projectileLifetime, API_Transform shootingSpawn, API_MeshRenderer projectileMesh)
 {
     API_GameObject go = projectileGO;//GetFirstActiveProjectile();
     go.SetActive(true);
     go.GetTransform().SetPosition(shootingSpawn.GetGlobalPosition());
-    //go.GetTransform().SetRotation(shootingSpawn.GetGlobalRotation());
-    go.GetTransform().SetRotation(0, aimAngle, 0);
-    //go.GetTransform().Rotate(API_Vector3(90, 0, 0));// solves gun -90 rotation on X
+    go.GetTransform().SetRotation(playerGO.GetTransform().GetLocalRotation());
     //go.ChangeMesh;
 
     Projectile* projectile = (Projectile*)go.GetScript("Projectile");

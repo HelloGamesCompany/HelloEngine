@@ -34,15 +34,11 @@ void PlayerGun::LauchProjectile()
     float x = shootingSpawn.GetUp().x;
     float z = shootingSpawn.GetUp().z;
 
-    PlayerGamepadMovement* playerMovement = (PlayerGamepadMovement*)playerGO.GetScript("PlayerGamepadMovement");
-    float aimAngle = playerMovement->_angle;
-    API_Vector3 direction = playerGO.GetTransform().GetForward();//API_Vector3(-x, 0, -z);
-
     ProjectilePull* pull = (ProjectilePull*)projectilePull.GetScript("ProjectilePull");
     if (pull == nullptr)
     {
         Console::Log("ProjectilePull not asigned");
         return;
     }
-    pull->LauchProjectile(projectileSpeed, projectileDamage, projectileResistanceDamage, projectileLifetime, aimAngle, shootingSpawn, projectileMesh);
+    pull->LauchProjectile(projectileSpeed, projectileDamage, projectileResistanceDamage, projectileLifetime, shootingSpawn, projectileMesh);
 }

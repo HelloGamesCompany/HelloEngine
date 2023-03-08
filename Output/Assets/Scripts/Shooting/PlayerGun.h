@@ -30,8 +30,5 @@ public:
     API_MeshRenderer projectileMesh;
 
     float cadence;
-
-    // test
-    API_GameObject playerGO;
 };
 
