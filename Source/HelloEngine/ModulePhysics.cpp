@@ -101,7 +101,7 @@ UpdateStatus ModulePhysics::PreUpdate()
 	////std::cout << "\n-------------------------\nx" << testBody->GetVelocity().x << "\ny" << testBody->GetVelocity().y << "\nz" << testBody->GetVelocity().z;
 	//std::cout <<"\n-------------------------\nx" << testBody->GetPos().x << "\ny" << testBody->GetPos().y << "\nz" << testBody->GetPos().z;
 #ifdef _DEBUG
-	if (LayerGame::S_IsPlaying())
+	if (LayerGame::S_IsPlaying() && !LayerGame::S_IsPause())
 	{
 		float a = EngineTime::GameDeltaTime();
 		Console::S_Log(std::to_string(a));
@@ -110,9 +110,10 @@ UpdateStatus ModulePhysics::PreUpdate()
 	else
 	{
 		world->stepSimulation(0);
+		std::cout << "stop" << std::endl;
 	}
 #elif STANDALONE
-	if (LayerGame::S_IsPlaying())
+	if (LayerGame::S_IsPlaying() && !LayerGame::S_IsPause())
 	{
 		float a = EngineTime::GameDeltaTime();
 		Console::S_Log(std::to_string(a));
