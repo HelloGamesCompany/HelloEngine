@@ -18,6 +18,7 @@ public:
 
 	float maxVel = 1.0f;
 	float accel = 0.1f;
+	API_Transform cam;
 
 private:
 	float _angle;

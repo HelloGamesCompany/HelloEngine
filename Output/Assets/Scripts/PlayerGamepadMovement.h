@@ -11,6 +11,8 @@ public:
 	void Start() override; 
 	void Update() override;
 
+	void GamepadAim();
+
 	//player velocity on gamepad
 	float vel = 1.0f;
 
@@ -18,7 +20,6 @@ public:
 	float accel = 0.06f;
 
 	API_Transform cam;
-	void GamepadAim();
 
 private:
 	float _angle;
