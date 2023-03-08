@@ -15,6 +15,7 @@ void ProjectilePull::Start()
         API_GameObject newProjectile = Game::CreateGameObject("Projectile", "Projectile");
         newProjectile.AddMeshRenderer(mesh);
         newProjectile.AddScript("Projectile");
+        newProjectile.GetTransform().SetScale(0.1f, 0.1f, 0.1f);
         pull.push_back(newProjectile);
     }
 }
@@ -35,6 +36,7 @@ void ProjectilePull::LauchProjectile(float projectileSpeed, float projectileDama
     //go.setActive;
     go.GetTransform().SetPosition(shootingSpawn.GetGlobalPosition());
     go.GetTransform().SetRotation(shootingSpawn.GetGlobalRotation());
+    go.GetTransform().Rotate(API_Vector3(90, 0, 0));// solves gun -90 rotation on X
     //go.ChangeMesh;
 
     Projectile* projectile = (Projectile*)go.GetScript("Projectile");

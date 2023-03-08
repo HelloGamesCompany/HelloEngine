@@ -3,6 +3,7 @@ HELLO_ENGINE_API_C PlayerSemiAuto* CreatePlayerSemiAuto(ScriptToInspectorInterfa
 {
     PlayerSemiAuto* classInstance = new PlayerSemiAuto();
     //Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
+    script->AddDragBoxGameObject("Projectile Pull", &classInstance->projectilePull);
     script->AddDragFloat("Projectile Speed", &classInstance->projectileSpeed);
     script->AddDragFloat("Projectile Damage", &classInstance->projectileDamage);
     script->AddDragFloat("Projectile Resistance Damage", &classInstance->projectileResistanceDamage);
