@@ -31,6 +31,21 @@ Application::~Application()
 //test
 bool Application::Init()
 {
+	// Check if resource folders exist HOTFIX
+
+	if (!std::filesystem::exists("Resources/Models"))
+	{
+		std::filesystem::create_directory("Resources/Models");
+	}
+	if (!std::filesystem::exists("Resources/Meshes"))
+	{
+		std::filesystem::create_directory("Resources/Meshes");
+	}
+	if (!std::filesystem::exists("Resources/Textures"))
+	{
+		std::filesystem::create_directory("Resources/Textures");
+	}
+
 	window = new ModuleWindow(true);
 	file = new ModuleFiles();
 	input = new ModuleInput(true);
