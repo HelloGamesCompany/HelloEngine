@@ -37,6 +37,10 @@ PhysicsComponent::PhysicsComponent(GameObject* gameObject) : Component(gameObjec
 	sphereVerSlices = 16;
 	sphereHorSlices = 16;
 	cylinderVerSlices = 16;
+
+	gravity[0] = { 0 };
+	gravity[1] = { -9.8 };
+	gravity[2] = { 0 };
 }
 
 PhysicsComponent::~PhysicsComponent()
@@ -56,6 +60,19 @@ void PhysicsComponent::SetVelocity(float3 vec)
 float3 PhysicsComponent::GetVelocity()
 {
 	return physBody->GetVelocity();
+}
+
+void PhysicsComponent::SetGravity(float3 grav)
+{
+	physBody->SetGravity(float3(grav[0], grav[1], grav[2]));
+	gravity[0] = grav[0];
+	gravity[1] = grav[1];
+	gravity[2] = grav[2];
+}
+
+float3 PhysicsComponent::GetGravity()
+{
+	return float3(gravity[0], gravity[1], gravity[2]);
 }
 
 void PhysicsComponent::Serialization(json& j)
@@ -95,6 +112,8 @@ void PhysicsComponent::Serialization(json& j)
 
 	_j["CylinderRadiusHeight"] = { cylRadiusHeight[0], cylRadiusHeight[1]};
 
+	_j["Gravity"] = { gravity[0], gravity[1], gravity[2] };
+
 	j["Components"].push_back(_j);
 }
 
@@ -117,7 +136,6 @@ void PhysicsComponent::DeSerialization(json& j)
 	isShapeCreated[2] = isShapeCreatedTemp[2];
 
 	isStatic = j["IsStatic"];
-
 	
 	sphereRadius = j["SphereRadius"];
 
@@ -139,6 +157,10 @@ void PhysicsComponent::DeSerialization(json& j)
 
 		std::vector<float> colSclTemp = j["ColScale"];
 		physBody->colScl = { colSclTemp[0], colSclTemp[1], colSclTemp[2] };
+
+		std::vector<float> newGrav = j["Gravity"];
+		SetGravity(float3(newGrav[0], newGrav[1], newGrav[2]));
+
 		CallUpdatePos();
 		CallUpdateRotation();
 		CallUpdateScale();
@@ -211,6 +233,12 @@ void PhysicsComponent::OnEditor()
 			std::string colName = "Collider Attached: ";
 			colName += colliderType;
 			ImGui::Text(colName.c_str());
+
+			if (ImGui::DragFloat3("Gravity", gravity)) {
+				if (physBody != nullptr) {
+					physBody->SetGravity(float3(gravity[0], gravity[1], gravity[2]));
+				}
+			}
 
 			if (ImGui::Checkbox("Render", &physBody->isRenderingCol)) {
 				if (physBody->isRenderingCol == true) {
@@ -481,6 +509,24 @@ void PhysicsComponent::OnTransformCallback(float4x4 worldMatrix)
 	{
 		CallUpdatePos();
 		CallUpdateRotation();
+	}
+}
+
+void PhysicsComponent::OnEnable()
+{
+	if (physBody != nullptr)
+	{
+		physBody->body->forceActivationState(ACTIVE_TAG);
+		physBody->body->setCollisionFlags(physBody->body->getCollisionFlags() | this->isStatic ? btCollisionObject::CollisionFlags::CF_STATIC_OBJECT : btCollisionObject::CollisionFlags::CF_CHARACTER_OBJECT);
+	}
+}
+
+void PhysicsComponent::OnDisable()
+{
+	if (physBody != nullptr)
+	{
+		physBody->body->forceActivationState(DISABLE_SIMULATION);
+		physBody->body->setCollisionFlags(physBody->body->getCollisionFlags() | btCollisionObject::CollisionFlags::CF_NO_CONTACT_RESPONSE);
 	}
 }
 

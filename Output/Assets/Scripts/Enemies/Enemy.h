@@ -21,5 +21,8 @@ public:
     float maxResistance = 100.0f;
     float currentResistance;
     float speed = 0.0f;
+
+    // Test Code, delete later
+    API_RigidBody rb;
 };
 

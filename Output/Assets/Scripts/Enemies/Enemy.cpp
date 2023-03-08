@@ -6,6 +6,7 @@ HELLO_ENGINE_API_C Enemy* CreateEnemy(ScriptToInspectorInterface* script)
     script->AddDragFloat("Health", &classInstance->maxHp);
     script->AddDragFloat("Resistance", &classInstance->maxResistance);
     script->AddDragFloat("Speed", &classInstance->speed);
+    script->AddDragBoxRigidBody("Rigidbody test", &classInstance->rb);
     return classInstance;
 }
 
@@ -13,6 +14,9 @@ void Enemy::Start()
 {
     currentHp = maxHp;
     currentResistance = maxResistance;
+
+    // TESTING CODE, DELETE LATER
+    rb.SetGravity({ 0,-0.1f,0 });
 }
 
 void Enemy::Update()
@@ -52,6 +56,6 @@ void Enemy::OnCollisionEnter(API::API_RigidBody other)
     if (detectionName == "Bullet")
     {
         Console::Log("Collision");
-        Die();
+        gameObject.SetActive(false);
     }
 }

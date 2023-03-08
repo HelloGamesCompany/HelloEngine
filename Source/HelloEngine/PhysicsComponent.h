@@ -15,12 +15,13 @@ public:
 	void SetVelocity(float3 vec);
 	float3 GetVelocity();
 
+	void SetGravity(float3 grav);
+	float3 GetGravity();
+
 private:
 #ifdef STANDALONE
 	void OnEditor() override;
 #endif // STANDALONE
-
-
 
 	void Serialization(json& j) override;
 	void DeSerialization(json& j) override;
@@ -39,6 +40,9 @@ private:
 
 	void OnTransformCallback(float4x4 worldMatrix);
 
+	void OnEnable();
+	void OnDisable();
+
 private:
 
 	PhysBody3D* physBody = nullptr;
@@ -48,6 +52,7 @@ private:
 	bool isShapeSelected[3];
 	bool isShapeCreated[3];
 	bool isStatic;
+	float gravity[3];
 
 public:
 	float sphereRadius;

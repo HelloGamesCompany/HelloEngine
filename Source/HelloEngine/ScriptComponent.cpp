@@ -218,6 +218,16 @@ void ScriptComponent::AddDragBoxCamera(const char* name, API::API_Camera* value)
 	inspectorFields.push_back(dragBoxField);
 }
 
+void ScriptComponent::AddDragBoxRigidBody(const char* name, API::API_RigidBody* value)
+{
+	DragBoxRigidBody* dragBoxField = new DragBoxRigidBody();
+	dragBoxField->valueName = name;
+	dragBoxField->value = value;
+	dragBoxField->className = scriptResource == nullptr ? addedScript : scriptResource->className;
+
+	inspectorFields.push_back(dragBoxField);
+}
+
 uint ScriptComponent::GetResourceUID()
 {
 	if (scriptResource != nullptr)

@@ -4,6 +4,8 @@
 #include "API/API_Transform.h"
 #include "API/API_MeshRenderer.h"
 #include "API/API_Camera.h"
+#include "API/API_RigidBody.h"
+#include "PhysicsComponent.h"
 #include "MeshRenderComponent.h"
 #include "CameraComponent.h"
 
@@ -382,6 +384,81 @@ void DragBoxCamera::OnDeserialize(json& j)
 			{
 				API::API_Camera* camera = (API::API_Camera*)value;
 				camera->SetComponent(component);
+			}
+		}
+	}
+}
+
+void DragBoxRigidBody::OnEditor()
+{
+	API::API_RigidBody* rigidBody = (API::API_RigidBody*)value;
+
+	std::string buttonName = "X##" + std::to_string(UID);
+	if (ImGui::Button(buttonName.c_str()))
+	{
+		rigidBody->SetComponent(nullptr);
+	}
+	ImGui::SameLine();
+
+	ImGui::TextWrapped((valueName + ": ").c_str()); ImGui::SameLine();
+
+	if (rigidBody->_rigidBody == nullptr)
+	{
+		ImGui::TextColored(ImVec4(1, 1, 0, 1), "NULL (Drag a RigidBody here)");
+	}
+	else
+	{
+		std::string gameObjectName(rigidBody->GetGameObject().GetName());
+		std::string text = "(" + gameObjectName + ")" + ": RigidBody";
+		ImGui::TextColored(ImVec4(1, 1, 0, 1), text.c_str());
+	}
+
+	if (ImGui::BeginDragDropTarget())
+	{
+		if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("GameObject"))
+		{
+			const uint* drop = (uint*)payload->Data;
+
+			GameObject* droppedGO = ModuleLayers::S_GetGameObject(*drop);
+			PhysicsComponent* component = nullptr;
+
+			if (droppedGO != nullptr)
+				component = droppedGO->GetComponent<PhysicsComponent>();
+
+			rigidBody->SetComponent(component);
+		}
+		ImGui::EndDragDropTarget();
+	}
+}
+
+void DragBoxRigidBody::OnSerialize(json& j)
+{
+	json _j;
+
+	API::API_RigidBody* rigidBody = (API::API_RigidBody*)value;
+
+	if (rigidBody->_rigidBody != nullptr)
+	{
+		_j[valueName.c_str()] = rigidBody->_rigidBody->GetGameObject()->GetID();
+		j.push_back(_j);
+	}
+}
+
+void DragBoxRigidBody::OnDeserialize(json& j)
+{
+	for (int i = 0; i < j.size(); i++)
+	{
+		if (j[i].find(valueName) != j[i].end())
+		{
+			uint id = j[i][valueName.c_str()];
+			GameObject* gameObject = ModuleLayers::S_GetGameObject(id);
+			PhysicsComponent* component = nullptr;
+			if (gameObject != nullptr)
+				component = gameObject->GetComponent<PhysicsComponent>();
+			if (component != nullptr)
+			{
+				API::API_RigidBody* rigidBody = (API::API_RigidBody*)value;
+				rigidBody->SetComponent(component);
 			}
 		}
 	}

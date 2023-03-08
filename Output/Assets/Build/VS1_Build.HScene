@@ -82,6 +82,11 @@
                     1.0
                 ],
                 "Enabled": true,
+                "Gravity": [
+                    0.0,
+                    -8.0,
+                    0.0
+                ],
                 "HasPhysBody": true,
                 "IsRenderingCol": true,
                 "IsShapeCreated": [
@@ -161,6 +166,11 @@
                     1.0
                 ],
                 "Enabled": true,
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
                 "HasPhysBody": true,
                 "IsRenderingCol": true,
                 "IsShapeCreated": [
@@ -182,24 +192,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Health": 100.0
-                    },
-                    {
-                        "Resistance": 100.0
-                    },
-                    {
-                        "Speed": 0.0
-                    },
-                    {
-                        "Health": 100.0
-                    },
-                    {
-                        "Resistance": 100.0
-                    },
-                    {
-                        "Speed": 0.0
-                    },
                     {
                         "Health": 100.0
                     },
@@ -348,7 +340,7 @@
             {
                 "Active camera": true,
                 "Active culling": true,
-                "Aspect ratio": 1.3921568393707275,
+                "Aspect ratio": 0.7087033987045288,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -361,7 +353,7 @@
         "FirstOnPrefab": true,
         "Name": "Camera",
         "ParentUID": 557669938,
-        "PrefabUID": 0,
+        "PrefabUID": 1357776111,
         "Tag": "Default",
         "UID": 1466538410
     }
