@@ -28,7 +28,7 @@ bld/
 [Oo]bj/
 [Ll]og/
 [Ll]ogs/
-[Ou]tput/Resources/
+Output/Resources/
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
@@ -349,5 +349,4 @@ MigrationBackup/
 .ionide/
 
 Output/Xmls/config.xml
-localData/*"Output/Resources/" 
-"Output/Resources/" 
+localData/*
