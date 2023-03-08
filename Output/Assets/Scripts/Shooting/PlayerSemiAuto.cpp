@@ -11,6 +11,7 @@ HELLO_ENGINE_API_C PlayerSemiAuto* CreatePlayerSemiAuto(ScriptToInspectorInterfa
     script->AddDragBoxTransform("Projectile Spawn", &classInstance->shootingSpawn);
     script->AddDragBoxMeshRenderer("Projectile Mesh", &classInstance->projectileMesh);
     script->AddDragFloat("Projectiles per second", &classInstance->cadence);
+    script->AddDragBoxGameObject("Player", &classInstance->playerGO);
     return classInstance;
 }
 

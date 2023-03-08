@@ -17,14 +17,24 @@ void Projectile::Update()
 
     if (lifeTime <= 0)
     {
-        Destroy();
+        //Destroy();
         return;
     }
 
-    gameObject.GetTransform().Translate(direction);
+    //gameObject.GetTransform().Translate(direction);
+    //gameObject.GetTransform().Translate(gameObject.GetTransform().GetForward());
 }
 
 void Projectile::Destroy()
 {
-    //gameObject.active = false;
+    gameObject.SetActive(false);
+}
+
+void Projectile::OnCollisionEnter(API::API_RigidBody other)
+{
+    std::string detectionName = other.GetGameObject().GetName();
+    if (detectionName != "Player")
+    {
+        gameObject.SetActive(false);
+    }
 }
