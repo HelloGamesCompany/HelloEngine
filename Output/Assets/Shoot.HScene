@@ -119,6 +119,18 @@
                     },
                     {
                         "Velocity": 1.0
+                    },
+                    {
+                        "Velocity": 1.0
+                    },
+                    {
+                        "Velocity": 1.0
+                    },
+                    {
+                        "Velocity": 0.5
+                    },
+                    {
+                        "Velocity": 0.5
                     }
                 ],
                 "Script Resource": 3374891891,
@@ -157,6 +169,18 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Gun": 12992023
+                    },
+                    {
+                        "Gun": 12992023
+                    },
+                    {
+                        "Gun": 12992023
+                    },
+                    {
+                        "Gun": 12992023
+                    },
                     {
                         "Gun": 12992023
                     },
@@ -226,6 +250,18 @@
                     },
                     {
                         "Gun Type": 0
+                    },
+                    {
+                        "Gun Type": 0
+                    },
+                    {
+                        "Gun Type": 0
+                    },
+                    {
+                        "Gun Type": 0
+                    },
+                    {
+                        "Gun Type": 0
                     }
                 ],
                 "Script Resource": 1421097082,
@@ -234,6 +270,90 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Projectile Pull": 4123534121
+                    },
+                    {
+                        "Projectile Speed": 1.0
+                    },
+                    {
+                        "Projectile Damage": 0.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 0.0
+                    },
+                    {
+                        "Projectile Lifetime": 1.0
+                    },
+                    {
+                        "Projectile Spawn": 3016666137
+                    },
+                    {
+                        "Projectiles per second": 3.0
+                    },
+                    {
+                        "Projectile Pull": 4123534121
+                    },
+                    {
+                        "Projectile Speed": 1.0
+                    },
+                    {
+                        "Projectile Damage": 0.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 0.0
+                    },
+                    {
+                        "Projectile Lifetime": 1.0
+                    },
+                    {
+                        "Projectile Spawn": 3016666137
+                    },
+                    {
+                        "Projectiles per second": 3.0
+                    },
+                    {
+                        "Projectile Pull": 4123534121
+                    },
+                    {
+                        "Projectile Speed": 1.0
+                    },
+                    {
+                        "Projectile Damage": 0.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 0.0
+                    },
+                    {
+                        "Projectile Lifetime": 1.0
+                    },
+                    {
+                        "Projectile Spawn": 3016666137
+                    },
+                    {
+                        "Projectiles per second": 3.0
+                    },
+                    {
+                        "Projectile Pull": 4123534121
+                    },
+                    {
+                        "Projectile Speed": 1.0
+                    },
+                    {
+                        "Projectile Damage": 0.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 0.0
+                    },
+                    {
+                        "Projectile Lifetime": 1.0
+                    },
+                    {
+                        "Projectile Spawn": 3016666137
+                    },
+                    {
+                        "Projectiles per second": 3.0
+                    },
                     {
                         "Projectile Pull": 4123534121
                     },
@@ -372,6 +492,48 @@
                     },
                     {
                         "Bullet": 120296414
+                    },
+                    {
+                        "Pull Size": 0
+                    },
+                    {
+                        "Projectile Mesh": 120296414
+                    },
+                    {
+                        "Bullet": 120296414
+                    },
+                    {
+                        "Pull Size": 0
+                    },
+                    {
+                        "Projectile Mesh": 120296414
+                    },
+                    {
+                        "Bullet": 120296414
+                    },
+                    {
+                        "Pull Size": 0
+                    },
+                    {
+                        "Projectile Mesh": 120296414
+                    },
+                    {
+                        "Bullet": 120296414
+                    },
+                    {
+                        "Pull Size": 0
+                    },
+                    {
+                        "Projectile Mesh": 120296414
+                    },
+                    {
+                        "Bullet": 120296414
+                    },
+                    {
+                        "Pull Size": 0
+                    },
+                    {
+                        "Projectile Mesh": 120296414
                     }
                 ],
                 "Script Resource": 1341579112,
@@ -455,6 +617,12 @@
                 "ShapeSelected": 0,
                 "SphereRadius": 1.0,
                 "Type": 8
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": null,
+                "Script Resource": 4125295127,
+                "Type": 5
             }
         ],
         "FirstOnPrefab": true,

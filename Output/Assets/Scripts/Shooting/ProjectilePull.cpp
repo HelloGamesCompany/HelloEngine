@@ -4,8 +4,8 @@ HELLO_ENGINE_API_C ProjectilePull* CreateProjectilePull(ScriptToInspectorInterfa
     ProjectilePull* classInstance = new ProjectilePull();
     //Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
     script->AddDragBoxGameObject("Bullet", &classInstance->projectileGO);
-    /*script->AddDragInt("Pull Size", &classInstance->pullSize);
-    script->AddDragBoxMeshRenderer("Projectile Mesh", &classInstance->mesh);*/
+    script->AddDragInt("Pull Size", &classInstance->pullSize);
+    script->AddDragBoxMeshRenderer("Projectile Mesh", &classInstance->mesh);
     return classInstance;
 }
 
@@ -29,6 +29,11 @@ void ProjectilePull::Update()
 
 API_GameObject ProjectilePull::GetFirstActiveProjectile()
 {
+    /*for (size_t i = 0; i < 5; i++)
+    {
+        if (!pull.at(i).active)) return pull.at(i);
+    }*/
+
     return pull.at(0);
 }
 
