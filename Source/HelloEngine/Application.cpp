@@ -31,24 +31,6 @@ Application::~Application()
 //test
 bool Application::Init()
 {
-	float2 f(2, 3);
-
-	Vector2 v2(2, 2);
-
-	v2 = -f;
-
-	Vector3 v3;
-
-	Vector3 v4(5,2,3);
-
-	v3 = -v4;
-
-	v3 = Vector3::S_Identity();
-
-	float result = Vector3::S_Distance(v3, v4);
-
-	//std::cout << v2 << std::endl;
-
 	window = new ModuleWindow(true);
 	file = new ModuleFiles();
 	input = new ModuleInput(true);
@@ -138,15 +120,19 @@ UpdateStatus Application::Update()
 		ret = _list_modules[i]->PostUpdate();
 	}
 
+#ifdef STANDALONE
+
 	_dt = timer.getDeltaTime();
 
 	if (_dt < fps)
 	{
-		float sleepTime = (fps - _dt) * 1000;
+		float sleepTime = (fps - _dt) * 1000.0f;
 		Sleep(sleepTime);
 	}
 
 	timer.Reset();
+
+#endif
 
 	return ret;
 }
