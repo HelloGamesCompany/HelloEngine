@@ -419,6 +419,8 @@ void PhysicsComponent::OnEditor()
 				}
 				if (ImGui::DragFloat2("Radius & Height: ", cylRadiusHeight.ptr(), 0.1)) {
 					CallUpdateScale();
+					
+
 					//btCollisionShape* shape = physBody->body->getCollisionShape();
 					//shape->setLocalScaling({ cylRadiusHeight.x, cylRadiusHeight.y, cylRadiusHeight.x });
 					/*if (isStatic == false && isKinematic == false) {

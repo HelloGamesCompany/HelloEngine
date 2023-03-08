@@ -616,15 +616,15 @@ void RenderManager::DrawColliderCylinder(PhysBody3D* physBody, float2 radiusHeig
 	const float height = radiusHeight.y;
 
 	const float3 origin = (float3)physBody->body->getCenterOfMassTransform().getOrigin();
-	const float3 startingPointY = origin - float3(0, -(height / 2), 0);
-	const float3 endingPointY = origin - float3(0, +(height / 2), 0);
+	const float3 startingPointY = float3(0, -(height / 2), 0);
+	const float3 endingPointY = float3(0, +(height / 2), 0);
 
 
 	const btQuaternion rotBtQuat = physBody->body->getCenterOfMassTransform().getRotation();
 
 	float3 rotAxis = (float3)rotBtQuat.getAxis();
 	float rotAngle = (float)rotBtQuat.getAngle();
-	Quat rotQuat = Quat::RotateAxisAngle(rotAxis, DegToRad(rotAngle));
+	Quat rotQuat = Quat::RotateAxisAngle(rotAxis, rotAngle);
 
 
 
@@ -698,11 +698,13 @@ void RenderManager::DrawColliderCylinder(PhysBody3D* physBody, float2 radiusHeig
 	for (int i = 0; i < verSlices; i++)
 	{
 		float tempY = startingPointY.y;
-		float tempX = origin.x + radius * cos(2 * math::pi * i / verSlices);
-		float tempZ = origin.z + radius * sin(2 * math::pi * i / verSlices);
+		float tempX = radius * cos(2 * math::pi * i / verSlices);
+		float tempZ = radius * sin(2 * math::pi * i / verSlices);
 
 		float3 tempPoint = float3(tempX, tempY, tempZ);
 		float3 rotatedVec = rotQuat * tempPoint;
+
+		rotatedVec += origin;
 
 		CylinderPoints.push_back(rotatedVec);
 	}
@@ -711,11 +713,14 @@ void RenderManager::DrawColliderCylinder(PhysBody3D* physBody, float2 radiusHeig
 	for (int i = 0; i < verSlices; i++)
 	{
 		float tempY = endingPointY.y;
-		float tempX = origin.x + radius * cos(2 * math::pi * i / verSlices);
-		float tempZ = origin.z + radius * sin(2 * math::pi * i / verSlices);
+		float tempX =  radius * cos(2 * math::pi * i / verSlices);
+		float tempZ =  radius * sin(2 * math::pi * i / verSlices);
 
 		float3 tempPoint = float3(tempX, tempY, tempZ);
 		float3 rotatedVec = rotQuat * tempPoint;
+		
+		rotatedVec += origin;
+
 		CylinderPoints.push_back(rotatedVec);
 	}
 
