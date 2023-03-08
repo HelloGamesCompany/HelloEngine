@@ -71,6 +71,8 @@ bool ModulePhysics::Start()
 			go->GetComponent<PhysicsComponent>()->localGlobalGravity[0] = gravFloat[0];
 			go->GetComponent<PhysicsComponent>()->localGlobalGravity[1] = gravFloat[1];
 			go->GetComponent<PhysicsComponent>()->localGlobalGravity[2] = gravFloat[2];
+
+			go->GetComponent<PhysicsComponent>()->CheckRenderBuffers();
 		}
 	}
 
@@ -323,7 +325,7 @@ void ModulePhysics::UpdatePhysBodyScaleSphere(PhysBody3D* physBody, float radius
 
 void ModulePhysics::UpdatePhysBodyScaleCylinder(PhysBody3D* physBody, float radius, float height)
 {
-	physBody->SetScale(radius * 4.5f, height, radius * 4.5f);
+	physBody->SetScale(radius, height, radius);
 }
 
 void ModulePhysics::SetGlobalGravity(float3 grav)

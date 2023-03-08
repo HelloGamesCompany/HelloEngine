@@ -565,30 +565,57 @@ void RenderManager::DrawColliderBox(PhysBody3D* physBody, float4 color, float wi
 
 void RenderManager::DrawColliderSphere(PhysBody3D* physBody, float radius, float4 color, float wireSize, uint verSlices, uint horSlices)
 {
+	const float newRadius = radius / 2.f;
+
 	const float3 origin = (float3)physBody->body->getCenterOfMassTransform().getOrigin();
-	const float3 startingPointY = origin - float3(0, radius, 0);
-	const float diferenceBetweenSlicesY = (radius * 2) / (horSlices + 1);
+	const float3 startingPointY = - float3(0, newRadius, 0);
+	const float diferenceBetweenSlicesY = (newRadius * 2) / (horSlices + 1);
+
+	const btQuaternion rotBtQuat = physBody->body->getCenterOfMassTransform().getRotation();
+
+	float3 rotAxis = (float3)rotBtQuat.getAxis();
+	float rotAngle = (float)rotBtQuat.getAngle();
+	Quat rotQuat = Quat::RotateAxisAngle(rotAxis, rotAngle);
 
 	std::vector<float3> SpherePoints;
 
-	SpherePoints.push_back(startingPointY);
+
+	float3 tempPointFirst = float3(startingPointY);
+
+	float3 rotatedPointFirst = rotQuat * tempPointFirst;
+
+	rotatedPointFirst += origin;
+
+	SpherePoints.push_back(rotatedPointFirst);
 
 	for (int i = 1; i < horSlices + 1; i++)
 	{
 		for (int j = 0; j < verSlices; j++)
 		{
 			float tempY = startingPointY.y + diferenceBetweenSlicesY * i;
-			float tempYRad = sqrt(Pow(radius, 2) - Pow(-radius + diferenceBetweenSlicesY * i,2));
-			float tempX = origin.x + tempYRad * cos(2 * math::pi * j / verSlices);
-			float tempZ = origin.z + tempYRad * sin(2 * math::pi * j / verSlices);
+			float tempYRad = sqrt(Pow(newRadius, 2) - Pow(-newRadius + diferenceBetweenSlicesY * i,2));
+			float tempX = tempYRad * cos(2 * math::pi * j / verSlices);
+			float tempZ = tempYRad * sin(2 * math::pi * j / verSlices);
 
 			float3 tempPoint = float3(tempX, tempY, tempZ);
-			SpherePoints.push_back(tempPoint);
+
+			float3 rotatedPoint = rotQuat * tempPoint;
+
+			rotatedPoint += origin;
+
+			SpherePoints.push_back(rotatedPoint);
 		}
 		
 	}
 
-	SpherePoints.push_back(origin + float3(0, radius, 0));
+	float3 tempPointLast = float3(0, newRadius, 0);
+
+	float3 rotatedPointLast = rotQuat * tempPointLast;
+
+	rotatedPointLast += origin;
+
+	SpherePoints.push_back(rotatedPointLast);
+
 
 	glBindVertexArray(SPVAO);
 
@@ -612,7 +639,7 @@ void RenderManager::DrawColliderSphere(PhysBody3D* physBody, float radius, float
 
 void RenderManager::DrawColliderCylinder(PhysBody3D* physBody, float2 radiusHeight, float4 color, float wireSize, uint verSlices)
 {
-	const float radius = radiusHeight.x;
+	const float radius = radiusHeight.x / 4.5f;
 	const float height = radiusHeight.y;
 
 	const float3 origin = (float3)physBody->body->getCenterOfMassTransform().getOrigin();
@@ -702,11 +729,11 @@ void RenderManager::DrawColliderCylinder(PhysBody3D* physBody, float2 radiusHeig
 		float tempZ = radius * sin(2 * math::pi * i / verSlices);
 
 		float3 tempPoint = float3(tempX, tempY, tempZ);
-		float3 rotatedVec = rotQuat * tempPoint;
+		float3 rotatedPoint = rotQuat * tempPoint;
 
-		rotatedVec += origin;
+		rotatedPoint += origin;
 
-		CylinderPoints.push_back(rotatedVec);
+		CylinderPoints.push_back(rotatedPoint);
 	}
 
 	//Up
@@ -717,11 +744,11 @@ void RenderManager::DrawColliderCylinder(PhysBody3D* physBody, float2 radiusHeig
 		float tempZ =  radius * sin(2 * math::pi * i / verSlices);
 
 		float3 tempPoint = float3(tempX, tempY, tempZ);
-		float3 rotatedVec = rotQuat * tempPoint;
+		float3 rotatedPoint = rotQuat * tempPoint;
 		
-		rotatedVec += origin;
+		rotatedPoint += origin;
 
-		CylinderPoints.push_back(rotatedVec);
+		CylinderPoints.push_back(rotatedPoint);
 	}
 
 	glBindVertexArray(CYVAO);

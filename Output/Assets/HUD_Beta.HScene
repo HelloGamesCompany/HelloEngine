@@ -389,9 +389,9 @@
             {
                 "Enabled": true,
                 "Position": [
-                    -3.3989999294281006,
-                    -5.099999904632568,
-                    -34.59147262573242
+                    61.53007888793945,
+                    27.664113998413086,
+                    -29.673227310180664
                 ],
                 "Rotation": [
                     -0.0,
@@ -399,9 +399,9 @@
                     -0.0
                 ],
                 "Scale": [
-                    11.822864532470703,
-                    1.0,
-                    10.49514102935791
+                    10.0,
+                    10.0,
+                    10.0
                 ],
                 "Type": 1
             },
@@ -417,8 +417,8 @@
             },
             {
                 "ColPosition": [
-                    1.0,
-                    -3.0999999046325684,
+                    0.0,
+                    0.0,
                     0.0
                 ],
                 "ColRotation": [
@@ -427,10 +427,11 @@
                     0.0
                 ],
                 "ColScale": [
-                    21.600000381469727,
-                    29.600000381469727,
-                    24.399999618530273
+                    20.0,
+                    20.0,
+                    20.0
                 ],
+                "CylVerSlices": 16,
                 "CylinderRadiusHeight": [
                     1.0,
                     1.0
@@ -462,9 +463,18 @@
                 "IsStatic": true,
                 "IsTrigger": false,
                 "Mass": 1.2200000286102295,
+                "RenderColColor": [
+                    0.5,
+                    0.0,
+                    0.5,
+                    1.0
+                ],
                 "ShapeSelected": 0,
+                "SphereHorSlices": 16,
                 "SphereRadius": 1.0,
-                "Type": 8
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
             }
         ],
         "FirstOnPrefab": true,
@@ -481,8 +491,8 @@
                 "Enabled": true,
                 "Position": [
                     61.25740051269531,
-                    12.753608703613281,
-                    -29.809452056884766
+                    77.83466339111328,
+                    -29.73131561279297
                 ],
                 "Rotation": [
                     -0.0,
@@ -513,15 +523,16 @@
                     0.0
                 ],
                 "ColRotation": [
-                    90.0,
-                    0.0,
-                    0.0
+                    27.5,
+                    56.0,
+                    -49.29999923706055
                 ],
                 "ColScale": [
                     1.0,
                     1.0,
                     1.0
                 ],
+                "CylVerSlices": 16,
                 "CylinderRadiusHeight": [
                     3.4000000953674316,
                     3.200000047683716
@@ -542,20 +553,29 @@
                 "IsRenderingCol": true,
                 "IsShapeCreated": [
                     false,
-                    false,
-                    true
+                    true,
+                    false
                 ],
                 "IsShapeSelected": [
                     false,
-                    false,
-                    true
+                    true,
+                    false
                 ],
-                "IsStatic": false,
+                "IsStatic": true,
                 "IsTrigger": false,
-                "Mass": 0.800000011920929,
-                "ShapeSelected": 2,
-                "SphereRadius": 1.0,
-                "Type": 8
+                "Mass": 1.0,
+                "RenderColColor": [
+                    0.5,
+                    0.0,
+                    0.5,
+                    1.0
+                ],
+                "ShapeSelected": 1,
+                "SphereHorSlices": 16,
+                "SphereRadius": 9.199999809265137,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
             }
         ],
         "FirstOnPrefab": true,
@@ -613,6 +633,7 @@
                     5.0,
                     5.0
                 ],
+                "CylVerSlices": 16,
                 "CylinderRadiusHeight": [
                     1.0,
                     1.0
@@ -644,9 +665,18 @@
                 "IsStatic": true,
                 "IsTrigger": false,
                 "Mass": 0.0,
+                "RenderColColor": [
+                    0.5,
+                    0.0,
+                    0.5,
+                    1.0
+                ],
                 "ShapeSelected": 0,
+                "SphereHorSlices": 16,
                 "SphereRadius": 1.0,
-                "Type": 8
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
             }
         ],
         "FirstOnPrefab": true,
@@ -704,6 +734,7 @@
                     5.0,
                     5.0
                 ],
+                "CylVerSlices": 16,
                 "CylinderRadiusHeight": [
                     1.0,
                     1.0
@@ -735,9 +766,18 @@
                 "IsStatic": true,
                 "IsTrigger": false,
                 "Mass": 0.0,
+                "RenderColColor": [
+                    0.5,
+                    0.0,
+                    0.5,
+                    1.0
+                ],
                 "ShapeSelected": 0,
+                "SphereHorSlices": 16,
                 "SphereRadius": 1.0,
-                "Type": 8
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
             }
         ],
         "FirstOnPrefab": true,
@@ -795,6 +835,7 @@
                     5.0,
                     5.0
                 ],
+                "CylVerSlices": 16,
                 "CylinderRadiusHeight": [
                     1.0,
                     1.0
@@ -826,9 +867,18 @@
                 "IsStatic": true,
                 "IsTrigger": false,
                 "Mass": 0.0,
+                "RenderColColor": [
+                    0.5,
+                    0.0,
+                    0.5,
+                    1.0
+                ],
                 "ShapeSelected": 0,
+                "SphereHorSlices": 16,
                 "SphereRadius": 1.0,
-                "Type": 8
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
             }
         ],
         "FirstOnPrefab": true,
@@ -886,6 +936,7 @@
                     5.0,
                     5.0
                 ],
+                "CylVerSlices": 16,
                 "CylinderRadiusHeight": [
                     1.0,
                     1.0
@@ -917,9 +968,18 @@
                 "IsStatic": true,
                 "IsTrigger": false,
                 "Mass": 0.0,
+                "RenderColColor": [
+                    0.5,
+                    0.0,
+                    0.5,
+                    1.0
+                ],
                 "ShapeSelected": 0,
+                "SphereHorSlices": 16,
                 "SphereRadius": 1.0,
-                "Type": 8
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
             }
         ],
         "FirstOnPrefab": true,
@@ -936,7 +996,7 @@
                 "Enabled": true,
                 "Position": [
                     61.83137512207031,
-                    52.06346130371094,
+                    65.62358093261719,
                     -30.264785766601563
                 ],
                 "Rotation": [
@@ -977,6 +1037,7 @@
                     5.0,
                     5.0
                 ],
+                "CylVerSlices": 16,
                 "CylinderRadiusHeight": [
                     1.0,
                     1.0
@@ -1008,9 +1069,18 @@
                 "IsStatic": true,
                 "IsTrigger": false,
                 "Mass": 1.0,
+                "RenderColColor": [
+                    0.5,
+                    0.0,
+                    0.5,
+                    1.0
+                ],
                 "ShapeSelected": 0,
+                "SphereHorSlices": 16,
                 "SphereRadius": 1.0,
-                "Type": 8
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
             }
         ],
         "FirstOnPrefab": true,
@@ -1019,5 +1089,106 @@
         "PrefabUID": 0,
         "Tag": "Primitive",
         "UID": 328152621
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    61.53499984741211,
+                    52.285682678222656,
+                    -29.711931228637695
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 10,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "ColPosition": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "CylVerSlices": 32,
+                "CylinderRadiusHeight": [
+                    17.899999618530273,
+                    13.5
+                ],
+                "Enabled": true,
+                "GlobalGravity": [
+                    0.0,
+                    -5.800000190734863,
+                    0.0
+                ],
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    false,
+                    false,
+                    true
+                ],
+                "IsShapeSelected": [
+                    false,
+                    false,
+                    true
+                ],
+                "IsStatic": false,
+                "IsTrigger": false,
+                "Mass": 1.0,
+                "RenderColColor": [
+                    0.37424182891845703,
+                    0.7627906799316406,
+                    0.32995131611824036,
+                    1.0
+                ],
+                "ShapeSelected": 2,
+                "SphereHorSlices": 16,
+                "SphereRadius": 1.0,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 13.100000381469727
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube",
+        "ParentUID": 898015426,
+        "PrefabUID": 0,
+        "Tag": "Primitive",
+        "UID": 1231638032
     }
 ]

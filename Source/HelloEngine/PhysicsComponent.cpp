@@ -106,6 +106,15 @@ void PhysicsComponent::Serialization(json& j)
 		_j["IsTrigger"] = physBody->isTrigger;
 
 		_j["Gravity"] = { gravity[0], gravity[1], gravity[2] };
+
+		_j["WireframeSize"] = wireframeSize;
+
+		_j["SphereVerSlices"] = sphereVerSlices;
+		_j["SphereHorSlices"] = sphereHorSlices;
+		_j["CylVerSlices"] = cylinderVerSlices;
+
+		_j["RenderColColor"] = { renderColColor[0] , renderColColor[1] , renderColColor[2], renderColColor[3] };
+		
 		
 	}
 	else
@@ -119,6 +128,16 @@ void PhysicsComponent::Serialization(json& j)
 		_j["IsStatic"] = false;
 		_j["IsKinematic"] = false;
 		_j["IsTrigger"] = false;
+
+		_j["Gravity"] = { 0, -9.8f, 0 };
+
+		_j["WireframeSize"] = 3.0f;
+
+		_j["SphereVerSlices"] = 16;
+		_j["SphereHorSlices"] = 16;
+		_j["CylVerSlices"] = 16;
+
+		_j["RenderColColor"] = { 0.5f , 0 , 0.5f, 1 };
 	}
 
 	_j["SphereRadius"] = sphereRadius;
@@ -177,7 +196,7 @@ void PhysicsComponent::DeSerialization(json& j)
 		gravity[1] = newGrav[1];
 		gravity[2] = newGrav[2];
 		physBody->SetGravity(float3(gravity[0], gravity[1], gravity[2]));
-		
+
 		physBody->isRenderingCol = j["IsRenderingCol"];
 		std::vector<float> colPosTemp = j["ColPosition"];
 		physBody->colPos = { colPosTemp[0], colPosTemp[1], colPosTemp[2] };
@@ -188,8 +207,20 @@ void PhysicsComponent::DeSerialization(json& j)
 		std::vector<float> colSclTemp = j["ColScale"];
 		physBody->colScl = { colSclTemp[0], colSclTemp[1], colSclTemp[2] };
 
-		
+		wireframeSize = j["WireframeSize"];
 
+		sphereVerSlices = j["SphereVerSlices"];
+		sphereHorSlices = j["SphereHorSlices"];
+		cylinderVerSlices = j["CylVerSlices"];
+
+		std::vector<float> RenderColColorTemp = j["RenderColColor"];
+		renderColColor[0] = RenderColColorTemp[0];
+		renderColColor[1] = RenderColColorTemp[1];
+		renderColColor[2] = RenderColColorTemp[2];
+		renderColColor[3] = RenderColColorTemp[3];
+
+		
+		
 		CallUpdateMass();
 		CallUpdateColliderType();
 
@@ -352,28 +383,8 @@ void PhysicsComponent::OnEditor()
 
 				}
 
-				switch (shapeSelected)
-				{
-				case ColliderShape::SPHERE:
-				{
-					if (ImGui::DragInt("Ver. Slices: ", &sphereVerSlices, 1, 3, MAX_VERTICAL_SLICES_SPHERE)) {
-						Application::Instance()->renderer3D->renderManager.CalculateSphereBuffer(sphereVerSlices, sphereHorSlices);
-					}
-					if (ImGui::DragInt("Hor. Slices: ", &sphereHorSlices, 1, 1, MAX_HORIZONTAL_SLICES_SPHERE)) {
-						Application::Instance()->renderer3D->renderManager.CalculateSphereBuffer(sphereVerSlices, sphereHorSlices);
-					}
-				}
-				break;
-				case ColliderShape::CYLINDER:
-				{
-					if (ImGui::DragInt("Ver. Slices: ", &cylinderVerSlices, 1, 3, MAX_VERTICAL_SLICES_CYLINDER)) {
-						Application::Instance()->renderer3D->renderManager.CalculateCylinderBuffer(cylinderVerSlices);
-					}
-				}
-				break;
-				default:
-					break;
-				}
+				CheckRenderBuffers();
+				
 			}
 
 
@@ -401,10 +412,10 @@ void PhysicsComponent::OnEditor()
 				}
 
 				if (ImGui::DragFloat3("Rotation: ", physBody->colRot.ptr(), 0.1)) {
-					//CallUpdateRotation();
+					CallUpdateRotation();
 				}
 				if (ImGui::DragFloat("Radius: ", &sphereRadius, 0.1)) {
-					//CallUpdatePos();
+					CallUpdateScale();
 				}
 			}
 			break;
@@ -447,7 +458,31 @@ void PhysicsComponent::OnEditor()
 }
 #endif // STANDALONE
 
-
+void PhysicsComponent::CheckRenderBuffers()
+{
+	switch (shapeSelected)
+	{
+	case ColliderShape::SPHERE:
+	{
+		if (ImGui::DragInt("Ver. Slices: ", &sphereVerSlices, 1, 3, MAX_VERTICAL_SLICES_SPHERE)) {
+			Application::Instance()->renderer3D->renderManager.CalculateSphereBuffer(sphereVerSlices, sphereHorSlices);
+		}
+		if (ImGui::DragInt("Hor. Slices: ", &sphereHorSlices, 1, 1, MAX_HORIZONTAL_SLICES_SPHERE)) {
+			Application::Instance()->renderer3D->renderManager.CalculateSphereBuffer(sphereVerSlices, sphereHorSlices);
+		}
+	}
+	break;
+	case ColliderShape::CYLINDER:
+	{
+		if (ImGui::DragInt("Ver. Slices: ", &cylinderVerSlices, 1, 3, MAX_VERTICAL_SLICES_CYLINDER)) {
+			Application::Instance()->renderer3D->renderManager.CalculateCylinderBuffer(cylinderVerSlices);
+		}
+	}
+	break;
+	default:
+		break;
+	}
+}
 
 void PhysicsComponent::CallUpdatePos()
 {
