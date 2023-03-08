@@ -61,16 +61,12 @@ void PlayerGamepadMovement::Update()
 
 		moving = true;
 		braking = false;
-		//gameObject.GetTransform().Translate(-1.0f * normMovDir.x * vel, 0, -1.0f * normMovDir.y * vel);
-
 	}
 	else
 	{
 		if (vel > 0 )
 		{
 			vel -= brake * dt;
-			//gameObject.GetTransform().Translate(gameObject.GetTransform().GetGlobalPosition().x * vel,0, gameObject.GetTransform().GetGlobalPosition().z * vel);
-			// moving = false;
 			braking = true;
 		}
 	}
@@ -98,84 +94,103 @@ void PlayerGamepadMovement::Update()
 		}
 	}
 
+
+	//RIGHT MOVEMENT
 	if (movDir.x > 10000)
 	{
-		gameObject.GetTransform().Translate(cam.GetGameObject().GetTransform().GetLeft() * vel);
-		movR = true;
-		//gameObject.GetTransform().Translate(-0.05f, 0, 0);
+		API_Vector3 vecL;
+		vecL.x = cam.GetGameObject().GetTransform().GetLeft().x;
+		vecL.y = 0;
+		vecL.z = cam.GetGameObject().GetTransform().GetLeft().z;
 
-	}
-	else if (movR && braking)
-	{
-		gameObject.GetTransform().Translate(cam.GetGameObject().GetTransform().GetLeft() * vel);
-		//Console::Log("BRAKING 1");
-		//if (vel <= 0) movR =false;
+		if (movDir.x > 10000)
+		{
+			gameObject.GetTransform().Translate(vecL * vel);
+			movR = true;
+		}
+		else if (movR && braking)
+		{
+			gameObject.GetTransform().Translate(vecL * vel);
+		}
 	}
 
+	//LEFT MOVEMENT
 	if (movDir.x < -10000)
 	{
-		gameObject.GetTransform().Translate(cam.GetGameObject().GetTransform().GetRight() * vel);
-		//gameObject.GetTransform().Translate(0.05f, 0, 0);
-		movL = true;
-	}
-	else if (movL && braking)
-	{
-		gameObject.GetTransform().Translate(cam.GetGameObject().GetTransform().GetRight() * vel);
-		//Console::Log("BRAKING 2");
-		//if (vel <= 0) movL = false;
+		API_Vector3 vecR;
+		vecR.x = cam.GetGameObject().GetTransform().GetRight().x;
+		vecR.y = 0;
+		vecR.z = cam.GetGameObject().GetTransform().GetRight().z;
+
+		if (movDir.x < -10000)
+		{
+			gameObject.GetTransform().Translate(vecR * vel);
+			movL = true;
+		}
+		else if (movL && braking)
+		{
+			gameObject.GetTransform().Translate(vecR * vel);
+		}
 	}
 
+	//FORWARD MOVEMENT
 	if (movDir.y > 10000)
 	{
-		gameObject.GetTransform().Translate(cam.GetGameObject().GetTransform().GetBackward() * vel);
-		//gameObject.GetTransform().Translate(0, 0, -0.05f);
-		movF = true;
-	}
-	else if (movF && braking)
-	{
-		gameObject.GetTransform().Translate(cam.GetGameObject().GetTransform().GetBackward() * vel);
-		//Console::Log("BRAKING 3");
-		//if (vel <= 0) movF = false;
+		API_Vector3 vecB;
+		vecB.x = cam.GetGameObject().GetTransform().GetBackward().x;
+		vecB.y = 0;
+		vecB.z = cam.GetGameObject().GetTransform().GetBackward().z;
+
+		if (movDir.y > 10000)
+		{
+			gameObject.GetTransform().Translate(vecB * vel);
+			movF = true;
+		}
+		else if (movF && braking)
+		{
+			gameObject.GetTransform().Translate(vecB * vel);
+		}
 	}
 
+	//BACKWARD MOVEMENT
 	if (movDir.y < -10000)
 	{
-		gameObject.GetTransform().Translate(cam.GetGameObject().GetTransform().GetForward() * vel);
-		//gameObject.GetTransform().Translate(0, 0, 0.05f);
-		movB = true;
+		API_Vector3 vecF;
+		vecF.x = cam.GetGameObject().GetTransform().GetForward().x;
+		vecF.y = 0;
+		vecF.z = cam.GetGameObject().GetTransform().GetForward().z;
+
+		if (movDir.y < -10000)
+		{
+			gameObject.GetTransform().Translate(vecF * vel);
+			movB = true;
+		}
+		else if (movB && braking)
+		{
+			gameObject.GetTransform().Translate(vecF * vel);
+		}
 	}
-	else if (movB && braking)
-	{
-		gameObject.GetTransform().Translate(cam.GetGameObject().GetTransform().GetForward() * vel);
-		//Console::Log("BRAKING 4");
-		//if (vel <= 0) movB = false;
-	
-	}
-
-
-	//Console::Log(std::to_string());
-
 
 	//AIM TO TOP
-	if (Input::GetGamePadButton(GamePadButton::BUTTON_UP) == KeyState::KEY_REPEAT /*||Input::GetGamePadAxis(GamePadAxis::AXIS_RIGHTY) < -10000*/)
+	if (Input::GetGamePadButton(GamePadButton::BUTTON_UP) == KeyState::KEY_REPEAT)
 	{
 		gameObject.GetTransform().SetRotation(0, 0, 0);
 
 	}
 	//AIM TO RIGHT
-	if (Input::GetGamePadButton(GamePadButton::BUTTON_RIGHT) == KeyState::KEY_REPEAT /*|| Input::GetGamePadAxis(GamePadAxis::AXIS_RIGHTX) > 10000*/)
+	if (Input::GetGamePadButton(GamePadButton::BUTTON_RIGHT) == KeyState::KEY_REPEAT)
 	{
 		gameObject.GetTransform().SetRotation(0, 270, 0);
 
 	}
 	//AIM TO DOWN
-	if (Input::GetGamePadButton(GamePadButton::BUTTON_DOWN) == KeyState::KEY_REPEAT /*|| Input::GetGamePadAxis(GamePadAxis::AXIS_RIGHTY) > 10000*/ )
+	if (Input::GetGamePadButton(GamePadButton::BUTTON_DOWN) == KeyState::KEY_REPEAT)
 	{
 		gameObject.GetTransform().SetRotation(0, 180, 0);
 
 	}
 	//AIM TO LEFT
-	if (Input::GetGamePadButton(GamePadButton::BUTTON_LEFT) == KeyState::KEY_REPEAT/* || Input::GetGamePadAxis(GamePadAxis::AXIS_RIGHTX) < -10000*/)
+	if (Input::GetGamePadButton(GamePadButton::BUTTON_LEFT) == KeyState::KEY_REPEAT)
 	{
 		gameObject.GetTransform().SetRotation(0, 90, 0);
 

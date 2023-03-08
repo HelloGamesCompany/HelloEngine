@@ -18,7 +18,7 @@ public:
 	//player velocity on gamepad
 	float vel = 0.0f;
 
-	float maxVel = 0.1f;
+	float maxVel = 0.15f;
 	float accel = 0.15f;
 	float brake = 0.5f;
 	bool moving = false;
