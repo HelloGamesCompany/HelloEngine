@@ -18882,11 +18882,41 @@
                     1.0
                 ],
                 "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cams",
+        "ParentUID": 2460352018,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 890122533
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
             },
             {
                 "Active camera": true,
                 "Active culling": true,
-                "Aspect ratio": 1.7000000476837158,
+                "Aspect ratio": 0.35864296555519104,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -18902,18 +18932,86 @@
                         "Target": 1669047678
                     },
                     {
-                        "Target": 0.009999999776482582
+                        "Delay": 0.009999999776482582
                     }
                 ],
                 "Script Resource": 2306703736,
+                "Type": 5
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "MAIN CAMERA": 428196757
+                    },
+                    {
+                        "SECONDARY CAMERA": 1838979557
+                    }
+                ],
+                "Script Resource": 3334200637,
                 "Type": 5
             }
         ],
         "FirstOnPrefab": true,
         "Name": "MainCharacterCam",
-        "ParentUID": 2460352018,
+        "ParentUID": 890122533,
         "PrefabUID": 0,
         "Tag": "Default",
         "UID": 428196757
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    5.013034820556641,
+                    53.89918518066406,
+                    -22.20650863647461
+                ],
+                "Rotation": [
+                    60.02477264404297,
+                    -6.293533802032471,
+                    10.760357856750488
+                ],
+                "Scale": [
+                    1.0,
+                    1.000000238418579,
+                    1.0000001192092896
+                ],
+                "Type": 1
+            },
+            {
+                "Active camera": true,
+                "Active culling": true,
+                "Aspect ratio": 0.6817447543144226,
+                "Enabled": true,
+                "FOV": 60.0,
+                "Far plane": 1000.0,
+                "Frustum type": 2,
+                "Near plane": 0.009999999776482582,
+                "Orthographic size": 10.0,
+                "Type": 4
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Target": 1669047678
+                    },
+                    {
+                        "Delay": 0.0010000000474974513
+                    }
+                ],
+                "Script Resource": 871976367,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "StarshipCamera",
+        "ParentUID": 890122533,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1838979557
     }
 ]
