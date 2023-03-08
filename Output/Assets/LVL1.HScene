@@ -219,6 +219,12 @@
                     },
                     {
                         "Delay": 0.009999999776482582
+                    },
+                    {
+                        "Target": 1669047678
+                    },
+                    {
+                        "Delay": 0.009999999776482582
                     }
                 ],
                 "Script Resource": 2306703736,
@@ -227,6 +233,12 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "MAIN CAMERA": 428196757
+                    },
+                    {
+                        "SECONDARY CAMERA": 1838979557
+                    },
                     {
                         "MAIN CAMERA": 428196757
                     },
@@ -288,6 +300,12 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Target": 1669047678
+                    },
+                    {
+                        "Delay": 0.0010000000474974513
+                    },
                     {
                         "Target": 1669047678
                     },
@@ -3218,6 +3236,11 @@
                 "ShowOBB": false,
                 "ShowVertexNormals": false,
                 "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 240240,
+                "Type": 3
             }
         ],
         "FirstOnPrefab": true,
@@ -3258,6 +3281,11 @@
                 "ShowOBB": false,
                 "ShowVertexNormals": false,
                 "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 240240,
+                "Type": 3
             }
         ],
         "FirstOnPrefab": true,
@@ -4328,14 +4356,14 @@
                     576.2058715820313
                 ],
                 "Rotation": [
-                    -89.89966583251953,
-                    0.12298788875341415,
-                    50.78833770751953
+                    -89.89967346191406,
+                    0.12298618257045746,
+                    50.7883415222168
                 ],
                 "Scale": [
                     34.936336517333984,
-                    38.20729064941406,
-                    1.2617334127426147
+                    38.20729446411133,
+                    1.2617335319519043
                 ],
                 "Type": 1
             },
