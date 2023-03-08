@@ -108,6 +108,14 @@ void AnimationComponent::AnimationDropArea()
 
 #endif
 
+void AnimationComponent::ChangeAnimation(uint animUID)
+{
+	StopAnimation();
+	_resource->Dereference();
+
+	_resource = (ResourceAnimation*)ModuleResourceManager::S_LoadResource(animUID);
+}
+
 void AnimationComponent::PlayAnimation()
 {
 	if (_resource == nullptr) return;
@@ -184,46 +192,6 @@ void AnimationComponent::UpdateAnimation()
 
 		skin->UpdateBones(&_resource->animation, currentTime);
 	}
-}
-
-
-float AnimationComponent::CalculateScaleFactor(float lastTimeStamp, float nextTimeStamp, float animationTime)
-{
-	float scaleFactor = 0.0f;
-	float midWayLength = animationTime - lastTimeStamp;
-	float framesDiff = nextTimeStamp - lastTimeStamp;
-
-	scaleFactor = midWayLength / framesDiff;
-
-	return scaleFactor;
-}
-
-float3x4 AnimationComponent::InterpolateMatrix(float3x4 currentMatrix, float3x4 nextMatrix, float animationTime)
-{
-	float3x4 toReturn;
-	
-	//Current
-	float3 currentTranslate = currentMatrix.TranslatePart();
-	float3 currentScale = currentMatrix.GetScale();
-	Quat currentRot = math::Quat(currentMatrix.RotatePart());
-	
-	//Next
-	float3 nextTranslate = nextMatrix.TranslatePart();
-	float3 nextScale = nextMatrix.GetScale();
-	Quat nextRot = math::Quat(currentMatrix.RotatePart());
-
-	//Translate interpolation
-	float3 finalTranslate = math::Lerp(currentTranslate, nextTranslate, animationTime);
-
-	//Scale interpolation
-	float3 finalScale = math::Lerp(currentScale, nextScale, animationTime);
-
-	//Quat interpolation
-	Quat finalRot = math::Slerp(currentRot, nextRot, animationTime);
-
-	toReturn.FromTRS(finalTranslate, finalRot, finalScale);
-
-	return toReturn;
 }
 
 void AnimationComponent::Serialization(json& j)

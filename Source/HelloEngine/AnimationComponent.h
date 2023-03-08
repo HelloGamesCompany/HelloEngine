@@ -12,6 +12,8 @@ public:
 	AnimationComponent(GameObject* gameObject);
 	~AnimationComponent();
 
+	void ChangeAnimation(uint animUID);
+
 	void PlayAnimation();
 	void StopAnimation();
 	void ResumeAnimation();
@@ -21,6 +23,7 @@ public:
 	
 	void Serialization(json& j) override;
 	void DeSerialization(json& j) override;
+
 #ifdef STANDALONE
 	void OnEditor() override;
 
@@ -29,14 +32,14 @@ private:
 
 #endif
 	
-public:
+	bool GetLoop(bool value) { return isLoop; }
+	void SetLoop(bool value) { isLoop = value; }
+	void SetStayLast(bool value) { isStayLast = value; }
+	bool GetStayLast(bool value) { return isStayLast; }
+
+private:
 
 	ResourceAnimation* _resource = nullptr;
-
-	bool isPlaying;
-	bool isPaused;
-	bool isLoop;
-	bool isStayLast;
 
 	float animDuration = 0;
 	float currentTime = 0;
@@ -44,9 +47,11 @@ public:
 
 	std::vector<float4x4> finalBoneMatrices;
 	Animation* currentAnimation = nullptr;
-private:
 
-	float CalculateScaleFactor(float lastTimeStamp, float nextTimeStamp, float animationTime);
-	float3x4 InterpolateMatrix(float3x4 currentMatrix, float3x4 nextMatrix, float animationTime);
+
+	bool isPlaying;
+	bool isPaused;
+	bool isLoop;
+	bool isStayLast;
 };
 
