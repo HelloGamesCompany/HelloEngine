@@ -26,9 +26,11 @@ private:
 
 	ImWindowGame* _gameWindow = nullptr;
 
-	float normalizedPos;
 	bool isFocused = false;
 	float mousePosX = 0;
+
+	float widthBar;
+	float widthBarAux;
 
 #ifdef STANDALONE
 	void OnEditor() override;
