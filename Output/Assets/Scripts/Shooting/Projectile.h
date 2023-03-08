@@ -13,9 +13,9 @@ public:
 
     void Destroy();
 
+    float speed = 0.0f;
     float lifeTime = 5.0f;
     float damage = 0.0f;
     float resistanceDamage = 0.0f;
     API_Vector3 direction;
 };
-

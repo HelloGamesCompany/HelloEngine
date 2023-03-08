@@ -1,0 +1,561 @@
+[
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Root",
+        "ParentUID": 0,
+        "PrefabUID": 0,
+        "Tag": "None",
+        "UID": 3293896711
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -6.074126720428467,
+                    3.2304375171661377,
+                    2.054365873336792
+                ],
+                "Rotation": [
+                    55.47053909301758,
+                    85.54086303710938,
+                    -55.55165481567383
+                ],
+                "Scale": [
+                    1.0,
+                    0.9999998211860657,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Active camera": true,
+                "Active culling": false,
+                "Aspect ratio": 1.7285945415496826,
+                "Enabled": true,
+                "FOV": 60.0,
+                "Far plane": 1000.0,
+                "Frustum type": 2,
+                "Near plane": 0.009999999776482582,
+                "Orthographic size": 10.0,
+                "Type": 4
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Camera",
+        "ParentUID": 3293896711,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3194081202
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    1.087479591369629,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 0,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 1439898906,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Player",
+        "ParentUID": 3293896711,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2539285281
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Gun": 12992023
+                    },
+                    {
+                        "Gun": 12992023
+                    },
+                    {
+                        "Gun": 12992023
+                    },
+                    {
+                        "Gun": 12992023
+                    },
+                    {
+                        "Gun": 12992023
+                    },
+                    {
+                        "Gun": 12992023
+                    },
+                    {
+                        "Gun": 12992023
+                    },
+                    {
+                        "Gun": 12992023
+                    },
+                    {
+                        "Gun": 12992023
+                    },
+                    {
+                        "Gun": 12992023
+                    }
+                ],
+                "Script Resource": 3024424734,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "GunManager",
+        "ParentUID": 2539285281,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2431677844
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.06271153688430786,
+                    0.03372371196746826,
+                    1.1123311519622803
+                ],
+                "Rotation": [
+                    -90.00001525878906,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.10000000149011612,
+                    0.10000000149011612,
+                    0.10000000149011612
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 0,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 240240,
+                "Type": 3
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Gun Type": 0
+                    },
+                    {
+                        "Gun Type": 0
+                    },
+                    {
+                        "Gun Type": 0
+                    },
+                    {
+                        "Gun Type": 0
+                    },
+                    {
+                        "Gun Type": 0
+                    },
+                    {
+                        "Gun Type": 0
+                    },
+                    {
+                        "Gun Type": 0
+                    },
+                    {
+                        "Gun Type": 0
+                    },
+                    {
+                        "Gun Type": 0
+                    },
+                    {
+                        "Gun Type": 0
+                    }
+                ],
+                "Script Resource": 1421097082,
+                "Type": 5
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Projectile Speed": 0.0
+                    },
+                    {
+                        "Projectile Damage": 0.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 0.0
+                    },
+                    {
+                        "Projectile Lifetime": 0.0
+                    },
+                    {
+                        "Projectile Spawn": 3016666137
+                    },
+                    {
+                        "Projectiles per second": 1.0
+                    },
+                    {
+                        "Projectile Speed": 0.0
+                    },
+                    {
+                        "Projectile Damage": 0.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 0.0
+                    },
+                    {
+                        "Projectile Lifetime": 0.0
+                    },
+                    {
+                        "Projectile Spawn": 3016666137
+                    },
+                    {
+                        "Projectiles per second": 1.0
+                    },
+                    {
+                        "Projectile Speed": 0.0
+                    },
+                    {
+                        "Projectile Damage": 0.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 0.0
+                    },
+                    {
+                        "Projectile Lifetime": 0.0
+                    },
+                    {
+                        "Projectile Spawn": 3016666137
+                    },
+                    {
+                        "Projectiles per second": 1.0
+                    },
+                    {
+                        "Projectile Speed": 0.0
+                    },
+                    {
+                        "Projectile Damage": 0.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 0.0
+                    },
+                    {
+                        "Projectile Lifetime": 0.0
+                    },
+                    {
+                        "Projectile Spawn": 3016666137
+                    },
+                    {
+                        "Projectiles per second": 1.0
+                    },
+                    {
+                        "Projectile Speed": 0.0
+                    },
+                    {
+                        "Projectile Damage": 0.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 0.0
+                    },
+                    {
+                        "Projectile Lifetime": 0.0
+                    },
+                    {
+                        "Projectile Spawn": 3016666137
+                    },
+                    {
+                        "Projectiles per second": 1.0
+                    },
+                    {
+                        "Projectile Speed": 0.0
+                    },
+                    {
+                        "Projectile Damage": 0.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 0.0
+                    },
+                    {
+                        "Projectile Lifetime": 0.0
+                    },
+                    {
+                        "Projectile Spawn": 3016666137
+                    },
+                    {
+                        "Projectiles per second": 1.0
+                    },
+                    {
+                        "Projectile Speed": 0.0
+                    },
+                    {
+                        "Projectile Damage": 0.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 0.0
+                    },
+                    {
+                        "Projectile Lifetime": 0.0
+                    },
+                    {
+                        "Projectile Spawn": 3016666137
+                    },
+                    {
+                        "Projectiles per second": 1.0
+                    },
+                    {
+                        "Projectile Speed": 0.0
+                    },
+                    {
+                        "Projectile Damage": 0.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 0.0
+                    },
+                    {
+                        "Projectile Lifetime": 0.0
+                    },
+                    {
+                        "Projectile Spawn": 3016666137
+                    },
+                    {
+                        "Projectiles per second": 1.0
+                    },
+                    {
+                        "Projectile Speed": 0.0
+                    },
+                    {
+                        "Projectile Damage": 0.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 0.0
+                    },
+                    {
+                        "Projectile Lifetime": 0.0
+                    },
+                    {
+                        "Projectile Spawn": 3016666137
+                    },
+                    {
+                        "Projectiles per second": 1.0
+                    },
+                    {
+                        "Projectile Speed": 0.0
+                    },
+                    {
+                        "Projectile Damage": 0.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 0.0
+                    },
+                    {
+                        "Projectile Lifetime": 0.0
+                    },
+                    {
+                        "Projectile Spawn": 3016666137
+                    },
+                    {
+                        "Projectiles per second": 1.0
+                    }
+                ],
+                "Script Resource": 453702057,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "SemiAutoGun",
+        "ParentUID": 2431677844,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 12992023
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    -2.1665196418762207,
+                    0.6659049987792969
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "ShootingPoint",
+        "ParentUID": 12992023,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3016666137
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": null,
+                "Script Resource": 0,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "ProjectilePull",
+        "ParentUID": 2539285281,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 4123534121
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": false,
+                "Index inside model": 0,
+                "ModelUID": 0,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "BulletMesh",
+        "ParentUID": 4123534121,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 120296414
+    }
+]
