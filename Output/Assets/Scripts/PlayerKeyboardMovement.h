@@ -16,6 +16,9 @@ public:
 	//player velocity on keyboard
 	float velk = 1.0f;
 
+	float maxVel = 1.0f;
+	float accel = 0.1f;
+
 private:
 	float _angle;
 

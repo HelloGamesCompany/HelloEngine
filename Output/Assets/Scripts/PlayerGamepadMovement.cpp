@@ -16,12 +16,14 @@ void PlayerGamepadMovement::Start()
 }
 void PlayerGamepadMovement::Update()
 {
+
+	float dt = Time::GetDeltaTime();
 	//RIGHT AXIS
 	GamepadAim();
 
 	//LEFT AXIS
-	
-	if (Input::GetGamePadAxis(GamePadAxis::AXIS_LEFTX) > 10000)
+
+	/*if (Input::GetGamePadAxis(GamePadAxis::AXIS_LEFTX) > 10000)
 	{
 		gameObject.GetTransform().Translate(-0.05f, 0, 0);
 	}
@@ -36,7 +38,20 @@ void PlayerGamepadMovement::Update()
 	if (Input::GetGamePadAxis(GamePadAxis::AXIS_LEFTY) < -10000)
 	{
 		gameObject.GetTransform().Translate(0, 0, 0.05f);
-	}
+	}*/
+
+	API_Vector2 movDir;
+
+	movDir.x = Input::GetGamePadAxis(GamePadAxis::AXIS_LEFTX);
+	movDir.y = Input::GetGamePadAxis(GamePadAxis::AXIS_LEFTY);
+
+	API_Vector2 normMovDir;
+	normMovDir.x = movDir.x / sqrt(pow(movDir.x, 2) + pow(movDir.y, 2));
+	normMovDir.y = movDir.y / sqrt(pow(movDir.x, 2) + pow(movDir.y, 2));
+
+	if (movDir.x > 10000 || movDir.x < -10000 || movDir.y > 10000 || movDir.y < -10000)
+		gameObject.GetTransform().Translate(-1.0f * normMovDir.x * vel, 0, -1.0f * normMovDir.y * vel);
+
 
 
 
