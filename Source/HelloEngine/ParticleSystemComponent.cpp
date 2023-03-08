@@ -139,13 +139,17 @@ void ParticleSystemComponent::OnEditor()
 			if (ParticleEmitter.Duration > 0 || ParticleEmitter.loop)
 			{
 				SetPlayOnScene(true);
+				SetPauseOnScene(false);
 			}
 		}
 		ImGui::SameLine();
 		if (ImGui::Button("Pause"))
 		{
-			if(ParticleEmitter.Duration > 0 || ParticleEmitter.loop)
+			if (ParticleEmitter.Duration > 0 || ParticleEmitter.loop)
+			{
+				SetPauseOnScene(true);
 				SetPlayOnScene(false);
+			}
 		}
 		ImGui::SameLine();
 		if (ImGui::Button("Stop"))
@@ -153,6 +157,7 @@ void ParticleSystemComponent::OnEditor()
 			if(GetPlayOnScene())
 			{
 				SetPlayOnScene(false);
+				SetPauseOnScene(false);
 				if (!LayerGame::S_IsPlaying()) {
 					if (ParticleEmitter.StartDelay <= 0)
 					{
@@ -310,4 +315,9 @@ void ParticleSystemComponent::SetPlayOnGame(bool playongame)
 void ParticleSystemComponent::SetPlayOnScene(bool playonscene)
 {
 	this->playOnScene = playonscene;
+}
+
+void ParticleSystemComponent::SetPauseOnScene(bool pauseonscene)
+{
+	this->pauseOnScene = pauseonscene;
 }

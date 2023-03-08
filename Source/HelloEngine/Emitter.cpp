@@ -129,6 +129,11 @@ void Emitter::UpdateParticles()
 		{
 			UpdateParticlesOnGame(i);
 		}
+		else if (LayerGame::S_IsPlaying() && component->GetPauseOnScene())
+		{
+			ResetEmitter();
+		}
+
 		if(StartDelay <= 0 && !LayerGame::S_IsPlaying())
 		{
 

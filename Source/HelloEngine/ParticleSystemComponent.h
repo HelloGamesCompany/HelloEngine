@@ -34,6 +34,8 @@ public:
 
     bool GetPlayOnScene() { return playOnScene; }
 
+    bool GetPauseOnScene() { return pauseOnScene; }
+
     bool GetPlayOnGame() { return playOnGame; }
 
     Emitter GetParticleSystemEmitter() { return ParticleEmitter; }
@@ -43,12 +45,14 @@ public:
 private:
 
     void SetPlayOnScene(bool playonscene);
+    void SetPauseOnScene(bool pauseonscene);
     
 private:
     //Only for testing with particles on Scene
     bool playOnScene = false;
     //Play Particles on Game
     bool playOnGame = false;
+    bool pauseOnScene = false;
     
     ResourceMesh* _resource;
     uint _resourceUID;
