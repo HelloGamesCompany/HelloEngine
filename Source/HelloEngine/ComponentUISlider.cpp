@@ -134,12 +134,16 @@ void ComponentUISlider::OnEditor()
 		_gameObject->DestroyComponent(this);
 		return;
 	}
-
+	if (_gameObject->GetTag() == "UIsliderButton") {
+		if (ImGui::SliderFloat("#Slider2", &mousePosX, -1, 1, "%.2f")) {
+			_gameObject->transform->SetPosition({ mousePosX, 0, 0 });
+		}
+	}
 	/*bool auxiliaryBool = _isEnabled;
 	if (ImGui::Checkbox("Active##Material", &auxiliaryBool))
 		auxiliaryBool ? Enable() : Disable();*/
 
-	ImGui::Text("Im a Slider");
+	//ImGui::Text("Im a Slider");
 
 }
 #endif // STANDALONE
