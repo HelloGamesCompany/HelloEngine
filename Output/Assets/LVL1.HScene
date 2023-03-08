@@ -225,6 +225,18 @@
                     },
                     {
                         "Delay": 0.009999999776482582
+                    },
+                    {
+                        "Target": 1669047678
+                    },
+                    {
+                        "Delay": 0.009999999776482582
+                    },
+                    {
+                        "Target": 1669047678
+                    },
+                    {
+                        "Delay": 0.009999999776482582
                     }
                 ],
                 "Script Resource": 2306703736,
@@ -233,6 +245,18 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "MAIN CAMERA": 428196757
+                    },
+                    {
+                        "SECONDARY CAMERA": 1838979557
+                    },
+                    {
+                        "MAIN CAMERA": 428196757
+                    },
+                    {
+                        "SECONDARY CAMERA": 1838979557
+                    },
                     {
                         "MAIN CAMERA": 428196757
                     },
@@ -317,6 +341,18 @@
                     },
                     {
                         "Delay": 0.0010000000474974513
+                    },
+                    {
+                        "Target": 1669047678
+                    },
+                    {
+                        "Delay": 0.0010000000474974513
+                    },
+                    {
+                        "Target": 1669047678
+                    },
+                    {
+                        "Delay": 0.0010000000474974513
                     }
                 ],
                 "Script Resource": 871976367,
@@ -359,46 +395,6 @@
         "PrefabUID": 0,
         "Tag": "Default",
         "UID": 2456333602
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    86.3868179321289,
-                    -11.059089660644531,
-                    576.2058715820313
-                ],
-                "Rotation": [
-                    -89.89966583251953,
-                    0.12298788875341415,
-                    50.78833770751953
-                ],
-                "Scale": [
-                    34.936336517333984,
-                    38.20729064941406,
-                    1.2617334127426147
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 3587903927,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "Cube.036",
-        "ParentUID": 2456333602,
-        "PrefabUID": 0,
-        "Tag": "Default",
-        "UID": 3983847306
     },
     {
         "Active": true,
@@ -836,6 +832,11 @@
                 "ShowOBB": false,
                 "ShowVertexNormals": false,
                 "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 864767618,
+                "Type": 3
             }
         ],
         "FirstOnPrefab": true,
