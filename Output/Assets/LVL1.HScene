@@ -213,36 +213,6 @@
                     },
                     {
                         "Delay": 0.009999999776482582
-                    },
-                    {
-                        "Target": 1669047678
-                    },
-                    {
-                        "Delay": 0.009999999776482582
-                    },
-                    {
-                        "Target": 1669047678
-                    },
-                    {
-                        "Delay": 0.009999999776482582
-                    },
-                    {
-                        "Target": 1669047678
-                    },
-                    {
-                        "Delay": 0.009999999776482582
-                    },
-                    {
-                        "Target": 1669047678
-                    },
-                    {
-                        "Delay": 0.009999999776482582
-                    },
-                    {
-                        "Target": 1669047678
-                    },
-                    {
-                        "Delay": 0.009999999776482582
                     }
                 ],
                 "Script Resource": 2306703736,
@@ -251,36 +221,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "MAIN CAMERA": 428196757
-                    },
-                    {
-                        "SECONDARY CAMERA": 1838979557
-                    },
-                    {
-                        "MAIN CAMERA": 428196757
-                    },
-                    {
-                        "SECONDARY CAMERA": 1838979557
-                    },
-                    {
-                        "MAIN CAMERA": 428196757
-                    },
-                    {
-                        "SECONDARY CAMERA": 1838979557
-                    },
-                    {
-                        "MAIN CAMERA": 428196757
-                    },
-                    {
-                        "SECONDARY CAMERA": 1838979557
-                    },
-                    {
-                        "MAIN CAMERA": 428196757
-                    },
-                    {
-                        "SECONDARY CAMERA": 1838979557
-                    },
                     {
                         "MAIN CAMERA": 428196757
                     },
@@ -324,7 +264,7 @@
             {
                 "Active camera": true,
                 "Active culling": false,
-                "Aspect ratio": 1.1421648263931274,
+                "Aspect ratio": 0.4884546995162964,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -336,36 +276,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Target": 1669047678
-                    },
-                    {
-                        "Delay": 0.0010000000474974513
-                    },
-                    {
-                        "Target": 1669047678
-                    },
-                    {
-                        "Delay": 0.0010000000474974513
-                    },
-                    {
-                        "Target": 1669047678
-                    },
-                    {
-                        "Delay": 0.0010000000474974513
-                    },
-                    {
-                        "Target": 1669047678
-                    },
-                    {
-                        "Delay": 0.0010000000474974513
-                    },
-                    {
-                        "Target": 1669047678
-                    },
-                    {
-                        "Delay": 0.0010000000474974513
-                    },
                     {
                         "Target": 1669047678
                     },
@@ -445,6 +355,11 @@
                 "ShowOBB": false,
                 "ShowVertexNormals": false,
                 "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3340819741,
+                "Type": 3
             }
         ],
         "FirstOnPrefab": true,
@@ -530,6 +445,11 @@
                 "ShowOBB": false,
                 "ShowVertexNormals": false,
                 "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 864767618,
+                "Type": 3
             }
         ],
         "FirstOnPrefab": true,
@@ -570,6 +490,11 @@
                 "ShowOBB": false,
                 "ShowVertexNormals": false,
                 "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 4175022599,
+                "Type": 3
             }
         ],
         "FirstOnPrefab": true,
@@ -610,6 +535,11 @@
                 "ShowOBB": false,
                 "ShowVertexNormals": false,
                 "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 4175022599,
+                "Type": 3
             }
         ],
         "FirstOnPrefab": true,
@@ -650,6 +580,11 @@
                 "ShowOBB": false,
                 "ShowVertexNormals": false,
                 "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 4175022599,
+                "Type": 3
             }
         ],
         "FirstOnPrefab": true,
@@ -690,6 +625,11 @@
                 "ShowOBB": false,
                 "ShowVertexNormals": false,
                 "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 4175022599,
+                "Type": 3
             }
         ],
         "FirstOnPrefab": true,
@@ -730,6 +670,11 @@
                 "ShowOBB": false,
                 "ShowVertexNormals": false,
                 "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 0,
+                "Type": 3
             }
         ],
         "FirstOnPrefab": true,
@@ -770,6 +715,11 @@
                 "ShowOBB": false,
                 "ShowVertexNormals": false,
                 "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 4175022599,
+                "Type": 3
             }
         ],
         "FirstOnPrefab": true,
@@ -810,6 +760,11 @@
                 "ShowOBB": false,
                 "ShowVertexNormals": false,
                 "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 4175022599,
+                "Type": 3
             }
         ],
         "FirstOnPrefab": true,
@@ -895,6 +850,11 @@
                 "ShowOBB": false,
                 "ShowVertexNormals": false,
                 "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 4175022599,
+                "Type": 3
             }
         ],
         "FirstOnPrefab": true,
@@ -935,6 +895,11 @@
                 "ShowOBB": false,
                 "ShowVertexNormals": false,
                 "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 4175022599,
+                "Type": 3
             }
         ],
         "FirstOnPrefab": true,
@@ -975,6 +940,11 @@
                 "ShowOBB": false,
                 "ShowVertexNormals": false,
                 "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 4175022599,
+                "Type": 3
             }
         ],
         "FirstOnPrefab": true,
@@ -2215,6 +2185,11 @@
                 "ShowOBB": false,
                 "ShowVertexNormals": false,
                 "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 4175022599,
+                "Type": 3
             }
         ],
         "FirstOnPrefab": true,
