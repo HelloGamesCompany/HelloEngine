@@ -35,8 +35,8 @@
             {
                 "Enabled": true,
                 "Position": [
-                    1.451812744140625,
-                    0.0,
+                    6.929285049438477,
+                    6.777989387512207,
                     0.0
                 ],
                 "Rotation": [
@@ -60,10 +60,49 @@
                 "ShowOBB": false,
                 "ShowVertexNormals": false,
                 "Type": 2
+            },
+            {
+                "ColPosition": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    2.0,
+                    2.0,
+                    2.0
+                ],
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "HasPhysBody": true,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsShapeSelected": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsStatic": false,
+                "Mass": 2.0,
+                "ShapeSelected": 0,
+                "SphereRadius": 1.0,
+                "Type": 8
             }
         ],
         "FirstOnPrefab": true,
-        "Name": "Cube",
+        "Name": "Bullet",
         "ParentUID": 557669938,
         "PrefabUID": 0,
         "Tag": "Primitive",
@@ -75,8 +114,8 @@
             {
                 "Enabled": true,
                 "Position": [
-                    10.427000999450684,
-                    0.0,
+                    8.090485572814941,
+                    -3.7014832496643066,
                     0.0
                 ],
                 "Rotation": [
@@ -100,13 +139,212 @@
                 "ShowOBB": false,
                 "ShowVertexNormals": false,
                 "Type": 2
+            },
+            {
+                "ColPosition": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    22.899999618530273,
+                    2.0,
+                    19.600000381469727
+                ],
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "HasPhysBody": true,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsShapeSelected": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsStatic": true,
+                "Mass": 0.0,
+                "ShapeSelected": 0,
+                "SphereRadius": 1.0,
+                "Type": 8
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Health": 100.0
+                    },
+                    {
+                        "Resistance": 100.0
+                    },
+                    {
+                        "Speed": 0.0
+                    }
+                ],
+                "Script Resource": 4210965159,
+                "Type": 5
             }
         ],
         "FirstOnPrefab": true,
-        "Name": "Cube",
+        "Name": "Enemy",
         "ParentUID": 557669938,
         "PrefabUID": 0,
         "Tag": "Primitive",
         "UID": 1155456921
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Canvas",
+        "ParentUID": 557669938,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 647715668
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.7708330154418945,
+                    0.75,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    0.23399999737739563,
+                    0.23399999737739563,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 2738664341,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Image",
+        "ParentUID": 647715668,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 1750881124
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.7660032510757446,
+                    0.7599999904632568,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    0.23399999737739563,
+                    0.23399999737739563,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 3540246874,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Image",
+        "ParentUID": 647715668,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 442624579
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    6.827908515930176,
+                    0.0,
+                    -15.936399459838867
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Active camera": true,
+                "Active culling": true,
+                "Aspect ratio": 1.0312849283218384,
+                "Enabled": true,
+                "FOV": 60.0,
+                "Far plane": 1000.0,
+                "Frustum type": 2,
+                "Near plane": 0.009999999776482582,
+                "Orthographic size": 10.0,
+                "Type": 4
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Camera",
+        "ParentUID": 557669938,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1466538410
     }
 ]

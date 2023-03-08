@@ -14,6 +14,8 @@ public:
     void TakeDamage(float damage, float resistanceDamage);
     void Die();
 
+    void OnCollisionEnter(API::API_RigidBody other);
+
     float maxHp = 100.0f;
     float currentHp;
     float maxResistance = 100.0f;
