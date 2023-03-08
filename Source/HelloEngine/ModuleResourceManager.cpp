@@ -536,7 +536,7 @@ bool ModuleResourceManager::S_DeserializeScene(const std::string& filePath)
     // First  create game objects
     for (int i = 0; i < sceneFile.size(); i++)
     {
-        uint prefabUID = 0;
+        uint prefabUID = sceneFile[i]["PrefabUID"];
         //if (loadedPrefabs.count(prefabUID) > 0 && !sceneFile[i]["FirstOnPrefab"]) continue;
 
         GameObject* g = new GameObject(nullptr, sceneFile[i]["Name"], sceneFile[i]["Tag"], sceneFile[i]["UID"]);
