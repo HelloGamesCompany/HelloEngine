@@ -639,7 +639,7 @@ void RenderManager::DrawColliderSphere(PhysBody3D* physBody, float radius, float
 
 void RenderManager::DrawColliderCylinder(PhysBody3D* physBody, float2 radiusHeight, float4 color, float wireSize, uint verSlices)
 {
-	const float radius = radiusHeight.x / 4.5f;
+	const float radius = radiusHeight.x / 5.f;
 	const float height = radiusHeight.y;
 
 	const float3 origin = (float3)physBody->body->getCenterOfMassTransform().getOrigin();

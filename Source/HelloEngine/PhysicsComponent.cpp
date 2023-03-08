@@ -383,7 +383,30 @@ void PhysicsComponent::OnEditor()
 
 				}
 
-				CheckRenderBuffers();
+				switch (shapeSelected)
+				{
+				case ColliderShape::SPHERE:
+				{
+					if (ImGui::DragInt("Ver. Slices: ", &sphereVerSlices, 1, 3, MAX_VERTICAL_SLICES_SPHERE)) {
+						Application::Instance()->renderer3D->renderManager.CalculateSphereBuffer(sphereVerSlices, sphereHorSlices);
+					}
+					if (ImGui::DragInt("Hor. Slices: ", &sphereHorSlices, 1, 1, MAX_HORIZONTAL_SLICES_SPHERE)) {
+						Application::Instance()->renderer3D->renderManager.CalculateSphereBuffer(sphereVerSlices, sphereHorSlices);
+					}
+				}
+				break;
+				case ColliderShape::CYLINDER:
+				{
+					if (ImGui::DragInt("Ver. Slices: ", &cylinderVerSlices, 1, 3, MAX_VERTICAL_SLICES_CYLINDER)) {
+						Application::Instance()->renderer3D->renderManager.CalculateCylinderBuffer(cylinderVerSlices);
+					}
+				}
+				break;
+				default:
+					break;
+				}
+
+				//CheckRenderBuffers();
 				
 			}
 
@@ -463,20 +486,13 @@ void PhysicsComponent::CheckRenderBuffers()
 	switch (shapeSelected)
 	{
 	case ColliderShape::SPHERE:
-	{
-		if (ImGui::DragInt("Ver. Slices: ", &sphereVerSlices, 1, 3, MAX_VERTICAL_SLICES_SPHERE)) {
-			Application::Instance()->renderer3D->renderManager.CalculateSphereBuffer(sphereVerSlices, sphereHorSlices);
-		}
-		if (ImGui::DragInt("Hor. Slices: ", &sphereHorSlices, 1, 1, MAX_HORIZONTAL_SLICES_SPHERE)) {
-			Application::Instance()->renderer3D->renderManager.CalculateSphereBuffer(sphereVerSlices, sphereHorSlices);
-		}
+	{	
+		Application::Instance()->renderer3D->renderManager.CalculateSphereBuffer(sphereVerSlices, sphereHorSlices);
 	}
 	break;
 	case ColliderShape::CYLINDER:
 	{
-		if (ImGui::DragInt("Ver. Slices: ", &cylinderVerSlices, 1, 3, MAX_VERTICAL_SLICES_CYLINDER)) {
-			Application::Instance()->renderer3D->renderManager.CalculateCylinderBuffer(cylinderVerSlices);
-		}
+		Application::Instance()->renderer3D->renderManager.CalculateCylinderBuffer(cylinderVerSlices);
 	}
 	break;
 	default:

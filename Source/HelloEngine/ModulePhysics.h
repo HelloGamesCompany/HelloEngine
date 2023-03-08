@@ -78,4 +78,6 @@ private:
 	//static std::vector <PhysBody3D*> physBodies;
 	std::vector <btDefaultMotionState*> motions;
 	std::vector <btTypedConstraint*> constraints;
+
+	bool hasToSetRenderBuffers;
 };
