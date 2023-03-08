@@ -22,4 +22,6 @@ public:
 
     // temp
     API_MeshRenderer mesh;
+
+    API_GameObject projectileGO;
 };

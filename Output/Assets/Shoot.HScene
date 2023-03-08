@@ -35,19 +35,19 @@
             {
                 "Enabled": true,
                 "Position": [
-                    -6.074126720428467,
-                    3.2304375171661377,
+                    -12.348764419555664,
+                    12.159074783325195,
                     2.054365873336792
                 ],
                 "Rotation": [
-                    55.47053909301758,
-                    85.54086303710938,
-                    -55.55165481567383
+                    85.47198486328125,
+                    56.070289611816406,
+                    -86.24065399169922
                 ],
                 "Scale": [
-                    1.0,
-                    0.9999998211860657,
-                    1.0
+                    1.0000102519989014,
+                    0.9999973773956299,
+                    1.0000066757202148
                 ],
                 "Type": 1
             },
@@ -107,6 +107,22 @@
                 "Enabled": true,
                 "ResourceUID": 1439898906,
                 "Type": 3
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Velocity": 1.0
+                    },
+                    {
+                        "Velocity": 1.0
+                    },
+                    {
+                        "Velocity": 1.0
+                    }
+                ],
+                "Script Resource": 3374891891,
+                "Type": 5
             }
         ],
         "FirstOnPrefab": true,
@@ -141,6 +157,12 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Gun": 12992023
+                    },
+                    {
+                        "Gun": 12992023
+                    },
                     {
                         "Gun": 12992023
                     }
@@ -198,6 +220,12 @@
                 "Inspector Fields": [
                     {
                         "Gun Type": 0
+                    },
+                    {
+                        "Gun Type": 0
+                    },
+                    {
+                        "Gun Type": 0
                     }
                 ],
                 "Script Resource": 1421097082,
@@ -206,6 +234,48 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Projectile Pull": 4123534121
+                    },
+                    {
+                        "Projectile Speed": 1.0
+                    },
+                    {
+                        "Projectile Damage": 0.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 0.0
+                    },
+                    {
+                        "Projectile Lifetime": 1.0
+                    },
+                    {
+                        "Projectile Spawn": 3016666137
+                    },
+                    {
+                        "Projectiles per second": 3.0
+                    },
+                    {
+                        "Projectile Pull": 4123534121
+                    },
+                    {
+                        "Projectile Speed": 1.0
+                    },
+                    {
+                        "Projectile Damage": 0.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 0.0
+                    },
+                    {
+                        "Projectile Lifetime": 1.0
+                    },
+                    {
+                        "Projectile Spawn": 3016666137
+                    },
+                    {
+                        "Projectiles per second": 3.0
+                    },
                     {
                         "Projectile Pull": 4123534121
                     },
@@ -295,10 +365,13 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Pull Size": 1
+                        "Bullet": 120296414
                     },
                     {
-                        "Projectile Mesh": 120296414
+                        "Bullet": 120296414
+                    },
+                    {
+                        "Bullet": 120296414
                     }
                 ],
                 "Script Resource": 1341579112,
@@ -320,7 +393,7 @@
                 "Position": [
                     0.0,
                     0.0,
-                    0.0
+                    2.0400638580322266
                 ],
                 "Rotation": [
                     -0.0,
@@ -328,14 +401,14 @@
                     -0.0
                 ],
                 "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
+                    0.10000000149011612,
+                    0.10000000149011612,
+                    0.10000000149011612
                 ],
                 "Type": 1
             },
             {
-                "Enabled": false,
+                "Enabled": true,
                 "Index inside model": 0,
                 "ModelUID": 1551155716,
                 "ShowAABB": false,
@@ -343,6 +416,45 @@
                 "ShowOBB": false,
                 "ShowVertexNormals": false,
                 "Type": 2
+            },
+            {
+                "ColPosition": [
+                    0.0,
+                    0.0,
+                    0.05000000074505806
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    0.20000000298023224,
+                    1.0,
+                    0.30000001192092896
+                ],
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "HasPhysBody": true,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsShapeSelected": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsStatic": false,
+                "Mass": 0.0,
+                "ShapeSelected": 0,
+                "SphereRadius": 1.0,
+                "Type": 8
             }
         ],
         "FirstOnPrefab": true,
