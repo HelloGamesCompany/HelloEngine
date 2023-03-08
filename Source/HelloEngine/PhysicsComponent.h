@@ -15,6 +15,8 @@ public:
 	void SetVelocity(float3 vec);
 	float3 GetVelocity();
 
+	void CheckRenderBuffers();
+
 private:
 #ifdef STANDALONE
 	void OnEditor() override;
@@ -43,7 +45,8 @@ private:
 	void RemoveCollider();
 
 	void OnTransformCallback(float4x4 worldMatrix);
-
+	
+	
 	
 
 private:

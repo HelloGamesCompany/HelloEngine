@@ -18,6 +18,8 @@ ModulePhysics::ModulePhysics()
 
 	hasToChangeGravity = false;
 	gravityToChange = float3(0, -9.8, 0);
+
+	hasToSetRenderBuffers = true;
 }
 
 ModulePhysics::~ModulePhysics()
@@ -71,6 +73,8 @@ bool ModulePhysics::Start()
 			go->GetComponent<PhysicsComponent>()->localGlobalGravity[0] = gravFloat[0];
 			go->GetComponent<PhysicsComponent>()->localGlobalGravity[1] = gravFloat[1];
 			go->GetComponent<PhysicsComponent>()->localGlobalGravity[2] = gravFloat[2];
+
+			go->GetComponent<PhysicsComponent>()->CheckRenderBuffers();
 		}
 	}
 
@@ -79,6 +83,16 @@ bool ModulePhysics::Start()
 
 UpdateStatus ModulePhysics::PreUpdate()
 {
+	if (hasToSetRenderBuffers == true) {
+		for (int i = 0; i < physBodies.size(); i++) {
+			if (ModuleLayers::gameObjects.count(physBodies[i]->gameObjectUID) != 0)
+			{
+				GameObject* go = ModuleLayers::gameObjects[physBodies[i]->gameObjectUID];
+				go->GetComponent<PhysicsComponent>()->CheckRenderBuffers();
+			}
+		}
+		hasToSetRenderBuffers = false;
+	}
 	//world->stepSimulation(Application::Instance()->GetDeltaTime(), 15);
 
 	////testBody->Push(1, 1, 1);
@@ -165,6 +179,7 @@ UpdateStatus ModulePhysics::PostUpdate()
 {
 	if (hasToChangeGravity == true) {
 		SetNewGravityAtLast();
+		hasToChangeGravity = false;
 	}
 	return UpdateStatus::UPDATE_CONTINUE;
 }
@@ -311,9 +326,19 @@ void ModulePhysics::UpdatePhysBodyRotation(PhysBody3D* physBody)
 	physBody->SetRotation(physBody->colRot.x, physBody->colRot.y, physBody->colRot.z);
 }
 
-void ModulePhysics::UpdatePhysBodyScale(PhysBody3D* physBody)
+void ModulePhysics::UpdatePhysBodyScaleBox(PhysBody3D* physBody)
 {
 	physBody->SetScale(physBody->colScl.x, physBody->colScl.y, physBody->colScl.z);
+}
+
+void ModulePhysics::UpdatePhysBodyScaleSphere(PhysBody3D* physBody, float radius)
+{
+	physBody->SetScale(radius, radius, radius);
+}
+
+void ModulePhysics::UpdatePhysBodyScaleCylinder(PhysBody3D* physBody, float radius, float height)
+{
+	physBody->SetScale(radius, height, radius);
 }
 
 void ModulePhysics::SetGlobalGravity(float3 grav)
