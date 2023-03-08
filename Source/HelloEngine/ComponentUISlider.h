@@ -32,6 +32,8 @@ private:
 	float widthBar;
 	float widthBarAux;
 
+	int perCent = 0;
+
 #ifdef STANDALONE
 	void OnEditor() override;
 

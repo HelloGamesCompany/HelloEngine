@@ -137,7 +137,7 @@
             {
                 "Enabled": true,
                 "Position": [
-                    0.03999999910593033,
+                    -0.800000011920929,
                     0.0,
                     0.0
                 ],
@@ -156,10 +156,6 @@
             {
                 "Enabled": true,
                 "MaterialResource": 0,
-                "PositionButton": 0.0,
-                "ScaleX": 0.20000000298023224,
-                "ScaleY": 0.20000000298023224,
-                "ScaleZ": 0.0,
                 "StateButton": 0,
                 "Type": 13
             }
@@ -196,10 +192,6 @@
             {
                 "Enabled": true,
                 "MaterialResource": 0,
-                "PositionButton": 0.0,
-                "ScaleX": 0.800000011920929,
-                "ScaleY": 0.10000000149011612,
-                "ScaleZ": 0.0,
                 "StateButton": 0,
                 "Type": 13
             }
