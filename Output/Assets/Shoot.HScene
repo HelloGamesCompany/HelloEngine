@@ -54,7 +54,7 @@
             {
                 "Active camera": true,
                 "Active culling": false,
-                "Aspect ratio": 1.7285945415496826,
+                "Aspect ratio": 1.9563812017440796,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -96,7 +96,7 @@
             {
                 "Enabled": true,
                 "Index inside model": 0,
-                "ModelUID": 0,
+                "ModelUID": 1834708374,
                 "ShowAABB": false,
                 "ShowFaceNormals": false,
                 "ShowOBB": false,
@@ -143,33 +143,6 @@
                 "Inspector Fields": [
                     {
                         "Gun": 12992023
-                    },
-                    {
-                        "Gun": 12992023
-                    },
-                    {
-                        "Gun": 12992023
-                    },
-                    {
-                        "Gun": 12992023
-                    },
-                    {
-                        "Gun": 12992023
-                    },
-                    {
-                        "Gun": 12992023
-                    },
-                    {
-                        "Gun": 12992023
-                    },
-                    {
-                        "Gun": 12992023
-                    },
-                    {
-                        "Gun": 12992023
-                    },
-                    {
-                        "Gun": 12992023
                     }
                 ],
                 "Script Resource": 3024424734,
@@ -194,7 +167,7 @@
                     1.1123311519622803
                 ],
                 "Rotation": [
-                    -90.00001525878906,
+                    -90.0,
                     0.0,
                     0.0
                 ],
@@ -208,7 +181,7 @@
             {
                 "Enabled": true,
                 "Index inside model": 0,
-                "ModelUID": 0,
+                "ModelUID": 1691403419,
                 "ShowAABB": false,
                 "ShowFaceNormals": false,
                 "ShowOBB": false,
@@ -225,33 +198,6 @@
                 "Inspector Fields": [
                     {
                         "Gun Type": 0
-                    },
-                    {
-                        "Gun Type": 0
-                    },
-                    {
-                        "Gun Type": 0
-                    },
-                    {
-                        "Gun Type": 0
-                    },
-                    {
-                        "Gun Type": 0
-                    },
-                    {
-                        "Gun Type": 0
-                    },
-                    {
-                        "Gun Type": 0
-                    },
-                    {
-                        "Gun Type": 0
-                    },
-                    {
-                        "Gun Type": 0
-                    },
-                    {
-                        "Gun Type": 0
                     }
                 ],
                 "Script Resource": 1421097082,
@@ -261,7 +207,10 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Projectile Speed": 0.0
+                        "Projectile Pull": 4123534121
+                    },
+                    {
+                        "Projectile Speed": 1.0
                     },
                     {
                         "Projectile Damage": 0.0
@@ -270,175 +219,13 @@
                         "Projectile Resistance Damage": 0.0
                     },
                     {
-                        "Projectile Lifetime": 0.0
+                        "Projectile Lifetime": 1.0
                     },
                     {
                         "Projectile Spawn": 3016666137
                     },
                     {
-                        "Projectiles per second": 1.0
-                    },
-                    {
-                        "Projectile Speed": 0.0
-                    },
-                    {
-                        "Projectile Damage": 0.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 0.0
-                    },
-                    {
-                        "Projectile Spawn": 3016666137
-                    },
-                    {
-                        "Projectiles per second": 1.0
-                    },
-                    {
-                        "Projectile Speed": 0.0
-                    },
-                    {
-                        "Projectile Damage": 0.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 0.0
-                    },
-                    {
-                        "Projectile Spawn": 3016666137
-                    },
-                    {
-                        "Projectiles per second": 1.0
-                    },
-                    {
-                        "Projectile Speed": 0.0
-                    },
-                    {
-                        "Projectile Damage": 0.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 0.0
-                    },
-                    {
-                        "Projectile Spawn": 3016666137
-                    },
-                    {
-                        "Projectiles per second": 1.0
-                    },
-                    {
-                        "Projectile Speed": 0.0
-                    },
-                    {
-                        "Projectile Damage": 0.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 0.0
-                    },
-                    {
-                        "Projectile Spawn": 3016666137
-                    },
-                    {
-                        "Projectiles per second": 1.0
-                    },
-                    {
-                        "Projectile Speed": 0.0
-                    },
-                    {
-                        "Projectile Damage": 0.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 0.0
-                    },
-                    {
-                        "Projectile Spawn": 3016666137
-                    },
-                    {
-                        "Projectiles per second": 1.0
-                    },
-                    {
-                        "Projectile Speed": 0.0
-                    },
-                    {
-                        "Projectile Damage": 0.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 0.0
-                    },
-                    {
-                        "Projectile Spawn": 3016666137
-                    },
-                    {
-                        "Projectiles per second": 1.0
-                    },
-                    {
-                        "Projectile Speed": 0.0
-                    },
-                    {
-                        "Projectile Damage": 0.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 0.0
-                    },
-                    {
-                        "Projectile Spawn": 3016666137
-                    },
-                    {
-                        "Projectiles per second": 1.0
-                    },
-                    {
-                        "Projectile Speed": 0.0
-                    },
-                    {
-                        "Projectile Damage": 0.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 0.0
-                    },
-                    {
-                        "Projectile Spawn": 3016666137
-                    },
-                    {
-                        "Projectiles per second": 1.0
-                    },
-                    {
-                        "Projectile Speed": 0.0
-                    },
-                    {
-                        "Projectile Damage": 0.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 0.0
-                    },
-                    {
-                        "Projectile Spawn": 3016666137
-                    },
-                    {
-                        "Projectiles per second": 1.0
+                        "Projectiles per second": 3.0
                     }
                 ],
                 "Script Resource": 453702057,
@@ -506,8 +293,15 @@
             },
             {
                 "Enabled": true,
-                "Inspector Fields": null,
-                "Script Resource": 0,
+                "Inspector Fields": [
+                    {
+                        "Pull Size": 1
+                    },
+                    {
+                        "Projectile Mesh": 120296414
+                    }
+                ],
+                "Script Resource": 1341579112,
                 "Type": 5
             }
         ],
@@ -543,7 +337,7 @@
             {
                 "Enabled": false,
                 "Index inside model": 0,
-                "ModelUID": 0,
+                "ModelUID": 1551155716,
                 "ShowAABB": false,
                 "ShowFaceNormals": false,
                 "ShowOBB": false,
