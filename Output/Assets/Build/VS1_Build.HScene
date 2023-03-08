@@ -190,6 +190,24 @@
                     },
                     {
                         "Speed": 0.0
+                    },
+                    {
+                        "Health": 100.0
+                    },
+                    {
+                        "Resistance": 100.0
+                    },
+                    {
+                        "Speed": 0.0
+                    },
+                    {
+                        "Health": 100.0
+                    },
+                    {
+                        "Resistance": 100.0
+                    },
+                    {
+                        "Speed": 0.0
                     }
                 ],
                 "Script Resource": 4210965159,
@@ -330,7 +348,7 @@
             {
                 "Active camera": true,
                 "Active culling": true,
-                "Aspect ratio": 1.0312849283218384,
+                "Aspect ratio": 1.3921568393707275,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
