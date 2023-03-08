@@ -95,11 +95,11 @@
             },
             {
                 "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 1776610971,
+                "Index inside model": 1,
+                "ModelUID": 1374350673,
                 "ParticleModules": {
                     "ModuleMain": {
-                        "LifeTime": 15.0
+                        "LifeTime": 5.0
                     }
                 },
                 "Type": 6
@@ -110,6 +110,6 @@
         "ParentUID": 3551592759,
         "PrefabUID": 0,
         "Tag": "Default",
-        "UID": 1236012682
+        "UID": 2740402292
     }
 ]

@@ -120,7 +120,7 @@ void Emitter::UpdateParticles(Quat rotation)
 			continue;
 		}
 
-		if (LayerGame::S_IsPlaying() == false && component->GetPlayOnScene())
+		if (!LayerGame::S_IsPlaying() && component->GetPlayOnScene())
 		{
 			if (StartDelay <= 0) {
 				if (Duration > 0) {
@@ -143,7 +143,7 @@ void Emitter::UpdateParticles(Quat rotation)
 				StartDelay -= EngineTime::EngineTimeDeltaTime();
 			}
 		}
-		else if(LayerGame::S_IsPlaying() == false && component->GetPlayOnScene())
+		else if(LayerGame::S_IsPlaying() && !component->GetPlayOnScene())
 		{
 			if (StartDelay <= 0) {
 

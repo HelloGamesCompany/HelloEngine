@@ -154,7 +154,14 @@ void ParticleSystemComponent::OnEditor()
 			{
 				SetPlayOnScene(false);
 				if (!LayerGame::S_IsPlaying()) {
-					ParticleEmitter.ResetEmitter();
+					if (ParticleEmitter.StartDelay <= 0)
+					{
+						ParticleEmitter.ResetEmitter();
+					}
+					else
+					{
+						ParticleEmitter.StartDelay = ParticleEmitter.StartDelayCpy;
+					}
 				}
 			}
 		}
