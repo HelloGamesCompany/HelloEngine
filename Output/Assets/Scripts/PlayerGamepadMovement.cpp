@@ -5,6 +5,9 @@ HELLO_ENGINE_API_C PlayerGamepadMovement* CreatePlayerGamepadMovement(ScriptToIn
 	//Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
 
 	script->AddDragFloat("Velocity", &classInstance->vel);
+	script->AddDragFloat("Max Velocity", &classInstance->maxVel);
+	script->AddDragFloat("Acceleration", &classInstance->accel);
+	script->AddDragFloat("Brake", &classInstance->brake);
 	script->AddDragBoxTransform("Camera player", &classInstance->cam);
 
 	return classInstance;
@@ -35,30 +38,83 @@ void PlayerGamepadMovement::Update()
 	if (movDir.x > 10000 || movDir.x < -10000 || movDir.y > 10000 || movDir.y < -10000)
 	{
 
-		//if (vel<maxVel) vel += accel * dt;
+		if (vel<maxVel) vel += accel * dt;
 
+		moving = true;
+		braking = false;
 		//gameObject.GetTransform().Translate(-1.0f * normMovDir.x * vel, 0, -1.0f * normMovDir.y * vel);
 
 	}
+	else
+	{
+		if (vel > 0 )
+		{
+			vel -= brake * dt;
+			//gameObject.GetTransform().Translate(gameObject.GetTransform().GetGlobalPosition().x * vel,0, gameObject.GetTransform().GetGlobalPosition().z * vel);
+			// moving = false;
+			braking = true;
+		}
+	}
+
+	if (vel <= 0) {
+		moving = false;
+		braking = false;
+		movB = movF = movR = movL = false;
+	
+	}
+
 	if (movDir.x > 10000)
 	{
 		gameObject.GetTransform().Translate(cam.GetGameObject().GetTransform().GetLeft() * vel);
+		movR = true;
 		//gameObject.GetTransform().Translate(-0.05f, 0, 0);
+
 	}
+	else if (movR && braking)
+	{
+		gameObject.GetTransform().Translate(cam.GetGameObject().GetTransform().GetLeft() * vel);
+		//Console::Log("BRAKING 1");
+		//if (vel <= 0) movR =false;
+	}
+
 	if (movDir.x < -10000)
 	{
 		gameObject.GetTransform().Translate(cam.GetGameObject().GetTransform().GetRight() * vel);
 		//gameObject.GetTransform().Translate(0.05f, 0, 0);
+		movL = true;
 	}
+	else if (movL && braking)
+	{
+		gameObject.GetTransform().Translate(cam.GetGameObject().GetTransform().GetRight() * vel);
+		//Console::Log("BRAKING 2");
+		//if (vel <= 0) movL = false;
+	}
+
 	if (movDir.y > 10000)
 	{
 		gameObject.GetTransform().Translate(cam.GetGameObject().GetTransform().GetBackward() * vel);
 		//gameObject.GetTransform().Translate(0, 0, -0.05f);
+		movF = true;
 	}
+	else if (movF && braking)
+	{
+		gameObject.GetTransform().Translate(cam.GetGameObject().GetTransform().GetBackward() * vel);
+		//Console::Log("BRAKING 3");
+		//if (vel <= 0) movF = false;
+	}
+
 	if (movDir.y < -10000)
 	{
 		gameObject.GetTransform().Translate(cam.GetGameObject().GetTransform().GetForward() * vel);
 		//gameObject.GetTransform().Translate(0, 0, 0.05f);
+		movB = true;
+	}
+	else if (movB && braking)
+	{
+		gameObject.GetTransform().Translate(cam.GetGameObject().GetTransform().GetForward() * vel);
+		//Console::Log("BRAKING 4");
+		//if (vel <= 0) movB = false;
+	
 	}
 
 
