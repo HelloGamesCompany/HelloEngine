@@ -22,7 +22,13 @@ public:
 
 	void EmitParticles(ParticleProperties& properties);
 
-	void UpdateParticles(Quat rotation);
+	void UpdateParticles();
+
+	void UpdateParticleTransform(int i, const math::Quat& rotation);
+
+	void UpdateParticlesOnScene(int i);
+
+	void UpdateParticlesOnGame(int i);
 
 	void SetParticlePoolSize(uint size);
 
@@ -63,6 +69,7 @@ private:
 	friend class ParticleManager;
 	friend class P_Module;
 	friend class P_MainModule;
+	friend class ModuleRenderer3D;
 
 };
 

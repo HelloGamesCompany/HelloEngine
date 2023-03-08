@@ -1,5 +1,6 @@
 #pragma once
 #include "Component.h"
+#include "Particle.h"
 
 enum class BILLBOARDTYPE
 {
@@ -23,13 +24,13 @@ public:
     void OnEnable() override;
     void OnDisable() override;
 
-    Quat GetBBRotation();
+    Quat GetBBRotation(Particle& particle);
 
     Quat ScreenAlignBBoard();
 
-    Quat WorldAlignBBoard();
+    Quat WorldAlignBBoard(Particle& particle);
 
-    Quat AxisAlignBBoard();
+    Quat AxisAlignBBoard(Particle& particle);
 
 #ifdef STANDALONE
     void OnEditor() override;

@@ -49,7 +49,7 @@ void ParticleManager::Draw()
 			if(!emitter->stop)
 				emitter->EmitParticles(emitter->component->particleProps);
 
-			emitter->UpdateParticles(emitter->component->GetGameObject()->GetComponent<BillBoardComponent>()->GetBBRotation());
+			emitter->UpdateParticles();
 
 			// DRAW EACH EMITTER
 			

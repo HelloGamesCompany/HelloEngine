@@ -3,6 +3,7 @@
 #include "ModuleCamera3D.h"
 #include "GameObject.h"
 
+
 BillBoardComponent::BillBoardComponent(GameObject* gameObject) : Component(gameObject)
 {
 
@@ -25,7 +26,7 @@ void BillBoardComponent::OnDisable()
 {
 }
 
-Quat BillBoardComponent::GetBBRotation()
+Quat BillBoardComponent::GetBBRotation(Particle& particle)
 {
 
 	switch (typeofBBoard)
@@ -41,12 +42,12 @@ Quat BillBoardComponent::GetBBRotation()
 		break;
 	case BILLBOARDTYPE::WORLDALIGN:
 
-		rotation = WorldAlignBBoard();
+		rotation = WorldAlignBBoard(particle);
 
 		break;
 	case BILLBOARDTYPE::AXISALIGN:
 
-		rotation = AxisAlignBBoard();
+		rotation = AxisAlignBBoard(particle);
 
 		break;
 	default:
@@ -80,11 +81,11 @@ Quat BillBoardComponent::ScreenAlignBBoard()
 
 }
 
-Quat BillBoardComponent::WorldAlignBBoard()
+Quat BillBoardComponent::WorldAlignBBoard(Particle& particle)
 {
 
 	//Vector from gameobject to cam
-	zBBoardAxis = (app->camera->currentDrawingCamera->cameraFrustum.pos - GetGameObject()->transform->GetGlobalMatrix().TranslatePart()).Normalized();
+	zBBoardAxis = (app->camera->currentDrawingCamera->cameraFrustum.pos - particle.position).Normalized();
 
 	//Vector UP is the same as the cam
 
@@ -106,12 +107,12 @@ Quat BillBoardComponent::WorldAlignBBoard()
 
 }
 
-Quat BillBoardComponent::AxisAlignBBoard()
+Quat BillBoardComponent::AxisAlignBBoard(Particle& particle)
 {
 
 	//Vector from gameobject to cam
 
-	zBBoardAxis = (app->camera->currentDrawingCamera->cameraFrustum.pos - GetGameObject()->transform->GetGlobalMatrix().TranslatePart()).Normalized();
+	zBBoardAxis = (app->camera->currentDrawingCamera->cameraFrustum.pos - particle.position).Normalized();
 
 	//Vector UP is the same as the cam
 	yBBoardAxis = { 0.0f,1.0f,0.0f };

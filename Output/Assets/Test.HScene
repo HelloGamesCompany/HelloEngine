@@ -54,7 +54,7 @@
             {
                 "Active camera": true,
                 "Active culling": false,
-                "Aspect ratio": 1.9754902124404907,
+                "Aspect ratio": 1.7995991706848145,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -99,7 +99,35 @@
                 "ModelUID": 1374350673,
                 "ParticleModules": {
                     "ModuleMain": {
-                        "LifeTime": 5.0
+                        "BeginScale": [
+                            4.5,
+                            7.599999904632568,
+                            2.4000000953674316
+                        ],
+                        "Delay": 0.0,
+                        "Duration": 0.0,
+                        "EndScale": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "LifeTime": 10.0,
+                        "Looping": true,
+                        "Speed": [
+                            -0.10000000149011612,
+                            18.399999618530273,
+                            11.800000190734863
+                        ],
+                        "SpeedVariation": [
+                            61.099998474121094,
+                            17.700000762939453,
+                            17.5
+                        ],
+                        "acceleration": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ]
                     }
                 },
                 "Type": 6
@@ -111,5 +139,74 @@
         "PrefabUID": 0,
         "Tag": "Default",
         "UID": 2740402292
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 13,
+                "ParticleModules": {
+                    "ModuleMain": {
+                        "BeginScale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "Delay": 0.0,
+                        "Duration": 0.0,
+                        "EndScale": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "LifeTime": 5.0,
+                        "Looping": true,
+                        "Speed": [
+                            0.0,
+                            1.0,
+                            0.0
+                        ],
+                        "SpeedVariation": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "acceleration": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
+                    }
+                },
+                "Type": 6
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Empty",
+        "ParentUID": 3551592759,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1921105910
     }
 ]
