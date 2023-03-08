@@ -1,20 +1,21 @@
-#include "CamMov.h"
-HELLO_ENGINE_API_C CamMov* CreateCamMov(ScriptToInspectorInterface* script)
+#include "StarShipCamMov.h"
+HELLO_ENGINE_API_C StarShipCamMov* CreateStarShipCamMov(ScriptToInspectorInterface* script)
 {
-	CamMov* classInstance = new CamMov();
+	StarShipCamMov* classInstance = new StarShipCamMov();
 	script->AddDragBoxGameObject("Target", &classInstance->target);
 	script->AddDragFloat("Delay", &classInstance->delay);
 	//Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
 	return classInstance;
 }
 
-float CamMov::Lerp(float a, float b, float t)
+float StarShipCamMov::Lerp(float a, float b, float t)
 {
 	return a + t * (b - a);
 }
 
-void CamMov::Start()
+void StarShipCamMov::Start()
 {
+
 	camPos.x = 4.217f;
 	camPos.y = 20.831f;
 	camPos.z = -18.607f;
@@ -25,10 +26,10 @@ void CamMov::Start()
 
 	gameObject.GetTransform().SetPosition(camPos);
 	gameObject.GetTransform().SetRotation(camRot);
-
 }
-void CamMov::Update()
+void StarShipCamMov::Update()
 {
+
 	desiredPosition.x = target.GetTransform().GetGlobalPosition().x + camPos.x;
 	desiredPosition.y = target.GetTransform().GetGlobalPosition().y + camPos.y;
 	desiredPosition.z = target.GetTransform().GetGlobalPosition().z + camPos.z;

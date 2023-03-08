@@ -29,7 +29,6 @@ void PlayerGamepadMovement::Update()
 	{
 		gameObject.GetTransform().Translate(0.05f, 0, 0);
 	}
-
 	if (Input::GetGamePadAxis(GamePadAxis::AXIS_LEFTY) > 10000)
 	{
 		gameObject.GetTransform().Translate(0, 0, -0.05f);

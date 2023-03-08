@@ -147,6 +147,8 @@
 		<ClCompile Include="../../Assets/Scripts/Enemies/Enemy.cpp" />
 		<ClCompile Include="../../Assets/Scripts/CollisionTestScript.cpp" />
 		<ClCompile Include="../../Assets/Scripts/CamMov.cpp" />
+		<ClCompile Include="../../Assets/Scripts/SwapCam.cpp" />
+		<ClCompile Include="../../Assets/Scripts/StarShipCamMov.cpp" />
 	</ItemGroup>
 	<ItemGroup>
 		<ClInclude Include="Macro.h" />
@@ -161,6 +163,8 @@
 		<ClInclude Include="../../Assets/Scripts/Enemies/Enemy.h" />
 		<ClInclude Include="../../Assets/Scripts/CollisionTestScript.h" />
 		<ClInclude Include="../../Assets/Scripts/CamMov.h" />
+		<ClInclude Include="../../Assets/Scripts/SwapCam.h" />
+		<ClInclude Include="../../Assets/Scripts/StarShipCamMov.h" />
 	</ItemGroup>
 	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 	<ImportGroup Label="ExtensionTargets" />
