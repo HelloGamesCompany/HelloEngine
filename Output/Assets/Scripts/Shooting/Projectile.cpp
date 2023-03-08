@@ -3,9 +3,6 @@ HELLO_ENGINE_API_C Projectile* CreateProjectile(ScriptToInspectorInterface* scri
 {
     Projectile* classInstance = new Projectile();
     //Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
-    script->AddDragFloat("Lifetime", &classInstance->lifeTime);
-    script->AddDragFloat("Damage", &classInstance->damage);
-    script->AddDragFloat("Resistance Damage", &classInstance->resistanceDamage);
     return classInstance;
 }
 
@@ -29,5 +26,5 @@ void Projectile::Update()
 
 void Projectile::Destroy()
 {
-    gameObject.Destroy();
+    //gameObject.active = false;
 }
