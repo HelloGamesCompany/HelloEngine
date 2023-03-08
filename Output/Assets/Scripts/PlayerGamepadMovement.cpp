@@ -5,7 +5,7 @@ HELLO_ENGINE_API_C PlayerGamepadMovement* CreatePlayerGamepadMovement(ScriptToIn
 	//Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
 
 	script->AddDragFloat("Velocity", &classInstance->vel);
-
+	script->AddDragBoxTransform("Camera player", &classInstance->cam);
 
 	return classInstance;
 }
@@ -23,23 +23,6 @@ void PlayerGamepadMovement::Update()
 
 	//LEFT AXIS
 
-	/*if (Input::GetGamePadAxis(GamePadAxis::AXIS_LEFTX) > 10000)
-	{
-		gameObject.GetTransform().Translate(-0.05f, 0, 0);
-	}
-	if (Input::GetGamePadAxis(GamePadAxis::AXIS_LEFTX) < -10000)
-	{
-		gameObject.GetTransform().Translate(0.05f, 0, 0);
-	}
-	if (Input::GetGamePadAxis(GamePadAxis::AXIS_LEFTY) > 10000)
-	{
-		gameObject.GetTransform().Translate(0, 0, -0.05f);
-	}
-	if (Input::GetGamePadAxis(GamePadAxis::AXIS_LEFTY) < -10000)
-	{
-		gameObject.GetTransform().Translate(0, 0, 0.05f);
-	}*/
-
 	API_Vector2 movDir;
 
 	movDir.x = Input::GetGamePadAxis(GamePadAxis::AXIS_LEFTX);
@@ -50,9 +33,36 @@ void PlayerGamepadMovement::Update()
 	normMovDir.y = movDir.y / sqrt(pow(movDir.x, 2) + pow(movDir.y, 2));
 
 	if (movDir.x > 10000 || movDir.x < -10000 || movDir.y > 10000 || movDir.y < -10000)
-		gameObject.GetTransform().Translate(-1.0f * normMovDir.x * vel, 0, -1.0f * normMovDir.y * vel);
+	{
+
+		//if (vel<maxVel) vel += accel * dt;
+
+		//gameObject.GetTransform().Translate(-1.0f * normMovDir.x * vel, 0, -1.0f * normMovDir.y * vel);
+
+	}
+	if (movDir.x > 10000)
+	{
+		gameObject.GetTransform().Translate(cam.GetGameObject().GetTransform().GetLeft() * vel);
+		//gameObject.GetTransform().Translate(-0.05f, 0, 0);
+	}
+	if (movDir.x < -10000)
+	{
+		gameObject.GetTransform().Translate(cam.GetGameObject().GetTransform().GetRight() * vel);
+		//gameObject.GetTransform().Translate(0.05f, 0, 0);
+	}
+	if (movDir.y > 10000)
+	{
+		gameObject.GetTransform().Translate(cam.GetGameObject().GetTransform().GetBackward() * vel);
+		//gameObject.GetTransform().Translate(0, 0, -0.05f);
+	}
+	if (movDir.y < -10000)
+	{
+		gameObject.GetTransform().Translate(cam.GetGameObject().GetTransform().GetForward() * vel);
+		//gameObject.GetTransform().Translate(0, 0, 0.05f);
+	}
 
 
+	//Console::Log(std::to_string());
 
 
 	//AIM TO TOP

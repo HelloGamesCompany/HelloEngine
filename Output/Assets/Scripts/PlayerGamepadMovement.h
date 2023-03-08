@@ -14,9 +14,10 @@ public:
 	//player velocity on gamepad
 	float vel = 1.0f;
 
-	float maxVel = 1.0f;
-	float accel = 0.1f;
+	float maxVel = 0.5f;
+	float accel = 0.06f;
 
+	API_Transform cam;
 	void GamepadAim();
 
 private:
