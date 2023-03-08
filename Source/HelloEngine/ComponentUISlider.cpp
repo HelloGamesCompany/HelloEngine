@@ -135,12 +135,19 @@ void ComponentUISlider::OnEditor()
 		}
 
 		perCent = ((mousePosX * 50) / (widthBarAux)) + 50;
+		NormalizedPos = ((mousePosX * numMax/2) / widthBarAux) + (numMax/2);
 
 		if (ImGui::SliderFloat("##SliderPerCent", &mousePosX, -widthBarAux, widthBarAux, "%.2f")) {
 			_gameObject->transform->SetPosition({ mousePosX, _gameObject->transform->GetLocalPosition().y, _gameObject->transform->GetLocalPosition().z });
 		}
 		ImGui::SameLine(); ImGui::TextColored(ImVec4(1, 1, 0, 1), std::to_string(perCent).c_str());
 		ImGui::SameLine(); ImGui::TextColored(ImVec4(1, 1, 0, 1), "H%");
+
+		ImGui::TextColored(ImVec4(1, 1, 0, 1), std::to_string(NormalizedPos).c_str());
+
+
+		ImGui::InputFloat("Min",&numMin);
+		ImGui::InputFloat("Max",&numMax);
 	}
 }
 #endif // STANDALONE
