@@ -18933,12 +18933,6 @@
                     },
                     {
                         "Delay": 0.009999999776482582
-                    },
-                    {
-                        "Target": 1669047678
-                    },
-                    {
-                        "Delay": 0.009999999776482582
                     }
                 ],
                 "Script Resource": 2306703736,
@@ -18947,12 +18941,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "MAIN CAMERA": 428196757
-                    },
-                    {
-                        "SECONDARY CAMERA": 1838979557
-                    },
                     {
                         "MAIN CAMERA": 428196757
                     },
@@ -19008,12 +18996,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Target": 1669047678
-                    },
-                    {
-                        "Delay": 0.0010000000474974513
-                    },
                     {
                         "Target": 1669047678
                     },
