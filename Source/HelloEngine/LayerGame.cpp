@@ -90,6 +90,10 @@ void LayerGame::PreUpdate()
 	// Update time.
 	EngineTime::UpdateRealTime();
 	EngineTime::UpdateGameTime();
+	if (true)
+	{
+		std::cout << "<z" << std::endl;
+	}
 }
 
 void LayerGame::Update()

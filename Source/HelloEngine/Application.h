@@ -17,7 +17,7 @@ class ModuleResourceManager;
 class ModulePhysics;
 class ModuleAudio;
 
-//#define DEVELOPMENT
+#define DEVELOPMENT
 
 class Application
 {

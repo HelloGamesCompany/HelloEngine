@@ -18,8 +18,6 @@ ModulePhysics::ModulePhysics()
 
 ModulePhysics::~ModulePhysics()
 {
-	//S_RemovePhysBody(testBody);
-	//RELEASE(testBody);
 	RELEASE(world);
 	RELEASE(solver);
 	RELEASE(broad_phase);
@@ -37,66 +35,24 @@ bool ModulePhysics::Start()
 	world = new btDiscreteDynamicsWorld(dispatcher, broad_phase, solver, collision_conf);
 	world->setGravity(btVector3(0.0f, -10.0f, 0.0f));
 
-	// Testing------------------------------------------
-	PrimCube cube = PrimCube(2);
-	///////testBody = CreatePhysBody(&cube);
-	//testBody->SetVelocity(12, 10, 10);
-	///////testBody->SetPos(10, 10, 10);
-	//PrimCube cube = PrimCube(2);
-	//testBody = CreatePhysBody(&cube);
-	//testBody2 = CreatePhysBody(&cube);
-	////testBody->SetVelocity(12, 10, 10);
-	//testBody->SetPos(10, 0, 0);
-	//testBody2->SetPos(-10, 0, 0);
-	//testBody->SetVelocity(-0.05f, 0, 0);
-	//testBody2->SetVelocity(0.05f, 0, 0);
-
-	//testBody->body->setGravity(btVector3(0, 0, 0));
-	//testBody2->body->setGravity(btVector3(0, 0, 0));
-	// Testing------------------------------------------
-
 	return true;
 }
 
 UpdateStatus ModulePhysics::PreUpdate()
 {
-	//world->stepSimulation(Application::Instance()->GetDeltaTime(), 15);
-
-	////testBody->Push(1, 1, 1);
-	//testBody->body->activate(true);
-	////std::cout << "\ndt:" << EngineTime::GameDeltaTime()<<std::endl;
-	////std::cout << "\n-------------------------\nx" << testBody->GetVelocity().x << "\ny" << testBody->GetVelocity().y << "\nz" << testBody->GetVelocity().z;
-	//std::cout <<"\n-------------------------\nx" << testBody->GetPos().x << "\ny" << testBody->GetPos().y << "\nz" << testBody->GetPos().z;
-#ifdef _DEBUG
+#ifdef STANDALONE
 	if (LayerGame::S_IsPlaying())
 	{
-		float a = EngineTime::GameDeltaTime();
-		Console::S_Log(std::to_string(a));
 		world->stepSimulation(EngineTime::GameDeltaTime(), 15);
 	}
 	else
 	{
 		world->stepSimulation(0);
 	}
-#elif STANDALONE
-	if (LayerGame::S_IsPlaying())
-	{
-		float a = EngineTime::GameDeltaTime();
-		Console::S_Log(std::to_string(a));
-		world->stepSimulation(1.0f / Application::Instance()->frameCap, 15);
-}
-	else
-	{
-		world->stepSimulation(0);
-	}
 #else
-	world->stepSimulation(1.0f / Application::Instance()->frameCap, 15);
+	world->stepSimulation(EngineTime::GameDeltaTime(), 15);
 
 #endif
-	
-
-	//std::cout << "\n-------------------------\nx" << testBody->GetPos().x << "\ny" << testBody->GetPos().y << "\nz" << testBody->GetPos().z;
-	//std::cout << "\n-------------------------\nx" << testBody2->GetPos().x << "\ny" << testBody2->GetPos().y << "\nz" << testBody2->GetPos().z;
 	int numManifolds = world->getDispatcher()->getNumManifolds();
 	for (int i = 0; i < numManifolds; i++)
 	{
@@ -130,8 +86,6 @@ UpdateStatus ModulePhysics::Update()
 	world->updateAabbs();
 
 	for (int i = 0; i < physBodies.size(); i++) {
-
-		//physBodies[i]->RenderCollider();
 
 		if (LayerGame::S_IsPlaying())
 		{

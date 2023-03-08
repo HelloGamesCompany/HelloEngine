@@ -35,14 +35,14 @@
             {
                 "Enabled": true,
                 "Position": [
-                    0.0,
+                    0.23586463928222656,
                     0.0,
                     0.0
                 ],
                 "Rotation": [
+                    -0.0,
                     0.0,
-                    0.0,
-                    0.0
+                    -0.0
                 ],
                 "Scale": [
                     8.0,
@@ -115,7 +115,7 @@
                 "Enabled": true,
                 "Position": [
                     0.0,
-                    7.107991695404053,
+                    16.659183502197266,
                     0.0
                 ],
                 "Rotation": [
@@ -260,7 +260,7 @@
             {
                 "Active camera": true,
                 "Active culling": true,
-                "Aspect ratio": 0.7463651299476624,
+                "Aspect ratio": 0.9889240264892578,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -276,5 +276,35 @@
         "PrefabUID": 0,
         "Tag": "Default",
         "UID": 2736385152
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Empty",
+        "ParentUID": 288998730,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3506265040
     }
 ]
