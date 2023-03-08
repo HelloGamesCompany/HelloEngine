@@ -14,7 +14,7 @@ void SwapCam::Start()
 }
 void SwapCam::Update()
 {
-	if (Input::GetKey(KeyCode::KEY_TAB) == KeyState::KEY_DOWN)
+	if (Input::GetGamePadButton(GamePadButton::BUTTON_RIGHT_STICK) == KeyState::KEY_DOWN)
 	{
 
 		if (mainCamActive) {

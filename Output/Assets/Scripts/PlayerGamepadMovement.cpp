@@ -1,4 +1,6 @@
 #include "PlayerGamepadMovement.h"
+#include "SwapCam.h"
+
 HELLO_ENGINE_API_C PlayerGamepadMovement* CreatePlayerGamepadMovement(ScriptToInspectorInterface* script)
 {
 	PlayerGamepadMovement* classInstance = new PlayerGamepadMovement();
@@ -8,7 +10,9 @@ HELLO_ENGINE_API_C PlayerGamepadMovement* CreatePlayerGamepadMovement(ScriptToIn
 	script->AddDragFloat("Max Velocity", &classInstance->maxVel);
 	script->AddDragFloat("Acceleration", &classInstance->accel);
 	script->AddDragFloat("Brake", &classInstance->brake);
-	script->AddDragBoxTransform("Camera player", &classInstance->cam);
+	script->AddDragBoxGameObject("Aux Cam", &classInstance->finalCam);
+	script->AddDragBoxTransform("Camera player", &classInstance->MainCam);
+	script->AddDragBoxTransform("Camera Starship", &classInstance->StarShipCam);
 
 	return classInstance;
 }
@@ -16,11 +20,24 @@ HELLO_ENGINE_API_C PlayerGamepadMovement* CreatePlayerGamepadMovement(ScriptToIn
 void PlayerGamepadMovement::Start()
 {
 	_angle = 0.0f;
+	vel = 0.0f;
 }
 void PlayerGamepadMovement::Update()
 {
 
+	SwapCam* cameraScript = (SwapCam*)finalCam.GetScript("SwapCam");
+
+	if (cameraScript != nullptr) {
+		if (cameraScript->mainCamActive) {
+			cam = MainCam;
+		}
+		else {
+			cam = StarShipCam;
+		}
+	}
+
 	float dt = Time::GetDeltaTime();
+
 	//RIGHT AXIS
 	GamepadAim();
 
@@ -35,10 +52,12 @@ void PlayerGamepadMovement::Update()
 	normMovDir.x = movDir.x / sqrt(pow(movDir.x, 2) + pow(movDir.y, 2));
 	normMovDir.y = movDir.y / sqrt(pow(movDir.x, 2) + pow(movDir.y, 2));
 
-	if (movDir.x > 10000 || movDir.x < -10000 || movDir.y > 10000 || movDir.y < -10000)
+	if ((movDir.x > 10000 || movDir.x < -10000 || movDir.y > 10000 || movDir.y < -10000))
 	{
 
-		if (vel<maxVel) vel += accel * dt;
+		if (vel < maxVel) {
+			vel += accel * dt;
+		}
 
 		moving = true;
 		braking = false;
@@ -59,8 +78,24 @@ void PlayerGamepadMovement::Update()
 	if (vel <= 0) {
 		moving = false;
 		braking = false;
+		brake = 0.05f;
+		vel = 0.0f;
 		movB = movF = movR = movL = false;
 	
+	}
+
+	//DASH
+	if (Input::GetGamePadButton(GamePadButton::BUTTON_X) == KeyState::KEY_DOWN && dashActive == false) {
+		dashActive = true;
+	}
+	if (dashActive) {
+		Dash(dt);
+	}
+	else {
+		dashCooldown -= dt;
+		if (dashCooldown <= 0) {
+			dashCooldown = 5.0f;
+		}
 	}
 
 	if (movDir.x > 10000)
@@ -156,6 +191,24 @@ void PlayerGamepadMovement::Update()
 		int a = gameObject.GetTransform().GetGlobalRotation().y;
 		
 		Console::Log(std::to_string(a));
+	}
+
+	
+	
+}
+
+
+void PlayerGamepadMovement::Dash(float dt)
+{
+	startDash += dt;
+	if (startDash <= endDash) {
+		accel = 200.0f;
+	}
+	else {
+		accel = 0.15f;
+		vel = 0.0f;
+		startDash = 0.0f;
+		dashActive = false;
 	}
 }
 

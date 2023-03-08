@@ -16,11 +16,11 @@ float StarShipCamMov::Lerp(float a, float b, float t)
 void StarShipCamMov::Start()
 {
 
-	camPos.x = 4.217f;
-	camPos.y = 20.831f;
-	camPos.z = -18.607f;
+	camPos.x = 10.246f;
+	camPos.y = 51.238f;
+	camPos.z = -25.252f;
 
-	camRot.x = 39.879f;
+	camRot.x = 57.278f;
 	camRot.y = -9.614f;
 	camRot.z = 7.943f;
 
