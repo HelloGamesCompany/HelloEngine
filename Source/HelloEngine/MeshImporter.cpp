@@ -39,8 +39,8 @@ std::string MeshImporter::ImportModel(std::string path, uint UID)
 
 	if (scene->HasAnimations()) {
 		std::string pathRes = ProcessAnimation(scene); //binary
-		std::string assetPath = ModuleFiles::S_GetFilePath(path);
-		assetPath += scene->mAnimations[0]->mName.C_Str();
+		std::string assetPath = ModuleFiles::S_RemoveExtension(path);
+		//assetPath += scene->mAnimations[0]->mName.C_Str();
 		assetPath += ".anim";
 
 		//Generate empty file for animation

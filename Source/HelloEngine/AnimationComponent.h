@@ -14,6 +14,8 @@ public:
 
 	void PlayAnimation();
 	void StopAnimation();
+	void ResumeAnimation();
+	void PauseAnimation();
 
 	void UpdateAnimation();
 	
@@ -32,13 +34,13 @@ public:
 	ResourceAnimation* _resource = nullptr;
 
 	bool isPlaying;
+	bool isPaused;
 	bool isLoop;
 	bool isStayLast;
 
-	float currentKeyframe = 0;
-	float animStartPlayTime = 0;
-	float animEndPlayTime = 0;
+	float animDuration = 0;
 	float currentTime = 0;
+	float speedMultiplier = 1;
 
 	std::vector<float4x4> finalBoneMatrices;
 	Animation* currentAnimation = nullptr;

@@ -96,14 +96,13 @@ void LayerGame::PreUpdate()
 
 void LayerGame::Update()
 {
+	if (!_update)
+		return;
 
-	for (int i = 0; i < _animationComponent.size(); ++i) 
+	for (int i = 0; i < _animationComponent.size(); ++i)
 	{
 		_animationComponent.at(i)->UpdateAnimation();
 	}
-
-	if (!_update)
-		return;
 
 	for (auto& behaviorScript : _behaviorScripts)
 	{

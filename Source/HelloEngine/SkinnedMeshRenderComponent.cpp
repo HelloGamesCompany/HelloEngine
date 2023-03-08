@@ -116,30 +116,47 @@ void SkinnedMeshRenderComponent::RootBoneDropArea()
 
 #endif
 
-void SkinnedMeshRenderComponent::UpdateBones()
+void SkinnedMeshRenderComponent::UpdateBones(Animation3D* animation, float animationTime)
 {
 	if (rootBone == nullptr) return;
 	goBonesArr.clear();
-	LinkBones(rootBone, _resource->meshInfo.boneDataMap);
+	LinkBones(rootBone, _resource->meshInfo.boneDataMap, animation, float4x4::identity, animationTime);
 }
 
-void SkinnedMeshRenderComponent::LinkBones(GameObject* goBone, std::map<std::string, BoneData> boneDataMap)
+void SkinnedMeshRenderComponent::LinkBones(GameObject* goBone, std::map<std::string, BoneData> boneDataMap, Animation3D* animation, float4x4 parentTransform, float animationTime)
 {
-	float4x4 offset = float4x4::identity;
-	float4x4 delta = goBone->GetComponent<TransformComponent>()->GetGlobalMatrix();
-	delta = _gameObject->GetComponent<TransformComponent>()->GetGlobalMatrix().Inverted() * delta;
-	
 	if (boneDataMap.count(goBone->name))
 	{
-		offset = boneDataMap.at(goBone->name).offset;
+		float4x4 offset = boneDataMap.at(goBone->name).offset;
+		float4x4 delta = goBone->GetComponent<TransformComponent>()->GetGlobalMatrix();
 
-		delta = delta * offset;
+		if (animation != nullptr)
+		{
+			AnimatedBone* animBone = nullptr;
 
-		goBonesArr.emplace_back(delta);
+			if (animBone = animation->FindBone(goBone->name))
+			{
+				parentTransform = parentTransform * animBone->GetTransform(animationTime);
+			}
+			else
+			{
+				parentTransform = parentTransform * delta;
+			}
+
+			delta = parentTransform * offset;
+		}
+		else
+		{
+			delta = _gameObject->GetComponent<TransformComponent>()->GetGlobalMatrix().Inverted() * delta;
+
+			delta = delta * offset;
+		}
+
+		goBonesArr.push_back(delta);
 	}
 	for (int i = 0; i < goBone->GetChildren()->size(); ++i)
 	{
-		LinkBones(goBone->GetChildren()->at(i), boneDataMap);
+		LinkBones(goBone->GetChildren()->at(i), boneDataMap, animation, parentTransform, animationTime);
 	}
 }
 
@@ -180,9 +197,12 @@ void SkinnedMeshRenderComponent::Serialization(json& j)
 	{
 		_j["RootBoneUuid"] = rootBone->GetID();
 	}
-	else _j["RootBoneUuid"] = -1;
-
+	else
+	{
+		_j["RootBoneUuid"] = -1;
+	}
 	_j["Enabled"] = _isEnabled;
+
 
 	j["Components"].push_back(_j);
 }
@@ -216,7 +236,7 @@ void SkinnedMeshRenderComponent::DeSerialization(json& j)
 	}
 
 	//Bones
-	int rootBoneUuid = j["RootBoneUuid"];
+	uint rootBoneUuid = j["RootBoneUuid"];
 	if (rootBoneUuid > 0)
 	{
 		rootBone = ModuleLayers::gameObjects[rootBoneUuid];

@@ -350,7 +350,7 @@ struct AnimatedBone
 		}
 	}
 
-	float3x4 GetMatrix(float animTime) {
+	float3x4 GetTransform(float animTime) {
 		float3x4 matrix = float3x4::identity;
 
 		//Get Interpolated Values on this TIME to build the keyframe info
@@ -592,5 +592,17 @@ public:
 
 
 		RELEASE(buffer);
+	}
+
+	AnimatedBone* FindBone(std::string name)
+	{
+		auto iter = std::find_if(bones.begin(), bones.end(),
+			[&](const AnimatedBone& Bone)
+			{
+				return Bone.name == name;
+			}
+		);
+		if (iter == bones.end()) return nullptr;
+		else return &(*iter);
 	}
 };
