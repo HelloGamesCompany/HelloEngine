@@ -25,8 +25,14 @@ void PlayerGunManager::Update()
 {
     if (equipedGun == nullptr) return;
 
-    if (Input::GetGamePadButton(GamePadButton::BUTTON_RIGHT_SHOULDER) == KeyState::KEY_DOWN || Input::GetKey(KeyCode::KEY_SPACE) == KeyState::KEY_DOWN)
+    // semiautomatic
+    if ((Input::GetGamePadAxis(GamePadAxis::AXIS_TRIGGERRIGHT) > 5000 && canShoot) || Input::GetMouseButton(MouseButton::LEFT) == KeyState::KEY_DOWN)
     {
         equipedGun->Shoot();
+        canShoot = false;
+    }
+    if (Input::GetGamePadAxis(GamePadAxis::AXIS_TRIGGERRIGHT) < 5000)
+    {
+        canShoot = true;
     }
 }

@@ -24,7 +24,7 @@ void ProjectilePull::Start()
 
 void ProjectilePull::Update()
 {
-
+    
 }
 
 API_GameObject ProjectilePull::GetFirstActiveProjectile()
@@ -37,17 +37,18 @@ API_GameObject ProjectilePull::GetFirstActiveProjectile()
     return pull.at(0);
 }
 
-void ProjectilePull::LauchProjectile(float projectileSpeed, float projectileDamage, float projectileResistanceDamage, float projectileLifetime, API_Vector3 direction, API_Transform shootingSpawn, API_MeshRenderer projectileMesh)
+void ProjectilePull::LauchProjectile(float projectileSpeed, float projectileDamage, float projectileResistanceDamage, float projectileLifetime, float aimAngle, API_Transform shootingSpawn, API_MeshRenderer projectileMesh)
 {
     API_GameObject go = projectileGO;//GetFirstActiveProjectile();
-    //go.setActive;
+    go.SetActive(true);
     go.GetTransform().SetPosition(shootingSpawn.GetGlobalPosition());
-    go.GetTransform().SetRotation(shootingSpawn.GetGlobalRotation());
-    go.GetTransform().Rotate(API_Vector3(90, 0, 0));// solves gun -90 rotation on X
+    //go.GetTransform().SetRotation(shootingSpawn.GetGlobalRotation());
+    go.GetTransform().SetRotation(0, aimAngle, 0);
+    //go.GetTransform().Rotate(API_Vector3(90, 0, 0));// solves gun -90 rotation on X
     //go.ChangeMesh;
 
     Projectile* projectile = (Projectile*)go.GetScript("Projectile");
-    projectile->direction = direction;
+    //projectile->direction = direction;
     projectile->speed = projectileSpeed;
     projectile->damage = projectileDamage;
     projectile->resistanceDamage = projectileResistanceDamage;

@@ -55,7 +55,7 @@ void Enemy::OnCollisionEnter(API::API_RigidBody other)
     std::string detectionName = other.GetGameObject().GetName();
     if (detectionName == "Bullet")
     {
-        Console::Log("Collision");
         gameObject.SetActive(false);
+        //other.GetGameObject().SetActive(false);
     }
 }

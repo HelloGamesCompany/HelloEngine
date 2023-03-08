@@ -16,5 +16,7 @@ public:
 
     API_GameObject guns;
     PlayerGun* equipedGun;
+
+    bool canShoot = true;
 };
 

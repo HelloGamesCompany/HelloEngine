@@ -6,6 +6,7 @@
 #include "API/API.h"
 
 #include "ProjectilePull.h"
+#include "../PlayerGamepadMovement.h"
 
 class PlayerGun : HelloBehavior
 {
@@ -29,5 +30,8 @@ public:
     API_MeshRenderer projectileMesh;
 
     float cadence;
+
+    // test
+    API_GameObject playerGO;
 };
 

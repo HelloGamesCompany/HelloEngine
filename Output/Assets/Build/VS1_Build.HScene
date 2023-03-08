@@ -35,190 +35,6 @@
             {
                 "Enabled": true,
                 "Position": [
-                    6.929285049438477,
-                    6.777989387512207,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 10,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "ColPosition": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "ColRotation": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "ColScale": [
-                    2.0,
-                    2.0,
-                    2.0
-                ],
-                "CylinderRadiusHeight": [
-                    1.0,
-                    1.0
-                ],
-                "Enabled": true,
-                "Gravity": [
-                    0.0,
-                    -8.0,
-                    0.0
-                ],
-                "HasPhysBody": true,
-                "IsRenderingCol": true,
-                "IsShapeCreated": [
-                    true,
-                    false,
-                    false
-                ],
-                "IsShapeSelected": [
-                    true,
-                    false,
-                    false
-                ],
-                "IsStatic": false,
-                "Mass": 2.0,
-                "ShapeSelected": 0,
-                "SphereRadius": 1.0,
-                "Type": 8
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "Bullet",
-        "ParentUID": 557669938,
-        "PrefabUID": 0,
-        "Tag": "Primitive",
-        "UID": 3207028295
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    8.090485572814941,
-                    -3.7014832496643066,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 10,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "ColPosition": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "ColRotation": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "ColScale": [
-                    22.899999618530273,
-                    2.0,
-                    19.600000381469727
-                ],
-                "CylinderRadiusHeight": [
-                    1.0,
-                    1.0
-                ],
-                "Enabled": true,
-                "Gravity": [
-                    0.0,
-                    -9.800000190734863,
-                    0.0
-                ],
-                "HasPhysBody": true,
-                "IsRenderingCol": true,
-                "IsShapeCreated": [
-                    true,
-                    false,
-                    false
-                ],
-                "IsShapeSelected": [
-                    true,
-                    false,
-                    false
-                ],
-                "IsStatic": true,
-                "Mass": 0.0,
-                "ShapeSelected": 0,
-                "SphereRadius": 1.0,
-                "Type": 8
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Health": 100.0
-                    },
-                    {
-                        "Resistance": 100.0
-                    },
-                    {
-                        "Speed": 0.0
-                    }
-                ],
-                "Script Resource": 4210965159,
-                "Type": 5
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "Enemy",
-        "ParentUID": 557669938,
-        "PrefabUID": 0,
-        "Tag": "Primitive",
-        "UID": 1155456921
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
                     0.0,
                     0.0,
                     0.0
@@ -321,9 +137,2037 @@
             {
                 "Enabled": true,
                 "Position": [
-                    6.827908515930176,
                     0.0,
-                    -15.936399459838867
+                    -5.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    10.0,
+                    1.0,
+                    10.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 10,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "ColPosition": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    20.0,
+                    2.0,
+                    20.0
+                ],
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsShapeSelected": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsStatic": true,
+                "Mass": 0.0,
+                "ShapeSelected": 0,
+                "SphereRadius": 1.0,
+                "Type": 8
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 240240,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Suelo",
+        "ParentUID": 557669938,
+        "PrefabUID": 0,
+        "Tag": "Primitive",
+        "UID": 2003555
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Active camera": true,
+                "Active culling": false,
+                "Aspect ratio": 1.7000000476837158,
+                "Enabled": true,
+                "FOV": 60.0,
+                "Far plane": 1000.0,
+                "Frustum type": 2,
+                "Near plane": 0.009999999776482582,
+                "Orthographic size": 10.0,
+                "Type": 4
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Target": 3627558040
+                    },
+                    {
+                        "Delay": 0.009999999776482582
+                    },
+                    {
+                        "Target": 3627558040
+                    },
+                    {
+                        "Delay": 0.009999999776482582
+                    },
+                    {
+                        "Target": 3627558040
+                    },
+                    {
+                        "Delay": 0.009999999776482582
+                    },
+                    {
+                        "Target": 3627558040
+                    },
+                    {
+                        "Delay": 0.009999999776482582
+                    },
+                    {
+                        "Target": 3627558040
+                    },
+                    {
+                        "Delay": 0.009999999776482582
+                    },
+                    {
+                        "Target": 3627558040
+                    },
+                    {
+                        "Delay": 0.009999999776482582
+                    },
+                    {
+                        "Target": 3627558040
+                    },
+                    {
+                        "Delay": 0.009999999776482582
+                    },
+                    {
+                        "Target": 3627558040
+                    },
+                    {
+                        "Delay": 0.009999999776482582
+                    },
+                    {
+                        "Target": 3627558040
+                    },
+                    {
+                        "Delay": 0.009999999776482582
+                    },
+                    {
+                        "Target": 3627558040
+                    },
+                    {
+                        "Delay": 0.009999999776482582
+                    },
+                    {
+                        "Target": 3627558040
+                    },
+                    {
+                        "Delay": 0.009999999776482582
+                    },
+                    {
+                        "Target": 3627558040
+                    },
+                    {
+                        "Delay": 0.009999999776482582
+                    }
+                ],
+                "Script Resource": 2306703736,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CameraPlayer",
+        "ParentUID": 557669938,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2050549183
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Active camera": true,
+                "Active culling": false,
+                "Aspect ratio": 1.7000000476837158,
+                "Enabled": true,
+                "FOV": 60.0,
+                "Far plane": 1000.0,
+                "Frustum type": 2,
+                "Near plane": 0.009999999776482582,
+                "Orthographic size": 10.0,
+                "Type": 4
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Target": 3627558040
+                    },
+                    {
+                        "Delay": 0.009999999776482582
+                    },
+                    {
+                        "Target": 3627558040
+                    },
+                    {
+                        "Delay": 0.009999999776482582
+                    },
+                    {
+                        "Target": 3627558040
+                    },
+                    {
+                        "Delay": 0.009999999776482582
+                    },
+                    {
+                        "Target": 3627558040
+                    },
+                    {
+                        "Delay": 0.009999999776482582
+                    },
+                    {
+                        "Target": 3627558040
+                    },
+                    {
+                        "Delay": 0.009999999776482582
+                    },
+                    {
+                        "Target": 3627558040
+                    },
+                    {
+                        "Delay": 0.009999999776482582
+                    },
+                    {
+                        "Target": 3627558040
+                    },
+                    {
+                        "Delay": 0.009999999776482582
+                    },
+                    {
+                        "Target": 3627558040
+                    },
+                    {
+                        "Delay": 0.009999999776482582
+                    },
+                    {
+                        "Target": 3627558040
+                    },
+                    {
+                        "Delay": 0.009999999776482582
+                    },
+                    {
+                        "Target": 3627558040
+                    },
+                    {
+                        "Delay": 0.009999999776482582
+                    },
+                    {
+                        "Target": 3627558040
+                    },
+                    {
+                        "Delay": 0.009999999776482582
+                    },
+                    {
+                        "Target": 3627558040
+                    },
+                    {
+                        "Delay": 0.009999999776482582
+                    }
+                ],
+                "Script Resource": 871976367,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CameraOrbital",
+        "ParentUID": 557669938,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2916313095
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    -3.6437413692474365,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    68.59508514404297,
+                    -0.0
+                ],
+                "Scale": [
+                    0.1000000536441803,
+                    0.10000000149011612,
+                    0.1000000536441803
+                ],
+                "Type": 1
+            },
+            {
+                "ColPosition": [
+                    0.0,
+                    1.100000023841858,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    0.6000000238418579,
+                    2.299999952316284,
+                    0.5
+                ],
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsShapeSelected": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsStatic": false,
+                "Mass": 1.0,
+                "ShapeSelected": 0,
+                "SphereRadius": 1.0,
+                "Type": 8
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "MAIN CAMERA": 2050549183
+                    },
+                    {
+                        "SECONDARY CAMERA": 2916313095
+                    },
+                    {
+                        "MAIN CAMERA": 2050549183
+                    },
+                    {
+                        "SECONDARY CAMERA": 2916313095
+                    },
+                    {
+                        "MAIN CAMERA": 2050549183
+                    },
+                    {
+                        "SECONDARY CAMERA": 2916313095
+                    },
+                    {
+                        "MAIN CAMERA": 2050549183
+                    },
+                    {
+                        "SECONDARY CAMERA": 2916313095
+                    },
+                    {
+                        "MAIN CAMERA": 2050549183
+                    },
+                    {
+                        "SECONDARY CAMERA": 2916313095
+                    },
+                    {
+                        "MAIN CAMERA": 2050549183
+                    },
+                    {
+                        "SECONDARY CAMERA": 2916313095
+                    },
+                    {
+                        "MAIN CAMERA": 2050549183
+                    },
+                    {
+                        "SECONDARY CAMERA": 2916313095
+                    },
+                    {
+                        "MAIN CAMERA": 2050549183
+                    },
+                    {
+                        "SECONDARY CAMERA": 2916313095
+                    },
+                    {
+                        "MAIN CAMERA": 2050549183
+                    },
+                    {
+                        "SECONDARY CAMERA": 2916313095
+                    },
+                    {
+                        "MAIN CAMERA": 2050549183
+                    },
+                    {
+                        "SECONDARY CAMERA": 2916313095
+                    },
+                    {
+                        "MAIN CAMERA": 2050549183
+                    },
+                    {
+                        "SECONDARY CAMERA": 2916313095
+                    },
+                    {
+                        "MAIN CAMERA": 2050549183
+                    },
+                    {
+                        "SECONDARY CAMERA": 2916313095
+                    }
+                ],
+                "Script Resource": 3334200637,
+                "Type": 5
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Velocity": 0.0
+                    },
+                    {
+                        "Max Velocity": 0.009999999776482582
+                    },
+                    {
+                        "Acceleration": 0.014999999664723873
+                    },
+                    {
+                        "Brake": 0.05000000074505806
+                    },
+                    {
+                        "Aux Cam": 3627558040
+                    },
+                    {
+                        "Camera player": 2050549183
+                    },
+                    {
+                        "Camera Starship": 2916313095
+                    },
+                    {
+                        "Velocity": 0.0
+                    },
+                    {
+                        "Max Velocity": 0.009999999776482582
+                    },
+                    {
+                        "Acceleration": 0.014999999664723873
+                    },
+                    {
+                        "Brake": 0.05000000074505806
+                    },
+                    {
+                        "Aux Cam": 3627558040
+                    },
+                    {
+                        "Camera player": 2050549183
+                    },
+                    {
+                        "Camera Starship": 2916313095
+                    },
+                    {
+                        "Velocity": 0.0
+                    },
+                    {
+                        "Max Velocity": 0.009999999776482582
+                    },
+                    {
+                        "Acceleration": 0.014999999664723873
+                    },
+                    {
+                        "Brake": 0.05000000074505806
+                    },
+                    {
+                        "Aux Cam": 3627558040
+                    },
+                    {
+                        "Camera player": 2050549183
+                    },
+                    {
+                        "Camera Starship": 2916313095
+                    },
+                    {
+                        "Velocity": 0.0
+                    },
+                    {
+                        "Max Velocity": 0.009999999776482582
+                    },
+                    {
+                        "Acceleration": 0.014999999664723873
+                    },
+                    {
+                        "Brake": 0.05000000074505806
+                    },
+                    {
+                        "Aux Cam": 3627558040
+                    },
+                    {
+                        "Camera player": 2050549183
+                    },
+                    {
+                        "Camera Starship": 2916313095
+                    },
+                    {
+                        "Velocity": 0.0
+                    },
+                    {
+                        "Max Velocity": 0.009999999776482582
+                    },
+                    {
+                        "Acceleration": 0.014999999664723873
+                    },
+                    {
+                        "Brake": 0.05000000074505806
+                    },
+                    {
+                        "Aux Cam": 3627558040
+                    },
+                    {
+                        "Camera player": 2050549183
+                    },
+                    {
+                        "Camera Starship": 2916313095
+                    },
+                    {
+                        "Velocity": 0.0
+                    },
+                    {
+                        "Max Velocity": 0.009999999776482582
+                    },
+                    {
+                        "Acceleration": 0.014999999664723873
+                    },
+                    {
+                        "Brake": 0.05000000074505806
+                    },
+                    {
+                        "Aux Cam": 3627558040
+                    },
+                    {
+                        "Camera player": 2050549183
+                    },
+                    {
+                        "Camera Starship": 2916313095
+                    },
+                    {
+                        "Velocity": 0.0
+                    },
+                    {
+                        "Max Velocity": 0.009999999776482582
+                    },
+                    {
+                        "Acceleration": 0.014999999664723873
+                    },
+                    {
+                        "Brake": 0.05000000074505806
+                    },
+                    {
+                        "Aux Cam": 3627558040
+                    },
+                    {
+                        "Camera player": 2050549183
+                    },
+                    {
+                        "Camera Starship": 2916313095
+                    },
+                    {
+                        "Velocity": 0.0
+                    },
+                    {
+                        "Max Velocity": 0.009999999776482582
+                    },
+                    {
+                        "Acceleration": 0.014999999664723873
+                    },
+                    {
+                        "Brake": 0.05000000074505806
+                    },
+                    {
+                        "Aux Cam": 3627558040
+                    },
+                    {
+                        "Camera player": 2050549183
+                    },
+                    {
+                        "Camera Starship": 2916313095
+                    },
+                    {
+                        "Velocity": 0.0
+                    },
+                    {
+                        "Max Velocity": 0.009999999776482582
+                    },
+                    {
+                        "Acceleration": 0.014999999664723873
+                    },
+                    {
+                        "Brake": 0.05000000074505806
+                    },
+                    {
+                        "Aux Cam": 3627558040
+                    },
+                    {
+                        "Camera player": 2050549183
+                    },
+                    {
+                        "Camera Starship": 2916313095
+                    },
+                    {
+                        "Velocity": 0.0
+                    },
+                    {
+                        "Max Velocity": 0.009999999776482582
+                    },
+                    {
+                        "Acceleration": 0.014999999664723873
+                    },
+                    {
+                        "Brake": 0.05000000074505806
+                    },
+                    {
+                        "Aux Cam": 3627558040
+                    },
+                    {
+                        "Camera player": 2050549183
+                    },
+                    {
+                        "Camera Starship": 2916313095
+                    },
+                    {
+                        "Velocity": 0.0
+                    },
+                    {
+                        "Max Velocity": 0.009999999776482582
+                    },
+                    {
+                        "Acceleration": 0.014999999664723873
+                    },
+                    {
+                        "Brake": 0.05000000074505806
+                    },
+                    {
+                        "Aux Cam": 3627558040
+                    },
+                    {
+                        "Camera player": 2050549183
+                    },
+                    {
+                        "Camera Starship": 2916313095
+                    },
+                    {
+                        "Velocity": 0.0
+                    },
+                    {
+                        "Max Velocity": 0.009999999776482582
+                    },
+                    {
+                        "Acceleration": 0.014999999664723873
+                    },
+                    {
+                        "Brake": 0.05000000074505806
+                    },
+                    {
+                        "Aux Cam": 3627558040
+                    },
+                    {
+                        "Camera player": 2050549183
+                    },
+                    {
+                        "Camera Starship": 2916313095
+                    }
+                ],
+                "Script Resource": 3374891891,
+                "Type": 5
+            },
+            {
+                "Enabled": false,
+                "Inspector Fields": [
+                    {
+                        "Velocity": 1.0
+                    },
+                    {
+                        "Camera player": 2050549183
+                    },
+                    {
+                        "Velocity": 1.0
+                    },
+                    {
+                        "Camera player": 2050549183
+                    },
+                    {
+                        "Velocity": 1.0
+                    },
+                    {
+                        "Camera player": 2050549183
+                    },
+                    {
+                        "Velocity": 1.0
+                    },
+                    {
+                        "Camera player": 2050549183
+                    },
+                    {
+                        "Velocity": 1.0
+                    },
+                    {
+                        "Camera player": 2050549183
+                    },
+                    {
+                        "Velocity": 1.0
+                    },
+                    {
+                        "Camera player": 2050549183
+                    },
+                    {
+                        "Velocity": 1.0
+                    },
+                    {
+                        "Camera player": 2050549183
+                    },
+                    {
+                        "Velocity": 1.0
+                    },
+                    {
+                        "Camera player": 2050549183
+                    },
+                    {
+                        "Velocity": 1.0
+                    },
+                    {
+                        "Camera player": 2050549183
+                    },
+                    {
+                        "Velocity": 1.0
+                    },
+                    {
+                        "Camera player": 2050549183
+                    },
+                    {
+                        "Velocity": 1.0
+                    },
+                    {
+                        "Camera player": 2050549183
+                    },
+                    {
+                        "Velocity": 1.0
+                    },
+                    {
+                        "Camera player": 2050549183
+                    }
+                ],
+                "Script Resource": 1197654797,
+                "Type": 5
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": null,
+                "Script Resource": 0,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Player",
+        "ParentUID": 557669938,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3627558040
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    15.780816078186035,
+                    0.7522717118263245
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    2.8888888359069824,
+                    3.9111111164093018,
+                    2.066666603088379
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "pCube1",
+        "ParentUID": 3627558040,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1551363447
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "transform1",
+        "ParentUID": 1551363447,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1931951075
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    1.1657055616378784,
+                    9.772302627563477,
+                    0.6960846781730652
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "pCylinder1",
+        "ParentUID": 3627558040,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3169951039
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "transform2",
+        "ParentUID": 3169951039,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2561748554
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.04397692531347275,
+                    13.292779922485352,
+                    0.5429045557975769
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "pCylinder2_$AssimpFbx$_RotationPivot",
+        "ParentUID": 3627558040,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2979111634
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.04397692531347275,
+                    -13.292779922485352,
+                    -0.5429045557975769
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "pCylinder2_$AssimpFbx$_RotationPivotInverse",
+        "ParentUID": 2979111634,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 465379577
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.04397692531347275,
+                    13.292779922485352,
+                    0.5429045557975769
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "pCylinder2_$AssimpFbx$_ScalingPivot",
+        "ParentUID": 465379577,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3253216589
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.04397692531347275,
+                    -13.292779922485352,
+                    -0.5429045557975769
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "pCylinder2_$AssimpFbx$_ScalingPivotInverse",
+        "ParentUID": 3253216589,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1386755504
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "pCylinder2",
+        "ParentUID": 1386755504,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 735097199
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "transform3",
+        "ParentUID": 735097199,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3666759739
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    1.6205490827560425,
+                    0.4851644039154053,
+                    2.1675331592559814
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.5111111402511597,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "pCube2",
+        "ParentUID": 3627558040,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3508616566
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "transform4",
+        "ParentUID": 3508616566,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1423948781
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.12796001136302948,
+                    8.899210929870605,
+                    0.8344181776046753
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "pCube3_$AssimpFbx$_RotationPivot",
+        "ParentUID": 3627558040,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 302955728
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.12796001136302948,
+                    -8.899210929870605,
+                    -0.8344181776046753
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "pCube3_$AssimpFbx$_RotationPivotInverse",
+        "ParentUID": 302955728,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3791315728
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.12796001136302948,
+                    8.899210929870605,
+                    0.8344181776046753
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "pCube3_$AssimpFbx$_ScalingPivot",
+        "ParentUID": 3791315728,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3682156111
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.12796001136302948,
+                    -8.899210929870605,
+                    -0.8344181776046753
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "pCube3_$AssimpFbx$_ScalingPivotInverse",
+        "ParentUID": 3682156111,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1677607578
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "pCube3",
+        "ParentUID": 1677607578,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3671507810
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "transform6",
+        "ParentUID": 3671507810,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3361585865
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.29197874665260315,
+                    21.80524253845215,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    0.5600000023841858,
+                    0.9666666388511658,
+                    0.5907002091407776
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "pPlane1",
+        "ParentUID": 3627558040,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 4201548125
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "transform5",
+        "ParentUID": 4201548125,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2939349248
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.12796008586883545,
+                    10.924951553344727,
+                    0.735998272895813
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "pCube4_$AssimpFbx$_RotationPivot",
+        "ParentUID": 3627558040,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2422209791
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.12796008586883545,
+                    -10.924951553344727,
+                    -0.735998272895813
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "pCube4_$AssimpFbx$_RotationPivotInverse",
+        "ParentUID": 2422209791,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3366916363
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.12796008586883545,
+                    10.924951553344727,
+                    0.735998272895813
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "pCube4_$AssimpFbx$_ScalingPivot",
+        "ParentUID": 3366916363,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1653994630
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.12796008586883545,
+                    -10.924951553344727,
+                    -0.735998272895813
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "pCube4_$AssimpFbx$_ScalingPivotInverse",
+        "ParentUID": 1653994630,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 391962173
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "pCube4",
+        "ParentUID": 391962173,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2871214945
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "transform8",
+        "ParentUID": 2871214945,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 487795412
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    3.3495543003082275,
+                    17.226455688476563,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    93.26466369628906
+                ],
+                "Scale": [
+                    0.49629533290863037,
+                    0.49629533290863037,
+                    0.49629533290863037
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "pCylinder3",
+        "ParentUID": 3627558040,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 497969380
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "transform7",
+        "ParentUID": 497969380,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 150191667
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.8445910811424255,
+                    10.88250732421875,
+                    0.735998272895813
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "pCube5_$AssimpFbx$_RotationPivot",
+        "ParentUID": 3627558040,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2543649743
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.8445910811424255,
+                    -10.88250732421875,
+                    -0.735998272895813
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "pCube5_$AssimpFbx$_RotationPivotInverse",
+        "ParentUID": 2543649743,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1347208730
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.8445910811424255,
+                    10.88250732421875,
+                    0.735998272895813
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "pCube5_$AssimpFbx$_ScalingPivot",
+        "ParentUID": 1347208730,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 523181281
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.8445910811424255,
+                    -10.88250732421875,
+                    -0.735998272895813
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "pCube5_$AssimpFbx$_ScalingPivotInverse",
+        "ParentUID": 523181281,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3081294421
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "pCube5",
+        "ParentUID": 3081294421,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2067351128
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "transform10",
+        "ParentUID": 2067351128,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2403826232
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    8.653078079223633,
+                    17.604202270507813,
+                    0.3864381015300751
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    0.5357379913330078,
+                    0.3333480954170227,
+                    0.576494574546814
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "pCube6",
+        "ParentUID": 3627558040,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3385409432
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "transform9",
+        "ParentUID": 3385409432,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 669762679
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    3.6889898777008057,
+                    10.88250732421875,
+                    0.735998272895813
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "pCube7_$AssimpFbx$_RotationPivot",
+        "ParentUID": 3627558040,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3382509283
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -3.6889898777008057,
+                    -10.88250732421875,
+                    -0.735998272895813
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "pCube7_$AssimpFbx$_RotationPivotInverse",
+        "ParentUID": 3382509283,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 621952062
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    3.6889898777008057,
+                    10.88250732421875,
+                    0.735998272895813
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "pCube7_$AssimpFbx$_ScalingPivot",
+        "ParentUID": 621952062,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3359197526
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -3.6889898777008057,
+                    -10.88250732421875,
+                    -0.735998272895813
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "pCube7_$AssimpFbx$_ScalingPivotInverse",
+        "ParentUID": 3359197526,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1131755853
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
                 ],
                 "Rotation": [
                     -0.0,
@@ -338,23 +2182,972 @@
                 "Type": 1
             },
             {
-                "Active camera": true,
-                "Active culling": true,
-                "Aspect ratio": 0.7087033987045288,
                 "Enabled": true,
-                "FOV": 60.0,
-                "Far plane": 1000.0,
-                "Frustum type": 2,
-                "Near plane": 0.009999999776482582,
-                "Orthographic size": 10.0,
-                "Type": 4
+                "Index inside model": 0,
+                "ModelUID": 1216654136,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
             }
         ],
         "FirstOnPrefab": true,
-        "Name": "Camera",
-        "ParentUID": 557669938,
-        "PrefabUID": 1357776111,
+        "Name": "pCube7",
+        "ParentUID": 1131755853,
+        "PrefabUID": 0,
         "Tag": "Default",
-        "UID": 1466538410
+        "UID": 2799196593
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Gun": 2309753067
+                    },
+                    {
+                        "Gun": 2309753067
+                    },
+                    {
+                        "Gun": 2309753067
+                    },
+                    {
+                        "Gun": 2309753067
+                    },
+                    {
+                        "Gun": 2309753067
+                    },
+                    {
+                        "Gun": 2309753067
+                    },
+                    {
+                        "Gun": 2309753067
+                    },
+                    {
+                        "Gun": 2309753067
+                    },
+                    {
+                        "Gun": 2309753067
+                    },
+                    {
+                        "Gun": 2309753067
+                    },
+                    {
+                        "Gun": 2309753067
+                    },
+                    {
+                        "Gun": 2309753067
+                    }
+                ],
+                "Script Resource": 3024424734,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "GunManager",
+        "ParentUID": 3627558040,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3834510786
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.06271147727966309,
+                    17.25945281982422,
+                    6.915149211883545
+                ],
+                "Rotation": [
+                    -90.00001525878906,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    2.0,
+                    2.0,
+                    2.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 1691403419,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Projectile Pull": 193214633
+                    },
+                    {
+                        "Projectile Speed": 0.009999999776482582
+                    },
+                    {
+                        "Projectile Damage": 10.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 10.0
+                    },
+                    {
+                        "Projectile Lifetime": 0.30000001192092896
+                    },
+                    {
+                        "Projectile Spawn": 3467188139
+                    },
+                    {
+                        "Projectiles per second": 3.0
+                    },
+                    {
+                        "Player": 3627558040
+                    },
+                    {
+                        "Projectile Pull": 193214633
+                    },
+                    {
+                        "Projectile Speed": 0.009999999776482582
+                    },
+                    {
+                        "Projectile Damage": 10.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 10.0
+                    },
+                    {
+                        "Projectile Lifetime": 0.30000001192092896
+                    },
+                    {
+                        "Projectile Spawn": 3467188139
+                    },
+                    {
+                        "Projectiles per second": 3.0
+                    },
+                    {
+                        "Player": 3627558040
+                    },
+                    {
+                        "Projectile Pull": 193214633
+                    },
+                    {
+                        "Projectile Speed": 0.009999999776482582
+                    },
+                    {
+                        "Projectile Damage": 10.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 10.0
+                    },
+                    {
+                        "Projectile Lifetime": 0.30000001192092896
+                    },
+                    {
+                        "Projectile Spawn": 3467188139
+                    },
+                    {
+                        "Projectiles per second": 3.0
+                    },
+                    {
+                        "Player": 3627558040
+                    },
+                    {
+                        "Projectile Pull": 193214633
+                    },
+                    {
+                        "Projectile Speed": 0.009999999776482582
+                    },
+                    {
+                        "Projectile Damage": 10.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 10.0
+                    },
+                    {
+                        "Projectile Lifetime": 0.30000001192092896
+                    },
+                    {
+                        "Projectile Spawn": 3467188139
+                    },
+                    {
+                        "Projectiles per second": 3.0
+                    },
+                    {
+                        "Player": 3627558040
+                    },
+                    {
+                        "Projectile Pull": 193214633
+                    },
+                    {
+                        "Projectile Speed": 0.009999999776482582
+                    },
+                    {
+                        "Projectile Damage": 10.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 10.0
+                    },
+                    {
+                        "Projectile Lifetime": 0.30000001192092896
+                    },
+                    {
+                        "Projectile Spawn": 3467188139
+                    },
+                    {
+                        "Projectiles per second": 3.0
+                    },
+                    {
+                        "Player": 3627558040
+                    },
+                    {
+                        "Projectile Pull": 193214633
+                    },
+                    {
+                        "Projectile Speed": 0.009999999776482582
+                    },
+                    {
+                        "Projectile Damage": 10.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 10.0
+                    },
+                    {
+                        "Projectile Lifetime": 0.30000001192092896
+                    },
+                    {
+                        "Projectile Spawn": 3467188139
+                    },
+                    {
+                        "Projectiles per second": 3.0
+                    },
+                    {
+                        "Player": 3627558040
+                    },
+                    {
+                        "Projectile Pull": 193214633
+                    },
+                    {
+                        "Projectile Speed": 0.009999999776482582
+                    },
+                    {
+                        "Projectile Damage": 10.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 10.0
+                    },
+                    {
+                        "Projectile Lifetime": 0.30000001192092896
+                    },
+                    {
+                        "Projectile Spawn": 3467188139
+                    },
+                    {
+                        "Projectiles per second": 3.0
+                    },
+                    {
+                        "Player": 3627558040
+                    },
+                    {
+                        "Projectile Pull": 193214633
+                    },
+                    {
+                        "Projectile Speed": 0.009999999776482582
+                    },
+                    {
+                        "Projectile Damage": 10.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 10.0
+                    },
+                    {
+                        "Projectile Lifetime": 0.30000001192092896
+                    },
+                    {
+                        "Projectile Spawn": 3467188139
+                    },
+                    {
+                        "Projectiles per second": 3.0
+                    },
+                    {
+                        "Player": 3627558040
+                    },
+                    {
+                        "Projectile Pull": 193214633
+                    },
+                    {
+                        "Projectile Speed": 0.009999999776482582
+                    },
+                    {
+                        "Projectile Damage": 10.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 10.0
+                    },
+                    {
+                        "Projectile Lifetime": 0.30000001192092896
+                    },
+                    {
+                        "Projectile Spawn": 3467188139
+                    },
+                    {
+                        "Projectiles per second": 3.0
+                    },
+                    {
+                        "Player": 3627558040
+                    },
+                    {
+                        "Projectile Pull": 193214633
+                    },
+                    {
+                        "Projectile Speed": 0.009999999776482582
+                    },
+                    {
+                        "Projectile Damage": 10.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 10.0
+                    },
+                    {
+                        "Projectile Lifetime": 0.30000001192092896
+                    },
+                    {
+                        "Projectile Spawn": 3467188139
+                    },
+                    {
+                        "Projectiles per second": 3.0
+                    },
+                    {
+                        "Player": 3627558040
+                    },
+                    {
+                        "Projectile Pull": 193214633
+                    },
+                    {
+                        "Projectile Speed": 0.009999999776482582
+                    },
+                    {
+                        "Projectile Damage": 10.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 10.0
+                    },
+                    {
+                        "Projectile Lifetime": 0.30000001192092896
+                    },
+                    {
+                        "Projectile Spawn": 3467188139
+                    },
+                    {
+                        "Projectiles per second": 3.0
+                    },
+                    {
+                        "Player": 3627558040
+                    },
+                    {
+                        "Projectile Pull": 193214633
+                    },
+                    {
+                        "Projectile Speed": 0.009999999776482582
+                    },
+                    {
+                        "Projectile Damage": 10.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 10.0
+                    },
+                    {
+                        "Projectile Lifetime": 0.30000001192092896
+                    },
+                    {
+                        "Projectile Spawn": 3467188139
+                    },
+                    {
+                        "Projectiles per second": 3.0
+                    },
+                    {
+                        "Player": 3627558040
+                    }
+                ],
+                "Script Resource": 453702057,
+                "Type": 5
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Gun Type": 0
+                    },
+                    {
+                        "Gun Type": 0
+                    },
+                    {
+                        "Gun Type": 0
+                    },
+                    {
+                        "Gun Type": 0
+                    },
+                    {
+                        "Gun Type": 0
+                    },
+                    {
+                        "Gun Type": 0
+                    },
+                    {
+                        "Gun Type": 0
+                    },
+                    {
+                        "Gun Type": 0
+                    },
+                    {
+                        "Gun Type": 0
+                    },
+                    {
+                        "Gun Type": 0
+                    },
+                    {
+                        "Gun Type": 0
+                    },
+                    {
+                        "Gun Type": 0
+                    }
+                ],
+                "Script Resource": 1421097082,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Gun",
+        "ParentUID": 3834510786,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2309753067
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    -2.2037267684936523,
+                    0.6812686920166016
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "ProjectileSpawn",
+        "ParentUID": 2309753067,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3467188139
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Bullet": 3233725919
+                    },
+                    {
+                        "Pull Size": 0
+                    },
+                    {
+                        "Projectile Mesh": 3233725919
+                    },
+                    {
+                        "Bullet": 3233725919
+                    },
+                    {
+                        "Pull Size": 0
+                    },
+                    {
+                        "Projectile Mesh": 3233725919
+                    },
+                    {
+                        "Bullet": 3233725919
+                    },
+                    {
+                        "Pull Size": 0
+                    },
+                    {
+                        "Projectile Mesh": 3233725919
+                    },
+                    {
+                        "Bullet": 3233725919
+                    },
+                    {
+                        "Pull Size": 0
+                    },
+                    {
+                        "Projectile Mesh": 3233725919
+                    },
+                    {
+                        "Bullet": 3233725919
+                    },
+                    {
+                        "Pull Size": 0
+                    },
+                    {
+                        "Projectile Mesh": 3233725919
+                    },
+                    {
+                        "Bullet": 3233725919
+                    },
+                    {
+                        "Pull Size": 0
+                    },
+                    {
+                        "Projectile Mesh": 3233725919
+                    },
+                    {
+                        "Bullet": 3233725919
+                    },
+                    {
+                        "Pull Size": 0
+                    },
+                    {
+                        "Projectile Mesh": 3233725919
+                    },
+                    {
+                        "Bullet": 3233725919
+                    },
+                    {
+                        "Pull Size": 0
+                    },
+                    {
+                        "Projectile Mesh": 3233725919
+                    },
+                    {
+                        "Bullet": 3233725919
+                    },
+                    {
+                        "Pull Size": 0
+                    },
+                    {
+                        "Projectile Mesh": 3233725919
+                    },
+                    {
+                        "Bullet": 3233725919
+                    },
+                    {
+                        "Pull Size": 0
+                    },
+                    {
+                        "Projectile Mesh": 3233725919
+                    },
+                    {
+                        "Bullet": 3233725919
+                    },
+                    {
+                        "Pull Size": 0
+                    },
+                    {
+                        "Projectile Mesh": 3233725919
+                    },
+                    {
+                        "Bullet": 3233725919
+                    },
+                    {
+                        "Pull Size": 0
+                    },
+                    {
+                        "Projectile Mesh": 3233725919
+                    }
+                ],
+                "Script Resource": 3720537736,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "ProjectilePull",
+        "ParentUID": 557669938,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 193214633
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -1.4804850816726685,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    0.10000000149011612,
+                    0.10000000149011612,
+                    0.10000000149011612
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 1551155716,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "ColPosition": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "Gravity": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsShapeSelected": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsStatic": false,
+                "Mass": 0.0,
+                "ShapeSelected": 0,
+                "SphereRadius": 1.0,
+                "Type": 8
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": null,
+                "Script Resource": 2708953346,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Bullet",
+        "ParentUID": 193214633,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3233725919
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -2.0857367515563965,
+                    -3.943509340286255,
+                    2.6300923824310303
+                ],
+                "Rotation": [
+                    -90.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.5,
+                    0.5,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 1170203818,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "ColPosition": [
+                    0.0,
+                    1.600000023841858,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    1.2999999523162842,
+                    3.0999999046325684,
+                    1.7000000476837158
+                ],
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsShapeSelected": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsStatic": false,
+                "Mass": 0.0,
+                "ShapeSelected": 0,
+                "SphereRadius": 1.0,
+                "Type": 8
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Health": 100.0
+                    },
+                    {
+                        "Resistance": 100.0
+                    },
+                    {
+                        "Speed": 0.0
+                    },
+                    {
+                        "Rigidbody test": 1640100182
+                    },
+                    {
+                        "Health": 100.0
+                    },
+                    {
+                        "Resistance": 100.0
+                    },
+                    {
+                        "Speed": 0.0
+                    },
+                    {
+                        "Rigidbody test": 1640100182
+                    },
+                    {
+                        "Health": 100.0
+                    },
+                    {
+                        "Resistance": 100.0
+                    },
+                    {
+                        "Speed": 0.0
+                    },
+                    {
+                        "Rigidbody test": 1640100182
+                    },
+                    {
+                        "Health": 100.0
+                    },
+                    {
+                        "Resistance": 100.0
+                    },
+                    {
+                        "Speed": 0.0
+                    },
+                    {
+                        "Rigidbody test": 1640100182
+                    },
+                    {
+                        "Health": 100.0
+                    },
+                    {
+                        "Resistance": 100.0
+                    },
+                    {
+                        "Speed": 0.0
+                    },
+                    {
+                        "Rigidbody test": 1640100182
+                    },
+                    {
+                        "Health": 100.0
+                    },
+                    {
+                        "Resistance": 100.0
+                    },
+                    {
+                        "Speed": 0.0
+                    },
+                    {
+                        "Rigidbody test": 1640100182
+                    },
+                    {
+                        "Health": 100.0
+                    },
+                    {
+                        "Resistance": 100.0
+                    },
+                    {
+                        "Speed": 0.0
+                    },
+                    {
+                        "Rigidbody test": 1640100182
+                    },
+                    {
+                        "Health": 100.0
+                    },
+                    {
+                        "Resistance": 100.0
+                    },
+                    {
+                        "Speed": 0.0
+                    },
+                    {
+                        "Rigidbody test": 1640100182
+                    },
+                    {
+                        "Health": 100.0
+                    },
+                    {
+                        "Resistance": 100.0
+                    },
+                    {
+                        "Speed": 0.0
+                    },
+                    {
+                        "Rigidbody test": 1640100182
+                    },
+                    {
+                        "Health": 100.0
+                    },
+                    {
+                        "Resistance": 100.0
+                    },
+                    {
+                        "Speed": 0.0
+                    },
+                    {
+                        "Rigidbody test": 1640100182
+                    },
+                    {
+                        "Health": 100.0
+                    },
+                    {
+                        "Resistance": 100.0
+                    },
+                    {
+                        "Speed": 0.0
+                    },
+                    {
+                        "Rigidbody test": 1640100182
+                    },
+                    {
+                        "Health": 100.0
+                    },
+                    {
+                        "Resistance": 100.0
+                    },
+                    {
+                        "Speed": 0.0
+                    },
+                    {
+                        "Rigidbody test": 1640100182
+                    }
+                ],
+                "Script Resource": 4210965159,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Enemy",
+        "ParentUID": 557669938,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1640100182
     }
 ]

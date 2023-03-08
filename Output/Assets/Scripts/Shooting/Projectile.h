@@ -13,6 +13,8 @@ public:
 
     void Destroy();
 
+    void OnCollisionEnter(API::API_RigidBody other);
+
     float speed = 0.0f;
     float lifeTime = 5.0f;
     float damage = 0.0f;

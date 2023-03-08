@@ -15,7 +15,7 @@ public:
     void Update() override;
 
     API_GameObject GetFirstActiveProjectile();
-    void LauchProjectile(float projectileSpeed, float projectileDamage, float projectileResistanceDamage, float projectileLifetime, API_Vector3 direction, API_Transform shootingSpawn, API_MeshRenderer projectileMesh);
+    void LauchProjectile(float projectileSpeed, float projectileDamage, float projectileResistanceDamage, float projectileLifetime, float aimAngle, API_Transform shootingSpawn, API_MeshRenderer projectileMesh);
 
     int pullSize;
     std::vector<API_GameObject> pull;
