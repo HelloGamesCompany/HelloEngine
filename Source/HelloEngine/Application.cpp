@@ -45,6 +45,10 @@ bool Application::Init()
 	{
 		std::filesystem::create_directory("Resources/Textures");
 	}
+	if (!std::filesystem::exists("Resources/Animations"))
+	{
+		std::filesystem::create_directory("Resources/Animations");
+	}
 
 	window = new ModuleWindow(true);
 	file = new ModuleFiles();
