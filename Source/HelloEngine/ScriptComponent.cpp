@@ -11,6 +11,8 @@ ScriptComponent::ScriptComponent(GameObject* go) : Component(go)
 {
 	_type = Component::Type::SCRIPT;
 	LayerGame::S_AddScriptComponent(this);
+	uniqueUID = HelloUUID::GenerateUUID();
+	headerName = "Script#" + std::to_string(uniqueUID);
 }
 
 ScriptComponent::~ScriptComponent()
@@ -25,7 +27,7 @@ ScriptComponent::~ScriptComponent()
 void ScriptComponent::OnEditor()
 {
 	bool created = true;
-	if (ImGui::CollapsingHeader("Script", &created, ImGuiTreeNodeFlags_DefaultOpen | ImGuiTreeNodeFlags_AllowItemOverlap | ImGuiTreeNodeFlags_SpanAvailWidth))
+	if (ImGui::CollapsingHeader(headerName.c_str(), &created, ImGuiTreeNodeFlags_DefaultOpen | ImGuiTreeNodeFlags_AllowItemOverlap | ImGuiTreeNodeFlags_SpanAvailWidth))
 	{
 		if (scriptResource == nullptr && addedScript == "None")
 		{
@@ -221,6 +223,26 @@ void ScriptComponent::AddDragBoxCamera(const char* name, API::API_Camera* value)
 void ScriptComponent::AddDragBoxRigidBody(const char* name, API::API_RigidBody* value)
 {
 	DragBoxRigidBody* dragBoxField = new DragBoxRigidBody();
+	dragBoxField->valueName = name;
+	dragBoxField->value = value;
+	dragBoxField->className = scriptResource == nullptr ? addedScript : scriptResource->className;
+
+	inspectorFields.push_back(dragBoxField);
+}
+
+void ScriptComponent::AddDragBoxAnimationPlayer(const char* name, API::API_AnimationPlayer* value)
+{
+	DragBoxAnimationPlayer* dragBoxField = new DragBoxAnimationPlayer();
+	dragBoxField->valueName = name;
+	dragBoxField->value = value;
+	dragBoxField->className = scriptResource == nullptr ? addedScript : scriptResource->className;
+
+	inspectorFields.push_back(dragBoxField);
+}
+
+void ScriptComponent::AddDragBoxAnimationResource(const char* name, uint* value)
+{
+	DragBoxAnimationResource* dragBoxField = new DragBoxAnimationResource();
 	dragBoxField->valueName = name;
 	dragBoxField->value = value;
 	dragBoxField->className = scriptResource == nullptr ? addedScript : scriptResource->className;

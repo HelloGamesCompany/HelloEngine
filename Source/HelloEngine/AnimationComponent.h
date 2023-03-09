@@ -20,9 +20,11 @@ public:
 	void PauseAnimation();
 
 	void UpdateAnimation();
-	
+
 	void Serialization(json& j) override;
 	void DeSerialization(json& j) override;
+
+	bool IsPlaying() { return isPlaying; };
 
 #ifdef STANDALONE
 	void OnEditor() override;

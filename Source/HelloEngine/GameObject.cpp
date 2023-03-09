@@ -194,13 +194,13 @@ void GameObject::OnEditor()
                 case 6:
                     if (!HasComponent<ParticleSystemComponent>())
                         AddComponent<ParticleSystemComponent>();
+                    break;
                 case 7:
                     if (!HasComponent<SkinnedMeshRenderComponent>())
                         AddComponent<SkinnedMeshRenderComponent>();
                     break;
                 case 8:
-                    if (!HasComponent<AnimationComponent>())
-                        AddComponent<AnimationComponent>();
+                    AddComponent<AnimationComponent>();
                     break;
                 }
             }

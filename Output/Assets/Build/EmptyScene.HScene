@@ -28,5 +28,4931 @@
         "PrefabUID": 0,
         "Tag": "None",
         "UID": 2998818085
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "AnimationPlayer": 169745431
+                    },
+                    {
+                        "Walk Animation": 735517541
+                    }
+                ],
+                "Script Resource": 115015227,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Node",
+        "ParentUID": 2998818085,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1077640193
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    3.6889898777008057,
+                    10.88250732421875,
+                    0.735998272895813
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "pCube7_$AssimpFbx$_RotationPivot",
+        "ParentUID": 1077640193,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1899150325
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -3.6889898777008057,
+                    -10.88250732421875,
+                    -0.735998272895813
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "pCube7_$AssimpFbx$_RotationPivotInverse",
+        "ParentUID": 1899150325,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 176569464
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    3.6889898777008057,
+                    10.88250732421875,
+                    0.735998272895813
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "pCube7_$AssimpFbx$_ScalingPivot",
+        "ParentUID": 176569464,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 746251992
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -3.6889898777008057,
+                    -10.88250732421875,
+                    -0.735998272895813
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "pCube7_$AssimpFbx$_ScalingPivotInverse",
+        "ParentUID": 746251992,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2885522616
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 1718773129,
+                "RootBoneUuid": 4003571423,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 9
+            },
+            {
+                "AnimationUID": 359368773,
+                "Enabled": true,
+                "Type": 10,
+                "isLoop": true,
+                "isStayLast": false
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 240240,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "pCube7",
+        "ParentUID": 2885522616,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 169745431
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.0007785308407619596,
+                    12.156867027282715,
+                    0.6654915809631348
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.14568106830120087,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "HipJoint",
+        "ParentUID": 1077640193,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 4003571423
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    1.2721948623657227,
+                    -0.7469418048858643,
+                    0.00038017635233700275
+                ],
+                "Rotation": [
+                    -0.26001617312431335,
+                    5.955310821533203,
+                    0.30181971192359924
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftLegTop",
+        "ParentUID": 4003571423,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2153432170
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.11468014121055603,
+                    -4.165216445922852,
+                    0.18608376383781433
+                ],
+                "Rotation": [
+                    0.02111797221004963,
+                    0.000657901051454246,
+                    0.0016972726443782449
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftLegMiddle",
+        "ParentUID": 2153432170,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3972673394
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.2118474245071411,
+                    -5.181874752044678,
+                    -0.6290803551673889
+                ],
+                "Rotation": [
+                    0.20793384313583374,
+                    -6.102886199951172,
+                    -0.2781100571155548
+                ],
+                "Scale": [
+                    1.0,
+                    0.9999999403953552,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftLegAnkle",
+        "ParentUID": 3972673394,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2780370457
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.02418895624577999,
+                    -1.5822654962539673,
+                    0.681035578250885
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftFoot_$AssimpFbx$_Translation",
+        "ParentUID": 2780370457,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2290523372
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    6.757049560546875,
+                    -90.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.9999999403953552,
+                    0.9999999403953552,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftFoot_$AssimpFbx$_PreRotation",
+        "ParentUID": 2290523372,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 686948827
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftFoot",
+        "ParentUID": 686948827,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1603443607
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    1.7724825143814087,
+                    -9.478890569880605e-05,
+                    -3.9356162990353467e-16
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftFootTip_$AssimpFbx$_Translation",
+        "ParentUID": 1603443607,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2852372611
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -90.00011444091797,
+                    83.24299621582031,
+                    90.00011444091797
+                ],
+                "Scale": [
+                    1.0,
+                    0.9999999403953552,
+                    0.9999999403953552
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftFootTip_$AssimpFbx$_PreRotation",
+        "ParentUID": 2852372611,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2925652575
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftFootTip",
+        "ParentUID": 2925652575,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2328878570
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -1.2707699537277222,
+                    -0.7469666004180908,
+                    0.00037969587719999254
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightLegTop_$AssimpFbx$_Translation",
+        "ParentUID": 4003571423,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3839497970
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    179.99998474121094,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightLegTop_$AssimpFbx$_PreRotation",
+        "ParentUID": 3839497970,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3808568217
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.13347044587135315,
+                    4.684884548187256,
+                    0.2217748761177063
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightLegTop_$AssimpFbx$_Rotation",
+        "ParentUID": 3808568217,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2226849900
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightLegTop",
+        "ParentUID": 2226849900,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 82404187
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.11468999832868576,
+                    4.16519021987915,
+                    -0.18608400225639343
+                ],
+                "Rotation": [
+                    -0.023639392107725143,
+                    -0.0007361306925304234,
+                    -0.0018509054789319634
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RigthLegMiddle",
+        "ParentUID": 82404187,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3280562967
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.21184000372886658,
+                    5.181879997253418,
+                    0.6290799975395203
+                ],
+                "Rotation": [
+                    0.14006851613521576,
+                    -4.538933753967285,
+                    -0.20968174934387207
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    0.9999999403953552
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightLegAnkle",
+        "ParentUID": 3280562967,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2598426114
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.02418999932706356,
+                    1.5822620391845703,
+                    -0.6810349822044373
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightLegFoot_$AssimpFbx$_Translation",
+        "ParentUID": 2598426114,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1001975273
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    6.757049560546875,
+                    -90.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.9999999403953552,
+                    0.9999999403953552,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightLegFoot_$AssimpFbx$_PreRotation",
+        "ParentUID": 1001975273,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3956627197
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightLegFoot",
+        "ParentUID": 3956627197,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2319586080
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -1.772487759590149,
+                    9.340850374428555e-05,
+                    2.220446049250313e-16
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightLegFootTip_$AssimpFbx$_Translation",
+        "ParentUID": 2319586080,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1132146079
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -90.00011444091797,
+                    83.24299621582031,
+                    90.00011444091797
+                ],
+                "Scale": [
+                    1.0,
+                    0.9999999403953552,
+                    0.9999999403953552
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightLegFootTip_$AssimpFbx$_PreRotation",
+        "ParentUID": 1132146079,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 4197317163
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightLegFootTip",
+        "ParentUID": 4197317163,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 433319974
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.004561777226626873,
+                    1.9408764839172363,
+                    0.0019789054058492184
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "MiddleBack_$AssimpFbx$_Translation",
+        "ParentUID": 4003571423,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 319622749
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    180.0,
+                    -5.008955668017734e-06,
+                    -90.01370239257813
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "MiddleBack_$AssimpFbx$_PreRotation",
+        "ParentUID": 319622749,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 229847552
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -3.684252442326397e-05,
+                    0.15396085381507874,
+                    9.900030306653207e-08
+                ],
+                "Scale": [
+                    0.9999999403953552,
+                    1.0,
+                    0.9999999403953552
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "MiddleBack_$AssimpFbx$_Rotation",
+        "ParentUID": 229847552,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3463240192
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "MiddleBack",
+        "ParentUID": 3463240192,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3371344383
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    2.8477492332458496,
+                    -0.0006097453297115862,
+                    -0.0015415094094350934
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Chest_$AssimpFbx$_Translation",
+        "ParentUID": 3371344383,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 699529738
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    -0.08080487698316574
+                ],
+                "Scale": [
+                    0.9999999403953552,
+                    0.9999999403953552,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Chest_$AssimpFbx$_PreRotation",
+        "ParentUID": 699529738,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1325719954
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    1.4385316371917725,
+                    0.002372764516621828,
+                    -2.983770173159428e-05
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Chest_$AssimpFbx$_Rotation",
+        "ParentUID": 1325719954,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3396693690
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Chest",
+        "ParentUID": 3396693690,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 312073729
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.8677014708518982,
+                    9.673360909800977e-05,
+                    0.0015755112981423736
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Neck_$AssimpFbx$_Translation",
+        "ParentUID": 312073729,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2940503541
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    0.07738618552684784
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Neck_$AssimpFbx$_PreRotation",
+        "ParentUID": 2940503541,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1180864120
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -1.4385335445404053,
+                    -0.0004300241998862475,
+                    -5.398625035013538e-06
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Neck_$AssimpFbx$_Rotation",
+        "ParentUID": 1180864120,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2971885784
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Neck",
+        "ParentUID": 2971885784,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 4200617656
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.8405115008354187,
+                    -2.3678975447083417e-16,
+                    -7.771561172376096e-16
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Head_$AssimpFbx$_Translation",
+        "ParentUID": 4200617656,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2583676439
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    180.0,
+                    -5.008955668017734e-06,
+                    -90.01712036132813
+                ],
+                "Scale": [
+                    0.9999999403953552,
+                    0.9999999403953552,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Head_$AssimpFbx$_PreRotation",
+        "ParentUID": 2583676439,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 612035842
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    -1.8920505046844482,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Head_$AssimpFbx$_Rotation",
+        "ParentUID": 612035842,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 176812265
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Head",
+        "ParentUID": 176812265,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 470431229
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.0004004378570243716,
+                    2.0634007453918457,
+                    -0.6672914028167725
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Heatop",
+        "ParentUID": 470431229,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2766962209
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.18084385991096497,
+                    1.5952465534210205,
+                    0.2806566655635834
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftShoulder_$AssimpFbx$_Translation",
+        "ParentUID": 312073729,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 802792596
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    179.99998474121094,
+                    -2.579090789822658e-07,
+                    92.95144653320313
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftShoulder_$AssimpFbx$_PreRotation",
+        "ParentUID": 802792596,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 813903268
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.08593888580799103,
+                    1.6145988702774048,
+                    -0.0012109623057767749
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftShoulder_$AssimpFbx$_Rotation",
+        "ParentUID": 813903268,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1255885300
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftShoulder",
+        "ParentUID": 1255885300,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3341226628
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -1.266439437866211,
+                    -5.38581662112847e-06,
+                    -2.936317855528614e-12
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftArm_$AssimpFbx$_Translation",
+        "ParentUID": 3341226628,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 4110316628
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    8.536926543456502e-07,
+                    1.1759666129762536e-08,
+                    0.7892028093338013
+                ],
+                "Scale": [
+                    0.9999999403953552,
+                    0.9999999403953552,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftArm_$AssimpFbx$_PreRotation",
+        "ParentUID": 4110316628,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3567927395
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftArm",
+        "ParentUID": 3567927395,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3239603134
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -2.698777914047241,
+                    1.0788661711558234e-05,
+                    7.180801185313612e-05
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftElbow_$AssimpFbx$_Translation",
+        "ParentUID": 3239603134,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2792177365
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    0.5883035063743591
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftElbow_$AssimpFbx$_PreRotation",
+        "ParentUID": 2792177365,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3960511705
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.014353286474943161,
+                    0.18554376065731049,
+                    -2.3240503651322797e-05
+                ],
+                "Scale": [
+                    1.0,
+                    0.9999999403953552,
+                    0.9999999403953552
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftElbow_$AssimpFbx$_Rotation",
+        "ParentUID": 3960511705,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2179977900
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftElbow",
+        "ParentUID": 2179977900,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 982037147
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -2.562046766281128,
+                    -6.573220889549702e-05,
+                    -3.439612555666827e-05
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftWrist_$AssimpFbx$_Translation",
+        "ParentUID": 982037147,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3118793559
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    85.48202514648438
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftWrist_$AssimpFbx$_PreRotation",
+        "ParentUID": 3118793559,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1454721858
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.000283567700535059,
+                    -0.17189942300319672,
+                    4.253818417510047e-07
+                ],
+                "Scale": [
+                    0.9999999403953552,
+                    1.0,
+                    0.9999999403953552
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftWrist_$AssimpFbx$_Rotation",
+        "ParentUID": 1454721858,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3861636138
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftWrist",
+        "ParentUID": 3861636138,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3196703281
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.033261433243751526,
+                    0.27969667315483093,
+                    0.035691749304533005
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftHand_$AssimpFbx$_Translation",
+        "ParentUID": 3196703281,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1063782372
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    64.68708801269531,
+                    0.08544057607650757,
+                    -89.95957946777344
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    0.9999999403953552
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftHand_$AssimpFbx$_PreRotation",
+        "ParentUID": 1063782372,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3471436084
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftHand",
+        "ParentUID": 3471436084,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2746890947
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.32007479667663574,
+                    -3.552713678800501e-15,
+                    1.7102446463468368e-06
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftThumb_$AssimpFbx$_Translation",
+        "ParentUID": 2746890947,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3580799391
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    -31.136449813842773,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftThumb_$AssimpFbx$_PreRotation",
+        "ParentUID": 3580799391,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1752671786
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftThumb",
+        "ParentUID": 1752671786,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2741533746
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.4457162320613861,
+                    3.552713678800501e-15,
+                    -2.1931512037554057e-06
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftThumbTip_$AssimpFbx$_Translation",
+        "ParentUID": 2741533746,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 4269263322
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    180.0,
+                    33.5506591796875,
+                    -180.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftThumbTip_$AssimpFbx$_PreRotation",
+        "ParentUID": 4269263322,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1464988577
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftThumbTip",
+        "ParentUID": 1464988577,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1381341204
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.42219680547714233,
+                    -3.552713678800501e-15,
+                    -0.39576372504234314
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftIndex_$AssimpFbx$_Translation",
+        "ParentUID": 2746890947,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1743238948
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    -57.61753463745117,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftIndex_$AssimpFbx$_PreRotation",
+        "ParentUID": 1743238948,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3147915636
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftIndex",
+        "ParentUID": 3147915636,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1738280963
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.2984991669654846,
+                    0.0,
+                    -1.6884512206161162e-06
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftIndexMiddle_$AssimpFbx$_Translation",
+        "ParentUID": 1738280963,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1565425630
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    -1.8555110692977905,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftIndexMiddle_$AssimpFbx$_PreRotation",
+        "ParentUID": 1565425630,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1702650230
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftIndexMiddle",
+        "ParentUID": 1702650230,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3409260526
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.3428085446357727,
+                    3.552713678800501e-15,
+                    5.376898002396047e-07
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftIndexTip_$AssimpFbx$_Translation",
+        "ParentUID": 3409260526,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3349401797
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -180.0,
+                    5.214066028594971,
+                    -180.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftIndexTip_$AssimpFbx$_PreRotation",
+        "ParentUID": 3349401797,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2043107208
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftIndexTip",
+        "ParentUID": 2043107208,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2440019240
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.2953174114227295,
+                    -3.552713678800501e-15,
+                    -0.4575110077857971
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftMiddle_$AssimpFbx$_Translation",
+        "ParentUID": 2746890947,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2033016647
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    1.963695012818789e-06,
+                    -64.228759765625,
+                    1.7683800024315133e-06
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftMiddle_$AssimpFbx$_PreRotation",
+        "ParentUID": 2033016647,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 4741106
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftMiddle",
+        "ParentUID": 4741106,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3663026330
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.32452037930488586,
+                    0.0,
+                    -7.999743445452623e-08
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftMIddleMiddle_$AssimpFbx$_Translation",
+        "ParentUID": 3663026330,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1282986337
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    -0.45835646986961365,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftMIddleMiddle_$AssimpFbx$_PreRotation",
+        "ParentUID": 1282986337,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 356913364
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftMIddleMiddle",
+        "ParentUID": 356913364,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2279507684
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.29335999488830566,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftMiddleTip_$AssimpFbx$_Translation",
+        "ParentUID": 2279507684,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2562880564
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -180.0,
+                    -5.008955668017734e-06,
+                    -180.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftMiddleTip_$AssimpFbx$_PreRotation",
+        "ParentUID": 2562880564,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 186401219
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftMiddleTip",
+        "ParentUID": 186401219,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2343066783
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.16177839040756226,
+                    -3.552713678800501e-15,
+                    -0.5197864174842834
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftRing_$AssimpFbx$_Translation",
+        "ParentUID": 2746890947,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3794597163
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    1.8678390460991068e-06,
+                    -62.8004035949707,
+                    1.661292685639637e-06
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftRing_$AssimpFbx$_PreRotation",
+        "ParentUID": 3794597163,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 210708262
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftRing",
+        "ParentUID": 210708262,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2406592862
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.29277870059013367,
+                    0.0,
+                    -2.469248840952787e-07
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftRingMiddle_$AssimpFbx$_Translation",
+        "ParentUID": 2406592862,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2727428342
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    -2.7363953590393066,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftRingMiddle_$AssimpFbx$_PreRotation",
+        "ParentUID": 2727428342,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1489474925
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftRingMiddle",
+        "ParentUID": 1489474925,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1043358800
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.2583684027194977,
+                    0.0,
+                    4.226713201660459e-07
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftRingTIp_$AssimpFbx$_Translation",
+        "ParentUID": 1043358800,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3196104848
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -180.0,
+                    -0.8496806025505066,
+                    -180.0
+                ],
+                "Scale": [
+                    0.9999999403953552,
+                    1.0,
+                    0.9999999403953552
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftRingTIp_$AssimpFbx$_PreRotation",
+        "ParentUID": 3196104848,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2349951439
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftRingTIp",
+        "ParentUID": 2349951439,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2074895386
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.025525791570544243,
+                    -3.552713678800501e-15,
+                    -0.5802257061004639
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftLittle_$AssimpFbx$_Translation",
+        "ParentUID": 2746890947,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3656602338
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    -63.898704528808594,
+                    0.0
+                ],
+                "Scale": [
+                    0.9999999403953552,
+                    1.0,
+                    0.9999999403953552
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftLittle_$AssimpFbx$_PreRotation",
+        "ParentUID": 3656602338,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 714838089
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftLittle",
+        "ParentUID": 714838089,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1956535517
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.2601946294307709,
+                    0.0,
+                    -3.2107050174090546e-07
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftLittleMiddle_$AssimpFbx$_Translation",
+        "ParentUID": 1956535517,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1071436416
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    -0.7884241938591003,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftLittleMiddle_$AssimpFbx$_PreRotation",
+        "ParentUID": 1071436416,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3777688704
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftLittleMiddle",
+        "ParentUID": 3777688704,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 4142890624
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.19572000205516815,
+                    0.0,
+                    -3.219646771412954e-15
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftLittleTip_$AssimpFbx$_Translation",
+        "ParentUID": 4142890624,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3659370623
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -180.0,
+                    -5.008955668017734e-06,
+                    -180.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftLittleTip_$AssimpFbx$_PreRotation",
+        "ParentUID": 3659370623,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 172079754
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftLittleTip",
+        "ParentUID": 172079754,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1700764690
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.18653789162635803,
+                    -1.5775178670883179,
+                    0.36037468910217285
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightShoulder_$AssimpFbx$_Translation",
+        "ParentUID": 312073729,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 985099065
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    4.67731844366881e-08,
+                    -8.524913823748648e-07,
+                    -86.85953521728516
+                ],
+                "Scale": [
+                    0.9999999403953552,
+                    0.9999999403953552,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightShoulder_$AssimpFbx$_PreRotation",
+        "ParentUID": 985099065,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1544221837
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.07782647013664246,
+                    -1.433005452156067,
+                    -0.24326471984386444
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightShoulder_$AssimpFbx$_Rotation",
+        "ParentUID": 1544221837,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2942127601
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightShoulder",
+        "ParentUID": 2942127601,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2580395684
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    1.266439437866211,
+                    5.38581662112847e-06,
+                    -2.936761944738464e-12
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightArm_$AssimpFbx$_Translation",
+        "ParentUID": 2580395684,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 4130825972
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    8.536926543456502e-07,
+                    1.1759666129762536e-08,
+                    0.7892028093338013
+                ],
+                "Scale": [
+                    0.9999999403953552,
+                    0.9999999403953552,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightArm_$AssimpFbx$_PreRotation",
+        "ParentUID": 4130825972,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1224856451
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightArm",
+        "ParentUID": 1224856451,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3450280287
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    2.698852777481079,
+                    -1.5807854651939124e-05,
+                    -6.253775275411044e-12
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightElbow_$AssimpFbx$_Translation",
+        "ParentUID": 3450280287,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3032930538
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    1.2073544439772377e-06,
+                    1.2397351589754635e-08,
+                    0.5883035063743591
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightElbow_$AssimpFbx$_PreRotation",
+        "ParentUID": 3032930538,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2179812849
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightElbow",
+        "ParentUID": 2179812849,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2375923365
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    2.5620415210723877,
+                    -3.2180489597521955e-06,
+                    -5.932532243235755e-12
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightWrist_$AssimpFbx$_Translation",
+        "ParentUID": 2375923365,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2085123816
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    6.725326073819815e-08,
+                    8.511207170158741e-07,
+                    85.48202514648438
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightWrist_$AssimpFbx$_PreRotation",
+        "ParentUID": 2085123816,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2805556232
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightWrist",
+        "ParentUID": 2805556232,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3402707880
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.033297594636678696,
+                    -0.28529614210128784,
+                    -0.03569233790040016
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightHand_$AssimpFbx$_Translation",
+        "ParentUID": 3402707880,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2414168007
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    64.68708801269531,
+                    0.08544057607650757,
+                    -89.95957946777344
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    0.9999999403953552
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightHand_$AssimpFbx$_PreRotation",
+        "ParentUID": 2414168007,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1835620978
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightHand",
+        "ParentUID": 1835620978,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1016216857
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.32007548213005066,
+                    0.0,
+                    -1.6653345369377348e-16
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightThumb_$AssimpFbx$_Translation",
+        "ParentUID": 1016216857,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3332501485
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    -31.136449813842773,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightThumb_$AssimpFbx$_PreRotation",
+        "ParentUID": 3332501485,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2247524560
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightThumb",
+        "ParentUID": 2247524560,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 658863887
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.4457117021083832,
+                    0.0,
+                    1.3600232051658168e-15
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightThumbTip_$AssimpFbx$_Translation",
+        "ParentUID": 658863887,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 511955546
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -180.0,
+                    33.5506591796875,
+                    -180.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightThumbTip_$AssimpFbx$_PreRotation",
+        "ParentUID": 511955546,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3218445858
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightThumbTip",
+        "ParentUID": 3218445858,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2975247497
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.42219775915145874,
+                    -3.552713678800501e-15,
+                    0.39576759934425354
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RIghtIndex_$AssimpFbx$_Translation",
+        "ParentUID": 1016216857,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2023237148
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    -57.61753463745117,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RIghtIndex_$AssimpFbx$_PreRotation",
+        "ParentUID": 2023237148,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2046041292
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RIghtIndex",
+        "ParentUID": 2046041292,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 555451195
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.29849284887313843,
+                    0.0,
+                    -1.3877787807814457e-16
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightIndexMiddle_$AssimpFbx$_Translation",
+        "ParentUID": 555451195,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3477081207
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    -1.8555110692977905,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightIndexMiddle_$AssimpFbx$_PreRotation",
+        "ParentUID": 3477081207,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 629008098
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightIndexMiddle",
+        "ParentUID": 629008098,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 686240842
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.3428080677986145,
+                    0.0,
+                    1.0408340855860843e-17
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightIndexTip_$AssimpFbx$_Translation",
+        "ParentUID": 686240842,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3852427474
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -180.0,
+                    5.214066028594971,
+                    -180.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightIndexTip_$AssimpFbx$_PreRotation",
+        "ParentUID": 3852427474,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2030434041
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightIndexTip",
+        "ParentUID": 2030434041,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 589755212
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.29531654715538025,
+                    -3.552713678800501e-15,
+                    0.45750921964645386
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightMiddle_$AssimpFbx$_Translation",
+        "ParentUID": 1016216857,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3755232188
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    -64.228759765625,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightMiddle_$AssimpFbx$_PreRotation",
+        "ParentUID": 3755232188,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 4065885932
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightMiddle",
+        "ParentUID": 4065885932,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2634894299
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.3245251774787903,
+                    0.0,
+                    -2.4615726124110893e-15
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightMiddleMIddle_$AssimpFbx$_Translation",
+        "ParentUID": 2634894299,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1627811222
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    -0.45835646986961365,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightMiddleMIddle_$AssimpFbx$_PreRotation",
+        "ParentUID": 1627811222,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2838014606
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightMiddleMIddle",
+        "ParentUID": 2838014606,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 4034366438
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.2933613657951355,
+                    0.0,
+                    -1.206914217834399e-16
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightMiddleTip_$AssimpFbx$_Translation",
+        "ParentUID": 4034366438,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2944490781
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -180.0,
+                    -5.008955668017734e-06,
+                    -180.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightMiddleTip_$AssimpFbx$_PreRotation",
+        "ParentUID": 2944490781,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3898593217
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightMiddleTip",
+        "ParentUID": 3898593217,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3500090036
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.16177687048912048,
+                    -3.552713678800501e-15,
+                    0.5197846293449402
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightRIng_$AssimpFbx$_Translation",
+        "ParentUID": 1016216857,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 503890499
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    -62.8004035949707,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightRIng_$AssimpFbx$_PreRotation",
+        "ParentUID": 503890499,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 67557150
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightRIng",
+        "ParentUID": 67557150,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 407151030
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.2927844524383545,
+                    0.0,
+                    -8.153200337090993e-17
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightRingMiddle_$AssimpFbx$_Translation",
+        "ParentUID": 407151030,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3772673326
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    -2.7363953590393066,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightRingMiddle_$AssimpFbx$_PreRotation",
+        "ParentUID": 3772673326,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2859609861
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightRingMiddle",
+        "ParentUID": 2859609861,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 4279061193
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.2583681046962738,
+                    0.0,
+                    1.3487475025719675e-16
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightRingTip_$AssimpFbx$_Translation",
+        "ParentUID": 4279061193,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 702765404
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -180.0,
+                    -0.8496806025505066,
+                    -180.0
+                ],
+                "Scale": [
+                    0.9999999403953552,
+                    1.0,
+                    0.9999999403953552
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightRingTip_$AssimpFbx$_PreRotation",
+        "ParentUID": 702765404,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3257723148
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightRingTip",
+        "ParentUID": 3257723148,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1605287035
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.025526151061058044,
+                    -3.552713678800501e-15,
+                    0.5802275538444519
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightLittle_$AssimpFbx$_Translation",
+        "ParentUID": 1016216857,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2344654519
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    -63.898704528808594,
+                    0.0
+                ],
+                "Scale": [
+                    0.9999999403953552,
+                    1.0,
+                    0.9999999403953552
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightLittle_$AssimpFbx$_PreRotation",
+        "ParentUID": 2344654519,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2665215523
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightLittle",
+        "ParentUID": 2665215523,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3792804991
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.2601925730705261,
+                    0.0,
+                    -1.6085223430994944e-15
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightLittleMiddle_$AssimpFbx$_Translation",
+        "ParentUID": 3792804991,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 4286920331
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    -0.7884241938591003,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightLittleMiddle_$AssimpFbx$_PreRotation",
+        "ParentUID": 4286920331,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2402965510
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightLittleMiddle",
+        "ParentUID": 2402965510,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3590625214
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.19572268426418304,
+                    0.0,
+                    1.5124140673766404e-15
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightLittleTip_$AssimpFbx$_Translation",
+        "ParentUID": 3590625214,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2936494805
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -180.0,
+                    -5.008955668017734e-06,
+                    -180.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightLittleTip_$AssimpFbx$_PreRotation",
+        "ParentUID": 2936494805,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1261529304
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightLittleTip",
+        "ParentUID": 1261529304,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1145437879
     }
 ]

@@ -154,6 +154,7 @@
 		<ClCompile Include="../../Assets/Scripts/Shooting/PlayerSemiAuto.cpp" />
 		<ClCompile Include="../../Assets/Scripts/Shooting/ProjectilePull.cpp" />
 		<ClCompile Include="../../Assets/Scripts/Shooting/Projectile.cpp" />
+		<ClCompile Include="../../Assets/Build/AnimationTest.cpp" />
 	</ItemGroup>
 	<ItemGroup>
 		<ClInclude Include="Macro.h" />
@@ -175,6 +176,7 @@
 		<ClInclude Include="../../Assets/Scripts/Shooting/PlayerSemiAuto.h" />
 		<ClInclude Include="../../Assets/Scripts/Shooting/ProjectilePull.h" />
 		<ClInclude Include="../../Assets/Scripts/Shooting/Projectile.h" />
+		<ClInclude Include="../../Assets/Build/AnimationTest.h" />
 	</ItemGroup>
 	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 	<ImportGroup Label="ExtensionTargets" />

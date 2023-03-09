@@ -45,6 +45,27 @@ API::API_Vector3 API::API_RigidBody::GetVelocity()
 	return _rigidBody->GetVelocity();
 }
 
+void API::API_RigidBody::SetGravity(API_Vector3 gravity)
+{
+	if (!_rigidBody)
+	{
+		Engine::Console::S_Log("Trying to acces a NULLPTR Rigidbody");
+		return;
+	}
+
+	_rigidBody->SetGravity(gravity);
+}
+
+API::API_Vector3 API::API_RigidBody::GetGravity()
+{
+	if (!_rigidBody)
+	{
+		Engine::Console::S_Log("Trying to get a NULLPTR Rigidbody");
+		return API_Vector3::S_Zero();
+	}
+	return _rigidBody->GetGravity();
+}
+
 PhysicsComponent* API::API_RigidBody::GetComponent()
 {
 	if (!_rigidBody) 
