@@ -20,7 +20,7 @@ public:
 
 	float maxVel = 0.15f;
 	float accel = 0.15f;
-	float brake = 0.5f;
+	float brake = 0.4f;
 	bool moving = false;
 	bool braking = false;
 	bool movF = false;

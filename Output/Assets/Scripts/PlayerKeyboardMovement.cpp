@@ -59,7 +59,7 @@ void PlayerKeyboardMovement::Update()
 	if (velk <= 0) {
 		moving = false;
 		braking = false;
-		brake = 0.05f;
+		//brake = 0.05f;
 		velk = 0.0f;
 		movB = movF = movR = movL = false;
 
@@ -71,7 +71,7 @@ void PlayerKeyboardMovement::Update()
 		gameObject.GetTransform().Translate(cam.GetGameObject().GetTransform().GetForward() * velk);
 		
 	}*/
-	if (Input::GetKey(KeyCode::KEY_W) == KeyState::KEY_REPEAT)
+	if (Input::GetKey(KeyCode::KEY_W) == KeyState::KEY_REPEAT || (movB && braking))
 	{
 		API_Vector3 vecF;
 		vecF.x = cam.GetGameObject().GetTransform().GetForward().x;
@@ -95,7 +95,7 @@ void PlayerKeyboardMovement::Update()
 		gameObject.GetTransform().Translate(cam.GetGameObject().GetTransform().GetLeft() * velk);
 		
 	}*/
-	if (Input::GetKey(KeyCode::KEY_A) == KeyState::KEY_REPEAT)
+	if (Input::GetKey(KeyCode::KEY_A) == KeyState::KEY_REPEAT || (movL && braking))
 	{
 		API_Vector3 vecR;
 		vecR.x = cam.GetGameObject().GetTransform().GetRight().x;
@@ -118,7 +118,7 @@ void PlayerKeyboardMovement::Update()
 		gameObject.GetTransform().Translate(cam.GetGameObject().GetTransform().GetBackward() * velk);
 		
 	}*/
-	if (Input::GetKey(KeyCode::KEY_S) == KeyState::KEY_REPEAT)
+	if (Input::GetKey(KeyCode::KEY_S) == KeyState::KEY_REPEAT || (movF && braking))
 	{
 		API_Vector3 vecB;
 		vecB.x = cam.GetGameObject().GetTransform().GetBackward().x;
@@ -142,7 +142,7 @@ void PlayerKeyboardMovement::Update()
 		gameObject.GetTransform().Translate(cam.GetGameObject().GetTransform().GetRight() * velk);
 		
 	}*/
-	if (Input::GetKey(KeyCode::KEY_D) == KeyState::KEY_REPEAT)
+	if (Input::GetKey(KeyCode::KEY_D) == KeyState::KEY_REPEAT || (movR && braking))
 	{
 		API_Vector3 vecL;
 		vecL.x = cam.GetGameObject().GetTransform().GetLeft().x;

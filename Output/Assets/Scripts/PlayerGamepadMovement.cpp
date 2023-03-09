@@ -74,7 +74,7 @@ void PlayerGamepadMovement::Update()
     if (vel <= 0) {
         moving = false;
         braking = false;
-        brake = 0.05f;
+       // brake = 0.05f;
         vel = 0.0f;
         movB = movF = movR = movL = false;
 
@@ -96,7 +96,7 @@ void PlayerGamepadMovement::Update()
 
 
     //RIGHT MOVEMENT
-    if (movDir.x > 10000)
+    if ((movDir.x > 10000)|| (movR && braking))
     {
         API_Vector3 vecL;
         vecL.x = cam.GetGameObject().GetTransform().GetLeft().x;
@@ -115,7 +115,7 @@ void PlayerGamepadMovement::Update()
     }
 
     //LEFT MOVEMENT
-    if (movDir.x < -10000)
+    if (movDir.x < -10000 || (movL && braking))
     {
         API_Vector3 vecR;
         vecR.x = cam.GetGameObject().GetTransform().GetRight().x;
@@ -134,7 +134,7 @@ void PlayerGamepadMovement::Update()
     }
 
     //FORWARD MOVEMENT
-    if (movDir.y > 10000)
+    if (movDir.y > 10000 || (movF && braking))
     {
         API_Vector3 vecB;
         vecB.x = cam.GetGameObject().GetTransform().GetBackward().x;
@@ -153,7 +153,7 @@ void PlayerGamepadMovement::Update()
     }
 
     //BACKWARD MOVEMENT
-    if (movDir.y < -10000)
+    if (movDir.y < -10000 || (movB && braking))
     {
         API_Vector3 vecF;
         vecF.x = cam.GetGameObject().GetTransform().GetForward().x;
