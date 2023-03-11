@@ -74,4 +74,9 @@ void ParticleManager::RemoveEmitterInList(Emitter* emitter)
 
 }
 
+void ParticleManager::RemoveAllEmitters()
+{
+	EmitterList.clear();
+}
+
 

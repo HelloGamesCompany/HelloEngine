@@ -12,7 +12,7 @@
 #include "ComponentUISlider.h"
 #include "ComponentUICheckbox.h"
 #include "ComponentUIImage.h"
-
+#include "Math/float4x4.h"
 
 RenderManager::RenderManager()
 {
@@ -570,30 +570,57 @@ void RenderManager::DrawColliderBox(PhysBody3D* physBody, float4 color, float wi
 
 void RenderManager::DrawColliderSphere(PhysBody3D* physBody, float radius, float4 color, float wireSize, uint verSlices, uint horSlices)
 {
+	const float newRadius = radius / 2.f;
+
 	const float3 origin = (float3)physBody->body->getCenterOfMassTransform().getOrigin();
-	const float3 startingPointY = origin - float3(0, radius, 0);
-	const float diferenceBetweenSlicesY = (radius * 2) / (horSlices + 1);
+	const float3 startingPointY = - float3(0, newRadius, 0);
+	const float diferenceBetweenSlicesY = (newRadius * 2) / (horSlices + 1);
+
+	const btQuaternion rotBtQuat = physBody->body->getCenterOfMassTransform().getRotation();
+
+	float3 rotAxis = (float3)rotBtQuat.getAxis();
+	float rotAngle = (float)rotBtQuat.getAngle();
+	Quat rotQuat = Quat::RotateAxisAngle(rotAxis, rotAngle);
 
 	std::vector<float3> SpherePoints;
 
-	SpherePoints.push_back(startingPointY);
+
+	float3 tempPointFirst = float3(startingPointY);
+
+	float3 rotatedPointFirst = rotQuat * tempPointFirst;
+
+	rotatedPointFirst += origin;
+
+	SpherePoints.push_back(rotatedPointFirst);
 
 	for (int i = 1; i < horSlices + 1; i++)
 	{
 		for (int j = 0; j < verSlices; j++)
 		{
 			float tempY = startingPointY.y + diferenceBetweenSlicesY * i;
-			float tempYRad = sqrt(Pow(radius, 2) - Pow(-radius + diferenceBetweenSlicesY * i,2));
-			float tempX = origin.x + tempYRad * cos(2 * math::pi * j / verSlices);
-			float tempZ = origin.z + tempYRad * sin(2 * math::pi * j / verSlices);
+			float tempYRad = sqrt(Pow(newRadius, 2) - Pow(-newRadius + diferenceBetweenSlicesY * i,2));
+			float tempX = tempYRad * cos(2 * math::pi * j / verSlices);
+			float tempZ = tempYRad * sin(2 * math::pi * j / verSlices);
 
 			float3 tempPoint = float3(tempX, tempY, tempZ);
-			SpherePoints.push_back(tempPoint);
+
+			float3 rotatedPoint = rotQuat * tempPoint;
+
+			rotatedPoint += origin;
+
+			SpherePoints.push_back(rotatedPoint);
 		}
 		
 	}
 
-	SpherePoints.push_back(origin + float3(0, radius, 0));
+	float3 tempPointLast = float3(0, newRadius, 0);
+
+	float3 rotatedPointLast = rotQuat * tempPointLast;
+
+	rotatedPointLast += origin;
+
+	SpherePoints.push_back(rotatedPointLast);
+
 
 	glBindVertexArray(SPVAO);
 
@@ -617,35 +644,116 @@ void RenderManager::DrawColliderSphere(PhysBody3D* physBody, float radius, float
 
 void RenderManager::DrawColliderCylinder(PhysBody3D* physBody, float2 radiusHeight, float4 color, float wireSize, uint verSlices)
 {
-	const float radius = radiusHeight.x;
+	const float radius = radiusHeight.x / 5.f;
 	const float height = radiusHeight.y;
 
 	const float3 origin = (float3)physBody->body->getCenterOfMassTransform().getOrigin();
-	const float3 startingPointY = origin - float3(0, -(height / 2), 0);
-	const float3 endingPointY = origin - float3(0, +(height / 2), 0);
+	const float3 startingPointY = float3(0, -(height / 2), 0);
+	const float3 endingPointY = float3(0, +(height / 2), 0);
 
+
+	const btQuaternion rotBtQuat = physBody->body->getCenterOfMassTransform().getRotation();
+
+	float3 rotAxis = (float3)rotBtQuat.getAxis();
+	float rotAngle = (float)rotBtQuat.getAngle();
+	Quat rotQuat = Quat::RotateAxisAngle(rotAxis, rotAngle);
+
+
+
+	
+
+	/*float rad = rotQuat.Angle();
+	btScalar rotBtAngle = RadToDeg(rad);*/
+	
+	//float rotAngle = (float)rotBtAngle;
+
+	//float3 rotAxis;
+
+	//rotAxis.x = rotQuat.Axis().x;
+	//rotAxis.y = rotQuat.Axis().y;
+	//rotAxis.z = rotQuat.Axis().z;
+
+	////SCLrotAxis.Normalized();
+
+	//float rotMatrix[16];
+
+	
+		
+	/*rotMatrix[0] = (cos(rotAngle) + pow(rotAxis.x, 2) * (1 - cos(rotAngle)));
+	rotMatrix[4] = rotAxis.x * rotAxis.y * (1 - cos(rotAngle)) - rotAxis.z * sin(rotAngle);
+	rotMatrix[8] = rotAxis.x * rotAxis.z * (1 - cos(rotAngle)) + rotAxis.y * sin(rotAngle);
+	rotMatrix[12] = 0;
+
+	rotMatrix[1] = rotAxis.y * rotAxis.x * (1 - cos(rotAngle)) + rotAxis.z * sin(rotAngle);
+	rotMatrix[5] = cos(rotAngle) + pow(rotAxis.y, 2) * (1 - cos(rotAngle));
+	rotMatrix[9] = rotAxis.y * rotAxis.z * (1 - cos(rotAngle)) - rotAxis.x * sin(rotAngle);
+	rotMatrix[13] = 0;
+
+	rotMatrix[2] = rotAxis.z * rotAxis.x * (1 - cos(rotAngle)) - rotAxis.y * sin(rotAngle);
+	rotMatrix[6] = rotAxis.z * rotAxis.y * (1 - cos(rotAngle)) + rotAxis.x * sin(rotAngle);
+	rotMatrix[10] = cos(rotAngle) + pow(rotAxis.z, 2) * (1 - cos(rotAngle));
+	rotMatrix[14] = 0;
+
+	rotMatrix[3] = 0;
+	rotMatrix[7] = 0;
+	rotMatrix[11] = 0;
+	rotMatrix[15] = 1;*/
+
+	//rotMatrix[0] = (cos(rotAngle) + pow(rotAxis.x, 2) * (1 - cos(rotAngle)));
+	//rotMatrix[3] = rotAxis.x * rotAxis.y * (1 - cos(rotAngle)) - rotAxis.z * sin(rotAngle);
+	//rotMatrix[6] = rotAxis.x * rotAxis.z * (1 - cos(rotAngle)) + rotAxis.y * sin(rotAngle);
+	////rotMatrix[9] = 0;
+
+	//rotMatrix[1] = rotAxis.y * rotAxis.x * (1 - cos(rotAngle)) + rotAxis.z * sin(rotAngle);
+	//rotMatrix[4] = cos(rotAngle) + pow(rotAxis.y, 2) * (1 - cos(rotAngle));
+	//rotMatrix[7] = rotAxis.y * rotAxis.z * (1 - cos(rotAngle)) - rotAxis.x * sin(rotAngle);
+	////rotMatrix[10] = 0;
+
+	//rotMatrix[2] = rotAxis.z * rotAxis.x * (1 - cos(rotAngle)) - rotAxis.y * sin(rotAngle);
+	//rotMatrix[5] = rotAxis.z * rotAxis.y * (1 - cos(rotAngle)) + rotAxis.x * sin(rotAngle);
+	//rotMatrix[8] = cos(rotAngle) + pow(rotAxis.z, 2) * (1 - cos(rotAngle));
+	//rotMatrix[11] = 0;
+
+	//rotMatrix[3] = 0;
+	//rotMatrix[7] = 0;
+	//rotMatrix[11] = 0;
+	//rotMatrix[15] = 1;
+
+
+
+
+
+	
 	std::vector<float3> CylinderPoints;
-
+	
 	//Down
 	for (int i = 0; i < verSlices; i++)
 	{
 		float tempY = startingPointY.y;
-		float tempX = origin.x + radius * cos(2 * math::pi * i / verSlices);
-		float tempZ = origin.z + radius * sin(2 * math::pi * i / verSlices);
+		float tempX = radius * cos(2 * math::pi * i / verSlices);
+		float tempZ = radius * sin(2 * math::pi * i / verSlices);
 
 		float3 tempPoint = float3(tempX, tempY, tempZ);
-		CylinderPoints.push_back(tempPoint);
+		float3 rotatedPoint = rotQuat * tempPoint;
+
+		rotatedPoint += origin;
+
+		CylinderPoints.push_back(rotatedPoint);
 	}
 
 	//Up
 	for (int i = 0; i < verSlices; i++)
 	{
 		float tempY = endingPointY.y;
-		float tempX = origin.x + radius * cos(2 * math::pi * i / verSlices);
-		float tempZ = origin.z + radius * sin(2 * math::pi * i / verSlices);
+		float tempX =  radius * cos(2 * math::pi * i / verSlices);
+		float tempZ =  radius * sin(2 * math::pi * i / verSlices);
 
 		float3 tempPoint = float3(tempX, tempY, tempZ);
-		CylinderPoints.push_back(tempPoint);
+		float3 rotatedPoint = rotQuat * tempPoint;
+		
+		rotatedPoint += origin;
+
+		CylinderPoints.push_back(rotatedPoint);
 	}
 
 	glBindVertexArray(CYVAO);
@@ -786,6 +894,7 @@ void RenderManager::CalculateCylinderBuffer(uint verSlices)
 void RenderManager::DestroyInstanceRenderers()
 {
 	_renderMap.clear();
+	renderer2D = nullptr;
 }
 
 void RenderManager::DrawTransparentMeshes()

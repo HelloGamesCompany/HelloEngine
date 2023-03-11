@@ -12,6 +12,11 @@ public:
 
 	~PhysicsComponent();
 
+	void SetVelocity(float3 vec);
+	float3 GetVelocity();
+
+	void CheckRenderBuffers();
+
 private:
 #ifdef STANDALONE
 	void OnEditor() override;
@@ -30,11 +35,19 @@ private:
 	void CallUpdateScale();
 	void CallUpdateMass();
 
+	void CallUpdateStatic();
+	void CallUpdateTrigger();
+	void CallUpdateKinematic();
+	void CallUpdateColliderType();
+
 	void CreateCollider();
 
 	void RemoveCollider();
 
 	void OnTransformCallback(float4x4 worldMatrix);
+	
+	
+	
 
 private:
 
@@ -44,9 +57,14 @@ private:
 
 	bool isShapeSelected[3];
 	bool isShapeCreated[3];
-	bool isStatic;
+
+	float gravity[3];
+	
 
 public:
+	float localGlobalGravity[3];
+	float globalGravity[3];
+
 	float sphereRadius;
 	float2 cylRadiusHeight;
 	float renderColColor[4];

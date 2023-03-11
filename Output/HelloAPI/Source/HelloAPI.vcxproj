@@ -98,6 +98,8 @@
 		<ClCompile Include="../../Assets/Scripts/TankScript.cpp" />
 		<ClCompile Include="../../Assets/Scripts/HouseBehavior.cpp" />
 		<ClCompile Include="../../Assets/Scripts/GamePadTest.cpp" />
+		<ClCompile Include="../../Assets/Scripts/PlayerKeyboardMovement.cpp" />
+		<ClCompile Include="../../Assets/Scripts/PlayerGamepadMovement.cpp" />
 	</ItemGroup>
 	<ItemGroup>
 		<ClInclude Include="Macro.h" />
@@ -106,6 +108,8 @@
 		<ClInclude Include="../../Assets/Scripts/TankScript.h" />
 		<ClInclude Include="../../Assets/Scripts/HouseBehavior.h" />
 		<ClInclude Include="../../Assets/Scripts/GamePadTest.h" />
+		<ClInclude Include="../../Assets/Scripts/PlayerKeyboardMovement.h" />
+		<ClInclude Include="../../Assets/Scripts/PlayerGamepadMovement.h" />
 	</ItemGroup>
 	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 	<ImportGroup Label="ExtensionTargets" />
