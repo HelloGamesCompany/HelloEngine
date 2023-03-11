@@ -200,7 +200,7 @@ void GameObject::OnEditor()
                     if (!HasComponent<ParticleSystemComponent>())
                         AddComponent<ParticleSystemComponent>();
                     break;
-                case 7:
+                case 6:
                     if (!HasComponent<SkinnedMeshRenderComponent>())
                         AddComponent<SkinnedMeshRenderComponent>();
                     break;
