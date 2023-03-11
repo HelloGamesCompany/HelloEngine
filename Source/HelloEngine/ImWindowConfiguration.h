@@ -50,6 +50,8 @@ private:
 
 	bool automaticCompilation = false;
 
+	float* sceneCameraSpeed = nullptr;
+
 
 	ModuleRenderer3D* moduleRenderer = nullptr;
 };

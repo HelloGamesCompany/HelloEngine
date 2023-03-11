@@ -177,6 +177,10 @@ bool ModuleLayers::CleanUp()
 
 uint ModuleLayers::S_AddGameObject(GameObject* go, uint ID)
 {
+    if (go == nullptr)
+    {
+        std::cout << "a" << std::endl;
+    }
     ID = ID == 0 ? HelloUUID::GenerateUUID() : ID;
     gameObjects[ID] = go;
     return ID;

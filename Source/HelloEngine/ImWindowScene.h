@@ -22,6 +22,9 @@ private:
 
 	void DetectClick();
 
+public:
+	float cameraSpeed = 10.0f;
+
 private:
 	ModuleCamera3D* _moduleCamera = nullptr;
 

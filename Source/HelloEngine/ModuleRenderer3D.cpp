@@ -222,6 +222,9 @@ GameObject* ModuleRenderer3D::RaycastFromMousePosition(LineSegment& ray, CameraO
 	std::vector<uint> hitGameobjects;
 	for (auto& gameObject : gameObjects)
 	{		
+		if (gameObject.second == nullptr)
+			continue;
+
 		if (!gameObject.second->_isActive || gameObject.second->_isPendingToDelete || gameObject.second->_isDestroyed)
 			continue;
 		if (!gameObject.second->HasComponent<MeshRenderComponent>())

@@ -4,6 +4,7 @@
 #include "ModuleRenderer3D.h"
 #include "ModuleFiles.h"
 #include "CycleArray.hpp"
+#include "ModuleCamera3D.h"
 
 ImWindowConfiguration::ImWindowConfiguration() : ImWindow()
 {
@@ -33,6 +34,8 @@ ImWindowConfiguration::ImWindowConfiguration() : ImWindow()
 
 	// Init render configurations
 	moduleRenderer = Application::Instance()->renderer3D;
+
+	sceneCameraSpeed = &Application::Instance()->camera->sceneCamera->cameraSpeed;
 
 	// Get openGl node with module xml
 	XMLNode openGlNode = Application::Instance()->xml->GetConfigXML().FindChildBreadth("openGL");
@@ -84,6 +87,7 @@ void ImWindowConfiguration::Update()
 				if (ImGui::Checkbox("Automatic Compilation", &automaticCompilation))
 					ModuleFiles::S_SetAutomaticCompilation(automaticCompilation);
 			}
+			ImGui::SliderFloat("Scene camera speed", sceneCameraSpeed, 0.0f, 1000.0f);
 		}
 
 		if (ImGui::CollapsingHeader("Window", ImGuiTreeNodeFlags_DefaultOpen))

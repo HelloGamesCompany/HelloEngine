@@ -11,6 +11,9 @@ public:
 	~SceneCameraObject();
 
 	void UpdateInput();
+
+	float cameraSpeed = 100.0f;
+
 private:
 	/// <summary>
 	/// Focus on a point in space with an offset set by distance
