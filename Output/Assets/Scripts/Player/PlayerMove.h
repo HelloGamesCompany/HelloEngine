@@ -5,7 +5,7 @@
 
 #include "API/API.h"
 
-class PlayerMovement : HelloBehavior
+class PlayerMove : HelloBehavior
 {
 public:
     void Start() override;

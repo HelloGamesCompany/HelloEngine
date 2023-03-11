@@ -1,8 +1,8 @@
-#include "PlayerMovement.h"
+#include "PlayerMove.h"
 #include "../SwapCam.h"
-HELLO_ENGINE_API_C PlayerMovement* CreatePlayerMovement(ScriptToInspectorInterface* script)
+HELLO_ENGINE_API_C PlayerMove* CreatePlayerMovement(ScriptToInspectorInterface* script)
 {
-    PlayerMovement* classInstance = new PlayerMovement();
+    PlayerMove* classInstance = new PlayerMove();
     //Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
     script->AddDragFloat("Velocity", &classInstance->vel);
     script->AddDragFloat("Max Velocity", &classInstance->maxVel);
@@ -17,7 +17,7 @@ HELLO_ENGINE_API_C PlayerMovement* CreatePlayerMovement(ScriptToInspectorInterfa
     return classInstance;
 }
 
-void PlayerMovement::Start()
+void PlayerMove::Start()
 {
     aimAngle = 0.0f;
     vel = 0.0f;
@@ -25,7 +25,7 @@ void PlayerMovement::Start()
     animationPlayer.Play();
 }
 
-void PlayerMovement::Update()
+void PlayerMove::Update()
 {
     usingGamepad = Input::UsingGamepad();
     dt = Time::GetDeltaTime();
@@ -35,7 +35,7 @@ void PlayerMovement::Update()
     Aim();
 }
 
-void PlayerMovement::SwapCamera()
+void PlayerMove::SwapCamera()
 {
     SwapCam* cameraScript = (SwapCam*)finalCam.GetScript("SwapCam");
 
@@ -49,12 +49,12 @@ void PlayerMovement::SwapCamera()
     }
 }
 
-void PlayerMovement::Movement()
+void PlayerMove::Movement()
 {
 
 }
 
-void PlayerMovement::Aim()
+void PlayerMove::Aim()
 {
     if (usingGamepad)
     {
@@ -73,6 +73,6 @@ void PlayerMovement::Aim()
     }
     else
     {
-        
+
     }
 }
