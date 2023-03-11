@@ -135,8 +135,6 @@ UpdateStatus Application::Update()
 		ret = _list_modules[i]->PostUpdate();
 	}
 
-#ifdef STANDALONE
-
 	_dt = timer.getDeltaTime();
 
 	if (_dt < fps)
@@ -146,8 +144,6 @@ UpdateStatus Application::Update()
 	}
 
 	timer.Reset();
-
-#endif
 
 	return ret;
 }

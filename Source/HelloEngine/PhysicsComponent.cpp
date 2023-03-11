@@ -166,7 +166,6 @@ void PhysicsComponent::DeSerialization(json& j)
 		CallUpdateScale();
 	}
 }
-#ifdef STANDALONE
 void PhysicsComponent::OnEditor()
 {
 	bool created = true;
@@ -399,9 +398,6 @@ void PhysicsComponent::OnEditor()
 	if (!created)
 		this->_gameObject->DestroyComponent(this);
 }
-#endif // STANDALONE
-
-
 
 void PhysicsComponent::CallUpdatePos()
 {

@@ -20,7 +20,6 @@ AnimationComponent::~AnimationComponent()
 	LayerGame::S_RemoveAnimationComponent(this);
 }
 
-#ifdef STANDALONE
 void AnimationComponent::OnEditor()
 {
 	bool created = true;
@@ -106,12 +105,12 @@ void AnimationComponent::AnimationDropArea()
 	}
 }
 
-#endif
 
 void AnimationComponent::ChangeAnimation(uint animUID)
 {
 	StopAnimation();
-	_resource->Dereference();
+	if (_resource != nullptr)
+		_resource->Dereference();
 
 	_resource = (ResourceAnimation*)ModuleResourceManager::S_LoadResource(animUID);
 }

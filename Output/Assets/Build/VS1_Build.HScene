@@ -262,18 +262,6 @@
                     },
                     {
                         "Delay": 0.009999999776482582
-                    },
-                    {
-                        "Target": 3627558040
-                    },
-                    {
-                        "Delay": 0.009999999776482582
-                    },
-                    {
-                        "Target": 3627558040
-                    },
-                    {
-                        "Delay": 0.009999999776482582
                     }
                 ],
                 "Script Resource": 2306703736,
@@ -324,18 +312,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Target": 3627558040
-                    },
-                    {
-                        "Delay": 0.009999999776482582
-                    },
-                    {
-                        "Target": 3627558040
-                    },
-                    {
-                        "Delay": 0.009999999776482582
-                    },
                     {
                         "Target": 3627558040
                     },
@@ -428,18 +404,6 @@
                     },
                     {
                         "SECONDARY CAMERA": 2916313095
-                    },
-                    {
-                        "MAIN CAMERA": 2050549183
-                    },
-                    {
-                        "SECONDARY CAMERA": 2916313095
-                    },
-                    {
-                        "MAIN CAMERA": 2050549183
-                    },
-                    {
-                        "SECONDARY CAMERA": 2916313095
                     }
                 ],
                 "Script Resource": 3334200637,
@@ -448,36 +412,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Velocity": 0.0
-                    },
-                    {
-                        "Max Velocity": 0.009999999776482582
-                    },
-                    {
-                        "Acceleration": 0.014999999664723873
-                    },
-                    {
-                        "Brake": 0.05000000074505806
-                    },
-                    {
-                        "Camera player": 2050549183
-                    },
-                    {
-                        "Velocity": 0.0
-                    },
-                    {
-                        "Max Velocity": 0.009999999776482582
-                    },
-                    {
-                        "Acceleration": 0.014999999664723873
-                    },
-                    {
-                        "Brake": 0.05000000074505806
-                    },
-                    {
-                        "Camera player": 2050549183
-                    },
                     {
                         "Velocity": 0.0
                     },
@@ -504,16 +438,13 @@
                         "Velocity": 1.0
                     },
                     {
-                        "Camera player": 2050549183
+                        "Max Velocity": 0.15000000596046448
                     },
                     {
-                        "Velocity": 1.0
+                        "Acceleration": 0.15000000596046448
                     },
                     {
-                        "Camera player": 2050549183
-                    },
-                    {
-                        "Velocity": 1.0
+                        "Brake": 0.5
                     },
                     {
                         "Camera player": 2050549183
@@ -1803,12 +1734,6 @@
                 "Inspector Fields": [
                     {
                         "Gun": 2309753067
-                    },
-                    {
-                        "Gun": 2309753067
-                    },
-                    {
-                        "Gun": 2309753067
                     }
                 ],
                 "Script Resource": 3024424734,
@@ -1877,48 +1802,6 @@
                     },
                     {
                         "Projectiles per second": 3.0
-                    },
-                    {
-                        "Projectile Pull": 193214633
-                    },
-                    {
-                        "Projectile Speed": 100.0
-                    },
-                    {
-                        "Projectile Damage": 10.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 10.0
-                    },
-                    {
-                        "Projectile Lifetime": 0.30000001192092896
-                    },
-                    {
-                        "Projectile Spawn": 3467188139
-                    },
-                    {
-                        "Projectiles per second": 3.0
-                    },
-                    {
-                        "Projectile Pull": 193214633
-                    },
-                    {
-                        "Projectile Speed": 100.0
-                    },
-                    {
-                        "Projectile Damage": 10.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 10.0
-                    },
-                    {
-                        "Projectile Lifetime": 0.30000001192092896
-                    },
-                    {
-                        "Projectile Spawn": 3467188139
-                    },
-                    {
-                        "Projectiles per second": 3.0
                     }
                 ],
                 "Script Resource": 453702057,
@@ -1927,12 +1810,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Gun Type": 0
-                    },
-                    {
-                        "Gun Type": 0
-                    },
                     {
                         "Gun Type": 0
                     }
@@ -2003,24 +1880,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Bullet": 3233725919
-                    },
-                    {
-                        "Pull Size": 0
-                    },
-                    {
-                        "Projectile Mesh": 3233725919
-                    },
-                    {
-                        "Bullet": 3233725919
-                    },
-                    {
-                        "Pull Size": 0
-                    },
-                    {
-                        "Projectile Mesh": 3233725919
-                    },
                     {
                         "Bullet": 3233725919
                     },
@@ -2167,30 +2026,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Health": 100.0
-                    },
-                    {
-                        "Resistance": 100.0
-                    },
-                    {
-                        "Speed": 0.0
-                    },
-                    {
-                        "Rigidbody test": 1640100182
-                    },
-                    {
-                        "Health": 100.0
-                    },
-                    {
-                        "Resistance": 100.0
-                    },
-                    {
-                        "Speed": 0.0
-                    },
-                    {
-                        "Rigidbody test": 1640100182
-                    },
                     {
                         "Health": 100.0
                     },

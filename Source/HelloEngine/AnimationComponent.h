@@ -26,13 +26,10 @@ public:
 
 	bool IsPlaying() { return isPlaying; };
 
-#ifdef STANDALONE
 	void OnEditor() override;
 
 private:
 	void AnimationDropArea();
-
-#endif
 	
 	bool GetLoop(bool value) { return isLoop; }
 	void SetLoop(bool value) { isLoop = value; }

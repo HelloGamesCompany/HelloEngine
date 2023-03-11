@@ -173,7 +173,6 @@ void LayerEditor::PreUpdate()
 
 void LayerEditor::Update()
 {
-#ifdef STANDALONE
 
 	if(ModuleInput::S_GetKey(SDL_SCANCODE_DELETE) == KEY_DOWN)
 		ModuleCommand::S_DeleteGameObject(selectedGameObject);
@@ -202,7 +201,6 @@ void LayerEditor::Update()
 			S_AddPopUpMessage("Saved scene: " + ModuleFiles::S_GetFileName(configScene));
 		}
 	}
-#endif // !STANDALONE
 }
 
 void LayerEditor::PostUpdate()

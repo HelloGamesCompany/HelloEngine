@@ -219,7 +219,6 @@ void MeshRenderComponent::SetAs2D()
 	CreateMesh2D();
 }
 
-#ifdef STANDALONE
 void MeshRenderComponent::OnEditor()
 {
 	bool created = true;
@@ -341,7 +340,6 @@ void MeshRenderComponent::MarkAsAlive()
 	CreateMesh(_resourceUID, renderType);
 }
 
-#endif
 
 void MeshRenderComponent::Serialization(json& j)
 {

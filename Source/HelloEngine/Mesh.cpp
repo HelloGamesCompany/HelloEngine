@@ -18,9 +18,7 @@
 Mesh::Mesh()
 {
 	modelMatrix.SetIdentity();
-#ifdef STANDALONE
 	stencilShader = Shader("Resources/shaders/stencil.vertex.shader", "Resources/shaders/stencil.fragment.shader");
-#endif
 }
 
 Mesh::~Mesh()

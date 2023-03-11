@@ -11,12 +11,10 @@ public:
 	ScriptComponent(GameObject* go);
 	~ScriptComponent();
 
-#ifdef STANDALONE
 	void OnEditor() override;
 
 	void MarkAsDead() override;
 	void MarkAsAlive() override;
-#endif // STANDALONE
 
 	void Serialization(json& j) override;
 	void DeSerialization(json& j) override;

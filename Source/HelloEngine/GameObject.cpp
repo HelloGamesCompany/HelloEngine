@@ -145,7 +145,6 @@ void GameObject::OnCollisionEnter(PhysBody3D* other)
 	}
 }
 
-#ifdef STANDALONE
 
 void GameObject::OnEditor()
 {
@@ -287,7 +286,6 @@ bool GameObject::MarkAsAlive()
 
     return false;
 }
-#endif // STANDALONE
 
 void GameObject::SetAllChildsPrefabUID(uint prefabUID)
 {

@@ -40,7 +40,6 @@ bool ModulePhysics::Start()
 
 UpdateStatus ModulePhysics::PreUpdate()
 {
-#ifdef STANDALONE
 	if (LayerGame::S_IsPlaying())
 	{
 		world->stepSimulation(EngineTime::GameDeltaTime(), 15);
@@ -49,10 +48,8 @@ UpdateStatus ModulePhysics::PreUpdate()
 	{
 		world->stepSimulation(0);
 	}
-#else
-	world->stepSimulation(EngineTime::GameDeltaTime(), 15);
+	//world->stepSimulation(EngineTime::GameDeltaTime(), 15);
 
-#endif
 	int numManifolds = world->getDispatcher()->getNumManifolds();
 	for (int i = 0; i < numManifolds; i++)
 	{

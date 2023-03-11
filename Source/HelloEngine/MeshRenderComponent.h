@@ -42,12 +42,10 @@ public:
 
 	bool HasBones() { return _hasBones; }
 
-#ifdef STANDALONE
 	void OnEditor() override;
 
 	void MarkAsDead() override;
 	void MarkAsAlive() override;
-#endif
 	void Serialization(json& j) override;
 	void DeSerialization(json& j) override;
 
@@ -56,11 +54,9 @@ public:
 
 	void UnlinkResource();
 
-#ifdef STANDALONE
 protected:
 	void MeshDropArea();
 
-#endif
 protected:
 	ResourceMesh* _resource = nullptr;
 	int64_t _meshID = -1;

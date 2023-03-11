@@ -21,10 +21,8 @@ void LayerUI::Start()
 
 void LayerUI::PreUpdate()
 {
-#ifdef STANDALONE
 	if (!LayerGame::S_IsPlaying())
 		return;
-#endif // STANDALONE
 
 	// Update all Component UIs
 	for (auto& uiComponent : _componentUIs)

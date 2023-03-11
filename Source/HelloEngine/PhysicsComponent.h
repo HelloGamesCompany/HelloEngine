@@ -19,9 +19,7 @@ public:
 	float3 GetGravity();
 
 private:
-#ifdef STANDALONE
 	void OnEditor() override;
-#endif // STANDALONE
 
 	void Serialization(json& j) override;
 	void DeSerialization(json& j) override;

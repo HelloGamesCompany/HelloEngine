@@ -12,11 +12,9 @@ public:
 
 	void CreateMesh(uint resourceUID, MeshRenderType type = MeshRenderType::INDEPENDENT) override;
 
-#ifdef STANDALONE
 	void OnEditor() override;
 
 	void RootBoneDropArea();
-#endif // STANDALONE
 
 	void UpdateBones(Animation3D* animation = nullptr, float animationTime = 0);
 

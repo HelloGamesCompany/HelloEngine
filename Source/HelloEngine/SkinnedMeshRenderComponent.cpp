@@ -35,7 +35,6 @@ void SkinnedMeshRenderComponent::CreateMesh(uint resourceUID, MeshRenderType typ
 
 }
 
-#ifdef STANDALONE
 void SkinnedMeshRenderComponent::OnEditor()
 {
 	bool created = true;
@@ -114,7 +113,6 @@ void SkinnedMeshRenderComponent::RootBoneDropArea()
 	ImGui::NewLine();
 }
 
-#endif
 
 void SkinnedMeshRenderComponent::UpdateBones(Animation3D* animation, float animationTime)
 {

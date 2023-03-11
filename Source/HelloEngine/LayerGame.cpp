@@ -47,7 +47,6 @@ void LayerGame::Start()
 
 void LayerGame::PreUpdate()
 {
-#ifdef STANDALONE
 	static int frameWaitCompile = 300;
 	if (_compileDLL)
 	{
@@ -76,9 +75,8 @@ void LayerGame::PreUpdate()
 			frameWaitHotReload = 100;
 		}
 	}
-#endif
 #ifndef STANDALONE
-	_isPlaying = true; // Temporal code. Only to make the Runtime version to play automatically on start.
+	//_isPlaying = true; // Temporal code. Only to make the Runtime version to play automatically on start.
 #endif // !STANDALONE
 
 	if ((!_isPlaying || _paused) && !_oneFrame)
@@ -92,10 +90,7 @@ void LayerGame::PreUpdate()
 	// Update time.
 	EngineTime::UpdateRealTime();
 	EngineTime::UpdateGameTime();
-	if (true)
-	{
-		std::cout << "<z" << std::endl;
-	}
+	std::cout << EngineTime::GameDeltaTime() << std::endl;
 }
 
 void LayerGame::Update()
