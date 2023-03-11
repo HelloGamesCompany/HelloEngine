@@ -145,6 +145,7 @@ private:
 	InstanceRenderer* renderer2D = nullptr;
 
 	friend class Emitter;
+	friend class ParticleSystemComponent;
 	friend class MeshRenderComponent;
 	friend class ResourceMesh;
 	friend class Mesh;

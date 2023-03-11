@@ -145,6 +145,15 @@ void GameObject::OnCollisionEnter(PhysBody3D* other)
 	}
 }
 
+void GameObject::SetAllChildsPrefabUID(uint prefabUID)
+{
+    for (auto& go : _children)
+    {
+        go->SetPrefabUID(prefabUID);
+        go->SetAllChildsPrefabUID(prefabUID);
+    }
+}
+
 #ifdef STANDALONE
 
 void GameObject::OnEditor()
@@ -194,6 +203,7 @@ void GameObject::OnEditor()
                 case 6:
                     if (!HasComponent<ParticleSystemComponent>())
                         AddComponent<ParticleSystemComponent>();
+                    break;
                 case 7:
                     if (!HasComponent<SkinnedMeshRenderComponent>())
                         AddComponent<SkinnedMeshRenderComponent>();
@@ -208,16 +218,6 @@ void GameObject::OnEditor()
         ImGui::EndCombo();
     }
 }
-
-void GameObject::SetAllChildsPrefabUID(uint prefabUID)
-{
-    for (auto& go : _children)
-    {
-        go->SetPrefabUID(prefabUID);
-        go->SetAllChildsPrefabUID(prefabUID);
-    }
-}
-
 
 bool GameObject::MarkAsDead()
 {

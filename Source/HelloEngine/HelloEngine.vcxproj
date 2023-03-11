@@ -304,6 +304,7 @@
     <ClCompile Include="API\API_Vector2.cpp" />
     <ClCompile Include="API\API_Vector3.cpp" />
     <ClCompile Include="API\API_Engine.cpp" />
+    <ClCompile Include="API\API_ParticleSystem.cpp" />
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="BillBoardComponent.cpp" />
     <ClCompile Include="CameraComponent.cpp" />
@@ -361,6 +362,7 @@
     <ClCompile Include="PhysBody3D.cpp" />
     <ClCompile Include="PhysicsComponent.cpp" />
     <ClCompile Include="ModuleAudio.cpp" />
+    <ClCompile Include="P_Module.cpp" />
     <ClCompile Include="RenderManager.cpp" />
     <ClCompile Include="Module.cpp" />
     <ClCompile Include="ModuleCamera3D.cpp" />
@@ -484,6 +486,7 @@
     <ClInclude Include="API\API_Vector2.h" />
     <ClInclude Include="API\API_Vector3.h" />
     <ClInclude Include="API\API_Engine.h" />
+    <ClInclude Include="API\API_ParticleSystem.h" />
     <ClInclude Include="Application.h" />
     <ClInclude Include="BillBoardComponent.h" />
     <ClInclude Include="CameraComponent.h" />
@@ -541,6 +544,7 @@
     <ClInclude Include="PhysicsComponent.h" />
     <ClInclude Include="Primitive.h" />
     <ClInclude Include="ModuleAudio.h" />
+    <ClInclude Include="P_Module.h" />
     <ClInclude Include="RenderManager.h" />
     <ClInclude Include="Module.h" />
     <ClInclude Include="ModuleCamera3D.h" />

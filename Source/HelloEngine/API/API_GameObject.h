@@ -11,6 +11,7 @@ namespace API
 {
 	class API_Transform;
 	class API_MeshRenderer;
+	class API_ParticleSystem;
 	class TO_API API_GameObject
 	{
 	public:
@@ -47,5 +48,6 @@ namespace API
 		friend class API_RigidBody;
 		friend class Game;
 		friend class LayerGame;
+		friend class API_ParticleSystem;
 	};
 }
