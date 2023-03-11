@@ -193,14 +193,10 @@ void GameObject::OnEditor()
                     AddComponent<ScriptComponent>();
                     break;
                 case 4:
-                    if (!HasComponent<ComponentUIButton>())
-                        AddComponent<ComponentUIButton>();
-                    break;
-                case 5:
                     if (!HasComponent<PhysicsComponent>())
                         AddComponent<PhysicsComponent>();
                     break;
-                case 6:
+                case 5:
                     if (!HasComponent<ParticleSystemComponent>())
                         AddComponent<ParticleSystemComponent>();
                     break;
@@ -208,7 +204,7 @@ void GameObject::OnEditor()
                     if (!HasComponent<SkinnedMeshRenderComponent>())
                         AddComponent<SkinnedMeshRenderComponent>();
                     break;
-                case 8:
+                case 7:
                     if (!HasComponent<AnimationComponent>())
                         AddComponent<AnimationComponent>();
                     break;

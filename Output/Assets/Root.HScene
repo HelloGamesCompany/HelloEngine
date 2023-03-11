@@ -27,7 +27,7 @@
         "ParentUID": 0,
         "PrefabUID": 0,
         "Tag": "None",
-        "UID": 3551592759
+        "UID": 3412927076
     },
     {
         "Active": true,
@@ -35,9 +35,9 @@
             {
                 "Enabled": true,
                 "Position": [
-                    -2.75600004196167,
-                    1.2093299627304077,
-                    -10.653909683227539
+                    0.0,
+                    0.0,
+                    -0.851947009563446
                 ],
                 "Rotation": [
                     -0.0,
@@ -54,7 +54,7 @@
             {
                 "Active camera": true,
                 "Active culling": true,
-                "Aspect ratio": 1.9754902124404907,
+                "Aspect ratio": 1.1818181276321411,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -65,10 +65,142 @@
             }
         ],
         "FirstOnPrefab": true,
-        "Name": "Camara",
-        "ParentUID": 3551592759,
+        "Name": "Empty",
+        "ParentUID": 3412927076,
         "PrefabUID": 0,
         "Tag": "Default",
-        "UID": 1998316341
+        "UID": 2729681570
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Canvas",
+        "ParentUID": 3412927076,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 3742638858
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Slider",
+        "ParentUID": 3742638858,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 1254173902
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.20000000298023224,
+                    0.20000000298023224,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "StateButton": 0,
+                "Type": 13
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "SliderButton",
+        "ParentUID": 1254173902,
+        "PrefabUID": 0,
+        "Tag": "UIsliderButton",
+        "UID": 156103461
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.800000011920929,
+                    0.10000000149011612,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "StateButton": 0,
+                "Type": 13
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "SliderBar",
+        "ParentUID": 1254173902,
+        "PrefabUID": 0,
+        "Tag": "UIsliderBar",
+        "UID": 1811799401
     }
 ]

@@ -333,6 +333,7 @@ void RenderManager::CreateUI(GameObject* parent, UIType type)
 		{
 			GameObject* button = new GameObject(parent, "Button", "UI");
 			button->AddComponent<ComponentUIButton>();
+			button->transform->SetScale({ 0.5f,0.5f,0.0f });
 			break;
 		}
 		case UIType::SLIDER:
@@ -342,19 +343,23 @@ void RenderManager::CreateUI(GameObject* parent, UIType type)
 			GameObject* sliderBar = new GameObject(slider, "SliderBar", "UIsliderBar");
 			//slider->AddComponent<ComponentUISlider>();
 			sliderBar->AddComponent<ComponentUISlider>();
+			sliderBar->transform->SetScale({ 0.7f,0.1f,0.0f });
 			sliderButton->AddComponent<ComponentUISlider>();
+			sliderButton->transform->SetScale({ 0.2f,0.2f,0.0f });
 			break;
 		}
 		case UIType::CHECKBOX:
 		{
 			GameObject* checkBox = new GameObject(parent, "CheckBox", "UI");
 			checkBox->AddComponent<ComponentUICheckbox>();
+			checkBox->transform->SetScale({ 0.5f,0.5f,0.5f });
 			break;
 		}
 		case UIType::IMAGE:
 		{
-			GameObject* checkBox = new GameObject(parent, "Image", "UI");
-			checkBox->AddComponent<ComponentUIImage>();
+			GameObject* image = new GameObject(parent, "Image", "UI");
+			image->AddComponent<ComponentUIImage>();
+			image->transform->SetScale({ 0.5f,0.5f,0.5f });
 			break;
 		}
 	}

@@ -9,8 +9,6 @@ ComponentUIImage::ComponentUIImage(GameObject* gameObject) : ComponentUI(gameObj
 {
 	_type = Component::Type::UI_IMAGE;
 
-	gameObject->transform->SetScale({ 0.5,0.5,0.5 });
-
 	_fillImage = 1.f;
 	_gameWindow = (ImWindowGame*)LayerEditor::_imWindows[(uint)ImWindowID::GAME];
 }
@@ -46,7 +44,6 @@ void ComponentUIImage::DeSerialization(json& j)
 		Disable();
 
 	_fillImage = j["FillImage"];
-
 
 	_gameObject->transform->ForceUpdate();
 
