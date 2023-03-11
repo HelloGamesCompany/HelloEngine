@@ -2,7 +2,7 @@
 #include "Component.h"
 #include "TransformComponent.h"
 
-#define COMPONENT_NUM 9
+#define COMPONENT_NUM 8
 
 struct PhysBody3D;
 
@@ -137,7 +137,7 @@ private:
     bool _updatePrefab;
 
 	// On Editor variables
-	std::string _comboValues[COMPONENT_NUM] = { "Mesh Renderer", "Material", "Camera", "Script", "UI Button", "Physics","Particle System","Skinned Mesh Renderer", "Animation Player"};
+	std::string _comboValues[COMPONENT_NUM] = { "Mesh Renderer", "Material", "Camera", "Script", "Physics","Particle System","Skinned Mesh Renderer", "Animation Player"};
 	bool _isPendingToDelete = false;
 #ifdef STANDALONE
     std::vector<int> _childrenDeletedIndex;
