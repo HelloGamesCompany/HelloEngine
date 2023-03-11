@@ -82,6 +82,7 @@ bool ModuleRenderer3D::Init()
 	renderManager.Init();
 
 	// Projection matrix for
+	
 	OnResize(ModuleWindow::width, ModuleWindow::height);
 
 	return ret;
@@ -115,7 +116,7 @@ void ModuleRenderer3D::DrawGame()
 		_cameras->currentDrawingCamera = _cameras->activeGameCamera;
 
 		renderManager.Draw();
-		particleManager.Draw();
+		//particleManager.Draw();
 		// Draw all 2D meshes.
 		renderManager.Draw2D();
 	}
@@ -124,7 +125,6 @@ void ModuleRenderer3D::DrawGame()
 // PostUpdate present buffer to screen
 UpdateStatus ModuleRenderer3D::PostUpdate()
 {
-#ifdef STANDALONE
 	if (_cameras->sceneCamera->active)
 	{
 		_cameras->sceneCamera->frameBuffer.Bind();
@@ -157,9 +157,7 @@ UpdateStatus ModuleRenderer3D::PostUpdate()
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
 	ModuleLayers::S_DrawEditor();
-#else
-	DrawGame();
-#endif // STANDALONE
+	//DrawGame();
 
 	SDL_GL_SwapWindow(ModuleWindow::window);
 

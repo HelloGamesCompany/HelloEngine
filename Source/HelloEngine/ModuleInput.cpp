@@ -139,9 +139,7 @@ UpdateStatus ModuleInput::PreUpdate()
 
 	while(SDL_PollEvent(&e))
 	{
-#ifdef STANDALONE
 		ImGui_ImplSDL2_ProcessEvent(&e);
-#endif // STANDALONE
 
 		switch(e.type)
 		{

@@ -68,6 +68,19 @@ float3 PhysicsComponent::GetVelocity()
 	return physBody->GetVelocity();
 }
 
+void PhysicsComponent::SetGravity(float3 grav)
+{
+	physBody->SetGravity(float3(grav[0], grav[1], grav[2]));
+	gravity[0] = grav[0];
+	gravity[1] = grav[1];
+	gravity[2] = grav[2];
+}
+
+float3 PhysicsComponent::GetGravity()
+{
+	return float3(gravity[0], gravity[1], gravity[2]);
+}
+
 void PhysicsComponent::Serialization(json& j)
 {
 	json _j;
@@ -143,6 +156,8 @@ void PhysicsComponent::Serialization(json& j)
 	_j["SphereRadius"] = sphereRadius;
 
 	_j["CylinderRadiusHeight"] = { cylRadiusHeight[0], cylRadiusHeight[1]};
+
+	_j["Gravity"] = { gravity[0], gravity[1], gravity[2] };
 
 	j["Components"].push_back(_j);
 }
@@ -229,7 +244,9 @@ void PhysicsComponent::DeSerialization(json& j)
 		CallUpdateScale();
 	}
 }
+
 #ifdef STANDALONE
+
 void PhysicsComponent::OnEditor()
 {
 	bool created = true;
@@ -651,6 +668,24 @@ void PhysicsComponent::OnTransformCallback(float4x4 worldMatrix)
 	{
 		CallUpdatePos();
 		CallUpdateRotation();
+	}
+}
+
+void PhysicsComponent::OnEnable()
+{
+	if (physBody != nullptr)
+	{
+		physBody->body->forceActivationState(ACTIVE_TAG);
+		physBody->body->setCollisionFlags(physBody->body->getCollisionFlags() | this->isStatic ? btCollisionObject::CollisionFlags::CF_STATIC_OBJECT : btCollisionObject::CollisionFlags::CF_CHARACTER_OBJECT);
+	}
+}
+
+void PhysicsComponent::OnDisable()
+{
+	if (physBody != nullptr)
+	{
+		physBody->body->forceActivationState(DISABLE_SIMULATION);
+		physBody->body->setCollisionFlags(physBody->body->getCollisionFlags() | btCollisionObject::CollisionFlags::CF_NO_CONTACT_RESPONSE);
 	}
 }
 

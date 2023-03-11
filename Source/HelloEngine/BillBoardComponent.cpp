@@ -175,10 +175,7 @@ void BillBoardComponent::OnEditor()
 	}
 
 }
-
 #endif
-
-
 void BillBoardComponent::Serialization(json& j)
 {
 }
@@ -186,3 +183,4 @@ void BillBoardComponent::Serialization(json& j)
 void BillBoardComponent::DeSerialization(json& j)
 {
 }
+

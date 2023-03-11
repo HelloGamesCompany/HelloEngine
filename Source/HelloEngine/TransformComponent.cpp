@@ -145,7 +145,6 @@ float3 TransformComponent::GetUp()
 	return GetGlobalMatrix().RotatePart().Col(1).Normalized();
 }
 
-#ifdef STANDALONE
 void TransformComponent::OnEditor()
 {
 	if (ImGui::CollapsingHeader("Transform", ImGuiTreeNodeFlags_DefaultOpen))
@@ -202,7 +201,6 @@ void TransformComponent::OnEditor()
 		}
 	}
 }
-#endif
 
 void TransformComponent::ForceUpdate()
 {

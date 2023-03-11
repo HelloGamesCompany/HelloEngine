@@ -9,6 +9,7 @@
 #include "ModuleRenderer3D.h"
 
 #include "SkinnedMeshRenderComponent.h"
+#include "AnimationComponent.h"
 
 #define _USE_MATH_DEFINES
 
@@ -17,9 +18,7 @@
 Mesh::Mesh()
 {
 	modelMatrix.SetIdentity();
-#ifdef STANDALONE
 	stencilShader = Shader("Resources/shaders/stencil.vertex.shader", "Resources/shaders/stencil.fragment.shader");
-#endif
 }
 
 Mesh::~Mesh()
@@ -62,13 +61,16 @@ void Mesh::Draw(bool useBasicShader)
 			boneMeshShader->SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
 			boneMeshShader->SetMatFloat4v("model", &modelMatrix.v[0][0]);
 
-			SkinnedMeshRenderComponent* aux = (SkinnedMeshRenderComponent*) component;
+			SkinnedMeshRenderComponent* smComp = (SkinnedMeshRenderComponent*) component;
 
-			if (aux->goBonesArr.size() != 0) aux->UpdateBones();
-
-			for (int i = 0; i < aux->goBonesArr.size(); ++i)
+			if (!smComp->hasAnim)
 			{
-				boneMeshShader->SetMatFloat4v("finalBonesMatrices[" + std::to_string(i) + "]", &aux->goBonesArr[i].Transposed().v[0][0]);
+				smComp->UpdateBones();
+			}
+
+			for (int i = 0; i < smComp->goBonesArr.size(); ++i)
+			{
+				boneMeshShader->SetMatFloat4v("finalBonesMatrices[" + std::to_string(i) + "]", &smComp->goBonesArr[i].Transposed().v[0][0]);
 			}
 
 		}

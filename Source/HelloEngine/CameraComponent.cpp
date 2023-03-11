@@ -141,3 +141,8 @@ void CameraComponent::DeSerialization(json& j)
 
 	_gameObject->transform->ForceUpdate();
 }
+
+void CameraComponent::SetAsActiveGameCamera()
+{
+	Application::Instance()->camera->SetCurrentActiveGameCamera(cameraObject);
+}

@@ -5,6 +5,7 @@
 #include "MeshImporter.h"
 #include "TextureImporter.h"
 #include "ScriptComponent.h"
+#include "AnimationComponent.h"
 #include "ScriptToInspectorInterface.h"
 #include "ModuleCommand.h"
 #include "ModuleLayers.h"
@@ -13,6 +14,7 @@
 
 std::map<uint, BehaviorScript> LayerGame::_behaviorScripts;
 std::vector<ScriptComponent*> LayerGame::_scriptComponents;
+std::vector<AnimationComponent*> LayerGame::_animationComponent;
 bool LayerGame::_isPlaying = false;
 bool LayerGame::_paused = false;
 bool LayerGame::_update = false;
@@ -45,7 +47,6 @@ void LayerGame::Start()
 
 void LayerGame::PreUpdate()
 {
-#ifdef STANDALONE
 	static int frameWaitCompile = 300;
 	if (_compileDLL)
 	{
@@ -74,9 +75,8 @@ void LayerGame::PreUpdate()
 			frameWaitHotReload = 100;
 		}
 	}
-#endif
 #ifndef STANDALONE
-	_isPlaying = true; // Temporal code. Only to make the Runtime version to play automatically on start.
+	//_isPlaying = true; // Temporal code. Only to make the Runtime version to play automatically on start.
 #endif // !STANDALONE
 
 	if ((!_isPlaying || _paused) && !_oneFrame)
@@ -90,12 +90,18 @@ void LayerGame::PreUpdate()
 	// Update time.
 	EngineTime::UpdateRealTime();
 	EngineTime::UpdateGameTime();
+	std::cout << EngineTime::GameDeltaTime() << std::endl;
 }
 
 void LayerGame::Update()
 {
 	if (!_update)
 		return;
+
+	for (int i = 0; i < _animationComponent.size(); ++i)
+	{
+		_animationComponent.at(i)->UpdateAnimation();
+	}
 
 	for (auto& behaviorScript : _behaviorScripts)
 	{
@@ -171,6 +177,23 @@ void LayerGame::S_OneFrame()
 	if (!_isPlaying || !_paused) return;
 	EngineTime::Start();
 	_oneFrame = true;
+}
+
+void LayerGame::S_AddAnimationComponent(AnimationComponent* component)
+{
+	_animationComponent.push_back(component);
+}
+
+void LayerGame::S_RemoveAnimationComponent(AnimationComponent* component)
+{
+	for (int i = 0; i < _animationComponent.size(); ++i)
+	{
+		if (component == _animationComponent[i])
+		{
+			_animationComponent.erase(_animationComponent.begin() + i);
+			return;
+		}
+	}
 }
 
 void LayerGame::S_AddScriptComponent(ScriptComponent* component)

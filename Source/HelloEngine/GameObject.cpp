@@ -145,15 +145,6 @@ void GameObject::OnCollisionEnter(PhysBody3D* other)
 	}
 }
 
-void GameObject::SetAllChildsPrefabUID(uint prefabUID)
-{
-    for (auto& go : _children)
-    {
-        go->SetPrefabUID(prefabUID);
-        go->SetAllChildsPrefabUID(prefabUID);
-    }
-}
-
 #ifdef STANDALONE
 
 void GameObject::OnEditor()
@@ -212,6 +203,32 @@ void GameObject::OnEditor()
             }
         }
         ImGui::EndCombo();
+        }
+    if (_prefabUID != 0)
+    {
+        ImGui::TextColored(ImVec4(1, 1, 1, 0.5f), "Prefab UID: "); ImGui::SameLine();
+        ImGui::TextColored(ImVec4(1, 1, 1, 0.5f), std::to_string(_prefabUID).c_str());
+
+        if (_parent->_prefabUID != 0) return;
+        if (ImGui::Button("Override prefab"))
+        {
+            // Find prefab(asset) with _prefabUID and override it
+            ResourcePrefab* aux = (ResourcePrefab*)ModuleResourceManager::resources[_prefabUID];
+            ModuleResourceManager::S_OverridePrefab(this, aux->path, _prefabUID);
+        }
+        if (ImGui::Button("Revert prefab"))
+        {
+            // Find prefab(asset) with _prefabUID and override this one with it
+            ResourcePrefab* aux = (ResourcePrefab*)ModuleResourceManager::resources[_prefabUID];
+            GameObject* newGameObject = ModuleResourceManager::S_DeserializeFromPrefab(aux->path, this->_parent);
+            TransformComponent* t = this->GetComponent<TransformComponent>();
+            newGameObject->GetComponent<TransformComponent>()->SetTransform(t->GetGlobalPosition(), t->GetGlobalScale(), t->GetLocalRotation());
+            Destroy();
+        }
+        if (ImGui::Button("Unpack from prefab"))
+        {
+            _prefabUID = 0;
+        }
     }
 }
 
@@ -267,7 +284,16 @@ bool GameObject::MarkAsAlive()
 
     return false;
 }
-#endif // STANDALONE
+
+#endif  
+void GameObject::SetAllChildsPrefabUID(uint prefabUID)
+{
+    for (auto& go : _children)
+    {
+        go->SetPrefabUID(prefabUID);
+        go->SetAllChildsPrefabUID(prefabUID);
+    }
+}
 
 void GameObject::Destroy()
 {

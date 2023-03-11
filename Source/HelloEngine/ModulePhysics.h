@@ -71,11 +71,7 @@ private:
 
 	bool debugDraw = false;
 
-	//PhysBody3D* testBody = nullptr;
-	//PhysBody3D* testBody2 = nullptr;
-
 	std::vector <btCollisionShape*> shapes;
-	//static std::vector <PhysBody3D*> physBodies;
 	std::vector <btDefaultMotionState*> motions;
 	std::vector <btTypedConstraint*> constraints;
 

@@ -15,14 +15,12 @@ public:
 	void SetVelocity(float3 vec);
 	float3 GetVelocity();
 
+	void SetGravity(float3 grav);
+	float3 GetGravity();
 	void CheckRenderBuffers();
 
 private:
-#ifdef STANDALONE
 	void OnEditor() override;
-#endif // STANDALONE
-
-
 
 	void Serialization(json& j) override;
 	void DeSerialization(json& j) override;
@@ -49,6 +47,9 @@ private:
 	
 	
 
+	void OnEnable();
+	void OnDisable();
+
 private:
 
 	PhysBody3D* physBody = nullptr;
@@ -57,10 +58,9 @@ private:
 
 	bool isShapeSelected[3];
 	bool isShapeCreated[3];
-
+	bool isStatic;
 	float gravity[3];
 	
-
 public:
 	float localGlobalGravity[3];
 	float globalGravity[3];

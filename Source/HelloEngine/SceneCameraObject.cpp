@@ -36,10 +36,10 @@ void SceneCameraObject::UpdateInput()
 	if (ModuleInput::S_GetMouseButton(SDL_BUTTON_RIGHT) == KEY_REPEAT)
 	{
 		float3 newPos(0, 0, 0);
-		float speed = 3.0f * app->fps;
+		float speed = 100.0f * app->fps;
 
 		if (ModuleInput::S_GetKey(SDL_SCANCODE_LSHIFT) == KEY_REPEAT)
-			speed = 10.0f * app->fps;
+			speed = 1000.0f * app->fps;
 
 		if (ModuleInput::S_GetKey(SDL_SCANCODE_W) == KEY_REPEAT)
 			newPos += cameraFrustum.front * speed;
@@ -136,7 +136,7 @@ void SceneCameraObject::UpdateInput()
 
 	if (mouseZ != 0)
 	{
-		float speed = 0.05f * ImGui::GetIO().Framerate;
+		float speed = 10.05f * ImGui::GetIO().Framerate;
 		if (mouseZ > 0)
 			cameraFrustum.pos += cameraFrustum.front * speed;
 		if (mouseZ < 0)

@@ -31,23 +31,20 @@ Application::~Application()
 //test
 bool Application::Init()
 {
-	float2 f(2, 3);
+	// Check if resource folders exist HOTFIX
 
-	Vector2 v2(2, 2);
-
-	v2 = -f;
-
-	Vector3 v3;
-
-	Vector3 v4(5,2,3);
-
-	v3 = -v4;
-
-	v3 = Vector3::S_Identity();
-
-	float result = Vector3::S_Distance(v3, v4);
-
-	//std::cout << v2 << std::endl;
+	if (!std::filesystem::exists("Resources/Models"))
+	{
+		std::filesystem::create_directory("Resources/Models");
+	}
+	if (!std::filesystem::exists("Resources/Meshes"))
+	{
+		std::filesystem::create_directory("Resources/Meshes");
+	}
+	if (!std::filesystem::exists("Resources/Textures"))
+	{
+		std::filesystem::create_directory("Resources/Textures");
+	}
 
 	window = new ModuleWindow(true);
 	file = new ModuleFiles();
@@ -142,7 +139,7 @@ UpdateStatus Application::Update()
 
 	if (_dt < fps)
 	{
-		float sleepTime = (fps - _dt) * 1000;
+		float sleepTime = (fps - _dt) * 1000.0f;
 		Sleep(sleepTime);
 	}
 

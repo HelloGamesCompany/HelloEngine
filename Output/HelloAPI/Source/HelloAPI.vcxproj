@@ -5,6 +5,10 @@
 			<Configuration>Debug</Configuration>
 			<Platform>Win32</Platform>
 		</ProjectConfiguration>
+		<ProjectConfiguration Include="Development|Win32">
+			<Configuration>Development</Configuration>
+			<Platform>Win32</Platform>
+		</ProjectConfiguration>
 		<ProjectConfiguration Include="Release|Win32">
 			<Configuration>Release</Configuration>
 			<Platform>Win32</Platform>
@@ -25,6 +29,13 @@
 		<WholeProgramOptimization>true</WholeProgramOptimization>
 		<CharacterSet>Unicode</CharacterSet>
 	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Development|Win32'" Label="Configuration">
+		<ConfigurationType>DynamicLibrary</ConfigurationType>
+		<UseDebugLibraries>false</UseDebugLibraries>
+		<PlatformToolset>v142</PlatformToolset>
+		<WholeProgramOptimization>true</WholeProgramOptimization>
+		<CharacterSet>Unicode</CharacterSet>
+	</PropertyGroup>
 	<PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
 		<PlatformToolset>v142</PlatformToolset>
 		<ConfigurationType>DynamicLibrary</ConfigurationType>
@@ -37,8 +48,16 @@
 	<ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
 		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
 	</ImportGroup>
+	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Development|Win32'" Label="PropertySheets">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+	</ImportGroup>
 	<PropertyGroup Label="UserMacros" />
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+		<LinkIncremental>false</LinkIncremental>
+		<OutDir>$(SolutionDir)Lib\Rel</OutDir>
+		<IntDir>$(SolutionDir)Lib-int\$(Configuration)</IntDir>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Development|Win32'">
 		<LinkIncremental>false</LinkIncremental>
 		<OutDir>$(SolutionDir)Lib\Rel</OutDir>
 		<IntDir>$(SolutionDir)Lib-int\$(Configuration)</IntDir>
@@ -65,6 +84,30 @@
 			<OptimizeReferences>true</OptimizeReferences>
 			<GenerateDebugInformation>false</GenerateDebugInformation>
 			<AdditionalLibraryDirectories>$(SolutionDir)..\..\bin\Release\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+			<AdditionalDependencies>HelloEngine.lib;%(AdditionalDependencies)</AdditionalDependencies>
+		</Link>
+		<PostBuildEvent>
+			<Command>cd. &gt; .checkR</Command>
+		</PostBuildEvent>
+	</ItemDefinitionGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Development|Win32'">
+		<ClCompile>
+			<WarningLevel>Level3</WarningLevel>
+			<FunctionLevelLinking>true</FunctionLevelLinking>
+			<IntrinsicFunctions>true</IntrinsicFunctions>
+			<SDLCheck>true</SDLCheck>
+			<PreprocessorDefinitions>WIN32;HELLO_ENGINE_EXPORTS;GET_FROM_API;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<ConformanceMode>true</ConformanceMode>
+			<AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)..\..\Source\HelloEngine</AdditionalIncludeDirectories>
+			<LanguageStandard>stdcpp17</LanguageStandard>
+			<RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+		</ClCompile>
+		<Link>
+			<SubSystem>Console</SubSystem>
+			<EnableCOMDATFolding>true</EnableCOMDATFolding>
+			<OptimizeReferences>true</OptimizeReferences>
+			<GenerateDebugInformation>false</GenerateDebugInformation>
+			<AdditionalLibraryDirectories>$(SolutionDir)EngineSource;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
 			<AdditionalDependencies>HelloEngine.lib;%(AdditionalDependencies)</AdditionalDependencies>
 		</Link>
 		<PostBuildEvent>
@@ -100,8 +143,19 @@
 		<ClCompile Include="../../Assets/Scripts/GamePadTest.cpp" />
 		<ClCompile Include="../../Assets/Scripts/PlayerKeyboardMovement.cpp" />
 		<ClCompile Include="../../Assets/Scripts/PlayerGamepadMovement.cpp" />
-		<ClCompile Include="../../Assets/Scripts/Projectile.cpp" />
 		<ClCompile Include="../../Assets/Scripts/Enemies/Enemy.cpp" />
+		<ClCompile Include="../../Assets/Scripts/CollisionTestScript.cpp" />
+		<ClCompile Include="../../Assets/Scripts/CamMov.cpp" />
+		<ClCompile Include="../../Assets/Scripts/SwapCam.cpp" />
+		<ClCompile Include="../../Assets/Scripts/StarShipCamMov.cpp" />
+		<ClCompile Include="../../Assets/Scripts/Shooting/PlayerGunManager.cpp" />
+		<ClCompile Include="../../Assets/Scripts/Shooting/PlayerGun.cpp" />
+		<ClCompile Include="../../Assets/Scripts/Shooting/PlayerGunType.cpp" />
+		<ClCompile Include="../../Assets/Scripts/Shooting/PlayerSemiAuto.cpp" />
+		<ClCompile Include="../../Assets/Scripts/Shooting/ProjectilePull.cpp" />
+		<ClCompile Include="../../Assets/Scripts/Shooting/Projectile.cpp" />
+		<ClCompile Include="../../Assets/Build/AnimationTest.cpp" />
+		<ClCompile Include="../../Assets/Scripts/RotateContiniously.cpp" />
 	</ItemGroup>
 	<ItemGroup>
 		<ClInclude Include="Macro.h" />
@@ -112,8 +166,19 @@
 		<ClInclude Include="../../Assets/Scripts/GamePadTest.h" />
 		<ClInclude Include="../../Assets/Scripts/PlayerKeyboardMovement.h" />
 		<ClInclude Include="../../Assets/Scripts/PlayerGamepadMovement.h" />
-		<ClInclude Include="../../Assets/Scripts/Projectile.h" />
 		<ClInclude Include="../../Assets/Scripts/Enemies/Enemy.h" />
+		<ClInclude Include="../../Assets/Scripts/CollisionTestScript.h" />
+		<ClInclude Include="../../Assets/Scripts/CamMov.h" />
+		<ClInclude Include="../../Assets/Scripts/SwapCam.h" />
+		<ClInclude Include="../../Assets/Scripts/StarShipCamMov.h" />
+		<ClInclude Include="../../Assets/Scripts/Shooting/PlayerGunManager.h" />
+		<ClInclude Include="../../Assets/Scripts/Shooting/PlayerGun.h" />
+		<ClInclude Include="../../Assets/Scripts/Shooting/PlayerGunType.h" />
+		<ClInclude Include="../../Assets/Scripts/Shooting/PlayerSemiAuto.h" />
+		<ClInclude Include="../../Assets/Scripts/Shooting/ProjectilePull.h" />
+		<ClInclude Include="../../Assets/Scripts/Shooting/Projectile.h" />
+		<ClInclude Include="../../Assets/Build/AnimationTest.h" />
+		<ClInclude Include="../../Assets/Scripts/RotateContiniously.h" />
 	</ItemGroup>
 	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 	<ImportGroup Label="ExtensionTargets" />

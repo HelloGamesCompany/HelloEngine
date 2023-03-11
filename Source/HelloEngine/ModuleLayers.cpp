@@ -41,10 +41,10 @@ bool ModuleLayers::Start()
 {
     // Create empty API components.
     emptyAPITransform = new API::API_Transform();
+    emptyAPIGameObject = new API::API_GameObject();
 
-#ifdef STANDALONE
+   
     _layers[(uint)LayersID::EDITOR] = new LayerEditor();
-#endif
     _layers[(uint)LayersID::GAME] = new LayerGame();
     _layers[(uint)LayersID::UI] = new LayerUI();
 

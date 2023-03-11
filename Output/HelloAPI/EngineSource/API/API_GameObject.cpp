@@ -9,18 +9,14 @@
 
 API::API_GameObject::API_GameObject()
 {
-	ModuleLayers::apiGameObjects.push_back(this);
+
 }
 
 API::API_GameObject::~API_GameObject()
 {
-	for (int i = 0; i < ModuleLayers::apiGameObjects.size(); ++i)
+	if (_gameObject != nullptr)
 	{
-		if (ModuleLayers::apiGameObjects[i] == this)
-		{
-			ModuleLayers::apiGameObjects.erase(ModuleLayers::apiGameObjects.begin() + i);
-			break;
-		}
+		ModuleLayers::apiGameObjects.erase(_gameObject->GetID());
 	}
 }
 
@@ -34,14 +30,14 @@ const char* API::API_GameObject::GetName()
 	return _gameObject->name.c_str();
 }
 
-std::string API::API_GameObject::GetTag()
+const char* API::API_GameObject::GetTag()
 {
 	if (_gameObject == nullptr)
 	{
 		Console::S_Log("Trying to acces a NULLPTR GameObject! GetTag()");
 		return "NULL";
 	}
-	return _gameObject->tag;
+	return _gameObject->tag.c_str();
 }
 
 HelloBehavior* API::API_GameObject::AddScript(const char* className)
@@ -127,6 +123,16 @@ API::API_MeshRenderer API::API_GameObject::AddMeshRenderer(API_MeshRenderer& cop
 	return ret;
 }
 
+void API::API_GameObject::SetActive(bool active)
+{
+	if (_gameObject == nullptr)
+	{
+		Console::S_Log("Trying to acces a NULLPTR GameObject. SetActive()");
+		return;
+	}
+	_gameObject->SetActive(active);
+}
+
 void API::API_GameObject::Destroy()
 {
 	if (_gameObject == nullptr)
@@ -152,4 +158,6 @@ API::API_Transform API::API_GameObject::GetTransform()
 void API::API_GameObject::SetGameObject(GameObject* gameObject)
 {
 	_gameObject = gameObject;
+	if (_gameObject != nullptr)
+		ModuleLayers::apiGameObjects[gameObject->GetID()] = this;
 }

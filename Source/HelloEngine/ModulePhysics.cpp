@@ -24,8 +24,6 @@ ModulePhysics::ModulePhysics()
 
 ModulePhysics::~ModulePhysics()
 {
-	//S_RemovePhysBody(testBody);
-	//RELEASE(testBody);
 	RELEASE(world);
 	RELEASE(solver);
 	RELEASE(broad_phase);
@@ -103,8 +101,6 @@ UpdateStatus ModulePhysics::PreUpdate()
 #ifdef _DEBUG
 	if (LayerGame::S_IsPlaying() && !LayerGame::S_IsPause())
 	{
-		float a = EngineTime::GameDeltaTime();
-		Console::S_Log(std::to_string(a));
 		world->stepSimulation(EngineTime::GameDeltaTime(), 15);
 	}
 	else
@@ -117,20 +113,16 @@ UpdateStatus ModulePhysics::PreUpdate()
 	{
 		float a = EngineTime::GameDeltaTime();
 		Console::S_Log(std::to_string(a));
-		world->stepSimulation(1.0f / Application::Instance()->frameCap, 15);
+		world->stepSimulation(EngineTime::GameDeltaTime(), 15);
 }
 	else
 	{
 		world->stepSimulation(0);
 	}
 #else
-	world->stepSimulation(1.0f / Application::Instance()->frameCap, 15);
+	world->stepSimulation(EngineTime::GameDeltaTime(), 15);
+#endif	
 
-#endif
-	
-
-	//std::cout << "\n-------------------------\nx" << testBody->GetPos().x << "\ny" << testBody->GetPos().y << "\nz" << testBody->GetPos().z;
-	//std::cout << "\n-------------------------\nx" << testBody2->GetPos().x << "\ny" << testBody2->GetPos().y << "\nz" << testBody2->GetPos().z;
 	int numManifolds = world->getDispatcher()->getNumManifolds();
 	for (int i = 0; i < numManifolds; i++)
 	{
@@ -164,8 +156,6 @@ UpdateStatus ModulePhysics::Update()
 	world->updateAabbs();
 
 	for (int i = 0; i < physBodies.size(); i++) {
-
-		//physBodies[i]->RenderCollider();
 
 		if (LayerGame::S_IsPlaying())
 		{

@@ -18,6 +18,8 @@
 #endif
 
 class ScriptComponent;
+class AnimationComponent;
+
 
 struct BehaviorScript
 {
@@ -52,6 +54,9 @@ public:
 
 	static bool S_CreateBehaviorScriptByName(const std::string& className, ScriptComponent* component);
 
+	static void S_AddAnimationComponent(AnimationComponent* component);
+	static void S_RemoveAnimationComponent(AnimationComponent* component);
+
 	static void S_HotReload();
 	static void S_RequestHotReload();
 	static void S_RequestDLLCompile();
@@ -67,6 +72,7 @@ public:
 private:
 	static std::map<uint, BehaviorScript> _behaviorScripts;
 	static std::vector<ScriptComponent*> _scriptComponents;
+	static std::vector<AnimationComponent*> _animationComponent;
 	static bool _isPlaying;
 	static bool _paused;
 	static bool _update;

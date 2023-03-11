@@ -30,14 +30,14 @@ const char* API::API_GameObject::GetName()
 	return _gameObject->name.c_str();
 }
 
-std::string API::API_GameObject::GetTag()
+const char* API::API_GameObject::GetTag()
 {
 	if (_gameObject == nullptr)
 	{
 		Console::S_Log("Trying to acces a NULLPTR GameObject! GetTag()");
 		return "NULL";
 	}
-	return _gameObject->tag;
+	return _gameObject->tag.c_str();
 }
 
 HelloBehavior* API::API_GameObject::AddScript(const char* className)
@@ -121,6 +121,16 @@ API::API_MeshRenderer API::API_GameObject::AddMeshRenderer(API_MeshRenderer& cop
 	API_MeshRenderer ret;
 	ret.SetComponent(component);
 	return ret;
+}
+
+void API::API_GameObject::SetActive(bool active)
+{
+	if (_gameObject == nullptr)
+	{
+		Console::S_Log("Trying to acces a NULLPTR GameObject. SetActive()");
+		return;
+	}
+	_gameObject->SetActive(active);
 }
 
 void API::API_GameObject::Destroy()

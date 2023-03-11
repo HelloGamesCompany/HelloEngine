@@ -125,9 +125,6 @@ void ParticleSystemComponent::DestroyEmitterMesh()
 
 #ifdef STANDALONE
 
-
-
-
 void ParticleSystemComponent::OnEditor()
 {
 
@@ -230,8 +227,7 @@ void ParticleSystemComponent::MarkAsAlive()
 {
 	CreateEmitterMesh(_resourceUID);
 }
-
-#endif // !STANDALONE
+#endif
 
 void ParticleSystemComponent::Serialization(json& j)
 {

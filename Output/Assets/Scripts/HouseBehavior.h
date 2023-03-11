@@ -10,5 +10,6 @@ class HouseBehavior : HelloBehavior
 public:
 	void Start() override; 
 	void Update() override;
+
 };
 
