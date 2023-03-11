@@ -1,20 +1,14 @@
 #pragma once
+#include "P_Module.h"
 
-class ParticleSystemComponent;
-
-class P_MainModule
+class P_MainModule : public P_Module
 {
 public:
 
 	P_MainModule();
 	~P_MainModule();
 
-	void OnEditor();
+	void OnEditor() override;
 
-private:
-
-	ParticleSystemComponent* component = nullptr;
-
-	friend class ParticleSystemComponent;
 };
 
