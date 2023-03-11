@@ -26,8 +26,6 @@ public:
 	void Update();
 	void SetGravity(float3 grav);
 
-	void SetGravity(float3 grav);
-
 	void SetShape(ColliderShape shape);
 	void RenderCollider();
 

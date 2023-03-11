@@ -244,6 +244,9 @@ void PhysicsComponent::DeSerialization(json& j)
 		CallUpdateScale();
 	}
 }
+
+#ifdef STANDALONE
+
 void PhysicsComponent::OnEditor()
 {
 	bool created = true;

@@ -229,8 +229,6 @@ void ParticleSystemComponent::MarkAsAlive()
 }
 #endif
 
-#endif // !STANDALONE
-
 void ParticleSystemComponent::Serialization(json& j)
 {
 	json _j;

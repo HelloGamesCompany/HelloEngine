@@ -145,15 +145,6 @@ void GameObject::OnCollisionEnter(PhysBody3D* other)
 	}
 }
 
-void GameObject::SetAllChildsPrefabUID(uint prefabUID)
-{
-    for (auto& go : _children)
-    {
-        go->SetPrefabUID(prefabUID);
-        go->SetAllChildsPrefabUID(prefabUID);
-    }
-}
-
 #ifdef STANDALONE
 
 void GameObject::OnEditor()
@@ -294,6 +285,7 @@ bool GameObject::MarkAsAlive()
     return false;
 }
 
+#endif  
 void GameObject::SetAllChildsPrefabUID(uint prefabUID)
 {
     for (auto& go : _children)

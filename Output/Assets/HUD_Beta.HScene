@@ -336,7 +336,7 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 3032909416,
+                "MaterialResource": 0,
                 "Type": 15
             }
         ],
@@ -372,7 +372,7 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 3892239822,
+                "MaterialResource": 0,
                 "Type": 15
             }
         ],
@@ -568,7 +568,7 @@
             },
             {
                 "Enabled": true,
-                "ResourceUID": 1463383607,
+                "ResourceUID": 0,
                 "Type": 3
             }
         ],

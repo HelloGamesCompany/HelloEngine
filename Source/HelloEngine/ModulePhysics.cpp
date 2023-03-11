@@ -121,6 +121,7 @@ UpdateStatus ModulePhysics::PreUpdate()
 	}
 #else
 	world->stepSimulation(EngineTime::GameDeltaTime(), 15);
+#endif	
 
 	int numManifolds = world->getDispatcher()->getNumManifolds();
 	for (int i = 0; i < numManifolds; i++)
