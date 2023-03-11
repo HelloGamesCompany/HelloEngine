@@ -105,7 +105,7 @@ UpdateStatus ModuleLayers::PreUpdate()
     }
     _deletedGameObjects.clear();
 
-    for (int i = (uint)LayersID::MAX - 1; i >= 0; i--)
+    for (int i = (uint)LayersID::MAX - 1 ; i >= 0; i--)
     {
         if (_layers[i] && _layers[i]->IsEnabled()) 
             _layers[i]->PreUpdate();

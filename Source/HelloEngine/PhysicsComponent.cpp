@@ -22,8 +22,6 @@ PhysicsComponent::PhysicsComponent(GameObject* gameObject) : Component(gameObjec
 	isShapeCreated[1] = false;
 	isShapeCreated[2] = false;
 
-	isStatic = false;
-
 	sphereRadius = 1;
 	cylRadiusHeight = {1,1};
 
@@ -41,6 +39,14 @@ PhysicsComponent::PhysicsComponent(GameObject* gameObject) : Component(gameObjec
 	gravity[0] = { 0 };
 	gravity[1] = { -9.8 };
 	gravity[2] = { 0 };
+
+	globalGravity[0] = { 0 };
+	globalGravity[1] = { -9.8 };
+	globalGravity[2] = { 0 };
+
+	localGlobalGravity[0] = { 0 };
+	localGlobalGravity[1] = { -9.8 };
+	localGlobalGravity[2] = { 0 };
 }
 
 PhysicsComponent::~PhysicsComponent()
@@ -97,7 +103,8 @@ void PhysicsComponent::Serialization(json& j)
 	_j["IsShapeSelected"] = { isShapeSelected[0], isShapeSelected[1], isShapeSelected[2] };
 	_j["IsShapeCreated"] = { isShapeCreated[0], isShapeCreated[1], isShapeCreated[2] };
 
-	_j["IsStatic"] = isStatic;
+	float3 getGrav = Application::Instance()->physic->GetGlobalGravity();
+	_j["GlobalGravity"] = { getGrav[0], getGrav[1], getGrav[2] };
 
 	if (physBody != nullptr)
 	{
@@ -106,6 +113,44 @@ void PhysicsComponent::Serialization(json& j)
 		_j["ColPosition"] = { physBody->colPos[0], physBody->colPos[1], physBody->colPos[2] };
 		_j["ColRotation"] = { physBody->colRot[0], physBody->colRot[1],physBody->colRot[2] };
 		_j["ColScale"] = { physBody->colScl[0], physBody->colScl[1], physBody->colScl[2] };
+
+		_j["IsStatic"] = physBody->isStatic;
+		_j["IsKinematic"] = physBody->isKinematic;
+		_j["IsTrigger"] = physBody->isTrigger;
+
+		_j["Gravity"] = { gravity[0], gravity[1], gravity[2] };
+
+		_j["WireframeSize"] = wireframeSize;
+
+		_j["SphereVerSlices"] = sphereVerSlices;
+		_j["SphereHorSlices"] = sphereHorSlices;
+		_j["CylVerSlices"] = cylinderVerSlices;
+
+		_j["RenderColColor"] = { renderColColor[0] , renderColColor[1] , renderColColor[2], renderColColor[3] };
+		
+		
+	}
+	else
+	{
+		_j["Mass"] = 1.f;
+
+		_j["ColPosition"] = {0, 0, 0 };
+		_j["ColRotation"] = { 0, 0, 0 };
+		_j["ColScale"] = { 0, 0, 0 };
+
+		_j["IsStatic"] = false;
+		_j["IsKinematic"] = false;
+		_j["IsTrigger"] = false;
+
+		_j["Gravity"] = { 0, -9.8f, 0 };
+
+		_j["WireframeSize"] = 3.0f;
+
+		_j["SphereVerSlices"] = 16;
+		_j["SphereHorSlices"] = 16;
+		_j["CylVerSlices"] = 16;
+
+		_j["RenderColColor"] = { 0.5f , 0 , 0.5f, 1 };
 	}
 
 	_j["SphereRadius"] = sphereRadius;
@@ -135,19 +180,38 @@ void PhysicsComponent::DeSerialization(json& j)
 	isShapeCreated[1] = isShapeCreatedTemp[1];
 	isShapeCreated[2] = isShapeCreatedTemp[2];
 
-	isStatic = j["IsStatic"];
-	
 	sphereRadius = j["SphereRadius"];
 
 	std::vector<float> cylRadiusHeightTemp = j["CylinderRadiusHeight"];
 	cylRadiusHeight = { cylRadiusHeightTemp[0], cylRadiusHeightTemp[1] };
+
+	std::vector<float> newGrav = j["GlobalGravity"];
+	ModulePhysics::SetGlobalGravityAtFirst(float3(newGrav[0], newGrav[1], newGrav[2]));
+
+	globalGravity[0] = newGrav[0];
+	globalGravity[1] = newGrav[1];
+	globalGravity[2] = newGrav[2];
+
+	localGlobalGravity[0] = newGrav[0];
+	localGlobalGravity[1] = newGrav[1];
+	localGlobalGravity[2] = newGrav[2];
 
 	if (j["HasPhysBody"] == true)
 	{
 		temporalMass = j["Mass"];
 		CreateCollider();
 		physBody->mass = temporalMass;
-		CallUpdateMass();
+
+		physBody->isStatic = j["IsStatic"];
+		physBody->isKinematic = j["IsKinematic"];
+		physBody->isTrigger = j["IsTrigger"];
+
+		std::vector<float> newGrav = j["Gravity"];
+		gravity[0] = newGrav[0];
+		gravity[1] = newGrav[1];
+		gravity[2] = newGrav[2];
+		physBody->SetGravity(float3(gravity[0], gravity[1], gravity[2]));
+
 		physBody->isRenderingCol = j["IsRenderingCol"];
 		std::vector<float> colPosTemp = j["ColPosition"];
 		physBody->colPos = { colPosTemp[0], colPosTemp[1], colPosTemp[2] };
@@ -158,8 +222,22 @@ void PhysicsComponent::DeSerialization(json& j)
 		std::vector<float> colSclTemp = j["ColScale"];
 		physBody->colScl = { colSclTemp[0], colSclTemp[1], colSclTemp[2] };
 
-		std::vector<float> newGrav = j["Gravity"];
-		SetGravity(float3(newGrav[0], newGrav[1], newGrav[2]));
+		wireframeSize = j["WireframeSize"];
+
+		sphereVerSlices = j["SphereVerSlices"];
+		sphereHorSlices = j["SphereHorSlices"];
+		cylinderVerSlices = j["CylVerSlices"];
+
+		std::vector<float> RenderColColorTemp = j["RenderColColor"];
+		renderColColor[0] = RenderColColorTemp[0];
+		renderColColor[1] = RenderColColorTemp[1];
+		renderColColor[2] = RenderColColorTemp[2];
+		renderColColor[3] = RenderColColorTemp[3];
+
+		
+		
+		CallUpdateMass();
+		CallUpdateColliderType();
 
 		CallUpdatePos();
 		CallUpdateRotation();
@@ -171,13 +249,19 @@ void PhysicsComponent::OnEditor()
 	bool created = true;
 	if (ImGui::CollapsingHeader("Physics", &created, ImGuiTreeNodeFlags_DefaultOpen))
 	{
-		if (ImGui::Checkbox("Static", &isStatic)) {
-			if (physBody != nullptr) {
-				CallUpdateMass();
+		if (ImGui::DragFloat3("Global Gravity", localGlobalGravity, 0.01)) {
+			
+			if ((localGlobalGravity[0] != globalGravity[0]) || (localGlobalGravity[1] != globalGravity[1]) || (localGlobalGravity[2] != globalGravity[2])) {
+				//if (ImGui::Button("Apply")) {
+					Application::Instance()->physic->PrepareNewGravityAtLast(float3(localGlobalGravity[0], localGlobalGravity[1], localGlobalGravity[2]));
+				//}
+
 			}
 		}
+		
+		
 
-		if (ImGui::DragFloat("Mass: ", &temporalMass, 0.01)) {
+		if (ImGui::DragFloat("Mass: ", &temporalMass, 0.01, 0, 99999.999)) {
 			if (physBody != nullptr)
 			{
 				physBody->mass = temporalMass;
@@ -233,7 +317,31 @@ void PhysicsComponent::OnEditor()
 			colName += colliderType;
 			ImGui::Text(colName.c_str());
 
-			if (ImGui::DragFloat3("Gravity", gravity)) {
+			if (ImGui::Checkbox("Static", &physBody->isStatic)) {
+				if (physBody != nullptr) {
+					if (physBody->isStatic == true) {
+						physBody->isKinematic = false;
+					}
+					CallUpdateColliderType();
+				}
+			}
+
+			if (ImGui::Checkbox("Kinematic", &physBody->isKinematic)) {
+				if (physBody != nullptr) {
+					if (physBody->isKinematic == true) {
+						physBody->isStatic = false;
+					}
+					CallUpdateColliderType();
+				}
+			}
+
+			if (ImGui::Checkbox("Trigger", &physBody->isTrigger)) {
+				if (physBody != nullptr) {
+					CallUpdateColliderType();
+				}
+			}
+
+			if (ImGui::DragFloat3("Gravity", gravity, 0.01)) {
 				if (physBody != nullptr) {
 					physBody->SetGravity(float3(gravity[0], gravity[1], gravity[2]));
 				}
@@ -280,16 +388,11 @@ void PhysicsComponent::OnEditor()
 
 			}
 
-			//ImGui::SameLine();
-
 			if (physBody->isRenderingCol == true) {
 
 				if (ImGui::ColorEdit4("Color", renderColColor)) {
 
 				}
-
-				//ImGui::SameLine();
-
 				if (ImGui::DragFloat("Line Size: ", &wireframeSize, 0.1f, 0.5f, 100.f)) {
 
 				}
@@ -299,35 +402,16 @@ void PhysicsComponent::OnEditor()
 				case ColliderShape::SPHERE:
 				{
 					if (ImGui::DragInt("Ver. Slices: ", &sphereVerSlices, 1, 3, MAX_VERTICAL_SLICES_SPHERE)) {
-						/*if (sphereVerSlices < 3) {
-							sphereVerSlices = 3;
-						}
-						if (sphereVerSlices > MAX_VERTICAL_SLICES_SPHERE) {
-							sphereVerSlices = MAX_VERTICAL_SLICES_SPHERE;
-						}*/
 						Application::Instance()->renderer3D->renderManager.CalculateSphereBuffer(sphereVerSlices, sphereHorSlices);
 					}
 					if (ImGui::DragInt("Hor. Slices: ", &sphereHorSlices, 1, 1, MAX_HORIZONTAL_SLICES_SPHERE)) {
-						/*if (sphereHorSlices < 1) {
-							sphereHorSlices = 1;
-						}
-						if (sphereHorSlices > MAX_HORIZONTAL_SLICES_SPHERE) {
-							sphereHorSlices = MAX_HORIZONTAL_SLICES_SPHERE;
-						}*/
 						Application::Instance()->renderer3D->renderManager.CalculateSphereBuffer(sphereVerSlices, sphereHorSlices);
-
 					}
 				}
 				break;
 				case ColliderShape::CYLINDER:
 				{
 					if (ImGui::DragInt("Ver. Slices: ", &cylinderVerSlices, 1, 3, MAX_VERTICAL_SLICES_CYLINDER)) {
-					/*	if (cylinderVerSlices < 3) {
-							cylinderVerSlices = 3;
-						}
-						if (cylinderVerSlices > MAX_VERTICAL_SLICES_CYLINDER) {
-							cylinderVerSlices = MAX_VERTICAL_SLICES_CYLINDER;
-						}*/
 						Application::Instance()->renderer3D->renderManager.CalculateCylinderBuffer(cylinderVerSlices);
 					}
 				}
@@ -335,6 +419,9 @@ void PhysicsComponent::OnEditor()
 				default:
 					break;
 				}
+
+				//CheckRenderBuffers();
+				
 			}
 
 
@@ -362,10 +449,10 @@ void PhysicsComponent::OnEditor()
 				}
 
 				if (ImGui::DragFloat3("Rotation: ", physBody->colRot.ptr(), 0.1)) {
-					//CallUpdatePos();
+					CallUpdateRotation();
 				}
 				if (ImGui::DragFloat("Radius: ", &sphereRadius, 0.1)) {
-					//CallUpdatePos();
+					CallUpdateScale();
 				}
 			}
 			break;
@@ -376,10 +463,18 @@ void PhysicsComponent::OnEditor()
 					CallUpdatePos();
 				}
 				if (ImGui::DragFloat3("Rotation: ", physBody->colRot.ptr(), 0.1)) {
-					//	CallUpdateShape();
+					CallUpdateRotation();
 				}
 				if (ImGui::DragFloat2("Radius & Height: ", cylRadiusHeight.ptr(), 0.1)) {
-					//CallUpdateShape();
+					CallUpdateScale();
+					
+
+					//btCollisionShape* shape = physBody->body->getCollisionShape();
+					//shape->setLocalScaling({ cylRadiusHeight.x, cylRadiusHeight.y, cylRadiusHeight.x });
+					/*if (isStatic == false && isKinematic == false) {
+						SetMass();
+					}*/
+				//	physBody->
 				}
 			}
 			break;
@@ -398,6 +493,26 @@ void PhysicsComponent::OnEditor()
 	if (!created)
 		this->_gameObject->DestroyComponent(this);
 }
+#endif // STANDALONE
+
+void PhysicsComponent::CheckRenderBuffers()
+{
+	switch (shapeSelected)
+	{
+	case ColliderShape::SPHERE:
+	{	
+		Application::Instance()->renderer3D->renderManager.CalculateSphereBuffer(sphereVerSlices, sphereHorSlices);
+	}
+	break;
+	case ColliderShape::CYLINDER:
+	{
+		Application::Instance()->renderer3D->renderManager.CalculateCylinderBuffer(cylinderVerSlices);
+	}
+	break;
+	default:
+		break;
+	}
+}
 
 void PhysicsComponent::CallUpdatePos()
 {
@@ -411,33 +526,80 @@ void PhysicsComponent::CallUpdateRotation()
 
 void PhysicsComponent::CallUpdateScale()
 {
-	ModulePhysics::UpdatePhysBodyScale(physBody);
+	switch (shapeSelected)
+	{
+	case ColliderShape::BOX:
+		ModulePhysics::UpdatePhysBodyScaleBox(physBody);
+		break;
+	case ColliderShape::SPHERE:
+		ModulePhysics::UpdatePhysBodyScaleSphere(physBody, sphereRadius);
+		break;
+	case ColliderShape::CYLINDER:
+		ModulePhysics::UpdatePhysBodyScaleCylinder(physBody, cylRadiusHeight.x, cylRadiusHeight.y);
+		break;
+	}
+	
 }
 
 void PhysicsComponent::CallUpdateMass()
 {
-	if (isStatic == false) {
+	if (physBody->isStatic == false && physBody->isKinematic == false) {
 		btVector3 inertia;
 		btCollisionShape* shape = physBody->body->getCollisionShape();
 		shape->calculateLocalInertia(physBody->mass, inertia);
 		physBody->body->setMassProps(physBody->mass, inertia);
 	}
 	else {
-		btVector3 inertia(0, 0, 0);
+		btVector3 inertia(0,0,0);
 		physBody->body->setMassProps(0, inertia);
 	}
 }
 
-void PhysicsComponent::CreateCollider()
+void PhysicsComponent::CallUpdateStatic()
 {
-	
-	/*float mass;
-	if (isStatic == true) {
-		mass = 0.f;
+	if (physBody->isStatic == true) {
+		physBody->body->setCollisionFlags(physBody->body->getCollisionFlags() | btCollisionObject::CF_STATIC_OBJECT);
 	}
 	else {
-		mass = 1.f;
-	}*/
+		physBody->body->setCollisionFlags(physBody->body->getCollisionFlags() & ~btCollisionObject::CF_STATIC_OBJECT);
+	}
+	CallUpdateMass();
+}
+
+void PhysicsComponent::CallUpdateTrigger()
+{
+	if (physBody->isTrigger == true) {
+		physBody->body->setCollisionFlags(physBody->body->getCollisionFlags() | btCollisionObject::CF_NO_CONTACT_RESPONSE);
+	}
+	else {
+		physBody->body->setCollisionFlags(physBody->body->getCollisionFlags() & ~btCollisionObject::CF_NO_CONTACT_RESPONSE);
+	}
+}
+
+void PhysicsComponent::CallUpdateKinematic()
+{
+	if (physBody->isKinematic == true) {
+		physBody->body->setCollisionFlags(physBody->body->getCollisionFlags() | btCollisionObject::CF_KINEMATIC_OBJECT);
+	}
+	else {
+		physBody->body->setCollisionFlags(physBody->body->getCollisionFlags() & ~btCollisionObject::CF_KINEMATIC_OBJECT);
+	}
+	CallUpdateMass();
+}
+
+void PhysicsComponent::CallUpdateColliderType()
+{
+	CallUpdateStatic();
+	CallUpdateKinematic();
+	CallUpdateTrigger();
+
+	CallUpdatePos();
+	CallUpdateRotation();
+	CallUpdateScale();
+}
+
+void PhysicsComponent::CreateCollider()
+{
 
 	switch (shapeSelected)
 	{
@@ -452,8 +614,6 @@ void PhysicsComponent::CreateCollider()
 			//cube.transform.Translate(_gameObject->GetComponent<TransformComponent>()->GetGlobalPosition());
 
 			physBody = Application::Instance()->physic->CreatePhysBody(&cube, 1);
-
-
 
 		}
 		break;

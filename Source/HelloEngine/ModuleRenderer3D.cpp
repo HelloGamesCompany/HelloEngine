@@ -8,6 +8,9 @@
 #include "ModuleLayers.h"
 #include "MeshRenderComponent.h"
 
+#include "Emitter.h"
+#include "ParticleSystemComponent.h"
+
 ModuleRenderer3D::ModuleRenderer3D(bool start_enabled) : Module(start_enabled)
 {
 	
@@ -89,6 +92,15 @@ bool ModuleRenderer3D::Init()
 UpdateStatus ModuleRenderer3D::PreUpdate()
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+	if (app->input->S_GetKey(SDL_SCANCODE_B) == KEY_DOWN)
+	{
+		particleManager.EmitterList[0]->component->SetPlayOnGame(true);
+	}
+	if (app->input->S_GetKey(SDL_SCANCODE_N) == KEY_DOWN)
+	{
+		particleManager.EmitterList[0]->component->SetPlayOnGame(false);
+	}
 
 	return UpdateStatus::UPDATE_CONTINUE;
 }

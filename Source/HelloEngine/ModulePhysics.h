@@ -44,10 +44,22 @@ public:
 
 	static void UpdatePhysBodyPos(PhysBody3D* physBody);
 	static void UpdatePhysBodyRotation(PhysBody3D* physBody);
-	static void UpdatePhysBodyScale(PhysBody3D* physBody);
+	static void UpdatePhysBodyScaleBox(PhysBody3D* physBody);
+	static void UpdatePhysBodyScaleSphere(PhysBody3D* physBody, float radius);
+	static void UpdatePhysBodyScaleCylinder(PhysBody3D* physBody, float radius, float height);
 
 	//TODO: this is temporaly here
 	static std::vector <PhysBody3D*> physBodies;
+
+	static void SetGlobalGravity(float3 grav);
+	static void SetGlobalGravityAtFirst(float3 grav);
+
+	float3 GetGlobalGravity();
+	bool hasToChangeGravity;
+	float3 gravityToChange;
+
+	void PrepareNewGravityAtLast(float3 grav);
+	void SetNewGravityAtLast();
 
 private:
 
@@ -62,4 +74,6 @@ private:
 	std::vector <btCollisionShape*> shapes;
 	std::vector <btDefaultMotionState*> motions;
 	std::vector <btTypedConstraint*> constraints;
+
+	bool hasToSetRenderBuffers;
 };

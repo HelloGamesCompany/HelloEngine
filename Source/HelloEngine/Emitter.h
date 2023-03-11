@@ -22,9 +22,17 @@ public:
 
 	void EmitParticles(ParticleProperties& properties);
 
-	void UpdateParticles(Quat rotation);
+	void UpdateParticles();
+
+	void UpdateParticleTransform(int i, const math::Quat& rotation);
+
+	void UpdateParticlesOnScene(int i);
+
+	void UpdateParticlesOnGame(int i);
 
 	void SetParticlePoolSize(uint size);
+
+	void ResetEmitter();
 
 public:
 
@@ -45,11 +53,23 @@ private:
 	InstanceRenderer* manager;
 
 	int currentparticle;
+	bool loop;
+	bool stop;
+	
+	float StartDelay;
+	float StartDelayCpy;
+
+	float Duration;
+	float DurationCpy;
 
 	Quat BBRotAroundZ;
 
+
 	friend class ParticleSystemComponent;
 	friend class ParticleManager;
+	friend class P_Module;
+	friend class P_MainModule;
+	friend class ModuleRenderer3D;
 
 };
 

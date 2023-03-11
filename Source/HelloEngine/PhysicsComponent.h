@@ -17,6 +17,7 @@ public:
 
 	void SetGravity(float3 grav);
 	float3 GetGravity();
+	void CheckRenderBuffers();
 
 private:
 	void OnEditor() override;
@@ -32,11 +33,19 @@ private:
 	void CallUpdateScale();
 	void CallUpdateMass();
 
+	void CallUpdateStatic();
+	void CallUpdateTrigger();
+	void CallUpdateKinematic();
+	void CallUpdateColliderType();
+
 	void CreateCollider();
 
 	void RemoveCollider();
 
 	void OnTransformCallback(float4x4 worldMatrix);
+	
+	
+	
 
 	void OnEnable();
 	void OnDisable();
@@ -51,8 +60,11 @@ private:
 	bool isShapeCreated[3];
 	bool isStatic;
 	float gravity[3];
-
+	
 public:
+	float localGlobalGravity[3];
+	float globalGravity[3];
+
 	float sphereRadius;
 	float2 cylRadiusHeight;
 	float renderColColor[4];

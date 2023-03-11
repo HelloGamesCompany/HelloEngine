@@ -37,6 +37,10 @@ namespace Engine
 
 		static void S_Close();
 
+		//static void S_Log(API::API_Vector2 vec, LogType type = LogType::INFO);
+
+		static void S_Log(API::API_Vector3 vec, LogType type = LogType::INFO);
+
 		static void S_Log(const std::string text, LogType type = LogType::INFO);
 
 		static const std::vector<ConsoleMessage>& S_GetLog();

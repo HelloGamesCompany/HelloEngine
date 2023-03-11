@@ -65,6 +65,7 @@ public:
 	static bool S_IsCreatingBehaviorsEnabled();
 
 	static bool S_IsPlaying() { return _isPlaying; }
+	static bool S_IsPause() { return _paused; }
 
 	static bool detectInput;
 

@@ -2,7 +2,8 @@
 #include "Component.h"
 #include "Particle.h"
 #include "Emitter.h"
-#include "P_MainModule.h"
+#include "P_Module.h"
+#include "Mesh.h"
 
 class Application;
 class ResourceMesh;
@@ -14,6 +15,8 @@ public:
     ~ParticleSystemComponent();
 
     void CreateEmitterMesh(uint resourceUID);
+
+    Mesh& GetEmitterMesh();
 
     void DestroyEmitterMesh();
 
@@ -28,22 +31,41 @@ public:
     void Serialization(json& j) override;
     void DeSerialization(json& j) override;
 
+    bool GetPlayOnScene() { return playOnScene; }
 
-public:
-    bool playOnScene = false;
+    bool GetPauseOnScene() { return pauseOnScene; }
+
+    bool GetPlayOnGame() { return playOnGame; }
+
+    Emitter GetParticleSystemEmitter() { return ParticleEmitter; }
+
+    void SetPlayOnGame(bool playongame);
+
 private:
+
+    void SetPlayOnScene(bool playonscene);
+    void SetPauseOnScene(bool pauseonscene);
+    
+private:
+    //Only for testing with particles on Scene
+    bool playOnScene = false;
+    //Play Particles on Game
+    bool playOnGame = false;
+    bool pauseOnScene = false;
     
     ResourceMesh* _resource;
     uint _resourceUID;
     Application* app;
     Emitter ParticleEmitter;
     ParticleProperties particleProps;   
-    
 
     //Particle System Modules
-    P_MainModule mainModule;
+    std::vector<P_Module*> ParticleModules;
 
+    friend class Emitter;
     friend class ParticleManager;
+    friend class P_Module;
     friend class P_MainModule;
+    friend class ModuleRenderer3D;
 };
 
