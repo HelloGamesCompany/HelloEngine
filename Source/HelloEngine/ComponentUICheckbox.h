@@ -1,5 +1,6 @@
 #pragma once
 #include "ComponentUI.h"
+#include "ModuleResourceManager.h"
 
 enum class CheckboxState {
 	NORMAL,
@@ -25,6 +26,15 @@ class ComponentUICheckbox : public ComponentUI
 private:
 	bool checkActive = false;
 	float colors[4] = { 0,0,0,0 };
+
+	int textureIDIdleCB = -1;
+	int textureIDHoverCB = -1;
+	int textureIDPressCB = -1;
+
+	ResourceTexture* idleCB = nullptr;
+	ResourceTexture* hoverCB = nullptr;
+	ResourceTexture* pressCB = nullptr;
+
 #ifdef STANDALONE
 	void OnEditor() override;
 

@@ -28,16 +28,28 @@ void ParticleManager::Draw()
 	for (Emitter* emitter : EmitterList)
 	{
 
-		if (LayerGame::S_IsPlaying() || emitter->component->playOnScene)
+		if (LayerGame::S_IsPlaying() || emitter->component->GetPlayOnScene())
 		{
 			//UPDATE EACH EMITTER
+			if (!emitter->loop) {
+				if (emitter->Duration <= 0) {
+					emitter->stop = true;				
+				}
+				else {
+					emitter->stop = false;
+				}
+			}
+			else {
+				emitter->stop = false;
+			}
 
 			if (emitter->component != nullptr)
 				emitter->component->particleProps.position = emitter->component->_gameObject->transform->GetGlobalPosition();
+			
+			if(!emitter->stop)
+				emitter->EmitParticles(emitter->component->particleProps);
 
-			emitter->EmitParticles(emitter->component->particleProps);
-
-			emitter->UpdateParticles(emitter->component->GetGameObject()->GetComponent<BillBoardComponent>()->GetBBRotation());
+			emitter->UpdateParticles();
 
 			// DRAW EACH EMITTER
 			

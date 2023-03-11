@@ -45,7 +45,6 @@ void ComponentUIImage::DeSerialization(json& j)
 
 	_fillImage = j["FillImage"];
 
-
 	_gameObject->transform->ForceUpdate();
 
 }
