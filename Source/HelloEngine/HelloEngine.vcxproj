@@ -111,7 +111,7 @@
       <Optimization>Disabled</Optimization>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>DebugFull</GenerateDebugInformation>
@@ -130,15 +130,15 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;AK_OPTIMIZED;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;AK_OPTIMIZED;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <AdditionalIncludeDirectories>$(SolutionDir)Source\HelloEngine;$(SolutionDir)Source\External\Glew\include;$(SolutionDir)Source\External\SDL\include;$(SolutionDir)Source\External\imgui;$(SolutionDir)Source\External\MathGeoLib\include;$(SolutionDir)Source\External\json\include\single_include\nlohmann;$(SolutionDir)Output\HelloAPI\Source;$(SolutionDir)Source\External\PugiXml\src;%(AdditionalIncludeDirectories);$(SolutionDir)Source\External\Assimp\include;$(SolutionDir)Source\External\PhysFS\include;$(SolutionDir)Source\External\DevIL\include;$(SolutionDir)Source\External\mmgr;$(SolutionDir)Source\External\Bullet\include;$(SolutionDir)Source\External\Wwise\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <Optimization>Disabled</Optimization>
+      <Optimization>Full</Optimization>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>DebugFull</GenerateDebugInformation>
@@ -292,6 +292,7 @@
     <ClCompile Include="..\External\Wwise\include\AK\samples\AkFilePackageLUT.cpp" />
     <ClCompile Include="..\External\Wwise\include\AK\samples\AkGeneratedSoundBanksResolver.cpp" />
     <ClCompile Include="..\External\Wwise\include\AK\samples\AkMultipleFileLocation.cpp" />
+    <ClCompile Include="API\API_AnimationPlayer.cpp" />
     <ClCompile Include="API\API_Console.cpp" />
     <ClCompile Include="API\API_GameObject.cpp" />
     <ClCompile Include="API\API_Input.cpp" />
@@ -472,6 +473,7 @@
     <ClInclude Include="..\External\PugiXml\src\pugixml.hpp" />
     <ClInclude Include="AnimationComponent.h" />
     <ClInclude Include="API\API.h" />
+    <ClInclude Include="API\API_AnimationPlayer.h" />
     <ClInclude Include="API\API_Console.h" />
     <ClInclude Include="API\API_GameObject.h" />
     <ClInclude Include="API\API_Input.h" />

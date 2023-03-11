@@ -15,13 +15,13 @@ float CamMov::Lerp(float a, float b, float t)
 
 void CamMov::Start()
 {
-	camPos.x = 4.217f;
-	camPos.y = 20.831f;
-	camPos.z = -18.607f;
+	camPos.x = 0;
+	camPos.y = 60.0f;
+	camPos.z = -20.0f;
 
-	camRot.x = 39.879f;
-	camRot.y = -9.614f;
-	camRot.z = 7.943f;
+	camRot.x = 60.0f;
+	camRot.y = 0;
+	camRot.z = 0;
 
 	gameObject.GetTransform().SetPosition(camPos);
 	gameObject.GetTransform().SetRotation(camRot);
@@ -29,13 +29,13 @@ void CamMov::Start()
 }
 void CamMov::Update()
 {
-	desiredPosition.x = target.GetTransform().GetGlobalPosition().x + camPos.x;
-	desiredPosition.y = target.GetTransform().GetGlobalPosition().y + camPos.y;
-	desiredPosition.z = target.GetTransform().GetGlobalPosition().z + camPos.z;
+	desiredPosition.x = target.GetTransform().GetGlobalPosition().x + 0;
+	desiredPosition.y = target.GetTransform().GetGlobalPosition().y + 60.0f;
+	desiredPosition.z = target.GetTransform().GetGlobalPosition().z + -20.0f;
 
 	smoothedPosition.x = Lerp(gameObject.GetTransform().GetGlobalPosition().x, desiredPosition.x, delay);
 	smoothedPosition.y = Lerp(gameObject.GetTransform().GetGlobalPosition().y, desiredPosition.y, delay);
 	smoothedPosition.z = Lerp(gameObject.GetTransform().GetGlobalPosition().z, desiredPosition.z, delay);
 
-	gameObject.GetTransform().SetPosition(smoothedPosition.x, smoothedPosition.y, smoothedPosition.z);
+	gameObject.GetTransform().SetPosition(desiredPosition.x, desiredPosition.y, desiredPosition.z);
 }

@@ -15,9 +15,11 @@ public:
 
     void OnCollisionEnter(API::API_RigidBody other);
 
-    float speed = 0.0f;
+    float speed = 2.0f;
     float lifeTime = 5.0f;
     float damage = 0.0f;
     float resistanceDamage = 0.0f;
-    API_Vector3 direction;
+    float directionx;
+    float directiony;
+    float directionz;
 };

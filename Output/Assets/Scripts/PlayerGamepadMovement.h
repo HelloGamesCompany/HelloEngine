@@ -15,6 +15,9 @@ public:
 
     void GamepadAim();
 
+    void PlayWalk();
+    void PlayIdle();
+
     //player velocity on gamepad
     float vel = 0.0f;
 
@@ -38,6 +41,12 @@ public:
     API_GameObject finalCam;
     API_Transform MainCam;
     API_Transform StarShipCam;
+
+    API_AnimationPlayer animationPlayer;
+    uint idleAnim = 0;
+    uint walkAnim = 0;
+    uint currentAnim = 0;
+    uint playingAnim = 0;
 
     float _angle;
 };

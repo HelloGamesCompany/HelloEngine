@@ -26,13 +26,11 @@ public:
 	void ChangeTexture(ResourceTexture* resource);
 	void ChangeTexture(int ID);
 
-#ifdef STANDALONE
 	void OnEditor() override;
 
 	void MarkAsDead() override;
 	void MarkAsAlive() override;
 
-#endif // STANDALONE
 
 	void SetAsUI();
 

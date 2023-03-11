@@ -300,7 +300,7 @@
             {
                 "Active camera": true,
                 "Active culling": false,
-                "Aspect ratio": 0.8472468852996826,
+                "Aspect ratio": 0.4884546995162964,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -425,13 +425,7 @@
                         "Brake": 0.05000000074505806
                     },
                     {
-                        "Aux Cam": 3627558040
-                    },
-                    {
                         "Camera player": 2050549183
-                    },
-                    {
-                        "Camera Starship": 2916313095
                     }
                 ],
                 "Script Resource": 3374891891,
@@ -453,13 +447,7 @@
                         "Brake": 0.5
                     },
                     {
-                        "Aux Cam": 3627558040
-                    },
-                    {
                         "Camera player": 2050549183
-                    },
-                    {
-                        "Camera Starship": 2916313095
                     }
                 ],
                 "Script Resource": 1197654797,
@@ -1900,9 +1888,6 @@
                     },
                     {
                         "Projectile Mesh": 3233725919
-                    },
-                    {
-                        "Player": 3627558040
                     }
                 ],
                 "Script Resource": 3720537736,

@@ -11,12 +11,10 @@ public:
 	ScriptComponent(GameObject* go);
 	~ScriptComponent();
 
-#ifdef STANDALONE
 	void OnEditor() override;
 
 	void MarkAsDead() override;
 	void MarkAsAlive() override;
-#endif // STANDALONE
 
 	void Serialization(json& j) override;
 	void DeSerialization(json& j) override;
@@ -36,6 +34,8 @@ public:
 	void AddDragBoxMeshRenderer(const char* name, API::API_MeshRenderer* value) override;
 	void AddDragBoxCamera(const char* name, API::API_Camera* value) override;
 	void AddDragBoxRigidBody(const char* name, API::API_RigidBody* value) override;
+	void AddDragBoxAnimationPlayer(const char* name, API::API_AnimationPlayer* value) override;
+	void AddDragBoxAnimationResource(const char* name, uint* value) override;
 
 	uint GetResourceUID();
 	void DestroyedResource();
@@ -53,6 +53,8 @@ private:
 
 private:
 	uint scriptUID = 0;
+	uint uniqueUID = 0;
+	std::string headerName = "";
 	ResourceScript* scriptResource = nullptr;
 	json inspectorFieldsJSON;
 	std::string addedScript = "None"; // Name of a class that has been added using AddScript() method of API_Gameobject. Not attached to a Resource.

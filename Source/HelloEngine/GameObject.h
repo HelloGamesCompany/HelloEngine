@@ -89,12 +89,10 @@ public:
 	void OnCollisionEnter(PhysBody3D* other);
 
 
-#ifdef STANDALONE
     void OnEditor();
     bool MarkAsDead();
 
     bool MarkAsAlive();
-#endif // STANDALONE
 
     void Destroy();
 
@@ -139,9 +137,7 @@ private:
 	// On Editor variables
 	std::string _comboValues[COMPONENT_NUM] = { "Mesh Renderer", "Material", "Camera", "Script", "UI Button", "Physics","Particle System","Skinned Mesh Renderer", "Animation Player"};
 	bool _isPendingToDelete = false;
-#ifdef STANDALONE
     std::vector<int> _childrenDeletedIndex;
-#endif // STANDALONE
     friend class TransformComponent;
     friend class ModuleRenderer3D;
     friend class ModuleResourceManager;

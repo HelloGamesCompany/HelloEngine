@@ -145,7 +145,6 @@ void GameObject::OnCollisionEnter(PhysBody3D* other)
 	}
 }
 
-#ifdef STANDALONE
 
 void GameObject::OnEditor()
 {
@@ -194,13 +193,13 @@ void GameObject::OnEditor()
                 case 6:
                     if (!HasComponent<ParticleSystemComponent>())
                         AddComponent<ParticleSystemComponent>();
+                    break;
                 case 7:
                     if (!HasComponent<SkinnedMeshRenderComponent>())
                         AddComponent<SkinnedMeshRenderComponent>();
                     break;
                 case 8:
-                    if (!HasComponent<AnimationComponent>())
-                        AddComponent<AnimationComponent>();
+                    AddComponent<AnimationComponent>();
                     break;
                 }
             }
@@ -287,7 +286,6 @@ bool GameObject::MarkAsAlive()
 
     return false;
 }
-#endif // STANDALONE
 
 void GameObject::SetAllChildsPrefabUID(uint prefabUID)
 {

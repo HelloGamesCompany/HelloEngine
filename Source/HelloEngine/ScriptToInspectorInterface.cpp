@@ -5,9 +5,11 @@
 #include "API/API_MeshRenderer.h"
 #include "API/API_Camera.h"
 #include "API/API_RigidBody.h"
+#include "API/API_AnimationPlayer.h"
 #include "PhysicsComponent.h"
 #include "MeshRenderComponent.h"
 #include "CameraComponent.h"
+#include "AnimationComponent.h"
 
 void DragFieldFloat::OnEditor()
 {
@@ -460,6 +462,138 @@ void DragBoxRigidBody::OnDeserialize(json& j)
 				API::API_RigidBody* rigidBody = (API::API_RigidBody*)value;
 				rigidBody->SetComponent(component);
 			}
+		}
+	}
+}
+
+void DragBoxAnimationPlayer::OnEditor()
+{
+	API::API_AnimationPlayer* animation = (API::API_AnimationPlayer*)value;
+
+	std::string buttonName = "X##" + std::to_string(UID);
+	if (ImGui::Button(buttonName.c_str()))
+	{
+		animation->SetComponent(nullptr);
+	}
+	ImGui::SameLine();
+
+	ImGui::TextWrapped((valueName + ": ").c_str()); ImGui::SameLine();
+
+	if (animation->_animation == nullptr)
+	{
+		ImGui::TextColored(ImVec4(1, 1, 0, 1), "NULL (Drag an AnimationPlayer here)");
+	}
+	else
+	{
+		std::string gameObjectName(animation->GetGameObject().GetName());
+		std::string text = "(" + gameObjectName + ")" + ": AnimationPlayer";
+		ImGui::TextColored(ImVec4(1, 1, 0, 1), text.c_str());
+	}
+
+	if (ImGui::BeginDragDropTarget())
+	{
+		if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("GameObject"))
+		{
+			const uint* drop = (uint*)payload->Data;
+
+			GameObject* droppedGO = ModuleLayers::S_GetGameObject(*drop);
+			AnimationComponent* component = nullptr;
+
+			if (droppedGO != nullptr)
+				component = droppedGO->GetComponent<AnimationComponent>();
+
+			animation->SetComponent(component);
+		}
+		ImGui::EndDragDropTarget();
+	}
+}
+
+void DragBoxAnimationPlayer::OnSerialize(json& j)
+{
+	json _j;
+
+	API::API_AnimationPlayer* animation = (API::API_AnimationPlayer*)value;
+
+	if (animation->_animation != nullptr)
+	{
+		_j[valueName.c_str()] = animation->_animation->GetGameObject()->GetID();
+		j.push_back(_j);
+	}
+}
+
+void DragBoxAnimationPlayer::OnDeserialize(json& j)
+{
+	for (int i = 0; i < j.size(); i++)
+	{
+		if (j[i].find(valueName) != j[i].end())
+		{
+			uint id = j[i][valueName.c_str()];
+			GameObject* gameObject = ModuleLayers::S_GetGameObject(id);
+			AnimationComponent* component = nullptr;
+			if (gameObject != nullptr)
+				component = gameObject->GetComponent<AnimationComponent>();
+			if (component != nullptr)
+			{
+				API::API_AnimationPlayer* animation = (API::API_AnimationPlayer*)value;
+				animation->SetComponent(component);
+			}
+		}
+	}
+}
+
+void DragBoxAnimationResource::OnEditor()
+{
+	uint* animationUID = (uint*)value;
+
+	ImGui::TextWrapped((valueName + ": ").c_str()); ImGui::SameLine();
+
+	if (*animationUID == 0)
+	{
+		ImGui::TextColored(ImVec4(1, 1, 0, 1), "NULL (Drag an AnimationResource here)");
+	}
+	else
+	{
+		ResourceAnimation* animRes = (ResourceAnimation*)ModuleResourceManager::resources[*animationUID];
+		std::string gameObjectName(animRes->debugName);
+		std::string text = "(" + gameObjectName + ")" + ": AnimationResource";
+		ImGui::TextColored(ImVec4(1, 1, 0, 1), text.c_str());
+	}
+
+	if (ImGui::BeginDragDropTarget())
+	{
+		if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("Animation"))
+		{
+			const uint* drop = (uint*)payload->Data;
+
+			ResourceAnimation* animRes = (ResourceAnimation*)ModuleResourceManager::S_LoadResource(*drop);
+
+			if (animRes != nullptr)
+				*animationUID = animRes->UID;
+		}
+		ImGui::EndDragDropTarget();
+	}
+}
+
+void DragBoxAnimationResource::OnSerialize(json& j)
+{
+	json _j;
+
+	uint* animationUID = (uint*)value;
+
+	if (*animationUID != 0)
+	{
+		_j[valueName.c_str()] = *animationUID;
+		j.push_back(_j);
+	}
+}
+
+void DragBoxAnimationResource::OnDeserialize(json& j)
+{
+	for (int i = 0; i < j.size(); i++)
+	{
+		if (j[i].find(valueName) != j[i].end())
+		{
+			*(uint*)value = j[i][valueName.c_str()];
 		}
 	}
 }

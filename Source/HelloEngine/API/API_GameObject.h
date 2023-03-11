@@ -13,6 +13,7 @@ namespace API
 	class API_MeshRenderer;
 	class API_Camera;
 	class API_RigidBody;
+	class API_AnimationPlayer;
 	class TO_API API_GameObject
 	{
 	public:
@@ -50,6 +51,7 @@ namespace API
 		friend class API_MeshRenderer;
 		friend class API_RigidBody;
 		friend class API_Camera;
+		friend class API_AnimationPlayer;
 		friend class Game;
 		friend class LayerGame;
 	};

@@ -11,6 +11,8 @@ ScriptComponent::ScriptComponent(GameObject* go) : Component(go)
 {
 	_type = Component::Type::SCRIPT;
 	LayerGame::S_AddScriptComponent(this);
+	uniqueUID = HelloUUID::GenerateUUID();
+	headerName = "Script#" + std::to_string(uniqueUID);
 }
 
 ScriptComponent::~ScriptComponent()
@@ -21,11 +23,10 @@ ScriptComponent::~ScriptComponent()
 	DestroyInspectorFields();
 }
 
-#ifdef STANDALONE
 void ScriptComponent::OnEditor()
 {
 	bool created = true;
-	if (ImGui::CollapsingHeader("Script", &created, ImGuiTreeNodeFlags_DefaultOpen | ImGuiTreeNodeFlags_AllowItemOverlap | ImGuiTreeNodeFlags_SpanAvailWidth))
+	if (ImGui::CollapsingHeader(headerName.c_str(), &created, ImGuiTreeNodeFlags_DefaultOpen | ImGuiTreeNodeFlags_AllowItemOverlap | ImGuiTreeNodeFlags_SpanAvailWidth))
 	{
 		if (scriptResource == nullptr && addedScript == "None")
 		{
@@ -51,7 +52,6 @@ void ScriptComponent::OnEditor()
 	if (!created)
 		_gameObject->DestroyComponent(this);
 }
-#endif // STANDALONE
 
 void ScriptComponent::OnEnable()
 {
@@ -228,6 +228,26 @@ void ScriptComponent::AddDragBoxRigidBody(const char* name, API::API_RigidBody* 
 	inspectorFields.push_back(dragBoxField);
 }
 
+void ScriptComponent::AddDragBoxAnimationPlayer(const char* name, API::API_AnimationPlayer* value)
+{
+	DragBoxAnimationPlayer* dragBoxField = new DragBoxAnimationPlayer();
+	dragBoxField->valueName = name;
+	dragBoxField->value = value;
+	dragBoxField->className = scriptResource == nullptr ? addedScript : scriptResource->className;
+
+	inspectorFields.push_back(dragBoxField);
+}
+
+void ScriptComponent::AddDragBoxAnimationResource(const char* name, uint* value)
+{
+	DragBoxAnimationResource* dragBoxField = new DragBoxAnimationResource();
+	dragBoxField->valueName = name;
+	dragBoxField->value = value;
+	dragBoxField->className = scriptResource == nullptr ? addedScript : scriptResource->className;
+
+	inspectorFields.push_back(dragBoxField);
+}
+
 uint ScriptComponent::GetResourceUID()
 {
 	if (scriptResource != nullptr)
@@ -321,7 +341,6 @@ void ScriptComponent::LoadInspectorFields(json* j)
 	}
 }
 
-#ifdef STANDALONE
 void ScriptComponent::MarkAsDead()
 {
 	SaveInspectorFields();
@@ -336,5 +355,4 @@ void ScriptComponent::MarkAsAlive()
 	LayerGame::S_AddScriptComponent(this);
 	LoadInspectorFields();
 }
-#endif // STANDALONE
 

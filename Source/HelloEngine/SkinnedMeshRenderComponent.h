@@ -12,19 +12,17 @@ public:
 
 	void CreateMesh(uint resourceUID, MeshRenderType type = MeshRenderType::INDEPENDENT) override;
 
-#ifdef STANDALONE
 	void OnEditor() override;
 
 	void RootBoneDropArea();
-#endif // STANDALONE
 
-	void UpdateBones();
+	void UpdateBones(Animation3D* animation = nullptr, float animationTime = 0);
 
 private:
-	void LinkBones(GameObject* goBone, std::map<std::string, BoneData> boneDataMap);
+	void LinkBones(GameObject* goBone, std::map<std::string, BoneData> boneDataMap, Animation3D* animation = nullptr, float4x4 parentTransform = float3x4::identity, float animationTime = 0);
 
 public:
-
+	bool hasAnim = false;
 	std::vector<float4x4> goBonesArr;
 
 private:

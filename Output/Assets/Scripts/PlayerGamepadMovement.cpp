@@ -13,7 +13,9 @@ HELLO_ENGINE_API_C PlayerGamepadMovement* CreatePlayerGamepadMovement(ScriptToIn
     script->AddDragBoxGameObject("Aux Cam", &classInstance->finalCam);
     script->AddDragBoxTransform("Camera player", &classInstance->MainCam);
     script->AddDragBoxTransform("Camera Starship", &classInstance->StarShipCam);
-
+    script->AddDragBoxAnimationPlayer("Animation player", &classInstance->animationPlayer);
+    script->AddDragBoxAnimationResource("Idle", &classInstance->idleAnim);
+    script->AddDragBoxAnimationResource("Walk", &classInstance->walkAnim);
     return classInstance;
 }
 
@@ -21,6 +23,8 @@ void PlayerGamepadMovement::Start()
 {
     _angle = 0.0f;
     vel = 0.0f;
+    playingAnim = idleAnim;
+    animationPlayer.Play();
 }
 void PlayerGamepadMovement::Update()
 {
@@ -68,13 +72,13 @@ void PlayerGamepadMovement::Update()
         {
             vel -= brake * dt;
             braking = true;
+            currentAnim = idleAnim;
         }
     }
 
     if (vel <= 0) {
         moving = false;
         braking = false;
-       // brake = 0.05f;
         vel = 0.0f;
         movB = movF = movR = movL = false;
 
@@ -94,7 +98,8 @@ void PlayerGamepadMovement::Update()
         }
     }
 
-
+    // If diagonal movement, half the speed;
+    float diagonalOffset = abs(movDir.x) > 10000 && abs(movDir.y) > 10000 ? 0.5f : 1.0f;
     //RIGHT MOVEMENT
     if ((movDir.x > 10000)|| (movR && braking))
     {
@@ -105,13 +110,14 @@ void PlayerGamepadMovement::Update()
 
         if (movDir.x > 10000)
         {
-            gameObject.GetTransform().Translate(vecL * vel);
+            gameObject.GetTransform().Translate(vecL * vel * diagonalOffset);
             movR = true;
         }
         else if (movR && braking)
         {
-            gameObject.GetTransform().Translate(vecL * vel);
+            gameObject.GetTransform().Translate(vecL * vel * diagonalOffset);
         }
+        currentAnim = walkAnim;
     }
 
     //LEFT MOVEMENT
@@ -124,13 +130,14 @@ void PlayerGamepadMovement::Update()
 
         if (movDir.x < -10000)
         {
-            gameObject.GetTransform().Translate(vecR * vel);
+            gameObject.GetTransform().Translate(vecR * vel * diagonalOffset);
             movL = true;
         }
         else if (movL && braking)
         {
-            gameObject.GetTransform().Translate(vecR * vel);
+            gameObject.GetTransform().Translate(vecR * vel* diagonalOffset);
         }
+        currentAnim = walkAnim;
     }
 
     //FORWARD MOVEMENT
@@ -143,13 +150,15 @@ void PlayerGamepadMovement::Update()
 
         if (movDir.y > 10000)
         {
-            gameObject.GetTransform().Translate(vecB * vel);
+            gameObject.GetTransform().Translate(vecB * vel * diagonalOffset);
             movF = true;
         }
         else if (movF && braking)
         {
-            gameObject.GetTransform().Translate(vecB * vel);
+            gameObject.GetTransform().Translate(vecB * vel * diagonalOffset);
         }
+        currentAnim = walkAnim;
+
     }
 
     //BACKWARD MOVEMENT
@@ -162,13 +171,15 @@ void PlayerGamepadMovement::Update()
 
         if (movDir.y < -10000)
         {
-            gameObject.GetTransform().Translate(vecF * vel);
+            gameObject.GetTransform().Translate(vecF * vel * diagonalOffset);
             movB = true;
         }
         else if (movB && braking)
         {
-            gameObject.GetTransform().Translate(vecF * vel);
+            gameObject.GetTransform().Translate(vecF * vel * diagonalOffset);
         }
+        currentAnim = walkAnim;
+
     }
 
     //AIM TO TOP
@@ -208,8 +219,18 @@ void PlayerGamepadMovement::Update()
         Console::Log(std::to_string(a));
     }
 
-
-
+    if (currentAnim != playingAnim)
+    {
+        Console::Log("Change Anim!");
+        playingAnim = currentAnim;
+        animationPlayer.Stop();
+        animationPlayer.ChangeAnimation(playingAnim);
+    }
+    if (!animationPlayer.IsPlaying())
+    {
+        Console::Log("Play!");
+        animationPlayer.Play();
+    }
 }
 
 
@@ -264,4 +285,12 @@ void PlayerGamepadMovement::GamepadAim()
     }
     gameObject.GetTransform().SetRotation(0, _angle, 0);
 
+}
+
+void PlayerGamepadMovement::PlayWalk()
+{
+}
+
+void PlayerGamepadMovement::PlayIdle()
+{
 }

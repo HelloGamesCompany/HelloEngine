@@ -92,9 +92,7 @@ private:
 	// ----------------------------------------------------------------------------------------------------
 	Shader* boneMeshShader = nullptr;
 
-#ifdef STANDALONE
 	Shader stencilShader;
-#endif
 
 	friend class RenderManager;
 	friend class MeshRenderComponent;

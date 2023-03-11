@@ -27,9 +27,7 @@ void ImWindowInspector::Update()
 
 			ImGui::InputText("Name", &selectGameobject->name, 0);
 			
-#ifdef STANDALONE
 			selectGameobject->OnEditor();
-#endif // STANDALONE
 
 		}
 	}

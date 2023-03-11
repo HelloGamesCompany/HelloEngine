@@ -22,13 +22,11 @@ ModuleCamera3D::~ModuleCamera3D()
 // -----------------------------------------------------------------
 bool ModuleCamera3D::Start()
 {
-#ifdef STANDALONE
 	sceneCamera = new SceneCameraObject(); // Needs to be allocated manually to avoid initializtion order issues.
 	sceneCamera->frameBuffer.SetBufferInfo();
 	sceneCamera->frameBuffer.SetDimensions(ModuleWindow::width, ModuleWindow::height);
 	sceneCamera->isCullingActive = false;
 	sceneCamera->cameraFrustum.farPlaneDistance = 4000;
-#endif // STANDALONE
 
 	
 	return true;
@@ -76,9 +74,7 @@ void ModuleCamera3D::SetCurrentActiveGameCamera(CameraObject* target)
 
 	target->currentlyDisplaying = true;
 
-#ifndef STANDALONE
 	Application::Instance()->renderer3D->OnResize(ModuleWindow::width, ModuleWindow::height);
-#endif // !STANDALONE
 
 }
 
@@ -115,9 +111,7 @@ UpdateStatus ModuleCamera3D::Update()
 	}
 	_frameBufferRegenCamera.clear();
 	
-#ifdef STANDALONE
 	if (updateSceneCamera) sceneCamera->UpdateInput();
-#endif // STANDALONE
 
 
 	return UpdateStatus::UPDATE_CONTINUE;

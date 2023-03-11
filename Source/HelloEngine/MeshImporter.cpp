@@ -39,8 +39,8 @@ std::string MeshImporter::ImportModel(std::string path, uint UID)
 
 	if (scene->HasAnimations()) {
 		std::string pathRes = ProcessAnimation(scene); //binary
-		std::string assetPath = ModuleFiles::S_GetFilePath(path);
-		assetPath += scene->mAnimations[0]->mName.C_Str();
+		std::string assetPath = ModuleFiles::S_RemoveExtension(path);
+		//assetPath += scene->mAnimations[0]->mName.C_Str();
 		assetPath += ".anim";
 
 		//Generate empty file for animation
@@ -280,34 +280,30 @@ std::string MeshImporter::ProcessAnimation(const aiScene* scene)
 
 		AnimatedBone bone;// = new AnimatedBone(impBone.mNodeName.C_Str(), anim.durationTicks + 1);
 		bone.name = impBone->mNodeName.C_Str();
-		bone.SizeKeyframes(anim.durationTicks + 1);
 
 		//Build keyframe matrixes
 		for (int p = 1; p < impBone->mNumPositionKeys; p++) {
 			aiVector3D pos = impBone->mPositionKeys[p].mValue;
 
-			bone.keyframes[(int)impBone->mPositionKeys[p].mTime].SetTranslatePart(float3(pos.x, pos.y, pos.z));
+			bone.positions[(float)impBone->mPositionKeys[p].mTime] = float3(pos.x, pos.y, pos.z);
 		}
 
 		for (int r = 1; r < impBone->mNumRotationKeys; r++) {
 			aiQuaternion impRot = impBone->mRotationKeys[r].mValue;
 			Quat rot = Quat(impRot.x, impRot.y, impRot.z, impRot.w);
 
-			bone.keyframes[(int)impBone->mRotationKeys[r].mTime].SetRotatePart(rot);
+			bone.rotations[(float)impBone->mRotationKeys[r].mTime] = rot;
 		}
 
 		for (int s = 1; s < impBone->mNumScalingKeys; s++) {
 			aiVector3D sca = impBone->mScalingKeys[s].mValue;
 
-			bone.keyframes[(int)impBone->mScalingKeys[s].mTime][0][0] *= sca.x;
-			bone.keyframes[(int)impBone->mScalingKeys[s].mTime][1][1] *= sca.y;
-			bone.keyframes[(int)impBone->mScalingKeys[s].mTime][2][2] *= sca.z;
+			bone.scales[(float)impBone->mScalingKeys[s].mTime] = float3(sca.x, sca.y, sca.z);
 		}
 
 		anim.bones.push_back(bone);
 	}
 
-	//RELEASE(anim);
 	return anim.SaveToBinaryFile();
 }
 
