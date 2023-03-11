@@ -93,14 +93,14 @@ UpdateStatus ModuleRenderer3D::PreUpdate()
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	if (app->input->S_GetKey(SDL_SCANCODE_B) == KEY_DOWN)
+	/*if (app->input->S_GetKey(SDL_SCANCODE_B) == KEY_DOWN)
 	{
 		particleManager.EmitterList[0]->component->SetPlayOnGame(true);
 	}
 	if (app->input->S_GetKey(SDL_SCANCODE_N) == KEY_DOWN)
 	{
 		particleManager.EmitterList[0]->component->SetPlayOnGame(false);
-	}
+	}*/
 
 	return UpdateStatus::UPDATE_CONTINUE;
 }
