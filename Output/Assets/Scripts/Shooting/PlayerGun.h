@@ -21,7 +21,7 @@ public:
     virtual void EnableGuns(bool enable);
 
 protected:
-    void LauchProjectile(API_Transform projectileSpawn);
+    void LauchProjectile(API_Transform projectileSpawn, bool randomDirection = false);
 
 public:
     API_GameObject projectilePull;

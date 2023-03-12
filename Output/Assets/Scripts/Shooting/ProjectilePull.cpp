@@ -1,5 +1,6 @@
 #include "ProjectilePull.h"
 #include "../PlayerGamepadMovement.h"
+#include <time.h>
 HELLO_ENGINE_API_C ProjectilePull* CreateProjectilePull(ScriptToInspectorInterface* script)
 {
     ProjectilePull* classInstance = new ProjectilePull();
@@ -12,6 +13,8 @@ HELLO_ENGINE_API_C ProjectilePull* CreateProjectilePull(ScriptToInspectorInterfa
 
 void ProjectilePull::Start()
 {
+    srand(time(NULL));
+
     for (size_t i = 0; i < pullSize; i++)
     {
         API_GameObject newProjectile = Game::CreateGameObject("Projectile", "Projectile");
@@ -38,13 +41,20 @@ API_GameObject ProjectilePull::GetFirstActiveProjectile()
     return pull[0];
 }
 
-void ProjectilePull::LauchProjectile(float projectileSpeed, float projectileDamage, float projectileResistanceDamage, float projectileLifetime, API_Transform shootingSpawn, API_MeshRenderer projectileMesh, API_Vector3 projectileScale)
+void ProjectilePull::LauchProjectile(float projectileSpeed, float projectileDamage, float projectileResistanceDamage, float projectileLifetime, API_Transform shootingSpawn, API_MeshRenderer projectileMesh, API_Vector3 projectileScale, bool randomDirection)
 {
     API_GameObject go = GetFirstActiveProjectile();
     go.SetActive(true);
     go.GetTransform().SetPosition(shootingSpawn.GetGlobalPosition());
     go.GetTransform().SetRotation(playerGO.GetTransform().GetLocalRotation());
     go.GetTransform().SetScale(projectileScale);
+
+    if (randomDirection)
+    {
+        float offsetX = (-49 + rand() % (100)) / 5.0f; // values between -25 and 25
+        float offsetY = (-49 + rand() % (100)) / 5.0f;
+        go.GetTransform().Rotate(offsetX, offsetY, 0);
+    }
 
     Projectile* projectile = (Projectile*)go.GetScript("Projectile");
     projectile->speed = projectileSpeed;

@@ -1,7 +1,7 @@
-#include "PlayerGun.h"
-HELLO_ENGINE_API_C PlayerGun* CreatePlayerGun(ScriptToInspectorInterface* script)
+#include "PlayerShotgun.h"
+HELLO_ENGINE_API_C PlayerShotgun* CreatePlayerShotgun(ScriptToInspectorInterface* script)
 {
-    PlayerGun* classInstance = new PlayerGun();
+    PlayerShotgun* classInstance = new PlayerShotgun();
     //Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
     script->AddDragBoxGameObject("Projectile Pull", &classInstance->projectilePull);
     script->AddDragFloat("Projectile Speed", &classInstance->projectileSpeed);
@@ -14,36 +14,44 @@ HELLO_ENGINE_API_C PlayerGun* CreatePlayerGun(ScriptToInspectorInterface* script
     script->AddDragFloat("Projectile ScaleY", &classInstance->projectileScale.y);
     script->AddDragFloat("Projectile ScaleZ", &classInstance->projectileScale.z);
     script->AddDragFloat("Projectiles per second", &classInstance->cadence);
+    script->AddDragInt("Pellets per shot", &classInstance->pellets);
     return classInstance;
 }
 
-void PlayerGun::Start()
+void PlayerShotgun::Start()
 {
-
+    if (cadence != 0) fullShotCooldown = 1 / cadence;
+    else fullShotCooldown = 0;
 }
 
-void PlayerGun::Update()
+void PlayerShotgun::Update()
 {
+    if (canShoot) return;
 
-}
-
-void PlayerGun::Shoot()
-{
-
-}
-
-void PlayerGun::EnableGuns(bool enable)
-{
-    
-}
-
-void PlayerGun::LauchProjectile(API_Transform projectileSpawn, bool randomDirection)
-{
-    ProjectilePull* pull = (ProjectilePull*)projectilePull.GetScript("ProjectilePull");
-    if (pull == nullptr)
+    if (shotCooldown <= 0)
     {
-        Console::Log("ProjectilePull not asigned");
-        return;
+        canShoot = true;
     }
-    pull->LauchProjectile(projectileSpeed, projectileDamage, projectileResistanceDamage, projectileLifetime, projectileSpawn, projectileMesh, projectileScale, randomDirection);
+    else
+    {
+        shotCooldown -= Time::GetDeltaTime();
+    }
+}
+
+void PlayerShotgun::Shoot()
+{
+    if (canShoot)
+    {
+        for (size_t i = 0; i < pellets; i++)
+        {
+            LauchProjectile(shootingSpawn, true);
+        }
+        canShoot = false;
+        shotCooldown = fullShotCooldown;
+    }
+}
+
+void PlayerShotgun::EnableGuns(bool enable)
+{
+    gameObject.SetActive(enable);
 }

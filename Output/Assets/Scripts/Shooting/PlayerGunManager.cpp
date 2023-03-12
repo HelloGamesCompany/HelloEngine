@@ -31,6 +31,7 @@ void PlayerGunManager::Update()
     {
     case 0:
     case 1:
+    case 3:
         if ((Input::GetGamePadAxis(GamePadAxis::AXIS_TRIGGERRIGHT) > 5000 && canShoot) || Input::GetMouseButton(MouseButton::LEFT) == KeyState::KEY_DOWN)
         {
             equipedGun->Shoot();
@@ -92,6 +93,9 @@ void PlayerGunManager::EquipNextGun()
     case 2: // automatic
         equipedGun = (PlayerGun*)guns[equipedIndex].GetScript("PlayerAutomatic");
         break;
+    case 3: // shotgun
+        equipedGun = (PlayerGun*)guns[equipedIndex].GetScript("PlayerShotgun");
+        break;
     default:
         equipedGun = nullptr;
         break;
@@ -118,6 +122,9 @@ void PlayerGunManager::EquipGun(int index)
         break;
     case 2: // automatic
         equipedGun = (PlayerGun*)guns[equipedIndex].GetScript("PlayerAutomatic");
+        break;
+    case 3: // shotgun
+        equipedGun = (PlayerGun*)guns[equipedIndex].GetScript("PlayerShotgun");
         break;
     default:
         equipedGun = nullptr;
