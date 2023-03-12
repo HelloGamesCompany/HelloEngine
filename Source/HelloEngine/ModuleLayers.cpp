@@ -43,8 +43,9 @@ bool ModuleLayers::Start()
     emptyAPITransform = new API::API_Transform();
     emptyAPIGameObject = new API::API_GameObject();
 
-   
+#ifdef STANDALONE
     _layers[(uint)LayersID::EDITOR] = new LayerEditor();
+#endif
     _layers[(uint)LayersID::GAME] = new LayerGame();
     _layers[(uint)LayersID::UI] = new LayerUI();
 
@@ -82,9 +83,9 @@ bool ModuleLayers::Start()
         ModuleResourceManager::S_SerializeScene(rootGameObject);
     }
 
-    Console::S_Log("Error message test", LogType::ERR);
-    Console::S_Log("Warning message test", LogType::WARNING);
-
+#ifndef STANDALONE
+    LayerGame::S_Play();
+#endif
 
     return true;
 }

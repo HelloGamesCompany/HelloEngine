@@ -34,6 +34,7 @@ void SkinnedMeshRenderComponent::CreateMesh(uint resourceUID, MeshRenderType typ
 	MeshRenderComponent::CreateMesh(resourceUID, MeshRenderType::INDEPENDENT);
 
 }
+#ifdef STANDALONE
 
 void SkinnedMeshRenderComponent::OnEditor()
 {
@@ -88,6 +89,7 @@ void SkinnedMeshRenderComponent::OnEditor()
 		this->_gameObject->DestroyComponent(this);
 }
 
+#endif
 void SkinnedMeshRenderComponent::RootBoneDropArea()
 {
 	ImGui::NewLine();

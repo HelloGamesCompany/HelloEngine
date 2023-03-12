@@ -37,5 +37,5 @@ void CamMov::Update()
 	smoothedPosition.y = Lerp(gameObject.GetTransform().GetGlobalPosition().y, desiredPosition.y, delay);
 	smoothedPosition.z = Lerp(gameObject.GetTransform().GetGlobalPosition().z, desiredPosition.z, delay);
 
-	gameObject.GetTransform().SetPosition(desiredPosition.x, desiredPosition.y, desiredPosition.z);
+	gameObject.GetTransform().SetPosition(smoothedPosition.x, smoothedPosition.y, smoothedPosition.z);
 }

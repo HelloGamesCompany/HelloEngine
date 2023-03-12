@@ -22,12 +22,12 @@ public:
 
     void OnEnable() override;
     void OnDisable() override;
-
+#ifdef STANDALONE
     void OnEditor() override;
 
     void MarkAsDead() override;
     void MarkAsAlive() override;
-
+#endif  
     void Serialization(json& j) override;
     void DeSerialization(json& j) override;
 

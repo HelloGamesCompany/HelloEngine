@@ -19,7 +19,7 @@ AnimationComponent::~AnimationComponent()
 {
 	LayerGame::S_RemoveAnimationComponent(this);
 }
-
+#ifdef STANDALONE
 void AnimationComponent::OnEditor()
 {
 	bool created = true;
@@ -78,7 +78,7 @@ void AnimationComponent::OnEditor()
 	if (!created)
 		this->_gameObject->DestroyComponent(this);
 }
-
+#endif
 void AnimationComponent::AnimationDropArea()
 {
 	ImGui::NewLine();

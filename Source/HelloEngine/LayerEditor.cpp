@@ -232,7 +232,9 @@ void LayerEditor::PostUpdate()
 			_imWindows[i]->Update();
     }
 
+#ifdef STANDALONE
 	Application::Instance()->renderer3D->renderManager.OnEditor();
+#endif
 
 	if (_openLoadScene)
 		DrawPopUpLoadScene();

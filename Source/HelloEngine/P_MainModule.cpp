@@ -10,6 +10,8 @@ P_MainModule::~P_MainModule()
 {
 }
 
+#ifdef STANDALONE
+
 void P_MainModule::OnEditor()
 {
 	if (ImGui::CollapsingHeader("Particle Main Module")) 
@@ -33,3 +35,5 @@ void P_MainModule::OnEditor()
 	}
 
 }
+
+#endif
