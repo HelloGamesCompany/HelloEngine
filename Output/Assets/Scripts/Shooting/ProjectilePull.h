@@ -19,10 +19,8 @@ public:
 
     int pullSize;
     std::vector<API_GameObject> pull;
+    API_GameObject playerGO;
 
     // temp
     API_MeshRenderer mesh;
-
-    API_GameObject projectileGO;
-    API_GameObject playerGO;
 };

@@ -155,10 +155,10 @@
                         "Second Projectile Spawn": 3652488739
                     },
                     {
-                        "Projectiles per second": 1.0
+                        "Projectiles per second": 3.0
                     },
                     {
-                        "Burst Space": 0.20000000298023224
+                        "Burst Space": 0.15000000596046448
                     },
                     {
                         "Second Gun GO": 767734061
@@ -185,10 +185,10 @@
                         "Second Projectile Spawn": 3652488739
                     },
                     {
-                        "Projectiles per second": 1.0
+                        "Projectiles per second": 3.0
                     },
                     {
-                        "Burst Space": 0.20000000298023224
+                        "Burst Space": 0.15000000596046448
                     },
                     {
                         "Second Gun GO": 767734061
@@ -486,22 +486,22 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Bullet": 1169338156
-                    },
-                    {
-                        "Pull Size": 0
+                        "Pull Size": 10
                     },
                     {
                         "Player": 3272613755
                     },
                     {
-                        "Bullet": 1169338156
+                        "Projectile Mesh": 1169338156
                     },
                     {
-                        "Pull Size": 0
+                        "Pull Size": 10
                     },
                     {
                         "Player": 3272613755
+                    },
+                    {
+                        "Projectile Mesh": 1169338156
                     }
                 ],
                 "Script Resource": 3720537736,
@@ -514,6 +514,48 @@
         "PrefabUID": 0,
         "Tag": "Default",
         "UID": 439650558
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    9.121774673461914,
+                    -4.41722297668457
+                ],
+                "Rotation": [
+                    54.99271011352539,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0000001192092896,
+                    1.0000001192092896
+                ],
+                "Type": 1
+            },
+            {
+                "Active camera": true,
+                "Active culling": true,
+                "Aspect ratio": 1.7491525411605835,
+                "Enabled": true,
+                "FOV": 60.0,
+                "Far plane": 1000.0,
+                "Frustum type": 2,
+                "Near plane": 0.009999999776482582,
+                "Orthographic size": 10.0,
+                "Type": 4
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Camera",
+        "ParentUID": 4189708300,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3681630492
     },
     {
         "Active": false,
@@ -556,51 +598,9 @@
         ],
         "FirstOnPrefab": true,
         "Name": "Bullet",
-        "ParentUID": 439650558,
-        "PrefabUID": 0,
-        "Tag": "Default",
-        "UID": 1169338156
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    9.121774673461914,
-                    -4.41722297668457
-                ],
-                "Rotation": [
-                    54.99271011352539,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0000001192092896,
-                    1.0000001192092896
-                ],
-                "Type": 1
-            },
-            {
-                "Active camera": true,
-                "Active culling": true,
-                "Aspect ratio": 1.723793625831604,
-                "Enabled": true,
-                "FOV": 60.0,
-                "Far plane": 1000.0,
-                "Frustum type": 2,
-                "Near plane": 0.009999999776482582,
-                "Orthographic size": 10.0,
-                "Type": 4
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "Camera",
         "ParentUID": 4189708300,
         "PrefabUID": 0,
         "Tag": "Default",
-        "UID": 3681630492
+        "UID": 1169338156
     }
 ]
