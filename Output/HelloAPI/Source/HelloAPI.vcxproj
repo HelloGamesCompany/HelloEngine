@@ -151,12 +151,13 @@
 		<ClCompile Include="../../Assets/Scripts/Shooting/PlayerGunManager.cpp" />
 		<ClCompile Include="../../Assets/Scripts/Shooting/PlayerGun.cpp" />
 		<ClCompile Include="../../Assets/Scripts/Shooting/PlayerGunType.cpp" />
-		<ClCompile Include="../../Assets/Scripts/Shooting/PlayerSemiAuto.cpp" />
 		<ClCompile Include="../../Assets/Scripts/Shooting/ProjectilePull.cpp" />
 		<ClCompile Include="../../Assets/Scripts/Shooting/Projectile.cpp" />
 		<ClCompile Include="../../Assets/Build/AnimationTest.cpp" />
 		<ClCompile Include="../../Assets/Scripts/RotateContiniously.cpp" />
 		<ClCompile Include="../../Assets/Scripts/Player/PlayerMove.cpp" />
+		<ClCompile Include="../../Assets/Scripts/Shooting/Guns/PlayerDuals.cpp" />
+		<ClCompile Include="../../Assets/Scripts/Shooting/Guns/PlayerSemiAuto.cpp" />
 	</ItemGroup>
 	<ItemGroup>
 		<ClInclude Include="Macro.h" />
@@ -175,12 +176,13 @@
 		<ClInclude Include="../../Assets/Scripts/Shooting/PlayerGunManager.h" />
 		<ClInclude Include="../../Assets/Scripts/Shooting/PlayerGun.h" />
 		<ClInclude Include="../../Assets/Scripts/Shooting/PlayerGunType.h" />
-		<ClInclude Include="../../Assets/Scripts/Shooting/PlayerSemiAuto.h" />
 		<ClInclude Include="../../Assets/Scripts/Shooting/ProjectilePull.h" />
 		<ClInclude Include="../../Assets/Scripts/Shooting/Projectile.h" />
 		<ClInclude Include="../../Assets/Build/AnimationTest.h" />
 		<ClInclude Include="../../Assets/Scripts/RotateContiniously.h" />
 		<ClInclude Include="../../Assets/Scripts/Player/PlayerMove.h" />
+		<ClInclude Include="../../Assets/Scripts/Shooting/Guns/PlayerDuals.h" />
+		<ClInclude Include="../../Assets/Scripts/Shooting/Guns/PlayerSemiAuto.h" />
 	</ItemGroup>
 	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 	<ImportGroup Label="ExtensionTargets" />

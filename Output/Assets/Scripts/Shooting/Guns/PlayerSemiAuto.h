@@ -5,7 +5,7 @@
 
 #include "API/API.h"
 
-#include "PlayerGun.h"
+#include "../PlayerGun.h"
 
 class PlayerSemiAuto : public PlayerGun
 {
@@ -18,7 +18,6 @@ public:
     float fullShotCooldown;
     float shotCooldown;
     bool canShoot = true;
-    float shotBufferCooldown = 0.5f;
+    float shotBufferCooldown = SHOT_BUFFER;
     bool shotBuffer = false;;
 };
-

@@ -2,6 +2,7 @@
 #include "API/HelloBehavior.h"
 #include "ScriptToInspectorInterface.h"
 #include "Macro.h"
+#include <vector>
 
 #include "API/API.h"
 
@@ -14,7 +15,16 @@ public:
     void Start() override;
     void Update() override;
 
-    API_GameObject guns;
+    void SwapGun(bool next);
+    void EquipNextGun();
+    void EquipGun(int index);
+
+    API_GameObject firstGun;
+    API_GameObject secondGun;
+    API_GameObject thirdGun;
+
+    std::vector<API_GameObject> guns;
+    int equipedIndex;
     PlayerGun* equipedGun;
 
     bool canShoot = true;

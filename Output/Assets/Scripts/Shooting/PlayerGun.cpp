@@ -29,16 +29,13 @@ void PlayerGun::Shoot()
 
 }
 
-void PlayerGun::LauchProjectile()
+void PlayerGun::LauchProjectile(API_Transform projectileSpawn)
 {
-    float x = shootingSpawn.GetUp().x;
-    float z = shootingSpawn.GetUp().z;
-
     ProjectilePull* pull = (ProjectilePull*)projectilePull.GetScript("ProjectilePull");
     if (pull == nullptr)
     {
         Console::Log("ProjectilePull not asigned");
         return;
     }
-    pull->LauchProjectile(projectileSpeed, projectileDamage, projectileResistanceDamage, projectileLifetime, shootingSpawn, projectileMesh);
+    pull->LauchProjectile(projectileSpeed, projectileDamage, projectileResistanceDamage, projectileLifetime, projectileSpawn, projectileMesh);
 }

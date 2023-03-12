@@ -45,19 +45,9 @@ void ProjectilePull::LauchProjectile(float projectileSpeed, float projectileDama
     go.SetActive(true);
     go.GetTransform().SetPosition(shootingSpawn.GetGlobalPosition());
     go.GetTransform().SetRotation(playerGO.GetTransform().GetLocalRotation());
-    //go.ChangeMesh;
-   /* PlayerGamepadMovement* player = (PlayerGamepadMovement*)playerGO.GetScript("PlayerGamepadMovement");
-
-    float angle = player->_angle;*/
-
-   /* API_Vector3 originalDir = { 0,0,-1.0f };
-
-    originalDir.z = originalDir.x * cos(angle) - originalDir.z * sin(angle);
-    originalDir.x = originalDir.x * sin(angle) - originalDir.z * cos(angle);*/
 
     Projectile* projectile = (Projectile*)go.GetScript("Projectile");
-    //projectile->direction = originalDir;
-    //projectile->speed = projectileSpeed;
+    projectile->speed = projectileSpeed;
     projectile->damage = projectileDamage;
     projectile->resistanceDamage = projectileResistanceDamage;
     projectile->lifeTime = projectileLifetime;
