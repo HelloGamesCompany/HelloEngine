@@ -64,24 +64,24 @@ bool ModuleLayers::Start()
 
     _sceneBeginPath = sceneXML.FindChildBreadth("currentScene").node.attribute("value").as_string();
 
-    if (!ModuleResourceManager::S_DeserializeScene(_sceneBeginPath))
-    {
+    //if (!ModuleResourceManager::S_DeserializeScene(_sceneBeginPath))
+    //{
         rootGameObject = new GameObject(nullptr, "Root", "None");
-        XMLNode sceneXML = Application::Instance()->xml->GetConfigXML();
+    //    XMLNode sceneXML = Application::Instance()->xml->GetConfigXML();
 
-        std::string newDir = ASSETS_PATH;
+    //    std::string newDir = ASSETS_PATH;
 
-        // Change Title
-        newDir += rootGameObject->name + ".HScene";
+    //    // Change Title
+    //    newDir += rootGameObject->name + ".HScene";
 
-        std::string scenePath = " -- CurrentScene: " + newDir;
+    //    std::string scenePath = " -- CurrentScene: " + newDir;
 
-        ModuleWindow::S_AddTitleExtraInfo(scenePath);
+    //    ModuleWindow::S_AddTitleExtraInfo(scenePath);
 
-        sceneXML.FindChildBreadth("currentScene").node.attribute("value").set_value(newDir.c_str());
-        
-        ModuleResourceManager::S_SerializeScene(rootGameObject);
-    }
+    //    sceneXML.FindChildBreadth("currentScene").node.attribute("value").set_value(newDir.c_str());
+    //    
+    //    ModuleResourceManager::S_SerializeScene(rootGameObject);
+    //}
 
 #ifndef STANDALONE
     LayerGame::S_Play();
@@ -178,10 +178,6 @@ bool ModuleLayers::CleanUp()
 
 uint ModuleLayers::S_AddGameObject(GameObject* go, uint ID)
 {
-    if (go == nullptr)
-    {
-        std::cout << "a" << std::endl;
-    }
     ID = ID == 0 ? HelloUUID::GenerateUUID() : ID;
     gameObjects[ID] = go;
     return ID;

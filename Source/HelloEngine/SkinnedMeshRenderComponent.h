@@ -20,7 +20,7 @@ public:
 	void UpdateBones(Animation3D* animation = nullptr, float animationTime = 0);
 
 private:
-	void LinkBones(GameObject* goBone, std::map<std::string, BoneData> boneDataMap, Animation3D* animation = nullptr, float4x4 parentTransform = float3x4::identity, float animationTime = 0);
+	void LinkBones(GameObject* goBone, std::map<std::string, BoneData>& boneDataMap, Animation3D* animation = nullptr, float4x4 parentTransform = float3x4::identity, float animationTime = 0);
 
 public:
 	bool hasAnim = false;

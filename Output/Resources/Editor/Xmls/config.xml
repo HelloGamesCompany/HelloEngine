@@ -10,11 +10,11 @@
 		<framerate value="120" />
 	</renderer>
 	<scene>
-		<currentScene value="Assets/Root.HScene" />
+		<currentScene value="Assets/testmemoryleak.HScene" />
 	</scene>
 	<openGL>
 		<blend value="true" tag="0x0BE2" />
 		<cullFace value="false" tag="0x0B44" />
-		<wireframe value="false" />
+		<wireframe value="true" />
 	</openGL>
 </config>

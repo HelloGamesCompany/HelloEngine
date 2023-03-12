@@ -123,7 +123,7 @@ void SkinnedMeshRenderComponent::UpdateBones(Animation3D* animation, float anima
 	LinkBones(rootBone, _resource->meshInfo.boneDataMap, animation, float4x4::identity, animationTime);
 }
 
-void SkinnedMeshRenderComponent::LinkBones(GameObject* goBone, std::map<std::string, BoneData> boneDataMap, Animation3D* animation, float4x4 parentTransform, float animationTime)
+void SkinnedMeshRenderComponent::LinkBones(GameObject* goBone, std::map<std::string, BoneData>& boneDataMap, Animation3D* animation, float4x4 parentTransform, float animationTime)
 {
 	if (boneDataMap.count(goBone->name))
 	{
