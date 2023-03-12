@@ -106,13 +106,10 @@ UpdateStatus ModulePhysics::PreUpdate()
 	else
 	{
 		world->stepSimulation(0);
-		std::cout << "stop" << std::endl;
 	}
 #elif STANDALONE
 	if (LayerGame::S_IsPlaying() && !LayerGame::S_IsPause())
 	{
-		float a = EngineTime::GameDeltaTime();
-		Console::S_Log(std::to_string(a));
 		world->stepSimulation(EngineTime::GameDeltaTime(), 15);
 }
 	else
