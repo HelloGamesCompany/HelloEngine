@@ -10,6 +10,9 @@ HELLO_ENGINE_API_C PlayerSemiAuto* CreatePlayerSemiAuto(ScriptToInspectorInterfa
     script->AddDragFloat("Projectile Lifetime", &classInstance->projectileLifetime);
     script->AddDragBoxTransform("Projectile Spawn", &classInstance->shootingSpawn);
     script->AddDragBoxMeshRenderer("Projectile Mesh", &classInstance->projectileMesh);
+    script->AddDragFloat("Projectile ScaleX", &classInstance->projectileScale.x);
+    script->AddDragFloat("Projectile ScaleY", &classInstance->projectileScale.y);
+    script->AddDragFloat("Projectile ScaleZ", &classInstance->projectileScale.z);
     script->AddDragFloat("Projectiles per second", &classInstance->cadence);
     return classInstance;
 }

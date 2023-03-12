@@ -1,7 +1,7 @@
-#include "PlayerGun.h"
-HELLO_ENGINE_API_C PlayerGun* CreatePlayerGun(ScriptToInspectorInterface* script)
+#include "PlayerAutomatic.h"
+HELLO_ENGINE_API_C PlayerAutomatic* CreatePlayerAutomatic(ScriptToInspectorInterface* script)
 {
-    PlayerGun* classInstance = new PlayerGun();
+    PlayerAutomatic* classInstance = new PlayerAutomatic();
     //Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
     script->AddDragBoxGameObject("Projectile Pull", &classInstance->projectilePull);
     script->AddDragFloat("Projectile Speed", &classInstance->projectileSpeed);
@@ -17,33 +17,37 @@ HELLO_ENGINE_API_C PlayerGun* CreatePlayerGun(ScriptToInspectorInterface* script
     return classInstance;
 }
 
-void PlayerGun::Start()
+void PlayerAutomatic::Start()
 {
-
+    if (cadence != 0) fullShotCooldown = 1 / cadence;
+    else fullShotCooldown = 0;
 }
 
-void PlayerGun::Update()
+void PlayerAutomatic::Update()
 {
+    if (canShoot) return;
 
-}
-
-void PlayerGun::Shoot()
-{
-
-}
-
-void PlayerGun::EnableGuns(bool enable)
-{
-    
-}
-
-void PlayerGun::LauchProjectile(API_Transform projectileSpawn)
-{
-    ProjectilePull* pull = (ProjectilePull*)projectilePull.GetScript("ProjectilePull");
-    if (pull == nullptr)
+    if (shotCooldown <= 0)
     {
-        Console::Log("ProjectilePull not asigned");
-        return;
+        canShoot = true;
     }
-    pull->LauchProjectile(projectileSpeed, projectileDamage, projectileResistanceDamage, projectileLifetime, projectileSpawn, projectileMesh, projectileScale);
+    else
+    {
+        shotCooldown -= Time::GetDeltaTime();
+    }
+}
+
+void PlayerAutomatic::Shoot()
+{
+    if (canShoot)
+    {
+        LauchProjectile(shootingSpawn);
+        canShoot = false;
+        shotCooldown = fullShotCooldown;
+    }
+}
+
+void PlayerAutomatic::EnableGuns(bool enable)
+{
+    gameObject.SetActive(enable);
 }

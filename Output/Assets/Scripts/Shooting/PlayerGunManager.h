@@ -26,6 +26,7 @@ public:
     std::vector<API_GameObject> guns;
     int equipedIndex;
     PlayerGun* equipedGun;
+    int equipedGunType;
 
     bool canShoot = true;
 };

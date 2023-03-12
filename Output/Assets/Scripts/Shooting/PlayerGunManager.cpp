@@ -26,16 +26,31 @@ void PlayerGunManager::Update()
 
     if (equipedGun == nullptr) return;
 
-    // press
-    if ((Input::GetGamePadAxis(GamePadAxis::AXIS_TRIGGERRIGHT) > 5000 && canShoot) || Input::GetMouseButton(MouseButton::LEFT) == KeyState::KEY_DOWN)
+    // press and release
+    switch (equipedGunType)
     {
-        equipedGun->Shoot();
-        canShoot = false;
+    case 0:
+    case 1:
+        if ((Input::GetGamePadAxis(GamePadAxis::AXIS_TRIGGERRIGHT) > 5000 && canShoot) || Input::GetMouseButton(MouseButton::LEFT) == KeyState::KEY_DOWN)
+        {
+            equipedGun->Shoot();
+            canShoot = false;
+        }
+        if (Input::GetGamePadAxis(GamePadAxis::AXIS_TRIGGERRIGHT) < 5000)
+        {
+            canShoot = true;
+        }
+        break;
+    case 2:
+        if (Input::GetGamePadAxis(GamePadAxis::AXIS_TRIGGERRIGHT) || Input::GetMouseButton(MouseButton::LEFT) == KeyState::KEY_REPEAT)
+        {
+            equipedGun->Shoot();
+        }
+        break;
+    default:
+        break;
     }
-    if (Input::GetGamePadAxis(GamePadAxis::AXIS_TRIGGERRIGHT) < 5000)
-    {
-        canShoot = true;
-    }
+    
 }
 
 void PlayerGunManager::SwapGun(bool next)
@@ -74,10 +89,14 @@ void PlayerGunManager::EquipNextGun()
     case 1: // semiautomatic
         equipedGun = (PlayerGun*)guns[equipedIndex].GetScript("PlayerSemiAuto");
         break;
+    case 2: // automatic
+        equipedGun = (PlayerGun*)guns[equipedIndex].GetScript("PlayerAutomatic");
+        break;
     default:
         equipedGun = nullptr;
         break;
     }
+    equipedGunType = gunType->gunType;
     if (equipedGun != nullptr) equipedGun->EnableGuns(true);
 }
 
@@ -97,9 +116,13 @@ void PlayerGunManager::EquipGun(int index)
     case 1: // semiautomatic
         equipedGun = (PlayerGun*)guns[equipedIndex].GetScript("PlayerSemiAuto");
         break;
+    case 2: // automatic
+        equipedGun = (PlayerGun*)guns[equipedIndex].GetScript("PlayerAutomatic");
+        break;
     default:
         equipedGun = nullptr;
         break;
     }
+    equipedGunType = gunType->gunType;
     if (equipedGun != nullptr) equipedGun->EnableGuns(true);
 }

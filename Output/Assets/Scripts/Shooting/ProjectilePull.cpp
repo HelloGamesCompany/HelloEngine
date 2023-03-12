@@ -18,7 +18,6 @@ void ProjectilePull::Start()
         newProjectile.AddMeshRenderer(mesh);
         //newProjectile.RigidBody
         newProjectile.AddScript("Projectile");
-        newProjectile.GetTransform().SetScale(0.1f, 0.1f, 0.1f);
         newProjectile.SetActive(false);
         pull.push_back(newProjectile);
     }
@@ -39,12 +38,13 @@ API_GameObject ProjectilePull::GetFirstActiveProjectile()
     return pull[0];
 }
 
-void ProjectilePull::LauchProjectile(float projectileSpeed, float projectileDamage, float projectileResistanceDamage, float projectileLifetime, API_Transform shootingSpawn, API_MeshRenderer projectileMesh)
+void ProjectilePull::LauchProjectile(float projectileSpeed, float projectileDamage, float projectileResistanceDamage, float projectileLifetime, API_Transform shootingSpawn, API_MeshRenderer projectileMesh, API_Vector3 projectileScale)
 {
     API_GameObject go = GetFirstActiveProjectile();
     go.SetActive(true);
     go.GetTransform().SetPosition(shootingSpawn.GetGlobalPosition());
     go.GetTransform().SetRotation(playerGO.GetTransform().GetLocalRotation());
+    go.GetTransform().SetScale(projectileScale);
 
     Projectile* projectile = (Projectile*)go.GetScript("Projectile");
     projectile->speed = projectileSpeed;

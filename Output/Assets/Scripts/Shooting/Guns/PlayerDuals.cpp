@@ -11,6 +11,9 @@ HELLO_ENGINE_API_C PlayerDuals* CreatePlayerDuals(ScriptToInspectorInterface* sc
     script->AddDragBoxTransform("Projectile Spawn", &classInstance->shootingSpawn);
     script->AddDragBoxTransform("Second Projectile Spawn", &classInstance->secondShootingSpawn);
     script->AddDragBoxMeshRenderer("Projectile Mesh", &classInstance->projectileMesh);
+    script->AddDragFloat("Projectile ScaleX", &classInstance->projectileScale.x);
+    script->AddDragFloat("Projectile ScaleY", &classInstance->projectileScale.y);
+    script->AddDragFloat("Projectile ScaleZ", &classInstance->projectileScale.z);
     script->AddDragFloat("Projectiles per second", &classInstance->cadence);
     script->AddDragFloat("Burst Space", &classInstance->fullBurstDelay);
     script->AddDragBoxGameObject("Second Gun GO", &classInstance->secondGun);

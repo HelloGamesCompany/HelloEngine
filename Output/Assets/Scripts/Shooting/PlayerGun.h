@@ -1,6 +1,6 @@
 #pragma once
 
-#define SHOT_BUFFER 0.5f
+#define SHOT_BUFFER 0.3f
 
 #include "API/HelloBehavior.h"
 #include "ScriptToInspectorInterface.h"
@@ -32,6 +32,7 @@ public:
     float projectileLifetime;
     API_Transform shootingSpawn;
     API_MeshRenderer projectileMesh;
+    API_Vector3 projectileScale;
 
     float cadence;
 };
