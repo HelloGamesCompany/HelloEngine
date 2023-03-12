@@ -7,6 +7,8 @@
 
 class Application;
 class ResourceMesh;
+class ResourceTexture;
+
 class ParticleSystemComponent : public Component
 {
 public:
@@ -19,6 +21,8 @@ public:
     Mesh& GetEmitterMesh();
 
     void DestroyEmitterMesh();
+
+    void ChangeEmitterMeshTexture(ResourceTexture* resource);
 
     void OnEnable() override;
     void OnDisable() override;
@@ -53,8 +57,11 @@ private:
     bool playOnGame = false;
     bool pauseOnScene = false;
     
-    ResourceMesh* _resource;
+    ResourceMesh* _resource = nullptr;
+    ResourceTexture* _resourceText = nullptr;
+    //Mark As Alive Use
     uint _resourceUID;
+    uint _resourceTextUID;
     Application* app;
     Emitter ParticleEmitter;
     ParticleProperties particleProps;   

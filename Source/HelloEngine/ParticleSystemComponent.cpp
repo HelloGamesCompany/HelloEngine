@@ -45,6 +45,9 @@ ParticleSystemComponent::~ParticleSystemComponent()
 		RELEASE(ParticleModules[i]);
 	}
 	ParticleModules.clear();
+
+	if (_resourceText != nullptr)
+		_resourceText->Dereference();
 }
 
 void ParticleSystemComponent::CreateEmitterMesh(uint resourceUID)
@@ -123,6 +126,28 @@ void ParticleSystemComponent::DestroyEmitterMesh()
 	ParticleEmitter._meshID = -1;
 }
 
+void ParticleSystemComponent::ChangeEmitterMeshTexture(ResourceTexture* resource)
+{
+	if (resource == nullptr)
+	{
+		ParticleEmitter._textureID = -1.0f;
+		_resourceText = nullptr;
+
+		return;
+	}
+
+	ParticleEmitter._textureID = resource->OpenGLID;
+
+	if (_resourceText != nullptr)
+		_resourceText->Dereference();
+
+	_resourceText = resource;
+
+	//if (resource->isTransparent && !isUI)
+	//	meshRenderer->ChangeMeshRenderType(MeshRenderType::TRANSPARENCY);
+
+}
+
 #ifdef STANDALONE
 
 void ParticleSystemComponent::OnEditor()
@@ -198,11 +223,50 @@ void ParticleSystemComponent::OnEditor()
 
 			return;
 		}
-		
+		else
+		{
+			if (ImGui::Button("Delete Emitter Mesh"))
+			{
+				DestroyEmitterMesh();
+
+				std::string popUpmessage = "Mesh in the emitter Destroyed ";
+				LayerEditor::S_AddPopUpMessage(popUpmessage);
+
+			}
+		}
+
 		for (int i = 0; i < ParticleModules.size(); i++)
 		{
 			ParticleModules[i]->OnEditor();
 		}
+
+		if (ParticleEmitter._textureID == -1)
+		{
+			ImGui::TextWrapped("No texture loaded! Drag an .htext file below to load a texture ");
+
+			ImGui::TextColored(ImVec4(1, 1, 0, 1), "Drag .htext here"); ImGui::SameLine();
+
+			if (ImGui::BeginDragDropTarget())
+			{
+				if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("Texture"))
+				{
+					//Drop asset from Asset window to scene window
+					const uint* drop = (uint*)payload->Data;
+
+					ResourceTexture* resource = (ResourceTexture*)ModuleResourceManager::S_LoadResource(*drop);
+
+					ChangeEmitterMeshTexture(resource);
+
+					std::string popUpmessage = "Loaded Texture: ";
+					LayerEditor::S_AddPopUpMessage(popUpmessage);
+				}
+				ImGui::EndDragDropTarget();
+			}
+
+			return;
+		}
+		
+		
 	}
 }
 
@@ -221,11 +285,20 @@ void ParticleSystemComponent::MarkAsDead()
 
 		app->renderer3D->particleManager.RemoveEmitterInList(&ParticleEmitter);
 	}
+
+	if (_resourceText != nullptr)
+	{
+		_resourceText->Dereference();
+		_resourceTextUID = _resourceText->UID;
+		_resourceText = nullptr;
+	}
 }
 
 void ParticleSystemComponent::MarkAsAlive()
 {
 	CreateEmitterMesh(_resourceUID);
+
+	ChangeEmitterMeshTexture((ResourceTexture*)ModuleResourceManager::S_LoadResource(_resourceTextUID));
 }
 #endif
 
