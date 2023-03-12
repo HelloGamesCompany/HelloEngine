@@ -29,6 +29,11 @@ void PlayerGun::Shoot()
 
 }
 
+void PlayerGun::EnableGuns(bool enable)
+{
+    
+}
+
 void PlayerGun::LauchProjectile(API_Transform projectileSpawn)
 {
     ProjectilePull* pull = (ProjectilePull*)projectilePull.GetScript("ProjectilePull");

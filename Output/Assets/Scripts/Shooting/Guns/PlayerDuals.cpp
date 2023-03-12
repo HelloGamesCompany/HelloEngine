@@ -13,6 +13,7 @@ HELLO_ENGINE_API_C PlayerDuals* CreatePlayerDuals(ScriptToInspectorInterface* sc
     script->AddDragBoxMeshRenderer("Projectile Mesh", &classInstance->projectileMesh);
     script->AddDragFloat("Projectiles per second", &classInstance->cadence);
     script->AddDragFloat("Burst Space", &classInstance->fullBurstDelay);
+    script->AddDragBoxGameObject("Second Gun GO", &classInstance->secondGun);
     return classInstance;
 }
 
@@ -81,4 +82,10 @@ void PlayerDuals::Shoot()
         shotBuffer = true;
         shotBufferCooldown = SHOT_BUFFER;
     }
+}
+
+void PlayerDuals::EnableGuns(bool enable)
+{
+    gameObject.SetActive(enable);
+    secondGun.SetActive(enable);
 }

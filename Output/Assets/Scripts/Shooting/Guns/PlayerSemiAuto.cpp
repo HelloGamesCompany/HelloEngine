@@ -64,3 +64,8 @@ void PlayerSemiAuto::Shoot()
         shotBufferCooldown = SHOT_BUFFER;
     }
 }
+
+void PlayerSemiAuto::EnableGuns(bool enable)
+{
+    gameObject.SetActive(enable);
+}

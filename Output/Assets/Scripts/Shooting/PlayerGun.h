@@ -11,13 +11,14 @@
 #include "ProjectilePull.h"
 #include "../PlayerGamepadMovement.h"
 
-class PlayerGun : HelloBehavior
+class PlayerGun : protected HelloBehavior
 {
 public:
     void Start() override;
     void Update() override;
 
     virtual void Shoot();
+    virtual void EnableGuns(bool enable);
 
 protected:
     void LauchProjectile(API_Transform projectileSpawn);

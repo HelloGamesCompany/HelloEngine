@@ -14,6 +14,7 @@ public:
     void Update() override;
 
     void Shoot() override;
+    void EnableGuns(bool enable) override;
 
     float fullShotCooldown;
     float shotCooldown;
@@ -25,5 +26,7 @@ public:
     bool nextShot = false;
 
     API_Transform secondShootingSpawn;
+
+    API_GameObject secondGun;
 };
 

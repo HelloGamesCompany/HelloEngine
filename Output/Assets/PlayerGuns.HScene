@@ -80,12 +80,6 @@
                     },
                     {
                         "Gun2": 1294410293
-                    },
-                    {
-                        "Gun1": 3217118646
-                    },
-                    {
-                        "Gun2": 1294410293
                     }
                 ],
                 "Script Resource": 3024424734,
@@ -167,31 +161,7 @@
                         "Burst Space": 0.20000000298023224
                     },
                     {
-                        "Projectile Pull": 439650558
-                    },
-                    {
-                        "Projectile Speed": 10.0
-                    },
-                    {
-                        "Projectile Damage": 0.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 1.0
-                    },
-                    {
-                        "Projectile Spawn": 4131107604
-                    },
-                    {
-                        "Second Projectile Spawn": 3652488739
-                    },
-                    {
-                        "Projectiles per second": 1.0
-                    },
-                    {
-                        "Burst Space": 0.20000000298023224
+                        "Second Gun GO": 767734061
                     },
                     {
                         "Projectile Pull": 439650558
@@ -219,6 +189,9 @@
                     },
                     {
                         "Burst Space": 0.20000000298023224
+                    },
+                    {
+                        "Second Gun GO": 767734061
                     }
                 ],
                 "Script Resource": 2156518980,
@@ -227,9 +200,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Gun Type": 0
-                    },
                     {
                         "Gun Type": 0
                     },
@@ -354,14 +324,14 @@
         "UID": 3652488739
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
                 "Position": [
-                    -3.062711477279663,
                     0.0,
-                    0.0
+                    0.0,
+                    2.189649820327759
                 ],
                 "Rotation": [
                     -0.0,
@@ -398,9 +368,6 @@
                     },
                     {
                         "Gun Type": 1
-                    },
-                    {
-                        "Gun Type": 1
                     }
                 ],
                 "Script Resource": 1421097082,
@@ -409,27 +376,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Projectile Pull": 439650558
-                    },
-                    {
-                        "Projectile Speed": 10.0
-                    },
-                    {
-                        "Projectile Damage": 0.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 1.0
-                    },
-                    {
-                        "Projectile Spawn": 3230390140
-                    },
-                    {
-                        "Projectiles per second": 0.0
-                    },
                     {
                         "Projectile Pull": 439650558
                     },
@@ -485,7 +431,7 @@
         "UID": 1294410293
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -539,15 +485,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Bullet": 1169338156
-                    },
-                    {
-                        "Pull Size": 0
-                    },
-                    {
-                        "Player": 3272613755
-                    },
                     {
                         "Bullet": 1169338156
                     },

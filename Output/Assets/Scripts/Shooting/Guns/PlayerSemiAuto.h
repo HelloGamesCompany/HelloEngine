@@ -14,6 +14,7 @@ public:
     void Update() override;
 
     void Shoot() override;
+    void EnableGuns(bool enable) override;
 
     float fullShotCooldown;
     float shotCooldown;

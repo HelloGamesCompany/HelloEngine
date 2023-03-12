@@ -62,6 +62,7 @@ void PlayerGunManager::SwapGun(bool next)
 
 void PlayerGunManager::EquipNextGun()
 {
+    if (equipedGun != nullptr) equipedGun->EnableGuns(false);
     SwapGun(true);
 
     PlayerGunType* gunType = (PlayerGunType*)guns[equipedIndex].GetScript("PlayerGunType");
@@ -77,6 +78,7 @@ void PlayerGunManager::EquipNextGun()
         equipedGun = nullptr;
         break;
     }
+    if (equipedGun != nullptr) equipedGun->EnableGuns(true);
 }
 
 void PlayerGunManager::EquipGun(int index)
@@ -84,6 +86,7 @@ void PlayerGunManager::EquipGun(int index)
     PlayerGunType* gunType = (PlayerGunType*)guns[index].GetScript("PlayerGunType");
     if (gunType == nullptr) return;
     
+    if (equipedGun != nullptr) equipedGun->EnableGuns(false);
     equipedIndex = index;
 
     switch (gunType->gunType)
@@ -98,4 +101,5 @@ void PlayerGunManager::EquipGun(int index)
         equipedGun = nullptr;
         break;
     }
+    if (equipedGun != nullptr) equipedGun->EnableGuns(true);
 }
