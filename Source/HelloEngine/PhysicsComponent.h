@@ -3,6 +3,7 @@
 #include "Globals.h"
 #include "PhysBody3D.h"
 #include "ModulePhysics.h"
+#include "API/API_GameObject.h"
 
 class PhysicsComponent : public Component
 {
@@ -61,6 +62,8 @@ private:
 	bool isStatic;
 	float gravity[3];
 	
+	friend class API::API_GameObject;
+
 public:
 	float localGlobalGravity[3];
 	float globalGravity[3];

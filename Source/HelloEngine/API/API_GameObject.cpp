@@ -6,6 +6,8 @@
 #include "ScriptComponent.h"
 #include "API_Transform.h"
 #include "API_MeshRenderer.h"
+#include "API/API_RigidBody.h"
+#include "PhysicsComponent.h"
 
 API::API_GameObject::API_GameObject()
 {
@@ -163,6 +165,34 @@ API::API_Transform API::API_GameObject::GetTransform()
     API_Transform returnTransform;
     returnTransform.SetComponent(_gameObject->transform);
     return returnTransform;
+}
+
+API::API_RigidBody API::API_GameObject::CreateRigidBodyBox(API::API_Vector3 pos, API::API_Vector3 rotation, API::API_Vector3 scale, bool isStatic)
+{
+    if (_gameObject == nullptr)
+    {
+        Console::S_Log("Trying to acces a NULLPTR GameObject. GetTransform()");
+        return API::API_RigidBody();
+    }
+
+    PhysicsComponent* physComponent = _gameObject->AddComponent<PhysicsComponent>();
+    physComponent->shapeSelected = ColliderShape::BOX;
+    physComponent->CreateCollider();
+    physComponent->physBody->colPos = { pos.x, pos.y, pos.z };
+    physComponent->physBody->colRot = { rotation.x, rotation.y, rotation.z };
+    physComponent->physBody->colScl = { scale.x, scale.y, scale.z };
+    physComponent->CallUpdatePos();
+    physComponent->CallUpdateRotation();
+    physComponent->CallUpdateScale();
+    if (isStatic)
+    {
+        physComponent->physBody->isStatic = true;
+        physComponent->CallUpdateMass();
+    }
+
+    API_RigidBody ret;
+    ret.SetComponent(physComponent);
+    return ret;
 }
 
 void API::API_GameObject::SetGameObject(GameObject* gameObject)
