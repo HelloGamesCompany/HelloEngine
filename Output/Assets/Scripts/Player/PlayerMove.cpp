@@ -1,6 +1,6 @@
 #include "PlayerMove.h"
 #include "../SwapCam.h"
-HELLO_ENGINE_API_C PlayerMove* CreatePlayerMovement(ScriptToInspectorInterface* script)
+HELLO_ENGINE_API_C PlayerMove* CreatePlayerMove(ScriptToInspectorInterface* script)
 {
     PlayerMove* classInstance = new PlayerMove();
     //Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
@@ -33,6 +33,7 @@ void PlayerMove::Update()
     //SwapCamera();
 
     Aim();
+
 }
 
 void PlayerMove::SwapCamera()
