@@ -139,6 +139,20 @@ UpdateStatus ModuleRenderer3D::PostUpdate()
 		_cameras->DrawCameraFrustums();
 	}
 
+	if (_cameras->UICamera->active)
+	{
+		_cameras->UICamera->frameBuffer.Bind();
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+		glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+
+		_cameras->currentDrawingCamera = _cameras->UICamera;
+
+		ModuleLayers::S_DrawLayers();
+		particleManager.Draw();
+		renderManager.Draw();
+		_cameras->DrawCameraFrustums();
+	}
+
 	if (_cameras->activeGameCamera != nullptr && _cameras->activeGameCamera->active)
 	{
 		_cameras->activeGameCamera->frameBuffer.Bind();
@@ -189,6 +203,7 @@ void ModuleRenderer3D::OnResize(int width, int height)
 	glViewport(0, 0, width, height);
 
 	_cameras->RequestFrameBufferRegen(_cameras->sceneCamera, width, height);
+	_cameras->RequestFrameBufferRegen(_cameras->UICamera, width, height);
 
 	if (_cameras->activeGameCamera != nullptr)
 		_cameras->RequestFrameBufferRegen(_cameras->activeGameCamera, width, height);

@@ -17,6 +17,7 @@ ModuleCamera3D::ModuleCamera3D(bool start_enabled) : Module(start_enabled)
 ModuleCamera3D::~ModuleCamera3D()
 {
 	RELEASE(sceneCamera);
+	RELEASE(UICamera);
 }
 
 // -----------------------------------------------------------------
@@ -28,7 +29,12 @@ bool ModuleCamera3D::Start()
 	sceneCamera->isCullingActive = false;
 	sceneCamera->cameraFrustum.farPlaneDistance = 4000;
 
-	
+	UICamera = new SceneCameraObject(); // Needs to be allocated manually to avoid initializtion order issues.
+	UICamera->frameBuffer.SetBufferInfo();
+	UICamera->frameBuffer.SetDimensions(ModuleWindow::width, ModuleWindow::height);
+	UICamera->isCullingActive = false;
+	UICamera->cameraFrustum.farPlaneDistance = 4000;
+
 	return true;
 }
 
@@ -111,7 +117,11 @@ UpdateStatus ModuleCamera3D::Update()
 	}
 	_frameBufferRegenCamera.clear();
 	
-	if (updateSceneCamera) sceneCamera->UpdateInput();
+	if (updateSceneCamera)
+	{
+		sceneCamera->UpdateInput();
+		UICamera->UpdateInput();
+	}
 
 
 	return UpdateStatus::UPDATE_CONTINUE;
