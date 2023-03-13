@@ -15,20 +15,23 @@ public:
     void Start() override;
     void Update() override;
 
-    void SwapGun(bool next);
-    void EquipNextGun();
+    void GetGun(int slot, int gunIndex);
     void EquipGun(int index);
-
-    API_GameObject firstGun;
-    API_GameObject secondGun;
-    API_GameObject thirdGun;
 
     std::vector<API_GameObject> guns;
     int equipedIndex;
     PlayerGun* equipedGun = nullptr;
-    int equipedGunType;
+    int gunOnHandIndex1;
+    int gunOnHandIndex2;
+    int gunOnHandIndex3;
 
     bool canShoot = true;
     float bufferRB;
     float bufferLB;
+
+    // guns
+    API_GameObject duals; // index 0
+    API_GameObject semiauto; // index 1
+    API_GameObject automatic; // index 2
+    API_GameObject shotgun; // index 3
 };

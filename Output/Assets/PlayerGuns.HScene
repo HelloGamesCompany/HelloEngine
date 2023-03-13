@@ -70,22 +70,88 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Gun1": 3217118646
+                        "Base Gun": 0
                     },
                     {
-                        "Gun2": 2965807529
+                        "Normal Gun": 1
                     },
                     {
-                        "Gun3": 17548412
+                        "Special Gun": 2
                     },
                     {
-                        "Gun1": 3217118646
+                        "Duals": 3217118646
                     },
                     {
-                        "Gun2": 2965807529
+                        "Semiautomatic": 1294410293
                     },
                     {
-                        "Gun3": 17548412
+                        "Automatic": 2965807529
+                    },
+                    {
+                        "Shotgun": 17548412
+                    },
+                    {
+                        "Base Gun": 0
+                    },
+                    {
+                        "Normal Gun": 1
+                    },
+                    {
+                        "Special Gun": 2
+                    },
+                    {
+                        "Duals": 3217118646
+                    },
+                    {
+                        "Semiautomatic": 1294410293
+                    },
+                    {
+                        "Automatic": 2965807529
+                    },
+                    {
+                        "Shotgun": 17548412
+                    },
+                    {
+                        "Base Gun": 0
+                    },
+                    {
+                        "Normal Gun": 1
+                    },
+                    {
+                        "Special Gun": 2
+                    },
+                    {
+                        "Duals": 3217118646
+                    },
+                    {
+                        "Semiautomatic": 1294410293
+                    },
+                    {
+                        "Automatic": 2965807529
+                    },
+                    {
+                        "Shotgun": 17548412
+                    },
+                    {
+                        "Base Gun": 0
+                    },
+                    {
+                        "Normal Gun": 1
+                    },
+                    {
+                        "Special Gun": 2
+                    },
+                    {
+                        "Duals": 3217118646
+                    },
+                    {
+                        "Semiautomatic": 1294410293
+                    },
+                    {
+                        "Automatic": 2965807529
+                    },
+                    {
+                        "Shotgun": 17548412
                     }
                 ],
                 "Script Resource": 3024424734,
@@ -216,6 +282,84 @@
                     },
                     {
                         "Second Gun GO": 767734061
+                    },
+                    {
+                        "Projectile Pull": 439650558
+                    },
+                    {
+                        "Projectile Speed": 10.0
+                    },
+                    {
+                        "Projectile Damage": 0.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 0.0
+                    },
+                    {
+                        "Projectile Lifetime": 1.0
+                    },
+                    {
+                        "Projectile Spawn": 4131107604
+                    },
+                    {
+                        "Second Projectile Spawn": 3652488739
+                    },
+                    {
+                        "Projectile ScaleX": 0.10000000149011612
+                    },
+                    {
+                        "Projectile ScaleY": 0.10000000149011612
+                    },
+                    {
+                        "Projectile ScaleZ": 0.10000000149011612
+                    },
+                    {
+                        "Projectiles per second": 3.0
+                    },
+                    {
+                        "Burst Space": 0.15000000596046448
+                    },
+                    {
+                        "Second Gun GO": 767734061
+                    },
+                    {
+                        "Projectile Pull": 439650558
+                    },
+                    {
+                        "Projectile Speed": 10.0
+                    },
+                    {
+                        "Projectile Damage": 0.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 0.0
+                    },
+                    {
+                        "Projectile Lifetime": 1.0
+                    },
+                    {
+                        "Projectile Spawn": 4131107604
+                    },
+                    {
+                        "Second Projectile Spawn": 3652488739
+                    },
+                    {
+                        "Projectile ScaleX": 0.10000000149011612
+                    },
+                    {
+                        "Projectile ScaleY": 0.10000000149011612
+                    },
+                    {
+                        "Projectile ScaleZ": 0.10000000149011612
+                    },
+                    {
+                        "Projectiles per second": 3.0
+                    },
+                    {
+                        "Burst Space": 0.15000000596046448
+                    },
+                    {
+                        "Second Gun GO": 767734061
                     }
                 ],
                 "Script Resource": 2156518980,
@@ -224,6 +368,12 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Gun Type": 0
+                    },
+                    {
+                        "Gun Type": 0
+                    },
                     {
                         "Gun Type": 0
                     },
@@ -392,6 +542,12 @@
                     },
                     {
                         "Gun Type": 1
+                    },
+                    {
+                        "Gun Type": 1
+                    },
+                    {
+                        "Gun Type": 1
                     }
                 ],
                 "Script Resource": 1421097082,
@@ -400,6 +556,66 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Projectile Pull": 439650558
+                    },
+                    {
+                        "Projectile Speed": 10.0
+                    },
+                    {
+                        "Projectile Damage": 0.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 0.0
+                    },
+                    {
+                        "Projectile Lifetime": 1.0
+                    },
+                    {
+                        "Projectile Spawn": 3230390140
+                    },
+                    {
+                        "Projectile ScaleX": 0.20000000298023224
+                    },
+                    {
+                        "Projectile ScaleY": 0.20000000298023224
+                    },
+                    {
+                        "Projectile ScaleZ": 0.20000000298023224
+                    },
+                    {
+                        "Projectiles per second": 3.0
+                    },
+                    {
+                        "Projectile Pull": 439650558
+                    },
+                    {
+                        "Projectile Speed": 10.0
+                    },
+                    {
+                        "Projectile Damage": 0.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 0.0
+                    },
+                    {
+                        "Projectile Lifetime": 1.0
+                    },
+                    {
+                        "Projectile Spawn": 3230390140
+                    },
+                    {
+                        "Projectile ScaleX": 0.20000000298023224
+                    },
+                    {
+                        "Projectile ScaleY": 0.20000000298023224
+                    },
+                    {
+                        "Projectile ScaleZ": 0.20000000298023224
+                    },
+                    {
+                        "Projectiles per second": 3.0
+                    },
                     {
                         "Projectile Pull": 439650558
                     },
@@ -601,6 +817,66 @@
                     },
                     {
                         "Projectiles per second": 5.0
+                    },
+                    {
+                        "Projectile Pull": 439650558
+                    },
+                    {
+                        "Projectile Speed": 10.0
+                    },
+                    {
+                        "Projectile Damage": 0.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 0.0
+                    },
+                    {
+                        "Projectile Lifetime": 1.0
+                    },
+                    {
+                        "Projectile Spawn": 4153005609
+                    },
+                    {
+                        "Projectile ScaleX": 0.05000000074505806
+                    },
+                    {
+                        "Projectile ScaleY": 0.05000000074505806
+                    },
+                    {
+                        "Projectile ScaleZ": 0.05000000074505806
+                    },
+                    {
+                        "Projectiles per second": 5.0
+                    },
+                    {
+                        "Projectile Pull": 439650558
+                    },
+                    {
+                        "Projectile Speed": 10.0
+                    },
+                    {
+                        "Projectile Damage": 0.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 0.0
+                    },
+                    {
+                        "Projectile Lifetime": 1.0
+                    },
+                    {
+                        "Projectile Spawn": 4153005609
+                    },
+                    {
+                        "Projectile ScaleX": 0.05000000074505806
+                    },
+                    {
+                        "Projectile ScaleY": 0.05000000074505806
+                    },
+                    {
+                        "Projectile ScaleZ": 0.05000000074505806
+                    },
+                    {
+                        "Projectiles per second": 5.0
                     }
                 ],
                 "Script Resource": 1339629670,
@@ -609,6 +885,12 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Gun Type": 2
+                    },
+                    {
+                        "Gun Type": 2
+                    },
                     {
                         "Gun Type": 2
                     },
@@ -702,6 +984,12 @@
                     },
                     {
                         "Gun Type": 3
+                    },
+                    {
+                        "Gun Type": 3
+                    },
+                    {
+                        "Gun Type": 3
                     }
                 ],
                 "Script Resource": 1421097082,
@@ -710,6 +998,72 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Projectile Pull": 439650558
+                    },
+                    {
+                        "Projectile Speed": 20.0
+                    },
+                    {
+                        "Projectile Damage": 0.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 0.0
+                    },
+                    {
+                        "Projectile Lifetime": 0.30000001192092896
+                    },
+                    {
+                        "Projectile Spawn": 1797306861
+                    },
+                    {
+                        "Projectile ScaleX": 0.05000000074505806
+                    },
+                    {
+                        "Projectile ScaleY": 0.05000000074505806
+                    },
+                    {
+                        "Projectile ScaleZ": 0.05000000074505806
+                    },
+                    {
+                        "Projectiles per second": 1.0
+                    },
+                    {
+                        "Pellets per shot": 10
+                    },
+                    {
+                        "Projectile Pull": 439650558
+                    },
+                    {
+                        "Projectile Speed": 20.0
+                    },
+                    {
+                        "Projectile Damage": 0.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 0.0
+                    },
+                    {
+                        "Projectile Lifetime": 0.30000001192092896
+                    },
+                    {
+                        "Projectile Spawn": 1797306861
+                    },
+                    {
+                        "Projectile ScaleX": 0.05000000074505806
+                    },
+                    {
+                        "Projectile ScaleY": 0.05000000074505806
+                    },
+                    {
+                        "Projectile ScaleZ": 0.05000000074505806
+                    },
+                    {
+                        "Projectiles per second": 1.0
+                    },
+                    {
+                        "Pellets per shot": 10
+                    },
                     {
                         "Projectile Pull": 439650558
                     },
@@ -843,6 +1197,24 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Pull Size": 10
+                    },
+                    {
+                        "Player": 3272613755
+                    },
+                    {
+                        "Projectile Mesh": 1169338156
+                    },
+                    {
+                        "Pull Size": 10
+                    },
+                    {
+                        "Player": 3272613755
+                    },
+                    {
+                        "Projectile Mesh": 1169338156
+                    },
                     {
                         "Pull Size": 10
                     },

@@ -3,34 +3,46 @@ HELLO_ENGINE_API_C PlayerGunManager* CreatePlayerGunManager(ScriptToInspectorInt
 {
     PlayerGunManager* classInstance = new PlayerGunManager();
     //Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
-    script->AddDragBoxGameObject("Gun1", &classInstance->firstGun);
-    script->AddDragBoxGameObject("Gun2", &classInstance->secondGun);
-    script->AddDragBoxGameObject("Gun3", &classInstance->thirdGun);
+    script->AddDragInt("Base Gun", &classInstance->gunOnHandIndex1);
+    script->AddDragInt("Normal Gun", &classInstance->gunOnHandIndex2);
+    script->AddDragInt("Special Gun", &classInstance->gunOnHandIndex3);
+    script->AddDragBoxGameObject("Duals", &classInstance->duals);
+    script->AddDragBoxGameObject("Semiautomatic", &classInstance->semiauto);
+    script->AddDragBoxGameObject("Automatic", &classInstance->automatic);
+    script->AddDragBoxGameObject("Shotgun", &classInstance->shotgun);
     return classInstance;
 }
 
 void PlayerGunManager::Start()
 {
-    guns.push_back(firstGun);
-    guns.push_back(secondGun);
-    guns.push_back(thirdGun);
+    // add guns to the array in order
+    guns.push_back(duals);
+    guns.push_back(semiauto);
+    guns.push_back(automatic);
+    guns.push_back(shotgun);
 
+    // get start guns
+    GetGun(1, gunOnHandIndex1);
+    GetGun(2, gunOnHandIndex2);
+    GetGun(3, gunOnHandIndex3);
+
+    // start with base gun selected
     EquipGun(0);
 }
 
 void PlayerGunManager::Update()
 {
     // Keyboard
-    if (Input::GetKey(KeyCode::KEY_1) == KeyState::KEY_DOWN) EquipGun(0);
-    else if (Input::GetKey(KeyCode::KEY_2) == KeyState::KEY_DOWN) EquipGun(1);
-    else if (Input::GetKey(KeyCode::KEY_3) == KeyState::KEY_DOWN) EquipGun(2);
+    if (Input::GetKey(KeyCode::KEY_1) == KeyState::KEY_DOWN) EquipGun(gunOnHandIndex1);
+    else if (Input::GetKey(KeyCode::KEY_2) == KeyState::KEY_DOWN) EquipGun(gunOnHandIndex2);
+    else if (Input::GetKey(KeyCode::KEY_3) == KeyState::KEY_DOWN) EquipGun(gunOnHandIndex3);
 
     // gamepad
     if (Input::GetGamePadButton(GamePadButton::BUTTON_LEFT_SHOULDER) == KeyState::KEY_DOWN)
     {
         if (bufferRB > 0)
         {
-            EquipGun(2); // special weapon
+            EquipGun(gunOnHandIndex3); // special weapon
             bufferRB = 0.0f;
         }
         else bufferLB = 0.1f;
@@ -39,7 +51,7 @@ void PlayerGunManager::Update()
     {
         if (bufferLB > 0.0f)
         {
-            EquipGun(2); // special weapon
+            EquipGun(gunOnHandIndex3); // special weapon
             bufferLB = 0.0f;
         }
         else bufferRB = 0.1f;
@@ -49,7 +61,7 @@ void PlayerGunManager::Update()
         bufferLB -= Time::GetDeltaTime();
         if (bufferLB <= 0.0f)
         {
-            EquipGun(0); // base weapon
+            EquipGun(gunOnHandIndex1); // base weapon
             bufferLB = 0.0f;
         }
     }
@@ -58,19 +70,18 @@ void PlayerGunManager::Update()
         bufferRB -= Time::GetDeltaTime();
         if (bufferRB <= 0)
         {
-            EquipGun(1); // normal weapon
+            EquipGun(gunOnHandIndex2); // normal weapon
             bufferRB = 0.0f;
         }
     }
 
     if (equipedGun == nullptr) return;
 
-    // press and release
-    switch (equipedGunType)
+    switch (equipedIndex)
     {
     case 0:
     case 1:
-    case 3:
+    case 3: // press and release
         if ((Input::GetGamePadAxis(GamePadAxis::AXIS_TRIGGERRIGHT) > 5000 && canShoot) || Input::GetMouseButton(MouseButton::LEFT) == KeyState::KEY_DOWN)
         {
             equipedGun->Shoot();
@@ -81,7 +92,7 @@ void PlayerGunManager::Update()
             canShoot = true;
         }
         break;
-    case 2:
+    case 2: // mantein pressed
         if (Input::GetGamePadAxis(GamePadAxis::AXIS_TRIGGERRIGHT) || Input::GetMouseButton(MouseButton::LEFT) == KeyState::KEY_REPEAT)
         {
             equipedGun->Shoot();
@@ -93,54 +104,25 @@ void PlayerGunManager::Update()
     
 }
 
-void PlayerGunManager::SwapGun(bool next)
+void PlayerGunManager::GetGun(int slot, int gunIndex)
 {
-    if (next)
+    switch (slot)
     {
-        equipedIndex++;
-        if (equipedIndex > 2)
-        {
-            equipedIndex = 0;
-        }
-    }
-    else
-    {
-        equipedIndex--;
-        if (equipedIndex < 0)
-        {
-            equipedIndex = 2;
-        }
-    }
-
-    if (guns[equipedIndex].GetScript("PlayerGunType") == nullptr) SwapGun(next);
-}
-
-void PlayerGunManager::EquipNextGun()
-{
-    if (equipedGun != nullptr) equipedGun->EnableGuns(false);
-    SwapGun(true);
-
-    PlayerGunType* gunType = (PlayerGunType*)guns[equipedIndex].GetScript("PlayerGunType");
-    switch (gunType->gunType)
-    {
-    case 0: // duals
-        equipedGun = (PlayerGun*)guns[equipedIndex].GetScript("PlayerDuals");
+    case 1:
+        gunOnHandIndex1 = gunIndex;
         break;
-    case 1: // semiautomatic
-        equipedGun = (PlayerGun*)guns[equipedIndex].GetScript("PlayerSemiAuto");
+    case 2:
+        gunOnHandIndex2 = gunIndex;
         break;
-    case 2: // automatic
-        equipedGun = (PlayerGun*)guns[equipedIndex].GetScript("PlayerAutomatic");
-        break;
-    case 3: // shotgun
-        equipedGun = (PlayerGun*)guns[equipedIndex].GetScript("PlayerShotgun");
+    case 3:
+        gunOnHandIndex3 = gunIndex;
         break;
     default:
-        equipedGun = nullptr;
+        Console::Log("Invalid slot, slot should be between 1, 2 or 3.");
         break;
     }
-    equipedGunType = gunType->gunType;
-    if (equipedGun != nullptr) equipedGun->EnableGuns(true);
+
+    EquipGun(gunIndex);
 }
 
 void PlayerGunManager::EquipGun(int index)
@@ -169,6 +151,5 @@ void PlayerGunManager::EquipGun(int index)
         equipedGun = nullptr;
         break;
     }
-    equipedGunType = gunType->gunType;
     if (equipedGun != nullptr) equipedGun->EnableGuns(true);
 }
