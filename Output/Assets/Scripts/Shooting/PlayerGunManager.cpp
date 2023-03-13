@@ -20,9 +20,48 @@ void PlayerGunManager::Start()
 
 void PlayerGunManager::Update()
 {
-    if (Input::GetGamePadButton(GamePadButton::BUTTON_LEFT) == KeyState::KEY_DOWN || Input::GetKey(KeyCode::KEY_1) == KeyState::KEY_DOWN) EquipGun(0);
-    else if (Input::GetGamePadButton(GamePadButton::BUTTON_DOWN) == KeyState::KEY_DOWN || Input::GetKey(KeyCode::KEY_2) == KeyState::KEY_DOWN) EquipGun(1);
-    else if (Input::GetGamePadButton(GamePadButton::BUTTON_RIGHT) == KeyState::KEY_DOWN || Input::GetKey(KeyCode::KEY_3) == KeyState::KEY_DOWN) EquipGun(2);
+    // Keyboard
+    if (Input::GetKey(KeyCode::KEY_1) == KeyState::KEY_DOWN) EquipGun(0);
+    else if (Input::GetKey(KeyCode::KEY_2) == KeyState::KEY_DOWN) EquipGun(1);
+    else if (Input::GetKey(KeyCode::KEY_3) == KeyState::KEY_DOWN) EquipGun(2);
+
+    // gamepad
+    if (Input::GetGamePadButton(GamePadButton::BUTTON_LEFT_SHOULDER) == KeyState::KEY_DOWN)
+    {
+        if (bufferRB > 0)
+        {
+            EquipGun(2); // special weapon
+            bufferRB = 0.0f;
+        }
+        else bufferLB = 0.1f;
+    }
+    if (Input::GetGamePadButton(GamePadButton::BUTTON_RIGHT_SHOULDER) == KeyState::KEY_DOWN)
+    {
+        if (bufferLB > 0.0f)
+        {
+            EquipGun(2); // special weapon
+            bufferLB = 0.0f;
+        }
+        else bufferRB = 0.1f;
+    }
+    if (bufferLB > 0.0f)
+    {
+        bufferLB -= Time::GetDeltaTime();
+        if (bufferLB <= 0.0f)
+        {
+            EquipGun(0); // base weapon
+            bufferLB = 0.0f;
+        }
+    }
+    if (bufferRB > 0.0f)
+    {
+        bufferRB -= Time::GetDeltaTime();
+        if (bufferRB <= 0)
+        {
+            EquipGun(1); // normal weapon
+            bufferRB = 0.0f;
+        }
+    }
 
     if (equipedGun == nullptr) return;
 

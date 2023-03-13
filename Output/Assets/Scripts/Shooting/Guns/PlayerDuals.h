@@ -20,7 +20,7 @@ public:
     float shotCooldown;
     bool canShoot = true;
     float shotBufferCooldown = SHOT_BUFFER;
-    bool shotBuffer = false;;
+    bool shotBuffer = false;
     float fullBurstDelay;
     float burstDelay;
     bool nextShot = false;

@@ -19,6 +19,8 @@ public:
     float fullShotCooldown;
     float shotCooldown;
     bool canShoot = true;
+    float shotBufferCooldown = SHOT_BUFFER;
+    bool shotBuffer = false;
     int pellets = 0;
 };
 

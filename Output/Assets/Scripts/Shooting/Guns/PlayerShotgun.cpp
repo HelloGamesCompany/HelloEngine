@@ -26,7 +26,23 @@ void PlayerShotgun::Start()
 
 void PlayerShotgun::Update()
 {
-    if (canShoot) return;
+    if (shotBuffer)
+    {
+        shotBufferCooldown -= Time::GetDeltaTime();
+        if (shotBufferCooldown <= 0)
+        {
+            shotBuffer = false;
+        }
+    }
+
+    if (canShoot)
+    {
+        if (shotBuffer)
+        {
+            Shoot();
+        }
+        return;
+    }
 
     if (shotCooldown <= 0)
     {
@@ -48,6 +64,11 @@ void PlayerShotgun::Shoot()
         }
         canShoot = false;
         shotCooldown = fullShotCooldown;
+    }
+    else
+    {
+        shotBuffer = true;
+        shotBufferCooldown = SHOT_BUFFER;
     }
 }
 

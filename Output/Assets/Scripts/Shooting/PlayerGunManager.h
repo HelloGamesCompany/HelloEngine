@@ -25,9 +25,10 @@ public:
 
     std::vector<API_GameObject> guns;
     int equipedIndex;
-    PlayerGun* equipedGun;
+    PlayerGun* equipedGun = nullptr;
     int equipedGunType;
 
     bool canShoot = true;
+    float bufferRB;
+    float bufferLB;
 };
-
