@@ -147,10 +147,10 @@ UpdateStatus ModuleRenderer3D::PostUpdate()
 
 		_cameras->currentDrawingCamera = _cameras->UICamera;
 
-		ModuleLayers::S_DrawLayers();
+		//ModuleLayers::S_DrawLayers();
 		particleManager.Draw();
-		renderManager.Draw();
-		_cameras->DrawCameraFrustums();
+		renderManager.Draw2D();
+		//_cameras->DrawCameraFrustums();
 	}
 
 	if (_cameras->activeGameCamera != nullptr && _cameras->activeGameCamera->active)
