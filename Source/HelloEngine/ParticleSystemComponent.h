@@ -29,6 +29,10 @@ public:
 
     void OnEditor() override;
 
+    void DestroyEmitterMeshTexture();
+
+    void StopEmitter();
+
     void MarkAsDead() override;
     void MarkAsAlive() override;
 

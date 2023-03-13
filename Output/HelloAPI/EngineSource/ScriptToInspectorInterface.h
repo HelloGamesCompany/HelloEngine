@@ -123,6 +123,15 @@ class DragBoxAnimationResource : public ScriptInspectorField
 #endif
 };
 
+class DragBoxParticleSystem : public ScriptInspectorField
+{
+	void OnEditor() override;
+#ifndef HELLO_ENGINE_EXPORTS
+	void OnSerialize(json& j) override;
+	void OnDeserialize(json& j) override;
+#endif
+};
+
 class TO_API ScriptToInspectorInterface
 {
 public:
@@ -137,6 +146,7 @@ public:
 	virtual void AddDragBoxRigidBody(const char* name, API::API_RigidBody* value) = 0;
 	virtual void AddDragBoxAnimationPlayer(const char* name, API::API_AnimationPlayer* value) = 0;
 	virtual void AddDragBoxAnimationResource(const char* name, uint* value) = 0;
+	virtual void AddDragBoxParticleSystem(const char* name, API::API_ParticleSystem* value) = 0;
 
 protected:
 	std::vector<ScriptInspectorField*> inspectorFields;

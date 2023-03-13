@@ -176,21 +176,7 @@ void ParticleSystemComponent::OnEditor()
 		ImGui::SameLine();
 		if (ImGui::Button("Stop"))
 		{
-			if(GetPlayOnScene())
-			{
-				SetPlayOnScene(false);
-				SetPauseOnScene(false);
-				if (!LayerGame::S_IsPlaying()) {
-					if (ParticleEmitter.StartDelay <= 0)
-					{
-						ParticleEmitter.ResetEmitter();
-					}
-					else
-					{
-						ParticleEmitter.StartDelay = ParticleEmitter.StartDelayCpy;
-					}
-				}
-			}
+			StopEmitter();
 		}
 
 		if (ParticleEmitter._meshID == -1)
@@ -227,7 +213,13 @@ void ParticleSystemComponent::OnEditor()
 		{
 			if (ImGui::Button("Delete Emitter Mesh"))
 			{
+
+
+				StopEmitter();
+
 				DestroyEmitterMesh();
+
+				DestroyEmitterMeshTexture();
 
 				std::string popUpmessage = "Mesh in the emitter Destroyed ";
 				LayerEditor::S_AddPopUpMessage(popUpmessage);
@@ -235,9 +227,21 @@ void ParticleSystemComponent::OnEditor()
 			}
 		}
 
-		for (int i = 0; i < ParticleModules.size(); i++)
+		std::string imageName;
+		int width = 0;
+		int height = 0;
+		if (ParticleEmitter._textureID != -1.0f && _resourceText != nullptr)
 		{
-			ParticleModules[i]->OnEditor();
+			ImGui::Image((ImTextureID)(uint)ParticleEmitter._textureID, ImVec2(64, 64), ImVec2(0, 1), ImVec2(1, 0));
+
+			imageName = _resourceText->debugName;
+			width = _resourceText->width;
+			height = _resourceText->height;
+		}
+		else
+		{
+			ImGui::Image((ImTextureID)0, ImVec2(64, 64), ImVec2(0, 1), ImVec2(1, 0));
+			imageName = "None";
 		}
 
 		if (ParticleEmitter._textureID == -1)
@@ -263,10 +267,55 @@ void ParticleSystemComponent::OnEditor()
 				ImGui::EndDragDropTarget();
 			}
 
-			return;
+		}
+		else
+		{
+			if (ImGui::Button("Delete Emitter Texture"))
+			{
+
+				DestroyEmitterMeshTexture();
+
+				std::string popUpmessage = "Texture in the emitter Destroyed ";
+				LayerEditor::S_AddPopUpMessage(popUpmessage);
+
+			}
+		}
+		ImGui::NewLine();
+		for (int i = 0; i < ParticleModules.size(); i++)
+		{
+			ParticleModules[i]->OnEditor();
 		}
 		
 		
+	}
+}
+
+void ParticleSystemComponent::DestroyEmitterMeshTexture()
+{
+	if (_resourceText != nullptr)
+	{
+		ParticleEmitter._textureID = -1.0f;
+		_resourceText = nullptr;
+
+	}
+}
+
+void ParticleSystemComponent::StopEmitter()
+{
+	if (GetPlayOnScene())
+	{
+		SetPlayOnScene(false);
+		SetPauseOnScene(false);
+		if (!LayerGame::S_IsPlaying()) {
+			if (ParticleEmitter.StartDelay <= 0)
+			{
+				ParticleEmitter.ResetEmitter();
+			}
+			else
+			{
+				ParticleEmitter.StartDelay = ParticleEmitter.StartDelayCpy;
+			}
+		}
 	}
 }
 

@@ -28,7 +28,7 @@ void ParticleManager::Draw()
 	for (Emitter* emitter : EmitterList)
 	{
 
-		if (LayerGame::S_IsPlaying() || emitter->component->GetPlayOnScene())
+		if ((LayerGame::S_IsPlaying() && emitter->component->GetPlayOnGame()) || emitter->component->GetPlayOnScene())
 		{
 			//UPDATE EACH EMITTER
 			if (!emitter->loop) {

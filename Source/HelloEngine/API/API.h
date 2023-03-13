@@ -18,5 +18,6 @@
 #include "API_MeshRenderer.h"
 #include "API_Camera.h"
 #include "API_AnimationPlayer.h"
+#include "API_ParticleSystem.h"
 
 using namespace API;
