@@ -146,14 +146,14 @@ void PhysBody3D::Update()
 	{
 		GameObject* go = ModuleLayers::gameObjects[gameObjectUID];
 		go->transform->_ignorePhysBody = true; // This flag makes the PhysComponent ignore this Position update!
-									 // The idea here is, if any other transformation occurs after this, it will be applied, but this one won't. Check PhysComponent::OnTransformCallback()
-		go->transform->SetPosition(GetPos() - colPos);
-		go->transform->_ignorePhysBody = true;
-	
+		go->transform->SetPosition(GetPos() - colPos); // The idea here is, if any other transformation occurs after this, it will be applied, but this one won't. Check PhysComponent::OnTransformCallback()
+
+		// Commented out because it affects bodies that are rotated by script. 
+		/*go->transform->_ignorePhysBody = true;
 		float3 rot = GetRotation();
 		Quat rotQuat = Quat::FromEulerXYZ(rot.x, rot.y, rot.z);
 		Quat finalRot = rotQuat * colRotationOffset.Inverted();
-		go->transform->SetRotation(math::RadToDeg(finalRot.ToEulerXYZ()));
+		go->transform->SetRotation(math::RadToDeg(finalRot.ToEulerXYZ()));*/
 	}
 }
 

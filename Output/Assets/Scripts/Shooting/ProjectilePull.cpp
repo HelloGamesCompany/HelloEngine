@@ -19,7 +19,7 @@ void ProjectilePull::Start()
     {
         API_GameObject newProjectile = Game::CreateGameObject("Projectile", "Projectile");
         newProjectile.AddMeshRenderer(mesh);
-        //newProjectile.RigidBody
+        newProjectile.CreateRigidBodyBox((0, 0, 0), (0, 0, 0), (0.3f, 0.3f, 0.3f), false);
         newProjectile.AddScript("Projectile");
         newProjectile.SetActive(false);
         pull.push_back(newProjectile);
