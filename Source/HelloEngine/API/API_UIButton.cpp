@@ -23,6 +23,17 @@ API::API_GameObject API::API_UIButton::GetGameObject()
 	return returnGO;
 }
 
+void API::API_UIButton::SetState()
+{
+	if (!_UIButton)
+	{
+		Engine::Console::S_Log("Trying to acces a NULLPTR UI Button");
+		return;
+	}
+
+	//_UIButton->InputUpdate();
+}
+
 
 ComponentUIButton* API::API_UIButton::GetComponent()
 {

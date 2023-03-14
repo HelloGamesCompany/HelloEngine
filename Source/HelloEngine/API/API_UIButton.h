@@ -13,7 +13,8 @@ namespace API
 		~API_UIButton();
 
 		API_GameObject GetGameObject();
-		//void GetState( ButtonState* State);
+
+		void SetState();
 	
 	private:
 		ComponentUIButton* GetComponent();
