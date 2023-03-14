@@ -18,7 +18,8 @@
 Mesh::Mesh()
 {
 	modelMatrix.SetIdentity();
-	stencilShader = Shader("Resources/shaders/stencil.vertex.shader", "Resources/shaders/stencil.fragment.shader");
+	//stencilShader = Shader("Resources/shaders/stencil.vertex.shader", "Resources/shaders/stencil.fragment.shader");
+	stencilShader = Shader("Resources/shaders/stencil.shader");
 }
 
 Mesh::~Mesh()
@@ -41,8 +42,10 @@ void Mesh::CreateBufferData()
 	_VBO = resource->VBO;
 	_IBO = resource->IBO;
 
-	drawPerMeshShader = new Shader("Resources/shaders/basic.vertex.shader", "Resources/shaders/basic.fragment.shader");
-	boneMeshShader = new Shader("Resources/shaders/basicBone.vertex.shader", "Resources/shaders/basicBone.fragment.shader");
+	//drawPerMeshShader = new Shader("Resources/shaders/basic.vertex.shader", "Resources/shaders/basic.fragment.shader");
+	//boneMeshShader = new Shader("Resources/shaders/basicBone.vertex.shader", "Resources/shaders/basicBone.fragment.shader");
+	drawPerMeshShader = new Shader("Resources/shaders/basic.shader");
+	boneMeshShader = new Shader("Resources/shaders/basicBone.shader");
 }
 
 void Mesh::Draw(bool useBasicShader)

@@ -390,6 +390,7 @@
     <ClCompile Include="TextureManager.cpp" />
     <ClCompile Include="EngineTime.cpp" />
     <ClCompile Include="TransformComponent.cpp" />
+    <ClCompile Include="Uniform.cpp" />
     <ClCompile Include="UUID.cpp" />
     <ClCompile Include="XMLNode.cpp" />
   </ItemGroup>
@@ -492,6 +493,7 @@
     <ClInclude Include="API\API_Camera.h" />
     <ClInclude Include="API\API_ParticleSystem.h" />
     <ClInclude Include="Application.h" />
+    <ClInclude Include="BaseShader.h" />
     <ClInclude Include="BillBoardComponent.h" />
     <ClInclude Include="CameraComponent.h" />
     <ClInclude Include="CameraObject.h" />
@@ -569,6 +571,7 @@
     <ClInclude Include="ScriptComponent.h" />
     <ClInclude Include="ScriptToInspectorInterface.h" />
     <ClInclude Include="Shader.h" />
+    <ClInclude Include="ShaderData.h" />
     <ClInclude Include="SkinnedMeshRenderComponent.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TextureImporter.h" />
@@ -576,6 +579,7 @@
     <ClInclude Include="EngineTime.h" />
     <ClInclude Include="Timer.hpp" />
     <ClInclude Include="TransformComponent.h" />
+    <ClInclude Include="Uniform.h" />
     <ClInclude Include="UUID.h" />
     <ClInclude Include="XMLNode.h" />
   </ItemGroup>

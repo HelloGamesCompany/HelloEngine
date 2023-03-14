@@ -174,6 +174,13 @@ public:
 
 };
 
+class ResourceShader : public Resource
+{
+public:
+    ResourceShader() {};
+
+    Shader shader;
+};
 
 class ResourceScript : public Resource
 {

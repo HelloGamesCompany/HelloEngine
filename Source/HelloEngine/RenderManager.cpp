@@ -70,8 +70,11 @@ void RenderManager::Init()
 	primitiveModels[(int)PrimitiveType::SPHERE]->modelMeshes.push_back(sphereResource);
 
 	// Init shaders
-	lineShader = new Shader("Resources/shaders/lines.vertex.shader", "Resources/shaders/lines.fragment.shader");
-	localLineShader = new Shader("Resources/shaders/localLines.vertex.shader", "Resources/shaders/localLines.fragment.shader");
+	//lineShader = new Shader("Resources/shaders/lines.vertex.shader", "Resources/shaders/lines.fragment.shader");
+	//localLineShader = new Shader("Resources/shaders/localLines.vertex.shader", "Resources/shaders/localLines.fragment.shader");
+	lineShader = new Shader("Resources/shaders/lines.shader");
+	localLineShader = new Shader("Resources/shaders/localLines.shader");
+
 
 	// Set up debug drawing variables:
 	// Manually created box index buffer that corresponds to the order given by MathGeoLib's AABB class GetCornerPoints() method.

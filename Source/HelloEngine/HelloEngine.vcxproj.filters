@@ -419,6 +419,7 @@
     <ClCompile Include="API\API_ParticleSystem.cpp">
       <Filter>API</Filter>
     </ClCompile>
+    <ClCompile Include="Uniform.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -957,6 +958,9 @@
     <ClInclude Include="API\API_ParticleSystem.h">
       <Filter>API</Filter>
     </ClInclude>
+    <ClInclude Include="ShaderData.h" />
+    <ClInclude Include="Uniform.h" />
+    <ClInclude Include="BaseShader.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="External">

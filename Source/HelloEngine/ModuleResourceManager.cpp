@@ -222,6 +222,12 @@ void ModuleResourceManager::S_LoadFileIntoResource(Resource* resource)
 
 	}
 	break;
+    case ResourceType::SHADER:
+    {
+        ResourceShader* shaderRes = (ResourceShader*)resource;
+        shaderRes->shader = Shader(shaderRes->resourcePath);
+    }
+        break;
 	}
 
 	RELEASE_ARRAY(buffer);
@@ -754,6 +760,11 @@ void ModuleResourceManager::S_CreateResource(const MetaFile& metaFile)
         resources[metaFile.UID] = new ResourcePrefab();
         ResourcePrefab* r = (ResourcePrefab*)resources[metaFile.UID];
         r->path = metaFile.resourcePath;
+    }
+    break;
+    case ResourceType::SHADER:
+    {
+        resources[metaFile.UID] = new ResourceShader();
     }
     break;
 	default:

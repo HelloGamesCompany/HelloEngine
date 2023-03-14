@@ -6,9 +6,12 @@
 
 InstanceRenderer::InstanceRenderer()
 {
-    instancedShader = new Shader("Resources/shaders/instanced.vertex.shader", "Resources/shaders/instanced.fragment.shader");
+   /* instancedShader = new Shader("Resources/shaders/instanced.vertex.shader", "Resources/shaders/instanced.fragment.shader");
     perMeshShader = new Shader("Resources/shaders/basic.vertex.shader", "Resources/shaders/basic.fragment.shader");
-    mesh2DShader = new Shader("Resources/shaders/instanced2D.vertex.shader", "Resources/shaders/instanced.fragment.shader");
+    mesh2DShader = new Shader("Resources/shaders/instanced2D.vertex.shader", "Resources/shaders/instanced.fragment.shader");*/
+    instancedShader = new Shader("Resources/shaders/instanced.shader");
+    perMeshShader = new Shader("Resources/shaders/basic.shader");
+    mesh2DShader = new Shader("Resources/shaders/instanced2D.shader");
 }
 
 InstanceRenderer::~InstanceRenderer()

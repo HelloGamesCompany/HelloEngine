@@ -27,7 +27,8 @@ CameraObject::CameraObject()
 	cameraFrustum.front = Z;
 	cameraFrustum.up = Y;
 
-	localLineShader = new Shader("Resources/shaders/localLines.vertex.shader", "Resources/shaders/localLines.fragment.shader");
+	//localLineShader = new Shader("Resources/shaders/localLines.vertex.shader", "Resources/shaders/localLines.fragment.shader");
+	localLineShader = new Shader("Resources/shaders/localLines.shader");
 	SetUpBuffers();
 }
 

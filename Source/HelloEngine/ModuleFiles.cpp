@@ -589,6 +589,9 @@ ResourceType ModuleFiles::S_GetResourceType(const std::string& filename)
     if (fileExtension == "hprefab")
         return ResourceType::PREFAB;
 
+    if (fileExtension == "shader")
+        return ResourceType::SHADER;
+
     return ResourceType::UNDEFINED;
 }
 

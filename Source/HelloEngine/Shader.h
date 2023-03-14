@@ -1,17 +1,21 @@
 #ifndef SHADER_H
 #define SHADER_H
 
-#include <string>
 #include <sstream>
 #include <iostream>
+
+#include "ShaderData.h"
 
 class Shader
 {
 public:
    
     Shader();
-    Shader(std::string& vertexPath, std::string& fragmentPath);
-    Shader(std::string&& vertexPath, std::string&& fragmentPath);
+    Shader(std::string shaderPath);
+    
+    void Clear();
+   /* Shader(std::string& vertexPath, std::string& fragmentPath);
+    Shader(std::string&& vertexPath, std::string&& fragmentPath);*/
 
     void Bind();
    
@@ -24,13 +28,20 @@ public:
     void SetMatFloat4v(const std::string& name, const float* value) const;
 
 public:
-    uint programID = 0;
+   // uint programID = 0;
 
 private:
-    uint CompileShader(const std::string& source, uint type);
+    void RetriveShader(const std::string& shaderPath);
+    void CompileShader();
+    void RecompileShader(std::string shaderPath);
+
+    void UniformParser();
+    void UniformCompare(ShaderData previousShader);
+    //uint CompileShader(const std::string& source, uint type);
+
+    ShaderData data;
 
     static std::map<std::string, uint> loadedShaders;
-
 };
 
 #endif

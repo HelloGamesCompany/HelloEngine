@@ -157,6 +157,12 @@ void ImWindowProject::Update()
     else if (_openCreateScriptPanel)
         PanelCreateScript();
 
+    else if (_openCreateShaderPanel)
+        PanelCreateShader();
+
+    else if (_openCreateMaterialPanel)
+        PanelCreateMaterial();
+
     // If have any file to delete, delete this
     if (_deleteFile && _deleteFileAccepted)
     {
@@ -426,6 +432,20 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
         if (ImGui::Selectable("Create Script"))
             _openCreateScriptPanel = true;
 
+        if (ImGui::Selectable("Create Shader"))
+        {
+            _openCreateShaderPanel = true;
+            _temporalName = "newShader";
+        }
+           
+
+        if (ImGui::Selectable("Create Material"))
+        {
+            _openCreateMaterialPanel = true;
+            _temporalName = "newMaterial";
+        }
+            
+
         ImGui::EndPopup();
     }
 }
@@ -542,6 +562,80 @@ void ImWindowProject::PanelCreateScript()
             _openCreateScriptPanel = false;
         }
 
+
+        ImGui::EndPopup();
+    }
+}
+
+void ImWindowProject::PanelCreateShader()
+{
+    ImGui::OpenPopup("Insert Name##Shader");
+
+    if (ImGui::BeginPopupModal("Insert Name##Shader", NULL, ImGuiWindowFlags_AlwaysAutoResize))
+    {
+        ImGui::Text("Name: "); ImGui::SameLine();
+        ImGui::InputText("##inputShaderName", &_temporalName);
+        ImGui::SameLine();
+        ImGui::Text(".shader");
+
+        if (ImGui::Button("Accept"))
+        {
+            _temporalName.append(".shader");
+
+            //Create a save shader
+
+
+            //
+            _temporalName = "default";
+
+            _openCreateShaderPanel = false;
+        }
+
+        ImGui::SameLine();
+
+        if (ImGui::Button("Cancel"))
+        {
+            _temporalName = "default";
+
+            _openCreateShaderPanel = false;
+        }
+
+        ImGui::EndPopup();
+    }
+}
+
+void ImWindowProject::PanelCreateMaterial()
+{
+    ImGui::OpenPopup("Insert Name##Material");
+
+    if (ImGui::BeginPopupModal("Insert Name##Material", NULL, ImGuiWindowFlags_AlwaysAutoResize))
+    {
+        ImGui::Text("Name: "); ImGui::SameLine();
+        ImGui::InputText("##inputMaterialName", &_temporalName);
+        ImGui::SameLine();
+        ImGui::Text(".material");
+
+        if (ImGui::Button("Accept"))
+        {
+            _temporalName.append(".material");
+
+            //Create a save shader
+
+
+            //
+            _temporalName = "default";
+
+            _openCreateMaterialPanel = false;
+        }
+
+        ImGui::SameLine();
+
+        if (ImGui::Button("Cancel"))
+        {
+            _temporalName = "default";
+
+            _openCreateMaterialPanel = false;
+        }
 
         ImGui::EndPopup();
     }
