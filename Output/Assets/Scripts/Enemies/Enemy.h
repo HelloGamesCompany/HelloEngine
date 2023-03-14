@@ -22,6 +22,8 @@ public:
     float currentResistance;
     float speed = 0.0f;
 
+    API_GameObject target;
+
     // Test Code, delete later
     API_RigidBody rb;
 };

@@ -7,6 +7,7 @@ HELLO_ENGINE_API_C Enemy* CreateEnemy(ScriptToInspectorInterface* script)
     script->AddDragFloat("Resistance", &classInstance->maxResistance);
     script->AddDragFloat("Speed", &classInstance->speed);
     script->AddDragBoxRigidBody("Rigidbody test", &classInstance->rb);
+    script->AddDragBoxGameObject("Target", &classInstance->target);
     return classInstance;
 }
 
