@@ -64,6 +64,8 @@ public:
 
 	static void S_ShowCompilationError() { _showCompilationError = true; }
 
+	static void S_ReimportAllAssets();
+
 private:
 	void DrawMenuBar();
 
