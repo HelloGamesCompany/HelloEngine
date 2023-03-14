@@ -126,51 +126,59 @@ void InstanceRenderer::Draw2D()
     if (!is2D)
         return;
 
+    CameraObject* currentCamera = Application::Instance()->camera->currentDrawingCamera;
+
+    // Draw transparent objects with a draw call per mesh.
     for (auto& mesh : meshes)
     {
-        if (!mesh.second.Update())
-        {
-            continue;
-        }
-        modelMatrices.push_back(mesh.second.modelMatrix); // Insert updated matrices
-        textureIDs.push_back(mesh.second.OpenGLTextureID);
-        mesh.second.OpenGLTextureID = -1; // Reset this, in case the next frame our texture ID changes to -1.
+        float zComponent = mesh.second.modelMatrix.Transposed().TranslatePart().z;
+        orderedMeshes.emplace(std::make_pair(zComponent, &mesh.second));
     }
 
-    if (!modelMatrices.empty())
+    for (auto mesh = orderedMeshes.rbegin(); mesh != orderedMeshes.rend(); mesh++)
     {
-        // Update View and Projection matrices
-        mesh2DShader->Bind();
-
-        // Draw using Dynamic Geometry
-        glBindVertexArray(VAO);
-
-        // Update Model matrices
-        glBindBuffer(GL_ARRAY_BUFFER, MBO);
-        void* ptr = glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY);
-        memcpy(ptr, &modelMatrices.front(), modelMatrices.size() * sizeof(float4x4));
-        glUnmapBuffer(GL_ARRAY_BUFFER);
-
-        // Update TextureIDs
-        glBindBuffer(GL_ARRAY_BUFFER, TBO);
-        void* ptr2 = glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY);
-        memcpy(ptr2, &textureIDs.front(), textureIDs.size() * sizeof(float));
-        glUnmapBuffer(GL_ARRAY_BUFFER);
-
-        for (int i = 0; i < TextureManager::bindedTextures; i++)
+        if (mesh->second->Update())
         {
-            mesh2DShader->SetInt(("textures[" + std::to_string(i) + "]").c_str(), i);
+            mesh->second->Draw();
         }
-
-        // Draw
-        glDrawElementsInstanced(GL_TRIANGLES, totalIndices->size(), GL_UNSIGNED_INT, 0, modelMatrices.size());
-        glBindVertexArray(0);
     }
+    orderedMeshes.clear();
 
-    // Reset model matrices.
-    modelMatrices.clear();
-    textureIDs.clear();
-    TextureManager::UnBindTextures();
+    //if (!modelMatrices.empty())
+    //{
+    //    // Update View and Projection matrices
+    //    mesh2DShader->Bind();
+
+    //    // Draw using Dynamic Geometry
+    //    glBindVertexArray(VAO);
+
+    //    // Update Model matrices
+    //    glBindBuffer(GL_ARRAY_BUFFER, MBO);
+    //    void* ptr = glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY);
+    //    memcpy(ptr, &modelMatrices.front(), modelMatrices.size() * sizeof(float4x4));
+    //    glUnmapBuffer(GL_ARRAY_BUFFER);
+
+    //    // Update TextureIDs
+    //    glBindBuffer(GL_ARRAY_BUFFER, TBO);
+    //    void* ptr2 = glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY);
+    //    memcpy(ptr2, &textureIDs.front(), textureIDs.size() * sizeof(float));
+    //    glUnmapBuffer(GL_ARRAY_BUFFER);
+
+    //    for (int i = 0; i < TextureManager::bindedTextures; i++)
+    //    {
+    //        mesh2DShader->SetInt(("textures[" + std::to_string(i) + "]").c_str(), i);
+    //    }
+
+    //    // Draw
+    //    glDrawElementsInstanced(GL_TRIANGLES, totalIndices->size(), GL_UNSIGNED_INT, 0, modelMatrices.size());
+    //    glBindVertexArray(0);
+    //}
+
+    //// Reset model matrices.
+    //modelMatrices.clear();
+    //textureIDs.clear();
+    //orderedMeshes.clear();
+    //TextureManager::UnBindTextures();
 
 }
 

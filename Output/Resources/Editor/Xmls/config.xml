@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <config>
 	<window>
-		<width value="1536" />
-		<height value="793" />
+		<width value="1920" />
+		<height value="1017" />
 		<brightness value="1" />
 	</window>
 	<renderer>
@@ -10,7 +10,7 @@
 		<framerate value="120" />
 	</renderer>
 	<scene>
-		<currentScene value="Assets/SpaceshipHUB_Blockout.HScene" />
+		<currentScene value="Assets/TransparencyTesting.HScene" />
 	</scene>
 	<openGL>
 		<blend value="true" tag="0x0BE2" />

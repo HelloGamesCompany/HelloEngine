@@ -116,7 +116,7 @@ void ModuleRenderer3D::DrawGame()
 		_cameras->currentDrawingCamera = _cameras->activeGameCamera;
 
 		renderManager.Draw();
-		//particleManager.Draw();
+		particleManager.Draw();
 		// Draw all 2D meshes.
 		renderManager.Draw2D();
 	}

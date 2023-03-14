@@ -209,8 +209,6 @@ void RenderManager::Draw()
 	{
 		ModulePhysics::physBodies[i]->RenderCollider();
 	}
-
-
 }
 
 void RenderManager::Draw2D()
@@ -270,9 +268,15 @@ uint RenderManager::Add2DMesh()
 	InstanceRenderer* manager = GetRenderManager(plane2DUID); // Create a renderManager.
 	renderer2D = manager;
 	renderer2D->SetAs2D();
-	return manager->AddMesh();
+	uint ret = manager->AddMesh();
+	ResourceMesh* plane2D = (ResourceMesh*)ModuleResourceManager::S_LoadResource(plane2DUID);
+	renderer2D->meshes[ret].InitWithResource(plane2D);
+	renderer2D->meshes[ret].localAABB = plane2D->localAABB;
+	renderer2D->meshes[ret].isIndependent = true;
+	renderer2D->meshes[ret].is2D = true;
+	renderer2D->meshes[ret].CreateBufferData();
+	return ret;
 }
-
 void RenderManager::CreatePrimitive(GameObject* parent, PrimitiveType type)
 {
 	if (parent == nullptr) 
