@@ -1,9 +1,8 @@
 #pragma once
 #include "Globals.h"
-#include "API_GameObject.h"
+#include "API/API_GameObject.h"
 
-
-class ButtonState;
+class ComponentUIButton;
 
 namespace API
 {
@@ -13,13 +12,16 @@ namespace API
 		API_UIButton();
 		~API_UIButton();
 
+		API_GameObject GetGameObject();
 		//void GetState( ButtonState* State);
-		ComponentUI* _UIButton = nullptr;
-	private:
-		ComponentUI* GetComponent();
-		void SetComponent(ComponentUI* component);
-	private:
 	
+	private:
+		ComponentUIButton* GetComponent();
+		void SetComponent(ComponentUIButton* component);
+	private:
+		ComponentUIButton* _UIButton = nullptr;
 
+		friend class API_GameObject;
+		friend class DragBoxUIButton;
 	};
 }
