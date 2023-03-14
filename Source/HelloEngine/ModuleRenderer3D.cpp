@@ -165,7 +165,7 @@ UpdateStatus ModuleRenderer3D::PostUpdate()
 		renderManager.Draw();
 		
 		// Draw all 2D meshes.
-		renderManager.Draw2D();
+		//renderManager.Draw2D();
 	}
 
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
