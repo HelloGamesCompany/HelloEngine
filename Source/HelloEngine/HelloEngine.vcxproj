@@ -293,6 +293,7 @@
     <ClCompile Include="..\External\Wwise\include\AK\samples\AkGeneratedSoundBanksResolver.cpp" />
     <ClCompile Include="..\External\Wwise\include\AK\samples\AkMultipleFileLocation.cpp" />
     <ClCompile Include="API\API_AnimationPlayer.cpp" />
+    <ClCompile Include="API\API_UIButton.cpp" />
     <ClCompile Include="API\API_Console.cpp" />
     <ClCompile Include="API\API_GameObject.cpp" />
     <ClCompile Include="API\API_Input.cpp" />
@@ -476,6 +477,7 @@
     <ClInclude Include="AnimationComponent.h" />
     <ClInclude Include="API\API.h" />
     <ClInclude Include="API\API_AnimationPlayer.h" />
+    <ClInclude Include="API\API_UIButton.h" />
     <ClInclude Include="API\API_Console.h" />
     <ClInclude Include="API\API_GameObject.h" />
     <ClInclude Include="API\API_Input.h" />

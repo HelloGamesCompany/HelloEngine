@@ -419,6 +419,9 @@
     <ClCompile Include="API\API_ParticleSystem.cpp">
       <Filter>API</Filter>
     </ClCompile>
+    <ClCompile Include="API\API_UIButton.cpp">
+      <Filter>API</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -955,6 +958,9 @@
       <Filter>GameObject\Components\ParticleModules</Filter>
     </ClInclude>
     <ClInclude Include="API\API_ParticleSystem.h">
+      <Filter>API</Filter>
+    </ClInclude>
+    <ClInclude Include="API\API_UIButton.h">
       <Filter>API</Filter>
     </ClInclude>
   </ItemGroup>

@@ -248,6 +248,16 @@ void ScriptComponent::AddDragBoxAnimationResource(const char* name, uint* value)
 	inspectorFields.push_back(dragBoxField);
 }
 
+void ScriptComponent::AddDragBoxUIButton(const char* name, API::API_UIButton* value)
+{
+	DragBoxUIButton* dragBoxField = new DragBoxUIButton();
+	dragBoxField->valueName = name;
+	dragBoxField->value = value;
+	dragBoxField->className = scriptResource == nullptr ? addedScript : scriptResource->className;
+
+	inspectorFields.push_back(dragBoxField);
+}
+
 uint ScriptComponent::GetResourceUID()
 {
 	if (scriptResource != nullptr)

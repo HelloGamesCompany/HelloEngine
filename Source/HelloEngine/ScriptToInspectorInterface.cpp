@@ -6,6 +6,7 @@
 #include "API/API_Camera.h"
 #include "API/API_RigidBody.h"
 #include "API/API_AnimationPlayer.h"
+#include "API/API_UIButton.h"
 #include "PhysicsComponent.h"
 #include "MeshRenderComponent.h"
 #include "CameraComponent.h"
@@ -596,4 +597,19 @@ void DragBoxAnimationResource::OnDeserialize(json& j)
 			*(uint*)value = j[i][valueName.c_str()];
 		}
 	}
+}
+
+void DragBoxUIButton::OnEditor()
+{
+	
+}
+
+void DragBoxUIButton::OnSerialize(json& j)
+{
+
+}
+
+void DragBoxUIButton::OnDeserialize(json& j)
+{
+
 }

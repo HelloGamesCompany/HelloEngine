@@ -15,6 +15,7 @@ namespace API
 	class API_RigidBody;
 	class API_AnimationPlayer;
 	class API_ParticleSystem;
+	class API_UIButton;
 	class TO_API API_GameObject
 	{
 	public:
@@ -56,5 +57,6 @@ namespace API
 		friend class Game;
 		friend class LayerGame;
 		friend class API_ParticleSystem;
+		friend class API_UIButton;
 	};
 }
