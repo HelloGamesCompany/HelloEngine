@@ -15,12 +15,15 @@ Emitter::Emitter()
 
 	loop = true;
 	stop = false;
-	SetParticlePoolSize(10000);
+	SetParticlePoolSize(1000);
 
 	StartDelay = 0.0f;
 	StartDelayCpy = 0.0f;
 	Duration = 0.0f;
 	DurationCpy = 0.0f;
+
+	enableEmissionModule = true;
+	ParticlesPerSecond = 10;
 }
 
 Emitter::~Emitter()

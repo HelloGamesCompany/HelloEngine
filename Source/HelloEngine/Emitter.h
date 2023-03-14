@@ -63,6 +63,10 @@ private:
 	float Duration;
 	float DurationCpy;
 
+	bool enableEmissionModule;
+	int ParticlesPerSecond;
+	int ParticleCount = 0;
+
 	Quat BBRotAroundZ;
 
 
@@ -70,6 +74,7 @@ private:
 	friend class ParticleManager;
 	friend class P_Module;
 	friend class P_MainModule;
+	friend class P_EmissionModule;
 	friend class ModuleRenderer3D;
 
 };

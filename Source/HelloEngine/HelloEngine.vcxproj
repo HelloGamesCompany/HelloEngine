@@ -359,6 +359,7 @@
     <ClCompile Include="Particle.cpp" />
     <ClCompile Include="ParticleManager.cpp" />
     <ClCompile Include="ParticleSystemComponent.cpp" />
+    <ClCompile Include="P_EmissionModule.cpp" />
     <ClCompile Include="P_MainModule.cpp" />
     <ClCompile Include="ModulePhysics.cpp" />
     <ClCompile Include="PhysBody3D.cpp" />
@@ -542,6 +543,7 @@
     <ClInclude Include="Particle.h" />
     <ClInclude Include="ParticleManager.h" />
     <ClInclude Include="ParticleSystemComponent.h" />
+    <ClInclude Include="P_EmissionModule.h" />
     <ClInclude Include="P_MainModule.h" />
     <ClInclude Include="ModulePhysics.h" />
     <ClInclude Include="PhysBody3D.h" />

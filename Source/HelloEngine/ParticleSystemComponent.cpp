@@ -5,6 +5,7 @@
 #include "ParticleManager.h"
 #include "LayerEditor.h"
 #include "P_MainModule.h"
+#include "P_EmissionModule.h"
 
 
 
@@ -21,6 +22,10 @@ ParticleSystemComponent::ParticleSystemComponent(GameObject* gameObject) : Compo
 	P_Module* mainModule = (P_Module*)new P_MainModule();
 	mainModule->component = this;
 	ParticleModules.push_back(mainModule);
+
+	P_Module* emissionModule = (P_Module*)new P_EmissionModule();
+	emissionModule->component = this;
+	ParticleModules.push_back(emissionModule);
 
 	_gameObject->AddComponentOfType(Type::BILLBOARD);
 

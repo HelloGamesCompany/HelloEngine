@@ -77,6 +77,7 @@ private:
     friend class ParticleManager;
     friend class P_Module;
     friend class P_MainModule;
+    friend class P_EmissionModule;
     friend class ModuleRenderer3D;
 };
 
