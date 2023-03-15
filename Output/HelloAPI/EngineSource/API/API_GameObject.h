@@ -1,6 +1,7 @@
 #pragma once
 #include "Globals.h"
 #include <string>
+#include "API_Vector3.h"
 
 class GameObject;
 class DragBoxGameObject;
@@ -15,6 +16,8 @@ namespace API
     class API_RigidBody;
     class API_AnimationPlayer;
     class API_ParticleSystem;
+    class API_Material;
+
     class TO_API API_GameObject
     {
     public:
@@ -44,7 +47,7 @@ namespace API
 
         // Create components
 
-        API::API_RigidBody CreateRigidBodyBox(API::API_Vector3 pos, API::API_Vector3 rotation, API::API_Vector3 scale, bool isStatic);
+        API::API_RigidBody CreateRigidBodyBox(API_Vector3 pos, API_Vector3 rotation, API_Vector3 scale, bool isStatic);
 
     private:
         GameObject* GetGameObject() { return _gameObject; };
@@ -58,6 +61,7 @@ namespace API
         friend class API_RigidBody;
         friend class API_Camera;
         friend class API_AnimationPlayer;
+        friend class API_Material;
         friend class Game;
         friend class LayerGame;
         friend class API_ParticleSystem;

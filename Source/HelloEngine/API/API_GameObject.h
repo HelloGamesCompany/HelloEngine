@@ -16,6 +16,7 @@ namespace API
     class API_RigidBody;
     class API_AnimationPlayer;
     class API_ParticleSystem;
+    class API_Material;
 
     class TO_API API_GameObject
     {
@@ -60,6 +61,7 @@ namespace API
         friend class API_RigidBody;
         friend class API_Camera;
         friend class API_AnimationPlayer;
+        friend class API_Material;
         friend class Game;
         friend class LayerGame;
         friend class API_ParticleSystem;

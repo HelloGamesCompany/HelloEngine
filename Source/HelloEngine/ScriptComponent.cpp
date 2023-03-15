@@ -248,6 +248,36 @@ void ScriptComponent::AddDragBoxAnimationResource(const char* name, uint* value)
 	inspectorFields.push_back(dragBoxField);
 }
 
+void ScriptComponent::AddDragBoxMeshResource(const char* name, uint* value)
+{
+	DragBoxMeshResource* dragBoxField = new DragBoxMeshResource();
+	dragBoxField->valueName = name;
+	dragBoxField->value = value;
+	dragBoxField->className = scriptResource == nullptr ? addedScript : scriptResource->className;
+
+	inspectorFields.push_back(dragBoxField);
+}
+
+void ScriptComponent::AddDragBoxTextureResource(const char* name, uint* value)
+{
+	DragBoxTextureResource* dragBoxField = new DragBoxTextureResource();
+	dragBoxField->valueName = name;
+	dragBoxField->value = value;
+	dragBoxField->className = scriptResource == nullptr ? addedScript : scriptResource->className;
+
+	inspectorFields.push_back(dragBoxField);
+}
+
+void ScriptComponent::AddDragBoxMaterialComponent(const char* name, API::API_Material* value)
+{
+	DragBoxMaterialComponent* dragBoxField = new DragBoxMaterialComponent();
+	dragBoxField->valueName = name;
+	dragBoxField->value = value;
+	dragBoxField->className = scriptResource == nullptr ? addedScript : scriptResource->className;
+
+	inspectorFields.push_back(dragBoxField);
+}
+
 uint ScriptComponent::GetResourceUID()
 {
 	if (scriptResource != nullptr)

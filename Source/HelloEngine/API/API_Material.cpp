@@ -1,0 +1,44 @@
+#include "Headers.h"
+#include "ModuleLayers.h"
+#include "API_Material.h"
+#include "MaterialComponent.h"
+
+API::API_Material::API_Material()
+{
+}
+
+API::API_Material::~API_Material()
+{
+}
+
+API::API_GameObject API::API_Material::GetGameObject()
+{
+	if (!_material)
+	{
+		Engine::Console::S_Log("Trying to acces a NULLPTR API_Material. GetGameObject()");
+		return *ModuleLayers::emptyAPIGameObject;
+	}
+	API_GameObject returnGO;
+	returnGO.SetGameObject(_material->GetGameObject());
+	return returnGO;
+}
+
+void API::API_Material::ChangeAlbedoTexture(uint textureUID)
+{
+	if (!_material)
+	{
+		Engine::Console::S_Log("Trying to acces a NULLPTR API_Material. ChangeAlbedoTexture()");
+		return;
+	}
+	_material->ChangeTexture((ResourceTexture*)ModuleResourceManager::S_LoadResource(textureUID));
+}
+
+MaterialComponent* API::API_Material::GetComponent()
+{
+    return _material;
+}
+
+void API::API_Material::SetComponent(MaterialComponent* component)
+{
+	_material = component;
+}

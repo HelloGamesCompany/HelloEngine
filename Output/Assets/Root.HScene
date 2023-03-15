@@ -28,5 +28,69 @@
         "PrefabUID": 0,
         "Tag": "None",
         "UID": 2955801138
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 1,
+                "ModelUID": 1866300922,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 240240,
+                "Type": 3
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Material": 1280772092
+                    },
+                    {
+                        "Mesh Renderer": 1280772092
+                    },
+                    {
+                        "Mesh Resource": 992348814
+                    },
+                    {
+                        "Texture Resource": 1439898906
+                    }
+                ],
+                "Script Resource": 490859173,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Empty",
+        "ParentUID": 2955801138,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1280772092
     }
 ]

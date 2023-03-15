@@ -36,6 +36,9 @@ public:
 	void AddDragBoxRigidBody(const char* name, API::API_RigidBody* value) override;
 	void AddDragBoxAnimationPlayer(const char* name, API::API_AnimationPlayer* value) override;
 	void AddDragBoxAnimationResource(const char* name, uint* value) override;
+	void AddDragBoxMeshResource(const char* name, uint* value) override;
+	void AddDragBoxTextureResource(const char* name, uint* value) override;
+	void AddDragBoxMaterialComponent(const char* name, API::API_Material* value) override;
 
 	uint GetResourceUID();
 	void DestroyedResource();

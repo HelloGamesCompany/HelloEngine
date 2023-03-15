@@ -10,7 +10,7 @@
 		<framerate value="120" />
 	</renderer>
 	<scene>
-		<currentScene value="Assets/SpaceshipHUB_Blockout.HScene" />
+		<currentScene value="Assets/Root.HScene" />
 	</scene>
 	<openGL>
 		<blend value="true" tag="0x0BE2" />

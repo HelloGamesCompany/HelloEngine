@@ -419,6 +419,7 @@
     <ClCompile Include="API\API_ParticleSystem.cpp">
       <Filter>API</Filter>
     </ClCompile>
+    <ClCompile Include="API\API_Material.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -957,6 +958,7 @@
     <ClInclude Include="API\API_ParticleSystem.h">
       <Filter>API</Filter>
     </ClInclude>
+    <ClInclude Include="API\API_Material.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="External">

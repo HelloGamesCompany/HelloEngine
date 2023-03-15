@@ -123,6 +123,33 @@ class DragBoxAnimationResource : public ScriptInspectorField
 #endif
 };
 
+class DragBoxMeshResource : public ScriptInspectorField
+{
+	void OnEditor() override;
+#ifndef HELLO_ENGINE_EXPORTS
+	void OnSerialize(json& j) override;
+	void OnDeserialize(json& j) override;
+#endif
+};
+
+class DragBoxTextureResource : public ScriptInspectorField
+{
+	void OnEditor() override;
+#ifndef HELLO_ENGINE_EXPORTS
+	void OnSerialize(json& j) override;
+	void OnDeserialize(json& j) override;
+#endif
+};
+
+class DragBoxMaterialComponent : public ScriptInspectorField
+{
+	void OnEditor() override;
+#ifndef HELLO_ENGINE_EXPORTS
+	void OnSerialize(json& j) override;
+	void OnDeserialize(json& j) override;
+#endif
+};
+
 class TO_API ScriptToInspectorInterface
 {
 public:
@@ -137,6 +164,9 @@ public:
 	virtual void AddDragBoxRigidBody(const char* name, API::API_RigidBody* value) = 0;
 	virtual void AddDragBoxAnimationPlayer(const char* name, API::API_AnimationPlayer* value) = 0;
 	virtual void AddDragBoxAnimationResource(const char* name, uint* value) = 0;
+	virtual void AddDragBoxMeshResource(const char* name, uint* value) = 0;
+	virtual void AddDragBoxTextureResource(const char* name, uint* value) = 0;
+	virtual void AddDragBoxMaterialComponent(const char* name, API::API_Material* value) = 0;
 
 protected:
 	std::vector<ScriptInspectorField*> inspectorFields;

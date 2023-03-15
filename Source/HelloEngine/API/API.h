@@ -19,5 +19,6 @@
 #include "API_Camera.h"
 #include "API_AnimationPlayer.h"
 #include "API_RigidBody.h"
+#include "API_Material.h"
 
 using namespace API;

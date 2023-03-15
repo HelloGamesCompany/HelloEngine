@@ -15,6 +15,8 @@ namespace API
 
 		API_GameObject GetGameObject();
 
+		void ChangeMesh(uint meshResourceUID);
+
 	private:
 		MeshRenderComponent* GetComponent();
 		void SetComponent(MeshRenderComponent* component);
