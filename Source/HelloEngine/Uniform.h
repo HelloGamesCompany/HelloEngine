@@ -1,8 +1,8 @@
 #pragma once
 
-//#include "json.hpp"
-//
-//using json = nlohmann::json;
+#include "json.hpp"
+
+using json = nlohmann::json;
 
 
 struct UniformData
@@ -23,13 +23,24 @@ public:
 	Uniform(){};
 	~Uniform(){};
 
-	void Create();
-
 	virtual void SetVariable(){};
 #ifdef STANDALONE
 	virtual void GUI(){};
 #endif
 
+	void GetJSON(json& j);
+	void SetJSON(json& j)
+	{
+		data.name = j["Name"];
+		data.type = j["Type"];
+		data.strType = j["String Type"];
+		data.index = j["Index"];
+		data.read = j["Read"];
+		data.size = j["Size"];
+	}
+
+private:
+	virtual void GetJSONUnique(json& _j){};
 public:
 	UniformData data;
 };
@@ -39,6 +50,12 @@ class UniBool : Uniform
 {
 public:
 	UniBool(){};
+	UniBool(json& j)
+	{
+		SetJSON(j);
+		bool* b = new bool(j["Value"]);
+		data.value = b;
+	}
 	UniBool(UniformData data) { this->data = data; }
 	~UniBool()
 	{
@@ -46,17 +63,24 @@ public:
 		RELEASE(b);
 	};
 
-public:
 	void SetVariable() override;
 #ifdef STANDALONE
 	void GUI() override;
 #endif
+private:
+	void GetJSONUnique(json& _j) override;
 };
 
 class UniInt : Uniform
 {
 public:
 	UniInt() {};
+	UniInt(json& j)
+	{
+		SetJSON(j);
+		int* i = new int(j["Value"]);
+		data.value = i;
+	}
 	UniInt(UniformData data) { this->data = data; }
 	~UniInt() 
 	{
@@ -64,17 +88,24 @@ public:
 		RELEASE(i);
 	};
 
-public:
 	void SetVariable() override;
 #ifdef STANDALONE
 	void GUI() override;
 #endif
+private:
+	void GetJSONUnique(json& _j) override;
 };
 
 class UniUInt : Uniform
 {
 public:
 	UniUInt() {};
+	UniUInt(json& j) 
+	{
+		SetJSON(j);
+		uint* ui = new uint(j["Value"]);
+		data.value = ui;
+	}
 	UniUInt(UniformData data) { this->data = data; }
 	~UniUInt()
 	{
@@ -87,12 +118,20 @@ public:
 #ifdef STANDALONE
 	void GUI() override;
 #endif
+private:
+	void GetJSONUnique(json& _j) override;
 };
 
 class UniFloat : Uniform
 {
 public:
 	UniFloat() {};
+	UniFloat(json& j)
+	{
+		SetJSON(j);
+		float* f = new float(j["Value"]);
+		data.value = f;
+	}
 	UniFloat(UniformData data) { this->data = data; }
 	~UniFloat() 
 	{
@@ -105,12 +144,26 @@ public:
 #ifdef STANDALONE
 	void GUI() override;
 #endif
+private:
+	void GetJSONUnique(json& _j) override;
 };
 
 class UniFloat2 : Uniform
 {
 public:
 	UniFloat2() {};
+	UniFloat2(json& j)
+	{
+		SetJSON(j);
+		float2* f2 = new float2();
+
+		json aux = j["Value"];
+
+		for (int i = 0; i < aux.size(); ++i)
+		{
+			f2->At(i) = aux[i];
+		}
+	}
 	UniFloat2(UniformData data) { this->data = data; }
 	~UniFloat2() 
 	{
@@ -123,12 +176,26 @@ public:
 #ifdef STANDALONE
 	void GUI() override;
 #endif
+private:
+	void GetJSONUnique(json& _j) override;
 };
 
 class UniFloat3 : Uniform
 {
 public:
 	UniFloat3() {};
+	UniFloat3(json& j)
+	{
+		SetJSON(j);
+		float3* f3 = new float3();
+
+		json aux = j["Value"];
+
+		for (int i = 0; i < aux.size(); ++i)
+		{
+			f3->At(i) = aux[i];
+		}
+	}
 	UniFloat3(UniformData data) { this->data = data; }
 	~UniFloat3() 
 	{
@@ -141,12 +208,26 @@ public:
 #ifdef STANDALONE
 	void GUI() override;
 #endif
+private:
+	void GetJSONUnique(json& _j) override;
 };
 
 class UniFloat4 : Uniform
 {
 public:
 	UniFloat4() {};
+	UniFloat4(json& j)
+	{
+		SetJSON(j);
+		float4* f4 = new float4();
+
+		json aux = j["Value"];
+
+		for (int i = 0; i < aux.size(); ++i)
+		{
+			f4->At(i) = aux[i];
+		}
+	}
 	UniFloat4(UniformData data) { this->data = data; }
 	~UniFloat4() 
 	{
@@ -159,12 +240,20 @@ public:
 #ifdef STANDALONE
 	void GUI() override;
 #endif
+private:
+	void GetJSONUnique(json& _j) override;
 };
 
 class UniDouble : Uniform
 {
 public:
 	UniDouble() {};
+	UniDouble(json& j)
+	{
+		SetJSON(j);
+		double* d = new double(j["Value"]);
+		data.value = d;
+	}
 	UniDouble(UniformData data) { this->data = data; }
 	~UniDouble() 
 	{
@@ -177,12 +266,18 @@ public:
 #ifdef STANDALONE
 	void GUI() override;
 #endif
+private:
+	void GetJSONUnique(json& _j) override;
 };
 
 class UniSampler2D : Uniform
 {
 public:
 	UniSampler2D() {};
+	UniSampler2D(json& j)
+	{
+
+	}
 	UniSampler2D(UniformData data) { this->data = data; }
 	~UniSampler2D() 
 	{
@@ -204,12 +299,31 @@ public:
 #ifdef STANDALONE
 	void GUI() override;
 #endif
+private:
+	void GetJSONUnique(json& _j) override;
 };
 
 class UniFloat4x4 : Uniform
 {
 public:
 	UniFloat4x4() {};
+	UniFloat4x4(json& j)
+	{
+		SetJSON(j);
+		float4x4* f4x4 = new float4x4();
+
+		json aux = j["Value"];
+
+		int i = 0;
+		for (int x = 0; x < 4; ++x)
+		{
+			for (int y = 0; y < 4; ++y)
+			{
+				f4x4->At(x, y) = aux[i];
+				++i;
+			}
+		}
+	}
 	UniFloat4x4(UniformData data) { this->data = data; }
 	~UniFloat4x4() 
 	{
@@ -222,4 +336,6 @@ public:
 #ifdef STANDALONE
 	void GUI() override;
 #endif
+private:
+	void GetJSONUnique(json& _j) override;
 };

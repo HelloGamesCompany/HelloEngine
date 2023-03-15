@@ -9,7 +9,7 @@
 #include "ModuleResourceManager.h"
 #include "ModuleLayers.h"
 #include "LayerEditor.h"
-#include "MaterialComponent.h"
+#include "TextureComponent.h"
 
 MeshRenderComponent::MeshRenderComponent(GameObject* gameObject) : Component(gameObject)
 {
@@ -41,9 +41,9 @@ MeshRenderComponent::~MeshRenderComponent()
 
 		if (_resource != nullptr)
 			_resource->Dereference();
-		if (_gameObject->HasComponent(Component::Type::MATERIAL))
+		if (_gameObject->HasComponent(Component::Type::TEXTURE))
 		{
-			_gameObject->GetComponent<MaterialComponent>()->SetMeshRenderer(nullptr);
+			_gameObject->GetComponent<TextureComponent>()->SetMeshRenderer(nullptr);
 		}
 	}
 }
@@ -88,10 +88,10 @@ void MeshRenderComponent::CreateMesh(uint resourceUID, MeshRenderType type)
 	GetMesh().component = this;
 	GetMesh().isIndependent = renderType != MeshRenderType::INSTANCED;
 
-	if (_gameObject->HasComponent<MaterialComponent>())
+	if (_gameObject->HasComponent<TextureComponent>())
 	{
-		_gameObject->GetComponent<MaterialComponent>()->SetMeshRenderer(this);
-		_gameObject->GetComponent<MaterialComponent>()->UpdateMaterial();
+		_gameObject->GetComponent<TextureComponent>()->SetMeshRenderer(this);
+		_gameObject->GetComponent<TextureComponent>()->UpdateMaterial();
 	}
 }
 

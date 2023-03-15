@@ -10,6 +10,7 @@
 #include "ModuleLayers.h"
 #include "LayerEditor.h"
 
+#include "BaseShader.h"
 
 ImWindowProject::ImWindowProject()
 {
@@ -369,6 +370,10 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
             case ResourceType::PREFAB:
                 ImGui::SetDragDropPayload("Prefab", &_fileTree->_currentDir->files[i].path, sizeof(std::string));
                 break;
+            case ResourceType::MATERIAL:
+                _dragUID = _fileTree->_currentDir->files[i].metaFile.UID;
+                ImGui::SetDragDropPayload("Material", &_dragUID, sizeof(uint));
+                break;
             }
             ImGui::EndDragDropSource();
         }
@@ -582,13 +587,27 @@ void ImWindowProject::PanelCreateShader()
         {
             _temporalName.append(".shader");
 
-            //Create a save shader
+            std::string resourcePath = "Resources/Shaders/" + _temporalName;
+            std::string assetPath = _fileTree->_currentDir->path + _temporalName;
+
+            int size = BaseShader::newShaderTextFileUnlit.length();
+            char* cstr = BaseShader::newShaderTextFileUnlit.data();
+
+            //Save Shader to resources
+            ModuleFiles::S_Save(resourcePath, cstr, size, false);
+
+            //Save shadow file into assets
+            char buffer = 'S';
+            ModuleFiles::S_Save(assetPath, &buffer, sizeof(char), false);
+
+            //Create Metadata
+            ModuleFiles::S_CreateMetaData(assetPath, resourcePath);
 
 
-            //
             _temporalName = "default";
 
             _openCreateShaderPanel = false;
+            delete[] cstr;
         }
 
         ImGui::SameLine();
@@ -619,10 +638,20 @@ void ImWindowProject::PanelCreateMaterial()
         {
             _temporalName.append(".material");
 
-            //Create a save shader
+            std::string resourcePath = "Resources/Material/" + _temporalName;
+            std::string assetPath = _fileTree->_currentDir->path + _temporalName;
 
+            char buffer = 'M';
 
-            //
+            //Resources
+            ModuleFiles::S_Save(resourcePath, &buffer, sizeof(char), false);
+
+            //Assets
+            ModuleFiles::S_Save(assetPath, &buffer, sizeof(char), false);
+
+            //Create Metadata
+            ModuleFiles::S_CreateMetaData(assetPath, resourcePath);
+
             _temporalName = "default";
 
             _openCreateMaterialPanel = false;

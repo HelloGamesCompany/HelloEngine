@@ -209,3 +209,109 @@ void UniFloat4x4::GUI()
 	ImGui::InputFloat4(aux.c_str(), &f44->v[3][0]);
 }
 #endif
+
+/* GET JSON */
+
+void Uniform::GetJSON(json& j)
+{
+	json _j;
+
+	_j["Name"] = data.name;
+	_j["Type"] = data.type;
+	_j["String Type"] = data.strType;
+	_j["Index"] = data.index;
+	_j["Read"] = data.read;
+	_j["Size"] = data.size;
+
+	GetJSONUnique(_j);
+
+	j.push_back(_j);
+}
+
+void UniBool::GetJSONUnique(json& _j)
+{
+	_j["Value"] = *static_cast<bool*>(data.value);
+}
+
+void UniInt::GetJSONUnique(json& _j)
+{
+	_j["Value"] = *static_cast<int*>(data.value);
+}
+
+void UniUInt::GetJSONUnique(json& _j)
+{
+	_j["Value"] = *static_cast<uint*>(data.value);
+}
+
+void UniFloat::GetJSONUnique(json& _j)
+{
+	_j["Value"] = *static_cast<float*>(data.value);
+}
+
+void UniFloat2::GetJSONUnique(json& _j)
+{
+	float2 f2 = *static_cast<float2*>(data.value);
+	json jj;
+
+	jj[0] = f2[0];
+	jj[1] = f2[1];
+
+	_j["Value"] = jj;
+}
+
+void UniFloat3::GetJSONUnique(json& _j)
+{
+	float3 f3 = *static_cast<float3*>(data.value);
+	json jj;
+
+	jj[0] = f3[0];
+	jj[1] = f3[1];
+	jj[2] = f3[2];
+
+	_j["Value"] = jj;
+}
+
+void UniFloat4::GetJSONUnique(json& _j)
+{
+	float4 f4 = *static_cast<float4*>(data.value);
+	json jj;
+
+	jj[0] = f4[0];
+	jj[1] = f4[1];
+	jj[2] = f4[2];
+	jj[3] = f4[3];
+
+	_j["Value"] = jj;
+}
+
+void UniDouble::GetJSONUnique(json& _j)
+{
+	_j["Value"] = *static_cast<double*>(data.value);
+}
+
+void UniSampler2D::GetJSONUnique(json& _j)
+{
+	/*
+	Texture* tex = static_cast<Texture*>(value);
+
+			toReturn.SetString("Value", tex->resUuid)
+	*/
+}
+
+void UniFloat4x4::GetJSONUnique(json& _j)
+{
+	float4x4 f4x4 = *static_cast<float4x4*>(data.value);
+	json jj;
+
+	int k = 0;
+	for (int x = 0; x < 4; ++x)
+	{
+		for (int y = 0; y < 4; ++y)
+		{
+			jj[k] = f4x4[x][y];
+			++k;
+		}
+	}
+
+	_j["Value"] = jj;
+}

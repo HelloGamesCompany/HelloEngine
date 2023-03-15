@@ -6,19 +6,20 @@
 
 InstanceRenderer::InstanceRenderer()
 {
-   /* instancedShader = new Shader("Resources/shaders/instanced.vertex.shader", "Resources/shaders/instanced.fragment.shader");
-    perMeshShader = new Shader("Resources/shaders/basic.vertex.shader", "Resources/shaders/basic.fragment.shader");
-    mesh2DShader = new Shader("Resources/shaders/instanced2D.vertex.shader", "Resources/shaders/instanced.fragment.shader");*/
-    instancedShader = new Shader("Resources/shaders/instanced.shader");
-    perMeshShader = new Shader("Resources/shaders/basic.shader");
-    mesh2DShader = new Shader("Resources/shaders/instanced2D.shader");
+    instancedShader = ModuleResourceManager::S_CreateResourceShader("Resources/shaders/instanced.shader", 102, "Instanced");
+    perMeshShader = ModuleResourceManager::S_CreateResourceShader("Resources/shaders/basic.shader", 103, "Basic");
+    mesh2DShader = ModuleResourceManager::S_CreateResourceShader("Resources/shaders/instanced2D.shader", 104, "Instanced 2D");
 }
 
 InstanceRenderer::~InstanceRenderer()
 {
-    RELEASE(instancedShader);
+    /*RELEASE(instancedShader);
     RELEASE(perMeshShader);
-    RELEASE(mesh2DShader);
+    RELEASE(mesh2DShader);*/
+    //Cleaned along with resources
+    instancedShader = nullptr;
+    perMeshShader = nullptr;
+    mesh2DShader = nullptr;
 }
 
 void InstanceRenderer::SetMeshInformation(ResourceMesh* resource)
@@ -88,10 +89,10 @@ void InstanceRenderer::Draw()
     if (!modelMatrices.empty())
     {
         // Update View and Projection matrices
-        instancedShader->Bind();
+        instancedShader->shader.Bind();
 
-        instancedShader->SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
-        instancedShader->SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
+        instancedShader->shader.SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
+        instancedShader->shader.SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
 
         // Draw using Dynamic Geometry
         glBindVertexArray(VAO);
@@ -110,7 +111,7 @@ void InstanceRenderer::Draw()
 
         for (int i = 0; i < TextureManager::bindedTextures; i++)
         {
-            instancedShader->SetInt(("textures[" + std::to_string(i) + "]").c_str(), i);
+            instancedShader->shader.SetInt(("textures[" + std::to_string(i) + "]").c_str(), i);
         }
 
         // Draw
@@ -143,7 +144,7 @@ void InstanceRenderer::Draw2D()
     if (!modelMatrices.empty())
     {
         // Update View and Projection matrices
-        mesh2DShader->Bind();
+        mesh2DShader->shader.Bind();
 
         // Draw using Dynamic Geometry
         glBindVertexArray(VAO);
@@ -162,7 +163,7 @@ void InstanceRenderer::Draw2D()
 
         for (int i = 0; i < TextureManager::bindedTextures; i++)
         {
-            mesh2DShader->SetInt(("textures[" + std::to_string(i) + "]").c_str(), i);
+            mesh2DShader->shader.SetInt(("textures[" + std::to_string(i) + "]").c_str(), i);
         }
 
         // Draw
@@ -207,10 +208,10 @@ void InstanceRenderer::DrawInstance(Mesh* mesh, bool useBasicShader)
             glBindTexture(GL_TEXTURE_2D, 0);
         }
 
-        perMeshShader->Bind();
-        perMeshShader->SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
-        perMeshShader->SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
-        perMeshShader->SetMatFloat4v("model", &mesh->modelMatrix.v[0][0]);
+        perMeshShader->shader.Bind();
+        perMeshShader->shader.SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
+        perMeshShader->shader.SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
+        perMeshShader->shader.SetMatFloat4v("model", &mesh->modelMatrix.v[0][0]);
     }
 
     glBindVertexArray(BasicVAO);

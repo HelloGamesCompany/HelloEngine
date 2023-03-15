@@ -6,6 +6,8 @@
 
 #include "ShaderData.h"
 
+class Uniform;
+
 class Shader
 {
 public:
@@ -27,15 +29,13 @@ public:
     void SetFloat4(const std::string& name, float v1, float v2, float v3, float v4) const;
     void SetMatFloat4v(const std::string& name, const float* value) const;
 
-public:
-   // uint programID = 0;
+    void UniformParser(std::vector<Uniform*>& vec);
 
 private:
     void RetriveShader(const std::string& shaderPath);
     void CompileShader();
     void RecompileShader(std::string shaderPath);
 
-    void UniformParser();
     void UniformCompare(ShaderData previousShader);
     //uint CompileShader(const std::string& source, uint type);
 

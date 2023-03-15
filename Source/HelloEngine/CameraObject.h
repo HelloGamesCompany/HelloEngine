@@ -9,6 +9,7 @@ enum class CameraType
 	GAME,
 };
 
+class ResourceShader;
 
 class CameraObject
 {
@@ -72,7 +73,7 @@ private:
 
 	std::vector<uint> boxIndices;
 
-	Shader* localLineShader = nullptr;
+	ResourceShader* localLineShader = nullptr;
 	uint VAO = 0;
 	uint VBO = 0;
 	uint IBO = 0;

@@ -7,7 +7,7 @@
 #include "LayerEditor.h"
 #include "ModuleLayers.h"
 #include "TransformComponent.h"
-#include "MaterialComponent.h"
+#include "TextureComponent.h"
 
 SkinnedMeshRenderComponent::SkinnedMeshRenderComponent(GameObject* gameObject) : MeshRenderComponent(gameObject)
 {

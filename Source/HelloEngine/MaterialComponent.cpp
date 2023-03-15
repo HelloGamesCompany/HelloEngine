@@ -1,264 +1,101 @@
 #include "Headers.h"
 #include "MaterialComponent.h"
-#include "InstanceRenderer.h"
 #include "GameObject.h"
-#include "TextureImporter.h"
 #include "ModuleResourceManager.h"
-#include "TextureManager.h"
-#include "SkinnedMeshRenderComponent.h"
 
-MaterialComponent::MaterialComponent(GameObject* go) : Component(go)
+MaterialComponent::MaterialComponent(GameObject* gameObject) : Component(gameObject)
 {
-	_type = Component::Type::MATERIAL;
-	MeshRenderComponent* meshRenderer = go->GetComponent<MeshRenderComponent>();
-	SkinnedMeshRenderComponent* skinnedMeshRenderer;
-	if (!meshRenderer)
-	{
-		SkinnedMeshRenderComponent* skinnedMeshRenderer = go->GetComponent<SkinnedMeshRenderComponent>();
-		if(!skinnedMeshRenderer) return;
 
-		SetSkinnedMeshRenderer(skinnedMeshRenderer);
-	} else SetMeshRenderer(meshRenderer);
 }
 
 MaterialComponent::~MaterialComponent()
 {
-    if (currentResource != nullptr)
-        currentResource->Dereference();
-    if (meshRenderer != nullptr)
-        ChangeTexture(nullptr);
-}
 
-Mesh& MaterialComponent::GetMesh()
-{
-	if (skinnedMeshRenderer != nullptr) return skinnedMeshRenderer->GetMesh();
-	
-	return meshRenderer->GetMesh();
-}
-
-void MaterialComponent::ChangeTexture(ResourceTexture* resource)
-{
-    if (resource == nullptr)
-    {
-        textureID = -1.0f;
-        currentResource = nullptr;
-
-        if (_gameObject->HasComponent<MeshRenderComponent>())
-        {
-            if (meshRenderer != nullptr)
-                GetMesh().textureID = textureID;
-        }
-        return;
-    }
-    this->textureID = resource->OpenGLID;
-
-    if (currentResource != nullptr)
-        currentResource->Dereference();
-
-    currentResource = resource;
-
-	if (resource->isTransparent && !isUI)
-		meshRenderer->ChangeMeshRenderType(MeshRenderType::TRANSPARENCY);
-
-    GetMesh().textureID = textureID;
-}
-
-void MaterialComponent::ChangeTexture(int ID)
-{
-    this->textureID = ID;
-
-    GetMesh().textureID = textureID;
-}
-
-void MaterialComponent::MarkAsDead()
-{
-    if (currentResource != nullptr)
-    {
-        currentResource->Dereference();
-        resourceUID = currentResource->UID;
-        currentResource = nullptr;
-    }
-}
-
-void MaterialComponent::MarkAsAlive()
-{
-    ChangeTexture((ResourceTexture*)ModuleResourceManager::S_LoadResource(resourceUID));
-}
-
-
-
-void MaterialComponent::SetAsUI()
-{
-    isUI = true;
 }
 
 void MaterialComponent::Serialization(json& j)
 {
-    // We don't want to serialize UI Materials because their information is saved inside the ComponentUI. We assume every UI Material is attached to a ComponentUI.
-    if (isUI)
-        return;
 
-    json _j;
-
-    _j["Type"] = _type;
-    _j["ResourceUID"] = currentResource ? currentResource->UID : 0;
-    _j["Enabled"] = _isEnabled;
-    j["Components"].push_back(_j);
 }
 
 void MaterialComponent::DeSerialization(json& j)
 {
-    uint savedUID = j["ResourceUID"];
-    if (savedUID == CHECKERS_RESOURCE_UID)
-    {
-        ChangeTexture(TextureImporter::CheckerImage());
-        return;
-    }
 
-	if (_gameObject->HasComponent<MeshRenderComponent>())
-	{
-		SetMeshRenderer(_gameObject->GetComponent<MeshRenderComponent>());
-	}
-	else
-	{
-		SetSkinnedMeshRenderer(_gameObject->GetComponent<SkinnedMeshRenderComponent>());
-	}
-
-	if (meshRenderer != nullptr || skinnedMeshRenderer)
-	{
-		ResourceTexture* resource = savedUID == 0 ? nullptr : (ResourceTexture*)ModuleResourceManager::S_LoadResource(j["ResourceUID"]);
-		ChangeTexture(resource);
-	}
-
-    bool enabled = j["Enabled"];
-    if (!enabled)
-        Disable();
 }
 
-void MaterialComponent::UpdateMaterial()
-{
-    GetMesh().textureID = textureID;
-}
-
-uint MaterialComponent::GetResourceUID()
-{
-    if (currentResource != nullptr)
-        return currentResource->UID;
-    return 0;
-}
-
-void MaterialComponent::DestroyedResource()
-{
-    ChangeTexture(nullptr);
-}
 void MaterialComponent::OnEditor()
 {
 	bool created = true;
-	if (!ImGui::CollapsingHeader("Material", &created, ImGuiTreeNodeFlags_DefaultOpen)) return;
+
+	if (ImGui::CollapsingHeader("Material", &created, ImGuiTreeNodeFlags_DefaultOpen))
+	{
+		MaterialDragNDrop();
+		ShaderSelectCombo();
+	}
 	if (!created)
-	{
-		_gameObject->DestroyComponent(this);
-		return;
-	}
-	bool auxiliaryBool = _isEnabled;
-	if (ImGui::Checkbox("Active##Material", &auxiliaryBool))
-		auxiliaryBool ? Enable() : Disable();
+		this->_gameObject->DestroyComponent(this);
+}
 
-	if (!meshRenderer && !skinnedMeshRenderer)
-	{
-		ImGui::TextColored(ImVec4(1, 0, 0, 1), "No MeshRenderComponent detected!");
+void MaterialComponent::MaterialDragNDrop()
+{
+	std::string btnTxt = "EMPTY";
 
-		if (ImGui::Button("Search MeshRenderComponent"))
+	ImGui::Button(_resource == nullptr ? btnTxt.c_str() : _resource->debugName.c_str(), { 50, 50 });
+
+	if (ImGui::BeginDragDropTarget())
+	{
+		if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("Material"))
 		{
-			MeshRenderComponent* meshRenderer = _gameObject->GetComponent<MeshRenderComponent>();
-			if (!meshRenderer)
-			{
-				SkinnedMeshRenderComponent* skinnedMeshRenderer = _gameObject->GetComponent<SkinnedMeshRenderComponent>();
-				if (!skinnedMeshRenderer) return;
+			const uint* drop = (uint*)payload->Data;
 
-				SetSkinnedMeshRenderer(skinnedMeshRenderer);
-			} else 	SetMeshRenderer(meshRenderer);
+			if (_resource != nullptr) _resource->Dereference();
+			_resource = (ResourceMaterial*)ModuleResourceManager::S_LoadResource(*drop);
 		}
 	}
-	else
+}
+
+void MaterialComponent::ShaderSelectCombo()
+{
+	if (this->_resource == nullptr)return;
+	
+	std::string strSelected = "Select a shader";
+	ResourceShader* resShader = _resource->material.GetShader();
+	if (resShader != nullptr) strSelected = resShader->debugName;
+
+	std::vector<Resource*> shaderPool;
+
+	if (ImGui::BeginCombo("##ShaderCombo", strSelected.c_str()))
 	{
-		Mesh& mesh = GetMesh();
+		shaderPool = ModuleResourceManager::S_GetResourcePool(ResourceType::SHADER);
 
-		if (ImGui::Button("Set Checkers Texture"))
-		{
-			ChangeTexture(TextureImporter::CheckerImage());
-		}
+		std::string aux;
 
-		std::string imageName;
-		int width = 0;
-		int height = 0;
-		if (textureID != -1.0f && currentResource != nullptr)
+		for (int i = 0; i < shaderPool.size(); ++i)
 		{
-			ImGui::Image((ImTextureID)(uint)textureID, ImVec2(64, 64), ImVec2(0, 1), ImVec2(1, 0));
-
-			imageName = currentResource->debugName;
-			width = currentResource->width;
-			height = currentResource->height;
-		}
-		else
-		{
-			ImGui::Image((ImTextureID)0, ImVec2(64, 64), ImVec2(0, 1), ImVec2(1, 0));
-			imageName = "None";
-		}
-
-		if (ImGui::BeginDragDropTarget())
-		{
-			if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("Texture"))
+			aux = shaderPool[i]->debugName;
+			aux += "##";
+			aux += shaderPool[i]->UID;
+			if (ImGui::Selectable(aux.c_str()))
 			{
-				//Drop asset from Asset window to scene window
-				const uint* drop = (uint*)payload->Data;
+				////Clean current Shader
+				//if (material->GetShader() != nullptr)
+				//{
+				//	if (!material->GetShader()->uuid.empty())
+				//	{
+				//		ResourceShader* ress = (ResourceShader*)resInstance->resources.at(material->GetShader()->uuid);
+				//		if (ress != nullptr) ress->RemoveShaderFromMat(material);
+				//		//if (ress->shader == nullptr) LOG(LOG_TYPE::ATTENTION, "RC 0: Unloading shader '%s' from memory!", ress->GetLibraryFile().c_str());
+				//	}
+				//}
 
-				ResourceTexture* resource = (ResourceTexture*)ModuleResourceManager::S_LoadResource(*drop);
+				////Set new shader
+				///*material->SetShader(ShaderManager::ImportFromLibrary(shaderPool[i]));
+				//shaderPool[i]->IncreaseRC();*/
 
-				ChangeTexture(resource);
+				//shaderPool[i]->SetShaderToMat(material);
 			}
-			ImGui::EndDragDropTarget();
 		}
 
-		ImGui::TextWrapped("Path: "); ImGui::SameLine();
-		ImGui::TextColored(ImVec4(1, 1, 0, 1), imageName.c_str());
-
-		ImGui::TextWrapped("Width: "); ImGui::SameLine();
-		ImGui::TextColored(ImVec4(1, 1, 0, 1), std::to_string(width).c_str());
-
-		ImGui::TextWrapped("Height: "); ImGui::SameLine();
-		ImGui::TextColored(ImVec4(1, 1, 0, 1), std::to_string(height).c_str());
-	}
-}
-
-void MaterialComponent::OnEnable()
-{
-    if (!meshRenderer) return;
-    GetMesh().textureID = textureID;
-}
-
-void MaterialComponent::OnDisable()
-{
-    if (!meshRenderer) return;
-    GetMesh().textureID = -1;
-}
-
-void MaterialComponent::SetMeshRenderer(MeshRenderComponent* mesh)
-{
-    this->meshRenderer = mesh;
-    if (meshRenderer == nullptr)
-    {
-        textureID = -1;
-        return;
-    }
-}
-
-void MaterialComponent::SetSkinnedMeshRenderer(SkinnedMeshRenderComponent* mesh)
-{
-	this->skinnedMeshRenderer = mesh;
-	if (meshRenderer == nullptr)
-	{
-		textureID = -1;
-		return;
+		ImGui::EndCombo();
 	}
 }

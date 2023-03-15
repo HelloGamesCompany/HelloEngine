@@ -214,7 +214,7 @@ void Shader::CompileShader()
 		err += "' is compiled!";
 		Console::S_Log(err, LogType::INFO);
 
-		UniformParser();
+		//UniformParser();
 	}
 
 	//Delete the shaders as they're linked into our program now and no longer necessary
@@ -234,7 +234,7 @@ void Shader::RecompileShader(std::string shaderPath)
 	UniformCompare(previousData);
 }
 
-void Shader::UniformParser()
+void Shader::UniformParser(std::vector<Uniform*>& vec)
 {
 	GLint maxNameLen, count;
 
@@ -253,20 +253,20 @@ void Shader::UniformParser()
 		
 		switch (uni.type)
 		{
-			case GL_BOOL: data.uniforms.push_back((Uniform*) new UniBool(uni)); break;
-			case GL_INT: data.uniforms.push_back((Uniform*) new UniInt(uni)); break;
-			case GL_UNSIGNED_INT: data.uniforms.push_back((Uniform*) new UniUInt(uni)); break;
-			case GL_FLOAT: data.uniforms.push_back((Uniform*) new UniFloat(uni)); break;
-			case GL_FLOAT_VEC2: data.uniforms.push_back((Uniform*) new UniFloat2(uni)); break;
-			case GL_FLOAT_VEC3: data.uniforms.push_back((Uniform*) new UniFloat3(uni)); break;
-			case GL_FLOAT_VEC4: data.uniforms.push_back((Uniform*) new UniFloat4(uni)); break;
-			case GL_DOUBLE: data.uniforms.push_back((Uniform*) new UniDouble(uni)); break;
-			case GL_SAMPLER_2D: data.uniforms.push_back((Uniform*) new UniSampler2D(uni)); break;
-			case GL_FLOAT_MAT4: data.uniforms.push_back((Uniform*) new UniFloat4x4(uni)); break;
+			case GL_BOOL: vec.push_back((Uniform*) new UniBool(uni)); break;
+			case GL_INT: vec.push_back((Uniform*) new UniInt(uni)); break;
+			case GL_UNSIGNED_INT: vec.push_back((Uniform*) new UniUInt(uni)); break;
+			case GL_FLOAT: vec.push_back((Uniform*) new UniFloat(uni)); break;
+			case GL_FLOAT_VEC2: vec.push_back((Uniform*) new UniFloat2(uni)); break;
+			case GL_FLOAT_VEC3: vec.push_back((Uniform*) new UniFloat3(uni)); break;
+			case GL_FLOAT_VEC4: vec.push_back((Uniform*) new UniFloat4(uni)); break;
+			case GL_DOUBLE: vec.push_back((Uniform*) new UniDouble(uni)); break;
+			case GL_SAMPLER_2D: vec.push_back((Uniform*) new UniSampler2D(uni)); break;
+			case GL_FLOAT_MAT4: vec.push_back((Uniform*) new UniFloat4x4(uni)); break;
 		}
 	}
 
-	std::string aux = "A total of '" + std::to_string(data.uniforms.size()) + "' uniform variables have been parsed in '" + data.name + "'.";
+	std::string aux = "A total of '" + std::to_string(vec.size()) + "' uniform variables have been parsed in the shader'" + data.name + "'.";
 	Console::S_Log(aux, LogType::INFO);
 
 }

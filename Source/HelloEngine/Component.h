@@ -13,7 +13,7 @@ public:
 		NONE,
 		TRANSFORM,
 		MESH_RENDERER,
-		MATERIAL,
+		TEXTURE,
 		CAMERA,
 		SCRIPT,
 		PARTICLE_SYSTEM,
@@ -26,6 +26,7 @@ public:
 		UI_SLIDER,
 		UI_CHECKBOX,
 		UI_IMAGE,
+		MATERIAL,
 		MAX
 	};
 

@@ -21,8 +21,10 @@ RenderManager::RenderManager()
 RenderManager::~RenderManager()
 {
 	RELEASE(_textureManager);
-	RELEASE(lineShader);
-	RELEASE(localLineShader);
+	/*RELEASE(lineShader);
+	RELEASE(localLineShader);*/
+	lineShader = nullptr;
+	localLineShader = nullptr;
 }
 
 void RenderManager::Init()
@@ -70,10 +72,9 @@ void RenderManager::Init()
 	primitiveModels[(int)PrimitiveType::SPHERE]->modelMeshes.push_back(sphereResource);
 
 	// Init shaders
-	//lineShader = new Shader("Resources/shaders/lines.vertex.shader", "Resources/shaders/lines.fragment.shader");
-	//localLineShader = new Shader("Resources/shaders/localLines.vertex.shader", "Resources/shaders/localLines.fragment.shader");
-	lineShader = new Shader("Resources/shaders/lines.shader");
-	localLineShader = new Shader("Resources/shaders/localLines.shader");
+	lineShader = ModuleResourceManager::S_CreateResourceShader("Resources/shaders/lines.shader", 100, "Lines");
+	localLineShader = ModuleResourceManager::S_CreateResourceShader("Resources/shaders/localLines.shader", 101, "Local Lines");
+
 
 
 	// Set up debug drawing variables:
@@ -391,12 +392,12 @@ void RenderManager::DrawSelectedMesh()
 
 void RenderManager::DrawVertexNormals(Mesh* mesh)
 {
-	lineShader->Bind();
-	lineShader->SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
-	lineShader->SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
-	lineShader->SetFloat4("lineColor", 0.36f, 0.75f, 0.72f, 1.0f);
+	lineShader->shader.Bind();
+	lineShader->shader.SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
+	lineShader->shader.SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
+	lineShader->shader.SetFloat4("lineColor", 0.36f, 0.75f, 0.72f, 1.0f);
 
-	lineShader->SetMatFloat4v("model", &mesh->modelMatrix.v[0][0]);
+	lineShader->shader.SetMatFloat4v("model", &mesh->modelMatrix.v[0][0]);
 
 	glBindVertexArray(mesh->resource->VertexNormalsVAO);
 
@@ -407,12 +408,12 @@ void RenderManager::DrawVertexNormals(Mesh* mesh)
 
 void RenderManager::DrawFaceNormals(Mesh* mesh)
 {
-	lineShader->Bind();
-	lineShader->SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
-	lineShader->SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
-	lineShader->SetFloat4("lineColor", 0.75f, 0.36f, 0.32f, 1.0f);
+	lineShader->shader.Bind();
+	lineShader->shader.SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
+	lineShader->shader.SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
+	lineShader->shader.SetFloat4("lineColor", 0.75f, 0.36f, 0.32f, 1.0f);
 
-	lineShader->SetMatFloat4v("model", &mesh->modelMatrix.v[0][0]);
+	lineShader->shader.SetMatFloat4v("model", &mesh->modelMatrix.v[0][0]);
 
 	glBindVertexArray(mesh->resource->FaceNormalsVAO);
 
@@ -434,10 +435,10 @@ void RenderManager::DrawOBB(Mesh* mesh)
 	memcpy(ptr, &OBBPoints[0], 8 * sizeof(float3));
 	glUnmapBuffer(GL_ARRAY_BUFFER);
 
-	localLineShader->Bind();
-	localLineShader->SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
-	localLineShader->SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
-	localLineShader->SetFloat4("lineColor", 1.0f, 0.0f, 0.0f, 1.0f);
+	localLineShader->shader.Bind();
+	localLineShader->shader.SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
+	localLineShader->shader.SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
+	localLineShader->shader.SetFloat4("lineColor", 1.0f, 0.0f, 0.0f, 1.0f);
 
 	glDrawElements(GL_LINES, boxIndices.size(), GL_UNSIGNED_INT, 0);
 
@@ -457,10 +458,10 @@ void RenderManager::DrawAABB(Mesh* mesh)
 	memcpy(ptr, &AABBPoints[0], 8 * sizeof(float3));
 	glUnmapBuffer(GL_ARRAY_BUFFER);
 
-	localLineShader->Bind();
-	localLineShader->SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
-	localLineShader->SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
-	localLineShader->SetFloat4("lineColor", 0.0f, 1.0f, 0.0f, 1.0f);
+	localLineShader->shader.Bind();
+	localLineShader->shader.SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
+	localLineShader->shader.SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
+	localLineShader->shader.SetFloat4("lineColor", 0.0f, 1.0f, 0.0f, 1.0f);
 
 	glDrawElements(GL_LINES, boxIndices.size(), GL_UNSIGNED_INT, 0);
 
@@ -555,11 +556,11 @@ void RenderManager::DrawColliderBox(PhysBody3D* physBody, float4 color, float wi
 	memcpy(ptr, &AABBPoints[0], 8 * sizeof(float3));
 	glUnmapBuffer(GL_ARRAY_BUFFER);
 
-	localLineShader->Bind();
-	localLineShader->SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
-	localLineShader->SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
+	localLineShader->shader.Bind();
+	localLineShader->shader.SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
+	localLineShader->shader.SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
 
-	localLineShader->SetFloat4("lineColor", color[0], color[1], color[2], color[3]);
+	localLineShader->shader.SetFloat4("lineColor", color[0], color[1], color[2], color[3]);
 
 	glLineWidth(wireSize);
 	glDrawElements(GL_LINES, boxIndices.size(), GL_UNSIGNED_INT, 0);
@@ -630,10 +631,10 @@ void RenderManager::DrawColliderSphere(PhysBody3D* physBody, float radius, float
 	memcpy(ptr, &SpherePoints.at(0), SpherePoints.size() * sizeof(float3));
 	glUnmapBuffer(GL_ARRAY_BUFFER);
 
-	localLineShader->Bind();
-	localLineShader->SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
-	localLineShader->SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
-	localLineShader->SetFloat4("lineColor", color[0], color[1], color[2], color[3]);
+	localLineShader->shader.Bind();
+	localLineShader->shader.SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
+	localLineShader->shader.SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
+	localLineShader->shader.SetFloat4("lineColor", color[0], color[1], color[2], color[3]);
 
 	glLineWidth(wireSize);
 	glDrawElements(GL_LINES, sphereIndices.size() , GL_UNSIGNED_INT, 0);
@@ -764,10 +765,10 @@ void RenderManager::DrawColliderCylinder(PhysBody3D* physBody, float2 radiusHeig
 	memcpy(ptr, &CylinderPoints.at(0), CylinderPoints.size() * sizeof(float3));
 	glUnmapBuffer(GL_ARRAY_BUFFER);
 
-	localLineShader->Bind();
-	localLineShader->SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
-	localLineShader->SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
-	localLineShader->SetFloat4("lineColor", color[0], color[1], color[2], color[3]);
+	localLineShader->shader.Bind();
+	localLineShader->shader.SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
+	localLineShader->shader.SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
+	localLineShader->shader.SetFloat4("lineColor", color[0], color[1], color[2], color[3]);
 
 	glLineWidth(wireSize);
 	glDrawElements(GL_LINES, cylinderIndices.size(), GL_UNSIGNED_INT, 0);

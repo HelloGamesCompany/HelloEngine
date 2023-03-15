@@ -10,7 +10,7 @@
     <ClCompile Include="MeshRenderComponent.cpp">
       <Filter>GameObject\Components</Filter>
     </ClCompile>
-    <ClCompile Include="MaterialComponent.cpp">
+    <ClCompile Include="TextureComponent.cpp">
       <Filter>GameObject\Components</Filter>
     </ClCompile>
     <ClCompile Include="ImGuiUtils.cpp">
@@ -420,6 +420,8 @@
       <Filter>API</Filter>
     </ClCompile>
     <ClCompile Include="Uniform.cpp" />
+    <ClCompile Include="Material.cpp" />
+    <ClCompile Include="MaterialComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -431,7 +433,7 @@
     <ClInclude Include="MeshRenderComponent.h">
       <Filter>GameObject\Components</Filter>
     </ClInclude>
-    <ClInclude Include="MaterialComponent.h">
+    <ClInclude Include="TextureComponent.h">
       <Filter>GameObject\Components</Filter>
     </ClInclude>
     <ClInclude Include="CycleArray.hpp">
@@ -961,6 +963,8 @@
     <ClInclude Include="ShaderData.h" />
     <ClInclude Include="Uniform.h" />
     <ClInclude Include="BaseShader.h" />
+    <ClInclude Include="Material.h" />
+    <ClInclude Include="MaterialComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="External">

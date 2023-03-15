@@ -3,6 +3,7 @@
 
 #include "Math/float3.h"
 #include "Shader.h"
+#include "Material.h"
 
 
 #define MAX_BONE_WEIGHTS 4
@@ -10,6 +11,7 @@
 
 class MeshRenderComponent;
 class ResourceMesh;
+class ResourceShader;
 
 struct Vertex
 {
@@ -88,9 +90,9 @@ private:
 	uint _VAO = 0;
 	uint _VBO = 0;
 	uint _IBO = 0;
-	Shader* drawPerMeshShader = nullptr;
+	ResourceShader* drawPerMeshShader = nullptr;
 	// ----------------------------------------------------------------------------------------------------
-	Shader* boneMeshShader = nullptr;
+	ResourceShader* boneMeshShader = nullptr;
 
 	Shader stencilShader;
 

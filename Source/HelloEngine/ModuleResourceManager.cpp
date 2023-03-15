@@ -11,7 +11,7 @@
 #include "FileTree.hpp"
 #include "ModuleCommand.h"
 #include "ScriptComponent.h"
-#include "MaterialComponent.h"
+#include "TextureComponent.h"
 
 #include "GameObject.h"
 #include "ModuleLayers.h"
@@ -228,6 +228,13 @@ void ModuleResourceManager::S_LoadFileIntoResource(Resource* resource)
         shaderRes->shader = Shader(shaderRes->resourcePath);
     }
         break;
+    case ResourceType::MATERIAL:
+    {
+        ResourceMaterial* materialRes = (ResourceMaterial*)resource;
+        materialRes->material = Material();
+        materialRes->material.LoadJSON(materialRes->resourcePath);
+    }
+    break;
 	}
 
 	RELEASE_ARRAY(buffer);
@@ -348,7 +355,7 @@ void ModuleResourceManager::S_SerializeToPrefab(GameObject* g, const std::string
 
     g->SetAllChildsPrefabUID(g->_prefabUID);
 
-    std::string buffer = j.dump();
+    std::string buffer = j.dump(4);
 
     ModuleFiles::S_Save(prefabPath, &buffer[0], buffer.size(), false);
 }
@@ -407,7 +414,7 @@ GameObject* ModuleResourceManager::S_DeserializeFromPrefab(const std::string& fi
         for (int j = 0; j < object.size(); j++)
         {
             Component::Type componentType = object[j]["Type"];
-            if (componentType == Component::Type::SCRIPT || componentType == Component::Type::MATERIAL)
+            if (componentType == Component::Type::SCRIPT || componentType == Component::Type::TEXTURE)
                 continue;
             temp[i].first->AddComponentSerialized(componentType, object[j]);
         }
@@ -420,7 +427,7 @@ GameObject* ModuleResourceManager::S_DeserializeFromPrefab(const std::string& fi
         for (int j = 0; j < object.size(); j++)
         {
             Component::Type componentType = object[j]["Type"];
-            if (componentType != Component::Type::MATERIAL)
+            if (componentType != Component::Type::TEXTURE)
                 continue;
             temp[i].first->AddComponentSerialized(componentType, object[j]);
         }
@@ -579,7 +586,7 @@ bool ModuleResourceManager::S_DeserializeScene(const std::string& filePath)
         for (int j = 0; j < object.size(); j++)
         {
             Component::Type componentType = object[j]["Type"];
-            if (componentType == Component::Type::SCRIPT || componentType == Component::Type::MATERIAL)
+            if (componentType == Component::Type::SCRIPT || componentType == Component::Type::TEXTURE)
                 continue;
             /*if (temp[i].first->_prefabUID == 0)*/ temp[i].first->AddComponentSerialized(componentType, object[j]);
         }
@@ -592,7 +599,7 @@ bool ModuleResourceManager::S_DeserializeScene(const std::string& filePath)
         for (int j = 0; j < object.size(); j++)
         {
             Component::Type componentType = object[j]["Type"];
-            if (componentType != Component::Type::MATERIAL)
+            if (componentType != Component::Type::TEXTURE)
                 continue;
             /*if (temp[i].first->_prefabUID == 0)*/ temp[i].first->AddComponentSerialized(componentType, object[j]);
         }
@@ -767,6 +774,11 @@ void ModuleResourceManager::S_CreateResource(const MetaFile& metaFile)
         resources[metaFile.UID] = new ResourceShader();
     }
     break;
+    case ResourceType::MATERIAL:
+    {
+        resources[metaFile.UID] = new ResourceMaterial();
+    }
+        break;
 	default:
 		Console::S_Log("Cannot create a resource of an undefined meta file!");
 		return;
@@ -800,6 +812,25 @@ ResourceMesh* ModuleResourceManager::S_CreateResourceMesh(const std::string& fil
         newResource->modelUID = model->UID;
         newResource->indexInsideModel = model->modelMeshes.size();
     }
+
+    return newResource;
+}
+
+ResourceShader* ModuleResourceManager::S_CreateResourceShader(const std::string& filePath, uint UID, const std::string& name, bool load)
+{
+    if (resources.count(UID) != 0)
+        return (ResourceShader*) resources[UID];
+
+    ResourceShader* newResource = new ResourceShader();
+    if (load)
+    {
+        newResource->shader = Shader(filePath);
+    }
+
+    resources[UID] = newResource;
+    resources[UID]->debugName = name + ".shader";
+    resources[UID]->UID = UID;
+    resources[UID]->resourcePath = filePath;
 
     return newResource;
 }
@@ -861,6 +892,17 @@ Resource* ModuleResourceManager::S_LoadResource(const uint& UID)
 bool ModuleResourceManager::S_IsResourceCreated(const uint& UID)
 {
     return resources.count(UID) == 1;
+}
+
+std::vector<Resource*> ModuleResourceManager::S_GetResourcePool(ResourceType type)
+{
+    std::vector<Resource*> toReturn;
+    for (const auto& r : resources)
+    {
+        if (r.second->type == type) toReturn.push_back(r.second);
+    }
+
+    return toReturn;
 }
 
 void ModuleResourceManager::GetResourcePath(ModelNode& node, std::vector<std::string>& vector)
@@ -1298,11 +1340,11 @@ void ResourceTexture::Destroy()
 {
     for (auto& gameObject : ModuleLayers::gameObjects)
     {
-        MaterialComponent* materialComponent = gameObject.second->GetComponent<MaterialComponent>();
-        if (materialComponent != nullptr)
+        TextureComponent* textureComponent = gameObject.second->GetComponent<TextureComponent>();
+        if (textureComponent != nullptr)
         {
-            if (materialComponent->GetResourceUID() == this->UID)
-                materialComponent->DestroyedResource();
+            if (textureComponent->GetResourceUID() == this->UID)
+                textureComponent->DestroyedResource();
         }
     }
 }

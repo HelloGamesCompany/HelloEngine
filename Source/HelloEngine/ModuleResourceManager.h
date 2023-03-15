@@ -182,6 +182,14 @@ public:
     Shader shader;
 };
 
+class ResourceMaterial : public Resource
+{
+public:
+    ResourceMaterial() {};
+
+    Material material;
+};
+
 class ResourceScript : public Resource
 {
 public:
@@ -257,9 +265,13 @@ public:
     // Only for internal engine usage!
     static ResourceMesh* S_CreateResourceMesh(const std::string& filePath, uint UID, const std::string& name, bool load = true, ResourceModel* model = nullptr);
 
+    static ResourceShader* S_CreateResourceShader(const std::string& filePath, uint UID, const std::string& name, bool load = true);
+
     static Resource* S_LoadResource(const uint& UID);
 
     static bool S_IsResourceCreated(const uint& UID);
+
+    static std::vector<Resource*> S_GetResourcePool(ResourceType type);
 
 private:
     static void GetResourcePath(ModelNode& node, std::vector<std::string>& vector);

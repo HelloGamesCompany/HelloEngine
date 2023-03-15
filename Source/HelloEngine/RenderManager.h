@@ -115,8 +115,8 @@ private:
 	ResourceModel* primitiveModels[5];
 
 	// Shaders for drawing debug information
-	Shader* lineShader = nullptr;
-	Shader* localLineShader = nullptr;
+	ResourceShader* lineShader = nullptr;
+	ResourceShader* localLineShader = nullptr;
 
 	uint AABBVAO = 0;
 	uint AABBVBO = 0;

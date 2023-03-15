@@ -353,7 +353,9 @@
     <ClCompile Include="LayerUI.cpp" />
     <ClCompile Include="Log.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Material.cpp" />
     <ClCompile Include="MaterialComponent.cpp" />
+    <ClCompile Include="TextureComponent.cpp" />
     <ClCompile Include="MeshImporter.cpp" />
     <ClCompile Include="MeshRenderComponent.cpp" />
     <ClCompile Include="Particle.cpp" />
@@ -537,7 +539,9 @@
     <ClInclude Include="Layer.h" />
     <ClInclude Include="LayerGame.h" />
     <ClInclude Include="LayerUI.h" />
+    <ClInclude Include="Material.h" />
     <ClInclude Include="MaterialComponent.h" />
+    <ClInclude Include="TextureComponent.h" />
     <ClInclude Include="MemLeaks.h" />
     <ClInclude Include="MeshImporter.h" />
     <ClInclude Include="MeshRenderComponent.h" />

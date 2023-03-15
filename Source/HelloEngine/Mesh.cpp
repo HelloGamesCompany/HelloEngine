@@ -24,8 +24,11 @@ Mesh::Mesh()
 
 Mesh::~Mesh()
 {
-	RELEASE(drawPerMeshShader);
-	RELEASE(boneMeshShader);
+	//RELEASE(drawPerMeshShader);
+	//RELEASE(boneMeshShader);
+	//Cleaned along with shaders
+	drawPerMeshShader = nullptr;
+	boneMeshShader = nullptr;
 	if (_VAO != 0)
 	{
 		CleanUp();
@@ -42,10 +45,9 @@ void Mesh::CreateBufferData()
 	_VBO = resource->VBO;
 	_IBO = resource->IBO;
 
-	//drawPerMeshShader = new Shader("Resources/shaders/basic.vertex.shader", "Resources/shaders/basic.fragment.shader");
-	//boneMeshShader = new Shader("Resources/shaders/basicBone.vertex.shader", "Resources/shaders/basicBone.fragment.shader");
-	drawPerMeshShader = new Shader("Resources/shaders/basic.shader");
-	boneMeshShader = new Shader("Resources/shaders/basicBone.shader");
+	drawPerMeshShader = ModuleResourceManager::S_CreateResourceShader("Resources/shaders/basic.shader", 103, "Basic");
+	boneMeshShader = ModuleResourceManager::S_CreateResourceShader("Resources/shaders/basicBone.shader", 105, "Basic Bone");
+	
 }
 
 void Mesh::Draw(bool useBasicShader)
@@ -59,10 +61,10 @@ void Mesh::Draw(bool useBasicShader)
 
 		if (component->_hasBones)
 		{
-			boneMeshShader->Bind();
-			boneMeshShader->SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
-			boneMeshShader->SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
-			boneMeshShader->SetMatFloat4v("model", &modelMatrix.v[0][0]);
+			boneMeshShader->shader.Bind();
+			boneMeshShader->shader.SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
+			boneMeshShader->shader.SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
+			boneMeshShader->shader.SetMatFloat4v("model", &modelMatrix.v[0][0]);
 
 			SkinnedMeshRenderComponent* smComp = (SkinnedMeshRenderComponent*) component;
 
@@ -73,16 +75,16 @@ void Mesh::Draw(bool useBasicShader)
 
 			for (int i = 0; i < smComp->goBonesArr.size(); ++i)
 			{
-				boneMeshShader->SetMatFloat4v("finalBonesMatrices[" + std::to_string(i) + "]", &smComp->goBonesArr[i].Transposed().v[0][0]);
+				boneMeshShader->shader.SetMatFloat4v("finalBonesMatrices[" + std::to_string(i) + "]", &smComp->goBonesArr[i].Transposed().v[0][0]);
 			}
 
 		}
 		else
 		{
-			drawPerMeshShader->Bind();
-			drawPerMeshShader->SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
-			drawPerMeshShader->SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
-			drawPerMeshShader->SetMatFloat4v("model", &modelMatrix.v[0][0]);
+			drawPerMeshShader->shader.Bind();
+			drawPerMeshShader->shader.SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
+			drawPerMeshShader->shader.SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
+			drawPerMeshShader->shader.SetMatFloat4v("model", &modelMatrix.v[0][0]);
 		}
 		
 	}

@@ -46,9 +46,9 @@ private:
 
 private:
 
-	Shader* instancedShader = nullptr;
-	Shader* perMeshShader = nullptr;
-	Shader* mesh2DShader = nullptr;
+	ResourceShader* instancedShader = nullptr;
+	ResourceShader* perMeshShader = nullptr;
+	ResourceShader* mesh2DShader = nullptr;
 
 	std::map<uint, Mesh> meshes;
 	std::vector<Vertex>* totalVertices = nullptr;

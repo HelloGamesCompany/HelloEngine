@@ -592,6 +592,9 @@ ResourceType ModuleFiles::S_GetResourceType(const std::string& filename)
     if (fileExtension == "shader")
         return ResourceType::SHADER;
 
+    if (fileExtension == "material")
+        return ResourceType::MATERIAL;
+
     return ResourceType::UNDEFINED;
 }
 
