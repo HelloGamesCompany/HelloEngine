@@ -7,7 +7,9 @@
 #include "API_Transform.h"
 #include "API_MeshRenderer.h"
 #include "API/API_RigidBody.h"
+#include "API/API_Material.h"
 #include "PhysicsComponent.h"
+#include "MaterialComponent.h"
 
 API::API_GameObject::API_GameObject()
 {
@@ -122,6 +124,50 @@ API::API_MeshRenderer API::API_GameObject::AddMeshRenderer(API_MeshRenderer& cop
 
     API_MeshRenderer ret;
     ret.SetComponent(component);
+    return ret;
+}
+
+API::API_Material API::API_GameObject::AddMaterial()
+{
+    if (_gameObject == nullptr)
+    {
+        Console::S_Log("Trying to acces a NULLPTR GameObject! AddMaterial()");
+        return API_Material();
+    }
+    MaterialComponent* component = (MaterialComponent*)_gameObject->AddComponent<MaterialComponent>();
+
+    if (component == nullptr)
+    {
+        Console::S_Log("Trying to add a second Material to a GameObject. Only one Material for game object is allowed. AddMaterial()");
+        return API_Material();
+    }
+
+    API_Material ret;
+    ret.SetComponent(component);
+    return ret;
+}
+
+API::API_MeshRenderer API::API_GameObject::GetMeshRenderer()
+{
+    if (_gameObject == nullptr)
+    {
+        Console::S_Log("Trying to acces a NULLPTR GameObject! AddMaterial()");
+        return API_MeshRenderer();
+    }
+    API_MeshRenderer ret;
+    ret.SetComponent(_gameObject->GetComponent<MeshRenderComponent>());
+    return ret;
+}
+
+API::API_Material API::API_GameObject::GetMaterialCompoennt()
+{
+    if (_gameObject == nullptr)
+    {
+        Console::S_Log("Trying to acces a NULLPTR GameObject! AddMaterial()");
+        return API_Material();
+    }
+    API_Material ret;
+    ret.SetComponent(_gameObject->GetComponent<MaterialComponent>());
     return ret;
 }
 

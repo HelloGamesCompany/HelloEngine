@@ -35,6 +35,11 @@ namespace API
         API_MeshRenderer AddMeshRenderer();
         API_MeshRenderer AddMeshRenderer(API_MeshRenderer& copy);
 
+        API_Material AddMaterial();
+
+        API_MeshRenderer GetMeshRenderer();
+        API_Material GetMaterialCompoennt();
+
         void SetActive(bool active);
         bool IsActive();
 
