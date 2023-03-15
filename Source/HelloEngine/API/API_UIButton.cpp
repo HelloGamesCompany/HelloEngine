@@ -34,6 +34,28 @@ bool API::API_UIButton::OnPress()
 	return _UIButton->State == ButtonState::ONPRESS;
 }
 
+bool API::API_UIButton::OnHold()
+{
+	if (!_UIButton)
+	{
+		Engine::Console::S_Log("Trying to acces a NULLPTR UI Button");
+		return false;
+	}
+
+	return _UIButton->State == ButtonState::ONHOLD;
+}
+
+bool API::API_UIButton::OnHovered()
+{
+	if (!_UIButton)
+	{
+		Engine::Console::S_Log("Trying to acces a NULLPTR UI Button");
+		return false;
+	}
+
+	return _UIButton->State == ButtonState::HOVERED;
+}
+
 
 ComponentUIButton* API::API_UIButton::GetComponent()
 {

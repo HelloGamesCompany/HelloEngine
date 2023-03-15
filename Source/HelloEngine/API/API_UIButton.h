@@ -15,6 +15,10 @@ namespace API
 		API_GameObject GetGameObject();
 
 		bool OnPress();
+
+		bool OnHold();
+
+		bool OnHovered();
 	
 	private:
 		ComponentUIButton* GetComponent();

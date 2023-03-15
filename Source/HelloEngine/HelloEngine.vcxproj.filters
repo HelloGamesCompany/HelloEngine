@@ -422,6 +422,9 @@
     <ClCompile Include="API\API_UIButton.cpp">
       <Filter>API</Filter>
     </ClCompile>
+    <ClCompile Include="API_UIImage.cpp">
+      <Filter>API</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -961,6 +964,9 @@
       <Filter>API</Filter>
     </ClInclude>
     <ClInclude Include="API\API_UIButton.h">
+      <Filter>API</Filter>
+    </ClInclude>
+    <ClInclude Include="API_UIImage.h">
       <Filter>API</Filter>
     </ClInclude>
   </ItemGroup>

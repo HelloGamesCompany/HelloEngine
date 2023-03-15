@@ -308,6 +308,7 @@
     <ClCompile Include="API\API_Engine.cpp" />
     <ClCompile Include="API\API_Camera.cpp" />
     <ClCompile Include="API\API_ParticleSystem.cpp" />
+    <ClCompile Include="API_UIImage.cpp" />
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="BillBoardComponent.cpp" />
     <ClCompile Include="CameraComponent.cpp" />
@@ -493,6 +494,7 @@
     <ClInclude Include="API\API_Engine.h" />
     <ClInclude Include="API\API_Camera.h" />
     <ClInclude Include="API\API_ParticleSystem.h" />
+    <ClInclude Include="API_UIImage.h" />
     <ClInclude Include="Application.h" />
     <ClInclude Include="BillBoardComponent.h" />
     <ClInclude Include="CameraComponent.h" />

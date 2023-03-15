@@ -7,11 +7,13 @@
 #include "API/API_RigidBody.h"
 #include "API/API_AnimationPlayer.h"
 #include "API/API_UIButton.h"
+#include "API/API_UIImage.h"
 #include "PhysicsComponent.h"
 #include "MeshRenderComponent.h"
 #include "CameraComponent.h"
 #include "AnimationComponent.h"
 #include "ComponentUIButton.h"
+#include "ComponentUIImage.h"
 
 void DragFieldFloat::OnEditor()
 {
@@ -646,7 +648,6 @@ void DragBoxUIButton::OnSerialize(json& j)
 {
 	json _j;
 
-
 	API::API_UIButton* buttonui = (API::API_UIButton*)value;
 
 	if (buttonui->_UIButton != nullptr)
@@ -670,6 +671,81 @@ void DragBoxUIButton::OnDeserialize(json& j)
 			if (component != nullptr)
 			{
 				API::API_UIButton* buttonui = (API::API_UIButton*)value;
+				buttonui->SetComponent(component);
+			}
+		}
+	}
+}
+
+void DragBoxUIImage::OnEditor()
+{
+	API::API_UIImage* imageui = (API::API_UIImage*)value;
+
+	std::string buttonName = "X##" + std::to_string(UID);
+	if (ImGui::Button(buttonName.c_str()))
+	{
+		imageui->SetComponent(nullptr);
+	}
+	ImGui::SameLine();
+
+	ImGui::TextWrapped((valueName + ": ").c_str()); ImGui::SameLine();
+
+	if (imageui->_UIImage == nullptr)
+	{
+		ImGui::TextColored(ImVec4(1, 1, 0, 1), "NULL (Drag an UI Button Here)");
+	}
+	else
+	{
+		std::string gameObjectName(imageui->GetGameObject().GetName());
+		std::string text = "(" + gameObjectName + ")" + ": UI Button";
+		ImGui::TextColored(ImVec4(1, 1, 0, 1), text.c_str());
+	}
+
+	if (ImGui::BeginDragDropTarget())
+	{
+		if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("GameObject"))
+		{
+			const uint* drop = (uint*)payload->Data;
+
+			GameObject* droppedGO = ModuleLayers::S_GetGameObject(*drop);
+			ComponentUIImage* component = nullptr;
+
+			if (droppedGO != nullptr)
+				component = droppedGO->GetComponent<ComponentUIImage>();
+
+			imageui->SetComponent(component);
+		}
+		ImGui::EndDragDropTarget();
+	}
+}
+
+void DragBoxUIImage::OnSerialize(json& j)
+{
+	json _j;
+
+	API::API_UIImage* imageui = (API::API_UIImage*)value;
+
+	if (imageui->_UIImage != nullptr)
+	{
+		_j[valueName.c_str()] = imageui->_UIImage->GetGameObject()->GetID();
+		j.push_back(_j);
+	}
+}
+
+void DragBoxUIImage::OnDeserialize(json& j)
+{
+	for (int i = 0; i < j.size(); i++)
+	{
+		if (j[i].find(valueName) != j[i].end())
+		{
+			uint id = j[i][valueName.c_str()];
+			GameObject* gameObject = ModuleLayers::S_GetGameObject(id);
+			ComponentUIImage* component = nullptr;
+			if (gameObject != nullptr)
+				component = gameObject->GetComponent<ComponentUIImage>();
+			if (component != nullptr)
+			{
+				API::API_UIImage* buttonui = (API::API_UIImage*)value;
 				buttonui->SetComponent(component);
 			}
 		}

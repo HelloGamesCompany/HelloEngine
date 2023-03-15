@@ -16,6 +16,7 @@ namespace API
 	class API_AnimationPlayer;
 	class API_ParticleSystem;
 	class API_UIButton;
+	class API_UIImage;
 	class TO_API API_GameObject
 	{
 	public:
@@ -58,5 +59,6 @@ namespace API
 		friend class LayerGame;
 		friend class API_ParticleSystem;
 		friend class API_UIButton;
+		friend class API_UIImage;
 	};
 }
