@@ -5,10 +5,12 @@
 
 #include "API/API.h"
 
-class UI_Test : HelloBehavior
+class UIbutton : HelloBehavior
 {
 public:
 	void Start() override; 
 	void Update() override;
+
+	API_UIButton prova;
 };
 

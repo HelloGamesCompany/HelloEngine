@@ -156,6 +156,7 @@
 		<ClCompile Include="../../Assets/Scripts/Shooting/Projectile.cpp" />
 		<ClCompile Include="../../Assets/Build/AnimationTest.cpp" />
 		<ClCompile Include="../../Assets/Scripts/RotateContiniously.cpp" />
+		<ClCompile Include="../../Assets/Scripts/UIbutton.cpp" />
 	</ItemGroup>
 	<ItemGroup>
 		<ClInclude Include="Macro.h" />
@@ -179,6 +180,7 @@
 		<ClInclude Include="../../Assets/Scripts/Shooting/Projectile.h" />
 		<ClInclude Include="../../Assets/Build/AnimationTest.h" />
 		<ClInclude Include="../../Assets/Scripts/RotateContiniously.h" />
+		<ClInclude Include="../../Assets/Scripts/UIbutton.h" />
 	</ItemGroup>
 	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 	<ImportGroup Label="ExtensionTargets" />

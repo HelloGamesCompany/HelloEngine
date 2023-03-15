@@ -4,6 +4,7 @@
 #include "MaterialComponent.h"
 #include "TextureImporter.h"
 #include "Mesh.h"
+#include "API/API_UIButton.h"
 
 ComponentUIButton::ComponentUIButton(GameObject* gameObject) : ComponentUI(gameObject)
 {
@@ -22,7 +23,7 @@ void ComponentUIButton::InputUpdate()
 	// Add here any checks necessary with INPUT.
 	State = ChangeState(State);
 
-	switch (State)
+	/*switch (State)
 	{
 	case ButtonState::NORMAL:
 
@@ -38,7 +39,7 @@ void ComponentUIButton::InputUpdate()
 		break;
 	default:
 		break;
-	}
+	}*/
 }
 
 void ComponentUIButton::Serialization(json& j)
