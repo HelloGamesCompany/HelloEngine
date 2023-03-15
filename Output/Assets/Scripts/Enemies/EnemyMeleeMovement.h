@@ -13,16 +13,19 @@ public:
 
 	float DisanceToObj(API_Vector3 obj1, API_Vector3 obj2);
 
-	void Seek();
+	void Seek(float vel, API_Vector3 tarPos);
+	void Wander(float vel);
 
 	bool wander = false;
 	bool targeting = false;
 
 	float detectionDis=2.0f;
+	float lossingDis = 10.0f;
 
 	API_GameObject point1;
 	API_GameObject point2;
 
+	API_GameObject target;
 	
 	
 

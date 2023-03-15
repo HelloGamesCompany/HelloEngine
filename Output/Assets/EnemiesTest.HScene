@@ -136,146 +136,6 @@
             {
                 "Enabled": true,
                 "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "Active camera": true,
-                "Active culling": false,
-                "Aspect ratio": 0.4884546995162964,
-                "Enabled": true,
-                "FOV": 60.0,
-                "Far plane": 1000.0,
-                "Frustum type": 2,
-                "Near plane": 0.009999999776482582,
-                "Orthographic size": 10.0,
-                "Type": 4
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Delay": 0.009999999776482582
-                    },
-                    {
-                        "Delay": 0.009999999776482582
-                    },
-                    {
-                        "Delay": 0.009999999776482582
-                    },
-                    {
-                        "Delay": 0.009999999776482582
-                    },
-                    {
-                        "Delay": 0.009999999776482582
-                    },
-                    {
-                        "Delay": 0.009999999776482582
-                    },
-                    {
-                        "Delay": 0.009999999776482582
-                    }
-                ],
-                "Script Resource": 871976367,
-                "Type": 5
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "CameraOrbital",
-        "ParentUID": 3815239162,
-        "PrefabUID": 339062288,
-        "Tag": "Default",
-        "UID": 2079750808
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "Active camera": true,
-                "Active culling": false,
-                "Aspect ratio": 1.7000000476837158,
-                "Enabled": true,
-                "FOV": 60.0,
-                "Far plane": 1000.0,
-                "Frustum type": 2,
-                "Near plane": 0.009999999776482582,
-                "Orthographic size": 10.0,
-                "Type": 4
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Delay": 0.009999999776482582
-                    },
-                    {
-                        "Delay": 0.009999999776482582
-                    },
-                    {
-                        "Delay": 0.009999999776482582
-                    },
-                    {
-                        "Delay": 0.009999999776482582
-                    },
-                    {
-                        "Delay": 0.009999999776482582
-                    },
-                    {
-                        "Delay": 0.009999999776482582
-                    },
-                    {
-                        "Delay": 0.009999999776482582
-                    }
-                ],
-                "Script Resource": 2306703736,
-                "Type": 5
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "CameraPlayer",
-        "ParentUID": 3815239162,
-        "PrefabUID": 443810905,
-        "Tag": "Default",
-        "UID": 955463762
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
                     -4.664669513702393,
                     6.585689067840576,
                     -8.883058547973633
@@ -303,9 +163,126 @@
                 "Type": 2
             },
             {
+                "ColPosition": [
+                    0.0,
+                    27.600000381469727,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    9.300000190734863,
+                    54.20000076293945,
+                    24.700000762939453
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "GlobalGravity": [
+                    0.0,
+                    -10.0,
+                    0.0
+                ],
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsShapeSelected": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsStatic": false,
+                "IsTrigger": false,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    0.5,
+                    0.0,
+                    0.5,
+                    1.0
+                ],
+                "ShapeSelected": 0,
+                "SphereHorSlices": 16,
+                "SphereRadius": 1.0,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
+            },
+            {
                 "Enabled": true,
                 "ResourceUID": 240240,
                 "Type": 3
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Health": 100.0
+                    },
+                    {
+                        "Resistance": 100.0
+                    },
+                    {
+                        "Speed": 16.0
+                    },
+                    {
+                        "Acceleration": 47.0
+                    },
+                    {
+                        "Health": 100.0
+                    },
+                    {
+                        "Resistance": 100.0
+                    },
+                    {
+                        "Speed": 16.0
+                    },
+                    {
+                        "Acceleration": 47.0
+                    }
+                ],
+                "Script Resource": 4210965159,
+                "Type": 5
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Detection distance": 32.0
+                    },
+                    {
+                        "Lossing distance": 96.0
+                    },
+                    {
+                        "Target": 1836731499
+                    },
+                    {
+                        "Detection distance": 32.0
+                    },
+                    {
+                        "Lossing distance": 96.0
+                    },
+                    {
+                        "Target": 1836731499
+                    }
+                ],
+                "Script Resource": 639624871,
+                "Type": 5
             }
         ],
         "FirstOnPrefab": true,
@@ -314,5 +291,172 @@
         "PrefabUID": 0,
         "Tag": "Default",
         "UID": 1179119230
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    98.35203552246094,
+                    29.089067459106445,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    23.698198318481445,
+                    23.698198318481445,
+                    23.698198318481445
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 1834708374,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "ColPosition": [
+                    0.0,
+                    14.699999809265137,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    31.299999237060547,
+                    73.5999984741211,
+                    25.799999237060547
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "GlobalGravity": [
+                    0.0,
+                    -10.0,
+                    0.0
+                ],
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsShapeSelected": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsStatic": false,
+                "IsTrigger": false,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    0.5,
+                    0.0,
+                    0.5,
+                    1.0
+                ],
+                "ShapeSelected": 0,
+                "SphereHorSlices": 16,
+                "SphereRadius": 1.0,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 240240,
+                "Type": 3
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Velocity": 122.0
+                    },
+                    {
+                        "CurrentVelocity": 0.0
+                    },
+                    {
+                        "Velocity": 122.0
+                    },
+                    {
+                        "CurrentVelocity": 0.0
+                    }
+                ],
+                "Script Resource": 1247927621,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "player",
+        "ParentUID": 3815239162,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1836731499
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    505.6374816894531,
+                    -155.70523071289063
+                ],
+                "Rotation": [
+                    74.15977478027344,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    0.9999991059303284,
+                    0.9999991059303284
+                ],
+                "Type": 1
+            },
+            {
+                "Active camera": true,
+                "Active culling": true,
+                "Aspect ratio": 1.9974778890609741,
+                "Enabled": true,
+                "FOV": 60.0,
+                "Far plane": 1000.0,
+                "Frustum type": 2,
+                "Near plane": 0.009999999776482582,
+                "Orthographic size": 10.0,
+                "Type": 4
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "cam",
+        "ParentUID": 3815239162,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2692600433
     }
 ]
