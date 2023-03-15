@@ -10,6 +10,7 @@
 
 #include "ProjectilePull.h"
 #include "../PlayerGamepadMovement.h"
+#include "Projectile.h"
 
 class PlayerGun : protected HelloBehavior
 {
@@ -21,7 +22,7 @@ public:
     virtual void EnableGuns(bool enable);
 
 protected:
-    void LauchProjectile(API_Transform projectileSpawn, bool randomDirection = false);
+    void LauchProjectile(API_Transform projectileSpawn, PROJECTILE_ACTION projectileAction = PROJECTILE_ACTION::NONE, bool randomDirection = false);
 
 public:
     API_GameObject projectilePull;

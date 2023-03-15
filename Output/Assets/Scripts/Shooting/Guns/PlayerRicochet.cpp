@@ -1,8 +1,8 @@
-#include "PlayerShotgun.h"
-HELLO_ENGINE_API_C PlayerShotgun* CreatePlayerShotgun(ScriptToInspectorInterface* script)
+#include "PlayerRicochet.h"
+HELLO_ENGINE_API_C PlayerRicochet* CreatePlayerRicochet(ScriptToInspectorInterface* script)
 {
-    PlayerShotgun* classInstance = new PlayerShotgun();
-    //Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
+	PlayerRicochet* classInstance = new PlayerRicochet();
+	//Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
     script->AddDragBoxGameObject("Projectile Pull", &classInstance->projectilePull);
     script->AddDragFloat("Projectile Speed", &classInstance->projectileSpeed);
     script->AddDragFloat("Projectile Damage", &classInstance->projectileDamage);
@@ -14,17 +14,16 @@ HELLO_ENGINE_API_C PlayerShotgun* CreatePlayerShotgun(ScriptToInspectorInterface
     script->AddDragFloat("Projectile ScaleY", &classInstance->projectileScale.y);
     script->AddDragFloat("Projectile ScaleZ", &classInstance->projectileScale.z);
     script->AddDragFloat("Projectiles per second", &classInstance->cadence);
-    script->AddDragInt("Pellets per shot", &classInstance->pellets);
-    return classInstance;
+	return classInstance;
 }
 
-void PlayerShotgun::Start()
+void PlayerRicochet::Start()
 {
     if (cadence != 0) fullShotCooldown = 1 / cadence;
     else fullShotCooldown = 0;
 }
 
-void PlayerShotgun::Update()
+void PlayerRicochet::Update()
 {
     if (shotBuffer)
     {
@@ -54,14 +53,11 @@ void PlayerShotgun::Update()
     }
 }
 
-void PlayerShotgun::Shoot()
+void PlayerRicochet::Shoot()
 {
     if (canShoot)
     {
-        for (size_t i = 0; i < pellets; i++)
-        {
-            LauchProjectile(shootingSpawn, PROJECTILE_ACTION::NONE, true);
-        }
+        LauchProjectile(shootingSpawn, PROJECTILE_ACTION::RICOCHET);
         canShoot = false;
         shotCooldown = fullShotCooldown;
     }
@@ -72,7 +68,7 @@ void PlayerShotgun::Shoot()
     }
 }
 
-void PlayerShotgun::EnableGuns(bool enable)
+void PlayerRicochet::EnableGuns(bool enable)
 {
     gameObject.SetActive(enable);
 }

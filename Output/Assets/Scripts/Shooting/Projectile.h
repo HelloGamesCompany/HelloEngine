@@ -5,6 +5,13 @@
 
 #include "API/API.h"
 
+enum class PROJECTILE_ACTION
+{
+    NONE,
+    FLAMETROWER,
+    RICOCHET
+};
+
 class Projectile : HelloBehavior
 {
 public:
@@ -19,7 +26,8 @@ public:
     float lifeTime = 5.0f;
     float damage = 0.0f;
     float resistanceDamage = 0.0f;
-    float directionx;
-    float directiony;
-    float directionz;
+    PROJECTILE_ACTION action = PROJECTILE_ACTION::NONE;
+
+    // ricochet test
+    float wallCd = 0;
 };

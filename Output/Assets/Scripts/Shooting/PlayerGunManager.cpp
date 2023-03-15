@@ -9,7 +9,11 @@ HELLO_ENGINE_API_C PlayerGunManager* CreatePlayerGunManager(ScriptToInspectorInt
     script->AddDragBoxGameObject("Duals", &classInstance->duals);
     script->AddDragBoxGameObject("Semiautomatic", &classInstance->semiauto);
     script->AddDragBoxGameObject("Automatic", &classInstance->automatic);
+    script->AddDragBoxGameObject("Burst", &classInstance->burst);
     script->AddDragBoxGameObject("Shotgun", &classInstance->shotgun);
+    script->AddDragBoxGameObject("Handgun", &classInstance->handgun);
+    script->AddDragBoxGameObject("Flamethrower", &classInstance->flamethrower);
+    script->AddDragBoxGameObject("Ricochet", &classInstance->ricochet);
     return classInstance;
 }
 
@@ -19,7 +23,11 @@ void PlayerGunManager::Start()
     guns.push_back(duals);
     guns.push_back(semiauto);
     guns.push_back(automatic);
+    guns.push_back(burst);
     guns.push_back(shotgun);
+    guns.push_back(handgun);
+    guns.push_back(flamethrower);
+    guns.push_back(ricochet);
 
     // get start guns
     GetGun(1, gunOnHandIndex1);
@@ -79,9 +87,11 @@ void PlayerGunManager::Update()
 
     switch (equipedIndex)
     {
-    case 0:
+    case 0: // press and release
     case 1:
-    case 3: // press and release
+    case 4:
+    case 5:
+    case 7:
         if ((Input::GetGamePadAxis(GamePadAxis::AXIS_TRIGGERRIGHT) > 5000 && canShoot) || Input::GetMouseButton(MouseButton::LEFT) == KeyState::KEY_DOWN)
         {
             equipedGun->Shoot();
@@ -93,7 +103,9 @@ void PlayerGunManager::Update()
         }
         break;
     case 2: // mantein pressed
-        if (Input::GetGamePadAxis(GamePadAxis::AXIS_TRIGGERRIGHT) || Input::GetMouseButton(MouseButton::LEFT) == KeyState::KEY_REPEAT)
+    case 3:
+    case 6:
+        if (Input::GetGamePadAxis(GamePadAxis::AXIS_TRIGGERRIGHT) > 5000 || Input::GetMouseButton(MouseButton::LEFT) == KeyState::KEY_REPEAT)
         {
             equipedGun->Shoot();
         }
@@ -144,8 +156,20 @@ void PlayerGunManager::EquipGun(int index)
     case 2: // automatic
         equipedGun = (PlayerGun*)guns[equipedIndex].GetScript("PlayerAutomatic");
         break;
-    case 3: // shotgun
+    case 3: // burst
+        equipedGun = (PlayerGun*)guns[equipedIndex].GetScript("PlayerBurst");
+        break;
+    case 4: // shotgun
         equipedGun = (PlayerGun*)guns[equipedIndex].GetScript("PlayerShotgun");
+        break;
+    case 5: // handgun
+        equipedGun = (PlayerGun*)guns[equipedIndex].GetScript("PlayerSemiAuto");
+        break;
+    case 6: // flamethrower
+        equipedGun = (PlayerGun*)guns[equipedIndex].GetScript("PlayerFlamethrower");
+        break;
+    case 7: // ricochet
+        equipedGun = (PlayerGun*)guns[equipedIndex].GetScript("PlayerRicochet");
         break;
     default:
         equipedGun = nullptr;

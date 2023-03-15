@@ -1,8 +1,8 @@
-#include "PlayerShotgun.h"
-HELLO_ENGINE_API_C PlayerShotgun* CreatePlayerShotgun(ScriptToInspectorInterface* script)
+#include "PlayerBurst.h"
+HELLO_ENGINE_API_C PlayerBurst* CreatePlayerBurst(ScriptToInspectorInterface* script)
 {
-    PlayerShotgun* classInstance = new PlayerShotgun();
-    //Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
+	PlayerBurst* classInstance = new PlayerBurst();
+	//Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
     script->AddDragBoxGameObject("Projectile Pull", &classInstance->projectilePull);
     script->AddDragFloat("Projectile Speed", &classInstance->projectileSpeed);
     script->AddDragFloat("Projectile Damage", &classInstance->projectileDamage);
@@ -14,35 +14,37 @@ HELLO_ENGINE_API_C PlayerShotgun* CreatePlayerShotgun(ScriptToInspectorInterface
     script->AddDragFloat("Projectile ScaleY", &classInstance->projectileScale.y);
     script->AddDragFloat("Projectile ScaleZ", &classInstance->projectileScale.z);
     script->AddDragFloat("Projectiles per second", &classInstance->cadence);
-    script->AddDragInt("Pellets per shot", &classInstance->pellets);
-    return classInstance;
+    script->AddDragFloat("Burst Space", &classInstance->fullBurstDelay);
+    script->AddDragInt("Projectiles per burst", &classInstance->burstLenght);
+	return classInstance;
 }
 
-void PlayerShotgun::Start()
+void PlayerBurst::Start()
 {
     if (cadence != 0) fullShotCooldown = 1 / cadence;
     else fullShotCooldown = 0;
+
+    shotCount = burstLenght;
 }
 
-void PlayerShotgun::Update()
+void PlayerBurst::Update()
 {
-    if (shotBuffer)
+    // burst
+    if (shotCount < burstLenght)
     {
-        shotBufferCooldown -= Time::GetDeltaTime();
-        if (shotBufferCooldown <= 0)
+        if (burstDelay <= 0)
         {
-            shotBuffer = false;
+            shotCount++;
+            burstDelay = fullBurstDelay;
+            LauchProjectile(shootingSpawn);
+        }
+        else
+        {
+            burstDelay -= Time::GetDeltaTime();
         }
     }
 
-    if (canShoot)
-    {
-        if (shotBuffer)
-        {
-            Shoot();
-        }
-        return;
-    }
+    if (canShoot)return;
 
     if (shotCooldown <= 0)
     {
@@ -54,25 +56,19 @@ void PlayerShotgun::Update()
     }
 }
 
-void PlayerShotgun::Shoot()
+void PlayerBurst::Shoot()
 {
     if (canShoot)
     {
-        for (size_t i = 0; i < pellets; i++)
-        {
-            LauchProjectile(shootingSpawn, PROJECTILE_ACTION::NONE, true);
-        }
+        LauchProjectile(shootingSpawn);
         canShoot = false;
         shotCooldown = fullShotCooldown;
-    }
-    else
-    {
-        shotBuffer = true;
-        shotBufferCooldown = SHOT_BUFFER;
+        shotCount = 1;
+        burstDelay = fullBurstDelay;
     }
 }
 
-void PlayerShotgun::EnableGuns(bool enable)
+void PlayerBurst::EnableGuns(bool enable)
 {
     gameObject.SetActive(enable);
 }
