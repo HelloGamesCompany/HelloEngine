@@ -33,8 +33,19 @@ void Projectile::Destroy()
 void Projectile::OnCollisionEnter(API::API_RigidBody other)
 {
     std::string detectionName = other.GetGameObject().GetName();
-    if (detectionName != "Player")
+    switch (action)
     {
-         Destroy();
+    case PROJECTILE_ACTION::NONE:
+        if (detectionName != "Player" && detectionName != "Projectile")
+        {
+            Destroy();
+        }
+        break;
+    case PROJECTILE_ACTION::FLAMETROWER:
+        break;
+    case PROJECTILE_ACTION::RICOCHET:
+        break;
+    default:
+        break;
     }
 }

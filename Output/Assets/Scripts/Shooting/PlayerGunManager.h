@@ -33,5 +33,8 @@ public:
     API_GameObject duals; // index 0
     API_GameObject semiauto; // index 1
     API_GameObject automatic; // index 2
-    API_GameObject shotgun; // index 3
+    API_GameObject burst; // index 3
+    API_GameObject shotgun; // index 4
+    API_GameObject handgun; // index 5
+    API_GameObject flamethrower; // index 6
 };

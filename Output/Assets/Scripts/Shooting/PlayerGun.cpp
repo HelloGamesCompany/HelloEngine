@@ -37,7 +37,7 @@ void PlayerGun::EnableGuns(bool enable)
     
 }
 
-void PlayerGun::LauchProjectile(API_Transform projectileSpawn, bool randomDirection)
+void PlayerGun::LauchProjectile(API_Transform projectileSpawn, PROJECTILE_ACTION projectileAction, bool randomDirection)
 {
     ProjectilePull* pull = (ProjectilePull*)projectilePull.GetScript("ProjectilePull");
     if (pull == nullptr)
@@ -45,5 +45,5 @@ void PlayerGun::LauchProjectile(API_Transform projectileSpawn, bool randomDirect
         Console::Log("ProjectilePull not asigned");
         return;
     }
-    pull->LauchProjectile(projectileSpeed, projectileDamage, projectileResistanceDamage, projectileLifetime, projectileSpawn, projectileMesh, projectileScale, randomDirection);
+    pull->LauchProjectile(projectileSpeed, projectileDamage, projectileResistanceDamage, projectileLifetime, projectileSpawn, projectileMesh, projectileScale, projectileAction, randomDirection);
 }

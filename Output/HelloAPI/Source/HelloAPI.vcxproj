@@ -161,6 +161,8 @@
 		<ClCompile Include="../../Assets/Scripts/Shooting/Guns/PlayerAutomatic.cpp" />
 		<ClCompile Include="../../Assets/Scripts/Shooting/Guns/PlayerShotgun.cpp" />
 		<ClCompile Include="../../Assets/Scripts/Enemies/EnemyMeleeMovement.cpp" />
+		<ClCompile Include="../../Assets/Scripts/Shooting/Guns/PlayerBurst.cpp" />
+		<ClCompile Include="../../Assets/Scripts/Shooting/Guns/PlayerFlamethrower.cpp" />
 	</ItemGroup>
 	<ItemGroup>
 		<ClInclude Include="Macro.h" />
@@ -189,6 +191,8 @@
 		<ClInclude Include="../../Assets/Scripts/Shooting/Guns/PlayerAutomatic.h" />
 		<ClInclude Include="../../Assets/Scripts/Shooting/Guns/PlayerShotgun.h" />
 		<ClInclude Include="../../Assets/Scripts/Enemies/EnemyMeleeMovement.h" />
+		<ClInclude Include="../../Assets/Scripts/Shooting/Guns/PlayerBurst.h" />
+		<ClInclude Include="../../Assets/Scripts/Shooting/Guns/PlayerFlamethrower.h" />
 	</ItemGroup>
 	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 	<ImportGroup Label="ExtensionTargets" />

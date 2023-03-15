@@ -41,7 +41,7 @@ API_GameObject ProjectilePull::GetFirstActiveProjectile()
     return pull[0];
 }
 
-void ProjectilePull::LauchProjectile(float projectileSpeed, float projectileDamage, float projectileResistanceDamage, float projectileLifetime, API_Transform shootingSpawn, API_MeshRenderer projectileMesh, API_Vector3 projectileScale, bool randomDirection)
+void ProjectilePull::LauchProjectile(float projectileSpeed, float projectileDamage, float projectileResistanceDamage, float projectileLifetime, API_Transform shootingSpawn, API_MeshRenderer projectileMesh, API_Vector3 projectileScale, PROJECTILE_ACTION projectileAction, bool randomDirection)
 {
     API_GameObject go = GetFirstActiveProjectile();
     go.SetActive(true);
@@ -61,4 +61,10 @@ void ProjectilePull::LauchProjectile(float projectileSpeed, float projectileDama
     projectile->damage = projectileDamage;
     projectile->resistanceDamage = projectileResistanceDamage;
     projectile->lifeTime = projectileLifetime;
+    projectile->action = projectileAction;
+
+    if (projectileAction == PROJECTILE_ACTION::FLAMETROWER)
+    {
+        // hide projectile render
+    }
 }
