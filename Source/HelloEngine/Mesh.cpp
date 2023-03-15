@@ -117,7 +117,7 @@ bool Mesh::Update()
 	if (showOBB)
 		Application::Instance()->renderer3D->renderManager.DrawOBB(this);
 
-	if (outOfFrustum) 
+	if (outOfFrustum && !is2D)
 		return false;
 	if (component && component->_gameObject->isSelected)
 	{

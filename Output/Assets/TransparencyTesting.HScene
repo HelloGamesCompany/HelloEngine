@@ -50,14 +50,26 @@
                     1.0
                 ],
                 "Type": 1
+            },
+            {
+                "Active camera": true,
+                "Active culling": true,
+                "Aspect ratio": 1.0491071939468384,
+                "Enabled": true,
+                "FOV": 60.0,
+                "Far plane": 1000.0,
+                "Frustum type": 2,
+                "Near plane": 0.009999999776482582,
+                "Orthographic size": 10.0,
+                "Type": 4
             }
         ],
         "FirstOnPrefab": true,
-        "Name": "Canvas",
+        "Name": "Camera",
         "ParentUID": 1204658081,
         "PrefabUID": 0,
-        "Tag": "UI",
-        "UID": 1037898520
+        "Tag": "Default",
+        "UID": 1202977617
     },
     {
         "Active": true,
@@ -65,9 +77,9 @@
             {
                 "Enabled": true,
                 "Position": [
-                    0.4880000054836273,
+                    0.02571427822113037,
                     0.0,
-                    -0.699999988079071
+                    0.0
                 ],
                 "Rotation": [
                     -0.0,
@@ -75,25 +87,19 @@
                     -0.0
                 ],
                 "Scale": [
-                    0.5,
-                    0.5,
-                    0.5
+                    1.0,
+                    1.0,
+                    1.0
                 ],
                 "Type": 1
-            },
-            {
-                "Enabled": true,
-                "FillImage": 1.0,
-                "MaterialResource": 639752049,
-                "Type": 15
             }
         ],
         "FirstOnPrefab": true,
-        "Name": "Image",
-        "ParentUID": 1037898520,
+        "Name": "Canvas",
+        "ParentUID": 1204658081,
         "PrefabUID": 0,
         "Tag": "UI",
-        "UID": 1003073015
+        "UID": 1170745027
     },
     {
         "Active": true,
@@ -101,9 +107,9 @@
             {
                 "Enabled": true,
                 "Position": [
-                    -0.20000000298023224,
                     0.0,
-                    -0.5
+                    0.0,
+                    0.0
                 ],
                 "Rotation": [
                     0.0,
@@ -120,16 +126,16 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 639752049,
+                "MaterialResource": 3260379948,
                 "Type": 15
             }
         ],
         "FirstOnPrefab": true,
         "Name": "Image",
-        "ParentUID": 1037898520,
+        "ParentUID": 1170745027,
         "PrefabUID": 0,
         "Tag": "UI",
-        "UID": 3605371327
+        "UID": 3603153809
     },
     {
         "Active": true,
@@ -152,25 +158,53 @@
                     1.0
                 ],
                 "Type": 1
-            },
-            {
-                "Active camera": true,
-                "Active culling": true,
-                "Aspect ratio": 1.040880560874939,
-                "Enabled": true,
-                "FOV": 60.0,
-                "Far plane": 1000.0,
-                "Frustum type": 2,
-                "Near plane": 0.009999999776482582,
-                "Orthographic size": 10.0,
-                "Type": 4
             }
         ],
         "FirstOnPrefab": true,
-        "Name": "Camera",
+        "Name": "Node",
         "ParentUID": 1204658081,
         "PrefabUID": 0,
         "Tag": "Default",
-        "UID": 1202977617
+        "UID": 3481008551
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.986420214176178,
+                    1.797594428062439,
+                    0.13810200989246368
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 4038983158,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube",
+        "ParentUID": 3481008551,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3471685074
     }
 ]

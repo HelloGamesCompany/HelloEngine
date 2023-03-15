@@ -52,7 +52,7 @@ void InstanceRenderer::Draw()
 
     CameraObject* currentCamera = Application::Instance()->camera->currentDrawingCamera;
 
-    if (is2D && currentCamera->type == CameraType::GAME)
+    if (is2D && currentCamera->type != CameraType::GAME)
         return;
 
     for (auto& mesh : meshes)
