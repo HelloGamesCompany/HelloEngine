@@ -15,6 +15,7 @@ void Projectile::Start()
 void Projectile::Update()
 {
     lifeTime -= Time::GetDeltaTime();
+    wallCd -= Time::GetDeltaTime();
 
     if (lifeTime <= 0)
     {
@@ -44,6 +45,11 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
     case PROJECTILE_ACTION::FLAMETROWER:
         break;
     case PROJECTILE_ACTION::RICOCHET:
+        if (detectionName == "Wall" && wallCd <= 0)
+        {
+            gameObject.GetTransform().Rotate(0, 180, 0);
+            wallCd = 1;
+        }
         break;
     default:
         break;

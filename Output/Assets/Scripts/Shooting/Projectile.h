@@ -27,4 +27,7 @@ public:
     float damage = 0.0f;
     float resistanceDamage = 0.0f;
     PROJECTILE_ACTION action = PROJECTILE_ACTION::NONE;
+
+    // ricochet test
+    float wallCd = 0;
 };

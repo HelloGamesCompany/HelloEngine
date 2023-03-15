@@ -13,6 +13,7 @@ HELLO_ENGINE_API_C PlayerGunManager* CreatePlayerGunManager(ScriptToInspectorInt
     script->AddDragBoxGameObject("Shotgun", &classInstance->shotgun);
     script->AddDragBoxGameObject("Handgun", &classInstance->handgun);
     script->AddDragBoxGameObject("Flamethrower", &classInstance->flamethrower);
+    script->AddDragBoxGameObject("Ricochet", &classInstance->ricochet);
     return classInstance;
 }
 
@@ -26,6 +27,7 @@ void PlayerGunManager::Start()
     guns.push_back(shotgun);
     guns.push_back(handgun);
     guns.push_back(flamethrower);
+    guns.push_back(ricochet);
 
     // get start guns
     GetGun(1, gunOnHandIndex1);
@@ -85,10 +87,11 @@ void PlayerGunManager::Update()
 
     switch (equipedIndex)
     {
-    case 0:
+    case 0: // press and release
     case 1:
-    case 4: // press and release
+    case 4:
     case 5:
+    case 7:
         if ((Input::GetGamePadAxis(GamePadAxis::AXIS_TRIGGERRIGHT) > 5000 && canShoot) || Input::GetMouseButton(MouseButton::LEFT) == KeyState::KEY_DOWN)
         {
             equipedGun->Shoot();
@@ -164,6 +167,9 @@ void PlayerGunManager::EquipGun(int index)
         break;
     case 6: // flamethrower
         equipedGun = (PlayerGun*)guns[equipedIndex].GetScript("PlayerFlamethrower");
+        break;
+    case 7: // ricochet
+        equipedGun = (PlayerGun*)guns[equipedIndex].GetScript("PlayerRicochet");
         break;
     default:
         equipedGun = nullptr;

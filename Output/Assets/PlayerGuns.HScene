@@ -76,7 +76,7 @@
                         "Normal Gun": 3
                     },
                     {
-                        "Special Gun": 6
+                        "Special Gun": 7
                     },
                     {
                         "Duals": 3217118646
@@ -98,6 +98,9 @@
                     },
                     {
                         "Flamethrower": 2309891634
+                    },
+                    {
+                        "Ricochet": 1141960338
                     },
                     {
                         "Base Gun": 0
@@ -106,7 +109,7 @@
                         "Normal Gun": 3
                     },
                     {
-                        "Special Gun": 6
+                        "Special Gun": 7
                     },
                     {
                         "Duals": 3217118646
@@ -128,6 +131,9 @@
                     },
                     {
                         "Flamethrower": 2309891634
+                    },
+                    {
+                        "Ricochet": 1141960338
                     }
                 ],
                 "Script Resource": 3024424734,
@@ -1338,6 +1344,161 @@
         "UID": 504986585
     },
     {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    2.0356738567352295
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    0.20000000298023224,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 12,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 240240,
+                "Type": 3
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Gun Type": 7
+                    },
+                    {
+                        "Gun Type": 7
+                    }
+                ],
+                "Script Resource": 1421097082,
+                "Type": 5
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Projectile Pull": 439650558
+                    },
+                    {
+                        "Projectile Speed": 10.0
+                    },
+                    {
+                        "Projectile Damage": 0.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 0.0
+                    },
+                    {
+                        "Projectile Lifetime": 5.0
+                    },
+                    {
+                        "Projectile Spawn": 281075641
+                    },
+                    {
+                        "Projectile ScaleX": 0.5
+                    },
+                    {
+                        "Projectile ScaleY": 0.10000000149011612
+                    },
+                    {
+                        "Projectile ScaleZ": 0.10000000149011612
+                    },
+                    {
+                        "Projectiles per second": 3.0
+                    },
+                    {
+                        "Projectile Pull": 439650558
+                    },
+                    {
+                        "Projectile Speed": 10.0
+                    },
+                    {
+                        "Projectile Damage": 0.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 0.0
+                    },
+                    {
+                        "Projectile Lifetime": 5.0
+                    },
+                    {
+                        "Projectile Spawn": 281075641
+                    },
+                    {
+                        "Projectile ScaleX": 0.5
+                    },
+                    {
+                        "Projectile ScaleY": 0.10000000149011612
+                    },
+                    {
+                        "Projectile ScaleZ": 0.10000000149011612
+                    },
+                    {
+                        "Projectiles per second": 3.0
+                    }
+                ],
+                "Script Resource": 1231691198,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Ricochet",
+        "ParentUID": 3272613755,
+        "PrefabUID": 0,
+        "Tag": "Primitive",
+        "UID": 1141960338
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Origin",
+        "ParentUID": 1141960338,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 281075641
+    },
+    {
         "Active": true,
         "Components": [
             {
@@ -1479,5 +1640,111 @@
         "PrefabUID": 0,
         "Tag": "Default",
         "UID": 1169338156
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    9.437047004699707
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    5.0,
+                    5.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": false,
+                "Index inside model": 0,
+                "ModelUID": 10,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "ColPosition": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    10.0,
+                    10.0,
+                    1.0
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "GlobalGravity": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsShapeSelected": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsStatic": true,
+                "IsTrigger": false,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    0.5,
+                    0.0,
+                    0.5,
+                    1.0
+                ],
+                "ShapeSelected": 0,
+                "SphereHorSlices": 16,
+                "SphereRadius": 1.0,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 1956922091,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Wall",
+        "ParentUID": 4189708300,
+        "PrefabUID": 0,
+        "Tag": "Primitive",
+        "UID": 1844192236
     }
 ]
