@@ -46,34 +46,30 @@ void ParticleManager::Draw()
 			if (emitter->component != nullptr)
 				emitter->component->particleProps.position = emitter->component->_gameObject->transform->GetGlobalPosition();
 
-			/*if (emitter->enableEmissionModule)
+			if (emitter->enableEmissionModule)
 			{
-				int particlesToEmit = 0;
+				
+				double particlesToEmit = 0;
 				if (LayerGame::S_IsPlaying()) {
-					particlesToEmit = EngineTime::GameDeltaTime() * emitter->ParticlesPerSecond;
+					//canviar game delta time per float
+					emitter->accumulator += EngineTime::GameDeltaTime();
+
 				}
 				else {
-					particlesToEmit = EngineTime::EngineTimeDeltaTime() * emitter->ParticlesPerSecond;
-				}
-				
-				emitter->ParticleCount = particlesToEmit;
-
-				if (emitter->ParticleCount > emitter->ParticlesPerSecond) {
-					emitter->ParticleCount = emitter->ParticlesPerSecond;
+					emitter->accumulator += EngineTime::EngineTimeDeltaTime();
 				}
 
-				for (int i = 0; i < emitter->ParticleCount; i++) {
+				while (emitter->accumulator > 1.0 / emitter->ParticlesPerSecond) {
 					emitter->EmitParticles(emitter->component->particleProps);
+					emitter->accumulator -= 1.0 / emitter->ParticlesPerSecond;
 				}
 
-				emitter->ParticleCount = 0;
-
-			}*/
-			//else{
+			}
+			else{
 				if (!emitter->stop) {
 					emitter->EmitParticles(emitter->component->particleProps);
 				}
-			//}
+			}
 
 			emitter->UpdateParticles();
 

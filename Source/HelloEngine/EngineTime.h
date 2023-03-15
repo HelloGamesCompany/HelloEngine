@@ -24,7 +24,7 @@ public:
 	/// Get Real Time deltaTime in seconds.
 	static float RealTimeDeltaTime();
 	/// Get Engine Time deltaTime in seconds.
-	static float EngineTimeDeltaTime();
+	static double EngineTimeDeltaTime();
 
 	/// Get frame count since game start.
 	static uint GameFrameCount();
@@ -54,7 +54,7 @@ private:
 	static float _timeScale;
 
 	// Engine Time 
-	static float _engineTimeDeltaTime;
+	static double _engineTimeDeltaTime;
 	static uint _enginelastFrameTicks;
 	static double _engineTimeTotalTime;
 	static uint _enginestartTicks;

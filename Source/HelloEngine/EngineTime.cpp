@@ -13,7 +13,7 @@ double EngineTime::_gameTimeTotalTime = 0;
 float EngineTime::_timeScale = 1.0f;
 
 // Engine Time
-float EngineTime::_engineTimeDeltaTime = 0;
+double EngineTime::_engineTimeDeltaTime = 0;
 uint EngineTime::_enginelastFrameTicks = 0;
 double EngineTime::_engineTimeTotalTime = 0;
 uint EngineTime::_enginestartTicks = 0;
@@ -60,7 +60,7 @@ float EngineTime::RealTimeDeltaTime()
 	return _realTimeDeltaTime;
 }
 
-float EngineTime::EngineTimeDeltaTime()
+double EngineTime::EngineTimeDeltaTime()
 {
 	return _engineTimeDeltaTime;
 }

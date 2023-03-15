@@ -23,7 +23,7 @@ Emitter::Emitter()
 	DurationCpy = 0.0f;
 
 	enableEmissionModule = true;
-	ParticlesPerSecond = 10;
+	ParticlesPerSecond = 1;
 }
 
 Emitter::~Emitter()

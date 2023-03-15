@@ -69,6 +69,8 @@ private:
 
 	Quat BBRotAroundZ;
 
+	float accumulator = 0.0f;
+
 
 	friend class ParticleSystemComponent;
 	friend class ParticleManager;
