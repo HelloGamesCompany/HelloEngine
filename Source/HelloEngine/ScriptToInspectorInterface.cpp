@@ -641,7 +641,10 @@ void DragBoxMeshResource::OnSerialize(json& j)
 
 	if (*meshUID != 0)
 	{
-		_j[valueName.c_str()] = *meshUID;
+		ResourceMesh* mesh = (ResourceMesh*)ModuleResourceManager::resources[*meshUID];
+		_j[(valueName + "ModelUID").c_str()] = mesh->modelUID;
+		_j[(valueName + "Index inside model").c_str()] = mesh->indexInsideModel;
+
 		j.push_back(_j);
 	}
 }
@@ -650,9 +653,17 @@ void DragBoxMeshResource::OnDeserialize(json& j)
 {
 	for (int i = 0; i < j.size(); i++)
 	{
-		if (j[i].find(valueName) != j[i].end())
+		if (j[i].find((valueName + "ModelUID").c_str()) != j[i].end())
 		{
-			*(uint*)value = j[i][valueName.c_str()];
+			ResourceModel* model = (ResourceModel*)ModuleResourceManager::S_LoadResource(j[i][(valueName + "ModelUID").c_str()]);
+			
+			uint indexInModel = j[i][(valueName + "Index inside model").c_str()];
+			
+			if (indexInModel < model->modelMeshes.size())
+			{
+				ResourceMesh* resourceMesh = model->modelMeshes[indexInModel];
+				*(uint*)value = resourceMesh->UID;
+			}
 		}
 	}
 }
@@ -785,6 +796,67 @@ void DragBoxMaterialComponent::OnDeserialize(json& j)
 				API::API_Material* material = (API::API_Material*)value;
 				material->SetComponent(component);
 			}
+		}
+	}
+}
+
+void DragFieldVector3::OnEditor()
+{
+	float* floatValue = (float*)value;
+	float values[3];
+	values[0] = *floatValue;
+	floatValue++;
+	values[1] = *floatValue;
+	floatValue++;
+	values[2] = *floatValue;
+	floatValue++;
+
+	if (ImGui::DragFloat3((valueName + "##" + className).c_str(), &values[0]))
+	{
+		float* floatValue2 = (float*)value;
+		*floatValue2 = values[0];
+		floatValue2++;
+		*floatValue2 = values[1];
+		floatValue2++;
+		*floatValue2 = values[2];
+		floatValue2++;
+	}
+}
+
+void DragFieldVector3::OnSerialize(json& j)
+{
+	json _j;
+
+	float* floatValue = (float*)value;
+
+	float values[3];
+	values[0] = *floatValue;
+	floatValue++;
+	values[1] = *floatValue;
+	floatValue++;
+	values[2] = *floatValue;
+	floatValue++;
+
+	_j[(valueName + "X").c_str()] = values[0];
+	_j[(valueName + "Y").c_str()] = values[1];
+	_j[(valueName + "Z").c_str()] = values[2];
+
+	j.push_back(_j);
+}
+
+void DragFieldVector3::OnDeserialize(json& j)
+{
+	for (int i = 0; i < j.size(); i++)
+	{
+		if (j[i].find((valueName + "X").c_str()) != j[i].end())
+		{
+			float* floatValue = (float*)value;
+			*floatValue = j[i][(valueName + "X").c_str()];
+			floatValue++;
+			*floatValue = j[i][(valueName + "Y").c_str()];
+			floatValue++;
+			*floatValue = j[i][(valueName + "Z").c_str()];
+			floatValue++;
 		}
 	}
 }

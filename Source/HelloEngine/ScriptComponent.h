@@ -39,6 +39,8 @@ public:
 	void AddDragBoxMeshResource(const char* name, uint* value) override;
 	void AddDragBoxTextureResource(const char* name, uint* value) override;
 	void AddDragBoxMaterialComponent(const char* name, API::API_Material* value) override;
+	void AddDragVector3(const char* name, API::API_Vector3* value) override;
+
 
 	uint GetResourceUID();
 	void DestroyedResource();
