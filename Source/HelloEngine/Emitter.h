@@ -56,7 +56,8 @@ private:
 	int currentparticle;
 	bool loop;
 	bool stop;
-	
+	bool playOnAwake;
+
 	float StartDelay;
 	float StartDelayCpy;
 

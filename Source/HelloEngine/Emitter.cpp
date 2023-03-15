@@ -22,6 +22,7 @@ Emitter::Emitter()
 	Duration = 0.0f;
 	DurationCpy = 0.0f;
 
+	playOnAwake = false;
 	enableEmissionModule = true;
 	ParticlesPerSecond = 1;
 }
