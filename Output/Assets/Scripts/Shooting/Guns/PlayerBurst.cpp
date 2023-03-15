@@ -1,8 +1,8 @@
 #include "PlayerBurst.h"
 HELLO_ENGINE_API_C PlayerBurst* CreatePlayerBurst(ScriptToInspectorInterface* script)
 {
-	PlayerBurst* classInstance = new PlayerBurst();
-	//Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
+    PlayerBurst* classInstance = new PlayerBurst();
+    //Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
     script->AddDragBoxGameObject("Projectile Pull", &classInstance->projectilePull);
     script->AddDragFloat("Projectile Speed", &classInstance->projectileSpeed);
     script->AddDragFloat("Projectile Damage", &classInstance->projectileDamage);
@@ -16,11 +16,15 @@ HELLO_ENGINE_API_C PlayerBurst* CreatePlayerBurst(ScriptToInspectorInterface* sc
     script->AddDragFloat("Projectiles per second", &classInstance->cadence);
     script->AddDragFloat("Burst Space", &classInstance->fullBurstDelay);
     script->AddDragInt("Projectiles per burst", &classInstance->burstLenght);
-	return classInstance;
+    script->AddDragBoxGameObject("Player Stats GO", &classInstance->player);
+    script->AddDragInt("Ammo Type", &classInstance->ammoType);
+    return classInstance;
 }
 
 void PlayerBurst::Start()
 {
+    playerStats = (PlayerStats*)player.GetScript("PlayerStats");
+
     if (cadence != 0) fullShotCooldown = 1 / cadence;
     else fullShotCooldown = 0;
 
@@ -37,6 +41,7 @@ void PlayerBurst::Update()
             shotCount++;
             burstDelay = fullBurstDelay;
             LauchProjectile(shootingSpawn);
+            playerStats->UseAmmo(ammoType);
         }
         else
         {
@@ -65,6 +70,7 @@ void PlayerBurst::Shoot()
         shotCooldown = fullShotCooldown;
         shotCount = 1;
         burstDelay = fullBurstDelay;
+        playerStats->UseAmmo(ammoType);
     }
 }
 

@@ -8,6 +8,7 @@
 
 #include "PlayerGun.h"
 #include "PlayerGunType.h"
+#include "../Player/PlayerStats.h"
 
 class PlayerGunManager : HelloBehavior
 {
@@ -17,6 +18,9 @@ public:
 
     void GetGun(int slot, int gunIndex);
     void EquipGun(int index);
+
+    API_GameObject player;
+    PlayerStats* playerStats;
 
     std::vector<API_GameObject> guns;
     int equipedIndex;

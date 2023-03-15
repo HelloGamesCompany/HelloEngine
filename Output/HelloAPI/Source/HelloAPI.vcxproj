@@ -164,6 +164,7 @@
 		<ClCompile Include="../../Assets/Scripts/Shooting/Guns/PlayerBurst.cpp" />
 		<ClCompile Include="../../Assets/Scripts/Shooting/Guns/PlayerFlamethrower.cpp" />
 		<ClCompile Include="../../Assets/Scripts/Shooting/Guns/PlayerRicochet.cpp" />
+		<ClCompile Include="../../Assets/Scripts/Player/PlayerStats.cpp" />
 	</ItemGroup>
 	<ItemGroup>
 		<ClInclude Include="Macro.h" />
@@ -195,6 +196,7 @@
 		<ClInclude Include="../../Assets/Scripts/Shooting/Guns/PlayerBurst.h" />
 		<ClInclude Include="../../Assets/Scripts/Shooting/Guns/PlayerFlamethrower.h" />
 		<ClInclude Include="../../Assets/Scripts/Shooting/Guns/PlayerRicochet.h" />
+		<ClInclude Include="../../Assets/Scripts/Player/PlayerStats.h" />
 	</ItemGroup>
 	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 	<ImportGroup Label="ExtensionTargets" />

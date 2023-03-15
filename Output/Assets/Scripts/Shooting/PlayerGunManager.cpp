@@ -3,6 +3,7 @@ HELLO_ENGINE_API_C PlayerGunManager* CreatePlayerGunManager(ScriptToInspectorInt
 {
     PlayerGunManager* classInstance = new PlayerGunManager();
     //Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
+    script->AddDragBoxGameObject("Player Stats GO", &classInstance->player);
     script->AddDragInt("Base Gun", &classInstance->gunOnHandIndex1);
     script->AddDragInt("Normal Gun", &classInstance->gunOnHandIndex2);
     script->AddDragInt("Special Gun", &classInstance->gunOnHandIndex3);
@@ -19,6 +20,8 @@ HELLO_ENGINE_API_C PlayerGunManager* CreatePlayerGunManager(ScriptToInspectorInt
 
 void PlayerGunManager::Start()
 {
+    playerStats = (PlayerStats*)player.GetScript("PlayerStats");
+
     // add guns to the array in order
     guns.push_back(duals);
     guns.push_back(semiauto);
@@ -94,8 +97,15 @@ void PlayerGunManager::Update()
     case 7:
         if ((Input::GetGamePadAxis(GamePadAxis::AXIS_TRIGGERRIGHT) > 5000 && canShoot) || Input::GetMouseButton(MouseButton::LEFT) == KeyState::KEY_DOWN)
         {
-            equipedGun->Shoot();
-            canShoot = false;
+            if (playerStats->GetAmmonByType(equipedGun->ammoType) > 0)
+            {
+                equipedGun->Shoot();
+                canShoot = false;
+            }
+            else
+            {
+                // no ammo sound?
+            }
         }
         if (Input::GetGamePadAxis(GamePadAxis::AXIS_TRIGGERRIGHT) < 5000)
         {
@@ -107,7 +117,14 @@ void PlayerGunManager::Update()
     case 6:
         if (Input::GetGamePadAxis(GamePadAxis::AXIS_TRIGGERRIGHT) > 5000 || Input::GetMouseButton(MouseButton::LEFT) == KeyState::KEY_REPEAT)
         {
-            equipedGun->Shoot();
+            if (playerStats->GetAmmonByType(equipedGun->ammoType) > 0)
+            {
+                equipedGun->Shoot();
+            }
+            else
+            {
+                // no ammo sound?
+            }
         }
         break;
     default:
@@ -130,7 +147,7 @@ void PlayerGunManager::GetGun(int slot, int gunIndex)
         gunOnHandIndex3 = gunIndex;
         break;
     default:
-        Console::Log("Invalid slot, slot should be between 1, 2 or 3.");
+        Console::Log("Invalid slot, slot should be 1, 2 or 3.");
         break;
     }
 

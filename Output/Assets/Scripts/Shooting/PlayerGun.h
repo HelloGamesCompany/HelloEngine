@@ -9,8 +9,8 @@
 #include "API/API.h"
 
 #include "ProjectilePull.h"
-#include "../PlayerGamepadMovement.h"
 #include "Projectile.h"
+#include "../Player/PlayerStats.h"
 
 class PlayerGun : protected HelloBehavior
 {
@@ -25,6 +25,9 @@ protected:
     void LauchProjectile(API_Transform projectileSpawn, PROJECTILE_ACTION projectileAction = PROJECTILE_ACTION::NONE, bool randomDirection = false);
 
 public:
+    API_GameObject player;
+    PlayerStats* playerStats;
+
     API_GameObject projectilePull;
 
     float projectileSpeed;
@@ -36,5 +39,7 @@ public:
     API_Vector3 projectileScale;
 
     float cadence;
+
+    int ammoType;
 };
 

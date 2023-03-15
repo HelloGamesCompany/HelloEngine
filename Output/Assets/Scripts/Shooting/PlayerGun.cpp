@@ -14,12 +14,14 @@ HELLO_ENGINE_API_C PlayerGun* CreatePlayerGun(ScriptToInspectorInterface* script
     script->AddDragFloat("Projectile ScaleY", &classInstance->projectileScale.y);
     script->AddDragFloat("Projectile ScaleZ", &classInstance->projectileScale.z);
     script->AddDragFloat("Projectiles per second", &classInstance->cadence);
+    script->AddDragBoxGameObject("Player Stats GO", &classInstance->player);
+    script->AddDragInt("Ammo Type", &classInstance->ammoType);
     return classInstance;
 }
 
 void PlayerGun::Start()
 {
-
+    playerStats = (PlayerStats*)player.GetScript("PlayerStats");
 }
 
 void PlayerGun::Update()

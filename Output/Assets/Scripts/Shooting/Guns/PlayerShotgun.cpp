@@ -15,11 +15,15 @@ HELLO_ENGINE_API_C PlayerShotgun* CreatePlayerShotgun(ScriptToInspectorInterface
     script->AddDragFloat("Projectile ScaleZ", &classInstance->projectileScale.z);
     script->AddDragFloat("Projectiles per second", &classInstance->cadence);
     script->AddDragInt("Pellets per shot", &classInstance->pellets);
+    script->AddDragBoxGameObject("Player Stats GO", &classInstance->player);
+    script->AddDragInt("Ammo Type", &classInstance->ammoType);
     return classInstance;
 }
 
 void PlayerShotgun::Start()
 {
+    playerStats = (PlayerStats*)player.GetScript("PlayerStats");
+
     if (cadence != 0) fullShotCooldown = 1 / cadence;
     else fullShotCooldown = 0;
 }
@@ -64,6 +68,7 @@ void PlayerShotgun::Shoot()
         }
         canShoot = false;
         shotCooldown = fullShotCooldown;
+        playerStats->UseAmmo(ammoType);
     }
     else
     {
