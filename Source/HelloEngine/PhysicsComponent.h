@@ -21,11 +21,13 @@ public:
 	void CheckRenderBuffers();
 
 private:
+#ifdef STANDALONE
 	void OnEditor() override;
+
+#endif // STANDALONE
 
 	void Serialization(json& j) override;
 	void DeSerialization(json& j) override;
-
 	//Physics
 	void CheckShapes();
 
@@ -45,9 +47,6 @@ private:
 
 	void OnTransformCallback(float4x4 worldMatrix);
 	
-	
-	
-
 	void OnEnable();
 	void OnDisable();
 

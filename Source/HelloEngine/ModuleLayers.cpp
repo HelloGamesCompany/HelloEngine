@@ -43,8 +43,9 @@ bool ModuleLayers::Start()
     emptyAPITransform = new API::API_Transform();
     emptyAPIGameObject = new API::API_GameObject();
 
-   
+#ifdef STANDALONE
     _layers[(uint)LayersID::EDITOR] = new LayerEditor();
+#endif
     _layers[(uint)LayersID::GAME] = new LayerGame();
     _layers[(uint)LayersID::UI] = new LayerUI();
 
@@ -63,28 +64,28 @@ bool ModuleLayers::Start()
 
     _sceneBeginPath = sceneXML.FindChildBreadth("currentScene").node.attribute("value").as_string();
 
-    if (!ModuleResourceManager::S_DeserializeScene(_sceneBeginPath))
-    {
+    //if (!ModuleResourceManager::S_DeserializeScene(_sceneBeginPath))
+    //{
         rootGameObject = new GameObject(nullptr, "Root", "None");
-        XMLNode sceneXML = Application::Instance()->xml->GetConfigXML();
+    //    XMLNode sceneXML = Application::Instance()->xml->GetConfigXML();
 
-        std::string newDir = ASSETS_PATH;
+    //    std::string newDir = ASSETS_PATH;
 
-        // Change Title
-        newDir += rootGameObject->name + ".HScene";
+    //    // Change Title
+    //    newDir += rootGameObject->name + ".HScene";
 
-        std::string scenePath = " -- CurrentScene: " + newDir;
+    //    std::string scenePath = " -- CurrentScene: " + newDir;
 
-        ModuleWindow::S_AddTitleExtraInfo(scenePath);
+    //    ModuleWindow::S_AddTitleExtraInfo(scenePath);
 
-        sceneXML.FindChildBreadth("currentScene").node.attribute("value").set_value(newDir.c_str());
-        
-        ModuleResourceManager::S_SerializeScene(rootGameObject);
-    }
+    //    sceneXML.FindChildBreadth("currentScene").node.attribute("value").set_value(newDir.c_str());
+    //    
+    //    ModuleResourceManager::S_SerializeScene(rootGameObject);
+    //}
 
-    Console::S_Log("Error message test", LogType::ERR);
-    Console::S_Log("Warning message test", LogType::WARNING);
-
+#ifndef STANDALONE
+    LayerGame::S_Play();
+#endif
 
     return true;
 }
@@ -172,15 +173,12 @@ bool ModuleLayers::CleanUp()
    
     RELEASE(rootGameObject);
     RELEASE(emptyAPITransform);
+    RELEASE(emptyAPIGameObject);
     return true;
 }
 
 uint ModuleLayers::S_AddGameObject(GameObject* go, uint ID)
 {
-    if (go == nullptr)
-    {
-        std::cout << "a" << std::endl;
-    }
     ID = ID == 0 ? HelloUUID::GenerateUUID() : ID;
     gameObjects[ID] = go;
     return ID;

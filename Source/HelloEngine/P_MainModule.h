@@ -8,7 +8,8 @@ public:
 	P_MainModule();
 	~P_MainModule();
 
+#ifdef STANDALONE
 	void OnEditor() override;
-
+#endif
 };
 

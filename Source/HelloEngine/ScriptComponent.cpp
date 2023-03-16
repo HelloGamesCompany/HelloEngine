@@ -23,6 +23,8 @@ ScriptComponent::~ScriptComponent()
 	DestroyInspectorFields();
 }
 
+#ifdef STANDALONE
+
 void ScriptComponent::OnEditor()
 {
 	bool created = true;
@@ -52,7 +54,7 @@ void ScriptComponent::OnEditor()
 	if (!created)
 		_gameObject->DestroyComponent(this);
 }
-
+#endif
 void ScriptComponent::OnEnable()
 {
 	if (scriptUID != 0)
@@ -381,7 +383,7 @@ void ScriptComponent::LoadInspectorFields(json* j)
 		}
 	}
 }
-
+#ifdef STANDALONE
 void ScriptComponent::MarkAsDead()
 {
 	SaveInspectorFields();
@@ -396,4 +398,4 @@ void ScriptComponent::MarkAsAlive()
 	LayerGame::S_AddScriptComponent(this);
 	LoadInspectorFields();
 }
-
+#endif

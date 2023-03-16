@@ -51,12 +51,6 @@ ModuleResourceManager::~ModuleResourceManager()
     }
     resources.clear();
 
-    for (auto& resource : loadedResources)
-    {
-        RELEASE(resource.second);
-    }
-    loadedResources.clear();
-
     RELEASE(_fileTree);
 }
 
