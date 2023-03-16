@@ -45,7 +45,7 @@ public:
 
     bool GetPlayOnGame() { return playOnGame; }
 
-    Emitter GetParticleSystemEmitter() { return ParticleEmitter; }
+    Emitter& GetParticleSystemEmitter() { return ParticleEmitter; }
 
     void SetPlayOnGame(bool playongame);
 

@@ -373,6 +373,15 @@ void ParticleSystemComponent::Serialization(json& j)
 		_j["Index inside model"] = 0;
 	}
 
+	if (_resourceText != nullptr)
+	{
+		_j["ResourceTextUID"] = _resourceText->UID;
+	}
+	else
+	{
+		_j["ResourceTextUID"] = 0;
+	}
+
 	if (ParticleModules.empty() == false)
 	{
 		_j["ParticleModules"]["ModuleMain"]["BeginScale"] = { particleProps.startsize.x, particleProps.startsize.y, particleProps.startsize.z };
@@ -396,6 +405,11 @@ void ParticleSystemComponent::DeSerialization(json& j)
 
 	ResourceModel* model = (ResourceModel*)ModuleResourceManager::resources[j["ModelUID"]];
 
+	uint savedUID = j["ResourceTextUID"];
+
+	ResourceTexture* resourcetext = savedUID == 0 ? nullptr : (ResourceTexture*)ModuleResourceManager::S_LoadResource(j["ResourceTextUID"]);
+
+
 	if (model == nullptr)
 	{
 		Console::S_Log("A scene mesh render data was not found.");
@@ -407,9 +421,13 @@ void ParticleSystemComponent::DeSerialization(json& j)
 	{
 		ResourceMesh* resourceMesh = model->modelMeshes[index];
 
-
 		CreateEmitterMesh(resourceMesh->UID);
 
+	}
+
+	if (resourcetext != nullptr)
+	{
+		ChangeEmitterMeshTexture(resourcetext);
 	}
 
 	std::vector<float> tempstartsize = j["ParticleModules"]["ModuleMain"]["BeginScale"];
