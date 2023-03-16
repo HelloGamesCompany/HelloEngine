@@ -131,7 +131,7 @@
         "UID": 1750197444
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -209,7 +209,7 @@
                 ],
                 "IsStatic": false,
                 "IsTrigger": false,
-                "Mass": 0.0,
+                "Mass": 1.0,
                 "RenderColColor": [
                     0.5,
                     0.0,
@@ -238,10 +238,10 @@
                         "Resistance": 100.0
                     },
                     {
-                        "Speed": 16.0
+                        "Speed": 0.0
                     },
                     {
-                        "Acceleration": 47.0
+                        "Acceleration": 71.0
                     },
                     {
                         "Health": 100.0
@@ -250,10 +250,22 @@
                         "Resistance": 100.0
                     },
                     {
-                        "Speed": 16.0
+                        "Speed": 0.0
                     },
                     {
-                        "Acceleration": 47.0
+                        "Acceleration": 71.0
+                    },
+                    {
+                        "Health": 100.0
+                    },
+                    {
+                        "Resistance": 100.0
+                    },
+                    {
+                        "Speed": 0.0
+                    },
+                    {
+                        "Acceleration": 71.0
                     }
                 ],
                 "Script Resource": 4210965159,
@@ -266,7 +278,7 @@
                         "Detection distance": 32.0
                     },
                     {
-                        "Lossing distance": 96.0
+                        "Lossing distance": 217.0
                     },
                     {
                         "Target": 1836731499
@@ -275,7 +287,16 @@
                         "Detection distance": 32.0
                     },
                     {
-                        "Lossing distance": 96.0
+                        "Lossing distance": 217.0
+                    },
+                    {
+                        "Target": 1836731499
+                    },
+                    {
+                        "Detection distance": 32.0
+                    },
+                    {
+                        "Lossing distance": 217.0
                     },
                     {
                         "Target": 1836731499
@@ -371,7 +392,7 @@
                 ],
                 "IsStatic": false,
                 "IsTrigger": false,
-                "Mass": 0.0,
+                "Mass": 1.0,
                 "RenderColColor": [
                     0.5,
                     0.0,
@@ -393,6 +414,12 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Velocity": 122.0
+                    },
+                    {
+                        "CurrentVelocity": 0.0
+                    },
                     {
                         "Velocity": 122.0
                     },
@@ -434,7 +461,7 @@
                 ],
                 "Scale": [
                     1.0,
-                    0.9999991059303284,
+                    1.0,
                     0.9999991059303284
                 ],
                 "Type": 1
@@ -442,7 +469,7 @@
             {
                 "Active camera": true,
                 "Active culling": true,
-                "Aspect ratio": 1.9974778890609741,
+                "Aspect ratio": 2.1423895359039307,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -458,5 +485,188 @@
         "PrefabUID": 0,
         "Tag": "Default",
         "UID": 2692600433
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -24.32169532775879,
+                    35.71995544433594,
+                    94.6619644165039
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    24.0,
+                    24.0,
+                    24.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 1834708374,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "ColPosition": [
+                    0.0,
+                    11.0,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    35.400001525878906,
+                    67.0999984741211,
+                    47.099998474121094
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "GlobalGravity": [
+                    0.0,
+                    -10.0,
+                    0.0
+                ],
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsShapeSelected": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsStatic": false,
+                "IsTrigger": false,
+                "Mass": 4.0,
+                "RenderColColor": [
+                    0.5,
+                    0.0,
+                    0.5,
+                    1.0
+                ],
+                "ShapeSelected": 0,
+                "SphereHorSlices": 16,
+                "SphereRadius": 1.0,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 240240,
+                "Type": 3
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Health": 100.0
+                    },
+                    {
+                        "Resistance": 100.0
+                    },
+                    {
+                        "Speed": 0.0
+                    },
+                    {
+                        "Acceleration": 56.0
+                    },
+                    {
+                        "Health": 100.0
+                    },
+                    {
+                        "Resistance": 100.0
+                    },
+                    {
+                        "Speed": 0.0
+                    },
+                    {
+                        "Acceleration": 56.0
+                    },
+                    {
+                        "Health": 100.0
+                    },
+                    {
+                        "Resistance": 100.0
+                    },
+                    {
+                        "Speed": 0.0
+                    },
+                    {
+                        "Acceleration": 56.0
+                    }
+                ],
+                "Script Resource": 4210965159,
+                "Type": 5
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Detection distance": 75.0
+                    },
+                    {
+                        "Lossing distance": 171.0
+                    },
+                    {
+                        "Target": 1836731499
+                    },
+                    {
+                        "Detection distance": 75.0
+                    },
+                    {
+                        "Lossing distance": 171.0
+                    },
+                    {
+                        "Target": 1836731499
+                    },
+                    {
+                        "Detection distance": 75.0
+                    },
+                    {
+                        "Lossing distance": 171.0
+                    },
+                    {
+                        "Target": 1836731499
+                    }
+                ],
+                "Script Resource": 639624871,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "enemy2",
+        "ParentUID": 3815239162,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 459456821
     }
 ]

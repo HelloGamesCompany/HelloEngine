@@ -16,6 +16,8 @@ public:
 	void Seek(float vel, API_Vector3 tarPos);
 	void Wander(float vel);
 
+	API_Vector3 NormalizeVec3(float x, float y, float z);
+
 	bool wander = false;
 	bool targeting = false;
 
@@ -25,9 +27,12 @@ public:
 	API_GameObject point1;
 	API_GameObject point2;
 
-	API_GameObject target;
+	API_GameObject target; 
 	
 	
 
 };
+
+
+
 
