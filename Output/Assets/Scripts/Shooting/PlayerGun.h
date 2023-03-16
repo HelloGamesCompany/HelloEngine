@@ -35,7 +35,8 @@ public:
     float projectileResistanceDamage;
     float projectileLifetime;
     API_Transform shootingSpawn;
-    API_MeshRenderer projectileMesh;
+    uint projectileMesh;
+    uint projectileMaterial;
     API_Vector3 projectileScale;
 
     float cadence;

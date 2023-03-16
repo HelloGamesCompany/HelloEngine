@@ -7,7 +7,6 @@ HELLO_ENGINE_API_C ProjectilePull* CreateProjectilePull(ScriptToInspectorInterfa
     //Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
     script->AddDragInt("Pull Size", &classInstance->pullSize);
     script->AddDragBoxGameObject("Player", &classInstance->playerGO);
-    script->AddDragBoxMeshRenderer("Projectile Mesh", &classInstance->mesh);
     return classInstance;
 }
 
@@ -18,7 +17,8 @@ void ProjectilePull::Start()
     for (size_t i = 0; i < pullSize; i++)
     {
         API_GameObject newProjectile = Game::CreateGameObject("Projectile", "Projectile");
-        newProjectile.AddMeshRenderer(mesh);
+        newProjectile.AddMeshRenderer();
+        newProjectile.AddMaterial();
         newProjectile.CreateRigidBodyBox((0, 0, 0), (0, 0, 0), (0.3f, 0.3f, 0.3f), false);
         newProjectile.AddScript("Projectile");
         newProjectile.SetActive(false);
@@ -41,13 +41,22 @@ API_GameObject ProjectilePull::GetFirstActiveProjectile()
     return pull[0];
 }
 
-void ProjectilePull::LauchProjectile(float projectileSpeed, float projectileDamage, float projectileResistanceDamage, float projectileLifetime, API_Transform shootingSpawn, API_MeshRenderer projectileMesh, API_Vector3 projectileScale, PROJECTILE_ACTION projectileAction, bool randomDirection)
+void ProjectilePull::LauchProjectile(float projectileSpeed, float projectileDamage, float projectileResistanceDamage, float projectileLifetime, API_Transform shootingSpawn, uint projectileMesh, uint projectileMaterial, API_Vector3 projectileScale, PROJECTILE_ACTION projectileAction, bool randomDirection)
 {
     API_GameObject go = GetFirstActiveProjectile();
     go.SetActive(true);
     go.GetTransform().SetPosition(shootingSpawn.GetGlobalPosition());
     go.GetTransform().SetRotation(playerGO.GetTransform().GetLocalRotation());
     go.GetTransform().SetScale(projectileScale);
+    if (projectileAction == PROJECTILE_ACTION::FLAMETROWER)
+    {
+        // hide projectile render
+    }
+    else
+    {
+        go.GetMeshRenderer().ChangeMesh(projectileMesh);
+        go.GetMaterialCompoennt().ChangeAlbedoTexture(projectileMaterial);
+    }
 
     if (randomDirection)
     {
@@ -62,9 +71,4 @@ void ProjectilePull::LauchProjectile(float projectileSpeed, float projectileDama
     projectile->resistanceDamage = projectileResistanceDamage;
     projectile->lifeTime = projectileLifetime;
     projectile->action = projectileAction;
-
-    if (projectileAction == PROJECTILE_ACTION::FLAMETROWER)
-    {
-        // hide projectile render
-    }
 }

@@ -10,7 +10,8 @@ HELLO_ENGINE_API_C PlayerDuals* CreatePlayerDuals(ScriptToInspectorInterface* sc
     script->AddDragFloat("Projectile Lifetime", &classInstance->projectileLifetime);
     script->AddDragBoxTransform("Projectile Spawn", &classInstance->shootingSpawn);
     script->AddDragBoxTransform("Second Projectile Spawn", &classInstance->secondShootingSpawn);
-    script->AddDragBoxMeshRenderer("Projectile Mesh", &classInstance->projectileMesh);
+    script->AddDragBoxMeshResource("Projectile Mesh", &classInstance->projectileMesh);
+    script->AddDragBoxTextureResource("Projectile Material", &classInstance->projectileMaterial);
     script->AddDragFloat("Projectile ScaleX", &classInstance->projectileScale.x);
     script->AddDragFloat("Projectile ScaleY", &classInstance->projectileScale.y);
     script->AddDragFloat("Projectile ScaleZ", &classInstance->projectileScale.z);
