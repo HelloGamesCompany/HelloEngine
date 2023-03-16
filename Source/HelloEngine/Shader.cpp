@@ -222,7 +222,7 @@ void Shader::CompileShader()
 	glDeleteShader(fragment);
 }
 
-void Shader::RecompileShader(std::string shaderPath)
+void Shader::Recompile(std::string shaderPath)
 {
 	ShaderData previousData = data;
 	Clear();	

@@ -22,6 +22,7 @@
 #include "ImWindowGame.h"
 #include "ImWindowPerformanceTest.h"
 #include "ImWindowResources.h"
+#include "ImWindowGLSL.h"
 
 #include "ModuleLayers.h"
 #include "LayerGame.h"
@@ -121,6 +122,7 @@ void LayerEditor::Start()
 		_imWindows[(uint)ImWindowID::GAME] = new ImWindowGame();
 		_imWindows[(uint)ImWindowID::PERFORMANCE] = new ImWindowPerformanceTest();
 		_imWindows[(uint)ImWindowID::RESOURCES] = new ImWindowResources();
+		_imWindows[(uint)ImWindowID::GLSL] = new ImWindowGLSL();
 	}
 
 	// Reserve space for popUpMessages
@@ -337,6 +339,13 @@ void LayerEditor::S_ChangeColors(bool playMode)
 		ImVec4(0.65f + redIncrement, 0.65f, 0.65f, 1);
 
 	style.Colors[ImGuiCol_MenuBarBg] = ImVec4(0.1f + redIncrement, 0.1f, 0.1f, 1);
+}
+
+void LayerEditor::S_OpenShader(uint UID)
+{
+	ImWindowGLSL* win = (ImWindowGLSL*)_imWindows[(uint)ImWindowID::GLSL];
+
+	win->SetShader(UID);
 }
 
 void LayerEditor::DrawPopUpLoadScene()

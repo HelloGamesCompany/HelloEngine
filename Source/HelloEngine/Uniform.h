@@ -20,7 +20,7 @@ struct UniformData
 class Uniform
 {
 public:
-	Uniform(){};
+	Uniform() {};
 	~Uniform(){};
 
 	virtual void SetVariable(){};
@@ -56,7 +56,11 @@ public:
 		bool* b = new bool(j["Value"]);
 		data.value = b;
 	}
-	UniBool(UniformData data) { this->data = data; }
+	UniBool(UniformData data) 
+	{ 
+		this->data = data;
+		SetVariable();
+	}
 	~UniBool()
 	{
 		bool* b = static_cast<bool*>(data.value);
@@ -81,7 +85,11 @@ public:
 		int* i = new int(j["Value"]);
 		data.value = i;
 	}
-	UniInt(UniformData data) { this->data = data; }
+	UniInt(UniformData data) 
+	{ 
+		this->data = data; 
+		SetVariable();
+	}
 	~UniInt() 
 	{
 		int* i = static_cast<int*>(data.value);
@@ -106,7 +114,11 @@ public:
 		uint* ui = new uint(j["Value"]);
 		data.value = ui;
 	}
-	UniUInt(UniformData data) { this->data = data; }
+	UniUInt(UniformData data) 
+	{ 
+		this->data = data; 
+		SetVariable();
+	}
 	~UniUInt()
 	{
 		uint* ui = static_cast<uint*>(data.value);
@@ -132,7 +144,11 @@ public:
 		float* f = new float(j["Value"]);
 		data.value = f;
 	}
-	UniFloat(UniformData data) { this->data = data; }
+	UniFloat(UniformData data) 
+	{ 
+		this->data = data; 
+		SetVariable();
+	}
 	~UniFloat() 
 	{
 		float* f = static_cast<float*>(data.value);
@@ -163,8 +179,13 @@ public:
 		{
 			f2->At(i) = aux[i];
 		}
+		data.value = f2;
 	}
-	UniFloat2(UniformData data) { this->data = data; }
+	UniFloat2(UniformData data) 
+	{ 
+		this->data = data;
+		SetVariable();
+	}
 	~UniFloat2() 
 	{
 		float2* f2 = static_cast<float2*>(data.value);
@@ -195,8 +216,13 @@ public:
 		{
 			f3->At(i) = aux[i];
 		}
+		data.value = f3;
 	}
-	UniFloat3(UniformData data) { this->data = data; }
+	UniFloat3(UniformData data) 
+	{ 
+		this->data = data; 
+		SetVariable();
+	}
 	~UniFloat3() 
 	{
 		float3* f3 = static_cast<float3*>(data.value);
@@ -227,8 +253,13 @@ public:
 		{
 			f4->At(i) = aux[i];
 		}
+		data.value = f4;
 	}
-	UniFloat4(UniformData data) { this->data = data; }
+	UniFloat4(UniformData data) 
+	{ 
+		this->data = data; 
+		SetVariable();
+	}
 	~UniFloat4() 
 	{
 		float4* f4 = static_cast<float4*>(data.value);
@@ -254,7 +285,11 @@ public:
 		double* d = new double(j["Value"]);
 		data.value = d;
 	}
-	UniDouble(UniformData data) { this->data = data; }
+	UniDouble(UniformData data) 
+	{ 
+		this->data = data;
+		SetVariable();
+	}
 	~UniDouble() 
 	{
 		double* d = static_cast<double*>(data.value);
@@ -274,25 +309,14 @@ class UniSampler2D : Uniform
 {
 public:
 	UniSampler2D() {};
-	UniSampler2D(json& j)
-	{
-
+	UniSampler2D(json& j); //On CPP
+	UniSampler2D(UniformData data) 
+	{ 
+		this->data = data; 
+		SetVariable();
 	}
-	UniSampler2D(UniformData data) { this->data = data; }
-	~UniSampler2D() 
-	{
-		/*Texture* s2d = static_cast<Texture*>(value);
-
-		if (!s2d->resUuid.empty())
-		{
-			ResourceTexture* res = (ResourceTexture*)ResourceProperties::Instance()->resources.at(s2d->resUuid);
-			if (res != nullptr)
-			{
-				res->DecreaseRC();
-			}
-		}
-		else RELEASE(s2d);*/
-	};
+	
+	~UniSampler2D(); //On CPP
 
 public:
 	void SetVariable() override;
@@ -323,8 +347,14 @@ public:
 				++i;
 			}
 		}
+
+		data.value = f4x4;
 	}
-	UniFloat4x4(UniformData data) { this->data = data; }
+	UniFloat4x4(UniformData data) 
+	{
+		this->data = data; 
+		SetVariable();
+	}
 	~UniFloat4x4() 
 	{
 		float4x4* f44 = static_cast<float4x4*>(data.value);

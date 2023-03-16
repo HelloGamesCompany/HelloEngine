@@ -31,6 +31,7 @@ void Material::SetShader(uint UID)
 
 	this->shader = (ResourceShader*)ModuleResourceManager::S_LoadResource(UID);
 	this->shader->shader.UniformParser(uniforms);
+	shaderVersion = shader->version;
 }
 
 void Material::CleanUniforms()
@@ -39,6 +40,18 @@ void Material::CleanUniforms()
 	{
 		RELEASE(uniforms[i]);
 	}
+	uniforms.clear();
+}
+
+void Material::CheckVersion()
+{
+	if (shader == nullptr) return;
+	if (shader->version == shaderVersion) return;
+	
+	//The version change when the shader is recompiled. The Material must ask for the new uniforms
+	CleanUniforms();
+	this->shader->shader.UniformParser(uniforms);
+	shaderVersion = shader->version;
 }
 
 void Material::Save()

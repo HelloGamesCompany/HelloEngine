@@ -422,6 +422,10 @@
     <ClCompile Include="Uniform.cpp" />
     <ClCompile Include="Material.cpp" />
     <ClCompile Include="MaterialComponent.cpp" />
+    <ClCompile Include="ImWindowGLSL.cpp" />
+    <ClCompile Include="..\External\ImGuiColorTextEdit\TextEditor.cpp">
+      <Filter>External\ImGuiColorText</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -965,6 +969,10 @@
     <ClInclude Include="BaseShader.h" />
     <ClInclude Include="Material.h" />
     <ClInclude Include="MaterialComponent.h" />
+    <ClInclude Include="ImWindowGLSL.h" />
+    <ClInclude Include="..\External\ImGuiColorTextEdit\TextEditor.h">
+      <Filter>External\ImGuiColorText</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="External">
@@ -1029,6 +1037,9 @@
     </Filter>
     <Filter Include="Modules\Physics">
       <UniqueIdentifier>{d7a935dd-bee4-4eab-b7b6-c21c40a5f340}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="External\ImGuiColorText">
+      <UniqueIdentifier>{d0f485d1-5ce0-4199-b24a-edb3029d463f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

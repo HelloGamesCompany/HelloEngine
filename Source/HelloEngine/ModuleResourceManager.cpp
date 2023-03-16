@@ -226,6 +226,7 @@ void ModuleResourceManager::S_LoadFileIntoResource(Resource* resource)
     {
         ResourceShader* shaderRes = (ResourceShader*)resource;
         shaderRes->shader = Shader(shaderRes->resourcePath);
+        shaderRes->version = HelloUUID::GenerateUUID();
     }
         break;
     case ResourceType::MATERIAL:

@@ -3,6 +3,8 @@
 #include "GameObject.h"
 #include "ModuleResourceManager.h"
 
+#include "Uniform.h"
+
 MaterialComponent::MaterialComponent(GameObject* gameObject) : Component(gameObject)
 {
 
@@ -27,10 +29,23 @@ void MaterialComponent::OnEditor()
 {
 	bool created = true;
 
+	if (_resource) _resource->material.CheckVersion();
+
 	if (ImGui::CollapsingHeader("Material", &created, ImGuiTreeNodeFlags_DefaultOpen))
 	{
 		MaterialDragNDrop();
 		ShaderSelectCombo();
+
+		//Loop Uniforms GUI
+		if (_resource != nullptr && _resource->material.uniforms.size() > 0)
+		{
+			for (int i = 0; i < _resource->material.uniforms.size(); ++i)
+			{
+				_resource->material.uniforms[i]->GUI();
+				ImGui::Spacing();
+				ImGui::Spacing();
+			}
+		}
 	}
 	if (!created)
 		this->_gameObject->DestroyComponent(this);
@@ -67,7 +82,6 @@ void MaterialComponent::ShaderSelectCombo()
 	if (ImGui::BeginCombo("##ShaderCombo", strSelected.c_str()))
 	{
 		shaderPool = ModuleResourceManager::S_GetResourcePool(ResourceType::SHADER);
-
 		std::string aux;
 
 		for (int i = 0; i < shaderPool.size(); ++i)
@@ -77,22 +91,8 @@ void MaterialComponent::ShaderSelectCombo()
 			aux += shaderPool[i]->UID;
 			if (ImGui::Selectable(aux.c_str()))
 			{
-				////Clean current Shader
-				//if (material->GetShader() != nullptr)
-				//{
-				//	if (!material->GetShader()->uuid.empty())
-				//	{
-				//		ResourceShader* ress = (ResourceShader*)resInstance->resources.at(material->GetShader()->uuid);
-				//		if (ress != nullptr) ress->RemoveShaderFromMat(material);
-				//		//if (ress->shader == nullptr) LOG(LOG_TYPE::ATTENTION, "RC 0: Unloading shader '%s' from memory!", ress->GetLibraryFile().c_str());
-				//	}
-				//}
-
-				////Set new shader
-				///*material->SetShader(ShaderManager::ImportFromLibrary(shaderPool[i]));
-				//shaderPool[i]->IncreaseRC();*/
-
-				//shaderPool[i]->SetShaderToMat(material);
+				//Clean current Shader
+				_resource->material.SetShader(shaderPool[i]->UID);
 			}
 		}
 

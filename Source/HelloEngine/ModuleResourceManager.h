@@ -179,7 +179,20 @@ class ResourceShader : public Resource
 public:
     ResourceShader() {};
 
+    void Recompile(std::string text)
+    {
+        ModuleFiles::S_Save(resourcePath, text.data(), text.length(), false);
+
+        shader.Recompile(resourcePath);
+
+        version = HelloUUID::GenerateUUID();
+    }
+
     Shader shader;
+
+    int version;
+
+    bool _onEditor = false;
 };
 
 class ResourceMaterial : public Resource

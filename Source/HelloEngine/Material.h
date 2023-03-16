@@ -16,6 +16,7 @@ public:
 	void Save();
 	void LoadJSON(std::string filePath);
 
+	void CheckVersion();
 private:
 	void CleanUniforms();
 
@@ -26,5 +27,6 @@ public:
 private:
 	ResourceShader* shader = nullptr;
 
+	int shaderVersion;
 };
 

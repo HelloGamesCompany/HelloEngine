@@ -370,6 +370,10 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
             case ResourceType::PREFAB:
                 ImGui::SetDragDropPayload("Prefab", &_fileTree->_currentDir->files[i].path, sizeof(std::string));
                 break;
+            case ResourceType::SHADER:
+                _dragUID = _fileTree->_currentDir->files[i].metaFile.UID;
+                ImGui::SetDragDropPayload("Shader", &_dragUID, sizeof(uint));
+                break;
             case ResourceType::MATERIAL:
                 _dragUID = _fileTree->_currentDir->files[i].metaFile.UID;
                 ImGui::SetDragDropPayload("Material", &_dragUID, sizeof(uint));
@@ -390,9 +394,49 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
             ImGui::EndPopup();
         }
 
+        static bool doubleClick = false;
+
         // Shwo file name when mouse is hovered
         if (ImGui::IsItemHovered())
+        {
             ImGui::SetTooltip(_fileTree->_currentDir->files[i].name.c_str());
+
+            if (ImGui::IsMouseDoubleClicked(ImGuiMouseButton_Left))
+            {
+                doubleClick = true;
+            }
+        }
+
+        //Double click
+        if (doubleClick)
+        {
+            type = ModuleFiles::S_GetResourceType(_fileTree->_currentDir->files[i].name);
+            switch (type)
+            {
+            case ResourceType::TEXTURE:
+                break;
+            case ResourceType::MODEL:
+                break;
+            case ResourceType::SCENE:
+                break;
+            case ResourceType::HSCRIPT:
+            case ResourceType::CPPSCRIPT:
+                break;
+            case ResourceType::ANIMATION:
+                break;
+            case ResourceType::PREFAB:
+                break;
+            case ResourceType::SHADER:
+                Console::S_Log("Shader double click!");
+                LayerEditor::S_OpenShader(_fileTree->_currentDir->files[i].metaFile.UID);
+                break;
+            case ResourceType::MATERIAL:
+                Console::S_Log("Material double click!");
+                break;
+            }
+            doubleClick = false;
+        }
+
 
         // Show file name
         ImGui::TextWrapped(_fileTree->_currentDir->files[i].name.c_str());

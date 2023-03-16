@@ -18,7 +18,7 @@ public:
     void Clear();
    /* Shader(std::string& vertexPath, std::string& fragmentPath);
     Shader(std::string&& vertexPath, std::string&& fragmentPath);*/
-
+    void Recompile(std::string shaderPath);
     void Bind();
    
     // Uniform Setters
@@ -34,7 +34,7 @@ public:
 private:
     void RetriveShader(const std::string& shaderPath);
     void CompileShader();
-    void RecompileShader(std::string shaderPath);
+   
 
     void UniformCompare(ShaderData previousShader);
     //uint CompileShader(const std::string& source, uint type);

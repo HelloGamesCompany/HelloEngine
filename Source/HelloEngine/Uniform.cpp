@@ -1,6 +1,24 @@
 #include "Headers.h"
 #include "Uniform.h"
 
+#include "ModuleResourceManager.h"
+
+/*Constructors and Deconstructors*/
+
+UniSampler2D::UniSampler2D(json & j)
+{
+	SetJSON(j);
+	ResourceTexture* texture = (ResourceTexture*)ModuleResourceManager::S_LoadResource(j["Value"]);
+	data.value = texture;
+}
+
+UniSampler2D::~UniSampler2D()
+{
+	ResourceTexture* texture = static_cast<ResourceTexture*>(data.value);
+
+	if (texture != nullptr) texture->Dereference();
+}
+
 /*Variable Set*/
 
 void UniBool::SetVariable()
@@ -62,8 +80,8 @@ void UniDouble::SetVariable()
 void UniSampler2D::SetVariable()
 {
 	data.strType = "sampler2D";
-	//Texture* s2d = new Texture();
-	//value = s2d;
+	ResourceTexture* resTex = nullptr;
+	data.value = resTex;
 }
 
 void UniFloat4x4::SetVariable()
@@ -154,44 +172,35 @@ void UniDouble::GUI()
 
 void UniSampler2D::GUI()
 {
-	//Texture* tex = static_cast<Texture*>(value);
+	ResourceTexture* texture = static_cast<ResourceTexture*>(data.value);
+	
+	int id = -1;
+	if (texture) id = texture->OpenGLID;
 
-	//ImGui::ImageButton((ImTextureID)tex->id, { 75, 75 });
-	//if (ImGui::BeginDragDropTarget())
-	//{
-	//	if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("ContentBrowserItem"))
-	//	{
-	//		IM_ASSERT(payload->DataSize == sizeof(LibraryItem));
-	//		const LibraryItem item = *static_cast<const LibraryItem*>(payload->Data);
+	ImGui::ImageButton((ImTextureID)id, { 75, 75 });
 
-	//		switch (str2int(item.extension.c_str()))
-	//		{
-	//		case str2int("png"):
-	//		case str2int("PNG"):
-	//		case str2int("DDS"):
-	//		case str2int("dds"):
-	//		case str2int("jpg"):
-	//		case str2int("JPG"):
-	//		case str2int("tga"):
-	//		case str2int("TGA"):
+	if (ImGui::BeginDragDropTarget())
+	{
+		if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("Texture"))
+		{
+			const uint* drop = (uint*)payload->Data;
 
-	//			ResourceTexture* res = (ResourceTexture*)ResourceProperties::Instance()->resources.at(item.resUuid);
+			if (texture != nullptr) texture->Dereference();
+			texture = (ResourceTexture*)ModuleResourceManager::S_LoadResource(*drop);
 
-	//			//Clean current
-	//			VariableDeleting();
+			data.value = texture;
+		}
+	}
 
-	//			TextureImporter::ImportFromLibrary(res);
-	//			value = res->texture;
-	//			tex = static_cast<Texture*>(value);
-	//		}
-	//	}
-	//}
-	//ImGui::SameLine();
-	//ImGui::Text("%s", name.c_str());
-	//std::string txt = "Size: " + std::to_string(tex->w) + " x " + std::to_string(tex->h);
-	//ImGui::Text(txt.c_str());
-	//txt = "Texture ID: " + std::to_string(tex->id);
-	//ImGui::Text(txt.c_str());
+	if (texture)
+	{
+		ImGui::SameLine();
+		ImGui::Text("%s", texture->debugName.c_str());
+		std::string txt = "Size: " + std::to_string(texture->width) + " x " + std::to_string(texture->height);
+		ImGui::Text(txt.c_str());
+		txt = "Texture ID: " + std::to_string(texture->OpenGLID);
+		ImGui::Text(txt.c_str());
+	}
 }
 
 void UniFloat4x4::GUI()
@@ -291,11 +300,8 @@ void UniDouble::GetJSONUnique(json& _j)
 
 void UniSampler2D::GetJSONUnique(json& _j)
 {
-	/*
-	Texture* tex = static_cast<Texture*>(value);
-
-			toReturn.SetString("Value", tex->resUuid)
-	*/
+	ResourceTexture* texture = static_cast<ResourceTexture*>(data.value);
+	_j["Value"] = texture->UID;
 }
 
 void UniFloat4x4::GetJSONUnique(json& _j)
