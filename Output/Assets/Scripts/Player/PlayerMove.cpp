@@ -5,36 +5,62 @@ HELLO_ENGINE_API_C PlayerMove* CreatePlayerMove(ScriptToInspectorInterface* scri
     PlayerMove* classInstance = new PlayerMove();
     //Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
     script->AddDragFloat("Velocity", &classInstance->vel);
-    script->AddDragFloat("CurrentVelocity", &classInstance->currentInput);
-   /* script->AddDragFloat("Max Velocity", &classInstance->maxVel);
-    script->AddDragFloat("Acceleration", &classInstance->accel);
-    script->AddDragFloat("Brake", &classInstance->brake);*/
-    /*script->AddDragBoxGameObject("Aux Cam", &classInstance->finalCam);
-    script->AddDragBoxTransform("Camera player", &classInstance->MainCam);
-    script->AddDragBoxTransform("Camera Starship", &classInstance->StarShipCam);
-    script->AddDragBoxAnimationPlayer("Animation player", &classInstance->animationPlayer);
-    script->AddDragBoxAnimationResource("Idle", &classInstance->idleAnim);
-    script->AddDragBoxAnimationResource("Walk", &classInstance->walkAnim);*/
+    script->AddDragFloat("Current Velocity", &classInstance->currentVel);
+    script->AddDragFloat("SecToMaxVel", &classInstance->secToMaxVel);
+    script->AddDragFloat("SecToZeroVel", &classInstance->secToZeroVel);
+    script->AddDragFloat("Current Input", &classInstance->currentInput);
+
     return classInstance;
 }
 
 void PlayerMove::Start()
 {
     transform = gameObject.GetTransform();
+    departureTime = 0.0f;
 }
 
 void PlayerMove::Update()
 {
     usingGamepad = Input::UsingGamepad();
     dt = Time::GetDeltaTime();
-
     Aim();
 
     API_Vector2 input = GetMoveInput();
-    currentInput = input.Distance(API_Vector2::S_Zero());
+    currentInput = input.Distance(API_Vector2::S_Zero());   //TEST
 
-    input *= vel * dt;
+    //SecToZero MUST be smaller than SecToMaxVel
+    if (input.x == 0.0f && input.y == 0.0f) //NO INPUT
+    {
+        if (departureTime > secToZeroVel) departureTime = secToZeroVel;
+
+        if (departureTime > 0.0f) {
+            currentVel = Lerp(0.0f, vel, departureTime / secToZeroVel);
+            departureTime -= dt;
+        }
+        else {
+            currentVel = 0.0f;
+        }
+    }
+    else //MOVEMENT
+    {
+        if (departureTime < 0.0f) departureTime = 0.0f;
+
+        if (departureTime < secToMaxVel) {
+            currentVel = Lerp(0.0f, vel, departureTime / secToMaxVel);
+            departureTime += dt;
+        }
+        else {
+            currentVel = vel;
+        }
+    }
+
+    input *= currentVel * dt;
     transform.Translate(input.x, 0, input.y);
+}
+
+float PlayerMove:: Lerp(float a, float b, float time)
+{
+    return a + time * (b - a);
 }
 
 void PlayerMove::Aim()
@@ -66,8 +92,8 @@ API_Vector2 PlayerMove::GetMoveInput()
 
     //Gamepad
     if (usingGamepad) {
-        input.x = Input::GetGamePadAxis(GamePadAxis::AXIS_RIGHTX);
-        input.y = Input::GetGamePadAxis(GamePadAxis::AXIS_RIGHTY);
+        input.x = Input::GetGamePadAxis(GamePadAxis::AXIS_LEFTX);
+        input.y = -Input::GetGamePadAxis(GamePadAxis::AXIS_LEFTY);
 
         if (abs(input.x) < 10000 && abs(input.y) < 10000) return API_Vector2::S_Zero();
 
