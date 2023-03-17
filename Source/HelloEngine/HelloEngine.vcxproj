@@ -322,6 +322,7 @@
     <ClCompile Include="ComponentUIButton.cpp" />
     <ClCompile Include="ComponentUICheckbox.cpp" />
     <ClCompile Include="ComponentUIImage.cpp" />
+    <ClCompile Include="ComponentUIInput.cpp" />
     <ClCompile Include="ComponentUISlider.cpp" />
     <ClCompile Include="Console.cpp" />
     <ClCompile Include="Emitter.cpp" />
@@ -511,6 +512,7 @@
     <ClInclude Include="ComponentUIButton.h" />
     <ClInclude Include="ComponentUICheckbox.h" />
     <ClInclude Include="ComponentUIImage.h" />
+    <ClInclude Include="ComponentUIInput.h" />
     <ClInclude Include="ComponentUISlider.h" />
     <ClInclude Include="Console.h" />
     <ClInclude Include="CycleArray.hpp" />

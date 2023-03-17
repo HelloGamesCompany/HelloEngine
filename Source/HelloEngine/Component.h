@@ -26,6 +26,7 @@ public:
 		UI_SLIDER,
 		UI_CHECKBOX,
 		UI_IMAGE,
+		UI_INPUT,
 		MAX
 	};
 

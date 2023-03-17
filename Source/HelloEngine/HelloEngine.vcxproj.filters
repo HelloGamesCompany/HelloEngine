@@ -426,6 +426,7 @@
       <Filter>API</Filter>
     </ClCompile>
     <ClCompile Include="FontManager.cpp" />
+    <ClCompile Include="ComponentUIInput.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -971,6 +972,7 @@
       <Filter>API</Filter>
     </ClInclude>
     <ClInclude Include="FontManager.h" />
+    <ClInclude Include="ComponentUIInput.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="External">

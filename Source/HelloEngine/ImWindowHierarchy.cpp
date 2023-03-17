@@ -8,6 +8,7 @@
 #include "ModuleResourceManager.h"
 #include "ModuleCommand.h"
 #include "MeshImporter.h"
+#include "ComponentUIInput.h"
 
 ImWindowHierarchy::ImWindowHierarchy()
 {
@@ -239,6 +240,12 @@ void ImWindowHierarchy::DrawOptions()
     {
         if (LayerEditor::selectedGameObject->GetTag() == "UI" || LayerEditor::selectedGameObject->GetTag() == "UIsliderButton" || LayerEditor::selectedGameObject->GetTag() == "UIsliderBar")
         {
+            if (ImGui::Selectable("Create Panel"))
+            {
+                GameObject* parent = LayerEditor::selectedGameObject ? LayerEditor::selectedGameObject : ModuleLayers::rootGameObject;
+                GameObject* panel = new GameObject(parent, "Panel", "UI");
+                panel->AddComponent<ComponentUIInput>();
+            }
             for (int i = 0; i < 4; i++)
             {
                 if (ImGui::Selectable(UINames[i].c_str()))
