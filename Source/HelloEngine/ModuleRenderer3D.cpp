@@ -134,7 +134,7 @@ UpdateStatus ModuleRenderer3D::PostUpdate()
 		_cameras->currentDrawingCamera = _cameras->sceneCamera;
 
 		ModuleLayers::S_DrawLayers();
-		particleManager.Draw();
+		//particleManager.Draw();
 		renderManager.Draw();
 		_cameras->DrawCameraFrustums();
 	}
@@ -148,7 +148,7 @@ UpdateStatus ModuleRenderer3D::PostUpdate()
 		_cameras->currentDrawingCamera = _cameras->UICamera;
 
 		//ModuleLayers::S_DrawLayers();
-		particleManager.Draw();
+		//particleManager.Draw();
 		renderManager.Draw2D();
 		//_cameras->DrawCameraFrustums();
 	}
@@ -161,7 +161,7 @@ UpdateStatus ModuleRenderer3D::PostUpdate()
 
 		_cameras->currentDrawingCamera = _cameras->activeGameCamera;
 		
-		particleManager.Draw();
+		//particleManager.Draw();
 		renderManager.Draw();
 		
 		// Draw all 2D meshes.

@@ -5,6 +5,7 @@
 #include "GameObject.h"
 #include "MeshRenderComponent.h"
 #include "PhysBody3D.h"
+#include "FontManager.h"
 
 #define MAX_VERTICAL_SLICES_SPHERE 32
 #define MAX_HORIZONTAL_SLICES_SPHERE 32
@@ -86,6 +87,7 @@ public:
 
 	void DrawTransparentMeshes();
 	void DrawIndependentMeshes();
+	void DrawTextObjects();
 
 private:
 	std::map<uint, InstanceRenderer> _renderMap; // Render managers that use instance rendering to draw opaque meshes.
@@ -103,13 +105,6 @@ private:
 	std::vector<uint> boxIndices; // Used to display bounding boxes.
 	std::vector<uint> sphereIndices;
 	std::vector<uint> cylinderIndices;
-
-	/*const uint sphereVerticalSlices = MAX_VERTICAL_SLICES_SPHERE;
-	const uint sphereHorizontalSlices = MAX_HORIZONTAL_SLICES_SPHERE;*/
-	/*const uint sphereVertexNum = sphereVerticalSlices * sphereHorizontalSlices + 2;*/
-
-	//const uint cylinderVerticalSlices = MAX_VERTICAL_SLICES_SPHERE;
-	//const uint cylinderVertexNum = sphereVerticalSlices * 2;
 
 	// ModelResources for primitives
 	ResourceModel* primitiveModels[5];
@@ -141,6 +136,9 @@ private:
 	uint planeUID = 0;
 	uint cylinderUID = 0;
 	uint plane2DUID = 0;
+
+	// Text rendering
+	std::map<uint, TextObject> textObjects;
 
 	InstanceRenderer* renderer2D = nullptr;
 

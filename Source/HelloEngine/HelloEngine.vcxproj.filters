@@ -425,6 +425,7 @@
     <ClCompile Include="API_UIImage.cpp">
       <Filter>API</Filter>
     </ClCompile>
+    <ClCompile Include="FontManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -969,6 +970,7 @@
     <ClInclude Include="API_UIImage.h">
       <Filter>API</Filter>
     </ClInclude>
+    <ClInclude Include="FontManager.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="External">

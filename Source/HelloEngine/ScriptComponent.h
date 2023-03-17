@@ -37,6 +37,7 @@ public:
 	void AddDragBoxAnimationPlayer(const char* name, API::API_AnimationPlayer* value) override;
 	void AddDragBoxAnimationResource(const char* name, uint* value) override;
 	void AddDragBoxUIButton(const char* name, API::API_UIButton* value) override;
+	void AddDragBoxUIImage(const char* name, API::API_UIImage* value) override;
 
 	uint GetResourceUID();
 	void DestroyedResource();
