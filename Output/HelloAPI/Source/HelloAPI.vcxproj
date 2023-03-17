@@ -157,6 +157,7 @@
 		<ClCompile Include="../../Assets/Build/AnimationTest.cpp" />
 		<ClCompile Include="../../Assets/Scripts/RotateContiniously.cpp" />
 		<ClCompile Include="../../Assets/Scripts/UIbutton.cpp" />
+		<ClCompile Include="../../Assets/Scripts/UI Test folder/ButtonActionsTest.cpp" />
 	</ItemGroup>
 	<ItemGroup>
 		<ClInclude Include="Macro.h" />
@@ -181,6 +182,7 @@
 		<ClInclude Include="../../Assets/Build/AnimationTest.h" />
 		<ClInclude Include="../../Assets/Scripts/RotateContiniously.h" />
 		<ClInclude Include="../../Assets/Scripts/UIbutton.h" />
+		<ClInclude Include="../../Assets/Scripts/UI Test folder/ButtonActionsTest.h" />
 	</ItemGroup>
 	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 	<ImportGroup Label="ExtensionTargets" />
