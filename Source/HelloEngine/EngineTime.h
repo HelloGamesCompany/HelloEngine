@@ -14,6 +14,7 @@ public:
 	// seconds since game start in real time
 
 	static void Start();
+	static void StartEngine();
 
 	static void UpdateRealTime();
 	static void UpdateGameTime();

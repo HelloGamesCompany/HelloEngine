@@ -24,6 +24,12 @@ void EngineTime::Start()
 	_lastFrameTicks = 0;
 }
 
+void EngineTime::StartEngine()
+{
+	_enginestartTicks = SDL_GetTicks();
+	_enginelastFrameTicks = 0;
+}
+
 void EngineTime::UpdateRealTime()
 {
 	// Get real time in seconds (SDL_GetTicks() returns in miliseconds)

@@ -57,7 +57,7 @@ void API::API_ParticleSystem::Stop()
 	if (_particleSystem->GetPlayOnGame())
 	{
 		_particleSystem->SetPlayOnGame(false);
-
+		_particleSystem->GetParticleSystemEmitter().SetPlayOnAwake(false);
 		_particleSystem->GetParticleSystemEmitter().ResetEmitter();
 	}
 }

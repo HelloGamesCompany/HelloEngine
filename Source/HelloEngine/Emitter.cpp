@@ -56,6 +56,11 @@ void Emitter::ResetEmitter()
 	Duration = DurationCpy;
 }
 
+void Emitter::SetPlayOnAwake(bool b)
+{
+	playOnAwake = b;
+}
+
 void Emitter::EmitParticles(ParticleProperties& particleProps)
 {
 
@@ -182,49 +187,37 @@ void Emitter::UpdateParticleTransform(int i, const math::Quat& rotation)
 
 void Emitter::UpdateParticlesOnScene(int i)
 {
-	if (StartDelay <= 0) {
-		if (Duration > 0) {
-			Duration -= EngineTime::EngineTimeDeltaTime();
-		}
-		// Compute all the calculus needed to move the particles
+	
+	// Compute all the calculus needed to move the particles
 
-		// Remaining life minus dt
-		ParticleList[i].remainingLifetime -= EngineTime::EngineTimeDeltaTime();
+	// Remaining life minus dt
+	ParticleList[i].remainingLifetime -= EngineTime::EngineTimeDeltaTime();
 
 
-		// velocity = acceleration * dt
-		ParticleList[i].speed += ParticleList[i].acceleration * EngineTime::EngineTimeDeltaTime();
+	// velocity = acceleration * dt
+	ParticleList[i].speed += ParticleList[i].acceleration * EngineTime::EngineTimeDeltaTime();
 
 
-		// pos += velocity * dt
-		ParticleList[i].position += ParticleList[i].speed * EngineTime::EngineTimeDeltaTime();
-	}
-	else {
-		StartDelay -= EngineTime::EngineTimeDeltaTime();
-	}
+	// pos += velocity * dt
+	ParticleList[i].position += ParticleList[i].speed * EngineTime::EngineTimeDeltaTime();
+	
 }
 
 void Emitter::UpdateParticlesOnGame(int i)
 {
-	if (StartDelay <= 0) {
+	
+	// Compute all the calculus needed to move the particles
 
-		if (Duration > 0) {
-			Duration -= EngineTime::GameDeltaTime();
-		}
-		// Compute all the calculus needed to move the particles
-
-		// Remaining life minus dt
-		ParticleList[i].remainingLifetime -= EngineTime::GameDeltaTime();
+	// Remaining life minus dt
+	ParticleList[i].remainingLifetime -= EngineTime::GameDeltaTime();
 
 
-		// velocity = acceleration * dt
-		ParticleList[i].speed += ParticleList[i].acceleration * EngineTime::GameDeltaTime();
+	// velocity = acceleration * dt
+	ParticleList[i].speed += ParticleList[i].acceleration * EngineTime::GameDeltaTime();
 
 
-		// pos += velocity * dt
-		ParticleList[i].position += ParticleList[i].speed * EngineTime::GameDeltaTime();
-	}
-	else {
-		StartDelay -= EngineTime::GameDeltaTime();
-	}
+	// pos += velocity * dt
+	ParticleList[i].position += ParticleList[i].speed * EngineTime::GameDeltaTime();
+	
+	
 }

@@ -155,9 +155,9 @@
             {
                 "Enabled": true,
                 "Position": [
-                    -4.784321308135986,
+                    -2.384000062942505,
                     1.660491943359375,
-                    -31.742265701293945
+                    -0.7419999837875366
                 ],
                 "Rotation": [
                     14.143915176391602,
@@ -174,7 +174,7 @@
             {
                 "Active camera": true,
                 "Active culling": false,
-                "Aspect ratio": 1.9974778890609741,
+                "Aspect ratio": 1.6150120496749878,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -225,7 +225,7 @@
                             1.0
                         ],
                         "Delay": 0.0,
-                        "Duration": 0.0,
+                        "Duration": 431.0,
                         "EndScale": [
                             0.0,
                             0.0,

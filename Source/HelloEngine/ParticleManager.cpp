@@ -28,6 +28,7 @@ void ParticleManager::Draw()
 	for (Emitter* emitter : EmitterList)
 	{
 
+
 		if (emitter->playOnAwake && LayerGame::S_IsPlaying()) {
 			
 			emitter->component->SetPlayOnGame(true);
@@ -36,6 +37,29 @@ void ParticleManager::Draw()
 		if ((LayerGame::S_IsPlaying() && emitter->component->GetPlayOnGame()) || emitter->component->GetPlayOnScene())
 		{
 			//UPDATE EACH EMITTER
+			if (LayerGame::S_IsPlaying())
+			{
+				if (emitter->StartDelay <= 0) {
+					if (emitter->Duration > 0) {
+						emitter->Duration -= EngineTime::GameDeltaTime();
+					}
+				}
+				else {
+					emitter->StartDelay -= EngineTime::GameDeltaTime();
+				}
+			}
+			else
+			{
+				if (emitter->StartDelay <= 0) {
+					if (emitter->Duration > 0) {
+						emitter->Duration -= EngineTime::EngineTimeDeltaTime();
+					}
+				}
+				else {
+					emitter->StartDelay -= EngineTime::EngineTimeDeltaTime();
+				}
+			}
+			
 			if (!emitter->loop) {
 				if (emitter->Duration <= 0) {
 					emitter->stop = true;				
@@ -53,20 +77,21 @@ void ParticleManager::Draw()
 
 			if (emitter->enableEmissionModule)
 			{
-				
-				double particlesToEmit = 0;
-				if (LayerGame::S_IsPlaying()) {
-					//canviar game delta time per float
-					emitter->accumulator += EngineTime::GameDeltaTime();
+				if (!emitter->stop) {
+					double particlesToEmit = 0;
+					if (LayerGame::S_IsPlaying()) {
+						//canviar game delta time per float
+						emitter->accumulator += EngineTime::GameDeltaTime();
 
-				}
-				else {
-					emitter->accumulator += EngineTime::EngineTimeDeltaTime();
-				}
+					}
+					else {
+						emitter->accumulator += EngineTime::EngineTimeDeltaTime();
+					}
 
-				while (emitter->accumulator > 1.0 / emitter->ParticlesPerSecond) {
-					emitter->EmitParticles(emitter->component->particleProps);
-					emitter->accumulator -= 1.0 / emitter->ParticlesPerSecond;
+					while (emitter->accumulator > 1.0 / emitter->ParticlesPerSecond) {
+						emitter->EmitParticles(emitter->component->particleProps);
+						emitter->accumulator -= 1.0 / emitter->ParticlesPerSecond;
+					}
 				}
 
 			}

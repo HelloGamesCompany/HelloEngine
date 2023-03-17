@@ -34,6 +34,10 @@ public:
 
 	void ResetEmitter();
 
+	bool GetPlayOnAwake() { return playOnAwake; }
+
+	void SetPlayOnAwake(bool b);
+
 public:
 
 	int64_t _meshID = -1;
