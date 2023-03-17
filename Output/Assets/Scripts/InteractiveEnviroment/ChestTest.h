@@ -14,5 +14,8 @@ public:
     void Update() override;
 
     //void OnCollisionStay(API::API_RigidBody other) override;
+
+    int gunInsideChest;
+    int gunInsideChestSlot;
 };
 
