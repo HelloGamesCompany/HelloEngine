@@ -27,7 +27,7 @@ namespace API
 		/// If the rigidbody is not a Sphere, there will return 0
 		/// </summary>
 		/// <returns></returns>
-		float GetRadius() {};
+		float GetRadius();
 
 	private:
 		PhysicsComponent* GetComponent();
