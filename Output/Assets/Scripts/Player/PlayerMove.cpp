@@ -36,6 +36,7 @@ void PlayerMove::Update()
         if (departureTime > 0.0f) {
             currentVel = Lerp(0.0f, vel, departureTime / secToZeroVel);
             departureTime -= dt;
+            input = lastMovInput;
         }
         else {
             currentVel = 0.0f;
@@ -52,6 +53,8 @@ void PlayerMove::Update()
         else {
             currentVel = vel;
         }
+
+        lastMovInput = input;
     }
 
     input *= currentVel * dt;
