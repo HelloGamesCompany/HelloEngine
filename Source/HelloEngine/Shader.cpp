@@ -334,9 +334,19 @@ void Shader::SetFloat(const std::string& name, float value) const
 	glUniform1f(glGetUniformLocation(data.ID, name.c_str()), value);
 }
 
-void Shader::SetFloat3(const std::string& name, float v1, float v2, float v3) const
+void Shader::SetDouble(const std::string& name, double value) const
 {
-	glUniform3f(glGetUniformLocation(data.ID, name.c_str()), v1, v2, v3);
+	glUniform1d(glGetUniformLocation(data.ID, name.c_str()), value);
+}
+
+void Shader::SetFloat2v(const std::string& name, const float* value) const
+{
+	glUniform2fv(glGetUniformLocation(data.ID, name.c_str()), 1, value);
+}
+
+void Shader::SetFloat3v(const std::string& name, const float* value) const
+{
+	glUniform3fv(glGetUniformLocation(data.ID, name.c_str()), 1, value);
 }
 
 void Shader::SetFloat4(const std::string& name, float v1, float v2, float v3, float v4) const
@@ -344,9 +354,20 @@ void Shader::SetFloat4(const std::string& name, float v1, float v2, float v3, fl
 	glUniform4f(glGetUniformLocation(data.ID, name.c_str()), v1, v2, v3, v4);
 }
 
+void Shader::SetFloat4v(const std::string& name, const float* value) const
+{
+	glUniform4fv(glGetUniformLocation(data.ID, name.c_str()), 1, value);
+}
+
 void Shader::SetMatFloat4v(const std::string& name, const float* value) const
 {
 	glUniformMatrix4fv(glGetUniformLocation(data.ID, name.c_str()), 1, GL_FALSE, value);
 }
 
+void Shader::SetTexture(const std::string& name, uint id, int layer)
+{
+	glActiveTexture(GL_TEXTURE0 + layer);
+	glBindTexture(GL_TEXTURE_2D, id);
+	SetInt(name, layer);
+}
 

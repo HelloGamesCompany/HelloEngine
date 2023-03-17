@@ -25,9 +25,13 @@ public:
     void SetBool(const std::string& name, bool value) const;
     void SetInt(const std::string& name, int value) const;
     void SetFloat(const std::string& name, float value) const;
-    void SetFloat3(const std::string& name, float v1, float v2, float v3) const;
+    void SetDouble(const std::string& name, double value) const;
+    void SetFloat2v(const std::string& name, const float* value) const;
+    void SetFloat3v(const std::string& name, const float* value) const;
     void SetFloat4(const std::string& name, float v1, float v2, float v3, float v4) const;
+    void SetFloat4v(const std::string& name, const float* value) const;
     void SetMatFloat4v(const std::string& name, const float* value) const;
+    void SetTexture(const std::string& name, uint id, int layer);
 
     void UniformParser(std::vector<Uniform*>& vec);
 

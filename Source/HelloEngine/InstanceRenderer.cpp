@@ -13,12 +13,11 @@ InstanceRenderer::InstanceRenderer()
 
 InstanceRenderer::~InstanceRenderer()
 {
-    /*RELEASE(instancedShader);
-    RELEASE(perMeshShader);
-    RELEASE(mesh2DShader);*/
-    //Cleaned along with resources
+    instancedShader->Dereference();
     instancedShader = nullptr;
+    perMeshShader->Dereference();
     perMeshShader = nullptr;
+    mesh2DShader->Dereference();
     mesh2DShader = nullptr;
 }
 

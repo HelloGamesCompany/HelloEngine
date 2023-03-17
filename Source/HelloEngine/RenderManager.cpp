@@ -21,10 +21,18 @@ RenderManager::RenderManager()
 RenderManager::~RenderManager()
 {
 	RELEASE(_textureManager);
-	/*RELEASE(lineShader);
-	RELEASE(localLineShader);*/
-	lineShader = nullptr;
-	localLineShader = nullptr;
+	
+	if (lineShader)
+	{
+		lineShader->Dereference();
+		lineShader = nullptr;
+	}
+	if (localLineShader)
+	{
+		localLineShader->Dereference();
+		localLineShader = nullptr;
+	}
+	
 }
 
 void RenderManager::Init()
@@ -140,10 +148,6 @@ void RenderManager::Init()
 
 	CalculateSphereBuffer();
 	CalculateCylinderBuffer();
-
-	
-	
-	
 }
 
 void RenderManager::OnEditor()

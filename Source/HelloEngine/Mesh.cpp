@@ -18,17 +18,21 @@
 Mesh::Mesh()
 {
 	modelMatrix.SetIdentity();
-	//stencilShader = Shader("Resources/shaders/stencil.vertex.shader", "Resources/shaders/stencil.fragment.shader");
 	stencilShader = Shader("Resources/shaders/stencil.shader");
 }
 
 Mesh::~Mesh()
 {
-	//RELEASE(drawPerMeshShader);
-	//RELEASE(boneMeshShader);
-	//Cleaned along with shaders
-	drawPerMeshShader = nullptr;
-	boneMeshShader = nullptr;
+	if (drawPerMeshShader)
+	{
+		drawPerMeshShader->Dereference();
+		drawPerMeshShader = nullptr;
+	}
+	if (boneMeshShader)
+	{
+		boneMeshShader->Dereference();
+		boneMeshShader = nullptr;
+	}
 	if (_VAO != 0)
 	{
 		CleanUp();
@@ -58,6 +62,13 @@ void Mesh::Draw(bool useBasicShader)
 		{
 			glBindTexture(GL_TEXTURE_2D, textureID);
 		}
+
+		/*
+			material->Update(Application::Instance()->camera->currentDrawingCamera->GetViewMatrix(), 
+			Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix(),
+			&modelMatrix.v[0][0]);
+		*/
+
 
 		if (component->_hasBones)
 		{

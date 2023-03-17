@@ -3,6 +3,10 @@
 class ResourceShader;
 class Uniform;
 
+#include "json.hpp"
+
+using json = nlohmann::json;
+
 class Material
 {
 public:
@@ -10,10 +14,14 @@ public:
 	Material(uint UID);
 	~Material();
 
-	ResourceShader* GetShader() { return shader; }
-	void SetShader(uint UID);
+	void Update(const float* view, const float* projection, const float* model);
 
-	void Save();
+	void Clear();
+
+	ResourceShader* GetShader() { return shader; }
+	bool SetShader(uint UID);
+
+	void Save(json& j);
 	void LoadJSON(std::string filePath);
 
 	void CheckVersion();
@@ -21,7 +29,6 @@ private:
 	void CleanUniforms();
 
 public:
-
 	std::vector<Uniform*> uniforms;
 
 private:

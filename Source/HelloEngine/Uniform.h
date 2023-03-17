@@ -17,6 +17,8 @@ struct UniformData
 	void* value = nullptr;
 };
 
+class Shader;
+
 class Uniform
 {
 public:
@@ -24,6 +26,7 @@ public:
 	~Uniform(){};
 
 	virtual void SetVariable(){};
+	virtual void Update(Shader& shader) {};
 #ifdef STANDALONE
 	virtual void GUI(){};
 #endif
@@ -68,6 +71,7 @@ public:
 	};
 
 	void SetVariable() override;
+	void Update(Shader& shader) override;
 #ifdef STANDALONE
 	void GUI() override;
 #endif
@@ -97,6 +101,7 @@ public:
 	};
 
 	void SetVariable() override;
+	void Update(Shader& shader) override;
 #ifdef STANDALONE
 	void GUI() override;
 #endif
@@ -127,6 +132,7 @@ public:
 
 public:
 	void SetVariable() override;
+	void Update(Shader& shader) override;
 #ifdef STANDALONE
 	void GUI() override;
 #endif
@@ -157,6 +163,7 @@ public:
 
 public:
 	void SetVariable() override;
+	void Update(Shader& shader) override;
 #ifdef STANDALONE
 	void GUI() override;
 #endif
@@ -194,6 +201,7 @@ public:
 
 public:
 	void SetVariable() override;
+	void Update(Shader& shader) override;
 #ifdef STANDALONE
 	void GUI() override;
 #endif
@@ -231,6 +239,7 @@ public:
 
 public:
 	void SetVariable() override;
+	void Update(Shader& shader) override;
 #ifdef STANDALONE
 	void GUI() override;
 #endif
@@ -268,6 +277,7 @@ public:
 
 public:
 	void SetVariable() override;
+	void Update(Shader& shader) override;
 #ifdef STANDALONE
 	void GUI() override;
 #endif
@@ -298,6 +308,7 @@ public:
 
 public:
 	void SetVariable() override;
+	void Update(Shader& shader) override;
 #ifdef STANDALONE
 	void GUI() override;
 #endif
@@ -320,6 +331,7 @@ public:
 
 public:
 	void SetVariable() override;
+	void Update(Shader& shader) override;
 #ifdef STANDALONE
 	void GUI() override;
 #endif
@@ -363,6 +375,7 @@ public:
 
 public:
 	void SetVariable() override;
+	void Update(Shader& shader) override;
 #ifdef STANDALONE
 	void GUI() override;
 #endif

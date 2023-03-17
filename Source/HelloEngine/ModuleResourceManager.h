@@ -200,6 +200,17 @@ class ResourceMaterial : public Resource
 public:
     ResourceMaterial() {};
 
+    void UnLoad() override
+    {
+        json j;
+        material.Save(j);
+
+        std::string buffer = j.dump(4);
+        ModuleFiles::S_Save(resourcePath, buffer.data(), buffer.length(), false);
+
+        material.Clear();
+    }
+
     Material material;
 };
 

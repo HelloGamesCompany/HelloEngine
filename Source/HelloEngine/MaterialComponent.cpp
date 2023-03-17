@@ -7,22 +7,15 @@
 
 MaterialComponent::MaterialComponent(GameObject* gameObject) : Component(gameObject)
 {
-
+	_type = Type::MATERIAL;
 }
 
 MaterialComponent::~MaterialComponent()
 {
+	if (_resource == nullptr) return;
 
-}
-
-void MaterialComponent::Serialization(json& j)
-{
-
-}
-
-void MaterialComponent::DeSerialization(json& j)
-{
-
+	_resource->Dereference();
+	_resource = nullptr;
 }
 
 void MaterialComponent::OnEditor()
@@ -98,4 +91,38 @@ void MaterialComponent::ShaderSelectCombo()
 
 		ImGui::EndCombo();
 	}
+}
+
+void MaterialComponent::Serialization(json& _j)
+{
+	json j;
+
+	j["Type"] = _type;
+
+	if (_resource != nullptr)
+	{
+		j["MaterialUID"] = _resource->UID;
+	}
+	else
+	{
+		j["MaterialUID"] = 0;
+	}
+
+	j["Enabled"] = _isEnabled;
+
+	_j["Components"].push_back(j);
+}
+
+void MaterialComponent::DeSerialization(json& _j)
+{
+	ResourceMaterial* res = (ResourceMaterial*)ModuleResourceManager::S_LoadResource(_j["MaterialUID"]);
+
+	if (res != nullptr)
+	{
+		_resource = res;
+	}
+
+	bool enabled = _j["Enabled"];
+	if (!enabled)
+		Disable();
 }

@@ -8,7 +8,14 @@
 UniSampler2D::UniSampler2D(json & j)
 {
 	SetJSON(j);
-	ResourceTexture* texture = (ResourceTexture*)ModuleResourceManager::S_LoadResource(j["Value"]);
+	int UID = j["Value"];
+
+	if (UID == -1)
+	{
+		data.value = nullptr;
+		return;
+	}
+	ResourceTexture* texture = (ResourceTexture*)ModuleResourceManager::S_LoadResource(UID);
 	data.value = texture;
 }
 
@@ -90,6 +97,60 @@ void UniFloat4x4::SetVariable()
 	float4x4* f44 = new float4x4(float4x4::identity);
 	data.value = f44;
 }
+
+/*UPDATE / Value out*/
+
+void UniBool::Update(Shader& shader)
+{
+	shader.SetBool(data.name, *static_cast<bool*>(data.value));
+}
+
+void UniInt::Update(Shader& shader)
+{
+	shader.SetInt(data.name, *static_cast<int*>(data.value));
+}
+
+void UniUInt::Update(Shader& shader)
+{
+	shader.SetInt(data.name, *static_cast<int*>(data.value));
+}
+
+void UniFloat::Update(Shader& shader)
+{
+	shader.SetFloat(data.name, *static_cast<float*>(data.value));
+}
+
+void UniFloat2::Update(Shader& shader)
+{
+	shader.SetFloat2v(data.name, &static_cast<float2*>(data.value)->At(0));
+}
+
+void UniFloat3::Update(Shader& shader)
+{
+	shader.SetFloat3v(data.name, &static_cast<float3*>(data.value)->At(0));
+}
+
+void UniFloat4::Update(Shader& shader)
+{
+	shader.SetFloat4v(data.name, &static_cast<float4*>(data.value)->At(0));
+}
+
+void UniDouble::Update(Shader& shader)
+{
+	shader.SetDouble(data.name, *static_cast<double*>(data.value));
+}
+
+void UniSampler2D::Update(Shader& shader)
+{
+	ResourceTexture* texture = static_cast<ResourceTexture*>(data.value);
+	shader.SetTexture(data.name, texture->OpenGLID, 0);
+}
+
+void UniFloat4x4::Update(Shader& shader)
+{
+	shader.SetMatFloat4v(data.name, &static_cast<float4x4*>(data.value)->v[0][0]);
+}
+
 
 /*HANDLE IMGUI INSPECTOR*/
 #ifdef STANDALONE
@@ -301,7 +362,16 @@ void UniDouble::GetJSONUnique(json& _j)
 void UniSampler2D::GetJSONUnique(json& _j)
 {
 	ResourceTexture* texture = static_cast<ResourceTexture*>(data.value);
-	_j["Value"] = texture->UID;
+
+	if (texture != nullptr)
+	{
+		_j["Value"] = texture->UID;
+	}
+	else
+	{
+		_j["Value"] = -1;
+	}
+	
 }
 
 void UniFloat4x4::GetJSONUnique(json& _j)
