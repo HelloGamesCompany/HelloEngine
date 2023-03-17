@@ -15,7 +15,6 @@ PhysBody3D::PhysBody3D(btRigidBody* body)
 	isStatic = false;
 	isKinematic = false;
 	isTrigger = false;
-
 }
 
 PhysBody3D::~PhysBody3D()
@@ -160,6 +159,11 @@ void PhysBody3D::Update()
 void PhysBody3D::SetGravity(float3 grav)
 {
 	body->setGravity(btVector3(grav[0], grav[1], grav[2]));
+}
+
+float PhysBody3D::GetRadius()
+{
+	return radius;
 }
 
 void PhysBody3D::SetShape(ColliderShape shape)

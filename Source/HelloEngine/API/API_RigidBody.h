@@ -23,6 +23,12 @@ namespace API
 		void SetGravity(API_Vector3 gravity);
 		API_Vector3 GetGravity();
 
+		/// <summary>
+		/// If the rigidbody is not a Sphere, there will return 0
+		/// </summary>
+		/// <returns></returns>
+		float GetRadius() {};
+
 	private:
 		PhysicsComponent* GetComponent();
 		void SetComponent(PhysicsComponent* component);

@@ -20,6 +20,8 @@ public:
 	float3 GetGravity();
 	void CheckRenderBuffers();
 
+	float GetRadius();
+
 private:
 #ifdef STANDALONE
 	void OnEditor() override;
