@@ -44,6 +44,7 @@ private:
     Directory* _rootNode = nullptr;
 
     bool _showDeleteMessage = false;
+
     bool _deleteFileAccepted = false;
 
     File* _deleteFile = nullptr;
@@ -63,6 +64,15 @@ private:
     int _itemWidth = 80;
 
     int _itemHeight = 80;
+
+    // Variables for reimport 
+    bool _reimportRequest = false;
+
+    File* _reimportFile = nullptr;
+
+    Directory* _reimportDir = nullptr;
+
+    uint _reimportCounter = 100;
 
     // ChangeFileName
     bool _openChangeNamePanel = false;

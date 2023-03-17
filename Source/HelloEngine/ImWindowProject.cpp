@@ -157,6 +157,38 @@ void ImWindowProject::Update()
 	else if (_openCreateScriptPanel)
 		PanelCreateScript();
 
+	if (_reimportRequest)
+	{
+		ImGui::OpenPopup("Reimport resources");
+		if (ImGui::BeginPopupModal("Reimport resources", NULL, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_AlwaysAutoResize))
+		{
+			ImGui::Text("The resources is being reimported, please wait.");
+			ImGui::EndPopup();
+		}
+
+		if (_reimportCounter <= 0)
+		{
+			if (_reimportFile)
+			{
+				_reimportFile->Reimport();
+
+				_reimportFile = nullptr;
+			}
+			else if (_reimportDir)
+			{
+				RefreshAssetsPerDir(_reimportDir);
+
+				_reimportDir = nullptr;
+			}
+
+			_reimportRequest = false;
+		}
+		else 
+		{
+			_reimportCounter--;
+		}
+	}
+
 	// If have any file to delete, delete this
 	if (_deleteFile && _deleteFileAccepted)
 	{
@@ -187,8 +219,9 @@ void ImWindowProject::RefreshAssetsPerDir(Directory* dir)
 {
 	for (size_t i = 0; i < dir->files.size(); i++)
 	{
-		if (dir->files[i].metaFile.type == ResourceType::MODEL)
-		dir->files[i].Reimport();
+		if (dir->files[i].metaFile.type == ResourceType::MODEL
+			|| dir->files[i].metaFile.type == ResourceType::TEXTURE)
+			dir->files[i].Reimport();
 	}
 
 	for (size_t i = 0; i < dir->directories.size(); i++)
@@ -291,6 +324,13 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
 		// Right click
 		if (ImGui::BeginPopupContextItem()) // <-- use last item id as popup id
 		{
+			if (ImGui::Button("Reimport##Folder"))
+			{
+				_reimportRequest = true;
+				_reimportDir = _fileTree->_currentDir->directories[i];
+				_reimportCounter = 100;
+				ImGui::CloseCurrentPopup();
+			}
 			if (ImGui::Button("Delete##Folder"))
 			{
 				_deleteDir = _fileTree->_currentDir->directories[i];
@@ -386,7 +426,10 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
 		{
 			if (ImGui::Button("Reimport##File"))
 			{
-				_fileTree->_currentDir->files[i].Reimport();
+				_reimportRequest = true;
+				_reimportFile = &_fileTree->_currentDir->files[i];
+				_reimportCounter = 100;
+				//_fileTree->_currentDir->files[i].Reimport();
 				ImGui::CloseCurrentPopup();
 			}
 			if (ImGui::Button("Delete##File"))
@@ -474,11 +517,13 @@ void ImWindowProject::UpdateFileNodes()
 
 void ImWindowProject::RefreshAssets()
 {
-	Directory* root = nullptr;
+	_fileTree->GetRootDir(_reimportDir);
 
-	_fileTree->GetRootDir(root);
+	_reimportRequest = true;
 
-	RefreshAssetsPerDir(root);
+	_reimportCounter = 100;
+
+	//RefreshAssetsPerDir(root);
 }
 
 void ImWindowProject::CheckWindowFocus()
