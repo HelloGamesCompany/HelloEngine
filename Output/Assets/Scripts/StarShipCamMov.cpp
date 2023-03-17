@@ -15,15 +15,13 @@ float StarShipCamMov::Lerp(float a, float b, float t)
 
 void StarShipCamMov::Start()
 {
+	camPos.x = gameObject.GetTransform().GetGlobalPosition().x - 0.951;
+	camPos.y = gameObject.GetTransform().GetGlobalPosition().y + 28.8f;
+	camPos.z = gameObject.GetTransform().GetGlobalPosition().z - 5.4f;
 
-	camPos.x = 10.246f;
-	camPos.y = 51.238f;
-	camPos.z = -25.252f;
-
-	camRot.x = 57.278f;
-	camRot.y = -9.614f;
-	camRot.z = 7.943f;
-
+	camRot.x = gameObject.GetTransform().GetGlobalRotation().x +81.263f;
+	camRot.y = gameObject.GetTransform().GetGlobalRotation().y +5.576;
+	camRot.z = gameObject.GetTransform().GetGlobalRotation().z -2.423f;
 	gameObject.GetTransform().SetPosition(camPos);
 	gameObject.GetTransform().SetRotation(camRot);
 }

@@ -15,23 +15,36 @@ float CamMov::Lerp(float a, float b, float t)
 
 void CamMov::Start()
 {
-	camPos.x = 0;
-	camPos.y = 60.0f;
-	camPos.z = -20.0f;
 
-	camRot.x = 60.0f;
-	camRot.y = 0;
-	camRot.z = 0;
+	camPos.x = gameObject.GetTransform().GetGlobalPosition().x;
+	camPos.y = gameObject.GetTransform().GetGlobalPosition().y + 7.931;
+	camPos.z = gameObject.GetTransform().GetGlobalPosition().z-12.462;
+
+	camRot.x = gameObject.GetTransform().GetGlobalRotation().x + 40.194f;
+	camRot.y = gameObject.GetTransform().GetGlobalRotation().y;
+	camRot.z = gameObject.GetTransform().GetGlobalRotation().z;
 
 	gameObject.GetTransform().SetPosition(camPos);
 	gameObject.GetTransform().SetRotation(camRot);
 
 }
+
 void CamMov::Update()
 {
-	desiredPosition.x = target.GetTransform().GetGlobalPosition().x + 0;
-	desiredPosition.y = target.GetTransform().GetGlobalPosition().y + 60.0f;
-	desiredPosition.z = target.GetTransform().GetGlobalPosition().z + -20.0f;
+
+	if (target.GetTransform().GetGlobalPosition().x > gameObject.GetTransform().GetGlobalPosition().x + 7
+		|| target.GetTransform().GetGlobalPosition().x < gameObject.GetTransform().GetGlobalPosition().x - 7
+		|| target.GetTransform().GetGlobalPosition().z > gameObject.GetTransform().GetGlobalPosition().z + 4 + 13
+		|| target.GetTransform().GetGlobalPosition().z < gameObject.GetTransform().GetGlobalPosition().z + 7) {
+		delay += 0.001;
+	}
+	else {
+		delay = 0.02;
+	}
+
+	desiredPosition.x = target.GetTransform().GetGlobalPosition().x + camPos.x;
+	desiredPosition.y = target.GetTransform().GetGlobalPosition().y + camPos.y;
+	desiredPosition.z = target.GetTransform().GetGlobalPosition().z + camPos.z;
 
 	smoothedPosition.x = Lerp(gameObject.GetTransform().GetGlobalPosition().x, desiredPosition.x, delay);
 	smoothedPosition.y = Lerp(gameObject.GetTransform().GetGlobalPosition().y, desiredPosition.y, delay);
