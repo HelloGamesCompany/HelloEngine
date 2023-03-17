@@ -1,5 +1,6 @@
 #pragma once
 #include "ComponentUI.h"
+#include "ComponentUIButton.h"
 
 class ComponentUIInput : public ComponentUI
 {
@@ -12,6 +13,8 @@ class ComponentUIInput : public ComponentUI
 
 	void Serialization(json& j) override;
 	void DeSerialization(json& j) override;
+
+	std::vector<ComponentUIButton *> _listButtons;
 
 private: 
 	ImWindowGame* _gameWindow = nullptr;

@@ -4,7 +4,7 @@
 #include "MaterialComponent.h"
 #include "ImWindowGame.h"
 #include "LayerEditor.h"
-
+#include "ModuleLayers.h"
 ComponentUIInput::ComponentUIInput(GameObject* gameObject) : ComponentUI(gameObject)
 {
 	_type = Component::Type::UI_INPUT;
@@ -27,65 +27,87 @@ void ComponentUIInput::InputUpdate()
 
 void ComponentUIInput::Serialization(json& j)
 {
-	json _j;
+/*	json _j;
 
 	_j["Type"] = _type;
 	_j["MaterialResource"] = _material->GetResourceUID();
 	_j["Enabled"] = _isEnabled;
-	j["Components"].push_back(_j);
+	j["Components"].push_back(_j);*/
 }
 
 void ComponentUIInput::DeSerialization(json& j)
 {
-	_material->ChangeTexture((ResourceTexture*)ModuleResourceManager::S_LoadResource(j["MaterialResource"]));
+	/*_material->ChangeTexture((ResourceTexture*)ModuleResourceManager::S_LoadResource(j["MaterialResource"]));
 
 	bool enabled = j["Enabled"];
 	if (!enabled)
 		Disable();
 
-	_gameObject->transform->ForceUpdate();
+	_gameObject->transform->ForceUpdate();*/
 }
 
 #ifdef STANDALONE
 void ComponentUIInput::OnEditor()
 {
-
-	/*bool created = true;
-	if (!ImGui::CollapsingHeader("Image", &created, ImGuiTreeNodeFlags_DefaultOpen)) return;
+	bool created = true;
+	if (!ImGui::CollapsingHeader("Panel", &created, ImGuiTreeNodeFlags_DefaultOpen)) return;
 	if (!created)
 	{
 		_gameObject->DestroyComponent(this);
 		return;
 	}
 
-	ImGui::Text("Fill Image");
-	ImGui::SameLine();
-
-	float aux1 = _fillImage;
-	if (ImGui::DragFloat("##fill", &_fillImage, 0.001f, 0, 1))
+	if (ImGui::CollapsingHeader("List of Buttons"))
 	{
-
-		if (aux1 < _fillImage)
+		for (size_t i = 0; i < _listButtons.size() + 1; i++)
 		{
-			Console::S_Log("mas");
+			if (i != _listButtons.size())
+			{
+				ImGui::Text("   - ");
+				ImGui::SameLine();
+				ImGui::Button(_listButtons[i]->GetGameObject()->GetName().c_str());
+			}
+			else
+			{
+				ImGui::Text("   - ");
+				ImGui::SameLine();
+				ImGui::Button("Insert a button");
+			}
+
 			
-			float auxPos = _fillImage - _auxFillImage;
-			float auxSca = _fillImage - _auxFillImage;
-			this->_gameObject->transform->SetScale({ _fillImage, this->_gameObject->transform->GetLocalScale().y, this->_gameObject->transform->GetLocalScale().z });
-			this->_gameObject->transform->SetPosition({ this->_gameObject->transform->GetGlobalPosition().x + auxPos, this->_gameObject->transform->GetLocalPosition().y, this->_gameObject->transform->GetLocalPosition().z });
-			_auxFillImage = _fillImage;
-		}
-		else
-		{
-			Console::S_Log("menos");
-			float auxPos = _fillImage - _auxFillImage;
-			this->_gameObject->transform->SetScale({  _fillImage, this->_gameObject->transform->GetLocalScale().y, this->_gameObject->transform->GetLocalScale().z });
-			this->_gameObject->transform->SetPosition({ this->_gameObject->transform->GetGlobalPosition().x + auxPos, this->_gameObject->transform->GetLocalPosition().y, this->_gameObject->transform->GetLocalPosition().z });
-			_auxFillImage = _fillImage;
+
+			if (ImGui::BeginDragDropTarget())
+			{
+				if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("GameObject"))
+				{
+					//Drop asset from Asset window to scene window
+					const uint* drop = (uint*)payload->Data;
+
+					ComponentUIButton* UIB = ModuleLayers::gameObjects[*drop]->GetComponent<ComponentUIButton>();
+
+					if (UIB != nullptr)
+					{
+						if (i != _listButtons.size())
+						{
+							_listButtons[i] = ModuleLayers::gameObjects[*drop]->GetComponent<ComponentUIButton>();
+						}
+						else
+						{
+							_listButtons.push_back(UIB);
+						}
+					}
+				}
+				ImGui::EndDragDropTarget();
+			}
 		}
 
-	}*/
-	
+		ImGui::Text("");
+
+		if (ImGui::Button("Reset List"))
+		{
+			_listButtons.clear();
+		}
+	}
 
 }
 #endif // STANDALONE
