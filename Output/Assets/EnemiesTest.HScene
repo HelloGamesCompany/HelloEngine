@@ -131,189 +131,6 @@
         "UID": 1750197444
     },
     {
-        "Active": false,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    -4.664669513702393,
-                    6.585689067840576,
-                    -8.883058547973633
-                ],
-                "Rotation": [
-                    -90.00000762939453,
-                    0.0,
-                    0.0
-                ],
-                "Scale": [
-                    8.735185623168945,
-                    8.73511028289795,
-                    8.73511028289795
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 1170203818,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "ColPosition": [
-                    0.0,
-                    27.600000381469727,
-                    0.0
-                ],
-                "ColRotation": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "ColScale": [
-                    9.300000190734863,
-                    54.20000076293945,
-                    24.700000762939453
-                ],
-                "CylVerSlices": 16,
-                "CylinderRadiusHeight": [
-                    1.0,
-                    1.0
-                ],
-                "Enabled": true,
-                "GlobalGravity": [
-                    0.0,
-                    -10.0,
-                    0.0
-                ],
-                "Gravity": [
-                    0.0,
-                    -9.800000190734863,
-                    0.0
-                ],
-                "HasPhysBody": true,
-                "IsKinematic": false,
-                "IsRenderingCol": true,
-                "IsShapeCreated": [
-                    true,
-                    false,
-                    false
-                ],
-                "IsShapeSelected": [
-                    true,
-                    false,
-                    false
-                ],
-                "IsStatic": false,
-                "IsTrigger": false,
-                "Mass": 1.0,
-                "RenderColColor": [
-                    0.5,
-                    0.0,
-                    0.5,
-                    1.0
-                ],
-                "ShapeSelected": 0,
-                "SphereHorSlices": 16,
-                "SphereRadius": 1.0,
-                "SphereVerSlices": 16,
-                "Type": 8,
-                "WireframeSize": 3.0
-            },
-            {
-                "Enabled": true,
-                "ResourceUID": 240240,
-                "Type": 3
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Health": 100.0
-                    },
-                    {
-                        "Resistance": 100.0
-                    },
-                    {
-                        "Speed": 0.0
-                    },
-                    {
-                        "Acceleration": 71.0
-                    },
-                    {
-                        "Health": 100.0
-                    },
-                    {
-                        "Resistance": 100.0
-                    },
-                    {
-                        "Speed": 0.0
-                    },
-                    {
-                        "Acceleration": 71.0
-                    },
-                    {
-                        "Health": 100.0
-                    },
-                    {
-                        "Resistance": 100.0
-                    },
-                    {
-                        "Speed": 0.0
-                    },
-                    {
-                        "Acceleration": 71.0
-                    }
-                ],
-                "Script Resource": 4210965159,
-                "Type": 5
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Detection distance": 32.0
-                    },
-                    {
-                        "Lossing distance": 217.0
-                    },
-                    {
-                        "Target": 1836731499
-                    },
-                    {
-                        "Detection distance": 32.0
-                    },
-                    {
-                        "Lossing distance": 217.0
-                    },
-                    {
-                        "Target": 1836731499
-                    },
-                    {
-                        "Detection distance": 32.0
-                    },
-                    {
-                        "Lossing distance": 217.0
-                    },
-                    {
-                        "Target": 1836731499
-                    }
-                ],
-                "Script Resource": 639624871,
-                "Type": 5
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "Enemy1",
-        "ParentUID": 3815239162,
-        "PrefabUID": 0,
-        "Tag": "Default",
-        "UID": 1179119230
-    },
-    {
         "Active": true,
         "Components": [
             {
@@ -415,19 +232,7 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Velocity": 122.0
-                    },
-                    {
-                        "CurrentVelocity": 0.0
-                    },
-                    {
-                        "Velocity": 122.0
-                    },
-                    {
-                        "CurrentVelocity": 0.0
-                    },
-                    {
-                        "Velocity": 122.0
+                        "Velocity": 145.0
                     },
                     {
                         "CurrentVelocity": 0.0
@@ -469,7 +274,7 @@
             {
                 "Active camera": true,
                 "Active culling": true,
-                "Aspect ratio": 2.1423895359039307,
+                "Aspect ratio": 2.660377264022827,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -597,31 +402,7 @@
                         "Speed": 0.0
                     },
                     {
-                        "Acceleration": 56.0
-                    },
-                    {
-                        "Health": 100.0
-                    },
-                    {
-                        "Resistance": 100.0
-                    },
-                    {
-                        "Speed": 0.0
-                    },
-                    {
-                        "Acceleration": 56.0
-                    },
-                    {
-                        "Health": 100.0
-                    },
-                    {
-                        "Resistance": 100.0
-                    },
-                    {
-                        "Speed": 0.0
-                    },
-                    {
-                        "Acceleration": 56.0
+                        "Acceleration": 84.0
                     }
                 ],
                 "Script Resource": 4210965159,
@@ -640,22 +421,10 @@
                         "Target": 1836731499
                     },
                     {
-                        "Detection distance": 75.0
+                        "Point 1": 2897551890
                     },
                     {
-                        "Lossing distance": 171.0
-                    },
-                    {
-                        "Target": 1836731499
-                    },
-                    {
-                        "Detection distance": 75.0
-                    },
-                    {
-                        "Lossing distance": 171.0
-                    },
-                    {
-                        "Target": 1836731499
+                        "Point 2": 141207865
                     }
                 ],
                 "Script Resource": 639624871,
@@ -668,5 +437,95 @@
         "PrefabUID": 0,
         "Tag": "Default",
         "UID": 459456821
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    202.48484802246094,
+                    59.28244400024414,
+                    8.277677536010742
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    9.048066139221191,
+                    56.98066329956055,
+                    11.675540924072266
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 10,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 240240,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "p1",
+        "ParentUID": 3815239162,
+        "PrefabUID": 0,
+        "Tag": "Primitive",
+        "UID": 2897551890
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -204.20486450195313,
+                    48.7619514465332,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    5.960000038146973,
+                    47.60381317138672,
+                    5.960000038146973
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 10,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 240240,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "p2",
+        "ParentUID": 3815239162,
+        "PrefabUID": 0,
+        "Tag": "Primitive",
+        "UID": 141207865
     }
 ]

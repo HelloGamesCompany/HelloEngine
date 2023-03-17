@@ -11,10 +11,8 @@ public:
 	void Start() override; 
 	void Update() override;
 
-	float DisanceToObj(API_Vector3 obj1, API_Vector3 obj2);
-
 	void Seek(float vel, API_Vector3 tarPos);
-	void Wander(float vel);
+	void Wander(float vel, API_Vector3 point);
 
 	API_Vector3 NormalizeVec3(float x, float y, float z);
 
@@ -29,7 +27,9 @@ public:
 
 	API_GameObject target; 
 	
+	int numPoint = 1;
 	
+	API_Vector3 actualPoint;
 
 };
 
