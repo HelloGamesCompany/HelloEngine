@@ -423,6 +423,10 @@ Component* GameObject::AddComponentOfType(Component::Type type)
 		newComponent = new AnimationComponent(this);
 		_components.push_back(newComponent);
         break;
+    case Component::Type::UI_INPUT:
+        newComponent = new ComponentUIImage(this);
+        _components.push_back(newComponent);
+        break;
 	}
 
 	return newComponent;

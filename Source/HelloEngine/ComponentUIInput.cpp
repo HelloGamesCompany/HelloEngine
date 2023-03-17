@@ -9,6 +9,8 @@ ComponentUIInput::ComponentUIInput(GameObject* gameObject) : ComponentUI(gameObj
 {
 	_type = Component::Type::UI_INPUT;
 
+	_meshRenderer->Disable();
+
 	_gameWindow = (ImWindowGame*)LayerEditor::_imWindows[(uint)ImWindowID::GAME];
 }
 
