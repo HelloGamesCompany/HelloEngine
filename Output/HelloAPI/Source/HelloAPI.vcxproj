@@ -166,6 +166,7 @@
 		<ClCompile Include="../../Assets/Scripts/Shooting/Guns/PlayerRicochet.cpp" />
 		<ClCompile Include="../../Assets/Scripts/Player/PlayerStats.cpp" />
 		<ClCompile Include="../../Assets/Scripts/TestAPI.cpp" />
+		<ClCompile Include="../../Assets/Scripts/InteractiveEnviroment/ChestTest.cpp" />
 	</ItemGroup>
 	<ItemGroup>
 		<ClInclude Include="Macro.h" />
@@ -199,6 +200,7 @@
 		<ClInclude Include="../../Assets/Scripts/Shooting/Guns/PlayerRicochet.h" />
 		<ClInclude Include="../../Assets/Scripts/Player/PlayerStats.h" />
 		<ClInclude Include="../../Assets/Scripts/TestAPI.h" />
+		<ClInclude Include="../../Assets/Scripts/InteractiveEnviroment/ChestTest.h" />
 	</ItemGroup>
 	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 	<ImportGroup Label="ExtensionTargets" />
