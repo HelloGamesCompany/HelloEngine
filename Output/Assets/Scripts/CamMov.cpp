@@ -17,12 +17,12 @@ void CamMov::Start()
 {
 
 	camPos.x = gameObject.GetTransform().GetGlobalPosition().x;
-	camPos.y = gameObject.GetTransform().GetGlobalPosition().y + 7.931;
-	camPos.z = gameObject.GetTransform().GetGlobalPosition().z-12.462;
+	camPos.y = gameObject.GetTransform().GetGlobalPosition().y + 11.100f;
+	camPos.z = gameObject.GetTransform().GetGlobalPosition().z + 10.0f;
 
-	camRot.x = gameObject.GetTransform().GetGlobalRotation().x + 40.194f;
+	camRot.x = gameObject.GetTransform().GetGlobalRotation().x + 122.923f;
 	camRot.y = gameObject.GetTransform().GetGlobalRotation().y;
-	camRot.z = gameObject.GetTransform().GetGlobalRotation().z;
+	camRot.z = gameObject.GetTransform().GetGlobalRotation().z + 176.947f;
 
 	gameObject.GetTransform().SetPosition(camPos);
 	gameObject.GetTransform().SetRotation(camRot);
@@ -32,7 +32,7 @@ void CamMov::Start()
 void CamMov::Update()
 {
 
-	if (target.GetTransform().GetGlobalPosition().x > gameObject.GetTransform().GetGlobalPosition().x + 7
+	/*if (target.GetTransform().GetGlobalPosition().x > gameObject.GetTransform().GetGlobalPosition().x + 7
 		|| target.GetTransform().GetGlobalPosition().x < gameObject.GetTransform().GetGlobalPosition().x - 7
 		|| target.GetTransform().GetGlobalPosition().z > gameObject.GetTransform().GetGlobalPosition().z + 4 + 13
 		|| target.GetTransform().GetGlobalPosition().z < gameObject.GetTransform().GetGlobalPosition().z + 7) {
@@ -40,7 +40,7 @@ void CamMov::Update()
 	}
 	else {
 		delay = 0.02;
-	}
+	}*/
 
 	desiredPosition.x = target.GetTransform().GetGlobalPosition().x + camPos.x;
 	desiredPosition.y = target.GetTransform().GetGlobalPosition().y + camPos.y;
