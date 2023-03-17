@@ -79,7 +79,7 @@
                         "Normal Gun": 1
                     },
                     {
-                        "Special Gun": 5
+                        "Special Gun": 4
                     },
                     {
                         "Duals": 3217118646
@@ -115,7 +115,7 @@
                         "Normal Gun": 1
                     },
                     {
-                        "Special Gun": 5
+                        "Special Gun": 4
                     },
                     {
                         "Duals": 3217118646
@@ -1797,7 +1797,7 @@
             {
                 "Active camera": true,
                 "Active culling": true,
-                "Aspect ratio": 1.807355523109436,
+                "Aspect ratio": 2.2255964279174805,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,

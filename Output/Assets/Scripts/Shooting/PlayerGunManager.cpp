@@ -88,48 +88,60 @@ void PlayerGunManager::Update()
 
     if (equipedGun == nullptr) return;
 
-    switch (equipedIndex)
+    if (Input::GetGamePadAxis(GamePadAxis::AXIS_TRIGGERRIGHT) > 5000 || Input::GetMouseButton(MouseButton::LEFT) == KeyState::KEY_REPEAT)
     {
-    case 0: // press and release
-    case 1:
-    case 4:
-    case 5:
-    case 7:
-        if ((Input::GetGamePadAxis(GamePadAxis::AXIS_TRIGGERRIGHT) > 5000 && canShoot) || Input::GetMouseButton(MouseButton::LEFT) == KeyState::KEY_DOWN)
+        if (playerStats->GetAmmonByType(equipedGun->ammoType) > 0)
         {
-            if (playerStats->GetAmmonByType(equipedGun->ammoType) > 0)
-            {
-                equipedGun->Shoot();
-                canShoot = false;
-            }
-            else
-            {
-                // no ammo sound?
-            }
+            equipedGun->Shoot();
         }
-        if (Input::GetGamePadAxis(GamePadAxis::AXIS_TRIGGERRIGHT) < 5000)
+        else
         {
-            canShoot = true;
+            // no ammo sound?
         }
-        break;
-    case 2: // mantein pressed
-    case 3:
-    case 6:
-        if (Input::GetGamePadAxis(GamePadAxis::AXIS_TRIGGERRIGHT) > 5000 || Input::GetMouseButton(MouseButton::LEFT) == KeyState::KEY_REPEAT)
-        {
-            if (playerStats->GetAmmonByType(equipedGun->ammoType) > 0)
-            {
-                equipedGun->Shoot();
-            }
-            else
-            {
-                // no ammo sound?
-            }
-        }
-        break;
-    default:
-        break;
     }
+
+    //switch (equipedIndex)
+    //{
+    //case 0: // press and release
+    //case 1:
+    //case 4:
+    //case 5:
+    //case 7:
+    //    if ((Input::GetGamePadAxis(GamePadAxis::AXIS_TRIGGERRIGHT) > 5000 && canShoot) || Input::GetMouseButton(MouseButton::LEFT) == KeyState::KEY_DOWN)
+    //    {
+    //        if (playerStats->GetAmmonByType(equipedGun->ammoType) > 0)
+    //        {
+    //            equipedGun->Shoot();
+    //            canShoot = false;
+    //        }
+    //        else
+    //        {
+    //            // no ammo sound?
+    //        }
+    //    }
+    //    if (Input::GetGamePadAxis(GamePadAxis::AXIS_TRIGGERRIGHT) < 5000)
+    //    {
+    //        canShoot = true;
+    //    }
+    //    break;
+    //case 2: // mantein pressed
+    //case 3:
+    //case 6:
+    //    if (Input::GetGamePadAxis(GamePadAxis::AXIS_TRIGGERRIGHT) > 5000 || Input::GetMouseButton(MouseButton::LEFT) == KeyState::KEY_REPEAT)
+    //    {
+    //        if (playerStats->GetAmmonByType(equipedGun->ammoType) > 0)
+    //        {
+    //            equipedGun->Shoot();
+    //        }
+    //        else
+    //        {
+    //            // no ammo sound?
+    //        }
+    //    }
+    //    break;
+    //default:
+    //    break;
+    //}
     
 }
 
