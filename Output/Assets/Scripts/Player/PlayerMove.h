@@ -19,6 +19,7 @@ public:
     float dt;
 
     //Movement
+    API_Vector2 lastMovInput = { 0.0f, 0.0f };
     float vel = 1.0f;
     float currentVel = 0.0f;
     float currentInput = 0.0f; //test

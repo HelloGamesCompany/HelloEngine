@@ -5,11 +5,19 @@ HELLO_ENGINE_API_C EnemyMeleeMovement* CreateEnemyMeleeMovement(ScriptToInspecto
 	EnemyMeleeMovement* classInstance = new EnemyMeleeMovement();
 	//Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
 	script->AddDragFloat("Detection distance", &classInstance->detectionDis);
-	script->AddDragFloat("Lossing distance", &classInstance->lossingDis);
+	script->AddDragFloat("Lossing Enemy distance", &classInstance->lossingDis);
+	script->AddDragFloat("Lossing Zone distance", &classInstance->lossingZoneDis);
 	script->AddDragBoxGameObject("Target", &classInstance->target);
 	script->AddDragBoxGameObject("Point 1", &classInstance->point1);
 	script->AddDragBoxGameObject("Point 2", &classInstance->point2);
+	script->AddDragBoxGameObject("Action zone", &classInstance->actionZone);
+	/*script->AddDragBoxGameObject("Point 1", &classInstance->listPoints[0]);
+	script->AddDragBoxGameObject("Point 2", &classInstance->listPoints[1]);
+	script->AddDragBoxGameObject("Point 3", &classInstance->listPoints[2]);
+	script->AddDragBoxGameObject("Point 4", &classInstance->listPoints[3]);
+	script->AddDragBoxGameObject("Point 5", &classInstance->listPoints[4]);*/
 	
+	//script->AddDragBoxRigidBody("Action Rb zone", &classInstance->zoneRb);
 	
 	return classInstance;
 }
@@ -27,17 +35,19 @@ void EnemyMeleeMovement::Update()
 	if (enemy!=nullptr)
 	{
 		
+		
 		float dis = gameObject.GetTransform().GetGlobalPosition().Distance(target.GetTransform().GetGlobalPosition());
+		float disZone = gameObject.GetTransform().GetGlobalPosition().Distance(actionZone.GetTransform().GetGlobalPosition());
 		//Console::Log(std::to_string(dis));
 		if ((dis< detectionDis) && !targeting)
 		{
 			targeting = true;
 		}
-		else if (dis>lossingDis)
+		else if ((dis>lossingDis) || (disZone > lossingZoneDis) )
 		{
 			targeting = false;
 		}
-		
+		//Console::Log(std::to_string(disZone));
 		if ((gameObject.GetTransform().GetGlobalPosition().Distance(actualPoint) < 40) && !targeting)
 		{
 			if (numPoint == 1)numPoint = 2, actualPoint=point2.GetTransform().GetGlobalPosition();
@@ -136,4 +146,9 @@ API_Vector3 EnemyMeleeMovement::NormalizeVec3(float x, float y, float z)
 	y = y / lenght;
 	z = z / lenght;
 	return ( x,y,z );
+}
+
+float EnemyMeleeMovement::Lerp(float a, float b, float time)
+{
+	return a + time * (b - a);
 }
