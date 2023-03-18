@@ -2,6 +2,8 @@
 
 class TextObject
 {
+public:
+    TextObject() {}
     std::string text;
     float4 color;
     float2 position;

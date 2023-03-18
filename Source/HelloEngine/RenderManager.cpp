@@ -23,6 +23,7 @@ RenderManager::~RenderManager()
 	RELEASE(_textureManager);
 	RELEASE(lineShader);
 	RELEASE(localLineShader);
+	RELEASE(textRenderingShader);
 }
 
 void RenderManager::Init()
@@ -73,6 +74,7 @@ void RenderManager::Init()
 	// Init shaders
 	lineShader = new Shader("Resources/shaders/lines.vertex.shader", "Resources/shaders/lines.fragment.shader");
 	localLineShader = new Shader("Resources/shaders/localLines.vertex.shader", "Resources/shaders/localLines.fragment.shader");
+	textRenderingShader = new Shader("Resources/shaders/textRendering.vertex.shader", "Resources/shaders/textRendering.fragment.shader");
 
 	// Set up debug drawing variables:
 	// Manually created box index buffer that corresponds to the order given by MathGeoLib's AABB class GetCornerPoints() method.
@@ -138,9 +140,19 @@ void RenderManager::Init()
 	CalculateSphereBuffer();
 	CalculateCylinderBuffer();
 
-	
-	
-	
+	// text rendering
+	glGenVertexArrays(1, &TextVAO);
+	glGenBuffers(1, &TextVBO);
+	glBindVertexArray(TextVAO);
+	glBindBuffer(GL_ARRAY_BUFFER, TextVBO);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 6 * 4, NULL, GL_DYNAMIC_DRAW);
+	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 4 * sizeof(float), 0);
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	glBindVertexArray(0);
+
+	// TESTING
+	AddTextObject("aaaaaaaaaaaaaaa", { 1,1,1,1 }, {0, 0}, 0.005f);
 }
 
 void RenderManager::OnEditor()
@@ -217,6 +229,8 @@ void RenderManager::Draw2D()
 	// Draw all 2D meshes.
 	if (renderer2D != nullptr)
 		renderer2D->Draw2D();
+	
+	//DrawTextObjects();
 }
 
 uint RenderManager::AddMesh(ResourceMesh* resource, MeshRenderType type)
@@ -278,6 +292,19 @@ uint RenderManager::Add2DMesh()
 	renderer2D->meshes[ret].CreateBufferData();
 	return ret;
 }
+
+uint RenderManager::AddTextObject(std::string text, float4 color, float2 position, float scale)
+{
+	uint uid = HelloUUID::GenerateUUID();
+	TextObject textObject;
+	textObject.text = text;
+	textObject.color = color;
+	textObject.position = position;
+	textObject.scale = scale;
+	textObjects[uid] = textObject;
+	return uid;
+}
+
 void RenderManager::CreatePrimitive(GameObject* parent, PrimitiveType type)
 {
 	if (parent == nullptr) 
@@ -980,52 +1007,47 @@ void RenderManager::DrawIndependentMeshes()
 void RenderManager::DrawTextObjects()
 {
 	// Activate Shader to render text
-	// Bind texture and binf uniform with text color
-	// iterate every character of the text string
-		// Create float[6][4] with correct x, y, w and h for every character.
-		// bind dynamic vertex buffer and set with current float array 
-		// Draw and advance current position with character Advance property times scale.
+	textRenderingShader->Bind();
+	for (auto& textObject : textObjects)
+	{
+		TextObject text = textObject.second;
 
-	// LearnOpenGL example
-	/*// activate corresponding render state	
-    s.Use();
-    glUniform3f(glGetUniformLocation(s.Program, "textColor"), color.x, color.y, color.z);
-    glActiveTexture(GL_TEXTURE0);
-    glBindVertexArray(VAO);
+		textRenderingShader->SetFloat3("textColor", text.color.x, text.color.y, text.color.z);
+		glActiveTexture(GL_TEXTURE0);
+		glBindVertexArray(TextVAO);
 
-    // iterate through all characters
-    std::string::const_iterator c;
-    for (c = text.begin(); c != text.end(); c++)
-    {
-        Character ch = Characters[*c];
+		std::string::const_iterator c;
+		for (c = text.text.begin(); c != text.text.end(); c++)
+		{
+			Character ch = FontManager::Characters[*c];
 
-        float xpos = x + ch.Bearing.x * scale;
-        float ypos = y - (ch.Size.y - ch.Bearing.y) * scale;
+			float xPos = text.position.x + ch.Bearing.x * text.scale;
+			float yPos = text.position.y - (ch.Size.y - ch.Bearing.y) * text.scale;
 
-        float w = ch.Size.x * scale;
-        float h = ch.Size.y * scale;
-        // update VBO for each character
-        float vertices[6][4] = {
-            { xpos,     ypos + h,   0.0f, 0.0f },            
-            { xpos,     ypos,       0.0f, 1.0f },
-            { xpos + w, ypos,       1.0f, 1.0f },
+			float width = ch.Size.x * text.scale;
+			float height = ch.Size.y * text.scale;
 
-            { xpos,     ypos + h,   0.0f, 0.0f },
-            { xpos + w, ypos,       1.0f, 1.0f },
-            { xpos + w, ypos + h,   1.0f, 0.0f }           
-        };
-        // render glyph texture over quad
-        glBindTexture(GL_TEXTURE_2D, ch.textureID);
-        // update content of VBO memory
-        glBindBuffer(GL_ARRAY_BUFFER, VBO);
-        glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(vertices), vertices); 
-        glBindBuffer(GL_ARRAY_BUFFER, 0);
-        // render quad
-        glDrawArrays(GL_TRIANGLES, 0, 6);
-        // now advance cursors for next glyph (note that advance is number of 1/64 pixels)
-        x += (ch.Advance >> 6) * scale; // bitshift by 6 to get value in pixels (2^6 = 64)
-    }
-    glBindVertexArray(0);
-    glBindTexture(GL_TEXTURE_2D, 0);*/
+			float vertices[6][4] = {
+			  { xPos,     yPos + height,   0.0f, 0.0f },
+			  { xPos,     yPos,       0.0f, 1.0f },
+			  { xPos + width, yPos,       1.0f, 1.0f },
 
+			  { xPos,     yPos + height,   0.0f, 0.0f },
+			  { xPos + width, yPos,       1.0f, 1.0f },
+			  { xPos + width, yPos + height,   1.0f, 0.0f }
+			};
+
+			glBindTexture(GL_TEXTURE_2D, ch.TextureID);
+
+			glBindBuffer(GL_ARRAY_BUFFER, TextVBO);
+			glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(vertices), vertices);
+			glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+			glDrawArrays(GL_TRIANGLES, 0, 6);
+
+			text.position.x += (ch.Advance >> 6) * text.scale;
+		}
+		glBindVertexArray(0);
+		glBindTexture(GL_TEXTURE_2D, 0);
+	}
 }

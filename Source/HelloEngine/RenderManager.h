@@ -63,6 +63,7 @@ public:
 	uint AddIndependentMesh(ResourceMesh* resource);
 	uint AddInstancedMesh(ResourceMesh* resource);
 	uint Add2DMesh();
+	uint AddTextObject(std::string text = "Default Text", float4 color = {1,1,1,1}, float2 position = {0, 0}, float scale = 1.0f);
 
 	void CreatePrimitive(GameObject* parent, PrimitiveType type);
 	void CreateUI(GameObject* parent, UIType type);
@@ -112,6 +113,7 @@ private:
 	// Shaders for drawing debug information
 	Shader* lineShader = nullptr;
 	Shader* localLineShader = nullptr;
+	Shader* textRenderingShader = nullptr;
 
 	uint AABBVAO = 0;
 	uint AABBVBO = 0;
@@ -139,6 +141,10 @@ private:
 
 	// Text rendering
 	std::map<uint, TextObject> textObjects;
+
+	uint TextVAO = 0;
+	uint TextVBO = 0;
+	uint TextIBO = 0;
 
 	InstanceRenderer* renderer2D = nullptr;
 
