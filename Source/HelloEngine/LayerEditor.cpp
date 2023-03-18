@@ -153,6 +153,8 @@ void LayerEditor::Start()
 
 	// Check automatic compilation
 	_showCompilationWarning = !ModuleFiles::S_IsMSBuildOn();
+
+	EngineTime::StartEngine();
 }
 
 void LayerEditor::PreUpdate()

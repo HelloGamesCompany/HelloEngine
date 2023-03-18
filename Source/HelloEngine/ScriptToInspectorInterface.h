@@ -3,7 +3,6 @@
 #include <string>
 #include <vector>
 #include "API/API_GameObject.h"
-#include "API/API_Vector3.h"
 
 #ifndef HELLO_ENGINE_EXPORTS
 #include "json.hpp"
@@ -151,12 +150,12 @@ class DragBoxMaterialComponent : public ScriptInspectorField
 #endif
 };
 
-class DragFieldVector3 : public ScriptInspectorField
+class DragBoxParticleSystem : public ScriptInspectorField
 {
-	void OnEditor() override;
+    void OnEditor() override;
 #ifndef HELLO_ENGINE_EXPORTS
-	void OnSerialize(json& j) override;
-	void OnDeserialize(json& j) override;
+    void OnSerialize(json& j) override;
+    void OnDeserialize(json& j) override;
 #endif
 };
 
@@ -177,8 +176,7 @@ public:
 	virtual void AddDragBoxMeshResource(const char* name, uint* value) = 0;
 	virtual void AddDragBoxTextureResource(const char* name, uint* value) = 0;
 	virtual void AddDragBoxMaterialComponent(const char* name, API::API_Material* value) = 0;
-	virtual void AddDragVector3(const char* name, API::API_Vector3* value) = 0;
-
+  virtual void AddDragBoxParticleSystem(const char* name, API::API_ParticleSystem* value) = 0;
 
 protected:
 	std::vector<ScriptInspectorField*> inspectorFields;

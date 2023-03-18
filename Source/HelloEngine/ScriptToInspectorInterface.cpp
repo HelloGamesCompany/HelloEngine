@@ -6,11 +6,14 @@
 #include "API/API_Camera.h"
 #include "API/API_RigidBody.h"
 #include "API/API_AnimationPlayer.h"
+#include "API/API_ParticleSystem.h"
 #include "API/API_Material.h"
+
 #include "PhysicsComponent.h"
 #include "MeshRenderComponent.h"
 #include "CameraComponent.h"
 #include "AnimationComponent.h"
+#include "ParticleSystemComponent.h"
 #include "MaterialComponent.h"
 
 void DragFieldFloat::OnEditor()
@@ -31,7 +34,7 @@ void DragFieldFloat::OnDeserialize(json& j)
 	{
 		if (j[i].find(valueName) != j[i].end())
 		{
-			*(float*)value = j[i][valueName.c_str()];	
+			*(float*)value = j[i][valueName.c_str()];
 		}
 	}
 }
@@ -108,7 +111,7 @@ void InputBoxField::OnDeserialize(json& j)
 void DragBoxGameObject::OnEditor()
 {
 	API::API_GameObject* go = (API::API_GameObject*)value;
-	
+
 	std::string buttonName = "X##" + std::to_string(UID);
 	if (ImGui::Button(buttonName.c_str()))
 	{
@@ -141,7 +144,7 @@ void DragBoxGameObject::OnEditor()
 void DragBoxGameObject::OnSerialize(json& j)
 {
 	json _j;
-	
+
 	API::API_GameObject* go = (API::API_GameObject*)value;
 
 	if (go->_gameObject != nullptr)
@@ -149,7 +152,7 @@ void DragBoxGameObject::OnSerialize(json& j)
 		_j[valueName.c_str()] = go->_gameObject->GetID();
 		j.push_back(_j);
 	}
-	
+
 }
 
 void DragBoxGameObject::OnDeserialize(json& j)
@@ -273,7 +276,7 @@ void DragBoxMeshRenderer::OnEditor()
 
 			if (droppedGO != nullptr)
 				component = droppedGO->GetComponent<MeshRenderComponent>();
-			
+
 			mesh->SetComponent(component);
 		}
 		ImGui::EndDragDropTarget();
@@ -641,10 +644,7 @@ void DragBoxMeshResource::OnSerialize(json& j)
 
 	if (*meshUID != 0)
 	{
-		ResourceMesh* mesh = (ResourceMesh*)ModuleResourceManager::resources[*meshUID];
-		_j[(valueName + "ModelUID").c_str()] = mesh->modelUID;
-		_j[(valueName + "Index inside model").c_str()] = mesh->indexInsideModel;
-
+		_j[valueName.c_str()] = *meshUID;
 		j.push_back(_j);
 	}
 }
@@ -653,17 +653,9 @@ void DragBoxMeshResource::OnDeserialize(json& j)
 {
 	for (int i = 0; i < j.size(); i++)
 	{
-		if (j[i].find((valueName + "ModelUID").c_str()) != j[i].end())
+		if (j[i].find(valueName) != j[i].end())
 		{
-			ResourceModel* model = (ResourceModel*)ModuleResourceManager::S_LoadResource(j[i][(valueName + "ModelUID").c_str()]);
-			
-			uint indexInModel = j[i][(valueName + "Index inside model").c_str()];
-			
-			if (indexInModel < model->modelMeshes.size())
-			{
-				ResourceMesh* resourceMesh = model->modelMeshes[indexInModel];
-				*(uint*)value = resourceMesh->UID;
-			}
+			*(uint*)value = j[i][valueName.c_str()];
 		}
 	}
 }
@@ -800,63 +792,77 @@ void DragBoxMaterialComponent::OnDeserialize(json& j)
 	}
 }
 
-void DragFieldVector3::OnEditor()
+void DragBoxParticleSystem::OnEditor()
 {
-	float* floatValue = (float*)value;
-	float values[3];
-	values[0] = *floatValue;
-	floatValue++;
-	values[1] = *floatValue;
-	floatValue++;
-	values[2] = *floatValue;
-	floatValue++;
+	API::API_ParticleSystem* particlesystem = (API::API_ParticleSystem*)value;
 
-	if (ImGui::DragFloat3((valueName + "##" + className).c_str(), &values[0]))
+	std::string buttonName = "X##" + std::to_string(UID);
+	if (ImGui::Button(buttonName.c_str()))
 	{
-		float* floatValue2 = (float*)value;
-		*floatValue2 = values[0];
-		floatValue2++;
-		*floatValue2 = values[1];
-		floatValue2++;
-		*floatValue2 = values[2];
-		floatValue2++;
+		particlesystem->SetComponent(nullptr);
+	}
+	ImGui::SameLine();
+
+	ImGui::TextWrapped((valueName + ": ").c_str()); ImGui::SameLine();
+
+	if (particlesystem->_particleSystem == nullptr)
+	{
+		ImGui::TextColored(ImVec4(1, 1, 0, 1), "NULL (Drag a Particle System here)");
+	}
+	else
+	{
+		std::string gameObjectName(particlesystem->GetGameObject().GetName());
+		std::string text = "(" + gameObjectName + ")" + ": Particle System";
+		ImGui::TextColored(ImVec4(1, 1, 0, 1), text.c_str());
+	}
+
+	if (ImGui::BeginDragDropTarget())
+	{
+		if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("GameObject"))
+		{
+			const uint* drop = (uint*)payload->Data;
+
+			GameObject* droppedGO = ModuleLayers::S_GetGameObject(*drop);
+			ParticleSystemComponent* component = nullptr;
+
+			if (droppedGO != nullptr)
+				component = droppedGO->GetComponent<ParticleSystemComponent>();
+
+			particlesystem->SetComponent(component);
+		}
+		ImGui::EndDragDropTarget();
 	}
 }
 
-void DragFieldVector3::OnSerialize(json& j)
+void DragBoxParticleSystem::OnSerialize(json& j)
 {
 	json _j;
 
-	float* floatValue = (float*)value;
+	API::API_ParticleSystem* particlesystem = (API::API_ParticleSystem*)value;
 
-	float values[3];
-	values[0] = *floatValue;
-	floatValue++;
-	values[1] = *floatValue;
-	floatValue++;
-	values[2] = *floatValue;
-	floatValue++;
-
-	_j[(valueName + "X").c_str()] = values[0];
-	_j[(valueName + "Y").c_str()] = values[1];
-	_j[(valueName + "Z").c_str()] = values[2];
-
-	j.push_back(_j);
+	if (particlesystem->_particleSystem != nullptr)
+	{
+		_j[valueName.c_str()] = particlesystem->_particleSystem->GetGameObject()->GetID();
+		j.push_back(_j);
+	}
 }
 
-void DragFieldVector3::OnDeserialize(json& j)
+void DragBoxParticleSystem::OnDeserialize(json& j)
 {
 	for (int i = 0; i < j.size(); i++)
 	{
-		if (j[i].find((valueName + "X").c_str()) != j[i].end())
+		if (j[i].find(valueName) != j[i].end())
 		{
-			float* floatValue = (float*)value;
-			*floatValue = j[i][(valueName + "X").c_str()];
-			floatValue++;
-			*floatValue = j[i][(valueName + "Y").c_str()];
-			floatValue++;
-			*floatValue = j[i][(valueName + "Z").c_str()];
-			floatValue++;
+			uint id = j[i][valueName.c_str()];
+			GameObject* gameObject = ModuleLayers::S_GetGameObject(id);
+			ParticleSystemComponent* component = nullptr;
+			if (gameObject != nullptr)
+				component = gameObject->GetComponent<ParticleSystemComponent>();
+			if (component != nullptr)
+			{
+				API::API_ParticleSystem* particlesystem = (API::API_ParticleSystem*)value;
+				particlesystem->SetComponent(component);
+			}
 		}
 	}
 }

@@ -1,20 +1,20 @@
 <?xml version="1.0"?>
 <config>
 	<window>
-		<width value="1920" />
-		<height value="1057" />
+		<width value="1540" />
+		<height value="829" />
 		<brightness value="1" />
 	</window>
 	<renderer>
 		<vsync value="false" />
-		<framerate value="120" />
+		<framerate value="60" />
 	</renderer>
 	<scene>
-		<currentScene value="Assets/PlayerGuns.HScene" />
+		<currentScene value="Assets/Root.HScene" />
 	</scene>
 	<openGL>
 		<blend value="true" tag="0x0BE2" />
-		<cullFace value="true" tag="0x0B44" />
+		<cullFace value="false" tag="0x0B44" />
 		<wireframe value="false" />
 	</openGL>
 </config>

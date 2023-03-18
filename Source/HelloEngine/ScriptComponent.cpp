@@ -120,7 +120,7 @@ void ScriptComponent::AddScript(std::string scriptName)
 	// Create a new script object instance.
 	if (!LayerGame::S_CreateBehaviorScriptByName(scriptName, this))
 	{
-		addedScript = "None"; 
+		addedScript = "None";
 		return;
 	}
 }
@@ -278,6 +278,16 @@ void ScriptComponent::AddDragBoxMaterialComponent(const char* name, API::API_Mat
 	dragBoxField->className = scriptResource == nullptr ? addedScript : scriptResource->className;
 
 	inspectorFields.push_back(dragBoxField);
+}
+
+void ScriptComponent::AddDragBoxParticleSystem(const char* name, API::API_ParticleSystem* value)
+{
+    DragBoxParticleSystem* dragBoxField = new DragBoxParticleSystem();
+    dragBoxField->valueName = name;
+    dragBoxField->value = value;
+    dragBoxField->className = scriptResource == nullptr ? addedScript : scriptResource->className;
+
+    inspectorFields.push_back(dragBoxField);
 }
 
 void ScriptComponent::AddDragVector3(const char* name, API::API_Vector3* value)

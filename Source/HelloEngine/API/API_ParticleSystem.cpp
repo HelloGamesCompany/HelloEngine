@@ -22,6 +22,7 @@ API::API_GameObject API::API_ParticleSystem::GetGameObject()
 	API_GameObject goToReturn;
 	goToReturn.SetGameObject(_particleSystem->GetGameObject());
 
+	return goToReturn;
 }
 
 void API::API_ParticleSystem::Play()
@@ -56,7 +57,7 @@ void API::API_ParticleSystem::Stop()
 	if (_particleSystem->GetPlayOnGame())
 	{
 		_particleSystem->SetPlayOnGame(false);
-
+		_particleSystem->GetParticleSystemEmitter().SetPlayOnAwake(false);
 		_particleSystem->GetParticleSystemEmitter().ResetEmitter();
 	}
 }

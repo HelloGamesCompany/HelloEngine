@@ -5,6 +5,7 @@
 #include "ParticleManager.h"
 #include "LayerEditor.h"
 #include "P_MainModule.h"
+#include "P_EmissionModule.h"
 
 
 
@@ -21,6 +22,10 @@ ParticleSystemComponent::ParticleSystemComponent(GameObject* gameObject) : Compo
 	P_Module* mainModule = (P_Module*)new P_MainModule();
 	mainModule->component = this;
 	ParticleModules.push_back(mainModule);
+
+	P_Module* emissionModule = (P_Module*)new P_EmissionModule();
+	emissionModule->component = this;
+	ParticleModules.push_back(emissionModule);
 
 	_gameObject->AddComponentOfType(Type::BILLBOARD);
 
@@ -45,6 +50,9 @@ ParticleSystemComponent::~ParticleSystemComponent()
 		RELEASE(ParticleModules[i]);
 	}
 	ParticleModules.clear();
+
+	if (_resourceText != nullptr)
+		_resourceText->Dereference();
 }
 
 void ParticleSystemComponent::CreateEmitterMesh(uint resourceUID)
@@ -123,6 +131,28 @@ void ParticleSystemComponent::DestroyEmitterMesh()
 	ParticleEmitter._meshID = -1;
 }
 
+void ParticleSystemComponent::ChangeEmitterMeshTexture(ResourceTexture* resource)
+{
+	if (resource == nullptr)
+	{
+		ParticleEmitter._textureID = -1.0f;
+		_resourceText = nullptr;
+
+		return;
+	}
+
+	ParticleEmitter._textureID = resource->OpenGLID;
+
+	if (_resourceText != nullptr)
+		_resourceText->Dereference();
+
+	_resourceText = resource;
+
+	//if (resource->isTransparent && !isUI)
+	//	meshRenderer->ChangeMeshRenderType(MeshRenderType::TRANSPARENCY);
+
+}
+
 #ifdef STANDALONE
 
 void ParticleSystemComponent::OnEditor()
@@ -151,21 +181,7 @@ void ParticleSystemComponent::OnEditor()
 		ImGui::SameLine();
 		if (ImGui::Button("Stop"))
 		{
-			if(GetPlayOnScene())
-			{
-				SetPlayOnScene(false);
-				SetPauseOnScene(false);
-				if (!LayerGame::S_IsPlaying()) {
-					if (ParticleEmitter.StartDelay <= 0)
-					{
-						ParticleEmitter.ResetEmitter();
-					}
-					else
-					{
-						ParticleEmitter.StartDelay = ParticleEmitter.StartDelayCpy;
-					}
-				}
-			}
+			StopEmitter();
 		}
 
 		if (ParticleEmitter._meshID == -1)
@@ -198,10 +214,112 @@ void ParticleSystemComponent::OnEditor()
 
 			return;
 		}
-		
+		else
+		{
+			if (ImGui::Button("Delete Emitter Mesh"))
+			{
+
+
+				StopEmitter();
+
+				DestroyEmitterMesh();
+
+				DestroyEmitterMeshTexture();
+
+				std::string popUpmessage = "Mesh in the emitter Destroyed ";
+				LayerEditor::S_AddPopUpMessage(popUpmessage);
+
+			}
+		}
+
+		std::string imageName;
+		int width = 0;
+		int height = 0;
+		if (ParticleEmitter._textureID != -1.0f && _resourceText != nullptr)
+		{
+			ImGui::Image((ImTextureID)(uint)ParticleEmitter._textureID, ImVec2(64, 64), ImVec2(0, 1), ImVec2(1, 0));
+
+			imageName = _resourceText->debugName;
+			width = _resourceText->width;
+			height = _resourceText->height;
+		}
+		else
+		{
+			ImGui::Image((ImTextureID)0, ImVec2(64, 64), ImVec2(0, 1), ImVec2(1, 0));
+			imageName = "None";
+		}
+
+		if (ParticleEmitter._textureID == -1)
+		{
+			ImGui::TextWrapped("No texture loaded! Drag an .htext file below to load a texture ");
+
+			ImGui::TextColored(ImVec4(1, 1, 0, 1), "Drag .htext here"); ImGui::SameLine();
+
+			if (ImGui::BeginDragDropTarget())
+			{
+				if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("Texture"))
+				{
+					//Drop asset from Asset window to scene window
+					const uint* drop = (uint*)payload->Data;
+
+					ResourceTexture* resource = (ResourceTexture*)ModuleResourceManager::S_LoadResource(*drop);
+
+					ChangeEmitterMeshTexture(resource);
+
+					std::string popUpmessage = "Loaded Texture: ";
+					LayerEditor::S_AddPopUpMessage(popUpmessage);
+				}
+				ImGui::EndDragDropTarget();
+			}
+
+		}
+		else
+		{
+			if (ImGui::Button("Delete Emitter Texture"))
+			{
+
+				DestroyEmitterMeshTexture();
+
+				std::string popUpmessage = "Texture in the emitter Destroyed ";
+				LayerEditor::S_AddPopUpMessage(popUpmessage);
+
+			}
+		}
+		ImGui::NewLine();
 		for (int i = 0; i < ParticleModules.size(); i++)
 		{
 			ParticleModules[i]->OnEditor();
+		}
+		
+		
+	}
+}
+
+void ParticleSystemComponent::DestroyEmitterMeshTexture()
+{
+	if (_resourceText != nullptr)
+	{
+		ParticleEmitter._textureID = -1.0f;
+		_resourceText = nullptr;
+
+	}
+}
+
+void ParticleSystemComponent::StopEmitter()
+{
+	if (GetPlayOnScene())
+	{
+		SetPlayOnScene(false);
+		SetPauseOnScene(false);
+		if (!LayerGame::S_IsPlaying()) {
+			if (ParticleEmitter.StartDelay <= 0)
+			{
+				ParticleEmitter.ResetEmitter();
+			}
+			else
+			{
+				ParticleEmitter.StartDelay = ParticleEmitter.StartDelayCpy;
+			}
 		}
 	}
 }
@@ -221,11 +339,20 @@ void ParticleSystemComponent::MarkAsDead()
 
 		app->renderer3D->particleManager.RemoveEmitterInList(&ParticleEmitter);
 	}
+
+	if (_resourceText != nullptr)
+	{
+		_resourceText->Dereference();
+		_resourceTextUID = _resourceText->UID;
+		_resourceText = nullptr;
+	}
 }
 
 void ParticleSystemComponent::MarkAsAlive()
 {
 	CreateEmitterMesh(_resourceUID);
+
+	ChangeEmitterMeshTexture((ResourceTexture*)ModuleResourceManager::S_LoadResource(_resourceTextUID));
 }
 #endif
 
@@ -244,6 +371,15 @@ void ParticleSystemComponent::Serialization(json& j)
 	{
 		_j["ModelUID"] = 0;
 		_j["Index inside model"] = 0;
+	}
+
+	if (_resourceText != nullptr)
+	{
+		_j["ResourceTextUID"] = _resourceText->UID;
+	}
+	else
+	{
+		_j["ResourceTextUID"] = 0;
 	}
 
 	if (ParticleModules.empty() == false)
@@ -269,6 +405,11 @@ void ParticleSystemComponent::DeSerialization(json& j)
 
 	ResourceModel* model = (ResourceModel*)ModuleResourceManager::resources[j["ModelUID"]];
 
+	uint savedUID = j["ResourceTextUID"];
+
+	ResourceTexture* resourcetext = savedUID == 0 ? nullptr : (ResourceTexture*)ModuleResourceManager::S_LoadResource(j["ResourceTextUID"]);
+
+
 	if (model == nullptr)
 	{
 		Console::S_Log("A scene mesh render data was not found.");
@@ -280,9 +421,13 @@ void ParticleSystemComponent::DeSerialization(json& j)
 	{
 		ResourceMesh* resourceMesh = model->modelMeshes[index];
 
-
 		CreateEmitterMesh(resourceMesh->UID);
 
+	}
+
+	if (resourcetext != nullptr)
+	{
+		ChangeEmitterMeshTexture(resourcetext);
 	}
 
 	std::vector<float> tempstartsize = j["ParticleModules"]["ModuleMain"]["BeginScale"];

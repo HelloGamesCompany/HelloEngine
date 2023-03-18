@@ -7,6 +7,8 @@
 
 class Application;
 class ResourceMesh;
+class ResourceTexture;
+
 class ParticleSystemComponent : public Component
 {
 public:
@@ -20,10 +22,16 @@ public:
 
     void DestroyEmitterMesh();
 
+    void ChangeEmitterMeshTexture(ResourceTexture* resource);
+
     void OnEnable() override;
     void OnDisable() override;
 #ifdef STANDALONE
     void OnEditor() override;
+
+    void DestroyEmitterMeshTexture();
+
+    void StopEmitter();
 
     void MarkAsDead() override;
     void MarkAsAlive() override;
@@ -37,7 +45,7 @@ public:
 
     bool GetPlayOnGame() { return playOnGame; }
 
-    Emitter GetParticleSystemEmitter() { return ParticleEmitter; }
+    Emitter& GetParticleSystemEmitter() { return ParticleEmitter; }
 
     void SetPlayOnGame(bool playongame);
 
@@ -53,8 +61,11 @@ private:
     bool playOnGame = false;
     bool pauseOnScene = false;
     
-    ResourceMesh* _resource;
+    ResourceMesh* _resource = nullptr;
+    ResourceTexture* _resourceText = nullptr;
+    //Mark As Alive Use
     uint _resourceUID;
+    uint _resourceTextUID;
     Application* app;
     Emitter ParticleEmitter;
     ParticleProperties particleProps;   
@@ -66,6 +77,7 @@ private:
     friend class ParticleManager;
     friend class P_Module;
     friend class P_MainModule;
+    friend class P_EmissionModule;
     friend class ModuleRenderer3D;
 };
 

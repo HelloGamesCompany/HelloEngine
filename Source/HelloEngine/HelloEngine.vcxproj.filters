@@ -408,6 +408,9 @@
     <ClCompile Include="API\API_ParticleSystem.cpp">
       <Filter>API</Filter>
     </ClCompile>
+    <ClCompile Include="P_EmissionModule.cpp">
+      <Filter>GameObject\Components\ParticleModules</Filter>
+    </ClCompile>
     <ClCompile Include="API\API_Material.cpp" />
      <Filter>API</Filter>
     </ClCompile>
@@ -964,6 +967,9 @@
     </ClInclude>
     <ClInclude Include="API\API_ParticleSystem.h">
       <Filter>API</Filter>
+    </ClInclude>
+    <ClInclude Include="P_EmissionModule.h">
+      <Filter>GameObject\Components\ParticleModules</Filter>
     </ClInclude>
     <ClInclude Include="API\API_Material.h" />
       <Filter>API</Filter>

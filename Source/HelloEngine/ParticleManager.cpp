@@ -27,9 +27,38 @@ void ParticleManager::Draw()
 	for (Emitter* emitter : EmitterList)
 	{
 
-		if (LayerGame::S_IsPlaying() || emitter->component->GetPlayOnScene())
+
+		if (emitter->playOnAwake && LayerGame::S_IsPlaying()) {
+			
+			emitter->component->SetPlayOnGame(true);
+		}
+
+		if ((LayerGame::S_IsPlaying() && emitter->component->GetPlayOnGame()) || emitter->component->GetPlayOnScene())
 		{
 			//UPDATE EACH EMITTER
+			if (LayerGame::S_IsPlaying())
+			{
+				if (emitter->StartDelay <= 0) {
+					if (emitter->Duration > 0) {
+						emitter->Duration -= EngineTime::GameDeltaTime();
+					}
+				}
+				else {
+					emitter->StartDelay -= EngineTime::GameDeltaTime();
+				}
+			}
+			else
+			{
+				if (emitter->StartDelay <= 0) {
+					if (emitter->Duration > 0) {
+						emitter->Duration -= EngineTime::EngineTimeDeltaTime();
+					}
+				}
+				else {
+					emitter->StartDelay -= EngineTime::EngineTimeDeltaTime();
+				}
+			}
+			
 			if (!emitter->loop) {
 				if (emitter->Duration <= 0) {
 					emitter->stop = true;				
@@ -44,9 +73,32 @@ void ParticleManager::Draw()
 
 			if (emitter->component != nullptr)
 				emitter->component->particleProps.position = emitter->component->_gameObject->transform->GetGlobalPosition();
-			
-			if(!emitter->stop)
-				emitter->EmitParticles(emitter->component->particleProps);
+
+			if (emitter->enableEmissionModule)
+			{
+				if (!emitter->stop) {
+					double particlesToEmit = 0;
+					if (LayerGame::S_IsPlaying()) {
+						//canviar game delta time per float
+						emitter->accumulator += EngineTime::GameDeltaTime();
+
+					}
+					else {
+						emitter->accumulator += EngineTime::EngineTimeDeltaTime();
+					}
+
+					while (emitter->accumulator > 1.0 / emitter->ParticlesPerSecond) {
+						emitter->EmitParticles(emitter->component->particleProps);
+						emitter->accumulator -= 1.0 / emitter->ParticlesPerSecond;
+					}
+				}
+
+			}
+			else{
+				if (!emitter->stop) {
+					emitter->EmitParticles(emitter->component->particleProps);
+				}
+			}
 
 			emitter->UpdateParticles();
 

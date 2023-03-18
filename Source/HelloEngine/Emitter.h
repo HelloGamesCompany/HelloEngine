@@ -34,9 +34,14 @@ public:
 
 	void ResetEmitter();
 
+	bool GetPlayOnAwake() { return playOnAwake; }
+
+	void SetPlayOnAwake(bool b);
+
 public:
 
 	int64_t _meshID = -1;
+	int _textureID = -1;
 
 private:
 	//Position Emitter
@@ -55,20 +60,28 @@ private:
 	int currentparticle;
 	bool loop;
 	bool stop;
-	
+	bool playOnAwake;
+
 	float StartDelay;
 	float StartDelayCpy;
 
 	float Duration;
 	float DurationCpy;
 
+	bool enableEmissionModule;
+	int ParticlesPerSecond;
+	int ParticleCount = 0;
+
 	Quat BBRotAroundZ;
+
+	float accumulator = 0.0f;
 
 
 	friend class ParticleSystemComponent;
 	friend class ParticleManager;
 	friend class P_Module;
 	friend class P_MainModule;
+	friend class P_EmissionModule;
 	friend class ModuleRenderer3D;
 
 };
