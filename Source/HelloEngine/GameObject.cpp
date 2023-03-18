@@ -18,7 +18,7 @@
 #include "ParticleSystemComponent.h"
 #include "BillBoardComponent.h"
 #include "PhysicsComponent.h"
-
+#include "ComponentUIInput.h"
 
 GameObject::GameObject(GameObject* parent, std::string name, std::string tag, uint ID) : name(name), tag(tag)
 {
@@ -424,7 +424,7 @@ Component* GameObject::AddComponentOfType(Component::Type type)
 		_components.push_back(newComponent);
         break;
     case Component::Type::UI_INPUT:
-        newComponent = new ComponentUIImage(this);
+        newComponent = new ComponentUIInput(this);
         _components.push_back(newComponent);
         break;
 	}

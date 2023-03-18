@@ -230,7 +230,7 @@ void RenderManager::Draw2D()
 	if (renderer2D != nullptr)
 		renderer2D->Draw2D();
 	
-	//DrawTextObjects();
+	DrawTextObjects();
 }
 
 uint RenderManager::AddMesh(ResourceMesh* resource, MeshRenderType type)

@@ -20,30 +20,49 @@ ComponentUIInput::~ComponentUIInput()
 
 void ComponentUIInput::InputUpdate()
 {
+	//detectar input
 
-	//if()
-
+	//detectar el botton que estas y forçar su nuevo estado
 }
 
 void ComponentUIInput::Serialization(json& j)
 {
-/*	json _j;
+	json _j;
 
 	_j["Type"] = _type;
 	_j["MaterialResource"] = _material->GetResourceUID();
 	_j["Enabled"] = _isEnabled;
-	j["Components"].push_back(_j);*/
+
+	for (size_t i = 0; i < _listButtons.size(); i++)
+	{
+		_j["listButtons"][i] = _listButtons[i]->GetGameObject()->GetID();
+	}
+
+	j["Components"].push_back(_j);
 }
 
 void ComponentUIInput::DeSerialization(json& j)
 {
-	/*_material->ChangeTexture((ResourceTexture*)ModuleResourceManager::S_LoadResource(j["MaterialResource"]));
+	_material->ChangeTexture((ResourceTexture*)ModuleResourceManager::S_LoadResource(j["MaterialResource"]));
 
 	bool enabled = j["Enabled"];
 	if (!enabled)
 		Disable();
 
-	_gameObject->transform->ForceUpdate();*/
+	std::vector<uint> listAux = j["listButtons"];
+
+	for (size_t i = 0; i < listAux.size(); i++)
+	{
+		GameObject* GOAux = ModuleLayers::gameObjects[listAux[i]];
+		ComponentUIButton* CUIB = GOAux->GetComponent<ComponentUIButton>();
+
+		if (CUIB != nullptr)
+		{
+			_listButtons.push_back(CUIB);
+		}
+	}
+
+	_gameObject->transform->ForceUpdate();
 }
 
 #ifdef STANDALONE
@@ -56,6 +75,9 @@ void ComponentUIInput::OnEditor()
 		_gameObject->DestroyComponent(this);
 		return;
 	}
+
+	ImGui::Text("");
+	ImGui::SameLine();
 
 	if (ImGui::CollapsingHeader("List of Buttons"))
 	{

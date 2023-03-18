@@ -573,7 +573,7 @@ bool ModuleResourceManager::S_DeserializeScene(const std::string& filePath)
         for (int j = 0; j < object.size(); j++)
         {
             Component::Type componentType = object[j]["Type"];
-            if (componentType == Component::Type::SCRIPT || componentType == Component::Type::MATERIAL)
+            if (componentType == Component::Type::SCRIPT || componentType == Component::Type::MATERIAL || componentType == Component::Type::UI_INPUT)
                 continue;
             /*if (temp[i].first->_prefabUID == 0)*/ temp[i].first->AddComponentSerialized(componentType, object[j]);
         }
@@ -586,7 +586,7 @@ bool ModuleResourceManager::S_DeserializeScene(const std::string& filePath)
         for (int j = 0; j < object.size(); j++)
         {
             Component::Type componentType = object[j]["Type"];
-            if (componentType != Component::Type::MATERIAL)
+            if (componentType != Component::Type::MATERIAL && componentType != Component::Type::UI_INPUT)
                 continue;
             /*if (temp[i].first->_prefabUID == 0)*/ temp[i].first->AddComponentSerialized(componentType, object[j]);
         }
