@@ -53,11 +53,11 @@ void API::API_ParticleSystem::Stop()
 		Engine::Console::S_Log("Trying to acces a NULLPTR GameObject. GetTransform()");
 		return;
 	}
-
+	
 	if (_particleSystem->GetPlayOnGame())
 	{
 		_particleSystem->SetPlayOnGame(false);
-
+		_particleSystem->GetParticleSystemEmitter().SetPlayOnAwake(false);
 		_particleSystem->GetParticleSystemEmitter().ResetEmitter();
 	}
 }
