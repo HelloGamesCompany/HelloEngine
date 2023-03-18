@@ -66,8 +66,8 @@
                 "Enabled": true,
                 "Position": [
                     0.0,
-                    0.0,
-                    0.0
+                    -0.4000000059604645,
+                    0.004999999888241291
                 ],
                 "Rotation": [
                     0.0,
@@ -123,6 +123,88 @@
             {
                 "Enabled": true,
                 "Position": [
+                    -0.699999988079071,
+                    0.6000000238418579,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.30000001192092896,
+                    0.4000000059604645,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 2738664341,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Image",
+        "ParentUID": 4119419725,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 3973543551
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.009999999776482582
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    2.5,
+                    2.5,
+                    2.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 4095403898,
+                "Type": 15
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Velocity": 0.05000000074505806
+                    }
+                ],
+                "Script Resource": 354635148,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Image",
+        "ParentUID": 4119419725,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 415870401
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
                     0.0,
                     0.0,
                     0.0
@@ -142,7 +224,7 @@
             {
                 "Active camera": true,
                 "Active culling": true,
-                "Aspect ratio": 1.1495600938796997,
+                "Aspect ratio": 1.1202346086502075,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
