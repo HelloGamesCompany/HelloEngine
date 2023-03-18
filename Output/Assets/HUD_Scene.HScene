@@ -1,0 +1,446 @@
+[
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Root",
+        "ParentUID": 0,
+        "PrefabUID": 0,
+        "Tag": "None",
+        "UID": 3675453294
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Active camera": true,
+                "Active culling": true,
+                "Aspect ratio": 1.733137845993042,
+                "Enabled": true,
+                "FOV": 60.0,
+                "Far plane": 1000.0,
+                "Frustum type": 2,
+                "Near plane": 0.009999999776482582,
+                "Orthographic size": 10.0,
+                "Type": 4
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Camera",
+        "ParentUID": 3675453294,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1447696009
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Canvas",
+        "ParentUID": 3675453294,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 46307356
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.7900000214576721,
+                    0.7699999809265137,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.20000000298023224,
+                    0.20000000298023224,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 2738664341,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Image",
+        "ParentUID": 46307356,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 351360630
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Canvas",
+        "ParentUID": 46307356,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 3607862726
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.5,
+                    0.5,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 2366743240,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "HUD_Fons",
+        "ParentUID": 3607862726,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 438474877
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "HP",
+        "ParentUID": 3607862726,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3576500274
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.15000000596046448,
+                    0.25999999046325684,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    14.100000381469727
+                ],
+                "Scale": [
+                    0.4000000059604645,
+                    0.11999999731779099,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 973302505,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "HP_Bar",
+        "ParentUID": 3576500274,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 4135335160
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.10000000149011612,
+                    0.20000000298023224,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.019999999552965164,
+                    0.11999999731779099,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 2442532908,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Reg_Limit",
+        "ParentUID": 3576500274,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 579795266
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.30000001192092896,
+                    0.10000000149011612,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.11999999731779099,
+                    0.4000000059604645,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 116120790,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Casete",
+        "ParentUID": 3607862726,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 3091557849
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Dash",
+        "ParentUID": 3607862726,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2956465698
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.36000001430511475,
+                    -0.4000000059604645,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.14000000059604645,
+                    0.20000000298023224,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 1033923317,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Dash_On",
+        "ParentUID": 2956465698,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 3139172111
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.36000001430511475,
+                    -0.4000000059604645,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.14000000059604645,
+                    0.20000000298023224,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 2440110374,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Dash_Off",
+        "ParentUID": 2956465698,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 706775952
+    }
+]
