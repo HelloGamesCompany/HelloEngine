@@ -71,7 +71,7 @@ void ParticleSystemComponent::CreateEmitterMesh(uint resourceUID)
 
 	for (Particle& var : ParticleEmitter.ParticleList)
 	{
-		var._instanceID = Application::Instance()->renderer3D->renderManager.AddMesh(_resource, MeshRenderType::INSTANCED);
+		var._instanceID = Application::Instance()->renderer3D->renderManager.AddMesh(_resource, nullptr, MeshRenderType::INSTANCED);
 		//This line is needed because when you add mesh into the rendermanager it will be drawn,
 		//when we are at this point we don't want to draw the mesh of the particle till the engine is playing
 		Application::Instance()->renderer3D->renderManager.GetRenderManager(resourceUID)->GetMap()[var._instanceID].draw = false;

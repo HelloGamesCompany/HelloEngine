@@ -11,6 +11,8 @@
 #include "SkinnedMeshRenderComponent.h"
 #include "AnimationComponent.h"
 
+#include "Uniform.h"
+
 #define _USE_MATH_DEFINES
 
 #include <math.h>
@@ -37,7 +39,7 @@ Mesh::~Mesh()
 	{
 		CleanUp();
 	}
-	if (Application::Instance()->renderer3D->renderManager._selectedMesh == this)
+	if (&Application::Instance()->renderer3D->renderManager._selectedMesh->mesh == this)
 	{
 		Application::Instance()->renderer3D->renderManager.SetSelectedMesh(nullptr);
 	}
@@ -54,50 +56,18 @@ void Mesh::CreateBufferData()
 	
 }
 
-void Mesh::Draw(bool useBasicShader)
+void Mesh::Draw(Material* material, bool useMaterial)
 {
-	if (useBasicShader) // We use this function to draw the outilne too.
+	if (useMaterial) // We use this function to draw the outilne too.
 	{
-		if (textureID != -1) // Only happens when material components is deactivated.
+		if (material != nullptr && material->GetShader() != nullptr)
 		{
-			glBindTexture(GL_TEXTURE_2D, textureID);
-		}
-
-		/*
-			material->Update(Application::Instance()->camera->currentDrawingCamera->GetViewMatrix(), 
-			Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix(),
-			&modelMatrix.v[0][0]);
-		*/
-
-
-		if (component->_hasBones)
-		{
-			boneMeshShader->shader.Bind();
-			boneMeshShader->shader.SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
-			boneMeshShader->shader.SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
-			boneMeshShader->shader.SetMatFloat4v("model", &modelMatrix.v[0][0]);
-
-			SkinnedMeshRenderComponent* smComp = (SkinnedMeshRenderComponent*) component;
-
-			if (!smComp->hasAnim)
-			{
-				smComp->UpdateBones();
-			}
-
-			for (int i = 0; i < smComp->goBonesArr.size(); ++i)
-			{
-				boneMeshShader->shader.SetMatFloat4v("finalBonesMatrices[" + std::to_string(i) + "]", &smComp->goBonesArr[i].Transposed().v[0][0]);
-			}
-
+			UniformDraw(material);
 		}
 		else
 		{
-			drawPerMeshShader->shader.Bind();
-			drawPerMeshShader->shader.SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
-			drawPerMeshShader->shader.SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
-			drawPerMeshShader->shader.SetMatFloat4v("model", &modelMatrix.v[0][0]);
+			DefaultDraw();
 		}
-		
 	}
 
 	glBindVertexArray(_VAO);
@@ -107,6 +77,78 @@ void Mesh::Draw(bool useBasicShader)
 	glBindVertexArray(0);
 
 	glBindTexture(GL_TEXTURE_2D, 0);
+}
+
+void Mesh::DefaultDraw()
+{
+	if (textureID != -1) // Only happens when material components is deactivated.
+	{
+		glBindTexture(GL_TEXTURE_2D, textureID);
+	}
+
+	if (component->_hasBones)
+	{
+		boneMeshShader->shader.Bind();
+		boneMeshShader->shader.SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
+		boneMeshShader->shader.SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
+		boneMeshShader->shader.SetMatFloat4v("model", &modelMatrix.v[0][0]);
+
+		SkinnedMeshRenderComponent* smComp = (SkinnedMeshRenderComponent*)component;
+
+		if (!smComp->hasAnim)
+		{
+			smComp->UpdateBones();
+		}
+
+		for (int i = 0; i < smComp->goBonesArr.size(); ++i)
+		{
+			boneMeshShader->shader.SetMatFloat4v("finalBonesMatrices[" + std::to_string(i) + "]", &smComp->goBonesArr[i].Transposed().v[0][0]);
+		}
+
+	}
+	else
+	{
+		drawPerMeshShader->shader.Bind();
+		drawPerMeshShader->shader.SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
+		drawPerMeshShader->shader.SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
+		drawPerMeshShader->shader.SetMatFloat4v("model", &modelMatrix.v[0][0]);
+	}
+
+}
+
+void Mesh::UniformDraw(Material* material)
+{
+
+	//Update only the bones
+	if (component->_hasBones)
+	{
+		SkinnedMeshRenderComponent* smComp = (SkinnedMeshRenderComponent*)component;
+
+		if (!smComp->hasAnim)
+		{
+			smComp->UpdateBones();
+		}
+
+		material->UpdateBones(smComp->goBonesArr);
+	}
+	
+
+	//Update the material uniforms
+	material->Update(Application::Instance()->camera->currentDrawingCamera->GetViewMatrix(),
+		Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix(),
+		&modelMatrix.v[0][0]);
+
+
+	/*material.GetShader()->shader.Bind();
+
+	material.GetShader()->shader.SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
+	material.GetShader()->shader.SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
+	material.GetShader()->shader.SetMatFloat4v("model", &modelMatrix.v[0][0]);*/
+
+	/*for (uint i = 0; i < material.uniforms.size(); ++i)
+	{
+		material.uniforms[i]->Update(material.GetShader()->shader);
+	}*/
 }
 
 bool Mesh::Update()
@@ -127,7 +169,7 @@ bool Mesh::Update()
 		return false;
 	if (component && component->_gameObject->isSelected)
 	{
-		Application::Instance()->renderer3D->renderManager.SetSelectedMesh(this);
+		//sApplication::Instance()->renderer3D->renderManager.SetSelectedMesh(this);
 		return false; // We dont want to render this object twice when selected.
 	}
 	if (isIndependent) // We dont use the TextureManager to set independent meshes's textures.
@@ -141,7 +183,7 @@ bool Mesh::Update()
 	return true;
 }
 
-void Mesh::DrawAsSelected()
+void Mesh::DrawAsSelected(Material* material)
 {
 	//// TODO: Do this inside ModuleRender3D, and allow to enable and disable it.
 	glEnable(GL_DEPTH_TEST);
@@ -153,7 +195,9 @@ void Mesh::DrawAsSelected()
 
 	// Draw model normal size
 	if (isIndependent)
-		Draw();
+	{
+		Draw(material);
+	}
 	else
 	{
 		InstanceRenderer* manager = Application::Instance()->renderer3D->renderManager.GetRenderManager(component->_meshID);
@@ -173,7 +217,9 @@ void Mesh::DrawAsSelected()
 #endif
 	// Draw model bigger size using the stencilShader
 	if (isIndependent)
-		Draw(false);
+	{
+		Draw(material);
+	}
 	else
 	{
 		InstanceRenderer* manager = Application::Instance()->renderer3D->renderManager.GetRenderManager(component->_meshID);

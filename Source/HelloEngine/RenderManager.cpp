@@ -14,6 +14,8 @@
 #include "ComponentUIImage.h"
 #include "Math/float4x4.h"
 
+#include "ModuleRenderer3D.h"
+
 RenderManager::RenderManager()
 {
 }
@@ -228,14 +230,14 @@ void RenderManager::Draw2D()
 		renderer2D->Draw2D();
 }
 
-uint RenderManager::AddMesh(ResourceMesh* resource, MeshRenderType type)
+uint RenderManager::AddMesh(ResourceMesh* resource, ResourceMaterial* material,  MeshRenderType type)
 {
 	switch (type)
 	{
 	case MeshRenderType::INSTANCED:
 		return AddInstancedMesh(resource);
 	case MeshRenderType::INDEPENDENT:
-		return AddIndependentMesh(resource);
+		return AddIndependentMesh(resource, material);
 	case MeshRenderType::TRANSPARENCY:
 		return AddTransparentMesh(resource);
 	case MeshRenderType::MESH2D:
@@ -255,14 +257,22 @@ uint RenderManager::AddTransparentMesh(ResourceMesh* resource)
 	return randomID;
 }
 
-uint RenderManager::AddIndependentMesh(ResourceMesh* resource)
+uint RenderManager::AddIndependentMesh(ResourceMesh* resource, ResourceMaterial* material)
 {
 	uint randomID = HelloUUID::GenerateUUID();
 
-	_independentMeshes[randomID].InitWithResource(resource);
-	_independentMeshes[randomID].localAABB = resource->localAABB;
-	_independentMeshes[randomID].isIndependent = true;
-	_independentMeshes[randomID].CreateBufferData();
+	//Set Mesh
+	_independentMeshes[randomID].mesh.InitWithResource(resource);
+	_independentMeshes[randomID].mesh.localAABB = resource->localAABB;
+	_independentMeshes[randomID].mesh.isIndependent = true;
+	_independentMeshes[randomID].mesh.CreateBufferData();
+
+	//Set Material
+	if (material == nullptr)
+		_independentMeshes[randomID].material = nullptr;
+	else
+		_independentMeshes[randomID].material = material;
+	
 
 	return randomID;
 }
@@ -379,7 +389,7 @@ void RenderManager::DestroyRenderManager(uint managerUID)
 		renderer2D = nullptr;
 }
 
-void RenderManager::SetSelectedMesh(Mesh* mesh)
+void RenderManager::SetSelectedMesh(RenderEntry* mesh)
 {
 	_selectedMesh = mesh;
 }
@@ -389,7 +399,7 @@ void RenderManager::DrawSelectedMesh()
 	if (_selectedMesh == nullptr)
 		return;
 
-	_selectedMesh->DrawAsSelected();
+	_selectedMesh->mesh.DrawAsSelected(&_selectedMesh->material->material);
 
 	_selectedMesh = nullptr;
 }
@@ -958,23 +968,32 @@ void RenderManager::DrawIndependentMeshes()
 		// Do camera culling checks first
 		if (currentCamera->isCullingActive)
 		{
-			if (!currentCamera->IsInsideFrustum(mesh.second.globalAABB))
+			if (!currentCamera->IsInsideFrustum(mesh.second.mesh.globalAABB))
 			{
-				mesh.second.outOfFrustum = true;
+				mesh.second.mesh.outOfFrustum = true;
 				continue;
 			}
 			else
-				mesh.second.outOfFrustum = false;
+				mesh.second.mesh.outOfFrustum = false;
 		}
 		else if (currentCamera->type != CameraType::SCENE)
 		{
-			mesh.second.outOfFrustum = false;
+			mesh.second.mesh.outOfFrustum = false;
 		}
 
 		// Update mesh. If the mesh should draw this frame, call Draw.
-		if (mesh.second.Update())
+		if (mesh.second.mesh.Update())
 		{
-			mesh.second.Draw();
+			if (mesh.second.material == nullptr)
+			{
+				mesh.second.mesh.Draw(nullptr);
+				continue;
+			}
+			mesh.second.mesh.Draw(&mesh.second.material->material);
+		}
+		else
+		{
+			Application::Instance()->renderer3D->renderManager.SetSelectedMesh(&mesh.second);
 		}
 	}
 

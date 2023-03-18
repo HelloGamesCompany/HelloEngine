@@ -19,7 +19,7 @@ public:
 	MeshRenderComponent(GameObject* gameObject, const MeshRenderComponent& copy);
 	virtual ~MeshRenderComponent() override;
 
-	virtual void CreateMesh(uint resourceUID, MeshRenderType type = MeshRenderType::INSTANCED);
+	virtual void CreateMesh(uint resourceUID, int materialUID = -1, MeshRenderType type = MeshRenderType::INSTANCED);
 
 	void CreateMesh2D();
 
@@ -37,6 +37,7 @@ public:
 
 	/// Changes mesh render type to Transparency, Independent or Instance. 
 	void ChangeMeshRenderType(MeshRenderType type);
+	MeshRenderType GetMeshRenderType();
 
 	void SetAs2D();
 

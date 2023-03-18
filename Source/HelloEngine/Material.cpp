@@ -19,6 +19,14 @@ Material::~Material()
 {
 }
 
+void Material::UpdateBones(std::vector<float4x4>& bones)
+{
+	for (int i = 0; i < bones.size(); ++i)
+	{
+		shader->shader.SetMatFloat4v("finalBonesMatrices[" + std::to_string(i) + "]", &bones[i].Transposed().v[0][0]);
+	}
+}
+
 void Material::Update(const float* view, const float* projection, const float* model)
 {
 	shader->shader.Bind();
@@ -102,9 +110,9 @@ void Material::LoadJSON(std::string filePath)
 {
 	char* data = nullptr;
 	ModuleFiles::S_Load(filePath, &data);
-	if (data == nullptr)
+	if (data == nullptr || data[0] == 'M')
 		return;
-
+	
 	json j = json::parse(data);
 
 	if (!j.contains("Shader resource UID")) return;

@@ -36,6 +36,13 @@ enum class PrimitiveModelsUID
 	PLANE2D = 14,
 };
 
+struct RenderEntry
+{
+	RenderEntry(){};
+	ResourceMaterial* material = nullptr;
+	Mesh mesh;
+};
+
 /// <summary>
 /// This class contains a colletion of RenderManagers. It dynamically creates and destroys Render Managers tu fullfill the task of having one per Unique mesh.
 /// Every Render Manager updates and draws their corresponding Models.
@@ -56,10 +63,10 @@ public:
 	void Draw();
 	void Draw2D();
 
-	uint AddMesh(ResourceMesh* resource, MeshRenderType type);
+	uint AddMesh(ResourceMesh* resource, ResourceMaterial* material, MeshRenderType type);
 
 	uint AddTransparentMesh(ResourceMesh* resource);
-	uint AddIndependentMesh(ResourceMesh* resource);
+	uint AddIndependentMesh(ResourceMesh* resource, ResourceMaterial* material);
 	uint AddInstancedMesh(ResourceMesh* resource);
 	uint Add2DMesh();
 
@@ -68,7 +75,7 @@ public:
 
 	void DestroyRenderManager(uint managerUID);
 
-	void SetSelectedMesh(Mesh* mesh);
+	void SetSelectedMesh(RenderEntry* mesh);
 	void DrawSelectedMesh();
 
 	void DrawVertexNormals(Mesh* mesh);
@@ -92,13 +99,13 @@ private:
 	std::map<uint, Mesh> _transparencyMeshes; // Meshes with transparency that must be drawn with a draw call per mesh.
 	std::multimap<float, Mesh*> _orderedMeshes; // Meshes with transparency ordered from furthest to closest to the camera.
 	
-	std::map<uint, Mesh> _independentMeshes; // Opaque meshes that need to be drawn in an independent draw call.
+	std::map<uint, RenderEntry> _independentMeshes; // Opaque meshes that need to be drawn in an independent draw call.
 
 	TextureManager* _textureManager = nullptr;
 	
 	std::vector<uint> _emptyRenderManagers;
 
-	Mesh* _selectedMesh = nullptr;
+	RenderEntry* _selectedMesh = nullptr;
 
 	std::vector<uint> boxIndices; // Used to display bounding boxes.
 	std::vector<uint> sphereIndices;

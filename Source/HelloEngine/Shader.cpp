@@ -250,7 +250,9 @@ void Shader::UniformParser(std::vector<Uniform*>& vec)
 		glGetActiveUniform(data.ID, i, maxNameLen, &uni.read, &uni.size, &uni.type, uniName.data());
 
 		uni.name = uniName.data();
-		
+
+		if (uni.name == "view" || uni.name == "projection" || uni.name == "model") continue;
+
 		switch (uni.type)
 		{
 			case GL_BOOL: vec.push_back((Uniform*) new UniBool(uni)); break;
@@ -366,8 +368,9 @@ void Shader::SetMatFloat4v(const std::string& name, const float* value) const
 
 void Shader::SetTexture(const std::string& name, uint id, int layer)
 {
-	glActiveTexture(GL_TEXTURE0 + layer);
+	//glActiveTexture(GL_TEXTURE0 + layer);
+	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, id);
-	SetInt(name, layer);
+	//SetInt(name, layer);
 }
 

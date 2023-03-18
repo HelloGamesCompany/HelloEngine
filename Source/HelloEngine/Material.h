@@ -14,6 +14,7 @@ public:
 	Material(uint UID);
 	~Material();
 
+	void UpdateBones(std::vector<float4x4>& bones);
 	void Update(const float* view, const float* projection, const float* model);
 
 	void Clear();

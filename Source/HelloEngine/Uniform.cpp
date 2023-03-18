@@ -127,6 +127,8 @@ void UniFloat2::Update(Shader& shader)
 
 void UniFloat3::Update(Shader& shader)
 {
+	float3 f3 = float3(static_cast<float3*>(data.value)->At(0));
+
 	shader.SetFloat3v(data.name, &static_cast<float3*>(data.value)->At(0));
 }
 
@@ -143,7 +145,11 @@ void UniDouble::Update(Shader& shader)
 void UniSampler2D::Update(Shader& shader)
 {
 	ResourceTexture* texture = static_cast<ResourceTexture*>(data.value);
-	shader.SetTexture(data.name, texture->OpenGLID, 0);
+
+	if (texture)
+		shader.SetTexture(data.name, texture->OpenGLID, 0);
+	else
+		shader.SetTexture(data.name, 0, 0);
 }
 
 void UniFloat4x4::Update(Shader& shader)
@@ -252,6 +258,8 @@ void UniSampler2D::GUI()
 			data.value = texture;
 		}
 	}
+	ImGui::SameLine();
+	ImGui::Text(data.name.c_str());
 
 	if (texture)
 	{
@@ -266,7 +274,6 @@ void UniSampler2D::GUI()
 
 void UniFloat4x4::GUI()
 {
-	if (data.name == "Projection" || data.name == "View" || data.name == "Model") return;
 	std::string aux;
 	float4x4* f44 = static_cast<float4x4*>(data.value);
 	aux = "1: " + data.name;

@@ -11,6 +11,8 @@
 #include "LayerEditor.h"
 #include "TextureComponent.h"
 
+#include "MaterialComponent.h"
+
 MeshRenderComponent::MeshRenderComponent(GameObject* gameObject) : Component(gameObject)
 {
 	_type = Type::MESH_RENDERER;
@@ -29,7 +31,7 @@ MeshRenderComponent::MeshRenderComponent(GameObject* gameObject, const MeshRende
 
 	if (copy._resource != nullptr)
 	{
-		CreateMesh(copy._resource->UID, copy.renderType);
+		CreateMesh(copy._resource->UID, -1, copy.renderType);
 	}
 }
 
@@ -48,7 +50,7 @@ MeshRenderComponent::~MeshRenderComponent()
 	}
 }
 
-void MeshRenderComponent::CreateMesh(uint resourceUID, MeshRenderType type)
+void MeshRenderComponent::CreateMesh(uint resourceUID, int materialUID, MeshRenderType type)
 {
 	if (_resource != nullptr)
 	{
@@ -67,6 +69,13 @@ void MeshRenderComponent::CreateMesh(uint resourceUID, MeshRenderType type)
 		return;
 	}
 
+	//Material
+	ResourceMaterial* material = nullptr;
+	if (materialUID != -1)
+	{
+		material = (ResourceMaterial*)ModuleResourceManager::S_LoadResource(materialUID);
+	}
+
 
 
 	renderType = type;
@@ -75,11 +84,11 @@ void MeshRenderComponent::CreateMesh(uint resourceUID, MeshRenderType type)
 	if (type == MeshRenderType::INSTANCED)
 	{
 		_meshID = resourceUID;
-		_instanceID = Application::Instance()->renderer3D->renderManager.AddMesh(_resource, MeshRenderType::INSTANCED);
+		_instanceID = Application::Instance()->renderer3D->renderManager.AddMesh(_resource, material, MeshRenderType::INSTANCED);
 	}
 	else // Otherwise, we use only 1, that is the identifier for our mesh.
 	{
-		_meshID = Application::Instance()->renderer3D->renderManager.AddMesh(_resource, type);
+		_meshID = Application::Instance()->renderer3D->renderManager.AddMesh(_resource, material, type);
 	}
 
 	if (_resource->meshInfo.boneDataMap.size() != 0) _hasBones = true;
@@ -102,7 +111,7 @@ void MeshRenderComponent::CreateMesh2D()
 	// Create Instancerenderer2D and have a mehs in it.
 	_meshID = Application::Instance()->renderer3D->renderManager.plane2DUID;
 	_resource = (ResourceMesh*)ModuleResourceManager::S_LoadResource(_meshID);
-	_instanceID = Application::Instance()->renderer3D->renderManager.AddMesh(_resource, MeshRenderType::MESH2D);
+	_instanceID = Application::Instance()->renderer3D->renderManager.AddMesh(_resource, nullptr, MeshRenderType::MESH2D);
 
 }
 
@@ -139,7 +148,7 @@ Mesh& MeshRenderComponent::GetMesh()
 	break;
 	case MeshRenderType::INDEPENDENT:
 	{
-		Mesh& meshReference = Application::Instance()->renderer3D->renderManager._independentMeshes[_meshID];
+		Mesh& meshReference = Application::Instance()->renderer3D->renderManager._independentMeshes[_meshID].mesh;
 		return meshReference;
 	}
 	break;
@@ -196,6 +205,11 @@ std::vector<uint>& MeshRenderComponent::GetMeshIndices()
 	}
 }
 
+MeshRenderType MeshRenderComponent::GetMeshRenderType()
+{
+	return renderType;
+}
+
 void MeshRenderComponent::ChangeMeshRenderType(MeshRenderType type)
 {
 	if (renderType == type)
@@ -206,7 +220,13 @@ void MeshRenderComponent::ChangeMeshRenderType(MeshRenderType type)
 
 	DestroyMesh();
 
-	CreateMesh(_resource->UID, type);
+	//Check if there is a material
+	MaterialComponent* mat = _gameObject->GetComponent<MaterialComponent>();
+	
+	if (mat)
+		CreateMesh(_resource->UID, mat->GetResourceUID(), type);
+	else
+		CreateMesh(_resource->UID, -1, type);
 
 	// Update mesh transfrom 
 	Mesh& mesh = GetMesh();
@@ -339,7 +359,7 @@ void MeshRenderComponent::MarkAsDead()
 
 void MeshRenderComponent::MarkAsAlive()
 {
-	CreateMesh(_resourceUID, renderType);
+	CreateMesh(_resourceUID, -1, renderType);
 }
 
 

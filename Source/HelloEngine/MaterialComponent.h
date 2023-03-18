@@ -14,6 +14,8 @@ public:
 
 	void OnEditor() override;
 
+	int GetResourceUID();
+
 private:
 	void MaterialDragNDrop();
 	void ShaderSelectCombo();

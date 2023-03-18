@@ -3,6 +3,8 @@
 #include "GameObject.h"
 #include "ModuleResourceManager.h"
 
+#include "SkinnedMeshRenderComponent.h"
+
 #include "Uniform.h"
 
 MaterialComponent::MaterialComponent(GameObject* gameObject) : Component(gameObject)
@@ -34,6 +36,13 @@ void MaterialComponent::OnEditor()
 		{
 			for (int i = 0; i < _resource->material.uniforms.size(); ++i)
 			{
+				if (_resource->material.uniforms[i]->data.name == "view" ||
+					_resource->material.uniforms[i]->data.name == "projection" ||
+					_resource->material.uniforms[i]->data.name == "model")
+				{
+					continue;
+				}
+
 				_resource->material.uniforms[i]->GUI();
 				ImGui::Spacing();
 				ImGui::Spacing();
@@ -84,13 +93,32 @@ void MaterialComponent::ShaderSelectCombo()
 			aux += shaderPool[i]->UID;
 			if (ImGui::Selectable(aux.c_str()))
 			{
-				//Clean current Shader
-				_resource->material.SetShader(shaderPool[i]->UID);
+				if (_resource->material.SetShader(shaderPool[i]->UID))
+				{
+					//Re create mesh into the RenderManager
+					MeshRenderComponent* comp = _gameObject->GetComponent<MeshRenderComponent>();
+					if (!comp)
+					{
+						comp = _gameObject->GetComponent<SkinnedMeshRenderComponent>();
+
+						if (!comp) continue;
+					}
+
+					comp->CreateMesh(comp->GetResourceUID(), _resource->UID, comp->GetMeshRenderType());
+
+				}
 			}
 		}
 
 		ImGui::EndCombo();
 	}
+}
+
+int MaterialComponent::GetResourceUID()
+{
+	if (_resource == nullptr) return -1;
+
+	return _resource->UID;
 }
 
 void MaterialComponent::Serialization(json& _j)

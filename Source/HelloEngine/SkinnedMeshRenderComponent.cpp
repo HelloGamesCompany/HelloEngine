@@ -29,9 +29,9 @@ SkinnedMeshRenderComponent::~SkinnedMeshRenderComponent()
 	rootBone = nullptr;
 }
 
-void SkinnedMeshRenderComponent::CreateMesh(uint resourceUID, MeshRenderType type)
+void SkinnedMeshRenderComponent::CreateMesh(uint resourceUID, int materialUID, MeshRenderType type)
 {
-	MeshRenderComponent::CreateMesh(resourceUID, MeshRenderType::INDEPENDENT);
+	MeshRenderComponent::CreateMesh(resourceUID, materialUID, MeshRenderType::INDEPENDENT);
 
 }
 
