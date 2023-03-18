@@ -13,12 +13,7 @@ namespace API
 		~API_UIImage();
 
 		API_GameObject GetGameObject();
-
-		bool OnPress();
-
-		bool OnHold();
-
-		bool OnHovered();
+		float FillImage(float _GetFillImage);
 
 	private:
 		ComponentUIImage* GetComponent();
