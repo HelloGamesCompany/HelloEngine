@@ -54,7 +54,7 @@
             {
                 "Active camera": true,
                 "Active culling": true,
-                "Aspect ratio": 2.189610481262207,
+                "Aspect ratio": 0.5923753380775452,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -200,12 +200,12 @@
             },
             {
                 "Enabled": true,
-                "MaterialResource": 3956038038,
+                "MaterialResource": 0,
                 "State": 0,
                 "Type": 12,
-                "hoverImage": 3164012835,
-                "idleImage": 3956038038,
-                "pressImage": 461641701
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
             }
         ],
         "FirstOnPrefab": true,
@@ -239,12 +239,12 @@
             },
             {
                 "Enabled": true,
-                "MaterialResource": 2101636848,
+                "MaterialResource": 0,
                 "State": 0,
                 "Type": 12,
-                "hoverImage": 907112141,
-                "idleImage": 2101636848,
-                "pressImage": 2217566075
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
             }
         ],
         "FirstOnPrefab": true,
@@ -278,12 +278,12 @@
             },
             {
                 "Enabled": true,
-                "MaterialResource": 829142513,
+                "MaterialResource": 0,
                 "State": 0,
                 "Type": 12,
-                "hoverImage": 2408497503,
-                "idleImage": 829142513,
-                "pressImage": 2953289449
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
             }
         ],
         "FirstOnPrefab": true,
@@ -320,7 +320,7 @@
                 "MaterialResource": 2224721247,
                 "State": 0,
                 "Type": 12,
-                "hoverImage": 437431339,
+                "hoverImage": 0,
                 "idleImage": 2224721247,
                 "pressImage": 1132405233
             }

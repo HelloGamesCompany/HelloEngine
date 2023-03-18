@@ -10,7 +10,7 @@
 		<framerate value="120" />
 	</renderer>
 	<scene>
-		<currentScene value="Assets/Scenes/AnimationsTestScene.HScene" />
+		<currentScene value="Assets/HUD_SCENE_UI.HScene" />
 	</scene>
 	<openGL>
 		<blend value="true" tag="0x0BE2" />
