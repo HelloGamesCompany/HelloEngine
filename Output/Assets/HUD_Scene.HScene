@@ -72,7 +72,7 @@
         "UID": 1447696009
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -95,14 +95,14 @@
             }
         ],
         "FirstOnPrefab": true,
-        "Name": "Canvas",
+        "Name": "HUD_Beta",
         "ParentUID": 3675453294,
         "PrefabUID": 0,
         "Tag": "UI",
         "UID": 46307356
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -143,9 +143,9 @@
             {
                 "Enabled": true,
                 "Position": [
-                    0.0,
-                    0.0,
-                    0.0
+                    -0.7900000214576721,
+                    0.7799999713897705,
+                    -0.0010000000474974513
                 ],
                 "Rotation": [
                     0.0,
@@ -153,15 +153,15 @@
                     0.0
                 ],
                 "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
+                    0.4000000059604645,
+                    0.4000000059604645,
+                    0.5
                 ],
                 "Type": 1
             }
         ],
         "FirstOnPrefab": true,
-        "Name": "Canvas",
+        "Name": "HUD_Finished",
         "ParentUID": 3675453294,
         "PrefabUID": 0,
         "Tag": "UI",
@@ -449,35 +449,29 @@
             {
                 "Enabled": true,
                 "Position": [
-                    0.14000000059604645,
-                    0.03999999910593033,
-                    -0.003000000026077032
+                    0.0,
+                    0.0,
+                    0.0
                 ],
                 "Rotation": [
                     0.0,
                     0.0,
-                    -2.4000000953674316
+                    0.0
                 ],
                 "Scale": [
-                    0.30000001192092896,
-                    0.18000000715255737,
-                    0.5
+                    1.0,
+                    1.0,
+                    1.0
                 ],
                 "Type": 1
-            },
-            {
-                "Enabled": true,
-                "FillImage": 1.0,
-                "MaterialResource": 4055084493,
-                "Type": 15
             }
         ],
         "FirstOnPrefab": true,
-        "Name": "Weapon_Off_1",
+        "Name": "Wapon_1",
         "ParentUID": 3607862726,
         "PrefabUID": 0,
-        "Tag": "UI",
-        "UID": 2149055924
+        "Tag": "Default",
+        "UID": 3455068785
     },
     {
         "Active": true,
@@ -486,17 +480,17 @@
                 "Enabled": true,
                 "Position": [
                     0.14000000059604645,
-                    0.03999999910593033,
+                    0.05000000074505806,
                     -0.004000000189989805
                 ],
                 "Rotation": [
                     0.0,
                     0.0,
-                    -2.4000000953674316
+                    1.2999999523162842
                 ],
                 "Scale": [
                     0.30000001192092896,
-                    0.18000000715255737,
+                    0.15000000596046448,
                     0.5
                 ],
                 "Type": 1
@@ -510,9 +504,249 @@
         ],
         "FirstOnPrefab": true,
         "Name": "Weapom_On_1",
-        "ParentUID": 3607862726,
+        "ParentUID": 3455068785,
         "PrefabUID": 0,
         "Tag": "UI",
         "UID": 4110903827
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.14000000059604645,
+                    0.05000000074505806,
+                    -0.003000000026077032
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    1.2999999523162842
+                ],
+                "Scale": [
+                    0.30000001192092896,
+                    0.15000000596046448,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 4055084493,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Weapon_Off_1",
+        "ParentUID": 3455068785,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 2149055924
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Weapon_2",
+        "ParentUID": 3607862726,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 47320342
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.14000000059604645,
+                    -0.10000000149011612,
+                    -0.006000000052154064
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    -1.2000000476837158
+                ],
+                "Scale": [
+                    0.30000001192092896,
+                    0.15000000596046448,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 2891199984,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Weapon_On_2",
+        "ParentUID": 47320342,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 1736988175
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.14000000059604645,
+                    -0.10000000149011612,
+                    -0.004999999888241291
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    -1.2000000476837158
+                ],
+                "Scale": [
+                    0.30000001192092896,
+                    0.15000000596046448,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 4055084493,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Wapon_Off_2",
+        "ParentUID": 47320342,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 1405500708
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Weapon_3",
+        "ParentUID": 3607862726,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3388956857
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.14000000059604645,
+                    -0.27000001072883606,
+                    -0.00800000037997961
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    1.2999999523162842
+                ],
+                "Scale": [
+                    0.30000001192092896,
+                    0.15000000596046448,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 1340084174,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Weapon_On_3",
+        "ParentUID": 3388956857,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 3606779550
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.14000000059604645,
+                    -0.27000001072883606,
+                    -0.007000000216066837
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    1.2999999523162842
+                ],
+                "Scale": [
+                    0.30000001192092896,
+                    0.15000000596046448,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 944959623,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Weapon_Off_3",
+        "ParentUID": 3388956857,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 249614350
     }
 ]
