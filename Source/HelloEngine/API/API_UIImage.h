@@ -13,6 +13,7 @@ namespace API
 		~API_UIImage();
 
 		API_GameObject GetGameObject();
+		float FillImage(float _GetFillImage);
 
 	private:
 		ComponentUIImage* GetComponent();

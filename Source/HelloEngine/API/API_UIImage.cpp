@@ -23,6 +23,22 @@ API::API_GameObject API::API_UIImage::GetGameObject()
 	return returnGO;
 }
 
+float API::API_UIImage::FillImage(float _GetFillImage)
+{
+	if (!_UIImage)
+	{
+		Engine::Console::S_Log("Trying to acces a NULLPTR UI Button");
+		return false;
+	}
+
+	if (_GetFillImage>1)
+	{
+		_GetFillImage = 1;
+	}
+
+	return _UIImage->_fillImage = _GetFillImage;
+}
+
 ComponentUIImage* API::API_UIImage::GetComponent()
 {
 	return _UIImage;
