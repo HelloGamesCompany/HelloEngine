@@ -427,6 +427,7 @@
     <ClCompile Include="API\API_UIImage.cpp">
       <Filter>API</Filter>
     </ClCompile>
+    <ClCompile Include="TextRendererComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -973,6 +974,7 @@
     <ClInclude Include="API\API_UIImage.h">
       <Filter>API</Filter>
     </ClInclude>
+    <ClInclude Include="TextRendererComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="External">

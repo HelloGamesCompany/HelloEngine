@@ -26,6 +26,7 @@ enum class UIType
 	CHECKBOX,
 	SLIDER,
 	IMAGE,
+	TEXT,
 };
 
 enum class PrimitiveModelsUID
@@ -153,5 +154,6 @@ private:
 	friend class MeshRenderComponent;
 	friend class ResourceMesh;
 	friend class Mesh;
+	friend class TextRendererComponent;
 };
 

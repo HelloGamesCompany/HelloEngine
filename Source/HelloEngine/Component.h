@@ -27,6 +27,7 @@ public:
 		UI_CHECKBOX,
 		UI_IMAGE,
 		UI_INPUT,
+		UI_TEXT,
 		MAX
 	};
 

@@ -12,6 +12,7 @@
 #include "ComponentUISlider.h"
 #include "ComponentUICheckbox.h"
 #include "ComponentUIImage.h"
+#include "TextRendererComponent.h"
 #include "Math/float4x4.h"
 
 RenderManager::RenderManager()
@@ -150,9 +151,6 @@ void RenderManager::Init()
 	glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 4 * sizeof(float), 0);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);
-
-	// TESTING
-	AddTextObject("aaaaaaaaaaaaaaa", { 1,1,1,1 }, {0, 0}, 0.005f);
 }
 
 void RenderManager::OnEditor()
@@ -389,6 +387,13 @@ void RenderManager::CreateUI(GameObject* parent, UIType type)
 		{
 			GameObject* image = new GameObject(parent, "Image", "UI");
 			image->AddComponent<ComponentUIImage>();
+			image->transform->SetScale({ 0.5f,0.5f,0.5f });
+			break;
+		}
+		case UIType::TEXT:
+		{
+			GameObject* image = new GameObject(parent, "Text", "UI");
+			image->AddComponent<TextRendererComponent>();
 			image->transform->SetScale({ 0.5f,0.5f,0.5f });
 			break;
 		}
@@ -1012,6 +1017,9 @@ void RenderManager::DrawTextObjects()
 	{
 		TextObject text = textObject.second;
 
+		if (!text.draw)
+			continue;
+
 		textRenderingShader->SetFloat3("textColor", text.color.x, text.color.y, text.color.z);
 		glActiveTexture(GL_TEXTURE0);
 		glBindVertexArray(TextVAO);
@@ -1021,12 +1029,15 @@ void RenderManager::DrawTextObjects()
 		{
 			Character ch = FontManager::Characters[*c];
 
-			float xPos = text.position.x + ch.Bearing.x * text.scale;
-			float yPos = text.position.y - (ch.Size.y - ch.Bearing.y) * text.scale;
+			float scale = text.scale * 0.005f;
 
-			float width = ch.Size.x * text.scale;
-			float height = ch.Size.y * text.scale;
+			float xPos = text.position.x + ch.Bearing.x * scale;
+			float yPos = text.position.y - (ch.Size.y - ch.Bearing.y) * scale;
 
+			float width = ch.Size.x * scale;
+			float height = ch.Size.y * scale;
+
+			// TODO: Optimize this by making a single draw call for every 32 characters.
 			float vertices[6][4] = {
 			  { xPos,     yPos + height,   0.0f, 0.0f },
 			  { xPos,     yPos,       0.0f, 1.0f },
@@ -1045,7 +1056,7 @@ void RenderManager::DrawTextObjects()
 
 			glDrawArrays(GL_TRIANGLES, 0, 6);
 
-			text.position.x += (ch.Advance >> 6) * text.scale;
+			text.position.x += (ch.Advance >> 6) * scale;
 		}
 		glBindVertexArray(0);
 		glBindTexture(GL_TEXTURE_2D, 0);

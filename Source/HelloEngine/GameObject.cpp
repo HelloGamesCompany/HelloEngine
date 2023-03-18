@@ -19,6 +19,7 @@
 #include "BillBoardComponent.h"
 #include "PhysicsComponent.h"
 #include "ComponentUIInput.h"
+#include "TextRendererComponent.h"
 
 GameObject::GameObject(GameObject* parent, std::string name, std::string tag, uint ID) : name(name), tag(tag)
 {
@@ -425,6 +426,10 @@ Component* GameObject::AddComponentOfType(Component::Type type)
         break;
     case Component::Type::UI_INPUT:
         newComponent = new ComponentUIInput(this);
+        _components.push_back(newComponent);
+        break;
+    case Component::Type::UI_TEXT:
+        newComponent = new TextRendererComponent(this);
         _components.push_back(newComponent);
         break;
 	}

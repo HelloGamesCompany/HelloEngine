@@ -8,6 +8,7 @@ public:
     float4 color;
     float2 position;
     float scale;
+    bool draw = true;
 };
 
 struct Character {
