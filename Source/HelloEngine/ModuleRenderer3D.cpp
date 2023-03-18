@@ -13,7 +13,7 @@
 
 ModuleRenderer3D::ModuleRenderer3D(bool start_enabled) : Module(start_enabled)
 {
-	
+
 }
 
 // Destructor
@@ -27,7 +27,7 @@ bool ModuleRenderer3D::Init()
 	bool ret = true;
 	_cameras = app->camera;
 	Console::S_Log("Initializing OpenGL 3.3");
-	
+
 	//Create context
 	context = SDL_GL_CreateContext(ModuleWindow::window);
 
@@ -39,32 +39,32 @@ bool ModuleRenderer3D::Init()
 
 	if(ret == true)
 	{
-		//Use Vsync	
+		//Use Vsync
 		XMLNode renderNode = app->xml->GetConfigXML().FindChildBreadth("renderer");
 		isVSync = renderNode.node.child("vsync").attribute("value").as_bool();
 		ToggleVSync(isVSync);
-		
+
 		glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
 		glClearDepth(1.0f);
-		
+
 		//Initialize clear color
 		glClearColor(0.f, 0.f, 0.f, 1.f);
-		
+
 		GLfloat LightModelAmbient[] = {0.0f, 0.0f, 0.0f, 1.0f};
 		glLightModelfv(GL_LIGHT_MODEL_AMBIENT, LightModelAmbient);
-		
+
 		//lights[0].ref = GL_LIGHT0;
 		//lights[0].ambient.Set(0.5f, 0.5f, 0.5f, 0.5f);
 		//lights[0].diffuse.Set(1.0f, 1.0f, 1.0f, 0.5f);
 		//lights[0].SetPos(0.0f, 0.0f, 2.5f);
 		//lights[0].Init();
-		
+
 		GLfloat MaterialAmbient[] = {1.0f, 1.0f, 1.0f, 1.0f};
 		glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, MaterialAmbient);
 
 		GLfloat MaterialDiffuse[] = {1.0f, 1.0f, 1.0f, 1.0f};
 		glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, MaterialDiffuse);
-		
+
 		glEnable(GL_DEPTH_TEST);
 		glEnable(GL_CULL_FACE);
 		glEnable(GL_LIGHTING);
@@ -82,7 +82,7 @@ bool ModuleRenderer3D::Init()
 	renderManager.Init();
 
 	// Projection matrix for
-	
+
 	OnResize(ModuleWindow::width, ModuleWindow::height);
 
 	return ret;
@@ -107,7 +107,7 @@ void ModuleRenderer3D::DrawGame()
 		_cameras->currentDrawingCamera = _cameras->activeGameCamera;
 
 		renderManager.Draw();
-		//particleManager.Draw();
+		particleManager.Draw();
 		// Draw all 2D meshes.
 		renderManager.Draw2D();
 	}
@@ -116,6 +116,7 @@ void ModuleRenderer3D::DrawGame()
 // PostUpdate present buffer to screen
 UpdateStatus ModuleRenderer3D::PostUpdate()
 {
+#ifdef STANDALONE
 	if (_cameras->sceneCamera->active)
 	{
 		_cameras->sceneCamera->frameBuffer.Bind();
@@ -137,10 +138,10 @@ UpdateStatus ModuleRenderer3D::PostUpdate()
 		glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 
 		_cameras->currentDrawingCamera = _cameras->activeGameCamera;
-		
+
 		particleManager.Draw();
 		renderManager.Draw();
-		
+
 		// Draw all 2D meshes.
 		renderManager.Draw2D();
 	}
@@ -148,7 +149,9 @@ UpdateStatus ModuleRenderer3D::PostUpdate()
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
 	ModuleLayers::S_DrawEditor();
-	//DrawGame();
+#else
+	DrawGame();
+#endif
 
 	SDL_GL_SwapWindow(ModuleWindow::window);
 
@@ -212,7 +215,7 @@ GameObject* ModuleRenderer3D::RaycastFromMousePosition(LineSegment& ray, CameraO
 	bool hit = false;
 	std::vector<uint> hitGameobjects;
 	for (auto& gameObject : gameObjects)
-	{		
+	{
 		if (gameObject.second == nullptr)
 			continue;
 
@@ -270,8 +273,6 @@ GameObject* ModuleRenderer3D::RaycastFromMousePosition(LineSegment& ray, CameraO
 		}
 	}
 
-	
+
 	return nullptr;
 }
-
-

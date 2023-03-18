@@ -9,14 +9,20 @@ HELLO_ENGINE_API_C PlayerGun* CreatePlayerGun(ScriptToInspectorInterface* script
     script->AddDragFloat("Projectile Resistance Damage", &classInstance->projectileResistanceDamage);
     script->AddDragFloat("Projectile Lifetime", &classInstance->projectileLifetime);
     script->AddDragBoxTransform("Projectile Spawn", &classInstance->shootingSpawn);
-    script->AddDragBoxMeshRenderer("Projectile Mesh", &classInstance->projectileMesh);
+    script->AddDragBoxMeshResource("Projectile Mesh", &classInstance->projectileMesh);
+    script->AddDragBoxTextureResource("Projectile Material", &classInstance->projectileMaterial);
+    script->AddDragFloat("Projectile ScaleX", &classInstance->projectileScale.x);
+    script->AddDragFloat("Projectile ScaleY", &classInstance->projectileScale.y);
+    script->AddDragFloat("Projectile ScaleZ", &classInstance->projectileScale.z);
     script->AddDragFloat("Projectiles per second", &classInstance->cadence);
+    script->AddDragBoxGameObject("Player Stats GO", &classInstance->player);
+    script->AddDragInt("Ammo Type", &classInstance->ammoType);
     return classInstance;
 }
 
 void PlayerGun::Start()
 {
-
+    playerStats = (PlayerStats*)player.GetScript("PlayerStats");
 }
 
 void PlayerGun::Update()
@@ -29,16 +35,18 @@ void PlayerGun::Shoot()
 
 }
 
-void PlayerGun::LauchProjectile()
+void PlayerGun::EnableGuns(bool enable)
 {
-    float x = shootingSpawn.GetUp().x;
-    float z = shootingSpawn.GetUp().z;
+    
+}
 
+void PlayerGun::LauchProjectile(API_Transform projectileSpawn, PROJECTILE_ACTION projectileAction, bool randomDirection)
+{
     ProjectilePull* pull = (ProjectilePull*)projectilePull.GetScript("ProjectilePull");
     if (pull == nullptr)
     {
         Console::Log("ProjectilePull not asigned");
         return;
     }
-    pull->LauchProjectile(projectileSpeed, projectileDamage, projectileResistanceDamage, projectileLifetime, shootingSpawn, projectileMesh);
+    pull->LauchProjectile(projectileSpeed, projectileDamage, projectileResistanceDamage, projectileLifetime, projectileSpawn, projectileMesh, projectileMaterial, projectileScale, projectileAction, randomDirection);
 }

@@ -106,13 +106,10 @@ UpdateStatus ModulePhysics::PreUpdate()
 	else
 	{
 		world->stepSimulation(0);
-		std::cout << "stop" << std::endl;
 	}
 #elif STANDALONE
 	if (LayerGame::S_IsPlaying() && !LayerGame::S_IsPause())
 	{
-		float a = EngineTime::GameDeltaTime();
-		Console::S_Log(std::to_string(a));
 		world->stepSimulation(EngineTime::GameDeltaTime(), 15);
 }
 	else
@@ -219,6 +216,7 @@ PhysBody3D* ModulePhysics::CreatePhysBody(const Primitive* primitive, float mass
 {
 	btCollisionShape* colShape = nullptr;
 	btTransform setUpTransform;
+	float radius = 0;
 
 	switch (primitive->GetType())
 	{
@@ -232,6 +230,7 @@ PhysBody3D* ModulePhysics::CreatePhysBody(const Primitive* primitive, float mass
 	case PrimitiveTypes::Primitive_Sphere:
 	{
 		PrimSphere* sphere = (PrimSphere*)primitive;
+		radius = sphere->radius;
 		colShape = new btSphereShape(sphere->radius);
 		setUpTransform.setFromOpenGLMatrix(sphere->transform.ptr());
 	}
@@ -282,6 +281,8 @@ PhysBody3D* ModulePhysics::CreatePhysBody(const Primitive* primitive, float mass
 		}
 		break;
 	}
+
+	pbody->radius = radius;
 
 	body->setUserPointer(pbody);
 

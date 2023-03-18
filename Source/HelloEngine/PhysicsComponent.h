@@ -3,6 +3,7 @@
 #include "Globals.h"
 #include "PhysBody3D.h"
 #include "ModulePhysics.h"
+#include "API/API_GameObject.h"
 
 class PhysicsComponent : public Component
 {
@@ -19,12 +20,16 @@ public:
 	float3 GetGravity();
 	void CheckRenderBuffers();
 
+	float GetRadius();
+
 private:
+#ifdef STANDALONE
 	void OnEditor() override;
+
+#endif // STANDALONE
 
 	void Serialization(json& j) override;
 	void DeSerialization(json& j) override;
-
 	//Physics
 	void CheckShapes();
 
@@ -44,9 +49,6 @@ private:
 
 	void OnTransformCallback(float4x4 worldMatrix);
 	
-	
-	
-
 	void OnEnable();
 	void OnDisable();
 
@@ -61,6 +63,8 @@ private:
 	bool isStatic;
 	float gravity[3];
 	
+	friend class API::API_GameObject;
+
 public:
 	float localGlobalGravity[3];
 	float globalGravity[3];

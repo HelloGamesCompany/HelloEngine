@@ -517,6 +517,11 @@ void PhysicsComponent::CheckRenderBuffers()
 	}
 }
 
+float PhysicsComponent::GetRadius()
+{
+	return physBody->GetRadius();
+}
+
 void PhysicsComponent::CallUpdatePos()
 {
 	ModulePhysics::UpdatePhysBodyPos(physBody);

@@ -70,6 +70,8 @@ void MaterialComponent::ChangeTexture(int ID)
     GetMesh().textureID = textureID;
 }
 
+#ifdef STANDALONE
+
 void MaterialComponent::MarkAsDead()
 {
     if (currentResource != nullptr)
@@ -85,7 +87,7 @@ void MaterialComponent::MarkAsAlive()
     ChangeTexture((ResourceTexture*)ModuleResourceManager::S_LoadResource(resourceUID));
 }
 
-
+#endif
 
 void MaterialComponent::SetAsUI()
 {
@@ -151,6 +153,9 @@ void MaterialComponent::DestroyedResource()
 {
     ChangeTexture(nullptr);
 }
+
+#ifdef STANDALONE
+
 void MaterialComponent::OnEditor()
 {
 	bool created = true;
@@ -230,7 +235,7 @@ void MaterialComponent::OnEditor()
 		ImGui::TextColored(ImVec4(1, 1, 0, 1), std::to_string(height).c_str());
 	}
 }
-
+#endif
 void MaterialComponent::OnEnable()
 {
     if (!meshRenderer) return;

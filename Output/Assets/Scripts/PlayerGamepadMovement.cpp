@@ -270,7 +270,7 @@ void PlayerGamepadMovement::GamepadAim()
     if (Input::GetGamePadAxis(GamePadAxis::AXIS_RIGHTX) > 10000 || Input::GetGamePadAxis(GamePadAxis::AXIS_RIGHTX) < -10000
         || Input::GetGamePadAxis(GamePadAxis::AXIS_RIGHTY) > 10000 || Input::GetGamePadAxis(GamePadAxis::AXIS_RIGHTY) < -10000)
     {
-        _angle = atan2(normLookDir.y, normLookDir.x) * RADTODEG - 90.0f;
+        _angle = -atan2(normLookDir.y, normLookDir.x) * RADTODEG - 90.0f;
     }
 
     if (Input::GetKey(KeyCode::KEY_F) == KeyState::KEY_DOWN)
@@ -283,7 +283,7 @@ void PlayerGamepadMovement::GamepadAim()
         Console::Log(std::to_string(mousePos.x));
         Console::Log(std::to_string(mousePos.y));
     }
-    gameObject.GetTransform().SetRotation(0, _angle, 0);
+    gameObject.GetTransform().SetRotation(0, -_angle, 0);
 
 }
 

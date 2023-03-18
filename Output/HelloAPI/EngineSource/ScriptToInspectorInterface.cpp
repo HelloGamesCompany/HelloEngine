@@ -7,11 +7,14 @@
 #include "API/API_RigidBody.h"
 #include "API/API_AnimationPlayer.h"
 #include "API/API_ParticleSystem.h"
+#include "API/API_Material.h"
+
 #include "PhysicsComponent.h"
 #include "MeshRenderComponent.h"
 #include "CameraComponent.h"
 #include "AnimationComponent.h"
 #include "ParticleSystemComponent.h"
+#include "MaterialComponent.h"
 
 void DragFieldFloat::OnEditor()
 {
@@ -31,7 +34,7 @@ void DragFieldFloat::OnDeserialize(json& j)
 	{
 		if (j[i].find(valueName) != j[i].end())
 		{
-			*(float*)value = j[i][valueName.c_str()];	
+			*(float*)value = j[i][valueName.c_str()];
 		}
 	}
 }
@@ -108,7 +111,7 @@ void InputBoxField::OnDeserialize(json& j)
 void DragBoxGameObject::OnEditor()
 {
 	API::API_GameObject* go = (API::API_GameObject*)value;
-	
+
 	std::string buttonName = "X##" + std::to_string(UID);
 	if (ImGui::Button(buttonName.c_str()))
 	{
@@ -141,7 +144,7 @@ void DragBoxGameObject::OnEditor()
 void DragBoxGameObject::OnSerialize(json& j)
 {
 	json _j;
-	
+
 	API::API_GameObject* go = (API::API_GameObject*)value;
 
 	if (go->_gameObject != nullptr)
@@ -149,7 +152,7 @@ void DragBoxGameObject::OnSerialize(json& j)
 		_j[valueName.c_str()] = go->_gameObject->GetID();
 		j.push_back(_j);
 	}
-	
+
 }
 
 void DragBoxGameObject::OnDeserialize(json& j)
@@ -273,7 +276,7 @@ void DragBoxMeshRenderer::OnEditor()
 
 			if (droppedGO != nullptr)
 				component = droppedGO->GetComponent<MeshRenderComponent>();
-			
+
 			mesh->SetComponent(component);
 		}
 		ImGui::EndDragDropTarget();
@@ -596,6 +599,195 @@ void DragBoxAnimationResource::OnDeserialize(json& j)
 		if (j[i].find(valueName) != j[i].end())
 		{
 			*(uint*)value = j[i][valueName.c_str()];
+		}
+	}
+}
+
+void DragBoxMeshResource::OnEditor()
+{
+	uint* meshUID = (uint*)value;
+
+	ImGui::TextWrapped((valueName + ": ").c_str()); ImGui::SameLine();
+
+	if (*meshUID == 0)
+	{
+		ImGui::TextColored(ImVec4(1, 1, 0, 1), "NULL (Drag a Mesh Resource here)");
+	}
+	else
+	{
+		ResourceMesh* meshRes = (ResourceMesh*)ModuleResourceManager::resources[*meshUID];
+		std::string gameObjectName(meshRes->debugName);
+		std::string text = "(" + gameObjectName + ")" + ": Mesh Resource";
+		ImGui::TextColored(ImVec4(1, 1, 0, 1), text.c_str());
+	}
+
+	if (ImGui::BeginDragDropTarget())
+	{
+		if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("Mesh"))
+		{
+			const uint* drop = (uint*)payload->Data;
+
+			ResourceMesh* meshRes = (ResourceMesh*)ModuleResourceManager::S_LoadResource(*drop);
+
+			if (meshRes != nullptr)
+				*meshUID = meshRes->UID;
+		}
+		ImGui::EndDragDropTarget();
+	}
+}
+
+void DragBoxMeshResource::OnSerialize(json& j)
+{
+	json _j;
+
+	uint* meshUID = (uint*)value;
+
+	if (*meshUID != 0)
+	{
+		_j[valueName.c_str()] = *meshUID;
+		j.push_back(_j);
+	}
+}
+
+void DragBoxMeshResource::OnDeserialize(json& j)
+{
+	for (int i = 0; i < j.size(); i++)
+	{
+		if (j[i].find(valueName) != j[i].end())
+		{
+			*(uint*)value = j[i][valueName.c_str()];
+		}
+	}
+}
+
+void DragBoxTextureResource::OnEditor()
+{
+	uint* textureUID = (uint*)value;
+
+	ImGui::TextWrapped((valueName + ": ").c_str()); ImGui::SameLine();
+
+	if (*textureUID == 0)
+	{
+		ImGui::TextColored(ImVec4(1, 1, 0, 1), "NULL (Drag a Texture Resource here)");
+	}
+	else
+	{
+		ResourceTexture* textureRes = (ResourceTexture*)ModuleResourceManager::resources[*textureUID];
+		std::string gameObjectName(textureRes->debugName);
+		std::string text = "(" + gameObjectName + ")" + ": Texture Resource";
+		ImGui::TextColored(ImVec4(1, 1, 0, 1), text.c_str());
+	}
+
+	if (ImGui::BeginDragDropTarget())
+	{
+		if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("Texture"))
+		{
+			const uint* drop = (uint*)payload->Data;
+
+			ResourceTexture* textureRes = (ResourceTexture*)ModuleResourceManager::S_LoadResource(*drop);
+
+			if (textureRes != nullptr)
+				*textureUID = textureRes->UID;
+		}
+		ImGui::EndDragDropTarget();
+	}
+}
+
+void DragBoxTextureResource::OnSerialize(json& j)
+{
+	json _j;
+
+	uint* textureUID = (uint*)value;
+
+	if (*textureUID != 0)
+	{
+		_j[valueName.c_str()] = *textureUID;
+		j.push_back(_j);
+	}
+}
+
+void DragBoxTextureResource::OnDeserialize(json& j)
+{
+	for (int i = 0; i < j.size(); i++)
+	{
+		if (j[i].find(valueName) != j[i].end())
+		{
+			*(uint*)value = j[i][valueName.c_str()];
+		}
+	}
+}
+
+void DragBoxMaterialComponent::OnEditor()
+{
+	API::API_Material* material = (API::API_Material*)value;
+
+	std::string buttonName = "X##" + std::to_string(UID);
+	if (ImGui::Button(buttonName.c_str()))
+	{
+		material->SetComponent(nullptr);
+	}
+	ImGui::SameLine();
+
+	ImGui::TextWrapped((valueName + ": ").c_str()); ImGui::SameLine();
+
+	if (material->_material == nullptr)
+	{
+		ImGui::TextColored(ImVec4(1, 1, 0, 1), "NULL (Drag a Material Component here)");
+	}
+	else
+	{
+		std::string gameObjectName(material->GetGameObject().GetName());
+		std::string text = "(" + gameObjectName + ")" + ": Material Component";
+		ImGui::TextColored(ImVec4(1, 1, 0, 1), text.c_str());
+	}
+
+	if (ImGui::BeginDragDropTarget())
+	{
+		if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("GameObject"))
+		{
+			const uint* drop = (uint*)payload->Data;
+
+			GameObject* droppedGO = ModuleLayers::S_GetGameObject(*drop);
+			MaterialComponent* component = nullptr;
+
+			if (droppedGO != nullptr)
+				component = droppedGO->GetComponent<MaterialComponent>();
+
+			material->SetComponent(component);
+		}
+		ImGui::EndDragDropTarget();
+	}
+}
+
+void DragBoxMaterialComponent::OnSerialize(json& j)
+{
+	json _j;
+
+	API::API_Material* material = (API::API_Material*)value;
+
+	if (material->_material != nullptr)
+	{
+		_j[valueName.c_str()] = material->_material->GetGameObject()->GetID();
+		j.push_back(_j);
+	}
+}
+
+void DragBoxMaterialComponent::OnDeserialize(json& j)
+{
+	for (int i = 0; i < j.size(); i++)
+	{
+		if (j[i].find(valueName) != j[i].end())
+		{
+			uint id = j[i][valueName.c_str()];
+			GameObject* gameObject = ModuleLayers::S_GetGameObject(id);
+			MaterialComponent* component = nullptr;
+			if (gameObject != nullptr)
+				component = gameObject->GetComponent<MaterialComponent>();
+			if (component != nullptr)
+			{
+				API::API_Material* material = (API::API_Material*)value;
+				material->SetComponent(component);
+			}
 		}
 	}
 }

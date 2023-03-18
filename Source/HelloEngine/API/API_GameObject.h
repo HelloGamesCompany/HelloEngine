@@ -1,6 +1,7 @@
 #pragma once
 #include "Globals.h"
 #include <string>
+#include "API_Vector3.h"
 
 class GameObject;
 class DragBoxGameObject;
@@ -9,52 +10,65 @@ class HelloBehavior;
 
 namespace API
 {
-	class API_Transform;
-	class API_MeshRenderer;
-	class API_Camera;
-	class API_RigidBody;
-	class API_AnimationPlayer;
-	class API_ParticleSystem;
-	class TO_API API_GameObject
-	{
-	public:
-		API_GameObject();
-		~API_GameObject();
+    class API_Transform;
+    class API_MeshRenderer;
+    class API_Camera;
+    class API_RigidBody;
+    class API_AnimationPlayer;
+    class API_ParticleSystem;
+    class API_Material;
 
-		// Any necessary methods from the GameObject class, but with a nullptr check before calling.
+    class TO_API API_GameObject
+    {
+    public:
+        API_GameObject();
+        ~API_GameObject();
 
-		const char* GetName();
-		const char* GetTag();
+        // Any necessary methods from the GameObject class, but with a nullptr check before calling.
 
-		HelloBehavior* AddScript(const char* className);
-		HelloBehavior* GetScript(const char* className);
+        const char* GetName();
+        const char* GetTag();
 
-		API_MeshRenderer AddMeshRenderer();
-		API_MeshRenderer AddMeshRenderer(API_MeshRenderer& copy);
+        HelloBehavior* AddScript(const char* className);
+        HelloBehavior* GetScript(const char* className);
 
-		void SetActive(bool active);
+        API_MeshRenderer AddMeshRenderer();
+        API_MeshRenderer AddMeshRenderer(API_MeshRenderer& copy);
 
-		// Destroys this GameObject instance from the scene. You can still use the API_GameObject class, but it wont make any effect.
-		void Destroy();
+        API_Material AddMaterial();
 
-		bool IsAlive() { return _gameObject != nullptr; }
+        API_MeshRenderer GetMeshRenderer();
+        API_Material GetMaterialCompoennt();
 
-		API::API_Transform GetTransform();
+        void SetActive(bool active);
+        bool IsActive();
 
-	private:
-		GameObject* GetGameObject() { return _gameObject; };
-		void SetGameObject(GameObject* gameObject);
-	private:
-		GameObject* _gameObject = nullptr;
-		friend class ModuleLayers;
-		friend class DragBoxGameObject;
-		friend class API_Transform;
-		friend class API_MeshRenderer;
-		friend class API_RigidBody;
-		friend class API_Camera;
-		friend class API_AnimationPlayer;
-		friend class Game;
-		friend class LayerGame;
-		friend class API_ParticleSystem;
-	};
+        // Destroys this GameObject instance from the scene. You can still use the API_GameObject class, but it wont make any effect.
+        void Destroy();
+
+        bool IsAlive() { return _gameObject != nullptr; }
+
+        API::API_Transform GetTransform();
+
+        // Create components
+
+        API::API_RigidBody CreateRigidBodyBox(API_Vector3 pos, API_Vector3 rotation, API_Vector3 scale, bool isStatic);
+
+    private:
+        GameObject* GetGameObject() { return _gameObject; };
+        void SetGameObject(GameObject* gameObject);
+    private:
+        GameObject* _gameObject = nullptr;
+        friend class ModuleLayers;
+        friend class DragBoxGameObject;
+        friend class API_Transform;
+        friend class API_MeshRenderer;
+        friend class API_RigidBody;
+        friend class API_Camera;
+        friend class API_AnimationPlayer;
+        friend class API_Material;
+        friend class Game;
+        friend class LayerGame;
+        friend class API_ParticleSystem;
+    };
 }

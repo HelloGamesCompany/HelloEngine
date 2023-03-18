@@ -49,7 +49,6 @@ bool LayerEditor::_showCompilationWarning = false;
 bool LayerEditor::_showCompilationError = false;
 bool LayerEditor::_cannotCancel = false;
 
-
 LayerEditor::LayerEditor()
 {
 }
@@ -234,7 +233,9 @@ void LayerEditor::PostUpdate()
 			_imWindows[i]->Update();
     }
 
+#ifdef STANDALONE
 	Application::Instance()->renderer3D->renderManager.OnEditor();
+#endif
 
 	if (_openLoadScene)
 		DrawPopUpLoadScene();
@@ -491,6 +492,12 @@ void LayerEditor::DrawAssetsTree(Directory*& newDir, Directory* node, const bool
 	}
 }
 
+void LayerEditor::S_ReimportAllAssets()
+{
+	ImWindowProject* proj = (ImWindowProject*)_imWindows[(uint)ImWindowID::PROJECT];
+	proj->RefreshAssets();
+}
+
 void LayerEditor::DrawMenuBar()
 {
 	if (ImGui::BeginMainMenuBar())
@@ -564,6 +571,15 @@ void LayerEditor::DrawMenuBar()
 			for (int i = 0; i < (uint)ImWindowID::MAX; i++)
 			{
 				ImGui::MenuItem(_imWindows[i]->windowName.c_str(), (const char*)0, &_imWindows[i]->isEnabled);
+			}
+			ImGui::EndMenu();
+		}
+
+		if (ImGui::BeginMenu("Tools"))
+		{
+			if (ImGui::MenuItem("Reimport all assets"))
+			{
+				S_ReimportAllAssets();
 			}
 			ImGui::EndMenu();
 		}

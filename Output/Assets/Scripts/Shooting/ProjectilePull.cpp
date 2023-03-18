@@ -1,27 +1,29 @@
 #include "ProjectilePull.h"
 #include "../PlayerGamepadMovement.h"
+#include <time.h>
 HELLO_ENGINE_API_C ProjectilePull* CreateProjectilePull(ScriptToInspectorInterface* script)
 {
     ProjectilePull* classInstance = new ProjectilePull();
     //Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
-    script->AddDragBoxGameObject("Bullet", &classInstance->projectileGO);
     script->AddDragInt("Pull Size", &classInstance->pullSize);
-    script->AddDragBoxMeshRenderer("Projectile Mesh", &classInstance->mesh);
     script->AddDragBoxGameObject("Player", &classInstance->playerGO);
     return classInstance;
 }
 
 void ProjectilePull::Start()
 {
-    //for (size_t i = 0; i < pullSize; i++)
-    //{
-    //    API_GameObject newProjectile = Game::CreateGameObject("Projectile", "Projectile");
-    //    newProjectile.AddMeshRenderer(mesh);
-    //    //newProjectile.RigidBody
-    //    newProjectile.AddScript("Projectile");
-    //    newProjectile.GetTransform().SetScale(0.1f, 0.1f, 0.1f);
-    //    pull.push_back(newProjectile);
-    //}
+    srand(time(NULL));
+
+    for (size_t i = 0; i < pullSize; i++)
+    {
+        API_GameObject newProjectile = Game::CreateGameObject("Projectile", "Projectile");
+        newProjectile.AddMeshRenderer();
+        newProjectile.AddMaterial();
+        newProjectile.CreateRigidBodyBox((0, 0, 0), (0, 0, 0), (0.3f, 0.3f, 0.3f), false);
+        newProjectile.AddScript("Projectile");
+        newProjectile.SetActive(false);
+        pull.push_back(newProjectile);
+    }
 }
 
 void ProjectilePull::Update()
@@ -31,34 +33,42 @@ void ProjectilePull::Update()
 
 API_GameObject ProjectilePull::GetFirstActiveProjectile()
 {
-    /*for (size_t i = 0; i < 5; i++)
+    for (size_t i = 0; i < pullSize; i++)
     {
-        if (!pull.at(i).active)) return pull.at(i);
-    }*/
+        if (!pull[i].IsActive()) return pull[i];
+    }
 
-    return pull.at(0);
+    return pull[0];
 }
 
-void ProjectilePull::LauchProjectile(float projectileSpeed, float projectileDamage, float projectileResistanceDamage, float projectileLifetime, API_Transform shootingSpawn, API_MeshRenderer projectileMesh)
+void ProjectilePull::LauchProjectile(float projectileSpeed, float projectileDamage, float projectileResistanceDamage, float projectileLifetime, API_Transform shootingSpawn, uint projectileMesh, uint projectileMaterial, API_Vector3 projectileScale, PROJECTILE_ACTION projectileAction, bool randomDirection)
 {
-    API_GameObject go = projectileGO;//GetFirstActiveProjectile();
+    API_GameObject go = GetFirstActiveProjectile();
     go.SetActive(true);
     go.GetTransform().SetPosition(shootingSpawn.GetGlobalPosition());
     go.GetTransform().SetRotation(playerGO.GetTransform().GetLocalRotation());
-    //go.ChangeMesh;
-   /* PlayerGamepadMovement* player = (PlayerGamepadMovement*)playerGO.GetScript("PlayerGamepadMovement");
+    go.GetTransform().SetScale(projectileScale);
+    if (projectileAction == PROJECTILE_ACTION::FLAMETROWER)
+    {
+        // hide projectile render
+    }
+    else
+    {
+        go.GetMeshRenderer().ChangeMesh(projectileMesh);
+        go.GetMaterialCompoennt().ChangeAlbedoTexture(projectileMaterial);
+    }
 
-    float angle = player->_angle;*/
-
-   /* API_Vector3 originalDir = { 0,0,-1.0f };
-
-    originalDir.z = originalDir.x * cos(angle) - originalDir.z * sin(angle);
-    originalDir.x = originalDir.x * sin(angle) - originalDir.z * cos(angle);*/
+    if (randomDirection)
+    {
+        float offsetX = (-49 + rand() % (100)) / 5.0f; // values between -25 and 25
+        float offsetY = (-49 + rand() % (100)) / 5.0f;
+        go.GetTransform().Rotate(offsetX, offsetY, 0);
+    }
 
     Projectile* projectile = (Projectile*)go.GetScript("Projectile");
-    //projectile->direction = originalDir;
-    //projectile->speed = projectileSpeed;
+    projectile->speed = projectileSpeed;
     projectile->damage = projectileDamage;
     projectile->resistanceDamage = projectileResistanceDamage;
     projectile->lifeTime = projectileLifetime;
+    projectile->action = projectileAction;
 }
