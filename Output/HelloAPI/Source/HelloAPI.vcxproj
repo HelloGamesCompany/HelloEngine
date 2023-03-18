@@ -156,12 +156,18 @@
     <ClCompile Include="../../Assets/Build/AnimationTest.cpp" />
     <ClCompile Include="../../Assets/Scripts/RotateContiniously.cpp" />
     <ClCompile Include="../../Assets/Scripts/ParticleTest.cpp" />
+    <ClCompile Include="..\..\Assets\Scripts\Enemies\EnemyMeleeMovement.cpp" />
+    <ClCompile Include="..\..\Assets\Scripts\Player\PlayerMove.cpp" />
     <ClCompile Include="..\..\Assets\Scripts\Player\PlayerStats.cpp" />
     <ClCompile Include="..\..\Assets\Scripts\Shooting\Guns\PlayerSemiAuto.cpp" />
+    <ClCompile Include="..\..\Assets\Scripts\TestAPI.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Assets\Scripts\Enemies\EnemyMeleeMovement.h" />
+    <ClInclude Include="..\..\Assets\Scripts\Player\PlayerMove.h" />
     <ClInclude Include="..\..\Assets\Scripts\Player\PlayerStats.h" />
     <ClInclude Include="..\..\Assets\Scripts\Shooting\Guns\PlayerSemiAuto.h" />
+    <ClInclude Include="..\..\Assets\Scripts\TestAPI.h" />
     <ClInclude Include="Macro.h" />
     <ClInclude Include="../../Assets/Scripts/transformTest.h" />
     <ClInclude Include="../../Assets/Scripts/BulletBehavior.h" />

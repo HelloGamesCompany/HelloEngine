@@ -10,7 +10,7 @@
 		<framerate value="60" />
 	</renderer>
 	<scene>
-		<currentScene value="Assets/Root.HScene" />
+		<currentScene value="Assets/EnemiesTest.HScene" />
 	</scene>
 	<openGL>
 		<blend value="true" tag="0x0BE2" />
