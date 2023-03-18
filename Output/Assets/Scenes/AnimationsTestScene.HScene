@@ -100,10 +100,58 @@
                         "minY": 0.0
                     },
                     {
-                        "maxY": 0.20000000298023224
+                        "maxY": 0.0
                     },
                     {
-                        "Vel": 0.0020000000949949026
+                        "Vel": 0.0
+                    },
+                    {
+                        "button": 1679483824
+                    },
+                    {
+                        "minY": 0.0
+                    },
+                    {
+                        "maxY": 0.0
+                    },
+                    {
+                        "Vel": 0.0
+                    },
+                    {
+                        "button": 1679483824
+                    },
+                    {
+                        "minY": 0.0
+                    },
+                    {
+                        "maxY": 0.0
+                    },
+                    {
+                        "Vel": 0.0
+                    },
+                    {
+                        "button": 1679483824
+                    },
+                    {
+                        "minY": 0.0
+                    },
+                    {
+                        "maxY": 0.0
+                    },
+                    {
+                        "Vel": 0.0
+                    },
+                    {
+                        "button": 1679483824
+                    },
+                    {
+                        "minY": 0.0
+                    },
+                    {
+                        "maxY": 0.0
+                    },
+                    {
+                        "Vel": 0.0
                     }
                 ],
                 "Script Resource": 1526311301,
@@ -138,12 +186,6 @@
                     0.5
                 ],
                 "Type": 1
-            },
-            {
-                "Enabled": true,
-                "FillImage": 1.0,
-                "MaterialResource": 2738664341,
-                "Type": 15
             }
         ],
         "FirstOnPrefab": true,
@@ -177,15 +219,21 @@
             },
             {
                 "Enabled": true,
-                "FillImage": 1.0,
-                "MaterialResource": 4095403898,
-                "Type": 15
-            },
-            {
-                "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Velocity": 0.05000000074505806
+                        "Velocity": 0.0
+                    },
+                    {
+                        "Velocity": 0.0
+                    },
+                    {
+                        "Velocity": 0.0
+                    },
+                    {
+                        "Velocity": 0.0
+                    },
+                    {
+                        "Velocity": 0.0
                     }
                 ],
                 "Script Resource": 354635148,

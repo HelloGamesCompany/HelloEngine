@@ -14,12 +14,6 @@ namespace API
 
 		API_GameObject GetGameObject();
 
-		bool OnPress();
-
-		bool OnHold();
-
-		bool OnHovered();
-
 	private:
 		ComponentUIImage* GetComponent();
 		void SetComponent(ComponentUIImage* component);

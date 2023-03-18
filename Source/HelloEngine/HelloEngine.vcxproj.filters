@@ -422,11 +422,11 @@
     <ClCompile Include="API\API_UIButton.cpp">
       <Filter>API</Filter>
     </ClCompile>
-    <ClCompile Include="API_UIImage.cpp">
-      <Filter>API</Filter>
-    </ClCompile>
     <ClCompile Include="FontManager.cpp" />
     <ClCompile Include="ComponentUIInput.cpp" />
+    <ClCompile Include="API\API_UIImage.cpp">
+      <Filter>API</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -968,11 +968,11 @@
     <ClInclude Include="API\API_UIButton.h">
       <Filter>API</Filter>
     </ClInclude>
-    <ClInclude Include="API_UIImage.h">
-      <Filter>API</Filter>
-    </ClInclude>
     <ClInclude Include="FontManager.h" />
     <ClInclude Include="ComponentUIInput.h" />
+    <ClInclude Include="API\API_UIImage.h">
+      <Filter>API</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="External">
