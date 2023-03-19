@@ -222,17 +222,17 @@ API::API_RigidBody API::API_GameObject::CreateRigidBodyBox(API::API_Vector3 pos,
     }
 
     PhysicsComponent* physComponent = _gameObject->AddComponent<PhysicsComponent>();
-    physComponent->shapeSelected = ColliderShape::BOX;
+    physComponent->_shapeSelected = ColliderShape::BOX;
     physComponent->CreateCollider();
-    physComponent->physBody->colPos = { pos.x, pos.y, pos.z };
-    physComponent->physBody->colRot = { rotation.x, rotation.y, rotation.z };
-    physComponent->physBody->colScl = { scale.x, scale.y, scale.z };
+    physComponent->_physBody->colPos = { pos.x, pos.y, pos.z };
+    physComponent->_physBody->colRot = { rotation.x, rotation.y, rotation.z };
+    physComponent->_physBody->colScl = { scale.x, scale.y, scale.z };
     physComponent->CallUpdatePos();
     physComponent->CallUpdateRotation();
     physComponent->CallUpdateScale();
     if (isStatic)
     {
-        physComponent->physBody->isStatic = true;
+        physComponent->_physBody->isStatic = true;
         physComponent->CallUpdateMass();
     }
 
