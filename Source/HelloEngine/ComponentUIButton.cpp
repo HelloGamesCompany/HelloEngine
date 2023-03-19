@@ -21,25 +21,31 @@ ComponentUIButton::~ComponentUIButton()
 void ComponentUIButton::InputUpdate()
 {
 	// Add here any checks necessary with INPUT.
-	State = ChangeState(State);
+	//State = ChangeState(State);
 
-	/*switch (State)
+	switch (State)
 	{
 	case ButtonState::NORMAL:
-
+		_material->ChangeTexture(textureIDIdle);
+		gameTimeCopy = EngineTime::GameTimeCount();
 		break;
 	case ButtonState::HOVERED:
-
+		_material->ChangeTexture(textureIDHover);
+		gameTimeCopy = EngineTime::GameTimeCount();
 		break;
 	case ButtonState::ONPRESS:
-
+		_material->ChangeTexture(textureIDPress);
+		if (EngineTime::GameTimeCount() >= gameTimeCopy + 0.5)
+		{
+			State = ButtonState::ONHOLD;
+		}
 		break;
 	case ButtonState::ONHOLD:
-
+		State = ButtonState::HOVERED;
 		break;
 	default:
 		break;
-	}*/
+	}
 }
 
 void ComponentUIButton::Serialization(json& j)
@@ -110,13 +116,12 @@ void ComponentUIButton::DeSerialization(json& j)
 
 ButtonState ComponentUIButton::ChangeState(ButtonState State)
 {
+	
 	if (IsMouseOver()) {
 		//esta seleccionat
 		if (State != ButtonState::ONHOLD && ModuleInput::S_GetMouseButton(1) != KEY_REPEAT)
 		{
-			_material->ChangeTexture(textureIDHover);
-			State = ButtonState::HOVERED;
-			gameTimeCopy = EngineTime::GameTimeCount();
+	
 		}
 
 		//ha sigut clicat
@@ -127,29 +132,24 @@ ButtonState ComponentUIButton::ChangeState(ButtonState State)
 		//esta sent mantenit clickat
 		if (ModuleInput::S_GetMouseButton(1) == KEY_DOWN && State != ButtonState::ONHOLD)
 		{
-			_material->ChangeTexture(textureIDPress);
+			
 		}
 		if (ModuleInput::S_GetMouseButton(1) == KEY_REPEAT)
 		{
-			if (EngineTime::GameTimeCount() >= gameTimeCopy + 0.5)
-			{
-				State = ButtonState::ONHOLD;
-			}
+	
 		}
 
 		else if (State == ButtonState::ONHOLD)
 		{
-			State = ButtonState::HOVERED;
+			
 		}
 	}
-
+	
 	if (!IsMouseOver() && State != ButtonState::NORMAL)
 	{
-		_material->ChangeTexture(textureIDIdle);
-		State = ButtonState::NORMAL;
-		gameTimeCopy = EngineTime::GameTimeCount();
-	}
 
+	}
+	
 	return State;
 }
 

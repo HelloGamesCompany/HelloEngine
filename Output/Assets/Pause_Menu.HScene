@@ -122,6 +122,16 @@
                     1.0
                 ],
                 "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "Type": 16,
+                "listButtons": [
+                    3812402520,
+                    566227601,
+                    650122914
+                ]
             }
         ],
         "FirstOnPrefab": true,
@@ -129,7 +139,7 @@
         "ParentUID": 583491895,
         "PrefabUID": 0,
         "Tag": "UI",
-        "UID": 1488536227
+        "UID": 2991798809
     },
     {
         "Active": true,
@@ -162,7 +172,7 @@
         ],
         "FirstOnPrefab": true,
         "Name": "Image",
-        "ParentUID": 1488536227,
+        "ParentUID": 2991798809,
         "PrefabUID": 0,
         "Tag": "UI",
         "UID": 2264394264
@@ -207,7 +217,7 @@
         ],
         "FirstOnPrefab": true,
         "Name": "Continue",
-        "ParentUID": 1488536227,
+        "ParentUID": 2991798809,
         "PrefabUID": 0,
         "Tag": "UI",
         "UID": 3812402520
@@ -252,7 +262,7 @@
         ],
         "FirstOnPrefab": true,
         "Name": "Main Menu",
-        "ParentUID": 1488536227,
+        "ParentUID": 2991798809,
         "PrefabUID": 0,
         "Tag": "UI",
         "UID": 650122914
@@ -297,7 +307,7 @@
         ],
         "FirstOnPrefab": true,
         "Name": "Settings",
-        "ParentUID": 1488536227,
+        "ParentUID": 2991798809,
         "PrefabUID": 0,
         "Tag": "UI",
         "UID": 566227601

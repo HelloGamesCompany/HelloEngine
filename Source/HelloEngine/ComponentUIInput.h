@@ -17,7 +17,10 @@ class ComponentUIInput : public ComponentUI
 	std::vector<ComponentUIButton *> _listButtons;
 
 private: 
+
 	ImWindowGame* _gameWindow = nullptr;
+	bool isPress = true;
+	int ButtonSelected = 0;
 
 #ifdef STANDALONE
 	void OnEditor() override;
