@@ -1,6 +1,6 @@
 #include "MenuButtons.h"
 
-HELLO_ENGINE_API_C MenuButtons* CreateMenuButtons2(ScriptToInspectorInterface* script)
+HELLO_ENGINE_API_C MenuButtons* CreateMenuButtons(ScriptToInspectorInterface* script)
 {
 	MenuButtons* classInstance = new MenuButtons();
 	script->AddDragBoxUIButton("Continue", &classInstance->Continue);
