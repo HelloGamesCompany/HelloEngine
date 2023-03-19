@@ -157,6 +157,7 @@
     <ClCompile Include="../../Assets/Scripts/RotateContiniously.cpp" />
     <ClCompile Include="../../Assets/Scripts/ParticleTest.cpp" />
     <ClCompile Include="..\..\Assets\Scripts\Enemies\EnemyMeleeMovement.cpp" />
+    <ClCompile Include="..\..\Assets\Scripts\InteractiveEnviroment\ChestTest.cpp" />
     <ClCompile Include="..\..\Assets\Scripts\Player\PlayerMove.cpp" />
     <ClCompile Include="..\..\Assets\Scripts\Player\PlayerStats.cpp" />
     <ClCompile Include="..\..\Assets\Scripts\Shooting\Guns\PlayerAutomatic.cpp" />
@@ -170,6 +171,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Assets\Scripts\Enemies\EnemyMeleeMovement.h" />
+    <ClInclude Include="..\..\Assets\Scripts\InteractiveEnviroment\ChestTest.h" />
     <ClInclude Include="..\..\Assets\Scripts\Player\PlayerMove.h" />
     <ClInclude Include="..\..\Assets\Scripts\Player\PlayerStats.h" />
     <ClInclude Include="..\..\Assets\Scripts\Shooting\Guns\PlayerAutomatic.h" />

@@ -111,6 +111,9 @@
     <ClCompile Include="..\..\Assets\Scripts\Shooting\Guns\PlayerShotgun.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Assets\Scripts\InteractiveEnviroment\ChestTest.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Macro.h">
@@ -207,6 +210,9 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Assets\Scripts\Shooting\Guns\PlayerShotgun.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Assets\Scripts\InteractiveEnviroment\ChestTest.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
