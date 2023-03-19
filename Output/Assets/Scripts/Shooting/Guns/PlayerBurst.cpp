@@ -14,7 +14,7 @@ HELLO_ENGINE_API_C PlayerBurst* CreatePlayerBurst(ScriptToInspectorInterface* sc
     script->AddDragFloat("Projectile ScaleX", &classInstance->projectileScale.x);
     script->AddDragFloat("Projectile ScaleY", &classInstance->projectileScale.y);
     script->AddDragFloat("Projectile ScaleZ", &classInstance->projectileScale.z);
-    script->AddDragFloat("Bursts per second", &classInstance->cadence);
+    script->AddDragFloat("Projectiles per second", &classInstance->cadence);
     script->AddDragFloat("Burst Space", &classInstance->fullBurstDelay);
     script->AddDragInt("Projectiles per burst", &classInstance->burstLenght);
     script->AddDragBoxGameObject("Player Stats GO", &classInstance->player);
