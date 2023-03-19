@@ -45,7 +45,16 @@ void ComponentUIInput::InputUpdate()
 	{
 		isPress = true;
 	}
-	//detectar el botton que estas y forçar su nuevo estado
+
+	if (ModuleInput::S_GetGamePadButton(GamePad::BUTTON_A) == KEY_REPEAT)
+	{
+		_listButtons[ButtonSelected]->State = ButtonState::ONPRESS;
+	}
+	if (ModuleInput::S_GetGamePadButton(GamePad::BUTTON_A) == KEY_UP)
+	{
+		_listButtons[ButtonSelected]->State = ButtonState::ONHOLD;
+	}
+
 }
 
 void ComponentUIInput::Serialization(json& j)
