@@ -20,40 +20,45 @@ ComponentUIInput::~ComponentUIInput()
 
 void ComponentUIInput::InputUpdate()
 {
-	if (ButtonSelected == 0)
+	if (_listButtons.size() != 0)
 	{
-		_listButtons[0]->State = ButtonState::HOVERED;
+		if (ButtonSelected == 0)
+		{
+			_listButtons[0]->State = ButtonState::HOVERED;
+		}
+
+		if (ButtonSelected < _listButtons.size() - 1 && ((ModuleInput::S_GetGamePadAxis(SDL_CONTROLLER_AXIS_LEFTY) > 128 && isPress) || ModuleInput::S_GetGamePadButton(GamePad::BUTTON_DOWN) == KEY_DOWN))
+		{
+			_listButtons[ButtonSelected]->State = ButtonState::NORMAL;
+			_listButtons[ButtonSelected]->IsHold = false;
+			ButtonSelected++;
+			_listButtons[ButtonSelected]->State = ButtonState::HOVERED;
+			isPress = false;
+		}
+		else if (ButtonSelected > 0 && ((ModuleInput::S_GetGamePadAxis(SDL_CONTROLLER_AXIS_LEFTY) < 128 && isPress) || ModuleInput::S_GetGamePadButton(GamePad::BUTTON_UP) == KEY_DOWN))
+		{
+			_listButtons[ButtonSelected]->State = ButtonState::NORMAL;
+			_listButtons[ButtonSelected]->IsHold = false;
+			ButtonSelected--;
+			_listButtons[ButtonSelected]->State = ButtonState::HOVERED;
+			isPress = false;
+		}
+		else if (ModuleInput::S_GetGamePadAxis(SDL_CONTROLLER_AXIS_LEFTY) == 128)
+		{
+			isPress = true;
+		}
+
+		if (ModuleInput::S_GetGamePadButton(GamePad::BUTTON_A) == KEY_REPEAT)
+		{
+			_listButtons[ButtonSelected]->State = ButtonState::ONPRESS;
+		}
+		if (ModuleInput::S_GetGamePadButton(GamePad::BUTTON_A) == KEY_UP)
+		{
+			_listButtons[ButtonSelected]->State = ButtonState::ONHOLD;
+		}
 	}
 
-	if (ButtonSelected < _listButtons.size() - 1 && ((ModuleInput::S_GetGamePadAxis(SDL_CONTROLLER_AXIS_LEFTY) > 128 && isPress) || ModuleInput::S_GetGamePadButton(GamePad::BUTTON_DOWN) == KEY_DOWN))
-	{
-		_listButtons[ButtonSelected]->State = ButtonState::NORMAL;
-		_listButtons[ButtonSelected]->IsHold = false;
-		ButtonSelected++;
-		_listButtons[ButtonSelected]->State = ButtonState::HOVERED;
-		isPress = false;
-	}
-	else if (ButtonSelected > 0 && ((ModuleInput::S_GetGamePadAxis(SDL_CONTROLLER_AXIS_LEFTY) < 128 && isPress) || ModuleInput::S_GetGamePadButton(GamePad::BUTTON_UP) == KEY_DOWN))
-	{
-		_listButtons[ButtonSelected]->State = ButtonState::NORMAL;
-		_listButtons[ButtonSelected]->IsHold = false;
-		ButtonSelected--;
-		_listButtons[ButtonSelected]->State = ButtonState::HOVERED;
-		isPress = false;
-	}
-	else if (ModuleInput::S_GetGamePadAxis(SDL_CONTROLLER_AXIS_LEFTY) == 128)
-	{
-		isPress = true;
-	}
-
-	if (ModuleInput::S_GetGamePadButton(GamePad::BUTTON_A) == KEY_REPEAT)
-	{
-		_listButtons[ButtonSelected]->State = ButtonState::ONPRESS;
-	}
-	if (ModuleInput::S_GetGamePadButton(GamePad::BUTTON_A) == KEY_UP)
-	{
-		_listButtons[ButtonSelected]->State = ButtonState::ONHOLD;
-	}
+	/**/
 
 }
 
