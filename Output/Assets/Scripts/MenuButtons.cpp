@@ -1,8 +1,8 @@
 #include "MenuButtons.h"
 
-HELLO_ENGINE_API_C MenuButtons2* CreateMenuButtons2(ScriptToInspectorInterface* script)
+HELLO_ENGINE_API_C MenuButtons* CreateMenuButtons2(ScriptToInspectorInterface* script)
 {
-	MenuButtons2* classInstance = new MenuButtons2();
+	MenuButtons* classInstance = new MenuButtons();
 	script->AddDragBoxUIButton("Continue", &classInstance->Continue);
 	script->AddDragBoxUIButton("NewGame", &classInstance->NewGame);
 	script->AddDragBoxUIButton("Exit", &classInstance->Exit);
@@ -12,11 +12,11 @@ HELLO_ENGINE_API_C MenuButtons2* CreateMenuButtons2(ScriptToInspectorInterface* 
 	return classInstance;
 }
 
-void MenuButtons2::Start()
+void MenuButtons::Start()
 {
 
 }
-void MenuButtons2::Update()
+void MenuButtons::Update()
 {
 	if (Continue.OnPress())
 	{

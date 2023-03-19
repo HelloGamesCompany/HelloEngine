@@ -5,7 +5,7 @@
 
 #include "API/API.h"
 
-class MenuButtons2 : HelloBehavior
+class MenuButtons : HelloBehavior
 {
 public:
 	void Start() override;

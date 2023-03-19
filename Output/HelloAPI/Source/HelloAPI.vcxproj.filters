@@ -39,13 +39,58 @@
     <ClCompile Include="../../Assets/Scripts/PlayerGamepadMovement.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="../../Assets/Scripts/Projectile.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
     <ClCompile Include="../../Assets/Scripts/Enemies/Enemy.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="../../Assets/Scripts/CollisionTestScript.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="../../Assets/Scripts/CamMov.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="../../Assets/Scripts/SwapCam.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="../../Assets/Scripts/StarShipCamMov.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="../../Assets/Scripts/Shooting/PlayerGunManager.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="../../Assets/Scripts/Shooting/PlayerGun.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="../../Assets/Scripts/Shooting/PlayerGunType.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="../../Assets/Scripts/Shooting/PlayerSemiAuto.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="../../Assets/Scripts/Shooting/ProjectilePull.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="../../Assets/Scripts/Shooting/Projectile.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="../../Assets/Build/AnimationTest.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="../../Assets/Scripts/RotateContiniously.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="../../Assets/Scripts/UIbutton.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="../../Assets/Scripts/UI Test folder/ButtonActionsTest.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="../../Assets/Scripts/UI Test folder/PauseMenu.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="../../Assets/Scripts/UI Test folder/Rotation.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="../../Assets/Scripts/MenuButtons.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
@@ -74,13 +119,58 @@
     <ClInclude Include="../../Assets/Scripts/PlayerGamepadMovement.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="../../Assets/Scripts/Projectile.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="../../Assets/Scripts/Enemies/Enemy.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="../../Assets/Scripts/CollisionTestScript.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="../../Assets/Scripts/CamMov.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="../../Assets/Scripts/SwapCam.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="../../Assets/Scripts/StarShipCamMov.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="../../Assets/Scripts/Shooting/PlayerGunManager.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="../../Assets/Scripts/Shooting/PlayerGun.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="../../Assets/Scripts/Shooting/PlayerGunType.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="../../Assets/Scripts/Shooting/PlayerSemiAuto.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="../../Assets/Scripts/Shooting/ProjectilePull.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="../../Assets/Scripts/Shooting/Projectile.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="../../Assets/Build/AnimationTest.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="../../Assets/Scripts/RotateContiniously.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="../../Assets/Scripts/UIbutton.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="../../Assets/Scripts/UI Test folder/ButtonActionsTest.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="../../Assets/Scripts/UI Test folder/PauseMenu.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="../../Assets/Scripts/UI Test folder/Rotation.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="../../Assets/Scripts/MenuButtons.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
