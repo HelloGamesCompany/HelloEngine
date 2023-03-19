@@ -21,7 +21,7 @@ void MenuButtons::Update()
 	if (Continue.OnPress())
 	{
 		Console::Log("im pressed");
-		Scene::LoadScene("HUD_Scene.HScene");
+		Scene::LoadScene("WinMenu.HScene");
 	}
 	if (NewGame.OnPress())
 	{
@@ -31,7 +31,7 @@ void MenuButtons::Update()
 	if (Exit.OnPress())
 	{
 		Console::Log("im pressed");
-		Scene::LoadScene("");
+		Scene::LoadScene("MainMenu.Hscene");
 	}
 	if (Collectibles.OnPress())
 	{
