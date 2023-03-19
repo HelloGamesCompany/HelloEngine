@@ -31,6 +31,12 @@ bool ModuleAudio::Init()
 {
     InitSoundEngine();
     InitSoundBanks();
+
+    defaultListener = RegisterGameObject(HelloUUID::GenerateUUID());
+    SetDefaultListener(defaultListener);
+
+    defaultSource = RegisterGameObject(HelloUUID::GenerateUUID());
+
     return true;
 }
 
@@ -47,12 +53,8 @@ UpdateStatus ModuleAudio::PreUpdate()
         {
             isPlayingBackground = true;
 
-            AkGameObjectID listenerID = RegisterGameObject(HelloUUID::GenerateUUID());
-            SetDefaultListener(listenerID);
-
-            AkGameObjectID sourceID = RegisterGameObject(HelloUUID::GenerateUUID());
-            AkPlayingID playing = AK::SoundEngine::PostEvent(AK::EVENTS::PLAY_BACKGROUND_MUSIC, sourceID);
-            playing = 1;
+           
+           
         }
     }
     ProcessAudio();
@@ -67,6 +69,20 @@ UpdateStatus ModuleAudio::Update()
 UpdateStatus ModuleAudio::PostUpdate()
 {
     return UpdateStatus::UPDATE_CONTINUE;
+}
+
+void ModuleAudio::ProduceEvent(std::string& eventName)
+{
+    AkPlayingID playing = AK::SoundEngine::PostEvent(eventName.c_str(), defaultSource);
+    if (playing == 0)
+        Console::S_Log("Error at reproducing audio event: " + eventName);
+}
+
+void ModuleAudio::ProduceEvent(AkUniqueID eventID)
+{
+    AkPlayingID playing = AK::SoundEngine::PostEvent(eventID, defaultSource);
+    if (playing == 0)
+        Console::S_Log("Error at reproducing audio event with ID: " + std::to_string(eventID));
 }
 
 bool ModuleAudio::CleanUp()
