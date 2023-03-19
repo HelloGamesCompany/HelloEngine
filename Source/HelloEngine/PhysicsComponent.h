@@ -54,14 +54,14 @@ private:
 
 private:
 
-	PhysBody3D* physBody = nullptr;
+	PhysBody3D* _physBody = nullptr;
 
-	ColliderShape shapeSelected;
+	ColliderShape _shapeSelected;
 
-	bool isShapeSelected[3];
-	bool isShapeCreated[3];
-	bool isStatic;
-	float gravity[3];
+	bool _isShapeSelected[3];
+	bool _isShapeCreated[3];
+	bool _isStatic = false;
+	float _gravity[3];
 	
 	friend class API::API_GameObject;
 
@@ -69,14 +69,14 @@ public:
 	float localGlobalGravity[3];
 	float globalGravity[3];
 
-	float sphereRadius;
+	float sphereRadius = 0;
 	float2 cylRadiusHeight;
 	float renderColColor[4];
-	float wireframeSize;
+	float wireframeSize = 0;
 
-	int sphereHorSlices;
-	int sphereVerSlices;
+	int sphereHorSlices = 0;
+	int sphereVerSlices = 0;
 
 	float temporalMass = 1;
-	int cylinderVerSlices;
+	int cylinderVerSlices = 0;
 };

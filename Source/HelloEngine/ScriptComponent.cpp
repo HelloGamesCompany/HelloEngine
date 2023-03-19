@@ -290,17 +290,6 @@ void ScriptComponent::AddDragBoxParticleSystem(const char* name, API::API_Partic
     inspectorFields.push_back(dragBoxField);
 }
 
-void ScriptComponent::AddDragVector3(const char* name, API::API_Vector3* value)
-{
-	float* firstValue = &value->x;
-	DragFieldFloat* dragField = new DragFieldFloat();
-	dragField->valueName = name;
-	dragField->value = firstValue;
-	dragField->className = scriptResource == nullptr ? addedScript : scriptResource->className;
-
-	inspectorFields.push_back(dragField);
-}
-
 uint ScriptComponent::GetResourceUID()
 {
 	if (scriptResource != nullptr)

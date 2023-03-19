@@ -54,23 +54,13 @@ void PhysBody3D::SetPos(float x, float y, float z)
 	if (!body)
 		return;
 
-	/*if (isKinematic == true) {
-		btTransform t = body->getWorldTransform();
-		t.setOrigin(btVector3(x, y, z));
-		body->getMotionState()->setWorldTransform(t);
-	}
-	else {*/
 	btTransform t = body->getWorldTransform();
 	t.setOrigin(btVector3(x, y, z));
 	body->setWorldTransform(t);
-	if (isKinematic == true) {
+	if (isKinematic == true) 
+	{
 		body->getMotionState()->setWorldTransform(t);
 	}
-	
-
-	//}
-
-	
 }
 
 void PhysBody3D::SetRotation(float x, float y, float z)
@@ -159,11 +149,6 @@ void PhysBody3D::Update()
 void PhysBody3D::SetGravity(float3 grav)
 {
 	body->setGravity(btVector3(grav[0], grav[1], grav[2]));
-}
-
-float PhysBody3D::GetRadius()
-{
-	return radius;
 }
 
 void PhysBody3D::SetShape(ColliderShape shape)

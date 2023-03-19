@@ -216,7 +216,6 @@ PhysBody3D* ModulePhysics::CreatePhysBody(const Primitive* primitive, float mass
 {
 	btCollisionShape* colShape = nullptr;
 	btTransform setUpTransform;
-	float radius = 0;
 
 	switch (primitive->GetType())
 	{
@@ -230,7 +229,6 @@ PhysBody3D* ModulePhysics::CreatePhysBody(const Primitive* primitive, float mass
 	case PrimitiveTypes::Primitive_Sphere:
 	{
 		PrimSphere* sphere = (PrimSphere*)primitive;
-		radius = sphere->radius;
 		colShape = new btSphereShape(sphere->radius);
 		setUpTransform.setFromOpenGLMatrix(sphere->transform.ptr());
 	}
@@ -281,8 +279,6 @@ PhysBody3D* ModulePhysics::CreatePhysBody(const Primitive* primitive, float mass
 		}
 		break;
 	}
-
-	pbody->radius = radius;
 
 	body->setUserPointer(pbody);
 

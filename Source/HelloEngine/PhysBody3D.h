@@ -26,8 +26,6 @@ public:
 	void Update();
 	void SetGravity(float3 grav);
 
-	float GetRadius();
-
 	void SetShape(ColliderShape shape);
 	void RenderCollider();
 
@@ -48,6 +46,5 @@ public:
 	Quat colRotationOffset = Quat::identity;
 	float3 colScl = { 1,1,1 };
 
-	float radius = 0;
 	ColliderShape colShape;
 };

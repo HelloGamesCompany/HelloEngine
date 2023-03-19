@@ -41,7 +41,6 @@ public:
 	void AddDragBoxTextureResource(const char* name, uint* value) override;
 	void AddDragBoxMaterialComponent(const char* name, API::API_Material* value) override;
 	void AddDragBoxParticleSystem(const char* name, API::API_ParticleSystem* value);
-	void AddDragVector3(const char* name, API::API_Vector3* value) override;
 
 
 	uint GetResourceUID();
