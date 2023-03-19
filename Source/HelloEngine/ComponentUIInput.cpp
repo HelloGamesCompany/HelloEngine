@@ -20,7 +20,7 @@ ComponentUIInput::~ComponentUIInput()
 
 void ComponentUIInput::InputUpdate()
 {
-	if (_listButtons.size() != 0)
+	if (_listButtons.size() != 0 && _gameObject->IsActive())
 	{
 		if (ButtonSelected == 0)
 		{

@@ -54,7 +54,7 @@
             {
                 "Active camera": true,
                 "Active culling": true,
-                "Aspect ratio": 1.7537091970443726,
+                "Aspect ratio": 1.986928105354309,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -102,6 +102,123 @@
         "UID": 3527939328
     },
     {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "Type": 16,
+                "listButtons": [
+                    3049332882,
+                    99910358
+                ]
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Panel",
+        "ParentUID": 3527939328,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 2369198335
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.5,
+                    0.0,
+                    0.009999999776482582
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.5,
+                    0.5,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 2468516017,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 1714156467,
+                "idleImage": 2468516017,
+                "pressImage": 4249681830
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Button",
+        "ParentUID": 2369198335,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 3049332882
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.5,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.5,
+                    0.5,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 1201374592,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 133237130,
+                "idleImage": 1201374592,
+                "pressImage": 1274266169
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "2",
+        "ParentUID": 2369198335,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 99910358
+    },
+    {
         "Active": false,
         "Components": [
             {
@@ -128,7 +245,7 @@
                 "MaterialResource": 0,
                 "Type": 16,
                 "listButtons": [
-                    3049332882
+                    4005372161
                 ]
             }
         ],
@@ -137,7 +254,7 @@
         "ParentUID": 3527939328,
         "PrefabUID": 0,
         "Tag": "UI",
-        "UID": 2369198335
+        "UID": 4098332454
     },
     {
         "Active": false,
@@ -163,19 +280,19 @@
             },
             {
                 "Enabled": true,
-                "MaterialResource": 0,
+                "MaterialResource": 1665297648,
                 "State": 0,
                 "Type": 12,
-                "hoverImage": 0,
-                "idleImage": 0,
-                "pressImage": 0
+                "hoverImage": 670723450,
+                "idleImage": 1665297648,
+                "pressImage": 3763994282
             }
         ],
         "FirstOnPrefab": true,
         "Name": "Button",
-        "ParentUID": 2369198335,
+        "ParentUID": 4098332454,
         "PrefabUID": 0,
         "Tag": "UI",
-        "UID": 3049332882
+        "UID": 4005372161
     }
 ]

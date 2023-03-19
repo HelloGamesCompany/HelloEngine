@@ -10,7 +10,7 @@
 		<framerate value="120" />
 	</renderer>
 	<scene>
-		<currentScene value="Assets/Pause_Menu.HScene" />
+		<currentScene value="Assets/UITest2.HScene" />
 	</scene>
 	<openGL>
 		<blend value="true" tag="0x0BE2" />
