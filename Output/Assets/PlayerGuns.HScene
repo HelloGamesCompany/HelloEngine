@@ -146,7 +146,7 @@
                         "Duals": 3217118646
                     },
                     {
-                        "Semiautomatic": 1294410293
+                        "Semiautomatic": 3569607197
                     },
                     {
                         "Automatic": 2965807529
@@ -158,7 +158,7 @@
                         "Shotgun": 17548412
                     },
                     {
-                        "Handgun": 870035496
+                        "Handgun": 3800293895
                     },
                     {
                         "Flamethrower": 2309891634
@@ -260,7 +260,10 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Projectile Speed": 0.0
+                        "Projectile Pull": 439650558
+                    },
+                    {
+                        "Projectile Speed": 10.0
                     },
                     {
                         "Projectile Damage": 0.0
@@ -269,22 +272,37 @@
                         "Projectile Resistance Damage": 0.0
                     },
                     {
-                        "Projectile Lifetime": 0.0
+                        "Projectile Lifetime": 1.0
                     },
                     {
-                        "Projectile ScaleX": 0.0
+                        "Projectile Spawn": 4131107604
                     },
                     {
-                        "Projectile ScaleY": 0.0
+                        "Second Projectile Spawn": 3652488739
                     },
                     {
-                        "Projectile ScaleZ": 0.0
+                        "Projectile Mesh": 2026960572
                     },
                     {
-                        "Projectiles per second": 0.0
+                        "Projectile Material": 3260379948
                     },
                     {
-                        "Burst Space": 0.0
+                        "Projectile ScaleX": 0.10000000149011612
+                    },
+                    {
+                        "Projectile ScaleY": 0.10000000149011612
+                    },
+                    {
+                        "Projectile ScaleZ": 0.10000000149011612
+                    },
+                    {
+                        "Bursts per second": 3.0
+                    },
+                    {
+                        "Burst Space": 0.10000000149011612
+                    },
+                    {
+                        "Second Gun GO": 767734061
                     },
                     {
                         "Ammo Type": 0
@@ -424,140 +442,6 @@
                 "Position": [
                     0.0,
                     0.0,
-                    2.189649820327759
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    0.20000000298023224,
-                    0.20000000298023224,
-                    0.5
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 12,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "ResourceUID": 240240,
-                "Type": 3
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Gun Type": 1
-                    }
-                ],
-                "Script Resource": 1421097082,
-                "Type": 5
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Projectile Pull": 439650558
-                    },
-                    {
-                        "Projectile Speed": 10.0
-                    },
-                    {
-                        "Projectile Damage": 0.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 1.0
-                    },
-                    {
-                        "Projectile Spawn": 3230390140
-                    },
-                    {
-                        "Projectile Mesh": 2089390170
-                    },
-                    {
-                        "Projectile Material": 3260379948
-                    },
-                    {
-                        "Projectile ScaleX": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleY": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleZ": 0.10000000149011612
-                    },
-                    {
-                        "Projectiles per second": 3.0
-                    },
-                    {
-                        "Player Stats GO": 3272613755
-                    },
-                    {
-                        "Ammo Type": 0
-                    }
-                ],
-                "Script Resource": 3045817152,
-                "Type": 5
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "SemiAuto",
-        "ParentUID": 3272613755,
-        "PrefabUID": 0,
-        "Tag": "Primitive",
-        "UID": 1294410293
-    },
-    {
-        "Active": false,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "Origin",
-        "ParentUID": 1294410293,
-        "PrefabUID": 0,
-        "Tag": "Default",
-        "UID": 3230390140
-    },
-    {
-        "Active": false,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
                     1.6771188974380493
                 ],
                 "Rotation": [
@@ -591,7 +475,10 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Projectile Speed": 0.0
+                        "Projectile Pull": 439650558
+                    },
+                    {
+                        "Projectile Speed": 10.0
                     },
                     {
                         "Projectile Damage": 0.0
@@ -600,22 +487,34 @@
                         "Projectile Resistance Damage": 0.0
                     },
                     {
-                        "Projectile Lifetime": 0.0
+                        "Projectile Lifetime": 1.0
                     },
                     {
-                        "Projectile ScaleX": 0.0
+                        "Projectile Spawn": 4153005609
                     },
                     {
-                        "Projectile ScaleY": 0.0
+                        "Projectile Mesh": 2026960572
                     },
                     {
-                        "Projectile ScaleZ": 0.0
+                        "Projectile Material": 3260379948
                     },
                     {
-                        "Projectiles per second": 0.0
+                        "Projectile ScaleX": 0.05000000074505806
                     },
                     {
-                        "Ammo Type": 0
+                        "Projectile ScaleY": 0.05000000074505806
+                    },
+                    {
+                        "Projectile ScaleZ": 0.05000000074505806
+                    },
+                    {
+                        "Projectiles per second": 5.0
+                    },
+                    {
+                        "Player Stats GO": 3272613755
+                    },
+                    {
+                        "Ammo Type": 1
                     }
                 ],
                 "Script Resource": 1339629670,
@@ -720,7 +619,10 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Projectile Speed": 0.0
+                        "Projectile Pull": 439650558
+                    },
+                    {
+                        "Projectile Speed": 8.0
                     },
                     {
                         "Projectile Damage": 0.0
@@ -729,25 +631,37 @@
                         "Projectile Resistance Damage": 0.0
                     },
                     {
-                        "Projectile Lifetime": 0.0
+                        "Projectile Lifetime": 1.0
                     },
                     {
-                        "Projectile ScaleX": 0.0
+                        "Projectile Spawn": 1797306861
                     },
                     {
-                        "Projectile ScaleY": 0.0
+                        "Projectile Mesh": 2026960572
                     },
                     {
-                        "Projectile ScaleZ": 0.0
+                        "Projectile Material": 3260379948
                     },
                     {
-                        "Projectiles per second": 0.0
+                        "Projectile ScaleX": 0.05000000074505806
                     },
                     {
-                        "Pellets per shot": 0
+                        "Projectile ScaleY": 0.05000000074505806
                     },
                     {
-                        "Ammo Type": 0
+                        "Projectile ScaleZ": 0.05000000074505806
+                    },
+                    {
+                        "Projectiles per second": 1.0
+                    },
+                    {
+                        "Pellets per shot": 10
+                    },
+                    {
+                        "Player Stats GO": 3272613755
+                    },
+                    {
+                        "Ammo Type": 1
                     }
                 ],
                 "Script Resource": 2253970088,
@@ -832,7 +746,10 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Projectile Speed": 0.0
+                        "Projectile Pull": 439650558
+                    },
+                    {
+                        "Projectile Speed": 10.0
                     },
                     {
                         "Projectile Damage": 0.0
@@ -841,28 +758,40 @@
                         "Projectile Resistance Damage": 0.0
                     },
                     {
-                        "Projectile Lifetime": 0.0
+                        "Projectile Lifetime": 1.0
                     },
                     {
-                        "Projectile ScaleX": 0.0
+                        "Projectile Spawn": 2527291942
                     },
                     {
-                        "Projectile ScaleY": 0.0
+                        "Projectile Mesh": 2026960572
                     },
                     {
-                        "Projectile ScaleZ": 0.0
+                        "Projectile Material": 3260379948
                     },
                     {
-                        "Projectiles per second": 0.0
+                        "Projectile ScaleX": 0.10000000149011612
                     },
                     {
-                        "Burst Space": 0.0
+                        "Projectile ScaleY": 0.10000000149011612
                     },
                     {
-                        "Projectiles per burst": 0
+                        "Projectile ScaleZ": 0.10000000149011612
                     },
                     {
-                        "Ammo Type": 0
+                        "Bursts per second": 2.0
+                    },
+                    {
+                        "Burst Space": 0.10000000149011612
+                    },
+                    {
+                        "Projectiles per burst": 3
+                    },
+                    {
+                        "Player Stats GO": 3272613755
+                    },
+                    {
+                        "Ammo Type": 1
                     }
                 ],
                 "Script Resource": 2161950016,
@@ -924,140 +853,6 @@
                 "Position": [
                     0.0,
                     0.0,
-                    1.4516650438308716
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    0.20000000298023224,
-                    0.20000000298023224,
-                    0.5
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 12,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "ResourceUID": 240240,
-                "Type": 3
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Gun Type": 5
-                    }
-                ],
-                "Script Resource": 1187195986,
-                "Type": 5
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Projectile Pull": 439650558
-                    },
-                    {
-                        "Projectile Speed": 5.0
-                    },
-                    {
-                        "Projectile Damage": 0.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 0.5
-                    },
-                    {
-                        "Projectile Spawn": 817491527
-                    },
-                    {
-                        "Projectile Mesh": 2089390170
-                    },
-                    {
-                        "Projectile Material": 3260379948
-                    },
-                    {
-                        "Projectile ScaleX": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleY": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleZ": 0.10000000149011612
-                    },
-                    {
-                        "Projectiles per second": 3.0
-                    },
-                    {
-                        "Player Stats GO": 3272613755
-                    },
-                    {
-                        "Ammo Type": 0
-                    }
-                ],
-                "Script Resource": 3045817152,
-                "Type": 5
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "Handgun",
-        "ParentUID": 3272613755,
-        "PrefabUID": 0,
-        "Tag": "Primitive",
-        "UID": 870035496
-    },
-    {
-        "Active": false,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "Origin",
-        "ParentUID": 870035496,
-        "PrefabUID": 0,
-        "Tag": "Default",
-        "UID": 817491527
-    },
-    {
-        "Active": false,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
                     2.546983003616333
                 ],
                 "Rotation": [
@@ -1101,7 +896,10 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Projectile Speed": 0.0
+                        "Projectile Pull": 439650558
+                    },
+                    {
+                        "Projectile Speed": 10.0
                     },
                     {
                         "Projectile Damage": 0.0
@@ -1110,22 +908,28 @@
                         "Projectile Resistance Damage": 0.0
                     },
                     {
-                        "Projectile Lifetime": 0.0
+                        "Projectile Lifetime": 1.0
                     },
                     {
-                        "Projectile ScaleX": 0.0
+                        "Projectile Spawn": 504986585
                     },
                     {
-                        "Projectile ScaleY": 0.0
+                        "Projectile ScaleX": 0.009999999776482582
                     },
                     {
-                        "Projectile ScaleZ": 0.0
+                        "Projectile ScaleY": 0.009999999776482582
                     },
                     {
-                        "Ticks per second": 0.0
+                        "Projectile ScaleZ": 0.009999999776482582
                     },
                     {
-                        "Ammo Type": 0
+                        "Ticks per second": 10.0
+                    },
+                    {
+                        "Player Stats GO": 3272613755
+                    },
+                    {
+                        "Ammo Type": 2
                     }
                 ],
                 "Script Resource": 607248765,
@@ -1220,7 +1024,10 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Projectile Speed": 0.0
+                        "Projectile Pull": 439650558
+                    },
+                    {
+                        "Projectile Speed": 5.0
                     },
                     {
                         "Projectile Damage": 0.0
@@ -1229,22 +1036,34 @@
                         "Projectile Resistance Damage": 0.0
                     },
                     {
-                        "Projectile Lifetime": 0.0
+                        "Projectile Lifetime": 10.0
                     },
                     {
-                        "Projectile ScaleX": 0.0
+                        "Projectile Spawn": 281075641
                     },
                     {
-                        "Projectile ScaleY": 0.0
+                        "Projectile Mesh": 2026960572
                     },
                     {
-                        "Projectile ScaleZ": 0.0
+                        "Projectile Material": 3260379948
                     },
                     {
-                        "Projectiles per second": 0.0
+                        "Projectile ScaleX": 0.5
                     },
                     {
-                        "Ammo Type": 0
+                        "Projectile ScaleY": 0.10000000149011612
+                    },
+                    {
+                        "Projectile ScaleZ": 0.10000000149011612
+                    },
+                    {
+                        "Projectiles per second": 1.0
+                    },
+                    {
+                        "Player Stats GO": 3272613755
+                    },
+                    {
+                        "Ammo Type": 3
                     }
                 ],
                 "Script Resource": 1231691198,
@@ -1287,6 +1106,274 @@
         "PrefabUID": 0,
         "Tag": "Default",
         "UID": 281075641
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    1.9131284952163696
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    0.20000000298023224,
+                    0.20000000298023224,
+                    0.699999988079071
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 12,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 240240,
+                "Type": 3
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Gun Type": 1
+                    }
+                ],
+                "Script Resource": 1187195986,
+                "Type": 5
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Projectile Pull": 439650558
+                    },
+                    {
+                        "Projectile Speed": 10.0
+                    },
+                    {
+                        "Projectile Damage": 0.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 0.0
+                    },
+                    {
+                        "Projectile Lifetime": 1.0
+                    },
+                    {
+                        "Projectile Spawn": 1847875723
+                    },
+                    {
+                        "Projectile Mesh": 2026960572
+                    },
+                    {
+                        "Projectile Material": 3260379948
+                    },
+                    {
+                        "Projectile ScaleX": 0.30000001192092896
+                    },
+                    {
+                        "Projectile ScaleY": 0.30000001192092896
+                    },
+                    {
+                        "Projectile ScaleZ": 0.30000001192092896
+                    },
+                    {
+                        "Projectiles per second": 3.0
+                    },
+                    {
+                        "Player Stats GO": 3272613755
+                    },
+                    {
+                        "Ammo Type": 1
+                    }
+                ],
+                "Script Resource": 3045817152,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "SemiAuto",
+        "ParentUID": 3272613755,
+        "PrefabUID": 0,
+        "Tag": "Primitive",
+        "UID": 3569607197
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Origin",
+        "ParentUID": 3569607197,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1847875723
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    1.565955400466919
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    0.30000001192092896,
+                    0.20000000298023224,
+                    0.30000001192092896
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 12,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 240240,
+                "Type": 3
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Gun Type": 5
+                    }
+                ],
+                "Script Resource": 1421097082,
+                "Type": 5
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Projectile Pull": 439650558
+                    },
+                    {
+                        "Projectile Speed": 10.0
+                    },
+                    {
+                        "Projectile Damage": 0.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 0.0
+                    },
+                    {
+                        "Projectile Lifetime": 1.0
+                    },
+                    {
+                        "Projectile Spawn": 1101596449
+                    },
+                    {
+                        "Projectile Mesh": 2026960572
+                    },
+                    {
+                        "Projectile Material": 3260379948
+                    },
+                    {
+                        "Projectile ScaleX": 0.20000000298023224
+                    },
+                    {
+                        "Projectile ScaleY": 0.20000000298023224
+                    },
+                    {
+                        "Projectile ScaleZ": 0.20000000298023224
+                    },
+                    {
+                        "Projectiles per second": 2.0
+                    },
+                    {
+                        "Player Stats GO": 3272613755
+                    },
+                    {
+                        "Ammo Type": 1
+                    }
+                ],
+                "Script Resource": 3045817152,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Handgun",
+        "ParentUID": 3272613755,
+        "PrefabUID": 0,
+        "Tag": "Primitive",
+        "UID": 3800293895
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Origin",
+        "ParentUID": 3800293895,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1101596449
     },
     {
         "Active": true,
@@ -1356,7 +1443,7 @@
             {
                 "Active camera": true,
                 "Active culling": true,
-                "Aspect ratio": 1.9408766031265259,
+                "Aspect ratio": 1.7420965433120728,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
