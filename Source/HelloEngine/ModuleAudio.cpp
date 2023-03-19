@@ -16,6 +16,8 @@
 #include "LayerGame.h"
 #include "Wwise_IDs.h"
 
+AkGameObjectID ModuleAudio::defaultListener;
+AkGameObjectID ModuleAudio::defaultSource;
 
 ModuleAudio::ModuleAudio(bool start_enabled)
 {
@@ -47,16 +49,6 @@ bool ModuleAudio::Start()
 
 UpdateStatus ModuleAudio::PreUpdate()
 {
-    if (LayerGame::S_IsPlaying())
-    {
-        if (!isPlayingBackground)
-        {
-            isPlayingBackground = true;
-
-           
-           
-        }
-    }
     ProcessAudio();
     return UpdateStatus::UPDATE_CONTINUE;
 }
@@ -71,14 +63,17 @@ UpdateStatus ModuleAudio::PostUpdate()
     return UpdateStatus::UPDATE_CONTINUE;
 }
 
-void ModuleAudio::ProduceEvent(std::string& eventName)
+void ModuleAudio::S_ProduceEvent(const char* eventName)
 {
-    AkPlayingID playing = AK::SoundEngine::PostEvent(eventName.c_str(), defaultSource);
-    if (playing == 0)
-        Console::S_Log("Error at reproducing audio event: " + eventName);
+    AkPlayingID playing = AK::SoundEngine::PostEvent(eventName, defaultSource);
+    if (playing == 0) 
+    {
+        std::string strName = eventName;
+        Console::S_Log("Error at reproducing audio event: " + strName);
+    }
 }
 
-void ModuleAudio::ProduceEvent(AkUniqueID eventID)
+void ModuleAudio::S_ProduceEvent(AkUniqueID eventID)
 {
     AkPlayingID playing = AK::SoundEngine::PostEvent(eventID, defaultSource);
     if (playing == 0)

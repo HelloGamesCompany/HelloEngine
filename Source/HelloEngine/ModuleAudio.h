@@ -20,8 +20,8 @@ public:
 
 	UpdateStatus PostUpdate() override;
 
-	void ProduceEvent(std::string& eventName);
-	void ProduceEvent(AkUniqueID eventID);
+	static void S_ProduceEvent(const char* eventName);
+	static void S_ProduceEvent(AkUniqueID eventID);
 
 	bool CleanUp() override;
 
@@ -46,8 +46,8 @@ private:
 	AkBankID _initBank;
 	AkBankID _testBank;
 
-	AkGameObjectID defaultListener;
-	AkGameObjectID defaultSource;
+	static AkGameObjectID defaultListener;
+	static AkGameObjectID defaultSource;
 
 	// Temporal
 	bool isPlayingBackground = false;
