@@ -20,33 +20,20 @@ ComponentUIInput::~ComponentUIInput()
 
 void ComponentUIInput::InputUpdate()
 {
-	//detectar input
-	if (_listButtons[ButtonSelected]->State == ButtonState::NORMAL) 
-	{
-		_listButtons[ButtonSelected]->State = ButtonState::ONHOLD;
-		_listButtons[ButtonSelected]->IsHold = true;
-	}
-	else if (_listButtons[ButtonSelected]->IsHold == false) 
-	{
-		_listButtons[ButtonSelected]->State = ButtonState::NORMAL;
-	}
-	
-
-
 	if (ButtonSelected < _listButtons.size() - 1 && ((ModuleInput::S_GetGamePadAxis(SDL_CONTROLLER_AXIS_LEFTY) < 128 && isPress) || ModuleInput::S_GetGamePadButton(GamePad::BUTTON_UP) == KEY_DOWN))
 	{
+		_listButtons[ButtonSelected]->State = ButtonState::NORMAL;
 		_listButtons[ButtonSelected]->IsHold = false;
 		ButtonSelected++;
-		Console::S_Log("Up");
-		Console::S_Log(std::to_string(ButtonSelected));
+		_listButtons[ButtonSelected]->State = ButtonState::ONHOLD;
 		isPress = false;
 	}
 	else if (ButtonSelected > 0 && ((ModuleInput::S_GetGamePadAxis(SDL_CONTROLLER_AXIS_LEFTY) > 128 && isPress) || ModuleInput::S_GetGamePadButton(GamePad::BUTTON_DOWN) == KEY_DOWN))
 	{
+		_listButtons[ButtonSelected]->State = ButtonState::NORMAL;
 		_listButtons[ButtonSelected]->IsHold = false;
 		ButtonSelected--;
-		Console::S_Log(std::to_string(ButtonSelected));
-		Console::S_Log("Down");
+		_listButtons[ButtonSelected]->State = ButtonState::ONHOLD;
 		isPress = false;
 	}
 	else if (ModuleInput::S_GetGamePadAxis(SDL_CONTROLLER_AXIS_LEFTY) == 128)
