@@ -21,8 +21,8 @@ void ProjectilePull::Start()
         newProjectile.AddMeshRenderer();
         newProjectile.AddMaterial();
         newProjectile.CreateRigidBodyBox((0, 0, 0), (0, 0, 0), (0.3f, 0.3f, 0.3f), false);
-        Projectile* projectileScript = (Projectile*)newProjectile.AddScript("Projectile");
-        //projectileScript->particles = newProjectile.AddParticleSystem(particleTest); // remove it if we have getParticleSystem
+        //newProjectile.AddParticleSystem(particleTest);
+        newProjectile.AddScript("Projectile");
         newProjectile.SetActive(false);
         pull.push_back(newProjectile);
     }
@@ -58,6 +58,7 @@ void ProjectilePull::LauchProjectile(float projectileSpeed, float projectileDama
     {
         go.GetMeshRenderer().ChangeMesh(projectileMesh);
         go.GetMaterialCompoennt().ChangeAlbedoTexture(projectileMaterial);
+        //go.GetParticleSystem().Play();
     }
 
     if (randomDirection)
@@ -73,5 +74,4 @@ void ProjectilePull::LauchProjectile(float projectileSpeed, float projectileDama
     projectile->resistanceDamage = projectileResistanceDamage;
     projectile->lifeTime = projectileLifetime;
     projectile->action = projectileAction;
-    //if (projectileAction != PROJECTILE_ACTION::FLAMETROWER) projectile->particles.Play();
 }
