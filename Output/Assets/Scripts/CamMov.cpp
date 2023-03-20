@@ -21,21 +21,8 @@ float CamMov::Lerp(float a, float b, float t)
 
 void CamMov::Start()
 {
-	camPos.x -= target.GetTransform().GetGlobalPosition().x;
-	camPos.y -= target.GetTransform().GetGlobalPosition().y;
-	camPos.z -= target.GetTransform().GetGlobalPosition().z;
-
-	camRot.x -= target.GetTransform().GetGlobalRotation().x;
-	camRot.y -= target.GetTransform().GetGlobalRotation().y;
-	camRot.z -= target.GetTransform().GetGlobalRotation().z;
-
-	/*camPos.x = gameObject.GetTransform().GetGlobalPosition().x;
-	camPos.y = gameObject.GetTransform().GetGlobalPosition().y + 11.100f;
-	camPos.z = gameObject.GetTransform().GetGlobalPosition().z + 10.0f;
-
-	camRot.x = gameObject.GetTransform().GetGlobalRotation().x + 122.923f;
-	camRot.y = gameObject.GetTransform().GetGlobalRotation().y;
-	camRot.z = gameObject.GetTransform().GetGlobalRotation().z + 176.947f;*/
+	camPos -= target.GetTransform().GetGlobalPosition();
+	camRot -= target.GetTransform().GetGlobalRotation();
 
 	gameObject.GetTransform().SetPosition(camPos);
 	gameObject.GetTransform().SetRotation(camRot);
@@ -54,6 +41,7 @@ void CamMov::Update()
 	else {
 		delay = 0.02;
 	}*/
+	gameObject.GetTransform().SetRotation(camRot);
 
 	desiredPosition.x = target.GetTransform().GetGlobalPosition().x + camPos.x;
 	desiredPosition.y = target.GetTransform().GetGlobalPosition().y + camPos.y;

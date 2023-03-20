@@ -132,8 +132,8 @@ void PlayerMove::Aim()
     }
     else
     {
-        normalizedInput.x = Input::GetKey(KeyCode::KEY_LEFT) == KeyState::KEY_REPEAT;
-        normalizedInput.x -= Input::GetKey(KeyCode::KEY_RIGHT) == KeyState::KEY_REPEAT;
+        normalizedInput.x = Input::GetKey(KeyCode::KEY_RIGHT) == KeyState::KEY_REPEAT;
+        normalizedInput.x -= Input::GetKey(KeyCode::KEY_LEFT) == KeyState::KEY_REPEAT;
         normalizedInput.y = Input::GetKey(KeyCode::KEY_UP) == KeyState::KEY_REPEAT;
         normalizedInput.y -= Input::GetKey(KeyCode::KEY_DOWN) == KeyState::KEY_REPEAT;
 
@@ -166,9 +166,11 @@ API_Vector2 PlayerMove::GetMoveInput()
         if (abs(input.x) < 10000 && abs(input.y) < 10000) return API_Vector2::S_Zero();
 
         if (input.x > 32000.0f) input.x = 32000.0f;
+        else if (input.x < -32000.0f) input.x = -35000.0f;
         if (input.y > 32000.0f) input.y = 32000.0f;
+        else if (input.y < -32000.0f) input.y = -35000.0f;
 
-        return input / 32000.0f;
+        return -input / 32000.0f;
     }
 
     //Keyboard
