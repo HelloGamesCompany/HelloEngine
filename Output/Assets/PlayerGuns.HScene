@@ -196,16 +196,16 @@
                         "Velocity": 1.0
                     },
                     {
-                        "Current Velocity": 0.0
-                    },
-                    {
                         "SecToMaxVel": 0.0
                     },
                     {
                         "SecToZeroVel": 0.0
                     },
                     {
-                        "Current Input": 0.0
+                        "Dash Time": 0.5
+                    },
+                    {
+                        "Dash Distance": 5.0
                     }
                 ],
                 "Script Resource": 3336682094,
@@ -281,7 +281,8 @@
                         "Second Projectile Spawn": 3652488739
                     },
                     {
-                        "Projectile Mesh": 1681732864
+                        "Projectile MeshIndexInsideModel": 0,
+                        "Projectile MeshModelUID": 1551155716
                     },
                     {
                         "Projectile Material": 3260379948
@@ -503,7 +504,8 @@
                         "Projectile Spawn": 3230390140
                     },
                     {
-                        "Projectile Mesh": 1681732864
+                        "Projectile MeshIndexInsideModel": 0,
+                        "Projectile MeshModelUID": 1551155716
                     },
                     {
                         "Projectile Material": 3260379948
@@ -627,7 +629,8 @@
                         "Projectile Spawn": 4153005609
                     },
                     {
-                        "Projectile Mesh": 1681732864
+                        "Projectile MeshIndexInsideModel": 0,
+                        "Projectile MeshModelUID": 1551155716
                     },
                     {
                         "Projectile Material": 3260379948
@@ -771,7 +774,8 @@
                         "Projectile Spawn": 1797306861
                     },
                     {
-                        "Projectile Mesh": 1681732864
+                        "Projectile MeshIndexInsideModel": 0,
+                        "Projectile MeshModelUID": 1551155716
                     },
                     {
                         "Projectile Material": 3260379948
@@ -898,7 +902,8 @@
                         "Projectile Spawn": 2527291942
                     },
                     {
-                        "Projectile Mesh": 1681732864
+                        "Projectile MeshIndexInsideModel": 0,
+                        "Projectile MeshModelUID": 1551155716
                     },
                     {
                         "Projectile Material": 3260379948
@@ -1048,7 +1053,8 @@
                         "Projectile Spawn": 817491527
                     },
                     {
-                        "Projectile Mesh": 1681732864
+                        "Projectile MeshIndexInsideModel": 0,
+                        "Projectile MeshModelUID": 1551155716
                     },
                     {
                         "Projectile Material": 3260379948
@@ -1310,7 +1316,8 @@
                         "Projectile Spawn": 281075641
                     },
                     {
-                        "Projectile Mesh": 1681732864
+                        "Projectile MeshIndexInsideModel": 0,
+                        "Projectile MeshModelUID": 1551155716
                     },
                     {
                         "Projectile Material": 3260379948

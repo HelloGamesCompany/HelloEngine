@@ -616,9 +616,16 @@ void DragBoxMeshResource::OnEditor()
 	else
 	{
 		ResourceMesh* meshRes = (ResourceMesh*)ModuleResourceManager::resources[*meshUID];
-		std::string gameObjectName(meshRes->debugName);
-		std::string text = "(" + gameObjectName + ")" + ": Mesh Resource";
-		ImGui::TextColored(ImVec4(1, 1, 0, 1), text.c_str());
+		if (meshRes != nullptr)
+		{
+			std::string gameObjectName(meshRes->debugName);
+			std::string text = "(" + gameObjectName + ")" + ": Mesh Resource";
+			ImGui::TextColored(ImVec4(1, 1, 0, 1), text.c_str());
+		}
+		else
+		{
+			ImGui::TextColored(ImVec4(1, 0, 0, 1), "Reference Lost! Drag the Mesh again here.");
+		}
 	}
 
 	if (ImGui::BeginDragDropTarget())
@@ -644,7 +651,9 @@ void DragBoxMeshResource::OnSerialize(json& j)
 
 	if (*meshUID != 0)
 	{
-		_j[valueName.c_str()] = *meshUID;
+		ResourceMesh* mesh = (ResourceMesh*)ModuleResourceManager::resources[*meshUID];
+		_j[(valueName + "ModelUID").c_str()] = mesh->modelUID;
+		_j[(valueName + "IndexInsideModel").c_str()] = mesh->indexInsideModel;
 		j.push_back(_j);
 	}
 }
@@ -653,9 +662,18 @@ void DragBoxMeshResource::OnDeserialize(json& j)
 {
 	for (int i = 0; i < j.size(); i++)
 	{
-		if (j[i].find(valueName) != j[i].end())
+		if (j[i].find((valueName + "ModelUID").c_str()) != j[i].end())
 		{
-			*(uint*)value = j[i][valueName.c_str()];
+			uint modelUID = j[i][(valueName + "ModelUID").c_str()];
+			ResourceModel* model = (ResourceModel*)ModuleResourceManager::resources[modelUID];
+
+			uint indexInModel = j[i][(valueName + "IndexInsideModel").c_str()];
+
+			if (indexInModel < model->modelMeshes.size())
+			{
+				ResourceMesh* resourceMesh = model->modelMeshes[indexInModel];
+				*(uint*)value = resourceMesh->UID;
+			}
 		}
 	}
 }
