@@ -54,7 +54,7 @@
             {
                 "Active camera": true,
                 "Active culling": true,
-                "Aspect ratio": 1.8108503818511963,
+                "Aspect ratio": 1.9408766031265259,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -822,7 +822,7 @@
                 "Enabled": true,
                 "Position": [
                     -0.7900000214576721,
-                    0.7799999713897705,
+                    0.699999988079071,
                     -0.0010000000474974513
                 ],
                 "Rotation": [
@@ -846,7 +846,7 @@
         "UID": 317665668
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -882,7 +882,7 @@
         "UID": 1414864724
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -902,6 +902,25 @@
                     1.0
                 ],
                 "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Bar": 3516983140
+                    },
+                    {
+                        "hp": false
+                    },
+                    {
+                        "Bar": 3516983140
+                    },
+                    {
+                        "hp": false
+                    }
+                ],
+                "Script Resource": 1164455694,
+                "Type": 5
             }
         ],
         "FirstOnPrefab": false,
@@ -912,12 +931,12 @@
         "UID": 3516983140
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
                 "Position": [
-                    0.15000000596046448,
+                    -1.2983797788619995,
                     0.25999999046325684,
                     -0.0010000000474974513
                 ],
@@ -927,7 +946,7 @@
                     14.100000381469727
                 ],
                 "Scale": [
-                    0.4000000059604645,
+                    1.0,
                     0.11999999731779099,
                     0.5
                 ],
@@ -954,7 +973,7 @@
                 "Enabled": true,
                 "Position": [
                     -0.07999999821186066,
-                    0.20600000023841858,
+                    0.3199999928474426,
                     -0.0020000000949949026
                 ],
                 "Rotation": [
@@ -989,8 +1008,44 @@
             {
                 "Enabled": true,
                 "Position": [
+                    0.15000000596046448,
+                    0.3100000023841858,
+                    -0.0010000000474974513
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.4000000059604645,
+                    0.11999999731779099,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 973302505,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "HP_Bar_PROV",
+        "ParentUID": 3516983140,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 732479535
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
                     -0.30000001192092896,
-                    0.10000000149011612,
+                    0.12300000339746475,
                     -0.00800000037997961
                 ],
                 "Rotation": [
@@ -999,8 +1054,8 @@
                     0.0
                 ],
                 "Scale": [
-                    0.11999999731779099,
-                    0.4000000059604645,
+                    0.14000000059604645,
+                    0.5,
                     0.5
                 ],
                 "Type": 1
@@ -1152,7 +1207,7 @@
         "UID": 2666354377
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -1246,6 +1301,121 @@
                 "Type": 1
             }
         ],
+        "FirstOnPrefab": true,
+        "Name": "Icon_Weapon_1",
+        "ParentUID": 2666354377,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3054407257
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.05000000074505806,
+                    0.03999999910593033,
+                    -0.019999999552965164
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.07000000029802322,
+                    0.07000000029802322,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 1261649561,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Weapon_Icon_1_Off",
+        "ParentUID": 3054407257,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 2761847340
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.05000000074505806,
+                    0.03999999910593033,
+                    -0.024000000208616257
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.11999999731779099,
+                    0.11999999731779099,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 1828660828,
+                "Type": 15
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Bar": 3458098903
+                    },
+                    {
+                        "Bar": 3458098903
+                    }
+                ],
+                "Script Resource": 1458260256,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Weapon_Icon_1_On",
+        "ParentUID": 3054407257,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 3458098903
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
         "FirstOnPrefab": false,
         "Name": "Weapon_2",
         "ParentUID": 317665668,
@@ -1254,7 +1424,7 @@
         "UID": 974080134
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -1348,6 +1518,121 @@
                 "Type": 1
             }
         ],
+        "FirstOnPrefab": true,
+        "Name": "Icon_Weapon_2",
+        "ParentUID": 974080134,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 4202071095
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.05000000074505806,
+                    -0.125,
+                    -0.020999999716877937
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.15000000596046448,
+                    0.15000000596046448,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 1072796038,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Weapon_Icon_2_Off",
+        "ParentUID": 4202071095,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 479329839
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.05000000074505806,
+                    -0.125,
+                    -0.02500000037252903
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.20000000298023224,
+                    0.20000000298023224,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 977509463,
+                "Type": 15
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Bar": 694337954
+                    },
+                    {
+                        "Bar": 694337954
+                    }
+                ],
+                "Script Resource": 1100340127,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Weapon_Icon_2_On",
+        "ParentUID": 4202071095,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 694337954
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
         "FirstOnPrefab": false,
         "Name": "Weapon_3",
         "ParentUID": 317665668,
@@ -1356,7 +1641,7 @@
         "UID": 2951413593
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -1426,5 +1711,156 @@
         "PrefabUID": 2643882321,
         "Tag": "UI",
         "UID": 2387689756
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Icon_Weapon_3",
+        "ParentUID": 2951413593,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2263585637
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.05000000074505806,
+                    -0.30000001192092896,
+                    -0.023000000044703484
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.125,
+                    0.125,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 103443597,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Weapon_Icon_3_Off",
+        "ParentUID": 2263585637,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 2138827690
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.05000000074505806,
+                    -0.30000001192092896,
+                    -0.026000000536441803
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.14000000059604645,
+                    0.14000000059604645,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 12569475,
+                "Type": 15
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Bar": 2155608744
+                    },
+                    {
+                        "Bar": 2155608744
+                    }
+                ],
+                "Script Resource": 1100340127,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Weapon_Icon_3_On",
+        "ParentUID": 2263585637,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 2155608744
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.5,
+                    0.5,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 1535676784,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "HUD_Fons_PROV",
+        "ParentUID": 317665668,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 4132091739
     }
 ]

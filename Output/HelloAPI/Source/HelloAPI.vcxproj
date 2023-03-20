@@ -163,6 +163,9 @@
 		<ClCompile Include="../../Assets/Scripts/MenuButtons.cpp" />
 		<ClCompile Include="../../Assets/Scripts/PauseButtons.cpp" />
 		<ClCompile Include="../../Assets/Scripts/GamepadButtons.cpp" />
+		<ClCompile Include="../../Assets/Scripts/UI Test folder/Movment_Bar.cpp" />
+		<ClCompile Include="../../Assets/Scripts/UI Test folder/SwapWeapon.cpp" />
+		<ClCompile Include="../../Assets/Scripts/UI Test folder/Movment_Bar_HP.cpp" />
 	</ItemGroup>
 	<ItemGroup>
 		<ClInclude Include="Macro.h" />
@@ -193,6 +196,9 @@
 		<ClInclude Include="../../Assets/Scripts/MenuButtons.h" />
 		<ClInclude Include="../../Assets/Scripts/PauseButtons.h" />
 		<ClInclude Include="../../Assets/Scripts/GamepadButtons.h" />
+		<ClInclude Include="../../Assets/Scripts/UI Test folder/Movment_Bar.h" />
+		<ClInclude Include="../../Assets/Scripts/UI Test folder/SwapWeapon.h" />
+		<ClInclude Include="../../Assets/Scripts/UI Test folder/Movment_Bar_HP.h" />
 	</ItemGroup>
 	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 	<ImportGroup Label="ExtensionTargets" />
