@@ -45,15 +45,16 @@ void CamMov::Start()
 void CamMov::Update()
 {
 
-	/*if (target.GetTransform().GetGlobalPosition().x > gameObject.GetTransform().GetGlobalPosition().x + 7
-		|| target.GetTransform().GetGlobalPosition().x < gameObject.GetTransform().GetGlobalPosition().x - 7
-		|| target.GetTransform().GetGlobalPosition().z > gameObject.GetTransform().GetGlobalPosition().z + 4 + 13
-		|| target.GetTransform().GetGlobalPosition().z < gameObject.GetTransform().GetGlobalPosition().z + 7) {
+	if (target.GetTransform().GetGlobalPosition().x > gameObject.GetTransform().GetGlobalPosition().x + 13
+		|| target.GetTransform().GetGlobalPosition().x < gameObject.GetTransform().GetGlobalPosition().x - 13
+		|| target.GetTransform().GetGlobalPosition().z < gameObject.GetTransform().GetGlobalPosition().z + 11
+		|| target.GetTransform().GetGlobalPosition().z > gameObject.GetTransform().GetGlobalPosition().z + 40
+		) {
 		delay += 0.001;
 	}
 	else {
 		delay = 0.02;
-	}*/
+	}
 
 	desiredPosition.x = target.GetTransform().GetGlobalPosition().x + camPos.x;
 	desiredPosition.y = target.GetTransform().GetGlobalPosition().y + camPos.y;

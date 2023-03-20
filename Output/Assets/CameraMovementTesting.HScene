@@ -3683,6 +3683,24 @@
                     },
                     {
                         "Delay": 0.019999999552965164
+                    },
+                    {
+                        "Offset_X": 0.0
+                    },
+                    {
+                        "Offset_Y": 25.0
+                    },
+                    {
+                        "Offset_Z": -20.0
+                    },
+                    {
+                        "Rot_Offset_X": 50.0
+                    },
+                    {
+                        "Rot_Offset_Y": 0.0
+                    },
+                    {
+                        "Rot_Offset_Z": 0.0
                     }
                 ],
                 "Script Resource": 2306703736,
@@ -3721,7 +3739,7 @@
             {
                 "Active camera": true,
                 "Active culling": true,
-                "Aspect ratio": 1.9408766031265259,
+                "Aspect ratio": 0.712890625,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -3738,6 +3756,24 @@
                     },
                     {
                         "Delay": 0.019999999552965164
+                    },
+                    {
+                        "Offset_X": 0.0
+                    },
+                    {
+                        "Offset_Y": 45.0
+                    },
+                    {
+                        "Offset_Z": -17.0
+                    },
+                    {
+                        "Rot_Offset_X": 58.0
+                    },
+                    {
+                        "Rot_Offset_Y": 0.0
+                    },
+                    {
+                        "Rot_Offset_Z": 0.0
                     }
                 ],
                 "Script Resource": 871976367,
@@ -3787,7 +3823,7 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Velocity": 1.0
+                        "Velocity": 100.0
                     },
                     {
                         "SecToMaxVel": 0.0
