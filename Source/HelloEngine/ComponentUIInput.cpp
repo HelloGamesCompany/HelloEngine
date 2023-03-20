@@ -91,6 +91,9 @@ void ComponentUIInput::DeSerialization(json& j)
 	for (size_t i = 0; i < listAux.size(); i++)
 	{
 		GameObject* GOAux = ModuleLayers::gameObjects[listAux[i]];
+		if (GOAux == nullptr)
+			continue;
+
 		ComponentUIButton* CUIB = GOAux->GetComponent<ComponentUIButton>();
 
 		if (CUIB != nullptr)

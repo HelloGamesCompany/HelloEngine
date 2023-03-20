@@ -2,7 +2,7 @@
 <config>
 	<window>
 		<width value="1536" />
-		<height value="801" />
+		<height value="803" />
 		<brightness value="1" />
 	</window>
 	<renderer>
@@ -10,7 +10,7 @@
 		<framerate value="120" />
 	</renderer>
 	<scene>
-		<currentScene value="Assets/UITest2.HScene" />
+		<currentScene value="Assets/UITest3.HScene" />
 	</scene>
 	<openGL>
 		<blend value="true" tag="0x0BE2" />
