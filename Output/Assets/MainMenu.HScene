@@ -160,7 +160,7 @@
                 ],
                 "Scale": [
                     1.0,
-                    1.0,
+                    1.0499999523162842,
                     1.0
                 ],
                 "Type": 1
@@ -168,7 +168,7 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 4069356623,
+                "MaterialResource": 2228956348,
                 "Type": 15
             }
         ],
@@ -187,7 +187,7 @@
                 "Position": [
                     0.0,
                     0.4399999976158142,
-                    -0.0010000000474974513
+                    -0.003000000026077032
                 ],
                 "Rotation": [
                     0.0,
@@ -248,7 +248,7 @@
                 "Position": [
                     0.0,
                     0.14000000059604645,
-                    -0.0010000000474974513
+                    -0.003000000026077032
                 ],
                 "Rotation": [
                     0.0,
@@ -309,7 +309,7 @@
                 "Position": [
                     0.0,
                     -0.20000000298023224,
-                    -0.0010000000474974513
+                    -0.003000000026077032
                 ],
                 "Rotation": [
                     0.0,
@@ -370,7 +370,7 @@
                 "Position": [
                     0.0,
                     -0.5,
-                    -0.0010000000474974513
+                    -0.003000000026077032
                 ],
                 "Rotation": [
                     0.0,
@@ -431,7 +431,7 @@
                 "Position": [
                     0.0,
                     -0.8299999833106995,
-                    -0.0010000000474974513
+                    -0.003000000026077032
                 ],
                 "Rotation": [
                     0.0,
@@ -483,5 +483,87 @@
         "PrefabUID": 0,
         "Tag": "UI",
         "UID": 1551021094
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    -0.0020000000949949026
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 3521942759,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Image",
+        "ParentUID": 2377698017,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 4218626937
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    -0.0010000000474974513
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    2.5,
+                    2.5,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 4095403898,
+                "Type": 15
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Velocity": 0.5
+                    }
+                ],
+                "Script Resource": 354635148,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Barritas",
+        "ParentUID": 2377698017,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 356406331
     }
 ]
