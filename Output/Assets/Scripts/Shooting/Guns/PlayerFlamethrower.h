@@ -10,8 +10,8 @@
 class PlayerFlamethrower : public PlayerGun
 {
 public:
-	void Start() override; 
-	void Update() override;
+    void Start() override;
+    void Update() override;
 
     void Shoot() override;
     void EnableGuns(bool enable) override;
@@ -19,5 +19,8 @@ public:
     float fullShotCooldown;
     float shotCooldown;
     bool canShoot = true;
+
+    API_ParticleSystem fireParticles;
+    float playingParticlesCd;
 };
 
