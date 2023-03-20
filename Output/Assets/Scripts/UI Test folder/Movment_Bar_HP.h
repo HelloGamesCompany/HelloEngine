@@ -11,7 +11,7 @@ public:
 	void Start() override; 
 	void Update() override;
 
-	bool Speed_HP(bool Low_HP);
+	void Speed_HP(bool Low_HP);
 
 	bool Low_HP = false;
 

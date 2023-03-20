@@ -95,7 +95,20 @@
             },
             {
                 "Enabled": true,
-                "Inspector Fields": null,
+                "Inspector Fields": [
+                    {
+                        "Panel": 494622887
+                    },
+                    {
+                        "Continue": 3812402520
+                    },
+                    {
+                        "Main Menu": 650122914
+                    },
+                    {
+                        "Settings": 566227601
+                    }
+                ],
                 "Script Resource": 2595124544,
                 "Type": 5
             }
@@ -180,20 +193,7 @@
             },
             {
                 "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Panel": 494622887
-                    },
-                    {
-                        "Continue": 3812402520
-                    },
-                    {
-                        "Main Menu": 650122914
-                    },
-                    {
-                        "Settings": 566227601
-                    }
-                ],
+                "Inspector Fields": null,
                 "Script Resource": 2595124544,
                 "Type": 5
             }
@@ -277,23 +277,7 @@
             },
             {
                 "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Continue": 3812402520
-                    },
-                    {
-                        "NewGame": 3812402520
-                    },
-                    {
-                        "Exit": 650122914
-                    },
-                    {
-                        "Settings": 3812402520
-                    },
-                    {
-                        "Collectibles": 3812402520
-                    }
-                ],
+                "Inspector Fields": null,
                 "Script Resource": 186220908,
                 "Type": 5
             }
@@ -1335,11 +1319,7 @@
             },
             {
                 "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Bar": 3458098903
-                    }
-                ],
+                "Inspector Fields": null,
                 "Script Resource": 1458260256,
                 "Type": 5
             }
@@ -1549,11 +1529,7 @@
             },
             {
                 "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Bar": 694337954
-                    }
-                ],
+                "Inspector Fields": null,
                 "Script Resource": 1100340127,
                 "Type": 5
             }
@@ -1763,11 +1739,7 @@
             },
             {
                 "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Bar": 2155608744
-                    }
-                ],
+                "Inspector Fields": null,
                 "Script Resource": 1100340127,
                 "Type": 5
             }

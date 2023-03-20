@@ -90,7 +90,7 @@
     <ClCompile Include="../../Assets/Scripts/UI Test folder/Rotation.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="../../Assets/Scripts/MenuButtons.cpp">
+    <ClCompile Include="../../Assets/Scripts/MenuButtons.cpp"/>
     <ClCompile Include="../../Assets/Scripts/ParticleTest.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
@@ -207,7 +207,7 @@
     <ClInclude Include="../../Assets/Scripts/UI Test folder/Rotation.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="../../Assets/Scripts/MenuButtons.h">
+    <ClInclude Include="../../Assets/Scripts/MenuButtons.h"/>
     <ClInclude Include="../../Assets/Scripts/ParticleTest.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>

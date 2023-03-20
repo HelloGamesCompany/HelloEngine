@@ -7,7 +7,7 @@ HELLO_ENGINE_API_C Movment_Bar_HP* CreateMovment_Bar_HP(ScriptToInspectorInterfa
 
 	script->AddCheckBox("hp", &classInstance->Low_HP);
 
-	return classInstance;
+	return classInstance;  
 }
 
 void Movment_Bar_HP::Start()
@@ -46,7 +46,7 @@ void Movment_Bar_HP::Update()
 
 }
 
-bool Movment_Bar_HP::Speed_HP(bool Low_HP)
+void Movment_Bar_HP::Speed_HP(bool Low_HP)
 {
 	this->Low_HP = Low_HP;
 	directionY = { 0,0.00015,0 };
