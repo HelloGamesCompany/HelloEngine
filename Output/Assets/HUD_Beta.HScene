@@ -155,51 +155,9 @@
             {
                 "Enabled": true,
                 "Position": [
-                    -2.384000062942505,
-                    1.660491943359375,
-                    -0.7419999837875366
-                ],
-                "Rotation": [
-                    14.143915176391602,
-                    9.342804908752441,
-                    -0.0002449743333272636
-                ],
-                "Scale": [
-                    0.9999977350234985,
-                    0.9999990463256836,
-                    0.9999993443489075
-                ],
-                "Type": 1
-            },
-            {
-                "Active camera": true,
-                "Active culling": false,
-                "Aspect ratio": 1.6150120496749878,
-                "Enabled": true,
-                "FOV": 60.0,
-                "Far plane": 1000.0,
-                "Frustum type": 2,
-                "Near plane": 0.009999999776482582,
-                "Orthographic size": 10.0,
-                "Type": 4
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "Camera",
-        "ParentUID": 898015426,
-        "PrefabUID": 0,
-        "Tag": "Default",
-        "UID": 2996490079
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
+                    3.5878381729125977,
                     0.0,
-                    0.0,
-                    20.380922317504883
+                    0.0
                 ],
                 "Rotation": [
                     -0.0,
@@ -216,22 +174,25 @@
             {
                 "Enabled": true,
                 "Index inside model": 0,
-                "ModelUID": 1691403419,
+                "ModelUID": 1834708374,
                 "ParticleModules": {
+                    "ModuleEmission": {
+                        "ParticlesPerSecond": 23
+                    },
                     "ModuleMain": {
                         "BeginScale": [
-                            1.0,
-                            1.0,
-                            1.0
+                            4.199999809265137,
+                            4.0,
+                            2.9000000953674316
                         ],
-                        "Delay": 0.0,
-                        "Duration": 431.0,
+                        "Delay": 20.0,
+                        "Duration": 0.0,
                         "EndScale": [
                             0.0,
                             0.0,
                             0.0
                         ],
-                        "LifeTime": 5.0,
+                        "LifeTime": 3.0,
                         "Looping": true,
                         "Speed": [
                             0.0,
@@ -239,27 +200,27 @@
                             0.0
                         ],
                         "SpeedVariation": [
-                            1.0,
-                            1.0,
-                            1.0
+                            4.800000190734863,
+                            3.299999952316284,
+                            7.5
                         ],
                         "acceleration": [
-                            1.0,
-                            1.0,
+                            6.599999904632568,
+                            5.0,
                             1.0
                         ]
                     }
                 },
-                "ResourceTextUID": 639752049,
+                "ResourceTextUID": 1439898906,
                 "Type": 6
             }
         ],
         "FirstOnPrefab": true,
-        "Name": "Empty",
+        "Name": "PS",
         "ParentUID": 898015426,
         "PrefabUID": 0,
         "Tag": "Default",
-        "UID": 1009658130
+        "UID": 486356904
     },
     {
         "Active": true,
@@ -287,18 +248,18 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "particletest": 1009658130
+                        "Particle System": 486356904
                     }
                 ],
-                "Script Resource": 557915778,
+                "Script Resource": 602607876,
                 "Type": 5
             }
         ],
         "FirstOnPrefab": true,
-        "Name": "Empty",
+        "Name": "ParticleTest",
         "ParentUID": 898015426,
         "PrefabUID": 0,
         "Tag": "Default",
-        "UID": 1101530591
+        "UID": 2021788365
     }
 ]

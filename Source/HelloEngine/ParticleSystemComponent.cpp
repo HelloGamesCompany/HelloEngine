@@ -6,7 +6,7 @@
 #include "LayerEditor.h"
 #include "P_MainModule.h"
 #include "P_EmissionModule.h"
-
+#include "BillBoardComponent.h"
 
 
 
@@ -43,6 +43,53 @@ ParticleSystemComponent::ParticleSystemComponent(GameObject* gameObject) : Compo
 	particleProps.Lifetime = 5.0f;
 }
 
+ParticleSystemComponent::ParticleSystemComponent(GameObject* gameObject, ParticleSystemComponent& copy) : Component(gameObject)
+{
+	_type = Type::PARTICLE_SYSTEM;
+	_resource = nullptr;
+	app = Application::Instance();
+
+	ParticleEmitter.component = this;
+
+	//Initialize Particle System Modules
+	P_Module* mainModule = (P_Module*)new P_MainModule();
+	mainModule->component = this;
+	ParticleModules.push_back(mainModule);
+
+	P_Module* emissionModule = (P_Module*)new P_EmissionModule();
+	emissionModule->component = this;
+	ParticleModules.push_back(emissionModule);
+
+	BillBoardComponent* billboard = (BillBoardComponent*)_gameObject->AddComponentOfType(Type::BILLBOARD);
+	BillBoardComponent* copyBB = copy._gameObject->GetComponent<BillBoardComponent>();
+	if (copyBB != nullptr)
+		billboard->typeofBBoard = copyBB->typeofBBoard;
+
+	//Default Particle
+	particleProps.position = _gameObject->transform->GetGlobalPosition();
+	//particleProps.rot = float3::zero;
+	particleProps.startsize = copy.particleProps.startsize;
+	particleProps.endsize = copy.particleProps.endsize;
+	particleProps.speed = copy.particleProps.speed;
+	particleProps.acceleration = copy.particleProps.acceleration;
+	particleProps.speedVariation = copy.particleProps.speedVariation;
+	particleProps.startColor = copy.particleProps.startColor; //r g b a
+	particleProps.endColor = copy.particleProps.endColor; //r g b a
+
+	particleProps.Lifetime = copy.particleProps.Lifetime;
+
+	ParticleEmitter.loop = copy.ParticleEmitter.loop;
+	ParticleEmitter.stop = copy.ParticleEmitter.stop;
+	ParticleEmitter.playOnAwake = copy.ParticleEmitter.playOnAwake;
+	ParticleEmitter.StartDelay = copy.ParticleEmitter.StartDelay;
+	ParticleEmitter.Duration = copy.ParticleEmitter.Duration;
+	ParticleEmitter.enableEmissionModule = copy.ParticleEmitter.enableEmissionModule;
+	ParticleEmitter.ParticlesPerSecond = copy.ParticleEmitter.ParticlesPerSecond;
+
+	CreateEmitterMesh(copy._resource->UID);
+	ChangeEmitterMeshTexture((ResourceTexture*)ModuleResourceManager::S_LoadResource(copy._resourceText->UID));
+}
+
 ParticleSystemComponent::~ParticleSystemComponent()
 {
 	for (int i = 0; i < ParticleModules.size(); i++)
@@ -76,6 +123,7 @@ void ParticleSystemComponent::CreateEmitterMesh(uint resourceUID)
 	}
 
 	ParticleEmitter._meshID = resourceUID;
+	ParticleEmitter.manager = app->renderer3D->renderManager.GetRenderManager(resourceUID);
 
 	for (Particle& var : ParticleEmitter.ParticleList)
 	{
@@ -393,6 +441,7 @@ void ParticleSystemComponent::Serialization(json& j)
 		_j["ParticleModules"]["ModuleMain"]["Duration"] = ParticleEmitter.Duration;
 		_j["ParticleModules"]["ModuleMain"]["Delay"] = ParticleEmitter.StartDelay;
 		_j["ParticleModules"]["ModuleMain"]["Looping"] = ParticleEmitter.loop;
+		_j["ParticleModules"]["ModuleEmission"]["ParticlesPerSecond"] = ParticleEmitter.ParticlesPerSecond;
 	}
 
 	_j["Enabled"] = _isEnabled;
@@ -442,7 +491,8 @@ void ParticleSystemComponent::DeSerialization(json& j)
 	particleProps.acceleration = { tempacceleration[0],tempacceleration[1],tempacceleration[2] };
 	particleProps.Lifetime = j["ParticleModules"]["ModuleMain"]["LifeTime"];
 	ParticleEmitter.Duration = j["ParticleModules"]["ModuleMain"]["Duration"];
-	//ParticleEmitter.StartDelay = j["ParticleModules"]["ModuleMain"]["Delay"];
+	ParticleEmitter.ParticlesPerSecond = j["ParticleModules"]["ModuleEmission"]["ParticlesPerSecond"];
+	ParticleEmitter.StartDelay = j["ParticleModules"]["ModuleMain"]["Delay"];
 
 	bool enabled = j["Enabled"];
 

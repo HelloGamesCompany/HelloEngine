@@ -14,6 +14,8 @@ class ParticleSystemComponent : public Component
 public:
     ParticleSystemComponent(GameObject* gameObject);
 
+    ParticleSystemComponent(GameObject* gameObject, ParticleSystemComponent& copy);
+
     ~ParticleSystemComponent();
 
     void CreateEmitterMesh(uint resourceUID);

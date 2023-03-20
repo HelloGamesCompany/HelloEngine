@@ -58,24 +58,22 @@ private:
 	InstanceRenderer* manager;
 
 	int currentparticle;
-	bool loop;
-	bool stop;
-	bool playOnAwake;
+	bool loop;//
+	bool stop;//
+	bool playOnAwake;//
 
-	float StartDelay;
+	float StartDelay;//
 	float StartDelayCpy;
 
-	float Duration;
+	float Duration;//
 	float DurationCpy;
 
-	bool enableEmissionModule;
-	int ParticlesPerSecond;
-	int ParticleCount = 0;
+	bool enableEmissionModule;//
+	int ParticlesPerSecond;//
 
 	Quat BBRotAroundZ;
 
 	float accumulator = 0.0f;
-
 
 	friend class ParticleSystemComponent;
 	friend class ParticleManager;

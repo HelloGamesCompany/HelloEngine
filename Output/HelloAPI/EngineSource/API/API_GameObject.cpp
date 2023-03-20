@@ -8,6 +8,7 @@
 #include "API_MeshRenderer.h"
 #include "API/API_RigidBody.h"
 #include "API/API_Material.h"
+#include "API/API_ParticleSystem.h"
 #include "PhysicsComponent.h"
 #include "MaterialComponent.h"
 
@@ -123,6 +124,48 @@ API::API_MeshRenderer API::API_GameObject::AddMeshRenderer(API_MeshRenderer& cop
     }
 
     API_MeshRenderer ret;
+    ret.SetComponent(component);
+    return ret;
+}
+
+API::API_ParticleSystem API::API_GameObject::AddParticleSystem()
+{
+    if (_gameObject == nullptr)
+    {
+        Console::S_Log("Trying to acces a NULLPTR GameObject! AddMeshRenderer()");
+        return API::API_ParticleSystem();
+    }
+    ParticleSystemComponent* component = (ParticleSystemComponent*)_gameObject->AddComponentOfType(Component::Type::PARTICLE_SYSTEM);
+    if (component == nullptr)
+    {
+        Console::S_Log("Trying to add a second MeshRender to a GameObject. Only one MeshRender for game object is allowed. AddMeshRenderer()");
+        return API::API_ParticleSystem();
+    }
+    API_ParticleSystem ret;
+    ret.SetComponent(component);
+    return ret;
+}
+
+API::API_ParticleSystem API::API_GameObject::AddParticleSystem(API_ParticleSystem& copy)
+{
+    if (_gameObject == nullptr)
+    {
+        Console::S_Log("Trying to acces a NULLPTR GameObject! AddParticleSystem()");
+        return API::API_ParticleSystem();
+    }
+    ParticleSystemComponent* copyComponent = copy.GetComponent();
+    if (copyComponent == nullptr)
+    {
+        Console::S_Log("Trying to use a Nullptr particle system as a copy for a new one. AddParticleSystem()");
+        return API::API_ParticleSystem();
+    }
+    ParticleSystemComponent* component = (ParticleSystemComponent*)_gameObject->AddComponentOfType(Component::Type::PARTICLE_SYSTEM, *(Component*)copy.GetComponent());
+    if (component == nullptr)
+    {
+        Console::S_Log("Trying to add a second particle system to a GameObject. Only one MeshRender for game object is allowed. AddParticleSystem()");
+        return API::API_ParticleSystem();
+    }
+    API_ParticleSystem ret;
     ret.SetComponent(component);
     return ret;
 }

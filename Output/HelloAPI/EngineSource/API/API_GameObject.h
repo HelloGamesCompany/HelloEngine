@@ -35,6 +35,9 @@ namespace API
         API_MeshRenderer AddMeshRenderer();
         API_MeshRenderer AddMeshRenderer(API_MeshRenderer& copy);
 
+        API_ParticleSystem AddParticleSystem();
+        API_ParticleSystem AddParticleSystem(API_ParticleSystem& copy);
+
         API_Material AddMaterial();
 
         API_MeshRenderer GetMeshRenderer();

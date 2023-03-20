@@ -68,69 +68,8 @@
             },
             {
                 "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Velocity": 0.0
-                    },
-                    {
-                        "Max Velocity": 0.15000000596046448
-                    },
-                    {
-                        "Acceleration": 0.15000000596046448
-                    },
-                    {
-                        "Brake": 0.4000000059604645
-                    },
-                    {
-                        "Camera player": 1594218561
-                    },
-                    {
-                        "Velocity": 0.0
-                    },
-                    {
-                        "Max Velocity": 0.15000000596046448
-                    },
-                    {
-                        "Acceleration": 0.15000000596046448
-                    },
-                    {
-                        "Brake": 0.4000000059604645
-                    },
-                    {
-                        "Camera player": 1594218561
-                    },
-                    {
-                        "Velocity": 0.0
-                    },
-                    {
-                        "Max Velocity": 0.15000000596046448
-                    },
-                    {
-                        "Acceleration": 0.15000000596046448
-                    },
-                    {
-                        "Brake": 0.4000000059604645
-                    },
-                    {
-                        "Camera player": 1594218561
-                    },
-                    {
-                        "Velocity": 0.0
-                    },
-                    {
-                        "Max Velocity": 0.15000000596046448
-                    },
-                    {
-                        "Acceleration": 0.15000000596046448
-                    },
-                    {
-                        "Brake": 0.4000000059604645
-                    },
-                    {
-                        "Camera player": 1594218561
-                    }
-                ],
-                "Script Resource": 305663981,
+                "Inspector Fields": null,
+                "Script Resource": 0,
                 "Type": 5
             }
         ],
@@ -223,24 +162,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Target": 2216875337
-                    },
-                    {
-                        "Delay": 0.009999999776482582
-                    },
-                    {
-                        "Target": 2216875337
-                    },
-                    {
-                        "Delay": 0.009999999776482582
-                    },
-                    {
-                        "Target": 2216875337
-                    },
-                    {
-                        "Delay": 0.009999999776482582
-                    },
                     {
                         "Target": 2216875337
                     },

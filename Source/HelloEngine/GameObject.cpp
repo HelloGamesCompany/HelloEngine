@@ -456,7 +456,7 @@ Component* GameObject::AddComponentOfType(Component::Type type, const Component&
 		_components.push_back(newComponent);
 		break;
 	case Component::Type::PARTICLE_SYSTEM:
-		newComponent = new ParticleSystemComponent(this);
+		newComponent = new ParticleSystemComponent(this, *(ParticleSystemComponent*)&copy);
 		_components.push_back(newComponent);
 		break;
 	case Component::Type::BILLBOARD:
