@@ -26,7 +26,7 @@ void MenuButtons::Update()
 	if (NewGame.OnPress())
 	{
 		Console::Log("im pressed");
-		Scene::LoadScene("");
+		Scene::LoadScene("GameTestScreen.HScene");
 	}
 	if (Exit.OnPress())
 	{

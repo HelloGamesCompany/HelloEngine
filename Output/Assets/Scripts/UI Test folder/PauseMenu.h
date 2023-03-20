@@ -12,6 +12,8 @@ public:
 	void Start() override; 
 	void Update() override;
 
+	API_GameObject Panel;
+
 	API_UIImage mapImage;
 };
 
