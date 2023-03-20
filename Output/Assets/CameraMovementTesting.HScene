@@ -3648,13 +3648,13 @@
                 "Enabled": true,
                 "Position": [
                     0.0,
-                    0.0,
+                    22.952587127685547,
                     0.0
                 ],
                 "Rotation": [
+                    -0.0,
                     0.0,
-                    0.0,
-                    0.0
+                    -0.0
                 ],
                 "Scale": [
                     1.0,
@@ -3679,7 +3679,7 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Target": 2949965887
+                        "Target": 1696828975
                     },
                     {
                         "Delay": 0.019999999552965164
@@ -3721,7 +3721,7 @@
             {
                 "Active camera": true,
                 "Active culling": true,
-                "Aspect ratio": 1.6883407831192017,
+                "Aspect ratio": 1.9408766031265259,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -3734,7 +3734,7 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Target": 2949965887
+                        "Target": 1696828975
                     },
                     {
                         "Delay": 0.019999999552965164
@@ -3757,260 +3757,9 @@
             {
                 "Enabled": true,
                 "Position": [
-                    -150.20899963378906,
-                    0.8980000019073486,
-                    -14.822999954223633
-                ],
-                "Rotation": [
                     0.0,
-                    0.0,
-                    0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "MAIN CAMERA": 89930480
-                    },
-                    {
-                        "SECONDARY CAMERA": 1700467559
-                    }
-                ],
-                "Script Resource": 3334200637,
-                "Type": 5
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Velocity": 0.0
-                    },
-                    {
-                        "Max Velocity": 0.15000000596046448
-                    },
-                    {
-                        "Acceleration": 0.15000000596046448
-                    },
-                    {
-                        "Brake": 0.4000000059604645
-                    },
-                    {
-                        "Aux Cam": 2949965887
-                    },
-                    {
-                        "Camera player": 89930480
-                    },
-                    {
-                        "Camera Starship": 1700467559
-                    }
-                ],
-                "Script Resource": 3374891891,
-                "Type": 5
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "Node",
-        "ParentUID": 2462894403,
-        "PrefabUID": 0,
-        "Tag": "Default",
-        "UID": 2949965887
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.2378775179386139,
-                    0.10892724990844727
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "polySurface23_$AssimpFbx$_RotationPivot",
-        "ParentUID": 2949965887,
-        "PrefabUID": 0,
-        "Tag": "Default",
-        "UID": 2828858698
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    -0.0,
-                    -0.2378775179386139,
-                    -0.10892724990844727
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "polySurface23_$AssimpFbx$_RotationPivotInverse",
-        "ParentUID": 2828858698,
-        "PrefabUID": 0,
-        "Tag": "Default",
-        "UID": 2246055377
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    -23.54987335205078,
-                    -10.783798217773438
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "polySurface23_$AssimpFbx$_ScalingOffset",
-        "ParentUID": 2246055377,
-        "PrefabUID": 0,
-        "Tag": "Default",
-        "UID": 1452089348
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    23.787752151489258,
-                    10.892724990844727
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "polySurface23_$AssimpFbx$_ScalingPivot",
-        "ParentUID": 1452089348,
-        "PrefabUID": 0,
-        "Tag": "Default",
-        "UID": 972283859
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    0.05000000074505806,
-                    0.05000000074505806,
-                    0.05000000074505806
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "polySurface23_$AssimpFbx$_Scaling",
-        "ParentUID": 972283859,
-        "PrefabUID": 0,
-        "Tag": "Default",
-        "UID": 2689962479
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    -0.0,
-                    -23.787752151489258,
-                    -10.892724990844727
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "polySurface23_$AssimpFbx$_ScalingPivotInverse",
-        "ParentUID": 2689962479,
-        "PrefabUID": 0,
-        "Tag": "Default",
-        "UID": 123775674
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
+                    1.2342075109481812,
+                    5.179694175720215
                 ],
                 "Rotation": [
                     -0.0,
@@ -4027,19 +3776,54 @@
             {
                 "Enabled": true,
                 "Index inside model": 0,
-                "ModelUID": 886080150,
+                "ModelUID": 1834708374,
                 "ShowAABB": false,
                 "ShowFaceNormals": false,
                 "ShowOBB": false,
                 "ShowVertexNormals": false,
                 "Type": 2
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Velocity": 1.0
+                    },
+                    {
+                        "SecToMaxVel": 0.0
+                    },
+                    {
+                        "SecToZeroVel": 0.0
+                    },
+                    {
+                        "Dash Time": 0.5
+                    },
+                    {
+                        "Dash Distance": 5.0
+                    }
+                ],
+                "Script Resource": 3336682094,
+                "Type": 5
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "MAIN CAMERA": 89930480
+                    },
+                    {
+                        "SECONDARY CAMERA": 1700467559
+                    }
+                ],
+                "Script Resource": 2915611433,
+                "Type": 5
             }
         ],
         "FirstOnPrefab": true,
-        "Name": "polySurface23",
-        "ParentUID": 123775674,
+        "Name": "Player",
+        "ParentUID": 2462894403,
         "PrefabUID": 0,
         "Tag": "Default",
-        "UID": 1681803778
+        "UID": 1696828975
     }
 ]
