@@ -41,8 +41,13 @@ void Mesh::CreateBufferData()
 	_VBO = resource->VBO;
 	_IBO = resource->IBO;
 
-	drawPerMeshShader = new Shader("Resources/shaders/basic.vertex.shader", "Resources/shaders/basic.fragment.shader");
-	boneMeshShader = new Shader("Resources/shaders/basicBone.vertex.shader", "Resources/shaders/basicBone.fragment.shader");
+	if (!is2D)
+	{
+		drawPerMeshShader = new Shader("Resources/shaders/basic.vertex.shader", "Resources/shaders/basic.fragment.shader");
+		boneMeshShader = new Shader("Resources/shaders/basicBone.vertex.shader", "Resources/shaders/basicBone.fragment.shader");
+	}
+	else
+		drawPerMesh2D = new Shader("Resources/shaders/basic2D.vertex.shader", "Resources/shaders/basic.fragment.shader");
 }
 
 void Mesh::Draw(bool useBasicShader)
@@ -54,7 +59,7 @@ void Mesh::Draw(bool useBasicShader)
 			glBindTexture(GL_TEXTURE_2D, textureID);
 		}
 
-		if (component->_hasBones)
+		if (component != nullptr && component->_hasBones)
 		{
 			boneMeshShader->Bind();
 			boneMeshShader->SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
@@ -74,12 +79,17 @@ void Mesh::Draw(bool useBasicShader)
 			}
 
 		}
-		else
+		else if (!is2D)
 		{
 			drawPerMeshShader->Bind();
 			drawPerMeshShader->SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
 			drawPerMeshShader->SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
 			drawPerMeshShader->SetMatFloat4v("model", &modelMatrix.v[0][0]);
+		}
+		else
+		{
+			drawPerMesh2D->Bind();
+			drawPerMesh2D->SetMatFloat4v("model", &modelMatrix.v[0][0]);
 		}
 		
 	}
@@ -107,7 +117,7 @@ bool Mesh::Update()
 	if (showOBB)
 		Application::Instance()->renderer3D->renderManager.DrawOBB(this);
 
-	if (outOfFrustum) 
+	if (outOfFrustum && !is2D)
 		return false;
 	if (component && component->_gameObject->isSelected)
 	{

@@ -155,6 +155,16 @@
 		<ClCompile Include="../../Assets/Scripts/Shooting/Projectile.cpp" />
 		<ClCompile Include="../../Assets/Build/AnimationTest.cpp" />
 		<ClCompile Include="../../Assets/Scripts/RotateContiniously.cpp" />
+		<ClCompile Include="../../Assets/Scripts/UIbutton.cpp" />
+		<ClCompile Include="../../Assets/Scripts/UI Test folder/ButtonActionsTest.cpp" />
+		<ClCompile Include="../../Assets/Scripts/UI Test folder/PauseMenu.cpp" />
+		<ClCompile Include="../../Assets/Scripts/UI Test folder/Rotation.cpp" />
+		<ClCompile Include="../../Assets/Scripts/MenuButtons.cpp" />
+		<ClCompile Include="../../Assets/Scripts/PauseButtons.cpp" />
+		<ClCompile Include="../../Assets/Scripts/GamepadButtons.cpp" />
+		<ClCompile Include="../../Assets/Scripts/UI Test folder/Movment_Bar.cpp" />
+		<ClCompile Include="../../Assets/Scripts/UI Test folder/SwapWeapon.cpp" />
+		<ClCompile Include="../../Assets/Scripts/UI Test folder/Movment_Bar_HP.cpp" />
 		<ClCompile Include="../../Assets/Scripts/ParticleTest.cpp" />
 		<ClCompile Include="..\..\Assets\Scripts\Enemies\EnemyMeleeMovement.cpp" />
 		<ClCompile Include="..\..\Assets\Scripts\InteractiveEnviroment\ChestTest.cpp" />
@@ -203,6 +213,16 @@
 		<ClInclude Include="../../Assets/Scripts/Shooting/Projectile.h" />
 		<ClInclude Include="../../Assets/Build/AnimationTest.h" />
 		<ClInclude Include="../../Assets/Scripts/RotateContiniously.h" />
+		<ClInclude Include="../../Assets/Scripts/UIbutton.h" />
+		<ClInclude Include="../../Assets/Scripts/UI Test folder/ButtonActionsTest.h" />
+		<ClInclude Include="../../Assets/Scripts/UI Test folder/PauseMenu.h" />
+		<ClInclude Include="../../Assets/Scripts/UI Test folder/Rotation.h" />
+		<ClInclude Include="../../Assets/Scripts/MenuButtons.h" />
+		<ClInclude Include="../../Assets/Scripts/PauseButtons.h" />
+		<ClInclude Include="../../Assets/Scripts/GamepadButtons.h" />
+		<ClInclude Include="../../Assets/Scripts/UI Test folder/Movment_Bar.h" />
+		<ClInclude Include="../../Assets/Scripts/UI Test folder/SwapWeapon.h" />
+		<ClInclude Include="../../Assets/Scripts/UI Test folder/Movment_Bar_HP.h" />
 		<ClInclude Include="../../Assets/Scripts/ParticleTest.h" />
 		<ClInclude Include="../../Assets/Scripts/ParticleCopyTest.h" />
 	</ItemGroup>

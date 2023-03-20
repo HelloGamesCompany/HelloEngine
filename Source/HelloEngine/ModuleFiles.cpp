@@ -773,8 +773,8 @@ void ModuleFiles::S_CompileDLLProject()
         res = system("msbuild HelloAPI\\ScriptingSLN.sln /p:Configuration=Debug /property:Platform=x86");
     else
         LayerGame::S_DisableCreatingBehaviors(); // Else, dont allow behavior creating until HotReload!
-#endif
 
+#else
 #ifndef DEVELOPMENT
     if (_automaticCompilation && _enabledAutomaticCompilation)// If automatic compilation is available / enabled, compile using MSBuild.
         res = system("msbuild HelloAPI\\ScriptingSLN.sln /p:Configuration=Release /property:Platform=x86");
@@ -785,6 +785,7 @@ void ModuleFiles::S_CompileDLLProject()
         res = system("msbuild HelloAPI\\ScriptingSLN.sln /p:Configuration=Development /property:Platform=x86");
     else
         LayerGame::S_DisableCreatingBehaviors(); // Else, dont allow behavior creating until HotReload!
+#endif
 #endif
 
     if (res == 1)

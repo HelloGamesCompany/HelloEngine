@@ -5,6 +5,7 @@
 #include "GameObject.h"
 #include "MeshRenderComponent.h"
 #include "PhysBody3D.h"
+#include "FontManager.h"
 
 #define MAX_VERTICAL_SLICES_SPHERE 32
 #define MAX_HORIZONTAL_SLICES_SPHERE 32
@@ -25,6 +26,7 @@ enum class UIType
 	CHECKBOX,
 	SLIDER,
 	IMAGE,
+	TEXT,
 };
 
 enum class PrimitiveModelsUID
@@ -62,6 +64,7 @@ public:
 	uint AddIndependentMesh(ResourceMesh* resource);
 	uint AddInstancedMesh(ResourceMesh* resource);
 	uint Add2DMesh();
+	uint AddTextObject(std::string text = "Default Text", float4 color = {1,1,1,1}, float2 position = {0, 0}, float scale = 1.0f);
 
 	void CreatePrimitive(GameObject* parent, PrimitiveType type);
 	void CreateUI(GameObject* parent, UIType type);
@@ -86,6 +89,7 @@ public:
 
 	void DrawTransparentMeshes();
 	void DrawIndependentMeshes();
+	void DrawTextObjects();
 
 private:
 	std::map<uint, InstanceRenderer> _renderMap; // Render managers that use instance rendering to draw opaque meshes.
@@ -104,19 +108,13 @@ private:
 	std::vector<uint> sphereIndices;
 	std::vector<uint> cylinderIndices;
 
-	/*const uint sphereVerticalSlices = MAX_VERTICAL_SLICES_SPHERE;
-	const uint sphereHorizontalSlices = MAX_HORIZONTAL_SLICES_SPHERE;*/
-	/*const uint sphereVertexNum = sphereVerticalSlices * sphereHorizontalSlices + 2;*/
-
-	//const uint cylinderVerticalSlices = MAX_VERTICAL_SLICES_SPHERE;
-	//const uint cylinderVertexNum = sphereVerticalSlices * 2;
-
 	// ModelResources for primitives
 	ResourceModel* primitiveModels[5];
 
 	// Shaders for drawing debug information
 	Shader* lineShader = nullptr;
 	Shader* localLineShader = nullptr;
+	Shader* textRenderingShader = nullptr;
 
 	uint AABBVAO = 0;
 	uint AABBVBO = 0;
@@ -142,6 +140,13 @@ private:
 	uint cylinderUID = 0;
 	uint plane2DUID = 0;
 
+	// Text rendering
+	std::map<uint, TextObject> textObjects;
+
+	uint TextVAO = 0;
+	uint TextVBO = 0;
+	uint TextIBO = 0;
+
 	InstanceRenderer* renderer2D = nullptr;
 
 	friend class Emitter;
@@ -149,5 +154,6 @@ private:
 	friend class MeshRenderComponent;
 	friend class ResourceMesh;
 	friend class Mesh;
+	friend class TextRendererComponent;
 };
 

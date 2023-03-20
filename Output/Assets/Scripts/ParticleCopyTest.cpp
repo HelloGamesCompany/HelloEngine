@@ -14,6 +14,6 @@ void ParticleCopyTest::Update()
 {
 	if (Input::GetKey(KeyCode::KEY_A) == KeyState::KEY_DOWN)
 	{
-		myParticles.Play();
+		myParticles.Play();  
 	}
 }

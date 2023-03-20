@@ -408,6 +408,15 @@
     <ClCompile Include="API\API_ParticleSystem.cpp">
       <Filter>API</Filter>
     </ClCompile>
+    <ClCompile Include="API\API_UIButton.cpp">
+      <Filter>API</Filter>
+    </ClCompile>
+    <ClCompile Include="FontManager.cpp" />
+    <ClCompile Include="ComponentUIInput.cpp" />
+    <ClCompile Include="API\API_UIImage.cpp">
+      <Filter>API</Filter>
+    </ClCompile>
+    <ClCompile Include="TextRendererComponent.cpp" />
     <ClCompile Include="P_EmissionModule.cpp">
       <Filter>GameObject\Components\ParticleModules</Filter>
     </ClCompile>
@@ -968,6 +977,15 @@
     <ClInclude Include="API\API_ParticleSystem.h">
       <Filter>API</Filter>
     </ClInclude>
+    <ClInclude Include="API\API_UIButton.h">
+      <Filter>API</Filter>
+    </ClInclude>
+    <ClInclude Include="FontManager.h" />
+    <ClInclude Include="ComponentUIInput.h" />
+    <ClInclude Include="API\API_UIImage.h">
+      <Filter>API</Filter>
+    </ClInclude>
+    <ClInclude Include="TextRendererComponent.h" />
     <ClInclude Include="P_EmissionModule.h">
       <Filter>GameObject\Components\ParticleModules</Filter>
     </ClInclude>

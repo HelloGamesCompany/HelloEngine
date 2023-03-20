@@ -115,6 +115,7 @@ private:
 	friend class ComponentUI;
 	friend class ComponentUISlider;
 	friend class ComponentUIImage;
+	friend class ComponentUIInput;
 };
 
 #endif // !__MODULE_ENGINE_H__

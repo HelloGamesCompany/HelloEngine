@@ -63,6 +63,9 @@
     <ClCompile Include="../../Assets/Scripts/Shooting/PlayerGunType.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+    <ClCompile Include="../../Assets/Scripts/Shooting/PlayerSemiAuto.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
     <ClCompile Include="../../Assets/Scripts/Shooting/ProjectilePull.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
@@ -75,6 +78,19 @@
     <ClCompile Include="../../Assets/Scripts/RotateContiniously.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+    <ClCompile Include="../../Assets/Scripts/UIbutton.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="../../Assets/Scripts/UI Test folder/ButtonActionsTest.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="../../Assets/Scripts/UI Test folder/PauseMenu.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="../../Assets/Scripts/UI Test folder/Rotation.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="../../Assets/Scripts/MenuButtons.cpp"/>
     <ClCompile Include="../../Assets/Scripts/ParticleTest.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
@@ -164,6 +180,9 @@
     <ClInclude Include="../../Assets/Scripts/Shooting/PlayerGunType.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="../../Assets/Scripts/Shooting/PlayerSemiAuto.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
     <ClInclude Include="../../Assets/Scripts/Shooting/ProjectilePull.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
@@ -176,6 +195,19 @@
     <ClInclude Include="../../Assets/Scripts/RotateContiniously.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="../../Assets/Scripts/UIbutton.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="../../Assets/Scripts/UI Test folder/ButtonActionsTest.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="../../Assets/Scripts/UI Test folder/PauseMenu.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="../../Assets/Scripts/UI Test folder/Rotation.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="../../Assets/Scripts/MenuButtons.h"/>
     <ClInclude Include="../../Assets/Scripts/ParticleTest.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
