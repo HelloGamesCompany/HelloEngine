@@ -132,6 +132,11 @@
                 "ShowOBB": false,
                 "ShowVertexNormals": false,
                 "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 4175022599,
+                "Type": 3
             }
         ],
         "FirstOnPrefab": true,
@@ -172,6 +177,11 @@
                 "ShowOBB": false,
                 "ShowVertexNormals": false,
                 "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 4175022599,
+                "Type": 3
             }
         ],
         "FirstOnPrefab": true,
@@ -212,6 +222,11 @@
                 "ShowOBB": false,
                 "ShowVertexNormals": false,
                 "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 4175022599,
+                "Type": 3
             }
         ],
         "FirstOnPrefab": true,
@@ -252,6 +267,11 @@
                 "ShowOBB": false,
                 "ShowVertexNormals": false,
                 "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 4165705681,
+                "Type": 3
             }
         ],
         "FirstOnPrefab": true,
@@ -372,6 +392,11 @@
                 "ShowOBB": false,
                 "ShowVertexNormals": false,
                 "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 4175022599,
+                "Type": 3
             }
         ],
         "FirstOnPrefab": true,
@@ -412,6 +437,11 @@
                 "ShowOBB": false,
                 "ShowVertexNormals": false,
                 "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 4175022599,
+                "Type": 3
             }
         ],
         "FirstOnPrefab": true,
@@ -1272,6 +1302,11 @@
                 "ShowOBB": false,
                 "ShowVertexNormals": false,
                 "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 864767618,
+                "Type": 3
             }
         ],
         "FirstOnPrefab": true,
@@ -1312,6 +1347,11 @@
                 "ShowOBB": false,
                 "ShowVertexNormals": false,
                 "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 864767618,
+                "Type": 3
             }
         ],
         "FirstOnPrefab": true,
@@ -1352,6 +1392,11 @@
                 "ShowOBB": false,
                 "ShowVertexNormals": false,
                 "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 864767618,
+                "Type": 3
             }
         ],
         "FirstOnPrefab": true,
@@ -1392,6 +1437,11 @@
                 "ShowOBB": false,
                 "ShowVertexNormals": false,
                 "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 4059212157,
+                "Type": 3
             }
         ],
         "FirstOnPrefab": true,
@@ -1432,6 +1482,11 @@
                 "ShowOBB": false,
                 "ShowVertexNormals": false,
                 "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 864767618,
+                "Type": 3
             }
         ],
         "FirstOnPrefab": true,
@@ -1472,6 +1527,11 @@
                 "ShowOBB": false,
                 "ShowVertexNormals": false,
                 "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 864767618,
+                "Type": 3
             }
         ],
         "FirstOnPrefab": true,
@@ -1512,6 +1572,11 @@
                 "ShowOBB": false,
                 "ShowVertexNormals": false,
                 "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 864767618,
+                "Type": 3
             }
         ],
         "FirstOnPrefab": true,
@@ -1552,6 +1617,11 @@
                 "ShowOBB": false,
                 "ShowVertexNormals": false,
                 "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 4059212157,
+                "Type": 3
             }
         ],
         "FirstOnPrefab": true,
@@ -2502,6 +2572,11 @@
                 "ShowOBB": false,
                 "ShowVertexNormals": false,
                 "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 949147531,
+                "Type": 3
             }
         ],
         "FirstOnPrefab": true,
@@ -2542,6 +2617,11 @@
                 "ShowOBB": false,
                 "ShowVertexNormals": false,
                 "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 949147531,
+                "Type": 3
             }
         ],
         "FirstOnPrefab": true,
@@ -2582,6 +2662,11 @@
                 "ShowOBB": false,
                 "ShowVertexNormals": false,
                 "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 949147531,
+                "Type": 3
             }
         ],
         "FirstOnPrefab": true,
@@ -2622,6 +2707,11 @@
                 "ShowOBB": false,
                 "ShowVertexNormals": false,
                 "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 949147531,
+                "Type": 3
             }
         ],
         "FirstOnPrefab": true,
@@ -2832,6 +2922,11 @@
                 "ShowOBB": false,
                 "ShowVertexNormals": false,
                 "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 949147531,
+                "Type": 3
             }
         ],
         "FirstOnPrefab": true,
@@ -2882,24 +2977,24 @@
         "UID": 3382588478
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
                 "Position": [
-                    110.923095703125,
+                    171.9355926513672,
                     442.28411865234375,
-                    -866.1343383789063
+                    -774.8832397460938
                 ],
                 "Rotation": [
-                    -90.00000762939453,
-                    -3.415094397496432e-06,
-                    -157.05947875976563
+                    -90.00001525878906,
+                    1.9636792785604484e-05,
+                    -157.05943298339844
                 ],
                 "Scale": [
-                    4.288830757141113,
-                    4.288830757141113,
-                    4.288830757141113
+                    4.288850784301758,
+                    4.288834571838379,
+                    4.2888407707214355
                 ],
                 "Type": 1
             },
@@ -2952,6 +3047,11 @@
                 "ShowOBB": false,
                 "ShowVertexNormals": false,
                 "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 949147531,
+                "Type": 3
             }
         ],
         "FirstOnPrefab": true,
@@ -2992,6 +3092,11 @@
                 "ShowOBB": false,
                 "ShowVertexNormals": false,
                 "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3824868248,
+                "Type": 3
             }
         ],
         "FirstOnPrefab": true,
@@ -3877,6 +3982,11 @@
                 "ShowOBB": false,
                 "ShowVertexNormals": false,
                 "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 4175022599,
+                "Type": 3
             }
         ],
         "FirstOnPrefab": true,
