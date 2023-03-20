@@ -36,39 +36,49 @@ void ParticleManager::Draw()
 		if ((LayerGame::S_IsPlaying() && emitter->component->GetPlayOnGame()) || emitter->component->GetPlayOnScene())
 		{
 			//UPDATE EACH EMITTER
-			if (LayerGame::S_IsPlaying())
+			if (!emitter->component->StopEmittingOnGame)
 			{
-				if (emitter->StartDelay <= 0) {
-					if (emitter->Duration > 0) {
-						emitter->Duration -= EngineTime::GameDeltaTime();
+				if (LayerGame::S_IsPlaying())
+				{
+					if (emitter->StartDelay <= 0) {
+						if (emitter->Duration > 0 && !emitter->loop) {
+							emitter->Duration -= EngineTime::GameDeltaTime();
+						}
+					}
+					else {
+						emitter->StartDelay -= EngineTime::GameDeltaTime();
 					}
 				}
-				else {
-					emitter->StartDelay -= EngineTime::GameDeltaTime();
-				}
-			}
-			else
-			{
-				if (emitter->StartDelay <= 0) {
-					if (emitter->Duration > 0) {
-						emitter->Duration -= EngineTime::EngineTimeDeltaTime();
+				else
+				{
+					if (emitter->StartDelay <= 0) {
+						if (emitter->Duration > 0 && !emitter->loop) {
+							emitter->Duration -= EngineTime::EngineTimeDeltaTime();
+						}
+					}
+					else {
+						emitter->StartDelay -= EngineTime::EngineTimeDeltaTime();
 					}
 				}
-				else {
-					emitter->StartDelay -= EngineTime::EngineTimeDeltaTime();
-				}
 			}
-			
-			if (!emitter->loop) {
-				if (emitter->Duration <= 0) {
-					emitter->stop = true;				
+
+			if (!emitter->component->StopEmittingOnGame)
+			{
+				if (!emitter->loop) {
+					if (emitter->Duration <= 0) {
+						emitter->stop = true;
+					}
+					else {
+						emitter->stop = false;
+					}
 				}
 				else {
 					emitter->stop = false;
 				}
 			}
-			else {
-				emitter->stop = false;
+			else
+			{
+				emitter->stop = true;
 			}
 
 			if (emitter->component != nullptr)

@@ -211,10 +211,17 @@ void ParticleSystemComponent::OnEditor()
 	{
 		if (ImGui::Button("Play"))
 		{
+			if (!pauseOnScene)
+			{
+				ParticleEmitter.StartDelay = ParticleEmitter.StartDelayCpy;
+				ParticleEmitter.Duration = ParticleEmitter.DurationCpy;
+			}
 			if (ParticleEmitter.Duration > 0 || ParticleEmitter.loop)
 			{
+				StopEmittingOnGame = false;
 				SetPlayOnScene(true);
 				SetPauseOnScene(false);
+				
 			}
 		}
 		ImGui::SameLine();
@@ -225,6 +232,13 @@ void ParticleSystemComponent::OnEditor()
 				SetPauseOnScene(true);
 				SetPlayOnScene(false);
 			}
+		}
+		ImGui::SameLine();
+		if (ImGui::Button("Stop Emitting"))
+		{
+			ParticleEmitter.StartDelay = ParticleEmitter.StartDelayCpy;
+			ParticleEmitter.Duration = ParticleEmitter.DurationCpy;
+			StopEmittingOnGame = true;
 		}
 		ImGui::SameLine();
 		if (ImGui::Button("Stop"))

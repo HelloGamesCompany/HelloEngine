@@ -59,9 +59,10 @@ private:
 private:
     //Only for testing with particles on Scene
     bool playOnScene = false;
+    bool pauseOnScene = false;
     //Play Particles on Game
     bool playOnGame = false;
-    bool pauseOnScene = false;
+    bool StopEmittingOnGame = false;
     
     ResourceMesh* _resource = nullptr;
     ResourceTexture* _resourceText = nullptr;
