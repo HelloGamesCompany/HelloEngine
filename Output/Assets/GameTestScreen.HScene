@@ -54,7 +54,7 @@
             {
                 "Active camera": true,
                 "Active culling": true,
-                "Aspect ratio": 1.981747031211853,
+                "Aspect ratio": 1.9408766031265259,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -102,7 +102,7 @@
         "UID": 583491895
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -137,12 +137,12 @@
         "FirstOnPrefab": true,
         "Name": "Panel",
         "ParentUID": 583491895,
-        "PrefabUID": 0,
+        "PrefabUID": 151481633,
         "Tag": "UI",
         "UID": 494622887
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -179,15 +179,15 @@
                 "Type": 5
             }
         ],
-        "FirstOnPrefab": true,
+        "FirstOnPrefab": false,
         "Name": "Settings",
         "ParentUID": 494622887,
-        "PrefabUID": 0,
+        "PrefabUID": 151481633,
         "Tag": "UI",
         "UID": 566227601
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -224,15 +224,15 @@
                 "Type": 5
             }
         ],
-        "FirstOnPrefab": true,
+        "FirstOnPrefab": false,
         "Name": "Main Menu",
         "ParentUID": 494622887,
-        "PrefabUID": 0,
+        "PrefabUID": 151481633,
         "Tag": "UI",
         "UID": 650122914
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -269,15 +269,15 @@
                 "Type": 5
             }
         ],
-        "FirstOnPrefab": true,
+        "FirstOnPrefab": false,
         "Name": "Continue",
         "ParentUID": 494622887,
-        "PrefabUID": 0,
+        "PrefabUID": 151481633,
         "Tag": "UI",
         "UID": 3812402520
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -305,11 +305,409 @@
                 "Type": 15
             }
         ],
-        "FirstOnPrefab": true,
+        "FirstOnPrefab": false,
         "Name": "Image",
         "ParentUID": 494622887,
-        "PrefabUID": 0,
+        "PrefabUID": 151481633,
         "Tag": "UI",
         "UID": 2264394264
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "Type": 16,
+                "listButtons": [
+                    0
+                ]
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Panel",
+        "ParentUID": 583491895,
+        "PrefabUID": 2435402984,
+        "Tag": "UI",
+        "UID": 274943712
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.024999976158142,
+                    1.024999976158142,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 1236665315,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "BackGround",
+        "ParentUID": 274943712,
+        "PrefabUID": 2435402984,
+        "Tag": "UI",
+        "UID": 3481902176
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    -0.0010000000474974513
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.5,
+                    0.5,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 1502179773,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Map",
+        "ParentUID": 274943712,
+        "PrefabUID": 2435402984,
+        "Tag": "UI",
+        "UID": 1262241759
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.550000011920929,
+                    -0.6000000238418579,
+                    -0.0010000000474974513
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.20000000298023224,
+                    0.05000000074505806,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 3934951106,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Map Name",
+        "ParentUID": 274943712,
+        "PrefabUID": 2435402984,
+        "Tag": "UI",
+        "UID": 3502627179
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.6000000238418579,
+                    0.550000011920929,
+                    -0.0010000000474974513
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.25,
+                    0.15000000596046448,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 801667611,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Main Posit",
+        "ParentUID": 274943712,
+        "PrefabUID": 2435402984,
+        "Tag": "UI",
+        "UID": 1048664166
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.675000011920929,
+                    0.30000001192092896,
+                    -0.0010000000474974513
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.20000000298023224,
+                    0.10000000149011612,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 3964916320,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Secondary Pos 1",
+        "ParentUID": 274943712,
+        "PrefabUID": 2435402984,
+        "Tag": "UI",
+        "UID": 3193803678
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.699999988079071,
+                    0.10000000149011612,
+                    -0.0010000000474974513
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.20000000298023224,
+                    0.10000000149011612,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 3964916320,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Secondary Pos 2",
+        "ParentUID": 274943712,
+        "PrefabUID": 2435402984,
+        "Tag": "UI",
+        "UID": 1053984821
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.6299999952316284,
+                    -0.20000000298023224,
+                    -0.0010000000474974513
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.20000000298023224,
+                    0.10000000149011612,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 3964916320,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Secondary Pos 3",
+        "ParentUID": 274943712,
+        "PrefabUID": 2435402984,
+        "Tag": "UI",
+        "UID": 4255937977
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.5950000286102295,
+                    0.5,
+                    -0.009999999776482582
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.02500000037252903,
+                    0.05000000074505806,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 2133632598,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Cinta 1",
+        "ParentUID": 274943712,
+        "PrefabUID": 2435402984,
+        "Tag": "UI",
+        "UID": 1454080268
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.4950000047683716,
+                    0.5059999823570251,
+                    -0.0010000000474974513
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.02500000037252903,
+                    0.05000000074505806,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 2181062309,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Cinta 2",
+        "ParentUID": 274943712,
+        "PrefabUID": 2435402984,
+        "Tag": "UI",
+        "UID": 2143171708
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.4050000011920929,
+                    0.5099999904632568,
+                    -0.0010000000474974513
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.02500000037252903,
+                    0.05000000074505806,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 316398588,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Cinta 3",
+        "ParentUID": 274943712,
+        "PrefabUID": 2435402984,
+        "Tag": "UI",
+        "UID": 2593619628
     }
 ]
