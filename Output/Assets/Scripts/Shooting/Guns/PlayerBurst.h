@@ -10,15 +10,17 @@
 class PlayerBurst : public PlayerGun
 {
 public:
-	void Start() override; 
-	void Update() override;
+    void Start() override;
+    void Update() override;
 
-	void Shoot() override;
-	void EnableGuns(bool enable) override;
+    void Shoot() override;
+    void EnableGuns(bool enable) override;
 
     float fullShotCooldown;
     float shotCooldown;
     bool canShoot = true;
+    float shotBufferCooldown = SHOT_BUFFER;
+    bool shotBuffer = false;
     float fullBurstDelay;
     float burstDelay;
     int burstLenght;

@@ -77,4 +77,5 @@ void PlayerRicochet::Shoot()
 void PlayerRicochet::EnableGuns(bool enable)
 {
     gameObject.SetActive(enable);
+    shotBuffer = false;
 }

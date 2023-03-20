@@ -81,4 +81,5 @@ void PlayerShotgun::Shoot()
 void PlayerShotgun::EnableGuns(bool enable)
 {
     gameObject.SetActive(enable);
+    shotBuffer = false;
 }

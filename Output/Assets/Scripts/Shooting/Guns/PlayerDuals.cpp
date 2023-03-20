@@ -93,4 +93,6 @@ void PlayerDuals::EnableGuns(bool enable)
 {
     gameObject.SetActive(enable);
     secondGun.SetActive(enable);
+    shotBuffer = false;
+    nextShot = false;
 }

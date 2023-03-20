@@ -34,6 +34,15 @@ void PlayerBurst::Start()
 
 void PlayerBurst::Update()
 {
+    if (shotBuffer)
+    {
+        shotBufferCooldown -= Time::GetDeltaTime();
+        if (shotBufferCooldown <= 0)
+        {
+            shotBuffer = false;
+        }
+    }
+
     // burst
     if (shotCount < burstLenght)
     {
@@ -50,7 +59,14 @@ void PlayerBurst::Update()
         }
     }
 
-    if (canShoot)return;
+    if (canShoot)
+    {
+        if (shotBuffer)
+        {
+            Shoot();
+        }
+        return;
+    }
 
     if (shotCooldown <= 0)
     {
@@ -73,9 +89,16 @@ void PlayerBurst::Shoot()
         burstDelay = fullBurstDelay;
         playerStats->UseAmmo(ammoType);
     }
+    else
+    {
+        shotBuffer = true;
+        shotBufferCooldown = SHOT_BUFFER;
+    }
 }
 
 void PlayerBurst::EnableGuns(bool enable)
 {
     gameObject.SetActive(enable);
+    shotBuffer = false;
+    shotCount = burstLenght;
 }

@@ -77,4 +77,5 @@ void PlayerSemiAuto::Shoot()
 void PlayerSemiAuto::EnableGuns(bool enable)
 {
     gameObject.SetActive(enable);
+    shotBuffer = false;
 }
