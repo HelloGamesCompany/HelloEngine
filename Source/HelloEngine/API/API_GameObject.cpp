@@ -11,6 +11,7 @@
 #include "API/API_ParticleSystem.h"
 #include "PhysicsComponent.h"
 #include "MaterialComponent.h"
+#include "ParticleSystemComponent.h"
 
 API::API_GameObject::API_GameObject()
 {
@@ -211,6 +212,18 @@ API::API_Material API::API_GameObject::GetMaterialCompoennt()
     }
     API_Material ret;
     ret.SetComponent(_gameObject->GetComponent<MaterialComponent>());
+    return ret;
+}
+
+API::API_ParticleSystem API::API_GameObject::GetParticleSystem()
+{
+    if (_gameObject == nullptr)
+    {
+        Console::S_Log("Trying to acces a NULLPTR GameObject! AddMaterial()");
+        return API_ParticleSystem();
+    }
+    API_ParticleSystem ret;
+    ret.SetComponent(_gameObject->GetComponent<ParticleSystemComponent>());
     return ret;
 }
 

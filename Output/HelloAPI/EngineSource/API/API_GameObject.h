@@ -43,6 +43,8 @@ namespace API
         API_MeshRenderer GetMeshRenderer();
         API_Material GetMaterialCompoennt();
 
+        API_ParticleSystem GetParticleSystem();
+
         void SetActive(bool active);
         bool IsActive();
 
