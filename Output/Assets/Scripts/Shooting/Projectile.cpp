@@ -28,6 +28,7 @@ void Projectile::Update()
 
 void Projectile::Destroy()
 {
+    //particles.Stop();
     gameObject.SetActive(false);
 }
 

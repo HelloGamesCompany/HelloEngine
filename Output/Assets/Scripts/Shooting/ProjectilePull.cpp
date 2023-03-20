@@ -7,6 +7,7 @@ HELLO_ENGINE_API_C ProjectilePull* CreateProjectilePull(ScriptToInspectorInterfa
     //Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
     script->AddDragInt("Pull Size", &classInstance->pullSize);
     script->AddDragBoxGameObject("Player", &classInstance->playerGO);
+    script->AddDragBoxParticleSystem("Particles", &classInstance->particleTest);
     return classInstance;
 }
 
@@ -20,7 +21,8 @@ void ProjectilePull::Start()
         newProjectile.AddMeshRenderer();
         newProjectile.AddMaterial();
         newProjectile.CreateRigidBodyBox((0, 0, 0), (0, 0, 0), (0.3f, 0.3f, 0.3f), false);
-        newProjectile.AddScript("Projectile");
+        Projectile* projectileScript = (Projectile*)newProjectile.AddScript("Projectile");
+        //projectileScript->particles = newProjectile.AddParticleSystem(particleTest); // remove it if we have getParticleSystem
         newProjectile.SetActive(false);
         pull.push_back(newProjectile);
     }
@@ -71,4 +73,5 @@ void ProjectilePull::LauchProjectile(float projectileSpeed, float projectileDama
     projectile->resistanceDamage = projectileResistanceDamage;
     projectile->lifeTime = projectileLifetime;
     projectile->action = projectileAction;
+    //if (projectileAction != PROJECTILE_ACTION::FLAMETROWER) projectile->particles.Play();
 }
