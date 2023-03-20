@@ -1,0 +1,4349 @@
+[
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Root",
+        "ParentUID": 0,
+        "PrefabUID": 0,
+        "Tag": "None",
+        "UID": 2462894403
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -65.9826889038086,
+                    165.01580810546875,
+                    169.37298583984375
+                ],
+                "Rotation": [
+                    126.54312896728516,
+                    19.913156509399414,
+                    -165.00160217285156
+                ],
+                "Scale": [
+                    1.0000799894332886,
+                    1.0,
+                    1.0000447034835815
+                ],
+                "Type": 1
+            },
+            {
+                "Active camera": true,
+                "Active culling": false,
+                "Aspect ratio": 1.7420965433120728,
+                "Enabled": true,
+                "FOV": 60.0,
+                "Far plane": 1000.0,
+                "Frustum type": 2,
+                "Near plane": 0.009999999776482582,
+                "Orthographic size": 10.0,
+                "Type": 4
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Camera",
+        "ParentUID": 2462894403,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2234365864
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Node",
+        "ParentUID": 2462894403,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1311194678
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    178.87196350097656,
+                    442.7630310058594,
+                    -856.9017333984375
+                ],
+                "Rotation": [
+                    -90.0,
+                    3.927358557120897e-05,
+                    -87.51671600341797
+                ],
+                "Scale": [
+                    5.357749938964844,
+                    6.039501667022705,
+                    4.288830757141113
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.094",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1449767854
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    306.9084777832031,
+                    442.7630310058594,
+                    -966.1945190429688
+                ],
+                "Rotation": [
+                    -89.99999237060547,
+                    4.26886799687054e-06,
+                    23.690296173095703
+                ],
+                "Scale": [
+                    3.870264768600464,
+                    12.644118309020996,
+                    4.288830757141113
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 1,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.095",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2556307334
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    270.8184814453125,
+                    442.7630310058594,
+                    -997.7540893554688
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    2.0490566384978592e-05,
+                    -65.64321899414063
+                ],
+                "Scale": [
+                    5.357749938964844,
+                    6.039501190185547,
+                    4.288830757141113
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 2,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.111",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2113056061
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    195.8433380126953,
+                    444.92071533203125,
+                    -956.9300537109375
+                ],
+                "Rotation": [
+                    -110.18690490722656,
+                    8.447190284729004,
+                    68.83708953857422
+                ],
+                "Scale": [
+                    4.28883171081543,
+                    4.2888312339782715,
+                    4.288830280303955
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 3,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Sphere.001",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1856200288
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -4.8935980796813965,
+                    -36.18645095825195,
+                    222.30555725097656
+                ],
+                "Rotation": [
+                    -89.9999771118164,
+                    -5.976415195618756e-06,
+                    -18.69662857055664
+                ],
+                "Scale": [
+                    5.357749938964844,
+                    6.039501190185547,
+                    4.288830757141113
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 4,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.072",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3544248800
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    16.68065643310547,
+                    -36.07054901123047,
+                    124.46727752685547
+                ],
+                "Rotation": [
+                    -90.00001525878906,
+                    -1.8783019186230376e-05,
+                    48.263545989990234
+                ],
+                "Scale": [
+                    5.357749938964844,
+                    6.039501667022705,
+                    4.288830757141113
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 5,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.112",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3979582304
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    351.813232421875,
+                    -36.01560592651367,
+                    802.5945434570313
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    -1.707547198748216e-06,
+                    -80.53753662109375
+                ],
+                "Scale": [
+                    5.357749938964844,
+                    6.039501190185547,
+                    4.288830757141113
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 6,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.113",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2749256415
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    253.25364685058594,
+                    -36.01560592651367,
+                    721.8938598632813
+                ],
+                "Rotation": [
+                    -90.0,
+                    3.415094397496432e-06,
+                    41.358524322509766
+                ],
+                "Scale": [
+                    5.357751369476318,
+                    6.0395002365112305,
+                    4.288830757141113
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 7,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.114",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 763322474
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    476.9373474121094,
+                    -36.01560592651367,
+                    1311.4942626953125
+                ],
+                "Rotation": [
+                    -90.0,
+                    0.0006505755009129643,
+                    -89.83800506591797
+                ],
+                "Scale": [
+                    5.313542366027832,
+                    3.859572649002075,
+                    4.288830757141113
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 8,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.116",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1643608946
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    545.9595947265625,
+                    -36.01560592651367,
+                    1297.2203369140625
+                ],
+                "Rotation": [
+                    -90.0,
+                    0.0006505755009129643,
+                    -89.83800506591797
+                ],
+                "Scale": [
+                    5.313542366027832,
+                    3.859572649002075,
+                    4.288830757141113
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 9,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.117",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3179729434
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    509.0573425292969,
+                    -36.01560592651367,
+                    1349.6390380859375
+                ],
+                "Rotation": [
+                    -90.0,
+                    0.0006505755009129643,
+                    -89.83800506591797
+                ],
+                "Scale": [
+                    5.313542366027832,
+                    3.859572649002075,
+                    4.288830757141113
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 10,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.118",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 443586785
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    356.0607604980469,
+                    -35.71897888183594,
+                    1036.0018310546875
+                ],
+                "Rotation": [
+                    -90.0,
+                    -1.707547198748216e-06,
+                    -19.492172241210938
+                ],
+                "Scale": [
+                    5.31354284286499,
+                    3.859572649002075,
+                    4.288830757141113
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 11,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.119",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2140700245
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    454.4277648925781,
+                    -138.91366577148438,
+                    -426.8621826171875
+                ],
+                "Rotation": [
+                    -12.233016014099121,
+                    -65.71170043945313,
+                    78.82122802734375
+                ],
+                "Scale": [
+                    4.2888312339782715,
+                    4.288829803466797,
+                    4.2888312339782715
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 12,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cone",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2326585945
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    287.0987243652344,
+                    -138.91366577148438,
+                    -578.0120849609375
+                ],
+                "Rotation": [
+                    -162.8531494140625,
+                    72.8051528930664,
+                    -106.4226303100586
+                ],
+                "Scale": [
+                    4.2888312339782715,
+                    4.2888312339782715,
+                    4.288830280303955
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 13,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cone.001",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3138442797
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    283.2070007324219,
+                    -141.41346740722656,
+                    -562.3248901367188
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    1.707547198748216e-06,
+                    -12.860218048095703
+                ],
+                "Scale": [
+                    4.288830757141113,
+                    4.288830757141113,
+                    6.830602169036865
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 14,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.120",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3654720529
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    281.8453674316406,
+                    -141.41346740722656,
+                    -575.6934814453125
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    -4.26886799687054e-06,
+                    21.176734924316406
+                ],
+                "Scale": [
+                    4.2888312339782715,
+                    4.2888312339782715,
+                    6.830602169036865
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 15,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.121",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2845399876
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    273.9603576660156,
+                    -141.41346740722656,
+                    -588.2868041992188
+                ],
+                "Rotation": [
+                    -90.00001525878906,
+                    -1.1952830391237512e-05,
+                    44.743507385253906
+                ],
+                "Scale": [
+                    4.288830280303955,
+                    4.288830280303955,
+                    6.830602169036865
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 16,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.122",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2808173587
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    467.10943603515625,
+                    -141.41346740722656,
+                    -416.2342529296875
+                ],
+                "Rotation": [
+                    -89.99999237060547,
+                    6.830188794992864e-06,
+                    -136.2686309814453
+                ],
+                "Scale": [
+                    4.2888312339782715,
+                    4.2888312339782715,
+                    6.830602169036865
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 17,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.123",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 941986606
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    459.44732666015625,
+                    -141.41346740722656,
+                    -428.9623718261719
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    -4.26886799687054e-06,
+                    -159.8354034423828
+                ],
+                "Scale": [
+                    4.2888312339782715,
+                    4.2888312339782715,
+                    6.830602169036865
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 18,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.124",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2193853702
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    458.3226623535156,
+                    -141.41346740722656,
+                    -442.3556213378906
+                ],
+                "Rotation": [
+                    -90.00001525878906,
+                    2.988207597809378e-06,
+                    166.1276092529297
+                ],
+                "Scale": [
+                    4.288830757141113,
+                    4.288830757141113,
+                    6.830602169036865
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 19,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.125",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 661606589
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    358.86279296875,
+                    -141.41346740722656,
+                    289.62451171875
+                ],
+                "Rotation": [
+                    -89.99998474121094,
+                    -5.122641596244648e-06,
+                    -43.1649055480957
+                ],
+                "Scale": [
+                    4.2888312339782715,
+                    4.2888312339782715,
+                    6.830602169036865
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 20,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.126",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2483050465
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    364.4345397949219,
+                    -141.41346740722656,
+                    277.39306640625
+                ],
+                "Rotation": [
+                    -90.0000228881836,
+                    2.13443399843527e-06,
+                    -9.127944946289063
+                ],
+                "Scale": [
+                    4.2888312339782715,
+                    4.2888312339782715,
+                    6.830602169036865
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 21,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.127",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 22759764
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    363.9798278808594,
+                    -141.41346740722656,
+                    262.543212890625
+                ],
+                "Rotation": [
+                    -89.99998474121094,
+                    1.707547198748216e-06,
+                    14.438831329345703
+                ],
+                "Scale": [
+                    4.2888312339782715,
+                    4.2888312339782715,
+                    6.830602169036865
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 22,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.128",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 4009564516
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    369.8392028808594,
+                    -138.91366577148438,
+                    278.0186767578125
+                ],
+                "Rotation": [
+                    -42.421836853027344,
+                    82.57666015625,
+                    132.18179321289063
+                ],
+                "Scale": [
+                    4.2888312339782715,
+                    4.28883171081543,
+                    4.288830280303955
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 23,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cone.002",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2786732211
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    368.759521484375,
+                    -141.41346740722656,
+                    -30.282520294189453
+                ],
+                "Rotation": [
+                    -89.99999237060547,
+                    1.707547198748216e-06,
+                    21.677759170532227
+                ],
+                "Scale": [
+                    4.288830757141113,
+                    4.288830757141113,
+                    6.830602169036865
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 24,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.129",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2820567119
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    371.0819091796875,
+                    -141.41346740722656,
+                    -15.60661792755127
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    5.336084996088175e-07,
+                    -1.8890135288238525
+                ],
+                "Scale": [
+                    4.28883171081543,
+                    4.28883171081543,
+                    6.830602169036865
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 25,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.130",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 503651482
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    367.0955810546875,
+                    -141.41346740722656,
+                    -2.7709245681762695
+                ],
+                "Rotation": [
+                    -89.99999237060547,
+                    -5.122641596244648e-06,
+                    -35.92597198486328
+                ],
+                "Scale": [
+                    4.2888312339782715,
+                    4.2888312339782715,
+                    6.830602169036865
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 26,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.131",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 606823778
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    376.5224609375,
+                    -138.91366577148438,
+                    -15.66765308380127
+                ],
+                "Rotation": [
+                    -109.19145202636719,
+                    84.7049789428711,
+                    -160.7323455810547
+                ],
+                "Scale": [
+                    4.2888312339782715,
+                    4.2888312339782715,
+                    4.288830757141113
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 27,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cone.003",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2379924682
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    291.7305603027344,
+                    -36.273563385009766,
+                    1071.4112548828125
+                ],
+                "Rotation": [
+                    -89.99999237060547,
+                    -2.561320798122324e-06,
+                    -17.047962188720703
+                ],
+                "Scale": [
+                    4.28883171081543,
+                    4.28883171081543,
+                    6.830602169036865
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 28,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.132",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1487940433
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    291.3498229980469,
+                    -36.273563385009766,
+                    1057.974853515625
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    -1.707547198748216e-06,
+                    16.989009857177734
+                ],
+                "Scale": [
+                    4.288830280303955,
+                    4.288830280303955,
+                    6.830602169036865
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 29,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.133",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1584673669
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    284.4040222167969,
+                    -36.273563385009766,
+                    1044.8427734375
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    -6.830188794992864e-06,
+                    40.555789947509766
+                ],
+                "Scale": [
+                    4.288830280303955,
+                    4.288830280303955,
+                    6.830602169036865
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 30,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.134",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1740577097
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    296.4779357910156,
+                    -33.77375793457031,
+                    1056.1568603515625
+                ],
+                "Rotation": [
+                    -166.05038452148438,
+                    68.80517578125,
+                    -103.03936004638672
+                ],
+                "Scale": [
+                    4.2888312339782715,
+                    4.288830757141113,
+                    4.2888312339782715
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 31,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cone.004",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2510780893
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    349.429443359375,
+                    -36.273563385009766,
+                    997.0514526367188
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    -1.0245283192489296e-05,
+                    -138.93035888671875
+                ],
+                "Scale": [
+                    4.2888312339782715,
+                    4.2888312339782715,
+                    6.830602169036865
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 32,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.135",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2202571648
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    342.36639404296875,
+                    -36.273563385009766,
+                    983.9813232421875
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    -3.415094397496432e-06,
+                    -162.4971160888672
+                ],
+                "Scale": [
+                    4.288830280303955,
+                    4.288830280303955,
+                    6.830602169036865
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 33,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.136",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2023336319
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    341.8646240234375,
+                    -36.273563385009766,
+                    970.5501708984375
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    2.561320798122324e-06,
+                    163.46588134765625
+                ],
+                "Scale": [
+                    4.288830757141113,
+                    4.288830757141113,
+                    6.830602169036865
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 34,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.137",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 360490890
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    337.25439453125,
+                    -33.77375793457031,
+                    985.84423828125
+                ],
+                "Rotation": [
+                    -13.6376371383667,
+                    -68.3061294555664,
+                    77.29580688476563
+                ],
+                "Scale": [
+                    4.2888312339782715,
+                    4.2888312339782715,
+                    4.288830757141113
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 35,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cone.005",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2242342162
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    453.31829833984375,
+                    -141.155517578125,
+                    270.171630859375
+                ],
+                "Rotation": [
+                    -90.0000228881836,
+                    -2.3905660782475024e-05,
+                    61.37937545776367
+                ],
+                "Scale": [
+                    5.357751369476318,
+                    6.039501667022705,
+                    4.288830757141113
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 36,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.138",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 632385593
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    448.9682312011719,
+                    -141.155517578125,
+                    -15.856432914733887
+                ],
+                "Rotation": [
+                    -90.0000228881836,
+                    -2.3905660782475024e-05,
+                    61.37937545776367
+                ],
+                "Scale": [
+                    5.357751369476318,
+                    6.039501667022705,
+                    4.288830757141113
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 37,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.139",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3902586253
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    381.98291015625,
+                    -141.155517578125,
+                    -350.7838134765625
+                ],
+                "Rotation": [
+                    -89.99999237060547,
+                    -3.415094397496432e-06,
+                    131.44151306152344
+                ],
+                "Scale": [
+                    5.357749938964844,
+                    6.039501667022705,
+                    4.288830757141113
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 38,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.140",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2326375152
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -29.9260196685791,
+                    -30.27142333984375,
+                    275.0140686035156
+                ],
+                "Rotation": [
+                    -89.99999237060547,
+                    2.219811358372681e-05,
+                    71.63057708740234
+                ],
+                "Scale": [
+                    4.288830757141113,
+                    4.288830757141113,
+                    6.830602169036865
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 39,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.141",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1347725231
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -17.199430465698242,
+                    -30.27142333984375,
+                    282.6772766113281
+                ],
+                "Rotation": [
+                    -89.99999237060547,
+                    1.707547198748216e-06,
+                    48.06378936767578
+                ],
+                "Scale": [
+                    4.288830757141113,
+                    4.288830757141113,
+                    6.830602169036865
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 40,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.142",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2122759035
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -9.93823528289795,
+                    -30.27142333984375,
+                    293.9871520996094
+                ],
+                "Rotation": [
+                    -90.0000228881836,
+                    -4.26886799687054e-06,
+                    14.026829719543457
+                ],
+                "Scale": [
+                    4.288830757141113,
+                    4.288830757141113,
+                    6.830602169036865
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 41,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.143",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3077087671
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -13.744486808776855,
+                    -27.771604537963867,
+                    278.47430419921875
+                ],
+                "Rotation": [
+                    -173.6385955810547,
+                    38.13014602661133,
+                    -93.93785095214844
+                ],
+                "Scale": [
+                    4.2888312339782715,
+                    4.2888312339782715,
+                    4.28883171081543
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 42,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cone.006",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1246985506
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    97.71168518066406,
+                    -30.50680160522461,
+                    103.22340393066406
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    2.561320798122324e-06,
+                    153.27488708496094
+                ],
+                "Scale": [
+                    4.288830757141113,
+                    4.288830757141113,
+                    6.830602169036865
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 43,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.144",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2203959178
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    95.82884979248047,
+                    -30.50680160522461,
+                    116.53045654296875
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    -1.280660399061162e-06,
+                    -172.6881103515625
+                ],
+                "Scale": [
+                    4.288830757141113,
+                    4.288830757141113,
+                    6.830602169036865
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 44,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.145",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 4135281938
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    100.46802520751953,
+                    -30.50680160522461,
+                    130.64501953125
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    -6.830188794992864e-06,
+                    -149.121337890625
+                ],
+                "Scale": [
+                    4.288829326629639,
+                    4.288829326629639,
+                    6.830602169036865
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 45,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.146",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2216020025
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    90.46761322021484,
+                    -28.006982803344727,
+                    117.45980834960938
+                ],
+                "Rotation": [
+                    -24.737979888916016,
+                    -77.97886657714844,
+                    65.74139404296875
+                ],
+                "Scale": [
+                    4.2888312339782715,
+                    4.288830757141113,
+                    4.2888312339782715
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 46,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cone.007",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2009920908
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -39.94434356689453,
+                    -32.65606689453125,
+                    -19.652273178100586
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    3.415094397496432e-06,
+                    -33.859840393066406
+                ],
+                "Scale": [
+                    4.2888312339782715,
+                    4.2888312339782715,
+                    6.830602169036865
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 47,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.147",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2669032188
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -50.72880935668945,
+                    -32.65606689453125,
+                    -9.433842658996582
+                ],
+                "Rotation": [
+                    -89.99999237060547,
+                    -1.707547198748216e-06,
+                    -57.42661666870117
+                ],
+                "Scale": [
+                    4.2888312339782715,
+                    4.2888312339782715,
+                    6.830602169036865
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 48,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.148",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3224866604
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -63.56803894042969,
+                    -32.65606689453125,
+                    -5.460074424743652
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    -0.0001605094294063747,
+                    -91.46357727050781
+                ],
+                "Scale": [
+                    4.288830757141113,
+                    4.288830757141113,
+                    6.830602169036865
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 49,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.149",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3317405980
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -47.60009765625,
+                    -30.156248092651367,
+                    -4.982414722442627
+                ],
+                "Rotation": [
+                    -6.188295364379883,
+                    36.04801559448242,
+                    93.65084838867188
+                ],
+                "Scale": [
+                    4.2888312339782715,
+                    4.288830757141113,
+                    4.2888312339782715
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 50,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cone.008",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3550358476
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    453.82257080078125,
+                    -36.33674240112305,
+                    1212.80615234375
+                ],
+                "Rotation": [
+                    -90.00001525878906,
+                    -5.122641596244648e-06,
+                    15.231078147888184
+                ],
+                "Scale": [
+                    4.2888312339782715,
+                    4.2888312339782715,
+                    4.288830757141113
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 51,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.150",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 4139572796
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    453.3175048828125,
+                    -36.33674240112305,
+                    1165.10107421875
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    5.122641596244648e-06,
+                    -24.075366973876953
+                ],
+                "Scale": [
+                    4.288830757141113,
+                    4.288830757141113,
+                    4.288830757141113
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 52,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.151",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 302134123
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    557.5128784179688,
+                    -36.33674240112305,
+                    1209.02197265625
+                ],
+                "Rotation": [
+                    -89.99999237060547,
+                    -6.40330199530581e-07,
+                    -6.0495147705078125
+                ],
+                "Scale": [
+                    4.2888312339782715,
+                    4.2888312339782715,
+                    4.288830757141113
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 53,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.152",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2424928871
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    548.7291259765625,
+                    -36.33674240112305,
+                    1154.8013916015625
+                ],
+                "Rotation": [
+                    -89.99999237060547,
+                    3.415094397496432e-06,
+                    42.32061767578125
+                ],
+                "Scale": [
+                    4.2888312339782715,
+                    4.2888312339782715,
+                    4.288830757141113
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 54,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.153",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3693424019
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    453.3175048828125,
+                    -36.33674240112305,
+                    1189.33203125
+                ],
+                "Rotation": [
+                    -90.0000228881836,
+                    8.53773599374108e-07,
+                    -2.4231326580047607
+                ],
+                "Scale": [
+                    4.291368007659912,
+                    5.527141571044922,
+                    4.288830757141113
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 55,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.154",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 181615278
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    555.3926391601563,
+                    -36.33674240112305,
+                    1181.45849609375
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    -2.13443399843527e-06,
+                    9.251445770263672
+                ],
+                "Scale": [
+                    4.291368007659912,
+                    5.527140140533447,
+                    4.288830757141113
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 56,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.155",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 4148517510
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    384.7867126464844,
+                    -141.47665405273438,
+                    -108.78550720214844
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    8.53773599374108e-07,
+                    -16.897565841674805
+                ],
+                "Scale": [
+                    4.2888312339782715,
+                    4.2888312339782715,
+                    4.288830757141113
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 57,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.015",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 271809597
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -93.7064208984375,
+                    170.43624877929688,
+                    674.5588989257813
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    6.670106245110219e-09,
+                    0.060348134487867355
+                ],
+                "Scale": [
+                    4.2888312339782715,
+                    4.2888312339782715,
+                    4.288830757141113
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 58,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.156",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 30046560
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -54.62506866455078,
+                    170.43624877929688,
+                    758.2544555664063
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    -0.0003176037862431258,
+                    88.9812240600586
+                ],
+                "Scale": [
+                    4.2888312339782715,
+                    4.2888312339782715,
+                    4.288830757141113
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 59,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.157",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 222480608
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -42.66679763793945,
+                    170.43624877929688,
+                    590.0358276367188
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    -0.0003176037862431258,
+                    88.9812240600586
+                ],
+                "Scale": [
+                    4.2888312339782715,
+                    4.2888312339782715,
+                    4.288830757141113
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 60,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.158",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1670340192
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    79.118408203125,
+                    170.43624877929688,
+                    581.7314453125
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    -6.830188794992864e-06,
+                    50.458961486816406
+                ],
+                "Scale": [
+                    4.288830280303955,
+                    4.288830280303955,
+                    4.288830757141113
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 61,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.159",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 220000735
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -91.94517517089844,
+                    -35.64529037475586,
+                    195.43812561035156
+                ],
+                "Rotation": [
+                    -90.00001525878906,
+                    -2.561320798122324e-06,
+                    11.669156074523926
+                ],
+                "Scale": [
+                    4.288830757141113,
+                    4.288830757141113,
+                    4.288830757141113
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 62,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.160",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 817793899
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -90.29188537597656,
+                    -35.64529037475586,
+                    105.30140686035156
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    -8.53773599374108e-07,
+                    -27.996780395507813
+                ],
+                "Scale": [
+                    4.2888312339782715,
+                    4.2888312339782715,
+                    4.288830757141113
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 63,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.161",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1542566503
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    105.8262710571289,
+                    21.238590240478516,
+                    691.6265258789063
+                ],
+                "Rotation": [
+                    -90.00109100341797,
+                    0.1588413566350937,
+                    90.3909683227539
+                ],
+                "Scale": [
+                    4.2888312339782715,
+                    4.2888312339782715,
+                    4.2888312339782715
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 64,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.162",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3660236179
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    137.11947631835938,
+                    -26.4990291595459,
+                    434.3374328613281
+                ],
+                "Rotation": [
+                    -89.8609848022461,
+                    0.07666034996509552,
+                    28.87445831298828
+                ],
+                "Scale": [
+                    4.754817008972168,
+                    4.435717582702637,
+                    4.288832187652588
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 65,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.163",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 303411886
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    329.1688537597656,
+                    442.44189453125,
+                    -934.5458984375
+                ],
+                "Rotation": [
+                    -90.00001525878906,
+                    -4.26886799687054e-06,
+                    24.193191528320313
+                ],
+                "Scale": [
+                    4.2888312339782715,
+                    4.2888312339782715,
+                    4.288830757141113
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 66,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.164",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1189753478
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    97.27918243408203,
+                    442.44189453125,
+                    -849.2931518554688
+                ],
+                "Rotation": [
+                    -90.00001525878906,
+                    -4.26886799687054e-06,
+                    24.193191528320313
+                ],
+                "Scale": [
+                    4.2888312339782715,
+                    4.2888312339782715,
+                    4.288830757141113
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 67,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.165",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3382588478
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    110.923095703125,
+                    442.28411865234375,
+                    -866.1343383789063
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    -3.415094397496432e-06,
+                    -157.05947875976563
+                ],
+                "Scale": [
+                    4.288830757141113,
+                    4.288830757141113,
+                    4.288830757141113
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 68,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.166",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1840619861
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    270.07220458984375,
+                    442.28411865234375,
+                    -1009.5028686523438
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    -4.9518868763698265e-05,
+                    85.68265533447266
+                ],
+                "Scale": [
+                    4.2888312339782715,
+                    4.2888312339782715,
+                    4.288830757141113
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 69,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.167",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1151099224
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -89.27645874023438,
+                    171.99989318847656,
+                    585.6251220703125
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    4.288830757141113,
+                    4.288830757141113,
+                    4.288830757141113
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 70,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Icosphere",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 884298039
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -92.76609802246094,
+                    -34.08164596557617,
+                    150.79090881347656
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    4.288830757141113,
+                    4.288830757141113,
+                    4.288830757141113
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 71,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Icosphere.001",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1652552355
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    177.2747344970703,
+                    443.90283203125,
+                    -995.66259765625
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    4.288830757141113,
+                    4.288830757141113,
+                    4.288830757141113
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 72,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Icosphere.002",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3058549503
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    329.6422119140625,
+                    -33.06988525390625,
+                    646.2835083007813
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    2.1444153785705566,
+                    2.1444153785705566,
+                    7.719895362854004
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 73,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Sphere.003",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3386347275
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    398.2236022949219,
+                    -33.06988525390625,
+                    634.8546752929688
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    2.1444153785705566,
+                    2.1444153785705566,
+                    7.719895362854004
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 74,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Sphere.004",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1538820742
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -45.51506423950195,
+                    175.6617889404297,
+                    672.4030151367188
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    2.1444153785705566,
+                    2.1444153785705566,
+                    7.719895362854004
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 75,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Sphere.005",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 574647357
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    254.9641571044922,
+                    -33.06988525390625,
+                    882.5109252929688
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    2.1444153785705566,
+                    2.1444153785705566,
+                    7.719895362854004
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 76,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Sphere.006",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 4198246753
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    249.6304473876953,
+                    -31.237836837768555,
+                    767.4474487304688
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    2.1444153785705566,
+                    2.1444153785705566,
+                    7.719895362854004
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 77,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Sphere.007",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 727795924
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    421.0843200683594,
+                    -33.06988525390625,
+                    768.9702758789063
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    2.1444153785705566,
+                    2.1444153785705566,
+                    7.719895362854004
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 78,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Sphere.008",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2150833892
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    313.9216613769531,
+                    -33.06988525390625,
+                    1016.3572387695313
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    2.1444153785705566,
+                    2.1444153785705566,
+                    7.719895362854004
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 79,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Sphere.009",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3466587188
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    475.2425537109375,
+                    -33.06988525390625,
+                    1276.3157958984375
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    2.561320798122324e-06,
+                    -9.300479888916016
+                ],
+                "Scale": [
+                    2.1444153785705566,
+                    2.1444153785705566,
+                    7.719895362854004
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 80,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Sphere.010",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 169351619
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    538.253662109375,
+                    -33.06988525390625,
+                    1260.8966064453125
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    2.561320798122324e-06,
+                    -9.300479888916016
+                ],
+                "Scale": [
+                    2.1444153785705566,
+                    2.1444153785705566,
+                    7.719895362854004
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 81,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Sphere.011",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 743838879
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    498.6974182128906,
+                    -33.06988525390625,
+                    1227.39111328125
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    2.561320798122324e-06,
+                    -9.300479888916016
+                ],
+                "Scale": [
+                    2.1444153785705566,
+                    2.1444153785705566,
+                    7.719895362854004
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 82,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Sphere.012",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2385906987
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    453.7083740234375,
+                    -138.2097930908203,
+                    142.36805725097656
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    2.1444153785705566,
+                    2.1444153785705566,
+                    7.719895362854004
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 83,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Sphere.013",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1370169126
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    409.81646728515625,
+                    -138.2097930908203,
+                    82.92897033691406
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    2.1444153785705566,
+                    2.1444153785705566,
+                    7.719895362854004
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 84,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Sphere.014",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1321077085
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    407.9877014160156,
+                    -138.2097930908203,
+                    222.83680725097656
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    2.1444153785705566,
+                    2.1444153785705566,
+                    7.719895362854004
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 85,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Sphere.015",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2278058241
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    361.3522644042969,
+                    -138.2097930908203,
+                    -428.2313232421875
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    2.1444153785705566,
+                    2.1444153785705566,
+                    7.719895362854004
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 86,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Sphere.016",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 435457268
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    379.132568359375,
+                    -138.2097930908203,
+                    -539.995849609375
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    2.1444153785705566,
+                    2.1444153785705566,
+                    7.719895362854004
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 87,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Sphere.017",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3091280260
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    315.6308288574219,
+                    -138.2097930908203,
+                    -630.1660766601563
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    2.1444153785705566,
+                    2.1444153785705566,
+                    7.719895362854004
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 88,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Sphere.018",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1506746195
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    302.9309387207031,
+                    -138.2097930908203,
+                    -731.7682495117188
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    2.1444153785705566,
+                    2.1444153785705566,
+                    7.719895362854004
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 89,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Sphere.019",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 895604590
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    5.471466541290283,
+                    175.6617889404297,
+                    628.9873657226563
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    2.1444153785705566,
+                    2.1444153785705566,
+                    7.719895362854004
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 90,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Sphere.002",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2846924358
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    17.72099494934082,
+                    175.6617889404297,
+                    710.9060668945313
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    2.1444153785705566,
+                    2.1444153785705566,
+                    7.719895362854004
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 91,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Sphere.020",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1569952509
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    281.4661865234375,
+                    442.7630310058594,
+                    -865.392333984375
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    1.3660377589985728e-05,
+                    -48.97368621826172
+                ],
+                "Scale": [
+                    5.357750415802002,
+                    6.039501667022705,
+                    4.288830757141113
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 92,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.002",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3335880481
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    508.69903564453125,
+                    -73.81378936767578,
+                    1476.055908203125
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 93,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 240240,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Edificio0",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1273403796
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    507.19622802734375,
+                    -73.81378936767578,
+                    1171.753662109375
+                ],
+                "Rotation": [
+                    -90.0,
+                    0.0008298679604195058,
+                    90.42826080322266
+                ],
+                "Scale": [
+                    207.21214294433594,
+                    100.00724792480469,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 94,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Edificio.001",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3225724580
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    322.45867919921875,
+                    -73.81378936767578,
+                    1034.869873046875
+                ],
+                "Rotation": [
+                    -90.0,
+                    0.0,
+                    102.67803192138672
+                ],
+                "Scale": [
+                    109.75467681884766,
+                    57.409080505371094,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 95,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Edificio.002",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2921010931
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    292.7819519042969,
+                    -95.43041229248047,
+                    651.8549194335938
+                ],
+                "Rotation": [
+                    -90.0000228881836,
+                    -1.8676297486308613e-07,
+                    0.5285874009132385
+                ],
+                "Scale": [
+                    187.35276794433594,
+                    295.046875,
+                    161.7138214111328
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 96,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Edificio.003",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1295528846
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    433.7461853027344,
+                    -182.8217315673828,
+                    40.62578582763672
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    -0.0001707547198748216,
+                    89.28504180908203
+                ],
+                "Scale": [
+                    319.2174072265625,
+                    100.01795959472656,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 97,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Edificio.004",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1700571366
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    353.6190185546875,
+                    -182.8217315673828,
+                    -550.9794921875
+                ],
+                "Rotation": [
+                    -90.0,
+                    1.0245283192489296e-05,
+                    107.68617248535156
+                ],
+                "Scale": [
+                    251.09326171875,
+                    97.67201232910156,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 98,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Edificio.005",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 410590749
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.09024739265441895,
+                    -62.17417907714844,
+                    673.3290405273438
+                ],
+                "Rotation": [
+                    -90.00001525878906,
+                    -1.3340212490220438e-07,
+                    0.5285874009132385
+                ],
+                "Scale": [
+                    115.81394958496094,
+                    138.7278289794922,
+                    656.2318725585938
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 99,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Edificio.007",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2731181249
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    36.37495040893555,
+                    -85.8892822265625,
+                    137.70559692382813
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    -8.53773599374108e-06,
+                    32.56227493286133
+                ],
+                "Scale": [
+                    202.40719604492188,
+                    275.8218688964844,
+                    132.5650634765625
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 100,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Edificio.008",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 777608116
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    506.1282043457031,
+                    -41.0782585144043,
+                    1368.6390380859375
+                ],
+                "Rotation": [
+                    180.0,
+                    2.231179860245902e-05,
+                    -89.9999771118164
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 101,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "pasarelas",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 4086845252
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    273.1844482421875,
+                    6.250261306762695,
+                    859.59765625
+                ],
+                "Rotation": [
+                    89.9999771118164,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 102,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "walls",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1554831379
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    259.00750732421875,
+                    -212.24012756347656,
+                    -886.46142578125
+                ],
+                "Rotation": [
+                    -89.99999237060547,
+                    -3.415094397496432e-06,
+                    -68.46941375732422
+                ],
+                "Scale": [
+                    115.81394958496094,
+                    138.72781372070313,
+                    656.2318725585938
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 103,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Edificio.006",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2854676271
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    136.71157836914063,
+                    9.401281356811523,
+                    674.12548828125
+                ],
+                "Rotation": [
+                    179.99990844726563,
+                    89.48603057861328,
+                    7.072110747685656e-05
+                ],
+                "Scale": [
+                    100.00000762939453,
+                    100.0,
+                    100.00000762939453
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 104,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "post-rump",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 100008186
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    231.20970153808594,
+                    -20.33232879638672,
+                    861.285400390625
+                ],
+                "Rotation": [
+                    91.07669830322266,
+                    61.47848892211914,
+                    89.053955078125
+                ],
+                "Scale": [
+                    100.00000762939453,
+                    100.0,
+                    99.99999237060547
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 105,
+                "ModelUID": 1856476667,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "ramp.001",
+        "ParentUID": 1311194678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 527930690
+    }
+]
