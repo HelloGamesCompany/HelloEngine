@@ -192,18 +192,6 @@
                     },
                     {
                         "Settings": 566227601
-                    },
-                    {
-                        "Panel": 494622887
-                    },
-                    {
-                        "Continue": 3812402520
-                    },
-                    {
-                        "Main Menu": 650122914
-                    },
-                    {
-                        "Settings": 566227601
                     }
                 ],
                 "Script Resource": 2595124544,
@@ -290,21 +278,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Continue": 3812402520
-                    },
-                    {
-                        "NewGame": 3812402520
-                    },
-                    {
-                        "Exit": 650122914
-                    },
-                    {
-                        "Settings": 3812402520
-                    },
-                    {
-                        "Collectibles": 3812402520
-                    },
                     {
                         "Continue": 3812402520
                     },
@@ -796,12 +769,6 @@
                     },
                     {
                         "Map Panel": 274943712
-                    },
-                    {
-                        "Pause Panel": 494622887
-                    },
-                    {
-                        "Map Panel": 274943712
                     }
                 ],
                 "Script Resource": 3628194192,
@@ -906,12 +873,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Bar": 3516983140
-                    },
-                    {
-                        "hp": false
-                    },
                     {
                         "Bar": 3516983140
                     },
@@ -1377,9 +1338,6 @@
                 "Inspector Fields": [
                     {
                         "Bar": 3458098903
-                    },
-                    {
-                        "Bar": 3458098903
                     }
                 ],
                 "Script Resource": 1458260256,
@@ -1594,9 +1552,6 @@
                 "Inspector Fields": [
                     {
                         "Bar": 694337954
-                    },
-                    {
-                        "Bar": 694337954
                     }
                 ],
                 "Script Resource": 1100340127,
@@ -1809,9 +1764,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Bar": 2155608744
-                    },
                     {
                         "Bar": 2155608744
                     }
