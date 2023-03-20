@@ -1,0 +1,183 @@
+[
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Root",
+        "ParentUID": 0,
+        "PrefabUID": 0,
+        "Tag": "None",
+        "UID": 1229416696
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 10,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 240240,
+                "Type": 3
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": null,
+                "Script Resource": 0,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube",
+        "ParentUID": 1229416696,
+        "PrefabUID": 0,
+        "Tag": "Primitive",
+        "UID": 2216875337
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    2.221588373184204
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    0.20000000298023224,
+                    0.20000000298023224,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 12,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 240240,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cylinder",
+        "ParentUID": 2216875337,
+        "PrefabUID": 0,
+        "Tag": "Primitive",
+        "UID": 1428055516
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    9.174396514892578,
+                    -17.920982360839844
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.000037431716919,
+                    0.9999969601631165,
+                    1.0000526905059814
+                ],
+                "Type": 1
+            },
+            {
+                "Active camera": true,
+                "Active culling": false,
+                "Aspect ratio": 1.4925124645233154,
+                "Enabled": true,
+                "FOV": 60.0,
+                "Far plane": 1000.0,
+                "Frustum type": 2,
+                "Near plane": 0.009999999776482582,
+                "Orthographic size": 10.0,
+                "Type": 4
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Target": 2216875337
+                    },
+                    {
+                        "Delay": 0.009999999776482582
+                    }
+                ],
+                "Script Resource": 2306703736,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Camera",
+        "ParentUID": 1229416696,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1594218561
+    }
+]

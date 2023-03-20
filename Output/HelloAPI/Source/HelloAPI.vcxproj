@@ -151,7 +151,6 @@
 		<ClCompile Include="../../Assets/Scripts/Shooting/PlayerGunManager.cpp" />
 		<ClCompile Include="../../Assets/Scripts/Shooting/PlayerGun.cpp" />
 		<ClCompile Include="../../Assets/Scripts/Shooting/PlayerGunType.cpp" />
-		<ClCompile Include="../../Assets/Scripts/Shooting/PlayerSemiAuto.cpp" />
 		<ClCompile Include="../../Assets/Scripts/Shooting/ProjectilePull.cpp" />
 		<ClCompile Include="../../Assets/Scripts/Shooting/Projectile.cpp" />
 		<ClCompile Include="../../Assets/Build/AnimationTest.cpp" />
@@ -166,8 +165,34 @@
 		<ClCompile Include="../../Assets/Scripts/UI Test folder/Movment_Bar.cpp" />
 		<ClCompile Include="../../Assets/Scripts/UI Test folder/SwapWeapon.cpp" />
 		<ClCompile Include="../../Assets/Scripts/UI Test folder/Movment_Bar_HP.cpp" />
+		<ClCompile Include="../../Assets/Scripts/ParticleTest.cpp" />
+		<ClCompile Include="..\..\Assets\Scripts\Enemies\EnemyMeleeMovement.cpp" />
+		<ClCompile Include="..\..\Assets\Scripts\InteractiveEnviroment\ChestTest.cpp" />
+		<ClCompile Include="..\..\Assets\Scripts\Player\PlayerMove.cpp" />
+		<ClCompile Include="..\..\Assets\Scripts\Player\PlayerStats.cpp" />
+		<ClCompile Include="..\..\Assets\Scripts\Shooting\Guns\PlayerAutomatic.cpp" />
+		<ClCompile Include="..\..\Assets\Scripts\Shooting\Guns\PlayerBurst.cpp" />
+		<ClCompile Include="..\..\Assets\Scripts\Shooting\Guns\PlayerDuals.cpp" />
+		<ClCompile Include="..\..\Assets\Scripts\Shooting\Guns\PlayerFlamethrower.cpp" />
+		<ClCompile Include="..\..\Assets\Scripts\Shooting\Guns\PlayerRicochet.cpp" />
+		<ClCompile Include="..\..\Assets\Scripts\Shooting\Guns\PlayerSemiAuto.cpp" />
+		<ClCompile Include="..\..\Assets\Scripts\Shooting\Guns\PlayerShotgun.cpp" />
+		<ClCompile Include="..\..\Assets\Scripts\TestAPI.cpp" />
+		<ClCompile Include="../../Assets/Scripts/ParticleCopyTest.cpp" />
 	</ItemGroup>
 	<ItemGroup>
+		<ClInclude Include="..\..\Assets\Scripts\Enemies\EnemyMeleeMovement.h" />
+		<ClInclude Include="..\..\Assets\Scripts\InteractiveEnviroment\ChestTest.h" />
+		<ClInclude Include="..\..\Assets\Scripts\Player\PlayerMove.h" />
+		<ClInclude Include="..\..\Assets\Scripts\Player\PlayerStats.h" />
+		<ClInclude Include="..\..\Assets\Scripts\Shooting\Guns\PlayerAutomatic.h" />
+		<ClInclude Include="..\..\Assets\Scripts\Shooting\Guns\PlayerBurst.h" />
+		<ClInclude Include="..\..\Assets\Scripts\Shooting\Guns\PlayerDuals.h" />
+		<ClInclude Include="..\..\Assets\Scripts\Shooting\Guns\PlayerFlamethrower.h" />
+		<ClInclude Include="..\..\Assets\Scripts\Shooting\Guns\PlayerRicochet.h" />
+		<ClInclude Include="..\..\Assets\Scripts\Shooting\Guns\PlayerSemiAuto.h" />
+		<ClInclude Include="..\..\Assets\Scripts\Shooting\Guns\PlayerShotgun.h" />
+		<ClInclude Include="..\..\Assets\Scripts\TestAPI.h" />
 		<ClInclude Include="Macro.h" />
 		<ClInclude Include="../../Assets/Scripts/transformTest.h" />
 		<ClInclude Include="../../Assets/Scripts/BulletBehavior.h" />
@@ -184,7 +209,6 @@
 		<ClInclude Include="../../Assets/Scripts/Shooting/PlayerGunManager.h" />
 		<ClInclude Include="../../Assets/Scripts/Shooting/PlayerGun.h" />
 		<ClInclude Include="../../Assets/Scripts/Shooting/PlayerGunType.h" />
-		<ClInclude Include="../../Assets/Scripts/Shooting/PlayerSemiAuto.h" />
 		<ClInclude Include="../../Assets/Scripts/Shooting/ProjectilePull.h" />
 		<ClInclude Include="../../Assets/Scripts/Shooting/Projectile.h" />
 		<ClInclude Include="../../Assets/Build/AnimationTest.h" />
@@ -199,6 +223,8 @@
 		<ClInclude Include="../../Assets/Scripts/UI Test folder/Movment_Bar.h" />
 		<ClInclude Include="../../Assets/Scripts/UI Test folder/SwapWeapon.h" />
 		<ClInclude Include="../../Assets/Scripts/UI Test folder/Movment_Bar_HP.h" />
+		<ClInclude Include="../../Assets/Scripts/ParticleTest.h" />
+		<ClInclude Include="../../Assets/Scripts/ParticleCopyTest.h" />
 	</ItemGroup>
 	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 	<ImportGroup Label="ExtensionTargets" />

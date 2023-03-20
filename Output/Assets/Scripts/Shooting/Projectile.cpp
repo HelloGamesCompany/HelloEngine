@@ -4,7 +4,6 @@ HELLO_ENGINE_API_C Projectile* CreateProjectile(ScriptToInspectorInterface* scri
 {
     Projectile* classInstance = new Projectile();
     //Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
-    script->AddDragFloat("Speed", &classInstance->speed);
     return classInstance;
 }
 
@@ -16,6 +15,7 @@ void Projectile::Start()
 void Projectile::Update()
 {
     lifeTime -= Time::GetDeltaTime();
+    wallCd -= Time::GetDeltaTime();
 
     if (lifeTime <= 0)
     {
@@ -23,26 +23,36 @@ void Projectile::Update()
         return;
     }
 
-    //float dirX = gameObject.GetTransform().GetForward().x;
-    //float dirY = 0.0f;
-    //float dirZ = gameObject.GetTransform().GetForward().z;
-    std::cout << "go" << std::endl;
-    std::cout << "X: " << gameObject.GetTransform().GetLocalPosition().x << "Y: " << gameObject.GetTransform().GetLocalPosition().y << "Z: " << gameObject.GetTransform().GetLocalPosition().z << std::endl;
-    // gameObject.GetTransform().Translate(direction);
     gameObject.GetTransform().Translate(gameObject.GetTransform().GetForward() * speed * Time::GetDeltaTime());
-    //Console::Log(std::to_string(dirY));
 }
 
 void Projectile::Destroy()
 {
+    //particles.Stop();
     gameObject.SetActive(false);
 }
 
 void Projectile::OnCollisionEnter(API::API_RigidBody other)
 {
     std::string detectionName = other.GetGameObject().GetName();
-    if (detectionName != "Player")
+    switch (action)
     {
-         Destroy();
+    case PROJECTILE_ACTION::NONE:
+        if (detectionName != "Player" && detectionName != "Projectile")
+        {
+            Destroy();
+        }
+        break;
+    case PROJECTILE_ACTION::FLAMETROWER:
+        break;
+    case PROJECTILE_ACTION::RICOCHET:
+        if (detectionName == "Wall" && wallCd <= 0)
+        {
+            gameObject.GetTransform().Rotate(0, 180, 0);
+            wallCd = 1;
+        }
+        break;
+    default:
+        break;
     }
 }

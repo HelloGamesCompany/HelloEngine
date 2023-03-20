@@ -15,7 +15,6 @@ PhysBody3D::PhysBody3D(btRigidBody* body)
 	isStatic = false;
 	isKinematic = false;
 	isTrigger = false;
-
 }
 
 PhysBody3D::~PhysBody3D()
@@ -55,23 +54,13 @@ void PhysBody3D::SetPos(float x, float y, float z)
 	if (!body)
 		return;
 
-	/*if (isKinematic == true) {
-		btTransform t = body->getWorldTransform();
-		t.setOrigin(btVector3(x, y, z));
-		body->getMotionState()->setWorldTransform(t);
-	}
-	else {*/
 	btTransform t = body->getWorldTransform();
 	t.setOrigin(btVector3(x, y, z));
 	body->setWorldTransform(t);
-	if (isKinematic == true) {
+	if (isKinematic == true) 
+	{
 		body->getMotionState()->setWorldTransform(t);
 	}
-	
-
-	//}
-
-	
 }
 
 void PhysBody3D::SetRotation(float x, float y, float z)
@@ -146,14 +135,14 @@ void PhysBody3D::Update()
 	{
 		GameObject* go = ModuleLayers::gameObjects[gameObjectUID];
 		go->transform->_ignorePhysBody = true; // This flag makes the PhysComponent ignore this Position update!
-									 // The idea here is, if any other transformation occurs after this, it will be applied, but this one won't. Check PhysComponent::OnTransformCallback()
-		go->transform->SetPosition(GetPos() - colPos);
-		go->transform->_ignorePhysBody = true;
-	
+		go->transform->SetPosition(GetPos() - colPos); // The idea here is, if any other transformation occurs after this, it will be applied, but this one won't. Check PhysComponent::OnTransformCallback()
+
+		// Commented out because it affects bodies that are rotated by script. 
+		/*go->transform->_ignorePhysBody = true;
 		float3 rot = GetRotation();
 		Quat rotQuat = Quat::FromEulerXYZ(rot.x, rot.y, rot.z);
 		Quat finalRot = rotQuat * colRotationOffset.Inverted();
-		go->transform->SetRotation(math::RadToDeg(finalRot.ToEulerXYZ()));
+		go->transform->SetRotation(math::RadToDeg(finalRot.ToEulerXYZ()));*/
 	}
 }
 

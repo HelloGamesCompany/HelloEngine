@@ -25,5 +25,6 @@ namespace API
 		ParticleSystemComponent* _particleSystem = nullptr;
 
 		friend class API_GameObject;
+		friend class DragBoxParticleSystem;
 	};
 }

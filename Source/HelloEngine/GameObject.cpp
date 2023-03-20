@@ -365,7 +365,6 @@ Component* GameObject::AddComponentOfType(Component::Type type)
 	switch (type)
 	{
 	case Component::Type::TRANSFORM:
-		Console::S_Log("Cannot add another transform to a gameobject");
 		return transform;
 		break;
 	case Component::Type::MESH_RENDERER:
@@ -443,7 +442,6 @@ Component* GameObject::AddComponentOfType(Component::Type type, const Component&
 	switch (type)
 	{
 	case Component::Type::TRANSFORM:
-		Console::S_Log("Cannot add another transform to a gameobject");
 		return transform;
 		break;
 	case Component::Type::MESH_RENDERER:
@@ -467,7 +465,7 @@ Component* GameObject::AddComponentOfType(Component::Type type, const Component&
 		_components.push_back(newComponent);
 		break;
 	case Component::Type::PARTICLE_SYSTEM:
-		newComponent = new ParticleSystemComponent(this);
+		newComponent = new ParticleSystemComponent(this, *(ParticleSystemComponent*)&copy);
 		_components.push_back(newComponent);
 		break;
 	case Component::Type::BILLBOARD:

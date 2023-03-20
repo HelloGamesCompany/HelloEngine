@@ -219,6 +219,8 @@ void MeshRenderComponent::SetAs2D()
 	CreateMesh2D();
 }
 
+#ifdef STANDALONE
+
 void MeshRenderComponent::OnEditor()
 {
 	bool created = true;
@@ -298,6 +300,28 @@ void MeshRenderComponent::OnEditor()
 		this->_gameObject->DestroyComponent(this);
 }
 
+void MeshRenderComponent::MarkAsDead()
+{
+	if (_meshID != -1)
+	{
+		DestroyMesh();
+
+		if (_resource != nullptr)
+		{
+			_resource->Dereference();
+			_resourceUID = _resource->UID;
+			_resource = nullptr;
+		}
+	}
+}
+
+void MeshRenderComponent::MarkAsAlive()
+{
+	CreateMesh(_resourceUID, renderType);
+}
+
+#endif
+
 void MeshRenderComponent::MeshDropArea()
 {
 	ImGui::NewLine();
@@ -319,27 +343,6 @@ void MeshRenderComponent::MeshDropArea()
 	}
 	ImGui::NewLine();
 }
-
-void MeshRenderComponent::MarkAsDead()
-{
-	if (_meshID != -1)
-	{
-		DestroyMesh();
-
-		if (_resource != nullptr)
-		{
-			_resource->Dereference();
-			_resourceUID = _resource->UID;
-			_resource = nullptr;
-		}
-	}
-}
-
-void MeshRenderComponent::MarkAsAlive()
-{
-	CreateMesh(_resourceUID, renderType);
-}
-
 
 void MeshRenderComponent::Serialization(json& j)
 {

@@ -91,6 +91,43 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="../../Assets/Scripts/MenuButtons.cpp">
+    <ClCompile Include="../../Assets/Scripts/ParticleTest.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Assets\Scripts\Shooting\Guns\PlayerSemiAuto.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Assets\Scripts\Player\PlayerStats.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Assets\Scripts\TestAPI.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Assets\Scripts\Enemies\EnemyMeleeMovement.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Assets\Scripts\Player\PlayerMove.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Assets\Scripts\Shooting\Guns\PlayerAutomatic.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Assets\Scripts\Shooting\Guns\PlayerBurst.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Assets\Scripts\Shooting\Guns\PlayerDuals.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Assets\Scripts\Shooting\Guns\PlayerFlamethrower.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Assets\Scripts\Shooting\Guns\PlayerRicochet.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Assets\Scripts\Shooting\Guns\PlayerShotgun.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Assets\Scripts\InteractiveEnviroment\ChestTest.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
@@ -171,6 +208,43 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="../../Assets/Scripts/MenuButtons.h">
+    <ClInclude Include="../../Assets/Scripts/ParticleTest.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Assets\Scripts\Shooting\Guns\PlayerSemiAuto.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Assets\Scripts\Player\PlayerStats.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Assets\Scripts\TestAPI.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Assets\Scripts\Enemies\EnemyMeleeMovement.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Assets\Scripts\Player\PlayerMove.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Assets\Scripts\Shooting\Guns\PlayerAutomatic.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Assets\Scripts\Shooting\Guns\PlayerBurst.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Assets\Scripts\Shooting\Guns\PlayerDuals.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Assets\Scripts\Shooting\Guns\PlayerFlamethrower.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Assets\Scripts\Shooting\Guns\PlayerRicochet.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Assets\Scripts\Shooting\Guns\PlayerShotgun.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Assets\Scripts\InteractiveEnviroment\ChestTest.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

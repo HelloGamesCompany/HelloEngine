@@ -17,7 +17,11 @@ public:
 
     void UpdateFileNodes();
 
+    void RefreshAssets();
+
 private:
+    void RefreshAssetsPerDir(Directory* dir);
+
     void DrawTreeNodePanelLeft(Directory*& newDir, Directory* node, const bool drawFiles = true) const;
 
     void DrawTreeNodePanelRight(Directory*& newDir);

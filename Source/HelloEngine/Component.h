@@ -56,12 +56,12 @@ public:
 	virtual void Serialization(json& j) = 0;
 	virtual void DeSerialization(json& j) = 0;
 
-
+#ifdef STANDALONE
 	virtual void OnEditor() {}
 
 	virtual void MarkAsDead() {}
 	virtual void MarkAsAlive() {}
-
+#endif
 private:
 	void EnableFromGameObject() { if (_isEnabled) OnEnable(); };
 	void DisableFromGameObject() { if (_isEnabled) OnDisable(); };
