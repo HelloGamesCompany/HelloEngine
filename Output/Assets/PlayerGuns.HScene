@@ -263,10 +263,10 @@
                         "Projectile Pull": 439650558
                     },
                     {
-                        "Projectile Speed": 10.0
+                        "Projectile Speed": 30.0
                     },
                     {
-                        "Projectile Damage": 0.0
+                        "Projectile Damage": 5.0
                     },
                     {
                         "Projectile Resistance Damage": 0.0
@@ -300,7 +300,7 @@
                         "Projectiles per second": 3.0
                     },
                     {
-                        "Burst Space": 0.10000000149011612
+                        "Burst Space": 0.1599999964237213
                     },
                     {
                         "Second Gun GO": 767734061
@@ -489,10 +489,10 @@
                         "Projectile Pull": 439650558
                     },
                     {
-                        "Projectile Speed": 10.0
+                        "Projectile Speed": 100.0
                     },
                     {
-                        "Projectile Damage": 0.0
+                        "Projectile Damage": 60.0
                     },
                     {
                         "Projectile Resistance Damage": 0.0
@@ -517,10 +517,10 @@
                         "Projectile ScaleY": 0.20000000298023224
                     },
                     {
-                        "Projectile ScaleZ": 0.20000000298023224
+                        "Projectile ScaleZ": 0.4000000059604645
                     },
                     {
-                        "Projectiles per second": 3.0
+                        "Projectiles per second": 1.0
                     },
                     {
                         "Player Stats GO": 3272613755
@@ -614,10 +614,10 @@
                         "Projectile Pull": 439650558
                     },
                     {
-                        "Projectile Speed": 10.0
+                        "Projectile Speed": 40.0
                     },
                     {
-                        "Projectile Damage": 0.0
+                        "Projectile Damage": 25.0
                     },
                     {
                         "Projectile Resistance Damage": 0.0
@@ -636,13 +636,13 @@
                         "Projectile Material": 3260379948
                     },
                     {
-                        "Projectile ScaleX": 0.05000000074505806
+                        "Projectile ScaleX": 0.10000000149011612
                     },
                     {
-                        "Projectile ScaleY": 0.05000000074505806
+                        "Projectile ScaleY": 0.10000000149011612
                     },
                     {
-                        "Projectile ScaleZ": 0.05000000074505806
+                        "Projectile ScaleZ": 0.10000000149011612
                     },
                     {
                         "Projectiles per second": 5.0
@@ -759,10 +759,10 @@
                         "Projectile Pull": 439650558
                     },
                     {
-                        "Projectile Speed": 10.0
+                        "Projectile Speed": 40.0
                     },
                     {
-                        "Projectile Damage": 0.0
+                        "Projectile Damage": 10.0
                     },
                     {
                         "Projectile Resistance Damage": 0.0
@@ -887,10 +887,10 @@
                         "Projectile Pull": 439650558
                     },
                     {
-                        "Projectile Speed": 10.0
+                        "Projectile Speed": 40.0
                     },
                     {
-                        "Projectile Damage": 0.0
+                        "Projectile Damage": 20.0
                     },
                     {
                         "Projectile Resistance Damage": 0.0
@@ -918,7 +918,7 @@
                         "Projectile ScaleZ": 0.10000000149011612
                     },
                     {
-                        "Projectiles per second": 2.0
+                        "Projectiles per second": 1.5
                     },
                     {
                         "Burst Space": 0.10000000149011612
@@ -1038,10 +1038,10 @@
                         "Projectile Pull": 439650558
                     },
                     {
-                        "Projectile Speed": 10.0
+                        "Projectile Speed": 50.0
                     },
                     {
-                        "Projectile Damage": 0.0
+                        "Projectile Damage": 30.0
                     },
                     {
                         "Projectile Resistance Damage": 0.0
@@ -1188,13 +1188,13 @@
                         "Projectile Spawn": 504986585
                     },
                     {
-                        "Projectile ScaleX": 0.0
+                        "Projectile ScaleX": 0.10000000149011612
                     },
                     {
-                        "Projectile ScaleY": 0.0
+                        "Projectile ScaleY": 0.10000000149011612
                     },
                     {
-                        "Projectile ScaleZ": 0.0
+                        "Projectile ScaleZ": 0.10000000149011612
                     },
                     {
                         "Ticks per second": 10.0
@@ -1431,9 +1431,9 @@
             {
                 "Enabled": true,
                 "Position": [
-                    0.0,
-                    9.121774673461914,
-                    -4.41722297668457
+                    -25.427825927734375,
+                    27.58013153076172,
+                    -19.293336868286133
                 ],
                 "Rotation": [
                     54.99271011352539,
