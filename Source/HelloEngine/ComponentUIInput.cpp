@@ -69,7 +69,7 @@ void ComponentUIInput::Serialization(json& j)
 	_j["Type"] = _type;
 	_j["MaterialResource"] = _material->GetResourceUID();
 	_j["Enabled"] = _isEnabled;
-
+	_j["listButtons"][0] = 0; // <- to prevent crashes on empty panels in DeSerialization method!
 	for (size_t i = 0; i < _listButtons.size(); i++)
 	{
 		_j["listButtons"][i] = _listButtons[i]->GetGameObject()->GetID();
@@ -90,6 +90,9 @@ void ComponentUIInput::DeSerialization(json& j)
 
 	for (size_t i = 0; i < listAux.size(); i++)
 	{
+		if (ModuleLayers::gameObjects.count(listAux[i]) == 0)
+			continue;
+
 		GameObject* GOAux = ModuleLayers::gameObjects[listAux[i]];
 		if (GOAux == nullptr)
 			continue;
