@@ -57,7 +57,7 @@ void InstanceRenderer::Draw()
 
     for (auto& mesh : meshes)
     {
-        if (currentCamera->isCullingActive)
+        /*if (currentCamera->isCullingActive)
         {
             if (!currentCamera->IsInsideFrustum(mesh.second.globalAABB))
             {
@@ -70,7 +70,7 @@ void InstanceRenderer::Draw()
         else if (currentCamera->type != CameraType::SCENE)
         {
             mesh.second.outOfFrustum = false;
-        }
+        }*/
 
         if (!mesh.second.Update())
         {
