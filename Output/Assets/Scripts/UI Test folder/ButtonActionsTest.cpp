@@ -3,11 +3,9 @@ HELLO_ENGINE_API_C ButtonActionsTest* CreateButtonActionsTest(ScriptToInspectorI
 {
 	ButtonActionsTest* classInstance = new ButtonActionsTest();
 	//Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
-	script->AddDragBoxUIButton("button", &classInstance->apiButton);
 	script->AddDragFloat("minY", &classInstance->minY);
 	script->AddDragFloat("maxY", &classInstance->maxY);
 	script->AddDragFloat("Vel", &classInstance->animVel);
-	//script->AddDragBoxUIImage("image", &classInstance->apiImage);
 
 	return classInstance;
 }
@@ -15,8 +13,7 @@ HELLO_ENGINE_API_C ButtonActionsTest* CreateButtonActionsTest(ScriptToInspectorI
 void ButtonActionsTest::Start()
 {
 	isHovering = false;
-	Console::Log("Button started!");
-	//gameObject.GetTransform().SetScale(API_Vector3(1.f, 1.f, 1.f));
+
 	defaultPos = gameObject.GetTransform().GetGlobalPosition();
 
 }
@@ -28,14 +25,8 @@ void ButtonActionsTest::Update()
 		{ 
 			isHovering = true; 
 			isGoingUp = true;
-			
-			//API_UIImage image = apiImage;
-			//image.GetGameObject().SetActive(true);
-			//go.GetTransform().SetPosition(shootingSpawn.GetGlobalPosition());
 		}
-		//Console::Log("im pressed");
-		
-		//gameObject.GetTransform().SetPosition(defaultPos+API_Vector3(0,0.5f,0));
+
 	}
 	else 
 	{
@@ -43,8 +34,6 @@ void ButtonActionsTest::Update()
 		{ 
 			isHovering = false; 
 			gameObject.GetTransform().SetPosition(defaultPos);
-			//API_UIImage image = apiImage;
-			//image.GetGameObject().SetActive(false);
 		}
 	
 	}
@@ -65,6 +54,9 @@ void ButtonActionsTest::Update()
 				isGoingUp = true;
 			}
 		}
+	}
+	else {
+		gameObject.GetTransform().SetPosition(defaultPos);
 	}
 	
 }

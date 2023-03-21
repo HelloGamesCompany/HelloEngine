@@ -24,10 +24,10 @@ void HpBar::Update()
 		float differenceHp = maxHp - hp;
 
 		float offsetX = differenceHp * 0.0036f;
-		float offsetY = differenceHp * 0.0014f;
+		//float offsetY = differenceHp * 0.0014f;
 
-		gameObject.GetTransform().SetPosition(FirstPosX - offsetX, FirstPosY - offsetY, gameObject.GetTransform().GetLocalPosition().z);
-		
+		//gameObject.GetTransform().SetPosition(FirstPosX - offsetX, FirstPosY - offsetY, gameObject.GetTransform().GetLocalPosition().z);
+		gameObject.GetTransform().SetPosition(FirstPosX - offsetX, FirstPosY, gameObject.GetTransform().GetLocalPosition().z);
 	}
 
 
