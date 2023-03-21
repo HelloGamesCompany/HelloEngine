@@ -356,6 +356,38 @@ void ParticleSystemComponent::OnEditor()
 	}
 }
 
+void ParticleSystemComponent::MarkAsDead()
+{
+	if (ParticleEmitter._meshID != -1)
+	{
+		DestroyEmitterMesh();
+
+		if (_resource != nullptr)
+		{
+			_resource->Dereference();
+			_resourceUID = _resource->UID;
+			_resource = nullptr;
+		}
+
+		app->renderer3D->particleManager.RemoveEmitterInList(&ParticleEmitter);
+	}
+
+	if (_resourceText != nullptr)
+	{
+		_resourceText->Dereference();
+		_resourceTextUID = _resourceText->UID;
+		_resourceText = nullptr;
+	}
+}
+
+void ParticleSystemComponent::MarkAsAlive()
+{
+	CreateEmitterMesh(_resourceUID);
+
+	ChangeEmitterMeshTexture((ResourceTexture*)ModuleResourceManager::S_LoadResource(_resourceTextUID));
+}
+#endif
+
 void ParticleSystemComponent::ResetEmitterTimers()
 {
 	ParticleEmitter.StartDelay = ParticleEmitter.StartDelayCpy;
@@ -390,38 +422,6 @@ void ParticleSystemComponent::StopEmitter()
 		}
 	}
 }
-
-void ParticleSystemComponent::MarkAsDead()
-{
-	if (ParticleEmitter._meshID != -1)
-	{
-		DestroyEmitterMesh();
-
-		if (_resource != nullptr)
-		{
-			_resource->Dereference();
-			_resourceUID = _resource->UID;
-			_resource = nullptr;
-		}
-
-		app->renderer3D->particleManager.RemoveEmitterInList(&ParticleEmitter);
-	}
-
-	if (_resourceText != nullptr)
-	{
-		_resourceText->Dereference();
-		_resourceTextUID = _resourceText->UID;
-		_resourceText = nullptr;
-	}
-}
-
-void ParticleSystemComponent::MarkAsAlive()
-{
-	CreateEmitterMesh(_resourceUID);
-
-	ChangeEmitterMeshTexture((ResourceTexture*)ModuleResourceManager::S_LoadResource(_resourceTextUID));
-}
-#endif
 
 void ParticleSystemComponent::Serialization(json& j)
 {

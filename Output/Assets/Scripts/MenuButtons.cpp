@@ -31,7 +31,7 @@ void MenuButtons::Update()
 	if (Exit.OnPress())
 	{
 		Console::Log("im pressed");
-		Scene::LoadScene("MainMenu.Hscene");
+		Game::ExitApplication();
 	}
 	if (Collectibles.OnPress())
 	{

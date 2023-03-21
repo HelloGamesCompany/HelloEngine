@@ -54,7 +54,7 @@
             {
                 "Active camera": true,
                 "Active culling": true,
-                "Aspect ratio": 1.6392961740493774,
+                "Aspect ratio": 1.8648383617401123,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -96,18 +96,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Panel": 494622887
-                    },
-                    {
-                        "Continue": 3812402520
-                    },
-                    {
-                        "Main Menu": 650122914
-                    },
-                    {
-                        "Settings": 566227601
-                    },
                     {
                         "Panel": 494622887
                     },
@@ -831,12 +819,6 @@
                     },
                     {
                         "hp": false
-                    },
-                    {
-                        "Bar": 3516983140
-                    },
-                    {
-                        "hp": false
                     }
                 ],
                 "Script Resource": 1164455694,
@@ -1055,51 +1037,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Text_Weapon_1_on": 1828660828
-                    },
-                    {
-                        "Text_Weapon_1_off": 1261649561
-                    },
-                    {
-                        "Material Weapon 1": 4067071371
-                    },
-                    {
-                        "Game Bar Weapon 1": 1476580700
-                    },
-                    {
-                        "Text_Weapon_2_on": 977509463
-                    },
-                    {
-                        "Text_Weapon_2_off": 1072796038
-                    },
-                    {
-                        "Material Weapon 2": 790604431
-                    },
-                    {
-                        "Game Bar Weapon 2": 3194372670
-                    },
-                    {
-                        "Text_Weapon_3_on": 12569475
-                    },
-                    {
-                        "Text_Weapon_3_off": 103443597
-                    },
-                    {
-                        "Material Weapon 3": 2183724438
-                    },
-                    {
-                        "Game Bar Weapon 3": 540383020
-                    },
-                    {
-                        "Text_Dash_on": 1033923317
-                    },
-                    {
-                        "Text_Dash_off": 2440110374
-                    },
-                    {
-                        "Material_Dash": 699963811
-                    },
                     {
                         "Text_Weapon_1_on": 1828660828
                     },

@@ -7,6 +7,7 @@
 #include "API_Console.h"
 #include "API_Input.h"
 #include "API/API_Engine.h"
+#include "API_Audio.h"
 
 // Tools
 #include "API_Vector2.h"
