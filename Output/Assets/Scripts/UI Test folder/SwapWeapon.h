@@ -10,5 +10,8 @@ class SwapWeapon : HelloBehavior
 public:
 	void Start() override; 
 	void Update() override;
+
+	uint Texture_Weapon;
+	API_Material Material_Weapon;
 };
 

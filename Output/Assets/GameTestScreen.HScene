@@ -107,6 +107,78 @@
                     },
                     {
                         "Settings": 566227601
+                    },
+                    {
+                        "Panel": 494622887
+                    },
+                    {
+                        "Continue": 3812402520
+                    },
+                    {
+                        "Main Menu": 650122914
+                    },
+                    {
+                        "Settings": 566227601
+                    },
+                    {
+                        "Panel": 494622887
+                    },
+                    {
+                        "Continue": 3812402520
+                    },
+                    {
+                        "Main Menu": 650122914
+                    },
+                    {
+                        "Settings": 566227601
+                    },
+                    {
+                        "Panel": 494622887
+                    },
+                    {
+                        "Continue": 3812402520
+                    },
+                    {
+                        "Main Menu": 650122914
+                    },
+                    {
+                        "Settings": 566227601
+                    },
+                    {
+                        "Panel": 494622887
+                    },
+                    {
+                        "Continue": 3812402520
+                    },
+                    {
+                        "Main Menu": 650122914
+                    },
+                    {
+                        "Settings": 566227601
+                    },
+                    {
+                        "Panel": 494622887
+                    },
+                    {
+                        "Continue": 3812402520
+                    },
+                    {
+                        "Main Menu": 650122914
+                    },
+                    {
+                        "Settings": 566227601
+                    },
+                    {
+                        "Panel": 494622887
+                    },
+                    {
+                        "Continue": 3812402520
+                    },
+                    {
+                        "Main Menu": 650122914
+                    },
+                    {
+                        "Settings": 566227601
                     }
                 ],
                 "Script Resource": 2595124544,
@@ -729,49 +801,6 @@
             {
                 "Enabled": true,
                 "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Pause Panel": 494622887
-                    },
-                    {
-                        "Map Panel": 274943712
-                    }
-                ],
-                "Script Resource": 3628194192,
-                "Type": 5
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "Empty",
-        "ParentUID": 1204658081,
-        "PrefabUID": 0,
-        "Tag": "Default",
-        "UID": 923417902
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
                     -0.7900000214576721,
                     0.699999988079071,
                     -0.0010000000474974513
@@ -857,6 +886,42 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Bar": 3516983140
+                    },
+                    {
+                        "hp": false
+                    },
+                    {
+                        "Bar": 3516983140
+                    },
+                    {
+                        "hp": false
+                    },
+                    {
+                        "Bar": 3516983140
+                    },
+                    {
+                        "hp": false
+                    },
+                    {
+                        "Bar": 3516983140
+                    },
+                    {
+                        "hp": false
+                    },
+                    {
+                        "Bar": 3516983140
+                    },
+                    {
+                        "hp": false
+                    },
+                    {
+                        "Bar": 3516983140
+                    },
+                    {
+                        "hp": false
+                    },
                     {
                         "Bar": 3516983140
                     },
@@ -1137,6 +1202,91 @@
                     0.0
                 ],
                 "Scale": [
+                    0.5,
+                    0.5,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 1535676784,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "HUD_Fons_PROV",
+        "ParentUID": 317665668,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 4132091739
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Text_Weapon": 103443597
+                    },
+                    {
+                        "Material Weapon": 2138827690
+                    },
+                    {
+                        "Text_Weapon": 103443597
+                    },
+                    {
+                        "Material Weapon": 2138827690
+                    }
+                ],
+                "Script Resource": 1798504338,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Weapons",
+        "ParentUID": 317665668,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1646628947
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
                     1.0,
                     1.0,
                     1.0
@@ -1144,9 +1294,9 @@
                 "Type": 1
             }
         ],
-        "FirstOnPrefab": false,
+        "FirstOnPrefab": true,
         "Name": "Wapon_1",
-        "ParentUID": 317665668,
+        "ParentUID": 1646628947,
         "PrefabUID": 2643882321,
         "Tag": "Default",
         "UID": 2666354377
@@ -1354,9 +1504,9 @@
                 "Type": 1
             }
         ],
-        "FirstOnPrefab": false,
+        "FirstOnPrefab": true,
         "Name": "Weapon_2",
-        "ParentUID": 317665668,
+        "ParentUID": 1646628947,
         "PrefabUID": 2643882321,
         "Tag": "Default",
         "UID": 974080134
@@ -1564,9 +1714,9 @@
                 "Type": 1
             }
         ],
-        "FirstOnPrefab": false,
+        "FirstOnPrefab": true,
         "Name": "Weapon_3",
-        "ParentUID": 317665668,
+        "ParentUID": 1646628947,
         "PrefabUID": 2643882321,
         "Tag": "Default",
         "UID": 2951413593
@@ -1750,41 +1900,5 @@
         "PrefabUID": 0,
         "Tag": "UI",
         "UID": 2155608744
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Scale": [
-                    0.5,
-                    0.5,
-                    0.5
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "FillImage": 1.0,
-                "MaterialResource": 1535676784,
-                "Type": 15
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "HUD_Fons_PROV",
-        "ParentUID": 317665668,
-        "PrefabUID": 0,
-        "Tag": "UI",
-        "UID": 4132091739
     }
 ]
