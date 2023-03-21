@@ -74,4 +74,6 @@ void ProjectilePull::LauchProjectile(float projectileSpeed, float projectileDama
     projectile->resistanceDamage = projectileResistanceDamage;
     projectile->lifeTime = projectileLifetime;
     projectile->action = projectileAction;
+
+    Audio::Event("basic_shooting");
 }
