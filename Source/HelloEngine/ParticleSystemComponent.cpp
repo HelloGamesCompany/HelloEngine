@@ -87,7 +87,8 @@ ParticleSystemComponent::ParticleSystemComponent(GameObject* gameObject, Particl
 	ParticleEmitter.ParticlesPerSecond = copy.ParticleEmitter.ParticlesPerSecond;
 
 	CreateEmitterMesh(copy._resource->UID);
-	ChangeEmitterMeshTexture((ResourceTexture*)ModuleResourceManager::S_LoadResource(copy._resourceText->UID));
+	if (copy._resourceText != nullptr)
+		ChangeEmitterMeshTexture((ResourceTexture*)ModuleResourceManager::S_LoadResource(copy._resourceText->UID));
 }
 
 ParticleSystemComponent::~ParticleSystemComponent()
