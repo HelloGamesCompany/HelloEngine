@@ -421,7 +421,7 @@
       <Filter>GameObject\Components\ParticleModules</Filter>
     </ClCompile>
     <ClCompile Include="API\API_Material.cpp">
-     <Filter>API</Filter>
+      <Filter>API</Filter>
     </ClCompile>
     <ClCompile Include="API\API_AnimationPlayer.cpp">
       <Filter>API</Filter>
@@ -450,6 +450,7 @@
     <ClCompile Include="LayerUI.cpp">
       <Filter>Modules\Layers</Filter>
     </ClCompile>
+    <ClCompile Include="API\API_Audio.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -1019,6 +1020,7 @@
     <ClInclude Include="LayerUI.h">
       <Filter>Modules\Layers</Filter>
     </ClInclude>
+    <ClInclude Include="API\API_Audio.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="External">

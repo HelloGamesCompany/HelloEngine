@@ -20,6 +20,11 @@ void ParticleTest::Update()
 		_particletest.Play();
 	}
 
+	if (Input::GetKey(KeyCode::KEY_J) == KeyState::KEY_DOWN)
+	{
+		_particletest.StopEmitting();
+	}
+
 	if (Input::GetKey(KeyCode::KEY_K) == KeyState::KEY_DOWN)
 	{
 		_particletest.Stop();

@@ -54,7 +54,7 @@
             {
                 "Active camera": true,
                 "Active culling": true,
-                "Aspect ratio": 1.9408766031265259,
+                "Aspect ratio": 1.6392961740493774,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -96,6 +96,18 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Panel": 494622887
+                    },
+                    {
+                        "Continue": 3812402520
+                    },
+                    {
+                        "Main Menu": 650122914
+                    },
+                    {
+                        "Settings": 566227601
+                    },
                     {
                         "Panel": 494622887
                     },
@@ -729,49 +741,6 @@
             {
                 "Enabled": true,
                 "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Pause Panel": 494622887
-                    },
-                    {
-                        "Map Panel": 274943712
-                    }
-                ],
-                "Script Resource": 3628194192,
-                "Type": 5
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "Empty",
-        "ParentUID": 1204658081,
-        "PrefabUID": 0,
-        "Tag": "Default",
-        "UID": 923417902
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
                     -0.7900000214576721,
                     0.699999988079071,
                     -0.0010000000474974513
@@ -833,7 +802,7 @@
         "UID": 1414864724
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -857,6 +826,12 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Bar": 3516983140
+                    },
+                    {
+                        "hp": false
+                    },
                     {
                         "Bar": 3516983140
                     },
@@ -1035,91 +1010,152 @@
                     0.0
                 ],
                 "Scale": [
+                    0.5,
+                    0.5,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 1535676784,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "HUD_Fons_PROV",
+        "ParentUID": 317665668,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 4132091739
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
                     1.0,
                     1.0,
                     1.0
                 ],
                 "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Text_Weapon_1_on": 1828660828
+                    },
+                    {
+                        "Text_Weapon_1_off": 1261649561
+                    },
+                    {
+                        "Material Weapon 1": 4067071371
+                    },
+                    {
+                        "Game Bar Weapon 1": 1476580700
+                    },
+                    {
+                        "Text_Weapon_2_on": 977509463
+                    },
+                    {
+                        "Text_Weapon_2_off": 1072796038
+                    },
+                    {
+                        "Material Weapon 2": 790604431
+                    },
+                    {
+                        "Game Bar Weapon 2": 3194372670
+                    },
+                    {
+                        "Text_Weapon_3_on": 12569475
+                    },
+                    {
+                        "Text_Weapon_3_off": 103443597
+                    },
+                    {
+                        "Material Weapon 3": 2183724438
+                    },
+                    {
+                        "Game Bar Weapon 3": 540383020
+                    },
+                    {
+                        "Text_Dash_on": 1033923317
+                    },
+                    {
+                        "Text_Dash_off": 2440110374
+                    },
+                    {
+                        "Material_Dash": 699963811
+                    },
+                    {
+                        "Text_Weapon_1_on": 1828660828
+                    },
+                    {
+                        "Text_Weapon_1_off": 1261649561
+                    },
+                    {
+                        "Material Weapon 1": 4067071371
+                    },
+                    {
+                        "Game Bar Weapon 1": 1476580700
+                    },
+                    {
+                        "Text_Weapon_2_on": 977509463
+                    },
+                    {
+                        "Text_Weapon_2_off": 1072796038
+                    },
+                    {
+                        "Material Weapon 2": 790604431
+                    },
+                    {
+                        "Game Bar Weapon 2": 3194372670
+                    },
+                    {
+                        "Text_Weapon_3_on": 12569475
+                    },
+                    {
+                        "Text_Weapon_3_off": 103443597
+                    },
+                    {
+                        "Material Weapon 3": 2183724438
+                    },
+                    {
+                        "Game Bar Weapon 3": 540383020
+                    },
+                    {
+                        "Text_Dash_on": 1033923317
+                    },
+                    {
+                        "Text_Dash_off": 2440110374
+                    },
+                    {
+                        "Material_Dash": 699963811
+                    }
+                ],
+                "Script Resource": 1798504338,
+                "Type": 5
             }
         ],
-        "FirstOnPrefab": false,
-        "Name": "Dash",
+        "FirstOnPrefab": true,
+        "Name": "Weapons/Habilities",
         "ParentUID": 317665668,
-        "PrefabUID": 2643882321,
+        "PrefabUID": 0,
         "Tag": "Default",
-        "UID": 1937563062
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    -0.36000001430511475,
-                    -0.4000000059604645,
-                    -0.009999999776482582
-                ],
-                "Rotation": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Scale": [
-                    0.14000000059604645,
-                    0.20000000298023224,
-                    0.5
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "FillImage": 1.0,
-                "MaterialResource": 1033923317,
-                "Type": 15
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "Dash_On",
-        "ParentUID": 1937563062,
-        "PrefabUID": 2643882321,
-        "Tag": "UI",
-        "UID": 3040074030
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    -0.36000001430511475,
-                    -0.4000000059604645,
-                    -0.008999999612569809
-                ],
-                "Rotation": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Scale": [
-                    0.14000000059604645,
-                    0.20000000298023224,
-                    0.5
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "FillImage": 1.0,
-                "MaterialResource": 2440110374,
-                "Type": 15
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "Dash_Off",
-        "ParentUID": 1937563062,
-        "PrefabUID": 2643882321,
-        "Tag": "UI",
-        "UID": 1300663045
+        "UID": 1646628947
     },
     {
         "Active": true,
@@ -1142,11 +1178,17 @@
                     1.0
                 ],
                 "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": null,
+                "Script Resource": 0,
+                "Type": 5
             }
         ],
-        "FirstOnPrefab": false,
-        "Name": "Wapon_1",
-        "ParentUID": 317665668,
+        "FirstOnPrefab": true,
+        "Name": "Weapon_1",
+        "ParentUID": 1646628947,
         "PrefabUID": 2643882321,
         "Tag": "Default",
         "UID": 2666354377
@@ -1278,58 +1320,16 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 1261649561,
+                "MaterialResource": 0,
                 "Type": 15
             }
         ],
         "FirstOnPrefab": true,
-        "Name": "Weapon_Icon_1_Off",
+        "Name": "Weapon_1_icon",
         "ParentUID": 3054407257,
         "PrefabUID": 0,
         "Tag": "UI",
-        "UID": 2761847340
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.05000000074505806,
-                    0.03999999910593033,
-                    -0.024000000208616257
-                ],
-                "Rotation": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Scale": [
-                    0.11999999731779099,
-                    0.11999999731779099,
-                    0.5
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "FillImage": 1.0,
-                "MaterialResource": 1828660828,
-                "Type": 15
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": null,
-                "Script Resource": 1458260256,
-                "Type": 5
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "Weapon_Icon_1_On",
-        "ParentUID": 3054407257,
-        "PrefabUID": 0,
-        "Tag": "UI",
-        "UID": 3458098903
+        "UID": 4067071371
     },
     {
         "Active": true,
@@ -1354,9 +1354,9 @@
                 "Type": 1
             }
         ],
-        "FirstOnPrefab": false,
+        "FirstOnPrefab": true,
         "Name": "Weapon_2",
-        "ParentUID": 317665668,
+        "ParentUID": 1646628947,
         "PrefabUID": 2643882321,
         "Tag": "Default",
         "UID": 974080134
@@ -1488,58 +1488,16 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 1072796038,
+                "MaterialResource": 0,
                 "Type": 15
             }
         ],
         "FirstOnPrefab": true,
-        "Name": "Weapon_Icon_2_Off",
+        "Name": "Weapon_2_icon",
         "ParentUID": 4202071095,
         "PrefabUID": 0,
         "Tag": "UI",
-        "UID": 479329839
-    },
-    {
-        "Active": false,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.05000000074505806,
-                    -0.125,
-                    -0.02500000037252903
-                ],
-                "Rotation": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Scale": [
-                    0.20000000298023224,
-                    0.20000000298023224,
-                    0.5
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "FillImage": 1.0,
-                "MaterialResource": 977509463,
-                "Type": 15
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": null,
-                "Script Resource": 1100340127,
-                "Type": 5
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "Weapon_Icon_2_On",
-        "ParentUID": 4202071095,
-        "PrefabUID": 0,
-        "Tag": "UI",
-        "UID": 694337954
+        "UID": 790604431
     },
     {
         "Active": true,
@@ -1564,9 +1522,9 @@
                 "Type": 1
             }
         ],
-        "FirstOnPrefab": false,
+        "FirstOnPrefab": true,
         "Name": "Weapon_3",
-        "ParentUID": 317665668,
+        "ParentUID": 1646628947,
         "PrefabUID": 2643882321,
         "Tag": "Default",
         "UID": 2951413593
@@ -1698,58 +1656,16 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 103443597,
+                "MaterialResource": 0,
                 "Type": 15
             }
         ],
         "FirstOnPrefab": true,
-        "Name": "Weapon_Icon_3_Off",
+        "Name": "Weapon_3_icon",
         "ParentUID": 2263585637,
         "PrefabUID": 0,
         "Tag": "UI",
-        "UID": 2138827690
-    },
-    {
-        "Active": false,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.05000000074505806,
-                    -0.30000001192092896,
-                    -0.026000000536441803
-                ],
-                "Rotation": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Scale": [
-                    0.14000000059604645,
-                    0.14000000059604645,
-                    0.5
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "FillImage": 1.0,
-                "MaterialResource": 12569475,
-                "Type": 15
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": null,
-                "Script Resource": 1100340127,
-                "Type": 5
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "Weapon_Icon_3_On",
-        "ParentUID": 2263585637,
-        "PrefabUID": 0,
-        "Tag": "UI",
-        "UID": 2155608744
+        "UID": 2183724438
     },
     {
         "Active": true,
@@ -1767,8 +1683,38 @@
                     0.0
                 ],
                 "Scale": [
-                    0.5,
-                    0.5,
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Dash",
+        "ParentUID": 1646628947,
+        "PrefabUID": 2643882321,
+        "Tag": "Default",
+        "UID": 1937563062
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.36000001430511475,
+                    -0.4000000059604645,
+                    -0.008999999612569809
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.14000000059604645,
+                    0.20000000298023224,
                     0.5
                 ],
                 "Type": 1
@@ -1776,15 +1722,15 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 1535676784,
+                "MaterialResource": 0,
                 "Type": 15
             }
         ],
         "FirstOnPrefab": true,
-        "Name": "HUD_Fons_PROV",
-        "ParentUID": 317665668,
+        "Name": "Dash",
+        "ParentUID": 1937563062,
         "PrefabUID": 0,
         "Tag": "UI",
-        "UID": 4132091739
+        "UID": 699963811
     }
 ]

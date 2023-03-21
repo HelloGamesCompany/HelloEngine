@@ -87,7 +87,8 @@ ParticleSystemComponent::ParticleSystemComponent(GameObject* gameObject, Particl
 	ParticleEmitter.ParticlesPerSecond = copy.ParticleEmitter.ParticlesPerSecond;
 
 	CreateEmitterMesh(copy._resource->UID);
-	ChangeEmitterMeshTexture((ResourceTexture*)ModuleResourceManager::S_LoadResource(copy._resourceText->UID));
+	if (copy._resourceText != nullptr)
+		ChangeEmitterMeshTexture((ResourceTexture*)ModuleResourceManager::S_LoadResource(copy._resourceText->UID));
 }
 
 ParticleSystemComponent::~ParticleSystemComponent()
@@ -213,8 +214,7 @@ void ParticleSystemComponent::OnEditor()
 		{
 			if (!pauseOnScene)
 			{
-				ParticleEmitter.StartDelay = ParticleEmitter.StartDelayCpy;
-				ParticleEmitter.Duration = ParticleEmitter.DurationCpy;
+				ResetEmitterTimers();
 			}
 			if (ParticleEmitter.Duration > 0 || ParticleEmitter.loop)
 			{
@@ -236,8 +236,7 @@ void ParticleSystemComponent::OnEditor()
 		ImGui::SameLine();
 		if (ImGui::Button("Stop Emitting"))
 		{
-			ParticleEmitter.StartDelay = ParticleEmitter.StartDelayCpy;
-			ParticleEmitter.Duration = ParticleEmitter.DurationCpy;
+			ResetEmitterTimers();
 			StopEmittingOnGame = true;
 		}
 		ImGui::SameLine();
@@ -355,6 +354,12 @@ void ParticleSystemComponent::OnEditor()
 		
 		
 	}
+}
+
+void ParticleSystemComponent::ResetEmitterTimers()
+{
+	ParticleEmitter.StartDelay = ParticleEmitter.StartDelayCpy;
+	ParticleEmitter.Duration = ParticleEmitter.DurationCpy;
 }
 
 void ParticleSystemComponent::DestroyEmitterMeshTexture()
@@ -515,6 +520,11 @@ void ParticleSystemComponent::DeSerialization(json& j)
 void ParticleSystemComponent::SetPlayOnGame(bool playongame)
 {
 	this->playOnGame = playongame;
+}
+
+void ParticleSystemComponent::SetStopEmitting(bool stopemitting)
+{
+	this->StopEmittingOnGame = stopemitting;
 }
 
 void ParticleSystemComponent::SetPlayOnScene(bool playonscene)

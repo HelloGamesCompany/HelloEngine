@@ -31,6 +31,8 @@ public:
 #ifdef STANDALONE
     void OnEditor() override;
 
+    void ResetEmitterTimers();
+
     void DestroyEmitterMeshTexture();
 
     void StopEmitter();
@@ -47,9 +49,13 @@ public:
 
     bool GetPlayOnGame() { return playOnGame; }
 
+    bool GetStopEmitting() { return StopEmittingOnGame; }
+
     Emitter& GetParticleSystemEmitter() { return ParticleEmitter; }
 
     void SetPlayOnGame(bool playongame);
+
+    void SetStopEmitting(bool stopemitting);
 
 private:
 

@@ -32,6 +32,8 @@ void API::API_ParticleSystem::Play()
 		Engine::Console::S_Log("Trying to acces a NULLPTR GameObject. GetTransform()");
 		return;
 	}
+	_particleSystem->ResetEmitterTimers();
+	_particleSystem->SetStopEmitting(false);
 	_particleSystem->SetPlayOnGame(true);
 
 }
@@ -44,6 +46,18 @@ void API::API_ParticleSystem::Pause()
 		return;
 	}
 	_particleSystem->SetPlayOnGame(false);
+}
+
+void API::API_ParticleSystem::StopEmitting()
+{
+	if (_particleSystem == nullptr)
+	{
+		Engine::Console::S_Log("Trying to acces a NULLPTR GameObject. GetTransform()");
+		return;
+	}
+
+	_particleSystem->ResetEmitterTimers();
+	_particleSystem->SetStopEmitting(true);
 }
 
 void API::API_ParticleSystem::Stop()

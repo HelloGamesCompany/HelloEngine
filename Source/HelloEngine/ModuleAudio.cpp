@@ -221,7 +221,7 @@ void ModuleAudio::InitSoundBanks()
 
     if (eResult == AK_Success)
     {
-        eResult = AK::SoundEngine::LoadBank(L"BackgroundMusic.bnk", _testBank);
+        eResult = AK::SoundEngine::LoadBank(L"Vertical_Slice2_Soundbank.bnk", _testBank);
     }
 }
 
