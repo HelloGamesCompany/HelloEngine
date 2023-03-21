@@ -1,4 +1,5 @@
 #include "PlayerGunManager.h"
+#include "../UI Test folder/SwapWeapon.h"
 HELLO_ENGINE_API_C PlayerGunManager* CreatePlayerGunManager(ScriptToInspectorInterface* script)
 {
     PlayerGunManager* classInstance = new PlayerGunManager();
@@ -15,6 +16,7 @@ HELLO_ENGINE_API_C PlayerGunManager* CreatePlayerGunManager(ScriptToInspectorInt
     script->AddDragBoxGameObject("Handgun", &classInstance->handgun);
     script->AddDragBoxGameObject("Flamethrower", &classInstance->flamethrower);
     script->AddDragBoxGameObject("Ricochet", &classInstance->ricochet);
+    script->AddDragBoxGameObject("WeaponUI", &classInstance->weaponUI);
     return classInstance;
 }
 
@@ -44,9 +46,9 @@ void PlayerGunManager::Start()
 void PlayerGunManager::Update()
 {
     // Keyboard
-    if (Input::GetKey(KeyCode::KEY_1) == KeyState::KEY_DOWN) EquipGun(gunOnHandIndex1);
-    else if (Input::GetKey(KeyCode::KEY_2) == KeyState::KEY_DOWN) EquipGun(gunOnHandIndex2);
-    else if (Input::GetKey(KeyCode::KEY_3) == KeyState::KEY_DOWN) EquipGun(gunOnHandIndex3);
+    if (Input::GetKey(KeyCode::KEY_1) == KeyState::KEY_DOWN) { EquipGun(gunOnHandIndex1); if (weaponUI.IsAlive() == true) { ((SwapWeapon*)weaponUI.GetScript("SwapWeapon"))->SwapWeapon1(); }  }
+    else if (Input::GetKey(KeyCode::KEY_2) == KeyState::KEY_DOWN) { EquipGun(gunOnHandIndex2); if (weaponUI.IsAlive() == true) { ((SwapWeapon*)weaponUI.GetScript("SwapWeapon"))->SwapWeapon2(); } }
+    else if (Input::GetKey(KeyCode::KEY_3) == KeyState::KEY_DOWN) { EquipGun(gunOnHandIndex3); if (weaponUI.IsAlive() == true) { ((SwapWeapon*)weaponUI.GetScript("SwapWeapon"))->SwapWeapon3(); } }
 
     // gamepad
     if (Input::GetGamePadButton(GamePadButton::BUTTON_LEFT_SHOULDER) == KeyState::KEY_DOWN)
