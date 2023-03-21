@@ -16,6 +16,7 @@ namespace API
 
 		void Play();
 		void Pause();
+		void StopEmitting();
 		void Stop();
 
 	private:
