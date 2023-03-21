@@ -552,14 +552,14 @@
                     1349.6390380859375
                 ],
                 "Rotation": [
-                    -90.0,
-                    0.0006505755009129643,
-                    -89.83800506591797
+                    -90.00000762939453,
+                    0.000659113225992769,
+                    -89.8380126953125
                 ],
                 "Scale": [
-                    5.313542366027832,
-                    3.859572649002075,
-                    4.288830757141113
+                    5.31354284286499,
+                    3.8595733642578125,
+                    4.28883171081543
                 ],
                 "Type": 1
             },
@@ -4013,8 +4013,8 @@
                 ],
                 "Scale": [
                     100.0,
-                    100.0,
-                    100.0
+                    99.99999237060547,
+                    99.99999237060547
                 ],
                 "Type": 1
             },
@@ -4032,6 +4032,67 @@
                 "Enabled": true,
                 "ResourceUID": 1534091461,
                 "Type": 3
+            },
+            {
+                "ColPosition": [
+                    0.0,
+                    -19.899999618530273,
+                    5.300000190734863
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    20.0,
+                    121.19999694824219,
+                    117.4000015258789
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "GlobalGravity": [
+                    0.0,
+                    -10.0,
+                    0.0
+                ],
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsShapeSelected": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsStatic": true,
+                "IsTrigger": false,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    0.5,
+                    0.0,
+                    0.5,
+                    1.0
+                ],
+                "ShapeSelected": 0,
+                "SphereHorSlices": 16,
+                "SphereRadius": 1.0,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 100.0
             }
         ],
         "FirstOnPrefab": true,
