@@ -24,11 +24,11 @@ HELLO_ENGINE_API_C SwapWeapon* CreateSwapWeapon(ScriptToInspectorInterface* scri
 	script->AddDragBoxMaterialComponent("Material Weapon 3", &classInstance->Material_Weapon_3);
 	script->AddDragBoxGameObject("Game Bar Weapon 3", &classInstance->Active_Bar_3);
 	
-	//dash
-	script->AddDragBoxTextureResource("Text_Dash_on", &classInstance->Texture_Dash_on);
-	script->AddDragBoxTextureResource("Text_Dash_off", &classInstance->Texture_Dash_off);
+	////dash
+	//script->AddDragBoxTextureResource("Text_Dash_on", &classInstance->Texture_Dash_on);
+	//script->AddDragBoxTextureResource("Text_Dash_off", &classInstance->Texture_Dash_off);
 
-	script->AddDragBoxMaterialComponent("Material_Dash", &classInstance->Material_Dash);
+	//script->AddDragBoxMaterialComponent("Material_Dash", &classInstance->Material_Dash);
 
 	return classInstance;
 }
@@ -51,7 +51,7 @@ void SwapWeapon::Start()
 	Active_Bar_3.SetActive(false);
 
 	//Dash
-	Material_Dash.ChangeAlbedoTexture(Texture_Dash_on);
+	//Material_Dash.ChangeAlbedoTexture(Texture_Dash_on);
 }
 void SwapWeapon::Update()
 {
@@ -72,7 +72,7 @@ void SwapWeapon::Update()
 		SwapWeapon3();
 	}*/
 
-	if (Input::GetKey(KeyCode::KEY_B) == KeyState::KEY_DOWN)
+	/*if (Input::GetKey(KeyCode::KEY_B) == KeyState::KEY_DOWN)
 	{
 		if (activeDash == true)
 		{
@@ -85,7 +85,7 @@ void SwapWeapon::Update()
 			activeDash = true;
 			Dash();
 		}
-	}
+	}*/
 }
 
 void SwapWeapon::SwapWeapon1()
@@ -142,15 +142,3 @@ void SwapWeapon::SwapWeapon3()
 	Active_Bar_3.SetActive(true);
 }
 
-void SwapWeapon::Dash()
-{
-	if (activeDash == false)
-	{
-		Material_Dash.ChangeAlbedoTexture(Texture_Dash_off);
-	}
-	
-	if (activeDash == true)
-	{
-		Material_Dash.ChangeAlbedoTexture(Texture_Dash_on);
-	}
-}
