@@ -18,6 +18,8 @@ HELLO_ENGINE_API_C PlayerGun* CreatePlayerGun(ScriptToInspectorInterface* script
     script->AddDragBoxGameObject("Player Stats GO", &classInstance->player);
     script->AddDragInt("Ammo Type", &classInstance->ammoType);
     script->AddInputBox("Audio Event String", &classInstance->audioEventString);
+    script->AddDragBoxAnimationPlayer("AnimationPlayer", &classInstance->playerAnimator);
+    script->AddDragBoxAnimationResource("Shoot Animation", &classInstance->shootAnim);
     return classInstance;
 }
 

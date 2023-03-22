@@ -42,5 +42,9 @@ public:
 
     //Shooting
     float aimAngle;
+
+    //Animations
+    API_AnimationPlayer playerAnimator;
+    uint dashAnim = 0;
 };
 
