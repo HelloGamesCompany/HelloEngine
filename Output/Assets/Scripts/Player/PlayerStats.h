@@ -26,5 +26,7 @@ public:
     int maxFireAmmo;
     int ricochetAmmo; // index 3
     int maxRicochetAmmo;
+
+    bool detected;//if the player is being detected somehow
 };
 
