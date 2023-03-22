@@ -14,6 +14,7 @@ public:
     float maxHp;
     float currentHp;
     void TakeDamage(float amount);
+    float inmunityTime;
 
     int GetAmmonByType(int type);
     void GetAmmo(int type, int amount);
