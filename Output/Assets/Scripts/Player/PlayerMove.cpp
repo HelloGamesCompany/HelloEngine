@@ -94,12 +94,12 @@ float PlayerMove:: Lerp(float a, float b, float time)
 
 void PlayerMove::Dash()
 {
-    API_Vector3 newPos;
-    newPos.x = Lerp(dashInitialPos.x, dashFinalPos.x, dashDepartTime / dashTime);
-    newPos.y = Lerp(dashInitialPos.y, dashFinalPos.y, dashDepartTime / dashTime);
-    newPos.z = Lerp(dashInitialPos.z, dashFinalPos.z, dashDepartTime / dashTime);
-    transform.SetPosition(newPos);
+    API_Vector2 newPos;
+    newPos.x = Lerp(dashInitialPos.x, dashFinalPos.x, dashDepartTime / dashTime) - transform.GetLocalPosition().x;
+    newPos.y = Lerp(dashInitialPos.z, dashFinalPos.z, dashDepartTime / dashTime) - transform.GetLocalPosition().z;
 
+    transform.Translate(newPos.x, 0.0f, newPos.y);
+     
     if (dashDepartTime >= dashTime)
     {
         isDashing = false;

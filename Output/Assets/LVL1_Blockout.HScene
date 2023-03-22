@@ -40,9 +40,9 @@
                     125.31413269042969
                 ],
                 "Rotation": [
-                    140.89784240722656,
-                    -63.536903381347656,
-                    142.57379150390625
+                    0.0,
+                    26.299999237060547,
+                    0.0
                 ],
                 "Scale": [
                     1.0000863075256348,
@@ -54,7 +54,7 @@
             {
                 "Active camera": true,
                 "Active culling": false,
-                "Aspect ratio": 1.5889830589294434,
+                "Aspect ratio": 0.583458662033081,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 2000.0,
@@ -79,10 +79,10 @@
                         "Offset_Y": 25.0
                     },
                     {
-                        "Offset_Z": 0.0
+                        "Offset_Z": -16.0
                     },
                     {
-                        "Rot_Offset_X": 50.0
+                        "Rot_Offset_X": 55.0
                     },
                     {
                         "Rot_Offset_Y": 0.0
@@ -103,10 +103,10 @@
                         "Offset_Y": 25.0
                     },
                     {
-                        "Offset_Z": 0.0
+                        "Offset_Z": -16.0
                     },
                     {
-                        "Rot_Offset_X": 50.0
+                        "Rot_Offset_X": 55.0
                     },
                     {
                         "Rot_Offset_Y": 0.0
@@ -38960,9 +38960,9 @@
             {
                 "Enabled": true,
                 "Position": [
-                    29.0174560546875,
+                    1.1575431823730469,
                     0.0,
-                    109.87895965576172
+                    30.199195861816406
                 ],
                 "Rotation": [
                     -0.0,
@@ -39005,7 +39005,7 @@
                 ],
                 "Gravity": [
                     0.0,
-                    -9.800000190734863,
+                    -1.0,
                     0.0
                 ],
                 "HasPhysBody": true,
@@ -39041,7 +39041,7 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Velocity": 1.0
+                        "Velocity": 10.0
                     },
                     {
                         "SecToMaxVel": 0.0
@@ -39056,7 +39056,7 @@
                         "Dash Distance": 5.0
                     },
                     {
-                        "Velocity": 1.0
+                        "Velocity": 10.0
                     },
                     {
                         "SecToMaxVel": 0.0
@@ -39411,6 +39411,11 @@
                 "Type": 10,
                 "isLoop": true,
                 "isStayLast": false
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 163752753,
+                "Type": 3
             }
         ],
         "FirstOnPrefab": true,
@@ -44672,7 +44677,7 @@
                         "Ammo Type": 1
                     },
                     {
-                        "Audio Event String": "basic_shooting"
+                        "Audio Event String": ""
                     },
                     {
                         "Projectile Pull": 4289989448
@@ -44718,7 +44723,7 @@
                         "Ammo Type": 1
                     },
                     {
-                        "Audio Event String": "basic_shooting"
+                        "Audio Event String": ""
                     }
                 ],
                 "Script Resource": 3967431277,
@@ -44817,7 +44822,7 @@
                         "Ammo Type": 1
                     },
                     {
-                        "Audio Event String": "basic_shooting"
+                        "Audio Event String": ""
                     },
                     {
                         "Projectile Pull": 4289989448
@@ -44866,7 +44871,7 @@
                         "Ammo Type": 1
                     },
                     {
-                        "Audio Event String": "basic_shooting"
+                        "Audio Event String": ""
                     }
                 ],
                 "Script Resource": 1698500360,
@@ -44968,7 +44973,7 @@
                         "Ammo Type": 0
                     },
                     {
-                        "Audio Event String": "basic_shooting"
+                        "Audio Event String": ""
                     },
                     {
                         "Projectile Pull": 4289989448
@@ -45020,7 +45025,7 @@
                         "Ammo Type": 0
                     },
                     {
-                        "Audio Event String": "basic_shooting"
+                        "Audio Event String": ""
                     }
                 ],
                 "Script Resource": 3840029457,
