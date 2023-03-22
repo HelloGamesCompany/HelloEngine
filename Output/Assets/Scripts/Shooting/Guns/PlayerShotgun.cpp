@@ -18,7 +18,6 @@ HELLO_ENGINE_API_C PlayerShotgun* CreatePlayerShotgun(ScriptToInspectorInterface
     script->AddDragInt("Pellets per shot", &classInstance->pellets);
     script->AddDragBoxGameObject("Player Stats GO", &classInstance->player);
     script->AddDragInt("Ammo Type", &classInstance->ammoType);
-    script->AddInputBox("Audio Event String", &classInstance->audioEventString);
     return classInstance;
 }
 
@@ -68,7 +67,6 @@ void PlayerShotgun::Shoot()
         {
             LauchProjectile(shootingSpawn, PROJECTILE_ACTION::NONE, true);
         }
-        PlayShotSound(audioEventString);
         canShoot = false;
         shotCooldown = fullShotCooldown;
         playerStats->UseAmmo(ammoType);

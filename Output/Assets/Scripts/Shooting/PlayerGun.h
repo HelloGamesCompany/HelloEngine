@@ -23,7 +23,6 @@ public:
 
 protected:
     void LauchProjectile(API_Transform projectileSpawn, PROJECTILE_ACTION projectileAction = PROJECTILE_ACTION::NONE, bool randomDirection = false);
-    void PlayShotSound(std::string eventString);
 
 public:
     API_GameObject player;
@@ -43,6 +42,5 @@ public:
     float cadence;
 
     int ammoType;
-    std::string audioEventString;
 };
 

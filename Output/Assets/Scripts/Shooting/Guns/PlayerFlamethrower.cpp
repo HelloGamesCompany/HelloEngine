@@ -16,7 +16,6 @@ HELLO_ENGINE_API_C PlayerFlamethrower* CreatePlayerFlamethrower(ScriptToInspecto
     script->AddDragFloat("Ticks per second", &classInstance->cadence);
     script->AddDragBoxGameObject("Player Stats GO", &classInstance->player);
     script->AddDragInt("Ammo Type", &classInstance->ammoType);
-    script->AddInputBox("Audio Event String", &classInstance->audioEventString);
     return classInstance;
 }
 
@@ -59,7 +58,6 @@ void PlayerFlamethrower::Shoot()
     if (canShoot)
     {
         LauchProjectile(shootingSpawn, PROJECTILE_ACTION::FLAMETROWER);
-        PlayShotSound(audioEventString);
         canShoot = false;
         shotCooldown = fullShotCooldown;
         playerStats->UseAmmo(ammoType);

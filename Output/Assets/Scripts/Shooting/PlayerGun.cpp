@@ -17,7 +17,6 @@ HELLO_ENGINE_API_C PlayerGun* CreatePlayerGun(ScriptToInspectorInterface* script
     script->AddDragFloat("Projectiles per second", &classInstance->cadence);
     script->AddDragBoxGameObject("Player Stats GO", &classInstance->player);
     script->AddDragInt("Ammo Type", &classInstance->ammoType);
-    script->AddInputBox("Audio Event String", &classInstance->audioEventString);
     return classInstance;
 }
 
@@ -50,9 +49,4 @@ void PlayerGun::LauchProjectile(API_Transform projectileSpawn, PROJECTILE_ACTION
         return;
     }
     pull->LauchProjectile(projectileSpeed, projectileDamage, projectileResistanceDamage, projectileLifetime, projectileSpawn, projectileMesh, projectileMaterial, projectileScale, projectileAction, randomDirection);
-}
-
-void PlayerGun::PlayShotSound(std::string eventString)
-{
-    Audio::Event(eventString.c_str());
 }

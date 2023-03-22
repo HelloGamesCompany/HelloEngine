@@ -17,7 +17,6 @@ HELLO_ENGINE_API_C PlayerRicochet* CreatePlayerRicochet(ScriptToInspectorInterfa
     script->AddDragFloat("Projectiles per second", &classInstance->cadence);
     script->AddDragBoxGameObject("Player Stats GO", &classInstance->player);
     script->AddDragInt("Ammo Type", &classInstance->ammoType);
-    script->AddInputBox("Audio Event String", &classInstance->audioEventString);
     return classInstance;
 }
 
@@ -64,7 +63,6 @@ void PlayerRicochet::Shoot()
     if (canShoot)
     {
         LauchProjectile(shootingSpawn, PROJECTILE_ACTION::RICOCHET);
-        PlayShotSound(audioEventString);
         canShoot = false;
         shotCooldown = fullShotCooldown;
         playerStats->UseAmmo(ammoType);

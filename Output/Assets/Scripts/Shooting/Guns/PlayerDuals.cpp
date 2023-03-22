@@ -19,7 +19,6 @@ HELLO_ENGINE_API_C PlayerDuals* CreatePlayerDuals(ScriptToInspectorInterface* sc
     script->AddDragFloat("Burst Space", &classInstance->fullBurstDelay);
     script->AddDragBoxGameObject("Second Gun GO", &classInstance->secondGun);
     script->AddDragInt("Ammo Type", &classInstance->ammoType);
-    script->AddInputBox("Audio Event String", &classInstance->audioEventString);
     return classInstance;
 }
 
@@ -47,7 +46,6 @@ void PlayerDuals::Update()
         {
             nextShot = false;
             LauchProjectile(secondShootingSpawn);
-            PlayShotSound(audioEventString);
         }
         else
         {
@@ -79,7 +77,6 @@ void PlayerDuals::Shoot()
     if (canShoot)
     {
         LauchProjectile(shootingSpawn);
-        PlayShotSound(audioEventString);
         canShoot = false;
         shotCooldown = fullShotCooldown;
         nextShot = true;

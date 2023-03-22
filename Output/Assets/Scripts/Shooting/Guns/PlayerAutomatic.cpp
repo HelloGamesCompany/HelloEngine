@@ -17,7 +17,6 @@ HELLO_ENGINE_API_C PlayerAutomatic* CreatePlayerAutomatic(ScriptToInspectorInter
     script->AddDragFloat("Projectiles per second", &classInstance->cadence);
     script->AddDragBoxGameObject("Player Stats GO", &classInstance->player);
     script->AddDragInt("Ammo Type", &classInstance->ammoType);
-    script->AddInputBox("Audio Event String", &classInstance->audioEventString);
     return classInstance;
 }
 
@@ -48,7 +47,6 @@ void PlayerAutomatic::Shoot()
     if (canShoot)
     {
         LauchProjectile(shootingSpawn);
-        PlayShotSound(audioEventString);
         canShoot = false;
         shotCooldown = fullShotCooldown;
         playerStats->UseAmmo(ammoType);
