@@ -8,7 +8,15 @@
 
 struct Directory;
 
-struct File
+struct SelectableFile {
+public:
+	virtual bool IsSelected() const = 0;
+	virtual void SetSelected(bool selected) = 0;
+protected:
+	bool selected = false;
+};
+
+struct File : public SelectableFile
 {
 	File() {};
 
@@ -43,6 +51,16 @@ struct File
 		}
 	};
 
+	bool IsSelected() const override 
+	{
+		return selected;
+	}
+
+	void SetSelected(bool selected) override 
+	{
+		this->selected = selected;
+	}
+
 	/// <summary>
 	/// Force ReImport the file
 	/// </summary>
@@ -69,7 +87,7 @@ struct File
 	bool pressed = false;
 };
 
-struct Directory
+struct Directory : public SelectableFile
 {
 	Directory(std::string path, std::string name, Directory* parent) :path(path), name(name), parent(parent) {};
 	~Directory()
@@ -79,6 +97,16 @@ struct Directory
 			RELEASE(directories[i]);
 		}
 	}
+
+	bool IsSelected() const override {
+		return selected;
+	}
+
+	void SetSelected(bool selected) override
+	{
+		this->selected = selected;
+	}
+
 	std::vector<Directory*> directories;
 	std::vector<File> files;
 	std::string path;

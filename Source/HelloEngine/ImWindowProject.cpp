@@ -10,7 +10,6 @@
 #include "ModuleLayers.h"
 #include "LayerEditor.h"
 
-
 ImWindowProject::ImWindowProject()
 {
 	windowName = "Project";
@@ -183,7 +182,7 @@ void ImWindowProject::Update()
 
 			_reimportRequest = false;
 		}
-		else 
+		else
 		{
 			_reimportCounter--;
 		}
@@ -316,10 +315,28 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
 	ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.3, 0.3, 0.3, 0));
 	for (int i = 0; i < _fileTree->_currentDir->directories.size(); i++)
 	{
-		std::string directoryID = std::to_string(i).c_str() + _fileTree->_currentDir->directories[i]->name;
+		Directory* currentDir = _fileTree->_currentDir->directories[i];
 
+		std::string directoryID = std::to_string(i).c_str() + currentDir->name;
+
+		// Left click
 		if (ImGui::ImageButton(directoryID.c_str(), (ImTextureID)_folderImageID, ImVec2(_itemWidth, _itemHeight)))
-			newDir = _fileTree->_currentDir->directories[i];
+		{
+			if (!currentDir->IsSelected())
+			{
+				currentDir->SetSelected(true);
+				_selectedFiles.push_back(currentDir);
+			}
+			else
+			{
+				newDir = currentDir;
+				for (auto item : _selectedFiles)
+				{
+					item->SetSelected(false);
+				}
+				_selectedFiles.clear();
+			}
+		}
 
 		// Right click
 		if (ImGui::BeginPopupContextItem()) // <-- use last item id as popup id
@@ -327,13 +344,13 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
 			if (ImGui::Button("Reimport##Folder"))
 			{
 				_reimportRequest = true;
-				_reimportDir = _fileTree->_currentDir->directories[i];
+				_reimportDir = currentDir;
 				_reimportCounter = 100;
 				ImGui::CloseCurrentPopup();
 			}
 			if (ImGui::Button("Delete##Folder"))
 			{
-				_deleteDir = _fileTree->_currentDir->directories[i];
+				_deleteDir = currentDir;
 				_showDeleteMessage = true;
 				ImGui::CloseCurrentPopup();
 			}
@@ -341,9 +358,19 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
 		}
 
 		if (ImGui::IsItemHovered())
-			ImGui::SetTooltip(_fileTree->_currentDir->directories[i]->name.c_str());
+			ImGui::SetTooltip(currentDir->name.c_str());
 
-		ImGui::TextWrapped(_fileTree->_currentDir->directories[i]->name.c_str());
+		// Show File name
+		if (currentDir->IsSelected())
+		{
+			ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(1.0f, 0.8f, 0.8f, 1.0f));
+			ImGui::TextWrapped(currentDir->name.c_str());
+			ImGui::PopStyleColor();
+		}
+		else
+		{
+			ImGui::TextWrapped(currentDir->name.c_str());
+		}
 
 		ImGui::NextColumn();
 	}
@@ -353,9 +380,11 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
 	ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.3, 0.3, 0.3, 0));
 	for (int i = 0; i < _fileTree->_currentDir->files.size(); i++)
 	{
+		File* currentFile = &_fileTree->_currentDir->files[i];
+
 		// Get file icon ID
 		uint icon = 0;
-		switch (ModuleFiles::S_GetResourceType(_fileTree->_currentDir->files[i].path))
+		switch (ModuleFiles::S_GetResourceType(currentFile->path))
 		{
 		case ResourceType::MODEL:
 			icon = _modelImageID;
@@ -377,14 +406,18 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
 			break;
 		}
 
-		std::string fileID = std::to_string(i).c_str() + _fileTree->_currentDir->files[i].name;
+		std::string fileID = std::to_string(i).c_str() + currentFile->name;
 
-		// Draw Icon button
+		// Left click
 		if (ImGui::ImageButton(fileID.c_str(), (ImTextureID)icon, ImVec2(_itemWidth, _itemHeight)))
-			_fileTree->_currentDir->files[i].pressed = !_fileTree->_currentDir->files[i].pressed;
+		{
+			currentFile->pressed = !currentFile->pressed;
+			currentFile->SetSelected(true);
+			_selectedFiles.push_back(currentFile);
+		}
 
 		// Drag file
-		ResourceType type = ModuleFiles::S_GetResourceType(_fileTree->_currentDir->files[i].name);
+		ResourceType type = ModuleFiles::S_GetResourceType(currentFile->name);
 
 		if (ImGui::BeginDragDropSource(ImGuiDragDropFlags_None))
 		{
@@ -443,13 +476,22 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
 
 		// Shwo file name when mouse is hovered
 		if (ImGui::IsItemHovered())
-			ImGui::SetTooltip(_fileTree->_currentDir->files[i].name.c_str());
+			ImGui::SetTooltip(currentFile->name.c_str());
 
 		// Show file name
-		ImGui::TextWrapped(_fileTree->_currentDir->files[i].name.c_str());
-
+		if (currentFile->IsSelected())
+		{
+			ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(1.0f, 0.8f, 0.8f, 1.0f));
+			ImGui::TextWrapped(currentFile->name.c_str());
+			ImGui::PopStyleColor();
+		}
+		else
+		{
+			ImGui::TextWrapped(currentFile->name.c_str());
+		}
+		
 		// Draw Mesh files
-		if (_fileTree->_currentDir->files[i].metaFile.type == ResourceType::MODEL && _fileTree->_currentDir->files[i].pressed)
+		if (currentFile->metaFile.type == ResourceType::MODEL && currentFile->pressed)
 		{
 			ResourceModel* model = (ResourceModel*)ModuleResourceManager::resources[_fileTree->_currentDir->files[i].metaFile.UID];
 			ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.3, 0.3, 0.3, 1));

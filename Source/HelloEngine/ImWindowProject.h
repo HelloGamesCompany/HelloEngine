@@ -4,6 +4,7 @@
 
 class FileTree;
 class File;
+class SelectableFile;
 struct Directory;
 
 class ImWindowProject : public ImWindow
@@ -64,6 +65,9 @@ private:
     int _itemWidth = 80;
 
     int _itemHeight = 80;
+
+    // Multi seleccion
+    std::vector<SelectableFile*> _selectedFiles;
 
     // Variables for reimport 
     bool _reimportRequest = false;
