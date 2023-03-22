@@ -1,68 +1,104 @@
 #include "EnemyMeleeMovement.h"
 #include "Enemy.h"
+#include <time.h>
+
 HELLO_ENGINE_API_C EnemyMeleeMovement* CreateEnemyMeleeMovement(ScriptToInspectorInterface* script)
 {
 	EnemyMeleeMovement* classInstance = new EnemyMeleeMovement();
 	//Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
 	script->AddDragFloat("Detection distance", &classInstance->detectionDis);
 	script->AddDragFloat("Lossing Enemy distance", &classInstance->lossingDis);
-	script->AddDragFloat("Lossing Zone distance", &classInstance->lossingZoneDis);
+	//script->AddDragFloat("Lossing Zone distance", &classInstance->lossingZoneDis);
 	script->AddDragBoxGameObject("Target", &classInstance->target);
-	script->AddDragBoxGameObject("Point 1", &classInstance->point1);
-	script->AddDragBoxGameObject("Point 2", &classInstance->point2);
+	//script->AddDragBoxGameObject("Point 1", &classInstance->point1);
+	//script->AddDragBoxGameObject("Point 2", &classInstance->point2);
 	script->AddDragBoxGameObject("Action zone", &classInstance->actionZone);
-	/*script->AddDragBoxGameObject("Point 1", &classInstance->listPoints[0]);
+	script->AddDragBoxRigidBody("Action Rb zone", &classInstance->zoneRb);
+	script->AddDragBoxGameObject("Point 1", &classInstance->listPoints[0]);
 	script->AddDragBoxGameObject("Point 2", &classInstance->listPoints[1]);
 	script->AddDragBoxGameObject("Point 3", &classInstance->listPoints[2]);
-	script->AddDragBoxGameObject("Point 4", &classInstance->listPoints[3]);
-	script->AddDragBoxGameObject("Point 5", &classInstance->listPoints[4]);*/
+	//script->AddDragBoxGameObject("Point 4", &classInstance->listPoints[3]);
+	//script->AddDragBoxGameObject("Point 5", &classInstance->listPoints[4]);
 	
-	//script->AddDragBoxRigidBody("Action Rb zone", &classInstance->zoneRb);
-	
+
 	return classInstance;
 }
 
 void EnemyMeleeMovement::Start()
 {
 	
-	actualPoint = point1.GetTransform().GetGlobalPosition() ;
-
+	actualPoint = listPoints[0].GetTransform().GetGlobalPosition() ;
+	
+	_avalPoints = 3;
+	enemState = States::WANDERING;
+	//clock.s
+	
 } 
 void EnemyMeleeMovement::Update()
 {
 	Enemy* enemy = (Enemy*)gameObject.GetScript("Enemy");
 	float dt = Time::GetDeltaTime();
+
 	if (enemy!=nullptr)
-	{
-		
-		
+	{	
 		float dis = gameObject.GetTransform().GetGlobalPosition().Distance(target.GetTransform().GetGlobalPosition());
 		float disZone = gameObject.GetTransform().GetGlobalPosition().Distance(actionZone.GetTransform().GetGlobalPosition());
-		//Console::Log(std::to_string(dis));
-		if ((dis< detectionDis) && !targeting)
-		{
-			targeting = true;
-		}
-		else if ((dis>lossingDis) || (disZone > lossingZoneDis) )
-		{
-			targeting = false;
-		}
-		//Console::Log(std::to_string(disZone));
-		if ((gameObject.GetTransform().GetGlobalPosition().Distance(actualPoint) < 40) && !targeting)
-		{
-			if (numPoint == 1)numPoint = 2, actualPoint=point2.GetTransform().GetGlobalPosition();
-			else if (numPoint == 2)numPoint = 1, actualPoint = point1.GetTransform().GetGlobalPosition();
-		}
 
-		if (!targeting)
+		if ((dis< detectionDis) && enemState != States::TARGETING)
 		{
-			if (numPoint == 1) actualPoint = point2.GetTransform().GetGlobalPosition();
-			else if (numPoint == 2) actualPoint = point1.GetTransform().GetGlobalPosition();
+			enemState = States::TARGETING;
+			//targeting = true;
 		}
-
-		enemy->speed =enemy->acceleration* dt;
+		else if ((dis>lossingDis) || (disZone > zoneRb.GetRadius()/2) )
+		{
+			enemState = States::WANDERING;
+			//targeting = false;
+		}
 		
-		targeting ? Seek(enemy->speed, target.GetTransform().GetGlobalPosition()) : Wander(enemy->speed, actualPoint);
+		
+		switch (enemState)
+		{
+		case States::WANDERING:
+
+			if ((gameObject.GetTransform().GetGlobalPosition().Distance(actualPoint) < 40) /*&& !targeting*/)
+			{
+				enemy->currentSpeed = enemy->speed * dt;
+				/*if (numPoint == 1)numPoint = 2, actualPoint=point2.GetTransform().GetGlobalPosition();
+				else if (numPoint == 2)numPoint = 1, actualPoint = point1.GetTransform().GetGlobalPosition();*/
+				//++numPoint;
+
+				//if (numPoint != _avalPoints) numPoint++/*, actualPoint = listPoints[numPoint].GetTransform().GetGlobalPosition()*/;
+				//else if (numPoint == _avalPoints)numPoint = 0/*, actualPoint = listPoints[numPoint].GetTransform().GetGlobalPosition()*/;
+
+				numPoint++;
+				if (numPoint >= _avalPoints)numPoint = 0;
+			}
+
+			//if (!targeting)
+			//{
+				/*if (numPoint == 1) actualPoint = point2.GetTransform().GetGlobalPosition();
+				else if (numPoint == 2) actualPoint = point1.GetTransform().GetGlobalPosition();*/
+			actualPoint = listPoints[numPoint].GetTransform().GetGlobalPosition();
+				//if (numPoint != _avalPoints) actualPoint = listPoints[numPoint].GetTransform().GetGlobalPosition();
+				//else if (numPoint == _avalPoints) actualPoint = listPoints[numPoint].GetTransform().GetGlobalPosition();
+			//}
+
+				Wander(enemy->speed, actualPoint);
+
+			break;
+
+		case States::TARGETING:
+			enemy->currentSpeed = enemy->speed * enemy->acceleration * dt;
+			Seek(enemy->speed, target.GetTransform().GetGlobalPosition());
+			break;
+
+		case States::ATTACKIG:
+
+			break;
+		default:
+			break;
+		}
+		//targeting ? Seek(enemy->speed, target.GetTransform().GetGlobalPosition()) : Wander(enemy->speed, actualPoint);
 
 	}
 }
@@ -81,29 +117,9 @@ void EnemyMeleeMovement::Seek(float vel, API_Vector3 tarPos)
 	_angle = atan2(normLookDir.y, normLookDir.x) * RADTODEG - 90.0f;
 	gameObject.GetTransform().SetRotation(0,-_angle,0);
 
-	
-	//API_Vector3 dir = tarPos - gameObject.GetTransform().GetGlobalPosition();
-	//dir.y = 0;
-	
-	/*Console::Log("-------------");
-	Console::Log(std::to_string(dir.x));
-	Console::Log(std::to_string(dir.y));
-	Console::Log(std::to_string(dir.z));*/
-	
-	//dir = NormalizeVec3(dir.x,dir.y,dir.z);
-	 
-	/*Console::Log("xxxxxxxxxx");
-	Console::Log(std::to_string(dir.x));  
-	Console::Log(std::to_string(dir.y));
-	Console::Log(std::to_string(dir.z));*/
-	
-	
 	gameObject.GetTransform().Translate(gameObject.GetTransform().GetForward() * vel);
-	//gameObject.GetTransform().Translate(dir.x * vel, 0, dir.z * vel);
-	
 
 	
-
 }
 
 void EnemyMeleeMovement::Wander(float vel, API_Vector3 point)
@@ -119,7 +135,7 @@ void EnemyMeleeMovement::Wander(float vel, API_Vector3 point)
 	normLookDir.y = lookDir.y / sqrt(pow(lookDir.x, 2) + pow(lookDir.y, 2));
 	float _angle=0;
 	_angle = atan2(normLookDir.y, normLookDir.x) * RADTODEG - 90.0f;
-
+	//float wantAngle = Lerp(gameObject.GetTransform().GetGlobalRotation().y,_angle,200000);
 	//if(gameObject.GetTransform().GetGlobalRotation().y>=_angle+5 && gameObject.GetTransform().GetGlobalRotation().y <= _angle - 5)gameObject.GetTransform().SetRotation(0,-_angle,0);
 	/*if(gameObject.GetTransform().GetGlobalRotation().y == _angle )gameObject.GetTransform().SetRotation(0,-_angle,0);
 	else gameObject.GetTransform().Rotate(0,1,0);*/
