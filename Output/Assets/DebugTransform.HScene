@@ -89,27 +89,6 @@
                     },
                     {
                         "Shotgun": 2042391859
-                    },
-                    {
-                        "Base Gun": 0
-                    },
-                    {
-                        "Normal Gun": 1
-                    },
-                    {
-                        "Special Gun": 2
-                    },
-                    {
-                        "Duals": 637029401
-                    },
-                    {
-                        "Semiautomatic": 2987221449
-                    },
-                    {
-                        "Automatic": 1134020619
-                    },
-                    {
-                        "Shotgun": 2042391859
                     }
                 ],
                 "Script Resource": 3024424734,
@@ -118,21 +97,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Velocity": 10.0
-                    },
-                    {
-                        "SecToMaxVel": 0.0
-                    },
-                    {
-                        "SecToZeroVel": 0.0
-                    },
-                    {
-                        "Dash Time": 0.5
-                    },
-                    {
-                        "Dash Distance": 5.0
-                    },
                     {
                         "Velocity": 10.0
                     },
@@ -183,7 +147,7 @@
                 "Type": 1
             },
             {
-                "Enabled": true,
+                "Enabled": false,
                 "Index inside model": 0,
                 "ModelUID": 12,
                 "ShowAABB": false,
@@ -241,48 +205,6 @@
                     },
                     {
                         "Ammo Type": 0
-                    },
-                    {
-                        "Projectile Pull": 2760342810
-                    },
-                    {
-                        "Projectile Speed": 10.0
-                    },
-                    {
-                        "Projectile Damage": 0.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 1.0
-                    },
-                    {
-                        "Projectile Spawn": 791628525
-                    },
-                    {
-                        "Second Projectile Spawn": 1660324357
-                    },
-                    {
-                        "Projectile ScaleX": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleY": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleZ": 0.10000000149011612
-                    },
-                    {
-                        "Projectiles per second": 3.0
-                    },
-                    {
-                        "Burst Space": 0.15000000596046448
-                    },
-                    {
-                        "Second Gun GO": 949196753
-                    },
-                    {
-                        "Ammo Type": 0
                     }
                 ],
                 "Script Resource": 2156518980,
@@ -291,9 +213,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Gun Type": 0
-                    },
                     {
                         "Gun Type": 0
                     }
@@ -362,7 +281,7 @@
                 "Type": 1
             },
             {
-                "Enabled": true,
+                "Enabled": false,
                 "Index inside model": 0,
                 "ModelUID": 12,
                 "ShowAABB": false,
@@ -437,7 +356,7 @@
                 "Type": 1
             },
             {
-                "Enabled": true,
+                "Enabled": false,
                 "Index inside model": 0,
                 "ModelUID": 12,
                 "ShowAABB": false,
@@ -454,9 +373,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Gun Type": 1
-                    },
                     {
                         "Gun Type": 1
                     }
@@ -531,7 +447,7 @@
                 "Type": 1
             },
             {
-                "Enabled": true,
+                "Enabled": false,
                 "Index inside model": 0,
                 "ModelUID": 12,
                 "ShowAABB": false,
@@ -580,39 +496,6 @@
                     },
                     {
                         "Ammo Type": 0
-                    },
-                    {
-                        "Projectile Pull": 2760342810
-                    },
-                    {
-                        "Projectile Speed": 10.0
-                    },
-                    {
-                        "Projectile Damage": 0.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 1.0
-                    },
-                    {
-                        "Projectile Spawn": 1560680327
-                    },
-                    {
-                        "Projectile ScaleX": 0.05000000074505806
-                    },
-                    {
-                        "Projectile ScaleY": 0.05000000074505806
-                    },
-                    {
-                        "Projectile ScaleZ": 0.05000000074505806
-                    },
-                    {
-                        "Projectiles per second": 5.0
-                    },
-                    {
-                        "Ammo Type": 0
                     }
                 ],
                 "Script Resource": 1339629670,
@@ -621,9 +504,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Gun Type": 2
-                    },
                     {
                         "Gun Type": 2
                     }
@@ -692,7 +572,7 @@
                 "Type": 1
             },
             {
-                "Enabled": true,
+                "Enabled": false,
                 "Index inside model": 0,
                 "ModelUID": 12,
                 "ShowAABB": false,
@@ -711,9 +591,6 @@
                 "Inspector Fields": [
                     {
                         "Gun Type": 3
-                    },
-                    {
-                        "Gun Type": 3
                     }
                 ],
                 "Script Resource": 1421097082,
@@ -722,42 +599,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Projectile Pull": 2760342810
-                    },
-                    {
-                        "Projectile Speed": 20.0
-                    },
-                    {
-                        "Projectile Damage": 0.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 0.30000001192092896
-                    },
-                    {
-                        "Projectile Spawn": 4176314063
-                    },
-                    {
-                        "Projectile ScaleX": 0.05000000074505806
-                    },
-                    {
-                        "Projectile ScaleY": 0.05000000074505806
-                    },
-                    {
-                        "Projectile ScaleZ": 0.05000000074505806
-                    },
-                    {
-                        "Projectiles per second": 1.0
-                    },
-                    {
-                        "Pellets per shot": 10
-                    },
-                    {
-                        "Ammo Type": 0
-                    },
                     {
                         "Projectile Pull": 2760342810
                     },
@@ -866,12 +707,6 @@
                     },
                     {
                         "Player": 1641598322
-                    },
-                    {
-                        "Pull Size": 10
-                    },
-                    {
-                        "Player": 1641598322
                     }
                 ],
                 "Script Resource": 3720537736,
@@ -929,10 +764,22 @@
                         "Delay": 0.009999999776482582
                     },
                     {
-                        "Target": 1641598322
+                        "Offset_X": 0.0
                     },
                     {
-                        "Delay": 0.009999999776482582
+                        "Offset_Y": 25.0
+                    },
+                    {
+                        "Offset_Z": -20.0
+                    },
+                    {
+                        "Rot_Offset_X": 50.0
+                    },
+                    {
+                        "Rot_Offset_Y": 0.0
+                    },
+                    {
+                        "Rot_Offset_Z": 0.0
                     }
                 ],
                 "Script Resource": 2306703736,
@@ -1062,7 +909,7 @@
             {
                 "Active camera": true,
                 "Active culling": true,
-                "Aspect ratio": 2.586792469024658,
+                "Aspect ratio": 1.8410351276397705,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -1081,10 +928,22 @@
                         "Delay": 0.009999999776482582
                     },
                     {
-                        "Target": 1641598322
+                        "Offset_X": 0.0
                     },
                     {
-                        "Delay": 0.009999999776482582
+                        "Offset_Y": 45.0
+                    },
+                    {
+                        "Offset_Z": -17.0
+                    },
+                    {
+                        "Rot_Offset_X": 58.0
+                    },
+                    {
+                        "Rot_Offset_Y": 0.0
+                    },
+                    {
+                        "Rot_Offset_Z": 0.0
                     }
                 ],
                 "Script Resource": 871976367,

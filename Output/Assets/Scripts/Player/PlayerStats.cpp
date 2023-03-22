@@ -20,10 +20,16 @@ void PlayerStats::Update()
     // test purpose to show on VS2
     if (Input::GetKey(KeyCode::KEY_Y) == KeyState::KEY_DOWN) TakeDamage(5.0f);
     if (Input::GetKey(KeyCode::KEY_U) == KeyState::KEY_DOWN) TakeDamage(maxHp / 2.0f); // heal only testing
+    if (inmunityTime > 0.0f)
+    {
+        inmunityTime -= Time::GetDeltaTime();
+    }
 }
 
 void PlayerStats::TakeDamage(float amount)
 {
+    if (inmunityTime > 0.0f) return; // only VS2
+
     currentHp -= amount;
     if (currentHp <= 0)
     {
@@ -32,6 +38,7 @@ void PlayerStats::TakeDamage(float amount)
     }
     else
     {
+        inmunityTime = 0.5f;
         // hit animation?
     }
 }
