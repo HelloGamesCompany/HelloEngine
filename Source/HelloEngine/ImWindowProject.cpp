@@ -167,18 +167,36 @@ void ImWindowProject::Update()
 
 		if (_reimportCounter <= 0)
 		{
-			if (_reimportFile)
+			for (auto item : _selectedFiles)
 			{
-				_reimportFile->Reimport();
+				if (item->GetFileType() == FileType::File)
+				{
+					File* tempFile = (File*)item;
 
-				_reimportFile = nullptr;
-			}
-			else if (_reimportDir)
-			{
-				RefreshAssetsPerDir(_reimportDir);
+					tempFile->Reimport();
+				}
+				else if (item->GetFileType() == FileType::Directory)
+				{
+					Directory* tempFile = (Directory*)item;
 
-				_reimportDir = nullptr;
+					RefreshAssetsPerDir(tempFile);
+				}
+
+				item->SetSelected(false);
 			}
+			_selectedFiles.clear();
+			//if (_reimportFile)
+			//{
+			//	_reimportFile->Reimport();
+
+			//	_reimportFile = nullptr;
+			//}
+			//else if (_reimportDir)
+			//{
+			//	RefreshAssetsPerDir(_reimportDir);
+
+			//	_reimportDir = nullptr;
+			//}
 
 			_reimportRequest = false;
 		}
@@ -229,7 +247,7 @@ void ImWindowProject::RefreshAssetsPerDir(Directory* dir)
 	}
 }
 
-void ImWindowProject::DrawTreeNodePanelLeft(Directory*& newDir, Directory* node, const bool drawFiles) const
+void ImWindowProject::DrawTreeNodePanelLeft(Directory*& newDir, Directory* node, const bool drawFiles) 
 {
 	ImGuiTreeNodeFlags node_flags = ImGuiTreeNodeFlags_None | ImGuiTreeNodeFlags_OpenOnArrow;
 
@@ -243,18 +261,23 @@ void ImWindowProject::DrawTreeNodePanelLeft(Directory*& newDir, Directory* node,
 	{
 		// Slect node
 		if (ImGui::IsItemClicked() && !ImGui::IsItemToggledOpen())
+		{
+			ClearSelectedFiles();
 			newDir = node;
-
+		}
+			
 		// Recursive functions
 		for (int i = 0; i < node->directories.size(); i++)
 			DrawTreeNodePanelLeft(newDir, node->directories[i], drawFiles);
 
 		// Draw Files
 		if (drawFiles)
+		{
 			for (int i = 0; i < node->files.size(); i++)
 			{
 				ImGui::Text(node->files[i].name.c_str());
 			}
+		}
 
 		ImGui::TreePop();
 	}
@@ -278,7 +301,11 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
 			std::string pName = parent2->name + " > ##Return";
 
 			if (ImGui::Button(pName.c_str()))
+			{
 				newDir = parent2;
+
+				ClearSelectedFiles();
+			}
 		}
 		if (parent1)
 		{
@@ -286,7 +313,11 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
 			std::string pName = parent1->name + " > ##Return";
 
 			if (ImGui::Button(pName.c_str()))
+			{
 				newDir = parent1;
+
+				ClearSelectedFiles();
+			}
 		}
 
 		ImGui::SameLine();
@@ -324,23 +355,34 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
 		{
 			if (!currentDir->IsSelected())
 			{
+				if (ModuleInput::S_GetKey(SDL_SCANCODE_LCTRL) != KEY_STATE::KEY_REPEAT)
+				{
+					ClearSelectedFiles();
+				}
+
 				currentDir->SetSelected(true);
+
 				_selectedFiles.push_back(currentDir);
 			}
 			else
 			{
 				newDir = currentDir;
-				for (auto item : _selectedFiles)
-				{
-					item->SetSelected(false);
-				}
-				_selectedFiles.clear();
+				ClearSelectedFiles();
 			}
 		}
 
 		// Right click
 		if (ImGui::BeginPopupContextItem()) // <-- use last item id as popup id
 		{
+			if (!currentDir->IsSelected())
+			{
+				ClearSelectedFiles();
+
+				currentDir->SetSelected(true);
+
+				_selectedFiles.push_back(currentDir);
+			}
+
 			if (ImGui::Button("Reimport##Folder"))
 			{
 				_reimportRequest = true;
@@ -363,7 +405,7 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
 		// Show File name
 		if (currentDir->IsSelected())
 		{
-			ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(1.0f, 0.8f, 0.8f, 1.0f));
+			ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(1.0f, 0.6f, 0.6f, 1.0f));
 			ImGui::TextWrapped(currentDir->name.c_str());
 			ImGui::PopStyleColor();
 		}
@@ -413,6 +455,10 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
 		{
 			currentFile->pressed = !currentFile->pressed;
 			currentFile->SetSelected(true);
+			if (ModuleInput::S_GetKey(SDL_SCANCODE_LCTRL) != KEY_STATE::KEY_REPEAT)
+			{
+				ClearSelectedFiles();
+			}
 			_selectedFiles.push_back(currentFile);
 		}
 
@@ -457,12 +503,20 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
 		// Right click
 		if (ImGui::BeginPopupContextItem()) // <-- use last item id as popup id
 		{
+			if (!currentFile->IsSelected())
+			{
+				ClearSelectedFiles();
+
+				currentFile->SetSelected(true);
+
+				_selectedFiles.push_back(currentFile);
+			}
+
 			if (ImGui::Button("Reimport##File"))
 			{
 				_reimportRequest = true;
-				_reimportFile = &_fileTree->_currentDir->files[i];
+				//_reimportFile = &_fileTree->_currentDir->files[i];
 				_reimportCounter = 100;
-				//_fileTree->_currentDir->files[i].Reimport();
 				ImGui::CloseCurrentPopup();
 			}
 			if (ImGui::Button("Delete##File"))
@@ -481,7 +535,7 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
 		// Show file name
 		if (currentFile->IsSelected())
 		{
-			ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(1.0f, 0.8f, 0.8f, 1.0f));
+			ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(1.0f, 0.6f, 0.6f, 1.0f));
 			ImGui::TextWrapped(currentFile->name.c_str());
 			ImGui::PopStyleColor();
 		}
@@ -489,7 +543,7 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
 		{
 			ImGui::TextWrapped(currentFile->name.c_str());
 		}
-		
+
 		// Draw Mesh files
 		if (currentFile->metaFile.type == ResourceType::MODEL && currentFile->pressed)
 		{
@@ -519,8 +573,12 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
 	}
 	ImGui::PopStyleColor(1);
 
-	if (ImGui::BeginPopupContextWindow("WinodwProjectPopUp", ImGuiPopupFlags_NoOpenOverExistingPopup | ImGuiPopupFlags_MouseButtonDefault_))
+	// Right Click in the panel
+	if (ImGui::BeginPopupContextWindow("WinodwProjectPopUp", ImGuiPopupFlags_NoOpenOverExistingPopup
+		| ImGuiPopupFlags_MouseButtonDefault_))
 	{
+		ClearSelectedFiles();
+
 		if (ImGui::Selectable("Show in Explorer"))
 			ModuleFiles::S_OpenFolder(_fileTree->_currentDir->path);
 
@@ -551,6 +609,10 @@ void ImWindowProject::OnDrop(const std::string filePath)
 
 void ImWindowProject::UpdateFileNodes()
 {
+	ClearSelectedFiles();
+
+	_selectedFiles.clear();
+
 	ModuleResourceManager::S_UpdateFileTree();
 
 	if (ModuleResourceManager::S_GetFileTree(_fileTree))
@@ -684,4 +746,14 @@ void ImWindowProject::DrawDeleteMessage()
 		}
 		ImGui::EndPopup();
 	}
+}
+
+void ImWindowProject::ClearSelectedFiles()
+{
+	for (auto item : _selectedFiles)
+	{
+		item->SetSelected(false);
+	}
+
+	_selectedFiles.clear();
 }

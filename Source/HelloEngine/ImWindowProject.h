@@ -23,7 +23,7 @@ public:
 private:
     void RefreshAssetsPerDir(Directory* dir);
 
-    void DrawTreeNodePanelLeft(Directory*& newDir, Directory* node, const bool drawFiles = true) const;
+    void DrawTreeNodePanelLeft(Directory*& newDir, Directory* node, const bool drawFiles = true);
 
     void DrawTreeNodePanelRight(Directory*& newDir);
 
@@ -36,6 +36,8 @@ private:
     void PanelCreateScript();
 
     void DrawDeleteMessage();
+
+    void ClearSelectedFiles();
 
 private:
     Application* _app = nullptr;

@@ -8,20 +8,28 @@
 
 struct Directory;
 
+enum class FileType
+{
+	File,
+	Directory,
+};
+
 struct SelectableFile {
 public:
 	virtual bool IsSelected() const = 0;
 	virtual void SetSelected(bool selected) = 0;
+	FileType GetFileType() { return type; }
 protected:
 	bool selected = false;
+	FileType type;
 };
 
 struct File : public SelectableFile
 {
-	File() {};
-
 	File(std::string path, std::string name, Directory* parent) :path(path), name(name), parent(parent)
 	{
+		type = FileType::File;
+
 		// Check if this file has a .helloMeta file with the same name.
 		if (ModuleFiles::S_CheckMetaExist(path))
 		{
@@ -47,16 +55,15 @@ struct File : public SelectableFile
 			metaFile = ModuleFiles::S_LoadMeta(metaPath);
 
 			ModuleResourceManager::S_CreateResource(metaFile);
-
 		}
 	};
 
-	bool IsSelected() const override 
+	bool IsSelected() const override
 	{
 		return selected;
 	}
 
-	void SetSelected(bool selected) override 
+	void SetSelected(bool selected) override
 	{
 		this->selected = selected;
 	}
@@ -76,9 +83,14 @@ struct File : public SelectableFile
 			ModuleResourceManager::S_ReImportFile(path, metaFile.type);
 		}
 
-		metaFile = ModuleFiles::S_LoadMeta(metaPath);
+		if (metaFile.type != ResourceType::UNDEFINED)
+			metaFile = ModuleFiles::S_LoadMeta(metaPath);
 	}
 
+private:
+	File() {};
+
+public:
 	std::string path;
 	std::string metaPath = "none";
 	std::string name;
@@ -89,7 +101,10 @@ struct File : public SelectableFile
 
 struct Directory : public SelectableFile
 {
-	Directory(std::string path, std::string name, Directory* parent) :path(path), name(name), parent(parent) {};
+	Directory(std::string path, std::string name, Directory* parent) :path(path), name(name), parent(parent)
+	{
+		type = FileType::Directory;
+	};
 	~Directory()
 	{
 		for (size_t i = 0; i < directories.size(); i++)
