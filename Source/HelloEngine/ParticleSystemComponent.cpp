@@ -74,7 +74,7 @@ void ParticleSystemComponent::CreateEmitterMesh(uint resourceUID)
 		var._instanceID = Application::Instance()->renderer3D->renderManager.AddMesh(_resource, nullptr, MeshRenderType::INSTANCED);
 		//This line is needed because when you add mesh into the rendermanager it will be drawn,
 		//when we are at this point we don't want to draw the mesh of the particle till the engine is playing
-		Application::Instance()->renderer3D->renderManager.GetRenderManager(resourceUID)->GetMap()[var._instanceID].draw = false;
+		Application::Instance()->renderer3D->renderManager.GetRenderManager(resourceUID)->GetMap()[var._instanceID].mesh.draw = false;
 	}
 
 }
@@ -85,7 +85,7 @@ Mesh& ParticleSystemComponent::GetEmitterMesh()
 	{
 		if (ParticleEmitter._meshID != -1)
 		{
-			Mesh& temp = ParticleEmitter.manager->GetMap()[ParticleEmitter.ParticleList[i]._instanceID];
+			Mesh& temp = ParticleEmitter.manager->GetMap()[ParticleEmitter.ParticleList[i]._instanceID].mesh;
 
 			//Fa falta guardar la posici� de cada mesh ?
 

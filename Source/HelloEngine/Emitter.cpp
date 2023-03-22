@@ -41,7 +41,7 @@ void Emitter::ResetEmitter()
 {
 	for (int i = 0; i < ParticleList.size(); i++)
 	{
-		Mesh& meshReference = manager->GetMap()[ParticleList[i]._instanceID];
+		Mesh& meshReference = manager->GetMap()[ParticleList[i]._instanceID].mesh;
 
 		meshReference.draw = false;
 
@@ -113,7 +113,7 @@ void Emitter::UpdateParticles()
 
 		if (ParticleList[i].remainingLifetime <= 0.0f)
 		{
-			Mesh& meshReference = manager->GetMap()[ParticleList[i]._instanceID];
+			Mesh& meshReference = manager->GetMap()[ParticleList[i]._instanceID].mesh;
 
 			meshReference.draw = false;
 
@@ -165,7 +165,7 @@ void Emitter::UpdateParticleTransform(int i, const math::Quat& rotation)
 
 	manager = app->renderer3D->renderManager.GetRenderManager(_meshID);
 
-	Mesh& meshReference = manager->GetMap()[ParticleList[i]._instanceID];
+	Mesh& meshReference = manager->GetMap()[ParticleList[i]._instanceID].mesh;
 
 	meshReference.draw = true;
 

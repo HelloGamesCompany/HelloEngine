@@ -16,6 +16,7 @@
 #include "ComponentUICheckbox.h"
 #include "ComponentUIImage.h"
 #include "AnimationComponent.h"
+#include "MaterialComponent.h"
 #include "ParticleSystemComponent.h"
 #include "BillBoardComponent.h"
 #include "PhysicsComponent.h"

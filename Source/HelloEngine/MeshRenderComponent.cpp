@@ -104,6 +104,12 @@ void MeshRenderComponent::CreateMesh(uint resourceUID, int materialUID, MeshRend
 		_gameObject->GetComponent<TextureComponent>()->SetMeshRenderer(this);
 		_gameObject->GetComponent<TextureComponent>()->UpdateMaterial();
 	}
+
+	if (material != nullptr)
+	{
+		material->Dereference();
+		material = nullptr;
+	}
 }
 
 void MeshRenderComponent::CreateMesh2D()
@@ -142,7 +148,7 @@ Mesh& MeshRenderComponent::GetMesh()
 	case MeshRenderType::INSTANCED:
 	{
 		InstanceRenderer* manager = Application::Instance()->renderer3D->renderManager.GetRenderManager(_meshID);
-		Mesh& meshReference = manager->GetMap()[_instanceID];
+		Mesh& meshReference = manager->GetMap()[_instanceID].mesh;
 		return meshReference;
 	}
 	break;
@@ -425,7 +431,7 @@ void MeshRenderComponent::DeSerialization(json& j)
 		}
 		else
 		{
-			CreateMesh(resourceMesh->UID);
+			CreateMesh(resourceMesh->UID, -1, renderType);
 
 			if (_meshID != -1)
 			{

@@ -321,8 +321,9 @@ class UniSampler2D : Uniform
 public:
 	UniSampler2D() {};
 	UniSampler2D(json& j); //On CPP
-	UniSampler2D(UniformData data) 
+	UniSampler2D(UniformData data, uint layer) 
 	{ 
+		this->layer = layer;
 		this->data = data; 
 		SetVariable();
 	}
@@ -337,6 +338,9 @@ public:
 #endif
 private:
 	void GetJSONUnique(json& _j) override;
+
+public:
+	uint layer = 0;
 };
 
 class UniFloat4x4 : Uniform

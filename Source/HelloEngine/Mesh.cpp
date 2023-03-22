@@ -118,6 +118,10 @@ void Mesh::DefaultDraw()
 
 void Mesh::UniformDraw(Material* material)
 {
+	//Update the material uniforms
+	material->Update(Application::Instance()->camera->currentDrawingCamera->GetViewMatrix(),
+		Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix(),
+		&modelMatrix.v[0][0]);
 
 	//Update only the bones
 	if (component->_hasBones)
@@ -131,24 +135,6 @@ void Mesh::UniformDraw(Material* material)
 
 		material->UpdateBones(smComp->goBonesArr);
 	}
-	
-
-	//Update the material uniforms
-	material->Update(Application::Instance()->camera->currentDrawingCamera->GetViewMatrix(),
-		Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix(),
-		&modelMatrix.v[0][0]);
-
-
-	/*material.GetShader()->shader.Bind();
-
-	material.GetShader()->shader.SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
-	material.GetShader()->shader.SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
-	material.GetShader()->shader.SetMatFloat4v("model", &modelMatrix.v[0][0]);*/
-
-	/*for (uint i = 0; i < material.uniforms.size(); ++i)
-	{
-		material.uniforms[i]->Update(material.GetShader()->shader);
-	}*/
 }
 
 bool Mesh::Update()
@@ -169,7 +155,7 @@ bool Mesh::Update()
 		return false;
 	if (component && component->_gameObject->isSelected)
 	{
-		//sApplication::Instance()->renderer3D->renderManager.SetSelectedMesh(this);
+		//Application::Instance()->renderer3D->renderManager.SetSelectedMesh(this);
 		return false; // We dont want to render this object twice when selected.
 	}
 	if (isIndependent) // We dont use the TextureManager to set independent meshes's textures.

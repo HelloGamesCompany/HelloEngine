@@ -36,5 +36,6 @@ private:
 	ResourceShader* shader = nullptr;
 
 	int shaderVersion;
+	std::vector<int> usedTexturesID;
 };
 

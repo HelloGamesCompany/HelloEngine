@@ -353,6 +353,7 @@
     <ClCompile Include="Layer.cpp" />
     <ClCompile Include="LayerGame.cpp" />
     <ClCompile Include="LayerUI.cpp" />
+    <ClCompile Include="Lighting.cpp" />
     <ClCompile Include="Log.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Material.cpp" />
@@ -543,6 +544,7 @@
     <ClInclude Include="Layer.h" />
     <ClInclude Include="LayerGame.h" />
     <ClInclude Include="LayerUI.h" />
+    <ClInclude Include="Lighting.h" />
     <ClInclude Include="Material.h" />
     <ClInclude Include="MaterialComponent.h" />
     <ClInclude Include="TextureComponent.h" />

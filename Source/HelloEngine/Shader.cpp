@@ -244,6 +244,7 @@ void Shader::UniformParser(std::vector<Uniform*>& vec)
 	UniformData uni;
 	std::vector<GLchar>uniName(maxNameLen, 0);
 
+	int layerCount = 0;
 	for (GLint i = 0; i < count; ++i)
 	{
 		uni.index = i;
@@ -263,7 +264,10 @@ void Shader::UniformParser(std::vector<Uniform*>& vec)
 			case GL_FLOAT_VEC3: vec.push_back((Uniform*) new UniFloat3(uni)); break;
 			case GL_FLOAT_VEC4: vec.push_back((Uniform*) new UniFloat4(uni)); break;
 			case GL_DOUBLE: vec.push_back((Uniform*) new UniDouble(uni)); break;
-			case GL_SAMPLER_2D: vec.push_back((Uniform*) new UniSampler2D(uni)); break;
+			case GL_SAMPLER_2D: 
+				vec.push_back((Uniform*) new UniSampler2D(uni, layerCount));
+				layerCount++;
+				break;
 			case GL_FLOAT_MAT4: vec.push_back((Uniform*) new UniFloat4x4(uni)); break;
 		}
 	}
@@ -368,9 +372,8 @@ void Shader::SetMatFloat4v(const std::string& name, const float* value) const
 
 void Shader::SetTexture(const std::string& name, uint id, int layer)
 {
-	//glActiveTexture(GL_TEXTURE0 + layer);
-	glActiveTexture(GL_TEXTURE0);
+	glActiveTexture(GL_TEXTURE0 + layer);
 	glBindTexture(GL_TEXTURE_2D, id);
-	//SetInt(name, layer);
+	SetInt(name, layer);
 }
 

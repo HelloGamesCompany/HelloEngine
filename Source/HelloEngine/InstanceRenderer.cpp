@@ -4,6 +4,8 @@
 #include "ModuleRenderer3D.h"
 #include "MeshRenderComponent.h"
 
+#include "RenderManager.h"
+
 InstanceRenderer::InstanceRenderer()
 {
     instancedShader = ModuleResourceManager::S_CreateResourceShader("Resources/shaders/instanced.shader", 102, "Instanced");
@@ -62,27 +64,28 @@ void InstanceRenderer::Draw()
     {
         if (currentCamera->isCullingActive)
         {
-            if (!currentCamera->IsInsideFrustum(mesh.second.globalAABB))
+            if (!currentCamera->IsInsideFrustum(mesh.second.mesh.globalAABB))
             {
-                mesh.second.outOfFrustum = true;
+                mesh.second.mesh.outOfFrustum = true;
                 continue;
             }
             else
-                mesh.second.outOfFrustum = false;
+                mesh.second.mesh.outOfFrustum = false;
         }
         else if (currentCamera->type != CameraType::SCENE)
         {
-            mesh.second.outOfFrustum = false;
+            mesh.second.mesh.outOfFrustum = false;
         }
 
-        if (!mesh.second.Update())
+        if (!mesh.second.mesh.Update())
         {
+            Application::Instance()->renderer3D->renderManager.SetSelectedMesh(&mesh.second);
             continue;
         }
 
-        modelMatrices.push_back(mesh.second.modelMatrix); // Insert updated matrices
-        textureIDs.push_back(mesh.second.OpenGLTextureID);
-        mesh.second.OpenGLTextureID = -1; // Reset this, in case the next frame our texture ID changes to -1.
+        modelMatrices.push_back(mesh.second.mesh.modelMatrix); // Insert updated matrices
+        textureIDs.push_back(mesh.second.mesh.OpenGLTextureID);
+        mesh.second.mesh.OpenGLTextureID = -1; // Reset this, in case the next frame our texture ID changes to -1.
     }
 
     if (!modelMatrices.empty())
@@ -131,13 +134,13 @@ void InstanceRenderer::Draw2D()
 
     for (auto& mesh : meshes)
     {
-        if (!mesh.second.Update())
+        if (!mesh.second.mesh.Update())
         {
             continue;
         }
-        modelMatrices.push_back(mesh.second.modelMatrix); // Insert updated matrices
-        textureIDs.push_back(mesh.second.OpenGLTextureID);
-        mesh.second.OpenGLTextureID = -1; // Reset this, in case the next frame our texture ID changes to -1.
+        modelMatrices.push_back(mesh.second.mesh.modelMatrix); // Insert updated matrices
+        textureIDs.push_back(mesh.second.mesh.OpenGLTextureID);
+        mesh.second.mesh.OpenGLTextureID = -1; // Reset this, in case the next frame our texture ID changes to -1.
     }
 
     if (!modelMatrices.empty())
@@ -184,8 +187,8 @@ uint InstanceRenderer::AddMesh()
         LOG("Trying to add mesh information into a RenderManager that has not been initialized yet!");
     }
     uint meshID = ++IDcounter; // We use a counter for easier debugging, but this could be an UUID.
-    meshes[meshID].localAABB = resource->localAABB;
-    meshes[meshID].resource = this->resource;
+    meshes[meshID].mesh.localAABB = resource->localAABB;
+    meshes[meshID].mesh.resource = this->resource;
 
     // If our instance capacity is too low, reserve more memory inside the opengl buffer.
     if (instanceNum < meshes.size())

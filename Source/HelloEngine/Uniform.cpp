@@ -9,7 +9,7 @@ UniSampler2D::UniSampler2D(json & j)
 {
 	SetJSON(j);
 	int UID = j["Value"];
-
+	layer = j["Layer"];
 	if (UID == -1)
 	{
 		data.value = nullptr;
@@ -147,9 +147,9 @@ void UniSampler2D::Update(Shader& shader)
 	ResourceTexture* texture = static_cast<ResourceTexture*>(data.value);
 
 	if (texture)
-		shader.SetTexture(data.name, texture->OpenGLID, 0);
+		shader.SetTexture(data.name, texture->OpenGLID, layer);
 	else
-		shader.SetTexture(data.name, 0, 0);
+		shader.SetTexture(data.name, 0, layer);
 }
 
 void UniFloat4x4::Update(Shader& shader)
@@ -269,7 +269,11 @@ void UniSampler2D::GUI()
 		ImGui::Text(txt.c_str());
 		txt = "Texture ID: " + std::to_string(texture->OpenGLID);
 		ImGui::Text(txt.c_str());
+		txt = "Layer: " + layer;
+		ImGui::Text(txt.c_str());
 	}
+
+	//ImGui::InputInt(data.name.c_str(), static_cast<int*>(data.value), 0, 31);
 }
 
 void UniFloat4x4::GUI()
@@ -378,7 +382,7 @@ void UniSampler2D::GetJSONUnique(json& _j)
 	{
 		_j["Value"] = -1;
 	}
-	
+	_j["Layer"] = layer;
 }
 
 void UniFloat4x4::GetJSONUnique(json& _j)

@@ -199,6 +199,7 @@ class ResourceMaterial : public Resource
 {
 public:
     ResourceMaterial() {};
+    ~ResourceMaterial() {};
 
     void UnLoad() override
     {

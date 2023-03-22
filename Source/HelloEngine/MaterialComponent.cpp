@@ -38,7 +38,12 @@ void MaterialComponent::OnEditor()
 			{
 				if (_resource->material.uniforms[i]->data.name == "view" ||
 					_resource->material.uniforms[i]->data.name == "projection" ||
-					_resource->material.uniforms[i]->data.name == "model")
+					_resource->material.uniforms[i]->data.name == "model" ||
+					_resource->material.uniforms[i]->data.name == "LightColor" ||
+					_resource->material.uniforms[i]->data.name == "LightStrength" ||
+					_resource->material.uniforms[i]->data.name == "LightPosition" ||
+					_resource->material.uniforms[i]->data.name == "ViewPoint" ||
+					_resource->material.uniforms[i]->data.name == "finalBonesMatrices[0]")
 				{
 					continue;
 				}
@@ -67,6 +72,18 @@ void MaterialComponent::MaterialDragNDrop()
 
 			if (_resource != nullptr) _resource->Dereference();
 			_resource = (ResourceMaterial*)ModuleResourceManager::S_LoadResource(*drop);
+
+			if (_resource->material.GetShader())
+			{
+				//Re create mesh into the RenderManager
+				MeshRenderComponent* comp = _gameObject->GetComponent<MeshRenderComponent>();
+				if (!comp)
+				{
+					comp = _gameObject->GetComponent<SkinnedMeshRenderComponent>();
+				}
+
+				if (comp) comp->CreateMesh(comp->GetResourceUID(), _resource->UID, comp->GetMeshRenderType());
+			}
 		}
 	}
 }
@@ -149,6 +166,15 @@ void MaterialComponent::DeSerialization(json& _j)
 	{
 		_resource = res;
 	}
+
+	//Load to mesh
+	MeshRenderComponent* comp = _gameObject->GetComponent<MeshRenderComponent>();
+	if (!comp)
+	{
+		comp = _gameObject->GetComponent<SkinnedMeshRenderComponent>();
+	}
+
+	if (comp) comp->CreateMesh(comp->GetResourceUID(), _resource->UID, MeshRenderType::INDEPENDENT);
 
 	bool enabled = _j["Enabled"];
 	if (!enabled)

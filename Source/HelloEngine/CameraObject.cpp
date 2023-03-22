@@ -156,6 +156,11 @@ float* CameraObject::GetViewMatrixNoTransp()
 	return &ViewMatrix.v[0][0];
 }
 
+float3 CameraObject::GetPosition()
+{
+	return cameraFrustum.ViewMatrix().TranslatePart();
+}
+
 float* CameraObject::GetProjectionMatrixNoTransp()
 {
 	ProjectionMatrix = cameraFrustum.ProjectionMatrix();

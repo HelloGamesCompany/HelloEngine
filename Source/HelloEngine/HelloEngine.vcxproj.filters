@@ -426,6 +426,7 @@
     <ClCompile Include="..\External\ImGuiColorTextEdit\TextEditor.cpp">
       <Filter>External\ImGuiColorText</Filter>
     </ClCompile>
+    <ClCompile Include="Lighting.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -973,6 +974,7 @@
     <ClInclude Include="..\External\ImGuiColorTextEdit\TextEditor.h">
       <Filter>External\ImGuiColorText</Filter>
     </ClInclude>
+    <ClInclude Include="Lighting.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="External">

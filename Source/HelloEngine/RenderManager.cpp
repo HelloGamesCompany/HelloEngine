@@ -399,7 +399,11 @@ void RenderManager::DrawSelectedMesh()
 	if (_selectedMesh == nullptr)
 		return;
 
-	_selectedMesh->mesh.DrawAsSelected(&_selectedMesh->material->material);
+	if (_selectedMesh->material != nullptr)
+		_selectedMesh->mesh.DrawAsSelected(&_selectedMesh->material->material);
+	else
+		_selectedMesh->mesh.DrawAsSelected(nullptr);
+	
 
 	_selectedMesh = nullptr;
 }
