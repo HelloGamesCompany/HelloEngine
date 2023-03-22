@@ -19,6 +19,7 @@ HELLO_ENGINE_API_C PlayerBurst* CreatePlayerBurst(ScriptToInspectorInterface* sc
     script->AddDragInt("Projectiles per burst", &classInstance->burstLenght);
     script->AddDragBoxGameObject("Player Stats GO", &classInstance->player);
     script->AddDragInt("Ammo Type", &classInstance->ammoType);
+    script->AddInputBox("Audio Event String", &classInstance->audioEventString);
     return classInstance;
 }
 
@@ -51,6 +52,7 @@ void PlayerBurst::Update()
             shotCount++;
             burstDelay = fullBurstDelay;
             LauchProjectile(shootingSpawn);
+            PlayShotSound(audioEventString);
             playerStats->UseAmmo(ammoType);
         }
         else
@@ -83,6 +85,7 @@ void PlayerBurst::Shoot()
     if (canShoot)
     {
         LauchProjectile(shootingSpawn);
+        PlayShotSound(audioEventString);
         canShoot = false;
         shotCooldown = fullShotCooldown;
         shotCount = 1;
