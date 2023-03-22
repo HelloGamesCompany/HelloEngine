@@ -2,7 +2,7 @@
 #include "API/HelloBehavior.h"
 #include "ScriptToInspectorInterface.h"
 #include "Macro.h"
-//#include "Timer.hpp"
+//#include "EnemyGun.h"
 #include "API/API.h"
 
 class EnemyRanger : HelloBehavior
@@ -12,7 +12,7 @@ public:
 		TARGETING,
 		WANDERING,
 		ATTACKIG
-
+		 
 	};
 	void Start() override;
 	void Update() override;
@@ -35,6 +35,7 @@ public:
 	float disShoot = 250.0f;
 
 	float cooldownPoint =3.0f;
+	float outTime = 3.0f;
 
 	API_GameObject target;
 	API_GameObject actionZone;
@@ -48,11 +49,13 @@ public:
 
 	States enemState;
 
-
+	//EnemyGun* enemyGun = nullptr;
+	//API_GameObject gunObj;
 private:
 	int _avalPoints = 0;
-	float _cooldown ;
+	float _movCooldown;//max time that can be outside the zone
+	float _outCooldown;//max time that can be outside the zone
 	bool _canWalk = false;
-	//Timer clock;
+	
 };
  

@@ -31,9 +31,8 @@ public:
 	float detectionDis=2.0f;
 	float lossingDis = 10.0f;
 	float lossingZoneDis = 200.0f;
-
-	//API_GameObject point1;
-	//API_GameObject point2;
+	float rangeAtk = 60.0f;
+	float outTime = 3.0f;
 
 	API_GameObject target; 
 	API_GameObject actionZone; 
@@ -50,6 +49,8 @@ public:
 
 private:
 	int _avalPoints = 0;
+	float _outCooldown;//max time that can be outside the zone
+	float _movCooldown;//
 	//Timer clock;
 };
 

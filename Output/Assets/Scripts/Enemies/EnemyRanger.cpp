@@ -10,6 +10,8 @@ HELLO_ENGINE_API_C EnemyRanger* CreateEnemyRanger(ScriptToInspectorInterface* sc
 	script->AddDragFloat("Distance player", &classInstance->disPlayer);
 	script->AddDragFloat("Range attack", &classInstance->disShoot);
 	script->AddDragFloat("Cooldown betwen points", &classInstance->cooldownPoint);
+	script->AddDragFloat("OutsideZone Time", &classInstance->outTime);
+	//script->AddDragBoxGameObject("Enemy gun", &classInstance->gunObj);
 	script->AddDragBoxGameObject("Target", &classInstance->target);
 	script->AddDragBoxGameObject("Action zone", &classInstance->actionZone);
 	script->AddDragBoxRigidBody("Action Rb zone", &classInstance->zoneRb);
@@ -29,8 +31,10 @@ void EnemyRanger::Start()
 	_avalPoints = 3;
 	enemState = States::WANDERING;
 
-	_cooldown = 0;
+	_movCooldown = 0;
+	_outCooldown = 0;
 	_canWalk = true;
+	//enemyGun = (EnemyGun*)gunObj.GetScript("EnemyAutomatic");
 	//zoneRb.GetGameObject().
 	//clock.s
 }
@@ -47,36 +51,42 @@ void EnemyRanger::Update()
 
 		if ((dis < detectionDis) && (dis > disShoot) && enemState != States::TARGETING)
 		{
+			_movCooldown = 0;
+			//_outCooldown = 0;
 			enemState = States::TARGETING;
 		}
 		else if ((dis < disShoot)  )
 		{
 			enemState = States::ATTACKIG;
 		}
-		else if ((dis > lossingDis) || (disZone > zoneRb.GetRadius() / 2))
+		else if ((dis > lossingDis) || ((disZone > zoneRb.GetRadius() / 2) /*&& _outCooldown >= outTime*/))
 		{
 			enemState = States::WANDERING;
 		}
+
+		if ((disZone > zoneRb.GetRadius() / 2))_outCooldown += dt;
+		else _outCooldown = 0;
 
 		switch (enemState)
 		{
 		case States::WANDERING:
 			
+			enemy->currentSpeed = enemy->speed * dt;
 			if ((gameObject.GetTransform().GetGlobalPosition().Distance(actualPoint) < 40) )
 			{
-				enemy->currentSpeed = enemy->speed * dt;
 				numPoint++;
 				if (numPoint >= _avalPoints)numPoint = 0;
 				_canWalk = false;
 			}
-			if(!_canWalk)_cooldown +=dt;
-			if (_cooldown >= cooldownPoint )
+			if(!_canWalk)_movCooldown +=dt;
+			if (_movCooldown >= cooldownPoint )
 			{
-				_cooldown = 0;
+				_movCooldown = 0;
 				_canWalk = true;
 			}
-			actualPoint = listPoints[numPoint].GetTransform().GetGlobalPosition();
 
+			actualPoint = listPoints[numPoint].GetTransform().GetGlobalPosition();
+			
 			if(_canWalk)Wander(enemy->currentSpeed, actualPoint);
 
 			break;
@@ -94,6 +104,8 @@ void EnemyRanger::Update()
 
 			if(dis>=disPlayer)
 				Seek(enemy->currentSpeed, target.GetTransform().GetGlobalPosition());
+			else
+				gameObject.GetTransform().Translate(gameObject.GetTransform().GetBackward() * enemy->currentSpeed);
 
 			Attacking(enemy->currentSpeed*0.5f, target.GetTransform().GetGlobalPosition());
 
@@ -153,12 +165,19 @@ void EnemyRanger::Attacking(float vel, API_Vector3 tarPos)
 
 	gameObject.GetTransform().SetRotation(0, -_angle, 0);
 
-	if(-_angle>180)
+	/*if(-_angle>180)
 		gameObject.GetTransform().Translate(gameObject.GetTransform().GetLeft() * vel);
 	else
-		gameObject.GetTransform().Translate(gameObject.GetTransform().GetRight() * vel);
+		gameObject.GetTransform().Translate(gameObject.GetTransform().GetRight() * vel);*/
 
-	Console::Log(std::to_string(_angle));
+	//gameObject.GetTransform().Translate(gameObject.GetTransform().GetLeft() * vel);
+
+	/*if (enemyGun != nullptr)
+	{
+		enemyGun->Shoot();
+		Console::Log("aaaa");
+	}*/
+	//Console::Log(std::to_string(_angle));
 }
 
 
