@@ -20,6 +20,8 @@ HELLO_ENGINE_API_C PlayerDuals* CreatePlayerDuals(ScriptToInspectorInterface* sc
     script->AddDragBoxGameObject("Second Gun GO", &classInstance->secondGun);
     script->AddDragInt("Ammo Type", &classInstance->ammoType);
     script->AddInputBox("Audio Event String", &classInstance->audioEventString);
+    script->AddDragBoxAnimationPlayer("AnimationPlayer", &classInstance->playerAnimator);
+    script->AddDragBoxAnimationResource("Shoot Animation", &classInstance->shootAnim);
     return classInstance;
 }
 
@@ -84,6 +86,9 @@ void PlayerDuals::Shoot()
         shotCooldown = fullShotCooldown;
         nextShot = true;
         burstDelay = fullBurstDelay;
+
+        playerAnimator.ChangeAnimation(shootAnim);
+        playerAnimator.Play();
     }
     else
     {

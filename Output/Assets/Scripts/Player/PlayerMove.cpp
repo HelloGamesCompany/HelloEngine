@@ -11,6 +11,8 @@ HELLO_ENGINE_API_C PlayerMove* CreatePlayerMove(ScriptToInspectorInterface* scri
     //script->AddDragFloat("Current Input", &classInstance->currentInput);
     script->AddDragFloat("Dash Time", &classInstance->dashTime);
     script->AddDragFloat("Dash Distance", &classInstance->dashDistance);
+    script->AddDragBoxAnimationPlayer("AnimationPlayer", &classInstance->playerAnimator);
+    script->AddDragBoxAnimationResource("Dash Animation", &classInstance->dashAnim);
 
     return classInstance;
 }
@@ -39,6 +41,9 @@ void PlayerMove::Update()
         movDir.y = 0.0f;
         movDir.z = lastMovInput.y / norm;
         dashFinalPos = transform.GetLocalPosition() + movDir * dashDistance; //transform.GetForward() // for looking dir
+
+        playerAnimator.ChangeAnimation(dashAnim);
+        playerAnimator.Play();
     }
 
     if (isDashing)
