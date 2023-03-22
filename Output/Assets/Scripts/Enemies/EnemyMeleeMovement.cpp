@@ -41,13 +41,12 @@ void EnemyMeleeMovement::Update()
 	{	
 		float dis = gameObject.GetTransform().GetGlobalPosition().Distance(target.GetTransform().GetGlobalPosition());
 		float disZone = gameObject.GetTransform().GetGlobalPosition().Distance(actionZone.GetTransform().GetGlobalPosition());
-
-		if ((dis< detectionDis) && enemState != States::TARGETING )
+		if (dis < detectionDis && enemState != States::TARGETING )
 		{
 			enemState = States::TARGETING;
 			
 		}
-		else if (dis<=rangeAtk)
+		else if (dis<=rangeAtk && enemState == States::TARGETING)
 		{
 			enemState = States::ATTACKIG;
 		}
@@ -64,10 +63,12 @@ void EnemyMeleeMovement::Update()
 		switch (enemState)
 		{
 		case States::WANDERING:
+			Console::Log("NumPoint: " + std::to_string(numPoint));
 
 			enemy->currentSpeed = enemy->speed * dt;
-			if ((gameObject.GetTransform().GetGlobalPosition().Distance(actualPoint) < 40) )
+			if ((gameObject.GetTransform().GetGlobalPosition().Distance(actualPoint) < 5) )
 			{
+				Console::Log("Change");
 				numPoint++;
 				if (numPoint >= _avalPoints)numPoint = 0;
 			}
