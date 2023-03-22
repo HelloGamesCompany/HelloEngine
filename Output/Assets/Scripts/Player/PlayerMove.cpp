@@ -48,10 +48,10 @@ void PlayerMove::Update()
     }
 
     API_Vector2 input = GetMoveInput();
-    currentInput = input.Distance(API_Vector2::S_Zero());   //TEST
+    //currentInput = input.Distance(API_Vector2::S_Zero());   //TEST
 
     //SecToZero MUST be smaller than SecToMaxVel
-    if (input.x == 0.0f && input.y == 0.0f) //NO INPUT
+    if (abs(input.x) < 0.01f && abs(input.y) < 0.01f) //NO INPUT
     {
         if (departureTime > secToZeroVel) departureTime = secToZeroVel;
 
@@ -75,7 +75,6 @@ void PlayerMove::Update()
         else {
             currentVel = vel;
         }
-
         lastMovInput = input;
     }
 
@@ -123,9 +122,9 @@ void PlayerMove::Aim()
         API_Vector2 input;
         input.x = Input::GetGamePadAxis(GamePadAxis::AXIS_RIGHTX);
         input.y = -Input::GetGamePadAxis(GamePadAxis::AXIS_RIGHTY);
-
+        
         if (abs(input.x) < 10000 && abs(input.y) < 10000) return;
-
+        
         float norm = sqrt(pow(input.x, 2) + pow(input.y, 2));
         normalizedInput.x = input.x / norm;
         normalizedInput.y = input.y / norm;
@@ -163,12 +162,12 @@ API_Vector2 PlayerMove::GetMoveInput()
         input.x = Input::GetGamePadAxis(GamePadAxis::AXIS_LEFTX);
         input.y = Input::GetGamePadAxis(GamePadAxis::AXIS_LEFTY);
 
-        if (abs(input.x) < 10000 && abs(input.y) < 10000) return API_Vector2::S_Zero();
+        if (abs(input.x) < 10000 && abs(input.y) < 10000) return API_Vector2(0.0f, 0.0f);
 
         if (input.x > 32000.0f) input.x = 32000.0f;
-        else if (input.x < -32000.0f) input.x = -35000.0f;
+        else if (input.x < -32000.0f) input.x = -32000.0f;
         if (input.y > 32000.0f) input.y = 32000.0f;
-        else if (input.y < -32000.0f) input.y = -35000.0f;
+        else if (input.y < -32000.0f) input.y = -32000.0f;
 
         return -input / 32000.0f;
     }
