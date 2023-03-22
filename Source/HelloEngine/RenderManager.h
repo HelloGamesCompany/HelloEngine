@@ -56,6 +56,7 @@ public:
 	uint GetMapSize() { return _renderMap.size(); };
 
 	void Draw();
+	void DrawDebug();
 	void Draw2D();
 
 	uint AddMesh(ResourceMesh* resource, MeshRenderType type);

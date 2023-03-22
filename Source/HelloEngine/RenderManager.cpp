@@ -215,8 +215,11 @@ void RenderManager::Draw()
 
 	// Draw meshes that have transparency textures applied on their material.
 	DrawTransparentMeshes();
+}
 
-	for (int i = 0; i < ModulePhysics::physBodies.size(); i++) 
+void RenderManager::DrawDebug()
+{
+	for (int i = 0; i < ModulePhysics::physBodies.size(); i++)
 	{
 		ModulePhysics::physBodies[i]->RenderCollider();
 	}
