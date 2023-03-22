@@ -13,6 +13,8 @@ HELLO_ENGINE_API_C PlayerStats* CreatePlayerStats(ScriptToInspectorInterface* sc
 void PlayerStats::Start()
 {
     currentHp = maxHp;
+
+    detected = false;
 }
 
 void PlayerStats::Update()
