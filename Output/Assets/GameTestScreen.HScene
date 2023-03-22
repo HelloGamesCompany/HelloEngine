@@ -54,7 +54,7 @@
             {
                 "Active camera": true,
                 "Active culling": true,
-                "Aspect ratio": 0.9706745147705078,
+                "Aspect ratio": 1.3209606409072876,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -96,18 +96,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Panel": 494622887
-                    },
-                    {
-                        "Continue": 3812402520
-                    },
-                    {
-                        "Main Menu": 650122914
-                    },
-                    {
-                        "Settings": 566227601
-                    },
                     {
                         "Panel": 494622887
                     },
@@ -831,12 +819,6 @@
                     },
                     {
                         "hp": false
-                    },
-                    {
-                        "Bar": 3516983140
-                    },
-                    {
-                        "hp": false
                     }
                 ],
                 "Script Resource": 1164455694,
@@ -953,12 +935,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "HP": 100.0
-                    },
-                    {
-                        "MAX HP": 100.0
-                    },
                     {
                         "HP": 100.0
                     },
@@ -1650,8 +1626,27 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 0,
+                "MaterialResource": 2440110374,
                 "Type": 15
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Text_Dash_on": 1033923317
+                    },
+                    {
+                        "Text_Dash_off": 2440110374
+                    },
+                    {
+                        "Cooldown": 1.0
+                    },
+                    {
+                        "CooldownBetween": 0.5
+                    }
+                ],
+                "Script Resource": 2007260901,
+                "Type": 5
             }
         ],
         "FirstOnPrefab": true,
