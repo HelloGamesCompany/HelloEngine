@@ -24,8 +24,9 @@ public:
 
 	bool IsPlaying() { return isPlaying; };
 
+#ifdef STANDALONE
 	void OnEditor() override;
-
+#endif
 private:
 	void AnimationDropArea();
 	

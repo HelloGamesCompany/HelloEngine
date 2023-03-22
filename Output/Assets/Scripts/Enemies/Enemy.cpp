@@ -1,4 +1,5 @@
 #include "Enemy.h"
+#include "../Player/PlayerStats.h"
 HELLO_ENGINE_API_C Enemy* CreateEnemy(ScriptToInspectorInterface* script)
 {
     Enemy* classInstance = new Enemy();
@@ -6,7 +7,9 @@ HELLO_ENGINE_API_C Enemy* CreateEnemy(ScriptToInspectorInterface* script)
     script->AddDragFloat("Health", &classInstance->maxHp);
     script->AddDragFloat("Resistance", &classInstance->maxResistance);
     script->AddDragFloat("Speed", &classInstance->speed);
-    script->AddDragBoxRigidBody("Rigidbody test", &classInstance->rb);
+    script->AddDragFloat("Acceleration", &classInstance->acceleration);
+   // script->AddDragBoxRigidBody("Rigidbody test", &classInstance->rb);
+  //  script->AddDragBoxGameObject("Target", &classInstance->target);
     return classInstance;
 }
 
@@ -16,7 +19,7 @@ void Enemy::Start()
     currentResistance = maxResistance;
 
     // TESTING CODE, DELETE LATER
-    rb.SetGravity({ 0,-0.1f,0 });
+   // rb.SetGravity({ 0,-0.1f,0 });
 }
 
 void Enemy::Update()
@@ -53,9 +56,14 @@ void Enemy::Die()
 void Enemy::OnCollisionEnter(API::API_RigidBody other)
 {
     std::string detectionName = other.GetGameObject().GetName();
-    if (detectionName == "Bullet")
+    if (detectionName == "Projectile")
     {
         gameObject.SetActive(false);
         //other.GetGameObject().SetActive(false);
+    }
+    else if(detectionName == "Player")
+    {
+        PlayerStats* pStats = (PlayerStats*)other.GetGameObject().GetScript("PlayerStats");
+        pStats->TakeDamage(10);
     }
 }

@@ -5,7 +5,8 @@
 #include "ParticleManager.h"
 #include "LayerEditor.h"
 #include "P_MainModule.h"
-
+#include "P_EmissionModule.h"
+#include "BillBoardComponent.h"
 
 
 
@@ -21,6 +22,10 @@ ParticleSystemComponent::ParticleSystemComponent(GameObject* gameObject) : Compo
 	P_Module* mainModule = (P_Module*)new P_MainModule();
 	mainModule->component = this;
 	ParticleModules.push_back(mainModule);
+
+	P_Module* emissionModule = (P_Module*)new P_EmissionModule();
+	emissionModule->component = this;
+	ParticleModules.push_back(emissionModule);
 
 	_gameObject->AddComponentOfType(Type::BILLBOARD);
 
@@ -38,6 +43,54 @@ ParticleSystemComponent::ParticleSystemComponent(GameObject* gameObject) : Compo
 	particleProps.Lifetime = 5.0f;
 }
 
+ParticleSystemComponent::ParticleSystemComponent(GameObject* gameObject, ParticleSystemComponent& copy) : Component(gameObject)
+{
+	_type = Type::PARTICLE_SYSTEM;
+	_resource = nullptr;
+	app = Application::Instance();
+
+	ParticleEmitter.component = this;
+
+	//Initialize Particle System Modules
+	P_Module* mainModule = (P_Module*)new P_MainModule();
+	mainModule->component = this;
+	ParticleModules.push_back(mainModule);
+
+	P_Module* emissionModule = (P_Module*)new P_EmissionModule();
+	emissionModule->component = this;
+	ParticleModules.push_back(emissionModule);
+
+	BillBoardComponent* billboard = (BillBoardComponent*)_gameObject->AddComponentOfType(Type::BILLBOARD);
+	BillBoardComponent* copyBB = copy._gameObject->GetComponent<BillBoardComponent>();
+	if (copyBB != nullptr)
+		billboard->typeofBBoard = copyBB->typeofBBoard;
+
+	//Default Particle
+	particleProps.position = _gameObject->transform->GetGlobalPosition();
+	//particleProps.rot = float3::zero;
+	particleProps.startsize = copy.particleProps.startsize;
+	particleProps.endsize = copy.particleProps.endsize;
+	particleProps.speed = copy.particleProps.speed;
+	particleProps.acceleration = copy.particleProps.acceleration;
+	particleProps.speedVariation = copy.particleProps.speedVariation;
+	particleProps.startColor = copy.particleProps.startColor; //r g b a
+	particleProps.endColor = copy.particleProps.endColor; //r g b a
+
+	particleProps.Lifetime = copy.particleProps.Lifetime;
+
+	ParticleEmitter.loop = copy.ParticleEmitter.loop;
+	ParticleEmitter.stop = copy.ParticleEmitter.stop;
+	ParticleEmitter.playOnAwake = copy.ParticleEmitter.playOnAwake;
+	ParticleEmitter.StartDelay = copy.ParticleEmitter.StartDelay;
+	ParticleEmitter.Duration = copy.ParticleEmitter.Duration;
+	ParticleEmitter.enableEmissionModule = copy.ParticleEmitter.enableEmissionModule;
+	ParticleEmitter.ParticlesPerSecond = copy.ParticleEmitter.ParticlesPerSecond;
+
+	CreateEmitterMesh(copy._resource->UID);
+	if (copy._resourceText != nullptr)
+		ChangeEmitterMeshTexture((ResourceTexture*)ModuleResourceManager::S_LoadResource(copy._resourceText->UID));
+}
+
 ParticleSystemComponent::~ParticleSystemComponent()
 {
 	for (int i = 0; i < ParticleModules.size(); i++)
@@ -45,6 +98,9 @@ ParticleSystemComponent::~ParticleSystemComponent()
 		RELEASE(ParticleModules[i]);
 	}
 	ParticleModules.clear();
+
+	if (_resourceText != nullptr)
+		_resourceText->Dereference();
 }
 
 void ParticleSystemComponent::CreateEmitterMesh(uint resourceUID)
@@ -68,6 +124,7 @@ void ParticleSystemComponent::CreateEmitterMesh(uint resourceUID)
 	}
 
 	ParticleEmitter._meshID = resourceUID;
+	ParticleEmitter.manager = app->renderer3D->renderManager.GetRenderManager(resourceUID);
 
 	for (Particle& var : ParticleEmitter.ParticleList)
 	{
@@ -123,6 +180,28 @@ void ParticleSystemComponent::DestroyEmitterMesh()
 	ParticleEmitter._meshID = -1;
 }
 
+void ParticleSystemComponent::ChangeEmitterMeshTexture(ResourceTexture* resource)
+{
+	if (resource == nullptr)
+	{
+		ParticleEmitter._textureID = -1.0f;
+		_resourceText = nullptr;
+
+		return;
+	}
+
+	ParticleEmitter._textureID = resource->OpenGLID;
+
+	if (_resourceText != nullptr)
+		_resourceText->Dereference();
+
+	_resourceText = resource;
+
+	//if (resource->isTransparent && !isUI)
+	//	meshRenderer->ChangeMeshRenderType(MeshRenderType::TRANSPARENCY);
+
+}
+
 #ifdef STANDALONE
 
 void ParticleSystemComponent::OnEditor()
@@ -133,10 +212,16 @@ void ParticleSystemComponent::OnEditor()
 	{
 		if (ImGui::Button("Play"))
 		{
+			if (!pauseOnScene)
+			{
+				ResetEmitterTimers();
+			}
 			if (ParticleEmitter.Duration > 0 || ParticleEmitter.loop)
 			{
+				StopEmittingOnGame = false;
 				SetPlayOnScene(true);
 				SetPauseOnScene(false);
+				
 			}
 		}
 		ImGui::SameLine();
@@ -149,23 +234,15 @@ void ParticleSystemComponent::OnEditor()
 			}
 		}
 		ImGui::SameLine();
+		if (ImGui::Button("Stop Emitting"))
+		{
+			ResetEmitterTimers();
+			StopEmittingOnGame = true;
+		}
+		ImGui::SameLine();
 		if (ImGui::Button("Stop"))
 		{
-			if(GetPlayOnScene())
-			{
-				SetPlayOnScene(false);
-				SetPauseOnScene(false);
-				if (!LayerGame::S_IsPlaying()) {
-					if (ParticleEmitter.StartDelay <= 0)
-					{
-						ParticleEmitter.ResetEmitter();
-					}
-					else
-					{
-						ParticleEmitter.StartDelay = ParticleEmitter.StartDelayCpy;
-					}
-				}
-			}
+			StopEmitter();
 		}
 
 		if (ParticleEmitter._meshID == -1)
@@ -198,11 +275,84 @@ void ParticleSystemComponent::OnEditor()
 
 			return;
 		}
-		
+		else
+		{
+			if (ImGui::Button("Delete Emitter Mesh"))
+			{
+
+
+				StopEmitter();
+
+				DestroyEmitterMesh();
+
+				DestroyEmitterMeshTexture();
+
+				std::string popUpmessage = "Mesh in the emitter Destroyed ";
+				LayerEditor::S_AddPopUpMessage(popUpmessage);
+
+			}
+		}
+
+		std::string imageName;
+		int width = 0;
+		int height = 0;
+		if (ParticleEmitter._textureID != -1.0f && _resourceText != nullptr)
+		{
+			ImGui::Image((ImTextureID)(uint)ParticleEmitter._textureID, ImVec2(64, 64), ImVec2(0, 1), ImVec2(1, 0));
+
+			imageName = _resourceText->debugName;
+			width = _resourceText->width;
+			height = _resourceText->height;
+		}
+		else
+		{
+			ImGui::Image((ImTextureID)0, ImVec2(64, 64), ImVec2(0, 1), ImVec2(1, 0));
+			imageName = "None";
+		}
+
+		if (ParticleEmitter._textureID == -1)
+		{
+			ImGui::TextWrapped("No texture loaded! Drag an .htext file below to load a texture ");
+
+			ImGui::TextColored(ImVec4(1, 1, 0, 1), "Drag .htext here"); ImGui::SameLine();
+
+			if (ImGui::BeginDragDropTarget())
+			{
+				if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("Texture"))
+				{
+					//Drop asset from Asset window to scene window
+					const uint* drop = (uint*)payload->Data;
+
+					ResourceTexture* resource = (ResourceTexture*)ModuleResourceManager::S_LoadResource(*drop);
+
+					ChangeEmitterMeshTexture(resource);
+
+					std::string popUpmessage = "Loaded Texture: ";
+					LayerEditor::S_AddPopUpMessage(popUpmessage);
+				}
+				ImGui::EndDragDropTarget();
+			}
+
+		}
+		else
+		{
+			if (ImGui::Button("Delete Emitter Texture"))
+			{
+
+				DestroyEmitterMeshTexture();
+
+				std::string popUpmessage = "Texture in the emitter Destroyed ";
+				LayerEditor::S_AddPopUpMessage(popUpmessage);
+
+			}
+		}
+		ImGui::NewLine();
 		for (int i = 0; i < ParticleModules.size(); i++)
 		{
 			ParticleModules[i]->OnEditor();
 		}
+		
+		
 	}
 }
 
@@ -221,13 +371,57 @@ void ParticleSystemComponent::MarkAsDead()
 
 		app->renderer3D->particleManager.RemoveEmitterInList(&ParticleEmitter);
 	}
+
+	if (_resourceText != nullptr)
+	{
+		_resourceText->Dereference();
+		_resourceTextUID = _resourceText->UID;
+		_resourceText = nullptr;
+	}
 }
 
 void ParticleSystemComponent::MarkAsAlive()
 {
 	CreateEmitterMesh(_resourceUID);
+
+	ChangeEmitterMeshTexture((ResourceTexture*)ModuleResourceManager::S_LoadResource(_resourceTextUID));
 }
 #endif
+
+void ParticleSystemComponent::ResetEmitterTimers()
+{
+	ParticleEmitter.StartDelay = ParticleEmitter.StartDelayCpy;
+	ParticleEmitter.Duration = ParticleEmitter.DurationCpy;
+}
+
+void ParticleSystemComponent::DestroyEmitterMeshTexture()
+{
+	if (_resourceText != nullptr)
+	{
+		ParticleEmitter._textureID = -1.0f;
+		_resourceText = nullptr;
+
+	}
+}
+
+void ParticleSystemComponent::StopEmitter()
+{
+	if (GetPlayOnScene())
+	{
+		SetPlayOnScene(false);
+		SetPauseOnScene(false);
+		if (!LayerGame::S_IsPlaying()) {
+			if (ParticleEmitter.StartDelay <= 0)
+			{
+				ParticleEmitter.ResetEmitter();
+			}
+			else
+			{
+				ParticleEmitter.StartDelay = ParticleEmitter.StartDelayCpy;
+			}
+		}
+	}
+}
 
 void ParticleSystemComponent::Serialization(json& j)
 {
@@ -246,6 +440,15 @@ void ParticleSystemComponent::Serialization(json& j)
 		_j["Index inside model"] = 0;
 	}
 
+	if (_resourceText != nullptr)
+	{
+		_j["ResourceTextUID"] = _resourceText->UID;
+	}
+	else
+	{
+		_j["ResourceTextUID"] = 0;
+	}
+
 	if (ParticleModules.empty() == false)
 	{
 		_j["ParticleModules"]["ModuleMain"]["BeginScale"] = { particleProps.startsize.x, particleProps.startsize.y, particleProps.startsize.z };
@@ -257,6 +460,7 @@ void ParticleSystemComponent::Serialization(json& j)
 		_j["ParticleModules"]["ModuleMain"]["Duration"] = ParticleEmitter.Duration;
 		_j["ParticleModules"]["ModuleMain"]["Delay"] = ParticleEmitter.StartDelay;
 		_j["ParticleModules"]["ModuleMain"]["Looping"] = ParticleEmitter.loop;
+		_j["ParticleModules"]["ModuleEmission"]["ParticlesPerSecond"] = ParticleEmitter.ParticlesPerSecond;
 	}
 
 	_j["Enabled"] = _isEnabled;
@@ -269,6 +473,11 @@ void ParticleSystemComponent::DeSerialization(json& j)
 
 	ResourceModel* model = (ResourceModel*)ModuleResourceManager::resources[j["ModelUID"]];
 
+	uint savedUID = j["ResourceTextUID"];
+
+	ResourceTexture* resourcetext = savedUID == 0 ? nullptr : (ResourceTexture*)ModuleResourceManager::S_LoadResource(j["ResourceTextUID"]);
+
+
 	if (model == nullptr)
 	{
 		Console::S_Log("A scene mesh render data was not found.");
@@ -280,9 +489,13 @@ void ParticleSystemComponent::DeSerialization(json& j)
 	{
 		ResourceMesh* resourceMesh = model->modelMeshes[index];
 
-
 		CreateEmitterMesh(resourceMesh->UID);
 
+	}
+
+	if (resourcetext != nullptr)
+	{
+		ChangeEmitterMeshTexture(resourcetext);
 	}
 
 	std::vector<float> tempstartsize = j["ParticleModules"]["ModuleMain"]["BeginScale"];
@@ -297,7 +510,8 @@ void ParticleSystemComponent::DeSerialization(json& j)
 	particleProps.acceleration = { tempacceleration[0],tempacceleration[1],tempacceleration[2] };
 	particleProps.Lifetime = j["ParticleModules"]["ModuleMain"]["LifeTime"];
 	ParticleEmitter.Duration = j["ParticleModules"]["ModuleMain"]["Duration"];
-	//ParticleEmitter.StartDelay = j["ParticleModules"]["ModuleMain"]["Delay"];
+	ParticleEmitter.ParticlesPerSecond = j["ParticleModules"]["ModuleEmission"]["ParticlesPerSecond"];
+	ParticleEmitter.StartDelay = j["ParticleModules"]["ModuleMain"]["Delay"];
 
 	bool enabled = j["Enabled"];
 
@@ -306,6 +520,11 @@ void ParticleSystemComponent::DeSerialization(json& j)
 void ParticleSystemComponent::SetPlayOnGame(bool playongame)
 {
 	this->playOnGame = playongame;
+}
+
+void ParticleSystemComponent::SetStopEmitting(bool stopemitting)
+{
+	this->StopEmittingOnGame = stopemitting;
 }
 
 void ParticleSystemComponent::SetPlayOnScene(bool playonscene)

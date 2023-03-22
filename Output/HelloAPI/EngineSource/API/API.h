@@ -1,4 +1,4 @@
-#pragma once 
+#pragma once
 
 // Engine----------------------------
 #include "API_Scene.h"
@@ -7,6 +7,7 @@
 #include "API_Console.h"
 #include "API_Input.h"
 #include "API/API_Engine.h"
+#include "API_Audio.h"
 
 // Tools
 #include "API_Vector2.h"
@@ -17,5 +18,10 @@
 #include "API_Transform.h"
 #include "API_MeshRenderer.h"
 #include "API_Camera.h"
+#include "API_AnimationPlayer.h"
+#include "API_UIButton.h"
+#include "API_ParticleSystem.h"
+#include "API_RigidBody.h"
+#include "API_Material.h"
 
 using namespace API;

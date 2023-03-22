@@ -508,11 +508,29 @@ std::string ModuleFiles::S_GetFileName(const std::string& file, bool getExtensio
     std::string ret = file;
 
     // If the last character is '/', remove that.
-    if (ret[ret.size() - 1] == '/')
+    if (ret[ret.size() - 1] == '/' || ret[ret.size() - 1] == '\\')
         ret.pop_back();
 
     uint pos = file.find_last_of("/");
+    
+    if (pos == std::string::npos)
+    {
+        pos = file.find_last_of("\\");
+        if (pos != std::string::npos && file[pos] == file.back())
+        {
+            ret = file.substr(0, pos);
+            pos = ret.find_last_of("\\");
+        }
+        if (pos != std::string::npos)
+            ret = ret.substr(pos + 1, file.size() - 1);
+        else
+            ret = file;
 
+        if (!getExtension)
+            ret = S_RemoveExtension(ret);
+
+        return ret;
+    }
 
     if (pos != std::string::npos && file[pos] == file.back())
     {
@@ -761,8 +779,8 @@ void ModuleFiles::S_CompileDLLProject()
         res = system("msbuild HelloAPI\\ScriptingSLN.sln /p:Configuration=Debug /property:Platform=x86");
     else
         LayerGame::S_DisableCreatingBehaviors(); // Else, dont allow behavior creating until HotReload!
-#endif
 
+#else
 #ifndef DEVELOPMENT
     if (_automaticCompilation && _enabledAutomaticCompilation)// If automatic compilation is available / enabled, compile using MSBuild.
         res = system("msbuild HelloAPI\\ScriptingSLN.sln /p:Configuration=Release /property:Platform=x86");
@@ -773,6 +791,7 @@ void ModuleFiles::S_CompileDLLProject()
         res = system("msbuild HelloAPI\\ScriptingSLN.sln /p:Configuration=Development /property:Platform=x86");
     else
         LayerGame::S_DisableCreatingBehaviors(); // Else, dont allow behavior creating until HotReload!
+#endif
 #endif
 
     if (res == 1)

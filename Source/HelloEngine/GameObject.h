@@ -88,12 +88,12 @@ public:
 
 	void OnCollisionEnter(PhysBody3D* other);
 
-
+#ifdef STANDALONE
     void OnEditor();
     bool MarkAsDead();
 
     bool MarkAsAlive();
-
+#endif
     void Destroy();
 
     template <class T>

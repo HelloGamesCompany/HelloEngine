@@ -66,6 +66,7 @@ public:
 	static void S_ShowCompilationError() { _showCompilationError = true; }
 
 	static void S_OpenShader(uint UID);
+	static void S_ReimportAllAssets();
 
 private:
 	void DrawMenuBar();
@@ -116,6 +117,7 @@ private:
 	friend class ComponentUI;
 	friend class ComponentUISlider;
 	friend class ComponentUIImage;
+	friend class ComponentUIInput;
 };
 
 #endif // !__MODULE_ENGINE_H__

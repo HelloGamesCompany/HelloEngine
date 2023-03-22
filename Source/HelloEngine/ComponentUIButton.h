@@ -22,6 +22,7 @@ class ComponentUIButton : public ComponentUI
 	ButtonState ChangeState(ButtonState State);
 
 	ButtonState State;
+	bool IsHold = false;
 private:
 	double gameTimeCopy = 0;
 	float colors[4] = { 0,0,0,0 };

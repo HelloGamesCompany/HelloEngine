@@ -96,6 +96,9 @@ void ComponentUISlider::Serialization(json& j)
 	_j["MaterialResource"] = _material->GetResourceUID();
 	_j["StateButton"] = State;
 	_j["Enabled"] = _isEnabled;
+	_j["MinValue"] = numMin;
+	_j["MaxValue"] = numMax;
+	_j["SliderPerCent"] = mousePosX;
 	j["Components"].push_back(_j);
 }
 
@@ -108,6 +111,10 @@ void ComponentUISlider::DeSerialization(json& j)
 		Disable();
 	
 	State = j["StateButton"];
+
+	numMin = j["MinValue"];
+	numMax = j["MaxValue"];
+	mousePosX = j["SliderPerCent"];
 
 	_gameObject->transform->ForceUpdate();
 }
@@ -135,7 +142,7 @@ void ComponentUISlider::OnEditor()
 		}
 
 		perCent = ((mousePosX * 50) / (widthBarAux)) + 50;
-		NormalizedPos = ((mousePosX * numMax/2) / widthBarAux) + (numMax/2);
+		NormalizedPos = (((mousePosX * (numMax - numMin) /2) / widthBarAux) + ((numMax - numMin)/2)) + numMin;
 
 		if (ImGui::SliderFloat("##SliderPerCent", &mousePosX, -widthBarAux, widthBarAux, "%.2f")) {
 			_gameObject->transform->SetPosition({ mousePosX, _gameObject->transform->GetLocalPosition().y, _gameObject->transform->GetLocalPosition().z });

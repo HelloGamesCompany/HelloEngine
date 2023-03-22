@@ -23,6 +23,8 @@ ScriptComponent::~ScriptComponent()
 	DestroyInspectorFields();
 }
 
+#ifdef STANDALONE
+
 void ScriptComponent::OnEditor()
 {
 	bool created = true;
@@ -52,7 +54,7 @@ void ScriptComponent::OnEditor()
 	if (!created)
 		_gameObject->DestroyComponent(this);
 }
-
+#endif
 void ScriptComponent::OnEnable()
 {
 	if (scriptUID != 0)
@@ -118,7 +120,7 @@ void ScriptComponent::AddScript(std::string scriptName)
 	// Create a new script object instance.
 	if (!LayerGame::S_CreateBehaviorScriptByName(scriptName, this))
 	{
-		addedScript = "None"; 
+		addedScript = "None";
 		return;
 	}
 }
@@ -248,6 +250,66 @@ void ScriptComponent::AddDragBoxAnimationResource(const char* name, uint* value)
 	inspectorFields.push_back(dragBoxField);
 }
 
+void ScriptComponent::AddDragBoxMeshResource(const char* name, uint* value)
+{
+	DragBoxMeshResource* dragBoxField = new DragBoxMeshResource();
+	dragBoxField->valueName = name;
+	dragBoxField->value = value;
+	dragBoxField->className = scriptResource == nullptr ? addedScript : scriptResource->className;
+
+	inspectorFields.push_back(dragBoxField);
+}
+
+void ScriptComponent::AddDragBoxTextureResource(const char* name, uint* value)
+{
+	DragBoxTextureResource* dragBoxField = new DragBoxTextureResource();
+	dragBoxField->valueName = name;
+	dragBoxField->value = value;
+	dragBoxField->className = scriptResource == nullptr ? addedScript : scriptResource->className;
+
+	inspectorFields.push_back(dragBoxField);
+}
+
+void ScriptComponent::AddDragBoxMaterialComponent(const char* name, API::API_Material* value)
+{
+	DragBoxMaterialComponent* dragBoxField = new DragBoxMaterialComponent();
+	dragBoxField->valueName = name;
+	dragBoxField->value = value;
+	dragBoxField->className = scriptResource == nullptr ? addedScript : scriptResource->className;
+
+	inspectorFields.push_back(dragBoxField);
+}
+
+void ScriptComponent::AddDragBoxParticleSystem(const char* name, API::API_ParticleSystem* value)
+{
+    DragBoxParticleSystem* dragBoxField = new DragBoxParticleSystem();
+    dragBoxField->valueName = name;
+    dragBoxField->value = value;
+    dragBoxField->className = scriptResource == nullptr ? addedScript : scriptResource->className;
+
+    inspectorFields.push_back(dragBoxField);
+}
+
+void ScriptComponent::AddDragBoxUIButton(const char* name, API::API_UIButton* value)
+{
+	DragBoxUIButton* dragBoxField = new DragBoxUIButton();
+	dragBoxField->valueName = name;
+	dragBoxField->value = value;
+	dragBoxField->className = scriptResource == nullptr ? addedScript : scriptResource->className;
+
+	inspectorFields.push_back(dragBoxField);
+}
+
+void ScriptComponent::AddDragBoxUIImage(const char* name, API::API_UIImage* value)
+{
+	DragBoxUIImage* dragBoxField = new DragBoxUIImage();
+	dragBoxField->valueName = name;
+	dragBoxField->value = value;
+	dragBoxField->className = scriptResource == nullptr ? addedScript : scriptResource->className;
+
+	inspectorFields.push_back(dragBoxField);
+}
+
 uint ScriptComponent::GetResourceUID()
 {
 	if (scriptResource != nullptr)
@@ -340,7 +402,7 @@ void ScriptComponent::LoadInspectorFields(json* j)
 		}
 	}
 }
-
+#ifdef STANDALONE
 void ScriptComponent::MarkAsDead()
 {
 	SaveInspectorFields();
@@ -355,4 +417,4 @@ void ScriptComponent::MarkAsAlive()
 	LayerGame::S_AddScriptComponent(this);
 	LoadInspectorFields();
 }
-
+#endif

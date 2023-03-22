@@ -56,6 +56,7 @@ private:
 	std::vector<uint>* totalIndices = nullptr;
 	std::vector<float4x4> modelMatrices;
 	std::vector<float> textureIDs;
+	std::multimap<float, Mesh*> orderedMeshes;
 
 	uint VAO = 0; // Vertex Array
 	uint VBO = 0; // Vertex buffer

@@ -12,6 +12,7 @@
 #include "ComponentUISlider.h"
 #include "ComponentUICheckbox.h"
 #include "ComponentUIImage.h"
+#include "TextRendererComponent.h"
 #include "Math/float4x4.h"
 
 #include "ModuleRenderer3D.h"
@@ -34,12 +35,14 @@ RenderManager::~RenderManager()
 		localLineShader->Dereference();
 		localLineShader = nullptr;
 	}
-	
+	RELEASE(textRenderingShader);
+
 }
 
 void RenderManager::Init()
 {
 	_textureManager = new TextureManager();
+	FontManager::InitFreetype();
 
 	cubeUID = 2523359550;
 	planeUID = 90291865;
@@ -84,8 +87,7 @@ void RenderManager::Init()
 	// Init shaders
 	lineShader = ModuleResourceManager::S_CreateResourceShader("Resources/shaders/lines.shader", 100, "Lines");
 	localLineShader = ModuleResourceManager::S_CreateResourceShader("Resources/shaders/localLines.shader", 101, "Local Lines");
-
-
+	textRenderingShader = new Shader("Resources/shaders/textRendering.shader");
 
 	// Set up debug drawing variables:
 	// Manually created box index buffer that corresponds to the order given by MathGeoLib's AABB class GetCornerPoints() method.
@@ -150,6 +152,17 @@ void RenderManager::Init()
 
 	CalculateSphereBuffer();
 	CalculateCylinderBuffer();
+
+	// text rendering
+	glGenVertexArrays(1, &TextVAO);
+	glGenBuffers(1, &TextVBO);
+	glBindVertexArray(TextVAO);
+	glBindBuffer(GL_ARRAY_BUFFER, TextVBO);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 6 * 4, NULL, GL_DYNAMIC_DRAW);
+	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 4 * sizeof(float), 0);
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	glBindVertexArray(0);
 }
 
 void RenderManager::OnEditor()
@@ -214,13 +227,14 @@ void RenderManager::Draw()
 
 	// Draw meshes that have transparency textures applied on their material.
 	DrawTransparentMeshes();
+}
 
-	for (int i = 0; i < ModulePhysics::physBodies.size(); i++) 
+void RenderManager::DrawDebug()
+{
+	for (int i = 0; i < ModulePhysics::physBodies.size(); i++)
 	{
 		ModulePhysics::physBodies[i]->RenderCollider();
 	}
-
-
 }
 
 void RenderManager::Draw2D()
@@ -228,6 +242,8 @@ void RenderManager::Draw2D()
 	// Draw all 2D meshes.
 	if (renderer2D != nullptr)
 		renderer2D->Draw2D();
+	
+	DrawTextObjects();
 }
 
 uint RenderManager::AddMesh(ResourceMesh* resource, ResourceMaterial* material,  MeshRenderType type)
@@ -288,7 +304,26 @@ uint RenderManager::Add2DMesh()
 	InstanceRenderer* manager = GetRenderManager(plane2DUID); // Create a renderManager.
 	renderer2D = manager;
 	renderer2D->SetAs2D();
-	return manager->AddMesh();
+	uint ret = manager->AddMesh();
+	ResourceMesh* plane2D = (ResourceMesh*)ModuleResourceManager::S_LoadResource(plane2DUID);
+	renderer2D->meshes[ret].InitWithResource(plane2D);
+	renderer2D->meshes[ret].localAABB = plane2D->localAABB;
+	renderer2D->meshes[ret].isIndependent = true;
+	renderer2D->meshes[ret].is2D = true;
+	renderer2D->meshes[ret].CreateBufferData();
+	return ret;
+}
+
+uint RenderManager::AddTextObject(std::string text, float4 color, float2 position, float scale)
+{
+	uint uid = HelloUUID::GenerateUUID();
+	TextObject textObject;
+	textObject.text = text;
+	textObject.color = color;
+	textObject.position = position;
+	textObject.scale = scale;
+	textObjects[uid] = textObject;
+	return uid;
 }
 
 void RenderManager::CreatePrimitive(GameObject* parent, PrimitiveType type)
@@ -362,6 +397,7 @@ void RenderManager::CreateUI(GameObject* parent, UIType type)
 			sliderBar->transform->SetScale({ 0.7f,0.1f,0.0f });
 			sliderButton->AddComponent<ComponentUISlider>();
 			sliderButton->transform->SetScale({ 0.2f,0.2f,0.0f });
+			sliderButton->transform->SetPosition({ 0.0f, 0.0f, -0.003f });
 			break;
 		}
 		case UIType::CHECKBOX:
@@ -375,6 +411,13 @@ void RenderManager::CreateUI(GameObject* parent, UIType type)
 		{
 			GameObject* image = new GameObject(parent, "Image", "UI");
 			image->AddComponent<ComponentUIImage>();
+			image->transform->SetScale({ 0.5f,0.5f,0.5f });
+			break;
+		}
+		case UIType::TEXT:
+		{
+			GameObject* image = new GameObject(parent, "Text", "UI");
+			image->AddComponent<TextRendererComponent>();
 			image->transform->SetScale({ 0.5f,0.5f,0.5f });
 			break;
 		}
@@ -1001,4 +1044,58 @@ void RenderManager::DrawIndependentMeshes()
 		}
 	}
 
+}
+
+void RenderManager::DrawTextObjects()
+{
+	// Activate Shader to render text
+	textRenderingShader->Bind();
+	for (auto& textObject : textObjects)
+	{
+		TextObject text = textObject.second;
+
+		if (!text.draw)
+			continue;
+
+		textRenderingShader->SetFloat3("textColor", text.color.x, text.color.y, text.color.z);
+		glActiveTexture(GL_TEXTURE0);
+		glBindVertexArray(TextVAO);
+
+		std::string::const_iterator c;
+		for (c = text.text.begin(); c != text.text.end(); c++)
+		{
+			Character ch = FontManager::Characters[*c];
+
+			float scale = text.scale * 0.005f;
+
+			float xPos = text.position.x + ch.Bearing.x * scale;
+			float yPos = text.position.y - (ch.Size.y - ch.Bearing.y) * scale;
+
+			float width = ch.Size.x * scale;
+			float height = ch.Size.y * scale;
+
+			// TODO: Optimize this by making a single draw call for every 32 characters.
+			float vertices[6][4] = {
+			  { xPos,     yPos + height,   0.0f, 0.0f },
+			  { xPos,     yPos,       0.0f, 1.0f },
+			  { xPos + width, yPos,       1.0f, 1.0f },
+
+			  { xPos,     yPos + height,   0.0f, 0.0f },
+			  { xPos + width, yPos,       1.0f, 1.0f },
+			  { xPos + width, yPos + height,   1.0f, 0.0f }
+			};
+
+			glBindTexture(GL_TEXTURE_2D, ch.TextureID);
+
+			glBindBuffer(GL_ARRAY_BUFFER, TextVBO);
+			glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(vertices), vertices);
+			glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+			glDrawArrays(GL_TRIANGLES, 0, 6);
+
+			text.position.x += (ch.Advance >> 6) * scale;
+		}
+		glBindVertexArray(0);
+		glBindTexture(GL_TEXTURE_2D, 0);
+	}
 }

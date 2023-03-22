@@ -85,6 +85,7 @@ public:
 	AABB localAABB;
 
 	bool isIndependent = false;
+	bool is2D = false;
 
 private:
 	ResourceMesh* resource = nullptr;
@@ -96,6 +97,7 @@ private:
 	uint _VBO = 0;
 	uint _IBO = 0;
 	ResourceShader* drawPerMeshShader = nullptr;
+	Shader* drawPerMesh2D = nullptr;
 	// ----------------------------------------------------------------------------------------------------
 	ResourceShader* boneMeshShader = nullptr;
 

@@ -194,7 +194,7 @@ uint MeshImporter::ProcessTexture(const std::string& textureName)
 	// Check if the given texture is inside the current folder.
 	std::string folder = currentPath.substr(0, currentPath.find_last_of('/')+1);
 
-	std::string textureAsset = folder + textureName;
+	std::string textureAsset = folder + ModuleFiles::S_GetFileName(textureName, true);
 
 	// If the texture is inside the same folder
 	if (ModuleFiles::S_Exists(textureAsset))

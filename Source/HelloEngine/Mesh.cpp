@@ -51,9 +51,12 @@ void Mesh::CreateBufferData()
 	_VBO = resource->VBO;
 	_IBO = resource->IBO;
 
-	drawPerMeshShader = ModuleResourceManager::S_CreateResourceShader("Resources/shaders/basic.shader", 103, "Basic");
-	boneMeshShader = ModuleResourceManager::S_CreateResourceShader("Resources/shaders/basicBone.shader", 105, "Basic Bone");
-	
+	if (!is2D)
+	{
+		drawPerMeshShader = ModuleResourceManager::S_CreateResourceShader("Resources/shaders/basic.shader", 103, "Basic");
+		boneMeshShader = ModuleResourceManager::S_CreateResourceShader("Resources/shaders/basicBone.shader", 105, "Basic Bone");	}
+	else
+		drawPerMesh2D = new Shader("Resources/shaders/basic2D.shader");
 }
 
 void Mesh::Draw(Material* material, bool useMaterial)
@@ -106,12 +109,17 @@ void Mesh::DefaultDraw()
 		}
 
 	}
-	else
+	else if (!is2D)
 	{
 		drawPerMeshShader->shader.Bind();
 		drawPerMeshShader->shader.SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
 		drawPerMeshShader->shader.SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
 		drawPerMeshShader->shader.SetMatFloat4v("model", &modelMatrix.v[0][0]);
+	}
+	else 
+	{
+		drawPerMesh2D->Bind();
+		drawPerMesh2D->SetMatFloat4v("model", &modelMatrix.v[0][0]);
 	}
 
 }
@@ -151,7 +159,7 @@ bool Mesh::Update()
 	if (showOBB)
 		Application::Instance()->renderer3D->renderManager.DrawOBB(this);
 
-	if (outOfFrustum) 
+	if (outOfFrustum && !is2D)
 		return false;
 	if (component && component->_gameObject->isSelected)
 	{

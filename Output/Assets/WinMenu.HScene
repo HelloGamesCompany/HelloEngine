@@ -1,0 +1,279 @@
+[
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Root",
+        "ParentUID": 0,
+        "PrefabUID": 0,
+        "Tag": "None",
+        "UID": 1204658081
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Active camera": true,
+                "Active culling": true,
+                "Aspect ratio": 1.733137845993042,
+                "Enabled": true,
+                "FOV": 60.0,
+                "Far plane": 1000.0,
+                "Frustum type": 2,
+                "Near plane": 0.009999999776482582,
+                "Orthographic size": 10.0,
+                "Type": 4
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Camera",
+        "ParentUID": 1204658081,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1202977617
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Canvas",
+        "ParentUID": 1204658081,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 1170745027
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "Type": 16,
+                "listButtons": [
+                    351199318,
+                    1551021094
+                ]
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Panel",
+        "ParentUID": 1170745027,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 2377698017
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 2425707217,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "BackGround",
+        "ParentUID": 2377698017,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 1997239396
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.14000000059604645,
+                    -0.0010000000474974513
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.20000000298023224,
+                    0.14000000059604645,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 134788504,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 3407794357,
+                "idleImage": 134788504,
+                "pressImage": 3478967511
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Continue": 351199318
+                    },
+                    {
+                        "NewGame": 351199318
+                    },
+                    {
+                        "Exit": 1551021094
+                    },
+                    {
+                        "Settings": 351199318
+                    },
+                    {
+                        "Collectibles": 351199318
+                    }
+                ],
+                "Script Resource": 186220908,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Continue",
+        "ParentUID": 2377698017,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 351199318
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    -0.33000001311302185,
+                    -0.0010000000474974513
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.20000000298023224,
+                    0.14000000059604645,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 4120732920,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 541261496,
+                "idleImage": 4120732920,
+                "pressImage": 4148078915
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Return to Hub",
+        "ParentUID": 2377698017,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 1551021094
+    }
+]

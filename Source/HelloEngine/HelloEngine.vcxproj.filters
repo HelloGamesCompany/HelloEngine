@@ -358,14 +358,6 @@
     <ClCompile Include="API\API_MeshRenderer.cpp">
       <Filter>API</Filter>
     </ClCompile>
-    <ClCompile Include="ComponentUI.cpp">
-      <Filter>GameObject\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="LayerUI.cpp" />
-    <ClCompile Include="ComponentUIButton.cpp" />
-    <ClCompile Include="ComponentUICheckbox.cpp" />
-    <ClCompile Include="ComponentUIImage.cpp" />
-    <ClCompile Include="ComponentUISlider.cpp" />
     <ClCompile Include="ImWindowUI.cpp">
       <Filter>Modules\Layers\WIndows</Filter>
     </ClCompile>
@@ -405,14 +397,11 @@
     <ClCompile Include="API\API_RigidBody.cpp">
       <Filter>API</Filter>
     </ClCompile>
-    <ClCompile Include="ModuleAudio.cpp" />
     <ClCompile Include="..\External\Wwise\include\AK\samples\AkFilePackage.cpp" />
     <ClCompile Include="..\External\Wwise\include\AK\samples\AkFilePackageLUT.cpp" />
     <ClCompile Include="..\External\Wwise\include\AK\samples\AkMultipleFileLocation.cpp" />
     <ClCompile Include="..\External\Wwise\include\AK\samples\AkDefaultIOHookBlocking.cpp" />
     <ClCompile Include="..\External\Wwise\include\AK\samples\AkGeneratedSoundBanksResolver.cpp" />
-    <ClCompile Include="API\API_Camera.cpp" />
-    <ClCompile Include="API\API_AnimationPlayer.cpp" />
     <ClCompile Include="P_Module.cpp">
       <Filter>GameObject\Components\ParticleModules</Filter>
     </ClCompile>
@@ -427,6 +416,49 @@
       <Filter>External\ImGuiColorText</Filter>
     </ClCompile>
     <ClCompile Include="Lighting.cpp" />
+    <ClCompile Include="API\API_UIButton.cpp">
+      <Filter>API</Filter>
+    </ClCompile>
+    <ClCompile Include="FontManager.cpp" />
+    <ClCompile Include="ComponentUIInput.cpp" />
+    <ClCompile Include="API\API_UIImage.cpp">
+      <Filter>API</Filter>
+    </ClCompile>
+    <ClCompile Include="TextRendererComponent.cpp" />
+    <ClCompile Include="P_EmissionModule.cpp">
+      <Filter>GameObject\Components\ParticleModules</Filter>
+    </ClCompile>
+    <ClCompile Include="API\API_Material.cpp">
+      <Filter>API</Filter>
+    </ClCompile>
+    <ClCompile Include="API\API_AnimationPlayer.cpp">
+      <Filter>API</Filter>
+    </ClCompile>
+    <ClCompile Include="API\API_Camera.cpp">
+      <Filter>API</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleAudio.cpp">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ComponentUIButton.cpp">
+      <Filter>GameObject\Components\ComponentUI</Filter>
+    </ClCompile>
+    <ClCompile Include="ComponentUICheckbox.cpp">
+      <Filter>GameObject\Components\ComponentUI</Filter>
+    </ClCompile>
+    <ClCompile Include="ComponentUIImage.cpp">
+      <Filter>GameObject\Components\ComponentUI</Filter>
+    </ClCompile>
+    <ClCompile Include="ComponentUISlider.cpp">
+      <Filter>GameObject\Components\ComponentUI</Filter>
+    </ClCompile>
+    <ClCompile Include="ComponentUI.cpp">
+      <Filter>GameObject\Components\ComponentUI</Filter>
+    </ClCompile>
+    <ClCompile Include="LayerUI.cpp">
+      <Filter>Modules\Layers</Filter>
+    </ClCompile>
+    <ClCompile Include="API\API_Audio.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -906,14 +938,6 @@
     <ClInclude Include="API\API_MeshRenderer.h">
       <Filter>API</Filter>
     </ClInclude>
-    <ClInclude Include="ComponentUI.h">
-      <Filter>GameObject\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="LayerUI.h" />
-    <ClInclude Include="ComponentUIButton.h" />
-    <ClInclude Include="ComponentUICheckbox.h" />
-    <ClInclude Include="ComponentUIImage.h" />
-    <ClInclude Include="ComponentUISlider.h" />
     <ClInclude Include="ImWindowUI.h">
       <Filter>Modules\Layers\WIndows</Filter>
     </ClInclude>
@@ -956,9 +980,6 @@
     <ClInclude Include="API\API_RigidBody.h">
       <Filter>API</Filter>
     </ClInclude>
-    <ClInclude Include="ModuleAudio.h" />
-    <ClInclude Include="API\API_Camera.h" />
-    <ClInclude Include="API\API_AnimationPlayer.h" />
     <ClInclude Include="P_Module.h">
       <Filter>GameObject\Components\ParticleModules</Filter>
     </ClInclude>
@@ -975,6 +996,49 @@
       <Filter>External\ImGuiColorText</Filter>
     </ClInclude>
     <ClInclude Include="Lighting.h" />
+    <ClInclude Include="API\API_UIButton.h">
+      <Filter>API</Filter>
+    </ClInclude>
+    <ClInclude Include="FontManager.h" />
+    <ClInclude Include="ComponentUIInput.h" />
+    <ClInclude Include="API\API_UIImage.h">
+      <Filter>API</Filter>
+    </ClInclude>
+    <ClInclude Include="TextRendererComponent.h" />
+    <ClInclude Include="P_EmissionModule.h">
+      <Filter>GameObject\Components\ParticleModules</Filter>
+    </ClInclude>
+    <ClInclude Include="API\API_Material.h">
+      <Filter>API</Filter>
+    </ClInclude>
+    <ClInclude Include="API\API_Camera.h">
+      <Filter>API</Filter>
+    </ClInclude>
+    <ClInclude Include="API\API_AnimationPlayer.h">
+      <Filter>API</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleAudio.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="ComponentUISlider.h">
+      <Filter>GameObject\Components\ComponentUI</Filter>
+    </ClInclude>
+    <ClInclude Include="ComponentUIButton.h">
+      <Filter>GameObject\Components\ComponentUI</Filter>
+    </ClInclude>
+    <ClInclude Include="ComponentUICheckbox.h">
+      <Filter>GameObject\Components\ComponentUI</Filter>
+    </ClInclude>
+    <ClInclude Include="ComponentUIImage.h">
+      <Filter>GameObject\Components\ComponentUI</Filter>
+    </ClInclude>
+    <ClInclude Include="ComponentUI.h">
+      <Filter>GameObject\Components\ComponentUI</Filter>
+    </ClInclude>
+    <ClInclude Include="LayerUI.h">
+      <Filter>Modules\Layers</Filter>
+    </ClInclude>
+    <ClInclude Include="API\API_Audio.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="External">
@@ -1042,6 +1106,8 @@
     </Filter>
     <Filter Include="External\ImGuiColorText">
       <UniqueIdentifier>{d0f485d1-5ce0-4199-b24a-edb3029d463f}</UniqueIdentifier>
+    <Filter Include="GameObject\Components\ComponentUI">
+      <UniqueIdentifier>{7f221064-7f53-4c9a-9f8b-42b11116e6d6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
