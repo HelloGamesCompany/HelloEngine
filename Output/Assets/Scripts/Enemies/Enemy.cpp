@@ -1,4 +1,5 @@
 #include "Enemy.h"
+#include "../Player/PlayerStats.h"
 HELLO_ENGINE_API_C Enemy* CreateEnemy(ScriptToInspectorInterface* script)
 {
     Enemy* classInstance = new Enemy();
@@ -59,5 +60,10 @@ void Enemy::OnCollisionEnter(API::API_RigidBody other)
     {
         gameObject.SetActive(false);
         //other.GetGameObject().SetActive(false);
+    }
+    else if(detectionName == "Player")
+    {
+        PlayerStats* pStats = (PlayerStats*)other.GetGameObject().GetScript("PlayerStats");
+        pStats->TakeDamage(10);
     }
 }

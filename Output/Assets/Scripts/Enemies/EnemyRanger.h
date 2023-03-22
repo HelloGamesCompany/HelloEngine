@@ -28,10 +28,13 @@ public:
 	bool wander = false;
 	bool targeting = false;
 
-	float detectionDis = 200.0f;
-	float lossingDis = 300.0f;
+	float detectionDis = 300.0f;
+	float lossingDis = 350.0f;
 	//distance between player and enemy while the enemy is aiming the player
 	float disPlayer = 200.0f;
+	float disShoot = 250.0f;
+
+	float cooldownPoint =3.0f;
 
 	API_GameObject target;
 	API_GameObject actionZone;
@@ -48,6 +51,8 @@ public:
 
 private:
 	int _avalPoints = 0;
+	float _cooldown ;
+	bool _canWalk = false;
 	//Timer clock;
 };
  

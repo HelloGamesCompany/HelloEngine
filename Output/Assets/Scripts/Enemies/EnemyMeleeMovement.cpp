@@ -60,9 +60,9 @@ void EnemyMeleeMovement::Update()
 		{
 		case States::WANDERING:
 
+				enemy->currentSpeed = enemy->speed * dt;
 			if ((gameObject.GetTransform().GetGlobalPosition().Distance(actualPoint) < 40) /*&& !targeting*/)
 			{
-				enemy->currentSpeed = enemy->speed * dt;
 				/*if (numPoint == 1)numPoint = 2, actualPoint=point2.GetTransform().GetGlobalPosition();
 				else if (numPoint == 2)numPoint = 1, actualPoint = point1.GetTransform().GetGlobalPosition();*/
 				//++numPoint;
@@ -83,13 +83,13 @@ void EnemyMeleeMovement::Update()
 				//else if (numPoint == _avalPoints) actualPoint = listPoints[numPoint].GetTransform().GetGlobalPosition();
 			//}
 
-				Wander(enemy->speed, actualPoint);
+				Wander(enemy->currentSpeed, actualPoint);
 
 			break;
 
 		case States::TARGETING:
 			enemy->currentSpeed = enemy->speed * enemy->acceleration * dt;
-			Seek(enemy->speed, target.GetTransform().GetGlobalPosition());
+			Seek(enemy->currentSpeed, target.GetTransform().GetGlobalPosition());
 			break;
 
 		case States::ATTACKIG:
