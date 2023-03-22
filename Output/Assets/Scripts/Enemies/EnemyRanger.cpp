@@ -55,7 +55,7 @@ void EnemyRanger::Update()
 			//_outCooldown = 0;
 			enemState = States::TARGETING;
 		}
-		else if ((dis < disShoot)  )
+		else if ((dis < disShoot) && enemState == States::TARGETING)
 		{
 			enemState = States::ATTACKIG;
 		}
@@ -72,7 +72,7 @@ void EnemyRanger::Update()
 		case States::WANDERING:
 			
 			enemy->currentSpeed = enemy->speed * dt;
-			if ((gameObject.GetTransform().GetGlobalPosition().Distance(actualPoint) < 40) )
+			if ((gameObject.GetTransform().GetGlobalPosition().Distance(actualPoint) < 5) )
 			{
 				numPoint++;
 				if (numPoint >= _avalPoints)numPoint = 0;
