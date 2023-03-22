@@ -372,6 +372,9 @@
                         "Ammo Type": 0
                     },
                     {
+                        "Audio Event String": "basic_shooting"
+                    },
+                    {
                         "Projectile Pull": 439650558
                     },
                     {
@@ -419,6 +422,9 @@
                     },
                     {
                         "Ammo Type": 0
+                    },
+                    {
+                        "Audio Event String": "basic_shooting"
                     }
                 ],
                 "Script Resource": 2156518980,
@@ -647,6 +653,9 @@
                         "Ammo Type": 1
                     },
                     {
+                        "Audio Event String": "basic_shooting"
+                    },
+                    {
                         "Projectile Pull": 439650558
                     },
                     {
@@ -688,6 +697,9 @@
                     },
                     {
                         "Ammo Type": 1
+                    },
+                    {
+                        "Audio Event String": "basic_shooting"
                     }
                 ],
                 "Script Resource": 4249373174,
@@ -815,6 +827,9 @@
                         "Ammo Type": 1
                     },
                     {
+                        "Audio Event String": "basic_shooting"
+                    },
+                    {
                         "Projectile Pull": 439650558
                     },
                     {
@@ -856,6 +871,9 @@
                     },
                     {
                         "Ammo Type": 1
+                    },
+                    {
+                        "Audio Event String": "basic_shooting"
                     }
                 ],
                 "Script Resource": 1339629670,
@@ -1012,6 +1030,9 @@
                         "Ammo Type": 1
                     },
                     {
+                        "Audio Event String": "basic_shooting"
+                    },
+                    {
                         "Projectile Pull": 439650558
                     },
                     {
@@ -1056,6 +1077,9 @@
                     },
                     {
                         "Ammo Type": 1
+                    },
+                    {
+                        "Audio Event String": "basic_shooting"
                     }
                 ],
                 "Script Resource": 2253970088,
@@ -1189,6 +1213,9 @@
                         "Ammo Type": 1
                     },
                     {
+                        "Audio Event String": "basic_shooting"
+                    },
+                    {
                         "Projectile Pull": 439650558
                     },
                     {
@@ -1236,6 +1263,9 @@
                     },
                     {
                         "Ammo Type": 1
+                    },
+                    {
+                        "Audio Event String": "basic_shooting"
                     }
                 ],
                 "Script Resource": 2161950016,
@@ -1389,6 +1419,9 @@
                         "Ammo Type": 1
                     },
                     {
+                        "Audio Event String": "basic_shooting"
+                    },
+                    {
                         "Projectile Pull": 439650558
                     },
                     {
@@ -1430,6 +1463,9 @@
                     },
                     {
                         "Ammo Type": 1
+                    },
+                    {
+                        "Audio Event String": "basic_shooting"
                     }
                 ],
                 "Script Resource": 4249373174,
@@ -1566,6 +1602,9 @@
                         "Ammo Type": 2
                     },
                     {
+                        "Audio Event String": "basic_shooting"
+                    },
+                    {
                         "Projectile Pull": 439650558
                     },
                     {
@@ -1603,6 +1642,9 @@
                     },
                     {
                         "Ammo Type": 2
+                    },
+                    {
+                        "Audio Event String": "basic_shooting"
                     }
                 ],
                 "Script Resource": 607248765,
@@ -1678,7 +1720,7 @@
                         ]
                     }
                 },
-                "ResourceTextUID": 949147531,
+                "ResourceTextUID": 0,
                 "Type": 6
             }
         ],
@@ -1786,6 +1828,9 @@
                         "Ammo Type": 3
                     },
                     {
+                        "Audio Event String": "basic_shooting"
+                    },
+                    {
                         "Projectile Pull": 439650558
                     },
                     {
@@ -1827,6 +1872,9 @@
                     },
                     {
                         "Ammo Type": 3
+                    },
+                    {
+                        "Audio Event String": "basic_shooting"
                     }
                 ],
                 "Script Resource": 1231691198,
@@ -1950,7 +1998,7 @@
             {
                 "Active camera": true,
                 "Active culling": true,
-                "Aspect ratio": 1.6392961740493774,
+                "Aspect ratio": 1.8732393980026245,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -2154,7 +2202,7 @@
                         ]
                     }
                 },
-                "ResourceTextUID": 4059212157,
+                "ResourceTextUID": 0,
                 "Type": 6
             }
         ],
