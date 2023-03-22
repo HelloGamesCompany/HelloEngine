@@ -16,6 +16,7 @@ public:
     float Lerp(float a, float b, float time);
     void Dash();
     bool DashInput();
+    void OnCollisionEnter(API_RigidBody other);
 
     bool usingGamepad;
     float dt;

@@ -84,7 +84,7 @@ void PlayerMove::Update()
     }
 
     input *= currentVel * dt;
-    transform.Translate(input.x, 0, input.y);
+    transform.Translate(input.x, 0.0f, input.y);
 }
 
 float PlayerMove:: Lerp(float a, float b, float time)
@@ -94,26 +94,28 @@ float PlayerMove:: Lerp(float a, float b, float time)
 
 void PlayerMove::Dash()
 {
+    dashDepartTime += dt;
+    if (dashDepartTime > dashTime) dashDepartTime = dashTime;
+
     API_Vector2 newPos;
     newPos.x = Lerp(dashInitialPos.x, dashFinalPos.x, dashDepartTime / dashTime) - transform.GetLocalPosition().x;
     newPos.y = Lerp(dashInitialPos.z, dashFinalPos.z, dashDepartTime / dashTime) - transform.GetLocalPosition().z;
+
+    //Console::Log("X: " + to_string(newPos.x));
+    //Console::Log("Z: " + to_string(newPos.y));
 
     transform.Translate(newPos.x, 0.0f, newPos.y);
      
     if (dashDepartTime >= dashTime)
     {
         isDashing = false;
-        return;
     }
-
-    dashDepartTime += dt;
-    if (dashDepartTime > dashTime) dashDepartTime = dashTime;
 }
 
 bool PlayerMove::DashInput()
 {
     if (usingGamepad)
-        return Input::GetGamePadButton(GamePadButton::BUTTON_LEFT_SHOULDER) == KeyState::KEY_DOWN;
+        return Input::GetGamePadAxis(GamePadAxis::AXIS_TRIGGERLEFT) > 20000;
 
     return Input::GetKey(KeyCode::KEY_SPACE) == KeyState::KEY_DOWN;
 }
@@ -191,4 +193,9 @@ API_Vector2 PlayerMove::GetMoveInput()
     }
 
     return input;
+}
+
+void PlayerMove::OnCollisionEnter(API_RigidBody other)
+{
+   // Console::Log(other.GetGameObject().GetName());
 }
