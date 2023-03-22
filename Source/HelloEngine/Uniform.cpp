@@ -269,7 +269,7 @@ void UniSampler2D::GUI()
 		ImGui::Text(txt.c_str());
 		txt = "Texture ID: " + std::to_string(texture->OpenGLID);
 		ImGui::Text(txt.c_str());
-		txt = "Layer: " + layer;
+		txt = "Layer: " + std::to_string(layer);
 		ImGui::Text(txt.c_str());
 	}
 
