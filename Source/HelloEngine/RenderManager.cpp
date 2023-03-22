@@ -377,6 +377,7 @@ void RenderManager::CreateUI(GameObject* parent, UIType type)
 			sliderBar->transform->SetScale({ 0.7f,0.1f,0.0f });
 			sliderButton->AddComponent<ComponentUISlider>();
 			sliderButton->transform->SetScale({ 0.2f,0.2f,0.0f });
+			sliderButton->transform->SetPosition({ 0.0f, 0.0f, -0.003f });
 			break;
 		}
 		case UIType::CHECKBOX:
