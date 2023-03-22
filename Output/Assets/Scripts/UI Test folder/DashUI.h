@@ -18,9 +18,10 @@ public:
 	bool activeDash;
 
 	float cooldown;
+	float cooldownValue;
 	float cooldownBetweenDash;
 	float coolDownBetweenDashValue;
-	float cooldownValue;
+	
 
 };
 

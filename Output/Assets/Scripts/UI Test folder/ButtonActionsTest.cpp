@@ -3,6 +3,7 @@ HELLO_ENGINE_API_C ButtonActionsTest* CreateButtonActionsTest(ScriptToInspectorI
 {
 	ButtonActionsTest* classInstance = new ButtonActionsTest();
 	//Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
+	script->AddDragBoxUIButton("Button", &classInstance->apiButton);
 	script->AddDragFloat("minY", &classInstance->minY);
 	script->AddDragFloat("maxY", &classInstance->maxY);
 	script->AddDragFloat("Vel", &classInstance->animVel);
@@ -12,6 +13,7 @@ HELLO_ENGINE_API_C ButtonActionsTest* CreateButtonActionsTest(ScriptToInspectorI
 
 void ButtonActionsTest::Start()
 {
+
 	isHovering = false;
 
 	defaultPos = gameObject.GetTransform().GetGlobalPosition();
@@ -35,7 +37,7 @@ void ButtonActionsTest::Update()
 			isHovering = false; 
 			gameObject.GetTransform().SetPosition(defaultPos);
 		}
-	
+		gameObject.GetTransform().SetPosition(defaultPos);
 	}
 
 	if (isHovering == true)
