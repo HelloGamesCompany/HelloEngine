@@ -275,21 +275,6 @@
                     },
                     {
                         "Dash Distance": 5.0
-                    },
-                    {
-                        "Velocity": 145.0
-                    },
-                    {
-                        "SecToMaxVel": 0.0
-                    },
-                    {
-                        "SecToZeroVel": 0.0
-                    },
-                    {
-                        "Dash Time": 0.5
-                    },
-                    {
-                        "Dash Distance": 5.0
                     }
                 ],
                 "Script Resource": 1247927621,
@@ -328,7 +313,7 @@
             {
                 "Active camera": true,
                 "Active culling": false,
-                "Aspect ratio": 1.9517543315887451,
+                "Aspect ratio": 1.9859155416488647,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1633.0,
@@ -443,16 +428,10 @@
                         "Range attack": 200.0
                     },
                     {
-                        "Detection distance": 200.0
+                        "Cooldown betwen points": 3.0
                     },
                     {
-                        "Lossing Enemy distance": 300.0
-                    },
-                    {
-                        "Distance player": 200.0
-                    },
-                    {
-                        "Range attack": 200.0
+                        "OutsideZone Time": 3.0
                     },
                     {
                         "Detection distance": 200.0
@@ -470,6 +449,9 @@
                         "Cooldown betwen points": 3.0
                     },
                     {
+                        "OutsideZone Time": 3.0
+                    },
+                    {
                         "Detection distance": 200.0
                     },
                     {
@@ -483,6 +465,9 @@
                     },
                     {
                         "Cooldown betwen points": 3.0
+                    },
+                    {
+                        "OutsideZone Time": 3.0
                     }
                 ],
                 "Script Resource": 3669335644,
@@ -722,18 +707,6 @@
                     },
                     {
                         "Acceleration": 1.2000000476837158
-                    },
-                    {
-                        "Health": 100.0
-                    },
-                    {
-                        "Resistance": 100.0
-                    },
-                    {
-                        "Speed": 75.0
-                    },
-                    {
-                        "Acceleration": 1.2000000476837158
                     }
                 ],
                 "Script Resource": 4210965159,
@@ -749,28 +722,10 @@
                         "Lossing Enemy distance": 115.0
                     },
                     {
-                        "Target": 1836731499
+                        "Range attack": 60.0
                     },
                     {
-                        "Action zone": 197611707
-                    },
-                    {
-                        "Action Rb zone": 197611707
-                    },
-                    {
-                        "Point 1": 141207865
-                    },
-                    {
-                        "Point 2": 2897551890
-                    },
-                    {
-                        "Point 3": 141207865
-                    },
-                    {
-                        "Detection distance": 77.0
-                    },
-                    {
-                        "Lossing Enemy distance": 115.0
+                        "OutsideZone Time": 3.0
                     },
                     {
                         "Target": 1836731499
@@ -797,6 +752,12 @@
                         "Lossing Enemy distance": 115.0
                     },
                     {
+                        "Range attack": 60.0
+                    },
+                    {
+                        "OutsideZone Time": 3.0
+                    },
+                    {
                         "Target": 1836731499
                     },
                     {
@@ -819,6 +780,12 @@
                     },
                     {
                         "Lossing Enemy distance": 115.0
+                    },
+                    {
+                        "Range attack": 60.0
+                    },
+                    {
+                        "OutsideZone Time": 3.0
                     },
                     {
                         "Target": 1836731499
@@ -986,18 +953,6 @@
                     },
                     {
                         "Acceleration": 1.2000000476837158
-                    },
-                    {
-                        "Health": 100.0
-                    },
-                    {
-                        "Resistance": 100.0
-                    },
-                    {
-                        "Speed": 75.0
-                    },
-                    {
-                        "Acceleration": 1.2000000476837158
                     }
                 ],
                 "Script Resource": 4210965159,
@@ -1013,28 +968,10 @@
                         "Lossing Enemy distance": 118.0
                     },
                     {
-                        "Target": 1836731499
+                        "Range attack": 60.0
                     },
                     {
-                        "Action zone": 197611707
-                    },
-                    {
-                        "Action Rb zone": 197611707
-                    },
-                    {
-                        "Point 1": 1456277374
-                    },
-                    {
-                        "Point 2": 282194118
-                    },
-                    {
-                        "Point 3": 141207865
-                    },
-                    {
-                        "Detection distance": 77.0
-                    },
-                    {
-                        "Lossing Enemy distance": 118.0
+                        "OutsideZone Time": 3.0
                     },
                     {
                         "Target": 1836731499
@@ -1061,6 +998,12 @@
                         "Lossing Enemy distance": 118.0
                     },
                     {
+                        "Range attack": 60.0
+                    },
+                    {
+                        "OutsideZone Time": 3.0
+                    },
+                    {
                         "Target": 1836731499
                     },
                     {
@@ -1083,6 +1026,12 @@
                     },
                     {
                         "Lossing Enemy distance": 118.0
+                    },
+                    {
+                        "Range attack": 60.0
+                    },
+                    {
+                        "OutsideZone Time": 3.0
                     },
                     {
                         "Target": 1836731499
@@ -1250,18 +1199,6 @@
                     },
                     {
                         "Acceleration": 1.2000000476837158
-                    },
-                    {
-                        "Health": 100.0
-                    },
-                    {
-                        "Resistance": 100.0
-                    },
-                    {
-                        "Speed": 75.0
-                    },
-                    {
-                        "Acceleration": 1.2000000476837158
                     }
                 ],
                 "Script Resource": 4210965159,
@@ -1277,28 +1214,10 @@
                         "Lossing Enemy distance": 115.0
                     },
                     {
-                        "Target": 1836731499
+                        "Range attack": 60.0
                     },
                     {
-                        "Action zone": 197611707
-                    },
-                    {
-                        "Action Rb zone": 197611707
-                    },
-                    {
-                        "Point 1": 2897551890
-                    },
-                    {
-                        "Point 2": 141207865
-                    },
-                    {
-                        "Point 3": 2897551890
-                    },
-                    {
-                        "Detection distance": 77.0
-                    },
-                    {
-                        "Lossing Enemy distance": 115.0
+                        "OutsideZone Time": 3.0
                     },
                     {
                         "Target": 1836731499
@@ -1325,6 +1244,12 @@
                         "Lossing Enemy distance": 115.0
                     },
                     {
+                        "Range attack": 60.0
+                    },
+                    {
+                        "OutsideZone Time": 3.0
+                    },
+                    {
                         "Target": 1836731499
                     },
                     {
@@ -1347,6 +1272,12 @@
                     },
                     {
                         "Lossing Enemy distance": 115.0
+                    },
+                    {
+                        "Range attack": 60.0
+                    },
+                    {
+                        "OutsideZone Time": 3.0
                     },
                     {
                         "Target": 1836731499
@@ -1620,18 +1551,6 @@
                     },
                     {
                         "Acceleration": 1.2000000476837158
-                    },
-                    {
-                        "Health": 100.0
-                    },
-                    {
-                        "Resistance": 100.0
-                    },
-                    {
-                        "Speed": 75.0
-                    },
-                    {
-                        "Acceleration": 1.2000000476837158
                     }
                 ],
                 "Script Resource": 4210965159,
@@ -1647,28 +1566,10 @@
                         "Lossing Enemy distance": 115.0
                     },
                     {
-                        "Target": 1836731499
+                        "Range attack": 60.0
                     },
                     {
-                        "Action zone": 197611707
-                    },
-                    {
-                        "Action Rb zone": 197611707
-                    },
-                    {
-                        "Point 1": 1456277374
-                    },
-                    {
-                        "Point 2": 2897551890
-                    },
-                    {
-                        "Point 3": 141207865
-                    },
-                    {
-                        "Detection distance": 77.0
-                    },
-                    {
-                        "Lossing Enemy distance": 115.0
+                        "OutsideZone Time": 3.0
                     },
                     {
                         "Target": 1836731499
@@ -1695,6 +1596,12 @@
                         "Lossing Enemy distance": 115.0
                     },
                     {
+                        "Range attack": 60.0
+                    },
+                    {
+                        "OutsideZone Time": 3.0
+                    },
+                    {
                         "Target": 1836731499
                     },
                     {
@@ -1717,6 +1624,12 @@
                     },
                     {
                         "Lossing Enemy distance": 115.0
+                    },
+                    {
+                        "Range attack": 60.0
+                    },
+                    {
+                        "OutsideZone Time": 3.0
                     },
                     {
                         "Target": 1836731499
@@ -1884,18 +1797,6 @@
                     },
                     {
                         "Acceleration": 1.2000000476837158
-                    },
-                    {
-                        "Health": 100.0
-                    },
-                    {
-                        "Resistance": 100.0
-                    },
-                    {
-                        "Speed": 75.0
-                    },
-                    {
-                        "Acceleration": 1.2000000476837158
                     }
                 ],
                 "Script Resource": 4210965159,
@@ -1917,34 +1818,10 @@
                         "Range attack": 250.0
                     },
                     {
-                        "Target": 1836731499
+                        "Cooldown betwen points": 3.0
                     },
                     {
-                        "Action zone": 3461710122
-                    },
-                    {
-                        "Action Rb zone": 3461710122
-                    },
-                    {
-                        "Point 1": 2019880312
-                    },
-                    {
-                        "Point 2": 267996119
-                    },
-                    {
-                        "Point 3": 1456277374
-                    },
-                    {
-                        "Detection distance": 300.0
-                    },
-                    {
-                        "Lossing Enemy distance": 350.0
-                    },
-                    {
-                        "Distance player": 200.0
-                    },
-                    {
-                        "Range attack": 250.0
+                        "OutsideZone Time": 3.0
                     },
                     {
                         "Target": 1836731499
@@ -1980,6 +1857,9 @@
                         "Cooldown betwen points": 3.0
                     },
                     {
+                        "OutsideZone Time": 3.0
+                    },
+                    {
                         "Target": 1836731499
                     },
                     {
@@ -2011,6 +1891,9 @@
                     },
                     {
                         "Cooldown betwen points": 3.0
+                    },
+                    {
+                        "OutsideZone Time": 3.0
                     },
                     {
                         "Target": 1836731499

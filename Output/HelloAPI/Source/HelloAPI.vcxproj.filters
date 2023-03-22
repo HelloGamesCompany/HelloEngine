@@ -63,9 +63,6 @@
     <ClCompile Include="../../Assets/Scripts/Shooting/PlayerGunType.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="../../Assets/Scripts/Shooting/PlayerSemiAuto.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
     <ClCompile Include="../../Assets/Scripts/Shooting/ProjectilePull.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
@@ -90,7 +87,7 @@
     <ClCompile Include="../../Assets/Scripts/UI Test folder/Rotation.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="../../Assets/Scripts/MenuButtons.cpp"/>
+    <ClCompile Include="../../Assets/Scripts/MenuButtons.cpp" />
     <ClCompile Include="../../Assets/Scripts/ParticleTest.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
@@ -128,6 +125,27 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Assets\Scripts\InteractiveEnviroment\ChestTest.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="../../Assets/Scripts/PauseButtons.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="../../Assets/Scripts/GamepadButtons.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="../../Assets/Scripts/UI Test folder/Movment_Bar.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="../../Assets/Scripts/UI Test folder/SwapWeapon.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="../../Assets/Scripts/UI Test folder/Movment_Bar_HP.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="../../Assets/Scripts/ParticleCopyTest.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Assets\Scripts\Enemies\EnemyRanger.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
@@ -180,9 +198,6 @@
     <ClInclude Include="../../Assets/Scripts/Shooting/PlayerGunType.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="../../Assets/Scripts/Shooting/PlayerSemiAuto.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="../../Assets/Scripts/Shooting/ProjectilePull.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
@@ -207,7 +222,7 @@
     <ClInclude Include="../../Assets/Scripts/UI Test folder/Rotation.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="../../Assets/Scripts/MenuButtons.h"/>
+    <ClInclude Include="../../Assets/Scripts/MenuButtons.h" />
     <ClInclude Include="../../Assets/Scripts/ParticleTest.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
@@ -245,6 +260,27 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Assets\Scripts\InteractiveEnviroment\ChestTest.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="../../Assets/Scripts/PauseButtons.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="../../Assets/Scripts/GamepadButtons.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="../../Assets/Scripts/UI Test folder/Movment_Bar.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="../../Assets/Scripts/UI Test folder/SwapWeapon.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="../../Assets/Scripts/UI Test folder/Movment_Bar_HP.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="../../Assets/Scripts/ParticleCopyTest.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Assets\Scripts\Enemies\EnemyRanger.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

@@ -54,7 +54,7 @@
             {
                 "Active camera": true,
                 "Active culling": true,
-                "Aspect ratio": 1.986928105354309,
+                "Aspect ratio": 1.8648383617401123,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -122,23 +122,14 @@
                     1.0
                 ],
                 "Type": 1
-            },
-            {
-                "Enabled": true,
-                "MaterialResource": 0,
-                "Type": 16,
-                "listButtons": [
-                    3049332882,
-                    99910358
-                ]
             }
         ],
         "FirstOnPrefab": true,
-        "Name": "Panel",
+        "Name": "Slider",
         "ParentUID": 3527939328,
         "PrefabUID": 0,
         "Tag": "UI",
-        "UID": 2369198335
+        "UID": 3852395150
     },
     {
         "Active": true,
@@ -146,9 +137,9 @@
             {
                 "Enabled": true,
                 "Position": [
-                    -0.5,
+                    0.699999988079071,
                     0.0,
-                    0.009999999776482582
+                    -0.003000000026077032
                 ],
                 "Rotation": [
                     0.0,
@@ -156,28 +147,28 @@
                     0.0
                 ],
                 "Scale": [
-                    0.5,
-                    0.5,
+                    0.20000000298023224,
+                    0.20000000298023224,
                     0.0
                 ],
                 "Type": 1
             },
             {
                 "Enabled": true,
-                "MaterialResource": 2468516017,
-                "State": 0,
-                "Type": 12,
-                "hoverImage": 1714156467,
-                "idleImage": 2468516017,
-                "pressImage": 4249681830
+                "MaterialResource": 0,
+                "MaxValue": 10.0,
+                "MinValue": 5.0,
+                "SliderPerCent": 0.699999988079071,
+                "StateButton": 0,
+                "Type": 13
             }
         ],
         "FirstOnPrefab": true,
-        "Name": "Button",
-        "ParentUID": 2369198335,
+        "Name": "SliderButton",
+        "ParentUID": 3852395150,
         "PrefabUID": 0,
-        "Tag": "UI",
-        "UID": 3049332882
+        "Tag": "UIsliderButton",
+        "UID": 4074972134
     },
     {
         "Active": true,
@@ -185,45 +176,6 @@
             {
                 "Enabled": true,
                 "Position": [
-                    0.5,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Scale": [
-                    0.5,
-                    0.5,
-                    0.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "MaterialResource": 1201374592,
-                "State": 0,
-                "Type": 12,
-                "hoverImage": 133237130,
-                "idleImage": 1201374592,
-                "pressImage": 1274266169
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "2",
-        "ParentUID": 2369198335,
-        "PrefabUID": 0,
-        "Tag": "UI",
-        "UID": 99910358
-    },
-    {
-        "Active": false,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
                     0.0,
                     0.0,
                     0.0
@@ -234,65 +186,27 @@
                     0.0
                 ],
                 "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
+                    0.699999988079071,
+                    0.10000000149011612,
+                    0.0
                 ],
                 "Type": 1
             },
             {
                 "Enabled": true,
                 "MaterialResource": 0,
-                "Type": 16,
-                "listButtons": [
-                    4005372161
-                ]
+                "MaxValue": 1.0,
+                "MinValue": 0.0,
+                "SliderPerCent": 0.0,
+                "StateButton": 0,
+                "Type": 13
             }
         ],
         "FirstOnPrefab": true,
-        "Name": "Panel",
-        "ParentUID": 3527939328,
+        "Name": "SliderBar",
+        "ParentUID": 3852395150,
         "PrefabUID": 0,
-        "Tag": "UI",
-        "UID": 4098332454
-    },
-    {
-        "Active": false,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Scale": [
-                    0.5,
-                    0.5,
-                    0.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "MaterialResource": 1665297648,
-                "State": 0,
-                "Type": 12,
-                "hoverImage": 670723450,
-                "idleImage": 1665297648,
-                "pressImage": 3763994282
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "Button",
-        "ParentUID": 4098332454,
-        "PrefabUID": 0,
-        "Tag": "UI",
-        "UID": 4005372161
+        "Tag": "UIsliderBar",
+        "UID": 3865171229
     }
 ]

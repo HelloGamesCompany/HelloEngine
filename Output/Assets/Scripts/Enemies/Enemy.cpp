@@ -56,7 +56,7 @@ void Enemy::Die()
 void Enemy::OnCollisionEnter(API::API_RigidBody other)
 {
     std::string detectionName = other.GetGameObject().GetName();
-    if (detectionName == "Bullet")
+    if (detectionName == "Projectile")
     {
         gameObject.SetActive(false);
         //other.GetGameObject().SetActive(false);

@@ -167,6 +167,7 @@
 		<ClCompile Include="../../Assets/Scripts/UI Test folder/Movment_Bar_HP.cpp" />
 		<ClCompile Include="../../Assets/Scripts/ParticleTest.cpp" />
 		<ClCompile Include="..\..\Assets\Scripts\Enemies\EnemyMeleeMovement.cpp" />
+		<ClCompile Include="..\..\Assets\Scripts\Enemies\EnemyRanger.cpp" />
 		<ClCompile Include="..\..\Assets\Scripts\InteractiveEnviroment\ChestTest.cpp" />
 		<ClCompile Include="..\..\Assets\Scripts\Player\PlayerMove.cpp" />
 		<ClCompile Include="..\..\Assets\Scripts\Player\PlayerStats.cpp" />
@@ -179,9 +180,13 @@
 		<ClCompile Include="..\..\Assets\Scripts\Shooting\Guns\PlayerShotgun.cpp" />
 		<ClCompile Include="..\..\Assets\Scripts\TestAPI.cpp" />
 		<ClCompile Include="../../Assets/Scripts/ParticleCopyTest.cpp" />
+		<ClCompile Include="../../Assets/Scripts/Enemies/EnemyGuns/EnemyAutomatic.cpp" />
+		<ClCompile Include="../../Assets/Scripts/Enemies/EnemyProjectilePull.cpp" />
+		<ClCompile Include="../../Assets/Scripts/Enemies/EnemyProjectile.cpp" />
 	</ItemGroup>
 	<ItemGroup>
 		<ClInclude Include="..\..\Assets\Scripts\Enemies\EnemyMeleeMovement.h" />
+		<ClInclude Include="..\..\Assets\Scripts\Enemies\EnemyRanger.h" />
 		<ClInclude Include="..\..\Assets\Scripts\InteractiveEnviroment\ChestTest.h" />
 		<ClInclude Include="..\..\Assets\Scripts\Player\PlayerMove.h" />
 		<ClInclude Include="..\..\Assets\Scripts\Player\PlayerStats.h" />
@@ -225,6 +230,9 @@
 		<ClInclude Include="../../Assets/Scripts/UI Test folder/Movment_Bar_HP.h" />
 		<ClInclude Include="../../Assets/Scripts/ParticleTest.h" />
 		<ClInclude Include="../../Assets/Scripts/ParticleCopyTest.h" />
+		<ClInclude Include="../../Assets/Scripts/Enemies/EnemyGuns/EnemyAutomatic.h" />
+		<ClInclude Include="../../Assets/Scripts/Enemies/EnemyProjectilePull.h" />
+		<ClInclude Include="../../Assets/Scripts/Enemies/EnemyProjectile.h" />
 	</ItemGroup>
 	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 	<ImportGroup Label="ExtensionTargets" />

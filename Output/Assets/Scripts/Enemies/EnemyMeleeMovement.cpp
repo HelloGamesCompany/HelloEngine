@@ -8,10 +8,9 @@ HELLO_ENGINE_API_C EnemyMeleeMovement* CreateEnemyMeleeMovement(ScriptToInspecto
 	//Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
 	script->AddDragFloat("Detection distance", &classInstance->detectionDis);
 	script->AddDragFloat("Lossing Enemy distance", &classInstance->lossingDis);
-	//script->AddDragFloat("Lossing Zone distance", &classInstance->lossingZoneDis);
+	script->AddDragFloat("Range attack", &classInstance->rangeAtk);
+	script->AddDragFloat("OutsideZone Time", &classInstance->outTime);
 	script->AddDragBoxGameObject("Target", &classInstance->target);
-	//script->AddDragBoxGameObject("Point 1", &classInstance->point1);
-	//script->AddDragBoxGameObject("Point 2", &classInstance->point2);
 	script->AddDragBoxGameObject("Action zone", &classInstance->actionZone);
 	script->AddDragBoxRigidBody("Action Rb zone", &classInstance->zoneRb);
 	script->AddDragBoxGameObject("Point 1", &classInstance->listPoints[0]);
@@ -28,10 +27,9 @@ void EnemyMeleeMovement::Start()
 {
 	
 	actualPoint = listPoints[0].GetTransform().GetGlobalPosition() ;
-	
 	_avalPoints = 3;
 	enemState = States::WANDERING;
-	//clock.s
+	_outCooldown = 0;
 	
 } 
 void EnemyMeleeMovement::Update()
@@ -43,52 +41,47 @@ void EnemyMeleeMovement::Update()
 	{	
 		float dis = gameObject.GetTransform().GetGlobalPosition().Distance(target.GetTransform().GetGlobalPosition());
 		float disZone = gameObject.GetTransform().GetGlobalPosition().Distance(actionZone.GetTransform().GetGlobalPosition());
-
-		if ((dis< detectionDis) && enemState != States::TARGETING)
+		if (dis < detectionDis && enemState != States::TARGETING )
 		{
 			enemState = States::TARGETING;
-			//targeting = true;
+			
 		}
-		else if ((dis>lossingDis) || (disZone > zoneRb.GetRadius()/2) )
+		else if (dis<=rangeAtk && enemState == States::TARGETING)
+		{
+			enemState = States::ATTACKIG;
+		}
+		else if ((dis > lossingDis) || ((disZone > zoneRb.GetRadius() / 2)/* && _outCooldown >= outTime*/))
 		{
 			enemState = States::WANDERING;
-			//targeting = false;
 		}
 		
+		if ((disZone > zoneRb.GetRadius() / 2) /*&& enemState == States::TARGETING*/)_outCooldown += dt, Console::Log(std::to_string(_outCooldown));
+		else _outCooldown = 0;
+
+
 		
 		switch (enemState)
 		{
 		case States::WANDERING:
+			Console::Log("NumPoint: " + std::to_string(numPoint));
 
-				enemy->currentSpeed = enemy->speed * dt;
-			if ((gameObject.GetTransform().GetGlobalPosition().Distance(actualPoint) < 40) /*&& !targeting*/)
+			enemy->currentSpeed = enemy->speed * dt;
+			if ((gameObject.GetTransform().GetGlobalPosition().Distance(actualPoint) < 5) )
 			{
-				/*if (numPoint == 1)numPoint = 2, actualPoint=point2.GetTransform().GetGlobalPosition();
-				else if (numPoint == 2)numPoint = 1, actualPoint = point1.GetTransform().GetGlobalPosition();*/
-				//++numPoint;
-
-				//if (numPoint != _avalPoints) numPoint++/*, actualPoint = listPoints[numPoint].GetTransform().GetGlobalPosition()*/;
-				//else if (numPoint == _avalPoints)numPoint = 0/*, actualPoint = listPoints[numPoint].GetTransform().GetGlobalPosition()*/;
-
+				Console::Log("Change");
 				numPoint++;
 				if (numPoint >= _avalPoints)numPoint = 0;
 			}
-
-			//if (!targeting)
-			//{
-				/*if (numPoint == 1) actualPoint = point2.GetTransform().GetGlobalPosition();
-				else if (numPoint == 2) actualPoint = point1.GetTransform().GetGlobalPosition();*/
 			actualPoint = listPoints[numPoint].GetTransform().GetGlobalPosition();
-				//if (numPoint != _avalPoints) actualPoint = listPoints[numPoint].GetTransform().GetGlobalPosition();
-				//else if (numPoint == _avalPoints) actualPoint = listPoints[numPoint].GetTransform().GetGlobalPosition();
-			//}
-
-				Wander(enemy->currentSpeed, actualPoint);
+			Wander(enemy->currentSpeed, actualPoint);
 
 			break;
 
 		case States::TARGETING:
 			enemy->currentSpeed = enemy->speed * enemy->acceleration * dt;
+
+			
+
 			Seek(enemy->currentSpeed, target.GetTransform().GetGlobalPosition());
 			break;
 
@@ -98,8 +91,6 @@ void EnemyMeleeMovement::Update()
 		default:
 			break;
 		}
-		//targeting ? Seek(enemy->speed, target.GetTransform().GetGlobalPosition()) : Wander(enemy->speed, actualPoint);
-
 	}
 }
 

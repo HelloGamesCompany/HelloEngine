@@ -54,7 +54,7 @@
             {
                 "Active camera": true,
                 "Active culling": false,
-                "Aspect ratio": 0.583458662033081,
+                "Aspect ratio": 0.47311827540397644,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 2000.0,
@@ -38960,9 +38960,9 @@
             {
                 "Enabled": true,
                 "Position": [
-                    1.1575431823730469,
-                    0.0,
-                    30.199195861816406
+                    2.3884637355804443,
+                    0.0001220703125,
+                    51.039527893066406
                 ],
                 "Rotation": [
                     -0.0,
@@ -39078,7 +39078,7 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Max HP": 0.0
+                        "Max HP": 100.0
                     },
                     {
                         "Laser Ammo": 99999
@@ -39090,7 +39090,7 @@
                         "Ricochet Ammo": 99999
                     },
                     {
-                        "Max HP": 0.0
+                        "Max HP": 100.0
                     },
                     {
                         "Laser Ammo": 99999
@@ -45946,5 +45946,2478 @@
         "PrefabUID": 0,
         "Tag": "Default",
         "UID": 3454571708
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Enemies",
+        "ParentUID": 2462894403,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1044038549
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -4.223276615142822,
+                    1.0745418071746826,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 1834708374,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "ColPosition": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    0.8999999761581421,
+                    3.5,
+                    1.100000023841858
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "GlobalGravity": [
+                    0.0,
+                    -10.0,
+                    0.0
+                ],
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsShapeSelected": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsStatic": false,
+                "IsTrigger": false,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    0.5,
+                    0.0,
+                    0.5,
+                    1.0
+                ],
+                "ShapeSelected": 0,
+                "SphereHorSlices": 16,
+                "SphereRadius": 1.0,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Health": 100.0
+                    },
+                    {
+                        "Resistance": 100.0
+                    },
+                    {
+                        "Speed": 5.0
+                    },
+                    {
+                        "Acceleration": 1.2000000476837158
+                    },
+                    {
+                        "Health": 100.0
+                    },
+                    {
+                        "Resistance": 100.0
+                    },
+                    {
+                        "Speed": 5.0
+                    },
+                    {
+                        "Acceleration": 1.2000000476837158
+                    }
+                ],
+                "Script Resource": 2489649835,
+                "Type": 5
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Detection distance": 20.0
+                    },
+                    {
+                        "Lossing Enemy distance": 20.0
+                    },
+                    {
+                        "Range attack": 60.0
+                    },
+                    {
+                        "OutsideZone Time": 3.0
+                    },
+                    {
+                        "Target": 3079281768
+                    },
+                    {
+                        "Action zone": 4114299916
+                    },
+                    {
+                        "Action Rb zone": 4114299916
+                    },
+                    {
+                        "Point 1": 51089772
+                    },
+                    {
+                        "Point 2": 688095324
+                    },
+                    {
+                        "Point 3": 51089772
+                    },
+                    {
+                        "Detection distance": 20.0
+                    },
+                    {
+                        "Lossing Enemy distance": 20.0
+                    },
+                    {
+                        "Range attack": 60.0
+                    },
+                    {
+                        "OutsideZone Time": 3.0
+                    },
+                    {
+                        "Target": 3079281768
+                    },
+                    {
+                        "Action zone": 4114299916
+                    },
+                    {
+                        "Action Rb zone": 4114299916
+                    },
+                    {
+                        "Point 1": 51089772
+                    },
+                    {
+                        "Point 2": 688095324
+                    },
+                    {
+                        "Point 3": 51089772
+                    }
+                ],
+                "Script Resource": 639624871,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "EnemyMelee1",
+        "ParentUID": 1044038549,
+        "PrefabUID": 4216443920,
+        "Tag": "Default",
+        "UID": 3276269721
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    8.033658981323242,
+                    0.0,
+                    -4.848372459411621
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "P1.1",
+        "ParentUID": 1044038549,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 51089772
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -9.650477409362793,
+                    0.0,
+                    8.66823959350586
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "P1.2",
+        "ParentUID": 1044038549,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 688095324
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    15.969325065612793,
+                    0.000244140625,
+                    20.26030731201172
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    0.014600030146539211,
+                    0.014600030146539211,
+                    0.014600030146539211
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 1,
+                "ModelUID": 1018311351,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "ColPosition": [
+                    0.0,
+                    1.600000023841858,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    1.0,
+                    3.0999999046325684,
+                    1.0
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "GlobalGravity": [
+                    0.0,
+                    -10.0,
+                    0.0
+                ],
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsShapeSelected": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsStatic": false,
+                "IsTrigger": false,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    0.5,
+                    0.0,
+                    0.5,
+                    1.0
+                ],
+                "ShapeSelected": 0,
+                "SphereHorSlices": 16,
+                "SphereRadius": 1.0,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Health": 100.0
+                    },
+                    {
+                        "Resistance": 100.0
+                    },
+                    {
+                        "Speed": 5.0
+                    },
+                    {
+                        "Acceleration": 1.2000000476837158
+                    },
+                    {
+                        "Health": 100.0
+                    },
+                    {
+                        "Resistance": 100.0
+                    },
+                    {
+                        "Speed": 5.0
+                    },
+                    {
+                        "Acceleration": 1.2000000476837158
+                    }
+                ],
+                "Script Resource": 4210965159,
+                "Type": 5
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Detection distance": 15.0
+                    },
+                    {
+                        "Lossing Enemy distance": 15.0
+                    },
+                    {
+                        "Distance player": 5.0
+                    },
+                    {
+                        "Range attack": 10.0
+                    },
+                    {
+                        "Cooldown betwen points": 3.0
+                    },
+                    {
+                        "OutsideZone Time": 3.0
+                    },
+                    {
+                        "Target": 3079281768
+                    },
+                    {
+                        "Action zone": 695205673
+                    },
+                    {
+                        "Action Rb zone": 695205673
+                    },
+                    {
+                        "Point 1": 927701309
+                    },
+                    {
+                        "Point 2": 4069603937
+                    },
+                    {
+                        "Point 3": 3788082644
+                    },
+                    {
+                        "Detection distance": 15.0
+                    },
+                    {
+                        "Lossing Enemy distance": 15.0
+                    },
+                    {
+                        "Distance player": 5.0
+                    },
+                    {
+                        "Range attack": 10.0
+                    },
+                    {
+                        "Cooldown betwen points": 3.0
+                    },
+                    {
+                        "OutsideZone Time": 3.0
+                    },
+                    {
+                        "Target": 3079281768
+                    },
+                    {
+                        "Action zone": 695205673
+                    },
+                    {
+                        "Action Rb zone": 695205673
+                    },
+                    {
+                        "Point 1": 927701309
+                    },
+                    {
+                        "Point 2": 4069603937
+                    },
+                    {
+                        "Point 3": 3788082644
+                    }
+                ],
+                "Script Resource": 3178788716,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "EnemyRange2",
+        "ParentUID": 1044038549,
+        "PrefabUID": 481700762,
+        "Tag": "Default",
+        "UID": 3920120501
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    16.964008331298828,
+                    0.0,
+                    16.825761795043945
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "P2.1",
+        "ParentUID": 1044038549,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 927701309
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    18.5880184173584,
+                    0.0,
+                    32.89500045776367
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "P2.2",
+        "ParentUID": 1044038549,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 4069603937
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    11.732269287109375,
+                    0.0,
+                    32.543243408203125
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "P2.3",
+        "ParentUID": 1044038549,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3788082644
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    26.986154556274414,
+                    1.0742934942245483,
+                    62.22163391113281
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 1834708374,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "ColPosition": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    0.8999999761581421,
+                    3.5,
+                    1.100000023841858
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "GlobalGravity": [
+                    0.0,
+                    -10.0,
+                    0.0
+                ],
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsShapeSelected": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsStatic": false,
+                "IsTrigger": false,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    0.5,
+                    0.0,
+                    0.5,
+                    1.0
+                ],
+                "ShapeSelected": 0,
+                "SphereHorSlices": 16,
+                "SphereRadius": 1.0,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Health": 100.0
+                    },
+                    {
+                        "Resistance": 100.0
+                    },
+                    {
+                        "Speed": 5.0
+                    },
+                    {
+                        "Acceleration": 1.2000000476837158
+                    },
+                    {
+                        "Health": 100.0
+                    },
+                    {
+                        "Resistance": 100.0
+                    },
+                    {
+                        "Speed": 5.0
+                    },
+                    {
+                        "Acceleration": 1.2000000476837158
+                    }
+                ],
+                "Script Resource": 2489649835,
+                "Type": 5
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Detection distance": 20.0
+                    },
+                    {
+                        "Lossing Enemy distance": 20.0
+                    },
+                    {
+                        "Range attack": 60.0
+                    },
+                    {
+                        "OutsideZone Time": 3.0
+                    },
+                    {
+                        "Target": 3079281768
+                    },
+                    {
+                        "Action zone": 1384171162
+                    },
+                    {
+                        "Action Rb zone": 1384171162
+                    },
+                    {
+                        "Point 1": 1199249249
+                    },
+                    {
+                        "Point 2": 3062697685
+                    },
+                    {
+                        "Point 3": 1199249249
+                    },
+                    {
+                        "Detection distance": 20.0
+                    },
+                    {
+                        "Lossing Enemy distance": 20.0
+                    },
+                    {
+                        "Range attack": 60.0
+                    },
+                    {
+                        "OutsideZone Time": 3.0
+                    },
+                    {
+                        "Target": 3079281768
+                    },
+                    {
+                        "Action zone": 1384171162
+                    },
+                    {
+                        "Action Rb zone": 1384171162
+                    },
+                    {
+                        "Point 1": 1199249249
+                    },
+                    {
+                        "Point 2": 3062697685
+                    },
+                    {
+                        "Point 3": 1199249249
+                    }
+                ],
+                "Script Resource": 639624871,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "EnemyMelee3",
+        "ParentUID": 1044038549,
+        "PrefabUID": 4216443920,
+        "Tag": "Default",
+        "UID": 617407311
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    18.84397315979004,
+                    0.0,
+                    56.16608428955078
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "P3.1",
+        "ParentUID": 1044038549,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1199249249
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    28.409339904785156,
+                    -7.573264883831143e-05,
+                    74.75310516357422
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "P3.2",
+        "ParentUID": 1044038549,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3062697685
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    32.20175552368164,
+                    0.000244140625,
+                    64.46722412109375
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    0.014600030146539211,
+                    0.014600030146539211,
+                    0.014600030146539211
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 1,
+                "ModelUID": 1018311351,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "ColPosition": [
+                    0.0,
+                    1.5,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    1.0,
+                    3.0999999046325684,
+                    1.0
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "GlobalGravity": [
+                    0.0,
+                    -10.0,
+                    0.0
+                ],
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsShapeSelected": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsStatic": false,
+                "IsTrigger": false,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    0.5,
+                    0.0,
+                    0.5,
+                    1.0
+                ],
+                "ShapeSelected": 0,
+                "SphereHorSlices": 16,
+                "SphereRadius": 1.0,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Health": 100.0
+                    },
+                    {
+                        "Resistance": 100.0
+                    },
+                    {
+                        "Speed": 5.0
+                    },
+                    {
+                        "Acceleration": 1.2000000476837158
+                    },
+                    {
+                        "Health": 100.0
+                    },
+                    {
+                        "Resistance": 100.0
+                    },
+                    {
+                        "Speed": 5.0
+                    },
+                    {
+                        "Acceleration": 1.2000000476837158
+                    }
+                ],
+                "Script Resource": 4210965159,
+                "Type": 5
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Detection distance": 15.0
+                    },
+                    {
+                        "Lossing Enemy distance": 15.0
+                    },
+                    {
+                        "Distance player": 5.0
+                    },
+                    {
+                        "Range attack": 10.0
+                    },
+                    {
+                        "Cooldown betwen points": 3.0
+                    },
+                    {
+                        "OutsideZone Time": 3.0
+                    },
+                    {
+                        "Target": 3079281768
+                    },
+                    {
+                        "Action zone": 1384171162
+                    },
+                    {
+                        "Action Rb zone": 1384171162
+                    },
+                    {
+                        "Point 1": 3236847788
+                    },
+                    {
+                        "Point 2": 4235761820
+                    },
+                    {
+                        "Point 3": 3236847788
+                    },
+                    {
+                        "Detection distance": 15.0
+                    },
+                    {
+                        "Lossing Enemy distance": 15.0
+                    },
+                    {
+                        "Distance player": 5.0
+                    },
+                    {
+                        "Range attack": 10.0
+                    },
+                    {
+                        "Cooldown betwen points": 3.0
+                    },
+                    {
+                        "OutsideZone Time": 3.0
+                    },
+                    {
+                        "Target": 3079281768
+                    },
+                    {
+                        "Action zone": 1384171162
+                    },
+                    {
+                        "Action Rb zone": 1384171162
+                    },
+                    {
+                        "Point 1": 3236847788
+                    },
+                    {
+                        "Point 2": 4235761820
+                    },
+                    {
+                        "Point 3": 3236847788
+                    }
+                ],
+                "Script Resource": 3178788716,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "EnemyRange4",
+        "ParentUID": 1044038549,
+        "PrefabUID": 481700762,
+        "Tag": "Default",
+        "UID": 1384104034
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    32.58127212524414,
+                    0.0,
+                    52.550987243652344
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "P4.1",
+        "ParentUID": 1044038549,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3236847788
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    23.972890853881836,
+                    0.0,
+                    51.33747863769531
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "P4.2",
+        "ParentUID": 1044038549,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 4235761820
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -44.22478103637695,
+                    1.074536681175232,
+                    -58.697242736816406
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 1834708374,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "ColPosition": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    0.8999999761581421,
+                    3.5,
+                    1.100000023841858
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "GlobalGravity": [
+                    0.0,
+                    -10.0,
+                    0.0
+                ],
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsShapeSelected": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsStatic": false,
+                "IsTrigger": false,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    0.5,
+                    0.0,
+                    0.5,
+                    1.0
+                ],
+                "ShapeSelected": 0,
+                "SphereHorSlices": 16,
+                "SphereRadius": 1.0,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Health": 100.0
+                    },
+                    {
+                        "Resistance": 100.0
+                    },
+                    {
+                        "Speed": 5.0
+                    },
+                    {
+                        "Acceleration": 1.2000000476837158
+                    },
+                    {
+                        "Health": 100.0
+                    },
+                    {
+                        "Resistance": 100.0
+                    },
+                    {
+                        "Speed": 5.0
+                    },
+                    {
+                        "Acceleration": 1.2000000476837158
+                    }
+                ],
+                "Script Resource": 2489649835,
+                "Type": 5
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Detection distance": 20.0
+                    },
+                    {
+                        "Lossing Enemy distance": 20.0
+                    },
+                    {
+                        "Range attack": 60.0
+                    },
+                    {
+                        "OutsideZone Time": 3.0
+                    },
+                    {
+                        "Target": 3079281768
+                    },
+                    {
+                        "Action zone": 4114299916
+                    },
+                    {
+                        "Action Rb zone": 4114763282
+                    },
+                    {
+                        "Point 1": 3336393343
+                    },
+                    {
+                        "Point 2": 2619630730
+                    },
+                    {
+                        "Point 3": 3336393343
+                    },
+                    {
+                        "Detection distance": 20.0
+                    },
+                    {
+                        "Lossing Enemy distance": 20.0
+                    },
+                    {
+                        "Range attack": 60.0
+                    },
+                    {
+                        "OutsideZone Time": 3.0
+                    },
+                    {
+                        "Target": 3079281768
+                    },
+                    {
+                        "Action zone": 4114299916
+                    },
+                    {
+                        "Action Rb zone": 4114763282
+                    },
+                    {
+                        "Point 1": 3336393343
+                    },
+                    {
+                        "Point 2": 2619630730
+                    },
+                    {
+                        "Point 3": 3336393343
+                    }
+                ],
+                "Script Resource": 639624871,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "EnemyMelee5",
+        "ParentUID": 1044038549,
+        "PrefabUID": 4216443920,
+        "Tag": "Default",
+        "UID": 1342655986
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -53.315460205078125,
+                    -0.0002813114842865616,
+                    -66.44757843017578
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "P5.1",
+        "ParentUID": 1044038549,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3336393343
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -26.013629913330078,
+                    0.0,
+                    -49.05234146118164
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "P5.2",
+        "ParentUID": 1044038549,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2619630730
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    18.828384399414063,
+                    -12.0,
+                    -61.69617462158203
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 1834708374,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "ColPosition": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    0.8999999761581421,
+                    3.5,
+                    1.100000023841858
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "GlobalGravity": [
+                    0.0,
+                    -10.0,
+                    0.0
+                ],
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsShapeSelected": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsStatic": false,
+                "IsTrigger": false,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    0.5,
+                    0.0,
+                    0.5,
+                    1.0
+                ],
+                "ShapeSelected": 0,
+                "SphereHorSlices": 16,
+                "SphereRadius": 1.0,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Health": 100.0
+                    },
+                    {
+                        "Resistance": 100.0
+                    },
+                    {
+                        "Speed": 5.0
+                    },
+                    {
+                        "Acceleration": 1.2000000476837158
+                    },
+                    {
+                        "Health": 100.0
+                    },
+                    {
+                        "Resistance": 100.0
+                    },
+                    {
+                        "Speed": 5.0
+                    },
+                    {
+                        "Acceleration": 1.2000000476837158
+                    }
+                ],
+                "Script Resource": 2489649835,
+                "Type": 5
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Detection distance": 20.0
+                    },
+                    {
+                        "Lossing Enemy distance": 20.0
+                    },
+                    {
+                        "Range attack": 60.0
+                    },
+                    {
+                        "OutsideZone Time": 3.0
+                    },
+                    {
+                        "Target": 3079281768
+                    },
+                    {
+                        "Action zone": 782401128
+                    },
+                    {
+                        "Action Rb zone": 782401128
+                    },
+                    {
+                        "Point 1": 502844421
+                    },
+                    {
+                        "Point 2": 253004744
+                    },
+                    {
+                        "Point 3": 502844421
+                    },
+                    {
+                        "Detection distance": 20.0
+                    },
+                    {
+                        "Lossing Enemy distance": 20.0
+                    },
+                    {
+                        "Range attack": 60.0
+                    },
+                    {
+                        "OutsideZone Time": 3.0
+                    },
+                    {
+                        "Target": 3079281768
+                    },
+                    {
+                        "Action zone": 782401128
+                    },
+                    {
+                        "Action Rb zone": 782401128
+                    },
+                    {
+                        "Point 1": 502844421
+                    },
+                    {
+                        "Point 2": 253004744
+                    },
+                    {
+                        "Point 3": 502844421
+                    }
+                ],
+                "Script Resource": 639624871,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "EnemyMelee6",
+        "ParentUID": 1044038549,
+        "PrefabUID": 4216443920,
+        "Tag": "Default",
+        "UID": 2030847616
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    19.028823852539063,
+                    -13.90190315246582,
+                    -76.44015502929688
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "P6.1",
+        "ParentUID": 1044038549,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 502844421
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    22.57082176208496,
+                    -12.841713905334473,
+                    -56.45513916015625
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "P6.2",
+        "ParentUID": 1044038549,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 253004744
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    11.33780288696289,
+                    -12.0,
+                    -149.15989685058594
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 1834708374,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "ColPosition": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    0.8999999761581421,
+                    3.5,
+                    1.100000023841858
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "GlobalGravity": [
+                    0.0,
+                    -10.0,
+                    0.0
+                ],
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsShapeSelected": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsStatic": false,
+                "IsTrigger": false,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    0.5,
+                    0.0,
+                    0.5,
+                    1.0
+                ],
+                "ShapeSelected": 0,
+                "SphereHorSlices": 16,
+                "SphereRadius": 1.0,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Health": 100.0
+                    },
+                    {
+                        "Resistance": 100.0
+                    },
+                    {
+                        "Speed": 5.0
+                    },
+                    {
+                        "Acceleration": 1.2000000476837158
+                    },
+                    {
+                        "Health": 100.0
+                    },
+                    {
+                        "Resistance": 100.0
+                    },
+                    {
+                        "Speed": 5.0
+                    },
+                    {
+                        "Acceleration": 1.2000000476837158
+                    }
+                ],
+                "Script Resource": 2489649835,
+                "Type": 5
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Detection distance": 20.0
+                    },
+                    {
+                        "Lossing Enemy distance": 20.0
+                    },
+                    {
+                        "Range attack": 60.0
+                    },
+                    {
+                        "OutsideZone Time": 3.0
+                    },
+                    {
+                        "Target": 3079281768
+                    },
+                    {
+                        "Action zone": 4114299916
+                    },
+                    {
+                        "Action Rb zone": 4114299916
+                    },
+                    {
+                        "Point 1": 1682881478
+                    },
+                    {
+                        "Point 2": 1478512253
+                    },
+                    {
+                        "Point 3": 1682881478
+                    },
+                    {
+                        "Detection distance": 20.0
+                    },
+                    {
+                        "Lossing Enemy distance": 20.0
+                    },
+                    {
+                        "Range attack": 60.0
+                    },
+                    {
+                        "OutsideZone Time": 3.0
+                    },
+                    {
+                        "Target": 3079281768
+                    },
+                    {
+                        "Action zone": 4114299916
+                    },
+                    {
+                        "Action Rb zone": 4114299916
+                    },
+                    {
+                        "Point 1": 1682881478
+                    },
+                    {
+                        "Point 2": 1478512253
+                    },
+                    {
+                        "Point 3": 1682881478
+                    }
+                ],
+                "Script Resource": 639624871,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "EnemyMelee7",
+        "ParentUID": 1044038549,
+        "PrefabUID": 4216443920,
+        "Tag": "Default",
+        "UID": 1536783918
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    6.907048225402832,
+                    -12.0,
+                    -161.69998168945313
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "P7.1",
+        "ParentUID": 1044038549,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1682881478
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    15.959859848022461,
+                    -12.081814765930176,
+                    -132.71853637695313
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "P7.2",
+        "ParentUID": 1044038549,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1478512253
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Zones",
+        "ParentUID": 2462894403,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3910780217
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -2.122321605682373,
+                    0.0,
+                    -2.6214098930358887
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "ColPosition": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "GlobalGravity": [
+                    0.0,
+                    -10.0,
+                    0.0
+                ],
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    false,
+                    true,
+                    false
+                ],
+                "IsShapeSelected": [
+                    false,
+                    true,
+                    false
+                ],
+                "IsStatic": false,
+                "IsTrigger": true,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    0.5,
+                    0.0,
+                    0.5,
+                    1.0
+                ],
+                "ShapeSelected": 1,
+                "SphereHorSlices": 16,
+                "SphereRadius": 41.29999923706055,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Zone",
+        "ParentUID": 3910780217,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 4114299916
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    12.054496765136719,
+                    0.0,
+                    20.792856216430664
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "ColPosition": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "GlobalGravity": [
+                    0.0,
+                    -10.0,
+                    0.0
+                ],
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    false,
+                    true,
+                    false
+                ],
+                "IsShapeSelected": [
+                    false,
+                    true,
+                    false
+                ],
+                "IsStatic": false,
+                "IsTrigger": true,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    0.5,
+                    0.0,
+                    0.5,
+                    1.0
+                ],
+                "ShapeSelected": 1,
+                "SphereHorSlices": 16,
+                "SphereRadius": 33.5,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Zone",
+        "ParentUID": 3910780217,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 695205673
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    25.754127502441406,
+                    0.0,
+                    63.630897521972656
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "ColPosition": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "GlobalGravity": [
+                    0.0,
+                    -10.0,
+                    0.0
+                ],
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    false,
+                    true,
+                    false
+                ],
+                "IsShapeSelected": [
+                    false,
+                    true,
+                    false
+                ],
+                "IsStatic": false,
+                "IsTrigger": true,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    0.5,
+                    0.0,
+                    0.5,
+                    1.0
+                ],
+                "ShapeSelected": 1,
+                "SphereHorSlices": 16,
+                "SphereRadius": 32.79999923706055,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Zone",
+        "ParentUID": 3910780217,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1384171162
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -38.66436004638672,
+                    -7.732312224106863e-05,
+                    -56.490745544433594
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "ColPosition": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "GlobalGravity": [
+                    0.0,
+                    -10.0,
+                    0.0
+                ],
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    false,
+                    true,
+                    false
+                ],
+                "IsShapeSelected": [
+                    false,
+                    true,
+                    false
+                ],
+                "IsStatic": false,
+                "IsTrigger": true,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    0.5,
+                    0.0,
+                    0.5,
+                    1.0
+                ],
+                "ShapeSelected": 1,
+                "SphereHorSlices": 16,
+                "SphereRadius": 44.599998474121094,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Zone",
+        "ParentUID": 3910780217,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 4114763282
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    18.930526733398438,
+                    -13.542024612426758,
+                    -60.6429443359375
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "ColPosition": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "GlobalGravity": [
+                    0.0,
+                    -10.0,
+                    0.0
+                ],
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    false,
+                    true,
+                    false
+                ],
+                "IsShapeSelected": [
+                    false,
+                    true,
+                    false
+                ],
+                "IsStatic": false,
+                "IsTrigger": true,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    0.5,
+                    0.0,
+                    0.5,
+                    1.0
+                ],
+                "ShapeSelected": 1,
+                "SphereHorSlices": 16,
+                "SphereRadius": 42.900001525878906,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Zone",
+        "ParentUID": 3910780217,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 782401128
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    10.599206924438477,
+                    -12.0,
+                    -145.5691375732422
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "ColPosition": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "GlobalGravity": [
+                    0.0,
+                    -10.0,
+                    0.0
+                ],
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    false,
+                    true,
+                    false
+                ],
+                "IsShapeSelected": [
+                    false,
+                    true,
+                    false
+                ],
+                "IsStatic": false,
+                "IsTrigger": true,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    0.5,
+                    0.0,
+                    0.5,
+                    1.0
+                ],
+                "ShapeSelected": 1,
+                "SphereHorSlices": 16,
+                "SphereRadius": 52.900001525878906,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Zone",
+        "ParentUID": 3910780217,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2315350177
     }
 ]
