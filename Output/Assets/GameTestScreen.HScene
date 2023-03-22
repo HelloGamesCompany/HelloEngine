@@ -54,7 +54,7 @@
             {
                 "Active camera": true,
                 "Active culling": true,
-                "Aspect ratio": 1.3209606409072876,
+                "Aspect ratio": 1.9974778890609741,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -796,7 +796,7 @@
                 "Enabled": true,
                 "Position": [
                     0.019999999552965164,
-                    0.0,
+                    0.010650001466274261,
                     0.0
                 ],
                 "Rotation": [
@@ -1626,7 +1626,7 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 2440110374,
+                "MaterialResource": 1033923317,
                 "Type": 15
             },
             {
@@ -1642,7 +1642,7 @@
                         "Cooldown": 1.0
                     },
                     {
-                        "CooldownBetween": 0.5
+                        "CooldownBetween": 0.20000000298023224
                     }
                 ],
                 "Script Resource": 2007260901,
