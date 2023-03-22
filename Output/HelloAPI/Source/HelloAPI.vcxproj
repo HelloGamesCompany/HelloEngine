@@ -179,6 +179,7 @@
     <ClCompile Include="..\..\Assets\Scripts\Shooting\Guns\PlayerShotgun.cpp" />
     <ClCompile Include="..\..\Assets\Scripts\TestAPI.cpp" />
     <ClCompile Include="../../Assets/Scripts/ParticleCopyTest.cpp" />
+    <ClCompile Include="..\..\Assets\Scripts\UI Test folder\DashUI.cpp" />
     <ClCompile Include="..\..\Assets\Scripts\UI Test folder\HpBar.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -194,6 +195,7 @@
     <ClInclude Include="..\..\Assets\Scripts\Shooting\Guns\PlayerSemiAuto.h" />
     <ClInclude Include="..\..\Assets\Scripts\Shooting\Guns\PlayerShotgun.h" />
     <ClInclude Include="..\..\Assets\Scripts\TestAPI.h" />
+    <ClInclude Include="..\..\Assets\Scripts\UI Test folder\DashUI.h" />
     <ClInclude Include="..\..\Assets\Scripts\UI Test folder\HpBar.h" />
     <ClInclude Include="Macro.h" />
     <ClInclude Include="../../Assets/Scripts/transformTest.h" />
