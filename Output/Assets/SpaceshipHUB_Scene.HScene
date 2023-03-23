@@ -3693,7 +3693,7 @@
             {
                 "Active camera": true,
                 "Active culling": true,
-                "Aspect ratio": 1.8564516305923462,
+                "Aspect ratio": 1.8648383617401123,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -10279,5 +10279,96 @@
         "PrefabUID": 0,
         "Tag": "Default",
         "UID": 1271164941
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    2.9033617973327637,
+                    2.0452969074249268,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "ColPosition": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    7.400000095367432,
+                    4.0,
+                    3.700000047683716
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "GlobalGravity": [
+                    0.0,
+                    -10.0,
+                    0.0
+                ],
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsShapeSelected": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsStatic": false,
+                "IsTrigger": true,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    0.5,
+                    0.0,
+                    0.5,
+                    1.0
+                ],
+                "ShapeSelected": 0,
+                "SphereHorSlices": 16,
+                "SphereRadius": 1.0,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "GoToLevel1Trigger",
+        "ParentUID": 2830428646,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3504352012
     }
 ]
