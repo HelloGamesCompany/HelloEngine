@@ -14,9 +14,6 @@ public:
 	void OnCollisionEnter(API_RigidBody other);
 
 	API_Transform point1;
-	API_Transform point2;
-
-	bool isPoint1 = true;
 
 
 };

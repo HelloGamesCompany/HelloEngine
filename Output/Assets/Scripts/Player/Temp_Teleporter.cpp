@@ -12,7 +12,7 @@ void Temp_Teleporter::Start()
 
 }
 void Temp_Teleporter::Update()
-{
+{  
 
 }
 
