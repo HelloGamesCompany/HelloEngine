@@ -23,6 +23,7 @@ enum class ImWindowID
 	SCENE,
 	UI,
 	RESOURCES,
+	GLSL,
 	MAX,
 };
 
@@ -64,6 +65,7 @@ public:
 
 	static void S_ShowCompilationError() { _showCompilationError = true; }
 
+	static void S_OpenShader(uint UID);
 	static void S_ReimportAllAssets();
 
 private:

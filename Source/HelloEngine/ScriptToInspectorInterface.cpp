@@ -18,7 +18,8 @@
 #include "ComponentUIButton.h"
 #include "ComponentUIImage.h"
 #include "ParticleSystemComponent.h"
-#include "MaterialComponent.h"
+#include "TextureComponent.h"
+#include "MeshRenderComponent.h"
 
 void DragFieldFloat::OnEditor()
 {
@@ -770,10 +771,10 @@ void DragBoxMaterialComponent::OnEditor()
 			const uint* drop = (uint*)payload->Data;
 
 			GameObject* droppedGO = ModuleLayers::S_GetGameObject(*drop);
-			MaterialComponent* component = nullptr;
+			TextureComponent* component = nullptr;
 
 			if (droppedGO != nullptr)
-				component = droppedGO->GetComponent<MaterialComponent>();
+				component = droppedGO->GetComponent<TextureComponent>();
 
 			material->SetComponent(component);
 		}
@@ -802,9 +803,9 @@ void DragBoxMaterialComponent::OnDeserialize(json& j)
 		{
 			uint id = j[i][valueName.c_str()];
 			GameObject* gameObject = ModuleLayers::S_GetGameObject(id);
-			MaterialComponent* component = nullptr;
+			TextureComponent* component = nullptr;
 			if (gameObject != nullptr)
-				component = gameObject->GetComponent<MaterialComponent>();
+				component = gameObject->GetComponent<TextureComponent>();
 			if (component != nullptr)
 			{
 				API::API_Material* material = (API::API_Material*)value;

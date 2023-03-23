@@ -4,18 +4,23 @@
 #include "ModuleRenderer3D.h"
 #include "MeshRenderComponent.h"
 
+#include "RenderManager.h"
+
 InstanceRenderer::InstanceRenderer()
 {
-    instancedShader = new Shader("Resources/shaders/instanced.vertex.shader", "Resources/shaders/instanced.fragment.shader");
-    perMeshShader = new Shader("Resources/shaders/basic.vertex.shader", "Resources/shaders/basic.fragment.shader");
-    mesh2DShader = new Shader("Resources/shaders/instanced2D.vertex.shader", "Resources/shaders/instanced.fragment.shader");
+    instancedShader = ModuleResourceManager::S_CreateResourceShader("Resources/shaders/instanced.shader", 102, "Instanced");
+    perMeshShader = ModuleResourceManager::S_CreateResourceShader("Resources/shaders/basic.shader", 103, "Basic");
+    mesh2DShader = ModuleResourceManager::S_CreateResourceShader("Resources/shaders/instanced2D.shader", 104, "Instanced 2D");
 }
 
 InstanceRenderer::~InstanceRenderer()
 {
-    RELEASE(instancedShader);
-    RELEASE(perMeshShader);
-    RELEASE(mesh2DShader);
+    instancedShader->Dereference();
+    instancedShader = nullptr;
+    perMeshShader->Dereference();
+    perMeshShader = nullptr;
+    mesh2DShader->Dereference();
+    mesh2DShader = nullptr;
 }
 
 void InstanceRenderer::SetMeshInformation(ResourceMesh* resource)
@@ -59,36 +64,38 @@ void InstanceRenderer::Draw()
     {
         /*if (currentCamera->isCullingActive)
         {
-            if (!currentCamera->IsInsideFrustum(mesh.second.globalAABB))
+            if (!currentCamera->IsInsideFrustum(mesh.second.mesh.globalAABB))
             {
-                mesh.second.outOfFrustum = true;
+                mesh.second.mesh.outOfFrustum = true;
                 continue;
             }
             else
-                mesh.second.outOfFrustum = false;
+                mesh.second.mesh.outOfFrustum = false;
         }
         else if (currentCamera->type != CameraType::SCENE)
         {
             mesh.second.outOfFrustum = false;
         }*/
 
-        if (!mesh.second.Update())
+        if (!mesh.second.mesh.Update())
         {
+            if (mesh.second.mesh.isIndependent)
+                Application::Instance()->renderer3D->renderManager.SetSelectedMesh(&mesh.second);
             continue;
         }
 
-        modelMatrices.push_back(mesh.second.modelMatrix); // Insert updated matrices
-        textureIDs.push_back(mesh.second.OpenGLTextureID);
-        mesh.second.OpenGLTextureID = -1; // Reset this, in case the next frame our texture ID changes to -1.
+        modelMatrices.push_back(mesh.second.mesh.modelMatrix); // Insert updated matrices
+        textureIDs.push_back(mesh.second.mesh.OpenGLTextureID);
+        mesh.second.mesh.OpenGLTextureID = -1; // Reset this, in case the next frame our texture ID changes to -1.
     }
 
     if (!modelMatrices.empty())
     {
         // Update View and Projection matrices
-        instancedShader->Bind();
+        instancedShader->shader.Bind();
 
-        instancedShader->SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
-        instancedShader->SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
+        instancedShader->shader.SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
+        instancedShader->shader.SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
 
         // Draw using Dynamic Geometry
         glBindVertexArray(VAO);
@@ -107,7 +114,7 @@ void InstanceRenderer::Draw()
 
         for (int i = 0; i < TextureManager::bindedTextures; i++)
         {
-            instancedShader->SetInt(("textures[" + std::to_string(i) + "]").c_str(), i);
+            instancedShader->shader.SetInt(("textures[" + std::to_string(i) + "]").c_str(), i);
         }
 
         // Draw
@@ -131,8 +138,8 @@ void InstanceRenderer::Draw2D()
     // Draw transparent objects with a draw call per mesh.
     for (auto& mesh : meshes)
     {
-        float zComponent = mesh.second.modelMatrix.Transposed().TranslatePart().z;
-        orderedMeshes.emplace(std::make_pair(zComponent, &mesh.second));
+        float zComponent = mesh.second.mesh.modelMatrix.Transposed().TranslatePart().z;
+        orderedMeshes.emplace(std::make_pair(zComponent, &mesh.second.mesh));
     }
 
     for (auto mesh = orderedMeshes.rbegin(); mesh != orderedMeshes.rend(); mesh++)
@@ -143,43 +150,6 @@ void InstanceRenderer::Draw2D()
         }
     }
     orderedMeshes.clear();
-
-    //if (!modelMatrices.empty())
-    //{
-    //    // Update View and Projection matrices
-    //    mesh2DShader->Bind();
-
-    //    // Draw using Dynamic Geometry
-    //    glBindVertexArray(VAO);
-
-    //    // Update Model matrices
-    //    glBindBuffer(GL_ARRAY_BUFFER, MBO);
-    //    void* ptr = glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY);
-    //    memcpy(ptr, &modelMatrices.front(), modelMatrices.size() * sizeof(float4x4));
-    //    glUnmapBuffer(GL_ARRAY_BUFFER);
-
-    //    // Update TextureIDs
-    //    glBindBuffer(GL_ARRAY_BUFFER, TBO);
-    //    void* ptr2 = glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY);
-    //    memcpy(ptr2, &textureIDs.front(), textureIDs.size() * sizeof(float));
-    //    glUnmapBuffer(GL_ARRAY_BUFFER);
-
-    //    for (int i = 0; i < TextureManager::bindedTextures; i++)
-    //    {
-    //        mesh2DShader->SetInt(("textures[" + std::to_string(i) + "]").c_str(), i);
-    //    }
-
-    //    // Draw
-    //    glDrawElementsInstanced(GL_TRIANGLES, totalIndices->size(), GL_UNSIGNED_INT, 0, modelMatrices.size());
-    //    glBindVertexArray(0);
-    //}
-
-    //// Reset model matrices.
-    //modelMatrices.clear();
-    //textureIDs.clear();
-    //orderedMeshes.clear();
-    //TextureManager::UnBindTextures();
-
 }
 
 uint InstanceRenderer::AddMesh()
@@ -189,8 +159,8 @@ uint InstanceRenderer::AddMesh()
         LOG("Trying to add mesh information into a RenderManager that has not been initialized yet!");
     }
     uint meshID = ++IDcounter; // We use a counter for easier debugging, but this could be an UUID.
-    meshes[meshID].localAABB = resource->localAABB;
-    meshes[meshID].resource = this->resource;
+    meshes[meshID].mesh.localAABB = resource->localAABB;
+    meshes[meshID].mesh.resource = this->resource;
 
     // If our instance capacity is too low, reserve more memory inside the opengl buffer.
     if (instanceNum < meshes.size())
@@ -212,10 +182,10 @@ void InstanceRenderer::DrawInstance(Mesh* mesh, bool useBasicShader)
             glBindTexture(GL_TEXTURE_2D, 0);
         }
 
-        perMeshShader->Bind();
-        perMeshShader->SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
-        perMeshShader->SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
-        perMeshShader->SetMatFloat4v("model", &mesh->modelMatrix.v[0][0]);
+        perMeshShader->shader.Bind();
+        perMeshShader->shader.SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
+        perMeshShader->shader.SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
+        perMeshShader->shader.SetMatFloat4v("model", &mesh->modelMatrix.v[0][0]);
     }
 
     glBindVertexArray(BasicVAO);

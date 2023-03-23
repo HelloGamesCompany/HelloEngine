@@ -3,7 +3,7 @@
 #include "Globals.h"
 
 class MeshRenderComponent;
-class MaterialComponent;
+class TextureComponent;
 class ImWindowGame;
 
 
@@ -29,7 +29,7 @@ private:
 protected:
 
 	MeshRenderComponent* _meshRenderer = nullptr;
-	MaterialComponent* _material = nullptr;
+	TextureComponent* _material = nullptr;
 
 	uint _UUID = 0;
 };

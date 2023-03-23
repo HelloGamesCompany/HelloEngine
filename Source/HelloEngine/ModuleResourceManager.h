@@ -174,6 +174,46 @@ public:
 
 };
 
+class ResourceShader : public Resource
+{
+public:
+    ResourceShader() {};
+
+    void Recompile(std::string text)
+    {
+        ModuleFiles::S_Save(resourcePath, text.data(), text.length(), false);
+
+        shader.Recompile(resourcePath);
+
+        version = HelloUUID::GenerateUUID();
+    }
+
+    Shader shader;
+
+    int version;
+
+    bool _onEditor = false;
+};
+
+class ResourceMaterial : public Resource
+{
+public:
+    ResourceMaterial() {};
+    ~ResourceMaterial() {};
+
+    void UnLoad() override
+    {
+        json j;
+        material.Save(j);
+
+        std::string buffer = j.dump(4);
+        ModuleFiles::S_Save(resourcePath, buffer.data(), buffer.length(), false);
+
+        material.Clear();
+    }
+
+    Material material;
+};
 
 class ResourceScript : public Resource
 {
@@ -250,9 +290,13 @@ public:
     // Only for internal engine usage!
     static ResourceMesh* S_CreateResourceMesh(const std::string& filePath, uint UID, const std::string& name, bool load = true, ResourceModel* model = nullptr);
 
+    static ResourceShader* S_CreateResourceShader(const std::string& filePath, uint UID, const std::string& name, bool load = true);
+
     static Resource* S_LoadResource(const uint& UID);
 
     static bool S_IsResourceCreated(const uint& UID);
+
+    static std::vector<Resource*> S_GetResourcePool(ResourceType type);
 
 private:
     static void GetResourcePath(ModelNode& node, std::vector<std::string>& vector);

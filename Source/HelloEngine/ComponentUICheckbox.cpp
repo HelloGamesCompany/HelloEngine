@@ -1,7 +1,7 @@
 #include "Headers.h"
 #include "ComponentUICheckbox.h"
 #include "GameObject.h"
-#include "MaterialComponent.h"
+#include "TextureComponent.h"
 
 ComponentUICheckbox::ComponentUICheckbox(GameObject* gameObject) : ComponentUI(gameObject)
 {

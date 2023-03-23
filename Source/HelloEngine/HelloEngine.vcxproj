@@ -80,7 +80,7 @@
       <PreprocessorDefinitions>WIN32;_CONSOLE;_DEBUG;STANDALONE;WINDOWS_IGNORE_PACKING_MISMATCH;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <AdditionalIncludeDirectories>$(SolutionDir)Source\External\Optick\include;$(SolutionDir)Source\External\freetype\include;$(SolutionDir)Source\HelloEngine;$(SolutionDir)Source\External\Glew\include;$(SolutionDir)Source\External\SDL\include;$(SolutionDir)Source\External\imgui;$(SolutionDir)Source\External\MathGeoLib\include;$(SolutionDir)Source\External\json\include\single_include\nlohmann;$(SolutionDir)Output\HelloAPI\Source;$(SolutionDir)Source\External\PugiXml\src;$(SolutionDir)Source\External\PhysFS\include;%(AdditionalIncludeDirectories);$(SolutionDir)Source\External\Assimp\include;$(SolutionDir)Source\External\DevIL\include;$(SolutionDir)Source\External\mmgr;$(SolutionDir)Source\External\Bullet\include;$(SolutionDir)Source\External\Wwise\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Source\External\ImGuiColorTextEdit;$(SolutionDir)Source\External\Optick\include;$(SolutionDir)Source\External\freetype\include;$(SolutionDir)Source\HelloEngine;$(SolutionDir)Source\External\Glew\include;$(SolutionDir)Source\External\SDL\include;$(SolutionDir)Source\External\imgui;$(SolutionDir)Source\External\MathGeoLib\include;$(SolutionDir)Source\External\json\include\single_include\nlohmann;$(SolutionDir)Output\HelloAPI\Source;$(SolutionDir)Source\External\PugiXml\src;$(SolutionDir)Source\External\PhysFS\include;%(AdditionalIncludeDirectories);$(SolutionDir)Source\External\Assimp\include;$(SolutionDir)Source\External\DevIL\include;$(SolutionDir)Source\External\mmgr;$(SolutionDir)Source\External\Bullet\include;$(SolutionDir)Source\External\Wwise\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>Headers.h</PrecompiledHeaderFile>
@@ -106,7 +106,7 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;STANDALONE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <AdditionalIncludeDirectories>$(SolutionDir)Source\External\freetype\include;$(SolutionDir)Source\HelloEngine;$(SolutionDir)Source\External\Glew\include;$(SolutionDir)Source\External\SDL\include;$(SolutionDir)Source\External\imgui;$(SolutionDir)Source\External\MathGeoLib\include;$(SolutionDir)Source\External\json\include\single_include\nlohmann;$(SolutionDir)Output\HelloAPI\Source;$(SolutionDir)Source\External\PugiXml\src;%(AdditionalIncludeDirectories);$(SolutionDir)Source\External\Assimp\include;$(SolutionDir)Source\External\PhysFS\include;$(SolutionDir)Source\External\DevIL\include;$(SolutionDir)Source\External\mmgr;$(SolutionDir)Source\External\Bullet\include;$(SolutionDir)Source\External\Wwise\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Source\External\ImGuiColorTextEdit;$(SolutionDir)Source\External\freetype\include;$(SolutionDir)Source\HelloEngine;$(SolutionDir)Source\External\Glew\include;$(SolutionDir)Source\External\SDL\include;$(SolutionDir)Source\External\imgui;$(SolutionDir)Source\External\MathGeoLib\include;$(SolutionDir)Source\External\json\include\single_include\nlohmann;$(SolutionDir)Output\HelloAPI\Source;$(SolutionDir)Source\External\PugiXml\src;%(AdditionalIncludeDirectories);$(SolutionDir)Source\External\Assimp\include;$(SolutionDir)Source\External\PhysFS\include;$(SolutionDir)Source\External\DevIL\include;$(SolutionDir)Source\External\mmgr;$(SolutionDir)Source\External\Bullet\include;$(SolutionDir)Source\External\Wwise\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <Optimization>MaxSpeed</Optimization>
     </ClCompile>
@@ -133,7 +133,7 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;AK_OPTIMIZED;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <AdditionalIncludeDirectories>$(SolutionDir)Source\External\freetype\include;$(SolutionDir)Source\HelloEngine;$(SolutionDir)Source\External\Glew\include;$(SolutionDir)Source\External\SDL\include;$(SolutionDir)Source\External\imgui;$(SolutionDir)Source\External\MathGeoLib\include;$(SolutionDir)Source\External\json\include\single_include\nlohmann;$(SolutionDir)Output\HelloAPI\Source;$(SolutionDir)Source\External\PugiXml\src;%(AdditionalIncludeDirectories);$(SolutionDir)Source\External\Assimp\include;$(SolutionDir)Source\External\PhysFS\include;$(SolutionDir)Source\External\DevIL\include;$(SolutionDir)Source\External\mmgr;$(SolutionDir)Source\External\Bullet\include;$(SolutionDir)Source\External\Wwise\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Source\External\freetype\include;$(SolutionDir)Source\HelloEngine;$(SolutionDir)Source\External\Glew\include;$(SolutionDir)Source\External\SDL\include;$(SolutionDir)Source\External\imgui;$(SolutionDir)Source\External\MathGeoLib\include;$(SolutionDir)Source\External\json\include\single_include\nlohmann;$(SolutionDir)Output\HelloAPI\Source;$(SolutionDir)Source\External\PugiXml\src;%(AdditionalIncludeDirectories);$(SolutionDir)Source\External\Assimp\include;$(SolutionDir)Source\External\PhysFS\include;$(SolutionDir)Source\External\DevIL\include;$(SolutionDir)Source\External\mmgr;$(SolutionDir)Source\External\Bullet\include;$(SolutionDir)Source\External\Wwise\include;$(SolutionDir)Source\External\ImGuiColorTextEdit</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <Optimization>Disabled</Optimization>
     </ClCompile>
@@ -152,6 +152,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\External\ImGuiColorTextEdit\TextEditor.cpp" />
     <ClCompile Include="..\External\imgui\imgui.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
@@ -344,6 +345,7 @@
     <ClCompile Include="API\HelloBehavior.cpp" />
     <ClCompile Include="ImGuiUtils.cpp" />
     <ClCompile Include="ImWindowGame.cpp" />
+    <ClCompile Include="ImWindowGLSL.cpp" />
     <ClCompile Include="ImWindowHierarchy.cpp" />
     <ClCompile Include="ImWindowInspector.cpp" />
     <ClCompile Include="ImWindowPerformanceTest.cpp" />
@@ -361,9 +363,12 @@
     <ClCompile Include="Layer.cpp" />
     <ClCompile Include="LayerGame.cpp" />
     <ClCompile Include="LayerUI.cpp" />
+    <ClCompile Include="Lighting.cpp" />
     <ClCompile Include="Log.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Material.cpp" />
     <ClCompile Include="MaterialComponent.cpp" />
+    <ClCompile Include="TextureComponent.cpp" />
     <ClCompile Include="MeshImporter.cpp" />
     <ClCompile Include="MeshRenderComponent.cpp" />
     <ClCompile Include="Particle.cpp" />
@@ -402,10 +407,12 @@
     <ClCompile Include="TextureManager.cpp" />
     <ClCompile Include="EngineTime.cpp" />
     <ClCompile Include="TransformComponent.cpp" />
+    <ClCompile Include="Uniform.cpp" />
     <ClCompile Include="UUID.cpp" />
     <ClCompile Include="XMLNode.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\External\ImGuiColorTextEdit\TextEditor.h" />
     <ClInclude Include="..\External\imgui\imconfig.h" />
     <ClInclude Include="..\External\imgui\imgui.h" />
     <ClInclude Include="..\External\imgui\ImGuizmo\GraphEditor.h" />
@@ -508,6 +515,7 @@
     <ClInclude Include="API\API_Camera.h" />
     <ClInclude Include="API\API_ParticleSystem.h" />
     <ClInclude Include="Application.h" />
+    <ClInclude Include="BaseShader.h" />
     <ClInclude Include="BillBoardComponent.h" />
     <ClInclude Include="CameraComponent.h" />
     <ClInclude Include="CameraObject.h" />
@@ -536,6 +544,7 @@
     <ClInclude Include="API\HelloBehavior.h" />
     <ClInclude Include="ImGuiUtils.h" />
     <ClInclude Include="ImWindowGame.h" />
+    <ClInclude Include="ImWindowGLSL.h" />
     <ClInclude Include="ImWindowHierarchy.h" />
     <ClInclude Include="ImWindowInspector.h" />
     <ClInclude Include="ImWindowPerformanceTest.h" />
@@ -553,7 +562,10 @@
     <ClInclude Include="Layer.h" />
     <ClInclude Include="LayerGame.h" />
     <ClInclude Include="LayerUI.h" />
+    <ClInclude Include="Lighting.h" />
+    <ClInclude Include="Material.h" />
     <ClInclude Include="MaterialComponent.h" />
+    <ClInclude Include="TextureComponent.h" />
     <ClInclude Include="MemLeaks.h" />
     <ClInclude Include="MeshImporter.h" />
     <ClInclude Include="MeshRenderComponent.h" />
@@ -588,6 +600,7 @@
     <ClInclude Include="ScriptComponent.h" />
     <ClInclude Include="ScriptToInspectorInterface.h" />
     <ClInclude Include="Shader.h" />
+    <ClInclude Include="ShaderData.h" />
     <ClInclude Include="SkinnedMeshRenderComponent.h" />
     <ClInclude Include="TextRendererComponent.h" />
     <ClInclude Include="Texture.h" />
@@ -596,6 +609,7 @@
     <ClInclude Include="EngineTime.h" />
     <ClInclude Include="Timer.hpp" />
     <ClInclude Include="TransformComponent.h" />
+    <ClInclude Include="Uniform.h" />
     <ClInclude Include="UUID.h" />
     <ClInclude Include="XMLNode.h" />
   </ItemGroup>

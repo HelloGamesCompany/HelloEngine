@@ -4,7 +4,7 @@
 #include "ModuleLayers.h"
 #include "TransformComponent.h"
 #include "ModuleResourceManager.h"
-#include "MaterialComponent.h"
+#include "TextureComponent.h"
 #include "LayerEditor.h"
 #include "File_Model.h"
 #include "SkinnedMeshRenderComponent.h"
@@ -425,7 +425,7 @@ void MeshImporter::LoadMeshNode(std::string filePath, GameObject* parent)
 
 void MeshImporter::LoadTexture(uint resourceUID, GameObject* parent)
 {
-	MaterialComponent* newMaterial = parent->AddComponent<MaterialComponent>();
+	TextureComponent* newMaterial = parent->AddComponent<TextureComponent>();
 	newMaterial->ChangeTexture((ResourceTexture*)ModuleResourceManager::S_LoadResource(resourceUID));
 }
 

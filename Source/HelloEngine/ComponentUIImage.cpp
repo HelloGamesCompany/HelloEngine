@@ -1,7 +1,7 @@
 #include "Headers.h"
 #include "ComponentUIImage.h"
 #include "GameObject.h"
-#include "MaterialComponent.h"
+#include "TextureComponent.h"
 #include "ImWindowGame.h"
 #include "LayerEditor.h"
 
