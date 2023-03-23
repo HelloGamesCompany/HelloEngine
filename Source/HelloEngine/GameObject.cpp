@@ -430,6 +430,7 @@ Component* GameObject::AddComponentOfType(Component::Type type)
         break;
     case Component::Type::MATERIAL:
         newComponent = new MaterialComponent(this);
+        _components.push_back(newComponent);
         break;
     case Component::Type::UI_INPUT:
         newComponent = new ComponentUIInput(this);
