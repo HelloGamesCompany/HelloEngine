@@ -11,6 +11,7 @@
 #include "../Player/PlayerStats.h"
 
 class SwapWeapon;
+class PlayerMove;
 
 class PlayerGunManager : HelloBehavior
 {
@@ -48,4 +49,8 @@ public:
      // HUD
     API_GameObject HUDGameObject;
     SwapWeapon* HUDScript;
+
+    // Player reference
+    API_GameObject playerMoveGameObject;
+    PlayerMove* playerMovementScript = nullptr;
 };

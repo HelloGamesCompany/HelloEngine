@@ -563,10 +563,17 @@ void DragBoxAnimationResource::OnEditor()
 	}
 	else
 	{
-		ResourceAnimation* animRes = (ResourceAnimation*)ModuleResourceManager::resources[*animationUID];
-		std::string gameObjectName(animRes->debugName);
-		std::string text = "(" + gameObjectName + ")" + ": AnimationResource";
-		ImGui::TextColored(ImVec4(1, 1, 0, 1), text.c_str());
+		ResourceMesh* animRes = (ResourceMesh*)ModuleResourceManager::resources[*animationUID];
+		if (animRes != nullptr)
+		{
+			std::string gameObjectName(animRes->debugName);
+			std::string text = "(" + gameObjectName + ")" + ": Mesh Resource";
+			ImGui::TextColored(ImVec4(1, 1, 0, 1), text.c_str());
+		}
+		else
+		{
+			ImGui::TextColored(ImVec4(1, 0, 0, 1), "Reference Lost! Drag the Mesh again here.");
+		}
 	}
 
 	if (ImGui::BeginDragDropTarget())

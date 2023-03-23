@@ -215,8 +215,6 @@ void PlayerGamepadMovement::Update()
     if (Input::GetGamePadButton(GamePadButton::BUTTON_X) == KeyState::KEY_DOWN)
     {
         int a = gameObject.GetTransform().GetGlobalRotation().y;
-
-        Console::Log(std::to_string(a));
     }
 
     if (currentAnim != playingAnim)
@@ -275,13 +273,13 @@ void PlayerGamepadMovement::GamepadAim()
 
     if (Input::GetKey(KeyCode::KEY_F) == KeyState::KEY_DOWN)
     {
-        Console::Log(std::to_string(_angle));
+        //Console::Log(std::to_string(_angle));
 
-        Console::Log(std::to_string(Input::GetGamePadAxis(GamePadAxis::AXIS_RIGHTX)));
-        Console::Log(std::to_string(Input::GetGamePadAxis(GamePadAxis::AXIS_RIGHTY)));
+        //Console::Log(std::to_string(Input::GetGamePadAxis(GamePadAxis::AXIS_RIGHTX)));
+        //Console::Log(std::to_string(Input::GetGamePadAxis(GamePadAxis::AXIS_RIGHTY)));
 
-        Console::Log(std::to_string(mousePos.x));
-        Console::Log(std::to_string(mousePos.y));
+        //Console::Log(std::to_string(mousePos.x));
+        //Console::Log(std::to_string(mousePos.y));
     }
     gameObject.GetTransform().SetRotation(0, -_angle, 0);
 
