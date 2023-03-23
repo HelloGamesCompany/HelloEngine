@@ -15783,7 +15783,7 @@
             {
                 "Active camera": true,
                 "Active culling": true,
-                "Aspect ratio": 1.7828655242919922,
+                "Aspect ratio": 1.7934621572494507,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -15874,5 +15874,275 @@
         "PrefabUID": 0,
         "Tag": "Default",
         "UID": 4070031504
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Node",
+        "ParentUID": 2830428646,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2026557884
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -9.552054405212402,
+                    1.105398178100586,
+                    8.695277214050293
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2695652184,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "MaterialUID": 4169411347,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Plano para Planos",
+        "ParentUID": 2026557884,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1310768363
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Node",
+        "ParentUID": 2830428646,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 775695703
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -9.547344207763672,
+                    2.7529029846191406,
+                    9.574152946472168
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 1208408312,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "MaterialUID": 1015684153,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Lampara panel herramientas",
+        "ParentUID": 775695703,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 4086725955
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -9.550450325012207,
+                    2.1212005615234375,
+                    9.616767883300781
+                ],
+                "Rotation": [
+                    179.99996948242188,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 1,
+                "ModelUID": 1208408312,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "MaterialUID": 1015684153,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Panel para herramientas",
+        "ParentUID": 775695703,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1839189534
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Node",
+        "ParentUID": 2830428646,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 69339883
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -14.935620307922363,
+                    1.7655292749404907,
+                    -4.686465263366699
+                ],
+                "Rotation": [
+                    -90.0,
+                    1.3660377589985728e-05,
+                    -45.000003814697266
+                ],
+                "Scale": [
+                    99.99999237060547,
+                    99.99999237060547,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 0,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "MaterialUID": 0,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Estanteria memarte",
+        "ParentUID": 69339883,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 4263720935
     }
 ]
