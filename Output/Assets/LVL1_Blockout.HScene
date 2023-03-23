@@ -35,103 +35,6 @@
             {
                 "Enabled": true,
                 "Position": [
-                    -8.01099967956543,
-                    24.803428649902344,
-                    35.03923034667969
-                ],
-                "Rotation": [
-                    55.0,
-                    0.0,
-                    0.0
-                ],
-                "Scale": [
-                    1.0000863075256348,
-                    0.9999992251396179,
-                    1.0000507831573486
-                ],
-                "Type": 1
-            },
-            {
-                "Active camera": true,
-                "Active culling": false,
-                "Aspect ratio": 1.544283390045166,
-                "Enabled": true,
-                "FOV": 60.0,
-                "Far plane": 2000.0,
-                "Frustum type": 2,
-                "Near plane": 0.009999999776482582,
-                "Orthographic size": 10.0,
-                "Type": 4
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Target": 3079281768
-                    },
-                    {
-                        "Delay": 0.019999999552965164
-                    },
-                    {
-                        "Offset_X": 0.0
-                    },
-                    {
-                        "Offset_Y": 25.0
-                    },
-                    {
-                        "Offset_Z": -16.0
-                    },
-                    {
-                        "Rot_Offset_X": 55.0
-                    },
-                    {
-                        "Rot_Offset_Y": 0.0
-                    },
-                    {
-                        "Rot_Offset_Z": 0.0
-                    },
-                    {
-                        "Target": 3079281768
-                    },
-                    {
-                        "Delay": 0.019999999552965164
-                    },
-                    {
-                        "Offset_X": 0.0
-                    },
-                    {
-                        "Offset_Y": 25.0
-                    },
-                    {
-                        "Offset_Z": -16.0
-                    },
-                    {
-                        "Rot_Offset_X": 55.0
-                    },
-                    {
-                        "Rot_Offset_Y": 0.0
-                    },
-                    {
-                        "Rot_Offset_Z": 0.0
-                    }
-                ],
-                "Script Resource": 118417560,
-                "Type": 5
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "PlayerCamera",
-        "ParentUID": 2462894403,
-        "PrefabUID": 0,
-        "Tag": "Default",
-        "UID": 2234365864
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
                     0.0,
                     0.0,
                     0.0
@@ -45948,13 +45851,13 @@
                 "Enabled": true,
                 "Position": [
                     0.0,
-                    0.0,
-                    0.0
+                    12.112850189208984,
+                    0.6290666460990906
                 ],
                 "Rotation": [
+                    -0.0,
                     0.0,
-                    0.0,
-                    0.0
+                    -0.0
                 ],
                 "Scale": [
                     1.0,
@@ -45969,7 +45872,7 @@
                 "ModelUID": 13,
                 "ParticleModules": {
                     "ModuleEmission": {
-                        "ParticlesPerSecond": 10
+                        "ParticlesPerSecond": 20
                     },
                     "ModuleMain": {
                         "BeginScale": [
@@ -45986,6 +45889,7 @@
                         ],
                         "LifeTime": 5.0,
                         "Looping": true,
+                        "PlayOnAwake": false,
                         "Speed": [
                             0.0,
                             0.0,
@@ -51840,5 +51744,398 @@
         "PrefabUID": 0,
         "Tag": "Default",
         "UID": 3881590118
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -8.01099967956543,
+                    24.803428649902344,
+                    35.03923034667969
+                ],
+                "Rotation": [
+                    55.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0000863075256348,
+                    0.9999992251396179,
+                    1.0000507831573486
+                ],
+                "Type": 1
+            },
+            {
+                "Active camera": true,
+                "Active culling": false,
+                "Aspect ratio": 1.9408766031265259,
+                "Enabled": true,
+                "FOV": 60.0,
+                "Far plane": 2000.0,
+                "Frustum type": 2,
+                "Near plane": 0.009999999776482582,
+                "Orthographic size": 10.0,
+                "Type": 4
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Target": 3079281768
+                    },
+                    {
+                        "Delay": 0.019999999552965164
+                    },
+                    {
+                        "Offset_X": 0.0
+                    },
+                    {
+                        "Offset_Y": 25.0
+                    },
+                    {
+                        "Offset_Z": -16.0
+                    },
+                    {
+                        "Rot_Offset_X": 55.0
+                    },
+                    {
+                        "Rot_Offset_Y": 0.0
+                    },
+                    {
+                        "Rot_Offset_Z": 0.0
+                    },
+                    {
+                        "Target": 3079281768
+                    },
+                    {
+                        "Delay": 0.019999999552965164
+                    },
+                    {
+                        "Offset_X": 0.0
+                    },
+                    {
+                        "Offset_Y": 25.0
+                    },
+                    {
+                        "Offset_Z": -16.0
+                    },
+                    {
+                        "Rot_Offset_X": 55.0
+                    },
+                    {
+                        "Rot_Offset_Y": 0.0
+                    },
+                    {
+                        "Rot_Offset_Z": 0.0
+                    }
+                ],
+                "Script Resource": 118417560,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "PlayerCamera",
+        "ParentUID": 2462894403,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2234365864
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -1.686903953552246,
+                    0.0,
+                    -7.506650447845459
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 13,
+                "ParticleModules": {
+                    "ModuleEmission": {
+                        "ParticlesPerSecond": 40
+                    },
+                    "ModuleMain": {
+                        "BeginScale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "Delay": 0.0,
+                        "Duration": 0.0,
+                        "EndScale": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "LifeTime": 5.0,
+                        "Looping": true,
+                        "PlayOnAwake": true,
+                        "Speed": [
+                            0.0,
+                            1.0,
+                            0.0
+                        ],
+                        "SpeedVariation": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "acceleration": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
+                    }
+                },
+                "ResourceTextUID": 2209918018,
+                "Type": 6
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "sASONNN",
+        "ParentUID": 2462894403,
+        "PrefabUID": 3610339853,
+        "Tag": "Default",
+        "UID": 439970804
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -12.201923370361328,
+                    -10.27932071685791,
+                    88.5903091430664
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 1834708374,
+                "ParticleModules": {
+                    "ModuleEmission": {
+                        "ParticlesPerSecond": 5
+                    },
+                    "ModuleMain": {
+                        "BeginScale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "Delay": 0.0,
+                        "Duration": 0.0,
+                        "EndScale": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "LifeTime": 5.0,
+                        "Looping": true,
+                        "PlayOnAwake": true,
+                        "Speed": [
+                            0.0,
+                            1.0,
+                            0.0
+                        ],
+                        "SpeedVariation": [
+                            0.0,
+                            1.0,
+                            1.0
+                        ],
+                        "acceleration": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
+                    }
+                },
+                "ResourceTextUID": 1439898906,
+                "Type": 6
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "dRAGNITE MOMENTO",
+        "ParentUID": 2462894403,
+        "PrefabUID": 849538543,
+        "Tag": "Default",
+        "UID": 1416245296
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -12.201923370361328,
+                    -10.27932071685791,
+                    108.71202850341797
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 1834708374,
+                "ParticleModules": {
+                    "ModuleEmission": {
+                        "ParticlesPerSecond": 5
+                    },
+                    "ModuleMain": {
+                        "BeginScale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "Delay": 0.0,
+                        "Duration": 0.0,
+                        "EndScale": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "LifeTime": 5.0,
+                        "Looping": true,
+                        "PlayOnAwake": true,
+                        "Speed": [
+                            0.0,
+                            1.0,
+                            0.0
+                        ],
+                        "SpeedVariation": [
+                            0.0,
+                            1.0,
+                            1.0
+                        ],
+                        "acceleration": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
+                    }
+                },
+                "ResourceTextUID": 1439898906,
+                "Type": 6
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "dRAGNITE MOMENTO",
+        "ParentUID": 2462894403,
+        "PrefabUID": 849538543,
+        "Tag": "Default",
+        "UID": 4023236283
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    29.68158531188965,
+                    3.6866369247436523,
+                    36.88829040527344
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 1834708374,
+                "ParticleModules": {
+                    "ModuleEmission": {
+                        "ParticlesPerSecond": 5
+                    },
+                    "ModuleMain": {
+                        "BeginScale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "Delay": 0.0,
+                        "Duration": 0.0,
+                        "EndScale": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "LifeTime": 5.0,
+                        "Looping": true,
+                        "PlayOnAwake": true,
+                        "Speed": [
+                            0.0,
+                            1.0,
+                            0.0
+                        ],
+                        "SpeedVariation": [
+                            0.0,
+                            1.0,
+                            1.0
+                        ],
+                        "acceleration": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
+                    }
+                },
+                "ResourceTextUID": 1439898906,
+                "Type": 6
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "dRAGNITE MOMENTO",
+        "ParentUID": 2462894403,
+        "PrefabUID": 849538543,
+        "Tag": "Default",
+        "UID": 1146082806
     }
 ]
