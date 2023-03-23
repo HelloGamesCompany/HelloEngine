@@ -186,6 +186,7 @@
 		<ClCompile Include="..\..\Assets\Scripts\UI Test folder\HpBar.cpp" />
 		<ClCompile Include="..\..\Assets\Scripts\UI Test folder\UIManager.cpp" />
 		<ClCompile Include="../../Assets/Scripts/LevelEndTrigger.cpp" />
+		<ClCompile Include="../../Assets/Scripts/Player/Temp_Teleporter.cpp" />
 	</ItemGroup>
 	<ItemGroup>
 		<ClInclude Include="..\..\Assets\Scripts\Enemies\EnemyMeleeMovement.h" />
@@ -239,6 +240,7 @@
 		<ClInclude Include="../../Assets/Scripts/Enemies/EnemyProjectilePull.h" />
 		<ClInclude Include="../../Assets/Scripts/Enemies/EnemyProjectile.h" />
 		<ClInclude Include="../../Assets/Scripts/LevelEndTrigger.h" />
+		<ClInclude Include="../../Assets/Scripts/Player/Temp_Teleporter.h" />
 	</ItemGroup>
 	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 	<ImportGroup Label="ExtensionTargets" />
