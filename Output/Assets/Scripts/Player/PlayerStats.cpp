@@ -1,4 +1,5 @@
 #include "PlayerStats.h"
+#include "../UI Test folder/HpBar.h"
 HELLO_ENGINE_API_C PlayerStats* CreatePlayerStats(ScriptToInspectorInterface* script)
 {
     PlayerStats* classInstance = new PlayerStats();
@@ -7,18 +8,21 @@ HELLO_ENGINE_API_C PlayerStats* CreatePlayerStats(ScriptToInspectorInterface* sc
     script->AddDragInt("Laser Ammo", &classInstance->laserAmmo);
     script->AddDragInt("Fire Ammo", &classInstance->fireAmmo);
     script->AddDragInt("Ricochet Ammo", &classInstance->ricochetAmmo);
+    script->AddDragBoxGameObject("Health bar", &classInstance->hpGameObject);
     return classInstance;
 }
 
 void PlayerStats::Start()
 {
     currentHp = maxHp;
-
+    healthBar = (HpBar*)hpGameObject.GetScript("HpBar");
     detected = false;
 }
 
 void PlayerStats::Update()
 {
+    healthBar->maxHp = this->maxHp;
+    healthBar->hp = this->currentHp;
     // test purpose to show on VS2
     if (Input::GetKey(KeyCode::KEY_Y) == KeyState::KEY_DOWN) TakeDamage(5.0f);
     if (Input::GetKey(KeyCode::KEY_U) == KeyState::KEY_DOWN) TakeDamage(maxHp / 2.0f); // heal only testing
@@ -40,7 +44,7 @@ void PlayerStats::TakeDamage(float amount)
     }
     else
     {
-        inmunityTime = 0.5f;
+        inmunityTime = 2.0f;
         // hit animation?
     }
 }
