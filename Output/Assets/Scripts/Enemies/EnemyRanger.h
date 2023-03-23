@@ -7,55 +7,68 @@
 
 class EnemyRanger : HelloBehavior
 {
+    enum class AnimationState
+    {
+        NONE,
+        IDLE,
+        WALK
+    };
+
 public:
-	enum class States {
-		TARGETING,
-		WANDERING,
-		ATTACKIG
-		 
-	};
-	void Start() override;
-	void Update() override;
+    enum class States {
+        TARGETING,
+        WANDERING,
+        ATTACKIG
 
-	void Seek(float vel, API_Vector3 tarPos);
-	void Wander(float vel, API_Vector3 point);
-	void Attacking(float vel, API_Vector3 tarPos);
+    };
+    void Start() override;
+    void Update() override;
 
-	API_Vector3 NormalizeVec3(float x, float y, float z);
+    void Seek(float vel, API_Vector3 tarPos);
+    void Wander(float vel, API_Vector3 point);
+    void Attacking(float vel, API_Vector3 tarPos);
 
-	float Lerp(float a, float b, float time);
+    API_Vector3 NormalizeVec3(float x, float y, float z);
 
-	bool wander = false;
-	bool targeting = false;
+    float Lerp(float a, float b, float time);
 
-	float detectionDis = 300.0f;
-	float lossingDis = 350.0f;
-	//distance between player and enemy while the enemy is aiming the player
-	float disPlayer = 200.0f;
-	float disShoot = 250.0f;
+    bool wander = false;
+    bool targeting = false;
 
-	float cooldownPoint =3.0f;
-	float outTime = 3.0f;
+    float detectionDis = 300.0f;
+    float lossingDis = 350.0f;
+    //distance between player and enemy while the enemy is aiming the player
+    float disPlayer = 200.0f;
+    float disShoot = 250.0f;
 
-	API_GameObject target;
-	API_GameObject actionZone;
+    float cooldownPoint = 3.0f;
+    float outTime = 3.0f;
 
-	API_RigidBody zoneRb;
+    API_GameObject target;
+    API_GameObject actionZone;
 
-	API_GameObject listPoints[5];
-	int numPoint = 0;
+    API_RigidBody zoneRb;
 
-	API_Vector3 actualPoint;
+    API_GameObject listPoints[5];
+    int numPoint = 0;
 
-	States enemState;
+    API_Vector3 actualPoint;
 
-	//EnemyGun* enemyGun = nullptr;
-	//API_GameObject gunObj;
+    States enemState;
+
+    // animation
+    AnimationState animState;
+    API_AnimationPlayer animationPlayer;
+    uint idleAnim;
+    uint walkAnim;
+
+    //EnemyGun* enemyGun = nullptr;
+    //API_GameObject gunObj;
 private:
-	int _avalPoints = 0;
-	float _movCooldown;//max time that can be outside the zone
-	float _outCooldown;//max time that can be outside the zone
-	bool _canWalk = false;
-	
+    int _avalPoints = 0;
+    float _movCooldown;//max time that can be outside the zone
+    float _outCooldown;//max time that can be outside the zone
+    bool _canWalk = false;
+
 };
- 
+
