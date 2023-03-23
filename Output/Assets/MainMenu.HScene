@@ -266,21 +266,6 @@
                     },
                     {
                         "Collectibles": 1057867941
-                    },
-                    {
-                        "Continue": 351199318
-                    },
-                    {
-                        "NewGame": 1741124431
-                    },
-                    {
-                        "Exit": 1551021094
-                    },
-                    {
-                        "Settings": 3765630460
-                    },
-                    {
-                        "Collectibles": 1057867941
                     }
                 ],
                 "Script Resource": 186220908,
@@ -478,9 +463,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Velocity": 0.5
-                    },
                     {
                         "Velocity": 0.5
                     }
