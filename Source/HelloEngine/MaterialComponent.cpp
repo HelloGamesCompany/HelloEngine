@@ -20,6 +20,7 @@ MaterialComponent::~MaterialComponent()
 	_resource = nullptr;
 }
 
+#ifdef STANDALONE
 void MaterialComponent::OnEditor()
 {
 	bool created = true;
@@ -57,7 +58,7 @@ void MaterialComponent::OnEditor()
 	if (!created)
 		this->_gameObject->DestroyComponent(this);
 }
-
+#endif
 void MaterialComponent::MaterialDragNDrop()
 {
 	std::string btnTxt = "EMPTY";

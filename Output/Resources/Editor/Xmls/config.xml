@@ -2,7 +2,7 @@
 <config>
 	<window>
 		<width value="1920" />
-		<height value="1057" />
+		<height value="1017" />
 		<brightness value="1" />
 	</window>
 	<renderer>
@@ -10,7 +10,7 @@
 		<framerate value="120" />
 	</renderer>
 	<scene>
-		<currentScene value="Assets/LVL1_Blockout.HScene" />
+		<currentScene value="Assets/MainMenu.HScene" />
 	</scene>
 	<openGL>
 		<blend value="true" tag="0x0BE2" />

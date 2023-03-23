@@ -54,7 +54,7 @@
             {
                 "Active camera": true,
                 "Active culling": false,
-                "Aspect ratio": 2.046783685684204,
+                "Aspect ratio": 1.6881028413772583,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 2000.0,
@@ -50222,9 +50222,9 @@
                 "IsTrigger": true,
                 "Mass": 0.0,
                 "RenderColColor": [
-                    0.5,
                     0.0,
                     0.5,
+                    0.21395349502563477,
                     1.0
                 ],
                 "ShapeSelected": 1,
@@ -50323,9 +50323,9 @@
                 "IsTrigger": false,
                 "Mass": 0.0,
                 "RenderColColor": [
-                    0.5,
                     0.0,
                     0.5,
+                    0.03255808353424072,
                     1.0
                 ],
                 "ShapeSelected": 1,
@@ -50352,5 +50352,791 @@
         "PrefabUID": 0,
         "Tag": "Default",
         "UID": 658374994
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -16.892959594726563,
+                    0.0,
+                    21.61334228515625
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "ColPosition": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "GlobalGravity": [
+                    0.0,
+                    -10.0,
+                    0.0
+                ],
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    false,
+                    true,
+                    false
+                ],
+                "IsShapeSelected": [
+                    false,
+                    true,
+                    false
+                ],
+                "IsStatic": false,
+                "IsTrigger": false,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    0.0,
+                    0.5,
+                    0.004651069641113281,
+                    1.0
+                ],
+                "ShapeSelected": 1,
+                "SphereHorSlices": 16,
+                "SphereRadius": 12.399999618530273,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Point 1: ": 139432025
+                    }
+                ],
+                "Script Resource": 2880680727,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Trigger3",
+        "ParentUID": 2893333807,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1526674908
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -20.266746520996094,
+                    -12.60596752166748,
+                    44.85536575317383
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "TP3",
+        "ParentUID": 2893333807,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 139432025
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -16.668560028076172,
+                    -16.077852249145508,
+                    29.088729858398438
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "ColPosition": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "GlobalGravity": [
+                    0.0,
+                    -10.0,
+                    0.0
+                ],
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    false,
+                    true,
+                    false
+                ],
+                "IsShapeSelected": [
+                    false,
+                    true,
+                    false
+                ],
+                "IsStatic": false,
+                "IsTrigger": false,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    0.037209272384643555,
+                    0.5,
+                    0.0,
+                    1.0
+                ],
+                "ShapeSelected": 1,
+                "SphereHorSlices": 16,
+                "SphereRadius": 13.300000190734863,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Point 1: ": 2558188049
+                    }
+                ],
+                "Script Resource": 2375007746,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Trigger4",
+        "ParentUID": 2893333807,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 770923565
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -15.961795806884766,
+                    0.0,
+                    6.22127628326416
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "TP4",
+        "ParentUID": 2893333807,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2558188049
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    9.818662643432617,
+                    -15.442770957946777,
+                    85.79716491699219
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "ColPosition": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "GlobalGravity": [
+                    0.0,
+                    -10.0,
+                    0.0
+                ],
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    false,
+                    true,
+                    false
+                ],
+                "IsShapeSelected": [
+                    false,
+                    true,
+                    false
+                ],
+                "IsStatic": false,
+                "IsTrigger": false,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    0.0,
+                    0.7069767713546753,
+                    0.1052243635058403,
+                    1.0
+                ],
+                "ShapeSelected": 1,
+                "SphereHorSlices": 16,
+                "SphereRadius": 15.899999618530273,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Point 1: ": 2869837807
+                    }
+                ],
+                "Script Resource": 2375007746,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Trigger5",
+        "ParentUID": 2893333807,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1409488339
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    32.07075119018555,
+                    9.541459439788014e-05,
+                    71.5134048461914
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "TP5",
+        "ParentUID": 2893333807,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2869837807
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    19.133277893066406,
+                    -0.000244140625,
+                    80.1571273803711
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "ColPosition": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "GlobalGravity": [
+                    0.0,
+                    -10.0,
+                    0.0
+                ],
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    false,
+                    true,
+                    false
+                ],
+                "IsShapeSelected": [
+                    false,
+                    true,
+                    false
+                ],
+                "IsStatic": false,
+                "IsTrigger": false,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    0.0,
+                    0.5,
+                    0.03255808353424072,
+                    1.0
+                ],
+                "ShapeSelected": 1,
+                "SphereHorSlices": 16,
+                "SphereRadius": 17.5,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Point 1: ": 2454296566
+                    }
+                ],
+                "Script Resource": 2880680727,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Trigger6",
+        "ParentUID": 2893333807,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3394318523
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -1.9533915519714355,
+                    -13.352556228637695,
+                    91.69697570800781
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "TP6",
+        "ParentUID": 2893333807,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2454296566
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -3.2513139247894287,
+                    -11.367104530334473,
+                    167.7928466796875
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "ColPosition": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "GlobalGravity": [
+                    0.0,
+                    -10.0,
+                    0.0
+                ],
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    false,
+                    true,
+                    false
+                ],
+                "IsShapeSelected": [
+                    false,
+                    true,
+                    false
+                ],
+                "IsStatic": false,
+                "IsTrigger": false,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    0.07906979322433472,
+                    0.5,
+                    0.0,
+                    1.0
+                ],
+                "ShapeSelected": 1,
+                "SphereHorSlices": 16,
+                "SphereRadius": 18.5,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Point 1: ": 3881590118
+                    }
+                ],
+                "Script Resource": 2880680727,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Trigger7",
+        "ParentUID": 2893333807,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3897284718
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -6.405121803283691,
+                    -13.221455574035645,
+                    151.48870849609375
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "TP8",
+        "ParentUID": 2893333807,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2595394373
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    1.3757152557373047,
+                    59.05023193359375,
+                    174.802490234375
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "ColPosition": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "GlobalGravity": [
+                    0.0,
+                    -10.0,
+                    0.0
+                ],
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    false,
+                    true,
+                    false
+                ],
+                "IsShapeSelected": [
+                    false,
+                    true,
+                    false
+                ],
+                "IsStatic": false,
+                "IsTrigger": false,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    0.09302330017089844,
+                    0.5,
+                    0.0,
+                    1.0
+                ],
+                "ShapeSelected": 1,
+                "SphereHorSlices": 16,
+                "SphereRadius": 15.800000190734863,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Point 1: ": 2595394373
+                    }
+                ],
+                "Script Resource": 2880680727,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Trigger8",
+        "ParentUID": 2893333807,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3073771628
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    6.321720123291016,
+                    63.06265640258789,
+                    185.88206481933594
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "TP7",
+        "ParentUID": 2893333807,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3881590118
     }
 ]

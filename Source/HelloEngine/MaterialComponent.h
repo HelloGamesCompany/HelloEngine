@@ -12,7 +12,11 @@ public:
 	void Serialization(json& j) override;
 	void DeSerialization(json& j) override;
 
+#ifdef STANDALONE
 	void OnEditor() override;
+
+#endif // STANDALONE
+
 
 	int GetResourceUID();
 
