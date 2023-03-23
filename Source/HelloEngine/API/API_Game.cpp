@@ -2,6 +2,7 @@
 #include "API_Game.h"
 #include "ModuleLayers.h"
 #include "Console.h"
+#include "LayerGame.h"
 
 void API::Game::FindGameObject(const char* name)
 {
@@ -29,4 +30,14 @@ API::API_GameObject API::Game::CreateGameObject(const char* name, const char* ta
 	newAPIGameObject.SetGameObject(newGameObject);
 
 	return newAPIGameObject;
+}
+
+TO_API void API::Game::ExitApplication()
+{
+#ifdef STANDALONE
+	LayerGame::S_Stop();
+#else
+	Application::Instance()->Exit();
+#endif // STANDALONE
+
 }

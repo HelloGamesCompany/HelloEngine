@@ -11,7 +11,7 @@ HELLO_ENGINE_API_C AnimationTest* CreateAnimationTest(ScriptToInspectorInterface
 
 void AnimationTest::Start()
 {
-	anim.Play();
+	anim.Play();   
 }
 void AnimationTest::Update()
 {

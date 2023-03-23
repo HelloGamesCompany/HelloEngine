@@ -9,6 +9,7 @@ enum class CameraType
 	GAME,
 };
 
+class ResourceShader;
 
 class CameraObject
 {
@@ -28,6 +29,8 @@ public:
 
 	float* GetViewMatrixNoTransp();
 	float* GetProjectionMatrixNoTransp();
+
+	float3 GetPosition();
 
 	void ChangeToOrthograpic();
 	void ChangeToPerspective();
@@ -72,7 +75,7 @@ private:
 
 	std::vector<uint> boxIndices;
 
-	Shader* localLineShader = nullptr;
+	ResourceShader* localLineShader = nullptr;
 	uint VAO = 0;
 	uint VBO = 0;
 	uint IBO = 0;

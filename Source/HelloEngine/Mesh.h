@@ -3,6 +3,7 @@
 
 #include "Math/float3.h"
 #include "Shader.h"
+#include "Material.h"
 
 
 #define MAX_BONE_WEIGHTS 4
@@ -10,6 +11,7 @@
 
 class MeshRenderComponent;
 class ResourceMesh;
+class ResourceShader;
 
 struct Vertex
 {
@@ -42,9 +44,15 @@ public:
 
 	// Only to be used for meshes that cannot be drawn with instanced rendering (meshes with transparency).
 	void CreateBufferData();
-	void Draw(bool useBasicShader = true);
+	void Draw(Material* material = nullptr, bool useMaterial = true);
 	// ----------------------------------------------------------------------------------------------------
+private:
+	void DefaultDraw();
 
+	void UniformDraw(Material* material);
+
+public:
+	void DrawAsSelected(Material* material);
 	void DrawAsSelected();
 
 	void InitAsMesh(std::vector<Vertex>& vertices, std::vector<uint>& indices);
@@ -78,6 +86,7 @@ public:
 	AABB localAABB;
 
 	bool isIndependent = false;
+	bool is2D = false;
 
 private:
 	ResourceMesh* resource = nullptr;
@@ -88,9 +97,10 @@ private:
 	uint _VAO = 0;
 	uint _VBO = 0;
 	uint _IBO = 0;
-	Shader* drawPerMeshShader = nullptr;
+	ResourceShader* drawPerMeshShader = nullptr;
+	Shader* drawPerMesh2D = nullptr;
 	// ----------------------------------------------------------------------------------------------------
-	Shader* boneMeshShader = nullptr;
+	ResourceShader* boneMeshShader = nullptr;
 
 	Shader stencilShader;
 

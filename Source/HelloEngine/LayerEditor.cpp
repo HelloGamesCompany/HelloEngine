@@ -22,6 +22,7 @@
 #include "ImWindowGame.h"
 #include "ImWindowPerformanceTest.h"
 #include "ImWindowResources.h"
+#include "ImWindowGLSL.h"
 
 #include "ModuleLayers.h"
 #include "LayerGame.h"
@@ -48,7 +49,6 @@ uint LayerEditor::_nextImageID = 0;
 bool LayerEditor::_showCompilationWarning = false;
 bool LayerEditor::_showCompilationError = false;
 bool LayerEditor::_cannotCancel = false;
-
 
 LayerEditor::LayerEditor()
 {
@@ -121,6 +121,7 @@ void LayerEditor::Start()
 		_imWindows[(uint)ImWindowID::GAME] = new ImWindowGame();
 		_imWindows[(uint)ImWindowID::PERFORMANCE] = new ImWindowPerformanceTest();
 		_imWindows[(uint)ImWindowID::RESOURCES] = new ImWindowResources();
+		_imWindows[(uint)ImWindowID::GLSL] = new ImWindowGLSL();
 	}
 
 	// Reserve space for popUpMessages
@@ -154,6 +155,8 @@ void LayerEditor::Start()
 
 	// Check automatic compilation
 	_showCompilationWarning = !ModuleFiles::S_IsMSBuildOn();
+
+	EngineTime::StartEngine();
 }
 
 void LayerEditor::PreUpdate()
@@ -232,7 +235,9 @@ void LayerEditor::PostUpdate()
 			_imWindows[i]->Update();
     }
 
+#ifdef STANDALONE
 	Application::Instance()->renderer3D->renderManager.OnEditor();
+#endif
 
 	if (_openLoadScene)
 		DrawPopUpLoadScene();
@@ -337,6 +342,13 @@ void LayerEditor::S_ChangeColors(bool playMode)
 		ImVec4(0.65f + redIncrement, 0.65f, 0.65f, 1);
 
 	style.Colors[ImGuiCol_MenuBarBg] = ImVec4(0.1f + redIncrement, 0.1f, 0.1f, 1);
+}
+
+void LayerEditor::S_OpenShader(uint UID)
+{
+	ImWindowGLSL* win = (ImWindowGLSL*)_imWindows[(uint)ImWindowID::GLSL];
+
+	win->SetShader(UID);
 }
 
 void LayerEditor::DrawPopUpLoadScene()
@@ -489,6 +501,12 @@ void LayerEditor::DrawAssetsTree(Directory*& newDir, Directory* node, const bool
 	}
 }
 
+void LayerEditor::S_ReimportAllAssets()
+{
+	ImWindowProject* proj = (ImWindowProject*)_imWindows[(uint)ImWindowID::PROJECT];
+	proj->RefreshAssets();
+}
+
 void LayerEditor::DrawMenuBar()
 {
 	if (ImGui::BeginMainMenuBar())
@@ -562,6 +580,15 @@ void LayerEditor::DrawMenuBar()
 			for (int i = 0; i < (uint)ImWindowID::MAX; i++)
 			{
 				ImGui::MenuItem(_imWindows[i]->windowName.c_str(), (const char*)0, &_imWindows[i]->isEnabled);
+			}
+			ImGui::EndMenu();
+		}
+
+		if (ImGui::BeginMenu("Tools"))
+		{
+			if (ImGui::MenuItem("Reimport all assets"))
+			{
+				S_ReimportAllAssets();
 			}
 			ImGui::EndMenu();
 		}

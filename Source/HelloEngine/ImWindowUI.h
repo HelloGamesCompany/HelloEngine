@@ -25,7 +25,7 @@ private:
 private:
 	ModuleCamera3D* _moduleCamera = nullptr;
 
-	SceneCameraObject* _sceneCamera = nullptr;
+	SceneCameraObject* _UICamera = nullptr;
 
 	int _sceneWidth = 1;
 

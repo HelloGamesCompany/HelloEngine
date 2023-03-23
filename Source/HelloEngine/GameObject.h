@@ -2,7 +2,7 @@
 #include "Component.h"
 #include "TransformComponent.h"
 
-#define COMPONENT_NUM 8
+#define COMPONENT_NUM 9
 
 struct PhysBody3D;
 
@@ -88,12 +88,12 @@ public:
 
 	void OnCollisionEnter(PhysBody3D* other);
 
-
+#ifdef STANDALONE
     void OnEditor();
     bool MarkAsDead();
 
     bool MarkAsAlive();
-
+#endif
     void Destroy();
 
     template <class T>
@@ -135,7 +135,7 @@ private:
     bool _updatePrefab;
 
 	// On Editor variables
-	std::string _comboValues[COMPONENT_NUM] = { "Mesh Renderer", "Material", "Camera", "Script", "Physics","Particle System","Skinned Mesh Renderer", "Animation Player"};
+	std::string _comboValues[COMPONENT_NUM] = { "Mesh Renderer", "Texture", "Camera", "Script", "Physics","Particle System","Skinned Mesh Renderer", "Animation Player", "Material"};
 	bool _isPendingToDelete = false;
     std::vector<int> _childrenDeletedIndex;
     friend class TransformComponent;

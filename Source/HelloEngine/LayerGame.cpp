@@ -75,9 +75,6 @@ void LayerGame::PreUpdate()
 			frameWaitHotReload = 100;
 		}
 	}
-#ifndef STANDALONE
-	//_isPlaying = true; // Temporal code. Only to make the Runtime version to play automatically on start.
-#endif // !STANDALONE
 
 	if ((!_isPlaying || _paused) && !_oneFrame)
 	{
@@ -128,8 +125,12 @@ void LayerGame::S_Play()
 	if (_needsReload || _compileDLL)
 		return;
 
-	LayerEditor::S_ChangeColors(true);
+	if (_isPlaying)
+		return;
 
+#ifdef STANDALONE
+	LayerEditor::S_ChangeColors(true);
+#endif
 	ModuleCommand::_canUseCommand = false;
 	// TODO: Save scene.
 	currentScene = Application::Instance()->xml->GetConfigXML().FindChildBreadth("currentScene").node.attribute("value").as_string();
@@ -143,9 +144,7 @@ void LayerGame::S_Play()
 	{
 		behaviorScript.second.script->Init();
 		if (behaviorScript.second.active)
-		{
 			behaviorScript.second.script->Start();
-		}
 		else
 			behaviorScript.second.lateStart = true;
 	}

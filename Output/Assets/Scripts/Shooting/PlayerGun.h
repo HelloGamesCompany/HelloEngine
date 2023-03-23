@@ -1,4 +1,7 @@
 #pragma once
+
+#define SHOT_BUFFER 0.3f
+
 #include "API/HelloBehavior.h"
 #include "ScriptToInspectorInterface.h"
 #include "Macro.h"
@@ -6,20 +9,26 @@
 #include "API/API.h"
 
 #include "ProjectilePull.h"
-#include "../PlayerGamepadMovement.h"
+#include "Projectile.h"
+#include "../Player/PlayerStats.h"
 
-class PlayerGun : HelloBehavior
+class PlayerGun : protected HelloBehavior
 {
 public:
     void Start() override;
     void Update() override;
 
     virtual void Shoot();
+    virtual void EnableGuns(bool enable);
 
 protected:
-    void LauchProjectile();
+    void LauchProjectile(API_Transform projectileSpawn, PROJECTILE_ACTION projectileAction = PROJECTILE_ACTION::NONE, bool randomDirection = false);
+    void PlayShotSound(std::string eventString);
 
 public:
+    API_GameObject player;
+    PlayerStats* playerStats;
+
     API_GameObject projectilePull;
 
     float projectileSpeed;
@@ -27,8 +36,16 @@ public:
     float projectileResistanceDamage;
     float projectileLifetime;
     API_Transform shootingSpawn;
-    API_MeshRenderer projectileMesh;
+    uint projectileMesh;
+    uint projectileMaterial;
+    API_Vector3 projectileScale;
 
     float cadence;
+
+    int ammoType;
+    std::string audioEventString;
+
+    API_AnimationPlayer playerAnimator;
+    uint shootAnim = 0;
 };
 

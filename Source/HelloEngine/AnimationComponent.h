@@ -2,8 +2,6 @@
 #include "Component.h"
 
 struct ResourceAnimation;
-
-
 class Animation;
 
 class AnimationComponent : public Component
@@ -26,8 +24,9 @@ public:
 
 	bool IsPlaying() { return isPlaying; };
 
+#ifdef STANDALONE
 	void OnEditor() override;
-
+#endif
 private:
 	void AnimationDropArea();
 	

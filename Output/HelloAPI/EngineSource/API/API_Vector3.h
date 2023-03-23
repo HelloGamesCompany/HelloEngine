@@ -52,12 +52,6 @@ namespace API
 
 		API_Vector3 operator -() const;
 
-		//friend std::ostream& operator<<(std::ostream& output, const API_Vector3& vec3)
-		//{
-		//	output << "X : " << vec3.x << "\nY : " << vec3.y << "\nZ : " << vec3.z;
-		//	return output;
-		//}
-
 		float Distance(const API_Vector3& other);
 
 		static float S_Distance(const API_Vector3& vec, const API_Vector3& vec2);

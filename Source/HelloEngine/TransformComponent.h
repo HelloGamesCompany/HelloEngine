@@ -77,8 +77,9 @@ public:
     float3 GetRight();
     float3 GetUp();
 
+#ifdef STANDALONE
     void OnEditor() override;
-
+#endif
     void ForceUpdate();
 
     bool CheckDirtyFlag() { return _dirtyFlag; }

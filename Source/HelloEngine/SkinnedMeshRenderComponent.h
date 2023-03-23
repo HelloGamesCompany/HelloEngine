@@ -10,16 +10,17 @@ public:
 	void Serialization(json& j) override;
 	void DeSerialization(json& j) override;
 
-	void CreateMesh(uint resourceUID, MeshRenderType type = MeshRenderType::INDEPENDENT) override;
+	void CreateMesh(uint resourceUID, int materialUID = -1, MeshRenderType type = MeshRenderType::INSTANCED) override;
 
+#ifdef STANDALONE
 	void OnEditor() override;
-
+#endif
 	void RootBoneDropArea();
 
 	void UpdateBones(Animation3D* animation = nullptr, float animationTime = 0);
 
 private:
-	void LinkBones(GameObject* goBone, std::map<std::string, BoneData> boneDataMap, Animation3D* animation = nullptr, float4x4 parentTransform = float3x4::identity, float animationTime = 0);
+	void LinkBones(GameObject* goBone, std::map<std::string, BoneData>& boneDataMap, Animation3D* animation = nullptr, float4x4 parentTransform = float3x4::identity, float animationTime = 0);
 
 public:
 	bool hasAnim = false;

@@ -4,7 +4,7 @@
 #include "ModuleLayers.h"
 #include "TransformComponent.h"
 #include "ModuleResourceManager.h"
-#include "MaterialComponent.h"
+#include "TextureComponent.h"
 #include "LayerEditor.h"
 #include "File_Model.h"
 #include "SkinnedMeshRenderComponent.h"
@@ -194,7 +194,7 @@ uint MeshImporter::ProcessTexture(const std::string& textureName)
 	// Check if the given texture is inside the current folder.
 	std::string folder = currentPath.substr(0, currentPath.find_last_of('/')+1);
 
-	std::string textureAsset = folder + textureName;
+	std::string textureAsset = folder + ModuleFiles::S_GetFileName(textureName, true);
 
 	// If the texture is inside the same folder
 	if (ModuleFiles::S_Exists(textureAsset))
@@ -425,7 +425,7 @@ void MeshImporter::LoadMeshNode(std::string filePath, GameObject* parent)
 
 void MeshImporter::LoadTexture(uint resourceUID, GameObject* parent)
 {
-	MaterialComponent* newMaterial = parent->AddComponent<MaterialComponent>();
+	TextureComponent* newMaterial = parent->AddComponent<TextureComponent>();
 	newMaterial->ChangeTexture((ResourceTexture*)ModuleResourceManager::S_LoadResource(resourceUID));
 }
 

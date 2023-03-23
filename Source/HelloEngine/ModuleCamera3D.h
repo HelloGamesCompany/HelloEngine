@@ -38,6 +38,7 @@ public:
 	CameraObject* activeGameCamera = nullptr;
 
 	SceneCameraObject* sceneCamera = nullptr;
+	SceneCameraObject* UICamera = nullptr;
 
 	CameraObject* currentDrawingCamera = nullptr;
 

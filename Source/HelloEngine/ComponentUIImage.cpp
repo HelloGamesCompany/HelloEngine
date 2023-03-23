@@ -1,7 +1,7 @@
 #include "Headers.h"
 #include "ComponentUIImage.h"
 #include "GameObject.h"
-#include "MaterialComponent.h"
+#include "TextureComponent.h"
 #include "ImWindowGame.h"
 #include "LayerEditor.h"
 
@@ -64,6 +64,7 @@ void ComponentUIImage::OnEditor()
 	ImGui::Text("Fill Image");
 	ImGui::SameLine();
 
+	//fill image
 	float aux1 = _fillImage;
 	if (ImGui::DragFloat("##fill", &_fillImage, 0.001f, 0, 1))
 	{

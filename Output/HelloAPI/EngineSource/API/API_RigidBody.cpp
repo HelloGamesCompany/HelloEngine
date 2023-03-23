@@ -66,6 +66,18 @@ API::API_Vector3 API::API_RigidBody::GetGravity()
 	return _rigidBody->GetGravity();
 }
 
+float API::API_RigidBody::GetRadius()
+{
+	float ret = _rigidBody->GetRadius();
+
+	if (ret <= 0) 
+	{
+		Engine::Console::S_Log("Trying to get a radius a non sphere rigidbody!!!");
+	}
+
+	return ret;
+}
+
 PhysicsComponent* API::API_RigidBody::GetComponent()
 {
 	if (!_rigidBody) 

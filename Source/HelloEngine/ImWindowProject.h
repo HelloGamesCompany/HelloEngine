@@ -17,7 +17,11 @@ public:
 
     void UpdateFileNodes();
 
+    void RefreshAssets();
+
 private:
+    void RefreshAssetsPerDir(Directory* dir);
+
     void DrawTreeNodePanelLeft(Directory*& newDir, Directory* node, const bool drawFiles = true) const;
 
     void DrawTreeNodePanelRight(Directory*& newDir);
@@ -29,6 +33,10 @@ private:
     void PanelCreateFolder();
 
     void PanelCreateScript();
+
+    void PanelCreateShader();
+
+    void PanelCreateMaterial();
 
     void DrawDeleteMessage();
 
@@ -68,6 +76,12 @@ private:
 
     // Create Script
     bool _openCreateScriptPanel = false;
+
+    //Create Shader
+    bool _openCreateShaderPanel = false;
+
+    //Create Material
+    bool _openCreateMaterialPanel = false;
 
     std::string _temporalName = "default";
 

@@ -49,6 +49,28 @@ void ImWindowResources::Update()
 				}
 			}
 		}
+		if (ImGui::CollapsingHeader("Shaders"))
+		{
+			for (auto& resource : ModuleResourceManager::resources)
+			{
+				if (resource.second->type == ResourceType::SHADER)
+				{
+					ImGui::Text(resource.second->debugName.c_str()); ImGui::SameLine();
+					ImGui::TextColored(ImVec4(1, 0, 1, 1), std::to_string(resource.second->referenceCount).c_str());
+				}
+			}
+		}
+		if (ImGui::CollapsingHeader("Material"))
+		{
+			for (auto& resource : ModuleResourceManager::resources)
+			{
+				if (resource.second->type == ResourceType::MATERIAL)
+				{
+					ImGui::Text(resource.second->debugName.c_str()); ImGui::SameLine();
+					ImGui::TextColored(ImVec4(1, 0, 1, 1), std::to_string(resource.second->referenceCount).c_str());
+				}
+			}
+		}
 	}
 	ImGui::End();
 }

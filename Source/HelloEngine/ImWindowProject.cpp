@@ -10,208 +10,229 @@
 #include "ModuleLayers.h"
 #include "LayerEditor.h"
 
+#include "BaseShader.h"
 
 ImWindowProject::ImWindowProject()
 {
-    windowName = "Project";
+	windowName = "Project";
 
-    isEnabled = true;
+	isEnabled = true;
 
-    _app = Application::Instance();
+	_app = Application::Instance();
 
-    _window = ModuleWindow::window;
+	_window = ModuleWindow::window;
 
-    ModuleResourceManager::S_GetFileTree(_fileTree);
+	ModuleResourceManager::S_GetFileTree(_fileTree);
 
-    // Init delete object;
-    _deleteFile = nullptr;
+	// Init delete object;
+	_deleteFile = nullptr;
 
-    // Init rootNode & currentNode
-    UpdateFileNodes();
+	// Init rootNode & currentNode
+	UpdateFileNodes();
 
-    // Add onDropListener event
-    ModuleInput::S_AddOnDropListener(std::bind(&ImWindowProject::OnDrop, this, std::placeholders::_1));
+	// Add onDropListener event
+	ModuleInput::S_AddOnDropListener(std::bind(&ImWindowProject::OnDrop, this, std::placeholders::_1));
 
-    // Load Icons 
-    {
-        char* buffer = nullptr;
-        int size = ModuleFiles::S_Load("Resources/Editor/Images/files.dds", &buffer);
-        _fileImageID = TextureImporter::LoadEditorDDS(buffer, size);
-        RELEASE(buffer);
+	// Load Icons 
+	{
+		char* buffer = nullptr;
+		int size = ModuleFiles::S_Load("Resources/Editor/Images/files.dds", &buffer);
+		_fileImageID = TextureImporter::LoadEditorDDS(buffer, size);
+		RELEASE(buffer);
 
-        buffer = nullptr;
-        size = ModuleFiles::S_Load("Resources/Editor/Images/folder.dds", &buffer);
-        _folderImageID = TextureImporter::LoadEditorDDS(buffer, size);
-        RELEASE(buffer);
+		buffer = nullptr;
+		size = ModuleFiles::S_Load("Resources/Editor/Images/folder.dds", &buffer);
+		_folderImageID = TextureImporter::LoadEditorDDS(buffer, size);
+		RELEASE(buffer);
 
-        buffer = nullptr;
-        size = ModuleFiles::S_Load("Resources/Editor/Images/grid.dds", &buffer);
-        _meshImageID = TextureImporter::LoadEditorDDS(buffer, size);
-        RELEASE(buffer);
+		buffer = nullptr;
+		size = ModuleFiles::S_Load("Resources/Editor/Images/grid.dds", &buffer);
+		_meshImageID = TextureImporter::LoadEditorDDS(buffer, size);
+		RELEASE(buffer);
 
-        buffer = nullptr;
-        size = ModuleFiles::S_Load("Resources/Editor/Images/modelOpen.dds", &buffer);
-        _modelImageID = TextureImporter::LoadEditorDDS(buffer, size);
-        RELEASE(buffer)
+		buffer = nullptr;
+		size = ModuleFiles::S_Load("Resources/Editor/Images/modelOpen.dds", &buffer);
+		_modelImageID = TextureImporter::LoadEditorDDS(buffer, size);
+		RELEASE(buffer)
 
-            buffer = nullptr;
-        size = ModuleFiles::S_Load("Resources/Editor/Images/scene.dds", &buffer);
-        _sceneImageID = TextureImporter::LoadEditorDDS(buffer, size);
-        RELEASE(buffer)
+			buffer = nullptr;
+		size = ModuleFiles::S_Load("Resources/Editor/Images/scene.dds", &buffer);
+		_sceneImageID = TextureImporter::LoadEditorDDS(buffer, size);
+		RELEASE(buffer)
 
-            buffer = nullptr;
-        size = ModuleFiles::S_Load("Resources/Editor/Images/image.dds", &buffer);
-        _textureImageID = TextureImporter::LoadEditorDDS(buffer, size);
-        RELEASE(buffer)
+			buffer = nullptr;
+		size = ModuleFiles::S_Load("Resources/Editor/Images/image.dds", &buffer);
+		_textureImageID = TextureImporter::LoadEditorDDS(buffer, size);
+		RELEASE(buffer)
 
-            buffer = nullptr;
-        size = ModuleFiles::S_Load("Resources/Editor/Images/h.dds", &buffer);
-        _hImageID = TextureImporter::LoadEditorDDS(buffer, size);
-        RELEASE(buffer)
+			buffer = nullptr;
+		size = ModuleFiles::S_Load("Resources/Editor/Images/h.dds", &buffer);
+		_hImageID = TextureImporter::LoadEditorDDS(buffer, size);
+		RELEASE(buffer)
 
-            buffer = nullptr;
-        size = ModuleFiles::S_Load("Resources/Editor/Images/cpp.dds", &buffer);
-        _cppImageID = TextureImporter::LoadEditorDDS(buffer, size);
-        RELEASE(buffer)
-    }
+			buffer = nullptr;
+		size = ModuleFiles::S_Load("Resources/Editor/Images/cpp.dds", &buffer);
+		_cppImageID = TextureImporter::LoadEditorDDS(buffer, size);
+		RELEASE(buffer)
+	}
 }
 
 ImWindowProject::~ImWindowProject()
 {
-    ModuleInput::S_ClearOnDropListener();
+	ModuleInput::S_ClearOnDropListener();
 }
 
 void ImWindowProject::Update()
 {
-    CheckWindowFocus();
+	CheckWindowFocus();
 
-    if (_showDeleteMessage)
-        DrawDeleteMessage();
+	if (_showDeleteMessage)
+		DrawDeleteMessage();
 
-    if (ImGui::Begin(windowName.c_str(), &isEnabled, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoScrollbar))
-    {
-        // Options, Filter
-        //if (ImGui::Button("Options")) ImGui::OpenPopup("Options");
-        //ImGui::SameLine();
-        //filter.Draw("Filter (\"incl,-excl\") (\"error\")", 180);
-        //ImGui::SameLine();
+	if (ImGui::Begin(windowName.c_str(), &isEnabled, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoScrollbar))
+	{
+		// Options, Filter
+		//if (ImGui::Button("Options")) ImGui::OpenPopup("Options");
+		//ImGui::SameLine();
+		//filter.Draw("Filter (\"incl,-excl\") (\"error\")", 180);
+		//ImGui::SameLine();
 
-        // For change directory
-        Directory* newDir = nullptr;
+		// For change directory
+		Directory* newDir = nullptr;
 
-        // Resize children width
-        // Warning, is static!!!
-        static float widthLeft = 200; // Init Size child 1
-        static float widthRight = 1200; // Init Size child 2
+		// Resize children width
+		// Warning, is static!!!
+		static float widthLeft = 200; // Init Size child 1
+		static float widthRight = 1200; // Init Size child 2
 
-        // Adjust window size
-        ImVec2 windowSize = ImGui::GetWindowSize();
+		// Adjust window size
+		ImVec2 windowSize = ImGui::GetWindowSize();
 
-        ImGui::DrawSplitter(0, 10, &widthLeft, &widthRight, 100, 200);
+		ImGui::DrawSplitter(0, 10, &widthLeft, &widthRight, 100, 200);
 
-        widthRight = (windowSize.x - widthLeft - 20);
+		widthRight = (windowSize.x - widthLeft - 20);
 
-        // Left window
-        if (widthLeft > 0)
-        {
-            ImGui::PushStyleColor(ImGuiCol_ChildBg, ImVec4(0.16f, 0.16f, 0.16f, 1));
+		// Left window
+		if (widthLeft > 0)
+		{
+			ImGui::PushStyleColor(ImGuiCol_ChildBg, ImVec4(0.16f, 0.16f, 0.16f, 1));
 
-            if (ImGui::BeginChild("ChildL", ImVec2(widthLeft, 0), true, ImGuiWindowFlags_HorizontalScrollbar))
-                DrawTreeNodePanelLeft(newDir, _rootNode, false);
-            ImGui::EndChild();
+			if (ImGui::BeginChild("ChildL", ImVec2(widthLeft, 0), true, ImGuiWindowFlags_HorizontalScrollbar))
+				DrawTreeNodePanelLeft(newDir, _rootNode, false);
+			ImGui::EndChild();
 
-            ImGui::PopStyleColor(1);
-        }
+			ImGui::PopStyleColor(1);
+		}
 
-        ImGui::SameLine();
+		ImGui::SameLine();
 
-        // Right window
-        if (widthRight > 0)
-        {
-            if (ImGui::BeginChild("ChildR", ImVec2(widthRight, 0), true, ImGuiWindowFlags_HorizontalScrollbar))
-                DrawTreeNodePanelRight(newDir);
-            ImGui::EndChild();
-        }
+		// Right window
+		if (widthRight > 0)
+		{
+			if (ImGui::BeginChild("ChildR", ImVec2(widthRight, 0), true, ImGuiWindowFlags_HorizontalScrollbar))
+				DrawTreeNodePanelRight(newDir);
+			ImGui::EndChild();
+		}
 
-        if (ImGui::BeginDragDropTarget())
-        {
-            if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("GameObject"))
-            {
-                //Drop asset from Asset window to scene window
-                const uint* drop = (uint*)payload->Data;
+		if (ImGui::BeginDragDropTarget())
+		{
+			if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("GameObject"))
+			{
+				//Drop asset from Asset window to scene window
+				const uint* drop = (uint*)payload->Data;
 
-                ModuleResourceManager::S_SerializeToPrefab(ModuleLayers::gameObjects[*drop], _fileTree->_currentDir->path);
-            }
-            ImGui::EndDragDropTarget();
-        }
+				ModuleResourceManager::S_SerializeToPrefab(ModuleLayers::gameObjects[*drop], _fileTree->_currentDir->path);
+			}
+			ImGui::EndDragDropTarget();
+		}
 
-        // Change current directory
-        if (newDir)
-            _fileTree->_currentDir = newDir;
-    }
-    ImGui::End();
+		// Change current directory
+		if (newDir)
+			_fileTree->_currentDir = newDir;
+	}
+	ImGui::End();
 
-    if (_openCreateFolderPanel)
-        PanelCreateFolder();
+	if (_openCreateFolderPanel)
+		PanelCreateFolder();
 
-    else if (_openCreateScriptPanel)
-        PanelCreateScript();
+	else if (_openCreateScriptPanel)
+		PanelCreateScript();
+
+    else if (_openCreateShaderPanel)
+        PanelCreateShader();
+
+    else if (_openCreateMaterialPanel)
+        PanelCreateMaterial();
 
     // If have any file to delete, delete this
     if (_deleteFile && _deleteFileAccepted)
     {
         ModuleFiles::S_Delete(_deleteFile->path);
 
-        if (_deleteFile->metaPath != "none")
-            ModuleResourceManager::S_DeleteMetaFile(_deleteFile->metaPath);
+		if (_deleteFile->metaPath != "none")
+			ModuleResourceManager::S_DeleteMetaFile(_deleteFile->metaPath);
 
-        _deleteFile = nullptr;
-        _deleteFileAccepted = false;
+		_deleteFile = nullptr;
+		_deleteFileAccepted = false;
 
-        UpdateFileNodes();
-    }
+		UpdateFileNodes();
+	}
 
-    // If have any folder to delete, delete this
-    if (_deleteDir && _deleteFileAccepted)
-    {
-        ModuleFiles::S_Delete(_deleteDir->path);
+	// If have any folder to delete, delete this
+	if (_deleteDir && _deleteFileAccepted)
+	{
+		ModuleFiles::S_Delete(_deleteDir->path);
 
-        UpdateFileNodes();
+		UpdateFileNodes();
 
-        _deleteDir = nullptr;
-        _deleteFileAccepted = false;
-    }
+		_deleteDir = nullptr;
+		_deleteFileAccepted = false;
+	}
+}
+
+void ImWindowProject::RefreshAssetsPerDir(Directory* dir)
+{
+	for (size_t i = 0; i < dir->files.size(); i++)
+	{
+		if (dir->files[i].metaFile.type == ResourceType::MODEL)
+		dir->files[i].Reimport();
+	}
+
+	for (size_t i = 0; i < dir->directories.size(); i++)
+	{
+		RefreshAssetsPerDir(dir->directories[i]);
+	}
 }
 
 void ImWindowProject::DrawTreeNodePanelLeft(Directory*& newDir, Directory* node, const bool drawFiles) const
 {
-    ImGuiTreeNodeFlags node_flags = ImGuiTreeNodeFlags_None | ImGuiTreeNodeFlags_OpenOnArrow;
+	ImGuiTreeNodeFlags node_flags = ImGuiTreeNodeFlags_None | ImGuiTreeNodeFlags_OpenOnArrow;
 
-    if (node == _fileTree->_currentDir)
-        node_flags |= ImGuiTreeNodeFlags_Selected;
+	if (node == _fileTree->_currentDir)
+		node_flags |= ImGuiTreeNodeFlags_Selected;
 
-    if (node->directories.empty())
-        node_flags |= ImGuiTreeNodeFlags_Leaf;
+	if (node->directories.empty())
+		node_flags |= ImGuiTreeNodeFlags_Leaf;
 
-    if (ImGui::TreeNodeEx(node->name.c_str(), node_flags))
-    {
-        // Slect node
-        if (ImGui::IsItemClicked() && !ImGui::IsItemToggledOpen())
-            newDir = node;
+	if (ImGui::TreeNodeEx(node->name.c_str(), node_flags))
+	{
+		// Slect node
+		if (ImGui::IsItemClicked() && !ImGui::IsItemToggledOpen())
+			newDir = node;
 
-        // Recursive functions
-        for (int i = 0; i < node->directories.size(); i++)
-            DrawTreeNodePanelLeft(newDir, node->directories[i], drawFiles);
+		// Recursive functions
+		for (int i = 0; i < node->directories.size(); i++)
+			DrawTreeNodePanelLeft(newDir, node->directories[i], drawFiles);
 
-        // Draw Files
-        if (drawFiles)
-            for (int i = 0; i < node->files.size(); i++)
-            {
-                ImGui::Text(node->files[i].name.c_str());
-            }
+		// Draw Files
+		if (drawFiles)
+			for (int i = 0; i < node->files.size(); i++)
+			{
+				ImGui::Text(node->files[i].name.c_str());
+			}
 
-        ImGui::TreePop();
-    }
+		ImGui::TreePop();
+	}
 }
 
 void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
@@ -363,6 +384,14 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
             case ResourceType::PREFAB:
                 ImGui::SetDragDropPayload("Prefab", &_fileTree->_currentDir->files[i].path, sizeof(std::string));
                 break;
+            case ResourceType::SHADER:
+                _dragUID = _fileTree->_currentDir->files[i].metaFile.UID;
+                ImGui::SetDragDropPayload("Shader", &_dragUID, sizeof(uint));
+                break;
+            case ResourceType::MATERIAL:
+                _dragUID = _fileTree->_currentDir->files[i].metaFile.UID;
+                ImGui::SetDragDropPayload("Material", &_dragUID, sizeof(uint));
+                break;
             }
             ImGui::EndDragDropSource();
         }
@@ -370,6 +399,12 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
         // Right click
         if (ImGui::BeginPopupContextItem()) // <-- use last item id as popup id
         {
+			if (ImGui::Button("Reimport##File"))
+			{
+				_fileTree->_currentDir->files[i].Reimport();
+				ImGui::CloseCurrentPopup();
+			}
+
             if (ImGui::Button("Delete##File"))
             {
                 _deleteFile = &_fileTree->_currentDir->files[i];
@@ -379,9 +414,47 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
             ImGui::EndPopup();
         }
 
+        static bool doubleClick = false;
+
         // Shwo file name when mouse is hovered
         if (ImGui::IsItemHovered())
+        {
             ImGui::SetTooltip(_fileTree->_currentDir->files[i].name.c_str());
+
+            if (ImGui::IsMouseDoubleClicked(ImGuiMouseButton_Left))
+            {
+                doubleClick = true;
+            }
+        }
+
+        //Double click
+        if (doubleClick)
+        {
+            type = ModuleFiles::S_GetResourceType(_fileTree->_currentDir->files[i].name);
+            switch (type)
+            {
+            case ResourceType::TEXTURE:
+                break;
+            case ResourceType::MODEL:
+                break;
+            case ResourceType::SCENE:
+                break;
+            case ResourceType::HSCRIPT:
+            case ResourceType::CPPSCRIPT:
+                break;
+            case ResourceType::ANIMATION:
+                break;
+            case ResourceType::PREFAB:
+                break;
+            case ResourceType::SHADER:
+                LayerEditor::S_OpenShader(_fileTree->_currentDir->files[i].metaFile.UID);
+                break;
+            case ResourceType::MATERIAL:
+                break;
+            }
+            doubleClick = false;
+        }
+
 
         // Show file name
         ImGui::TextWrapped(_fileTree->_currentDir->files[i].name.c_str());
@@ -426,75 +499,186 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
         if (ImGui::Selectable("Create Script"))
             _openCreateScriptPanel = true;
 
+        if (ImGui::Selectable("Create Shader"))
+        {
+            _openCreateShaderPanel = true;
+            _temporalName = "newShader";
+        }
+           
+
+        if (ImGui::Selectable("Create Material"))
+        {
+            _openCreateMaterialPanel = true;
+            _temporalName = "newMaterial";
+        }
+            
+
         ImGui::EndPopup();
     }
 }
 
 void ImWindowProject::OnDrop(const std::string filePath)
 {
-    std::string pathNormalized = ModuleFiles::S_NormalizePath(filePath);
+	std::string pathNormalized = ModuleFiles::S_NormalizePath(filePath);
 
-    // Use this for global path files
-    ModuleFiles::S_ExternalCopy(pathNormalized, _fileTree->_currentDir->path);
+	// Use this for global path files
+	ModuleFiles::S_ExternalCopy(pathNormalized, _fileTree->_currentDir->path);
 
-    std::string relativePath = _fileTree->_currentDir->path + ModuleFiles::S_GetFileName(pathNormalized);
+	std::string relativePath = _fileTree->_currentDir->path + ModuleFiles::S_GetFileName(pathNormalized);
 
-    // File case
-    File file = File(relativePath, ModuleFiles::S_GetFileName(pathNormalized), _fileTree->_currentDir);//_fileTree->_currentDir->files.emplace_back(relativePath, ModuleFiles::S_GetFileName(pathNormalized), _fileTree->_currentDir);
+	// File case
+	File file = File(relativePath, ModuleFiles::S_GetFileName(pathNormalized), _fileTree->_currentDir);//_fileTree->_currentDir->files.emplace_back(relativePath, ModuleFiles::S_GetFileName(pathNormalized), _fileTree->_currentDir);
 
-    _fileTree->_currentDir->files.push_back(file);
+	_fileTree->_currentDir->files.push_back(file);
 }
 
 void ImWindowProject::UpdateFileNodes()
 {
-    ModuleResourceManager::S_UpdateFileTree();
+	ModuleResourceManager::S_UpdateFileTree();
 
-    if (ModuleResourceManager::S_GetFileTree(_fileTree))
-        _fileTree->GetRootDir(_rootNode);
+	if (ModuleResourceManager::S_GetFileTree(_fileTree))
+		_fileTree->GetRootDir(_rootNode);
+}
+
+void ImWindowProject::RefreshAssets()
+{
+	Directory* root = nullptr;
+
+	_fileTree->GetRootDir(root);
+
+	RefreshAssetsPerDir(root);
 }
 
 void ImWindowProject::CheckWindowFocus()
 {
-    Uint32 flags = SDL_GetWindowFlags(_window);
+	Uint32 flags = SDL_GetWindowFlags(_window);
 
-    // When Global Windows has selected -> just the instante
-    if ((flags & SDL_WINDOW_INPUT_FOCUS) != 0)
-    {
-        if (!_isWindowFocus)
-        {
-            _isWindowFocus = true;
+	// When Global Windows has selected -> just the instante
+	if ((flags & SDL_WINDOW_INPUT_FOCUS) != 0)
+	{
+		if (!_isWindowFocus)
+		{
+			_isWindowFocus = true;
 
-            UpdateFileNodes();
-        }
-    }
-    // When Global Windows has deselected -> just the instante
-    else if (_isWindowFocus)
-        _isWindowFocus = false;
+			UpdateFileNodes();
+		}
+	}
+	// When Global Windows has deselected -> just the instante
+	else if (_isWindowFocus)
+		_isWindowFocus = false;
 }
 
 void ImWindowProject::PanelCreateFolder()
 {
-    ImGui::OpenPopup("Insert Name##Folder");
-    if (ImGui::BeginPopupModal("Insert Name##Folder", NULL, ImGuiWindowFlags_AlwaysAutoResize))
+	ImGui::OpenPopup("Insert Name##Folder");
+	if (ImGui::BeginPopupModal("Insert Name##Folder", NULL, ImGuiWindowFlags_AlwaysAutoResize))
+	{
+		ImGui::Text("Name: "); ImGui::SameLine();
+		ImGui::InputText("##inputTextFolderName", &_temporalName);
+
+		if (ImGui::Button("Accept"))
+		{
+			if (ModuleFiles::S_MakeDir(_fileTree->_currentDir->path + _temporalName))
+			{
+				_fileTree->_currentDir->directories.push_back(
+					new Directory(
+						_fileTree->_currentDir->path + _temporalName + "/",
+						_temporalName,
+						_fileTree->_currentDir)
+				);
+			}
+
+			_temporalName = "default";
+
+			_openCreateFolderPanel = false;
+		}
+
+		ImGui::SameLine();
+
+		if (ImGui::Button("Cancel"))
+		{
+			_temporalName = "default";
+
+			_openCreateFolderPanel = false;
+		}
+
+		ImGui::EndPopup();
+	}
+}
+
+void ImWindowProject::PanelCreateScript()
+{
+	ImGui::OpenPopup("Insert Name##Script");
+	if (ImGui::BeginPopupModal("Insert Name##Script", NULL, ImGuiWindowFlags_AlwaysAutoResize))
+	{
+		ImGui::Text("Name: "); ImGui::SameLine();
+		ImGui::InputText("##inputTextScriptName", &_temporalName);
+
+		if (ImGui::Button("Accept"))
+		{
+			if (ModuleFiles::S_CreateScriptFile(_temporalName, _fileTree->_currentDir->path.c_str()))
+			{
+				_fileTree->_currentDir->files.emplace_back(_fileTree->_currentDir->path + _temporalName + ".h", _temporalName + ".h", _fileTree->_currentDir);
+				_fileTree->_currentDir->files.emplace_back(_fileTree->_currentDir->path + _temporalName + ".cpp", _temporalName + ".cpp", _fileTree->_currentDir);
+			}
+			else
+				LayerEditor::S_AddPopUpMessage("The script with this name is already exist");
+
+			_temporalName = "default";
+
+			_openCreateScriptPanel = false;
+		}
+
+		ImGui::SameLine();
+
+		if (ImGui::Button("Cancel"))
+		{
+			_temporalName = "default";
+
+			_openCreateScriptPanel = false;
+		}
+
+
+		ImGui::EndPopup();
+	}
+}
+
+void ImWindowProject::PanelCreateShader()
+{
+    ImGui::OpenPopup("Insert Name##Shader");
+
+    if (ImGui::BeginPopupModal("Insert Name##Shader", NULL, ImGuiWindowFlags_AlwaysAutoResize))
     {
         ImGui::Text("Name: "); ImGui::SameLine();
-        ImGui::InputText("##inputTextFolderName", &_temporalName);
+        ImGui::InputText("##inputShaderName", &_temporalName);
+        ImGui::SameLine();
+        ImGui::Text(".shader");
 
         if (ImGui::Button("Accept"))
         {
-            if (ModuleFiles::S_MakeDir(_fileTree->_currentDir->path + _temporalName))
-            {
-                _fileTree->_currentDir->directories.push_back(
-                    new Directory(
-                        _fileTree->_currentDir->path + _temporalName + "/",
-                        _temporalName,
-                        _fileTree->_currentDir)
-                );
-            }
+            _temporalName.append(".shader");
+
+            std::string resourcePath = "Resources/Shaders/" + _temporalName;
+            std::string assetPath = _fileTree->_currentDir->path + _temporalName;
+
+            int size = BaseShader::newShaderTextFileUnlit.length();
+            char* cstr = BaseShader::newShaderTextFileUnlit.data();
+
+            //Save Shader to resources
+            ModuleFiles::S_Save(resourcePath, cstr, size, false);
+
+            //Save shadow file into assets
+            char buffer = 'S';
+            ModuleFiles::S_Save(assetPath, &buffer, sizeof(char), false);
+
+            //Create Metadata
+            ModuleFiles::S_CreateMetaData(assetPath, resourcePath);
+
 
             _temporalName = "default";
 
-            _openCreateFolderPanel = false;
+            _openCreateShaderPanel = false;
+            delete[] cstr;
         }
 
         ImGui::SameLine();
@@ -503,34 +687,45 @@ void ImWindowProject::PanelCreateFolder()
         {
             _temporalName = "default";
 
-            _openCreateFolderPanel = false;
+            _openCreateShaderPanel = false;
         }
 
         ImGui::EndPopup();
     }
 }
 
-void ImWindowProject::PanelCreateScript()
+void ImWindowProject::PanelCreateMaterial()
 {
-    ImGui::OpenPopup("Insert Name##Script");
-    if (ImGui::BeginPopupModal("Insert Name##Script", NULL, ImGuiWindowFlags_AlwaysAutoResize))
+    ImGui::OpenPopup("Insert Name##Material");
+
+    if (ImGui::BeginPopupModal("Insert Name##Material", NULL, ImGuiWindowFlags_AlwaysAutoResize))
     {
         ImGui::Text("Name: "); ImGui::SameLine();
-        ImGui::InputText("##inputTextScriptName", &_temporalName);
+        ImGui::InputText("##inputMaterialName", &_temporalName);
+        ImGui::SameLine();
+        ImGui::Text(".material");
 
         if (ImGui::Button("Accept"))
         {
-            if (ModuleFiles::S_CreateScriptFile(_temporalName, _fileTree->_currentDir->path.c_str()))
-            {
-                _fileTree->_currentDir->files.emplace_back(_fileTree->_currentDir->path + _temporalName + ".h", _temporalName + ".h", _fileTree->_currentDir);
-                _fileTree->_currentDir->files.emplace_back(_fileTree->_currentDir->path + _temporalName + ".cpp", _temporalName + ".cpp", _fileTree->_currentDir);
-            }
-            else
-                LayerEditor::S_AddPopUpMessage("The script with this name is already exist");
+            _temporalName.append(".material");
+
+            std::string resourcePath = "Resources/Material/" + _temporalName;
+            std::string assetPath = _fileTree->_currentDir->path + _temporalName;
+
+            char buffer = 'M';
+
+            //Resources
+            ModuleFiles::S_Save(resourcePath, &buffer, sizeof(char), false);
+
+            //Assets
+            ModuleFiles::S_Save(assetPath, &buffer, sizeof(char), false);
+
+            //Create Metadata
+            ModuleFiles::S_CreateMetaData(assetPath, resourcePath);
 
             _temporalName = "default";
 
-            _openCreateScriptPanel = false;
+            _openCreateMaterialPanel = false;
         }
 
         ImGui::SameLine();
@@ -539,9 +734,8 @@ void ImWindowProject::PanelCreateScript()
         {
             _temporalName = "default";
 
-            _openCreateScriptPanel = false;
+            _openCreateMaterialPanel = false;
         }
-
 
         ImGui::EndPopup();
     }
@@ -549,24 +743,24 @@ void ImWindowProject::PanelCreateScript()
 
 void ImWindowProject::DrawDeleteMessage()
 {
-    ImGui::OpenPopup("Delete file");
-    if (ImGui::BeginPopupModal("Delete file", NULL, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize))
-    {
-        ImGui::Text("WARNING: This action cannot be undone!");
-        ImGui::Text("Are you sure you want to delete this file? Any reference to it on the current scene will be destroyed.");
+	ImGui::OpenPopup("Delete file");
+	if (ImGui::BeginPopupModal("Delete file", NULL, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize))
+	{
+		ImGui::Text("WARNING: This action cannot be undone!");
+		ImGui::Text("Are you sure you want to delete this file? Any reference to it on the current scene will be destroyed.");
 
-        if (ImGui::Button("Close"))
-        {
-            _deleteFile = nullptr;
-            _showDeleteMessage = false;
-        }
-        ImGui::SameLine();
+		if (ImGui::Button("Close"))
+		{
+			_deleteFile = nullptr;
+			_showDeleteMessage = false;
+		}
+		ImGui::SameLine();
 
-        if (ImGui::Button("Delete"))
-        {
-            _deleteFileAccepted = true;
-            _showDeleteMessage = false;
-        }
-        ImGui::EndPopup();
-    }
+		if (ImGui::Button("Delete"))
+		{
+			_deleteFileAccepted = true;
+			_showDeleteMessage = false;
+		}
+		ImGui::EndPopup();
+	}
 }
