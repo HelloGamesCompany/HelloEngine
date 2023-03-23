@@ -40,6 +40,7 @@ void PlayerStats::TakeDamage(float amount)
     if (currentHp <= 0)
     {
         currentHp = 0;
+        Scene::LoadScene("LoseMenu.HScene");
         // death
     }
     else

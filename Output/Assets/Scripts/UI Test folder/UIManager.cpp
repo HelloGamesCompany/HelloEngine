@@ -50,7 +50,7 @@ void UIManager::Update()
 	}
 	if (finalTextConinue.OnPress())
 	{
-		Scene::LoadScene("SpaceshipHUB_Scene.HScene");
+		Scene::LoadScene("WinMenu.HScene");
 	}
 
 }

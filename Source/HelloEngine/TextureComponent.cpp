@@ -70,23 +70,6 @@ void TextureComponent::ChangeTexture(int ID)
     GetMesh().textureID = textureID;
 }
 
-void TextureComponent::MarkAsDead()
-{
-    if (currentResource != nullptr)
-    {
-        currentResource->Dereference();
-        resourceUID = currentResource->UID;
-        currentResource = nullptr;
-    }
-}
-
-void TextureComponent::MarkAsAlive()
-{
-    ChangeTexture((ResourceTexture*)ModuleResourceManager::S_LoadResource(resourceUID));
-}
-
-
-
 void TextureComponent::SetAsUI()
 {
     isUI = true;
@@ -151,6 +134,9 @@ void TextureComponent::DestroyedResource()
 {
     ChangeTexture(nullptr);
 }
+
+#ifdef STANDALONE
+
 void TextureComponent::OnEditor()
 {
 	bool created = true;
@@ -231,6 +217,22 @@ void TextureComponent::OnEditor()
 	}
 }
 
+void TextureComponent::MarkAsDead()
+{
+	if (currentResource != nullptr)
+	{
+		currentResource->Dereference();
+		resourceUID = currentResource->UID;
+		currentResource = nullptr;
+	}
+}
+
+void TextureComponent::MarkAsAlive()
+{
+	ChangeTexture((ResourceTexture*)ModuleResourceManager::S_LoadResource(resourceUID));
+}
+
+#endif
 void TextureComponent::OnEnable()
 {
     if (!meshRenderer) return;
