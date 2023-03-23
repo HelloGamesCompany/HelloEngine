@@ -306,11 +306,11 @@ uint RenderManager::Add2DMesh()
 	renderer2D->SetAs2D();
 	uint ret = manager->AddMesh();
 	ResourceMesh* plane2D = (ResourceMesh*)ModuleResourceManager::S_LoadResource(plane2DUID);
-	renderer2D->meshes[ret].InitWithResource(plane2D);
-	renderer2D->meshes[ret].localAABB = plane2D->localAABB;
-	renderer2D->meshes[ret].isIndependent = true;
-	renderer2D->meshes[ret].is2D = true;
-	renderer2D->meshes[ret].CreateBufferData();
+	renderer2D->meshes[ret].mesh.InitWithResource(plane2D);
+	renderer2D->meshes[ret].mesh.localAABB = plane2D->localAABB;
+	renderer2D->meshes[ret].mesh.isIndependent = true;
+	renderer2D->meshes[ret].mesh.is2D = true;
+	renderer2D->meshes[ret].mesh.CreateBufferData();
 	return ret;
 }
 
@@ -435,20 +435,30 @@ void RenderManager::DestroyRenderManager(uint managerUID)
 void RenderManager::SetSelectedMesh(RenderEntry* mesh)
 {
 	_selectedMesh = mesh;
+	_selectedMeshRaw = nullptr;
+}
+
+void RenderManager::SetSelectedMesh(Mesh* mesh)
+{
+	_selectedMeshRaw = mesh;
+	_selectedMesh = nullptr;
 }
 
 void RenderManager::DrawSelectedMesh()
 {
-	if (_selectedMesh == nullptr)
+	if (_selectedMesh == nullptr && _selectedMeshRaw == nullptr)
 		return;
 
-	if (_selectedMesh->material != nullptr)
+	if (_selectedMesh && _selectedMesh->material != nullptr)
 		_selectedMesh->mesh.DrawAsSelected(&_selectedMesh->material->material);
-	else
-		_selectedMesh->mesh.DrawAsSelected(nullptr);
-	
+	else if (_selectedMeshRaw != nullptr)
+		_selectedMeshRaw->DrawAsSelected();
+}
 
+void RenderManager::RemoveSelectedMesh()
+{
 	_selectedMesh = nullptr;
+	_selectedMeshRaw = nullptr;
 }
 
 void RenderManager::DrawVertexNormals(Mesh* mesh)
@@ -1057,7 +1067,7 @@ void RenderManager::DrawTextObjects()
 		if (!text.draw)
 			continue;
 
-		textRenderingShader->SetFloat3("textColor", text.color.x, text.color.y, text.color.z);
+		textRenderingShader->SetFloat3v("textColor", &text.color.At(0));
 		glActiveTexture(GL_TEXTURE0);
 		glBindVertexArray(TextVAO);
 

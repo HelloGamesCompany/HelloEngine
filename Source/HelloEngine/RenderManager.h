@@ -80,7 +80,9 @@ public:
 	void DestroyRenderManager(uint managerUID);
 
 	void SetSelectedMesh(RenderEntry* mesh);
+	void SetSelectedMesh(Mesh* mesh);
 	void DrawSelectedMesh();
+	void RemoveSelectedMesh();
 
 	void DrawVertexNormals(Mesh* mesh);
 	void DrawFaceNormals(Mesh* mesh);
@@ -111,6 +113,7 @@ private:
 	std::vector<uint> _emptyRenderManagers;
 
 	RenderEntry* _selectedMesh = nullptr;
+	Mesh* _selectedMeshRaw = nullptr;
 
 	std::vector<uint> boxIndices; // Used to display bounding boxes.
 	std::vector<uint> sphereIndices;

@@ -41,7 +41,7 @@ Mesh::~Mesh()
 	}
 	if (&Application::Instance()->renderer3D->renderManager._selectedMesh->mesh == this)
 	{
-		Application::Instance()->renderer3D->renderManager.SetSelectedMesh(nullptr);
+		Application::Instance()->renderer3D->renderManager.RemoveSelectedMesh();
 	}
 }
 
@@ -89,6 +89,13 @@ void Mesh::DefaultDraw()
 		glBindTexture(GL_TEXTURE_2D, textureID);
 	}
 
+	if (is2D)
+	{
+		drawPerMesh2D->Bind();
+		drawPerMesh2D->SetMatFloat4v("model", &modelMatrix.v[0][0]);
+		return;
+	}
+
 	if (component->_hasBones)
 	{
 		boneMeshShader->shader.Bind();
@@ -115,11 +122,6 @@ void Mesh::DefaultDraw()
 		drawPerMeshShader->shader.SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
 		drawPerMeshShader->shader.SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
 		drawPerMeshShader->shader.SetMatFloat4v("model", &modelMatrix.v[0][0]);
-	}
-	else 
-	{
-		drawPerMesh2D->Bind();
-		drawPerMesh2D->SetMatFloat4v("model", &modelMatrix.v[0][0]);
 	}
 
 }
@@ -163,8 +165,13 @@ bool Mesh::Update()
 		return false;
 	if (component && component->_gameObject->isSelected)
 	{
-		//Application::Instance()->renderer3D->renderManager.SetSelectedMesh(this);
-		return false; // We dont want to render this object twice when selected.
+		if (isIndependent)
+			return false; // We dont want to render this object twice when selected.
+		else
+		{
+			Application::Instance()->renderer3D->renderManager.SetSelectedMesh(this);
+			return false;
+		}
 	}
 	if (isIndependent) // We dont use the TextureManager to set independent meshes's textures.
 		return true;
@@ -219,6 +226,39 @@ void Mesh::DrawAsSelected(Material* material)
 		InstanceRenderer* manager = Application::Instance()->renderer3D->renderManager.GetRenderManager(component->_meshID);
 		manager->DrawInstance(this, false);
 	}
+
+	glStencilMask(0xFF);
+	glStencilFunc(GL_ALWAYS, 0, 0xFF);
+	glEnable(GL_DEPTH_TEST);
+}
+
+void Mesh::DrawAsSelected()
+{
+	//// TODO: Do this inside ModuleRender3D, and allow to enable and disable it.
+	glEnable(GL_DEPTH_TEST);
+	glEnable(GL_STENCIL_TEST);
+	glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE);
+
+	glStencilFunc(GL_ALWAYS, 1, 0xFF);
+	glStencilMask(0xFF);
+
+	InstanceRenderer* manager = Application::Instance()->renderer3D->renderManager.GetRenderManager(component->_meshID);
+	manager->DrawInstance(this);
+
+	glStencilFunc(GL_NOTEQUAL, 1, 0xFF);
+	glStencilMask(0x00);
+	glDisable(GL_DEPTH_TEST);
+
+#ifdef STANDALONE
+	stencilShader.Bind();
+	stencilShader.SetFloat("outlineSize", 0.04f);
+	stencilShader.SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
+	stencilShader.SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
+	stencilShader.SetMatFloat4v("model", &modelMatrix.v[0][0]);
+#endif
+	
+	manager = Application::Instance()->renderer3D->renderManager.GetRenderManager(component->_meshID);
+	manager->DrawInstance(this, false);
 
 	glStencilMask(0xFF);
 	glStencilFunc(GL_ALWAYS, 0, 0xFF);

@@ -53,6 +53,7 @@ private:
 
 public:
 	void DrawAsSelected(Material* material);
+	void DrawAsSelected();
 
 	void InitAsMesh(std::vector<Vertex>& vertices, std::vector<uint>& indices);
 	void InitWithResource(ResourceMesh* res);

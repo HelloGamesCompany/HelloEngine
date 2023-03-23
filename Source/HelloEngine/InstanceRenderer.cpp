@@ -79,7 +79,8 @@ void InstanceRenderer::Draw()
 
         if (!mesh.second.mesh.Update())
         {
-            Application::Instance()->renderer3D->renderManager.SetSelectedMesh(&mesh.second);
+            if (mesh.second.mesh.isIndependent)
+                Application::Instance()->renderer3D->renderManager.SetSelectedMesh(&mesh.second);
             continue;
         }
 
@@ -143,9 +144,9 @@ void InstanceRenderer::Draw2D()
 
     for (auto mesh = orderedMeshes.rbegin(); mesh != orderedMeshes.rend(); mesh++)
     {
-        if (mesh.second.mesh.Update())
+        if (mesh->second->Update())
         {
-            mesh.second.mesh.Draw();
+            mesh->second->Draw();
         }
     }
     orderedMeshes.clear();
