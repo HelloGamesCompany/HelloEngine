@@ -24,7 +24,7 @@ void MenuButtons::Update()
 	}
 	if (NewGame.OnPress())
 	{
-		Scene::LoadScene("LVL1_Blockout.HScene");
+		Scene::LoadScene("SpaceshipHUB_Scene.HScene");
 	}
 	if (Exit.OnPress())
 	{

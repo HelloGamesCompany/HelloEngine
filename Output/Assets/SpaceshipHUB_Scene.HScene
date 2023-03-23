@@ -10326,9 +10326,6 @@
                 "Inspector Fields": [
                     {
                         "Scene path and name: ": "LVL1_Blockout.HScene"
-                    },
-                    {
-                        "Scene path and name: ": "LVL1_Blockout.HScene"
                     }
                 ],
                 "Script Resource": 1471858871,
@@ -10349,18 +10346,18 @@
                 "Enabled": true,
                 "Position": [
                     0.08718446642160416,
-                    -0.0008165836334228516,
+                    0.8269394636154175,
                     5.889803886413574
                 ],
                 "Rotation": [
-                    179.99977111816406,
-                    -89.98020935058594,
-                    -179.99977111816406
+                    -0.0008879246306605637,
+                    -90.0,
+                    0.0
                 ],
                 "Scale": [
-                    1.000000238418579,
+                    1.0000001192092896,
                     1.0,
-                    1.000000238418579
+                    1.0000001192092896
                 ],
                 "Type": 1
             },
@@ -10460,39 +10457,6 @@
                     },
                     {
                         "HUD": 2338237509
-                    },
-                    {
-                        "Velocity": 10.0
-                    },
-                    {
-                        "SecToMaxVel": 0.0
-                    },
-                    {
-                        "SecToZeroVel": 0.0
-                    },
-                    {
-                        "Dash Time": 0.5
-                    },
-                    {
-                        "Dash Distance": 5.0
-                    },
-                    {
-                        "AnimationPlayer": 3431343063
-                    },
-                    {
-                        "Dash Animation": 3786266361
-                    },
-                    {
-                        "Idle Animation": 723048411
-                    },
-                    {
-                        "Run Animation": 3184153436
-                    },
-                    {
-                        "Shoot Animations": 4285907288
-                    },
-                    {
-                        "HUD": 2338237509
                     }
                 ],
                 "Script Resource": 3336682094,
@@ -10501,21 +10465,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Max HP": 100.0
-                    },
-                    {
-                        "Laser Ammo": 99999
-                    },
-                    {
-                        "Fire Ammo": 99999
-                    },
-                    {
-                        "Ricochet Ammo": 99999
-                    },
-                    {
-                        "Health bar": 293173081
-                    },
                     {
                         "Max HP": 100.0
                     },
@@ -16003,9 +15952,6 @@
                 "Inspector Fields": [
                     {
                         "Gun Type": 1
-                    },
-                    {
-                        "Gun Type": 1
                     }
                 ],
                 "Script Resource": 1187195986,
@@ -16014,43 +15960,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Projectile Speed": 100.0
-                    },
-                    {
-                        "Projectile Damage": 60.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 1.0
-                    },
-                    {
-                        "Projectile MeshIndexInsideModel": 0,
-                        "Projectile MeshModelUID": 1551155716
-                    },
-                    {
-                        "Projectile Material": 3260379948
-                    },
-                    {
-                        "Projectile ScaleX": 0.20000000298023224
-                    },
-                    {
-                        "Projectile ScaleY": 0.20000000298023224
-                    },
-                    {
-                        "Projectile ScaleZ": 0.4000000059604645
-                    },
-                    {
-                        "Projectiles per second": 1.0
-                    },
-                    {
-                        "Ammo Type": 1
-                    },
-                    {
-                        "Audio Event String": ""
-                    },
                     {
                         "Projectile Speed": 100.0
                     },
@@ -16127,9 +16036,6 @@
                 "Inspector Fields": [
                     {
                         "Gun Type": 4
-                    },
-                    {
-                        "Gun Type": 4
                     }
                 ],
                 "Script Resource": 1421097082,
@@ -16138,46 +16044,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Projectile Speed": 40.0
-                    },
-                    {
-                        "Projectile Damage": 10.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 0.5
-                    },
-                    {
-                        "Projectile MeshIndexInsideModel": 0,
-                        "Projectile MeshModelUID": 1551155716
-                    },
-                    {
-                        "Projectile Material": 3260379948
-                    },
-                    {
-                        "Projectile ScaleX": 0.05000000074505806
-                    },
-                    {
-                        "Projectile ScaleY": 0.05000000074505806
-                    },
-                    {
-                        "Projectile ScaleZ": 0.05000000074505806
-                    },
-                    {
-                        "Projectiles per second": 1.2999999523162842
-                    },
-                    {
-                        "Pellets per shot": 10
-                    },
-                    {
-                        "Ammo Type": 1
-                    },
-                    {
-                        "Audio Event String": ""
-                    },
                     {
                         "Projectile Speed": 40.0
                     },
@@ -16257,9 +16123,6 @@
                 "Inspector Fields": [
                     {
                         "Gun Type": 0
-                    },
-                    {
-                        "Gun Type": 0
                     }
                 ],
                 "Script Resource": 1421097082,
@@ -16268,46 +16131,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Projectile Speed": 30.0
-                    },
-                    {
-                        "Projectile Damage": 5.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 1.0
-                    },
-                    {
-                        "Projectile MeshIndexInsideModel": 0,
-                        "Projectile MeshModelUID": 1551155716
-                    },
-                    {
-                        "Projectile Material": 3260379948
-                    },
-                    {
-                        "Projectile ScaleX": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleY": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleZ": 0.10000000149011612
-                    },
-                    {
-                        "Projectiles per second": 3.0
-                    },
-                    {
-                        "Burst Space": 0.1599999964237213
-                    },
-                    {
-                        "Ammo Type": 0
-                    },
-                    {
-                        "Audio Event String": ""
-                    },
                     {
                         "Projectile Speed": 30.0
                     },
@@ -17263,9 +17086,6 @@
                 "Inspector Fields": [
                     {
                         "hp": false
-                    },
-                    {
-                        "hp": false
                     }
                 ],
                 "Script Resource": 1164455694,
@@ -17387,12 +17207,6 @@
                     },
                     {
                         "MAX HP": 100.0
-                    },
-                    {
-                        "HP": 100.0
-                    },
-                    {
-                        "MAX HP": 100.0
                     }
                 ],
                 "Script Resource": 3828527852,
@@ -17503,51 +17317,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Text_Weapon_1_on": 1828660828
-                    },
-                    {
-                        "Text_Weapon_1_off": 1261649561
-                    },
-                    {
-                        "Material Weapon 1": 1120877376
-                    },
-                    {
-                        "Game Bar Weapon 1": 3388116125
-                    },
-                    {
-                        "Text_Weapon_2_on": 977509463
-                    },
-                    {
-                        "Text_Weapon_2_off": 1072796038
-                    },
-                    {
-                        "Material Weapon 2": 3675484234
-                    },
-                    {
-                        "Game Bar Weapon 2": 3405447488
-                    },
-                    {
-                        "Text_Weapon_3_on": 12569475
-                    },
-                    {
-                        "Text_Weapon_3_off": 103443597
-                    },
-                    {
-                        "Material Weapon 3": 1000103047
-                    },
-                    {
-                        "Game Bar Weapon 3": 3043836677
-                    },
-                    {
-                        "Text_Dash_on": 1033923317
-                    },
-                    {
-                        "Text_Dash_off": 2440110374
-                    },
-                    {
-                        "Material_Dash": 2702449615
-                    },
                     {
                         "Text_Weapon_1_on": 1828660828
                     },
@@ -18200,7 +17969,7 @@
             {
                 "Active camera": true,
                 "Active culling": true,
-                "Aspect ratio": 1.9408766031265259,
+                "Aspect ratio": 1.7609970569610596,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -18216,7 +17985,7 @@
                         "Target": 4290975610
                     },
                     {
-                        "Delay": 1.4150099754333496
+                        "Delay": 0.10000000149011612
                     },
                     {
                         "Offset_X": 0.0
@@ -18237,28 +18006,7 @@
                         "Rot_Offset_Z": 0.0
                     },
                     {
-                        "Target": 4290975610
-                    },
-                    {
-                        "Delay": 1.4150099754333496
-                    },
-                    {
-                        "Offset_X": 0.0
-                    },
-                    {
-                        "Offset_Y": 10.0
-                    },
-                    {
-                        "Offset_Z": -7.0
-                    },
-                    {
-                        "Rot_Offset_X": 50.0
-                    },
-                    {
-                        "Rot_Offset_Y": 0.0
-                    },
-                    {
-                        "Rot_Offset_Z": 0.0
+                        "Use safe zone: ": false
                     }
                 ],
                 "Script Resource": 2306703736,
@@ -18271,5 +18019,395 @@
         "PrefabUID": 0,
         "Tag": "Default",
         "UID": 542657871
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    2.6637659072875977,
+                    1.3363304138183594,
+                    9.51931095123291
+                ],
+                "Rotation": [
+                    179.9990997314453,
+                    -50.100196838378906,
+                    179.9985809326172
+                ],
+                "Scale": [
+                    0.31000304222106934,
+                    0.3100000023841858,
+                    0.31000304222106934
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Node",
+        "ParentUID": 2830428646,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 4176734161
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    0.003000000026077032,
+                    0.003000000026077032,
+                    0.003000000026077032
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 1231837933,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 4164112924,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "branch",
+        "ParentUID": 4176734161,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1943214596
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    0.003000000026077032,
+                    0.003000000026077032,
+                    0.003000000026077032
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 1,
+                "ModelUID": 1231837933,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 4164112924,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "groot",
+        "ParentUID": 4176734161,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1368531411
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    0.003000000026077032,
+                    0.003000000026077032,
+                    0.003000000026077032
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 2,
+                "ModelUID": 1231837933,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 4164112924,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "eye_r",
+        "ParentUID": 4176734161,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3265838063
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.41575202345848083,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    0.003000000026077032,
+                    0.003000000026077032,
+                    0.003000000026077032
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 3,
+                "ModelUID": 1231837933,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 4164112924,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "eye_l",
+        "ParentUID": 4176734161,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3933068475
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    0.003000000026077032,
+                    0.003000000026077032,
+                    0.003000000026077032
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 4,
+                "ModelUID": 1231837933,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 4164112924,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "teeth_up",
+        "ParentUID": 4176734161,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2815308790
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    0.003000000026077032,
+                    0.003000000026077032,
+                    0.003000000026077032
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 5,
+                "ModelUID": 1231837933,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 4164112924,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "teeth_low",
+        "ParentUID": 4176734161,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3780715630
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    0.003000000026077032,
+                    0.003000000026077032,
+                    0.003000000026077032
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 6,
+                "ModelUID": 1231837933,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 4164112924,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "armor",
+        "ParentUID": 4176734161,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 132140869
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    0.003000000026077032,
+                    0.003000000026077032,
+                    0.003000000026077032
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 7,
+                "ModelUID": 1231837933,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 4164112924,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "belt",
+        "ParentUID": 4176734161,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 4254459913
     }
 ]
