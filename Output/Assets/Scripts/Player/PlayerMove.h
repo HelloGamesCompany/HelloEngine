@@ -5,6 +5,8 @@
 
 #include "API/API.h"
 
+class SwapWeapon;
+
 class PlayerMove : HelloBehavior
 {
 public:
@@ -47,5 +49,9 @@ public:
     //Animations
     API_AnimationPlayer playerAnimator;
     uint dashAnim = 0;
+
+    // HUD
+    API_GameObject HUDGameObject;
+    SwapWeapon* HUDScript;
 };
 

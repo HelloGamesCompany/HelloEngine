@@ -9,11 +9,14 @@
 class PauseMenu : HelloBehavior
 {
 public:
-	void Start() override; 
+	void Start() override;
 	void Update() override;
 
-	API_GameObject Panel;
+	API_GameObject uiManager;
 
-	API_UIImage mapImage;
+	API_UIButton continueButton;
+	API_UIButton settingsButton;
+	API_UIButton mainMenuButton;
+
 };
 

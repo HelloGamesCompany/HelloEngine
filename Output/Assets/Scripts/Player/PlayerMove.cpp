@@ -1,5 +1,7 @@
 #include "PlayerMove.h"
 #include "../SwapCam.h"
+#include "../UI Test folder/SwapWeapon.h"
+
 HELLO_ENGINE_API_C PlayerMove* CreatePlayerMove(ScriptToInspectorInterface* script)
 {
     PlayerMove* classInstance = new PlayerMove();
@@ -13,7 +15,7 @@ HELLO_ENGINE_API_C PlayerMove* CreatePlayerMove(ScriptToInspectorInterface* scri
     script->AddDragFloat("Dash Distance", &classInstance->dashDistance);
     script->AddDragBoxAnimationPlayer("AnimationPlayer", &classInstance->playerAnimator);
     script->AddDragBoxAnimationResource("Dash Animation", &classInstance->dashAnim);
-
+    script->AddDragBoxGameObject("HUD", &classInstance->HUDGameObject);
     return classInstance;
 }
 
@@ -21,6 +23,7 @@ void PlayerMove::Start()
 {
     transform = gameObject.GetTransform();
     departureTime = 0.0f;
+    HUDScript = (SwapWeapon*)HUDGameObject.GetScript("SwapWeapon");
 }
 
 void PlayerMove::Update()
@@ -44,6 +47,7 @@ void PlayerMove::Update()
 
         playerAnimator.ChangeAnimation(dashAnim);
         playerAnimator.Play();
+        HUDScript->Dash();
     }
 
     if (isDashing)
@@ -109,6 +113,7 @@ void PlayerMove::Dash()
     if (dashDepartTime >= dashTime)
     {
         isDashing = false;
+        HUDScript->Dash();
     }
 }
 
