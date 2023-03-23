@@ -5,6 +5,10 @@ HELLO_ENGINE_API_C UIManager* CreateUIManager(ScriptToInspectorInterface* script
 	script->AddDragBoxGameObject("Pause Panel", &classInstance->pausePanel);
 	script->AddDragBoxGameObject("Map Panel", &classInstance->mapPanel);
 	script->AddDragBoxGameObject("HUD Panel", &classInstance->HUDPanel);
+	script->AddDragBoxGameObject("Initial text Panel", &classInstance->initialText);
+	script->AddDragBoxGameObject("Final text Panel", &classInstance->finalText);
+	script->AddDragBoxUIButton("Continute button Initial text", &classInstance->initialTextConinue);
+	script->AddDragBoxUIButton("Continute button Final text", &classInstance->finalTextConinue);
 
 	return classInstance;
 }
@@ -39,6 +43,16 @@ void UIManager::Update()
 			currentPanel = hasMap ? CurrentPanel::MAP : CurrentPanel::NONE;
 		}
 	}
+
+	if (initialTextConinue.OnPress())
+	{
+		initialText.SetActive(false);
+	}
+	if (finalTextConinue.OnPress())
+	{
+		Scene::LoadScene("SpaceshipHUB_Scene.HScene");
+	}
+
 }
 
 void UIManager::ContinueGame()
@@ -52,4 +66,14 @@ void UIManager::ContinueGame()
 
 	currentPanel = CurrentPanel::NONE;
 
+}
+
+void UIManager::ShowInitialText()
+{
+	initialText.SetActive(true);
+}
+
+void UIManager::ShowFinalText()
+{
+	finalText.SetActive(true);
 }

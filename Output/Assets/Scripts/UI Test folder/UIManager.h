@@ -20,9 +20,17 @@ public:
 
 	void ContinueGame();
 
+	void ShowInitialText();
+	void ShowFinalText();
+
 	API_GameObject pausePanel;
 	API_GameObject mapPanel;
 	API_GameObject HUDPanel;
+	API_GameObject initialText;
+	API_GameObject finalText;
+
+	API_UIButton initialTextConinue;
+	API_UIButton finalTextConinue;
 
 	CurrentPanel currentPanel;
 };

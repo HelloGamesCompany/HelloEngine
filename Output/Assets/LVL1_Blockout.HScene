@@ -54,7 +54,7 @@
             {
                 "Active camera": true,
                 "Active culling": false,
-                "Aspect ratio": 1.5577812194824219,
+                "Aspect ratio": 1.4221879243850708,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 2000.0,
@@ -1320,9 +1320,9 @@
             {
                 "Enabled": true,
                 "Position": [
-                    0.0,
-                    0.0,
-                    0.0
+                    9.918212890625e-05,
+                    -3.814697265625e-06,
+                    7.62939453125e-06
                 ],
                 "Rotation": [
                     -0.0,
@@ -1330,9 +1330,9 @@
                     -0.0
                 ],
                 "Scale": [
+                    0.8642216324806213,
                     1.0,
-                    1.0,
-                    1.0
+                    0.9999995231628418
                 ],
                 "Type": 1
             },
@@ -1411,6 +1411,19 @@
                 "Enabled": true,
                 "ResourceUID": 2209918018,
                 "Type": 3
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "UI manager": 1929488284
+                    },
+                    {
+                        "UI manager": 1929488284
+                    }
+                ],
+                "Script Resource": 3709259984,
+                "Type": 5
             }
         ],
         "FirstOnPrefab": true,
@@ -38960,9 +38973,9 @@
             {
                 "Enabled": true,
                 "Position": [
-                    -30.539329528808594,
-                    -0.1999988555908203,
-                    -103.60271453857422
+                    0.16791248321533203,
+                    72.68125915527344,
+                    210.52008056640625
                 ],
                 "Rotation": [
                     0.0004407745727803558,
@@ -48473,6 +48486,18 @@
                         "HUD Panel": 534324232
                     },
                     {
+                        "Initial text Panel": 690857073
+                    },
+                    {
+                        "Final text Panel": 3270961405
+                    },
+                    {
+                        "Continute button Initial text": 599873896
+                    },
+                    {
+                        "Continute button Final text": 4142976289
+                    },
+                    {
                         "Pause Panel": 2351851433
                     },
                     {
@@ -48480,6 +48505,18 @@
                     },
                     {
                         "HUD Panel": 534324232
+                    },
+                    {
+                        "Initial text Panel": 690857073
+                    },
+                    {
+                        "Final text Panel": 3270961405
+                    },
+                    {
+                        "Continute button Initial text": 599873896
+                    },
+                    {
+                        "Continute button Final text": 4142976289
                     }
                 ],
                 "Script Resource": 638239770,
@@ -50131,5 +50168,539 @@
         "PrefabUID": 2084806115,
         "Tag": "UI",
         "UID": 208745187
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "Type": 16,
+                "listButtons": [
+                    599873896
+                ]
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "IntroText",
+        "ParentUID": 1929488284,
+        "PrefabUID": 1324546025,
+        "Tag": "UI",
+        "UID": 690857073
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    -0.4000000059604645,
+                    -0.5
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.33500000834465027,
+                    0.23500001430511475,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 134788504,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 3407794357,
+                "idleImage": 134788504,
+                "pressImage": 3478967511
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Button",
+        "ParentUID": 690857073,
+        "PrefabUID": 1324546025,
+        "Tag": "UI",
+        "UID": 599873896
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.75,
+                    0.3499999940395355,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.5,
+                    0.5,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Color": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "PositionX": -0.75,
+                "PositionY": 0.3499999940395355,
+                "Scale": 0.20000000298023224,
+                "Text": "The Guardians of the Galaxy are on their way to the planet Hala.",
+                "Type": 17
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Text",
+        "ParentUID": 690857073,
+        "PrefabUID": 1324546025,
+        "Tag": "UI",
+        "UID": 3191326186
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.949999988079071,
+                    0.25,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.5,
+                    0.5,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Color": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "PositionX": -0.949999988079071,
+                "PositionY": 0.25,
+                "Scale": 0.20000000298023224,
+                "Text": " For a bet with Rocket, Star-Lord must sneak alone into a city to steal an object of great ",
+                "Type": 17
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Text",
+        "ParentUID": 690857073,
+        "PrefabUID": 1324546025,
+        "Tag": "UI",
+        "UID": 2405573459
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.8500000238418579,
+                    0.15000000596046448,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.5,
+                    0.5,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Color": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "PositionX": -0.8500000238418579,
+                "PositionY": 0.15000000596046448,
+                "Scale": 0.20000000298023224,
+                "Text": "power called a diviner. Meanwhile, the other Guardians are left to guard the ship.",
+                "Type": 17
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Text",
+        "ParentUID": 690857073,
+        "PrefabUID": 1324546025,
+        "Tag": "UI",
+        "UID": 2125300294
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.10000000149011612,
+                    0.0
+                ],
+                "Rotation": [
+                    0.4000000059604645,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.100000023841858,
+                    0.5,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 1192070465,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Image",
+        "ParentUID": 690857073,
+        "PrefabUID": 1324546025,
+        "Tag": "UI",
+        "UID": 2284334628
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "Type": 16,
+                "listButtons": [
+                    4142976289
+                ]
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "FinalText",
+        "ParentUID": 1929488284,
+        "PrefabUID": 1324546025,
+        "Tag": "UI",
+        "UID": 3270961405
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    -0.4000000059604645,
+                    -0.5
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.33500000834465027,
+                    0.23500001430511475,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 134788504,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 3407794357,
+                "idleImage": 134788504,
+                "pressImage": 3478967511
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Button",
+        "ParentUID": 3270961405,
+        "PrefabUID": 1324546025,
+        "Tag": "UI",
+        "UID": 4142976289
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.75,
+                    0.3499999940395355,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.5,
+                    0.5,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Color": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "Enabled": false,
+                "PositionX": -0.75,
+                "PositionY": 0.3499999940395355,
+                "Scale": 0.20000000298023224,
+                "Text": "Star-Lord beats the enemies on level 1 and succeeds in stealing the Diviner.",
+                "Type": 17
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Text",
+        "ParentUID": 3270961405,
+        "PrefabUID": 1324546025,
+        "Tag": "UI",
+        "UID": 1033518996
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.949999988079071,
+                    0.25,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.5,
+                    0.5,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Color": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "Enabled": false,
+                "PositionX": -0.949999988079071,
+                "PositionY": 0.25,
+                "Scale": 0.20000000298023224,
+                "Text": " After all this, he returns to the ship only to find everything destroyed and his companions  ",
+                "Type": 17
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Text",
+        "ParentUID": 3270961405,
+        "PrefabUID": 1324546025,
+        "Tag": "UI",
+        "UID": 1038910628
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.8500000238418579,
+                    0.15000000596046448,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.5,
+                    0.5,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Color": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "Enabled": false,
+                "PositionX": -0.8500000238418579,
+                "PositionY": 0.15000000596046448,
+                "Scale": 0.20000000298023224,
+                "Text": "paralyzed.Star-Lord discovers that Groot has been kidnapped, so after taking his",
+                "Type": 17
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Text",
+        "ParentUID": 3270961405,
+        "PrefabUID": 1324546025,
+        "Tag": "UI",
+        "UID": 2747567348
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.10000000149011612,
+                    0.0
+                ],
+                "Rotation": [
+                    0.4000000059604645,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.100000023841858,
+                    0.5,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 1192070465,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Image",
+        "ParentUID": 3270961405,
+        "PrefabUID": 1324546025,
+        "Tag": "UI",
+        "UID": 3427873156
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.6499999761581421,
+                    0.05000000074505806,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.5,
+                    0.5,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Color": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "Enabled": false,
+                "PositionX": -0.6499999761581421,
+                "PositionY": 0.05000000074505806,
+                "Scale": 0.20000000298023224,
+                "Text": "companions to safety, he immediately goes in search of Groot.",
+                "Type": 17
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Text",
+        "ParentUID": 3270961405,
+        "PrefabUID": 2148033772,
+        "Tag": "UI",
+        "UID": 1745511660
     }
 ]
