@@ -14016,7 +14016,7 @@
         "UID": 2363707760
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -15764,26 +15764,26 @@
             {
                 "Enabled": true,
                 "Position": [
-                    4.189777851104736,
-                    10.674642562866211,
+                    6.307624340057373,
+                    9.293659210205078,
                     0.41681551933288574
                 ],
                 "Rotation": [
-                    29.27678108215332,
-                    -54.71915817260742,
-                    34.480587005615234
+                    91.67571258544922,
+                    -61.87919616699219,
+                    91.4777603149414
                 ],
                 "Scale": [
-                    1.0000025033950806,
-                    0.9999997615814209,
-                    1.0000016689300537
+                    1.0000051259994507,
+                    0.9999991059303284,
+                    1.0000041723251343
                 ],
                 "Type": 1
             },
             {
                 "Active camera": true,
                 "Active culling": true,
-                "Aspect ratio": 1.9408766031265259,
+                "Aspect ratio": 1.984482765197754,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -16069,5 +16069,6570 @@
         "PrefabUID": 0,
         "Tag": "Default",
         "UID": 1839189534
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Node",
+        "ParentUID": 2830428646,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3337184046
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -1.7920054197311401,
+                    0.03565549850463867,
+                    1.030466079711914
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "2 4 plano",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1834589445
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -5.675840377807617,
+                    0.03565549850463867,
+                    -0.911447286605835
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 1,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "3 3 plano",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2214301897
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -5.675840377807617,
+                    0.03565549850463867,
+                    2.972379446029663
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 2,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "1 3 plano",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2651215709
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -1.7920054197311401,
+                    0.03565549850463867,
+                    -2.853363513946533
+                ],
+                "Rotation": [
+                    -90.0,
+                    0.0,
+                    90.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 3,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "3 4 triangulo",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 4069330689
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -5.675840377807617,
+                    0.03565549850463867,
+                    1.030466079711914
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 4,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "2 3 plano",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1944152820
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -1.7920054197311401,
+                    0.03565549850463867,
+                    2.972379446029663
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 5,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "1 4 triangulo",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2264115076
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -5.675840377807617,
+                    0.03565549850463867,
+                    4.914299964904785
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 6,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "0 3 plano",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 360975699
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -5.675840377807617,
+                    0.03565549850463867,
+                    -2.853363513946533
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 7,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "4 3 plano",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1635491183
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -1.7920054197311401,
+                    0.03565549850463867,
+                    -0.911447286605835
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 8,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "3 3 plano.001",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 653667386
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -3.7339181900024414,
+                    0.03565549850463867,
+                    4.914299964904785
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 9,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "1 4 triangulo.001",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3798579586
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -3.7339181900024414,
+                    0.03565549850463867,
+                    -4.795283317565918
+                ],
+                "Rotation": [
+                    -90.0,
+                    0.0,
+                    90.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 10,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "3 4 triangulo.001",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2593073001
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -3.7339181900024414,
+                    0.03565549850463867,
+                    -2.853363513946533
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 11,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "4 3 plano.001",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1975049852
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -3.7339181900024414,
+                    0.03565549850463867,
+                    -0.911447286605835
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 12,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "3 3 plano.003",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1567764651
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -3.7339181900024414,
+                    0.03565549850463867,
+                    1.030466079711914
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 13,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "2 3 plano.001",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1338874022
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -3.7339181900024414,
+                    0.03565549850463867,
+                    2.972379446029663
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 14,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "1 3 plano.001",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 73060573
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -5.675840377807617,
+                    0.03565549850463867,
+                    -4.795283317565918
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 15,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "4 3 plano.002",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1308874369
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -5.675840377807617,
+                    0.03565549850463867,
+                    6.856211185455322
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 16,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "0 3 plano.001",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3116292213
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -5.675840377807617,
+                    0.03565549850463867,
+                    8.798131942749023
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 17,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "0 3 plano.002",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3402171129
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -5.675840377807617,
+                    0.03565549850463867,
+                    -6.737194061279297
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 18,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "0 3 plano.003",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3699732301
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -5.675840377807617,
+                    0.03565549850463867,
+                    -8.67911434173584
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 19,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "0 3 plano.004",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1283852208
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -9.559341430664063,
+                    0.03565549850463867,
+                    -4.795283317565918
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 20,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "4 3 plano.003",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 510176111
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -9.559341430664063,
+                    0.03565549850463867,
+                    -2.853363513946533
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 21,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "4 3 plano.004",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3886453307
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -9.559341430664063,
+                    0.03565549850463867,
+                    -0.911447286605835
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 22,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "3 3 plano.002",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 121005942
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -9.559341430664063,
+                    0.03565549850463867,
+                    1.030466079711914
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 23,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "2 3 plano.002",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2123820526
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -9.559341430664063,
+                    0.03565549850463867,
+                    2.972379446029663
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 24,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "1 3 plano.002",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3964708550
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -9.559341430664063,
+                    0.03565549850463867,
+                    -8.67911434173584
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 25,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "0 3 plano.005",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2310747517
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -9.559341430664063,
+                    0.03565549850463867,
+                    -6.737194061279297
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 26,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "0 3 plano.006",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 4257842081
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -9.559341430664063,
+                    0.03565549850463867,
+                    8.798131942749023
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 27,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "0 3 plano.007",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 875718676
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -9.559341430664063,
+                    0.03565549850463867,
+                    6.856211185455322
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 28,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "0 3 plano.008",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1349175076
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -9.559341430664063,
+                    0.03565549850463867,
+                    4.914299964904785
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 29,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "0 3 plano.009",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 4278169972
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -13.44317626953125,
+                    0.03565549850463867,
+                    -2.853363513946533
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 30,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "4 3 plano.005",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3079577603
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -13.44317626953125,
+                    0.03565549850463867,
+                    -4.795283317565918
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 31,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "4 3 plano.006",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2799849438
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -11.501262664794922,
+                    0.03565549850463867,
+                    -4.795283317565918
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 32,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "4 3 plano.007",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1226994037
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -11.501262664794922,
+                    0.03565549850463867,
+                    -2.853363513946533
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 33,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "4 3 plano.008",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1947299833
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -13.44317626953125,
+                    0.03565549850463867,
+                    -0.911447286605835
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 34,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "3 3 plano.004",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2318975053
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -11.501262664794922,
+                    0.03565549850463867,
+                    -0.911447286605835
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 35,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "3 3 plano.005",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1541508272
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -13.44317626953125,
+                    0.03565549850463867,
+                    1.030466079711914
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 36,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "2 3 plano.003",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2999579760
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -11.501262664794922,
+                    0.03565549850463867,
+                    1.030466079711914
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 37,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "2 3 plano.004",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3842604848
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -13.44317626953125,
+                    0.03565549850463867,
+                    2.972379446029663
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 38,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "1 3 plano.003",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1069189359
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -11.501262664794922,
+                    0.03565549850463867,
+                    2.972379446029663
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 39,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "1 3 plano.004",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1954155963
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -13.44317626953125,
+                    0.03565549850463867,
+                    4.914299964904785
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 40,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "0 3 plano.010",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2908231927
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -13.44317626953125,
+                    0.03565549850463867,
+                    6.856211185455322
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 41,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "0 3 plano.011",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 666721634
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -13.44317626953125,
+                    0.03565549850463867,
+                    8.798131942749023
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 42,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "0 3 plano.012",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2115312842
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -13.44317626953125,
+                    0.03565549850463867,
+                    -6.737194061279297
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 43,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "0 3 plano.013",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 61760337
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -13.44317626953125,
+                    0.03565549850463867,
+                    -8.67911434173584
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 44,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "0 3 plano.014",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 554158981
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -11.501262664794922,
+                    0.03565549850463867,
+                    -8.67911434173584
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 45,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "0 3 plano.015",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3706163529
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -11.501262664794922,
+                    0.03565549850463867,
+                    -6.737194061279297
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 46,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "0 3 plano.016",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2355778012
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -11.501262664794922,
+                    0.03565549850463867,
+                    8.798131942749023
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 47,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "0 3 plano.017",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3999808396
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -11.501262664794922,
+                    0.03565549850463867,
+                    6.856211185455322
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 48,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "0 3 plano.018",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2160734459
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -11.501262664794922,
+                    0.03565549850463867,
+                    4.914299964904785
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 49,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "0 3 plano.019",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1264227638
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -15.385087966918945,
+                    0.03565549850463867,
+                    -2.853363513946533
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 50,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "4 3 plano.009",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 27588269
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -15.385087966918945,
+                    0.03565549850463867,
+                    -4.795283317565918
+                ],
+                "Rotation": [
+                    -90.00001525878906,
+                    -5.699553676241642e-12,
+                    -179.99996948242188
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 51,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "3 4 triangulo.002",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 872494737
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -17.32699966430664,
+                    0.03565549850463867,
+                    -2.853363513946533
+                ],
+                "Rotation": [
+                    -90.00001525878906,
+                    -5.699553676241642e-12,
+                    -179.99996948242188
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 52,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "3 4 triangulo.003",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 233617348
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -17.32699966430664,
+                    0.03565549850463867,
+                    -0.911447286605835
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 53,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "3 3 plano.006",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3927202452
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -15.385087966918945,
+                    0.03565549850463867,
+                    -0.911447286605835
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 54,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "3 3 plano.007",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2438814627
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -15.385087966918945,
+                    0.03565549850463867,
+                    1.030466079711914
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 55,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "2 4 plano.001",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 4066000895
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -17.32699966430664,
+                    0.03565549850463867,
+                    1.030466079711914
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 56,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "2 3 plano.005",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2048798730
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -15.385087966918945,
+                    0.03565549850463867,
+                    4.914299964904785
+                ],
+                "Rotation": [
+                    -90.0,
+                    0.0,
+                    -90.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 57,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "1 4 triangulo.002",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3552481170
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -17.32699966430664,
+                    0.03565549850463867,
+                    2.972379446029663
+                ],
+                "Rotation": [
+                    -90.0,
+                    0.0,
+                    -90.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 58,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "1 4 triangulo.003",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1599796409
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -15.385087966918945,
+                    0.03565549850463867,
+                    2.972379446029663
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 59,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "1 3 plano.005",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2333871117
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -7.617471218109131,
+                    0.03565549850463867,
+                    -8.67911434173584
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 60,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "0 3 plano.020",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3533261681
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -7.617471218109131,
+                    0.03565549850463867,
+                    -6.737194061279297
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 61,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "0 3 plano.021",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3549549093
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -7.617471218109131,
+                    0.03565549850463867,
+                    8.798131942749023
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 62,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "0 3 plano.022",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3624093801
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -7.617471218109131,
+                    0.03565549850463867,
+                    6.856211185455322
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 63,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "0 3 plano.023",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 885748604
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -7.617471218109131,
+                    0.03565549850463867,
+                    4.914299964904785
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 64,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "0 3 plano.024",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3858090412
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -7.617471218109131,
+                    0.03565549850463867,
+                    2.972379446029663
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 65,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "1 3 plano.006",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1152849307
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -7.617471218109131,
+                    0.03565549850463867,
+                    1.030466079711914
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 66,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "2 3 plano.006",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2467742295
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -7.617471218109131,
+                    0.03565549850463867,
+                    -0.911447286605835
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 67,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "3 3 plano.009",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3699512899
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -7.617471218109131,
+                    0.03565549850463867,
+                    -4.795283317565918
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 68,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "4 3 plano.010",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3188734750
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -7.617471218109131,
+                    0.03565549850463867,
+                    -2.853363513946533
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 69,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "4 3 plano.011",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 337466805
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -27.036571502685547,
+                    0.03565549850463867,
+                    4.914299964904785
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "2 4 plano.004",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1305321785
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -27.036571502685547,
+                    0.03565549850463867,
+                    4.914299964904785
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "2 4 plano.008",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 594977420
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -14.32019329071045,
+                    0.8014559745788574,
+                    4.983323097229004
+                ],
+                "Rotation": [
+                    -89.99998474121094,
+                    1.707547198748216e-06,
+                    -56.317657470703125
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 70,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3477171535,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Caja  Metalica.004",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2258355196
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -13.903149604797363,
+                    0.04451712593436241,
+                    5.160340309143066
+                ],
+                "Rotation": [
+                    -90.0,
+                    1.707547198748216e-06,
+                    174.5093994140625
+                ],
+                "Scale": [
+                    100.00001525878906,
+                    100.00001525878906,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 71,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3477171535,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Caja  Metalica.001",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3079296044
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -14.685751914978027,
+                    0.04451713711023331,
+                    4.330420970916748
+                ],
+                "Rotation": [
+                    -89.99999237060547,
+                    -1.280660399061162e-06,
+                    -10.71158504486084
+                ],
+                "Scale": [
+                    100.00001525878906,
+                    100.00001525878906,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 72,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3477171535,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Caja  Metalica.002",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 377299483
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -18.251956939697266,
+                    1.491981863975525,
+                    0.05950983613729477
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 73,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3997904787,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "puerta Derecha",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 4242290903
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -16.317588806152344,
+                    1.491981863975525,
+                    3.911099672317505
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    -1.3660377589985728e-05,
+                    45.000003814697266
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 74,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3997904787,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "puerta Derecha.001",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 518913730
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -14.414130210876465,
+                    0.03565549850463867,
+                    -6.737194061279297
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 75,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 4070102462,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2322869674
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -14.414130210876465,
+                    0.03565549850463867,
+                    -8.67911434173584
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 76,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 4070102462,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.001",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2105977265
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -13.44317626953125,
+                    0.03565549850463867,
+                    -9.650065422058105
+                ],
+                "Rotation": [
+                    -90.0,
+                    0.0,
+                    -90.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 77,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 4070102462,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.002",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2944583013
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -11.501262664794922,
+                    0.03565549850463867,
+                    -9.650065422058105
+                ],
+                "Rotation": [
+                    -90.0,
+                    0.0,
+                    -90.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 78,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 4070102462,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.003",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1729942696
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -9.55935287475586,
+                    0.03565549850463867,
+                    -9.650065422058105
+                ],
+                "Rotation": [
+                    -90.0,
+                    0.0,
+                    -90.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 79,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 4070102462,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.004",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 867523783
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -5.675840377807617,
+                    0.03565549850463867,
+                    -9.650065422058105
+                ],
+                "Rotation": [
+                    -90.0,
+                    0.0,
+                    -90.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 80,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 4070102462,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.005",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2043179891
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -14.414130210876465,
+                    0.03565549850463867,
+                    8.798131942749023
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 81,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 4070102462,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.006",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3205315087
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -14.414130210876465,
+                    0.03565549850463867,
+                    6.856211185455322
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 82,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 4070102462,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.007",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3625873755
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -5.675840377807617,
+                    0.03565549850463867,
+                    9.769083023071289
+                ],
+                "Rotation": [
+                    -90.0,
+                    0.0,
+                    90.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 83,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 4070102462,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.008",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 253874454
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -9.55935287475586,
+                    0.03565549850463867,
+                    9.769083023071289
+                ],
+                "Rotation": [
+                    -90.0,
+                    0.0,
+                    90.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 84,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 4070102462,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.009",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1202938894
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -11.501262664794922,
+                    0.03565549850463867,
+                    9.769083023071289
+                ],
+                "Rotation": [
+                    -90.0,
+                    0.0,
+                    90.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 85,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 4070102462,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.010",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2241434470
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -13.44317626953125,
+                    0.03565549850463867,
+                    9.769083023071289
+                ],
+                "Rotation": [
+                    -90.0,
+                    0.0,
+                    90.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 86,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 4070102462,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.011",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1862470301
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -17.32699966430664,
+                    0.03565549850463867,
+                    -2.853363513946533
+                ],
+                "Rotation": [
+                    -90.0,
+                    5.122641596244648e-06,
+                    -44.999996185302734
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 87,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 2751710925,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.012",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1982159681
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -15.385087966918945,
+                    0.03565549850463867,
+                    -4.795283317565918
+                ],
+                "Rotation": [
+                    -90.0,
+                    5.122641596244648e-06,
+                    -44.999996185302734
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 88,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 2751710925,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.013",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2639930421
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -14.75396728515625,
+                    0.03565549850463867,
+                    5.545422554016113
+                ],
+                "Rotation": [
+                    -90.0,
+                    -5.122641596244648e-06,
+                    44.999996185302734
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 89,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 2751710925,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.014",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 60342712
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -17.958120346069336,
+                    0.03565549850463867,
+                    2.341259479522705
+                ],
+                "Rotation": [
+                    -90.0,
+                    -5.122641596244648e-06,
+                    44.999996185302734
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 90,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 2751710925,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.015",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 641936664
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -7.617428779602051,
+                    0.03565549850463867,
+                    9.769083023071289
+                ],
+                "Rotation": [
+                    -90.0,
+                    0.0,
+                    90.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 91,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 4070102462,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.026",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3137769464
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -7.617428779602051,
+                    0.03565549850463867,
+                    -9.650065422058105
+                ],
+                "Rotation": [
+                    -90.0,
+                    0.0,
+                    -90.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 92,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 4070102462,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.027",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 4021243992
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -1.7920054197311401,
+                    0.03565549850463867,
+                    2.972379446029663
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    8.53773599374108e-06,
+                    135.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 93,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 2751710925,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.016",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 4174711864
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -3.7339181900024414,
+                    0.03565549850463867,
+                    4.914299964904785
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    8.53773599374108e-06,
+                    135.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 94,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 2751710925,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.017",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2882795927
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -1.7920054197311401,
+                    0.03565549850463867,
+                    -2.853363513946533
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    -8.53773599374108e-06,
+                    -135.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 95,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 2751710925,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.019",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3608458883
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -4.70489501953125,
+                    0.03565549850463867,
+                    6.856211185455322
+                ],
+                "Rotation": [
+                    -90.00001525878906,
+                    -5.699553676241642e-12,
+                    -179.99996948242188
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 96,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 4070102462,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.020",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3288815710
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -4.70489501953125,
+                    0.03565549850463867,
+                    8.798131942749023
+                ],
+                "Rotation": [
+                    -90.00001525878906,
+                    -5.699553676241642e-12,
+                    -179.99996948242188
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 97,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 4070102462,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.021",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1637028853
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -4.70489501953125,
+                    0.03565549850463867,
+                    -8.67911434173584
+                ],
+                "Rotation": [
+                    -90.00001525878906,
+                    -5.699553676241642e-12,
+                    -179.99996948242188
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 98,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 4070102462,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.022",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 333608056
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -4.70489501953125,
+                    0.03565549850463867,
+                    -6.737194061279297
+                ],
+                "Rotation": [
+                    -90.00001525878906,
+                    -5.699553676241642e-12,
+                    -179.99996948242188
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 99,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 4070102462,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.023",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3238297304
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -3.7339181900024414,
+                    0.03565549850463867,
+                    -4.795283317565918
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    -8.53773599374108e-06,
+                    -135.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 100,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 2751710925,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.018",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2073300151
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -14.414130210876465,
+                    0.035654217004776,
+                    -5.766233921051025
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 101,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 258721131,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Columna",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 4263896099
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -18.2979679107666,
+                    0.03565549850463867,
+                    2.0014238357543945
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 102,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 258721131,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Columna.001",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1455710846
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -18.2979679107666,
+                    0.03565549850463867,
+                    -1.8824070692062378
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 103,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 258721131,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Columna.002",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3996492950
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -14.414130210876465,
+                    0.03565549850463867,
+                    5.885251045227051
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 104,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 258721131,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Columna.003",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3264302477
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -4.70489501953125,
+                    0.03565549850463867,
+                    5.885251045227051
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 105,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 258721131,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Columna.004",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 103250672
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.8210599422454834,
+                    0.03565549850463867,
+                    2.0014238357543945
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 106,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 258721131,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Columna.005",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2934749104
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.8210599422454834,
+                    0.03565549850463867,
+                    -1.8824070692062378
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 107,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 258721131,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Columna.006",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 4278131568
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -4.70489501953125,
+                    0.03565549850463867,
+                    -5.766233921051025
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 108,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 258721131,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Columna.007",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 405852719
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.14988481998443604,
+                    0.03565549850463867,
+                    -0.911447286605835
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 109,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "3 3 plano.008",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3577276411
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.14988481998443604,
+                    0.03565549850463867,
+                    1.030466079711914
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 110,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 521882332,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "2 4 plano.002",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1292417078
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.14988481998443604,
+                    0.03565549850463867,
+                    -1.8824070692062378
+                ],
+                "Rotation": [
+                    -90.0,
+                    0.0,
+                    -90.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 111,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 4070102462,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.024",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 4099503534
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.14988481998443604,
+                    0.035654217004776,
+                    2.0014238357543945
+                ],
+                "Rotation": [
+                    -90.0,
+                    0.0,
+                    90.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 112,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 4070102462,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube.025",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2368786821
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -14.935620307922363,
+                    1.7655292749404907,
+                    -4.6835126876831055
+                ],
+                "Rotation": [
+                    -90.0,
+                    5.122641596244648e-06,
+                    -44.999996185302734
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 113,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 1655257639,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Estanteria memarte",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3448000329
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -14.662842750549316,
+                    1.650006890296936,
+                    -4.854276180267334
+                ],
+                "Rotation": [
+                    1.6966054317890666e-05,
+                    56.61948776245117,
+                    -1.4167251720209606e-05
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 114,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 338427950,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Sticklord",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3213764572
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -15.330277442932129,
+                    1.6521421670913696,
+                    -4.255191802978516
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 115,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 783211015,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Baker House  100% Real",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3476949388
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -6.335132598876953,
+                    0.44501930475234985,
+                    8.27219295501709
+                ],
+                "Rotation": [
+                    -121.74859619140625,
+                    -18.202442169189453,
+                    26.785579681396484
+                ],
+                "Scale": [
+                    99.99999237060547,
+                    99.99999237060547,
+                    99.99999237060547
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 116,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 2031576284,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "cilindro base.001",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 41572091
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -16.922786712646484,
+                    0.29829227924346924,
+                    -2.327313184738159
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 117,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 997737056,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "maseta",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3777557303
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -16.962120056152344,
+                    1.1887987852096558,
+                    -2.269562244415283
+                ],
+                "Rotation": [
+                    -85.32707214355469,
+                    -4.105154514312744,
+                    -147.58871459960938
+                ],
+                "Scale": [
+                    100.00000762939453,
+                    100.00000762939453,
+                    100.00000762939453
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 118,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 4253182355,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "seta - concept disc",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3584556194
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -15.676376342773438,
+                    0.03565549850463867,
+                    -3.144652843475342
+                ],
+                "Rotation": [
+                    -90.0,
+                    5.122641596244648e-06,
+                    -44.999996185302734
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 119,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 111681548,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "jukebox onepiece season 2",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1312048393
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -9.624741554260254,
+                    0.7908183932304382,
+                    -2.4795777797698975
+                ],
+                "Rotation": [
+                    -88.5777816772461,
+                    0.19391797482967377,
+                    7.762798309326172
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.00000762939453
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 120,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 1679640361,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "libro abierto",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 756717724
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -13.607623100280762,
+                    2.6830310821533203,
+                    8.539667129516602
+                ],
+                "Rotation": [
+                    -81.62383270263672,
+                    -15.19067096710205,
+                    29.332765579223633
+                ],
+                "Scale": [
+                    100.00000762939453,
+                    100.00000762939453,
+                    100.00000762939453
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 121,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3071098255,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Pantallas.001",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1375809868
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -10.647320747375488,
+                    0.8031379580497742,
+                    6.792324066162109
+                ],
+                "Rotation": [
+                    0.0001376782893203199,
+                    77.48882293701172,
+                    -0.00012871295621152967
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 122,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 1102533698,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Silla armeria.001",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3193151932
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -11.243346214294434,
+                    0.8031379580497742,
+                    -7.049661159515381
+                ],
+                "Rotation": [
+                    3.443921377765946e-05,
+                    -30.0,
+                    1.721960688882973e-05
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 123,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 1102533698,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Silla armeria.002",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2923416811
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -9.559341430664063,
+                    1.589186668395996,
+                    0.05950883403420448
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 124,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3866323858,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Mesa Centro",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1291575782
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -12.394601821899414,
+                    1.0677059888839722,
+                    0.058760352432727814
+                ],
+                "Rotation": [
+                    -89.99990844726563,
+                    -14.00000286102295,
+                    -3.959597961511463e-06
+                ],
+                "Scale": [
+                    99.9999771118164,
+                    100.0,
+                    99.9999771118164
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 125,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 2718181973,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "silla central",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1362209566
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -11.631698608398438,
+                    1.0677059888839722,
+                    -2.472956895828247
+                ],
+                "Rotation": [
+                    -99.10501098632813,
+                    -10.680020332336426,
+                    -40.85282897949219
+                ],
+                "Scale": [
+                    99.9999771118164,
+                    100.0,
+                    99.9999771118164
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 126,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 2718181973,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "silla centro der",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1219331509
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -9.558638572692871,
+                    1.0677059888839722,
+                    -3.264336585998535
+                ],
+                "Rotation": [
+                    -103.99999237060547,
+                    -0.0001280660362681374,
+                    -90.00000762939453
+                ],
+                "Scale": [
+                    99.9999771118164,
+                    100.0,
+                    99.9999771118164
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 127,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 2718181973,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "silla centro der.001",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1050382648
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -11.629252433776855,
+                    1.0677059888839722,
+                    2.5855164527893066
+                ],
+                "Rotation": [
+                    -80.89485168457031,
+                    -10.679903030395508,
+                    40.85284423828125
+                ],
+                "Scale": [
+                    99.9999771118164,
+                    100.0,
+                    99.9999771118164
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 128,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 2718181973,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "silla central.001",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2577154712
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -9.558587074279785,
+                    1.0677061080932617,
+                    3.38215970993042
+                ],
+                "Rotation": [
+                    -75.99999237060547,
+                    6.830188794992864e-05,
+                    90.00000762939453
+                ],
+                "Scale": [
+                    99.9999771118164,
+                    100.0,
+                    99.9999771118164
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 129,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 2718181973,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "silla central.002",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1829413751
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -9.563959121704102,
+                    1.006612777709961,
+                    -8.724720001220703
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    8.53773599374108e-06,
+                    -89.99999237060547
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 130,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 2974849980,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Sofa en L.001",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2654562787
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -9.547344207763672,
+                    2.7529029846191406,
+                    9.574152946472168
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 131,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Lampara panel herramientas",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 873046846
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -9.550450325012207,
+                    2.1212005615234375,
+                    9.616767883300781
+                ],
+                "Rotation": [
+                    179.99996948242188,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 132,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3806470373,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Panel para herramientas",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 17292373
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -5.317902565002441,
+                    0.13275112211704254,
+                    9.16724681854248
+                ],
+                "Rotation": [
+                    38.2696418762207,
+                    89.98020935058594,
+                    -38.2696418762207
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 133,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 2367996806,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cable Testing",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1321457753
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -11.227737426757813,
+                    1.006612777709961,
+                    8.70385456085205
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 134,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 260044936,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Mesa Armas",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3010741293
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -9.552054405212402,
+                    1.105398178100586,
+                    8.695277214050293
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 135,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 1504347434,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Plano para Planos",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3530613265
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -10.858667373657227,
+                    1.1295562982559204,
+                    8.860206604003906
+                ],
+                "Rotation": [
+                    6.252353614399908e-06,
+                    -34.98379898071289,
+                    -89.99998474121094
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 136,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 136885393,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "weapon1",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3847772485
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -13.480093002319336,
+                    1.2644082307815552,
+                    7.078871726989746
+                ],
+                "Rotation": [
+                    -89.99998474121094,
+                    6.40330199530581e-07,
+                    6.666010856628418
+                ],
+                "Scale": [
+                    99.99999237060547,
+                    99.99999237060547,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 137,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 1968335010,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Caja Herramientas",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 67992072
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -13.44317626953125,
+                    1.006612777709961,
+                    -7.70815372467041
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 138,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 2882606820,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Mesa Habilidades pocha",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 622084520
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -14.470261573791504,
+                    0.3268163204193115,
+                    -4.556893348693848
+                ],
+                "Rotation": [
+                    1.3699105693376623e-05,
+                    47.046295166015625,
+                    -1.0026437848864589e-05
+                ],
+                "Scale": [
+                    0.5747326612472534,
+                    0.5747326612472534,
+                    0.5747326612472534
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 139,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 2868283485,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "box2WithUV",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3991121352
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -12.457345962524414,
+                    1.352197527885437,
+                    -8.576173782348633
+                ],
+                "Rotation": [
+                    1.1499523679958656e-05,
+                    35.733341217041016,
+                    -6.7158794081478845e-06
+                ],
+                "Scale": [
+                    0.4232269525527954,
+                    0.4232269823551178,
+                    1.3579069375991821
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 140,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 2619784791,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "pCube1",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2950432871
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -13.018119812011719,
+                    1.235177993774414,
+                    -6.594600677490234
+                ],
+                "Rotation": [
+                    2.7001560738426633e-05,
+                    -71.56707763671875,
+                    87.24142456054688
+                ],
+                "Scale": [
+                    0.060035720467567444,
+                    0.060035716742277145,
+                    0.06003572791814804
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 141,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 1641461381,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "pCylinder1",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 981013394
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -13.590249061584473,
+                    1.235177993774414,
+                    -7.817325592041016
+                ],
+                "Rotation": [
+                    2.6605107450450305e-06,
+                    15.694496154785156,
+                    87.24137115478516
+                ],
+                "Scale": [
+                    0.06745314598083496,
+                    0.06745313853025436,
+                    0.06745313853025436
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 142,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 1641461381,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "pCylinder1.001",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 563562681
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -13.752177238464355,
+                    1.235177993774414,
+                    -7.479574680328369
+                ],
+                "Rotation": [
+                    -0.0,
+                    -24.342905044555664,
+                    87.24139404296875
+                ],
+                "Scale": [
+                    0.06745313853025436,
+                    0.06745313853025436,
+                    0.06745313107967377
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 143,
+                "ModelUID": 3653493779,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 1641461381,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "pCylinder1.002",
+        "ParentUID": 3337184046,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1271164941
     }
 ]
