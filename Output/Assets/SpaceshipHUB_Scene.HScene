@@ -15783,7 +15783,7 @@
             {
                 "Active camera": true,
                 "Active culling": true,
-                "Aspect ratio": 1.7934621572494507,
+                "Aspect ratio": 1.9408766031265259,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -16069,80 +16069,5 @@
         "PrefabUID": 0,
         "Tag": "Default",
         "UID": 1839189534
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "Node",
-        "ParentUID": 2830428646,
-        "PrefabUID": 0,
-        "Tag": "Default",
-        "UID": 69339883
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    -14.935620307922363,
-                    1.7655292749404907,
-                    -4.686465263366699
-                ],
-                "Rotation": [
-                    -90.0,
-                    1.3660377589985728e-05,
-                    -45.000003814697266
-                ],
-                "Scale": [
-                    99.99999237060547,
-                    99.99999237060547,
-                    100.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 0,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "MaterialUID": 0,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "Estanteria memarte",
-        "ParentUID": 69339883,
-        "PrefabUID": 0,
-        "Tag": "Default",
-        "UID": 4263720935
     }
 ]

@@ -168,6 +168,11 @@ void MaterialComponent::DeSerialization(json& _j)
 		_resource = res;
 	}
 
+	if (_resource == nullptr)
+	{
+		return;
+	}
+
 	//Load to mesh
 	MeshRenderComponent* comp = _gameObject->GetComponent<MeshRenderComponent>();
 	if (!comp)
