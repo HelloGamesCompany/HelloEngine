@@ -27,7 +27,7 @@ void PlayerMove::Start()
     transform = gameObject.GetTransform();
     departureTime = 0.0f;
     HUDScript = (SwapWeapon*)HUDGameObject.GetScript("SwapWeapon");
-}
+} 
 
 void PlayerMove::Update()
 {
