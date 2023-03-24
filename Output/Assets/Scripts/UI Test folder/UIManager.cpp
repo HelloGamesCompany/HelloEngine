@@ -50,7 +50,7 @@ void UIManager::Update()
 	}
 	if (finalTextConinue.OnPress())
 	{
-		Scene::LoadScene("WinMenu.HScene");
+		Scene::LoadScene("ToLevel2.HScene");
 	}
 
 }
