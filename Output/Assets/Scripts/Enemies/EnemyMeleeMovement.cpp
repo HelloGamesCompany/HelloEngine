@@ -100,10 +100,10 @@ void EnemyMeleeMovement::Update()
             break;
 
         case States::ATTACKIG:
-            if (animState != AnimationState::IDLE)
+            if (animState != AnimationState::WALK)
             {
-                animState = AnimationState::IDLE;
-                animationPlayer.ChangeAnimation(idleAnim);
+                animState = AnimationState::WALK;
+                animationPlayer.ChangeAnimation(walkAnim);
                 animationPlayer.Play();
             }
             break;

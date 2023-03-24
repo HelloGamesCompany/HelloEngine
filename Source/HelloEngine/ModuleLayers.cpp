@@ -147,6 +147,7 @@ void ModuleLayers::S_DrawEditor()
 
 bool ModuleLayers::CleanUp()
 {
+#ifdef STANDALONE
     XMLNode sceneXML = Application::Instance()->xml->GetConfigXML();
 
     std::string configScene = sceneXML.FindChildBreadth("currentScene").node.attribute("value").as_string();
@@ -162,6 +163,7 @@ bool ModuleLayers::CleanUp()
 
     if (!LayerGame::S_IsPlaying())
         ModuleResourceManager::S_SerializeScene(rootGameObject);
+#endif
 
     for (int i = 0; i < (uint)LayersID::MAX; i++)
     {

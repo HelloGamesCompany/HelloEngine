@@ -128,13 +128,6 @@ void EnemyRanger::Update()
 
             Attacking(enemy->currentSpeed * 0.5f, target.GetTransform().GetGlobalPosition());
 
-            if (animState != AnimationState::IDLE)
-            {
-                animState = AnimationState::IDLE;
-                animationPlayer.ChangeAnimation(idleAnim);
-                animationPlayer.Play();
-            }
-
             break;
         default:
             break;
