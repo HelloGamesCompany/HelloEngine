@@ -41,11 +41,13 @@ void PlayerStats::TakeDamage(float amount)
     {
         currentHp = 0;
         Scene::LoadScene("LoseMenu.HScene");
+        Audio::Event("starlord_dead");
         // death
     }
     else
     {
         inmunityTime = 2.0f;
+        Audio::Event("starlord_damaged");
         // hit animation?
     }
 }
