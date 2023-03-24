@@ -17,7 +17,7 @@ void FontManager::InitFreetype()
 
     // Default font
     FT_Face face;
-    if (FT_New_Face(ft, "Assets/fonts/arial.ttf", 0, &face))
+    if (FT_New_Face(ft, "Assets/fonts/Patinio_Futura.ttf", 0, &face))
     {
         std::cout << "ERROR::FREETYPE: Failed to load font" << std::endl;
         return;

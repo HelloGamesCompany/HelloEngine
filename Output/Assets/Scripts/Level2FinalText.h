@@ -5,14 +5,12 @@
 
 #include "API/API.h"
 
-class Level2EndTrigger : HelloBehavior
+class Level2FinalText : HelloBehavior
 {
 public:
 	void Start() override; 
 	void Update() override;
 
-	void OnCollisionEnter(API_RigidBody other);
-
-	API_GameObject finalTextPanel;
+	API_UIButton continueButton;
 };
 

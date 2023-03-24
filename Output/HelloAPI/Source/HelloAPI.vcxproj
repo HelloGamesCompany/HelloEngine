@@ -190,6 +190,7 @@
 		<ClCompile Include="../../Assets/Scripts/UI Test folder/ScoreScreen.cpp" />
 		<ClCompile Include="../../Assets/Scripts/InteractiveEnviroment/GoToLevelTrigger.cpp" />
 		<ClCompile Include="../../Assets/Scripts/Level2EndTrigger.cpp" />
+		<ClCompile Include="../../Assets/Scripts/Level2FinalText.cpp" />
 	</ItemGroup>
 	<ItemGroup>
 		<ClInclude Include="..\..\Assets\Scripts\Enemies\EnemyMeleeMovement.h" />
@@ -247,6 +248,7 @@
 		<ClInclude Include="../../Assets/Scripts/UI Test folder/ScoreScreen.h" />
 		<ClInclude Include="../../Assets/Scripts/InteractiveEnviroment/GoToLevelTrigger.h" />
 		<ClInclude Include="../../Assets/Scripts/Level2EndTrigger.h" />
+		<ClInclude Include="../../Assets/Scripts/Level2FinalText.h" />
 	</ItemGroup>
 	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 	<ImportGroup Label="ExtensionTargets" />
