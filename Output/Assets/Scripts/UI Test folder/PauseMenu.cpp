@@ -29,6 +29,7 @@ void PauseMenu::Update()
 	}
 	else if (mainMenuButton.OnPress())
 	{
+		Time::ChangeTimeScale(1.0f);
 		Scene::LoadScene("MainMenu.HScene");
 	}
 }
