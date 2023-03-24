@@ -74,10 +74,6 @@ private:
     // Variables for reimport 
     bool _reimportRequest = false;
 
-    File* _reimportFile = nullptr;
-
-    Directory* _reimportDir = nullptr;
-
     uint _reimportCounter = 100;
 
     // ChangeFileName

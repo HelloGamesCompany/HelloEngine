@@ -159,6 +159,7 @@ void ImWindowProject::Update()
 	if (_reimportRequest)
 	{
 		ImGui::OpenPopup("Reimport resources");
+
 		if (ImGui::BeginPopupModal("Reimport resources", NULL, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_AlwaysAutoResize))
 		{
 			ImGui::Text("The resources is being reimported, please wait.");
@@ -184,6 +185,7 @@ void ImWindowProject::Update()
 
 				item->SetSelected(false);
 			}
+			
 			_selectedFiles.clear();
 			//if (_reimportFile)
 			//{
@@ -386,7 +388,6 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
 			if (ImGui::Button("Reimport##Folder"))
 			{
 				_reimportRequest = true;
-				_reimportDir = currentDir;
 				_reimportCounter = 100;
 				ImGui::CloseCurrentPopup();
 			}
@@ -515,7 +516,6 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
 			if (ImGui::Button("Reimport##File"))
 			{
 				_reimportRequest = true;
-				//_reimportFile = &_fileTree->_currentDir->files[i];
 				_reimportCounter = 100;
 				ImGui::CloseCurrentPopup();
 			}
@@ -621,13 +621,17 @@ void ImWindowProject::UpdateFileNodes()
 
 void ImWindowProject::RefreshAssets()
 {
+	Directory* _reimportDir = nullptr;
+
 	_fileTree->GetRootDir(_reimportDir);
 
 	_reimportRequest = true;
 
 	_reimportCounter = 100;
 
-	//RefreshAssetsPerDir(root);
+	ClearSelectedFiles();
+
+	_selectedFiles.push_back(_reimportDir);
 }
 
 void ImWindowProject::CheckWindowFocus()
