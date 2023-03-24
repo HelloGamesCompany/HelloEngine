@@ -147,6 +147,7 @@ void ModuleLayers::S_DrawEditor()
 
 bool ModuleLayers::CleanUp()
 {
+   
 #ifdef STANDALONE
     XMLNode sceneXML = Application::Instance()->xml->GetConfigXML();
 
