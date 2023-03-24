@@ -18,47 +18,68 @@ void ButtonActionsTest::Start()
 
 	defaultPos = gameObject.GetTransform().GetGlobalPosition();
 
+	hasStarted = false;
+
 }
 void ButtonActionsTest::Update()
 {
-	if (apiButton.OnHovered()==true)
+	if (hasStarted == false)
 	{
-		if (isHovering == false) 
-		{ 
-			isHovering = true; 
-			isGoingUp = true;
-		}
+	//{
+		//if ((apiButton.OnHovered() == false ) && (apiButton.OnPress() == false)) {
 
-	}
-	else 
-	{
-		if (isHovering == true) 
-		{ 
-			isHovering = false; 
-			gameObject.GetTransform().SetPosition(defaultPos);
-		}
-		gameObject.GetTransform().SetPosition(defaultPos);
-	}
+		//	isHovering = false;
 
-	if (isHovering == true)
-	{
-		if (isGoingUp == true) {
-			gameObject.GetTransform().Translate(0, animVel, 0);
-			if (gameObject.GetTransform().GetGlobalPosition().y > defaultPos.y + maxY)
-			{
-				isGoingUp = false;
-			}
-		}
-		else {
-			gameObject.GetTransform().Translate(0, -animVel, 0);
-			if (gameObject.GetTransform().GetGlobalPosition().y < defaultPos.y + minY)
-			{
-				isGoingUp = true;
-			}
-		}
+			defaultPos = gameObject.GetTransform().GetGlobalPosition();
+		//	//defaultPos = API_Vector3(0,0,-0.003f);
+			hasStarted = true;
+		//}
+		
 	}
 	else {
-		gameObject.GetTransform().SetPosition(defaultPos);
+		if (apiButton.OnHovered() == true)
+		{
+			if (isHovering == false)
+			{
+				isHovering = true;
+				isGoingUp = true;
+			}
+
+		}
+		else
+		{
+			if (isHovering == true)
+			{
+				isHovering = false;
+				gameObject.GetTransform().SetPosition(defaultPos);
+			}
+			gameObject.GetTransform().SetPosition(defaultPos);
+		}
+
+		if (isHovering == true)
+		{
+			if (isGoingUp == true) {
+				gameObject.GetTransform().Translate(0, animVel, 0);
+				if (gameObject.GetTransform().GetGlobalPosition().y > defaultPos.y + maxY)
+				{
+					isGoingUp = false;
+				}
+			}
+			else {
+				gameObject.GetTransform().Translate(0, -animVel, 0);
+				if (gameObject.GetTransform().GetGlobalPosition().y < defaultPos.y + minY)
+				{
+					isGoingUp = true;
+				}
+			}
+		}
+
+		if (apiButton.OnPress() == true)
+		{
+			hasStarted = false;
+		}
 	}
+
+	
 	
 }
