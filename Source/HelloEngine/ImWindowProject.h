@@ -4,6 +4,7 @@
 
 class FileTree;
 class File;
+class SelectableFile;
 struct Directory;
 
 class ImWindowProject : public ImWindow
@@ -22,7 +23,7 @@ public:
 private:
     void RefreshAssetsPerDir(Directory* dir);
 
-    void DrawTreeNodePanelLeft(Directory*& newDir, Directory* node, const bool drawFiles = true) const;
+    void DrawTreeNodePanelLeft(Directory*& newDir, Directory* node, const bool drawFiles = true);
 
     void DrawTreeNodePanelRight(Directory*& newDir);
 
@@ -40,6 +41,8 @@ private:
 
     void DrawDeleteMessage();
 
+    void ClearSelectedFiles();
+
 private:
     Application* _app = nullptr;
 
@@ -48,6 +51,7 @@ private:
     Directory* _rootNode = nullptr;
 
     bool _showDeleteMessage = false;
+
     bool _deleteFileAccepted = false;
 
     File* _deleteFile = nullptr;
@@ -67,6 +71,14 @@ private:
     int _itemWidth = 80;
 
     int _itemHeight = 80;
+
+    // Multi seleccion
+    std::vector<SelectableFile*> _selectedFiles;
+
+    // Variables for reimport 
+    bool _reimportRequest = false;
+
+    uint _reimportCounter = 100;
 
     // ChangeFileName
     bool _openChangeNamePanel = false;

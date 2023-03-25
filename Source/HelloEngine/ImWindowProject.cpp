@@ -158,16 +158,62 @@ void ImWindowProject::Update()
 	else if (_openCreateScriptPanel)
 		PanelCreateScript();
 
-    else if (_openCreateShaderPanel)
-        PanelCreateShader();
+	if (_reimportRequest)
+	{
+		ImGui::OpenPopup("Reimport resources");
 
-    else if (_openCreateMaterialPanel)
-        PanelCreateMaterial();
+		if (ImGui::BeginPopupModal("Reimport resources", NULL, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_AlwaysAutoResize))
+		{
+			ImGui::Text("The resources is being reimported, please wait.");
+			ImGui::EndPopup();
+		}
 
-    // If have any file to delete, delete this
-    if (_deleteFile && _deleteFileAccepted)
-    {
-        ModuleFiles::S_Delete(_deleteFile->path);
+		if (_reimportCounter <= 0)
+		{
+			for (auto item : _selectedFiles)
+			{
+				if (item->GetFileType() == FileType::File)
+				{
+					File* tempFile = (File*)item;
+
+					tempFile->Reimport();
+				}
+				else if (item->GetFileType() == FileType::Directory)
+				{
+					Directory* tempFile = (Directory*)item;
+
+					RefreshAssetsPerDir(tempFile);
+				}
+
+				item->SetSelected(false);
+			}
+			
+			_selectedFiles.clear();
+			//if (_reimportFile)
+			//{
+			//	_reimportFile->Reimport();
+
+			//	_reimportFile = nullptr;
+			//}
+			//else if (_reimportDir)
+			//{
+			//	RefreshAssetsPerDir(_reimportDir);
+
+			//	_reimportDir = nullptr;
+			//}
+
+			_reimportRequest = false;
+		}
+		else
+		{
+			_reimportCounter--;
+		}
+	}
+
+	// If have any file to delete, delete this
+	if (_deleteFile && _deleteFileAccepted)
+	{
+		ModuleFiles::S_Delete(_deleteFile->path);
 
 		if (_deleteFile->metaPath != "none")
 			ModuleResourceManager::S_DeleteMetaFile(_deleteFile->metaPath);
@@ -177,7 +223,11 @@ void ImWindowProject::Update()
 
 		UpdateFileNodes();
 	}
+    else if (_openCreateShaderPanel)
+        PanelCreateShader();
 
+    else if (_openCreateMaterialPanel)
+        PanelCreateMaterial();
 	// If have any folder to delete, delete this
 	if (_deleteDir && _deleteFileAccepted)
 	{
@@ -194,8 +244,9 @@ void ImWindowProject::RefreshAssetsPerDir(Directory* dir)
 {
 	for (size_t i = 0; i < dir->files.size(); i++)
 	{
-		if (dir->files[i].metaFile.type == ResourceType::MODEL)
-		dir->files[i].Reimport();
+		if (dir->files[i].metaFile.type == ResourceType::MODEL
+			|| dir->files[i].metaFile.type == ResourceType::TEXTURE)
+			dir->files[i].Reimport();
 	}
 
 	for (size_t i = 0; i < dir->directories.size(); i++)
@@ -204,7 +255,7 @@ void ImWindowProject::RefreshAssetsPerDir(Directory* dir)
 	}
 }
 
-void ImWindowProject::DrawTreeNodePanelLeft(Directory*& newDir, Directory* node, const bool drawFiles) const
+void ImWindowProject::DrawTreeNodePanelLeft(Directory*& newDir, Directory* node, const bool drawFiles) 
 {
 	ImGuiTreeNodeFlags node_flags = ImGuiTreeNodeFlags_None | ImGuiTreeNodeFlags_OpenOnArrow;
 
@@ -218,18 +269,23 @@ void ImWindowProject::DrawTreeNodePanelLeft(Directory*& newDir, Directory* node,
 	{
 		// Slect node
 		if (ImGui::IsItemClicked() && !ImGui::IsItemToggledOpen())
+		{
+			ClearSelectedFiles();
 			newDir = node;
-
+		}
+			
 		// Recursive functions
 		for (int i = 0; i < node->directories.size(); i++)
 			DrawTreeNodePanelLeft(newDir, node->directories[i], drawFiles);
 
 		// Draw Files
 		if (drawFiles)
+		{
 			for (int i = 0; i < node->files.size(); i++)
 			{
 				ImGui::Text(node->files[i].name.c_str());
 			}
+		}
 
 		ImGui::TreePop();
 	}
@@ -237,154 +293,217 @@ void ImWindowProject::DrawTreeNodePanelLeft(Directory*& newDir, Directory* node,
 
 void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
 {
-    // Return buttons
-    {
-        Directory* parent1 = nullptr;
-        Directory* parent2 = nullptr;
+	// Return buttons
+	{
+		Directory* parent1 = nullptr;
+		Directory* parent2 = nullptr;
 
-        if (_fileTree->_currentDir->parent)
-            parent1 = _fileTree->_currentDir->parent;
+		if (_fileTree->_currentDir->parent)
+			parent1 = _fileTree->_currentDir->parent;
 
-        if (parent1 && parent1->parent)
-            parent2 = parent1->parent;
+		if (parent1 && parent1->parent)
+			parent2 = parent1->parent;
 
-        if (parent2)
-        {
-            std::string pName = parent2->name + " > ##Return";
+		if (parent2)
+		{
+			std::string pName = parent2->name + " > ##Return";
 
-            if (ImGui::Button(pName.c_str()))
-                newDir = parent2;
-        }
-        if (parent1)
-        {
-            ImGui::SameLine();
-            std::string pName = parent1->name + " > ##Return";
+			if (ImGui::Button(pName.c_str()))
+			{
+				newDir = parent2;
 
-            if (ImGui::Button(pName.c_str()))
-                newDir = parent1;
-        }
+				ClearSelectedFiles();
+			}
+		}
+		if (parent1)
+		{
+			ImGui::SameLine();
+			std::string pName = parent1->name + " > ##Return";
 
-        ImGui::SameLine();
+			if (ImGui::Button(pName.c_str()))
+			{
+				newDir = parent1;
 
-        ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.4, 0.4, 0.4, 255));
+				ClearSelectedFiles();
+			}
+		}
 
-        if (ImGui::Button(_fileTree->_currentDir->name.c_str()))
-        {
-            // Do nothing here, just fixed space
-        }
+		ImGui::SameLine();
 
-        ImGui::PopStyleColor(1);
-    }
+		ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.4, 0.4, 0.4, 255));
 
-    ImGui::Separator();
+		if (ImGui::Button(_fileTree->_currentDir->name.c_str()))
+		{
+			// Do nothing here, just fixed space
+		}
 
-    // Calculate num of colomns we can have
-    int numOfColumns = (ImGui::GetContentRegionAvail().x / _itemWidth) - 1;
+		ImGui::PopStyleColor(1);
+	}
 
-    if (numOfColumns == 0)
-        numOfColumns++;
+	ImGui::Separator();
 
-    ImGui::Columns(numOfColumns, "files columns", false);
+	// Calculate num of colomns we can have
+	int numOfColumns = (ImGui::GetContentRegionAvail().x / _itemWidth) - 1;
 
-    // Folders
-    ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.3, 0.3, 0.3, 0));
-    for (int i = 0; i < _fileTree->_currentDir->directories.size(); i++)
-    {
-        std::string directoryID = std::to_string(i).c_str() + _fileTree->_currentDir->directories[i]->name;
+	if (numOfColumns == 0)
+		numOfColumns++;
 
-        if (ImGui::ImageButton(directoryID.c_str(), (ImTextureID)_folderImageID, ImVec2(_itemWidth, _itemHeight)))
-            newDir = _fileTree->_currentDir->directories[i];
+	ImGui::Columns(numOfColumns, "files columns", false);
 
-        // Right click
-        if (ImGui::BeginPopupContextItem()) // <-- use last item id as popup id
-        {
-            if (ImGui::Button("Delete##Folder"))
-            {
-                _deleteDir = _fileTree->_currentDir->directories[i];
-                _showDeleteMessage = true;
-                ImGui::CloseCurrentPopup();
-            }
-            ImGui::EndPopup();
-        }
+	// Folders
+	ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.3, 0.3, 0.3, 0));
+	for (int i = 0; i < _fileTree->_currentDir->directories.size(); i++)
+	{
+		Directory* currentDir = _fileTree->_currentDir->directories[i];
 
-        if (ImGui::IsItemHovered())
-            ImGui::SetTooltip(_fileTree->_currentDir->directories[i]->name.c_str());
+		std::string directoryID = std::to_string(i).c_str() + currentDir->name;
 
-        ImGui::TextWrapped(_fileTree->_currentDir->directories[i]->name.c_str());
+		// Left click
+		if (ImGui::ImageButton(directoryID.c_str(), (ImTextureID)_folderImageID, ImVec2(_itemWidth, _itemHeight)))
+		{
+			if (!currentDir->IsSelected())
+			{
+				if (ModuleInput::S_GetKey(SDL_SCANCODE_LCTRL) != KEY_STATE::KEY_REPEAT)
+				{
+					ClearSelectedFiles();
+				}
 
-        ImGui::NextColumn();
-    }
-    ImGui::PopStyleColor(1);
+				currentDir->SetSelected(true);
 
-    // Files
-    ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.3, 0.3, 0.3, 0));
-    for (int i = 0; i < _fileTree->_currentDir->files.size(); i++)
-    {
-        // Get file icon ID
-        uint icon = 0;
-        switch (ModuleFiles::S_GetResourceType(_fileTree->_currentDir->files[i].path))
-        {
-        case ResourceType::MODEL:
-            icon = _modelImageID;
-            break;
-        case ResourceType::SCENE:
-            icon = _sceneImageID;
-            break;
-        case ResourceType::TEXTURE:
-            icon = _textureImageID;
-            break;
-        case ResourceType::HSCRIPT:
-            icon = _hImageID;
-            break;
-        case ResourceType::CPPSCRIPT:
-            icon = _cppImageID;
-            break;
-        default:
-            icon = _fileImageID;
-            break;
-        }
+				_selectedFiles.push_back(currentDir);
+			}
+			else
+			{
+				newDir = currentDir;
+				ClearSelectedFiles();
+			}
+		}
 
-        std::string fileID = std::to_string(i).c_str() + _fileTree->_currentDir->files[i].name;
+		// Right click
+		if (ImGui::BeginPopupContextItem()) // <-- use last item id as popup id
+		{
+			if (!currentDir->IsSelected())
+			{
+				ClearSelectedFiles();
 
-        // Draw Icon button
-        if (ImGui::ImageButton(fileID.c_str(), (ImTextureID)icon, ImVec2(_itemWidth, _itemHeight)))
-            _fileTree->_currentDir->files[i].pressed = !_fileTree->_currentDir->files[i].pressed;
+				currentDir->SetSelected(true);
 
-        // Drag file
-        ResourceType type = ModuleFiles::S_GetResourceType(_fileTree->_currentDir->files[i].name);
+				_selectedFiles.push_back(currentDir);
+			}
 
-        if (ImGui::BeginDragDropSource(ImGuiDragDropFlags_None))
-        {
-            switch (type)
-            {
-            case ResourceType::TEXTURE:
-                // Find resource path
-                _dragUID = _fileTree->_currentDir->files[i].metaFile.UID;
+			if (ImGui::Button("Reimport##Folder"))
+			{
+				_reimportRequest = true;
+				_reimportCounter = 100;
+				ImGui::CloseCurrentPopup();
+			}
+			if (ImGui::Button("Delete##Folder"))
+			{
+				_deleteDir = currentDir;
+				_showDeleteMessage = true;
+				ImGui::CloseCurrentPopup();
+			}
+			ImGui::EndPopup();
+		}
 
-                // Set payload to carry the index of our item (could be anything)
-                ImGui::SetDragDropPayload("Texture", &_dragUID, sizeof(uint));
-                break;
-            case ResourceType::MODEL:
-                _dragUID = _fileTree->_currentDir->files[i].metaFile.UID;
+		if (ImGui::IsItemHovered())
+			ImGui::SetTooltip(currentDir->name.c_str());
 
-                ImGui::SetDragDropPayload("Model", &_dragUID, sizeof(uint));
-                break;
-            case ResourceType::SCENE:
-                ImGui::SetDragDropPayload("Scene", &_fileTree->_currentDir->files[i].path, sizeof(std::string));
-                break;
-            case ResourceType::HSCRIPT:
-            case ResourceType::CPPSCRIPT:
-                _dragUID = _fileTree->_currentDir->files[i].metaFile.UID;
-                ImGui::SetDragDropPayload("Script", &_dragUID, sizeof(uint));
-                break;
-            case ResourceType::ANIMATION:
-                _dragUID = _fileTree->_currentDir->files[i].metaFile.UID;
-                ImGui::SetDragDropPayload("Animation", &_dragUID, sizeof(uint));
-                break;
-            case ResourceType::PREFAB:
-                ImGui::SetDragDropPayload("Prefab", &_fileTree->_currentDir->files[i].path, sizeof(std::string));
-                break;
-            case ResourceType::SHADER:
+		// Show File name
+		if (currentDir->IsSelected())
+		{
+			ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(1.0f, 0.6f, 0.6f, 1.0f));
+			ImGui::TextWrapped(currentDir->name.c_str());
+			ImGui::PopStyleColor();
+		}
+		else
+		{
+			ImGui::TextWrapped(currentDir->name.c_str());
+		}
+
+		ImGui::NextColumn();
+	}
+	ImGui::PopStyleColor(1);
+
+	// Files
+	ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.3, 0.3, 0.3, 0));
+	for (int i = 0; i < _fileTree->_currentDir->files.size(); i++)
+	{
+		File* currentFile = &_fileTree->_currentDir->files[i];
+
+		// Get file icon ID
+		uint icon = 0;
+		switch (ModuleFiles::S_GetResourceType(currentFile->path))
+		{
+		case ResourceType::MODEL:
+			icon = _modelImageID;
+			break;
+		case ResourceType::SCENE:
+			icon = _sceneImageID;
+			break;
+		case ResourceType::TEXTURE:
+			icon = _textureImageID;
+			break;
+		case ResourceType::HSCRIPT:
+			icon = _hImageID;
+			break;
+		case ResourceType::CPPSCRIPT:
+			icon = _cppImageID;
+			break;
+		default:
+			icon = _fileImageID;
+			break;
+		}
+
+		std::string fileID = std::to_string(i).c_str() + currentFile->name;
+
+		// Left click
+		if (ImGui::ImageButton(fileID.c_str(), (ImTextureID)icon, ImVec2(_itemWidth, _itemHeight)))
+		{
+			currentFile->pressed = !currentFile->pressed;
+			currentFile->SetSelected(true);
+			if (ModuleInput::S_GetKey(SDL_SCANCODE_LCTRL) != KEY_STATE::KEY_REPEAT)
+			{
+				ClearSelectedFiles();
+			}
+			_selectedFiles.push_back(currentFile);
+		}
+
+		// Drag file
+		ResourceType type = ModuleFiles::S_GetResourceType(currentFile->name);
+
+		if (ImGui::BeginDragDropSource(ImGuiDragDropFlags_None))
+		{
+			switch (type)
+			{
+			case ResourceType::TEXTURE:
+				// Find resource path
+				_dragUID = _fileTree->_currentDir->files[i].metaFile.UID;
+
+				// Set payload to carry the index of our item (could be anything)
+				ImGui::SetDragDropPayload("Texture", &_dragUID, sizeof(uint));
+				break;
+			case ResourceType::MODEL:
+				_dragUID = _fileTree->_currentDir->files[i].metaFile.UID;
+
+				ImGui::SetDragDropPayload("Model", &_dragUID, sizeof(uint));
+				break;
+			case ResourceType::SCENE:
+				ImGui::SetDragDropPayload("Scene", &_fileTree->_currentDir->files[i].path, sizeof(std::string));
+				break;
+			case ResourceType::HSCRIPT:
+			case ResourceType::CPPSCRIPT:
+				_dragUID = _fileTree->_currentDir->files[i].metaFile.UID;
+				ImGui::SetDragDropPayload("Script", &_dragUID, sizeof(uint));
+				break;
+			case ResourceType::ANIMATION:
+				_dragUID = _fileTree->_currentDir->files[i].metaFile.UID;
+				ImGui::SetDragDropPayload("Animation", &_dragUID, sizeof(uint));
+				break;
+			case ResourceType::PREFAB:
+				ImGui::SetDragDropPayload("Prefab", &_fileTree->_currentDir->files[i].path, sizeof(std::string));
+				break;
+			case ResourceType::SHADER:
                 _dragUID = _fileTree->_currentDir->files[i].metaFile.UID;
                 ImGui::SetDragDropPayload("Shader", &_dragUID, sizeof(uint));
                 break;
@@ -392,42 +511,50 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
                 _dragUID = _fileTree->_currentDir->files[i].metaFile.UID;
                 ImGui::SetDragDropPayload("Material", &_dragUID, sizeof(uint));
                 break;
-            }
-            ImGui::EndDragDropSource();
-        }
+			}
+			ImGui::EndDragDropSource();
+		}
 
-        // Right click
-        if (ImGui::BeginPopupContextItem()) // <-- use last item id as popup id
-        {
-			if (ImGui::Button("Reimport##File"))
+		// Right click
+		if (ImGui::BeginPopupContextItem()) // <-- use last item id as popup id
+		{
+			if (!currentFile->IsSelected())
 			{
-				_fileTree->_currentDir->files[i].Reimport();
-				ImGui::CloseCurrentPopup();
+				ClearSelectedFiles();
+
+				currentFile->SetSelected(true);
+
+				_selectedFiles.push_back(currentFile);
 			}
 
-            if (ImGui::Button("Delete##File"))
-            {
-                _deleteFile = &_fileTree->_currentDir->files[i];
-                _showDeleteMessage = true;
-                ImGui::CloseCurrentPopup();
-            }
-            ImGui::EndPopup();
-        }
+			if (ImGui::Button("Reimport##File"))
+			{
+				_reimportRequest = true;
+				_reimportCounter = 100;
+				ImGui::CloseCurrentPopup();
+			}
+			if (ImGui::Button("Delete##File"))
+			{
+				_deleteFile = &_fileTree->_currentDir->files[i];
+				_showDeleteMessage = true;
+				ImGui::CloseCurrentPopup();
+			}
+			ImGui::EndPopup();
+		}
 
-        static bool doubleClick = false;
+  		static bool doubleClick = false;
 
-        // Shwo file name when mouse is hovered
-        if (ImGui::IsItemHovered())
-        {
-            ImGui::SetTooltip(_fileTree->_currentDir->files[i].name.c_str());
-
-            if (ImGui::IsMouseDoubleClicked(ImGuiMouseButton_Left))
+		// Shwo file name when mouse is hovered
+		if (ImGui::IsItemHovered())
+		{
+			 if (ImGui::IsMouseDoubleClicked(ImGuiMouseButton_Left))
             {
                 doubleClick = true;
             }
-        }
+			ImGui::SetTooltip(currentFile->name.c_str());
+		}
 
-        //Double click
+		//Double click
         if (doubleClick)
         {
             type = ModuleFiles::S_GetResourceType(_fileTree->_currentDir->files[i].name);
@@ -455,66 +582,76 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
             doubleClick = false;
         }
 
+		// Show file name
+		if (currentFile->IsSelected())
+		{
+			ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(1.0f, 0.6f, 0.6f, 1.0f));
+			ImGui::TextWrapped(currentFile->name.c_str());
+			ImGui::PopStyleColor();
+		}
+		else
+		{
+			ImGui::TextWrapped(currentFile->name.c_str());
+		}
 
-        // Show file name
-        ImGui::TextWrapped(_fileTree->_currentDir->files[i].name.c_str());
+		// Draw Mesh files
+		if (currentFile->metaFile.type == ResourceType::MODEL && currentFile->pressed)
+		{
+			ResourceModel* model = (ResourceModel*)ModuleResourceManager::resources[_fileTree->_currentDir->files[i].metaFile.UID];
+			ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.3, 0.3, 0.3, 1));
+			for (int j = 0; j < model->modelMeshes.size(); j++)
+			{
+				ImGui::NextColumn();
+				ImGui::ImageButton(std::to_string(model->modelMeshes[j]->UID).c_str(), (ImTextureID)_meshImageID, ImVec2(_itemWidth, _itemHeight));
 
-        // Draw Mesh files
-        if (_fileTree->_currentDir->files[i].metaFile.type == ResourceType::MODEL && _fileTree->_currentDir->files[i].pressed)
-        {
-            ResourceModel* model = (ResourceModel*)ModuleResourceManager::resources[_fileTree->_currentDir->files[i].metaFile.UID];
-            ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.3, 0.3, 0.3, 1));
-            for (int j = 0; j < model->modelMeshes.size(); j++)
-            {
-                ImGui::NextColumn();
-                ImGui::ImageButton(std::to_string(model->modelMeshes[j]->UID).c_str(), (ImTextureID)_meshImageID, ImVec2(_itemWidth, _itemHeight));
+				if (ImGui::BeginDragDropSource(ImGuiDragDropFlags_None))
+				{
+					// Find resource path
+					_dragUID = model->modelMeshes[j]->UID;
 
-                if (ImGui::BeginDragDropSource(ImGuiDragDropFlags_None))
-                {
-                    // Find resource path
-                    _dragUID = model->modelMeshes[j]->UID;
+					// Set payload to carry the index of our item (could be anything)
+					ImGui::SetDragDropPayload("Mesh", &_dragUID, sizeof(uint));
 
-                    // Set payload to carry the index of our item (could be anything)
-                    ImGui::SetDragDropPayload("Mesh", &_dragUID, sizeof(uint));
+					ImGui::EndDragDropSource();
+				}
+				ImGui::TextWrapped(model->modelMeshes[j]->debugName.c_str());
+			}
+			ImGui::PopStyleColor(1);
+		}
 
-                    ImGui::EndDragDropSource();
-                }
-                ImGui::TextWrapped(model->modelMeshes[j]->debugName.c_str());
-            }
-            ImGui::PopStyleColor(1);
-        }
+		ImGui::NextColumn();
+	}
+	ImGui::PopStyleColor(1);
 
-        ImGui::NextColumn();
-    }
-    ImGui::PopStyleColor(1);
+	// Right Click in the panel
+	if (ImGui::BeginPopupContextWindow("WinodwProjectPopUp", ImGuiPopupFlags_NoOpenOverExistingPopup
+		| ImGuiPopupFlags_MouseButtonDefault_))
+	{
+		ClearSelectedFiles();
 
-    if (ImGui::BeginPopupContextWindow("WinodwProjectPopUp", ImGuiPopupFlags_NoOpenOverExistingPopup | ImGuiPopupFlags_MouseButtonDefault_))
-    {
-        if (ImGui::Selectable("Show in Explorer"))
-            ModuleFiles::S_OpenFolder(_fileTree->_currentDir->path);
+		if (ImGui::Selectable("Show in Explorer"))
+			ModuleFiles::S_OpenFolder(_fileTree->_currentDir->path);
 
-        if (ImGui::Selectable("Create Folder"))
-            _openCreateFolderPanel = true;
+		if (ImGui::Selectable("Create Folder"))
+			_openCreateFolderPanel = true;
 
-        if (ImGui::Selectable("Create Script"))
-            _openCreateScriptPanel = true;
+		if (ImGui::Selectable("Create Script"))
+			_openCreateScriptPanel = true;
 
-        if (ImGui::Selectable("Create Shader"))
+		if (ImGui::Selectable("Create Shader"))
         {
             _openCreateShaderPanel = true;
             _temporalName = "newShader";
         }
            
-
         if (ImGui::Selectable("Create Material"))
         {
             _openCreateMaterialPanel = true;
             _temporalName = "newMaterial";
         }
-            
 
-        ImGui::EndPopup();
-    }
+		ImGui::EndPopup();
+	}
 }
 
 void ImWindowProject::OnDrop(const std::string filePath)
@@ -534,6 +671,10 @@ void ImWindowProject::OnDrop(const std::string filePath)
 
 void ImWindowProject::UpdateFileNodes()
 {
+	ClearSelectedFiles();
+
+	_selectedFiles.clear();
+
 	ModuleResourceManager::S_UpdateFileTree();
 
 	if (ModuleResourceManager::S_GetFileTree(_fileTree))
@@ -542,11 +683,17 @@ void ImWindowProject::UpdateFileNodes()
 
 void ImWindowProject::RefreshAssets()
 {
-	Directory* root = nullptr;
+	Directory* _reimportDir = nullptr;
 
-	_fileTree->GetRootDir(root);
+	_fileTree->GetRootDir(_reimportDir);
 
-	RefreshAssetsPerDir(root);
+	_reimportRequest = true;
+
+	_reimportCounter = 100;
+
+	ClearSelectedFiles();
+
+	_selectedFiles.push_back(_reimportDir);
 }
 
 void ImWindowProject::CheckWindowFocus()
@@ -763,4 +910,14 @@ void ImWindowProject::DrawDeleteMessage()
 		}
 		ImGui::EndPopup();
 	}
+}
+
+void ImWindowProject::ClearSelectedFiles()
+{
+	for (auto item : _selectedFiles)
+	{
+		item->SetSelected(false);
+	}
+
+	_selectedFiles.clear();
 }

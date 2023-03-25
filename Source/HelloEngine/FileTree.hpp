@@ -8,12 +8,28 @@
 
 struct Directory;
 
-struct File
+enum class FileType
 {
-	File() {};
+	File,
+	Directory,
+};
 
+struct SelectableFile {
+public:
+	virtual bool IsSelected() const = 0;
+	virtual void SetSelected(bool selected) = 0;
+	FileType GetFileType() { return type; }
+protected:
+	bool selected = false;
+	FileType type;
+};
+
+struct File : public SelectableFile
+{
 	File(std::string path, std::string name, Directory* parent) :path(path), name(name), parent(parent)
 	{
+		type = FileType::File;
+
 		// Check if this file has a .helloMeta file with the same name.
 		if (ModuleFiles::S_CheckMetaExist(path))
 		{
@@ -39,9 +55,18 @@ struct File
 			metaFile = ModuleFiles::S_LoadMeta(metaPath);
 
 			ModuleResourceManager::S_CreateResource(metaFile);
-
 		}
 	};
+
+	bool IsSelected() const override
+	{
+		return selected;
+	}
+
+	void SetSelected(bool selected) override
+	{
+		this->selected = selected;
+	}
 
 	/// <summary>
 	/// Force ReImport the file
@@ -58,9 +83,14 @@ struct File
 			ModuleResourceManager::S_ReImportFile(path, metaFile.type);
 		}
 
-		metaFile = ModuleFiles::S_LoadMeta(metaPath);
+		if (metaFile.type != ResourceType::UNDEFINED)
+			metaFile = ModuleFiles::S_LoadMeta(metaPath);
 	}
 
+private:
+	File() {};
+
+public:
 	std::string path;
 	std::string metaPath = "none";
 	std::string name;
@@ -69,9 +99,12 @@ struct File
 	bool pressed = false;
 };
 
-struct Directory
+struct Directory : public SelectableFile
 {
-	Directory(std::string path, std::string name, Directory* parent) :path(path), name(name), parent(parent) {};
+	Directory(std::string path, std::string name, Directory* parent) :path(path), name(name), parent(parent)
+	{
+		type = FileType::Directory;
+	};
 	~Directory()
 	{
 		for (size_t i = 0; i < directories.size(); i++)
@@ -79,6 +112,16 @@ struct Directory
 			RELEASE(directories[i]);
 		}
 	}
+
+	bool IsSelected() const override {
+		return selected;
+	}
+
+	void SetSelected(bool selected) override
+	{
+		this->selected = selected;
+	}
+
 	std::vector<Directory*> directories;
 	std::vector<File> files;
 	std::string path;
