@@ -11,6 +11,7 @@ BillBoardComponent::BillBoardComponent(GameObject* gameObject) : Component(gameO
 	app = Application::Instance();
 
 	currentBBoard = "No Align";
+	typeofBBoard = BILLBOARDTYPE::SCREENALIGN;
 }
 
 BillBoardComponent::~BillBoardComponent()
@@ -182,5 +183,6 @@ void BillBoardComponent::Serialization(json& j)
 
 void BillBoardComponent::DeSerialization(json& j)
 {
+	typeofBBoard = BILLBOARDTYPE::SCREENALIGN;
 }
 

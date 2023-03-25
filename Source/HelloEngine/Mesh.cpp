@@ -20,7 +20,7 @@
 Mesh::Mesh()
 {
 	modelMatrix.SetIdentity();
-	stencilShader = Shader("Resources/shaders/stencil.shader");
+	stencilShader = ModuleResourceManager::S_CreateResourceShader("Resources/shaders/stencil.shader", 109, "Stencil");
 }
 
 Mesh::~Mesh()
@@ -34,6 +34,16 @@ Mesh::~Mesh()
 	{
 		boneMeshShader->Dereference();
 		boneMeshShader = nullptr;
+	}
+	if (stencilShader)
+	{
+		stencilShader->Dereference();
+		stencilShader = nullptr;
+	}
+	if (drawPerMesh2D)
+	{
+		drawPerMesh2D->Dereference();
+		drawPerMesh2D = nullptr;
 	}
 	if (_VAO != 0)
 	{
@@ -56,7 +66,7 @@ void Mesh::CreateBufferData()
 		drawPerMeshShader = ModuleResourceManager::S_CreateResourceShader("Resources/shaders/basic.shader", 103, "Basic");
 		boneMeshShader = ModuleResourceManager::S_CreateResourceShader("Resources/shaders/basicBone.shader", 105, "Basic Bone");	}
 	else
-		drawPerMesh2D = new Shader("Resources/shaders/basic2D.shader");
+		drawPerMesh2D = ModuleResourceManager::S_CreateResourceShader("Resources/shaders/basic2D.shader", 110, "Basic2D");
 }
 
 void Mesh::Draw(Material* material, bool useMaterial)
@@ -91,8 +101,8 @@ void Mesh::DefaultDraw()
 
 	if (is2D)
 	{
-		drawPerMesh2D->Bind();
-		drawPerMesh2D->SetMatFloat4v("model", &modelMatrix.v[0][0]);
+		drawPerMesh2D->shader.Bind();
+		drawPerMesh2D->shader.SetMatFloat4v("model", &modelMatrix.v[0][0]);
 		return;
 	}
 
@@ -210,11 +220,11 @@ void Mesh::DrawAsSelected(Material* material)
 	glDisable(GL_DEPTH_TEST);
 
 #ifdef STANDALONE
-	stencilShader.Bind();
-	stencilShader.SetFloat("outlineSize", 0.04f);
-	stencilShader.SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
-	stencilShader.SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
-	stencilShader.SetMatFloat4v("model", &modelMatrix.v[0][0]);
+	stencilShader->shader.Bind();
+	stencilShader->shader.SetFloat("outlineSize", 0.04f);
+	stencilShader->shader.SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
+	stencilShader->shader.SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
+	stencilShader->shader.SetMatFloat4v("model", &modelMatrix.v[0][0]);
 #endif
 	// Draw model bigger size using the stencilShader
 	if (isIndependent)
@@ -250,11 +260,11 @@ void Mesh::DrawAsSelected()
 	glDisable(GL_DEPTH_TEST);
 
 #ifdef STANDALONE
-	stencilShader.Bind();
-	stencilShader.SetFloat("outlineSize", 0.04f);
-	stencilShader.SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
-	stencilShader.SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
-	stencilShader.SetMatFloat4v("model", &modelMatrix.v[0][0]);
+	stencilShader->shader.Bind();
+	stencilShader->shader.SetFloat("outlineSize", 0.04f);
+	stencilShader->shader.SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
+	stencilShader->shader.SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
+	stencilShader->shader.SetMatFloat4v("model", &modelMatrix.v[0][0]);
 #endif
 	
 	manager = Application::Instance()->renderer3D->renderManager.GetRenderManager(component->_meshID);

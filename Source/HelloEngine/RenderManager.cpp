@@ -1071,6 +1071,8 @@ void RenderManager::DrawTextObjects()
 		glActiveTexture(GL_TEXTURE0);
 		glBindVertexArray(TextVAO);
 
+		glDisable(GL_DEPTH_TEST);
+
 		std::string::const_iterator c;
 		for (c = text.text.begin(); c != text.text.end(); c++)
 		{
@@ -1107,5 +1109,6 @@ void RenderManager::DrawTextObjects()
 		}
 		glBindVertexArray(0);
 		glBindTexture(GL_TEXTURE_2D, 0);
+		glEnable(GL_DEPTH_TEST);
 	}
 }

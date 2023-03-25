@@ -46,6 +46,9 @@ public:
 	static void S_Pause();
 	static void S_OneFrame();
 
+	/// To be called when a new scene is loaded in-game.
+	static void StartAllScripts();
+
 	static void S_AddScriptComponent(ScriptComponent* component);
 	static void S_RemoveScriptComponent(ScriptComponent* component);
 

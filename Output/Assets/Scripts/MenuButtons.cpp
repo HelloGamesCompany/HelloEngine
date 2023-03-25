@@ -20,27 +20,22 @@ void MenuButtons::Update()
 {
 	if (Continue.OnPress())
 	{
-		Console::Log("im pressed");
-		Scene::LoadScene("WinMenu.HScene");
+		/*Scene::LoadScene("WinMenu.HScene");*/
 	}
 	if (NewGame.OnPress())
 	{
-		Console::Log("im pressed");
-		Scene::LoadScene("GameTestScreen.HScene");
+		Scene::LoadScene("SpaceshipHUB_Scene.HScene");
 	}
 	if (Exit.OnPress())
 	{
-		Console::Log("im pressed");
 		Game::ExitApplication();
 	}
 	if (Collectibles.OnPress())
 	{
-		Console::Log("im pressed");
 		Scene::LoadScene("");
 	}
 	if (Settings.OnPress())
 	{
-		Console::Log("im pressed");
 		Scene::LoadScene("");
 	}
 }

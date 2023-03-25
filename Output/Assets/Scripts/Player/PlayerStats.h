@@ -5,6 +5,8 @@
 
 #include "API/API.h"
 
+class HpBar;
+
 class PlayerStats : HelloBehavior
 {
 public:
@@ -14,7 +16,7 @@ public:
     float maxHp;
     float currentHp;
     void TakeDamage(float amount);
-    float inmunityTime;
+    float inmunityTime = 2.0f;
 
     int GetAmmonByType(int type);
     void GetAmmo(int type, int amount);
@@ -28,5 +30,8 @@ public:
     int maxRicochetAmmo;
 
     bool detected;//if the player is being detected somehow
+
+    API_GameObject hpGameObject;
+    HpBar* healthBar;
 };
 

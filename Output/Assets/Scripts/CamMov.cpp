@@ -11,6 +11,7 @@ HELLO_ENGINE_API_C CamMov* CreateCamMov(ScriptToInspectorInterface* script)
 	script->AddDragFloat("Rot_Offset_Y", &classInstance->camRot.y);
 	script->AddDragFloat("Rot_Offset_Z", &classInstance->camRot.z);
 	//Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
+	script->AddCheckBox("Use safe zone: ", &classInstance->safeZone);
 	return classInstance;
 }
 
@@ -31,17 +32,20 @@ void CamMov::Start()
 
 void CamMov::Update()
 {
+	if (safeZone)
+	{
+		if (target.GetTransform().GetGlobalPosition().x > gameObject.GetTransform().GetGlobalPosition().x + 13
+			|| target.GetTransform().GetGlobalPosition().x < gameObject.GetTransform().GetGlobalPosition().x - 13
+			|| target.GetTransform().GetGlobalPosition().z < gameObject.GetTransform().GetGlobalPosition().z + 11
+			|| target.GetTransform().GetGlobalPosition().z > gameObject.GetTransform().GetGlobalPosition().z + 40
+			) {
+			delay += 0.001;
+		}
+		else {
+			delay = 0.02;
+		}
+	}
 
-	if (target.GetTransform().GetGlobalPosition().x > gameObject.GetTransform().GetGlobalPosition().x + 13
-		|| target.GetTransform().GetGlobalPosition().x < gameObject.GetTransform().GetGlobalPosition().x - 13
-		|| target.GetTransform().GetGlobalPosition().z < gameObject.GetTransform().GetGlobalPosition().z + 11
-		|| target.GetTransform().GetGlobalPosition().z > gameObject.GetTransform().GetGlobalPosition().z + 40
-		) {
-		delay += 0.001;
-	}
-	else {
-		delay = 0.02;
-	}
 	
 	gameObject.GetTransform().SetRotation(camRot);
 

@@ -1,4 +1,7 @@
 #include "PlayerGunManager.h"
+#include "../UI Test folder/SwapWeapon.h"
+#include "../Player/PlayerMove.h"
+
 HELLO_ENGINE_API_C PlayerGunManager* CreatePlayerGunManager(ScriptToInspectorInterface* script)
 {
     PlayerGunManager* classInstance = new PlayerGunManager();
@@ -15,6 +18,9 @@ HELLO_ENGINE_API_C PlayerGunManager* CreatePlayerGunManager(ScriptToInspectorInt
     script->AddDragBoxGameObject("Handgun", &classInstance->handgun);
     script->AddDragBoxGameObject("Flamethrower", &classInstance->flamethrower);
     script->AddDragBoxGameObject("Ricochet", &classInstance->ricochet);
+    script->AddDragBoxGameObject("HUD", &classInstance->HUDGameObject);
+    script->AddDragBoxGameObject("PlayerMovement GameObject", &classInstance->playerMoveGameObject);
+
     return classInstance;
 }
 
@@ -39,6 +45,8 @@ void PlayerGunManager::Start()
 
     // start with base gun selected
     EquipGun(0);
+    HUDScript = (SwapWeapon*)HUDGameObject.GetScript("SwapWeapon");
+    playerMovementScript = (PlayerMove*)playerMoveGameObject.GetScript("PlayerMove");
 }
 
 void PlayerGunManager::Update()
@@ -55,6 +63,7 @@ void PlayerGunManager::Update()
         {
             EquipGun(gunOnHandIndex3); // special weapon
             bufferRB = 0.0f;
+            HUDScript->SwapWeapon3();
         }
         else bufferLB = 0.1f;
     }
@@ -64,6 +73,7 @@ void PlayerGunManager::Update()
         {
             EquipGun(gunOnHandIndex3); // special weapon
             bufferLB = 0.0f;
+            HUDScript->SwapWeapon3();
         }
         else bufferRB = 0.1f;
     }
@@ -74,6 +84,7 @@ void PlayerGunManager::Update()
         {
             EquipGun(gunOnHandIndex1); // base weapon
             bufferLB = 0.0f;
+            HUDScript->SwapWeapon1();
         }
     }
     if (bufferRB > 0.0f)
@@ -83,6 +94,7 @@ void PlayerGunManager::Update()
         {
             EquipGun(gunOnHandIndex2); // normal weapon
             bufferRB = 0.0f;
+            HUDScript->SwapWeapon2();
         }
     }
 
@@ -93,6 +105,7 @@ void PlayerGunManager::Update()
         if (playerStats->GetAmmonByType(equipedGun->ammoType) > 0)
         {
             equipedGun->Shoot();
+            playerMovementScript->ShootAnim();
         }
         else
         {

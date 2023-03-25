@@ -54,7 +54,7 @@
             {
                 "Active camera": true,
                 "Active culling": true,
-                "Aspect ratio": 1.8648383617401123,
+                "Aspect ratio": 1.6876121759414673,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -209,28 +209,6 @@
                 "hoverImage": 2973295929,
                 "idleImage": 2360640650,
                 "pressImage": 2805871651
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Continue": 351199318
-                    },
-                    {
-                        "NewGame": 1741124431
-                    },
-                    {
-                        "Exit": 1551021094
-                    },
-                    {
-                        "Settings": 3765630460
-                    },
-                    {
-                        "Collectibles": 1057867941
-                    }
-                ],
-                "Script Resource": 186220908,
-                "Type": 5
             }
         ],
         "FirstOnPrefab": true,
@@ -288,6 +266,21 @@
                     },
                     {
                         "Collectibles": 1057867941
+                    },
+                    {
+                        "Continue": 351199318
+                    },
+                    {
+                        "NewGame": 1741124431
+                    },
+                    {
+                        "Exit": 1551021094
+                    },
+                    {
+                        "Settings": 3765630460
+                    },
+                    {
+                        "Collectibles": 1057867941
                     }
                 ],
                 "Script Resource": 186220908,
@@ -331,28 +324,6 @@
                 "hoverImage": 273176788,
                 "idleImage": 3923147828,
                 "pressImage": 2736792734
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Continue": 351199318
-                    },
-                    {
-                        "NewGame": 1741124431
-                    },
-                    {
-                        "Exit": 1551021094
-                    },
-                    {
-                        "Settings": 3765630460
-                    },
-                    {
-                        "Collectibles": 1057867941
-                    }
-                ],
-                "Script Resource": 186220908,
-                "Type": 5
             }
         ],
         "FirstOnPrefab": true,
@@ -392,28 +363,6 @@
                 "hoverImage": 3401443754,
                 "idleImage": 2224721247,
                 "pressImage": 1132405233
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Continue": 351199318
-                    },
-                    {
-                        "NewGame": 1741124431
-                    },
-                    {
-                        "Exit": 1551021094
-                    },
-                    {
-                        "Settings": 3765630460
-                    },
-                    {
-                        "Collectibles": 1057867941
-                    }
-                ],
-                "Script Resource": 186220908,
-                "Type": 5
             }
         ],
         "FirstOnPrefab": true,
@@ -453,28 +402,6 @@
                 "hoverImage": 541261496,
                 "idleImage": 4120732920,
                 "pressImage": 4148078915
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Continue": 351199318
-                    },
-                    {
-                        "NewGame": 1741124431
-                    },
-                    {
-                        "Exit": 1551021094
-                    },
-                    {
-                        "Settings": 3765630460
-                    },
-                    {
-                        "Collectibles": 1057867941
-                    }
-                ],
-                "Script Resource": 186220908,
-                "Type": 5
             }
         ],
         "FirstOnPrefab": true,
@@ -551,6 +478,9 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Velocity": 0.5
+                    },
                     {
                         "Velocity": 0.5
                     }

@@ -20,6 +20,7 @@ MaterialComponent::~MaterialComponent()
 	_resource = nullptr;
 }
 
+#ifdef STANDALONE
 void MaterialComponent::OnEditor()
 {
 	bool created = true;
@@ -57,7 +58,7 @@ void MaterialComponent::OnEditor()
 	if (!created)
 		this->_gameObject->DestroyComponent(this);
 }
-
+#endif
 void MaterialComponent::MaterialDragNDrop()
 {
 	std::string btnTxt = "EMPTY";
@@ -165,6 +166,11 @@ void MaterialComponent::DeSerialization(json& _j)
 	if (res != nullptr)
 	{
 		_resource = res;
+	}
+
+	if (_resource == nullptr)
+	{
+		return;
 	}
 
 	//Load to mesh

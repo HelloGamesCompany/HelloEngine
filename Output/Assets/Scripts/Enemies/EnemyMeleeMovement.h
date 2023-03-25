@@ -8,50 +8,64 @@
 
 class EnemyMeleeMovement : HelloBehavior
 {
+    enum class AnimationState
+    {
+        NONE,
+        IDLE,
+        WALK
+    };
+
 public:
-	enum class States {
-		TARGETING,
-		WANDERING,
-		ATTACKIG
+    enum class States {
+        TARGETING,
+        WANDERING,
+        ATTACKIG
 
-	};
-	void Start() override; 
-	void Update() override;
+    };
 
-	void Seek(float vel, API_Vector3 tarPos);
-	void Wander(float vel, API_Vector3 point);
+    void Start() override;
+    void Update() override;
 
-	API_Vector3 NormalizeVec3(float x, float y, float z);
+    void Seek(float vel, API_Vector3 tarPos);
+    void Wander(float vel, API_Vector3 point);
 
-	float Lerp(float a, float b, float time);
+    API_Vector3 NormalizeVec3(float x, float y, float z);
 
-	bool wander = false;
-	bool targeting = false;
+    float Lerp(float a, float b, float time);
 
-	float detectionDis=2.0f;
-	float lossingDis = 10.0f;
-	float lossingZoneDis = 200.0f;
-	float rangeAtk = 60.0f;
-	float outTime = 3.0f;
+    bool wander = false;
+    bool targeting = false;
 
-	API_GameObject target; 
-	API_GameObject actionZone; 
+    float detectionDis = 2.0f;
+    float lossingDis = 10.0f;
+    float lossingZoneDis = 200.0f;
+    float rangeAtk = 60.0f;
+    float outTime = 3.0f;
 
-	API_RigidBody zoneRb;
-	
-	API_GameObject listPoints[5];
-	int numPoint = 0;
-	
-	API_Vector3 actualPoint;
+    API_GameObject target;
+    API_GameObject actionZone;
 
-	States enemState;
+    API_RigidBody zoneRb;
+
+    API_GameObject listPoints[5];
+    int numPoint = 0;
+
+    API_Vector3 actualPoint;
+
+    States enemState;
+
+    // animation
+    AnimationState animState;
+    API_AnimationPlayer animationPlayer;
+    uint idleAnim;
+    uint walkAnim;
 
 
 private:
-	int _avalPoints = 0;
-	float _outCooldown;//max time that can be outside the zone
-	float _movCooldown;//
-	//Timer clock;
+    int _avalPoints = 0;
+    float _outCooldown;//max time that can be outside the zone
+    float _movCooldown;//
+    //Timer clock;
 };
 
 

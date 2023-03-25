@@ -48,15 +48,18 @@ void Material::Update(const float* view, const float* projection, const float* m
 					shader->shader.SetFloat3v("LightColor", &Lighting::global.lightColor.At(0));
 					continue;
 				}
-				else if (uniforms[i]->data.name == "LightPosition")
-				{
-					shader->shader.SetFloat3v("LightPosition", &Lighting::global.lightPosition.At(0));
-					continue;
-				}
 				else if (uniforms[i]->data.name == "ViewPoint")
 				{
 					float3 viewPoint = Application::Instance()->camera->currentDrawingCamera->GetPosition();
 					shader->shader.SetFloat3v("ViewPoint", &viewPoint.At(0));
+					continue;
+				}
+				break;
+			case GL_FLOAT_VEC4:
+				if (uniforms[i]->data.name == "LightPosition")
+				{
+					shader->shader.SetFloat4v("LightPosition", &Lighting::global.lightDirection.At(0));
+					continue;
 				}
 				break;
 			case GL_FLOAT:

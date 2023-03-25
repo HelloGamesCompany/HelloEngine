@@ -183,6 +183,14 @@
 		<ClCompile Include="../../Assets/Scripts/Enemies/EnemyGuns/EnemyAutomatic.cpp" />
 		<ClCompile Include="../../Assets/Scripts/Enemies/EnemyProjectilePull.cpp" />
 		<ClCompile Include="../../Assets/Scripts/Enemies/EnemyProjectile.cpp" />
+		<ClCompile Include="..\..\Assets\Scripts\UI Test folder\HpBar.cpp" />
+		<ClCompile Include="..\..\Assets\Scripts\UI Test folder\UIManager.cpp" />
+		<ClCompile Include="../../Assets/Scripts/LevelEndTrigger.cpp" />
+		<ClCompile Include="../../Assets/Scripts/Player/Temp_Teleporter.cpp" />
+		<ClCompile Include="../../Assets/Scripts/UI Test folder/ScoreScreen.cpp" />
+		<ClCompile Include="../../Assets/Scripts/InteractiveEnviroment/GoToLevelTrigger.cpp" />
+		<ClCompile Include="../../Assets/Scripts/Level2EndTrigger.cpp" />
+		<ClCompile Include="../../Assets/Scripts/Level2FinalText.cpp" />
 	</ItemGroup>
 	<ItemGroup>
 		<ClInclude Include="..\..\Assets\Scripts\Enemies\EnemyMeleeMovement.h" />
@@ -198,6 +206,8 @@
 		<ClInclude Include="..\..\Assets\Scripts\Shooting\Guns\PlayerSemiAuto.h" />
 		<ClInclude Include="..\..\Assets\Scripts\Shooting\Guns\PlayerShotgun.h" />
 		<ClInclude Include="..\..\Assets\Scripts\TestAPI.h" />
+		<ClInclude Include="..\..\Assets\Scripts\UI Test folder\HpBar.h" />
+		<ClInclude Include="..\..\Assets\Scripts\UI Test folder\UIManager.h" />
 		<ClInclude Include="Macro.h" />
 		<ClInclude Include="../../Assets/Scripts/transformTest.h" />
 		<ClInclude Include="../../Assets/Scripts/BulletBehavior.h" />
@@ -233,6 +243,12 @@
 		<ClInclude Include="../../Assets/Scripts/Enemies/EnemyGuns/EnemyAutomatic.h" />
 		<ClInclude Include="../../Assets/Scripts/Enemies/EnemyProjectilePull.h" />
 		<ClInclude Include="../../Assets/Scripts/Enemies/EnemyProjectile.h" />
+		<ClInclude Include="../../Assets/Scripts/LevelEndTrigger.h" />
+		<ClInclude Include="../../Assets/Scripts/Player/Temp_Teleporter.h" />
+		<ClInclude Include="../../Assets/Scripts/UI Test folder/ScoreScreen.h" />
+		<ClInclude Include="../../Assets/Scripts/InteractiveEnviroment/GoToLevelTrigger.h" />
+		<ClInclude Include="../../Assets/Scripts/Level2EndTrigger.h" />
+		<ClInclude Include="../../Assets/Scripts/Level2FinalText.h" />
 	</ItemGroup>
 	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 	<ImportGroup Label="ExtensionTargets" />

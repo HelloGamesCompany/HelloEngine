@@ -5,8 +5,18 @@
 
 #include "API/API.h"
 
+class SwapWeapon;
+
 class PlayerMove : HelloBehavior
 {
+    enum class PlayerAnims
+    {
+        IDLE,
+        RUN,
+        DASH,
+        SHOOT,
+    };
+
 public:
     void Start() override;
     void Update() override;
@@ -17,6 +27,8 @@ public:
     void Dash();
     bool DashInput();
     void OnCollisionEnter(API_RigidBody other);
+
+    void ShootAnim();
 
     bool usingGamepad;
     float dt;
@@ -47,5 +59,14 @@ public:
     //Animations
     API_AnimationPlayer playerAnimator;
     uint dashAnim = 0;
+    uint idleAnim = 0;
+    uint runAnim = 0;
+    uint shootAnim = 0;
+    PlayerAnims currentAnim;
+    bool isShooting = false;
+
+    // HUD
+    API_GameObject HUDGameObject;
+    SwapWeapon* HUDScript;
 };
 

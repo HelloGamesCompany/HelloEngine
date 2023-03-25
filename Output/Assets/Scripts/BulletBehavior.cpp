@@ -12,7 +12,6 @@ void BulletBehavior::Start()
 {
 	API_Vector3 vector = { 1,2,3 };
 
-	Console::Log("X: " + std::to_string(vector.x) + "Y: " + std::to_string(vector.y) + "Z: " + std::to_string(vector.z));
 }
 void BulletBehavior::Update()
 {

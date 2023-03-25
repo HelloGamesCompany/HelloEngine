@@ -1,5 +1,7 @@
 #include "PlayerMove.h"
 #include "../SwapCam.h"
+#include "../UI Test folder/SwapWeapon.h"
+
 HELLO_ENGINE_API_C PlayerMove* CreatePlayerMove(ScriptToInspectorInterface* script)
 {
     PlayerMove* classInstance = new PlayerMove();
@@ -13,7 +15,10 @@ HELLO_ENGINE_API_C PlayerMove* CreatePlayerMove(ScriptToInspectorInterface* scri
     script->AddDragFloat("Dash Distance", &classInstance->dashDistance);
     script->AddDragBoxAnimationPlayer("AnimationPlayer", &classInstance->playerAnimator);
     script->AddDragBoxAnimationResource("Dash Animation", &classInstance->dashAnim);
-
+    script->AddDragBoxAnimationResource("Idle Animation", &classInstance->idleAnim);
+    script->AddDragBoxAnimationResource("Run Animation", &classInstance->runAnim);
+    script->AddDragBoxAnimationResource("Shoot Animations", &classInstance->shootAnim);
+    script->AddDragBoxGameObject("HUD", &classInstance->HUDGameObject);
     return classInstance;
 }
 
@@ -21,13 +26,19 @@ void PlayerMove::Start()
 {
     transform = gameObject.GetTransform();
     departureTime = 0.0f;
-}
+    HUDScript = (SwapWeapon*)HUDGameObject.GetScript("SwapWeapon");
+} 
 
 void PlayerMove::Update()
 {
     usingGamepad = Input::UsingGamepad();
     dt = Time::GetDeltaTime();
     Aim();
+
+    if (Input::GetGamePadAxis(GamePadAxis::AXIS_TRIGGERRIGHT) < 5000)
+    {
+        isShooting = false;
+    }
 
     if (dashAvailable && !isDashing && DashInput())
     {
@@ -42,8 +53,14 @@ void PlayerMove::Update()
         movDir.z = lastMovInput.y / norm;
         dashFinalPos = transform.GetLocalPosition() + movDir * dashDistance; //transform.GetForward() // for looking dir
 
-        playerAnimator.ChangeAnimation(dashAnim);
-        playerAnimator.Play();
+        if (currentAnim != PlayerAnims::DASH)
+        {
+            playerAnimator.ChangeAnimation(dashAnim);
+            playerAnimator.Play();
+            currentAnim = PlayerAnims::DASH;
+        }
+
+        HUDScript->Dash();
     }
 
     if (isDashing)
@@ -85,6 +102,13 @@ void PlayerMove::Update()
 
     input *= currentVel * dt;
     transform.Translate(input.x, 0.0f, input.y);
+
+    if (currentVel <= 0.0f && currentAnim != PlayerAnims::IDLE && !isShooting) //NO INPUT
+    {
+        playerAnimator.ChangeAnimation(idleAnim);
+        playerAnimator.Play();
+        currentAnim = PlayerAnims::IDLE;
+    }
 }
 
 float PlayerMove:: Lerp(float a, float b, float time)
@@ -109,6 +133,7 @@ void PlayerMove::Dash()
     if (dashDepartTime >= dashTime)
     {
         isDashing = false;
+        HUDScript->Dash();
     }
 }
 
@@ -176,6 +201,14 @@ API_Vector2 PlayerMove::GetMoveInput()
         if (input.y > 32000.0f) input.y = 32000.0f;
         else if (input.y < -32000.0f) input.y = -32000.0f;
 
+        if (currentAnim != PlayerAnims::RUN && !isShooting)
+        {
+            playerAnimator.ChangeAnimation(runAnim);
+            playerAnimator.Play();
+            currentAnim = PlayerAnims::RUN;
+        }
+
+
         return -input / 32000.0f;
     }
 
@@ -198,4 +231,15 @@ API_Vector2 PlayerMove::GetMoveInput()
 void PlayerMove::OnCollisionEnter(API_RigidBody other)
 {
    // Console::Log(other.GetGameObject().GetName());
+}
+
+void PlayerMove::ShootAnim()
+{
+    if (currentAnim != PlayerAnims::SHOOT)
+    {
+        playerAnimator.ChangeAnimation(shootAnim);
+        playerAnimator.Play();
+        currentAnim = PlayerAnims::SHOOT;
+        isShooting = true;
+    }
 }

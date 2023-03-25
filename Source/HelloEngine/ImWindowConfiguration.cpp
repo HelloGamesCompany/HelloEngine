@@ -254,7 +254,7 @@ void ImWindowConfiguration::Update()
 
 		if (ImGui::CollapsingHeader("Global Lighting"))
 		{
-			ImGui::DragFloat3("Light position" , &Lighting::global.lightPosition.At(0));
+			ImGui::DragFloat3("Light Direction" , &Lighting::global.lightDirection.At(0));
 
 			ImGui::ColorPicker3("Light Colour", &Lighting::global.lightColor.At(0), 0 | ImGuiColorEditFlags_NoSidePreview | ImGuiColorEditFlags_NoSmallPreview);
 

@@ -98,11 +98,11 @@ private:
 	uint _VBO = 0;
 	uint _IBO = 0;
 	ResourceShader* drawPerMeshShader = nullptr;
-	Shader* drawPerMesh2D = nullptr;
+	ResourceShader* drawPerMesh2D = nullptr;
 	// ----------------------------------------------------------------------------------------------------
 	ResourceShader* boneMeshShader = nullptr;
 
-	Shader stencilShader;
+	ResourceShader* stencilShader = nullptr;
 
 	friend class RenderManager;
 	friend class MeshRenderComponent;

@@ -21,4 +21,5 @@ public:
 	API_Vector3 smoothedPosition;
 
 	float delay = 0.01f;
+	bool safeZone = true;
 };

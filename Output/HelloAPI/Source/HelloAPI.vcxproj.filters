@@ -148,6 +148,21 @@
     <ClCompile Include="..\..\Assets\Scripts\Enemies\EnemyRanger.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+    <ClCompile Include="../../Assets/Scripts/Enemies/EnemyGuns/EnemyAutomatic.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="../../Assets/Scripts/Enemies/EnemyProjectilePull.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="../../Assets/Scripts/Enemies/EnemyProjectile.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Assets\Scripts\UI Test folder\UIManager.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Assets\Scripts\UI Test folder\HpBar.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Macro.h">
@@ -281,6 +296,21 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Assets\Scripts\Enemies\EnemyRanger.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="../../Assets/Scripts/Enemies/EnemyGuns/EnemyAutomatic.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="../../Assets/Scripts/Enemies/EnemyProjectilePull.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="../../Assets/Scripts/Enemies/EnemyProjectile.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Assets\Scripts\UI Test folder\UIManager.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Assets\Scripts\UI Test folder\HpBar.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
