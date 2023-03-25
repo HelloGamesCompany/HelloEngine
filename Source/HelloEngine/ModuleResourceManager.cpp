@@ -12,6 +12,7 @@
 #include "ModuleCommand.h"
 #include "ScriptComponent.h"
 #include "MaterialComponent.h"
+#include "TextureComponent.h"
 
 #include "GameObject.h"
 #include "ModuleLayers.h"
@@ -651,6 +652,9 @@ void ModuleResourceManager::S_DeleteMetaFile(const std::string& file, bool onlyR
 			// Destroy the CppScript named like this .h
 			// 1: Get script name.
 			ResourceScript* hScriptResource = (ResourceScript*)resources[meta.UID];
+			if (hScriptResource == nullptr)
+				break;
+
 			std::string scriptName = hScriptResource->className;
 
 			// 2: Search for this scirpt inside the current folder
@@ -673,6 +677,9 @@ void ModuleResourceManager::S_DeleteMetaFile(const std::string& file, bool onlyR
 			// Destroy the HScript named like this .cpp
 			// 1: Get script name.
 			ResourceScript* cppScriptResource = (ResourceScript*)resources[meta.UID];
+			if (cppScriptResource == nullptr)
+				break;
+
 			std::string scriptName = cppScriptResource->className;
 
 			// 2: Search for this scirpt inside the current folder
@@ -700,8 +707,11 @@ void ModuleResourceManager::S_DeleteMetaFile(const std::string& file, bool onlyR
 	{
 		if (resources.count(meta.UID) == 1)
 		{
-			resources[meta.UID]->Destroy();
-			RELEASE(resources[meta.UID]);
+			if (resources[meta.UID] != nullptr)
+			{
+				resources[meta.UID]->Destroy();
+				RELEASE(resources[meta.UID]);
+			}
 			resources.erase(meta.UID);
 		}
 	}
@@ -754,6 +764,16 @@ void ModuleResourceManager::S_CreateResource(const MetaFile& metaFile)
 		resources[metaFile.UID] = new ResourcePrefab();
 		ResourcePrefab* r = (ResourcePrefab*)resources[metaFile.UID];
 		r->path = metaFile.resourcePath;
+	}
+	break;
+	case ResourceType::SHADER:
+	{
+		resources[metaFile.UID] = new ResourceShader();
+	}
+	break;
+	case ResourceType::MATERIAL:
+	{
+		resources[metaFile.UID] = new ResourceMaterial();
 	}
 	break;
 	default:
@@ -828,6 +848,25 @@ void ModuleResourceManager::S_CreateResourceText(const std::string& filePath, ui
 		S_LoadFileIntoResource(newResource);
 }
 
+ResourceShader* ModuleResourceManager::S_CreateResourceShader(const std::string& filePath, uint UID, const std::string& name, bool load)
+{
+	if (resources.count(UID) != 0)
+		return (ResourceShader*)resources[UID];
+
+	ResourceShader* newResource = new ResourceShader();
+	if (load)
+	{
+		newResource->shader = Shader(filePath);
+	}
+
+	resources[UID] = newResource;
+	resources[UID]->debugName = name + ".shader";
+	resources[UID]->UID = UID;
+	resources[UID]->resourcePath = filePath;
+
+	return newResource;
+}
+
 Resource* ModuleResourceManager::S_LoadResource(const uint& UID)
 {
 	if (resources.count(UID) == 0)
@@ -850,6 +889,17 @@ Resource* ModuleResourceManager::S_LoadResource(const uint& UID)
 bool ModuleResourceManager::S_IsResourceCreated(const uint& UID)
 {
 	return resources.count(UID) == 1;
+}
+
+std::vector<Resource*> ModuleResourceManager::S_GetResourcePool(ResourceType type)
+{
+	std::vector<Resource*> toReturn;
+	for (const auto& r : resources)
+	{
+		if (r.second->type == type) toReturn.push_back(r.second);
+	}
+
+	return toReturn;
 }
 
 void ModuleResourceManager::GetResourcePath(ModelNode& node, std::vector<std::string>& vector)
@@ -1287,7 +1337,7 @@ void ResourceTexture::Destroy()
 {
 	for (auto& gameObject : ModuleLayers::gameObjects)
 	{
-		MaterialComponent* materialComponent = gameObject.second->GetComponent<MaterialComponent>();
+		TextureComponent* materialComponent = gameObject.second->GetComponent<TextureComponent>();
 		if (materialComponent != nullptr)
 		{
 			if (materialComponent->GetResourceUID() == this->UID)
