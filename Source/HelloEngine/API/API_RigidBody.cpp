@@ -68,6 +68,12 @@ API::API_Vector3 API::API_RigidBody::GetGravity()
 
 float API::API_RigidBody::GetRadius()
 {
+	if (!_rigidBody)
+	{
+		Engine::Console::S_Log("Trying to get a NULLPTR Rigidbody");
+		return 0;
+	}
+
 	float ret = _rigidBody->GetRadius();
 
 	if (ret <= 0) 

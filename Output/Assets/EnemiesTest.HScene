@@ -245,6 +245,36 @@
                     },
                     {
                         "Dash Distance": 5.0
+                    },
+                    {
+                        "Velocity": 145.0
+                    },
+                    {
+                        "SecToMaxVel": 0.0
+                    },
+                    {
+                        "SecToZeroVel": 0.0
+                    },
+                    {
+                        "Dash Time": 0.5
+                    },
+                    {
+                        "Dash Distance": 5.0
+                    },
+                    {
+                        "Velocity": 145.0
+                    },
+                    {
+                        "SecToMaxVel": 0.0
+                    },
+                    {
+                        "SecToZeroVel": 0.0
+                    },
+                    {
+                        "Dash Time": 0.5
+                    },
+                    {
+                        "Dash Distance": 5.0
                     }
                 ],
                 "Script Resource": 1247927621,
@@ -283,7 +313,7 @@
             {
                 "Active camera": true,
                 "Active culling": false,
-                "Aspect ratio": 2.37062931060791,
+                "Aspect ratio": 1.9859155416488647,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1633.0,
@@ -381,6 +411,67 @@
                 "Enabled": true,
                 "ResourceUID": 240240,
                 "Type": 3
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Detection distance": 200.0
+                    },
+                    {
+                        "Lossing Enemy distance": 300.0
+                    },
+                    {
+                        "Distance player": 200.0
+                    },
+                    {
+                        "Range attack": 200.0
+                    },
+                    {
+                        "Cooldown betwen points": 3.0
+                    },
+                    {
+                        "OutsideZone Time": 3.0
+                    },
+                    {
+                        "Detection distance": 200.0
+                    },
+                    {
+                        "Lossing Enemy distance": 300.0
+                    },
+                    {
+                        "Distance player": 200.0
+                    },
+                    {
+                        "Range attack": 200.0
+                    },
+                    {
+                        "Cooldown betwen points": 3.0
+                    },
+                    {
+                        "OutsideZone Time": 3.0
+                    },
+                    {
+                        "Detection distance": 200.0
+                    },
+                    {
+                        "Lossing Enemy distance": 300.0
+                    },
+                    {
+                        "Distance player": 200.0
+                    },
+                    {
+                        "Range attack": 200.0
+                    },
+                    {
+                        "Cooldown betwen points": 3.0
+                    },
+                    {
+                        "OutsideZone Time": 3.0
+                    }
+                ],
+                "Script Resource": 3669335644,
+                "Type": 5
             }
         ],
         "FirstOnPrefab": true,
@@ -476,7 +567,7 @@
         "FirstOnPrefab": true,
         "Name": "p4",
         "ParentUID": 3815239162,
-        "PrefabUID": 0,
+        "PrefabUID": 290530456,
         "Tag": "Primitive",
         "UID": 1456277374
     },
@@ -588,10 +679,34 @@
                         "Resistance": 100.0
                     },
                     {
-                        "Speed": 0.0
+                        "Speed": 75.0
                     },
                     {
-                        "Acceleration": 84.0
+                        "Acceleration": 1.2000000476837158
+                    },
+                    {
+                        "Health": 100.0
+                    },
+                    {
+                        "Resistance": 100.0
+                    },
+                    {
+                        "Speed": 75.0
+                    },
+                    {
+                        "Acceleration": 1.2000000476837158
+                    },
+                    {
+                        "Health": 100.0
+                    },
+                    {
+                        "Resistance": 100.0
+                    },
+                    {
+                        "Speed": 75.0
+                    },
+                    {
+                        "Acceleration": 1.2000000476837158
                     }
                 ],
                 "Script Resource": 4210965159,
@@ -601,16 +716,25 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Detection distance": 37.0
+                        "Detection distance": 77.0
                     },
                     {
-                        "Lossing Enemy distance": 86.0
+                        "Lossing Enemy distance": 115.0
                     },
                     {
-                        "Lossing Zone distance": 305.0
+                        "Range attack": 60.0
+                    },
+                    {
+                        "OutsideZone Time": 3.0
                     },
                     {
                         "Target": 1836731499
+                    },
+                    {
+                        "Action zone": 197611707
+                    },
+                    {
+                        "Action Rb zone": 197611707
                     },
                     {
                         "Point 1": 141207865
@@ -619,7 +743,67 @@
                         "Point 2": 2897551890
                     },
                     {
+                        "Point 3": 141207865
+                    },
+                    {
+                        "Detection distance": 77.0
+                    },
+                    {
+                        "Lossing Enemy distance": 115.0
+                    },
+                    {
+                        "Range attack": 60.0
+                    },
+                    {
+                        "OutsideZone Time": 3.0
+                    },
+                    {
+                        "Target": 1836731499
+                    },
+                    {
                         "Action zone": 197611707
+                    },
+                    {
+                        "Action Rb zone": 197611707
+                    },
+                    {
+                        "Point 1": 141207865
+                    },
+                    {
+                        "Point 2": 2897551890
+                    },
+                    {
+                        "Point 3": 141207865
+                    },
+                    {
+                        "Detection distance": 77.0
+                    },
+                    {
+                        "Lossing Enemy distance": 115.0
+                    },
+                    {
+                        "Range attack": 60.0
+                    },
+                    {
+                        "OutsideZone Time": 3.0
+                    },
+                    {
+                        "Target": 1836731499
+                    },
+                    {
+                        "Action zone": 197611707
+                    },
+                    {
+                        "Action Rb zone": 197611707
+                    },
+                    {
+                        "Point 1": 141207865
+                    },
+                    {
+                        "Point 2": 2897551890
+                    },
+                    {
+                        "Point 3": 141207865
                     }
                 ],
                 "Script Resource": 639624871,
@@ -629,7 +813,7 @@
         "FirstOnPrefab": true,
         "Name": "enemy3",
         "ParentUID": 3815239162,
-        "PrefabUID": 2154505692,
+        "PrefabUID": 3466378885,
         "Tag": "Default",
         "UID": 3737791183
     },
@@ -741,10 +925,34 @@
                         "Resistance": 100.0
                     },
                     {
-                        "Speed": 0.0
+                        "Speed": 75.0
                     },
                     {
-                        "Acceleration": 84.0
+                        "Acceleration": 1.2000000476837158
+                    },
+                    {
+                        "Health": 100.0
+                    },
+                    {
+                        "Resistance": 100.0
+                    },
+                    {
+                        "Speed": 75.0
+                    },
+                    {
+                        "Acceleration": 1.2000000476837158
+                    },
+                    {
+                        "Health": 100.0
+                    },
+                    {
+                        "Resistance": 100.0
+                    },
+                    {
+                        "Speed": 75.0
+                    },
+                    {
+                        "Acceleration": 1.2000000476837158
                     }
                 ],
                 "Script Resource": 4210965159,
@@ -754,16 +962,25 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Detection distance": 32.0
+                        "Detection distance": 77.0
                     },
                     {
-                        "Lossing Enemy distance": 75.0
+                        "Lossing Enemy distance": 118.0
                     },
                     {
-                        "Lossing Zone distance": 304.0
+                        "Range attack": 60.0
+                    },
+                    {
+                        "OutsideZone Time": 3.0
                     },
                     {
                         "Target": 1836731499
+                    },
+                    {
+                        "Action zone": 197611707
+                    },
+                    {
+                        "Action Rb zone": 197611707
                     },
                     {
                         "Point 1": 1456277374
@@ -772,7 +989,67 @@
                         "Point 2": 282194118
                     },
                     {
+                        "Point 3": 141207865
+                    },
+                    {
+                        "Detection distance": 77.0
+                    },
+                    {
+                        "Lossing Enemy distance": 118.0
+                    },
+                    {
+                        "Range attack": 60.0
+                    },
+                    {
+                        "OutsideZone Time": 3.0
+                    },
+                    {
+                        "Target": 1836731499
+                    },
+                    {
                         "Action zone": 197611707
+                    },
+                    {
+                        "Action Rb zone": 197611707
+                    },
+                    {
+                        "Point 1": 1456277374
+                    },
+                    {
+                        "Point 2": 282194118
+                    },
+                    {
+                        "Point 3": 141207865
+                    },
+                    {
+                        "Detection distance": 77.0
+                    },
+                    {
+                        "Lossing Enemy distance": 118.0
+                    },
+                    {
+                        "Range attack": 60.0
+                    },
+                    {
+                        "OutsideZone Time": 3.0
+                    },
+                    {
+                        "Target": 1836731499
+                    },
+                    {
+                        "Action zone": 197611707
+                    },
+                    {
+                        "Action Rb zone": 197611707
+                    },
+                    {
+                        "Point 1": 1456277374
+                    },
+                    {
+                        "Point 2": 282194118
+                    },
+                    {
+                        "Point 3": 141207865
                     }
                 ],
                 "Script Resource": 639624871,
@@ -894,10 +1171,34 @@
                         "Resistance": 100.0
                     },
                     {
-                        "Speed": 0.0
+                        "Speed": 75.0
                     },
                     {
-                        "Acceleration": 84.0
+                        "Acceleration": 1.2000000476837158
+                    },
+                    {
+                        "Health": 100.0
+                    },
+                    {
+                        "Resistance": 100.0
+                    },
+                    {
+                        "Speed": 75.0
+                    },
+                    {
+                        "Acceleration": 1.2000000476837158
+                    },
+                    {
+                        "Health": 100.0
+                    },
+                    {
+                        "Resistance": 100.0
+                    },
+                    {
+                        "Speed": 75.0
+                    },
+                    {
+                        "Acceleration": 1.2000000476837158
                     }
                 ],
                 "Script Resource": 4210965159,
@@ -907,16 +1208,25 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Detection distance": 32.0
+                        "Detection distance": 77.0
                     },
                     {
-                        "Lossing Enemy distance": 91.0
+                        "Lossing Enemy distance": 115.0
                     },
                     {
-                        "Lossing Zone distance": 303.0
+                        "Range attack": 60.0
+                    },
+                    {
+                        "OutsideZone Time": 3.0
                     },
                     {
                         "Target": 1836731499
+                    },
+                    {
+                        "Action zone": 197611707
+                    },
+                    {
+                        "Action Rb zone": 197611707
                     },
                     {
                         "Point 1": 2897551890
@@ -925,7 +1235,67 @@
                         "Point 2": 141207865
                     },
                     {
+                        "Point 3": 2897551890
+                    },
+                    {
+                        "Detection distance": 77.0
+                    },
+                    {
+                        "Lossing Enemy distance": 115.0
+                    },
+                    {
+                        "Range attack": 60.0
+                    },
+                    {
+                        "OutsideZone Time": 3.0
+                    },
+                    {
+                        "Target": 1836731499
+                    },
+                    {
                         "Action zone": 197611707
+                    },
+                    {
+                        "Action Rb zone": 197611707
+                    },
+                    {
+                        "Point 1": 2897551890
+                    },
+                    {
+                        "Point 2": 141207865
+                    },
+                    {
+                        "Point 3": 2897551890
+                    },
+                    {
+                        "Detection distance": 77.0
+                    },
+                    {
+                        "Lossing Enemy distance": 115.0
+                    },
+                    {
+                        "Range attack": 60.0
+                    },
+                    {
+                        "OutsideZone Time": 3.0
+                    },
+                    {
+                        "Target": 1836731499
+                    },
+                    {
+                        "Action zone": 197611707
+                    },
+                    {
+                        "Action Rb zone": 197611707
+                    },
+                    {
+                        "Point 1": 2897551890
+                    },
+                    {
+                        "Point 2": 141207865
+                    },
+                    {
+                        "Point 3": 2897551890
                     }
                 ],
                 "Script Resource": 639624871,
@@ -947,7 +1317,7 @@
                 "Position": [
                     292.12542724609375,
                     0.0,
-                    236.50762939453125
+                    395.3874816894531
                 ],
                 "Rotation": [
                     -0.0,
@@ -972,15 +1342,76 @@
                 "Type": 2
             },
             {
+                "ColPosition": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "GlobalGravity": [
+                    0.0,
+                    -10.0,
+                    0.0
+                ],
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    false,
+                    true,
+                    false
+                ],
+                "IsShapeSelected": [
+                    false,
+                    true,
+                    false
+                ],
+                "IsStatic": false,
+                "IsTrigger": true,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    0.5,
+                    0.0,
+                    0.5,
+                    1.0
+                ],
+                "ShapeSelected": 1,
+                "SphereHorSlices": 16,
+                "SphereRadius": 1536.0999755859375,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
+            },
+            {
                 "Enabled": true,
                 "ResourceUID": 240240,
                 "Type": 3
             }
         ],
         "FirstOnPrefab": true,
-        "Name": "zone",
+        "Name": "zone1",
         "ParentUID": 3815239162,
-        "PrefabUID": 0,
+        "PrefabUID": 4145232031,
         "Tag": "Primitive",
         "UID": 197611707
     },
@@ -1092,10 +1523,34 @@
                         "Resistance": 100.0
                     },
                     {
-                        "Speed": 0.0
+                        "Speed": 75.0
                     },
                     {
-                        "Acceleration": 84.0
+                        "Acceleration": 1.2000000476837158
+                    },
+                    {
+                        "Health": 100.0
+                    },
+                    {
+                        "Resistance": 100.0
+                    },
+                    {
+                        "Speed": 75.0
+                    },
+                    {
+                        "Acceleration": 1.2000000476837158
+                    },
+                    {
+                        "Health": 100.0
+                    },
+                    {
+                        "Resistance": 100.0
+                    },
+                    {
+                        "Speed": 75.0
+                    },
+                    {
+                        "Acceleration": 1.2000000476837158
                     }
                 ],
                 "Script Resource": 4210965159,
@@ -1105,16 +1560,25 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Detection distance": 37.0
+                        "Detection distance": 77.0
                     },
                     {
-                        "Lossing Enemy distance": 86.0
+                        "Lossing Enemy distance": 115.0
                     },
                     {
-                        "Lossing Zone distance": 305.0
+                        "Range attack": 60.0
+                    },
+                    {
+                        "OutsideZone Time": 3.0
                     },
                     {
                         "Target": 1836731499
+                    },
+                    {
+                        "Action zone": 197611707
+                    },
+                    {
+                        "Action Rb zone": 197611707
                     },
                     {
                         "Point 1": 1456277374
@@ -1123,7 +1587,67 @@
                         "Point 2": 2897551890
                     },
                     {
+                        "Point 3": 141207865
+                    },
+                    {
+                        "Detection distance": 77.0
+                    },
+                    {
+                        "Lossing Enemy distance": 115.0
+                    },
+                    {
+                        "Range attack": 60.0
+                    },
+                    {
+                        "OutsideZone Time": 3.0
+                    },
+                    {
+                        "Target": 1836731499
+                    },
+                    {
                         "Action zone": 197611707
+                    },
+                    {
+                        "Action Rb zone": 197611707
+                    },
+                    {
+                        "Point 1": 1456277374
+                    },
+                    {
+                        "Point 2": 2897551890
+                    },
+                    {
+                        "Point 3": 141207865
+                    },
+                    {
+                        "Detection distance": 77.0
+                    },
+                    {
+                        "Lossing Enemy distance": 115.0
+                    },
+                    {
+                        "Range attack": 60.0
+                    },
+                    {
+                        "OutsideZone Time": 3.0
+                    },
+                    {
+                        "Target": 1836731499
+                    },
+                    {
+                        "Action zone": 197611707
+                    },
+                    {
+                        "Action Rb zone": 197611707
+                    },
+                    {
+                        "Point 1": 1456277374
+                    },
+                    {
+                        "Point 2": 2897551890
+                    },
+                    {
+                        "Point 3": 141207865
                     }
                 ],
                 "Script Resource": 639624871,
@@ -1133,8 +1657,468 @@
         "FirstOnPrefab": true,
         "Name": "enemy5",
         "ParentUID": 3815239162,
-        "PrefabUID": 2154505692,
+        "PrefabUID": 366126238,
         "Tag": "Default",
         "UID": 414724199
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    3.028289794921875,
+                    35.7199592590332,
+                    -352.097412109375
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    24.0,
+                    24.0,
+                    24.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 1834708374,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "ColPosition": [
+                    0.0,
+                    11.0,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    9.199999809265137,
+                    67.0999984741211,
+                    15.300000190734863
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "GlobalGravity": [
+                    0.0,
+                    -10.0,
+                    0.0
+                ],
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsShapeSelected": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsStatic": false,
+                "IsTrigger": false,
+                "Mass": 4.0,
+                "RenderColColor": [
+                    0.5,
+                    0.0,
+                    0.5,
+                    1.0
+                ],
+                "ShapeSelected": 0,
+                "SphereHorSlices": 16,
+                "SphereRadius": 1.0,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 240240,
+                "Type": 3
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Health": 100.0
+                    },
+                    {
+                        "Resistance": 100.0
+                    },
+                    {
+                        "Speed": 75.0
+                    },
+                    {
+                        "Acceleration": 1.2000000476837158
+                    },
+                    {
+                        "Health": 100.0
+                    },
+                    {
+                        "Resistance": 100.0
+                    },
+                    {
+                        "Speed": 75.0
+                    },
+                    {
+                        "Acceleration": 1.2000000476837158
+                    },
+                    {
+                        "Health": 100.0
+                    },
+                    {
+                        "Resistance": 100.0
+                    },
+                    {
+                        "Speed": 75.0
+                    },
+                    {
+                        "Acceleration": 1.2000000476837158
+                    }
+                ],
+                "Script Resource": 4210965159,
+                "Type": 5
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Detection distance": 300.0
+                    },
+                    {
+                        "Lossing Enemy distance": 350.0
+                    },
+                    {
+                        "Distance player": 200.0
+                    },
+                    {
+                        "Range attack": 250.0
+                    },
+                    {
+                        "Cooldown betwen points": 3.0
+                    },
+                    {
+                        "OutsideZone Time": 3.0
+                    },
+                    {
+                        "Target": 1836731499
+                    },
+                    {
+                        "Action zone": 3461710122
+                    },
+                    {
+                        "Action Rb zone": 3461710122
+                    },
+                    {
+                        "Point 1": 2019880312
+                    },
+                    {
+                        "Point 2": 267996119
+                    },
+                    {
+                        "Point 3": 1456277374
+                    },
+                    {
+                        "Detection distance": 300.0
+                    },
+                    {
+                        "Lossing Enemy distance": 350.0
+                    },
+                    {
+                        "Distance player": 200.0
+                    },
+                    {
+                        "Range attack": 250.0
+                    },
+                    {
+                        "Cooldown betwen points": 3.0
+                    },
+                    {
+                        "OutsideZone Time": 3.0
+                    },
+                    {
+                        "Target": 1836731499
+                    },
+                    {
+                        "Action zone": 3461710122
+                    },
+                    {
+                        "Action Rb zone": 3461710122
+                    },
+                    {
+                        "Point 1": 2019880312
+                    },
+                    {
+                        "Point 2": 267996119
+                    },
+                    {
+                        "Point 3": 1456277374
+                    },
+                    {
+                        "Detection distance": 300.0
+                    },
+                    {
+                        "Lossing Enemy distance": 350.0
+                    },
+                    {
+                        "Distance player": 200.0
+                    },
+                    {
+                        "Range attack": 250.0
+                    },
+                    {
+                        "Cooldown betwen points": 3.0
+                    },
+                    {
+                        "OutsideZone Time": 3.0
+                    },
+                    {
+                        "Target": 1836731499
+                    },
+                    {
+                        "Action zone": 3461710122
+                    },
+                    {
+                        "Action Rb zone": 3461710122
+                    },
+                    {
+                        "Point 1": 2019880312
+                    },
+                    {
+                        "Point 2": 267996119
+                    },
+                    {
+                        "Point 3": 1456277374
+                    }
+                ],
+                "Script Resource": 3669335644,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "enemyR",
+        "ParentUID": 3815239162,
+        "PrefabUID": 366126238,
+        "Tag": "Default",
+        "UID": 3869413038
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    328.1204833984375,
+                    61.28612518310547,
+                    -326.9489440917969
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    10.787100791931152,
+                    88.24516296386719,
+                    10.787100791931152
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 10,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 240240,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "p6",
+        "ParentUID": 3815239162,
+        "PrefabUID": 290530456,
+        "Tag": "Primitive",
+        "UID": 2019880312
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -14.253387451171875,
+                    61.28612518310547,
+                    -480.11663818359375
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    10.787100791931152,
+                    88.24516296386719,
+                    10.787100791931152
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 10,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 240240,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "p7",
+        "ParentUID": 3815239162,
+        "PrefabUID": 290530456,
+        "Tag": "Primitive",
+        "UID": 267996119
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -319.65570068359375,
+                    0.0,
+                    -323.2301940917969
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    32.006797790527344,
+                    32.006797790527344,
+                    32.006797790527344
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 11,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "ColPosition": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "GlobalGravity": [
+                    0.0,
+                    -10.0,
+                    0.0
+                ],
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    false,
+                    true,
+                    false
+                ],
+                "IsShapeSelected": [
+                    false,
+                    true,
+                    false
+                ],
+                "IsStatic": false,
+                "IsTrigger": true,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    0.5,
+                    0.0,
+                    0.5,
+                    1.0
+                ],
+                "ShapeSelected": 1,
+                "SphereHorSlices": 16,
+                "SphereRadius": 1536.0999755859375,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 240240,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "zone2",
+        "ParentUID": 3815239162,
+        "PrefabUID": 4145232031,
+        "Tag": "Primitive",
+        "UID": 3461710122
     }
 ]

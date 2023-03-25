@@ -18,6 +18,5 @@ void CollisionTestScript::Update()
 
 void CollisionTestScript::OnCollisionEnter(API_RigidBody other)
 {
-	Console::Log("Collision!");
 
 }

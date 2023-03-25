@@ -133,6 +133,9 @@ void PhysBody3D::Update()
 	// TODO: This check will not be necessary once we stop creating PhysBodies without game objects!!!
 	if (ModuleLayers::gameObjects.count(gameObjectUID) != 0)
 	{
+		if (this->mass == 0.0f)
+			return;
+
 		GameObject* go = ModuleLayers::gameObjects[gameObjectUID];
 		go->transform->_ignorePhysBody = true; // This flag makes the PhysComponent ignore this Position update!
 		go->transform->SetPosition(GetPos() - colPos); // The idea here is, if any other transformation occurs after this, it will be applied, but this one won't. Check PhysComponent::OnTransformCallback()

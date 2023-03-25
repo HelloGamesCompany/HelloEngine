@@ -3,6 +3,8 @@
 #include "ModuleWindow.h"
 #include "ModuleCamera3D.h"
 
+#include "ModuleResourceManager.h"
+
 CameraObject::CameraObject()
 {
 	app = Application::Instance();
@@ -27,7 +29,7 @@ CameraObject::CameraObject()
 	cameraFrustum.front = Z;
 	cameraFrustum.up = Y;
 
-	localLineShader = new Shader("Resources/shaders/localLines.vertex.shader", "Resources/shaders/localLines.fragment.shader");
+	localLineShader = ModuleResourceManager::S_CreateResourceShader("Resource/shaders/localLines.shader", 101, "Local Lines");
 	SetUpBuffers();
 }
 
@@ -35,7 +37,9 @@ CameraObject::~CameraObject()
 {
 	// TODO: Could be done more clean if we had an event system to commmunicate this kind of things.
 	Application::Instance()->camera->EraseGameCamera(this);
-	RELEASE(localLineShader);
+	//RELEASE(localLineShader);
+	//Cleaned along with shader
+	localLineShader = nullptr;
 }
 
 void CameraObject::Look(const float3& Position, const float3& Reference, bool RotateAroundReference)
@@ -79,10 +83,10 @@ void CameraObject::DrawFrustum()
 	memcpy(ptr, &frustumPoints[0], 8 * sizeof(float3));
 	glUnmapBuffer(GL_ARRAY_BUFFER);
 
-	localLineShader->Bind();
-	localLineShader->SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
-	localLineShader->SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
-	localLineShader->SetFloat4("lineColor", 0.0f, 1.0f, 1.0f, 1.0f);
+	localLineShader->shader.Bind();
+	localLineShader->shader.SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
+	localLineShader->shader.SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
+	localLineShader->shader.SetFloat4("lineColor", 0.0f, 1.0f, 1.0f, 1.0f);
 
 	glDrawElements(GL_LINES, boxIndices.size(), GL_UNSIGNED_INT, 0);
 
@@ -150,6 +154,11 @@ float* CameraObject::GetViewMatrixNoTransp()
 {
 	ViewMatrix = cameraFrustum.ViewMatrix();
 	return &ViewMatrix.v[0][0];
+}
+
+float3 CameraObject::GetPosition()
+{
+	return cameraFrustum.ViewMatrix().TranslatePart();
 }
 
 float* CameraObject::GetProjectionMatrixNoTransp()

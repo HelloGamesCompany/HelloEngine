@@ -3,6 +3,7 @@
 #include "ModuleLayers.h"
 #include "TransformComponent.h"
 #include "MeshRenderComponent.h"
+#include "TextureComponent.h"
 #include "MaterialComponent.h"
 #include "CameraComponent.h"
 #include "SkinnedMeshRenderComponent.h"
@@ -15,6 +16,7 @@
 #include "ComponentUICheckbox.h"
 #include "ComponentUIImage.h"
 #include "AnimationComponent.h"
+#include "MaterialComponent.h"
 #include "ParticleSystemComponent.h"
 #include "BillBoardComponent.h"
 #include "PhysicsComponent.h"
@@ -174,8 +176,8 @@ void GameObject::OnEditor()
                         AddComponent<MeshRenderComponent>();
                     break;
                 case 1:
-                    if (!HasComponent<MaterialComponent>())
-                        AddComponent<MaterialComponent>();
+                    if (!HasComponent<TextureComponent>())
+                        AddComponent<TextureComponent>();
                     break;
                 case 2:
                     if (!HasComponent<CameraComponent>())
@@ -200,7 +202,10 @@ void GameObject::OnEditor()
                     if (!HasComponent<AnimationComponent>())
                         AddComponent<AnimationComponent>();
                     break;
-                }
+                case 8:
+                    if (!HasComponent<MaterialComponent>())
+                        AddComponent<MaterialComponent>();
+                }   
             }
         }
         ImGui::EndCombo();
@@ -375,8 +380,8 @@ Component* GameObject::AddComponentOfType(Component::Type type)
 		newComponent = new SkinnedMeshRenderComponent(this);
 		_components.push_back(newComponent);
 		break;
-	case Component::Type::MATERIAL:
-		newComponent = new MaterialComponent(this);
+	case Component::Type::TEXTURE:
+		newComponent = new TextureComponent(this);
 		_components.push_back(newComponent);
 		break;
 	case Component::Type::CAMERA:
@@ -423,6 +428,10 @@ Component* GameObject::AddComponentOfType(Component::Type type)
 		newComponent = new AnimationComponent(this);
 		_components.push_back(newComponent);
         break;
+    case Component::Type::MATERIAL:
+        newComponent = new MaterialComponent(this);
+        _components.push_back(newComponent);
+        break;
     case Component::Type::UI_INPUT:
         newComponent = new ComponentUIInput(this);
         _components.push_back(newComponent);
@@ -452,8 +461,8 @@ Component* GameObject::AddComponentOfType(Component::Type type, const Component&
 		newComponent = new SkinnedMeshRenderComponent(this, *(SkinnedMeshRenderComponent*) &copy);
 		_components.push_back(newComponent);
 		break;
-	case Component::Type::MATERIAL:
-		newComponent = new MaterialComponent(this);
+	case Component::Type::TEXTURE:
+		newComponent = new TextureComponent(this);
 		_components.push_back(newComponent);
 		break;
 	case Component::Type::CAMERA:
@@ -475,6 +484,10 @@ Component* GameObject::AddComponentOfType(Component::Type type, const Component&
 		newComponent = new PhysicsComponent(this);
 		_components.push_back(newComponent);
 		break;
+    case Component::Type::MATERIAL:
+        newComponent = new MaterialComponent(this);
+        _components.push_back(newComponent);
+        break;
 	}
 
 	return newComponent;

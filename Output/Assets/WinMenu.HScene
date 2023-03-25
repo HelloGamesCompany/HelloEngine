@@ -131,6 +131,19 @@
                     351199318,
                     1551021094
                 ]
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Continue": 351199318
+                    },
+                    {
+                        "Exit": 1551021094
+                    }
+                ],
+                "Script Resource": 2911532475,
+                "Type": 5
             }
         ],
         "FirstOnPrefab": true,
@@ -206,28 +219,6 @@
                 "hoverImage": 3407794357,
                 "idleImage": 134788504,
                 "pressImage": 3478967511
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Continue": 351199318
-                    },
-                    {
-                        "NewGame": 351199318
-                    },
-                    {
-                        "Exit": 1551021094
-                    },
-                    {
-                        "Settings": 351199318
-                    },
-                    {
-                        "Collectibles": 351199318
-                    }
-                ],
-                "Script Resource": 186220908,
-                "Type": 5
             }
         ],
         "FirstOnPrefab": true,

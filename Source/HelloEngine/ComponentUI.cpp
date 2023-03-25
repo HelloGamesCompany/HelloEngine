@@ -1,7 +1,7 @@
 #include "Headers.h"
 #include "ComponentUI.h"
 #include "MeshRenderComponent.h"
-#include "MaterialComponent.h"
+#include "TextureComponent.h"
 #include "GameObject.h"
 #include "LayerEditor.h"
 #include "ImWindowGame.h"
@@ -16,7 +16,7 @@ ComponentUI::ComponentUI(GameObject* gameObject) : Component(gameObject)
 
     // Create a MeshRenderComponent2D and a MaterialComponent.
     _meshRenderer = gameObject->AddComponent<MeshRenderComponent>();
-    _material = gameObject->AddComponent<MaterialComponent>();
+    _material = gameObject->AddComponent<TextureComponent>();
 
     // Notify both Mesh renderer and Material that they are handled by a UI Component. This makes them avoid certain behaviors that are not suitable for UI.
     _meshRenderer->SetAs2D(); 

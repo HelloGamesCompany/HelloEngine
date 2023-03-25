@@ -12,8 +12,10 @@ TextRendererComponent::TextRendererComponent(GameObject* go) : Component(go)
 
 TextRendererComponent::~TextRendererComponent()
 {
+	Application::Instance()->renderer3D->renderManager.textObjects.erase(textID);
 }
 
+#ifdef STANDALONE
 void TextRendererComponent::OnEditor()
 {
 	bool created = true;
@@ -39,6 +41,13 @@ void TextRendererComponent::OnEditor()
 	if (!created)
 		this->_gameObject->DestroyComponent(this);
 }
+void TextRendererComponent::MarkAsDead()
+{
+	Application::Instance()->renderer3D->renderManager.textObjects.erase(textID);
+}
+#endif // STANDALONE
+
+
 
 void TextRendererComponent::OnTransformCallback(float4x4 worldMatrix)
 {

@@ -15,6 +15,8 @@
 #include "TextRendererComponent.h"
 #include "Math/float4x4.h"
 
+#include "ModuleRenderer3D.h"
+
 RenderManager::RenderManager()
 {
 }
@@ -22,9 +24,19 @@ RenderManager::RenderManager()
 RenderManager::~RenderManager()
 {
 	RELEASE(_textureManager);
-	RELEASE(lineShader);
-	RELEASE(localLineShader);
+	
+	if (lineShader)
+	{
+		lineShader->Dereference();
+		lineShader = nullptr;
+	}
+	if (localLineShader)
+	{
+		localLineShader->Dereference();
+		localLineShader = nullptr;
+	}
 	RELEASE(textRenderingShader);
+
 }
 
 void RenderManager::Init()
@@ -73,9 +85,9 @@ void RenderManager::Init()
 	primitiveModels[(int)PrimitiveType::SPHERE]->modelMeshes.push_back(sphereResource);
 
 	// Init shaders
-	lineShader = new Shader("Resources/shaders/lines.vertex.shader", "Resources/shaders/lines.fragment.shader");
-	localLineShader = new Shader("Resources/shaders/localLines.vertex.shader", "Resources/shaders/localLines.fragment.shader");
-	textRenderingShader = new Shader("Resources/shaders/textRendering.vertex.shader", "Resources/shaders/textRendering.fragment.shader");
+	lineShader = ModuleResourceManager::S_CreateResourceShader("Resources/shaders/lines.shader", 100, "Lines");
+	localLineShader = ModuleResourceManager::S_CreateResourceShader("Resources/shaders/localLines.shader", 101, "Local Lines");
+	textRenderingShader = new Shader("Resources/shaders/textRendering.shader");
 
 	// Set up debug drawing variables:
 	// Manually created box index buffer that corresponds to the order given by MathGeoLib's AABB class GetCornerPoints() method.
@@ -215,8 +227,11 @@ void RenderManager::Draw()
 
 	// Draw meshes that have transparency textures applied on their material.
 	DrawTransparentMeshes();
+}
 
-	for (int i = 0; i < ModulePhysics::physBodies.size(); i++) 
+void RenderManager::DrawDebug()
+{
+	for (int i = 0; i < ModulePhysics::physBodies.size(); i++)
 	{
 		ModulePhysics::physBodies[i]->RenderCollider();
 	}
@@ -231,14 +246,14 @@ void RenderManager::Draw2D()
 	DrawTextObjects();
 }
 
-uint RenderManager::AddMesh(ResourceMesh* resource, MeshRenderType type)
+uint RenderManager::AddMesh(ResourceMesh* resource, ResourceMaterial* material,  MeshRenderType type)
 {
 	switch (type)
 	{
 	case MeshRenderType::INSTANCED:
 		return AddInstancedMesh(resource);
 	case MeshRenderType::INDEPENDENT:
-		return AddIndependentMesh(resource);
+		return AddIndependentMesh(resource, material);
 	case MeshRenderType::TRANSPARENCY:
 		return AddTransparentMesh(resource);
 	case MeshRenderType::MESH2D:
@@ -258,14 +273,22 @@ uint RenderManager::AddTransparentMesh(ResourceMesh* resource)
 	return randomID;
 }
 
-uint RenderManager::AddIndependentMesh(ResourceMesh* resource)
+uint RenderManager::AddIndependentMesh(ResourceMesh* resource, ResourceMaterial* material)
 {
 	uint randomID = HelloUUID::GenerateUUID();
 
-	_independentMeshes[randomID].InitWithResource(resource);
-	_independentMeshes[randomID].localAABB = resource->localAABB;
-	_independentMeshes[randomID].isIndependent = true;
-	_independentMeshes[randomID].CreateBufferData();
+	//Set Mesh
+	_independentMeshes[randomID].mesh.InitWithResource(resource);
+	_independentMeshes[randomID].mesh.localAABB = resource->localAABB;
+	_independentMeshes[randomID].mesh.isIndependent = true;
+	_independentMeshes[randomID].mesh.CreateBufferData();
+
+	//Set Material
+	if (material == nullptr)
+		_independentMeshes[randomID].material = nullptr;
+	else
+		_independentMeshes[randomID].material = material;
+	
 
 	return randomID;
 }
@@ -283,11 +306,11 @@ uint RenderManager::Add2DMesh()
 	renderer2D->SetAs2D();
 	uint ret = manager->AddMesh();
 	ResourceMesh* plane2D = (ResourceMesh*)ModuleResourceManager::S_LoadResource(plane2DUID);
-	renderer2D->meshes[ret].InitWithResource(plane2D);
-	renderer2D->meshes[ret].localAABB = plane2D->localAABB;
-	renderer2D->meshes[ret].isIndependent = true;
-	renderer2D->meshes[ret].is2D = true;
-	renderer2D->meshes[ret].CreateBufferData();
+	renderer2D->meshes[ret].mesh.InitWithResource(plane2D);
+	renderer2D->meshes[ret].mesh.localAABB = plane2D->localAABB;
+	renderer2D->meshes[ret].mesh.isIndependent = true;
+	renderer2D->meshes[ret].mesh.is2D = true;
+	renderer2D->meshes[ret].mesh.CreateBufferData();
 	return ret;
 }
 
@@ -374,6 +397,7 @@ void RenderManager::CreateUI(GameObject* parent, UIType type)
 			sliderBar->transform->SetScale({ 0.7f,0.1f,0.0f });
 			sliderButton->AddComponent<ComponentUISlider>();
 			sliderButton->transform->SetScale({ 0.2f,0.2f,0.0f });
+			sliderButton->transform->SetPosition({ 0.0f, 0.0f, -0.003f });
 			break;
 		}
 		case UIType::CHECKBOX:
@@ -408,29 +432,43 @@ void RenderManager::DestroyRenderManager(uint managerUID)
 		renderer2D = nullptr;
 }
 
-void RenderManager::SetSelectedMesh(Mesh* mesh)
+void RenderManager::SetSelectedMesh(RenderEntry* mesh)
 {
 	_selectedMesh = mesh;
+	_selectedMeshRaw = nullptr;
+}
+
+void RenderManager::SetSelectedMesh(Mesh* mesh)
+{
+	_selectedMeshRaw = mesh;
+	_selectedMesh = nullptr;
 }
 
 void RenderManager::DrawSelectedMesh()
 {
-	if (_selectedMesh == nullptr)
+	if (_selectedMesh == nullptr && _selectedMeshRaw == nullptr)
 		return;
 
-	_selectedMesh->DrawAsSelected();
+	if (_selectedMesh && _selectedMesh->material != nullptr)
+		_selectedMesh->mesh.DrawAsSelected(&_selectedMesh->material->material);
+	else if (_selectedMeshRaw != nullptr)
+		_selectedMeshRaw->DrawAsSelected();
+}
 
+void RenderManager::RemoveSelectedMesh()
+{
 	_selectedMesh = nullptr;
+	_selectedMeshRaw = nullptr;
 }
 
 void RenderManager::DrawVertexNormals(Mesh* mesh)
 {
-	lineShader->Bind();
-	lineShader->SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
-	lineShader->SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
-	lineShader->SetFloat4("lineColor", 0.36f, 0.75f, 0.72f, 1.0f);
+	lineShader->shader.Bind();
+	lineShader->shader.SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
+	lineShader->shader.SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
+	lineShader->shader.SetFloat4("lineColor", 0.36f, 0.75f, 0.72f, 1.0f);
 
-	lineShader->SetMatFloat4v("model", &mesh->modelMatrix.v[0][0]);
+	lineShader->shader.SetMatFloat4v("model", &mesh->modelMatrix.v[0][0]);
 
 	glBindVertexArray(mesh->resource->VertexNormalsVAO);
 
@@ -441,12 +479,12 @@ void RenderManager::DrawVertexNormals(Mesh* mesh)
 
 void RenderManager::DrawFaceNormals(Mesh* mesh)
 {
-	lineShader->Bind();
-	lineShader->SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
-	lineShader->SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
-	lineShader->SetFloat4("lineColor", 0.75f, 0.36f, 0.32f, 1.0f);
+	lineShader->shader.Bind();
+	lineShader->shader.SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
+	lineShader->shader.SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
+	lineShader->shader.SetFloat4("lineColor", 0.75f, 0.36f, 0.32f, 1.0f);
 
-	lineShader->SetMatFloat4v("model", &mesh->modelMatrix.v[0][0]);
+	lineShader->shader.SetMatFloat4v("model", &mesh->modelMatrix.v[0][0]);
 
 	glBindVertexArray(mesh->resource->FaceNormalsVAO);
 
@@ -468,10 +506,10 @@ void RenderManager::DrawOBB(Mesh* mesh)
 	memcpy(ptr, &OBBPoints[0], 8 * sizeof(float3));
 	glUnmapBuffer(GL_ARRAY_BUFFER);
 
-	localLineShader->Bind();
-	localLineShader->SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
-	localLineShader->SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
-	localLineShader->SetFloat4("lineColor", 1.0f, 0.0f, 0.0f, 1.0f);
+	localLineShader->shader.Bind();
+	localLineShader->shader.SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
+	localLineShader->shader.SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
+	localLineShader->shader.SetFloat4("lineColor", 1.0f, 0.0f, 0.0f, 1.0f);
 
 	glDrawElements(GL_LINES, boxIndices.size(), GL_UNSIGNED_INT, 0);
 
@@ -491,10 +529,10 @@ void RenderManager::DrawAABB(Mesh* mesh)
 	memcpy(ptr, &AABBPoints[0], 8 * sizeof(float3));
 	glUnmapBuffer(GL_ARRAY_BUFFER);
 
-	localLineShader->Bind();
-	localLineShader->SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
-	localLineShader->SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
-	localLineShader->SetFloat4("lineColor", 0.0f, 1.0f, 0.0f, 1.0f);
+	localLineShader->shader.Bind();
+	localLineShader->shader.SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
+	localLineShader->shader.SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
+	localLineShader->shader.SetFloat4("lineColor", 0.0f, 1.0f, 0.0f, 1.0f);
 
 	glDrawElements(GL_LINES, boxIndices.size(), GL_UNSIGNED_INT, 0);
 
@@ -589,11 +627,11 @@ void RenderManager::DrawColliderBox(PhysBody3D* physBody, float4 color, float wi
 	memcpy(ptr, &AABBPoints[0], 8 * sizeof(float3));
 	glUnmapBuffer(GL_ARRAY_BUFFER);
 
-	localLineShader->Bind();
-	localLineShader->SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
-	localLineShader->SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
+	localLineShader->shader.Bind();
+	localLineShader->shader.SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
+	localLineShader->shader.SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
 
-	localLineShader->SetFloat4("lineColor", color[0], color[1], color[2], color[3]);
+	localLineShader->shader.SetFloat4("lineColor", color[0], color[1], color[2], color[3]);
 
 	glLineWidth(wireSize);
 	glDrawElements(GL_LINES, boxIndices.size(), GL_UNSIGNED_INT, 0);
@@ -664,10 +702,10 @@ void RenderManager::DrawColliderSphere(PhysBody3D* physBody, float radius, float
 	memcpy(ptr, &SpherePoints.at(0), SpherePoints.size() * sizeof(float3));
 	glUnmapBuffer(GL_ARRAY_BUFFER);
 
-	localLineShader->Bind();
-	localLineShader->SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
-	localLineShader->SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
-	localLineShader->SetFloat4("lineColor", color[0], color[1], color[2], color[3]);
+	localLineShader->shader.Bind();
+	localLineShader->shader.SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
+	localLineShader->shader.SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
+	localLineShader->shader.SetFloat4("lineColor", color[0], color[1], color[2], color[3]);
 
 	glLineWidth(wireSize);
 	glDrawElements(GL_LINES, sphereIndices.size() , GL_UNSIGNED_INT, 0);
@@ -798,10 +836,10 @@ void RenderManager::DrawColliderCylinder(PhysBody3D* physBody, float2 radiusHeig
 	memcpy(ptr, &CylinderPoints.at(0), CylinderPoints.size() * sizeof(float3));
 	glUnmapBuffer(GL_ARRAY_BUFFER);
 
-	localLineShader->Bind();
-	localLineShader->SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
-	localLineShader->SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
-	localLineShader->SetFloat4("lineColor", color[0], color[1], color[2], color[3]);
+	localLineShader->shader.Bind();
+	localLineShader->shader.SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
+	localLineShader->shader.SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
+	localLineShader->shader.SetFloat4("lineColor", color[0], color[1], color[2], color[3]);
 
 	glLineWidth(wireSize);
 	glDrawElements(GL_LINES, cylinderIndices.size(), GL_UNSIGNED_INT, 0);
@@ -987,23 +1025,32 @@ void RenderManager::DrawIndependentMeshes()
 		// Do camera culling checks first
 		if (currentCamera->isCullingActive)
 		{
-			if (!currentCamera->IsInsideFrustum(mesh.second.globalAABB))
+			if (!currentCamera->IsInsideFrustum(mesh.second.mesh.globalAABB))
 			{
-				mesh.second.outOfFrustum = true;
+				mesh.second.mesh.outOfFrustum = true;
 				continue;
 			}
 			else
-				mesh.second.outOfFrustum = false;
+				mesh.second.mesh.outOfFrustum = false;
 		}
 		else if (currentCamera->type != CameraType::SCENE)
 		{
-			mesh.second.outOfFrustum = false;
+			mesh.second.mesh.outOfFrustum = false;
 		}
 
 		// Update mesh. If the mesh should draw this frame, call Draw.
-		if (mesh.second.Update())
+		if (mesh.second.mesh.Update())
 		{
-			mesh.second.Draw();
+			if (mesh.second.material == nullptr)
+			{
+				mesh.second.mesh.Draw(nullptr);
+				continue;
+			}
+			mesh.second.mesh.Draw(&mesh.second.material->material);
+		}
+		else
+		{
+			Application::Instance()->renderer3D->renderManager.SetSelectedMesh(&mesh.second);
 		}
 	}
 
@@ -1020,9 +1067,11 @@ void RenderManager::DrawTextObjects()
 		if (!text.draw)
 			continue;
 
-		textRenderingShader->SetFloat3("textColor", text.color.x, text.color.y, text.color.z);
+		textRenderingShader->SetFloat3v("textColor", &text.color.At(0));
 		glActiveTexture(GL_TEXTURE0);
 		glBindVertexArray(TextVAO);
+
+		glDisable(GL_DEPTH_TEST);
 
 		std::string::const_iterator c;
 		for (c = text.text.begin(); c != text.text.end(); c++)
@@ -1060,5 +1109,6 @@ void RenderManager::DrawTextObjects()
 		}
 		glBindVertexArray(0);
 		glBindTexture(GL_TEXTURE_2D, 0);
+		glEnable(GL_DEPTH_TEST);
 	}
 }

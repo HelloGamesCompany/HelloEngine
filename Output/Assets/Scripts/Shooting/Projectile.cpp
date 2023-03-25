@@ -28,7 +28,7 @@ void Projectile::Update()
 
 void Projectile::Destroy()
 {
-    //gameObject.GetParticleSystem().Stop();
+    gameObject.GetParticleSystem().Stop();
     gameObject.SetActive(false);
 }
 
@@ -38,7 +38,7 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
     switch (action)
     {
     case PROJECTILE_ACTION::NONE:
-        if (detectionName != "Player" && detectionName != "Projectile")
+        if (detectionName != "Player" && detectionName != "Projectile" && detectionName != "Zone")
         {
             Destroy();
         }

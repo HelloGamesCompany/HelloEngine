@@ -10,6 +10,8 @@ public:
 
 #ifdef STANDALONE
 	void OnEditor() override;
+
+	void MarkAsDead() override;
 #endif
 
 	void OnTransformCallback(float4x4 worldMatrix) override;

@@ -26,8 +26,8 @@ bool ModuleRenderer3D::Init()
 	LOG("Creating 3D Renderer context");
 	bool ret = true;
 	_cameras = app->camera;
-	Console::S_Log("Initializing OpenGL 3.3");
-
+	Console::S_Log("Initializing OpenGL 4.1");
+	
 	//Create context
 	context = SDL_GL_CreateContext(ModuleWindow::window);
 
@@ -128,6 +128,7 @@ UpdateStatus ModuleRenderer3D::PostUpdate()
 		ModuleLayers::S_DrawLayers();
 		particleManager.Draw();
 		renderManager.Draw();
+		renderManager.DrawDebug();
 		_cameras->DrawCameraFrustums();
 	}
 

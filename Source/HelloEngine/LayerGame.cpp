@@ -195,6 +195,18 @@ void LayerGame::S_RemoveAnimationComponent(AnimationComponent* component)
 	}
 }
 
+void LayerGame::StartAllScripts()
+{
+	for (auto& behaviorScript : _behaviorScripts)
+	{
+		behaviorScript.second.script->Init();
+		if (behaviorScript.second.active)
+			behaviorScript.second.script->Start();
+		else
+			behaviorScript.second.lateStart = true;
+	}
+}
+
 void LayerGame::S_AddScriptComponent(ScriptComponent* component)
 {
 	_scriptComponents.push_back(component);

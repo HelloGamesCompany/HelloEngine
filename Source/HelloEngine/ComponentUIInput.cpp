@@ -1,7 +1,7 @@
 #include "Headers.h"
 #include "ComponentUIInput.h"
 #include "GameObject.h"
-#include "MaterialComponent.h"
+#include "TextureComponent.h"
 #include "ImWindowGame.h"
 #include "LayerEditor.h"
 #include "ModuleLayers.h"
@@ -48,11 +48,11 @@ void ComponentUIInput::InputUpdate()
 			isPress = true;
 		}
 
-		if (ModuleInput::S_GetGamePadButton(GamePad::BUTTON_A) == KEY_REPEAT)
+		if (ModuleInput::S_GetGamePadButton(GamePad::BUTTON_A) == KEY_DOWN)
 		{
 			_listButtons[ButtonSelected]->State = ButtonState::ONPRESS;
 		}
-		if (ModuleInput::S_GetGamePadButton(GamePad::BUTTON_A) == KEY_UP)
+		if (ModuleInput::S_GetGamePadButton(GamePad::BUTTON_A) == KEY_REPEAT)
 		{
 			_listButtons[ButtonSelected]->State = ButtonState::ONHOLD;
 		}

@@ -2,8 +2,6 @@
 #include "Component.h"
 
 struct ResourceAnimation;
-
-
 class Animation;
 
 class AnimationComponent : public Component

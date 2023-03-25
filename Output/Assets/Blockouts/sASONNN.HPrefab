@@ -1,0 +1,74 @@
+[
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -1.686903953552246,
+                    0.0,
+                    -7.506650447845459
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 13,
+                "ParticleModules": {
+                    "ModuleEmission": {
+                        "ParticlesPerSecond": 40
+                    },
+                    "ModuleMain": {
+                        "BeginScale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "Delay": 0.0,
+                        "Duration": 0.0,
+                        "EndScale": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "LifeTime": 5.0,
+                        "Looping": true,
+                        "Speed": [
+                            0.0,
+                            1.0,
+                            0.0
+                        ],
+                        "SpeedVariation": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "acceleration": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
+                    }
+                },
+                "ResourceTextUID": 2209918018,
+                "Type": 6
+            }
+        ],
+        "Name": "sASONNN",
+        "ParentUID": 0,
+        "PrefabUID": 3610339853,
+        "Tag": "Default",
+        "UID": 1099841904
+    }
+]

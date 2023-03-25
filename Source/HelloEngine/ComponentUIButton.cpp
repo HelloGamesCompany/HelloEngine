@@ -1,7 +1,7 @@
 #include "Headers.h"
 #include "ComponentUIButton.h"
 #include "GameObject.h"
-#include "MaterialComponent.h"
+#include "TextureComponent.h"
 #include "TextureImporter.h"
 #include "Mesh.h"
 #include "API/API_UIButton.h"

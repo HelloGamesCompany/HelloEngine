@@ -54,7 +54,7 @@
             {
                 "Active camera": true,
                 "Active culling": true,
-                "Aspect ratio": 1.9974778890609741,
+                "Aspect ratio": 1.8648383617401123,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -796,7 +796,7 @@
                 "Enabled": true,
                 "Position": [
                     0.019999999552965164,
-                    0.010650001466274261,
+                    0.0,
                     0.0
                 ],
                 "Rotation": [
@@ -931,19 +931,6 @@
                 "FillImage": 1.0,
                 "MaterialResource": 973302505,
                 "Type": 15
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "HP": 100.0
-                    },
-                    {
-                        "MAX HP": 100.0
-                    }
-                ],
-                "Script Resource": 3828527852,
-                "Type": 5
             }
         ],
         "FirstOnPrefab": true,
@@ -1049,7 +1036,53 @@
             },
             {
                 "Enabled": true,
-                "Inspector Fields": null,
+                "Inspector Fields": [
+                    {
+                        "Text_Weapon_1_on": 1828660828
+                    },
+                    {
+                        "Text_Weapon_1_off": 1261649561
+                    },
+                    {
+                        "Material Weapon 1": 4067071371
+                    },
+                    {
+                        "Game Bar Weapon 1": 1476580700
+                    },
+                    {
+                        "Text_Weapon_2_on": 977509463
+                    },
+                    {
+                        "Text_Weapon_2_off": 1072796038
+                    },
+                    {
+                        "Material Weapon 2": 790604431
+                    },
+                    {
+                        "Game Bar Weapon 2": 3194372670
+                    },
+                    {
+                        "Text_Weapon_3_on": 12569475
+                    },
+                    {
+                        "Text_Weapon_3_off": 103443597
+                    },
+                    {
+                        "Material Weapon 3": 2183724438
+                    },
+                    {
+                        "Game Bar Weapon 3": 540383020
+                    },
+                    {
+                        "Text_Dash_on": 1033923317
+                    },
+                    {
+                        "Text_Dash_off": 2440110374
+                    },
+                    {
+                        "Material_Dash": 699963811
+                    }
+                ],
                 "Script Resource": 1798504338,
                 "Type": 5
             }
@@ -1626,27 +1659,8 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 1033923317,
+                "MaterialResource": 0,
                 "Type": 15
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Text_Dash_on": 1033923317
-                    },
-                    {
-                        "Text_Dash_off": 2440110374
-                    },
-                    {
-                        "Cooldown": 1.0
-                    },
-                    {
-                        "CooldownBetween": 0.20000000298023224
-                    }
-                ],
-                "Script Resource": 2007260901,
-                "Type": 5
             }
         ],
         "FirstOnPrefab": true,

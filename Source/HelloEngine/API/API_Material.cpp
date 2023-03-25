@@ -1,7 +1,9 @@
 #include "Headers.h"
 #include "ModuleLayers.h"
 #include "API_Material.h"
-#include "MaterialComponent.h"
+#include "TextureComponent.h"
+#include "MeshRenderComponent.h"
+#include "ModuleResourceManager.h"
 
 API::API_Material::API_Material()
 {
@@ -33,12 +35,12 @@ void API::API_Material::ChangeAlbedoTexture(uint textureUID)
 	_material->ChangeTexture((ResourceTexture*)ModuleResourceManager::S_LoadResource(textureUID));
 }
 
-MaterialComponent* API::API_Material::GetComponent()
+TextureComponent* API::API_Material::GetComponent()
 {
     return _material;
 }
 
-void API::API_Material::SetComponent(MaterialComponent* component)
+void API::API_Material::SetComponent(TextureComponent* component)
 {
 	_material = component;
 }
