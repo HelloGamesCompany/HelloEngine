@@ -24,6 +24,8 @@ enum class ResourceType
 	CPPSCRIPT,
 	ANIMATION,
     PREFAB,
+    SHADER,
+    MATERIAL
 };
 
 struct MetaFile

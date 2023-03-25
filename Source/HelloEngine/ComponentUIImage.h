@@ -12,9 +12,10 @@ class ComponentUIImage : public ComponentUI
 
 	void Serialization(json& j) override;
 	void DeSerialization(json& j) override;
+	float _fillImage;
+	float _maxScale;
 
 private: 
-	float _fillImage;
 	float _auxFillImage;
 	ImWindowGame* _gameWindow = nullptr;
 

@@ -4,6 +4,7 @@
 #include "Shader.h"
 #include "ModuleResourceManager.h"
 
+struct RenderEntry;
 /// <summary>
 /// This class manages the rendering process o a single MeshObject.
 /// A MeshObject is a colection of Meshes that follow the same vertices/indices pattern.
@@ -23,7 +24,7 @@ public:
 
 	uint AddMesh();
 
-	std::map<uint, Mesh>& GetMap() { return meshes; };
+	std::map<uint, RenderEntry>& GetMap() { return meshes; };
 
 	int GetMeshVertexNum() { return totalVertices->size(); }
 	int GetMeshIndexNum() { return totalIndices->size(); }
@@ -46,15 +47,16 @@ private:
 
 private:
 
-	Shader* instancedShader = nullptr;
-	Shader* perMeshShader = nullptr;
-	Shader* mesh2DShader = nullptr;
+	ResourceShader* instancedShader = nullptr;
+	ResourceShader* perMeshShader = nullptr;
+	ResourceShader* mesh2DShader = nullptr;
 
-	std::map<uint, Mesh> meshes;
+	std::map<uint, RenderEntry> meshes;
 	std::vector<Vertex>* totalVertices = nullptr;
 	std::vector<uint>* totalIndices = nullptr;
 	std::vector<float4x4> modelMatrices;
 	std::vector<float> textureIDs;
+	std::multimap<float, Mesh*> orderedMeshes;
 
 	uint VAO = 0; // Vertex Array
 	uint VBO = 0; // Vertex buffer

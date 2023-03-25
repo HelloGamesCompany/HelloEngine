@@ -2,7 +2,7 @@
 <config>
 	<window>
 		<width value="1920" />
-		<height value="1008" />
+		<height value="1057" />
 		<brightness value="1" />
 	</window>
 	<renderer>
@@ -10,11 +10,11 @@
 		<framerate value="120" />
 	</renderer>
 	<scene>
-		<currentScene value="Assets/testmemoryleak.HScene" />
+		<currentScene value="Assets/LVL1_Blockout.HScene" />
 	</scene>
 	<openGL>
 		<blend value="true" tag="0x0BE2" />
-		<cullFace value="false" tag="0x0B44" />
-		<wireframe value="true" />
+		<cullFace value="true" tag="0x0B44" />
+		<wireframe value="false" />
 	</openGL>
 </config>

@@ -1,7 +1,7 @@
 #include "Headers.h"
 #include "ComponentUIImage.h"
 #include "GameObject.h"
-#include "MaterialComponent.h"
+#include "TextureComponent.h"
 #include "ImWindowGame.h"
 #include "LayerEditor.h"
 
@@ -10,6 +10,7 @@ ComponentUIImage::ComponentUIImage(GameObject* gameObject) : ComponentUI(gameObj
 	_type = Component::Type::UI_IMAGE;
 
 	_fillImage = 1.f;
+	_maxScale = 1.f;
 	_gameWindow = (ImWindowGame*)LayerEditor::_imWindows[(uint)ImWindowID::GAME];
 }
 
@@ -64,30 +65,16 @@ void ComponentUIImage::OnEditor()
 	ImGui::Text("Fill Image");
 	ImGui::SameLine();
 
+	//fill image
 	float aux1 = _fillImage;
-	if (ImGui::DragFloat("##fill", &_fillImage, 0.001f, 0, 1))
+	if (ImGui::DragFloat("##fill", &_fillImage, 0.001f, 0, _maxScale))
 	{
-
-		if (aux1 < _fillImage)
-		{
-			Console::S_Log("mas");
-			
-			float auxPos = _fillImage - _auxFillImage;
-			float auxSca = _fillImage - _auxFillImage;
-			this->_gameObject->transform->SetScale({ _fillImage, this->_gameObject->transform->GetLocalScale().y, this->_gameObject->transform->GetLocalScale().z });
-			this->_gameObject->transform->SetPosition({ this->_gameObject->transform->GetGlobalPosition().x + auxPos, this->_gameObject->transform->GetLocalPosition().y, this->_gameObject->transform->GetLocalPosition().z });
-			_auxFillImage = _fillImage;
-		}
-		else
-		{
-			Console::S_Log("menos");
-			float auxPos = _fillImage - _auxFillImage;
-			this->_gameObject->transform->SetScale({  _fillImage, this->_gameObject->transform->GetLocalScale().y, this->_gameObject->transform->GetLocalScale().z });
-			this->_gameObject->transform->SetPosition({ this->_gameObject->transform->GetGlobalPosition().x + auxPos, this->_gameObject->transform->GetLocalPosition().y, this->_gameObject->transform->GetLocalPosition().z });
-			_auxFillImage = _fillImage;
-		}
-
+		this->_gameObject->transform->SetScale({ _fillImage, this->_gameObject->transform->GetLocalScale().y, this->_gameObject->transform->GetLocalScale().z });
+		this->_gameObject->transform->SetPosition({ this->_gameObject->transform->GetGlobalPosition().x + (_fillImage - aux1),
+													this->_gameObject->transform->GetLocalPosition().y, this->_gameObject->transform->GetLocalPosition().z });
 	}
+
+	ImGui::InputFloat("Max Scale", &_maxScale);
 	
 
 }

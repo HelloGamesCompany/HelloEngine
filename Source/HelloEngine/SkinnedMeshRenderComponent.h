@@ -10,7 +10,7 @@ public:
 	void Serialization(json& j) override;
 	void DeSerialization(json& j) override;
 
-	void CreateMesh(uint resourceUID, MeshRenderType type = MeshRenderType::INDEPENDENT) override;
+	void CreateMesh(uint resourceUID, int materialUID = -1, MeshRenderType type = MeshRenderType::INSTANCED) override;
 
 #ifdef STANDALONE
 	void OnEditor() override;

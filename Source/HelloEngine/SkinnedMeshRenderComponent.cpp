@@ -7,7 +7,7 @@
 #include "LayerEditor.h"
 #include "ModuleLayers.h"
 #include "TransformComponent.h"
-#include "MaterialComponent.h"
+#include "TextureComponent.h"
 
 SkinnedMeshRenderComponent::SkinnedMeshRenderComponent(GameObject* gameObject) : MeshRenderComponent(gameObject)
 {
@@ -29,9 +29,9 @@ SkinnedMeshRenderComponent::~SkinnedMeshRenderComponent()
 	rootBone = nullptr;
 }
 
-void SkinnedMeshRenderComponent::CreateMesh(uint resourceUID, MeshRenderType type)
+void SkinnedMeshRenderComponent::CreateMesh(uint resourceUID, int materialUID, MeshRenderType type)
 {
-	MeshRenderComponent::CreateMesh(resourceUID, MeshRenderType::INDEPENDENT);
+	MeshRenderComponent::CreateMesh(resourceUID, materialUID, MeshRenderType::INDEPENDENT);
 
 }
 #ifdef STANDALONE

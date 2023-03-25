@@ -37,6 +37,12 @@ public:
 	void AddDragBoxRigidBody(const char* name, API::API_RigidBody* value) override;
 	void AddDragBoxAnimationPlayer(const char* name, API::API_AnimationPlayer* value) override;
 	void AddDragBoxAnimationResource(const char* name, uint* value) override;
+	void AddDragBoxMeshResource(const char* name, uint* value) override;
+	void AddDragBoxTextureResource(const char* name, uint* value) override;
+	void AddDragBoxMaterialComponent(const char* name, API::API_Material* value) override;
+	void AddDragBoxParticleSystem(const char* name, API::API_ParticleSystem* value);
+	void AddDragBoxUIButton(const char* name, API::API_UIButton* value) override;
+	void AddDragBoxUIImage(const char* name, API::API_UIImage* value) override;
 
 	uint GetResourceUID();
 	void DestroyedResource();
@@ -59,7 +65,6 @@ private:
 	ResourceScript* scriptResource = nullptr;
 	json inspectorFieldsJSON;
 	std::string addedScript = "None"; // Name of a class that has been added using AddScript() method of API_Gameobject. Not attached to a Resource.
-									
+
 	friend class LayerGame;
 };
-

@@ -5,6 +5,7 @@
 #include "GameObject.h"
 #include "MeshRenderComponent.h"
 #include "PhysBody3D.h"
+#include "FontManager.h"
 
 #define MAX_VERTICAL_SLICES_SPHERE 32
 #define MAX_HORIZONTAL_SLICES_SPHERE 32
@@ -25,6 +26,7 @@ enum class UIType
 	CHECKBOX,
 	SLIDER,
 	IMAGE,
+	TEXT,
 };
 
 enum class PrimitiveModelsUID
@@ -34,6 +36,13 @@ enum class PrimitiveModelsUID
 	CYLINDER = 12,
 	PLANE = 13,
 	PLANE2D = 14,
+};
+
+struct RenderEntry
+{
+	RenderEntry(){};
+	ResourceMaterial* material = nullptr;
+	Mesh mesh;
 };
 
 /// <summary>
@@ -54,22 +63,26 @@ public:
 	uint GetMapSize() { return _renderMap.size(); };
 
 	void Draw();
+	void DrawDebug();
 	void Draw2D();
 
-	uint AddMesh(ResourceMesh* resource, MeshRenderType type);
+	uint AddMesh(ResourceMesh* resource, ResourceMaterial* material, MeshRenderType type);
 
 	uint AddTransparentMesh(ResourceMesh* resource);
-	uint AddIndependentMesh(ResourceMesh* resource);
+	uint AddIndependentMesh(ResourceMesh* resource, ResourceMaterial* material);
 	uint AddInstancedMesh(ResourceMesh* resource);
 	uint Add2DMesh();
+	uint AddTextObject(std::string text = "Default Text", float4 color = {1,1,1,1}, float2 position = {0, 0}, float scale = 1.0f);
 
 	void CreatePrimitive(GameObject* parent, PrimitiveType type);
 	void CreateUI(GameObject* parent, UIType type);
 
 	void DestroyRenderManager(uint managerUID);
 
+	void SetSelectedMesh(RenderEntry* mesh);
 	void SetSelectedMesh(Mesh* mesh);
 	void DrawSelectedMesh();
+	void RemoveSelectedMesh();
 
 	void DrawVertexNormals(Mesh* mesh);
 	void DrawFaceNormals(Mesh* mesh);
@@ -86,37 +99,33 @@ public:
 
 	void DrawTransparentMeshes();
 	void DrawIndependentMeshes();
+	void DrawTextObjects();
 
 private:
 	std::map<uint, InstanceRenderer> _renderMap; // Render managers that use instance rendering to draw opaque meshes.
 	std::map<uint, Mesh> _transparencyMeshes; // Meshes with transparency that must be drawn with a draw call per mesh.
 	std::multimap<float, Mesh*> _orderedMeshes; // Meshes with transparency ordered from furthest to closest to the camera.
 	
-	std::map<uint, Mesh> _independentMeshes; // Opaque meshes that need to be drawn in an independent draw call.
+	std::map<uint, RenderEntry> _independentMeshes; // Opaque meshes that need to be drawn in an independent draw call.
 
 	TextureManager* _textureManager = nullptr;
 	
 	std::vector<uint> _emptyRenderManagers;
 
-	Mesh* _selectedMesh = nullptr;
+	RenderEntry* _selectedMesh = nullptr;
+	Mesh* _selectedMeshRaw = nullptr;
 
 	std::vector<uint> boxIndices; // Used to display bounding boxes.
 	std::vector<uint> sphereIndices;
 	std::vector<uint> cylinderIndices;
 
-	/*const uint sphereVerticalSlices = MAX_VERTICAL_SLICES_SPHERE;
-	const uint sphereHorizontalSlices = MAX_HORIZONTAL_SLICES_SPHERE;*/
-	/*const uint sphereVertexNum = sphereVerticalSlices * sphereHorizontalSlices + 2;*/
-
-	//const uint cylinderVerticalSlices = MAX_VERTICAL_SLICES_SPHERE;
-	//const uint cylinderVertexNum = sphereVerticalSlices * 2;
-
 	// ModelResources for primitives
 	ResourceModel* primitiveModels[5];
 
 	// Shaders for drawing debug information
-	Shader* lineShader = nullptr;
-	Shader* localLineShader = nullptr;
+	ResourceShader* lineShader = nullptr;
+	ResourceShader* localLineShader = nullptr;
+	Shader* textRenderingShader = nullptr;
 
 	uint AABBVAO = 0;
 	uint AABBVBO = 0;
@@ -142,6 +151,13 @@ private:
 	uint cylinderUID = 0;
 	uint plane2DUID = 0;
 
+	// Text rendering
+	std::map<uint, TextObject> textObjects;
+
+	uint TextVAO = 0;
+	uint TextVBO = 0;
+	uint TextIBO = 0;
+
 	InstanceRenderer* renderer2D = nullptr;
 
 	friend class Emitter;
@@ -149,5 +165,6 @@ private:
 	friend class MeshRenderComponent;
 	friend class ResourceMesh;
 	friend class Mesh;
+	friend class TextRendererComponent;
 };
 

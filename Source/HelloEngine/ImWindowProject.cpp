@@ -10,6 +10,8 @@
 #include "ModuleLayers.h"
 #include "LayerEditor.h"
 
+#include "BaseShader.h"
+
 ImWindowProject::ImWindowProject()
 {
 	windowName = "Project";
@@ -221,7 +223,11 @@ void ImWindowProject::Update()
 
 		UpdateFileNodes();
 	}
+    else if (_openCreateShaderPanel)
+        PanelCreateShader();
 
+    else if (_openCreateMaterialPanel)
+        PanelCreateMaterial();
 	// If have any folder to delete, delete this
 	if (_deleteDir && _deleteFileAccepted)
 	{
@@ -497,6 +503,14 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
 			case ResourceType::PREFAB:
 				ImGui::SetDragDropPayload("Prefab", &_fileTree->_currentDir->files[i].path, sizeof(std::string));
 				break;
+			case ResourceType::SHADER:
+                _dragUID = _fileTree->_currentDir->files[i].metaFile.UID;
+                ImGui::SetDragDropPayload("Shader", &_dragUID, sizeof(uint));
+                break;
+            case ResourceType::MATERIAL:
+                _dragUID = _fileTree->_currentDir->files[i].metaFile.UID;
+                ImGui::SetDragDropPayload("Material", &_dragUID, sizeof(uint));
+                break;
 			}
 			ImGui::EndDragDropSource();
 		}
@@ -528,9 +542,45 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
 			ImGui::EndPopup();
 		}
 
+  		static bool doubleClick = false;
+
 		// Shwo file name when mouse is hovered
 		if (ImGui::IsItemHovered())
+		{
+			 if (ImGui::IsMouseDoubleClicked(ImGuiMouseButton_Left))
+            {
+                doubleClick = true;
+            }
 			ImGui::SetTooltip(currentFile->name.c_str());
+		}
+
+		//Double click
+        if (doubleClick)
+        {
+            type = ModuleFiles::S_GetResourceType(_fileTree->_currentDir->files[i].name);
+            switch (type)
+            {
+            case ResourceType::TEXTURE:
+                break;
+            case ResourceType::MODEL:
+                break;
+            case ResourceType::SCENE:
+                break;
+            case ResourceType::HSCRIPT:
+            case ResourceType::CPPSCRIPT:
+                break;
+            case ResourceType::ANIMATION:
+                break;
+            case ResourceType::PREFAB:
+                break;
+            case ResourceType::SHADER:
+                LayerEditor::S_OpenShader(_fileTree->_currentDir->files[i].metaFile.UID);
+                break;
+            case ResourceType::MATERIAL:
+                break;
+            }
+            doubleClick = false;
+        }
 
 		// Show file name
 		if (currentFile->IsSelected())
@@ -587,6 +637,18 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
 
 		if (ImGui::Selectable("Create Script"))
 			_openCreateScriptPanel = true;
+
+		if (ImGui::Selectable("Create Shader"))
+        {
+            _openCreateShaderPanel = true;
+            _temporalName = "newShader";
+        }
+           
+        if (ImGui::Selectable("Create Material"))
+        {
+            _openCreateMaterialPanel = true;
+            _temporalName = "newMaterial";
+        }
 
 		ImGui::EndPopup();
 	}
@@ -726,6 +788,104 @@ void ImWindowProject::PanelCreateScript()
 
 		ImGui::EndPopup();
 	}
+}
+
+void ImWindowProject::PanelCreateShader()
+{
+    ImGui::OpenPopup("Insert Name##Shader");
+
+    if (ImGui::BeginPopupModal("Insert Name##Shader", NULL, ImGuiWindowFlags_AlwaysAutoResize))
+    {
+        ImGui::Text("Name: "); ImGui::SameLine();
+        ImGui::InputText("##inputShaderName", &_temporalName);
+        ImGui::SameLine();
+        ImGui::Text(".shader");
+
+        if (ImGui::Button("Accept"))
+        {
+            _temporalName.append(".shader");
+
+            std::string resourcePath = "Resources/Shaders/" + _temporalName;
+            std::string assetPath = _fileTree->_currentDir->path + _temporalName;
+
+            int size = BaseShader::newShaderTextFileUnlit.length();
+            char* cstr = BaseShader::newShaderTextFileUnlit.data();
+
+            //Save Shader to resources
+            ModuleFiles::S_Save(resourcePath, cstr, size, false);
+
+            //Save shadow file into assets
+            char buffer = 'S';
+            ModuleFiles::S_Save(assetPath, &buffer, sizeof(char), false);
+
+            //Create Metadata
+            ModuleFiles::S_CreateMetaData(assetPath, resourcePath);
+
+
+            _temporalName = "default";
+
+            _openCreateShaderPanel = false;
+            delete[] cstr;
+        }
+
+        ImGui::SameLine();
+
+        if (ImGui::Button("Cancel"))
+        {
+            _temporalName = "default";
+
+            _openCreateShaderPanel = false;
+        }
+
+        ImGui::EndPopup();
+    }
+}
+
+void ImWindowProject::PanelCreateMaterial()
+{
+    ImGui::OpenPopup("Insert Name##Material");
+
+    if (ImGui::BeginPopupModal("Insert Name##Material", NULL, ImGuiWindowFlags_AlwaysAutoResize))
+    {
+        ImGui::Text("Name: "); ImGui::SameLine();
+        ImGui::InputText("##inputMaterialName", &_temporalName);
+        ImGui::SameLine();
+        ImGui::Text(".material");
+
+        if (ImGui::Button("Accept"))
+        {
+            _temporalName.append(".material");
+
+            std::string resourcePath = "Resources/Material/" + _temporalName;
+            std::string assetPath = _fileTree->_currentDir->path + _temporalName;
+
+            char buffer = 'M';
+
+            //Resources
+            ModuleFiles::S_Save(resourcePath, &buffer, sizeof(char), false);
+
+            //Assets
+            ModuleFiles::S_Save(assetPath, &buffer, sizeof(char), false);
+
+            //Create Metadata
+            ModuleFiles::S_CreateMetaData(assetPath, resourcePath);
+
+            _temporalName = "default";
+
+            _openCreateMaterialPanel = false;
+        }
+
+        ImGui::SameLine();
+
+        if (ImGui::Button("Cancel"))
+        {
+            _temporalName = "default";
+
+            _openCreateMaterialPanel = false;
+        }
+
+        ImGui::EndPopup();
+    }
 }
 
 void ImWindowProject::DrawDeleteMessage()

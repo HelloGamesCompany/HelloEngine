@@ -20,9 +20,12 @@ public:
     float currentHp;
     float maxResistance = 100.0f;
     float currentResistance;
-    float speed = 0.0f;
+    float speed = 75.0f;
+    float acceleration = 1.2f;
+    float currentSpeed = 0.0f;
+   // API_GameObject target;
 
     // Test Code, delete later
-    API_RigidBody rb;
+   // API_RigidBody rb;
 };
 

@@ -34,8 +34,8 @@ bool ModuleWindow::Init()
 	// For some reason, this has to be done before initializing SDL.
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_FLAGS, 0);
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
-	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
-	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
+	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4);
+	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
 
 	SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
 	SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
@@ -91,11 +91,14 @@ bool ModuleWindow::Init()
 			_screen_surface = SDL_GetWindowSurface(window);
 		}
 	}
-
-	/*S_SetTitle("Project Wastelanders - Vertical Slice 1");
-	SDL_SetWindowFullscreen(window, SDL_WINDOW_FULLSCREEN_DESKTOP);*/
-
+#ifndef STANDALONE
+	S_SetTitle("Project Wastelanders - Vertical Slice 2");
+	SDL_SetWindowFullscreen(window, SDL_WINDOW_FULLSCREEN_DESKTOP);
+#else 
 	S_SetTitle("Hello Engine");
+#endif // STANDALONE
+
+
 
 	return ret;
 }

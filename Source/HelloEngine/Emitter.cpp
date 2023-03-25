@@ -15,12 +15,16 @@ Emitter::Emitter()
 
 	loop = true;
 	stop = false;
-	SetParticlePoolSize(10000);
+	SetParticlePoolSize(1000);
 
 	StartDelay = 0.0f;
 	StartDelayCpy = 0.0f;
 	Duration = 0.0f;
 	DurationCpy = 0.0f;
+
+	playOnAwake = false;
+	enableEmissionModule = true;
+	ParticlesPerSecond = 1;
 }
 
 Emitter::~Emitter()
@@ -41,7 +45,7 @@ void Emitter::ResetEmitter()
 {
 	for (int i = 0; i < ParticleList.size(); i++)
 	{
-		Mesh& meshReference = manager->GetMap()[ParticleList[i]._instanceID];
+		Mesh& meshReference = manager->GetMap()[ParticleList[i]._instanceID].mesh;
 
 		meshReference.draw = false;
 
@@ -50,6 +54,11 @@ void Emitter::ResetEmitter()
 	currentparticle = ParticleList.size() - 1;
 	StartDelay = StartDelayCpy;
 	Duration = DurationCpy;
+}
+
+void Emitter::SetPlayOnAwake(bool b)
+{
+	playOnAwake = b;
 }
 
 void Emitter::EmitParticles(ParticleProperties& particleProps)
@@ -113,7 +122,7 @@ void Emitter::UpdateParticles()
 
 		if (ParticleList[i].remainingLifetime <= 0.0f)
 		{
-			Mesh& meshReference = manager->GetMap()[ParticleList[i]._instanceID];
+			Mesh& meshReference = manager->GetMap()[ParticleList[i]._instanceID].mesh;
 
 			meshReference.draw = false;
 
@@ -165,60 +174,50 @@ void Emitter::UpdateParticleTransform(int i, const math::Quat& rotation)
 
 	manager = app->renderer3D->renderManager.GetRenderManager(_meshID);
 
-	Mesh& meshReference = manager->GetMap()[ParticleList[i]._instanceID];
+	Mesh& meshReference = manager->GetMap()[ParticleList[i]._instanceID].mesh;
 
 	meshReference.draw = true;
 
 	meshReference.modelMatrix = ParticleList[i].transformMat;
+
+	meshReference.textureID = _textureID;
 
 	meshReference.CalculateBoundingBoxes();
 }
 
 void Emitter::UpdateParticlesOnScene(int i)
 {
-	if (StartDelay <= 0) {
-		if (Duration > 0) {
-			Duration -= EngineTime::EngineTimeDeltaTime();
-		}
-		// Compute all the calculus needed to move the particles
+	
+	// Compute all the calculus needed to move the particles
 
-		// Remaining life minus dt
-		ParticleList[i].remainingLifetime -= EngineTime::EngineTimeDeltaTime();
+	// Remaining life minus dt
+	ParticleList[i].remainingLifetime -= EngineTime::EngineTimeDeltaTime();
 
 
-		// velocity = acceleration * dt
-		ParticleList[i].speed += ParticleList[i].acceleration * EngineTime::EngineTimeDeltaTime();
+	// velocity = acceleration * dt
+	ParticleList[i].speed += ParticleList[i].acceleration * EngineTime::EngineTimeDeltaTime();
 
 
-		// pos += velocity * dt
-		ParticleList[i].position += ParticleList[i].speed * EngineTime::EngineTimeDeltaTime();
-	}
-	else {
-		StartDelay -= EngineTime::EngineTimeDeltaTime();
-	}
+	// pos += velocity * dt
+	ParticleList[i].position += ParticleList[i].speed * EngineTime::EngineTimeDeltaTime();
+	
 }
 
 void Emitter::UpdateParticlesOnGame(int i)
 {
-	if (StartDelay <= 0) {
+	
+	// Compute all the calculus needed to move the particles
 
-		if (Duration > 0) {
-			Duration -= EngineTime::GameDeltaTime();
-		}
-		// Compute all the calculus needed to move the particles
-
-		// Remaining life minus dt
-		ParticleList[i].remainingLifetime -= EngineTime::GameDeltaTime();
+	// Remaining life minus dt
+	ParticleList[i].remainingLifetime -= EngineTime::GameDeltaTime();
 
 
-		// velocity = acceleration * dt
-		ParticleList[i].speed += ParticleList[i].acceleration * EngineTime::GameDeltaTime();
+	// velocity = acceleration * dt
+	ParticleList[i].speed += ParticleList[i].acceleration * EngineTime::GameDeltaTime();
 
 
-		// pos += velocity * dt
-		ParticleList[i].position += ParticleList[i].speed * EngineTime::GameDeltaTime();
-	}
-	else {
-		StartDelay -= EngineTime::GameDeltaTime();
-	}
+	// pos += velocity * dt
+	ParticleList[i].position += ParticleList[i].speed * EngineTime::GameDeltaTime();
+	
+	
 }

@@ -35,6 +35,10 @@ private:
 
     void PanelCreateScript();
 
+    void PanelCreateShader();
+
+    void PanelCreateMaterial();
+
     void DrawDeleteMessage();
 
     void ClearSelectedFiles();
@@ -84,6 +88,12 @@ private:
 
     // Create Script
     bool _openCreateScriptPanel = false;
+
+    //Create Shader
+    bool _openCreateShaderPanel = false;
+
+    //Create Material
+    bool _openCreateMaterialPanel = false;
 
     std::string _temporalName = "default";
 
