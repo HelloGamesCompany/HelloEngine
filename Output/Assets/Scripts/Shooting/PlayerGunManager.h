@@ -10,9 +10,6 @@
 #include "PlayerGunType.h"
 #include "../Player/PlayerStats.h"
 
-class SwapWeapon;
-class PlayerMove;
-
 class PlayerGunManager : HelloBehavior
 {
 public:
@@ -46,11 +43,5 @@ public:
     API_GameObject flamethrower; // index 6
     API_GameObject ricochet; // index 7
 
-     // HUD
-    API_GameObject HUDGameObject;
-    SwapWeapon* HUDScript;
-
-    // Player reference
-    API_GameObject playerMoveGameObject;
-    PlayerMove* playerMovementScript = nullptr;
+    API_GameObject weaponUI;
 };

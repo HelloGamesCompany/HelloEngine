@@ -23,12 +23,12 @@ HELLO_ENGINE_API_C SwapWeapon* CreateSwapWeapon(ScriptToInspectorInterface* scri
 
 	script->AddDragBoxMaterialComponent("Material Weapon 3", &classInstance->Material_Weapon_3);
 	script->AddDragBoxGameObject("Game Bar Weapon 3", &classInstance->Active_Bar_3);
+	
+	////dash
+	//script->AddDragBoxTextureResource("Text_Dash_on", &classInstance->Texture_Dash_on);
+	//script->AddDragBoxTextureResource("Text_Dash_off", &classInstance->Texture_Dash_off);
 
-	//dash
-	script->AddDragBoxTextureResource("Text_Dash_on", &classInstance->Texture_Dash_on);
-	script->AddDragBoxTextureResource("Text_Dash_off", &classInstance->Texture_Dash_off);
-
-	script->AddDragBoxMaterialComponent("Material_Dash", &classInstance->Material_Dash);
+	//script->AddDragBoxMaterialComponent("Material_Dash", &classInstance->Material_Dash);
 
 	return classInstance;
 }
@@ -42,7 +42,7 @@ void SwapWeapon::Start()
 	Material_Weapon_1.GetGameObject().GetTransform().SetScale({ 0.12,0.12,0.5 });
 	Material_Weapon_2.GetGameObject().GetTransform().SetScale({ 0.15,0.15,0.5 });
 	Material_Weapon_3.GetGameObject().GetTransform().SetScale({ 0.125,0.125,0.5 });
-
+	
 	//weapon 2
 	Material_Weapon_2.ChangeAlbedoTexture(Texture_Weapon_2_off);
 	Active_Bar_2.SetActive(false);
@@ -51,10 +51,41 @@ void SwapWeapon::Start()
 	Active_Bar_3.SetActive(false);
 
 	//Dash
-	Material_Dash.ChangeAlbedoTexture(Texture_Dash_on);
+	//Material_Dash.ChangeAlbedoTexture(Texture_Dash_on);
 }
 void SwapWeapon::Update()
 {
+
+	/*
+	if (Input::GetKey(KeyCode::KEY_B) == KeyState::KEY_DOWN)
+	{
+		SwapWeapon1();
+	}
+	
+	if (Input::GetKey(KeyCode::KEY_N) == KeyState::KEY_DOWN)
+	{
+		SwapWeapon2();
+	}
+	
+	if (Input::GetKey(KeyCode::KEY_M) == KeyState::KEY_DOWN)
+	{
+		SwapWeapon3();
+	}*/
+
+	/*if (Input::GetKey(KeyCode::KEY_B) == KeyState::KEY_DOWN)
+	{
+		if (activeDash == true)
+		{
+			activeDash = false;
+			Dash();
+		}
+		
+		else if (activeDash == false)
+		{
+			activeDash = true;
+			Dash();
+		}
+	}*/
 }
 
 void SwapWeapon::SwapWeapon1()
@@ -68,9 +99,9 @@ void SwapWeapon::SwapWeapon1()
 
 	//game object
 	//Scale
-	Material_Weapon_1.GetGameObject().GetTransform().SetScale({ 0.12,0.12,0.5 });
-	Material_Weapon_2.GetGameObject().GetTransform().SetScale({ 0.15,0.15,0.5 });
-	Material_Weapon_3.GetGameObject().GetTransform().SetScale({ 0.125,0.125,0.5 });
+	Material_Weapon_1.GetGameObject().GetTransform().SetScale({0.12,0.12,0.5});
+	Material_Weapon_2.GetGameObject().GetTransform().SetScale({0.15,0.15,0.5});
+	Material_Weapon_3.GetGameObject().GetTransform().SetScale({0.125,0.125,0.5});
 
 	Active_Bar_1.SetActive(true);
 	Active_Bar_2.SetActive(false);
@@ -111,16 +142,3 @@ void SwapWeapon::SwapWeapon3()
 	Active_Bar_3.SetActive(true);
 }
 
-void SwapWeapon::Dash()
-{
-	activeDash = !activeDash;
-	if (activeDash == false)
-	{
-		Material_Dash.ChangeAlbedoTexture(Texture_Dash_off);
-	}
-
-	if (activeDash == true)
-	{
-		Material_Dash.ChangeAlbedoTexture(Texture_Dash_on);
-	}
-}

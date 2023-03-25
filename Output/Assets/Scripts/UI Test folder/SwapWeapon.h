@@ -14,7 +14,6 @@ public:
 	void SwapWeapon1();
 	void SwapWeapon2();
 	void SwapWeapon3();
-	void Dash();
 
 	//Weapon 1  
 	uint Texture_Weapon_1_on;
@@ -35,10 +34,6 @@ public:
 	API_GameObject Active_Bar_2;
 	API_GameObject Active_Bar_3;
 
-	//Dash
-	uint Texture_Dash_on;
-	uint Texture_Dash_off;
-	API_Material Material_Dash;
-	bool activeDash = true;
+	
 };
 

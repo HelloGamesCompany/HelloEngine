@@ -3,68 +3,83 @@ HELLO_ENGINE_API_C ButtonActionsTest* CreateButtonActionsTest(ScriptToInspectorI
 {
 	ButtonActionsTest* classInstance = new ButtonActionsTest();
 	//Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
-	script->AddDragBoxUIButton("button", &classInstance->apiButton);
+	script->AddDragBoxUIButton("Button", &classInstance->apiButton);
 	script->AddDragFloat("minY", &classInstance->minY);
 	script->AddDragFloat("maxY", &classInstance->maxY);
 	script->AddDragFloat("Vel", &classInstance->animVel);
-	//script->AddDragBoxUIImage("image", &classInstance->apiImage);
 
 	return classInstance;
 }
 
 void ButtonActionsTest::Start()
 {
+
 	isHovering = false;
-	Console::Log("Button started!");
-	//gameObject.GetTransform().SetScale(API_Vector3(1.f, 1.f, 1.f));
+
 	defaultPos = gameObject.GetTransform().GetGlobalPosition();
+
+	hasStarted = false;
 
 }
 void ButtonActionsTest::Update()
 {
-	if (apiButton.OnHovered()==true)
+	if (hasStarted == false)
 	{
-		if (isHovering == false) 
-		{ 
-			isHovering = true; 
-			isGoingUp = true;
-			
-			//API_UIImage image = apiImage;
-			//image.GetGameObject().SetActive(true);
-			//go.GetTransform().SetPosition(shootingSpawn.GetGlobalPosition());
-		}
-		//Console::Log("im pressed");
-		
-		//gameObject.GetTransform().SetPosition(defaultPos+API_Vector3(0,0.5f,0));
-	}
-	else 
-	{
-		if (isHovering == true) 
-		{ 
-			isHovering = false; 
-			gameObject.GetTransform().SetPosition(defaultPos);
-			//API_UIImage image = apiImage;
-			//image.GetGameObject().SetActive(false);
-		}
-	
-	}
+	//{
+		//if ((apiButton.OnHovered() == false ) && (apiButton.OnPress() == false)) {
 
-	if (isHovering == true)
-	{
-		if (isGoingUp == true) {
-			gameObject.GetTransform().Translate(0, animVel, 0);
-			if (gameObject.GetTransform().GetGlobalPosition().y > defaultPos.y + maxY)
+		//	isHovering = false;
+
+			defaultPos = gameObject.GetTransform().GetGlobalPosition();
+		//	//defaultPos = API_Vector3(0,0,-0.003f);
+			hasStarted = true;
+		//}
+		
+	}
+	else {
+		if (apiButton.OnHovered() == true)
+		{
+			if (isHovering == false)
 			{
-				isGoingUp = false;
-			}
-		}
-		else {
-			gameObject.GetTransform().Translate(0, -animVel, 0);
-			if (gameObject.GetTransform().GetGlobalPosition().y < defaultPos.y + minY)
-			{
+				isHovering = true;
 				isGoingUp = true;
 			}
+
+		}
+		else
+		{
+			if (isHovering == true)
+			{
+				isHovering = false;
+				gameObject.GetTransform().SetPosition(defaultPos);
+			}
+			gameObject.GetTransform().SetPosition(defaultPos);
+		}
+
+		if (isHovering == true)
+		{
+			if (isGoingUp == true) {
+				gameObject.GetTransform().Translate(0, animVel, 0);
+				if (gameObject.GetTransform().GetGlobalPosition().y > defaultPos.y + maxY)
+				{
+					isGoingUp = false;
+				}
+			}
+			else {
+				gameObject.GetTransform().Translate(0, -animVel, 0);
+				if (gameObject.GetTransform().GetGlobalPosition().y < defaultPos.y + minY)
+				{
+					isGoingUp = true;
+				}
+			}
+		}
+
+		if (apiButton.OnPress() == true)
+		{
+			hasStarted = false;
 		}
 	}
+
+	
 	
 }

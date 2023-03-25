@@ -22,5 +22,7 @@ public:
 	float minY;
 	float maxY;
 	float animVel;
+
+	bool hasStarted;
 };
 
