@@ -28,7 +28,7 @@ HELLO_ENGINE_API_C SwapWeapon* CreateSwapWeapon(ScriptToInspectorInterface* scri
 	//script->AddDragBoxTextureResource("Text_Dash_on", &classInstance->Texture_Dash_on);
 	//script->AddDragBoxTextureResource("Text_Dash_off", &classInstance->Texture_Dash_off);
 
-	//script->AddDragBoxMaterialComponent("Material_Dash", &classInstance->Material_Dash);
+	script->AddDragBoxMaterialComponent("Material_Dash", &classInstance->Material_Dash);
 
 	return classInstance;
 }
@@ -53,7 +53,7 @@ void SwapWeapon::Start()
 	//Dash
 	//Material_Dash.ChangeAlbedoTexture(Texture_Dash_on);
 }
-void SwapWeapon::Update()
+void SwapWeapon::Update() 
 {
 
 	/*
@@ -140,5 +140,19 @@ void SwapWeapon::SwapWeapon3()
 	Active_Bar_1.SetActive(false);
 	Active_Bar_2.SetActive(false);
 	Active_Bar_3.SetActive(true);
+}
+
+void SwapWeapon::Dash()
+{
+	activeDash = !activeDash;
+	if (activeDash == false)
+	{
+		Material_Dash.ChangeAlbedoTexture(Texture_Dash_off);
+	}
+
+	if (activeDash == true)
+	{
+		Material_Dash.ChangeAlbedoTexture(Texture_Dash_on);
+	}
 }
 

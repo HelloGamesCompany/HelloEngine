@@ -39035,12 +39035,6 @@
                     },
                     {
                         "Shotgun": 711540028
-                    },
-                    {
-                        "HUD": 60163542
-                    },
-                    {
-                        "PlayerMovement GameObject": 3079281768
                     }
                 ],
                 "Script Resource": 3024424734,
@@ -42312,7 +42306,7 @@
             {
                 "Enabled": true,
                 "Index inside model": 0,
-                "ModelUID": 2417919063,
+                "ModelUID": 0,
                 "ShowAABB": false,
                 "ShowFaceNormals": false,
                 "ShowOBB": false,
@@ -47764,12 +47758,6 @@
                         "Game Bar Weapon 3": 2691390326
                     },
                     {
-                        "Text_Dash_on": 1033923317
-                    },
-                    {
-                        "Text_Dash_off": 2440110374
-                    },
-                    {
                         "Material_Dash": 208745187
                     }
                 ],
@@ -48387,7 +48375,7 @@
                 "MaterialResource": 0,
                 "Type": 16,
                 "listButtons": [
-                    0
+                    599873896
                 ]
             }
         ],
@@ -48632,7 +48620,7 @@
                 "MaterialResource": 0,
                 "Type": 16,
                 "listButtons": [
-                    0
+                    4142976289
                 ]
             }
         ],
@@ -49997,7 +49985,7 @@
             {
                 "Active camera": true,
                 "Active culling": false,
-                "Aspect ratio": 1.8648383617401123,
+                "Aspect ratio": 1.9408766031265259,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 2000.0,
@@ -50032,6 +50020,9 @@
                     },
                     {
                         "Rot_Offset_Z": 0.0
+                    },
+                    {
+                        "Use safe zone: ": true
                     }
                 ],
                 "Script Resource": 118417560,
