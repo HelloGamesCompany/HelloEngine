@@ -40,7 +40,16 @@ void PlayerStats::Update()
         {
             if (healthTreeLvl > 3) currentHp += 8.0f;
             else currentHp += 5.0f;
-            if (currentHp > deathlineHp) currentHp = deathlineHp;
+            
+            if (currentHp > deathlineHp)
+            {
+                currentHp = deathlineHp;
+                lastHitTime = 0.0f;
+            }
+            else
+            {
+                lastHitTime = 1.0f;
+            }
         }
     }
 
