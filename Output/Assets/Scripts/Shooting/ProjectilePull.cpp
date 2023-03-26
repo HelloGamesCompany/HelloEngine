@@ -1,5 +1,4 @@
 #include "ProjectilePull.h"
-#include "../PlayerGamepadMovement.h"
 #include <time.h>
 HELLO_ENGINE_API_C ProjectilePull* CreateProjectilePull(ScriptToInspectorInterface* script)
 {
