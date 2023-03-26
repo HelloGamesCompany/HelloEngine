@@ -16,6 +16,10 @@ public:
     void Shoot() override;
     void EnableGuns(bool enable) override;
 
+    void CalculateShoot(API_Transform projectileSpawn);
+    float slowProbability;
+    float freezeProbability;
+
     float fullShotCooldown;
     float shotCooldown;
     bool canShoot = true;

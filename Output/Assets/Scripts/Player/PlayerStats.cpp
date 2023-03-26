@@ -5,27 +5,45 @@ HELLO_ENGINE_API_C PlayerStats* CreatePlayerStats(ScriptToInspectorInterface* sc
     PlayerStats* classInstance = new PlayerStats();
     //Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
     script->AddDragFloat("Max HP", &classInstance->maxHp);
+    script->AddDragFloat("Upgraded Max HP", &classInstance->upgradedMaxHp);
     script->AddDragInt("Laser Ammo", &classInstance->laserAmmo);
     script->AddDragInt("Fire Ammo", &classInstance->fireAmmo);
     script->AddDragInt("Ricochet Ammo", &classInstance->ricochetAmmo);
-    script->AddDragBoxGameObject("Health bar", &classInstance->hpGameObject);
+    //script->AddDragBoxGameObject("Health bar", &classInstance->hpGameObject);
     return classInstance;
 }
 
 void PlayerStats::Start()
 {
-    currentHp = maxHp;
-    healthBar = (HpBar*)hpGameObject.GetScript("HpBar");
+    if (healthTreeLvl > 0) currentMaxHp = upgradedMaxHp;
+    else currentMaxHp = maxHp;
+    currentHp = currentMaxHp;
+    //healthBar = (HpBar*)hpGameObject.GetScript("HpBar");
+    //healthBar->maxHp = this->currentHp;
     detected = false;
+    if (healthTreeLvl > 4) secondLife = true;
+    else secondLife = false;
 }
 
 void PlayerStats::Update()
 {
-    healthBar->maxHp = this->maxHp;
-    healthBar->hp = this->currentHp;
-    // test purpose to show on VS2
-    if (Input::GetKey(KeyCode::KEY_Y) == KeyState::KEY_DOWN) TakeDamage(5.0f);
-    if (Input::GetKey(KeyCode::KEY_U) == KeyState::KEY_DOWN) TakeDamage(maxHp / 2.0f); // heal only testing
+    //healthBar->hp = this->currentHp;
+
+    // deadline healing
+    float deathlineHp;
+    if (healthTreeLvl > 1) deathlineHp = currentMaxHp * 0.25f;
+    else deathlineHp = currentMaxHp * 0.20f;
+    if (currentHp < deathlineHp)
+    {
+        lastHitTime -= Time::GetDeltaTime();
+        if (lastHitTime <= 0.0f)
+        {
+            if (healthTreeLvl > 3) currentHp += 8.0f;
+            else currentHp += 5.0f;
+            if (currentHp > deathlineHp) currentHp = deathlineHp;
+        }
+    }
+
     if (inmunityTime > 0.0f)
     {
         inmunityTime -= Time::GetDeltaTime();
@@ -39,10 +57,21 @@ void PlayerStats::TakeDamage(float amount)
     currentHp -= amount;
     if (currentHp <= 0)
     {
-        currentHp = 0;
-        Scene::LoadScene("LoseMenu.HScene");
-        Audio::Event("starlord_dead");
-        // death
+        if (secondLife)
+        {
+            secondLife = false;
+            currentHp = 1;
+            inmunityTime = 2.0f;
+            Audio::Event("starlord_damaged"); // second life audio
+            // hit animation?
+        }
+        else
+        {
+            currentHp = 0;
+            Scene::LoadScene("LoseMenu.HScene");
+            Audio::Event("starlord_dead");
+            // death
+        }
     }
     else
     {
@@ -50,6 +79,8 @@ void PlayerStats::TakeDamage(float amount)
         Audio::Event("starlord_damaged");
         // hit animation?
     }
+
+    lastHitTime = 3.0f; // 3 seg to auto heal after a hit
 }
 
 int PlayerStats::GetAmmonByType(int type)
@@ -112,6 +143,28 @@ void PlayerStats::UseAmmo(int type, int amount)
         break;
     default:
         Console::Log("Invalid type, can only use ammo of types 1, 2 or 3.");
+        break;
+    }
+}
+
+void PlayerStats::UpgradeTreeLvl(int tree)
+{
+    switch (tree)
+    {
+    case 0:
+        movementTreeLvl++;
+        break;
+    case 1:
+        armoryTreeLvl++;
+        break;
+    case 2:
+        healthTreeLvl++;
+        break;
+    case 3:
+        specialTreeLvl++;
+        break;
+    default:
+        Console::Log("Invalid tree index, can only be 0, 1, 2 or 3.");
         break;
     }
 }

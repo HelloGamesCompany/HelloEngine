@@ -18,6 +18,7 @@ public:
 
     void GetGun(int slot, int gunIndex);
     void EquipGun(int index);
+    void UnequipGun(int index);
 
     API_GameObject player;
     PlayerStats* playerStats;
@@ -28,6 +29,10 @@ public:
     int gunOnHandIndex1;
     int gunOnHandIndex2;
     int gunOnHandIndex3;
+    int swapToIndex;
+    float maxSwapDelay;
+    float maxFastSwapDelay;
+    float swapDelay;
 
     bool canShoot = true;
     float bufferRB;

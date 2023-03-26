@@ -41,11 +41,9 @@ public:
     API_Vector3 projectileScale;
 
     float cadence;
+    float upgradeFireratePercentage;
 
     int ammoType;
     std::string audioEventString;
-
-    API_AnimationPlayer playerAnimator;
-    uint shootAnim = 0;
 };
 

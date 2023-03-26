@@ -14,6 +14,7 @@ HELLO_ENGINE_API_C PlayerFlamethrower* CreatePlayerFlamethrower(ScriptToInspecto
     script->AddDragFloat("Projectile ScaleY", &classInstance->projectileScale.y);
     script->AddDragFloat("Projectile ScaleZ", &classInstance->projectileScale.z);
     script->AddDragFloat("Ticks per second", &classInstance->cadence);
+    script->AddDragFloat("Extra % firerate", &classInstance->upgradeFireratePercentage);
     script->AddDragBoxGameObject("Player Stats GO", &classInstance->player);
     script->AddDragInt("Ammo Type", &classInstance->ammoType);
     script->AddInputBox("Audio Event String", &classInstance->audioEventString);
@@ -26,6 +27,11 @@ void PlayerFlamethrower::Start()
 
     if (cadence != 0) fullShotCooldown = 1 / cadence;
     else fullShotCooldown = 0;
+
+    if (playerStats->armoryTreeLvl > 1)
+    {
+        fullShotCooldown = fullShotCooldown + fullShotCooldown * upgradeFireratePercentage / 100.0f;
+    }
 
     playingParticlesCd = 0;
 }

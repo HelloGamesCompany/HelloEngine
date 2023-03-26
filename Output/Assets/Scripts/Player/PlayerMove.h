@@ -5,6 +5,8 @@
 
 #include "API/API.h"
 
+#include "PlayerStats.h"
+
 class SwapWeapon;
 
 class PlayerMove : HelloBehavior
@@ -37,6 +39,7 @@ public:
     API_Vector2 lastMovInput = { 1.0f, 1.0f };
     API_Vector2 lastAimInput = { 0.0f, 0.0f };
     float vel = 1.0f;
+    float upgradedVel = 2.0f;
     float currentVel = 0.0f;
     float currentInput = 0.0f; //test
     float departureTime = 0.0f;
@@ -52,6 +55,7 @@ public:
     API_Vector3 dashFinalPos;
     float dashTime = 0.5f;
     float dashDistance = 5.0f;
+    float upgradedDashDistance = 8.0f;
 
     //Shooting
     float aimAngle;
@@ -68,5 +72,9 @@ public:
     // HUD
     API_GameObject HUDGameObject;
     SwapWeapon* HUDScript;
+
+    // skills
+    API_GameObject playerStatsGO;
+    PlayerStats* playerStats;
 };
 

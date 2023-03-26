@@ -43,6 +43,20 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
             Destroy();
         }
         break;
+    case PROJECTILE_ACTION::SLOW:
+        if (detectionName != "Player" && detectionName != "Projectile" && detectionName != "Zone")
+        {
+            // apply slow to enemy
+            Destroy();
+        }
+        break;
+    case PROJECTILE_ACTION::FREEZE:
+        if (detectionName != "Player" && detectionName != "Projectile" && detectionName != "Zone")
+        {
+            // apply freeze to enemy
+            Destroy();
+        }
+        break;
     case PROJECTILE_ACTION::FLAMETROWER:
         break;
     case PROJECTILE_ACTION::RICOCHET:

@@ -15,6 +15,7 @@ HELLO_ENGINE_API_C PlayerShotgun* CreatePlayerShotgun(ScriptToInspectorInterface
     script->AddDragFloat("Projectile ScaleY", &classInstance->projectileScale.y);
     script->AddDragFloat("Projectile ScaleZ", &classInstance->projectileScale.z);
     script->AddDragFloat("Projectiles per second", &classInstance->cadence);
+    script->AddDragFloat("Extra % firerate", &classInstance->upgradeFireratePercentage);
     script->AddDragInt("Pellets per shot", &classInstance->pellets);
     script->AddDragBoxGameObject("Player Stats GO", &classInstance->player);
     script->AddDragInt("Ammo Type", &classInstance->ammoType);
@@ -28,6 +29,11 @@ void PlayerShotgun::Start()
 
     if (cadence != 0) fullShotCooldown = 1 / cadence;
     else fullShotCooldown = 0;
+
+    if (playerStats->armoryTreeLvl > 1)
+    {
+        fullShotCooldown = fullShotCooldown + fullShotCooldown * upgradeFireratePercentage / 100.0f;
+    }
 }
 
 void PlayerShotgun::Update()

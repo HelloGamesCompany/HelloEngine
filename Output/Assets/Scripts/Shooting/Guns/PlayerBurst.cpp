@@ -15,6 +15,7 @@ HELLO_ENGINE_API_C PlayerBurst* CreatePlayerBurst(ScriptToInspectorInterface* sc
     script->AddDragFloat("Projectile ScaleY", &classInstance->projectileScale.y);
     script->AddDragFloat("Projectile ScaleZ", &classInstance->projectileScale.z);
     script->AddDragFloat("Projectiles per second", &classInstance->cadence);
+    script->AddDragFloat("Extra % firerate", &classInstance->upgradeFireratePercentage);
     script->AddDragFloat("Burst Space", &classInstance->fullBurstDelay);
     script->AddDragInt("Projectiles per burst", &classInstance->burstLenght);
     script->AddDragBoxGameObject("Player Stats GO", &classInstance->player);
@@ -29,6 +30,11 @@ void PlayerBurst::Start()
 
     if (cadence != 0) fullShotCooldown = 1 / cadence;
     else fullShotCooldown = 0;
+
+    if (playerStats->armoryTreeLvl > 1)
+    {
+        fullShotCooldown = fullShotCooldown + fullShotCooldown * upgradeFireratePercentage / 100.0f;
+    }
 
     shotCount = burstLenght;
 }

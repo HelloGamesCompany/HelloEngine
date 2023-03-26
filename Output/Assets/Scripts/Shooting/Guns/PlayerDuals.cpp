@@ -16,19 +16,28 @@ HELLO_ENGINE_API_C PlayerDuals* CreatePlayerDuals(ScriptToInspectorInterface* sc
     script->AddDragFloat("Projectile ScaleY", &classInstance->projectileScale.y);
     script->AddDragFloat("Projectile ScaleZ", &classInstance->projectileScale.z);
     script->AddDragFloat("Projectiles per second", &classInstance->cadence);
+    script->AddDragFloat("Extra % firerate", &classInstance->upgradeFireratePercentage);
     script->AddDragFloat("Burst Space", &classInstance->fullBurstDelay);
     script->AddDragBoxGameObject("Second Gun GO", &classInstance->secondGun);
+    script->AddDragFloat("Slow %", &classInstance->slowProbability);
+    script->AddDragFloat("Freeze %", &classInstance->freezeProbability);
+    script->AddDragBoxGameObject("Player Stats GO", &classInstance->player);
     script->AddDragInt("Ammo Type", &classInstance->ammoType);
     script->AddInputBox("Audio Event String", &classInstance->audioEventString);
-    script->AddDragBoxAnimationPlayer("AnimationPlayer", &classInstance->playerAnimator);
-    script->AddDragBoxAnimationResource("Shoot Animation", &classInstance->shootAnim);
     return classInstance;
 }
 
 void PlayerDuals::Start()
 {
+    playerStats = (PlayerStats*)player.GetScript("PlayerStats");
+
     if (cadence != 0) fullShotCooldown = 1 / cadence;
     else fullShotCooldown = 0;
+
+    if (playerStats->armoryTreeLvl > 1)
+    {
+        fullShotCooldown = fullShotCooldown + fullShotCooldown * upgradeFireratePercentage / 100.0f;
+    }
 }
 
 void PlayerDuals::Update()
@@ -48,7 +57,7 @@ void PlayerDuals::Update()
         if (burstDelay <= 0)
         {
             nextShot = false;
-            LauchProjectile(secondShootingSpawn);
+            CalculateShoot(secondShootingSpawn);
             PlayShotSound(audioEventString);
         }
         else
@@ -80,15 +89,12 @@ void PlayerDuals::Shoot()
 {
     if (canShoot)
     {
-        LauchProjectile(shootingSpawn);
+        CalculateShoot(shootingSpawn);
         PlayShotSound(audioEventString);
         canShoot = false;
         shotCooldown = fullShotCooldown;
         nextShot = true;
         burstDelay = fullBurstDelay;
-
-        playerAnimator.ChangeAnimation(shootAnim);
-        playerAnimator.Play();
     }
     else
     {
@@ -103,4 +109,21 @@ void PlayerDuals::EnableGuns(bool enable)
     secondGun.SetActive(enable);
     shotBuffer = false;
     nextShot = false;
+}
+
+void PlayerDuals::CalculateShoot(API_Transform projectileSpawn)
+{
+    if (playerStats->specialTreeLvl == 0) LauchProjectile(projectileSpawn);
+    else if (playerStats->specialTreeLvl == 1)
+    {
+        float n = rand() % 100;
+        if (n < slowProbability) LauchProjectile(projectileSpawn, PROJECTILE_ACTION::SLOW);
+        else LauchProjectile(projectileSpawn);
+    }
+    else if (playerStats->specialTreeLvl == 2)
+    {
+        float n = rand() % 100;
+        if (n < freezeProbability) LauchProjectile(projectileSpawn, PROJECTILE_ACTION::FREEZE);
+        else LauchProjectile(projectileSpawn);
+    }
 }

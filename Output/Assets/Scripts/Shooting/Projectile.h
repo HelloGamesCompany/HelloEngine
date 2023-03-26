@@ -8,6 +8,8 @@
 enum class PROJECTILE_ACTION
 {
     NONE,
+    SLOW,
+    FREEZE,
     FLAMETROWER,
     RICOCHET
 };

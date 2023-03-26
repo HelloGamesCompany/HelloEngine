@@ -13,10 +13,14 @@ public:
     void Start() override;
     void Update() override;
 
+    float currentMaxHp;
     float maxHp;
+    float upgradedMaxHp;
     float currentHp;
     void TakeDamage(float amount);
     float inmunityTime = 2.0f;
+    bool secondLife;
+    float lastHitTime;
 
     int GetAmmonByType(int type);
     void GetAmmo(int type, int amount);
@@ -33,5 +37,13 @@ public:
 
     API_GameObject hpGameObject;
     HpBar* healthBar;
+
+    // skills tree
+    void UpgradeTreeLvl(int tree);
+
+    int movementTreeLvl; // tree 0
+    int armoryTreeLvl; // tree 1
+    int healthTreeLvl; // tree 2
+    int specialTreeLvl; // tree 3
 };
 

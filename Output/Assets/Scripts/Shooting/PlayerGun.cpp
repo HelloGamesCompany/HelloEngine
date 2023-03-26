@@ -15,11 +15,10 @@ HELLO_ENGINE_API_C PlayerGun* CreatePlayerGun(ScriptToInspectorInterface* script
     script->AddDragFloat("Projectile ScaleY", &classInstance->projectileScale.y);
     script->AddDragFloat("Projectile ScaleZ", &classInstance->projectileScale.z);
     script->AddDragFloat("Projectiles per second", &classInstance->cadence);
+    script->AddDragFloat("Extra % firerate", &classInstance->upgradeFireratePercentage);
     script->AddDragBoxGameObject("Player Stats GO", &classInstance->player);
     script->AddDragInt("Ammo Type", &classInstance->ammoType);
     script->AddInputBox("Audio Event String", &classInstance->audioEventString);
-    script->AddDragBoxAnimationPlayer("AnimationPlayer", &classInstance->playerAnimator);
-    script->AddDragBoxAnimationResource("Shoot Animation", &classInstance->shootAnim);
     return classInstance;
 }
 

@@ -16,6 +16,8 @@ HELLO_ENGINE_API_C PlayerGunManager* CreatePlayerGunManager(ScriptToInspectorInt
     script->AddDragBoxGameObject("Handgun", &classInstance->handgun);
     script->AddDragBoxGameObject("Flamethrower", &classInstance->flamethrower);
     script->AddDragBoxGameObject("Ricochet", &classInstance->ricochet);
+    script->AddDragFloat("Swap Delay", &classInstance->maxSwapDelay);
+    script->AddDragFloat("Fast Swap Delay", &classInstance->maxFastSwapDelay);
     script->AddDragBoxGameObject("WeaponUI", &classInstance->weaponUI);
     return classInstance;
 }
@@ -46,16 +48,16 @@ void PlayerGunManager::Start()
 void PlayerGunManager::Update()
 {
     // Keyboard
-    if (Input::GetKey(KeyCode::KEY_1) == KeyState::KEY_DOWN) { EquipGun(gunOnHandIndex1); if (weaponUI.IsAlive() == true) { ((SwapWeapon*)weaponUI.GetScript("SwapWeapon"))->SwapWeapon1(); }  }
-    else if (Input::GetKey(KeyCode::KEY_2) == KeyState::KEY_DOWN) { EquipGun(gunOnHandIndex2); if (weaponUI.IsAlive() == true) { ((SwapWeapon*)weaponUI.GetScript("SwapWeapon"))->SwapWeapon2(); } }
-    else if (Input::GetKey(KeyCode::KEY_3) == KeyState::KEY_DOWN) { EquipGun(gunOnHandIndex3); if (weaponUI.IsAlive() == true) { ((SwapWeapon*)weaponUI.GetScript("SwapWeapon"))->SwapWeapon3(); } }
+    if (Input::GetKey(KeyCode::KEY_1) == KeyState::KEY_DOWN) { UnequipGun(gunOnHandIndex1); if (weaponUI.IsAlive() == true) { ((SwapWeapon*)weaponUI.GetScript("SwapWeapon"))->SwapWeapon1(); }  }
+    else if (Input::GetKey(KeyCode::KEY_2) == KeyState::KEY_DOWN) { UnequipGun(gunOnHandIndex2); if (weaponUI.IsAlive() == true) { ((SwapWeapon*)weaponUI.GetScript("SwapWeapon"))->SwapWeapon2(); } }
+    else if (Input::GetKey(KeyCode::KEY_3) == KeyState::KEY_DOWN) { UnequipGun(gunOnHandIndex3); if (weaponUI.IsAlive() == true) { ((SwapWeapon*)weaponUI.GetScript("SwapWeapon"))->SwapWeapon3(); } }
 
     // gamepad
     if (Input::GetGamePadButton(GamePadButton::BUTTON_LEFT_SHOULDER) == KeyState::KEY_DOWN)
     {
         if (bufferRB > 0)
         {
-            EquipGun(gunOnHandIndex3); // special weapon
+            UnequipGun(gunOnHandIndex3); // special weapon
             bufferRB = 0.0f;
         }
         else bufferLB = 0.1f;
@@ -64,7 +66,7 @@ void PlayerGunManager::Update()
     {
         if (bufferLB > 0.0f)
         {
-            EquipGun(gunOnHandIndex3); // special weapon
+            UnequipGun(gunOnHandIndex3); // special weapon
             bufferLB = 0.0f;
         }
         else bufferRB = 0.1f;
@@ -74,7 +76,7 @@ void PlayerGunManager::Update()
         bufferLB -= Time::GetDeltaTime();
         if (bufferLB <= 0.0f)
         {
-            EquipGun(gunOnHandIndex1); // base weapon
+            UnequipGun(gunOnHandIndex1); // base weapon
             bufferLB = 0.0f;
         }
     }
@@ -83,8 +85,23 @@ void PlayerGunManager::Update()
         bufferRB -= Time::GetDeltaTime();
         if (bufferRB <= 0)
         {
-            EquipGun(gunOnHandIndex2); // normal weapon
+            UnequipGun(gunOnHandIndex2); // normal weapon
             bufferRB = 0.0f;
+        }
+    }
+
+    // swap gun
+    if (swapDelay > 0.0f)
+    {
+        swapDelay -= Time::GetDeltaTime();
+        if (swapDelay <= 0.0f)
+        {
+            swapDelay = 0.0f;
+            EquipGun(swapToIndex);
+        }
+        else
+        {
+            return;
         }
     }
 
@@ -172,9 +189,6 @@ void PlayerGunManager::EquipGun(int index)
 {
     PlayerGunType* gunType = (PlayerGunType*)guns[index].GetScript("PlayerGunType");
     if (gunType == nullptr) return;
-    
-    if (equipedGun != nullptr) equipedGun->EnableGuns(false);
-    equipedIndex = index;
 
     switch (gunType->gunType)
     {
@@ -207,4 +221,17 @@ void PlayerGunManager::EquipGun(int index)
         break;
     }
     if (equipedGun != nullptr) equipedGun->EnableGuns(true);
+}
+
+void PlayerGunManager::UnequipGun(int index)
+{
+    PlayerGunType* gunType = (PlayerGunType*)guns[index].GetScript("PlayerGunType");
+    if (gunType == nullptr) return;
+
+    if (equipedGun != nullptr) equipedGun->EnableGuns(false);
+    equipedIndex = index;
+
+    if (playerStats->armoryTreeLvl > 0) swapDelay = maxFastSwapDelay;
+    else swapDelay = maxSwapDelay;
+    swapToIndex = index;
 }
