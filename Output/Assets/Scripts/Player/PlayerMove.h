@@ -26,6 +26,7 @@ public:
     void Aim();
     API_Vector2 GetMoveInput();
     float Lerp(float a, float b, float time);
+    void DashSetup();
     void Dash();
     bool DashInput();
     void OnCollisionEnter(API_RigidBody other);
@@ -49,7 +50,11 @@ public:
 
     //Dash
     bool isDashing = false;
-    bool dashAvailable = true;
+    float dashesAvailable;
+    float maxDashCooldown;
+    float maxFastDashCooldown;
+    float dashCooldown;
+    bool dashBuffer;
     float dashDepartTime = 0.0f;
     API_Vector3 dashInitialPos;
     API_Vector3 dashFinalPos;

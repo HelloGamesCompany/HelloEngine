@@ -15,6 +15,8 @@ HELLO_ENGINE_API_C PlayerMove* CreatePlayerMove(ScriptToInspectorInterface* scri
     script->AddDragFloat("Dash Time", &classInstance->dashTime);
     script->AddDragFloat("Dash Distance", &classInstance->dashDistance);
     script->AddDragFloat("Upgrade Dash Distance", &classInstance->upgradedDashDistance);
+    script->AddDragFloat("Dash Cooldown", &classInstance->maxDashCooldown);
+    script->AddDragFloat("Upgrade Dash Cooldown", &classInstance->maxFastDashCooldown);
     script->AddDragBoxAnimationPlayer("AnimationPlayer", &classInstance->playerAnimator);
     script->AddDragBoxAnimationResource("Dash Animation", &classInstance->dashAnim);
     script->AddDragBoxAnimationResource("Idle Animation", &classInstance->idleAnim);
@@ -31,6 +33,10 @@ void PlayerMove::Start()
     departureTime = 0.0f;
     playerStats = (PlayerStats*)playerStatsGO.GetScript("PlayerStats");
     HUDScript = (SwapWeapon*)HUDGameObject.GetScript("SwapWeapon");
+
+    if (playerStats->movementTreeLvl > 3) dashesAvailable = 2;
+    else dashesAvailable = 1;
+    dashBuffer = false;
 } 
 
 void PlayerMove::Update()
@@ -44,28 +50,36 @@ void PlayerMove::Update()
         isShooting = false;
     }
 
-    if (dashAvailable && !isDashing && DashInput())
+    if (dashesAvailable > 0)
     {
-        isDashing = true;
-        //dashAvailable = false; TODO: UNCOMMENT
-        dashDepartTime = 0.0f;
-        dashInitialPos = transform.GetLocalPosition();
-        float norm = sqrt(pow(lastMovInput.x, 2) + pow(lastMovInput.y, 2));
-        API_Vector3 movDir;
-        movDir.x = lastMovInput.x / norm;
-        movDir.y = 0.0f;
-        movDir.z = lastMovInput.y / norm;
-        if (playerStats->movementTreeLvl > 2) dashFinalPos = transform.GetLocalPosition() + movDir * upgradedDashDistance; //transform.GetForward() // for looking dir
-        else dashFinalPos = transform.GetLocalPosition() + movDir * dashDistance;
-
-        if (currentAnim != PlayerAnims::DASH)
+        if (DashInput())
         {
-            playerAnimator.ChangeAnimation(dashAnim);
-            playerAnimator.Play();
-            currentAnim = PlayerAnims::DASH;
+            if (isDashing)
+            {
+                dashBuffer = true;
+            }
+            else
+            {
+                DashSetup();
+            }
         }
+        else if (dashBuffer)
+        {
+            DashSetup();
+            dashBuffer = false;
+        }
+    }
 
-        HUDScript->Dash();
+    // refresh dash
+    if (dashCooldown > 0.0f)
+    {
+        dashCooldown -= Time::GetDeltaTime();
+        if (dashCooldown <= 0.0f)
+        {
+            dashCooldown = 0.0f;
+            if (playerStats->movementTreeLvl > 3) dashesAvailable = 2;
+            else dashesAvailable = 1;
+        }
     }
 
     if (isDashing)
@@ -123,6 +137,35 @@ void PlayerMove::Update()
 float PlayerMove:: Lerp(float a, float b, float time)
 {
     return a + time * (b - a);
+}
+
+void PlayerMove::DashSetup()
+{
+    isDashing = true;
+
+    // cooldown
+    dashesAvailable--;
+    if (playerStats->movementTreeLvl > 1) dashCooldown = maxFastDashCooldown;
+    else dashCooldown = maxDashCooldown;
+
+    dashDepartTime = 0.0f;
+    dashInitialPos = transform.GetLocalPosition();
+    float norm = sqrt(pow(lastMovInput.x, 2) + pow(lastMovInput.y, 2));
+    API_Vector3 movDir;
+    movDir.x = lastMovInput.x / norm;
+    movDir.y = 0.0f;
+    movDir.z = lastMovInput.y / norm;
+    if (playerStats->movementTreeLvl > 2) dashFinalPos = transform.GetLocalPosition() + movDir * upgradedDashDistance; //transform.GetForward() // for looking dir
+    else dashFinalPos = transform.GetLocalPosition() + movDir * dashDistance;
+
+    if (currentAnim != PlayerAnims::DASH)
+    {
+        playerAnimator.ChangeAnimation(dashAnim);
+        playerAnimator.Play();
+        currentAnim = PlayerAnims::DASH;
+    }
+
+    HUDScript->Dash();
 }
 
 void PlayerMove::Dash()
