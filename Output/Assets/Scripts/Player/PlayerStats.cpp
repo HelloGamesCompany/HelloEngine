@@ -46,7 +46,7 @@ void PlayerStats::Update()
         lastHitTime -= Time::GetDeltaTime();
         if (lastHitTime <= 0.0f)
         {
-            if (healthTreeLvl > 3) currentHp += 8.0f;
+            if (healthTreeLvl > 3) currentHp += 7.5f;
             else currentHp += 5.0f;
             
             if (currentHp > deathlineHp)
@@ -117,6 +117,13 @@ void PlayerStats::TakeDamage(float amount)
     }
 
     lastHitTime = 3.0f; // 3 seg to auto heal after a hit
+}
+
+void PlayerStats::Heal(float amount)
+{
+    currentHp += amount;
+
+    if (currentHp > currentMaxHp) currentHp = currentMaxHp;
 }
 
 int PlayerStats::GetAmmonByType(int type)

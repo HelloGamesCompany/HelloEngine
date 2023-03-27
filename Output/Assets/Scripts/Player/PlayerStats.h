@@ -22,6 +22,7 @@ public:
     float inmunityTime = 2.0f;
     bool secondLife;
     float lastHitTime;
+    void Heal(float amount);
 
     int GetAmmonByType(int type);
     void GetAmmo(int type, int amount);
