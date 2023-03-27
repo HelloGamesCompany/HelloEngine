@@ -42,7 +42,7 @@ void PlayerGunManager::Start()
     GetGun(3, gunOnHandIndex3);
 
     // start with base gun selected
-    EquipGun(0);
+    UnequipGun(0);
 }
 
 void PlayerGunManager::Update()
@@ -99,10 +99,7 @@ void PlayerGunManager::Update()
             swapDelay = 0.0f;
             EquipGun(swapToIndex);
         }
-        else
-        {
-            return;
-        }
+        return;
     }
 
     if (equipedGun == nullptr) return;
@@ -182,7 +179,7 @@ void PlayerGunManager::GetGun(int slot, int gunIndex)
         break;
     }
 
-    EquipGun(gunIndex);
+    UnequipGun(gunIndex);
 }
 
 void PlayerGunManager::EquipGun(int index)
@@ -193,28 +190,28 @@ void PlayerGunManager::EquipGun(int index)
     switch (gunType->gunType)
     {
     case 0: // duals
-        equipedGun = (PlayerGun*)guns[equipedIndex].GetScript("PlayerDuals");
+        equipedGun = (PlayerGun*)guns[index].GetScript("PlayerDuals");
         break;
     case 1: // semiautomatic
-        equipedGun = (PlayerGun*)guns[equipedIndex].GetScript("PlayerSemiAuto");
+        equipedGun = (PlayerGun*)guns[index].GetScript("PlayerSemiAuto");
         break;
     case 2: // automatic
-        equipedGun = (PlayerGun*)guns[equipedIndex].GetScript("PlayerAutomatic");
+        equipedGun = (PlayerGun*)guns[index].GetScript("PlayerAutomatic");
         break;
     case 3: // burst
-        equipedGun = (PlayerGun*)guns[equipedIndex].GetScript("PlayerBurst");
+        equipedGun = (PlayerGun*)guns[index].GetScript("PlayerBurst");
         break;
     case 4: // shotgun
-        equipedGun = (PlayerGun*)guns[equipedIndex].GetScript("PlayerShotgun");
+        equipedGun = (PlayerGun*)guns[index].GetScript("PlayerShotgun");
         break;
     case 5: // handgun
-        equipedGun = (PlayerGun*)guns[equipedIndex].GetScript("PlayerSemiAuto");
+        equipedGun = (PlayerGun*)guns[index].GetScript("PlayerSemiAuto");
         break;
     case 6: // flamethrower
-        equipedGun = (PlayerGun*)guns[equipedIndex].GetScript("PlayerFlamethrower");
+        equipedGun = (PlayerGun*)guns[index].GetScript("PlayerFlamethrower");
         break;
     case 7: // ricochet
-        equipedGun = (PlayerGun*)guns[equipedIndex].GetScript("PlayerRicochet");
+        equipedGun = (PlayerGun*)guns[index].GetScript("PlayerRicochet");
         break;
     default:
         equipedGun = nullptr;
@@ -225,13 +222,10 @@ void PlayerGunManager::EquipGun(int index)
 
 void PlayerGunManager::UnequipGun(int index)
 {
-    PlayerGunType* gunType = (PlayerGunType*)guns[index].GetScript("PlayerGunType");
-    if (gunType == nullptr) return;
-
     if (equipedGun != nullptr) equipedGun->EnableGuns(false);
     equipedIndex = index;
 
-    if (playerStats->armoryTreeLvl > 0) swapDelay = maxFastSwapDelay;
-    else swapDelay = maxSwapDelay;
+    if (playerStats->armoryTreeLvl > 0) swapDelay = maxFastSwapDelay + 0.001f;
+    else swapDelay = maxSwapDelay + 0.001f;
     swapToIndex = index;
 }
