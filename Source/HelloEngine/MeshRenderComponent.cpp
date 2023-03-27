@@ -415,7 +415,7 @@ void MeshRenderComponent::Serialization(json& j)
 
 void MeshRenderComponent::DeSerialization(json& j)
 {
-	ResourceModel* model = (ResourceModel*)ModuleResourceManager::resources[j["ModelUID"]];
+	ResourceModel* model = (ResourceModel*)ModuleResourceManager::S_LoadResource(j["ModelUID"]);
 
 	if (model == nullptr)
 	{

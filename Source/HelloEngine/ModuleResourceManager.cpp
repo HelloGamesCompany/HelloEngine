@@ -223,6 +223,20 @@ void ModuleResourceManager::S_LoadFileIntoResource(Resource* resource)
 
 	}
 	break;
+	case ResourceType::SHADER:
+	{
+		ResourceShader* shaderRes = (ResourceShader*)resource;
+		shaderRes->shader = Shader(shaderRes->resourcePath);
+		shaderRes->version = HelloUUID::GenerateUUID();
+	}
+	break;
+	case ResourceType::MATERIAL:
+	{
+		ResourceMaterial* materialRes = (ResourceMaterial*)resource;
+		materialRes->material = Material();
+		materialRes->material.LoadJSON(materialRes->resourcePath);
+	}
+	break;
 	}
 
 	RELEASE_ARRAY(buffer);
