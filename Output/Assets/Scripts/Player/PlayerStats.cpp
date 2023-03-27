@@ -5,11 +5,16 @@ HELLO_ENGINE_API_C PlayerStats* CreatePlayerStats(ScriptToInspectorInterface* sc
     PlayerStats* classInstance = new PlayerStats();
     //Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
     script->AddDragFloat("Max HP", &classInstance->maxHp);
+    script->AddDragFloat("Current HP", &classInstance->currentHp);
     script->AddDragFloat("Upgraded Max HP", &classInstance->upgradedMaxHp);
     script->AddDragInt("Laser Ammo", &classInstance->laserAmmo);
     script->AddDragInt("Fire Ammo", &classInstance->fireAmmo);
     script->AddDragInt("Ricochet Ammo", &classInstance->ricochetAmmo);
     //script->AddDragBoxGameObject("Health bar", &classInstance->hpGameObject);
+    script->AddDragInt("tree1", &classInstance->movementTreeLvl);
+    script->AddDragInt("tree2", &classInstance->armoryTreeLvl);
+    script->AddDragInt("tree3", &classInstance->healthTreeLvl);
+    script->AddDragInt("tree4", &classInstance->specialTreeLvl);
     return classInstance;
 }
 
@@ -60,6 +65,18 @@ void PlayerStats::Update()
     {
         inmunityTime -= Time::GetDeltaTime();
     }
+
+    // power ups
+    if (speedPowerUp > 0.0f)
+    {
+        speedPowerUp -= Time::GetDeltaTime();
+        if (speedPowerUp <= 0.0f) speedPowerUp = 0.0f;
+    }
+    if (fireratePowerUp > 0.0f)
+    {
+        fireratePowerUp -= Time::GetDeltaTime();
+        if (fireratePowerUp <= 0.0f) fireratePowerUp = 0.0f;
+    }
 }
 
 void PlayerStats::TakeDamage(float amount)
@@ -67,7 +84,11 @@ void PlayerStats::TakeDamage(float amount)
     if (inmunityTime > 0.0f) return; // only VS2
 
     shield -= amount;
-    if (shield <= 0.0f) currentHp += shield;
+    if (shield <= 0.0f)
+    {
+        currentHp += shield;
+        shield = 0.0f;
+    }
 
 
     if (currentHp <= 0)

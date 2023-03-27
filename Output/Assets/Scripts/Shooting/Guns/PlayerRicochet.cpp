@@ -26,20 +26,21 @@ void PlayerRicochet::Start()
 {
     playerStats = (PlayerStats*)player.GetScript("PlayerStats");
 
-    if (cadence != 0) fullShotCooldown = 1 / cadence;
-    else fullShotCooldown = 0;
-
-    if (playerStats->armoryTreeLvl > 1)
+    if (cadence == 0)
     {
-        fullShotCooldown = fullShotCooldown + fullShotCooldown * upgradeFireratePercentage / 100.0f;
+        fullShotCooldown = 0;
+        fullShotCooldownWithPowerUp = 0;
     }
-
-    if (cadence != 0) fullShotCooldownWithPowerUp = 1 / (cadence * 1.5f); // 50% increase
-    else fullShotCooldownWithPowerUp = 0;
-
-    if (playerStats->armoryTreeLvl > 1)
+    else
     {
-        fullShotCooldownWithPowerUp = fullShotCooldownWithPowerUp + fullShotCooldownWithPowerUp * upgradeFireratePercentage / 100.0f;
+        fullShotCooldown = 1 / cadence;
+        fullShotCooldownWithPowerUp = 1 / (cadence * 1.5f); // 50% increase
+
+        if (playerStats->armoryTreeLvl > 1)
+        {
+            fullShotCooldown = 1 / (cadence + cadence * upgradeFireratePercentage / 100.0f);
+            fullShotCooldownWithPowerUp = 1 / ((cadence + cadence * upgradeFireratePercentage / 100.0f) * 1.5f); // 50% increase
+        }
     }
 }
 
