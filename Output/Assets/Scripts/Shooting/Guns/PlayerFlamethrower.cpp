@@ -33,6 +33,14 @@ void PlayerFlamethrower::Start()
         fullShotCooldown = fullShotCooldown + fullShotCooldown * upgradeFireratePercentage / 100.0f;
     }
 
+    if (cadence != 0) fullShotCooldownWithPowerUp = 1 / (cadence * 1.5f); // 50% increase
+    else fullShotCooldownWithPowerUp = 0;
+
+    if (playerStats->armoryTreeLvl > 1)
+    {
+        fullShotCooldownWithPowerUp = fullShotCooldownWithPowerUp + fullShotCooldownWithPowerUp * upgradeFireratePercentage / 100.0f;
+    }
+
     playingParticlesCd = 0;
 }
 
@@ -67,7 +75,8 @@ void PlayerFlamethrower::Shoot()
         LauchProjectile(shootingSpawn, PROJECTILE_ACTION::FLAMETROWER);
         PlayShotSound(audioEventString);
         canShoot = false;
-        shotCooldown = fullShotCooldown;
+        if (playerStats->fireratePowerUp) shotCooldown = fullShotCooldownWithPowerUp;
+        else shotCooldown = fullShotCooldown;
         playerStats->UseAmmo(ammoType);
 
 

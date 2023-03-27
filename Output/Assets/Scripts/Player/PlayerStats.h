@@ -18,6 +18,7 @@ public:
     float upgradedMaxHp;
     float currentHp;
     void TakeDamage(float amount);
+    float shield;
     float inmunityTime = 2.0f;
     bool secondLife;
     float lastHitTime;
@@ -45,5 +46,12 @@ public:
     int armoryTreeLvl; // tree 1
     int healthTreeLvl; // tree 2
     int specialTreeLvl; // tree 3
+
+    // power ups
+    float speedPowerUp; // 0
+    float fireratePowerUp; // 1
+    // shield // 2
+    // max ammo // 3
+    void GetPowerUp(int index);
 };
 

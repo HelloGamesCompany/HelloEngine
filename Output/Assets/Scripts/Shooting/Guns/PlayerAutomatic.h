@@ -18,6 +18,7 @@ public:
 
     float fullShotCooldown;
     float shotCooldown;
+    float fullShotCooldownWithPowerUp;
     bool canShoot = true;
 };
 

@@ -95,6 +95,8 @@ void PlayerMove::Update()
     if (playerStats->movementTreeLvl > 0) velocity = upgradedVel;
     else velocity = vel;
 
+    if (playerStats->speedPowerUp > 0.0f) velocity * 1.5f;
+
     //SecToZero MUST be smaller than SecToMaxVel
     if (abs(input.x) < 0.01f && abs(input.y) < 0.01f) //NO INPUT
     {

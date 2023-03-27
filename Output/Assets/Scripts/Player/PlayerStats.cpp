@@ -21,8 +21,11 @@ void PlayerStats::Start()
     //healthBar = (HpBar*)hpGameObject.GetScript("HpBar");
     //healthBar->maxHp = this->currentHp;
     detected = false;
+
     if (healthTreeLvl > 4) secondLife = true;
     else secondLife = false;
+
+    shield = 0;
 }
 
 void PlayerStats::Update()
@@ -63,7 +66,10 @@ void PlayerStats::TakeDamage(float amount)
 {
     if (inmunityTime > 0.0f) return; // only VS2
 
-    currentHp -= amount;
+    shield -= amount;
+    if (shield <= 0.0f) currentHp += shield;
+
+
     if (currentHp <= 0)
     {
         if (secondLife)
@@ -174,6 +180,30 @@ void PlayerStats::UpgradeTreeLvl(int tree)
         break;
     default:
         Console::Log("Invalid tree index, can only be 0, 1, 2 or 3.");
+        break;
+    }
+}
+
+void PlayerStats::GetPowerUp(int index)
+{
+    switch (index)
+    {
+    case 0:
+        speedPowerUp = 5;
+        break;
+    case 1:
+        fireratePowerUp = 5;
+        break;
+    case 2:
+        shield = 50;
+        break;
+    case 3:
+        GetAmmo(1, 9999);
+        GetAmmo(2, 9999);
+        GetAmmo(3, 9999);
+        break;
+    default:
+        Console::Log("Invalid powe up index, can only be 0, 1, 2 or 3.");
         break;
     }
 }

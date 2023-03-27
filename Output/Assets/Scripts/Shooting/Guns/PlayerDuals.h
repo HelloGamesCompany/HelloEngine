@@ -22,6 +22,7 @@ public:
 
     float fullShotCooldown;
     float shotCooldown;
+    float fullShotCooldownWithPowerUp;
     bool canShoot = true;
     float shotBufferCooldown = SHOT_BUFFER;
     bool shotBuffer = false;
