@@ -38,20 +38,20 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
     switch (action)
     {
     case PROJECTILE_ACTION::NONE:
-        if (detectionName != "Player" && detectionName != "Projectile" && detectionName != "Zone")
+        if (detectionName != "Player" && detectionName != "Projectile" && detectionName != "Ultimate" && detectionName != "Zone")
         {
             Destroy();
         }
         break;
     case PROJECTILE_ACTION::SLOW:
-        if (detectionName != "Player" && detectionName != "Projectile" && detectionName != "Zone")
+        if (detectionName != "Player" && detectionName != "Projectile" && detectionName != "Ultimate" && detectionName != "Zone")
         {
             // apply slow to enemy
             Destroy();
         }
         break;
     case PROJECTILE_ACTION::FREEZE:
-        if (detectionName != "Player" && detectionName != "Projectile" && detectionName != "Zone")
+        if (detectionName != "Player" && detectionName != "Projectile" && detectionName != "Ultimate" && detectionName != "Zone")
         {
             // apply freeze to enemy
             Destroy();
