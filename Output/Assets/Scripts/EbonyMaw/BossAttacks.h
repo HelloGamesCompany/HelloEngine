@@ -11,7 +11,7 @@ class BossAttacks : HelloBehavior
 public:
 	void Start() override;
 	void Update() override;
-	void Seek(API_GameObject* seeker, API_Transform target, float speed);
+	void Seek(API_GameObject* seeker, API_Vector3 target, float speed);
 	void SelectRock();
 	void HoldRock();
 	void ReturnRock(API_GameObject* rock);
@@ -22,8 +22,8 @@ public:
 
 	API_GameObject boss;
 	API_GameObject player;
-	API_Transform playerPosition;
-	API_Transform bossPosition;
+	API_Vector3 playerPosition;
+	API_Vector3 bossPosition;
 	bool hasPlayerCoords = false;
 	bool hasBossCoords = false;
 
@@ -45,12 +45,13 @@ public:
 	float dt = 0.0f;
 
 	float rockDmg = 20.0f;
-
 	float stoneDmg = 10.0f;
+
 	float stoneSpeed = 1.0f;
 	float stoneLifeTime = 0.5f;
 
 	enum class BOSS_STATE {
+		KO,
 		IDLE,
 		SELECTATTACK,
 		ROCKSELECT,

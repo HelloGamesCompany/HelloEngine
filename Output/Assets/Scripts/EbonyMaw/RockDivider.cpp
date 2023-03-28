@@ -8,14 +8,7 @@ HELLO_ENGINE_API_C RockDivider* CreateRockDivider(ScriptToInspectorInterface* sc
 {
 	RockDivider* classInstance = new RockDivider();
 	script->AddDragBoxGameObject("Boss", &classInstance->boss);
-	script->AddDragBoxGameObject("stone1", &classInstance->stone1);
-	script->AddDragBoxGameObject("stone2", &classInstance->stone2);
-	script->AddDragBoxGameObject("stone3", &classInstance->stone3);
-	script->AddDragBoxGameObject("stone4", &classInstance->stone4);
-	script->AddDragBoxGameObject("stone5", &classInstance->stone5);
-	script->AddDragBoxGameObject("stone6", &classInstance->stone6);
-	script->AddDragBoxGameObject("stone7", &classInstance->stone7);
-	script->AddDragBoxGameObject("stone8", &classInstance->stone8);
+	script->AddDragBoxMeshResource("Stone Mesh", &classInstance->stoneMesh);
 
 	//Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
 	return classInstance;
@@ -23,38 +16,49 @@ HELLO_ENGINE_API_C RockDivider* CreateRockDivider(ScriptToInspectorInterface* sc
 
 void RockDivider::Start()
 {
+	API_GameObject go = boss;
+	BossAttacks* bAttacks = (BossAttacks*)go.GetScript("BossAttacks");
 
+	for (size_t i = 0; i < 8; i++)
+	{
+		API_GameObject stone = Game::CreateGameObject("Stone", "Stone");
+		stone.AddMeshRenderer().ChangeMesh(stoneMesh);
+		stone.AddMaterial();
+		stone.CreateRigidBodyBox((0,0,0), (0, 0, 0), (0.3f, 0.3f, 0.3f), false);
+		stone.AddScript("Stone");
+		stone.SetActive(true);
+		stones.push_back(stone);
+	}
 }
 void RockDivider::Update()
 {
-
 	API_GameObject go = boss;
 	BossAttacks* bAttacks = (BossAttacks*)go.GetScript("BossAttacks");
+
 	if (rockDivided == true) {
 		dt = Time::GetDeltaTime();
 		stoneTime += dt;
+		bAttacks->ReturnRock(&gameObject);
 		gameObject.GetTransform().SetRotation(0, 0, 0);
-		stone1.GetTransform().SetPosition(stone1.GetTransform().GetLocalPosition().x, stone1.GetTransform().GetLocalPosition().y, stone1.GetTransform().GetLocalPosition().z + 0.1);
-		stone2.GetTransform().SetPosition(stone2.GetTransform().GetLocalPosition().x + 0.1, stone2.GetTransform().GetLocalPosition().y, stone2.GetTransform().GetLocalPosition().z + 0.1);
-		stone3.GetTransform().SetPosition(stone3.GetTransform().GetLocalPosition().x + 0.1, stone3.GetTransform().GetLocalPosition().y, stone3.GetTransform().GetLocalPosition().z);
-		stone4.GetTransform().SetPosition(stone4.GetTransform().GetLocalPosition().x + 0.1, stone4.GetTransform().GetLocalPosition().y, stone4.GetTransform().GetLocalPosition().z - 0.1);
-		stone5.GetTransform().SetPosition(stone5.GetTransform().GetLocalPosition().x, stone5.GetTransform().GetLocalPosition().y, stone5.GetTransform().GetLocalPosition().z - 0.1);
-		stone6.GetTransform().SetPosition(stone6.GetTransform().GetLocalPosition().x - 0.1, stone6.GetTransform().GetLocalPosition().y, stone6.GetTransform().GetLocalPosition().z - 0.1);
-		stone7.GetTransform().SetPosition(stone7.GetTransform().GetLocalPosition().x - 0.1, stone7.GetTransform().GetLocalPosition().y, stone7.GetTransform().GetLocalPosition().z);
-		stone8.GetTransform().SetPosition(stone8.GetTransform().GetLocalPosition().x - 0.1, stone8.GetTransform().GetLocalPosition().y, stone8.GetTransform().GetLocalPosition().z + 0.1);
+		stones[0].GetTransform().Translate(0, 0, 0.1f);
+		stones[1].GetTransform().Translate(0.1f, 0, 0.1f);
+		stones[2].GetTransform().Translate(0.1f, 0, 0);
+		stones[3].GetTransform().Translate(0.1f, 0, -0.1f);
+		stones[4].GetTransform().Translate(0, 0, -0.1f);
+		stones[5].GetTransform().Translate(-0.1f, 0, -0.1f);
+		stones[6].GetTransform().Translate(-0.1f, 0, 0);
+		stones[7].GetTransform().Translate(-0.1f, 0, 0.1f);
 	
 		if (bAttacks->stoneLifeTime < stoneTime) {
-			bAttacks->ReturnRock(&gameObject);
-			
-			stone1.GetTransform().SetPosition(0,0,0);
-			stone2.GetTransform().SetPosition(0,0,0);
-			stone3.GetTransform().SetPosition(0,0,0);
-			stone4.GetTransform().SetPosition(0,0,0);
-			stone5.GetTransform().SetPosition(0,0,0);
-			stone6.GetTransform().SetPosition(0,0,0);
-			stone7.GetTransform().SetPosition(0,0,0);
-			stone8.GetTransform().SetPosition(0,0,0);
+			stoneTime = 0;
 			rockDivided = false;
+		}
+		
+	}
+	else {
+		//gameObject.SetActive(true);
+		for (int i = 0; i < 8; i++) {
+			stones[i].GetTransform().SetPosition(gameObject.GetTransform().GetGlobalPosition());
 		}
 	}
 }
@@ -70,7 +74,7 @@ void RockDivider::OnCollisionEnter(API::API_RigidBody other)
 		pStats->TakeDamage(bAttacks->rockDmg);
 		bAttacks->ReturnRock(&gameObject);
 	}
-	else if (detectionName != "Projectile" && detectionName != "Boss" && bAttacks->throwing == true) {
+	else if (detectionName != "Projectile" && detectionName != "Boss" && bAttacks->throwing == true && detectionName != "Stone") {
 		rockDivided = true;
 	}
 }

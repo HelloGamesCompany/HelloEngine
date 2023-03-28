@@ -1,5 +1,6 @@
 #include "BossAttacks.h"
 #include "../EbonyMaw/RockDivider.h"
+#include "../EbonyMaw/BossLoop.h"
 
 HELLO_ENGINE_API_C BossAttacks* CreateBossAttacks(ScriptToInspectorInterface* script)
 {
@@ -24,13 +25,34 @@ void BossAttacks::Start()
 
 void BossAttacks::Update()
 {
+	API_GameObject go = boss;;
+	BossLoop* bLoop = (BossLoop*)go.GetScript("BossLoop");
+
+	if (bLoop->weakTime > 0) {
+		bossState = BOSS_STATE::KO;
+		switch (attackType)
+		{
+		case 1:
+			ReturnRock(&rocks[currentRock]);
+			break;
+		default:
+			break;
+		}
+	}
+	else if(bossState == BOSS_STATE::KO) {
+		bossState = BOSS_STATE::IDLE;
+	}
+
 	if (attacking) {
 		switch (attackType)
 		{
 		case 1:
 			speed = 1.0f;
 			if (bossState == BOSS_STATE::ROCKSELECT) SelectRock();
-			if (bossState == BOSS_STATE::SEEKING) Seek(&rocks[currentRock], bossPosition, speed);
+			if (bossState == BOSS_STATE::SEEKING) {
+				bossPosition = gameObject.GetTransform().GetGlobalPosition();
+				Seek(&rocks[currentRock], bossPosition, speed);
+			}
 			if (bossState == BOSS_STATE::HOLDING) HoldRock();
 			if (bossState == BOSS_STATE::THROWING) Seek(&rocks[currentRock], playerPosition, speed);
 			break;
@@ -71,37 +93,36 @@ void BossAttacks::SelectRock()
 	currentRock++;
 	if (currentRock > 1) currentRock = 0;
 	bossState = BOSS_STATE::SEEKING;
-	bossPosition = gameObject.GetTransform();
 
 }
 
-void BossAttacks::Seek(API_GameObject* seeker, API_Transform target, float speed) {
-
-	if (seeker->GetTransform().GetGlobalPosition().x > target.GetGlobalPosition().x) {
-		xDistance = seeker->GetTransform().GetGlobalPosition().x - target.GetGlobalPosition().x;
+void BossAttacks::Seek(API_GameObject* seeker, API_Vector3 target, float speed)
+{
+	if (seeker->GetTransform().GetGlobalPosition().x > target.x) {
+		xDistance = seeker->GetTransform().GetGlobalPosition().x - target.x;
 		seeker->GetTransform().SetPosition(seeker->GetTransform().GetGlobalPosition().x - (xDistance / 60) * speed, seeker->GetTransform().GetGlobalPosition().y, seeker->GetTransform().GetGlobalPosition().z);
 	}
-	if (seeker->GetTransform().GetGlobalPosition().x < target.GetGlobalPosition().x) {
-		xDistance = target.GetGlobalPosition().x - seeker->GetTransform().GetGlobalPosition().x;
+	else if (seeker->GetTransform().GetGlobalPosition().x < target.x) {
+		xDistance = target.x - seeker->GetTransform().GetGlobalPosition().x;
 		seeker->GetTransform().SetPosition(seeker->GetTransform().GetGlobalPosition().x + (xDistance / 60) * speed, seeker->GetTransform().GetGlobalPosition().y, seeker->GetTransform().GetGlobalPosition().z);
 	}
-	if (seeker->GetTransform().GetGlobalPosition().y > target.GetGlobalPosition().y) {
-		yDistance = seeker->GetTransform().GetGlobalPosition().y - target.GetGlobalPosition().y;
+	if (seeker->GetTransform().GetGlobalPosition().y > target.y) {
+		yDistance = seeker->GetTransform().GetGlobalPosition().y - target.y;
 		seeker->GetTransform().SetPosition(seeker->GetTransform().GetGlobalPosition().x, seeker->GetTransform().GetGlobalPosition().y - (yDistance / 60) * speed, seeker->GetTransform().GetGlobalPosition().z);
 	}
-	if (seeker->GetTransform().GetGlobalPosition().y < target.GetGlobalPosition().y) {
-		yDistance = target.GetGlobalPosition().y - seeker->GetTransform().GetGlobalPosition().y;
+	else if (seeker->GetTransform().GetGlobalPosition().y < target.y) {
+		yDistance = target.y - seeker->GetTransform().GetGlobalPosition().y;
 		seeker->GetTransform().SetPosition(seeker->GetTransform().GetGlobalPosition().x, seeker->GetTransform().GetGlobalPosition().y + (yDistance / 60) * speed, seeker->GetTransform().GetGlobalPosition().z);
 	}
-	if (seeker->GetTransform().GetGlobalPosition().z > target.GetGlobalPosition().z) {
-		zDistance = seeker->GetTransform().GetGlobalPosition().z - target.GetGlobalPosition().z;
+	if (seeker->GetTransform().GetGlobalPosition().z > target.z) {
+		zDistance = seeker->GetTransform().GetGlobalPosition().z - target.z;
 		seeker->GetTransform().SetPosition(seeker->GetTransform().GetGlobalPosition().x, seeker->GetTransform().GetGlobalPosition().y, seeker->GetTransform().GetGlobalPosition().z - (zDistance / 60) * speed);
 	}
-	if (seeker->GetTransform().GetGlobalPosition().z < target.GetGlobalPosition().z) {
-		zDistance = target.GetGlobalPosition().z - seeker->GetTransform().GetGlobalPosition().z;
+	else if (seeker->GetTransform().GetGlobalPosition().z < target.z) {
+		zDistance = target.z - seeker->GetTransform().GetGlobalPosition().z;
 		seeker->GetTransform().SetPosition(seeker->GetTransform().GetGlobalPosition().x, seeker->GetTransform().GetGlobalPosition().y, seeker->GetTransform().GetGlobalPosition().z + (zDistance / 60) * speed);
 	}
-	if (xDistance < 0.01 && xDistance > -0.01 && yDistance < 0.01 && yDistance && zDistance < 0.01 && zDistance) {
+	if (xDistance < 0.03 && xDistance > -0.03 && yDistance < 0.03 && yDistance && zDistance < 0.03 && zDistance) {
 		if (bossState == BOSS_STATE::SEEKING) {
 			bossState = BOSS_STATE::HOLDING;
 		}
@@ -115,18 +136,20 @@ void BossAttacks::HoldRock()
 {
 	dt = Time::GetDeltaTime();
 	preAttack += dt;
-	rocks[currentRock].GetTransform().SetRotation(rocks[currentRock].GetTransform().GetLocalRotation().x + 0.3, rocks[currentRock].GetTransform().GetLocalRotation().y + 0.6, rocks[currentRock].GetTransform().GetLocalRotation().z + 0.5);
+	rocks[currentRock].GetTransform().Rotate(300 * dt, 600 * dt, 500 * dt);
 	if (preAttack > 1.2) {
 		preAttack = 0.0f;
 		throwing = true;
 		bossState = BOSS_STATE::THROWING;
-		playerPosition = player.GetTransform();
+		playerPosition = player.GetTransform().GetGlobalPosition();
 	}
 }
 
 void BossAttacks::ReturnRock(API_GameObject* rock)
 {
 	rock->GetTransform().SetPosition(rockPositions[currentRock]);
-	bossState = BOSS_STATE::IDLE;
+	if (bossState != BOSS_STATE::KO) {
+		bossState = BOSS_STATE::IDLE;
+	}
 	attacking = false;
 }

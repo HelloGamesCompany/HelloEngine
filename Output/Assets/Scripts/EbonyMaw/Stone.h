@@ -5,22 +5,14 @@
 
 #include "API/API.h"
 
-class RockDivider : HelloBehavior
+class Stone : HelloBehavior
 {
 public:
 	void Start() override; 
 	void Update() override;
-
 	void OnCollisionEnter(API::API_RigidBody other);
-
-	std::vector<API_GameObject> stones;
-	uint stoneMesh;
 
 	API_GameObject boss;
 
-	bool rockDivided = false;
-	
-	float dt;
-	float stoneTime = 0.0f;
 };
 
