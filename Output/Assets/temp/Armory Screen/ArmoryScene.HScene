@@ -1,0 +1,639 @@
+[
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Root",
+        "ParentUID": 0,
+        "PrefabUID": 0,
+        "Tag": "None",
+        "UID": 295478848
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Canvas",
+        "ParentUID": 295478848,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 795620229
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "Type": 16,
+                "listButtons": [
+                    0
+                ]
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Panel",
+        "ParentUID": 795620229,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 3977713993
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    -0.0010000000474974513
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.25,
+                    0.20000000298023224,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 240240,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Weapon Selected (I)",
+        "ParentUID": 3977713993,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 2478615852
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    -0.8500000238418579,
+                    -0.0010000000474974513
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.800000011920929,
+                    0.05000000074505806,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 240240,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Buttons Guide (I)",
+        "ParentUID": 3977713993,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 810043863
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.800000011920929,
+                    0.7900000214576721,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.5,
+                    0.5,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Color": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "PositionX": 0.800000011920929,
+                "PositionY": 0.7900000214576721,
+                "Scale": 0.20000000298023224,
+                "Text": "1",
+                "Type": 17
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "BluePrint Amount (T)",
+        "ParentUID": 3977713993,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 1061093537
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.75,
+                    0.800000011920929,
+                    -0.0010000000474974513
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.02500000037252903,
+                    0.02500000037252903,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 240240,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "BluePrint Icon (I)",
+        "ParentUID": 3977713993,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 2618100728
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.6000000238418579,
+                    -0.699999988079071,
+                    -0.0010000000474974513
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.07500000298023224,
+                    0.07500000298023224,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Weapon Icon 2 (B)",
+        "ParentUID": 3977713993,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 3261372483
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.6000000238418579,
+                    -0.10000000149011612,
+                    -0.0010000000474974513
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.07500000298023224,
+                    0.07500000298023224,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Weapon Icon 3 (B)",
+        "ParentUID": 3977713993,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 493668277
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.6000000238418579,
+                    0.10000000149011612,
+                    -0.0010000000474974513
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.07500000298023224,
+                    0.07500000298023224,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Weapon Icon 4 (B)",
+        "ParentUID": 3977713993,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 1415821494
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.6000000238418579,
+                    0.30000001192092896,
+                    -0.0010000000474974513
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.07500000298023224,
+                    0.07500000298023224,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Weapon Icon 5 (B)",
+        "ParentUID": 3977713993,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 1911153676
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.6000000238418579,
+                    -0.30000001192092896,
+                    -0.0010000000474974513
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.07500000298023224,
+                    0.07500000298023224,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Weapon Icon 6 (B)",
+        "ParentUID": 3977713993,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 821316011
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.6000000238418579,
+                    -0.5,
+                    -0.0010000000474974513
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.07500000298023224,
+                    0.07500000298023224,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Weapon Icon 7 (B)",
+        "ParentUID": 3977713993,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 601873605
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.6000000238418579,
+                    0.0,
+                    -0.0010000000474974513
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.20000000298023224,
+                    0.15000000596046448,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Unlock (B)",
+        "ParentUID": 3977713993,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 2438101277
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.6000000238418579,
+                    0.699999988079071,
+                    -0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.07500000298023224,
+                    0.07500000298023224,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Weapon Icon 8 (B)",
+        "ParentUID": 3977713993,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 3518481655
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.6000000238418579,
+                    0.5,
+                    -0.009999999776482582
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.07500000298023224,
+                    0.07500000298023224,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Weapon Icon 1 (B)",
+        "ParentUID": 3977713993,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 4145208356
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 2228956348,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "BackGround (I)",
+        "ParentUID": 795620229,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 2313126796
+    }
+]
