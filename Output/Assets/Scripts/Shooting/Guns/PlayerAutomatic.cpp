@@ -4,10 +4,15 @@ HELLO_ENGINE_API_C PlayerAutomatic* CreatePlayerAutomatic(ScriptToInspectorInter
     PlayerAutomatic* classInstance = new PlayerAutomatic();
     //Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
     script->AddDragBoxGameObject("Projectile Pull", &classInstance->projectilePull);
-    script->AddDragFloat("Projectile Speed", &classInstance->projectileSpeed);
-    script->AddDragFloat("Projectile Damage", &classInstance->projectileDamage);
-    script->AddDragFloat("Projectile Resistance Damage", &classInstance->projectileResistanceDamage);
-    script->AddDragFloat("Projectile Lifetime", &classInstance->projectileLifetime);
+    //script->AddCheckBox("Testing", &classInstance->testing);
+    //if (&classInstance->testing)
+    {
+        script->AddDragFloat("Projectile Speed", &classInstance->projectileSpeed);
+        script->AddDragFloat("Projectile Damage", &classInstance->projectileDamage);
+        script->AddDragFloat("Projectile Resistance Damage", &classInstance->projectileResistanceDamage);
+        script->AddDragFloat("Projectile Lifetime", &classInstance->projectileLifetime);
+    }
+    
     script->AddDragBoxTransform("Projectile Spawn", &classInstance->shootingSpawn);
     script->AddDragBoxMeshResource("Projectile Mesh", &classInstance->projectileMesh);
     script->AddDragBoxTextureResource("Projectile Material", &classInstance->projectileMaterial);
@@ -74,4 +79,42 @@ void PlayerAutomatic::Shoot()
 void PlayerAutomatic::EnableGuns(bool enable)
 {
     gameObject.SetActive(enable);
+}
+
+void PlayerAutomatic::SetGunStatsPerLevel(int level)
+{
+    switch (level)
+    {
+    case 0:
+        projectileSpeed = 40.0f;
+        projectileDamage = 25.0f;
+        projectileResistanceDamage = 0.0f;
+        projectileLifetime = 1.0f;
+        cadence = 5.0f;
+        break;
+    case 1:
+        projectileSpeed = 40.0f;
+        projectileDamage = 25.0f;
+        projectileResistanceDamage = 0.0f;
+        projectileLifetime = 1.0f;
+        cadence = 5.0f;
+        break;
+    case 2:
+        projectileSpeed = 40.0f;
+        projectileDamage = 25.0f;
+        projectileResistanceDamage = 0.0f;
+        projectileLifetime = 1.0f;
+        cadence = 5.0f;
+        break;
+    case 3:
+        projectileSpeed = 40.0f;
+        projectileDamage = 25.0f;
+        projectileResistanceDamage = 0.0f;
+        projectileLifetime = 1.0f;
+        cadence = 5.0f;
+        break;
+    default:
+        Console::Log("Automatic gun level can't be different from 0, 1, 2 or 3.");
+        break;
+    }
 }

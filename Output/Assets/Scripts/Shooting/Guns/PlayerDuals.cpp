@@ -121,6 +121,44 @@ void PlayerDuals::EnableGuns(bool enable)
     nextShot = false;
 }
 
+void PlayerDuals::SetGunStatsPerLevel(int level)
+{
+    switch (level)
+    {
+    case 0:
+        projectileSpeed = 30.0f;
+        projectileDamage = 5.0f;
+        projectileResistanceDamage = 0.0f;
+        projectileLifetime = 1.0f;
+        cadence = 2.0f;
+        break;
+    case 1:
+        projectileSpeed = 30.0f;
+        projectileDamage = 5.0f;
+        projectileResistanceDamage = 0.0f;
+        projectileLifetime = 1.0f;
+        cadence = 4.0f;
+        break;
+    case 2:
+        projectileSpeed = 45.0f;
+        projectileDamage = 5.0f;
+        projectileResistanceDamage = 0.0f;
+        projectileLifetime = 1.0f;
+        cadence = 4.0f;
+        break;
+    case 3:
+        projectileSpeed = 45.0f;
+        projectileDamage = 15.0f;
+        projectileResistanceDamage = 0.0f;
+        projectileLifetime = 1.0f;
+        cadence = 4.0f;
+        break;
+    default:
+        Console::Log("Duals gun level can't be different from 0, 1, 2 or 3.");
+        break;
+    }
+}
+
 void PlayerDuals::CalculateShoot(API_Transform projectileSpawn)
 {
     if (playerStats->specialTreeLvl == 0) LauchProjectile(projectileSpawn);
@@ -132,8 +170,10 @@ void PlayerDuals::CalculateShoot(API_Transform projectileSpawn)
     }
     else if (playerStats->specialTreeLvl == 2)
     {
+        float m = rand() % 100;
         float n = rand() % 100;
-        if (n < freezeProbability) LauchProjectile(projectileSpawn, PROJECTILE_ACTION::FREEZE);
+        if (m < freezeProbability) LauchProjectile(projectileSpawn, PROJECTILE_ACTION::FREEZE);
+        else if (n < slowProbability) LauchProjectile(projectileSpawn, PROJECTILE_ACTION::SLOW);
         else LauchProjectile(projectileSpawn);
     }
 }

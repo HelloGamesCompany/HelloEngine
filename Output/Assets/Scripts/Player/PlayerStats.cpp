@@ -11,7 +11,7 @@ HELLO_ENGINE_API_C PlayerStats* CreatePlayerStats(ScriptToInspectorInterface* sc
     script->AddDragInt("Fire Ammo", &classInstance->fireAmmo);
     script->AddDragInt("Ricochet Ammo", &classInstance->ricochetAmmo);
     //script->AddDragBoxGameObject("Health bar", &classInstance->hpGameObject);
-    script->AddDragInt("tree1", &classInstance->movementTreeLvl);
+    script->AddDragInt("tree1", &classInstance->movementTreeLvl); // remove when save and load is ready
     script->AddDragInt("tree2", &classInstance->armoryTreeLvl);
     script->AddDragInt("tree3", &classInstance->healthTreeLvl);
     script->AddDragInt("tree4", &classInstance->specialTreeLvl);

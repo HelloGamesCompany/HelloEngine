@@ -121,3 +121,45 @@ void PlayerBurst::EnableGuns(bool enable)
     shotBuffer = false;
     shotCount = burstLenght;
 }
+
+void PlayerBurst::SetGunStatsPerLevel(int level)
+{
+    switch (level)
+    {
+    case 0:
+        projectileSpeed = 40.0f;
+        projectileDamage = 20.0f;
+        projectileResistanceDamage = 0.0f;
+        projectileLifetime = 1.0f;
+        cadence = 1.5f;
+        burstLenght = 3;
+        break;
+    case 1:
+        projectileSpeed = 30.0f;
+        projectileDamage = 5.0f;
+        projectileResistanceDamage = 0.0f;
+        projectileLifetime = 1.0f;
+        cadence = 4.0f;
+        burstLenght = 3;
+        break;
+    case 2:
+        projectileSpeed = 45.0f;
+        projectileDamage = 5.0f;
+        projectileResistanceDamage = 0.0f;
+        projectileLifetime = 1.0f;
+        cadence = 4.0f;
+        burstLenght = 3;
+        break;
+    case 3:
+        projectileSpeed = 45.0f;
+        projectileDamage = 15.0f;
+        projectileResistanceDamage = 0.0f;
+        projectileLifetime = 1.0f;
+        cadence = 4.0f;
+        burstLenght = 3;
+        break;
+    default:
+        Console::Log("Burst gun level can't be different from 0, 1, 2 or 3.");
+        break;
+    }
+}

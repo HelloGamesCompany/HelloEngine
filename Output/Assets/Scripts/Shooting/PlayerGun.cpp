@@ -42,7 +42,12 @@ void PlayerGun::EnableGuns(bool enable)
     
 }
 
-void PlayerGun::LauchProjectile(API_Transform projectileSpawn, PROJECTILE_ACTION projectileAction, bool randomDirection)
+void PlayerGun::SetGunStatsPerLevel(int level)
+{
+
+}
+
+void PlayerGun::LauchProjectile(API_Transform projectileSpawn, PROJECTILE_ACTION projectileAction, float randomDirectionRange = 0.0f)
 {
     ProjectilePull* pull = (ProjectilePull*)projectilePull.GetScript("ProjectilePull");
     if (pull == nullptr)
@@ -50,7 +55,7 @@ void PlayerGun::LauchProjectile(API_Transform projectileSpawn, PROJECTILE_ACTION
         Console::Log("ProjectilePull not asigned");
         return;
     }
-    pull->LauchProjectile(projectileSpeed, projectileDamage, projectileResistanceDamage, projectileLifetime, projectileSpawn, projectileMesh, projectileMaterial, projectileScale, projectileAction, randomDirection);
+    pull->LauchProjectile(projectileSpeed, projectileDamage, projectileResistanceDamage, projectileLifetime, projectileSpawn, projectileMesh, projectileMaterial, projectileScale, projectileAction, randomDirectionRange);
 }
 
 void PlayerGun::PlayShotSound(std::string eventString)

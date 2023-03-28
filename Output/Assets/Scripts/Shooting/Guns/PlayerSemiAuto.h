@@ -15,6 +15,7 @@ public:
 
     void Shoot() override;
     void EnableGuns(bool enable) override;
+    void SetGunStatsPerLevel(int level) override;
 
     float fullShotCooldown;
     float shotCooldown;
@@ -22,4 +23,7 @@ public:
     bool canShoot = true;
     float shotBufferCooldown = SHOT_BUFFER;
     bool shotBuffer = false;;
+
+    bool canCrit; // on 3rd update have a 20% chance to hit for 20 extra damage
+    float projectileDamageWithoutCrit;
 };

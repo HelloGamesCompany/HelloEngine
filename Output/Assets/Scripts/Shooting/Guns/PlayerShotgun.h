@@ -15,6 +15,7 @@ public:
 
     void Shoot() override;
     void EnableGuns(bool enable) override;
+    void SetGunStatsPerLevel(int level) override;
 
     float fullShotCooldown;
     float shotCooldown;
@@ -23,5 +24,6 @@ public:
     float shotBufferCooldown = SHOT_BUFFER;
     bool shotBuffer = false;
     int pellets = 0;
+    float pelletsDisersion;
 };
 

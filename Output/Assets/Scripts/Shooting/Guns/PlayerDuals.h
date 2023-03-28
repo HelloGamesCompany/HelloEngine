@@ -15,6 +15,7 @@ public:
 
     void Shoot() override;
     void EnableGuns(bool enable) override;
+    void SetGunStatsPerLevel(int level) override;
 
     void CalculateShoot(API_Transform projectileSpawn);
     float slowProbability;
