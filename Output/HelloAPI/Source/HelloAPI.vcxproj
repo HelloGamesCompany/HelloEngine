@@ -172,6 +172,8 @@
 		<ClCompile Include="..\..\Assets\Scripts\UI Test folder\DashUI.cpp" />
 		<ClCompile Include="..\..\Assets\Scripts\UI Test folder\HpBar.cpp" />
 		<ClCompile Include="..\..\Assets\Scripts\UI Test folder\UIManager.cpp" />
+		<ClCompile Include="../../Assets/Scripts/ArmoryUpgratteButtons.cpp" />
+		<ClCompile Include="../../Assets/Scripts/ArmoryWeaponSelect.cpp" />
 	</ItemGroup>
 	<ItemGroup>
 		<ClInclude Include="..\..\Assets\Scripts\Enemies\EnemyMeleeMovement.h" />
@@ -211,6 +213,8 @@
 		<ClInclude Include="../../Assets/Scripts/UI Test folder/Movment_Bar.h" />
 		<ClInclude Include="../../Assets/Scripts/UI Test folder/SwapWeapon.h" />
 		<ClInclude Include="../../Assets/Scripts/UI Test folder/Movment_Bar_HP.h" />
+		<ClInclude Include="../../Assets/Scripts/ArmoryUpgratteButtons.h" />
+		<ClInclude Include="../../Assets/Scripts/ArmoryWeaponSelect.h" />
 	</ItemGroup>
 	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 	<ImportGroup Label="ExtensionTargets" />

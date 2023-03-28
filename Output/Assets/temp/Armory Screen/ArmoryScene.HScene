@@ -103,78 +103,6 @@
             {
                 "Enabled": true,
                 "Position": [
-                    0.0,
-                    0.0,
-                    -0.0010000000474974513
-                ],
-                "Rotation": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Scale": [
-                    0.25,
-                    0.20000000298023224,
-                    0.5
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "FillImage": 1.0,
-                "MaterialResource": 240240,
-                "Type": 15
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "Weapon Selected (I)",
-        "ParentUID": 3977713993,
-        "PrefabUID": 0,
-        "Tag": "UI",
-        "UID": 2478615852
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    -0.8500000238418579,
-                    -0.0010000000474974513
-                ],
-                "Rotation": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Scale": [
-                    0.800000011920929,
-                    0.05000000074505806,
-                    0.5
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "FillImage": 1.0,
-                "MaterialResource": 240240,
-                "Type": 15
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "Buttons Guide (I)",
-        "ParentUID": 3977713993,
-        "PrefabUID": 0,
-        "Tag": "UI",
-        "UID": 810043863
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
                     0.800000011920929,
                     0.7900000214576721,
                     0.0
@@ -255,6 +183,258 @@
             {
                 "Enabled": true,
                 "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 2228956348,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "BackGround (I)",
+        "ParentUID": 3977713993,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 2313126796
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    -0.8500000238418579,
+                    -0.0010000000474974513
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.800000011920929,
+                    0.05000000074505806,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 240240,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Buttons Guide (I)",
+        "ParentUID": 3977713993,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 810043863
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "Type": 16,
+                "listButtons": [
+                    0
+                ]
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Select Weapon",
+        "ParentUID": 795620229,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 1703094761
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.6000000238418579,
+                    0.5,
+                    -0.009999999776482582
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.07500000298023224,
+                    0.07500000298023224,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Weapon1": 4145208356
+                    },
+                    {
+                        "Weapon2": 3261372483
+                    },
+                    {
+                        "Weapon3": 493668277
+                    },
+                    {
+                        "Weapon4": 1415821494
+                    },
+                    {
+                        "Weapon5": 1911153676
+                    },
+                    {
+                        "Weapon6": 821316011
+                    },
+                    {
+                        "Weapon7": 601873605
+                    },
+                    {
+                        "Weapon8": 3518481655
+                    },
+                    {
+                        "Weapon1": 4145208356
+                    },
+                    {
+                        "Weapon2": 3261372483
+                    },
+                    {
+                        "Weapon3": 493668277
+                    },
+                    {
+                        "Weapon4": 1415821494
+                    },
+                    {
+                        "Weapon5": 1911153676
+                    },
+                    {
+                        "Weapon6": 821316011
+                    },
+                    {
+                        "Weapon7": 601873605
+                    },
+                    {
+                        "Weapon8": 3518481655
+                    },
+                    {
+                        "Weapon1": 4145208356
+                    },
+                    {
+                        "Weapon2": 3261372483
+                    },
+                    {
+                        "Weapon3": 493668277
+                    },
+                    {
+                        "Weapon4": 1415821494
+                    },
+                    {
+                        "Weapon5": 1911153676
+                    },
+                    {
+                        "Weapon6": 821316011
+                    },
+                    {
+                        "Weapon7": 601873605
+                    },
+                    {
+                        "Weapon8": 3518481655
+                    },
+                    {
+                        "Weapon1": 4145208356
+                    },
+                    {
+                        "Weapon2": 3261372483
+                    },
+                    {
+                        "Weapon3": 493668277
+                    },
+                    {
+                        "Weapon4": 1415821494
+                    },
+                    {
+                        "Weapon5": 1911153676
+                    },
+                    {
+                        "Weapon6": 821316011
+                    },
+                    {
+                        "Weapon7": 601873605
+                    },
+                    {
+                        "Weapon8": 3518481655
+                    }
+                ],
+                "Script Resource": 553099281,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Weapon Icon 1 (B)",
+        "ParentUID": 1703094761,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 4145208356
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
                     -0.6000000238418579,
                     -0.699999988079071,
                     -0.0010000000474974513
@@ -279,11 +459,114 @@
                 "hoverImage": 0,
                 "idleImage": 0,
                 "pressImage": 0
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Weapon1": 4145208356
+                    },
+                    {
+                        "Weapon2": 3261372483
+                    },
+                    {
+                        "Weapon3": 493668277
+                    },
+                    {
+                        "Weapon4": 1415821494
+                    },
+                    {
+                        "Weapon5": 1911153676
+                    },
+                    {
+                        "Weapon6": 821316011
+                    },
+                    {
+                        "Weapon7": 601873605
+                    },
+                    {
+                        "Weapon8": 3518481655
+                    },
+                    {
+                        "Weapon1": 4145208356
+                    },
+                    {
+                        "Weapon2": 3261372483
+                    },
+                    {
+                        "Weapon3": 493668277
+                    },
+                    {
+                        "Weapon4": 1415821494
+                    },
+                    {
+                        "Weapon5": 1911153676
+                    },
+                    {
+                        "Weapon6": 821316011
+                    },
+                    {
+                        "Weapon7": 601873605
+                    },
+                    {
+                        "Weapon8": 3518481655
+                    },
+                    {
+                        "Weapon1": 4145208356
+                    },
+                    {
+                        "Weapon2": 3261372483
+                    },
+                    {
+                        "Weapon3": 493668277
+                    },
+                    {
+                        "Weapon4": 1415821494
+                    },
+                    {
+                        "Weapon5": 1911153676
+                    },
+                    {
+                        "Weapon6": 821316011
+                    },
+                    {
+                        "Weapon7": 601873605
+                    },
+                    {
+                        "Weapon8": 3518481655
+                    },
+                    {
+                        "Weapon1": 4145208356
+                    },
+                    {
+                        "Weapon2": 3261372483
+                    },
+                    {
+                        "Weapon3": 493668277
+                    },
+                    {
+                        "Weapon4": 1415821494
+                    },
+                    {
+                        "Weapon5": 1911153676
+                    },
+                    {
+                        "Weapon6": 821316011
+                    },
+                    {
+                        "Weapon7": 601873605
+                    },
+                    {
+                        "Weapon8": 3518481655
+                    }
+                ],
+                "Script Resource": 2943233861,
+                "Type": 5
             }
         ],
         "FirstOnPrefab": true,
         "Name": "Weapon Icon 2 (B)",
-        "ParentUID": 3977713993,
+        "ParentUID": 1703094761,
         "PrefabUID": 0,
         "Tag": "UI",
         "UID": 3261372483
@@ -318,11 +601,114 @@
                 "hoverImage": 0,
                 "idleImage": 0,
                 "pressImage": 0
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Weapon1": 4145208356
+                    },
+                    {
+                        "Weapon2": 3261372483
+                    },
+                    {
+                        "Weapon3": 493668277
+                    },
+                    {
+                        "Weapon4": 1415821494
+                    },
+                    {
+                        "Weapon5": 1911153676
+                    },
+                    {
+                        "Weapon6": 821316011
+                    },
+                    {
+                        "Weapon7": 601873605
+                    },
+                    {
+                        "Weapon8": 3518481655
+                    },
+                    {
+                        "Weapon1": 4145208356
+                    },
+                    {
+                        "Weapon2": 3261372483
+                    },
+                    {
+                        "Weapon3": 493668277
+                    },
+                    {
+                        "Weapon4": 1415821494
+                    },
+                    {
+                        "Weapon5": 1911153676
+                    },
+                    {
+                        "Weapon6": 821316011
+                    },
+                    {
+                        "Weapon7": 601873605
+                    },
+                    {
+                        "Weapon8": 3518481655
+                    },
+                    {
+                        "Weapon1": 4145208356
+                    },
+                    {
+                        "Weapon2": 3261372483
+                    },
+                    {
+                        "Weapon3": 493668277
+                    },
+                    {
+                        "Weapon4": 1415821494
+                    },
+                    {
+                        "Weapon5": 1911153676
+                    },
+                    {
+                        "Weapon6": 821316011
+                    },
+                    {
+                        "Weapon7": 601873605
+                    },
+                    {
+                        "Weapon8": 3518481655
+                    },
+                    {
+                        "Weapon1": 4145208356
+                    },
+                    {
+                        "Weapon2": 3261372483
+                    },
+                    {
+                        "Weapon3": 493668277
+                    },
+                    {
+                        "Weapon4": 1415821494
+                    },
+                    {
+                        "Weapon5": 1911153676
+                    },
+                    {
+                        "Weapon6": 821316011
+                    },
+                    {
+                        "Weapon7": 601873605
+                    },
+                    {
+                        "Weapon8": 3518481655
+                    }
+                ],
+                "Script Resource": 2943233861,
+                "Type": 5
             }
         ],
         "FirstOnPrefab": true,
         "Name": "Weapon Icon 3 (B)",
-        "ParentUID": 3977713993,
+        "ParentUID": 1703094761,
         "PrefabUID": 0,
         "Tag": "UI",
         "UID": 493668277
@@ -357,11 +743,114 @@
                 "hoverImage": 0,
                 "idleImage": 0,
                 "pressImage": 0
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Weapon1": 4145208356
+                    },
+                    {
+                        "Weapon2": 3261372483
+                    },
+                    {
+                        "Weapon3": 493668277
+                    },
+                    {
+                        "Weapon4": 1415821494
+                    },
+                    {
+                        "Weapon5": 1911153676
+                    },
+                    {
+                        "Weapon6": 821316011
+                    },
+                    {
+                        "Weapon7": 601873605
+                    },
+                    {
+                        "Weapon8": 3518481655
+                    },
+                    {
+                        "Weapon1": 4145208356
+                    },
+                    {
+                        "Weapon2": 3261372483
+                    },
+                    {
+                        "Weapon3": 493668277
+                    },
+                    {
+                        "Weapon4": 1415821494
+                    },
+                    {
+                        "Weapon5": 1911153676
+                    },
+                    {
+                        "Weapon6": 821316011
+                    },
+                    {
+                        "Weapon7": 601873605
+                    },
+                    {
+                        "Weapon8": 3518481655
+                    },
+                    {
+                        "Weapon1": 4145208356
+                    },
+                    {
+                        "Weapon2": 3261372483
+                    },
+                    {
+                        "Weapon3": 493668277
+                    },
+                    {
+                        "Weapon4": 1415821494
+                    },
+                    {
+                        "Weapon5": 1911153676
+                    },
+                    {
+                        "Weapon6": 821316011
+                    },
+                    {
+                        "Weapon7": 601873605
+                    },
+                    {
+                        "Weapon8": 3518481655
+                    },
+                    {
+                        "Weapon1": 4145208356
+                    },
+                    {
+                        "Weapon2": 3261372483
+                    },
+                    {
+                        "Weapon3": 493668277
+                    },
+                    {
+                        "Weapon4": 1415821494
+                    },
+                    {
+                        "Weapon5": 1911153676
+                    },
+                    {
+                        "Weapon6": 821316011
+                    },
+                    {
+                        "Weapon7": 601873605
+                    },
+                    {
+                        "Weapon8": 3518481655
+                    }
+                ],
+                "Script Resource": 2943233861,
+                "Type": 5
             }
         ],
         "FirstOnPrefab": true,
         "Name": "Weapon Icon 4 (B)",
-        "ParentUID": 3977713993,
+        "ParentUID": 1703094761,
         "PrefabUID": 0,
         "Tag": "UI",
         "UID": 1415821494
@@ -396,11 +885,114 @@
                 "hoverImage": 0,
                 "idleImage": 0,
                 "pressImage": 0
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Weapon1": 4145208356
+                    },
+                    {
+                        "Weapon2": 3261372483
+                    },
+                    {
+                        "Weapon3": 493668277
+                    },
+                    {
+                        "Weapon4": 1415821494
+                    },
+                    {
+                        "Weapon5": 1911153676
+                    },
+                    {
+                        "Weapon6": 821316011
+                    },
+                    {
+                        "Weapon7": 601873605
+                    },
+                    {
+                        "Weapon8": 3518481655
+                    },
+                    {
+                        "Weapon1": 4145208356
+                    },
+                    {
+                        "Weapon2": 3261372483
+                    },
+                    {
+                        "Weapon3": 493668277
+                    },
+                    {
+                        "Weapon4": 1415821494
+                    },
+                    {
+                        "Weapon5": 1911153676
+                    },
+                    {
+                        "Weapon6": 821316011
+                    },
+                    {
+                        "Weapon7": 601873605
+                    },
+                    {
+                        "Weapon8": 3518481655
+                    },
+                    {
+                        "Weapon1": 4145208356
+                    },
+                    {
+                        "Weapon2": 3261372483
+                    },
+                    {
+                        "Weapon3": 493668277
+                    },
+                    {
+                        "Weapon4": 1415821494
+                    },
+                    {
+                        "Weapon5": 1911153676
+                    },
+                    {
+                        "Weapon6": 821316011
+                    },
+                    {
+                        "Weapon7": 601873605
+                    },
+                    {
+                        "Weapon8": 3518481655
+                    },
+                    {
+                        "Weapon1": 4145208356
+                    },
+                    {
+                        "Weapon2": 3261372483
+                    },
+                    {
+                        "Weapon3": 493668277
+                    },
+                    {
+                        "Weapon4": 1415821494
+                    },
+                    {
+                        "Weapon5": 1911153676
+                    },
+                    {
+                        "Weapon6": 821316011
+                    },
+                    {
+                        "Weapon7": 601873605
+                    },
+                    {
+                        "Weapon8": 3518481655
+                    }
+                ],
+                "Script Resource": 2943233861,
+                "Type": 5
             }
         ],
         "FirstOnPrefab": true,
         "Name": "Weapon Icon 5 (B)",
-        "ParentUID": 3977713993,
+        "ParentUID": 1703094761,
         "PrefabUID": 0,
         "Tag": "UI",
         "UID": 1911153676
@@ -435,11 +1027,114 @@
                 "hoverImage": 0,
                 "idleImage": 0,
                 "pressImage": 0
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Weapon1": 4145208356
+                    },
+                    {
+                        "Weapon2": 3261372483
+                    },
+                    {
+                        "Weapon3": 493668277
+                    },
+                    {
+                        "Weapon4": 1415821494
+                    },
+                    {
+                        "Weapon5": 1911153676
+                    },
+                    {
+                        "Weapon6": 821316011
+                    },
+                    {
+                        "Weapon7": 601873605
+                    },
+                    {
+                        "Weapon8": 3518481655
+                    },
+                    {
+                        "Weapon1": 4145208356
+                    },
+                    {
+                        "Weapon2": 3261372483
+                    },
+                    {
+                        "Weapon3": 493668277
+                    },
+                    {
+                        "Weapon4": 1415821494
+                    },
+                    {
+                        "Weapon5": 1911153676
+                    },
+                    {
+                        "Weapon6": 821316011
+                    },
+                    {
+                        "Weapon7": 601873605
+                    },
+                    {
+                        "Weapon8": 3518481655
+                    },
+                    {
+                        "Weapon1": 4145208356
+                    },
+                    {
+                        "Weapon2": 3261372483
+                    },
+                    {
+                        "Weapon3": 493668277
+                    },
+                    {
+                        "Weapon4": 1415821494
+                    },
+                    {
+                        "Weapon5": 1911153676
+                    },
+                    {
+                        "Weapon6": 821316011
+                    },
+                    {
+                        "Weapon7": 601873605
+                    },
+                    {
+                        "Weapon8": 3518481655
+                    },
+                    {
+                        "Weapon1": 4145208356
+                    },
+                    {
+                        "Weapon2": 3261372483
+                    },
+                    {
+                        "Weapon3": 493668277
+                    },
+                    {
+                        "Weapon4": 1415821494
+                    },
+                    {
+                        "Weapon5": 1911153676
+                    },
+                    {
+                        "Weapon6": 821316011
+                    },
+                    {
+                        "Weapon7": 601873605
+                    },
+                    {
+                        "Weapon8": 3518481655
+                    }
+                ],
+                "Script Resource": 2943233861,
+                "Type": 5
             }
         ],
         "FirstOnPrefab": true,
         "Name": "Weapon Icon 6 (B)",
-        "ParentUID": 3977713993,
+        "ParentUID": 1703094761,
         "PrefabUID": 0,
         "Tag": "UI",
         "UID": 821316011
@@ -474,14 +1169,333 @@
                 "hoverImage": 0,
                 "idleImage": 0,
                 "pressImage": 0
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Weapon1": 4145208356
+                    },
+                    {
+                        "Weapon2": 3261372483
+                    },
+                    {
+                        "Weapon3": 493668277
+                    },
+                    {
+                        "Weapon4": 1415821494
+                    },
+                    {
+                        "Weapon5": 1911153676
+                    },
+                    {
+                        "Weapon6": 821316011
+                    },
+                    {
+                        "Weapon7": 601873605
+                    },
+                    {
+                        "Weapon8": 3518481655
+                    },
+                    {
+                        "Weapon1": 4145208356
+                    },
+                    {
+                        "Weapon2": 3261372483
+                    },
+                    {
+                        "Weapon3": 493668277
+                    },
+                    {
+                        "Weapon4": 1415821494
+                    },
+                    {
+                        "Weapon5": 1911153676
+                    },
+                    {
+                        "Weapon6": 821316011
+                    },
+                    {
+                        "Weapon7": 601873605
+                    },
+                    {
+                        "Weapon8": 3518481655
+                    },
+                    {
+                        "Weapon1": 4145208356
+                    },
+                    {
+                        "Weapon2": 3261372483
+                    },
+                    {
+                        "Weapon3": 493668277
+                    },
+                    {
+                        "Weapon4": 1415821494
+                    },
+                    {
+                        "Weapon5": 1911153676
+                    },
+                    {
+                        "Weapon6": 821316011
+                    },
+                    {
+                        "Weapon7": 601873605
+                    },
+                    {
+                        "Weapon8": 3518481655
+                    },
+                    {
+                        "Weapon1": 4145208356
+                    },
+                    {
+                        "Weapon2": 3261372483
+                    },
+                    {
+                        "Weapon3": 493668277
+                    },
+                    {
+                        "Weapon4": 1415821494
+                    },
+                    {
+                        "Weapon5": 1911153676
+                    },
+                    {
+                        "Weapon6": 821316011
+                    },
+                    {
+                        "Weapon7": 601873605
+                    },
+                    {
+                        "Weapon8": 3518481655
+                    }
+                ],
+                "Script Resource": 2943233861,
+                "Type": 5
             }
         ],
         "FirstOnPrefab": true,
         "Name": "Weapon Icon 7 (B)",
-        "ParentUID": 3977713993,
+        "ParentUID": 1703094761,
         "PrefabUID": 0,
         "Tag": "UI",
         "UID": 601873605
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.6000000238418579,
+                    0.699999988079071,
+                    -0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.07500000298023224,
+                    0.07500000298023224,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Weapon1": 4145208356
+                    },
+                    {
+                        "Weapon2": 3261372483
+                    },
+                    {
+                        "Weapon3": 493668277
+                    },
+                    {
+                        "Weapon4": 1415821494
+                    },
+                    {
+                        "Weapon5": 1911153676
+                    },
+                    {
+                        "Weapon6": 821316011
+                    },
+                    {
+                        "Weapon7": 601873605
+                    },
+                    {
+                        "Weapon8": 3518481655
+                    },
+                    {
+                        "Weapon1": 4145208356
+                    },
+                    {
+                        "Weapon2": 3261372483
+                    },
+                    {
+                        "Weapon3": 493668277
+                    },
+                    {
+                        "Weapon4": 1415821494
+                    },
+                    {
+                        "Weapon5": 1911153676
+                    },
+                    {
+                        "Weapon6": 821316011
+                    },
+                    {
+                        "Weapon7": 601873605
+                    },
+                    {
+                        "Weapon8": 3518481655
+                    },
+                    {
+                        "Weapon1": 4145208356
+                    },
+                    {
+                        "Weapon2": 3261372483
+                    },
+                    {
+                        "Weapon3": 493668277
+                    },
+                    {
+                        "Weapon4": 1415821494
+                    },
+                    {
+                        "Weapon5": 1911153676
+                    },
+                    {
+                        "Weapon6": 821316011
+                    },
+                    {
+                        "Weapon7": 601873605
+                    },
+                    {
+                        "Weapon8": 3518481655
+                    },
+                    {
+                        "Weapon1": 4145208356
+                    },
+                    {
+                        "Weapon2": 3261372483
+                    },
+                    {
+                        "Weapon3": 493668277
+                    },
+                    {
+                        "Weapon4": 1415821494
+                    },
+                    {
+                        "Weapon5": 1911153676
+                    },
+                    {
+                        "Weapon6": 821316011
+                    },
+                    {
+                        "Weapon7": 601873605
+                    },
+                    {
+                        "Weapon8": 3518481655
+                    }
+                ],
+                "Script Resource": 2943233861,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Weapon Icon 8 (B)",
+        "ParentUID": 1703094761,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 3518481655
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    -0.0010000000474974513
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.25,
+                    0.20000000298023224,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 240240,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Weapon Selected (I)",
+        "ParentUID": 1703094761,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 2478615852
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "Type": 16,
+                "listButtons": [
+                    0
+                ]
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Panel",
+        "ParentUID": 795620229,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 274231072
     },
     {
         "Active": true,
@@ -517,123 +1531,9 @@
         ],
         "FirstOnPrefab": true,
         "Name": "Unlock (B)",
-        "ParentUID": 3977713993,
+        "ParentUID": 274231072,
         "PrefabUID": 0,
         "Tag": "UI",
         "UID": 2438101277
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    -0.6000000238418579,
-                    0.699999988079071,
-                    -0.0
-                ],
-                "Rotation": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Scale": [
-                    0.07500000298023224,
-                    0.07500000298023224,
-                    0.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "MaterialResource": 0,
-                "State": 0,
-                "Type": 12,
-                "hoverImage": 0,
-                "idleImage": 0,
-                "pressImage": 0
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "Weapon Icon 8 (B)",
-        "ParentUID": 3977713993,
-        "PrefabUID": 0,
-        "Tag": "UI",
-        "UID": 3518481655
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    -0.6000000238418579,
-                    0.5,
-                    -0.009999999776482582
-                ],
-                "Rotation": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Scale": [
-                    0.07500000298023224,
-                    0.07500000298023224,
-                    0.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "MaterialResource": 0,
-                "State": 0,
-                "Type": 12,
-                "hoverImage": 0,
-                "idleImage": 0,
-                "pressImage": 0
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "Weapon Icon 1 (B)",
-        "ParentUID": 3977713993,
-        "PrefabUID": 0,
-        "Tag": "UI",
-        "UID": 4145208356
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "FillImage": 1.0,
-                "MaterialResource": 2228956348,
-                "Type": 15
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "BackGround (I)",
-        "ParentUID": 795620229,
-        "PrefabUID": 0,
-        "Tag": "UI",
-        "UID": 2313126796
     }
 ]
