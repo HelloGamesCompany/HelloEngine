@@ -18,6 +18,8 @@ class ComponentUIInput : public ComponentUI
 
 private: 
 
+	bool _isComponentEnable;
+
 	ImWindowGame* _gameWindow = nullptr;
 	bool isPress = true;
 	int ButtonSelected = 0;

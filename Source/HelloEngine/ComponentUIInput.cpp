@@ -12,6 +12,8 @@ ComponentUIInput::ComponentUIInput(GameObject* gameObject) : ComponentUI(gameObj
 	_meshRenderer->Disable();
 
 	_gameWindow = (ImWindowGame*)LayerEditor::_imWindows[(uint)ImWindowID::GAME];
+
+	_isComponentEnable = true;
 }
 
 ComponentUIInput::~ComponentUIInput()
@@ -20,7 +22,7 @@ ComponentUIInput::~ComponentUIInput()
 
 void ComponentUIInput::InputUpdate()
 {
-	if (_listButtons.size() != 0 && _gameObject->IsActive())
+	if (_listButtons.size() != 0 && _gameObject->IsActive() && _isComponentEnable)
 	{
 		if (ButtonSelected == 0)
 		{
@@ -118,6 +120,10 @@ void ComponentUIInput::OnEditor()
 		_gameObject->DestroyComponent(this);
 		return;
 	}
+
+	_isComponentEnable = _isEnabled;
+	if (ImGui::Checkbox("Active##Panel", &_isComponentEnable))
+		_isComponentEnable ? Enable() : Disable();
 
 	ImGui::Text("");
 	ImGui::SameLine();
