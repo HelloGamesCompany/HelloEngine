@@ -47,6 +47,48 @@ const char* API::API_GameObject::GetTag()
     return _gameObject->tag.c_str();
 }
 
+void API::API_GameObject::SetTag(const char* tag)
+{
+    if (_gameObject == nullptr)
+    {
+        Console::S_Log("Trying to acces a NULLPTR GameObject! GetTag()");
+        return;
+    }
+    _gameObject->tag = tag;
+}
+
+void API::API_GameObject::SetName(const char name)
+{
+    if (_gameObject == nullptr)
+    {
+        Console::S_Log("Trying to acces a NULLPTR GameObject! GetTag()");
+        return;
+    }
+    _gameObject->name = name;
+}
+
+void API::API_GameObject::GetChildren(API_GameObject* buffer, int count)
+{
+    if (_gameObject == nullptr)
+    {
+        Console::S_Log("Trying to acces a NULLPTR GameObject! AddScript()");
+        return;
+    }
+    std::vector<GameObject*>* children = _gameObject->GetChildren();
+    int currentCount = 0;
+
+    for (int i = 0; i < children->size(); ++i)
+    {
+        API_GameObject child;
+        child.SetGameObject(children->at(i));
+        *buffer = child;
+        ++buffer;
+        ++currentCount;
+        if (currentCount == count)
+            return;
+    }
+}
+
 HelloBehavior* API::API_GameObject::AddScript(const char* className)
 {
     if (_gameObject == nullptr)

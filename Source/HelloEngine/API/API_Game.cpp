@@ -4,8 +4,17 @@
 #include "Console.h"
 #include "LayerGame.h"
 
-void API::Game::FindGameObject(const char* name)
+API::API_GameObject API::Game::FindGameObject(const char* name)
 {
+	for (auto& gameObject : ModuleLayers::gameObjects)
+	{
+		if (gameObject.second->name == name)
+		{
+			API_GameObject apiGO;
+			apiGO.SetGameObject(gameObject.second);
+			return apiGO;
+		}
+	}
 }
 
 API::API_GameObject API::Game::CreateGameObject(const char* name, const char* tag, API_GameObject* parent)
@@ -40,4 +49,22 @@ TO_API void API::Game::ExitApplication()
 	Application::Instance()->Exit();
 #endif // STANDALONE
 
+}
+
+TO_API void API::Game::FindGameObjectsWithTag(const char* tag, API_GameObject* buffer, uint count)
+{
+	uint currentCount = 0;
+	for (auto& gameObject : ModuleLayers::gameObjects)
+	{
+		if (gameObject.second->tag == tag)
+		{
+			API_GameObject apiGO;
+			apiGO.SetGameObject(gameObject.second);
+			*buffer = apiGO;
+			++buffer;
+			++currentCount;
+			if (currentCount == count)
+				return;
+		}
+	}
 }
