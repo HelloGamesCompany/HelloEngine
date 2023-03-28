@@ -47,7 +47,7 @@ void PlayerGun::SetGunStatsPerLevel(int level)
 
 }
 
-void PlayerGun::LauchProjectile(API_Transform projectileSpawn, PROJECTILE_ACTION projectileAction, float randomDirectionRange = 0.0f)
+void PlayerGun::LauchProjectile(API_Transform projectileSpawn, PROJECTILE_ACTION projectileAction, float randomDirectionRange)
 {
     ProjectilePull* pull = (ProjectilePull*)projectilePull.GetScript("ProjectilePull");
     if (pull == nullptr)
