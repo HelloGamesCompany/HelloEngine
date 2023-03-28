@@ -10,8 +10,9 @@
 #include "API/API_Material.h"
 #include "API/API_ParticleSystem.h"
 #include "PhysicsComponent.h"
-#include "MaterialComponent.h"
+#include "TextureComponent.h"
 #include "ParticleSystemComponent.h"
+#include "MeshRenderComponent.h"
 
 API::API_GameObject::API_GameObject()
 {
@@ -44,6 +45,48 @@ const char* API::API_GameObject::GetTag()
         return "NULL";
     }
     return _gameObject->tag.c_str();
+}
+
+void API::API_GameObject::SetTag(const char* tag)
+{
+    if (_gameObject == nullptr)
+    {
+        Console::S_Log("Trying to acces a NULLPTR GameObject! GetTag()");
+        return;
+    }
+    _gameObject->tag = tag;
+}
+
+void API::API_GameObject::SetName(const char name)
+{
+    if (_gameObject == nullptr)
+    {
+        Console::S_Log("Trying to acces a NULLPTR GameObject! GetTag()");
+        return;
+    }
+    _gameObject->name = name;
+}
+
+void API::API_GameObject::GetChildren(API_GameObject* buffer, int count)
+{
+    if (_gameObject == nullptr)
+    {
+        Console::S_Log("Trying to acces a NULLPTR GameObject! AddScript()");
+        return;
+    }
+    std::vector<GameObject*>* children = _gameObject->GetChildren();
+    int currentCount = 0;
+
+    for (int i = 0; i < children->size(); ++i)
+    {
+        API_GameObject child;
+        child.SetGameObject(children->at(i));
+        *buffer = child;
+        ++buffer;
+        ++currentCount;
+        if (currentCount == count)
+            return;
+    }
 }
 
 HelloBehavior* API::API_GameObject::AddScript(const char* className)
@@ -178,7 +221,7 @@ API::API_Material API::API_GameObject::AddMaterial()
         Console::S_Log("Trying to acces a NULLPTR GameObject! AddMaterial()");
         return API_Material();
     }
-    MaterialComponent* component = (MaterialComponent*)_gameObject->AddComponent<MaterialComponent>();
+    TextureComponent* component = (TextureComponent*)_gameObject->AddComponent<TextureComponent>();
 
     if (component == nullptr)
     {
@@ -211,7 +254,7 @@ API::API_Material API::API_GameObject::GetMaterialCompoennt()
         return API_Material();
     }
     API_Material ret;
-    ret.SetComponent(_gameObject->GetComponent<MaterialComponent>());
+    ret.SetComponent(_gameObject->GetComponent<TextureComponent>());
     return ret;
 }
 

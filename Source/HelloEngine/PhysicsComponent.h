@@ -64,6 +64,7 @@ private:
 	float _gravity[3];
 	
 	friend class API::API_GameObject;
+	friend class API::API_RigidBody;
 
 public:
 	float localGlobalGravity[3];

@@ -23,6 +23,8 @@ namespace API
 		void SetGravity(API_Vector3 gravity);
 		API_Vector3 GetGravity();
 
+		void SetTrigger(bool isTrigger);
+
 		/// <summary>
 		/// If the rigidbody is not a Sphere, there will return 0
 		/// </summary>

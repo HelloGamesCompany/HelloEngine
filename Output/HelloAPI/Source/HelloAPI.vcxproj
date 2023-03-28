@@ -175,6 +175,7 @@
 		<ClCompile Include="..\..\Assets\Scripts\UI Test folder\UIManager.cpp" />
 		<ClCompile Include="../../Assets/Scripts/Player/PlayerUltimate.cpp" />
 		<ClCompile Include="../../Assets/Scripts/Shooting/Guns/PlayerHandgun.cpp" />
+		<ClCompile Include="../../Assets/temp/TestAPI.cpp" />
 	</ItemGroup>
 	<ItemGroup>
 		<ClInclude Include="..\..\Assets\Scripts\Enemies\EnemyMeleeMovement.h" />
@@ -217,6 +218,7 @@
 		<ClInclude Include="../../Assets/Scripts/UI Test folder/Movment_Bar_HP.h" />
 		<ClInclude Include="../../Assets/Scripts/Player/PlayerUltimate.h" />
 		<ClInclude Include="../../Assets/Scripts/Shooting/Guns/PlayerHandgun.h" />
+		<ClInclude Include="../../Assets/temp/TestAPI.h" />
 	</ItemGroup>
 	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 	<ImportGroup Label="ExtensionTargets" />

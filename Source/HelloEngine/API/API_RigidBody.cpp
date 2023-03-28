@@ -66,6 +66,17 @@ API::API_Vector3 API::API_RigidBody::GetGravity()
 	return _rigidBody->GetGravity();
 }
 
+void API::API_RigidBody::SetTrigger(bool isTrigger)
+{
+	if (!_rigidBody)
+	{
+		Engine::Console::S_Log("Trying to get a NULLPTR Rigidbody");
+		return;
+	}
+	_rigidBody->_physBody->isTrigger = isTrigger;
+	_rigidBody->CallUpdateColliderType();
+}
+
 float API::API_RigidBody::GetRadius()
 {
 	if (!_rigidBody)

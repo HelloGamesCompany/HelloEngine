@@ -54,7 +54,7 @@
             {
                 "Active camera": true,
                 "Active culling": true,
-                "Aspect ratio": 1.7364747524261475,
+                "Aspect ratio": 1.9408766031265259,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -115,7 +115,7 @@
                         "Velocity": 5.0
                     },
                     {
-                        "Upgrade Velocity": 10.0
+                        "Upgrade Velocity": 2.0
                     },
                     {
                         "SecToMaxVel": 0.0
@@ -133,31 +133,10 @@
                         "Upgrade Dash Distance": 8.0
                     },
                     {
-                        "Player Stats GO": 3681930564
+                        "Dash Cooldown": 0.0
                     },
                     {
-                        "Velocity": 5.0
-                    },
-                    {
-                        "Upgrade Velocity": 10.0
-                    },
-                    {
-                        "SecToMaxVel": 0.0
-                    },
-                    {
-                        "SecToZeroVel": 0.0
-                    },
-                    {
-                        "Dash Time": 0.5
-                    },
-                    {
-                        "Dash Distance": 5.0
-                    },
-                    {
-                        "Upgrade Dash Distance": 8.0
-                    },
-                    {
-                        "Player Stats GO": 3681930564
+                        "Upgrade Dash Cooldown": 0.0
                     }
                 ],
                 "Script Resource": 1247927621,
@@ -170,7 +149,10 @@
                         "Max HP": 100.0
                     },
                     {
-                        "Upgraded Max HP": 125.0
+                        "Current HP": 0.0
+                    },
+                    {
+                        "Upgraded Max HP": 0.0
                     },
                     {
                         "Laser Ammo": 99999
@@ -182,19 +164,16 @@
                         "Ricochet Ammo": 99999
                     },
                     {
-                        "Max HP": 100.0
+                        "tree1": 0
                     },
                     {
-                        "Upgraded Max HP": 125.0
+                        "tree2": 0
                     },
                     {
-                        "Laser Ammo": 99999
+                        "tree3": 0
                     },
                     {
-                        "Fire Ammo": 99999
-                    },
-                    {
-                        "Ricochet Ammo": 99999
+                        "tree4": 0
                     }
                 ],
                 "Script Resource": 3870473519,
@@ -225,37 +204,10 @@
                         "Shotgun": 1883117832
                     },
                     {
-                        "Swap Delay": 0.5
+                        "Swap Delay": 0.0
                     },
                     {
-                        "Fast Swap Delay": 0.30000001192092896
-                    },
-                    {
-                        "Player Stats GO": 3681930564
-                    },
-                    {
-                        "Base Gun": 0
-                    },
-                    {
-                        "Normal Gun": 2
-                    },
-                    {
-                        "Special Gun": 4
-                    },
-                    {
-                        "Duals": 1584707857
-                    },
-                    {
-                        "Automatic": 4120779845
-                    },
-                    {
-                        "Shotgun": 1883117832
-                    },
-                    {
-                        "Swap Delay": 0.5
-                    },
-                    {
-                        "Fast Swap Delay": 0.30000001192092896
+                        "Fast Swap Delay": 0.0
                     }
                 ],
                 "Script Resource": 1545024998,
@@ -356,9 +308,6 @@
                 "Inspector Fields": [
                     {
                         "Gun Type": 0
-                    },
-                    {
-                        "Gun Type": 0
                     }
                 ],
                 "Script Resource": 1421097082,
@@ -421,73 +370,6 @@
                     },
                     {
                         "Freeze %": 0.0
-                    },
-                    {
-                        "Player Stats GO": 3681930564
-                    },
-                    {
-                        "Ammo Type": 0
-                    },
-                    {
-                        "Audio Event String": "basic_shooting"
-                    },
-                    {
-                        "Projectile Pull": 1044318646
-                    },
-                    {
-                        "Projectile Speed": 30.0
-                    },
-                    {
-                        "Projectile Damage": 0.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 1.0
-                    },
-                    {
-                        "Projectile Spawn": 1584707857
-                    },
-                    {
-                        "Second Projectile Spawn": 1942045578
-                    },
-                    {
-                        "Projectile MeshIndexInsideModel": 0,
-                        "Projectile MeshModelUID": 1551155716
-                    },
-                    {
-                        "Projectile Material": 3245286453
-                    },
-                    {
-                        "Projectile ScaleX": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleY": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleZ": 0.10000000149011612
-                    },
-                    {
-                        "Projectiles per second": 2.0
-                    },
-                    {
-                        "Extra % firerate": 0.0
-                    },
-                    {
-                        "Burst Space": 0.10000000149011612
-                    },
-                    {
-                        "Second Gun GO": 1942045578
-                    },
-                    {
-                        "Slow %": 0.0
-                    },
-                    {
-                        "Freeze %": 0.0
-                    },
-                    {
-                        "Player Stats GO": 3681930564
                     },
                     {
                         "Ammo Type": 0
@@ -549,9 +431,6 @@
                 "Inspector Fields": [
                     {
                         "Gun Type": 2
-                    },
-                    {
-                        "Gun Type": 2
                     }
                 ],
                 "Script Resource": 1421097082,
@@ -560,55 +439,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Projectile Pull": 1044318646
-                    },
-                    {
-                        "Projectile Speed": 40.0
-                    },
-                    {
-                        "Projectile Damage": 0.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 1.0
-                    },
-                    {
-                        "Projectile Spawn": 4120779845
-                    },
-                    {
-                        "Projectile MeshIndexInsideModel": 0,
-                        "Projectile MeshModelUID": 1551155716
-                    },
-                    {
-                        "Projectile Material": 815293368
-                    },
-                    {
-                        "Projectile ScaleX": 0.05000000074505806
-                    },
-                    {
-                        "Projectile ScaleY": 0.05000000074505806
-                    },
-                    {
-                        "Projectile ScaleZ": 0.05000000074505806
-                    },
-                    {
-                        "Projectiles per second": 5.0
-                    },
-                    {
-                        "Extra % firerate": 0.0
-                    },
-                    {
-                        "Player Stats GO": 3681930564
-                    },
-                    {
-                        "Ammo Type": 1
-                    },
-                    {
-                        "Audio Event String": "basic_shooting"
-                    },
                     {
                         "Projectile Pull": 1044318646
                     },
@@ -712,9 +542,6 @@
                 "Inspector Fields": [
                     {
                         "Gun Type": 4
-                    },
-                    {
-                        "Gun Type": 4
                     }
                 ],
                 "Script Resource": 1421097082,
@@ -767,56 +594,7 @@
                         "Pellets per shot": 10
                     },
                     {
-                        "Player Stats GO": 3681930564
-                    },
-                    {
-                        "Ammo Type": 1
-                    },
-                    {
-                        "Audio Event String": "basic_shooting"
-                    },
-                    {
-                        "Projectile Pull": 1044318646
-                    },
-                    {
-                        "Projectile Speed": 40.0
-                    },
-                    {
-                        "Projectile Damage": 0.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 0.5
-                    },
-                    {
-                        "Projectile Spawn": 1883117832
-                    },
-                    {
-                        "Projectile MeshIndexInsideModel": 0,
-                        "Projectile MeshModelUID": 1551155716
-                    },
-                    {
-                        "Projectile Material": 1986747850
-                    },
-                    {
-                        "Projectile ScaleX": 0.05000000074505806
-                    },
-                    {
-                        "Projectile ScaleY": 0.05000000074505806
-                    },
-                    {
-                        "Projectile ScaleZ": 0.05000000074505806
-                    },
-                    {
-                        "Projectiles per second": 1.2999999523162842
-                    },
-                    {
-                        "Extra % firerate": 0.0
-                    },
-                    {
-                        "Pellets per shot": 10
+                        "Pellets Dispersion": 0.0
                     },
                     {
                         "Player Stats GO": 3681930564
@@ -864,15 +642,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Pull Size": 20
-                    },
-                    {
-                        "Player": 3681930564
-                    },
-                    {
-                        "Particles": 4082549604
-                    },
                     {
                         "Pull Size": 20
                     },
