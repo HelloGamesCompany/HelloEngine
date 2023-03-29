@@ -1,4 +1,5 @@
 #include "PlayerStats.h"
+#include "../Enemies/EnemyDrop.h"
 #include "../UI Test folder/HpBar.h"
 HELLO_ENGINE_API_C PlayerStats* CreatePlayerStats(ScriptToInspectorInterface* script)
 {
@@ -87,7 +88,43 @@ void PlayerStats::Update()
     if (slowTimePowerUp > 0.0f)
     {
         slowTimePowerUp -= dt;
-        if (slowTimePowerUp <= 0.0f) slowTimePowerUp = 0.0f;
+        if (slowTimePowerUp <= 0.0f)
+        {
+            slowTimePowerUp = 0.0f;
+            Time::ChangeTimeScale(1.0f);
+        }
+    }
+}
+
+void PlayerStats::OnCollisionEnter(API_RigidBody other)
+{
+    std::string detectionTag = other.GetGameObject().GetTag();
+
+    if (detectionTag == "EnemyDrop")
+    {
+        EnemyDrop* enemyDrop = (EnemyDrop*)other.GetGameObject().GetScript("EnemyDrop");
+        
+        switch (enemyDrop->dropIndex)
+        {
+        case 0: // laser ammo
+            GetAmmo(1, 100);
+            break;
+        case 1: // first aid kit
+            Heal(50.0f);
+            break;
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+        case 6:
+            GetPowerUp(enemyDrop->dropIndex - 2);
+            break;
+        default:
+            Console::Log("Enemy Drop with wrong index.");
+            break;
+        }
+
+        enemyDrop->Destroy();
     }
 }
 

@@ -29,7 +29,6 @@ public:
     void DashSetup();
     void Dash();
     bool DashInput();
-    void OnCollisionEnter(API_RigidBody other);
 
     void ShootAnim();
 

@@ -8,16 +8,19 @@
 class EnemyDrop : HelloBehavior
 {
 public:
-	void Start() override; 
-	void Update() override;
+    void Start() override;
+    void Update() override;
 
-	int dropIndex;
-	// 0 -> laser ammo
-	// 1 -> first aid kit
-	// 2 -> speed power up
-	// 3 -> firerate power up
-	// 4 -> shield power up
-	// 5 -> max ammo power up
-	// 6 -> slow time power up
+    void Destroy();
+
+    int dropIndex;
+    // 0 -> laser ammo
+    // 1 -> first aid kit
+    // 2 -> speed power up
+    // 3 -> firerate power up
+    // 4 -> shield power up
+    // 5 -> max ammo power up
+    // 6 -> slow time power up
+    float lifeTime;
 };
 

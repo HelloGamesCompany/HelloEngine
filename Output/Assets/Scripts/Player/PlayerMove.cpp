@@ -283,11 +283,6 @@ API_Vector2 PlayerMove::GetMoveInput()
     return input;
 }
 
-void PlayerMove::OnCollisionEnter(API_RigidBody other)
-{
-   // Console::Log(other.GetGameObject().GetName());
-}
-
 void PlayerMove::ShootAnim()
 {
     if (currentAnim != PlayerAnims::SHOOT)

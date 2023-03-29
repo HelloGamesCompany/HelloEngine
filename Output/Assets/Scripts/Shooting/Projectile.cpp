@@ -35,7 +35,7 @@ void Projectile::Destroy()
 void Projectile::OnCollisionEnter(API::API_RigidBody other)
 {
     std::string detectionTag = other.GetGameObject().GetTag();
-    Console::Log("Tag is" + detectionTag);
+    
     switch (action)
     {
     case PROJECTILE_ACTION::NONE:

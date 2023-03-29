@@ -13,6 +13,8 @@ public:
     void Start() override;
     void Update() override;
 
+    void OnCollisionEnter(API_RigidBody other);
+
     float currentMaxHp;
     float maxHp;
     float upgradedMaxHp;
