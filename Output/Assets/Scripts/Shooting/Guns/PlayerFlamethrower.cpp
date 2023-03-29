@@ -47,9 +47,13 @@ void PlayerFlamethrower::Start()
 
 void PlayerFlamethrower::Update()
 {
+    float dt;
+    if (playerStats->slowTimePowerUp > 0.0f /*&& !paused*/) dt = Time::GetRealTimeDeltaTime();
+    else dt = Time::GetDeltaTime();
+
     if (playingParticlesCd > 0)
     {
-        playingParticlesCd -= Time::GetDeltaTime();
+        playingParticlesCd -= dt;
         if (playingParticlesCd <= 0)
         {
             fireParticles.Stop();
@@ -65,7 +69,7 @@ void PlayerFlamethrower::Update()
     }
     else
     {
-        shotCooldown -= Time::GetDeltaTime();
+        shotCooldown -= dt;
     }
 }
 

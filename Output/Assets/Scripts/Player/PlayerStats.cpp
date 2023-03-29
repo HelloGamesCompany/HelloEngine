@@ -30,11 +30,18 @@ void PlayerStats::Start()
     if (healthTreeLvl > 4) secondLife = true;
     else secondLife = false;
 
+    speedPowerUp = 0;
+    fireratePowerUp = 0;
     shield = 0;
+    slowTimePowerUp = 0;
 }
 
 void PlayerStats::Update()
 {
+    float dt;
+    if (slowTimePowerUp > 0.0f /*&& !paused*/) dt = Time::GetRealTimeDeltaTime();
+    else dt = Time::GetDeltaTime();
+
     //healthBar->hp = this->currentHp;
 
     // deadline healing
@@ -43,7 +50,7 @@ void PlayerStats::Update()
     else deathlineHp = currentMaxHp * 0.20f;
     if (currentHp < deathlineHp)
     {
-        lastHitTime -= Time::GetDeltaTime();
+        lastHitTime -= dt;
         if (lastHitTime <= 0.0f)
         {
             if (healthTreeLvl > 3) currentHp += 7.5f;
@@ -63,19 +70,24 @@ void PlayerStats::Update()
 
     if (inmunityTime > 0.0f)
     {
-        inmunityTime -= Time::GetDeltaTime();
+        inmunityTime -= dt;
     }
 
     // power ups
     if (speedPowerUp > 0.0f)
     {
-        speedPowerUp -= Time::GetDeltaTime();
+        speedPowerUp -= dt;
         if (speedPowerUp <= 0.0f) speedPowerUp = 0.0f;
     }
     if (fireratePowerUp > 0.0f)
     {
-        fireratePowerUp -= Time::GetDeltaTime();
+        fireratePowerUp -= dt;
         if (fireratePowerUp <= 0.0f) fireratePowerUp = 0.0f;
+    }
+    if (slowTimePowerUp > 0.0f)
+    {
+        slowTimePowerUp -= dt;
+        if (slowTimePowerUp <= 0.0f) slowTimePowerUp = 0.0f;
     }
 }
 
@@ -89,7 +101,6 @@ void PlayerStats::TakeDamage(float amount)
         currentHp += shield;
         shield = 0.0f;
     }
-
 
     if (currentHp <= 0)
     {
@@ -229,6 +240,10 @@ void PlayerStats::GetPowerUp(int index)
         GetAmmo(1, 9999);
         GetAmmo(2, 9999);
         GetAmmo(3, 9999);
+        break;
+    case 4:
+        slowTimePowerUp = 5.0f;
+        Time::ChangeTimeScale(0.5f);
         break;
     default:
         Console::Log("Invalid powe up index, can only be 0, 1, 2 or 3.");

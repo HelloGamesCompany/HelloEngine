@@ -47,6 +47,10 @@ void PlayerGunManager::Start()
 
 void PlayerGunManager::Update()
 {
+    float dt;
+    if (playerStats->slowTimePowerUp > 0.0f /*&& !paused*/) dt = Time::GetRealTimeDeltaTime();
+    else dt = Time::GetDeltaTime();
+
     // Keyboard
     if (Input::GetKey(KeyCode::KEY_1) == KeyState::KEY_DOWN) { UnequipGun(gunOnHandIndex1); if (weaponUI.IsAlive() == true) { ((SwapWeapon*)weaponUI.GetScript("SwapWeapon"))->SwapWeapon1(); }  }
     else if (Input::GetKey(KeyCode::KEY_2) == KeyState::KEY_DOWN) { UnequipGun(gunOnHandIndex2); if (weaponUI.IsAlive() == true) { ((SwapWeapon*)weaponUI.GetScript("SwapWeapon"))->SwapWeapon2(); } }
@@ -73,7 +77,7 @@ void PlayerGunManager::Update()
     }
     if (bufferLB > 0.0f)
     {
-        bufferLB -= Time::GetDeltaTime();
+        bufferLB -= Time::GetRealTimeDeltaTime();
         if (bufferLB <= 0.0f)
         {
             UnequipGun(gunOnHandIndex1); // base weapon
@@ -82,7 +86,7 @@ void PlayerGunManager::Update()
     }
     if (bufferRB > 0.0f)
     {
-        bufferRB -= Time::GetDeltaTime();
+        bufferRB -= Time::GetRealTimeDeltaTime();
         if (bufferRB <= 0)
         {
             UnequipGun(gunOnHandIndex2); // normal weapon
@@ -93,7 +97,7 @@ void PlayerGunManager::Update()
     // swap gun
     if (swapDelay > 0.0f)
     {
-        swapDelay -= Time::GetDeltaTime();
+        swapDelay -= dt;
         if (swapDelay <= 0.0f)
         {
             swapDelay = 0.0f;

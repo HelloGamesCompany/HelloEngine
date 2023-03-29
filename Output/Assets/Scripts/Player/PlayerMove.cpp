@@ -42,7 +42,8 @@ void PlayerMove::Start()
 void PlayerMove::Update()
 {
     usingGamepad = Input::UsingGamepad();
-    dt = Time::GetDeltaTime();
+    if (playerStats->slowTimePowerUp > 0.0f /*&& !paused*/) dt = Time::GetRealTimeDeltaTime();
+    else dt = Time::GetDeltaTime();
     Aim();
 
     if (Input::GetGamePadAxis(GamePadAxis::AXIS_TRIGGERRIGHT) < 5000)
@@ -73,7 +74,7 @@ void PlayerMove::Update()
     // refresh dash
     if (dashCooldown > 0.0f)
     {
-        dashCooldown -= Time::GetDeltaTime();
+        dashCooldown -= dt;
         if (dashCooldown <= 0.0f)
         {
             dashCooldown = 0.0f;

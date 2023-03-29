@@ -50,9 +50,13 @@ void PlayerBurst::Start()
 
 void PlayerBurst::Update()
 {
+    float dt;
+    if (playerStats->slowTimePowerUp > 0.0f /*&& !paused*/) dt = Time::GetRealTimeDeltaTime();
+    else dt = Time::GetDeltaTime();
+
     if (shotBuffer)
     {
-        shotBufferCooldown -= Time::GetDeltaTime();
+        shotBufferCooldown -= dt;
         if (shotBufferCooldown <= 0)
         {
             shotBuffer = false;
@@ -72,7 +76,7 @@ void PlayerBurst::Update()
         }
         else
         {
-            burstDelay -= Time::GetDeltaTime();
+            burstDelay -= dt;
         }
     }
 
@@ -91,7 +95,7 @@ void PlayerBurst::Update()
     }
     else
     {
-        shotCooldown -= Time::GetDeltaTime();
+        shotCooldown -= dt;
     }
 }
 

@@ -46,7 +46,5 @@ public:
 
     int ammoType;
     std::string audioEventString;
-
-    bool testing;
 };
 

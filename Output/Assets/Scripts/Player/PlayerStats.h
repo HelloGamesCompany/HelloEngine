@@ -53,6 +53,7 @@ public:
     float fireratePowerUp; // 1
     // shield // 2
     // max ammo // 3
+    float slowTimePowerUp; // 4
     void GetPowerUp(int index);
 };
 

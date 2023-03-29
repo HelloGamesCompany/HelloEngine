@@ -4,15 +4,10 @@ HELLO_ENGINE_API_C PlayerAutomatic* CreatePlayerAutomatic(ScriptToInspectorInter
     PlayerAutomatic* classInstance = new PlayerAutomatic();
     //Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
     script->AddDragBoxGameObject("Projectile Pull", &classInstance->projectilePull);
-    //script->AddCheckBox("Testing", &classInstance->testing);
-    //if (&classInstance->testing)
-    {
-        script->AddDragFloat("Projectile Speed", &classInstance->projectileSpeed);
-        script->AddDragFloat("Projectile Damage", &classInstance->projectileDamage);
-        script->AddDragFloat("Projectile Resistance Damage", &classInstance->projectileResistanceDamage);
-        script->AddDragFloat("Projectile Lifetime", &classInstance->projectileLifetime);
-    }
-    
+    script->AddDragFloat("Projectile Speed", &classInstance->projectileSpeed);
+    script->AddDragFloat("Projectile Damage", &classInstance->projectileDamage);
+    script->AddDragFloat("Projectile Resistance Damage", &classInstance->projectileResistanceDamage);
+    script->AddDragFloat("Projectile Lifetime", &classInstance->projectileLifetime);
     script->AddDragBoxTransform("Projectile Spawn", &classInstance->shootingSpawn);
     script->AddDragBoxMeshResource("Projectile Mesh", &classInstance->projectileMesh);
     script->AddDragBoxTextureResource("Projectile Material", &classInstance->projectileMaterial);
@@ -51,6 +46,10 @@ void PlayerAutomatic::Start()
 
 void PlayerAutomatic::Update()
 {
+    float dt;
+    if (playerStats->slowTimePowerUp > 0.0f /*&& !paused*/) dt = Time::GetRealTimeDeltaTime();
+    else dt = Time::GetDeltaTime();
+
     if (canShoot) return;
 
     if (shotCooldown <= 0)
@@ -59,7 +58,7 @@ void PlayerAutomatic::Update()
     }
     else
     {
-        shotCooldown -= Time::GetDeltaTime();
+        shotCooldown -= dt;
     }
 }
 

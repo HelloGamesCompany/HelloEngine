@@ -46,9 +46,13 @@ void PlayerSemiAuto::Start()
 
 void PlayerSemiAuto::Update()
 {
+    float dt;
+    if (playerStats->slowTimePowerUp > 0.0f /*&& !paused*/) dt = Time::GetRealTimeDeltaTime();
+    else dt = Time::GetDeltaTime();
+
     if (shotBuffer)
     {
-        shotBufferCooldown -= Time::GetDeltaTime();
+        shotBufferCooldown -= Time::GetRealTimeDeltaTime();
         if (shotBufferCooldown <= 0)
         {
             shotBuffer = false;
@@ -70,7 +74,7 @@ void PlayerSemiAuto::Update()
     }
     else
     {
-        shotCooldown -= Time::GetDeltaTime();
+        shotCooldown -= dt;
     }
 }
 

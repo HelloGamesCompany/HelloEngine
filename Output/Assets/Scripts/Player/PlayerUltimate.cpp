@@ -44,7 +44,7 @@ void PlayerUltimate::Update()
     }
     if (bufferLJ > 0.0f)
     {
-        bufferLJ -= Time::GetDeltaTime();
+        bufferLJ -= Time::GetRealTimeDeltaTime();
         if (bufferLJ <= 0.0f)
         {
             bufferLJ = 0.0f;
@@ -52,7 +52,7 @@ void PlayerUltimate::Update()
     }
     if (bufferRJ > 0.0f)
     {
-        bufferRJ -= Time::GetDeltaTime();
+        bufferRJ -= Time::GetRealTimeDeltaTime();
         if (bufferRJ <= 0)
         {
             bufferRJ = 0.0f;
