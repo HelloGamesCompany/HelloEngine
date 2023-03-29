@@ -177,6 +177,8 @@
 		<ClCompile Include="../../Assets/Scripts/Shooting/Guns/PlayerHandgun.cpp" />
 		<ClCompile Include="../../Assets/temp/TestAPI.cpp" />
 		<ClCompile Include="../../Assets/Scripts/UsefulScripts/SetAllChildsTag.cpp" />
+		<ClCompile Include="../../Assets/Scripts/Enemies/EnemyDropManager.cpp" />
+		<ClCompile Include="../../Assets/Scripts/Enemies/EnemyDrop.cpp" />
 	</ItemGroup>
 	<ItemGroup>
 		<ClInclude Include="..\..\Assets\Scripts\Enemies\EnemyMeleeMovement.h" />
@@ -221,6 +223,8 @@
 		<ClInclude Include="../../Assets/Scripts/Shooting/Guns/PlayerHandgun.h" />
 		<ClInclude Include="../../Assets/temp/TestAPI.h" />
 		<ClInclude Include="../../Assets/Scripts/UsefulScripts/SetAllChildsTag.h" />
+		<ClInclude Include="../../Assets/Scripts/Enemies/EnemyDropManager.h" />
+		<ClInclude Include="../../Assets/Scripts/Enemies/EnemyDrop.h" />
 	</ItemGroup>
 	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 	<ImportGroup Label="ExtensionTargets" />
