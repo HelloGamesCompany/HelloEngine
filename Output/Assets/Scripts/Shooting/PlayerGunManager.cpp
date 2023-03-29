@@ -25,6 +25,7 @@ HELLO_ENGINE_API_C PlayerGunManager* CreatePlayerGunManager(ScriptToInspectorInt
 void PlayerGunManager::Start()
 {
     playerStats = (PlayerStats*)player.GetScript("PlayerStats");
+    if (playerStats == nullptr) Console::Log("Missing PlayerStats on PlayerGunManager Script.");
 
     // add guns to the array in order
     guns.push_back(duals);
@@ -48,13 +49,13 @@ void PlayerGunManager::Start()
 void PlayerGunManager::Update()
 {
     float dt;
-    if (playerStats->slowTimePowerUp > 0.0f /*&& !paused*/) dt = Time::GetRealTimeDeltaTime();
+    if (playerStats && playerStats->slowTimePowerUp > 0.0f /*&& !paused*/) dt = Time::GetRealTimeDeltaTime();
     else dt = Time::GetDeltaTime();
 
     // Keyboard
-    if (Input::GetKey(KeyCode::KEY_1) == KeyState::KEY_DOWN) { UnequipGun(gunOnHandIndex1); if (weaponUI.IsAlive() == true) { ((SwapWeapon*)weaponUI.GetScript("SwapWeapon"))->SwapWeapon1(); }  }
-    else if (Input::GetKey(KeyCode::KEY_2) == KeyState::KEY_DOWN) { UnequipGun(gunOnHandIndex2); if (weaponUI.IsAlive() == true) { ((SwapWeapon*)weaponUI.GetScript("SwapWeapon"))->SwapWeapon2(); } }
-    else if (Input::GetKey(KeyCode::KEY_3) == KeyState::KEY_DOWN) { UnequipGun(gunOnHandIndex3); if (weaponUI.IsAlive() == true) { ((SwapWeapon*)weaponUI.GetScript("SwapWeapon"))->SwapWeapon3(); } }
+    if (Input::GetKey(KeyCode::KEY_1) == KeyState::KEY_DOWN) { UnequipGun(gunOnHandIndex1); /*if (weaponUI.IsAlive() == true) { ((SwapWeapon*)weaponUI.GetScript("SwapWeapon"))->SwapWeapon1(); }*/  }
+    else if (Input::GetKey(KeyCode::KEY_2) == KeyState::KEY_DOWN) { UnequipGun(gunOnHandIndex2); /*if (weaponUI.IsAlive() == true) { ((SwapWeapon*)weaponUI.GetScript("SwapWeapon"))->SwapWeapon2(); }*/ }
+    else if (Input::GetKey(KeyCode::KEY_3) == KeyState::KEY_DOWN) { UnequipGun(gunOnHandIndex3); /*if (weaponUI.IsAlive() == true) { ((SwapWeapon*)weaponUI.GetScript("SwapWeapon"))->SwapWeapon3(); }*/ }
 
     // gamepad
     if (Input::GetGamePadButton(GamePadButton::BUTTON_LEFT_SHOULDER) == KeyState::KEY_DOWN)
@@ -110,7 +111,7 @@ void PlayerGunManager::Update()
 
     if (Input::GetGamePadAxis(GamePadAxis::AXIS_TRIGGERRIGHT) > 5000 || Input::GetMouseButton(MouseButton::LEFT) == KeyState::KEY_REPEAT)
     {
-        if (playerStats->GetAmmonByType(equipedGun->ammoType) > 0)
+        if (playerStats && playerStats->GetAmmonByType(equipedGun->ammoType) > 0)
         {
             equipedGun->Shoot();
         }
@@ -129,7 +130,7 @@ void PlayerGunManager::Update()
     //case 7:
     //    if ((Input::GetGamePadAxis(GamePadAxis::AXIS_TRIGGERRIGHT) > 5000 && canShoot) || Input::GetMouseButton(MouseButton::LEFT) == KeyState::KEY_DOWN)
     //    {
-    //        if (playerStats->GetAmmonByType(equipedGun->ammoType) > 0)
+    //        if (playerStats && playerStats->GetAmmonByType(equipedGun->ammoType) > 0)
     //        {
     //            equipedGun->Shoot();
     //            canShoot = false;
@@ -149,7 +150,7 @@ void PlayerGunManager::Update()
     //case 6:
     //    if (Input::GetGamePadAxis(GamePadAxis::AXIS_TRIGGERRIGHT) > 5000 || Input::GetMouseButton(MouseButton::LEFT) == KeyState::KEY_REPEAT)
     //    {
-    //        if (playerStats->GetAmmonByType(equipedGun->ammoType) > 0)
+    //        if (playerStats && playerStats->GetAmmonByType(equipedGun->ammoType) > 0)
     //        {
     //            equipedGun->Shoot();
     //        }
@@ -229,7 +230,7 @@ void PlayerGunManager::UnequipGun(int index)
     if (equipedGun != nullptr) equipedGun->EnableGuns(false);
     equipedIndex = index;
 
-    if (playerStats->armoryTreeLvl > 0) swapDelay = maxFastSwapDelay + 0.001f;
+    if (playerStats && playerStats->armoryTreeLvl > 0) swapDelay = maxFastSwapDelay + 0.001f;
     else swapDelay = maxSwapDelay + 0.001f;
     swapToIndex = index;
 }
