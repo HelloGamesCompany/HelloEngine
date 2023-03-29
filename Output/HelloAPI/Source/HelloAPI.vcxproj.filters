@@ -18,31 +18,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="../../Assets/Scripts/transformTest.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="../../Assets/Scripts/BulletBehavior.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="../../Assets/Scripts/TankScript.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="../../Assets/Scripts/HouseBehavior.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="../../Assets/Scripts/GamePadTest.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="../../Assets/Scripts/PlayerKeyboardMovement.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="../../Assets/Scripts/PlayerGamepadMovement.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
     <ClCompile Include="../../Assets/Scripts/Enemies/Enemy.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="../../Assets/Scripts/CollisionTestScript.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="../../Assets/Scripts/CamMov.cpp">
@@ -69,13 +45,7 @@
     <ClCompile Include="../../Assets/Scripts/Shooting/Projectile.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="../../Assets/Build/AnimationTest.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
     <ClCompile Include="../../Assets/Scripts/RotateContiniously.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="../../Assets/Scripts/UIbutton.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="../../Assets/Scripts/UI Test folder/ButtonActionsTest.cpp">
@@ -88,16 +58,10 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="../../Assets/Scripts/MenuButtons.cpp" />
-    <ClCompile Include="../../Assets/Scripts/ParticleTest.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Assets\Scripts\Shooting\Guns\PlayerSemiAuto.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Assets\Scripts\Player\PlayerStats.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Assets\Scripts\TestAPI.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Assets\Scripts\Enemies\EnemyMeleeMovement.cpp">
@@ -142,9 +106,6 @@
     <ClCompile Include="../../Assets/Scripts/UI Test folder/Movment_Bar_HP.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="../../Assets/Scripts/ParticleCopyTest.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Assets\Scripts\UI Test folder\HpBar.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
@@ -163,36 +124,21 @@
     <ClCompile Include="..\..\Assets\Scripts\Player\Temp_Teleporter.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+    <ClCompile Include="../../Assets/Scripts/ArmoryUpgratteButtons.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="../../Assets/Scripts/ArmoryWeaponSelect.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Assets\Scripts\AbilityTreeSelectScript.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Macro.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="../../Assets/Scripts/transformTest.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="../../Assets/Scripts/BulletBehavior.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="../../Assets/Scripts/TankScript.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="../../Assets/Scripts/HouseBehavior.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="../../Assets/Scripts/GamePadTest.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="../../Assets/Scripts/PlayerKeyboardMovement.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="../../Assets/Scripts/PlayerGamepadMovement.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="../../Assets/Scripts/Enemies/Enemy.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="../../Assets/Scripts/CollisionTestScript.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="../../Assets/Scripts/CamMov.h">
@@ -219,13 +165,7 @@
     <ClInclude Include="../../Assets/Scripts/Shooting/Projectile.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="../../Assets/Build/AnimationTest.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="../../Assets/Scripts/RotateContiniously.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="../../Assets/Scripts/UIbutton.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="../../Assets/Scripts/UI Test folder/ButtonActionsTest.h">
@@ -238,16 +178,10 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="../../Assets/Scripts/MenuButtons.h" />
-    <ClInclude Include="../../Assets/Scripts/ParticleTest.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Assets\Scripts\Shooting\Guns\PlayerSemiAuto.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Assets\Scripts\Player\PlayerStats.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Assets\Scripts\TestAPI.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Assets\Scripts\Enemies\EnemyMeleeMovement.h">
@@ -292,9 +226,6 @@
     <ClInclude Include="../../Assets/Scripts/UI Test folder/Movment_Bar_HP.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="../../Assets/Scripts/ParticleCopyTest.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Assets\Scripts\UI Test folder\HpBar.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
@@ -311,6 +242,15 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Assets\Scripts\Player\Temp_Teleporter.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="../../Assets/Scripts/ArmoryUpgratteButtons.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="../../Assets/Scripts/ArmoryWeaponSelect.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Assets\Scripts\AbilityTreeSelectScript.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
