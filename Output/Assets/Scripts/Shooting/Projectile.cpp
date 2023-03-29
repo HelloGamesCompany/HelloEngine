@@ -34,24 +34,25 @@ void Projectile::Destroy()
 
 void Projectile::OnCollisionEnter(API::API_RigidBody other)
 {
-    std::string detectionName = other.GetGameObject().GetName();
+    std::string detectionTag = other.GetGameObject().GetTag();
+    Console::Log("Tad is" + detectionTag);
     switch (action)
     {
     case PROJECTILE_ACTION::NONE:
-        if (detectionName != "Player" && detectionName != "Projectile" && detectionName != "Ultimate" && detectionName != "Zone")
+        if (detectionTag == "Wall" || detectionTag == "Enemy")
         {
             Destroy();
         }
         break;
     case PROJECTILE_ACTION::SLOW:
-        if (detectionName != "Player" && detectionName != "Projectile" && detectionName != "Ultimate" && detectionName != "Zone")
+        if (detectionTag == "Wall" || detectionTag == "Enemy")
         {
             // apply slow to enemy
             Destroy();
         }
         break;
     case PROJECTILE_ACTION::FREEZE:
-        if (detectionName != "Player" && detectionName != "Projectile" && detectionName != "Ultimate" && detectionName != "Zone")
+        if (detectionTag == "Wall" || detectionTag == "Enemy")
         {
             // apply freeze to enemy
             Destroy();
@@ -60,7 +61,7 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
     case PROJECTILE_ACTION::FLAMETROWER:
         break;
     case PROJECTILE_ACTION::RICOCHET:
-        if (detectionName == "Wall" && wallCd <= 0)
+        if (detectionTag == "Wall" && wallCd <= 0)
         {
             gameObject.GetTransform().Rotate(0, 180, 0);
             wallCd = 1;
