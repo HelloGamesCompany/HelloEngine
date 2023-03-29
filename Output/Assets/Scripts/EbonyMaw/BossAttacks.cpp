@@ -1,6 +1,9 @@
 #include "BossAttacks.h"
 #include "../EbonyMaw/RockDivider.h"
 #include "../EbonyMaw/BossLoop.h"
+#include <time.h>
+#include <random>
+//Pau Olmos
 
 HELLO_ENGINE_API_C BossAttacks* CreateBossAttacks(ScriptToInspectorInterface* script)
 {
@@ -50,11 +53,11 @@ void BossAttacks::Update()
 			speed = 1.0f;
 			if (bossState == BOSS_STATE::ROCKSELECT) SelectRock();
 			if (bossState == BOSS_STATE::SEEKING) {
-				bossPosition = gameObject.GetTransform().GetGlobalPosition();
-				Seek(&rocks[currentRock], bossPosition, speed);
+				bossPosition1 = { gameObject.GetTransform().GetGlobalPosition().x,gameObject.GetTransform().GetGlobalPosition().y +10.0f,gameObject.GetTransform().GetGlobalPosition().z };
+				Seek(&rocks[currentRock], bossPosition1, speed / 3);
 			}
 			if (bossState == BOSS_STATE::HOLDING) HoldRock();
-			if (bossState == BOSS_STATE::THROWING) Seek(&rocks[currentRock], playerPosition, speed);
+			if (bossState == BOSS_STATE::THROWING) Seek(&rocks[currentRock], playerPosition, speed/2);
 			break;
 		default:
 			break;
@@ -98,31 +101,14 @@ void BossAttacks::SelectRock()
 
 void BossAttacks::Seek(API_GameObject* seeker, API_Vector3 target, float speed)
 {
-	if (seeker->GetTransform().GetGlobalPosition().x > target.x) {
-		xDistance = seeker->GetTransform().GetGlobalPosition().x - target.x;
-		seeker->GetTransform().SetPosition(seeker->GetTransform().GetGlobalPosition().x - (xDistance / 60) * speed, seeker->GetTransform().GetGlobalPosition().y, seeker->GetTransform().GetGlobalPosition().z);
-	}
-	else if (seeker->GetTransform().GetGlobalPosition().x < target.x) {
-		xDistance = target.x - seeker->GetTransform().GetGlobalPosition().x;
-		seeker->GetTransform().SetPosition(seeker->GetTransform().GetGlobalPosition().x + (xDistance / 60) * speed, seeker->GetTransform().GetGlobalPosition().y, seeker->GetTransform().GetGlobalPosition().z);
-	}
-	if (seeker->GetTransform().GetGlobalPosition().y > target.y) {
-		yDistance = seeker->GetTransform().GetGlobalPosition().y - target.y;
-		seeker->GetTransform().SetPosition(seeker->GetTransform().GetGlobalPosition().x, seeker->GetTransform().GetGlobalPosition().y - (yDistance / 60) * speed, seeker->GetTransform().GetGlobalPosition().z);
-	}
-	else if (seeker->GetTransform().GetGlobalPosition().y < target.y) {
-		yDistance = target.y - seeker->GetTransform().GetGlobalPosition().y;
-		seeker->GetTransform().SetPosition(seeker->GetTransform().GetGlobalPosition().x, seeker->GetTransform().GetGlobalPosition().y + (yDistance / 60) * speed, seeker->GetTransform().GetGlobalPosition().z);
-	}
-	if (seeker->GetTransform().GetGlobalPosition().z > target.z) {
-		zDistance = seeker->GetTransform().GetGlobalPosition().z - target.z;
-		seeker->GetTransform().SetPosition(seeker->GetTransform().GetGlobalPosition().x, seeker->GetTransform().GetGlobalPosition().y, seeker->GetTransform().GetGlobalPosition().z - (zDistance / 60) * speed);
-	}
-	else if (seeker->GetTransform().GetGlobalPosition().z < target.z) {
-		zDistance = target.z - seeker->GetTransform().GetGlobalPosition().z;
-		seeker->GetTransform().SetPosition(seeker->GetTransform().GetGlobalPosition().x, seeker->GetTransform().GetGlobalPosition().y, seeker->GetTransform().GetGlobalPosition().z + (zDistance / 60) * speed);
-	}
-	if (xDistance < 0.03 && xDistance > -0.03 && yDistance < 0.03 && yDistance && zDistance < 0.03 && zDistance) {
+	if (bossState == BOSS_STATE::SEEKING) {
+	dir = target - seeker->GetTransform().GetGlobalPosition();
+	seeker->GetTransform().Rotate(150 * Time::GetDeltaTime(), 300 * Time::GetDeltaTime(), 250 * Time::GetDeltaTime());
+	} 
+	API_Vector3 dist = target - seeker->GetTransform().GetGlobalPosition();
+	seeker->GetTransform().Translate((dir / 60.0f) * speed * Time::GetDeltaTime() * 400);
+
+	if (dist.x < 0.03 && dist.x > -0.03 && dist.y < 0.03 && dist.y && dist.z < 0.03 && dist.z) {
 		if (bossState == BOSS_STATE::SEEKING) {
 			bossState = BOSS_STATE::HOLDING;
 		}
@@ -142,6 +128,7 @@ void BossAttacks::HoldRock()
 		throwing = true;
 		bossState = BOSS_STATE::THROWING;
 		playerPosition = player.GetTransform().GetGlobalPosition();
+		dir = player.GetTransform().GetGlobalPosition() - rocks[currentRock].GetTransform().GetGlobalPosition();
 	}
 }
 

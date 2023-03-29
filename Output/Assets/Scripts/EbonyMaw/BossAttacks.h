@@ -20,10 +20,16 @@ public:
 	API_Vector3 rockPositions[20];
 	API_GameObject selectedRock;
 
+	API_Vector3 dir = { 0,0,0 };
+
 	API_GameObject boss;
 	API_GameObject player;
 	API_Vector3 playerPosition;
-	API_Vector3 bossPosition;
+	API_Vector3 bossPosition1;
+	API_Vector3 bossPosition2;
+	API_Vector3 bossPosition3;
+	API_Vector3 bossPosition4;
+	API_Vector3 bossPosition5;
 	bool hasPlayerCoords = false;
 	bool hasBossCoords = false;
 

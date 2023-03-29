@@ -2,7 +2,7 @@
 #include "../Player/PlayerStats.h"
 #include "../EbonyMaw/BossLoop.h"
 #include "../EbonyMaw/BossAttacks.h"
-
+//Pau Olmos
 
 HELLO_ENGINE_API_C RockDivider* CreateRockDivider(ScriptToInspectorInterface* script)
 {
@@ -40,15 +40,14 @@ void RockDivider::Update()
 		stoneTime += dt;
 		bAttacks->ReturnRock(&gameObject);
 		gameObject.GetTransform().SetRotation(0, 0, 0);
-		stones[0].GetTransform().Translate(0, 0, 0.1f);
-		stones[1].GetTransform().Translate(0.1f, 0, 0.1f);
-		stones[2].GetTransform().Translate(0.1f, 0, 0);
-		stones[3].GetTransform().Translate(0.1f, 0, -0.1f);
-		stones[4].GetTransform().Translate(0, 0, -0.1f);
-		stones[5].GetTransform().Translate(-0.1f, 0, -0.1f);
-		stones[6].GetTransform().Translate(-0.1f, 0, 0);
-		stones[7].GetTransform().Translate(-0.1f, 0, 0.1f);
-	
+		stones[0].GetTransform().Translate(0, 0, 0.1f * dt * 100);
+		stones[1].GetTransform().Translate(0.1f * dt * 100, 0, 0.1f * dt * 100);
+		stones[2].GetTransform().Translate(0.1f * dt * 100, 0, 0);
+		stones[3].GetTransform().Translate(0.1f * dt * 100, 0, -0.1f * dt * 100);
+		stones[4].GetTransform().Translate(0, 0, -0.1f * dt * 100);
+		stones[5].GetTransform().Translate(-0.1f * dt * 100, 0, -0.1f * dt * 100);
+		stones[6].GetTransform().Translate(-0.1f * dt * 100, 0, 0);
+		stones[7].GetTransform().Translate(-0.1f * dt * 100, 0, 0.1f * dt * 100);
 		if (bAttacks->stoneLifeTime < stoneTime) {
 			stoneTime = 0;
 			rockDivided = false;

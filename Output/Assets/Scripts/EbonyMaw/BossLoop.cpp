@@ -40,6 +40,7 @@ if (canTakeDamage == true) {
     }
     }
     else {
+        gameObject.SetActive(false);
         gameObject.GetTransform().SetScale(0, 0, 0);
     }
 
