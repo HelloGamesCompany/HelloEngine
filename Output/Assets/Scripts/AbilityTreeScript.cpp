@@ -1,6 +1,6 @@
 #include "AbilityTreeScript.h"
 //MADE BY ALEX GARCIA SELMA
-HELLO_ENGINE_API_C AbilityTreeScript* CreateAbilityTreeSScript(ScriptToInspectorInterface* script)
+HELLO_ENGINE_API_C AbilityTreeScript* CreateAbilityTreeScript(ScriptToInspectorInterface* script)
 {
 	AbilityTreeScript* classInstance = new AbilityTreeScript();
 	//Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);

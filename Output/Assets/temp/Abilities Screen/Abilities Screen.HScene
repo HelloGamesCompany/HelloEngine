@@ -91,6 +91,43 @@
                     3655526919,
                     3302747482
                 ]
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Movement": 3961102070
+                    },
+                    {
+                        "AbilityList2": 109185096
+                    },
+                    {
+                        "AbilityList3": 3655526919
+                    },
+                    {
+                        "AbilityList4": 3302747482
+                    },
+                    {
+                        "PanelMovement": 1770922130
+                    },
+                    {
+                        "Movement": 3961102070
+                    },
+                    {
+                        "AbilityList2": 109185096
+                    },
+                    {
+                        "AbilityList3": 3655526919
+                    },
+                    {
+                        "AbilityList4": 3302747482
+                    },
+                    {
+                        "PanelMovement": 1770922130
+                    }
+                ],
+                "Script Resource": 1314393320,
+                "Type": 5
             }
         ],
         "FirstOnPrefab": true,
