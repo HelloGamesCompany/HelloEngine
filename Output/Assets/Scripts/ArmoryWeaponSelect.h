@@ -8,7 +8,7 @@
 class ArmoryWeaponSelect : HelloBehavior
 {
 public:
-	void Start() override; 
+	void Start() override;
 	void Update() override;
 
 	API_UIButton Weapon1;
@@ -17,7 +17,14 @@ public:
 	API_UIButton Weapon4;
 	API_UIButton Weapon5;
 	API_UIButton Weapon6;
-	API_UIButton Weapon7;
-	API_UIButton Weapon8;
+
+	API_Material SelectedWeapon;
+	uint Weapon1Texture;
+	uint Weapon2Texture;
+	uint Weapon3Texture;
+	uint Weapon4Texture;
+	uint Weapon5Texture;
+	uint Weapon6Texture;
+
 };
 
