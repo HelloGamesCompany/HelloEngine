@@ -104,7 +104,7 @@
                 "Enabled": true,
                 "Position": [
                     0.800000011920929,
-                    0.748454213142395,
+                    0.7521716356277466,
                     0.0
                 ],
                 "Rotation": [
@@ -128,7 +128,7 @@
                 ],
                 "Enabled": true,
                 "PositionX": 0.800000011920929,
-                "PositionY": 0.7446810007095337,
+                "PositionY": 0.748454213142395,
                 "Scale": 0.25,
                 "Text": "1",
                 "Type": 17
@@ -439,45 +439,6 @@
                     },
                     {
                         "Material Weapon 6": 4120732920
-                    },
-                    {
-                        "Weapon5": 493668277
-                    },
-                    {
-                        "Weapon1": 3518481655
-                    },
-                    {
-                        "Weapon2": 4145208356
-                    },
-                    {
-                        "Weapon3": 1911153676
-                    },
-                    {
-                        "Weapon4": 1415821494
-                    },
-                    {
-                        "Weapon6": 601873605
-                    },
-                    {
-                        "SelectedWeapon": 2478615852
-                    },
-                    {
-                        "Material Weapon 1": 2149418341
-                    },
-                    {
-                        "Material Weapon 2": 273176788
-                    },
-                    {
-                        "Material Weapon 3": 3923147828
-                    },
-                    {
-                        "Material Weapon 4": 2736792734
-                    },
-                    {
-                        "Material Weapon 5": 541261496
-                    },
-                    {
-                        "Material Weapon 6": 4120732920
                     }
                 ],
                 "Script Resource": 553099281,
@@ -525,45 +486,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Weapon5": 493668277
-                    },
-                    {
-                        "Weapon1": 3518481655
-                    },
-                    {
-                        "Weapon2": 4145208356
-                    },
-                    {
-                        "Weapon3": 1911153676
-                    },
-                    {
-                        "Weapon4": 1415821494
-                    },
-                    {
-                        "Weapon6": 601873605
-                    },
-                    {
-                        "SelectedWeapon": 2478615852
-                    },
-                    {
-                        "Material Weapon 1": 2149418341
-                    },
-                    {
-                        "Material Weapon 2": 273176788
-                    },
-                    {
-                        "Material Weapon 3": 3923147828
-                    },
-                    {
-                        "Material Weapon 4": 2736792734
-                    },
-                    {
-                        "Material Weapon 5": 541261496
-                    },
-                    {
-                        "Material Weapon 6": 4120732920
-                    },
                     {
                         "Weapon5": 493668277
                     },
@@ -765,45 +687,6 @@
                     },
                     {
                         "Material Weapon 6": 4120732920
-                    },
-                    {
-                        "Weapon5": 493668277
-                    },
-                    {
-                        "Weapon1": 3518481655
-                    },
-                    {
-                        "Weapon2": 4145208356
-                    },
-                    {
-                        "Weapon3": 1911153676
-                    },
-                    {
-                        "Weapon4": 1415821494
-                    },
-                    {
-                        "Weapon6": 601873605
-                    },
-                    {
-                        "SelectedWeapon": 2478615852
-                    },
-                    {
-                        "Material Weapon 1": 2149418341
-                    },
-                    {
-                        "Material Weapon 2": 273176788
-                    },
-                    {
-                        "Material Weapon 3": 3923147828
-                    },
-                    {
-                        "Material Weapon 4": 2736792734
-                    },
-                    {
-                        "Material Weapon 5": 541261496
-                    },
-                    {
-                        "Material Weapon 6": 4120732920
                     }
                 ],
                 "Script Resource": 2943233861,
@@ -851,45 +734,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Weapon5": 493668277
-                    },
-                    {
-                        "Weapon1": 3518481655
-                    },
-                    {
-                        "Weapon2": 4145208356
-                    },
-                    {
-                        "Weapon3": 1911153676
-                    },
-                    {
-                        "Weapon4": 1415821494
-                    },
-                    {
-                        "Weapon6": 601873605
-                    },
-                    {
-                        "SelectedWeapon": 2478615852
-                    },
-                    {
-                        "Material Weapon 1": 2149418341
-                    },
-                    {
-                        "Material Weapon 2": 273176788
-                    },
-                    {
-                        "Material Weapon 3": 3923147828
-                    },
-                    {
-                        "Material Weapon 4": 2736792734
-                    },
-                    {
-                        "Material Weapon 5": 541261496
-                    },
-                    {
-                        "Material Weapon 6": 4120732920
-                    },
                     {
                         "Weapon5": 493668277
                     },
@@ -1091,45 +935,6 @@
                     },
                     {
                         "Material Weapon 6": 4120732920
-                    },
-                    {
-                        "Weapon5": 493668277
-                    },
-                    {
-                        "Weapon1": 3518481655
-                    },
-                    {
-                        "Weapon2": 4145208356
-                    },
-                    {
-                        "Weapon3": 1911153676
-                    },
-                    {
-                        "Weapon4": 1415821494
-                    },
-                    {
-                        "Weapon6": 601873605
-                    },
-                    {
-                        "SelectedWeapon": 2478615852
-                    },
-                    {
-                        "Material Weapon 1": 2149418341
-                    },
-                    {
-                        "Material Weapon 2": 273176788
-                    },
-                    {
-                        "Material Weapon 3": 3923147828
-                    },
-                    {
-                        "Material Weapon 4": 2736792734
-                    },
-                    {
-                        "Material Weapon 5": 541261496
-                    },
-                    {
-                        "Material Weapon 6": 4120732920
                     }
                 ],
                 "Script Resource": 2943233861,
@@ -1177,45 +982,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Weapon5": 493668277
-                    },
-                    {
-                        "Weapon1": 3518481655
-                    },
-                    {
-                        "Weapon2": 4145208356
-                    },
-                    {
-                        "Weapon3": 1911153676
-                    },
-                    {
-                        "Weapon4": 1415821494
-                    },
-                    {
-                        "Weapon6": 601873605
-                    },
-                    {
-                        "SelectedWeapon": 2478615852
-                    },
-                    {
-                        "Material Weapon 1": 2149418341
-                    },
-                    {
-                        "Material Weapon 2": 273176788
-                    },
-                    {
-                        "Material Weapon 3": 3923147828
-                    },
-                    {
-                        "Material Weapon 4": 2736792734
-                    },
-                    {
-                        "Material Weapon 5": 541261496
-                    },
-                    {
-                        "Material Weapon 6": 4120732920
-                    },
                     {
                         "Weapon5": 493668277
                     },
