@@ -198,6 +198,48 @@
                     },
                     {
                         "Player Stats GO": 2404673066
+                    },
+                    {
+                        "Velocity": 10.0
+                    },
+                    {
+                        "Upgrade Velocity": 2.0
+                    },
+                    {
+                        "SecToMaxVel": 0.0
+                    },
+                    {
+                        "SecToZeroVel": 0.0
+                    },
+                    {
+                        "Dash Time": 0.5
+                    },
+                    {
+                        "Dash Distance": 5.0
+                    },
+                    {
+                        "Upgrade Dash Distance": 8.0
+                    },
+                    {
+                        "Dash Cooldown": 0.0
+                    },
+                    {
+                        "Upgrade Dash Cooldown": 0.0
+                    },
+                    {
+                        "Dash Animation": 3797853291
+                    },
+                    {
+                        "Idle Animation": 1165806223
+                    },
+                    {
+                        "Run Animation": 462511998
+                    },
+                    {
+                        "Shoot Animations": 3469875527
+                    },
+                    {
+                        "Player Stats GO": 2404673066
                     }
                 ],
                 "Script Resource": 3336682094,
@@ -225,16 +267,16 @@
                         "Ricochet Ammo": 99999
                     },
                     {
-                        "tree1": 0
+                        "movement tree lvl": 0
                     },
                     {
-                        "tree2": 0
+                        "armory tree lvl": 0
                     },
                     {
-                        "tree3": 0
+                        "health tree lvl": 0
                     },
                     {
-                        "tree4": 0
+                        "special tree lvl": 0
                     },
                     {
                         "Max HP": 100.0
@@ -255,16 +297,46 @@
                         "Ricochet Ammo": 99999
                     },
                     {
-                        "tree1": 0
+                        "movement tree lvl": 0
                     },
                     {
-                        "tree2": 0
+                        "armory tree lvl": 0
                     },
                     {
-                        "tree3": 0
+                        "health tree lvl": 0
                     },
                     {
-                        "tree4": 0
+                        "special tree lvl": 0
+                    },
+                    {
+                        "Max HP": 100.0
+                    },
+                    {
+                        "Current HP": 0.0
+                    },
+                    {
+                        "Upgraded Max HP": 0.0
+                    },
+                    {
+                        "Laser Ammo": 99999
+                    },
+                    {
+                        "Fire Ammo": 99999
+                    },
+                    {
+                        "Ricochet Ammo": 99999
+                    },
+                    {
+                        "movement tree lvl": 0
+                    },
+                    {
+                        "armory tree lvl": 0
+                    },
+                    {
+                        "health tree lvl": 0
+                    },
+                    {
+                        "special tree lvl": 0
                     }
                 ],
                 "Script Resource": 4283682555,
@@ -273,6 +345,27 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Player Stats GO": 2404673066
+                    },
+                    {
+                        "Base Gun": 0
+                    },
+                    {
+                        "Normal Gun": 0
+                    },
+                    {
+                        "Special Gun": 0
+                    },
+                    {
+                        "Duals": 3362283822
+                    },
+                    {
+                        "Swap Delay": 0.0
+                    },
+                    {
+                        "Fast Swap Delay": 0.0
+                    },
                     {
                         "Player Stats GO": 2404673066
                     },
@@ -5800,6 +5893,9 @@
                     },
                     {
                         "Gun Type": 0
+                    },
+                    {
+                        "Gun Type": 0
                     }
                 ],
                 "Script Resource": 1421097082,
@@ -5808,6 +5904,70 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Projectile Pull": 496434358
+                    },
+                    {
+                        "Projectile Speed": 40.0
+                    },
+                    {
+                        "Projectile Damage": 5.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 0.0
+                    },
+                    {
+                        "Projectile Lifetime": 1.0
+                    },
+                    {
+                        "Projectile Spawn": 3362283822
+                    },
+                    {
+                        "Second Projectile Spawn": 2416443458
+                    },
+                    {
+                        "Projectile MeshIndexInsideModel": 0,
+                        "Projectile MeshModelUID": 1551155716
+                    },
+                    {
+                        "Projectile Material": 1412513036
+                    },
+                    {
+                        "Projectile ScaleX": 0.10000000149011612
+                    },
+                    {
+                        "Projectile ScaleY": 0.10000000149011612
+                    },
+                    {
+                        "Projectile ScaleZ": 0.10000000149011612
+                    },
+                    {
+                        "Projectiles per second": 2.0
+                    },
+                    {
+                        "Extra % firerate": 0.0
+                    },
+                    {
+                        "Burst Space": 0.10000000149011612
+                    },
+                    {
+                        "Second Gun GO": 2416443458
+                    },
+                    {
+                        "Slow %": 0.0
+                    },
+                    {
+                        "Freeze %": 0.0
+                    },
+                    {
+                        "Player Stats GO": 2404673066
+                    },
+                    {
+                        "Ammo Type": 0
+                    },
+                    {
+                        "Audio Event String": "basic_shooting"
+                    },
                     {
                         "Projectile Pull": 496434358
                     },
@@ -6753,7 +6913,7 @@
             {
                 "Active camera": true,
                 "Active culling": true,
-                "Aspect ratio": 2.3333332538604736,
+                "Aspect ratio": 1.437939167022705,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -6765,6 +6925,33 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Target": 2404673066
+                    },
+                    {
+                        "Delay": 0.009999999776482582
+                    },
+                    {
+                        "Offset_X": 0.0
+                    },
+                    {
+                        "Offset_Y": 25.0
+                    },
+                    {
+                        "Offset_Z": -20.0
+                    },
+                    {
+                        "Rot_Offset_X": 50.0
+                    },
+                    {
+                        "Rot_Offset_Y": 0.0
+                    },
+                    {
+                        "Rot_Offset_Z": 0.0
+                    },
+                    {
+                        "Use safe zone: ": true
+                    },
                     {
                         "Target": 2404673066
                     },
@@ -6856,6 +7043,15 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Pull Size": 20
+                    },
+                    {
+                        "Player": 2404673066
+                    },
+                    {
+                        "Particles": 246564278
+                    },
                     {
                         "Pull Size": 20
                     },
@@ -7081,6 +7277,24 @@
                     },
                     {
                         "shield3Hp": 50.0
+                    },
+                    {
+                        "hp": 200.0
+                    },
+                    {
+                        "Phase": 0
+                    },
+                    {
+                        "Weakness": 0.0
+                    },
+                    {
+                        "shield1Hp": 50.0
+                    },
+                    {
+                        "shield2Hp": 50.0
+                    },
+                    {
+                        "shield3Hp": 50.0
                     }
                 ],
                 "Script Resource": 749246839,
@@ -7094,6 +7308,60 @@
                     },
                     {
                         "Rock2": 3084818490
+                    },
+                    {
+                        "Rock3": 1560165084
+                    },
+                    {
+                        "Rock4": 530397323
+                    },
+                    {
+                        "Rock5": 2958180871
+                    },
+                    {
+                        "Rock6": 3533609395
+                    },
+                    {
+                        "Rock7": 1987941710
+                    },
+                    {
+                        "Rock8": 1463645605
+                    },
+                    {
+                        "Rock9": 2371568105
+                    },
+                    {
+                        "Rock10": 3810245373
+                    },
+                    {
+                        "Rock11": 3028010784
+                    },
+                    {
+                        "Rock12": 3259003296
+                    },
+                    {
+                        "Rock13": 536157727
+                    },
+                    {
+                        "Rock15": 2042989746
+                    },
+                    {
+                        "Rock15": 2042989746
+                    },
+                    {
+                        "Rock16": 2852131930
+                    },
+                    {
+                        "Rock17": 3349069858
+                    },
+                    {
+                        "Rock18": 408018569
+                    },
+                    {
+                        "Rock19": 4042063901
+                    },
+                    {
+                        "Rock20": 1978650304
                     },
                     {
                         "Attacking": false
@@ -7112,6 +7380,132 @@
                     },
                     {
                         "Rock2": 3084818490
+                    },
+                    {
+                        "Rock3": 1560165084
+                    },
+                    {
+                        "Rock4": 530397323
+                    },
+                    {
+                        "Rock5": 2958180871
+                    },
+                    {
+                        "Rock6": 3533609395
+                    },
+                    {
+                        "Rock7": 1987941710
+                    },
+                    {
+                        "Rock8": 1463645605
+                    },
+                    {
+                        "Rock9": 2371568105
+                    },
+                    {
+                        "Rock10": 3810245373
+                    },
+                    {
+                        "Rock11": 3028010784
+                    },
+                    {
+                        "Rock12": 3259003296
+                    },
+                    {
+                        "Rock13": 536157727
+                    },
+                    {
+                        "Rock15": 2042989746
+                    },
+                    {
+                        "Rock15": 2042989746
+                    },
+                    {
+                        "Rock16": 2852131930
+                    },
+                    {
+                        "Rock17": 3349069858
+                    },
+                    {
+                        "Rock18": 408018569
+                    },
+                    {
+                        "Rock19": 4042063901
+                    },
+                    {
+                        "Rock20": 1978650304
+                    },
+                    {
+                        "Attacking": false
+                    },
+                    {
+                        "Boss": 2563879370
+                    },
+                    {
+                        "Player": 2404673066
+                    },
+                    {
+                        "Cooldown": 0.0
+                    },
+                    {
+                        "Rock1": 2410607890
+                    },
+                    {
+                        "Rock2": 3084818490
+                    },
+                    {
+                        "Rock3": 1560165084
+                    },
+                    {
+                        "Rock4": 530397323
+                    },
+                    {
+                        "Rock5": 2958180871
+                    },
+                    {
+                        "Rock6": 3533609395
+                    },
+                    {
+                        "Rock7": 1987941710
+                    },
+                    {
+                        "Rock8": 1463645605
+                    },
+                    {
+                        "Rock9": 2371568105
+                    },
+                    {
+                        "Rock10": 3810245373
+                    },
+                    {
+                        "Rock11": 3028010784
+                    },
+                    {
+                        "Rock12": 3259003296
+                    },
+                    {
+                        "Rock13": 536157727
+                    },
+                    {
+                        "Rock15": 2042989746
+                    },
+                    {
+                        "Rock15": 2042989746
+                    },
+                    {
+                        "Rock16": 2852131930
+                    },
+                    {
+                        "Rock17": 3349069858
+                    },
+                    {
+                        "Rock18": 408018569
+                    },
+                    {
+                        "Rock19": 4042063901
+                    },
+                    {
+                        "Rock20": 1978650304
                     },
                     {
                         "Attacking": false
@@ -11954,7 +12348,7 @@
             {
                 "Enabled": true,
                 "Position": [
-                    -14.650432586669922,
+                    -13.185335159301758,
                     -8.579150199890137,
                     411.8972473144531
                 ],
@@ -12048,11 +12442,27 @@
                         "Boss": 2563879370
                     },
                     {
+                        "Num Rock": 0
+                    },
+                    {
                         "Stone MeshIndexInsideModel": 0,
                         "Stone MeshModelUID": 1551155716
                     },
                     {
                         "Boss": 2563879370
+                    },
+                    {
+                        "Num Rock": 0
+                    },
+                    {
+                        "Stone MeshIndexInsideModel": 0,
+                        "Stone MeshModelUID": 1551155716
+                    },
+                    {
+                        "Boss": 2563879370
+                    },
+                    {
+                        "Num Rock": 0
                     },
                     {
                         "Stone MeshIndexInsideModel": 0,
@@ -12490,11 +12900,27 @@
                         "Boss": 2563879370
                     },
                     {
+                        "Num Rock": 1
+                    },
+                    {
                         "Stone MeshIndexInsideModel": 0,
                         "Stone MeshModelUID": 1551155716
                     },
                     {
                         "Boss": 2563879370
+                    },
+                    {
+                        "Num Rock": 1
+                    },
+                    {
+                        "Stone MeshIndexInsideModel": 0,
+                        "Stone MeshModelUID": 1551155716
+                    },
+                    {
+                        "Boss": 2563879370
+                    },
+                    {
+                        "Num Rock": 1
                     },
                     {
                         "Stone MeshIndexInsideModel": 0,
@@ -13038,5 +13464,1391 @@
         "PrefabUID": 0,
         "Tag": "Primitive",
         "UID": 3379009837
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    -44.0669059753418,
+                    396.01953125
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 10,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Boss": 2563879370
+                    },
+                    {
+                        "Num Rock": 2
+                    },
+                    {
+                        "Stone MeshIndexInsideModel": 0,
+                        "Stone MeshModelUID": 1551155716
+                    },
+                    {
+                        "Boss": 2563879370
+                    },
+                    {
+                        "Num Rock": 2
+                    },
+                    {
+                        "Stone MeshIndexInsideModel": 0,
+                        "Stone MeshModelUID": 1551155716
+                    },
+                    {
+                        "Boss": 2563879370
+                    },
+                    {
+                        "Num Rock": 2
+                    },
+                    {
+                        "Stone MeshIndexInsideModel": 0,
+                        "Stone MeshModelUID": 1551155716
+                    }
+                ],
+                "Script Resource": 1938644800,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Rock3",
+        "ParentUID": 848935399,
+        "PrefabUID": 0,
+        "Tag": "Primitive",
+        "UID": 1560165084
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    -42.68732452392578,
+                    402.86297607421875
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 10,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Boss": 2563879370
+                    },
+                    {
+                        "Num Rock": 3
+                    },
+                    {
+                        "Stone MeshIndexInsideModel": 0,
+                        "Stone MeshModelUID": 1551155716
+                    },
+                    {
+                        "Boss": 2563879370
+                    },
+                    {
+                        "Num Rock": 3
+                    },
+                    {
+                        "Stone MeshIndexInsideModel": 0,
+                        "Stone MeshModelUID": 1551155716
+                    },
+                    {
+                        "Boss": 2563879370
+                    },
+                    {
+                        "Num Rock": 3
+                    },
+                    {
+                        "Stone MeshIndexInsideModel": 0,
+                        "Stone MeshModelUID": 1551155716
+                    }
+                ],
+                "Script Resource": 1938644800,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Rock4",
+        "ParentUID": 848935399,
+        "PrefabUID": 0,
+        "Tag": "Primitive",
+        "UID": 530397323
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    30.210773468017578,
+                    -62.41139602661133,
+                    550.6083374023438
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 10,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Boss": 2563879370
+                    },
+                    {
+                        "Num Rock": 4
+                    },
+                    {
+                        "Stone MeshIndexInsideModel": 0,
+                        "Stone MeshModelUID": 1551155716
+                    },
+                    {
+                        "Boss": 2563879370
+                    },
+                    {
+                        "Num Rock": 4
+                    },
+                    {
+                        "Stone MeshIndexInsideModel": 0,
+                        "Stone MeshModelUID": 1551155716
+                    },
+                    {
+                        "Boss": 2563879370
+                    },
+                    {
+                        "Num Rock": 4
+                    },
+                    {
+                        "Stone MeshIndexInsideModel": 0,
+                        "Stone MeshModelUID": 1551155716
+                    }
+                ],
+                "Script Resource": 1938644800,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Rock5",
+        "ParentUID": 848935399,
+        "PrefabUID": 0,
+        "Tag": "Primitive",
+        "UID": 2958180871
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    -28.383623123168945,
+                    397.72314453125
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 10,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Boss": 2563879370
+                    },
+                    {
+                        "Num Rock": 5
+                    },
+                    {
+                        "Stone MeshIndexInsideModel": 0,
+                        "Stone MeshModelUID": 1551155716
+                    },
+                    {
+                        "Boss": 2563879370
+                    },
+                    {
+                        "Num Rock": 5
+                    },
+                    {
+                        "Stone MeshIndexInsideModel": 0,
+                        "Stone MeshModelUID": 1551155716
+                    },
+                    {
+                        "Boss": 2563879370
+                    },
+                    {
+                        "Num Rock": 5
+                    },
+                    {
+                        "Stone MeshIndexInsideModel": 0,
+                        "Stone MeshModelUID": 1551155716
+                    }
+                ],
+                "Script Resource": 1938644800,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Rock6",
+        "ParentUID": 848935399,
+        "PrefabUID": 0,
+        "Tag": "Primitive",
+        "UID": 3533609395
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -42.420719146728516,
+                    -58.87255859375,
+                    374.5711975097656
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 10,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Boss": 2563879370
+                    },
+                    {
+                        "Num Rock": 6
+                    },
+                    {
+                        "Stone MeshIndexInsideModel": 0,
+                        "Stone MeshModelUID": 1551155716
+                    },
+                    {
+                        "Boss": 2563879370
+                    },
+                    {
+                        "Num Rock": 6
+                    },
+                    {
+                        "Stone MeshIndexInsideModel": 0,
+                        "Stone MeshModelUID": 1551155716
+                    },
+                    {
+                        "Boss": 2563879370
+                    },
+                    {
+                        "Num Rock": 6
+                    },
+                    {
+                        "Stone MeshIndexInsideModel": 0,
+                        "Stone MeshModelUID": 1551155716
+                    }
+                ],
+                "Script Resource": 1938644800,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Rock7",
+        "ParentUID": 848935399,
+        "PrefabUID": 0,
+        "Tag": "Primitive",
+        "UID": 1987941710
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -22.091346740722656,
+                    -30.000476837158203,
+                    302.21630859375
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 10,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Boss": 2563879370
+                    },
+                    {
+                        "Num Rock": 7
+                    },
+                    {
+                        "Stone MeshIndexInsideModel": 0,
+                        "Stone MeshModelUID": 1551155716
+                    },
+                    {
+                        "Boss": 2563879370
+                    },
+                    {
+                        "Num Rock": 7
+                    },
+                    {
+                        "Stone MeshIndexInsideModel": 0,
+                        "Stone MeshModelUID": 1551155716
+                    },
+                    {
+                        "Boss": 2563879370
+                    },
+                    {
+                        "Num Rock": 7
+                    },
+                    {
+                        "Stone MeshIndexInsideModel": 0,
+                        "Stone MeshModelUID": 1551155716
+                    }
+                ],
+                "Script Resource": 1938644800,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Rock8",
+        "ParentUID": 848935399,
+        "PrefabUID": 0,
+        "Tag": "Primitive",
+        "UID": 1463645605
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    -86.7525405883789,
+                    444.92388916015625
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 10,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Boss": 2563879370
+                    },
+                    {
+                        "Num Rock": 8
+                    },
+                    {
+                        "Stone MeshIndexInsideModel": 0,
+                        "Stone MeshModelUID": 1551155716
+                    },
+                    {
+                        "Boss": 2563879370
+                    },
+                    {
+                        "Num Rock": 8
+                    },
+                    {
+                        "Stone MeshIndexInsideModel": 0,
+                        "Stone MeshModelUID": 1551155716
+                    },
+                    {
+                        "Boss": 2563879370
+                    },
+                    {
+                        "Num Rock": 8
+                    },
+                    {
+                        "Stone MeshIndexInsideModel": 0,
+                        "Stone MeshModelUID": 1551155716
+                    }
+                ],
+                "Script Resource": 1938644800,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Rock9",
+        "ParentUID": 848935399,
+        "PrefabUID": 0,
+        "Tag": "Primitive",
+        "UID": 2371568105
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    34.65629196166992,
+                    -47.18690490722656,
+                    449.43975830078125
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 10,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Boss": 2563879370
+                    },
+                    {
+                        "Num Rock": 9
+                    },
+                    {
+                        "Stone MeshIndexInsideModel": 0,
+                        "Stone MeshModelUID": 1551155716
+                    },
+                    {
+                        "Boss": 2563879370
+                    },
+                    {
+                        "Num Rock": 9
+                    },
+                    {
+                        "Stone MeshIndexInsideModel": 0,
+                        "Stone MeshModelUID": 1551155716
+                    },
+                    {
+                        "Boss": 2563879370
+                    },
+                    {
+                        "Num Rock": 9
+                    },
+                    {
+                        "Stone MeshIndexInsideModel": 0,
+                        "Stone MeshModelUID": 1551155716
+                    }
+                ],
+                "Script Resource": 1938644800,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Rock10",
+        "ParentUID": 848935399,
+        "PrefabUID": 0,
+        "Tag": "Primitive",
+        "UID": 3810245373
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -42.816287994384766,
+                    -10.330623626708984,
+                    349.28216552734375
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 10,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Boss": 2563879370
+                    },
+                    {
+                        "Num Rock": 10
+                    },
+                    {
+                        "Stone MeshIndexInsideModel": 0,
+                        "Stone MeshModelUID": 1551155716
+                    },
+                    {
+                        "Boss": 2563879370
+                    },
+                    {
+                        "Num Rock": 10
+                    },
+                    {
+                        "Stone MeshIndexInsideModel": 0,
+                        "Stone MeshModelUID": 1551155716
+                    },
+                    {
+                        "Boss": 2563879370
+                    },
+                    {
+                        "Num Rock": 10
+                    },
+                    {
+                        "Stone MeshIndexInsideModel": 0,
+                        "Stone MeshModelUID": 1551155716
+                    }
+                ],
+                "Script Resource": 1938644800,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Rock11",
+        "ParentUID": 848935399,
+        "PrefabUID": 0,
+        "Tag": "Primitive",
+        "UID": 3028010784
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    42.00945281982422,
+                    -32.534767150878906,
+                    359.21685791015625
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 10,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Boss": 2563879370
+                    },
+                    {
+                        "Num Rock": 11
+                    },
+                    {
+                        "Stone MeshIndexInsideModel": 0,
+                        "Stone MeshModelUID": 1551155716
+                    },
+                    {
+                        "Boss": 2563879370
+                    },
+                    {
+                        "Num Rock": 11
+                    },
+                    {
+                        "Stone MeshIndexInsideModel": 0,
+                        "Stone MeshModelUID": 1551155716
+                    },
+                    {
+                        "Boss": 2563879370
+                    },
+                    {
+                        "Num Rock": 11
+                    },
+                    {
+                        "Stone MeshIndexInsideModel": 0,
+                        "Stone MeshModelUID": 1551155716
+                    }
+                ],
+                "Script Resource": 1938644800,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Rock12",
+        "ParentUID": 848935399,
+        "PrefabUID": 0,
+        "Tag": "Primitive",
+        "UID": 3259003296
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    -23.703336715698242,
+                    434.07196044921875
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 10,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Boss": 2563879370
+                    },
+                    {
+                        "Num Rock": 12
+                    },
+                    {
+                        "Stone MeshIndexInsideModel": 0,
+                        "Stone MeshModelUID": 1551155716
+                    },
+                    {
+                        "Boss": 2563879370
+                    },
+                    {
+                        "Num Rock": 12
+                    },
+                    {
+                        "Stone MeshIndexInsideModel": 0,
+                        "Stone MeshModelUID": 1551155716
+                    },
+                    {
+                        "Boss": 2563879370
+                    },
+                    {
+                        "Num Rock": 12
+                    },
+                    {
+                        "Stone MeshIndexInsideModel": 0,
+                        "Stone MeshModelUID": 1551155716
+                    }
+                ],
+                "Script Resource": 1938644800,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Rock13",
+        "ParentUID": 848935399,
+        "PrefabUID": 0,
+        "Tag": "Primitive",
+        "UID": 536157727
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    31.357540130615234,
+                    -5.712162971496582,
+                    421.1985168457031
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 10,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Boss": 2563879370
+                    },
+                    {
+                        "Num Rock": 13
+                    },
+                    {
+                        "Stone MeshIndexInsideModel": 0,
+                        "Stone MeshModelUID": 1551155716
+                    },
+                    {
+                        "Boss": 2563879370
+                    },
+                    {
+                        "Num Rock": 13
+                    },
+                    {
+                        "Stone MeshIndexInsideModel": 0,
+                        "Stone MeshModelUID": 1551155716
+                    },
+                    {
+                        "Boss": 2563879370
+                    },
+                    {
+                        "Num Rock": 13
+                    },
+                    {
+                        "Stone MeshIndexInsideModel": 0,
+                        "Stone MeshModelUID": 1551155716
+                    }
+                ],
+                "Script Resource": 1938644800,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Rock14",
+        "ParentUID": 848935399,
+        "PrefabUID": 0,
+        "Tag": "Primitive",
+        "UID": 276341930
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    36.50323486328125,
+                    -280.86090087890625,
+                    362.6063232421875
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 10,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Boss": 2563879370
+                    },
+                    {
+                        "Num Rock": 14
+                    },
+                    {
+                        "Stone MeshIndexInsideModel": 0,
+                        "Stone MeshModelUID": 1551155716
+                    },
+                    {
+                        "Boss": 2563879370
+                    },
+                    {
+                        "Num Rock": 14
+                    },
+                    {
+                        "Stone MeshIndexInsideModel": 0,
+                        "Stone MeshModelUID": 1551155716
+                    },
+                    {
+                        "Boss": 2563879370
+                    },
+                    {
+                        "Num Rock": 14
+                    },
+                    {
+                        "Stone MeshIndexInsideModel": 0,
+                        "Stone MeshModelUID": 1551155716
+                    }
+                ],
+                "Script Resource": 1938644800,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Rock15",
+        "ParentUID": 848935399,
+        "PrefabUID": 0,
+        "Tag": "Primitive",
+        "UID": 2042989746
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -47.487754821777344,
+                    -41.26703643798828,
+                    486.1910095214844
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 10,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Boss": 2563879370
+                    },
+                    {
+                        "Num Rock": 15
+                    },
+                    {
+                        "Stone MeshIndexInsideModel": 0,
+                        "Stone MeshModelUID": 1551155716
+                    },
+                    {
+                        "Boss": 2563879370
+                    },
+                    {
+                        "Num Rock": 15
+                    },
+                    {
+                        "Stone MeshIndexInsideModel": 0,
+                        "Stone MeshModelUID": 1551155716
+                    },
+                    {
+                        "Boss": 2563879370
+                    },
+                    {
+                        "Num Rock": 15
+                    },
+                    {
+                        "Stone MeshIndexInsideModel": 0,
+                        "Stone MeshModelUID": 1551155716
+                    }
+                ],
+                "Script Resource": 1938644800,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Rock16",
+        "ParentUID": 848935399,
+        "PrefabUID": 0,
+        "Tag": "Primitive",
+        "UID": 2852131930
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    28.04833221435547,
+                    -60.18037414550781,
+                    525.8463134765625
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 10,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Boss": 2563879370
+                    },
+                    {
+                        "Num Rock": 16
+                    },
+                    {
+                        "Stone MeshIndexInsideModel": 0,
+                        "Stone MeshModelUID": 1551155716
+                    },
+                    {
+                        "Boss": 2563879370
+                    },
+                    {
+                        "Num Rock": 16
+                    },
+                    {
+                        "Stone MeshIndexInsideModel": 0,
+                        "Stone MeshModelUID": 1551155716
+                    },
+                    {
+                        "Boss": 2563879370
+                    },
+                    {
+                        "Num Rock": 16
+                    },
+                    {
+                        "Stone MeshIndexInsideModel": 0,
+                        "Stone MeshModelUID": 1551155716
+                    }
+                ],
+                "Script Resource": 1938644800,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Rock17",
+        "ParentUID": 848935399,
+        "PrefabUID": 0,
+        "Tag": "Primitive",
+        "UID": 3349069858
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    114.94043731689453,
+                    -44.027984619140625,
+                    377.4723205566406
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 10,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Boss": 2563879370
+                    },
+                    {
+                        "Num Rock": 17
+                    },
+                    {
+                        "Stone MeshIndexInsideModel": 0,
+                        "Stone MeshModelUID": 1551155716
+                    },
+                    {
+                        "Boss": 2563879370
+                    },
+                    {
+                        "Num Rock": 17
+                    },
+                    {
+                        "Stone MeshIndexInsideModel": 0,
+                        "Stone MeshModelUID": 1551155716
+                    },
+                    {
+                        "Boss": 2563879370
+                    },
+                    {
+                        "Num Rock": 17
+                    },
+                    {
+                        "Stone MeshIndexInsideModel": 0,
+                        "Stone MeshModelUID": 1551155716
+                    }
+                ],
+                "Script Resource": 1938644800,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Rock18",
+        "ParentUID": 848935399,
+        "PrefabUID": 0,
+        "Tag": "Primitive",
+        "UID": 408018569
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -99.8406753540039,
+                    -55.87897491455078,
+                    462.37725830078125
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 10,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Boss": 2563879370
+                    },
+                    {
+                        "Num Rock": 18
+                    },
+                    {
+                        "Stone MeshIndexInsideModel": 0,
+                        "Stone MeshModelUID": 1551155716
+                    },
+                    {
+                        "Boss": 2563879370
+                    },
+                    {
+                        "Num Rock": 18
+                    },
+                    {
+                        "Stone MeshIndexInsideModel": 0,
+                        "Stone MeshModelUID": 1551155716
+                    },
+                    {
+                        "Boss": 2563879370
+                    },
+                    {
+                        "Num Rock": 18
+                    },
+                    {
+                        "Stone MeshIndexInsideModel": 0,
+                        "Stone MeshModelUID": 1551155716
+                    }
+                ],
+                "Script Resource": 1938644800,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Rock19",
+        "ParentUID": 848935399,
+        "PrefabUID": 0,
+        "Tag": "Primitive",
+        "UID": 4042063901
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    33.1201171875,
+                    -44.18536376953125,
+                    395.52392578125
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 10,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Boss": 2563879370
+                    },
+                    {
+                        "Num Rock": 19
+                    },
+                    {
+                        "Stone MeshIndexInsideModel": 0,
+                        "Stone MeshModelUID": 1551155716
+                    },
+                    {
+                        "Boss": 2563879370
+                    },
+                    {
+                        "Num Rock": 19
+                    },
+                    {
+                        "Stone MeshIndexInsideModel": 0,
+                        "Stone MeshModelUID": 1551155716
+                    },
+                    {
+                        "Boss": 2563879370
+                    },
+                    {
+                        "Num Rock": 19
+                    },
+                    {
+                        "Stone MeshIndexInsideModel": 0,
+                        "Stone MeshModelUID": 1551155716
+                    }
+                ],
+                "Script Resource": 1938644800,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Rock20",
+        "ParentUID": 848935399,
+        "PrefabUID": 0,
+        "Tag": "Primitive",
+        "UID": 1978650304
     }
 ]
