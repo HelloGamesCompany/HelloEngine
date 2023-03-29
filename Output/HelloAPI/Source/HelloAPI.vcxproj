@@ -155,7 +155,10 @@
 		<ClCompile Include="../../Assets/Scripts/UI Test folder/Movment_Bar.cpp" />
 		<ClCompile Include="../../Assets/Scripts/UI Test folder/SwapWeapon.cpp" />
 		<ClCompile Include="../../Assets/Scripts/UI Test folder/Movment_Bar_HP.cpp" />
+		<ClCompile Include="..\..\Assets\Scripts\Enemies\EnemyGuns\EnemyAutomatic.cpp" />
 		<ClCompile Include="..\..\Assets\Scripts\Enemies\EnemyMeleeMovement.cpp" />
+		<ClCompile Include="..\..\Assets\Scripts\Enemies\EnemyProjectile.cpp" />
+		<ClCompile Include="..\..\Assets\Scripts\Enemies\EnemyProjectilePull.cpp" />
 		<ClCompile Include="..\..\Assets\Scripts\Enemies\EnemyRanger.cpp" />
 		<ClCompile Include="..\..\Assets\Scripts\InteractiveEnviroment\GoToLevelTrigger.cpp" />
 		<ClCompile Include="..\..\Assets\Scripts\LevelEndTrigger.cpp" />
@@ -180,9 +183,13 @@
 		<ClCompile Include="../../Assets/Scripts/Enemies/EnemyDrop.cpp" />
 		<ClCompile Include="../../Assets/Scripts/Quests/Secondary_Quests/Mision_Masacre.cpp" />
 		<ClCompile Include="../../Assets/Scripts/InteractiveEnviroment/Chest.cpp" />
+		<ClCompile Include="../../Assets/Scripts/Enemies/EnemyGun.cpp" />
 	</ItemGroup>
 	<ItemGroup>
+		<ClInclude Include="..\..\Assets\Scripts\Enemies\EnemyGuns\EnemyAutomatic.h" />
 		<ClInclude Include="..\..\Assets\Scripts\Enemies\EnemyMeleeMovement.h" />
+		<ClInclude Include="..\..\Assets\Scripts\Enemies\EnemyProjectile.h" />
+		<ClInclude Include="..\..\Assets\Scripts\Enemies\EnemyProjectilePull.h" />
 		<ClInclude Include="..\..\Assets\Scripts\Enemies\EnemyRanger.h" />
 		<ClInclude Include="..\..\Assets\Scripts\InteractiveEnviroment\GoToLevelTrigger.h" />
 		<ClInclude Include="..\..\Assets\Scripts\LevelEndTrigger.h" />
@@ -227,6 +234,7 @@
 		<ClInclude Include="../../Assets/Scripts/Enemies/EnemyDrop.h" />
 		<ClInclude Include="../../Assets/Scripts/Quests/Secondary_Quests/Mision_Masacre.h" />
 		<ClInclude Include="../../Assets/Scripts/InteractiveEnviroment/Chest.h" />
+		<ClInclude Include="../../Assets/Scripts/Enemies/EnemyGun.h" />
 	</ItemGroup>
 	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 	<ImportGroup Label="ExtensionTargets" />

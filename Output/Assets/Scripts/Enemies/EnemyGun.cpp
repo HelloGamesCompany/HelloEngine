@@ -1,7 +1,7 @@
-#include "EnemyAutomatic.h"
-HELLO_ENGINE_API_C EnemyAutomatic* CreateEnemyAutomatic(ScriptToInspectorInterface* script)
+#include "EnemyGun.h"
+HELLO_ENGINE_API_C EnemyGun* CreateEnemyGun(ScriptToInspectorInterface* script)
 {
-    EnemyAutomatic* classInstance = new EnemyAutomatic();
+    EnemyGun* classInstance = new EnemyGun();
     //Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
     script->AddDragBoxGameObject("Self Enemy GO", &classInstance->enemyGO);
     script->AddDragBoxGameObject("Projectile Pull", &classInstance->projectilePull);
@@ -20,34 +20,32 @@ HELLO_ENGINE_API_C EnemyAutomatic* CreateEnemyAutomatic(ScriptToInspectorInterfa
     return classInstance;
 }
 
-void EnemyAutomatic::Start()
+void EnemyGun::Start()
 {
-    if (cadence != 0) fullShotCooldown = 1 / cadence;
-    else fullShotCooldown = 0;
 
 }
-void EnemyAutomatic::Update()
+void EnemyGun::Update()
 {
 
-    if (canShoot) return;
-
-    if (shotCooldown <= 0)
-    {
-        canShoot = true;
-    }
-    else
-    {
-        shotCooldown -= Time::GetDeltaTime();
-    }
 }
 
-void EnemyAutomatic::Shoot()
+void EnemyGun::Shoot()
 {
-    if (canShoot)
+
+}
+
+void EnemyGun::LauchProjectile(API_Transform projectileSpawn, float randomDirectionRange)
+{
+    EnemyProjectilePull* pull = (EnemyProjectilePull*)projectilePull.GetScript("EnemyProjectilePull");
+    if (pull == nullptr)
     {
-        LauchProjectile(shootingSpawn);
-        PlayShotSound(audioEventString);
-        canShoot = false;
-        shotCooldown = fullShotCooldown;
+        Console::Log("EnemyProjectilePull not asigned");
+        return;
     }
+    pull->LauchProjectile(projectileSpeed, projectileDamage, projectileResistanceDamage, projectileLifetime, projectileSpawn, projectileMesh, projectileMaterial, enemyGO.GetTransform().GetLocalRotation(), projectileScale, randomDirectionRange);
+}
+
+void EnemyGun::PlayShotSound(std::string eventString)
+{
+    Audio::Event(eventString.c_str());
 }

@@ -26,8 +26,8 @@ public:
     void Start() override;
     void Update() override;
 
-    void Seek(float vel, API_Vector3 tarPos);
-    void Wander(float vel, API_Vector3 point);
+    void Seek(float vel, API_Vector3 tarPos, API_RigidBody rb);
+    void Wander(float vel, API_Vector3 point, API_RigidBody rb);
 
     API_Vector3 NormalizeVec3(float x, float y, float z);
 

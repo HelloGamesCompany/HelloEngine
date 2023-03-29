@@ -11,20 +11,16 @@ HELLO_ENGINE_API_C Enemy* CreateEnemy(ScriptToInspectorInterface* script)
     script->AddDragFloat("Speed", &classInstance->speed);
     script->AddDragFloat("Acceleration", &classInstance->acceleration);
     script->AddDragBoxGameObject("Enemy Manager", &classInstance->enemyDropManagerGO);
-   // script->AddDragBoxRigidBody("Rigidbody test", &classInstance->rb);
-  //  script->AddDragBoxGameObject("Target", &classInstance->target);
+    script->AddDragBoxRigidBody("Enemy RigidBody", &classInstance->enemyRb);
     return classInstance;
 }
 
 void Enemy::Start()
 {
-    enemyDropManager = (EnemyDropManager*)enemyDropManagerGO.GetScript("EnemyDropManager");
+    //enemyDropManager = (EnemyDropManager*)enemyDropManagerGO.GetScript("EnemyDropManager");
 
     currentHp = maxHp;
     currentResistance = maxResistance;
-
-    // TESTING CODE, DELETE LATER
-   // rb.SetGravity({ 0,-0.1f,0 });
 }
 
 void Enemy::Update()
@@ -57,7 +53,7 @@ void Enemy::TakeDamage(float damage, float resistanceDamage)
 void Enemy::Die()
 {
     // some animation
-    enemyDropManager->SpinDropRate(gameObject.GetTransform().GetGlobalPosition());
+    //enemyDropManager->SpinDropRate(gameObject.GetTransform().GetGlobalPosition());
     gameObject.SetActive(false);
 }
 

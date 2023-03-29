@@ -13,12 +13,11 @@ public:
 
     void Destroy();
 
-    void OnCollisionEnter(API::API_RigidBody other);
+    void OnCollisionEnter(API::API_RigidBody other) override;
 
     float speed = 2.0f;
     float lifeTime = 5.0f;
     float damage = 0.0f;
     float resistanceDamage = 0.0f;
-   
 };
 

@@ -1,9 +1,9 @@
 #include "EnemyProjectile.h"
 HELLO_ENGINE_API_C EnemyProjectile* CreateEnemyProjectile(ScriptToInspectorInterface* script)
 {
-	EnemyProjectile* classInstance = new EnemyProjectile();
-	//Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
-	return classInstance;
+    EnemyProjectile* classInstance = new EnemyProjectile();
+    //Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
+    return classInstance;
 }
 
 void EnemyProjectile::Start()
@@ -32,8 +32,8 @@ void EnemyProjectile::Destroy()
 
 void EnemyProjectile::OnCollisionEnter(API::API_RigidBody other)
 {
-    std::string detectionName = other.GetGameObject().GetName();
-    if (detectionName != "EnemyR" && detectionName != "Projectile" && detectionName != "Zone")
+    std::string detectionTag = other.GetGameObject().GetName();
+    if (detectionTag == "Player" || detectionTag == "Wall")
     {
         Destroy();
     }

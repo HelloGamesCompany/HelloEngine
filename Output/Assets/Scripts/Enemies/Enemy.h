@@ -19,7 +19,8 @@ public:
     void OnCollisionEnter(API::API_RigidBody other) override;
 
     API_GameObject enemyDropManagerGO;
-    EnemyDropManager* enemyDropManager;
+    //EnemyDropManager* enemyDropManager;
+    API_RigidBody enemyRb;
 
     float maxHp = 100.0f;
     float currentHp;
