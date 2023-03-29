@@ -4,18 +4,16 @@
 #include "Macro.h"
 
 #include "API/API.h"
-//#include "../EnemyGun.h"
-class EnemyAutomatic :HelloBehavior
+#include "../EnemyGun.h"
+class EnemyAutomatic : public EnemyGun
 {
 public:
-	void Start() override; 
-	void Update() override;
-	//void Shoot()override;
-	
-	float fullShotCooldown;
-	float shotCooldown;
-	bool canShoot = true;
+    void Start() override;
+    void Update() override;
+    void Shoot() override;
 
-
+    float fullShotCooldown;
+    float shotCooldown;
+    bool canShoot = true;
 };
 

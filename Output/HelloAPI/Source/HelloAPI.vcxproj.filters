@@ -88,9 +88,6 @@
     <ClCompile Include="..\..\Assets\Scripts\Shooting\Guns\PlayerShotgun.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Assets\Scripts\InteractiveEnviroment\ChestTest.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
     <ClCompile Include="../../Assets/Scripts/PauseButtons.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
@@ -128,6 +125,36 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Assets\Scripts\InteractiveEnviroment\GoToLevelTrigger.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="../../Assets/Scripts/Shooting/Guns/PlayerHandgun.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="../../Assets/temp/TestAPI.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="../../Assets/Scripts/UsefulScripts/SetAllChildsTag.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="../../Assets/Scripts/Enemies/EnemyDropManager.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="../../Assets/Scripts/Enemies/EnemyDrop.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="../../Assets/Scripts/Quests/Secondary_Quests/Mision_Masacre.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="../../Assets/Scripts/InteractiveEnviroment/Chest.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Assets\Scripts\Enemies\EnemyProjectile.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Assets\Scripts\Enemies\EnemyProjectilePull.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Assets\Scripts\Enemies\EnemyGuns\EnemyAutomatic.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
@@ -205,9 +232,6 @@
     <ClInclude Include="..\..\Assets\Scripts\Shooting\Guns\PlayerShotgun.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Assets\Scripts\InteractiveEnviroment\ChestTest.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="../../Assets/Scripts/PauseButtons.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
@@ -245,6 +269,36 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Assets\Scripts\InteractiveEnviroment\GoToLevelTrigger.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="../../Assets/Scripts/Shooting/Guns/PlayerHandgun.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="../../Assets/temp/TestAPI.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="../../Assets/Scripts/UsefulScripts/SetAllChildsTag.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="../../Assets/Scripts/Enemies/EnemyDropManager.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="../../Assets/Scripts/Enemies/EnemyDrop.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="../../Assets/Scripts/Quests/Secondary_Quests/Mision_Masacre.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="../../Assets/Scripts/InteractiveEnviroment/Chest.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Assets\Scripts\Enemies\EnemyProjectile.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Assets\Scripts\Enemies\EnemyProjectilePull.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Assets\Scripts\Enemies\EnemyGuns\EnemyAutomatic.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

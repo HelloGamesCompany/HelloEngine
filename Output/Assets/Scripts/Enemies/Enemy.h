@@ -5,6 +5,8 @@
 
 #include "API/API.h"
 
+#include "EnemyDropManager.h"
+
 class Enemy : HelloBehavior
 {
 public:
@@ -14,7 +16,11 @@ public:
     void TakeDamage(float damage, float resistanceDamage);
     void Die();
 
-    void OnCollisionEnter(API::API_RigidBody other);
+    void OnCollisionEnter(API::API_RigidBody other) override;
+
+    API_GameObject enemyDropManagerGO;
+    //EnemyDropManager* enemyDropManager;
+    API_RigidBody enemyRb;
 
     float maxHp = 100.0f;
     float currentHp;
