@@ -79594,5 +79594,45 @@
         "PrefabUID": 491071151,
         "Tag": "Default",
         "UID": 4235503799
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "NumberOfEnemiesInLevel": 7
+                    }
+                ],
+                "Script Resource": 3678518277,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Mision Handler",
+        "ParentUID": 2462894403,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2646702719
     }
 ]
