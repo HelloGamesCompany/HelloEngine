@@ -8,6 +8,9 @@ HELLO_ENGINE_API_C ArmoryUpgratteButtons* CreateArmoryUpgratteButtons(ScriptToIn
 	script->AddDragBoxUIButton("Exit", &classInstance->Upgrate2);
 	script->AddDragBoxUIButton("Settings", &classInstance->Upgrate3);
 
+	script->AddDragBoxGameObject("Panel Unlock", &classInstance->PanelUnlock);
+	script->AddDragBoxGameObject("Panel Upgrate", &classInstance->PanelUpgrate);
+
 	return classInstance;
 }
 

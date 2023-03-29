@@ -26,5 +26,29 @@ public:
 	uint Weapon5Texture;
 	uint Weapon6Texture;
 
+	API_GameObject PanelUpgrate1;
+
+	API_GameObject PanelUpgrate2;
+	API_GameObject PanelUnlock2;
+
+	API_GameObject PanelUpgrate3;
+	API_GameObject PanelUnlock3;
+
+	API_GameObject PanelUpgrate4;
+	API_GameObject PanelUnlock4;
+
+	API_GameObject PanelUpgrate5;
+	API_GameObject PanelUnlock5;
+
+	API_GameObject PanelUpgrate6;
+	API_GameObject PanelUnlock6;
+
+private:
+
+	bool isUnlockWeapon2 = false;
+	bool isUnlockWeapon3 = false;
+	bool isUnlockWeapon4 = false;
+	bool isUnlockWeapon5 = false;
+	bool isUnlockWeapon6 = false;
 };
 

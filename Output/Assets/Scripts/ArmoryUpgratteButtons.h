@@ -15,5 +15,9 @@ public:
 	API_UIButton Upgrate1;
 	API_UIButton Upgrate2;
 	API_UIButton Upgrate3;
+
+	API_GameObject PanelUnlock;
+	API_GameObject PanelUpgrate;
+
 };
 
