@@ -10,7 +10,7 @@
 		<framerate value="120" />
 	</renderer>
 	<scene>
-		<currentScene value="Assets/PlayerSkillsAndGuns.HScene" />
+		<currentScene value="Assets/LVL1_Blockout.HScene" />
 	</scene>
 	<openGL>
 		<blend value="true" tag="0x0BE2" />
