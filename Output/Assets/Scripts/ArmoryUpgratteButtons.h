@@ -19,5 +19,9 @@ public:
 	API_GameObject PanelUnlock;
 	API_GameObject PanelUpgrate;
 
+	API_GameObject currentWeapon;
+
+	bool isUnlocked;
+
 };
 

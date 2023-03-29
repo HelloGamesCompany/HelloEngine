@@ -35,6 +35,7 @@ HELLO_ENGINE_API_C ArmoryWeaponSelect* CreateArmoryWeaponSelect(ScriptToInspecto
 
 	script->AddDragBoxGameObject("Panel Upgrate W6", &classInstance->PanelUpgrate6);
 	script->AddDragBoxGameObject("Panel Unlock W6", &classInstance->PanelUnlock6);
+
 	//create and add image api and change the image texture
 
 	return classInstance;
@@ -162,21 +163,26 @@ void ArmoryWeaponSelect::Update()
 
 	if (Weapon3.OnPress())
 	{
-		isUnlockWeapon3 = true;
+		//isUnlockWeapon3 = true;
 	}
 
 	if (Weapon4.OnPress())
 	{
-		isUnlockWeapon4 = true;
+		//isUnlockWeapon4 = true;
 	}
 
 	if (Weapon5.OnPress())
 	{
-		isUnlockWeapon5 = true;
+		//isUnlockWeapon5 = true;
 	}
 
 	if (Weapon6.OnPress())
 	{
-		isUnlockWeapon6 = true;
+		//isUnlockWeapon6 = true;
 	}
+}
+
+void ArmoryWeaponSelect::UnlockWeapon2()
+{
+
 }

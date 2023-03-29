@@ -11,6 +11,8 @@ public:
 	void Start() override;
 	void Update() override;
 
+	void UnlockWeapon2();
+
 	API_UIButton Weapon1;
 	API_UIButton Weapon2;
 	API_UIButton Weapon3;
@@ -43,12 +45,16 @@ public:
 	API_GameObject PanelUpgrate6;
 	API_GameObject PanelUnlock6;
 
-private:
+	API_UIButton WeaponSelected;
 
 	bool isUnlockWeapon2 = false;
 	bool isUnlockWeapon3 = false;
 	bool isUnlockWeapon4 = false;
 	bool isUnlockWeapon5 = false;
 	bool isUnlockWeapon6 = false;
+
+private:
+
+
 };
 
