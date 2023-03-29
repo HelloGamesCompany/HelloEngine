@@ -11,25 +11,33 @@ class BossAttacks : HelloBehavior
 public:
 	void Start() override;
 	void Update() override;
-	void Seek(API_GameObject* seeker, API_Vector3 target, float speed);
+	void Seek(API_GameObject* seeker, API_Vector3 target, float speed, int rock, float endedAttacking);
 	void SelectRock();
 	void HoldRock();
-	void ReturnRock(API_GameObject* rock);
+	void ReturnRock(API_GameObject* rock, int numRock, float endedAttacking);
+
+	bool hasReachedTarget[5] = { false,false,false,false,false };
 
 	API_GameObject rocks[20];
 	API_Vector3 rockPositions[20];
 	API_GameObject selectedRock;
 
-	API_Vector3 dir = { 0,0,0 };
+	API_Vector3 dir[5] = { 0,0,0 };
 
 	API_GameObject boss;
 	API_GameObject player;
-	API_Vector3 playerPosition;
+	API_Vector3 playerPosition[5] = {0,0,0};
 	API_Vector3 bossPosition1;
 	API_Vector3 bossPosition2;
 	API_Vector3 bossPosition3;
 	API_Vector3 bossPosition4;
 	API_Vector3 bossPosition5;
+
+
+	float timeAttack[5] = { 2.0f,4.0f,4.5f,5.0f,5.5f };
+	float currentTimeAttack = 0.0f;
+	bool endedAttacking = false;
+
 	bool hasPlayerCoords = false;
 	bool hasBossCoords = false;
 
@@ -38,7 +46,9 @@ public:
 	float zDistance = 0.0f;
 
 	int attackType = 1;
-	int currentRock = -1;
+
+	int currentRock[5] = { 0,1,2,3,4 };
+
 	bool selectRock = false;
 	float speed = 0.0f;
 

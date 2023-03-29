@@ -19,6 +19,8 @@ public:
 	API_GameObject boss;
 
 	bool rockDivided = false;
+
+	int whichRockAmI = 0;
 	
 	float dt;
 	float stoneTime = 0.0f;

@@ -8,6 +8,7 @@ HELLO_ENGINE_API_C RockDivider* CreateRockDivider(ScriptToInspectorInterface* sc
 {
 	RockDivider* classInstance = new RockDivider();
 	script->AddDragBoxGameObject("Boss", &classInstance->boss);
+	script->AddDragInt("Num Rock", &classInstance->whichRockAmI);
 	script->AddDragBoxMeshResource("Stone Mesh", &classInstance->stoneMesh);
 
 	//Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
@@ -38,7 +39,7 @@ void RockDivider::Update()
 	if (rockDivided == true) {
 		dt = Time::GetDeltaTime();
 		stoneTime += dt;
-		bAttacks->ReturnRock(&gameObject);
+		bAttacks->ReturnRock(&gameObject, whichRockAmI, false);
 		gameObject.GetTransform().SetRotation(0, 0, 0);
 		stones[0].GetTransform().Translate(0, 0, 0.1f * dt * 100);
 		stones[1].GetTransform().Translate(0.1f * dt * 100, 0, 0.1f * dt * 100);
@@ -71,7 +72,7 @@ void RockDivider::OnCollisionEnter(API::API_RigidBody other)
 	if (detectionName == "Player") {
 		PlayerStats* pStats = (PlayerStats*)other.GetGameObject().GetScript("PlayerStats");
 		pStats->TakeDamage(bAttacks->rockDmg);
-		bAttacks->ReturnRock(&gameObject);
+		bAttacks->ReturnRock(&gameObject, whichRockAmI, false);
 	}
 	else if (detectionName != "Projectile" && detectionName != "Boss" && bAttacks->throwing == true && detectionName != "Stone") {
 		rockDivided = true;
