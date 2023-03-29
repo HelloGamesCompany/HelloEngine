@@ -50787,7 +50787,7 @@
                 ],
                 "IsStatic": false,
                 "IsTrigger": false,
-                "Mass": 0.0,
+                "Mass": 1.0,
                 "RenderColColor": [
                     0.5,
                     0.0,
@@ -50805,16 +50805,22 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Health": 100.0
+                        "Max Health": 100.0
+                    },
+                    {
+                        "Current Helath": 0.0
                     },
                     {
                         "Resistance": 100.0
                     },
                     {
-                        "Speed": 5.0
+                        "Speed": 80.0
                     },
                     {
                         "Acceleration": 1.2000000476837158
+                    },
+                    {
+                        "Enemy RigidBody": 3306337635
                     }
                 ],
                 "Script Resource": 4210965159,
@@ -54536,7 +54542,7 @@
                 ],
                 "IsStatic": false,
                 "IsTrigger": false,
-                "Mass": 0.0,
+                "Mass": 1.0,
                 "RenderColColor": [
                     0.5,
                     0.0,
@@ -54554,16 +54560,22 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Health": 100.0
+                        "Max Health": 100.0
+                    },
+                    {
+                        "Current Helath": 0.0
                     },
                     {
                         "Resistance": 100.0
                     },
                     {
-                        "Speed": 5.0
+                        "Speed": 80.0
                     },
                     {
                         "Acceleration": 1.2000000476837158
+                    },
+                    {
+                        "Enemy RigidBody": 3144339685
                     }
                 ],
                 "Script Resource": 4210965159,
@@ -58285,7 +58297,7 @@
                 ],
                 "IsStatic": false,
                 "IsTrigger": false,
-                "Mass": 0.0,
+                "Mass": 1.0,
                 "RenderColColor": [
                     0.5,
                     0.0,
@@ -58303,16 +58315,22 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Health": 100.0
+                        "Max Health": 100.0
+                    },
+                    {
+                        "Current Helath": 0.0
                     },
                     {
                         "Resistance": 100.0
                     },
                     {
-                        "Speed": 5.0
+                        "Speed": 80.0
                     },
                     {
                         "Acceleration": 1.2000000476837158
+                    },
+                    {
+                        "Enemy RigidBody": 1757690383
                     }
                 ],
                 "Script Resource": 4210965159,
@@ -62034,7 +62052,7 @@
                 ],
                 "IsStatic": false,
                 "IsTrigger": false,
-                "Mass": 0.0,
+                "Mass": 1.0,
                 "RenderColColor": [
                     0.5,
                     0.0,
@@ -62052,16 +62070,22 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Health": 100.0
+                        "Max Health": 100.0
+                    },
+                    {
+                        "Current Helath": 0.0
                     },
                     {
                         "Resistance": 100.0
                     },
                     {
-                        "Speed": 5.0
+                        "Speed": 80.0
                     },
                     {
                         "Acceleration": 1.2000000476837158
+                    },
+                    {
+                        "Enemy RigidBody": 1494185823
                     }
                 ],
                 "Script Resource": 4210965159,
@@ -65783,7 +65807,7 @@
                 ],
                 "IsStatic": false,
                 "IsTrigger": false,
-                "Mass": 0.0,
+                "Mass": 1.0,
                 "RenderColColor": [
                     0.5,
                     0.0,
@@ -65801,16 +65825,22 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Health": 100.0
+                        "Max Health": 100.0
+                    },
+                    {
+                        "Current Helath": 0.0
                     },
                     {
                         "Resistance": 100.0
                     },
                     {
-                        "Speed": 5.0
+                        "Speed": 80.0
                     },
                     {
                         "Acceleration": 1.2000000476837158
+                    },
+                    {
+                        "Enemy RigidBody": 979250570
                     }
                 ],
                 "Script Resource": 4210965159,
@@ -69532,7 +69562,7 @@
                 ],
                 "IsStatic": false,
                 "IsTrigger": false,
-                "Mass": 0.0,
+                "Mass": 1.0,
                 "RenderColColor": [
                     0.5,
                     0.0,
@@ -69550,10 +69580,10 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Detection distance": 20.0
+                        "Detection distance": 15.0
                     },
                     {
-                        "Lossing Enemy distance": 15.0
+                        "Lossing Enemy distance": 20.0
                     },
                     {
                         "Distance player": 5.0
@@ -69602,16 +69632,22 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Health": 100.0
+                        "Max Health": 100.0
+                    },
+                    {
+                        "Current Helath": 0.0
                     },
                     {
                         "Resistance": 100.0
                     },
                     {
-                        "Speed": 5.0
+                        "Speed": 80.0
                     },
                     {
                         "Acceleration": 1.2000000476837158
+                    },
+                    {
+                        "Enemy RigidBody": 348138482
                     }
                 ],
                 "Script Resource": 4210965159,
@@ -74517,7 +74553,7 @@
                 ],
                 "IsStatic": false,
                 "IsTrigger": false,
-                "Mass": 0.0,
+                "Mass": 1.0,
                 "RenderColColor": [
                     0.5,
                     0.0,
@@ -74587,16 +74623,22 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Health": 100.0
+                        "Max Health": 100.0
+                    },
+                    {
+                        "Current Helath": 0.0
                     },
                     {
                         "Resistance": 100.0
                     },
                     {
-                        "Speed": 5.0
+                        "Speed": 80.0
                     },
                     {
                         "Acceleration": 1.2000000476837158
+                    },
+                    {
+                        "Enemy RigidBody": 2316102626
                     }
                 ],
                 "Script Resource": 4210965159,
