@@ -92,33 +92,6 @@
                     },
                     {
                         "Use safe zone: ": true
-                    },
-                    {
-                        "Target": 1881844107
-                    },
-                    {
-                        "Delay": 0.009999999776482582
-                    },
-                    {
-                        "Offset_X": 0.0
-                    },
-                    {
-                        "Offset_Y": 25.0
-                    },
-                    {
-                        "Offset_Z": -20.0
-                    },
-                    {
-                        "Rot_Offset_X": 50.0
-                    },
-                    {
-                        "Rot_Offset_Y": 0.0
-                    },
-                    {
-                        "Rot_Offset_Z": 0.0
-                    },
-                    {
-                        "Use safe zone: ": true
                     }
                 ],
                 "Script Resource": 118417560,
@@ -3597,7 +3570,7 @@
             },
             {
                 "Enabled": true,
-                "ResourceUID": 1082133149,
+                "ResourceUID": 0,
                 "Type": 3
             }
         ],
@@ -3642,7 +3615,7 @@
             },
             {
                 "Enabled": true,
-                "ResourceUID": 1082133149,
+                "ResourceUID": 0,
                 "Type": 3
             }
         ],
@@ -3943,7 +3916,7 @@
             },
             {
                 "Enabled": true,
-                "ResourceUID": 1082133149,
+                "ResourceUID": 0,
                 "Type": 3
             }
         ],
@@ -5966,14 +5939,7 @@
             },
             {
                 "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Final text panel: ": 2592125732
-                    },
-                    {
-                        "Final text panel: ": 2592125732
-                    }
-                ],
+                "Inspector Fields": null,
                 "Script Resource": 3660110539,
                 "Type": 5
             }
@@ -20816,37 +20782,7 @@
                         "Velocity": 10.0
                     },
                     {
-                        "SecToMaxVel": 0.0
-                    },
-                    {
-                        "SecToZeroVel": 0.0
-                    },
-                    {
-                        "Dash Time": 0.5
-                    },
-                    {
-                        "Dash Distance": 5.0
-                    },
-                    {
-                        "AnimationPlayer": 2624315955
-                    },
-                    {
-                        "Dash Animation": 3786266361
-                    },
-                    {
-                        "Idle Animation": 723048411
-                    },
-                    {
-                        "Run Animation": 3184153436
-                    },
-                    {
-                        "Shoot Animations": 4285907288
-                    },
-                    {
-                        "HUD": 790589102
-                    },
-                    {
-                        "Velocity": 10.0
+                        "Upgrade Velocity": 2.0
                     },
                     {
                         "SecToMaxVel": 0.0
@@ -20859,6 +20795,15 @@
                     },
                     {
                         "Dash Distance": 5.0
+                    },
+                    {
+                        "Upgrade Dash Distance": 8.0
+                    },
+                    {
+                        "Dash Cooldown": 0.0
+                    },
+                    {
+                        "Upgrade Dash Cooldown": 0.0
                     },
                     {
                         "AnimationPlayer": 2624315955
@@ -20889,19 +20834,10 @@
                         "Max HP": 100.0
                     },
                     {
-                        "Laser Ammo": 99999
+                        "Current HP": 0.0
                     },
                     {
-                        "Fire Ammo": 99999
-                    },
-                    {
-                        "Ricochet Ammo": 99999
-                    },
-                    {
-                        "Health bar": 3158086540
-                    },
-                    {
-                        "Max HP": 100.0
+                        "Upgraded Max HP": 0.0
                     },
                     {
                         "Laser Ammo": 99999
@@ -20913,7 +20849,16 @@
                         "Ricochet Ammo": 99999
                     },
                     {
-                        "Health bar": 3158086540
+                        "tree1": 0
+                    },
+                    {
+                        "tree2": 0
+                    },
+                    {
+                        "tree3": 0
+                    },
+                    {
+                        "tree4": 0
                     }
                 ],
                 "Script Resource": 4283682555,
@@ -24185,7 +24130,7 @@
             {
                 "Enabled": true,
                 "Index inside model": 0,
-                "ModelUID": 2417919063,
+                "ModelUID": 0,
                 "ShowAABB": false,
                 "ShowFaceNormals": false,
                 "ShowOBB": false,
@@ -26387,9 +26332,6 @@
                 "Inspector Fields": [
                     {
                         "Gun Type": 1
-                    },
-                    {
-                        "Gun Type": 1
                     }
                 ],
                 "Script Resource": 1187195986,
@@ -26430,41 +26372,7 @@
                         "Projectiles per second": 1.0
                     },
                     {
-                        "Ammo Type": 1
-                    },
-                    {
-                        "Audio Event String": ""
-                    },
-                    {
-                        "Projectile Speed": 100.0
-                    },
-                    {
-                        "Projectile Damage": 60.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 1.0
-                    },
-                    {
-                        "Projectile MeshIndexInsideModel": 0,
-                        "Projectile MeshModelUID": 1551155716
-                    },
-                    {
-                        "Projectile Material": 3260379948
-                    },
-                    {
-                        "Projectile ScaleX": 0.20000000298023224
-                    },
-                    {
-                        "Projectile ScaleY": 0.20000000298023224
-                    },
-                    {
-                        "Projectile ScaleZ": 0.4000000059604645
-                    },
-                    {
-                        "Projectiles per second": 1.0
+                        "Extra % firerate": 0.0
                     },
                     {
                         "Ammo Type": 1
@@ -26511,9 +26419,6 @@
                 "Inspector Fields": [
                     {
                         "Gun Type": 4
-                    },
-                    {
-                        "Gun Type": 4
                     }
                 ],
                 "Script Resource": 1421097082,
@@ -26554,47 +26459,13 @@
                         "Projectiles per second": 1.2999999523162842
                     },
                     {
-                        "Pellets per shot": 10
-                    },
-                    {
-                        "Ammo Type": 1
-                    },
-                    {
-                        "Audio Event String": ""
-                    },
-                    {
-                        "Projectile Speed": 40.0
-                    },
-                    {
-                        "Projectile Damage": 10.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 0.5
-                    },
-                    {
-                        "Projectile MeshIndexInsideModel": 0,
-                        "Projectile MeshModelUID": 1551155716
-                    },
-                    {
-                        "Projectile Material": 3260379948
-                    },
-                    {
-                        "Projectile ScaleX": 0.05000000074505806
-                    },
-                    {
-                        "Projectile ScaleY": 0.05000000074505806
-                    },
-                    {
-                        "Projectile ScaleZ": 0.05000000074505806
-                    },
-                    {
-                        "Projectiles per second": 1.2999999523162842
+                        "Extra % firerate": 0.0
                     },
                     {
                         "Pellets per shot": 10
+                    },
+                    {
+                        "Pellets Dispersion": 0.0
                     },
                     {
                         "Ammo Type": 1
@@ -26641,9 +26512,6 @@
                 "Inspector Fields": [
                     {
                         "Gun Type": 0
-                    },
-                    {
-                        "Gun Type": 0
                     }
                 ],
                 "Script Resource": 1421097082,
@@ -26684,47 +26552,16 @@
                         "Projectiles per second": 3.0
                     },
                     {
-                        "Burst Space": 0.1599999964237213
-                    },
-                    {
-                        "Ammo Type": 0
-                    },
-                    {
-                        "Audio Event String": ""
-                    },
-                    {
-                        "Projectile Speed": 30.0
-                    },
-                    {
-                        "Projectile Damage": 5.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 1.0
-                    },
-                    {
-                        "Projectile MeshIndexInsideModel": 0,
-                        "Projectile MeshModelUID": 1551155716
-                    },
-                    {
-                        "Projectile Material": 3260379948
-                    },
-                    {
-                        "Projectile ScaleX": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleY": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleZ": 0.10000000149011612
-                    },
-                    {
-                        "Projectiles per second": 3.0
+                        "Extra % firerate": 0.0
                     },
                     {
                         "Burst Space": 0.1599999964237213
+                    },
+                    {
+                        "Slow %": 0.0
+                    },
+                    {
+                        "Freeze %": 0.0
                     },
                     {
                         "Ammo Type": 0
@@ -27617,9 +27454,6 @@
                 "Inspector Fields": [
                     {
                         "hp": false
-                    },
-                    {
-                        "hp": false
                     }
                 ],
                 "Script Resource": 1164455694,
@@ -27736,12 +27570,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "HP": 100.0
-                    },
-                    {
-                        "MAX HP": 100.0
-                    },
                     {
                         "HP": 100.0
                     },
@@ -27892,57 +27720,6 @@
                     },
                     {
                         "Game Bar Weapon 3": 1805554832
-                    },
-                    {
-                        "Text_Dash_on": 1033923317
-                    },
-                    {
-                        "Text_Dash_off": 2440110374
-                    },
-                    {
-                        "Material_Dash": 1199782281
-                    },
-                    {
-                        "Text_Weapon_1_on": 1828660828
-                    },
-                    {
-                        "Text_Weapon_1_off": 1261649561
-                    },
-                    {
-                        "Material Weapon 1": 4102192440
-                    },
-                    {
-                        "Game Bar Weapon 1": 4172812350
-                    },
-                    {
-                        "Text_Weapon_2_on": 977509463
-                    },
-                    {
-                        "Text_Weapon_2_off": 1072796038
-                    },
-                    {
-                        "Material Weapon 2": 692296045
-                    },
-                    {
-                        "Game Bar Weapon 2": 2595168131
-                    },
-                    {
-                        "Text_Weapon_3_on": 12569475
-                    },
-                    {
-                        "Text_Weapon_3_off": 103443597
-                    },
-                    {
-                        "Material Weapon 3": 1496549210
-                    },
-                    {
-                        "Game Bar Weapon 3": 1805554832
-                    },
-                    {
-                        "Text_Dash_on": 1033923317
-                    },
-                    {
-                        "Text_Dash_off": 2440110374
                     },
                     {
                         "Material_Dash": 1199782281
@@ -28623,9 +28400,6 @@
                 "Inspector Fields": [
                     {
                         "Point 1: ": 2752448197
-                    },
-                    {
-                        "Point 1: ": 2752448197
                     }
                 ],
                 "Script Resource": 2375007746,
@@ -28755,9 +28529,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Point 1: ": 664696061
-                    },
                     {
                         "Point 1: ": 664696061
                     }
@@ -28891,9 +28662,6 @@
                 "Inspector Fields": [
                     {
                         "Point 1: ": 1896649622
-                    },
-                    {
-                        "Point 1: ": 1896649622
                     }
                 ],
                 "Script Resource": 2880680727,
@@ -28999,14 +28767,7 @@
             },
             {
                 "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Continute button: ": 449744243
-                    },
-                    {
-                        "Continute button: ": 449744243
-                    }
-                ],
+                "Inspector Fields": null,
                 "Script Resource": 3053773227,
                 "Type": 5
             }
