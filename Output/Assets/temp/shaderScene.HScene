@@ -53,8 +53,8 @@
             },
             {
                 "Enabled": true,
-                "Index inside model": 1,
-                "ModelUID": 1866300922,
+                "Index inside model": 0,
+                "ModelUID": 10,
                 "ShowAABB": false,
                 "ShowFaceNormals": false,
                 "ShowOBB": false,
@@ -63,15 +63,15 @@
             },
             {
                 "Enabled": true,
-                "MaterialUID": 2337667368,
+                "MaterialUID": 4190377033,
                 "Type": 18
             }
         ],
         "FirstOnPrefab": true,
-        "Name": "Baker_house.hmesh",
+        "Name": "Cube",
         "ParentUID": 3287047150,
         "PrefabUID": 0,
-        "Tag": "Default",
-        "UID": 3961568281
+        "Tag": "Primitive",
+        "UID": 4273618100
     }
 ]

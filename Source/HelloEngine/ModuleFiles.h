@@ -31,10 +31,11 @@ enum class ResourceType
 struct MetaFile
 {
     ResourceType type = ResourceType::UNDEFINED;
-    std::string resourcePath;
-    uint UID;
-    time_t lastModified;
+    std::string resourcePath = "";
+    uint UID = 0;
+    time_t lastModified = 0;
     std::string name = "Null";
+    std::string assetsPath = "";
 };
 
 class ModuleFiles : public Module

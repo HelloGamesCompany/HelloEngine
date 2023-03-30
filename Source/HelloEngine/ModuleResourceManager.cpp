@@ -176,6 +176,11 @@ void ModuleResourceManager::S_ReImportFile(const std::string& filePath, Resource
 		ModuleFiles::S_UpdateMetaData(filePath, "null");
 	}
 	break;
+	case ResourceType::MATERIAL:
+	{
+
+		break;
+	}
 	}
 
 	RELEASE_ARRAY(buffer);
@@ -233,7 +238,6 @@ void ModuleResourceManager::S_LoadFileIntoResource(Resource* resource)
 	case ResourceType::MATERIAL:
 	{
 		ResourceMaterial* materialRes = (ResourceMaterial*)resource;
-		materialRes->material = Material();
 		materialRes->material.LoadJSON(materialRes->resourcePath);
 	}
 	break;
@@ -787,7 +791,9 @@ void ModuleResourceManager::S_CreateResource(const MetaFile& metaFile)
 	break;
 	case ResourceType::MATERIAL:
 	{
-		resources[metaFile.UID] = new ResourceMaterial();
+		ResourceMaterial* materialRes = new ResourceMaterial();
+		resources[metaFile.UID] = materialRes;
+		materialRes->assetsPath = metaFile.assetsPath;
 	}
 	break;
 	default:
@@ -1397,4 +1403,18 @@ void ResourceScript::Destroy()
 			}
 		}
 	}
+}
+
+void ResourceMaterial::ReImport(const std::string& filePath)
+{
+}
+
+void ResourceMaterial::Save()
+{
+	json j;
+	material.Save(j);
+
+	std::string buffer = j.dump(4);
+	ModuleFiles::S_Save(resourcePath, buffer.data(), buffer.length(), false);
+	ModuleFiles::S_Save(assetsPath, buffer.data(), buffer.length(), false);
 }

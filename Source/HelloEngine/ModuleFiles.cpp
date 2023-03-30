@@ -218,6 +218,10 @@ MetaFile ModuleFiles::S_LoadMeta(const std::string& filePath)
 
     ret.name = file["Name"];
 
+    bool temp = file.contains("Assets path");
+
+    ret.assetsPath = temp ? file["Assets path"] : "";
+
     RELEASE(data);
 
     return ret;
@@ -645,6 +649,8 @@ bool ModuleFiles::S_CreateMetaData(const std::string& file, const std::string& r
     j["UID"] = UID == 0 ? HelloUUID::GenerateUUID() : UID;
 
     j["Name"] = assetName;
+
+    j["Assets path"] = file;
 
 	// write to string
 	std::string meta = j.dump(4);

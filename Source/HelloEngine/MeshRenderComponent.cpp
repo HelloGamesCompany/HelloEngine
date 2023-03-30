@@ -76,8 +76,6 @@ void MeshRenderComponent::CreateMesh(uint resourceUID, int materialUID, MeshRend
 		material = (ResourceMaterial*)ModuleResourceManager::S_LoadResource(materialUID);
 	}
 
-
-
 	renderType = type;
 
 	// If we are Instanced, we use 2 IDs, one for our resource and another for our instance identifier.

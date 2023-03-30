@@ -856,19 +856,36 @@ void ImWindowProject::PanelCreateMaterial()
         {
             _temporalName.append(".material");
 
-            std::string resourcePath = "Resources/Material/" + _temporalName;
+			uint UUID = HelloUUID::GenerateUUID();
+
+            std::string resourcePath = "Resources/Materials/" + std::to_string(UUID) + ".material";
             std::string assetPath = _fileTree->_currentDir->path + _temporalName;
 
-            char buffer = 'M';
+			json emptyMaterial;
+
+			emptyMaterial["Shader resource UID"] = 0;
+
+			json uni;
+
+			uni["Name"] = "Null";
+			uni["Type"] = 0;
+			uni["String Type"] = "Null";
+			uni["Index"] = 0;
+			uni["Read"] = 0;
+			uni["Size"] = 0;
+
+			emptyMaterial["Uniforms"] = uni;
+
+			std::string buffer = emptyMaterial.dump(4);
 
             //Resources
-            ModuleFiles::S_Save(resourcePath, &buffer, sizeof(char), false);
+            ModuleFiles::S_Save(resourcePath, &buffer[0], buffer.size(), false);
 
             //Assets
-            ModuleFiles::S_Save(assetPath, &buffer, sizeof(char), false);
+            ModuleFiles::S_Save(assetPath, &buffer[0], buffer.size(), false);
 
             //Create Metadata
-            ModuleFiles::S_CreateMetaData(assetPath, resourcePath);
+            ModuleFiles::S_CreateMetaData(assetPath, resourcePath, UUID);
 
             _temporalName = "default";
 

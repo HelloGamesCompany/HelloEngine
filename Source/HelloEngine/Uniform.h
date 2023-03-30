@@ -23,7 +23,7 @@ class Uniform
 {
 public:
 	Uniform() {};
-	~Uniform(){};
+	virtual ~Uniform() {};
 
 	virtual void SetVariable(){};
 	virtual void Update(Shader& shader) {};

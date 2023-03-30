@@ -53,6 +53,11 @@ void MaterialComponent::OnEditor()
 				ImGui::Spacing();
 				ImGui::Spacing();
 			}
+
+			if (ImGui::Button("Apply changes"))
+			{
+				_resource->Save();
+			}
 		}
 	}
 	if (!created)
@@ -91,7 +96,7 @@ void MaterialComponent::MaterialDragNDrop()
 
 void MaterialComponent::ShaderSelectCombo()
 {
-	if (this->_resource == nullptr)return;
+	if (this->_resource == nullptr) return;
 	
 	std::string strSelected = "Select a shader";
 	ResourceShader* resShader = _resource->material.GetShader();

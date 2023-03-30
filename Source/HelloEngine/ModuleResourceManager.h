@@ -188,6 +188,11 @@ public:
         version = HelloUUID::GenerateUUID();
     }
 
+    void UnLoad() override
+    {
+        shader.Clear();
+    }
+
     Shader shader;
 
     int version;
@@ -203,16 +208,17 @@ public:
 
     void UnLoad() override
     {
-        json j;
-        material.Save(j);
-
-        std::string buffer = j.dump(4);
-        ModuleFiles::S_Save(resourcePath, buffer.data(), buffer.length(), false);
-
+        // TODO: Comentar si esto deberiamos seguir haciendolo al descargar el material?
+        //Save();
         material.Clear();
     }
 
+    void ReImport(const std::string& filePath) override;
+
+    void Save();
+
     Material material;
+    std::string assetsPath = "";
 };
 
 class ResourceScript : public Resource
