@@ -175,6 +175,7 @@
 		<ClCompile Include="../../Assets/Scripts/ArmoryUpgratteButtons.cpp" />
 		<ClCompile Include="../../Assets/Scripts/ArmoryWeaponSelect.cpp" />
 		<ClCompile Include="../../Assets/Scripts/AbilityTreeScript.cpp" />
+		<ClCompile Include="../../Assets/Scripts/UI Test folder/HUD_Power_Up_Scrip.cpp" />
 	</ItemGroup>
 	<ItemGroup>
 		<ClInclude Include="..\..\Assets\Scripts\Enemies\EnemyMeleeMovement.h" />
@@ -217,6 +218,7 @@
 		<ClInclude Include="../../Assets/Scripts/ArmoryUpgratteButtons.h" />
 		<ClInclude Include="../../Assets/Scripts/ArmoryWeaponSelect.h" />
 		<ClInclude Include="../../Assets/Scripts/AbilityTreeScript.h" />
+		<ClInclude Include="../../Assets/Scripts/UI Test folder/HUD_Power_Up_Scrip.h" />
 	</ItemGroup>
 	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 	<ImportGroup Label="ExtensionTargets" />
