@@ -3,51 +3,65 @@ HELLO_ENGINE_API_C ArmoryWeaponSelect* CreateArmoryWeaponSelect(ScriptToInspecto
 {
 	ArmoryWeaponSelect* classInstance = new ArmoryWeaponSelect();
 
-	script->AddDragBoxUIButton("Weapon5", &classInstance->Weapon5);
-	script->AddDragBoxUIButton("Weapon1", &classInstance->Weapon1);
-	script->AddDragBoxUIButton("Weapon2", &classInstance->Weapon2);
-	script->AddDragBoxUIButton("Weapon3", &classInstance->Weapon3);
-	script->AddDragBoxUIButton("Weapon4", &classInstance->Weapon4);
-	script->AddDragBoxUIButton("Weapon6", &classInstance->Weapon6);
+	script->AddDragBoxUIButton("Weapon", &classInstance->CurrentWeapon);
+
+	script->AddDragBoxGameObject("Next Weapon", &classInstance->NextWeapon);
+
+	script->AddDragBoxGameObject("Prev Weapon", &classInstance->PrevtWeapon);
+
+	script->AddDragBoxGameObject("Panel Upgrate", &classInstance->CurrentPanelUpgrate);
+	script->AddDragBoxGameObject("Panel Unlock", &classInstance->CurrentPanelUnlock);
+
+	script->AddDragBoxGameObject("Next Panel Upgrate", &classInstance->NextPanelUpgrate);
+	script->AddDragBoxGameObject("Next Panel Unlock", &classInstance->NextPanelUnlock);
+
+	script->AddDragBoxGameObject("Prev Panel Upgrate", &classInstance->PrevPanelUpgrate);
+	script->AddDragBoxGameObject("Prev Panel Unlock", &classInstance->PrevPanelUnlock);
+
+	script->AddDragBoxTextureResource("Material Weapon", &classInstance->CurrentTextureWeapon);
 
 	script->AddDragBoxMaterialComponent("SelectedWeapon", &classInstance->SelectedWeapon);
 
-	script->AddDragBoxTextureResource("Material Weapon 1", &classInstance->Weapon1Texture);
-	script->AddDragBoxTextureResource("Material Weapon 2", &classInstance->Weapon2Texture);
-	script->AddDragBoxTextureResource("Material Weapon 3", &classInstance->Weapon3Texture);
-	script->AddDragBoxTextureResource("Material Weapon 4", &classInstance->Weapon4Texture);
-	script->AddDragBoxTextureResource("Material Weapon 5", &classInstance->Weapon5Texture);
-	script->AddDragBoxTextureResource("Material Weapon 6", &classInstance->Weapon6Texture);
-
-	script->AddDragBoxGameObject("Panel Upgrate W1", &classInstance->PanelUpgrate1);
-
-	script->AddDragBoxGameObject("Panel Upgrate W2", &classInstance->PanelUpgrate2);
-	script->AddDragBoxGameObject("Panel Unlock W2", &classInstance->PanelUnlock2);
-
-	script->AddDragBoxGameObject("Panel Upgrate W3", &classInstance->PanelUpgrate3);
-	script->AddDragBoxGameObject("Panel Unlock W3", &classInstance->PanelUnlock3);
-
-	script->AddDragBoxGameObject("Panel Upgrate W4", &classInstance->PanelUpgrate4);
-	script->AddDragBoxGameObject("Panel Unlock W4", &classInstance->PanelUnlock4);
-
-	script->AddDragBoxGameObject("Panel Upgrate W5", &classInstance->PanelUpgrate5);
-	script->AddDragBoxGameObject("Panel Unlock W5", &classInstance->PanelUnlock5);
-
-	script->AddDragBoxGameObject("Panel Upgrate W6", &classInstance->PanelUpgrate6);
-	script->AddDragBoxGameObject("Panel Unlock W6", &classInstance->PanelUnlock6);
-
-	//create and add image api and change the image texture
 
 	return classInstance;
 }
 
 void ArmoryWeaponSelect::Start()
 {
+	nextW = (ArmoryWeaponSelect*)NextWeapon.GetScript("ArmoryUpgratteButtons");
+	PrevW = (ArmoryWeaponSelect*)PrevtWeapon.GetScript("ArmoryUpgratteButtons");
 
 }
 void ArmoryWeaponSelect::Update()
 {
-	if (Weapon1.OnHovered())
+
+	if (CurrentWeapon.OnHovered())
+	{
+		SelectedWeapon.ChangeAlbedoTexture(CurrentTextureWeapon);
+
+		if (isUnlocked)
+			CurrentPanelUpgrate.SetActive(true);
+		else
+			CurrentPanelUnlock.SetActive(true);
+
+		if (nextW->isUnlocked)
+			NextPanelUpgrate.SetActive(true);
+		else
+			NextPanelUnlock.SetActive(true);
+
+		if (PrevW->isUnlocked)
+			PrevPanelUpgrate.SetActive(true);
+		else
+			PrevPanelUnlock.SetActive(true);
+	}
+
+	if (CurrentWeapon.OnPress())
+	{
+		CurrentPanelUnlock.SetActive(false);
+		isUnlocked = true;
+	}
+
+	/*if (Weapon1.OnHovered())
 	{
 		SelectedWeapon.ChangeAlbedoTexture(Weapon1Texture);
 
@@ -158,12 +172,15 @@ void ArmoryWeaponSelect::Update()
 
 	if (Weapon2.OnPress())
 	{
+		//desactivar componente
 		isUnlockWeapon2 = true;
 	}
 
 	if (Weapon3.OnPress())
 	{
-		//isUnlockWeapon3 = true;
+		Console::Log("JUAN?");
+
+		isUnlockWeapon3 = true;
 	}
 
 	if (Weapon4.OnPress())
@@ -179,7 +196,7 @@ void ArmoryWeaponSelect::Update()
 	if (Weapon6.OnPress())
 	{
 		//isUnlockWeapon6 = true;
-	}
+	}*/
 }
 
 void ArmoryWeaponSelect::UnlockWeapon2()

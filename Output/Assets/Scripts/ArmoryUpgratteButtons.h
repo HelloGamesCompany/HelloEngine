@@ -2,7 +2,6 @@
 #include "API/HelloBehavior.h"
 #include "ScriptToInspectorInterface.h"
 #include "Macro.h"
-#include "ArmoryWeaponSelect.h"
 
 #include "API/API.h"
 
@@ -17,12 +16,26 @@ public:
 	API_UIButton Upgrate2;
 	API_UIButton Upgrate3;
 
-	API_GameObject PanelUnlock;
-	API_GameObject PanelUpgrate;
+	API_GameObject PanelUpgrateW1;
+
+	API_GameObject PanelUnlockW2;
+	API_GameObject PanelUpgrateW2;
+
+	API_GameObject PanelUnlockW3;
+	API_GameObject PanelUpgrateW3;
+
+	API_GameObject PanelUnlockW4;
+	API_GameObject PanelUpgrateW4;
+
+	API_GameObject PanelUnlockW5;
+	API_GameObject PanelUpgrateW5;
+
+	API_GameObject PanelUnlockW6;
+	API_GameObject PanelUpgrateW6;
 
 	API_GameObject currentWeapon;
 
-	ArmoryWeaponSelect* WeaponInstance;
+	///ArmoryWeaponSelect* WeaponInstance = nullptr;
 
 	bool isUnlocked;
 };

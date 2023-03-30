@@ -36,7 +36,7 @@
                 "Enabled": true,
                 "Position": [
                     0.0,
-                    -0.014999999664723873,
+                    0.0,
                     0.0
                 ],
                 "Rotation": [
@@ -46,7 +46,7 @@
                 ],
                 "Scale": [
                     1.0,
-                    1.0149999856948853,
+                    1.0,
                     1.0
                 ],
                 "Type": 1
@@ -104,7 +104,7 @@
                 "Enabled": true,
                 "Position": [
                     0.800000011920929,
-                    0.7330184578895569,
+                    0.7799999713897705,
                     0.0
                 ],
                 "Rotation": [
@@ -128,7 +128,7 @@
                 ],
                 "Enabled": true,
                 "PositionX": 0.800000011920929,
-                "PositionY": 0.7290137410163879,
+                "PositionY": 0.7799999713897705,
                 "Scale": 0.25,
                 "Text": "1",
                 "Type": 17
@@ -363,148 +363,19 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Weapon5": 493668277
+                        "Weapon": 4145208356
                     },
                     {
-                        "Weapon1": 3518481655
+                        "Panel Upgrate": 3550437662
                     },
                     {
-                        "Weapon2": 4145208356
+                        "Panel Unlock": 274231072
                     },
                     {
-                        "Weapon3": 1911153676
-                    },
-                    {
-                        "Weapon4": 1415821494
-                    },
-                    {
-                        "Weapon6": 601873605
+                        "Material Weapon": 1236665315
                     },
                     {
                         "SelectedWeapon": 2478615852
-                    },
-                    {
-                        "Material Weapon 1": 2149418341
-                    },
-                    {
-                        "Material Weapon 2": 273176788
-                    },
-                    {
-                        "Material Weapon 3": 3923147828
-                    },
-                    {
-                        "Material Weapon 4": 2736792734
-                    },
-                    {
-                        "Material Weapon 5": 541261496
-                    },
-                    {
-                        "Material Weapon 6": 4120732920
-                    },
-                    {
-                        "Panel Upgrate W1": 2122020070
-                    },
-                    {
-                        "Panel Upgrate W2": 3550437662
-                    },
-                    {
-                        "Panel Unlock W2": 274231072
-                    },
-                    {
-                        "Panel Upgrate W3": 2801017591
-                    },
-                    {
-                        "Panel Unlock W3": 2756292912
-                    },
-                    {
-                        "Panel Upgrate W4": 2553497408
-                    },
-                    {
-                        "Panel Unlock W4": 4118105479
-                    },
-                    {
-                        "Panel Upgrate W5": 2338172962
-                    },
-                    {
-                        "Panel Unlock W5": 3178778518
-                    },
-                    {
-                        "Panel Upgrate W6": 1984247676
-                    },
-                    {
-                        "Panel Unlock W6": 1410453886
-                    },
-                    {
-                        "Weapon5": 493668277
-                    },
-                    {
-                        "Weapon1": 3518481655
-                    },
-                    {
-                        "Weapon2": 4145208356
-                    },
-                    {
-                        "Weapon3": 1911153676
-                    },
-                    {
-                        "Weapon4": 1415821494
-                    },
-                    {
-                        "Weapon6": 601873605
-                    },
-                    {
-                        "SelectedWeapon": 2478615852
-                    },
-                    {
-                        "Material Weapon 1": 2149418341
-                    },
-                    {
-                        "Material Weapon 2": 273176788
-                    },
-                    {
-                        "Material Weapon 3": 3923147828
-                    },
-                    {
-                        "Material Weapon 4": 2736792734
-                    },
-                    {
-                        "Material Weapon 5": 541261496
-                    },
-                    {
-                        "Material Weapon 6": 4120732920
-                    },
-                    {
-                        "Panel Upgrate W1": 2122020070
-                    },
-                    {
-                        "Panel Upgrate W2": 3550437662
-                    },
-                    {
-                        "Panel Unlock W2": 274231072
-                    },
-                    {
-                        "Panel Upgrate W3": 2801017591
-                    },
-                    {
-                        "Panel Unlock W3": 2756292912
-                    },
-                    {
-                        "Panel Upgrate W4": 2553497408
-                    },
-                    {
-                        "Panel Unlock W4": 4118105479
-                    },
-                    {
-                        "Panel Upgrate W5": 2338172962
-                    },
-                    {
-                        "Panel Unlock W5": 3178778518
-                    },
-                    {
-                        "Panel Upgrate W6": 1984247676
-                    },
-                    {
-                        "Panel Unlock W6": 1410453886
                     }
                 ],
                 "Script Resource": 553099281,
@@ -553,148 +424,19 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Weapon5": 493668277
+                        "Weapon": 1911153676
                     },
                     {
-                        "Weapon1": 3518481655
+                        "Panel Upgrate": 2801017591
                     },
                     {
-                        "Weapon2": 4145208356
+                        "Panel Unlock": 2756292912
                     },
                     {
-                        "Weapon3": 1911153676
-                    },
-                    {
-                        "Weapon4": 1415821494
-                    },
-                    {
-                        "Weapon6": 601873605
+                        "Material Weapon": 2133632598
                     },
                     {
                         "SelectedWeapon": 2478615852
-                    },
-                    {
-                        "Material Weapon 1": 2149418341
-                    },
-                    {
-                        "Material Weapon 2": 273176788
-                    },
-                    {
-                        "Material Weapon 3": 3923147828
-                    },
-                    {
-                        "Material Weapon 4": 2736792734
-                    },
-                    {
-                        "Material Weapon 5": 541261496
-                    },
-                    {
-                        "Material Weapon 6": 4120732920
-                    },
-                    {
-                        "Panel Upgrate W1": 2122020070
-                    },
-                    {
-                        "Panel Upgrate W2": 3550437662
-                    },
-                    {
-                        "Panel Unlock W2": 274231072
-                    },
-                    {
-                        "Panel Upgrate W3": 2801017591
-                    },
-                    {
-                        "Panel Unlock W3": 2756292912
-                    },
-                    {
-                        "Panel Upgrate W4": 2553497408
-                    },
-                    {
-                        "Panel Unlock W4": 4118105479
-                    },
-                    {
-                        "Panel Upgrate W5": 2338172962
-                    },
-                    {
-                        "Panel Unlock W5": 3178778518
-                    },
-                    {
-                        "Panel Upgrate W6": 1984247676
-                    },
-                    {
-                        "Panel Unlock W6": 1410453886
-                    },
-                    {
-                        "Weapon5": 493668277
-                    },
-                    {
-                        "Weapon1": 3518481655
-                    },
-                    {
-                        "Weapon2": 4145208356
-                    },
-                    {
-                        "Weapon3": 1911153676
-                    },
-                    {
-                        "Weapon4": 1415821494
-                    },
-                    {
-                        "Weapon6": 601873605
-                    },
-                    {
-                        "SelectedWeapon": 2478615852
-                    },
-                    {
-                        "Material Weapon 1": 2149418341
-                    },
-                    {
-                        "Material Weapon 2": 273176788
-                    },
-                    {
-                        "Material Weapon 3": 3923147828
-                    },
-                    {
-                        "Material Weapon 4": 2736792734
-                    },
-                    {
-                        "Material Weapon 5": 541261496
-                    },
-                    {
-                        "Material Weapon 6": 4120732920
-                    },
-                    {
-                        "Panel Upgrate W1": 2122020070
-                    },
-                    {
-                        "Panel Upgrate W2": 3550437662
-                    },
-                    {
-                        "Panel Unlock W2": 274231072
-                    },
-                    {
-                        "Panel Upgrate W3": 2801017591
-                    },
-                    {
-                        "Panel Unlock W3": 2756292912
-                    },
-                    {
-                        "Panel Upgrate W4": 2553497408
-                    },
-                    {
-                        "Panel Unlock W4": 4118105479
-                    },
-                    {
-                        "Panel Upgrate W5": 2338172962
-                    },
-                    {
-                        "Panel Unlock W5": 3178778518
-                    },
-                    {
-                        "Panel Upgrate W6": 1984247676
-                    },
-                    {
-                        "Panel Unlock W6": 1410453886
                     }
                 ],
                 "Script Resource": 2943233861,
@@ -743,148 +485,7 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Weapon5": 493668277
-                    },
-                    {
-                        "Weapon1": 3518481655
-                    },
-                    {
-                        "Weapon2": 4145208356
-                    },
-                    {
-                        "Weapon3": 1911153676
-                    },
-                    {
-                        "Weapon4": 1415821494
-                    },
-                    {
-                        "Weapon6": 601873605
-                    },
-                    {
                         "SelectedWeapon": 2478615852
-                    },
-                    {
-                        "Material Weapon 1": 2149418341
-                    },
-                    {
-                        "Material Weapon 2": 273176788
-                    },
-                    {
-                        "Material Weapon 3": 3923147828
-                    },
-                    {
-                        "Material Weapon 4": 2736792734
-                    },
-                    {
-                        "Material Weapon 5": 541261496
-                    },
-                    {
-                        "Material Weapon 6": 4120732920
-                    },
-                    {
-                        "Panel Upgrate W1": 2122020070
-                    },
-                    {
-                        "Panel Upgrate W2": 3550437662
-                    },
-                    {
-                        "Panel Unlock W2": 274231072
-                    },
-                    {
-                        "Panel Upgrate W3": 2801017591
-                    },
-                    {
-                        "Panel Unlock W3": 2756292912
-                    },
-                    {
-                        "Panel Upgrate W4": 2553497408
-                    },
-                    {
-                        "Panel Unlock W4": 4118105479
-                    },
-                    {
-                        "Panel Upgrate W5": 2338172962
-                    },
-                    {
-                        "Panel Unlock W5": 3178778518
-                    },
-                    {
-                        "Panel Upgrate W6": 1984247676
-                    },
-                    {
-                        "Panel Unlock W6": 1410453886
-                    },
-                    {
-                        "Weapon5": 493668277
-                    },
-                    {
-                        "Weapon1": 3518481655
-                    },
-                    {
-                        "Weapon2": 4145208356
-                    },
-                    {
-                        "Weapon3": 1911153676
-                    },
-                    {
-                        "Weapon4": 1415821494
-                    },
-                    {
-                        "Weapon6": 601873605
-                    },
-                    {
-                        "SelectedWeapon": 2478615852
-                    },
-                    {
-                        "Material Weapon 1": 2149418341
-                    },
-                    {
-                        "Material Weapon 2": 273176788
-                    },
-                    {
-                        "Material Weapon 3": 3923147828
-                    },
-                    {
-                        "Material Weapon 4": 2736792734
-                    },
-                    {
-                        "Material Weapon 5": 541261496
-                    },
-                    {
-                        "Material Weapon 6": 4120732920
-                    },
-                    {
-                        "Panel Upgrate W1": 2122020070
-                    },
-                    {
-                        "Panel Upgrate W2": 3550437662
-                    },
-                    {
-                        "Panel Unlock W2": 274231072
-                    },
-                    {
-                        "Panel Upgrate W3": 2801017591
-                    },
-                    {
-                        "Panel Unlock W3": 2756292912
-                    },
-                    {
-                        "Panel Upgrate W4": 2553497408
-                    },
-                    {
-                        "Panel Unlock W4": 4118105479
-                    },
-                    {
-                        "Panel Upgrate W5": 2338172962
-                    },
-                    {
-                        "Panel Unlock W5": 3178778518
-                    },
-                    {
-                        "Panel Upgrate W6": 1984247676
-                    },
-                    {
-                        "Panel Unlock W6": 1410453886
                     }
                 ],
                 "Script Resource": 2943233861,
@@ -933,148 +534,7 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Weapon5": 493668277
-                    },
-                    {
-                        "Weapon1": 3518481655
-                    },
-                    {
-                        "Weapon2": 4145208356
-                    },
-                    {
-                        "Weapon3": 1911153676
-                    },
-                    {
-                        "Weapon4": 1415821494
-                    },
-                    {
-                        "Weapon6": 601873605
-                    },
-                    {
                         "SelectedWeapon": 2478615852
-                    },
-                    {
-                        "Material Weapon 1": 2149418341
-                    },
-                    {
-                        "Material Weapon 2": 273176788
-                    },
-                    {
-                        "Material Weapon 3": 3923147828
-                    },
-                    {
-                        "Material Weapon 4": 2736792734
-                    },
-                    {
-                        "Material Weapon 5": 541261496
-                    },
-                    {
-                        "Material Weapon 6": 4120732920
-                    },
-                    {
-                        "Panel Upgrate W1": 2122020070
-                    },
-                    {
-                        "Panel Upgrate W2": 3550437662
-                    },
-                    {
-                        "Panel Unlock W2": 274231072
-                    },
-                    {
-                        "Panel Upgrate W3": 2801017591
-                    },
-                    {
-                        "Panel Unlock W3": 2756292912
-                    },
-                    {
-                        "Panel Upgrate W4": 2553497408
-                    },
-                    {
-                        "Panel Unlock W4": 4118105479
-                    },
-                    {
-                        "Panel Upgrate W5": 2338172962
-                    },
-                    {
-                        "Panel Unlock W5": 3178778518
-                    },
-                    {
-                        "Panel Upgrate W6": 1984247676
-                    },
-                    {
-                        "Panel Unlock W6": 1410453886
-                    },
-                    {
-                        "Weapon5": 493668277
-                    },
-                    {
-                        "Weapon1": 3518481655
-                    },
-                    {
-                        "Weapon2": 4145208356
-                    },
-                    {
-                        "Weapon3": 1911153676
-                    },
-                    {
-                        "Weapon4": 1415821494
-                    },
-                    {
-                        "Weapon6": 601873605
-                    },
-                    {
-                        "SelectedWeapon": 2478615852
-                    },
-                    {
-                        "Material Weapon 1": 2149418341
-                    },
-                    {
-                        "Material Weapon 2": 273176788
-                    },
-                    {
-                        "Material Weapon 3": 3923147828
-                    },
-                    {
-                        "Material Weapon 4": 2736792734
-                    },
-                    {
-                        "Material Weapon 5": 541261496
-                    },
-                    {
-                        "Material Weapon 6": 4120732920
-                    },
-                    {
-                        "Panel Upgrate W1": 2122020070
-                    },
-                    {
-                        "Panel Upgrate W2": 3550437662
-                    },
-                    {
-                        "Panel Unlock W2": 274231072
-                    },
-                    {
-                        "Panel Upgrate W3": 2801017591
-                    },
-                    {
-                        "Panel Unlock W3": 2756292912
-                    },
-                    {
-                        "Panel Upgrate W4": 2553497408
-                    },
-                    {
-                        "Panel Unlock W4": 4118105479
-                    },
-                    {
-                        "Panel Upgrate W5": 2338172962
-                    },
-                    {
-                        "Panel Unlock W5": 3178778518
-                    },
-                    {
-                        "Panel Upgrate W6": 1984247676
-                    },
-                    {
-                        "Panel Unlock W6": 1410453886
                     }
                 ],
                 "Script Resource": 2943233861,
@@ -1123,148 +583,7 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Weapon5": 493668277
-                    },
-                    {
-                        "Weapon1": 3518481655
-                    },
-                    {
-                        "Weapon2": 4145208356
-                    },
-                    {
-                        "Weapon3": 1911153676
-                    },
-                    {
-                        "Weapon4": 1415821494
-                    },
-                    {
-                        "Weapon6": 601873605
-                    },
-                    {
                         "SelectedWeapon": 2478615852
-                    },
-                    {
-                        "Material Weapon 1": 2149418341
-                    },
-                    {
-                        "Material Weapon 2": 273176788
-                    },
-                    {
-                        "Material Weapon 3": 3923147828
-                    },
-                    {
-                        "Material Weapon 4": 2736792734
-                    },
-                    {
-                        "Material Weapon 5": 541261496
-                    },
-                    {
-                        "Material Weapon 6": 4120732920
-                    },
-                    {
-                        "Panel Upgrate W1": 2122020070
-                    },
-                    {
-                        "Panel Upgrate W2": 3550437662
-                    },
-                    {
-                        "Panel Unlock W2": 274231072
-                    },
-                    {
-                        "Panel Upgrate W3": 2801017591
-                    },
-                    {
-                        "Panel Unlock W3": 2756292912
-                    },
-                    {
-                        "Panel Upgrate W4": 2553497408
-                    },
-                    {
-                        "Panel Unlock W4": 4118105479
-                    },
-                    {
-                        "Panel Upgrate W5": 2338172962
-                    },
-                    {
-                        "Panel Unlock W5": 3178778518
-                    },
-                    {
-                        "Panel Upgrate W6": 1984247676
-                    },
-                    {
-                        "Panel Unlock W6": 1410453886
-                    },
-                    {
-                        "Weapon5": 493668277
-                    },
-                    {
-                        "Weapon1": 3518481655
-                    },
-                    {
-                        "Weapon2": 4145208356
-                    },
-                    {
-                        "Weapon3": 1911153676
-                    },
-                    {
-                        "Weapon4": 1415821494
-                    },
-                    {
-                        "Weapon6": 601873605
-                    },
-                    {
-                        "SelectedWeapon": 2478615852
-                    },
-                    {
-                        "Material Weapon 1": 2149418341
-                    },
-                    {
-                        "Material Weapon 2": 273176788
-                    },
-                    {
-                        "Material Weapon 3": 3923147828
-                    },
-                    {
-                        "Material Weapon 4": 2736792734
-                    },
-                    {
-                        "Material Weapon 5": 541261496
-                    },
-                    {
-                        "Material Weapon 6": 4120732920
-                    },
-                    {
-                        "Panel Upgrate W1": 2122020070
-                    },
-                    {
-                        "Panel Upgrate W2": 3550437662
-                    },
-                    {
-                        "Panel Unlock W2": 274231072
-                    },
-                    {
-                        "Panel Upgrate W3": 2801017591
-                    },
-                    {
-                        "Panel Unlock W3": 2756292912
-                    },
-                    {
-                        "Panel Upgrate W4": 2553497408
-                    },
-                    {
-                        "Panel Unlock W4": 4118105479
-                    },
-                    {
-                        "Panel Upgrate W5": 2338172962
-                    },
-                    {
-                        "Panel Unlock W5": 3178778518
-                    },
-                    {
-                        "Panel Upgrate W6": 1984247676
-                    },
-                    {
-                        "Panel Unlock W6": 1410453886
                     }
                 ],
                 "Script Resource": 2943233861,
@@ -1313,148 +632,7 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Weapon5": 493668277
-                    },
-                    {
-                        "Weapon1": 3518481655
-                    },
-                    {
-                        "Weapon2": 4145208356
-                    },
-                    {
-                        "Weapon3": 1911153676
-                    },
-                    {
-                        "Weapon4": 1415821494
-                    },
-                    {
-                        "Weapon6": 601873605
-                    },
-                    {
                         "SelectedWeapon": 2478615852
-                    },
-                    {
-                        "Material Weapon 1": 2149418341
-                    },
-                    {
-                        "Material Weapon 2": 273176788
-                    },
-                    {
-                        "Material Weapon 3": 3923147828
-                    },
-                    {
-                        "Material Weapon 4": 2736792734
-                    },
-                    {
-                        "Material Weapon 5": 541261496
-                    },
-                    {
-                        "Material Weapon 6": 4120732920
-                    },
-                    {
-                        "Panel Upgrate W1": 2122020070
-                    },
-                    {
-                        "Panel Upgrate W2": 3550437662
-                    },
-                    {
-                        "Panel Unlock W2": 274231072
-                    },
-                    {
-                        "Panel Upgrate W3": 2801017591
-                    },
-                    {
-                        "Panel Unlock W3": 2756292912
-                    },
-                    {
-                        "Panel Upgrate W4": 2553497408
-                    },
-                    {
-                        "Panel Unlock W4": 4118105479
-                    },
-                    {
-                        "Panel Upgrate W5": 2338172962
-                    },
-                    {
-                        "Panel Unlock W5": 3178778518
-                    },
-                    {
-                        "Panel Upgrate W6": 1984247676
-                    },
-                    {
-                        "Panel Unlock W6": 1410453886
-                    },
-                    {
-                        "Weapon5": 493668277
-                    },
-                    {
-                        "Weapon1": 3518481655
-                    },
-                    {
-                        "Weapon2": 4145208356
-                    },
-                    {
-                        "Weapon3": 1911153676
-                    },
-                    {
-                        "Weapon4": 1415821494
-                    },
-                    {
-                        "Weapon6": 601873605
-                    },
-                    {
-                        "SelectedWeapon": 2478615852
-                    },
-                    {
-                        "Material Weapon 1": 2149418341
-                    },
-                    {
-                        "Material Weapon 2": 273176788
-                    },
-                    {
-                        "Material Weapon 3": 3923147828
-                    },
-                    {
-                        "Material Weapon 4": 2736792734
-                    },
-                    {
-                        "Material Weapon 5": 541261496
-                    },
-                    {
-                        "Material Weapon 6": 4120732920
-                    },
-                    {
-                        "Panel Upgrate W1": 2122020070
-                    },
-                    {
-                        "Panel Upgrate W2": 3550437662
-                    },
-                    {
-                        "Panel Unlock W2": 274231072
-                    },
-                    {
-                        "Panel Upgrate W3": 2801017591
-                    },
-                    {
-                        "Panel Unlock W3": 2756292912
-                    },
-                    {
-                        "Panel Upgrate W4": 2553497408
-                    },
-                    {
-                        "Panel Unlock W4": 4118105479
-                    },
-                    {
-                        "Panel Upgrate W5": 2338172962
-                    },
-                    {
-                        "Panel Unlock W5": 3178778518
-                    },
-                    {
-                        "Panel Upgrate W6": 1984247676
-                    },
-                    {
-                        "Panel Unlock W6": 1410453886
                     }
                 ],
                 "Script Resource": 2943233861,
@@ -1495,14 +673,51 @@
                 "MaterialResource": 0,
                 "Type": 16,
                 "listButtons": [
-                    0
+                    2438101277
                 ]
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Unlock": 2438101277
+                    },
+                    {
+                        "Upgrate 1": 1714853689
+                    },
+                    {
+                        "Upgrate 2": 2583239152
+                    },
+                    {
+                        "Upgrate 3": 4168233595
+                    },
+                    {
+                        "Panel Upgrate W1": 2122020070
+                    },
+                    {
+                        "Panel Unlock W2": 274231072
+                    },
+                    {
+                        "Panel Upgrate W2": 3550437662
+                    },
+                    {
+                        "Panel Unlock W3": 2756292912
+                    },
+                    {
+                        "Panel Upgrate W3": 2801017591
+                    },
+                    {
+                        "Weapon Associated": 4145208356
+                    }
+                ],
+                "Script Resource": 3444632365,
+                "Type": 5
             }
         ],
         "FirstOnPrefab": true,
         "Name": "Unlock W2",
         "ParentUID": 795620229,
-        "PrefabUID": 1067720304,
+        "PrefabUID": 0,
         "Tag": "UI",
         "UID": 274231072
     },
@@ -1538,10 +753,10 @@
                 "pressImage": 0
             }
         ],
-        "FirstOnPrefab": false,
+        "FirstOnPrefab": true,
         "Name": "Unlock (B)",
         "ParentUID": 274231072,
-        "PrefabUID": 1067720304,
+        "PrefabUID": 0,
         "Tag": "UI",
         "UID": 2438101277
     },
@@ -1572,14 +787,16 @@
                 "MaterialResource": 0,
                 "Type": 16,
                 "listButtons": [
-                    0
+                    1714853689,
+                    2583239152,
+                    4168233595
                 ]
             }
         ],
         "FirstOnPrefab": true,
         "Name": "Upgrate W2",
         "ParentUID": 795620229,
-        "PrefabUID": 1225895867,
+        "PrefabUID": 0,
         "Tag": "UI",
         "UID": 3550437662
     },
@@ -1615,10 +832,10 @@
                 "pressImage": 0
             }
         ],
-        "FirstOnPrefab": false,
+        "FirstOnPrefab": true,
         "Name": "Upgrate 1 (B)",
         "ParentUID": 3550437662,
-        "PrefabUID": 1225895867,
+        "PrefabUID": 0,
         "Tag": "UI",
         "UID": 1714853689
     },
@@ -1654,10 +871,10 @@
                 "pressImage": 0
             }
         ],
-        "FirstOnPrefab": false,
+        "FirstOnPrefab": true,
         "Name": "Upgrate 2 (B)",
         "ParentUID": 3550437662,
-        "PrefabUID": 1225895867,
+        "PrefabUID": 0,
         "Tag": "UI",
         "UID": 2583239152
     },
@@ -1693,10 +910,10 @@
                 "pressImage": 0
             }
         ],
-        "FirstOnPrefab": false,
+        "FirstOnPrefab": true,
         "Name": "Upgrate 3 (B)",
         "ParentUID": 3550437662,
-        "PrefabUID": 1225895867,
+        "PrefabUID": 0,
         "Tag": "UI",
         "UID": 4168233595
     },
@@ -1727,14 +944,51 @@
                 "MaterialResource": 0,
                 "Type": 16,
                 "listButtons": [
-                    0
+                    1025008367
                 ]
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Unlock": 1025008367
+                    },
+                    {
+                        "Upgrate 1": 950595426
+                    },
+                    {
+                        "Upgrate 2": 253089481
+                    },
+                    {
+                        "Upgrate 3": 2386908509
+                    },
+                    {
+                        "Panel Upgrate W1": 2122020070
+                    },
+                    {
+                        "Panel Unlock W2": 274231072
+                    },
+                    {
+                        "Panel Upgrate W2": 3550437662
+                    },
+                    {
+                        "Panel Unlock W3": 2756292912
+                    },
+                    {
+                        "Panel Upgrate W3": 2801017591
+                    },
+                    {
+                        "Weapon Associated": 1911153676
+                    }
+                ],
+                "Script Resource": 94929753,
+                "Type": 5
             }
         ],
         "FirstOnPrefab": true,
         "Name": "Unlock W3",
         "ParentUID": 795620229,
-        "PrefabUID": 1067720304,
+        "PrefabUID": 0,
         "Tag": "UI",
         "UID": 2756292912
     },
@@ -1770,10 +1024,10 @@
                 "pressImage": 0
             }
         ],
-        "FirstOnPrefab": false,
+        "FirstOnPrefab": true,
         "Name": "Unlock (B)",
         "ParentUID": 2756292912,
-        "PrefabUID": 1067720304,
+        "PrefabUID": 0,
         "Tag": "UI",
         "UID": 1025008367
     },
@@ -1811,7 +1065,7 @@
         "FirstOnPrefab": true,
         "Name": "Upgrate W3",
         "ParentUID": 795620229,
-        "PrefabUID": 1225895867,
+        "PrefabUID": 0,
         "Tag": "UI",
         "UID": 2801017591
     },
@@ -1847,10 +1101,10 @@
                 "pressImage": 0
             }
         ],
-        "FirstOnPrefab": false,
+        "FirstOnPrefab": true,
         "Name": "Upgrate 1 (B)",
         "ParentUID": 2801017591,
-        "PrefabUID": 1225895867,
+        "PrefabUID": 0,
         "Tag": "UI",
         "UID": 950595426
     },
@@ -1886,10 +1140,10 @@
                 "pressImage": 0
             }
         ],
-        "FirstOnPrefab": false,
+        "FirstOnPrefab": true,
         "Name": "Upgrate 2 (B)",
         "ParentUID": 2801017591,
-        "PrefabUID": 1225895867,
+        "PrefabUID": 0,
         "Tag": "UI",
         "UID": 253089481
     },
@@ -1925,10 +1179,10 @@
                 "pressImage": 0
             }
         ],
-        "FirstOnPrefab": false,
+        "FirstOnPrefab": true,
         "Name": "Upgrate 3 (B)",
         "ParentUID": 2801017591,
-        "PrefabUID": 1225895867,
+        "PrefabUID": 0,
         "Tag": "UI",
         "UID": 2386908509
     },
@@ -1966,7 +1220,7 @@
         "FirstOnPrefab": true,
         "Name": "Unlock W4",
         "ParentUID": 795620229,
-        "PrefabUID": 1067720304,
+        "PrefabUID": 0,
         "Tag": "UI",
         "UID": 4118105479
     },
@@ -2002,7 +1256,7 @@
                 "pressImage": 0
             }
         ],
-        "FirstOnPrefab": false,
+        "FirstOnPrefab": true,
         "Name": "Unlock (B)",
         "ParentUID": 4118105479,
         "PrefabUID": 1067720304,
@@ -2043,7 +1297,7 @@
         "FirstOnPrefab": true,
         "Name": "Upgrate W4",
         "ParentUID": 795620229,
-        "PrefabUID": 1225895867,
+        "PrefabUID": 0,
         "Tag": "UI",
         "UID": 2553497408
     },
@@ -2079,7 +1333,7 @@
                 "pressImage": 0
             }
         ],
-        "FirstOnPrefab": false,
+        "FirstOnPrefab": true,
         "Name": "Upgrate 1 (B)",
         "ParentUID": 2553497408,
         "PrefabUID": 1225895867,
@@ -2118,7 +1372,7 @@
                 "pressImage": 0
             }
         ],
-        "FirstOnPrefab": false,
+        "FirstOnPrefab": true,
         "Name": "Upgrate 2 (B)",
         "ParentUID": 2553497408,
         "PrefabUID": 1225895867,
@@ -2157,7 +1411,7 @@
                 "pressImage": 0
             }
         ],
-        "FirstOnPrefab": false,
+        "FirstOnPrefab": true,
         "Name": "Upgrate 3 (B)",
         "ParentUID": 2553497408,
         "PrefabUID": 1225895867,
@@ -2198,7 +1452,7 @@
         "FirstOnPrefab": true,
         "Name": "Unlock W5",
         "ParentUID": 795620229,
-        "PrefabUID": 1067720304,
+        "PrefabUID": 0,
         "Tag": "UI",
         "UID": 3178778518
     },
@@ -2234,7 +1488,7 @@
                 "pressImage": 0
             }
         ],
-        "FirstOnPrefab": false,
+        "FirstOnPrefab": true,
         "Name": "Unlock (B)",
         "ParentUID": 3178778518,
         "PrefabUID": 1067720304,
@@ -2275,7 +1529,7 @@
         "FirstOnPrefab": true,
         "Name": "Upgrate W5",
         "ParentUID": 795620229,
-        "PrefabUID": 1225895867,
+        "PrefabUID": 0,
         "Tag": "UI",
         "UID": 2338172962
     },
@@ -2311,7 +1565,7 @@
                 "pressImage": 0
             }
         ],
-        "FirstOnPrefab": false,
+        "FirstOnPrefab": true,
         "Name": "Upgrate 1 (B)",
         "ParentUID": 2338172962,
         "PrefabUID": 1225895867,
@@ -2350,7 +1604,7 @@
                 "pressImage": 0
             }
         ],
-        "FirstOnPrefab": false,
+        "FirstOnPrefab": true,
         "Name": "Upgrate 2 (B)",
         "ParentUID": 2338172962,
         "PrefabUID": 1225895867,
@@ -2389,7 +1643,7 @@
                 "pressImage": 0
             }
         ],
-        "FirstOnPrefab": false,
+        "FirstOnPrefab": true,
         "Name": "Upgrate 3 (B)",
         "ParentUID": 2338172962,
         "PrefabUID": 1225895867,
@@ -2430,7 +1684,7 @@
         "FirstOnPrefab": true,
         "Name": "Unlock W6",
         "ParentUID": 795620229,
-        "PrefabUID": 1067720304,
+        "PrefabUID": 0,
         "Tag": "UI",
         "UID": 1410453886
     },
@@ -2466,7 +1720,7 @@
                 "pressImage": 0
             }
         ],
-        "FirstOnPrefab": false,
+        "FirstOnPrefab": true,
         "Name": "Unlock (B)",
         "ParentUID": 1410453886,
         "PrefabUID": 1067720304,
@@ -2507,7 +1761,7 @@
         "FirstOnPrefab": true,
         "Name": "Upgrate W6",
         "ParentUID": 795620229,
-        "PrefabUID": 1225895867,
+        "PrefabUID": 0,
         "Tag": "UI",
         "UID": 1984247676
     },
@@ -2543,7 +1797,7 @@
                 "pressImage": 0
             }
         ],
-        "FirstOnPrefab": false,
+        "FirstOnPrefab": true,
         "Name": "Upgrate 1 (B)",
         "ParentUID": 1984247676,
         "PrefabUID": 1225895867,
@@ -2582,7 +1836,7 @@
                 "pressImage": 0
             }
         ],
-        "FirstOnPrefab": false,
+        "FirstOnPrefab": true,
         "Name": "Upgrate 2 (B)",
         "ParentUID": 1984247676,
         "PrefabUID": 1225895867,
@@ -2621,7 +1875,7 @@
                 "pressImage": 0
             }
         ],
-        "FirstOnPrefab": false,
+        "FirstOnPrefab": true,
         "Name": "Upgrate 3 (B)",
         "ParentUID": 1984247676,
         "PrefabUID": 1225895867,
@@ -2662,7 +1916,7 @@
         "FirstOnPrefab": true,
         "Name": "Upgrate W1",
         "ParentUID": 795620229,
-        "PrefabUID": 1225895867,
+        "PrefabUID": 0,
         "Tag": "UI",
         "UID": 2122020070
     },
@@ -2698,7 +1952,7 @@
                 "pressImage": 0
             }
         ],
-        "FirstOnPrefab": false,
+        "FirstOnPrefab": true,
         "Name": "Upgrate 1 (B)",
         "ParentUID": 2122020070,
         "PrefabUID": 1225895867,
@@ -2737,7 +1991,7 @@
                 "pressImage": 0
             }
         ],
-        "FirstOnPrefab": false,
+        "FirstOnPrefab": true,
         "Name": "Upgrate 2 (B)",
         "ParentUID": 2122020070,
         "PrefabUID": 1225895867,
@@ -2776,7 +2030,7 @@
                 "pressImage": 0
             }
         ],
-        "FirstOnPrefab": false,
+        "FirstOnPrefab": true,
         "Name": "Upgrate 3 (B)",
         "ParentUID": 2122020070,
         "PrefabUID": 1225895867,
