@@ -2,6 +2,7 @@
 #include "API/HelloBehavior.h"
 #include "ScriptToInspectorInterface.h"
 #include "Macro.h"
+#include "ArmoryWeaponSelect.h"
 
 #include "API/API.h"
 
@@ -21,7 +22,8 @@ public:
 
 	API_GameObject currentWeapon;
 
-	bool isUnlocked;
+	ArmoryWeaponSelect* WeaponInstance;
 
+	bool isUnlocked;
 };
 

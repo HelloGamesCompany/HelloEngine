@@ -104,7 +104,7 @@
                 "Enabled": true,
                 "Position": [
                     0.800000011920929,
-                    0.748454213142395,
+                    0.7408512234687805,
                     0.0
                 ],
                 "Rotation": [
@@ -128,7 +128,7 @@
                 ],
                 "Enabled": true,
                 "PositionX": 0.800000011920929,
-                "PositionY": 0.7446810007095337,
+                "PositionY": 0.7369639873504639,
                 "Scale": 0.25,
                 "Text": "1",
                 "Type": 17
@@ -335,7 +335,7 @@
                 "Enabled": true,
                 "Position": [
                     -0.6000000238418579,
-                    0.375,
+                    0.30000001192092896,
                     -0.009999999776482582
                 ],
                 "Rotation": [
@@ -420,7 +420,7 @@
                 "Enabled": true,
                 "Position": [
                     -0.6000000238418579,
-                    0.125,
+                    0.10000000149011612,
                     -0.0010000000474974513
                 ],
                 "Rotation": [
@@ -505,7 +505,7 @@
                 "Enabled": true,
                 "Position": [
                     -0.6000000238418579,
-                    -0.125,
+                    -0.10000000149011612,
                     -0.0010000000474974513
                 ],
                 "Rotation": [
@@ -590,7 +590,7 @@
                 "Enabled": true,
                 "Position": [
                     -0.6000000238418579,
-                    -0.375,
+                    -0.30000001192092896,
                     -0.0010000000474974513
                 ],
                 "Rotation": [
@@ -675,7 +675,7 @@
                 "Enabled": true,
                 "Position": [
                     -0.6000000238418579,
-                    -0.625,
+                    -0.5,
                     -0.0010000000474974513
                 ],
                 "Rotation": [
@@ -839,7 +839,7 @@
         "UID": 3518481655
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -870,14 +870,14 @@
             }
         ],
         "FirstOnPrefab": true,
-        "Name": "Unlock",
+        "Name": "Unlock W2",
         "ParentUID": 795620229,
-        "PrefabUID": 0,
+        "PrefabUID": 1067720304,
         "Tag": "UI",
         "UID": 274231072
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -908,10 +908,10 @@
                 "pressImage": 0
             }
         ],
-        "FirstOnPrefab": true,
+        "FirstOnPrefab": false,
         "Name": "Unlock (B)",
         "ParentUID": 274231072,
-        "PrefabUID": 0,
+        "PrefabUID": 1067720304,
         "Tag": "UI",
         "UID": 2438101277
     },
@@ -947,9 +947,9 @@
             }
         ],
         "FirstOnPrefab": true,
-        "Name": "Upgrate",
+        "Name": "Upgrate W2",
         "ParentUID": 795620229,
-        "PrefabUID": 0,
+        "PrefabUID": 1225895867,
         "Tag": "UI",
         "UID": 3550437662
     },
@@ -985,10 +985,10 @@
                 "pressImage": 0
             }
         ],
-        "FirstOnPrefab": true,
+        "FirstOnPrefab": false,
         "Name": "Upgrate 1 (B)",
         "ParentUID": 3550437662,
-        "PrefabUID": 0,
+        "PrefabUID": 1225895867,
         "Tag": "UI",
         "UID": 1714853689
     },
@@ -1024,10 +1024,10 @@
                 "pressImage": 0
             }
         ],
-        "FirstOnPrefab": true,
+        "FirstOnPrefab": false,
         "Name": "Upgrate 2 (B)",
         "ParentUID": 3550437662,
-        "PrefabUID": 0,
+        "PrefabUID": 1225895867,
         "Tag": "UI",
         "UID": 2583239152
     },
@@ -1063,11 +1063,1094 @@
                 "pressImage": 0
             }
         ],
-        "FirstOnPrefab": true,
+        "FirstOnPrefab": false,
         "Name": "Upgrate 3 (B)",
         "ParentUID": 3550437662,
-        "PrefabUID": 0,
+        "PrefabUID": 1225895867,
         "Tag": "UI",
         "UID": 4168233595
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "Type": 16,
+                "listButtons": [
+                    0
+                ]
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Unlock W3",
+        "ParentUID": 795620229,
+        "PrefabUID": 1067720304,
+        "Tag": "UI",
+        "UID": 2756292912
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.6000000238418579,
+                    0.0,
+                    -0.0010000000474974513
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.20000000298023224,
+                    0.15000000596046448,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Unlock (B)",
+        "ParentUID": 2756292912,
+        "PrefabUID": 1067720304,
+        "Tag": "UI",
+        "UID": 1025008367
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "Type": 16,
+                "listButtons": [
+                    0
+                ]
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Upgrate W3",
+        "ParentUID": 795620229,
+        "PrefabUID": 1225895867,
+        "Tag": "UI",
+        "UID": 2801017591
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.6000000238418579,
+                    0.4000000059604645,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.20000000298023224,
+                    0.15000000596046448,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Upgrate 1 (B)",
+        "ParentUID": 2801017591,
+        "PrefabUID": 1225895867,
+        "Tag": "UI",
+        "UID": 950595426
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.6000000238418579,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.20000000298023224,
+                    0.15000000596046448,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Upgrate 2 (B)",
+        "ParentUID": 2801017591,
+        "PrefabUID": 1225895867,
+        "Tag": "UI",
+        "UID": 253089481
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.6000000238418579,
+                    -0.4000000059604645,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.20000000298023224,
+                    0.15000000596046448,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Upgrate 3 (B)",
+        "ParentUID": 2801017591,
+        "PrefabUID": 1225895867,
+        "Tag": "UI",
+        "UID": 2386908509
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "Type": 16,
+                "listButtons": [
+                    0
+                ]
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Unlock W4",
+        "ParentUID": 795620229,
+        "PrefabUID": 1067720304,
+        "Tag": "UI",
+        "UID": 4118105479
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.6000000238418579,
+                    0.0,
+                    -0.0010000000474974513
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.20000000298023224,
+                    0.15000000596046448,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Unlock (B)",
+        "ParentUID": 4118105479,
+        "PrefabUID": 1067720304,
+        "Tag": "UI",
+        "UID": 374676274
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "Type": 16,
+                "listButtons": [
+                    0
+                ]
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Upgrate W4",
+        "ParentUID": 795620229,
+        "PrefabUID": 1225895867,
+        "Tag": "UI",
+        "UID": 2553497408
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.6000000238418579,
+                    0.4000000059604645,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.20000000298023224,
+                    0.15000000596046448,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Upgrate 1 (B)",
+        "ParentUID": 2553497408,
+        "PrefabUID": 1225895867,
+        "Tag": "UI",
+        "UID": 4051693632
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.6000000238418579,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.20000000298023224,
+                    0.15000000596046448,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Upgrate 2 (B)",
+        "ParentUID": 2553497408,
+        "PrefabUID": 1225895867,
+        "Tag": "UI",
+        "UID": 2395254079
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.6000000238418579,
+                    -0.4000000059604645,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.20000000298023224,
+                    0.15000000596046448,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Upgrate 3 (B)",
+        "ParentUID": 2553497408,
+        "PrefabUID": 1225895867,
+        "Tag": "UI",
+        "UID": 3583999563
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "Type": 16,
+                "listButtons": [
+                    0
+                ]
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Unlock W5",
+        "ParentUID": 795620229,
+        "PrefabUID": 1067720304,
+        "Tag": "UI",
+        "UID": 3178778518
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.6000000238418579,
+                    0.0,
+                    -0.0010000000474974513
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.20000000298023224,
+                    0.15000000596046448,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Unlock (B)",
+        "ParentUID": 3178778518,
+        "PrefabUID": 1067720304,
+        "Tag": "UI",
+        "UID": 2959340685
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "Type": 16,
+                "listButtons": [
+                    0
+                ]
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Upgrate W5",
+        "ParentUID": 795620229,
+        "PrefabUID": 1225895867,
+        "Tag": "UI",
+        "UID": 2338172962
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.6000000238418579,
+                    0.4000000059604645,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.20000000298023224,
+                    0.15000000596046448,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Upgrate 1 (B)",
+        "ParentUID": 2338172962,
+        "PrefabUID": 1225895867,
+        "Tag": "UI",
+        "UID": 2384301706
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.6000000238418579,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.20000000298023224,
+                    0.15000000596046448,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Upgrate 2 (B)",
+        "ParentUID": 2338172962,
+        "PrefabUID": 1225895867,
+        "Tag": "UI",
+        "UID": 1278050321
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.6000000238418579,
+                    -0.4000000059604645,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.20000000298023224,
+                    0.15000000596046448,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Upgrate 3 (B)",
+        "ParentUID": 2338172962,
+        "PrefabUID": 1225895867,
+        "Tag": "UI",
+        "UID": 303927108
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "Type": 16,
+                "listButtons": [
+                    0
+                ]
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Unlock W6",
+        "ParentUID": 795620229,
+        "PrefabUID": 1067720304,
+        "Tag": "UI",
+        "UID": 1410453886
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.6000000238418579,
+                    0.0,
+                    -0.0010000000474974513
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.20000000298023224,
+                    0.15000000596046448,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Unlock (B)",
+        "ParentUID": 1410453886,
+        "PrefabUID": 1067720304,
+        "Tag": "UI",
+        "UID": 1372708757
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "Type": 16,
+                "listButtons": [
+                    0
+                ]
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Upgrate W6",
+        "ParentUID": 795620229,
+        "PrefabUID": 1225895867,
+        "Tag": "UI",
+        "UID": 1984247676
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.6000000238418579,
+                    0.4000000059604645,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.20000000298023224,
+                    0.15000000596046448,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Upgrate 1 (B)",
+        "ParentUID": 1984247676,
+        "PrefabUID": 1225895867,
+        "Tag": "UI",
+        "UID": 1979342251
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.6000000238418579,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.20000000298023224,
+                    0.15000000596046448,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Upgrate 2 (B)",
+        "ParentUID": 1984247676,
+        "PrefabUID": 1225895867,
+        "Tag": "UI",
+        "UID": 4056132007
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.6000000238418579,
+                    -0.4000000059604645,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.20000000298023224,
+                    0.15000000596046448,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Upgrate 3 (B)",
+        "ParentUID": 1984247676,
+        "PrefabUID": 1225895867,
+        "Tag": "UI",
+        "UID": 2161714642
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "Type": 16,
+                "listButtons": [
+                    0
+                ]
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Upgrate W1",
+        "ParentUID": 795620229,
+        "PrefabUID": 1225895867,
+        "Tag": "UI",
+        "UID": 2122020070
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.6000000238418579,
+                    0.4000000059604645,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.20000000298023224,
+                    0.15000000596046448,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Upgrate 1 (B)",
+        "ParentUID": 2122020070,
+        "PrefabUID": 1225895867,
+        "Tag": "UI",
+        "UID": 3169212958
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.6000000238418579,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.20000000298023224,
+                    0.15000000596046448,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Upgrate 2 (B)",
+        "ParentUID": 2122020070,
+        "PrefabUID": 1225895867,
+        "Tag": "UI",
+        "UID": 2715418805
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.6000000238418579,
+                    -0.4000000059604645,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.20000000298023224,
+                    0.15000000596046448,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Upgrate 3 (B)",
+        "ParentUID": 2122020070,
+        "PrefabUID": 1225895867,
+        "Tag": "UI",
+        "UID": 2892122169
     }
 ]

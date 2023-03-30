@@ -1,5 +1,4 @@
 #include "ArmoryUpgratteButtons.h"
-#include "ArmoryWeaponSelect.h"
 HELLO_ENGINE_API_C ArmoryUpgratteButtons* CreateArmoryUpgratteButtons(ScriptToInspectorInterface* script)
 {
 	ArmoryUpgratteButtons* classInstance = new ArmoryUpgratteButtons();
@@ -19,6 +18,8 @@ HELLO_ENGINE_API_C ArmoryUpgratteButtons* CreateArmoryUpgratteButtons(ScriptToIn
 
 void ArmoryUpgratteButtons::Start()
 {
+	WeaponInstance = (ArmoryWeaponSelect*)currentWeapon.GetScript("ArmoryWeaponSelect");
+
 	isUnlocked = false;
 }
 void ArmoryUpgratteButtons::Update()
@@ -27,7 +28,6 @@ void ArmoryUpgratteButtons::Update()
 	{
 		//GameObject Arma selected -> GetScript() -> set the correct bool as true
 		
-		ArmoryWeaponSelect* WeaponInstance = (ArmoryWeaponSelect*)currentWeapon.GetScript("ArmoryWeaponSelect");
 		WeaponInstance->PanelUnlock2;
 		Console::Log("HOLA?");
 
