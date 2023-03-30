@@ -10,8 +10,9 @@
 #include "API/API_Material.h"
 #include "API/API_ParticleSystem.h"
 #include "PhysicsComponent.h"
-#include "MaterialComponent.h"
+#include "TextureComponent.h"
 #include "ParticleSystemComponent.h"
+#include "MeshRenderComponent.h"
 
 API::API_GameObject::API_GameObject()
 {
@@ -178,7 +179,7 @@ API::API_Material API::API_GameObject::AddMaterial()
         Console::S_Log("Trying to acces a NULLPTR GameObject! AddMaterial()");
         return API_Material();
     }
-    MaterialComponent* component = (MaterialComponent*)_gameObject->AddComponent<MaterialComponent>();
+    TextureComponent* component = (TextureComponent*)_gameObject->AddComponent<TextureComponent>();
 
     if (component == nullptr)
     {
@@ -211,7 +212,7 @@ API::API_Material API::API_GameObject::GetMaterialCompoennt()
         return API_Material();
     }
     API_Material ret;
-    ret.SetComponent(_gameObject->GetComponent<MaterialComponent>());
+    ret.SetComponent(_gameObject->GetComponent<TextureComponent>());
     return ret;
 }
 

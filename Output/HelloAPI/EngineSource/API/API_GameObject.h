@@ -19,6 +19,7 @@ namespace API
     class API_Material;
 	class API_UIButton;
 	class API_UIImage;
+	class API_UIInput;
     class TO_API API_GameObject
     {
     public:
@@ -78,5 +79,6 @@ namespace API
         friend class API_ParticleSystem;
         friend class API_UIButton;
 		friend class API_UIImage;
+		friend class API_UIInput;
     };
 }

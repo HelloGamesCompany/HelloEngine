@@ -163,6 +163,7 @@
     <ClCompile Include="Uniform.cpp" />
     <ClCompile Include="UUID.cpp" />
     <ClCompile Include="XMLNode.cpp" />
+    <ClCompile Include="API\API_UIInput.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\External\ImGuiColorTextEdit\TextEditor.h" />
@@ -365,6 +366,7 @@
     <ClInclude Include="Uniform.h" />
     <ClInclude Include="UUID.h" />
     <ClInclude Include="XMLNode.h" />
+    <ClInclude Include="API\API_UIInput.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="HelloEngine.rc" />

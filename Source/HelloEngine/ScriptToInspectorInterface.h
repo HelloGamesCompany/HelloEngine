@@ -177,6 +177,15 @@ class DragBoxUIImage : public ScriptInspectorField
 #endif
 };
 
+class DragBoxUIInput : public ScriptInspectorField
+{
+	void OnEditor() override;
+#ifndef HELLO_ENGINE_EXPORTS
+	void OnSerialize(json& j) override;
+	void OnDeserialize(json& j) override;
+#endif
+};
+
 class TO_API ScriptToInspectorInterface
 {
 public:
@@ -197,6 +206,7 @@ public:
   	virtual void AddDragBoxParticleSystem(const char* name, API::API_ParticleSystem* value) = 0;
   	virtual void AddDragBoxUIButton(const char* name, API::API_UIButton* value) = 0;
 	virtual void AddDragBoxUIImage(const char* name, API::API_UIImage* value) = 0;
+	virtual void AddDragBoxUIInput(const char* name, API::API_UIInput* value) = 0;
 
 protected:
 	std::vector<ScriptInspectorField*> inspectorFields;
