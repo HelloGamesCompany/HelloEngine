@@ -32,9 +32,11 @@ void PlayerMove::Start()
     transform = gameObject.GetTransform();
     departureTime = 0.0f;
     playerStats = (PlayerStats*)playerStatsGO.GetScript("PlayerStats");
+    if (playerStats == nullptr) Console::Log("Missing PlayerStats on PlayerMove Script.");
     HUDScript = (SwapWeapon*)HUDGameObject.GetScript("SwapWeapon");
+    if (HUDScript == nullptr) Console::Log("Missing SwapWeapon on PlayerMove Script.");
 
-    if (playerStats->movementTreeLvl > 3) dashesAvailable = 2;
+    if (playerStats && playerStats->movementTreeLvl > 3) dashesAvailable = 2;
     else dashesAvailable = 1;
     dashBuffer = false;
 } 
@@ -42,7 +44,7 @@ void PlayerMove::Start()
 void PlayerMove::Update()
 {
     usingGamepad = Input::UsingGamepad();
-    if (playerStats->slowTimePowerUp > 0.0f /*&& !paused*/) dt = Time::GetRealTimeDeltaTime();
+    if (playerStats && playerStats->slowTimePowerUp > 0.0f /*&& !paused*/) dt = Time::GetRealTimeDeltaTime();
     else dt = Time::GetDeltaTime();
     Aim();
 
@@ -78,7 +80,7 @@ void PlayerMove::Update()
         if (dashCooldown <= 0.0f)
         {
             dashCooldown = 0.0f;
-            if (playerStats->movementTreeLvl > 3) dashesAvailable = 2;
+            if (playerStats && playerStats->movementTreeLvl > 3) dashesAvailable = 2;
             else dashesAvailable = 1;
         }
     }
@@ -93,10 +95,10 @@ void PlayerMove::Update()
     //currentInput = input.Distance(API_Vector2::S_Zero());   //TEST
 
     float velocity;
-    if (playerStats->movementTreeLvl > 0) velocity = upgradedVel;
+    if (playerStats && playerStats->movementTreeLvl > 0) velocity = upgradedVel;
     else velocity = vel;
 
-    if (playerStats->speedPowerUp > 0.0f) velocity *= 1.5f;
+    if (playerStats && playerStats->speedPowerUp > 0.0f) velocity *= 1.5f;
     
     //SecToZero MUST be smaller than SecToMaxVel
     if (abs(input.x) < 0.01f && abs(input.y) < 0.01f) //NO INPUT
@@ -148,7 +150,7 @@ void PlayerMove::DashSetup()
 
     // cooldown
     dashesAvailable--;
-    if (playerStats->movementTreeLvl > 1) dashCooldown = maxFastDashCooldown;
+    if (playerStats && playerStats->movementTreeLvl > 1) dashCooldown = maxFastDashCooldown;
     else dashCooldown = maxDashCooldown;
 
     dashDepartTime = 0.0f;
@@ -158,7 +160,7 @@ void PlayerMove::DashSetup()
     movDir.x = lastMovInput.x / norm;
     movDir.y = 0.0f;
     movDir.z = lastMovInput.y / norm;
-    if (playerStats->movementTreeLvl > 2) dashFinalPos = transform.GetLocalPosition() + movDir * upgradedDashDistance; //transform.GetForward() // for looking dir
+    if (playerStats && playerStats->movementTreeLvl > 2) dashFinalPos = transform.GetLocalPosition() + movDir * upgradedDashDistance; //transform.GetForward() // for looking dir
     else dashFinalPos = transform.GetLocalPosition() + movDir * dashDistance;
 
     if (currentAnim != PlayerAnims::DASH)
@@ -168,7 +170,7 @@ void PlayerMove::DashSetup()
         currentAnim = PlayerAnims::DASH;
     }
 
-    HUDScript->Dash();
+    if (HUDScript) HUDScript->Dash();
 }
 
 void PlayerMove::Dash()
@@ -188,7 +190,7 @@ void PlayerMove::Dash()
     if (dashDepartTime >= dashTime)
     {
         isDashing = false;
-        HUDScript->Dash();
+        if (HUDScript) HUDScript->Dash();
     }
 }
 
