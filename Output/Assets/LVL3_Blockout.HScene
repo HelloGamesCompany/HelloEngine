@@ -35820,7 +35820,7 @@
         "UID": 3714499106
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -36090,6 +36090,25 @@
                 ],
                 "Script Resource": 3024424734,
                 "Type": 5
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "MAIN CAMERA": 508667422
+                    },
+                    {
+                        "SECONDARY CAMERA": 1929231542
+                    },
+                    {
+                        "MAIN CAMERA": 508667422
+                    },
+                    {
+                        "SECONDARY CAMERA": 1929231542
+                    }
+                ],
+                "Script Resource": 3334200637,
+                "Type": 5
             }
         ],
         "FirstOnPrefab": true,
@@ -36100,7 +36119,7 @@
         "UID": 1881844107
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -36130,7 +36149,7 @@
         "UID": 2186176263
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -36160,7 +36179,7 @@
         "UID": 3021537971
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -36190,7 +36209,7 @@
         "UID": 3586855503
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -36220,7 +36239,7 @@
         "UID": 2478450330
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -36250,7 +36269,7 @@
         "UID": 1879308129
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -36280,7 +36299,7 @@
         "UID": 1722511060
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -36310,7 +36329,7 @@
         "UID": 3160636644
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -36363,7 +36382,7 @@
         "UID": 2624315955
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -36393,7 +36412,7 @@
         "UID": 3887298511
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -36423,7 +36442,7 @@
         "UID": 3130378778
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -36453,7 +36472,7 @@
         "UID": 575402209
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -36483,7 +36502,7 @@
         "UID": 917222997
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -36513,7 +36532,7 @@
         "UID": 408517208
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -36543,7 +36562,7 @@
         "UID": 103104055
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -36573,7 +36592,7 @@
         "UID": 1317061539
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -36603,7 +36622,7 @@
         "UID": 1884604415
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -36633,7 +36652,7 @@
         "UID": 1088051210
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -36663,7 +36682,7 @@
         "UID": 875091857
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -36693,7 +36712,7 @@
         "UID": 659082436
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -36723,7 +36742,7 @@
         "UID": 2842653588
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -36753,7 +36772,7 @@
         "UID": 587417763
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -36783,7 +36802,7 @@
         "UID": 4228452607
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -36813,7 +36832,7 @@
         "UID": 3450549514
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -36843,7 +36862,7 @@
         "UID": 301947025
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -36873,7 +36892,7 @@
         "UID": 2283880901
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -36903,7 +36922,7 @@
         "UID": 2087943304
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -36933,7 +36952,7 @@
         "UID": 1532634663
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -36963,7 +36982,7 @@
         "UID": 3685338195
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -36993,7 +37012,7 @@
         "UID": 4174145647
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -37023,7 +37042,7 @@
         "UID": 2116907834
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -37053,7 +37072,7 @@
         "UID": 3732515970
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -37083,7 +37102,7 @@
         "UID": 3088037481
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -37113,7 +37132,7 @@
         "UID": 3374496125
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -37143,7 +37162,7 @@
         "UID": 1083627424
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -37173,7 +37192,7 @@
         "UID": 2124332064
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -37203,7 +37222,7 @@
         "UID": 923789983
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -37233,7 +37252,7 @@
         "UID": 2342116139
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -37263,7 +37282,7 @@
         "UID": 2034320678
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -37293,7 +37312,7 @@
         "UID": 598370141
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -37323,7 +37342,7 @@
         "UID": 2239782657
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -37353,7 +37372,7 @@
         "UID": 2825714421
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -37383,7 +37402,7 @@
         "UID": 2381678456
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -37413,7 +37432,7 @@
         "UID": 3328355800
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -37443,7 +37462,7 @@
         "UID": 1383598007
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -37473,7 +37492,7 @@
         "UID": 4245297955
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -37503,7 +37522,7 @@
         "UID": 3714450814
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -37533,7 +37552,7 @@
         "UID": 3799229334
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -37563,7 +37582,7 @@
         "UID": 584538253
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -37593,7 +37612,7 @@
         "UID": 1322582513
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -37623,7 +37642,7 @@
         "UID": 4008245925
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -37653,7 +37672,7 @@
         "UID": 1179421416
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -37683,7 +37702,7 @@
         "UID": 1313638408
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -37713,7 +37732,7 @@
         "UID": 4080969640
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -37743,7 +37762,7 @@
         "UID": 510741447
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -37773,7 +37792,7 @@
         "UID": 296038002
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -37803,7 +37822,7 @@
         "UID": 3208651034
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -37833,7 +37852,7 @@
         "UID": 3949605858
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -37863,7 +37882,7 @@
         "UID": 3113215305
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -37893,7 +37912,7 @@
         "UID": 3933124061
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -37923,7 +37942,7 @@
         "UID": 2390294400
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -37953,7 +37972,7 @@
         "UID": 1883571583
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -37983,7 +38002,7 @@
         "UID": 2195698571
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -38013,7 +38032,7 @@
         "UID": 254212358
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -38043,7 +38062,7 @@
         "UID": 3253316798
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -38073,7 +38092,7 @@
         "UID": 4068438998
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -38103,7 +38122,7 @@
         "UID": 4288243150
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -38133,7 +38152,7 @@
         "UID": 9666597
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -38163,7 +38182,7 @@
         "UID": 2983251561
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -38193,7 +38212,7 @@
         "UID": 928428412
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -38223,7 +38242,7 @@
         "UID": 3151634348
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -38253,7 +38272,7 @@
         "UID": 2940691355
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -38283,7 +38302,7 @@
         "UID": 1371760726
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -38313,7 +38332,7 @@
         "UID": 460710989
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -38343,7 +38362,7 @@
         "UID": 343998640
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -38373,7 +38392,7 @@
         "UID": 791672944
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -38403,7 +38422,7 @@
         "UID": 4041691952
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -38433,7 +38452,7 @@
         "UID": 1852992751
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -38463,7 +38482,7 @@
         "UID": 3570614715
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -38493,7 +38512,7 @@
         "UID": 1354947830
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -38523,7 +38542,7 @@
         "UID": 2456150382
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -38553,7 +38572,7 @@
         "UID": 4112789574
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -38583,7 +38602,7 @@
         "UID": 3938209021
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -38613,7 +38632,7 @@
         "UID": 4222976289
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -38643,7 +38662,7 @@
         "UID": 140936084
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -38673,7 +38692,7 @@
         "UID": 2405800100
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -38703,7 +38722,7 @@
         "UID": 3369119988
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -38733,7 +38752,7 @@
         "UID": 453748099
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -38763,7 +38782,7 @@
         "UID": 911938399
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -38793,7 +38812,7 @@
         "UID": 1856707307
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -38823,7 +38842,7 @@
         "UID": 188712934
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -38853,7 +38872,7 @@
         "UID": 78219549
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -38883,7 +38902,7 @@
         "UID": 3999656897
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -38913,7 +38932,7 @@
         "UID": 203157172
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -38943,7 +38962,7 @@
         "UID": 678166084
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -38973,7 +38992,7 @@
         "UID": 25449235
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -39003,7 +39022,7 @@
         "UID": 2274663983
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -39033,7 +39052,7 @@
         "UID": 347022330
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -39063,7 +39082,7 @@
         "UID": 850596930
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -39093,7 +39112,7 @@
         "UID": 399786281
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -39123,7 +39142,7 @@
         "UID": 2132591421
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -39153,7 +39172,7 @@
         "UID": 422866016
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -39183,7 +39202,7 @@
         "UID": 2649053152
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -39213,7 +39232,7 @@
         "UID": 3833805152
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -39243,7 +39262,7 @@
         "UID": 2605877471
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -39273,7 +39292,7 @@
         "UID": 81858154
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -39303,7 +39322,7 @@
         "UID": 3919905138
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -39333,7 +39352,7 @@
         "UID": 1198657561
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -39373,7 +39392,7 @@
         "UID": 523493100
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -39403,7 +39422,7 @@
         "UID": 3315608540
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -39433,7 +39452,7 @@
         "UID": 2964839819
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -39463,7 +39482,7 @@
         "UID": 3279760135
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -39493,7 +39512,7 @@
         "UID": 2539034290
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -39523,7 +39542,7 @@
         "UID": 2137302617
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -39553,7 +39572,7 @@
         "UID": 2003528236
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -39583,7 +39602,7 @@
         "UID": 4281413660
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -39613,7 +39632,7 @@
         "UID": 1275113163
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -39643,7 +39662,7 @@
         "UID": 1974480199
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -39673,7 +39692,7 @@
         "UID": 562658802
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -39703,7 +39722,7 @@
         "UID": 2766714522
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -39733,7 +39752,7 @@
         "UID": 738445153
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -39763,7 +39782,7 @@
         "UID": 531463892
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -39793,7 +39812,7 @@
         "UID": 4199337188
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -39823,7 +39842,7 @@
         "UID": 3630527027
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -39853,7 +39872,7 @@
         "UID": 2096777166
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -39883,7 +39902,7 @@
         "UID": 2374617638
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -39913,7 +39932,7 @@
         "UID": 1373417565
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -39943,7 +39962,7 @@
         "UID": 4142349313
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -39973,7 +39992,7 @@
         "UID": 332495860
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -40003,7 +40022,7 @@
         "UID": 3115510916
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -40033,7 +40052,7 @@
         "UID": 547100243
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -40063,7 +40082,7 @@
         "UID": 1896036975
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -40093,7 +40112,7 @@
         "UID": 2465361211
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -40123,7 +40142,7 @@
         "UID": 1134820982
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -40153,7 +40172,7 @@
         "UID": 1448177902
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -40183,7 +40202,7 @@
         "UID": 3531408838
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -40213,7 +40232,7 @@
         "UID": 3401785469
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -40243,7 +40262,7 @@
         "UID": 2619501216
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -40273,7 +40292,7 @@
         "UID": 3687803680
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -40303,7 +40322,7 @@
         "UID": 4024984992
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -40333,7 +40352,7 @@
         "UID": 2633867807
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -40363,7 +40382,7 @@
         "UID": 3176855723
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -40393,7 +40412,7 @@
         "UID": 2236416166
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -40423,7 +40442,7 @@
         "UID": 375478493
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -40453,7 +40472,7 @@
         "UID": 2017197697
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -40483,7 +40502,7 @@
         "UID": 2480218229
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -40513,7 +40532,7 @@
         "UID": 408152824
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -40543,7 +40562,7 @@
         "UID": 504129368
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -40573,7 +40592,7 @@
         "UID": 3812953912
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -40603,7 +40622,7 @@
         "UID": 2620643479
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -40633,7 +40652,7 @@
         "UID": 1608917378
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -40663,7 +40682,7 @@
         "UID": 1689694058
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -40693,7 +40712,7 @@
         "UID": 3330741874
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -40723,7 +40742,7 @@
         "UID": 731417
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -40753,7 +40772,7 @@
         "UID": 3677342701
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -40783,7 +40802,7 @@
         "UID": 1570639056
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -40813,7 +40832,7 @@
         "UID": 3889328912
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -40843,7 +40862,7 @@
         "UID": 2755006031
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -40873,7 +40892,7 @@
         "UID": 1625379482
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -40903,7 +40922,7 @@
         "UID": 1041568609
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -40933,7 +40952,7 @@
         "UID": 3115268821
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -40963,7 +40982,7 @@
         "UID": 872073432
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -40993,7 +41012,7 @@
         "UID": 966713016
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -41023,7 +41042,7 @@
         "UID": 1389358616
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -41053,7 +41072,7 @@
         "UID": 1577731320
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -41083,7 +41102,7 @@
         "UID": 3738601816
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -41113,7 +41132,7 @@
         "UID": 1588959543
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -41143,7 +41162,7 @@
         "UID": 3774667427
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -41173,7 +41192,7 @@
         "UID": 4251962111
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -41203,7 +41222,7 @@
         "UID": 3823187722
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -41233,7 +41252,7 @@
         "UID": 2144158353
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -41263,7 +41282,7 @@
         "UID": 2565354437
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -41293,7 +41312,7 @@
         "UID": 621221512
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -41323,7 +41342,7 @@
         "UID": 4037183528
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -41353,7 +41372,7 @@
         "UID": 1504618055
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -41383,7 +41402,7 @@
         "UID": 3056225011
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -41413,7 +41432,7 @@
         "UID": 466679694
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -41443,7 +41462,7 @@
         "UID": 3574349030
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -41473,7 +41492,7 @@
         "UID": 3643654686
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -41503,7 +41522,7 @@
         "UID": 1229490357
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -41805,7 +41824,7 @@
         "UID": 2098305788
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -41953,7 +41972,7 @@
         "UID": 1424627499
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -41983,7 +42002,7 @@
         "UID": 311341350
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -42013,7 +42032,7 @@
         "UID": 3491152734
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -42043,7 +42062,7 @@
         "UID": 1050245877
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -42073,7 +42092,7 @@
         "UID": 1644955513
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -42103,7 +42122,7 @@
         "UID": 2439790029
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -42133,7 +42152,7 @@
         "UID": 3254986801
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -42163,7 +42182,7 @@
         "UID": 76633572
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -42193,7 +42212,7 @@
         "UID": 956534580
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -42223,7 +42242,7 @@
         "UID": 1426069700
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -42253,7 +42272,7 @@
         "UID": 1934569364
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -42283,7 +42302,7 @@
         "UID": 774255779
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -42313,7 +42332,7 @@
         "UID": 2622024959
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -42343,7 +42362,7 @@
         "UID": 3299655947
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -42373,7 +42392,7 @@
         "UID": 430924934
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -42403,7 +42422,7 @@
         "UID": 1078267454
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -42433,7 +42452,7 @@
         "UID": 2620015446
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -42463,7 +42482,7 @@
         "UID": 834304845
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -42493,7 +42512,7 @@
         "UID": 4294869937
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -42523,7 +42542,7 @@
         "UID": 1811703652
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -42553,7 +42572,7 @@
         "UID": 2315374260
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -42583,7 +42602,7 @@
         "UID": 4253769284
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -42613,7 +42632,7 @@
         "UID": 791360275
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -42643,7 +42662,7 @@
         "UID": 3748199983
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -42673,7 +42692,7 @@
         "UID": 4103013371
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -42703,7 +42722,7 @@
         "UID": 1914012726
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -42731,5 +42750,264 @@
         "PrefabUID": 3737530194,
         "Tag": "Default",
         "UID": 4119638446
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    254.73455810546875,
+                    42.927330017089844,
+                    -40.694427490234375
+                ],
+                "Rotation": [
+                    24.75700569152832,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0000022649765015,
+                    1.0000022649765015
+                ],
+                "Type": 1
+            },
+            {
+                "Active camera": true,
+                "Active culling": false,
+                "Aspect ratio": 2.031304359436035,
+                "Enabled": true,
+                "FOV": 60.0,
+                "Far plane": 1000.0,
+                "Frustum type": 2,
+                "Near plane": 0.009999999776482582,
+                "Orthographic size": 10.0,
+                "Type": 4
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Target": 1881844107
+                    },
+                    {
+                        "Delay": 0.009999999776482582
+                    },
+                    {
+                        "Offset_X": 0.0
+                    },
+                    {
+                        "Offset_Y": 25.0
+                    },
+                    {
+                        "Offset_Z": -20.0
+                    },
+                    {
+                        "Rot_Offset_X": 50.0
+                    },
+                    {
+                        "Rot_Offset_Y": 0.0
+                    },
+                    {
+                        "Rot_Offset_Z": 0.0
+                    },
+                    {
+                        "Use safe zone: ": true
+                    },
+                    {
+                        "Target": 1881844107
+                    },
+                    {
+                        "Delay": 0.009999999776482582
+                    },
+                    {
+                        "Offset_X": 0.0
+                    },
+                    {
+                        "Offset_Y": 25.0
+                    },
+                    {
+                        "Offset_Z": -20.0
+                    },
+                    {
+                        "Rot_Offset_X": 50.0
+                    },
+                    {
+                        "Rot_Offset_Y": 0.0
+                    },
+                    {
+                        "Rot_Offset_Z": 0.0
+                    },
+                    {
+                        "Use safe zone: ": true
+                    }
+                ],
+                "Script Resource": 2306703736,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CameraPlayer",
+        "ParentUID": 1957540640,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 508667422
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Active camera": true,
+                "Active culling": true,
+                "Aspect ratio": 0.9982608556747437,
+                "Enabled": true,
+                "FOV": 60.0,
+                "Far plane": 1000.0,
+                "Frustum type": 2,
+                "Near plane": 0.009999999776482582,
+                "Orthographic size": 10.0,
+                "Type": 4
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Target": 1881844107
+                    },
+                    {
+                        "Delay": 0.009999999776482582
+                    },
+                    {
+                        "Offset_X": 0.0
+                    },
+                    {
+                        "Offset_Y": 45.0
+                    },
+                    {
+                        "Offset_Z": -17.0
+                    },
+                    {
+                        "Rot_Offset_X": 58.0
+                    },
+                    {
+                        "Rot_Offset_Y": 0.0
+                    },
+                    {
+                        "Rot_Offset_Z": 0.0
+                    },
+                    {
+                        "Target": 1881844107
+                    },
+                    {
+                        "Delay": 0.009999999776482582
+                    },
+                    {
+                        "Offset_X": 0.0
+                    },
+                    {
+                        "Offset_Y": 45.0
+                    },
+                    {
+                        "Offset_Z": -17.0
+                    },
+                    {
+                        "Rot_Offset_X": 58.0
+                    },
+                    {
+                        "Rot_Offset_Y": 0.0
+                    },
+                    {
+                        "Rot_Offset_Z": 0.0
+                    }
+                ],
+                "Script Resource": 871976367,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "OrbitalCamera",
+        "ParentUID": 1957540640,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1929231542
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    220.3679962158203,
+                    3.8106231689453125,
+                    3.950497627258301
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 10,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "MAIN CAMERA": 508667422
+                    },
+                    {
+                        "SECONDARY CAMERA": 1929231542
+                    },
+                    {
+                        "MAIN CAMERA": 508667422
+                    },
+                    {
+                        "SECONDARY CAMERA": 1929231542
+                    }
+                ],
+                "Script Resource": 3334200637,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube",
+        "ParentUID": 1957540640,
+        "PrefabUID": 0,
+        "Tag": "Primitive",
+        "UID": 683339709
     }
 ]
