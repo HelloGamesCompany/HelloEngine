@@ -35943,6 +35943,45 @@
                     },
                     {
                         "Shoot Animations": 3469875527
+                    },
+                    {
+                        "Velocity": 10.0
+                    },
+                    {
+                        "Upgrade Velocity": 2.0
+                    },
+                    {
+                        "SecToMaxVel": 0.0
+                    },
+                    {
+                        "SecToZeroVel": 0.0
+                    },
+                    {
+                        "Dash Time": 0.5
+                    },
+                    {
+                        "Dash Distance": 5.0
+                    },
+                    {
+                        "Upgrade Dash Distance": 8.0
+                    },
+                    {
+                        "Dash Cooldown": 0.0
+                    },
+                    {
+                        "Upgrade Dash Cooldown": 0.0
+                    },
+                    {
+                        "Dash Animation": 3797853291
+                    },
+                    {
+                        "Idle Animation": 1165806223
+                    },
+                    {
+                        "Run Animation": 462511998
+                    },
+                    {
+                        "Shoot Animations": 3469875527
                     }
                 ],
                 "Script Resource": 3336682094,
@@ -35980,6 +36019,36 @@
                     },
                     {
                         "tree4": 0
+                    },
+                    {
+                        "Max HP": 100.0
+                    },
+                    {
+                        "Current HP": 0.0
+                    },
+                    {
+                        "Upgraded Max HP": 0.0
+                    },
+                    {
+                        "Laser Ammo": 99999
+                    },
+                    {
+                        "Fire Ammo": 99999
+                    },
+                    {
+                        "Ricochet Ammo": 99999
+                    },
+                    {
+                        "tree1": 0
+                    },
+                    {
+                        "tree2": 0
+                    },
+                    {
+                        "tree3": 0
+                    },
+                    {
+                        "tree4": 0
                     }
                 ],
                 "Script Resource": 4283682555,
@@ -35988,6 +36057,21 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Base Gun": 0
+                    },
+                    {
+                        "Normal Gun": 1
+                    },
+                    {
+                        "Special Gun": 4
+                    },
+                    {
+                        "Swap Delay": 0.0
+                    },
+                    {
+                        "Fast Swap Delay": 0.0
+                    },
                     {
                         "Base Gun": 0
                     },
@@ -41475,6 +41559,9 @@
                 "Inspector Fields": [
                     {
                         "Gun Type": 1
+                    },
+                    {
+                        "Gun Type": 1
                     }
                 ],
                 "Script Resource": 1187195986,
@@ -41483,6 +41570,46 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Projectile Speed": 100.0
+                    },
+                    {
+                        "Projectile Damage": 60.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 0.0
+                    },
+                    {
+                        "Projectile Lifetime": 1.0
+                    },
+                    {
+                        "Projectile MeshIndexInsideModel": 0,
+                        "Projectile MeshModelUID": 1551155716
+                    },
+                    {
+                        "Projectile Material": 3260379948
+                    },
+                    {
+                        "Projectile ScaleX": 0.20000000298023224
+                    },
+                    {
+                        "Projectile ScaleY": 0.20000000298023224
+                    },
+                    {
+                        "Projectile ScaleZ": 0.4000000059604645
+                    },
+                    {
+                        "Projectiles per second": 1.0
+                    },
+                    {
+                        "Extra % firerate": 0.0
+                    },
+                    {
+                        "Ammo Type": 1
+                    },
+                    {
+                        "Audio Event String": ""
+                    },
                     {
                         "Projectile Speed": 100.0
                     },
@@ -41562,6 +41689,9 @@
                 "Inspector Fields": [
                     {
                         "Gun Type": 4
+                    },
+                    {
+                        "Gun Type": 4
                     }
                 ],
                 "Script Resource": 1421097082,
@@ -41570,6 +41700,52 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Projectile Speed": 40.0
+                    },
+                    {
+                        "Projectile Damage": 10.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 0.0
+                    },
+                    {
+                        "Projectile Lifetime": 0.5
+                    },
+                    {
+                        "Projectile MeshIndexInsideModel": 0,
+                        "Projectile MeshModelUID": 1551155716
+                    },
+                    {
+                        "Projectile Material": 3260379948
+                    },
+                    {
+                        "Projectile ScaleX": 0.05000000074505806
+                    },
+                    {
+                        "Projectile ScaleY": 0.05000000074505806
+                    },
+                    {
+                        "Projectile ScaleZ": 0.05000000074505806
+                    },
+                    {
+                        "Projectiles per second": 1.2999999523162842
+                    },
+                    {
+                        "Extra % firerate": 0.0
+                    },
+                    {
+                        "Pellets per shot": 10
+                    },
+                    {
+                        "Pellets Dispersion": 0.0
+                    },
+                    {
+                        "Ammo Type": 1
+                    },
+                    {
+                        "Audio Event String": ""
+                    },
                     {
                         "Projectile Speed": 40.0
                     },
@@ -41655,6 +41831,9 @@
                 "Inspector Fields": [
                     {
                         "Gun Type": 0
+                    },
+                    {
+                        "Gun Type": 0
                     }
                 ],
                 "Script Resource": 1421097082,
@@ -41663,6 +41842,55 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Projectile Speed": 30.0
+                    },
+                    {
+                        "Projectile Damage": 5.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 0.0
+                    },
+                    {
+                        "Projectile Lifetime": 1.0
+                    },
+                    {
+                        "Projectile MeshIndexInsideModel": 0,
+                        "Projectile MeshModelUID": 1551155716
+                    },
+                    {
+                        "Projectile Material": 3260379948
+                    },
+                    {
+                        "Projectile ScaleX": 0.10000000149011612
+                    },
+                    {
+                        "Projectile ScaleY": 0.10000000149011612
+                    },
+                    {
+                        "Projectile ScaleZ": 0.10000000149011612
+                    },
+                    {
+                        "Projectiles per second": 3.0
+                    },
+                    {
+                        "Extra % firerate": 0.0
+                    },
+                    {
+                        "Burst Space": 0.1599999964237213
+                    },
+                    {
+                        "Slow %": 0.0
+                    },
+                    {
+                        "Freeze %": 0.0
+                    },
+                    {
+                        "Ammo Type": 0
+                    },
+                    {
+                        "Audio Event String": ""
+                    },
                     {
                         "Projectile Speed": 30.0
                     },
