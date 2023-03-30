@@ -22,6 +22,7 @@ HELLO_ENGINE_API_C ArmoryWeaponSelect* CreateArmoryWeaponSelect(ScriptToInspecto
 
 	script->AddDragBoxMaterialComponent("SelectedWeapon", &classInstance->SelectedWeapon);
 
+	script->AddDragBoxUIInput("List Weapons", &classInstance->SelectWeaponList);
 
 	return classInstance;
 }
@@ -34,7 +35,6 @@ void ArmoryWeaponSelect::Start()
 }
 void ArmoryWeaponSelect::Update()
 {
-
 	if (CurrentWeapon.OnHovered())
 	{
 		SelectedWeapon.ChangeAlbedoTexture(CurrentTextureWeapon);
@@ -44,159 +44,24 @@ void ArmoryWeaponSelect::Update()
 		else
 			CurrentPanelUnlock.SetActive(true);
 
-		if (nextW->isUnlocked)
+		/*if (nextW->isUnlocked)
 			NextPanelUpgrate.SetActive(true);
 		else
 			NextPanelUnlock.SetActive(true);
-
+			
 		if (PrevW->isUnlocked)
 			PrevPanelUpgrate.SetActive(true);
 		else
-			PrevPanelUnlock.SetActive(true);
+			PrevPanelUnlock.SetActive(true);*/
 	}
 
 	if (CurrentWeapon.OnPress())
 	{
+		Console::Log("I");
+		SelectWeaponList.SetEnable(false);
 		CurrentPanelUnlock.SetActive(false);
 		isUnlocked = true;
 	}
-
-	/*if (Weapon1.OnHovered())
-	{
-		SelectedWeapon.ChangeAlbedoTexture(Weapon1Texture);
-
-		if (isUnlockWeapon2)
-			PanelUpgrate2.SetActive(false);
-		else
-			PanelUnlock2.SetActive(false);
-
-		PanelUpgrate1.SetActive(true);
-	}
-
-	if (Weapon2.OnHovered())
-	{
-		SelectedWeapon.ChangeAlbedoTexture(Weapon2Texture);
-
-		if (isUnlockWeapon3)
-			PanelUpgrate3.SetActive(false);
-		else
-			PanelUnlock3.SetActive(false);
-
-		PanelUpgrate1.SetActive(false);
-
-		if (isUnlockWeapon2)
-			PanelUpgrate2.SetActive(true);
-		else
-			PanelUnlock2.SetActive(true);
-	}
-
-	if (Weapon3.OnHovered())
-	{
-		SelectedWeapon.ChangeAlbedoTexture(Weapon3Texture);
-
-		if (isUnlockWeapon2)
-			PanelUpgrate2.SetActive(false);
-		else
-			PanelUnlock2.SetActive(false);
-
-		if (isUnlockWeapon4)
-			PanelUpgrate4.SetActive(false);
-		else
-			PanelUnlock4.SetActive(false);
-
-		if (isUnlockWeapon3)
-			PanelUpgrate3.SetActive(true);
-		else
-			PanelUnlock3.SetActive(true);
-	}
-
-	if (Weapon4.OnHovered())
-	{
-		SelectedWeapon.ChangeAlbedoTexture(Weapon4Texture);
-
-		if (isUnlockWeapon3)
-			PanelUpgrate3.SetActive(false);
-		else
-			PanelUnlock3.SetActive(false);
-
-		if (isUnlockWeapon5)
-			PanelUpgrate5.SetActive(false);
-		else
-			PanelUnlock5.SetActive(false);
-
-		if (isUnlockWeapon4)
-			PanelUpgrate4.SetActive(true);
-		else
-			PanelUnlock4.SetActive(true);
-	}
-
-	if (Weapon5.OnHovered())
-	{
-		SelectedWeapon.ChangeAlbedoTexture(Weapon5Texture);
-
-		if (isUnlockWeapon4)
-			PanelUpgrate4.SetActive(false);
-		else
-			PanelUnlock4.SetActive(false);
-
-		if (isUnlockWeapon6)
-			PanelUpgrate6.SetActive(false);
-		else
-			PanelUnlock6.SetActive(false);
-
-		if (isUnlockWeapon5)
-			PanelUpgrate5.SetActive(true);
-		else
-			PanelUnlock5.SetActive(true);
-	}
-
-	if (Weapon6.OnHovered())
-	{
-		SelectedWeapon.ChangeAlbedoTexture(Weapon6Texture);
-
-		if (isUnlockWeapon5)
-			PanelUpgrate5.SetActive(false);
-		else
-			PanelUnlock5.SetActive(false);
-
-		if (isUnlockWeapon6)
-			PanelUpgrate6.SetActive(true);
-		else
-			PanelUnlock6.SetActive(true);
-	}
-
-	if (Weapon1.OnPress())
-	{
-
-	}
-
-	if (Weapon2.OnPress())
-	{
-		//desactivar componente
-		isUnlockWeapon2 = true;
-	}
-
-	if (Weapon3.OnPress())
-	{
-		Console::Log("JUAN?");
-
-		isUnlockWeapon3 = true;
-	}
-
-	if (Weapon4.OnPress())
-	{
-		//isUnlockWeapon4 = true;
-	}
-
-	if (Weapon5.OnPress())
-	{
-		//isUnlockWeapon5 = true;
-	}
-
-	if (Weapon6.OnPress())
-	{
-		//isUnlockWeapon6 = true;
-	}*/
 }
 
 void ArmoryWeaponSelect::UnlockWeapon2()

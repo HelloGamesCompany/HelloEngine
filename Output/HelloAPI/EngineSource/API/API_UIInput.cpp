@@ -34,4 +34,8 @@ void API::API_UIInput::SetComponent(ComponentUIInput* component)
 	_UIInput = component;
 }
 
+void API::API_UIInput::SetEnable(bool isActive)
+{
+	_UIInput->_isComponentEnable = isActive;
+}
 

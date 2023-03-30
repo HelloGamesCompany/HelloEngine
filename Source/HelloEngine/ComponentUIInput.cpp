@@ -121,7 +121,7 @@ void ComponentUIInput::OnEditor()
 		return;
 	}
 
-	_isComponentEnable = _isEnabled;
+	//_isComponentEnable = _isEnabled;
 	if (ImGui::Checkbox("Active##Panel", &_isComponentEnable))
 		_isComponentEnable ? Enable() : Disable();
 

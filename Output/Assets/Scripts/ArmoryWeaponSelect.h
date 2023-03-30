@@ -4,6 +4,7 @@
 #include "Macro.h"
 
 #include "API/API.h"
+#include "API/API_UIInput.h"
 #include "ArmoryUpgratteButtons.h"
 
 class ArmoryWeaponSelect : HelloBehavior
@@ -15,6 +16,8 @@ public:
 	void UnlockWeapon2();
 
 	API_UIButton CurrentWeapon;
+
+	API_UIInput SelectWeaponList;
 
 	API_GameObject NextWeapon;
 
