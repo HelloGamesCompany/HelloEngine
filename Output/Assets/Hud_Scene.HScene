@@ -429,9 +429,6 @@
                         "Game Bar Weapon 3": 1496549210
                     },
                     {
-                        "Material_Dash": 1199782281
-                    },
-                    {
                         "Text_Weapon_1_on": 1828660828
                     },
                     {
@@ -466,9 +463,6 @@
                     },
                     {
                         "Game Bar Weapon 3": 1496549210
-                    },
-                    {
-                        "Material_Dash": 1199782281
                     }
                 ],
                 "Script Resource": 1798504338,
@@ -1051,12 +1045,12 @@
                 "Type": 15
             }
         ],
-        "FirstOnPrefab": false,
+        "FirstOnPrefab": true,
         "Name": "Dash",
         "ParentUID": 3935883042,
-        "PrefabUID": 2084806115,
+        "PrefabUID": 0,
         "Tag": "UI",
-        "UID": 1199782281
+        "UID": 769001189
     },
     {
         "Active": true,
@@ -1150,34 +1144,94 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "GameObject Pick_up_1": 3330712065
+                        "Material Pick_up 1": 3330712065
                     },
                     {
-                        "GameObject Pick_up_2": 3955892868
+                        "Material Pick_up 2": 3955892868
                     },
                     {
-                        "GameObject Pick_up_3": 2411446382
+                        "Material Pick_up 3": 2411446382
                     },
                     {
-                        "GameObject Pick_up_4": 1806803977
+                        "Material Pick_up 4": 1806803977
                     },
                     {
-                        "GameObject Pick_up_5": 3047364684
+                        "Material Pick_up 5": 3047364684
                     },
                     {
-                        "GameObject Pick_up_1": 3330712065
+                        "Texture_Pick_up_1": 1072796038
                     },
                     {
-                        "GameObject Pick_up_2": 3955892868
+                        "Texture_Pick_up_2": 3583084629
                     },
                     {
-                        "GameObject Pick_up_3": 2411446382
+                        "Texture_Pick_up_3": 977509463
                     },
                     {
-                        "GameObject Pick_up_4": 1806803977
+                        "Texture_Pick_up_4": 4259070326
                     },
                     {
-                        "GameObject Pick_up_5": 3047364684
+                        "Texture_Pick_up_5": 3102974161
+                    },
+                    {
+                        "GamesObjects_1": 3330712065
+                    },
+                    {
+                        "GamesObjects_2": 3955892868
+                    },
+                    {
+                        "GamesObjects_3": 2411446382
+                    },
+                    {
+                        "GamesObjects_4": 1806803977
+                    },
+                    {
+                        "GamesObjects_5": 3047364684
+                    },
+                    {
+                        "Material Pick_up 1": 3330712065
+                    },
+                    {
+                        "Material Pick_up 2": 3955892868
+                    },
+                    {
+                        "Material Pick_up 3": 2411446382
+                    },
+                    {
+                        "Material Pick_up 4": 1806803977
+                    },
+                    {
+                        "Material Pick_up 5": 3047364684
+                    },
+                    {
+                        "Texture_Pick_up_1": 1072796038
+                    },
+                    {
+                        "Texture_Pick_up_2": 3583084629
+                    },
+                    {
+                        "Texture_Pick_up_3": 977509463
+                    },
+                    {
+                        "Texture_Pick_up_4": 4259070326
+                    },
+                    {
+                        "Texture_Pick_up_5": 3102974161
+                    },
+                    {
+                        "GamesObjects_1": 3330712065
+                    },
+                    {
+                        "GamesObjects_2": 3955892868
+                    },
+                    {
+                        "GamesObjects_3": 2411446382
+                    },
+                    {
+                        "GamesObjects_4": 1806803977
+                    },
+                    {
+                        "GamesObjects_5": 3047364684
                     }
                 ],
                 "Script Resource": 2660363889,
@@ -1216,7 +1270,7 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 0,
+                "MaterialResource": 240240,
                 "Type": 15
             }
         ],
@@ -1252,7 +1306,7 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 0,
+                "MaterialResource": 240240,
                 "Type": 15
             }
         ],
@@ -1288,7 +1342,7 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 0,
+                "MaterialResource": 240240,
                 "Type": 15
             }
         ],
@@ -1324,7 +1378,7 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 0,
+                "MaterialResource": 240240,
                 "Type": 15
             }
         ],
@@ -1360,7 +1414,7 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 0,
+                "MaterialResource": 240240,
                 "Type": 15
             }
         ],
