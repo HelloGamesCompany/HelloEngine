@@ -248,6 +248,8 @@ public:
 
     bool Init() override;
 
+    bool Start() override;
+
     /// <summary>
     /// Import a file from assets to our desired file format.
     /// </summary>

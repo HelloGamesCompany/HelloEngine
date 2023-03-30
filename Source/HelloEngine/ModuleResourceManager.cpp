@@ -59,20 +59,14 @@ bool ModuleResourceManager::Init()
 {
 	// Create checkers texture resource
 	S_CreateResourceText("Null", CHECKERS_RESOURCE_UID, "Checkers", false);
+	return true;
+}
 
-	// Create meta files for every asset that doesnt have one.
-	// Check if file has a defined reosurce type
-	// If it does, create meta file. (MODULEFILESYSTEM)
-
+bool ModuleResourceManager::Start()
+{
 	_fileTree = new FileTree();
 
 	ModuleFiles::S_UpdateFileTree(_fileTree);
-
-	// Check all meta files and create a resource per file using FileTree.
-	// Save all resources in a map, using as key the meta file UID.
-	// Unload all resources.
-
-	// When a resource needs to be loaded, it will always be already created.
 	return true;
 }
 
@@ -178,7 +172,11 @@ void ModuleResourceManager::S_ReImportFile(const std::string& filePath, Resource
 	break;
 	case ResourceType::MATERIAL:
 	{
-
+		if (resources[meta.UID] != nullptr)
+		{
+			ModuleFiles::S_UpdateMetaData(filePath, meta.resourcePath); // We do this before reimporting, because the new resource file will be named like the old, and this destroys that file.
+			resources[meta.UID]->ReImport("");
+		}
 		break;
 	}
 	}
@@ -238,7 +236,7 @@ void ModuleResourceManager::S_LoadFileIntoResource(Resource* resource)
 	case ResourceType::MATERIAL:
 	{
 		ResourceMaterial* materialRes = (ResourceMaterial*)resource;
-		materialRes->material.LoadJSON(materialRes->resourcePath);
+		materialRes->material.LoadJSON(materialRes->assetsPath);
 	}
 	break;
 	}
@@ -1407,6 +1405,8 @@ void ResourceScript::Destroy()
 
 void ResourceMaterial::ReImport(const std::string& filePath)
 {
+	material.LoadJSON(assetsPath);
+	Save();
 }
 
 void ResourceMaterial::Save()

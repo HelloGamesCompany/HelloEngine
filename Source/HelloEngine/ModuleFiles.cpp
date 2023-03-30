@@ -220,7 +220,12 @@ MetaFile ModuleFiles::S_LoadMeta(const std::string& filePath)
 
     bool temp = file.contains("Assets path");
 
-    ret.assetsPath = temp ? file["Assets path"] : "";
+    if (temp)
+    {
+        ret.assetsPath = file["Assets path"];
+    }
+
+   
 
     RELEASE(data);
 

@@ -54,7 +54,7 @@
             {
                 "Enabled": true,
                 "Index inside model": 0,
-                "ModelUID": 10,
+                "ModelUID": 12,
                 "ShowAABB": false,
                 "ShowFaceNormals": false,
                 "ShowOBB": false,
@@ -68,10 +68,10 @@
             }
         ],
         "FirstOnPrefab": true,
-        "Name": "Cube",
+        "Name": "Cylinder",
         "ParentUID": 3287047150,
         "PrefabUID": 0,
         "Tag": "Primitive",
-        "UID": 4273618100
+        "UID": 2409749204
     }
 ]
