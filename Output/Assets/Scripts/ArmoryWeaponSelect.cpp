@@ -29,8 +29,8 @@ HELLO_ENGINE_API_C ArmoryWeaponSelect* CreateArmoryWeaponSelect(ScriptToInspecto
 
 void ArmoryWeaponSelect::Start()
 {
-	nextW = (ArmoryWeaponSelect*)NextWeapon.GetScript("ArmoryUpgratteButtons");
-	PrevW = (ArmoryWeaponSelect*)PrevtWeapon.GetScript("ArmoryUpgratteButtons");
+	nextW = (ArmoryWeaponSelect*)NextWeapon.GetScript("ArmoryWeaponSelect");
+	PrevW = (ArmoryWeaponSelect*)PrevtWeapon.GetScript("ArmoryWeaponSelect");
 
 }
 void ArmoryWeaponSelect::Update()
@@ -44,15 +44,15 @@ void ArmoryWeaponSelect::Update()
 		else
 			CurrentPanelUnlock.SetActive(true);
 
-		/*if (nextW->isUnlocked)
-			NextPanelUpgrate.SetActive(true);
+		if (nextW->isUnlocked)
+			NextPanelUpgrate.SetActive(false);
 		else
-			NextPanelUnlock.SetActive(true);
+			NextPanelUnlock.SetActive(false);
 			
 		if (PrevW->isUnlocked)
-			PrevPanelUpgrate.SetActive(true);
+			PrevPanelUpgrate.SetActive(false);
 		else
-			PrevPanelUnlock.SetActive(true);*/
+			PrevPanelUnlock.SetActive(false);
 	}
 
 	if (CurrentWeapon.OnPress())
