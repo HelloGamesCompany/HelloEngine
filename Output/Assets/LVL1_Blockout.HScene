@@ -15641,14 +15641,14 @@
             {
                 "Enabled": true,
                 "Position": [
-                    -0.01101231575012207,
-                    -1.6122703552246094,
+                    -0.011014938354492188,
+                    -1.612267017364502,
                     0.004424095153808594
                 ],
                 "Rotation": [
-                    4.4171541424553595e-10,
-                    -3.126612302395415e-10,
-                    1.2052134615996986e-21
+                    6.670106245110219e-09,
+                    -3.647714352794651e-10,
+                    2.1232492015665926e-20
                 ],
                 "Scale": [
                     1.0,
@@ -31705,7 +31705,7 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Tag": "Wall"
+                        "Tag": ""
                     },
                     {
                         "Set Tag For direct child only": false
@@ -37572,7 +37572,7 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Tag": "Wall"
+                        "Tag": ""
                     },
                     {
                         "Set Tag For direct child only": false
@@ -38899,19 +38899,19 @@
             {
                 "Enabled": true,
                 "Position": [
-                    110.00399780273438,
-                    1.2461527585983276,
-                    -29.357194900512695
+                    110.436279296875,
+                    -0.10038936883211136,
+                    -29.517471313476563
                 ],
                 "Rotation": [
-                    0.0004407745727803558,
-                    -90.0,
-                    0.0
+                    -180.0,
+                    -89.98020935058594,
+                    179.9995574951172
                 ],
                 "Scale": [
+                    1.0000001192092896,
                     1.0,
-                    1.0,
-                    1.0
+                    1.0000001192092896
                 ],
                 "Type": 1
             },
@@ -47875,6 +47875,9 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
+                        "Bar": 1475605416
+                    },
+                    {
                         "hp": false
                     }
                 ],
@@ -49364,9 +49367,189 @@
             {
                 "Enabled": true,
                 "Position": [
-                    15.78695011138916,
-                    8.96810531616211,
-                    -12.503499984741211
+                    -17.616548538208008,
+                    -12.60596752166748,
+                    27.932083129882813
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "TP3",
+        "ParentUID": 2893333807,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 139432025
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -18.036169052124023,
+                    0.0,
+                    27.67578887939453
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "TP4",
+        "ParentUID": 2893333807,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2558188049
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    11.47944450378418,
+                    8.192720997612923e-05,
+                    84.18360137939453
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "TP5",
+        "ParentUID": 2893333807,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2869837807
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    10.72239875793457,
+                    -13.352560043334961,
+                    85.39142608642578
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "TP6",
+        "ParentUID": 2893333807,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2454296566
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.16319933533668518,
+                    -13.221693992614746,
+                    175.62049865722656
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "TP8",
+        "ParentUID": 2893333807,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2595394373
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.15510518848896027,
+                    61.503238677978516,
+                    176.7472381591797
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "TP7",
+        "ParentUID": 2893333807,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3881590118
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    18.175552368164063,
+                    7.160350322723389,
+                    -11.658073425292969
                 ],
                 "Rotation": [
                     -0.0,
@@ -49431,33 +49614,73 @@
                 "RenderColColor": [
                     0.0,
                     0.5,
-                    0.21395349502563477,
+                    0.004651069641113281,
                     1.0
                 ],
                 "ShapeSelected": 1,
                 "SphereHorSlices": 16,
-                "SphereRadius": 8.399999618530273,
+                "SphereRadius": 7.300000190734863,
                 "SphereVerSlices": 16,
                 "Type": 8,
                 "WireframeSize": 3.0
             },
             {
                 "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Point 1: ": 2826794746
+                "Index inside model": 0,
+                "ModelUID": 13,
+                "ParticleModules": {
+                    "ModuleEmission": {
+                        "ParticlesPerSecond": 75
+                    },
+                    "ModuleMain": {
+                        "BeginScale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "Delay": 0.0,
+                        "Duration": 0.0,
+                        "EndScale": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "LifeTime": 3.5,
+                        "Looping": true,
+                        "PlayOnAwake": false,
+                        "Speed": [
+                            0.10000000149011612,
+                            0.30000001192092896,
+                            0.10000000149011612
+                        ],
+                        "SpeedVariation": [
+                            6.400000095367432,
+                            6.400000095367432,
+                            6.400000095367432
+                        ],
+                        "acceleration": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
                     }
-                ],
-                "Script Resource": 2375007746,
+                },
+                "ResourceTextUID": 163752753,
+                "Type": 6
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": null,
+                "Script Resource": 2532201097,
                 "Type": 5
             }
         ],
         "FirstOnPrefab": true,
         "Name": "Trigger1",
         "ParentUID": 2893333807,
-        "PrefabUID": 0,
+        "PrefabUID": 377590346,
         "Tag": "Default",
-        "UID": 4133840679
+        "UID": 511262520
     },
     {
         "Active": true,
@@ -49465,9 +49688,9 @@
             {
                 "Enabled": true,
                 "Position": [
-                    27.712169647216797,
-                    27.972997665405273,
-                    -10.773824691772461
+                    23.620975494384766,
+                    26.197420120239258,
+                    -11.658074378967285
                 ],
                 "Rotation": [
                     -0.0,
@@ -49527,38 +49750,78 @@
                     false
                 ],
                 "IsStatic": false,
-                "IsTrigger": false,
+                "IsTrigger": true,
                 "Mass": 0.0,
                 "RenderColColor": [
                     0.0,
                     0.5,
-                    0.03255808353424072,
+                    0.004651069641113281,
                     1.0
                 ],
                 "ShapeSelected": 1,
                 "SphereHorSlices": 16,
-                "SphereRadius": 10.100000381469727,
+                "SphereRadius": 9.300000190734863,
                 "SphereVerSlices": 16,
                 "Type": 8,
                 "WireframeSize": 3.0
             },
             {
                 "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Point 1: ": 285573953
+                "Index inside model": 0,
+                "ModelUID": 13,
+                "ParticleModules": {
+                    "ModuleEmission": {
+                        "ParticlesPerSecond": 75
+                    },
+                    "ModuleMain": {
+                        "BeginScale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "Delay": 0.0,
+                        "Duration": 0.0,
+                        "EndScale": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "LifeTime": 3.5,
+                        "Looping": true,
+                        "PlayOnAwake": false,
+                        "Speed": [
+                            0.10000000149011612,
+                            0.30000001192092896,
+                            0.10000000149011612
+                        ],
+                        "SpeedVariation": [
+                            6.400000095367432,
+                            6.400000095367432,
+                            6.400000095367432
+                        ],
+                        "acceleration": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
                     }
-                ],
-                "Script Resource": 2375007746,
+                },
+                "ResourceTextUID": 163752753,
+                "Type": 6
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": null,
+                "Script Resource": 2532201097,
                 "Type": 5
             }
         ],
         "FirstOnPrefab": true,
         "Name": "Trigger2",
         "ParentUID": 2893333807,
-        "PrefabUID": 0,
+        "PrefabUID": 377590346,
         "Tag": "Default",
-        "UID": 658374994
+        "UID": 3017627346
     },
     {
         "Active": true,
@@ -49566,9 +49829,9 @@
             {
                 "Enabled": true,
                 "Position": [
-                    -16.892959594726563,
-                    0.0,
-                    21.61334228515625
+                    -18.249433517456055,
+                    0.33420783281326294,
+                    27.352781295776367
                 ],
                 "Rotation": [
                     -0.0,
@@ -49628,7 +49891,7 @@
                     false
                 ],
                 "IsStatic": false,
-                "IsTrigger": false,
+                "IsTrigger": true,
                 "Mass": 0.0,
                 "RenderColColor": [
                     0.0,
@@ -49645,21 +49908,61 @@
             },
             {
                 "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Point 1: ": 139432025
+                "Index inside model": 0,
+                "ModelUID": 13,
+                "ParticleModules": {
+                    "ModuleEmission": {
+                        "ParticlesPerSecond": 75
+                    },
+                    "ModuleMain": {
+                        "BeginScale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "Delay": 0.0,
+                        "Duration": 0.0,
+                        "EndScale": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "LifeTime": 3.5,
+                        "Looping": true,
+                        "PlayOnAwake": false,
+                        "Speed": [
+                            0.10000000149011612,
+                            0.30000001192092896,
+                            0.10000000149011612
+                        ],
+                        "SpeedVariation": [
+                            6.400000095367432,
+                            6.400000095367432,
+                            6.400000095367432
+                        ],
+                        "acceleration": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
                     }
-                ],
-                "Script Resource": 2880680727,
+                },
+                "ResourceTextUID": 163752753,
+                "Type": 6
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": null,
+                "Script Resource": 2532201097,
                 "Type": 5
             }
         ],
         "FirstOnPrefab": true,
         "Name": "Trigger3",
         "ParentUID": 2893333807,
-        "PrefabUID": 0,
+        "PrefabUID": 377590346,
         "Tag": "Default",
-        "UID": 1526674908
+        "UID": 1865064778
     },
     {
         "Active": true,
@@ -49667,39 +49970,9 @@
             {
                 "Enabled": true,
                 "Position": [
-                    -20.266746520996094,
-                    -12.60596752166748,
-                    44.85536575317383
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "TP3",
-        "ParentUID": 2893333807,
-        "PrefabUID": 0,
-        "Tag": "Default",
-        "UID": 139432025
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    -16.668560028076172,
-                    -16.077852249145508,
-                    29.088729858398438
+                    -18.425731658935547,
+                    -13.797430038452148,
+                    28.73016929626465
                 ],
                 "Rotation": [
                     -0.0,
@@ -49759,38 +50032,78 @@
                     false
                 ],
                 "IsStatic": false,
-                "IsTrigger": false,
+                "IsTrigger": true,
                 "Mass": 0.0,
                 "RenderColColor": [
-                    0.037209272384643555,
-                    0.5,
                     0.0,
+                    0.5,
+                    0.004651069641113281,
                     1.0
                 ],
                 "ShapeSelected": 1,
                 "SphereHorSlices": 16,
-                "SphereRadius": 13.300000190734863,
+                "SphereRadius": 12.600000381469727,
                 "SphereVerSlices": 16,
                 "Type": 8,
                 "WireframeSize": 3.0
             },
             {
                 "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Point 1: ": 2558188049
+                "Index inside model": 0,
+                "ModelUID": 13,
+                "ParticleModules": {
+                    "ModuleEmission": {
+                        "ParticlesPerSecond": 75
+                    },
+                    "ModuleMain": {
+                        "BeginScale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "Delay": 0.0,
+                        "Duration": 0.0,
+                        "EndScale": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "LifeTime": 3.5,
+                        "Looping": true,
+                        "PlayOnAwake": false,
+                        "Speed": [
+                            0.10000000149011612,
+                            0.30000001192092896,
+                            0.10000000149011612
+                        ],
+                        "SpeedVariation": [
+                            6.400000095367432,
+                            6.400000095367432,
+                            6.400000095367432
+                        ],
+                        "acceleration": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
                     }
-                ],
-                "Script Resource": 2375007746,
+                },
+                "ResourceTextUID": 163752753,
+                "Type": 6
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": null,
+                "Script Resource": 2532201097,
                 "Type": 5
             }
         ],
         "FirstOnPrefab": true,
         "Name": "Trigger4",
         "ParentUID": 2893333807,
-        "PrefabUID": 0,
+        "PrefabUID": 377590346,
         "Tag": "Default",
-        "UID": 770923565
+        "UID": 3709303434
     },
     {
         "Active": true,
@@ -49798,39 +50111,9 @@
             {
                 "Enabled": true,
                 "Position": [
-                    -15.961795806884766,
-                    0.0,
-                    6.22127628326416
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "TP4",
-        "ParentUID": 2893333807,
-        "PrefabUID": 0,
-        "Tag": "Default",
-        "UID": 2558188049
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    9.818662643432617,
-                    -15.442770957946777,
-                    85.79716491699219
+                    10.864289283752441,
+                    -12.425268173217773,
+                    85.78815460205078
                 ],
                 "Rotation": [
                     -0.0,
@@ -49890,38 +50173,78 @@
                     false
                 ],
                 "IsStatic": false,
-                "IsTrigger": false,
+                "IsTrigger": true,
                 "Mass": 0.0,
                 "RenderColColor": [
                     0.0,
-                    0.7069767713546753,
-                    0.1052243635058403,
+                    0.5,
+                    0.004651069641113281,
                     1.0
                 ],
                 "ShapeSelected": 1,
                 "SphereHorSlices": 16,
-                "SphereRadius": 15.899999618530273,
+                "SphereRadius": 13.600000381469727,
                 "SphereVerSlices": 16,
                 "Type": 8,
                 "WireframeSize": 3.0
             },
             {
                 "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Point 1: ": 2869837807
+                "Index inside model": 0,
+                "ModelUID": 13,
+                "ParticleModules": {
+                    "ModuleEmission": {
+                        "ParticlesPerSecond": 75
+                    },
+                    "ModuleMain": {
+                        "BeginScale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "Delay": 0.0,
+                        "Duration": 0.0,
+                        "EndScale": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "LifeTime": 3.5,
+                        "Looping": true,
+                        "PlayOnAwake": false,
+                        "Speed": [
+                            0.10000000149011612,
+                            0.30000001192092896,
+                            0.10000000149011612
+                        ],
+                        "SpeedVariation": [
+                            6.400000095367432,
+                            6.400000095367432,
+                            6.400000095367432
+                        ],
+                        "acceleration": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
                     }
-                ],
-                "Script Resource": 2375007746,
+                },
+                "ResourceTextUID": 163752753,
+                "Type": 6
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": null,
+                "Script Resource": 2532201097,
                 "Type": 5
             }
         ],
         "FirstOnPrefab": true,
         "Name": "Trigger5",
         "ParentUID": 2893333807,
-        "PrefabUID": 0,
+        "PrefabUID": 377590346,
         "Tag": "Default",
-        "UID": 1409488339
+        "UID": 958109771
     },
     {
         "Active": true,
@@ -49929,39 +50252,9 @@
             {
                 "Enabled": true,
                 "Position": [
-                    32.07075119018555,
-                    9.541459439788014e-05,
-                    71.5134048461914
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "TP5",
-        "ParentUID": 2893333807,
-        "PrefabUID": 0,
-        "Tag": "Default",
-        "UID": 2869837807
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    19.133277893066406,
-                    -0.000244140625,
-                    80.1571273803711
+                    12.03672981262207,
+                    -1.06940758228302,
+                    83.91082000732422
                 ],
                 "Rotation": [
                     -0.0,
@@ -50021,38 +50314,78 @@
                     false
                 ],
                 "IsStatic": false,
-                "IsTrigger": false,
+                "IsTrigger": true,
                 "Mass": 0.0,
                 "RenderColColor": [
                     0.0,
                     0.5,
-                    0.03255808353424072,
+                    0.004651069641113281,
                     1.0
                 ],
                 "ShapeSelected": 1,
                 "SphereHorSlices": 16,
-                "SphereRadius": 17.5,
+                "SphereRadius": 14.800000190734863,
                 "SphereVerSlices": 16,
                 "Type": 8,
                 "WireframeSize": 3.0
             },
             {
                 "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Point 1: ": 2454296566
+                "Index inside model": 0,
+                "ModelUID": 13,
+                "ParticleModules": {
+                    "ModuleEmission": {
+                        "ParticlesPerSecond": 75
+                    },
+                    "ModuleMain": {
+                        "BeginScale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "Delay": 0.0,
+                        "Duration": 0.0,
+                        "EndScale": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "LifeTime": 3.5,
+                        "Looping": true,
+                        "PlayOnAwake": false,
+                        "Speed": [
+                            0.10000000149011612,
+                            0.30000001192092896,
+                            0.10000000149011612
+                        ],
+                        "SpeedVariation": [
+                            6.400000095367432,
+                            6.400000095367432,
+                            6.400000095367432
+                        ],
+                        "acceleration": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
                     }
-                ],
-                "Script Resource": 2880680727,
+                },
+                "ResourceTextUID": 163752753,
+                "Type": 6
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": null,
+                "Script Resource": 2532201097,
                 "Type": 5
             }
         ],
         "FirstOnPrefab": true,
         "Name": "Trigger6",
         "ParentUID": 2893333807,
-        "PrefabUID": 0,
+        "PrefabUID": 377590346,
         "Tag": "Default",
-        "UID": 3394318523
+        "UID": 2844775563
     },
     {
         "Active": true,
@@ -50060,39 +50393,9 @@
             {
                 "Enabled": true,
                 "Position": [
-                    -1.9533915519714355,
-                    -13.352556228637695,
-                    91.69697570800781
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "TP6",
-        "ParentUID": 2893333807,
-        "PrefabUID": 0,
-        "Tag": "Default",
-        "UID": 2454296566
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    -3.2513139247894287,
-                    -11.367104530334473,
-                    167.7928466796875
+                    0.08939748257398605,
+                    -13.046181678771973,
+                    175.50547790527344
                 ],
                 "Rotation": [
                     -0.0,
@@ -50152,38 +50455,78 @@
                     false
                 ],
                 "IsStatic": false,
-                "IsTrigger": false,
+                "IsTrigger": true,
                 "Mass": 0.0,
                 "RenderColColor": [
-                    0.07906979322433472,
-                    0.5,
                     0.0,
+                    0.5,
+                    0.004651069641113281,
                     1.0
                 ],
                 "ShapeSelected": 1,
                 "SphereHorSlices": 16,
-                "SphereRadius": 18.5,
+                "SphereRadius": 10.5,
                 "SphereVerSlices": 16,
                 "Type": 8,
                 "WireframeSize": 3.0
             },
             {
                 "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Point 1: ": 3881590118
+                "Index inside model": 0,
+                "ModelUID": 13,
+                "ParticleModules": {
+                    "ModuleEmission": {
+                        "ParticlesPerSecond": 75
+                    },
+                    "ModuleMain": {
+                        "BeginScale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "Delay": 0.0,
+                        "Duration": 0.0,
+                        "EndScale": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "LifeTime": 3.5,
+                        "Looping": true,
+                        "PlayOnAwake": false,
+                        "Speed": [
+                            0.10000000149011612,
+                            0.30000001192092896,
+                            0.10000000149011612
+                        ],
+                        "SpeedVariation": [
+                            6.400000095367432,
+                            6.400000095367432,
+                            6.400000095367432
+                        ],
+                        "acceleration": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
                     }
-                ],
-                "Script Resource": 2880680727,
+                },
+                "ResourceTextUID": 163752753,
+                "Type": 6
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": null,
+                "Script Resource": 2532201097,
                 "Type": 5
             }
         ],
         "FirstOnPrefab": true,
         "Name": "Trigger7",
         "ParentUID": 2893333807,
-        "PrefabUID": 0,
+        "PrefabUID": 377590346,
         "Tag": "Default",
-        "UID": 3897284718
+        "UID": 3367520868
     },
     {
         "Active": true,
@@ -50191,39 +50534,9 @@
             {
                 "Enabled": true,
                 "Position": [
-                    -6.405121803283691,
-                    -13.221455574035645,
-                    151.48870849609375
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "TP8",
-        "ParentUID": 2893333807,
-        "PrefabUID": 0,
-        "Tag": "Default",
-        "UID": 2595394373
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    1.3757152557373047,
-                    59.05023193359375,
-                    174.802490234375
+                    0.031594984233379364,
+                    60.76477813720703,
+                    176.96505737304688
                 ],
                 "Rotation": [
                     -0.0,
@@ -50283,68 +50596,78 @@
                     false
                 ],
                 "IsStatic": false,
-                "IsTrigger": false,
+                "IsTrigger": true,
                 "Mass": 0.0,
                 "RenderColColor": [
-                    0.09302330017089844,
-                    0.5,
                     0.0,
+                    0.5,
+                    0.004651069641113281,
                     1.0
                 ],
                 "ShapeSelected": 1,
                 "SphereHorSlices": 16,
-                "SphereRadius": 15.800000190734863,
+                "SphereRadius": 11.699999809265137,
                 "SphereVerSlices": 16,
                 "Type": 8,
                 "WireframeSize": 3.0
             },
             {
                 "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Point 1: ": 2595394373
+                "Index inside model": 0,
+                "ModelUID": 13,
+                "ParticleModules": {
+                    "ModuleEmission": {
+                        "ParticlesPerSecond": 75
+                    },
+                    "ModuleMain": {
+                        "BeginScale": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "Delay": 0.0,
+                        "Duration": 0.0,
+                        "EndScale": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "LifeTime": 3.5,
+                        "Looping": true,
+                        "PlayOnAwake": false,
+                        "Speed": [
+                            0.10000000149011612,
+                            0.30000001192092896,
+                            0.10000000149011612
+                        ],
+                        "SpeedVariation": [
+                            6.400000095367432,
+                            6.400000095367432,
+                            6.400000095367432
+                        ],
+                        "acceleration": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
                     }
-                ],
-                "Script Resource": 2880680727,
+                },
+                "ResourceTextUID": 163752753,
+                "Type": 6
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": null,
+                "Script Resource": 2532201097,
                 "Type": 5
             }
         ],
         "FirstOnPrefab": true,
         "Name": "Trigger8",
         "ParentUID": 2893333807,
-        "PrefabUID": 0,
+        "PrefabUID": 377590346,
         "Tag": "Default",
-        "UID": 3073771628
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    6.321720123291016,
-                    63.06265640258789,
-                    185.88206481933594
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "TP7",
-        "ParentUID": 2893333807,
-        "PrefabUID": 0,
-        "Tag": "Default",
-        "UID": 3881590118
+        "UID": 493546652
     },
     {
         "Active": true,
@@ -50371,7 +50694,7 @@
             {
                 "Active camera": true,
                 "Active culling": false,
-                "Aspect ratio": 2.1912145614624023,
+                "Aspect ratio": 1.715447187423706,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 2000.0,
@@ -50408,7 +50731,7 @@
                         "Rot_Offset_Z": 0.0
                     },
                     {
-                        "Use safe zone: ": true
+                        "Use safe zone: ": false
                     }
                 ],
                 "Script Resource": 118417560,
@@ -50818,9 +51141,6 @@
                     },
                     {
                         "Acceleration": 1.2000000476837158
-                    },
-                    {
-                        "Enemy RigidBody": 3306337635
                     }
                 ],
                 "Script Resource": 4210965159,
@@ -54573,9 +54893,6 @@
                     },
                     {
                         "Acceleration": 1.2000000476837158
-                    },
-                    {
-                        "Enemy RigidBody": 3144339685
                     }
                 ],
                 "Script Resource": 4210965159,
@@ -58328,9 +58645,6 @@
                     },
                     {
                         "Acceleration": 1.2000000476837158
-                    },
-                    {
-                        "Enemy RigidBody": 1757690383
                     }
                 ],
                 "Script Resource": 4210965159,
@@ -62083,9 +62397,6 @@
                     },
                     {
                         "Acceleration": 1.2000000476837158
-                    },
-                    {
-                        "Enemy RigidBody": 1494185823
                     }
                 ],
                 "Script Resource": 4210965159,
@@ -65838,9 +66149,6 @@
                     },
                     {
                         "Acceleration": 1.2000000476837158
-                    },
-                    {
-                        "Enemy RigidBody": 979250570
                     }
                 ],
                 "Script Resource": 4210965159,
@@ -69645,9 +69953,6 @@
                     },
                     {
                         "Acceleration": 1.2000000476837158
-                    },
-                    {
-                        "Enemy RigidBody": 348138482
                     }
                 ],
                 "Script Resource": 4210965159,
@@ -74636,9 +74941,6 @@
                     },
                     {
                         "Acceleration": 1.2000000476837158
-                    },
-                    {
-                        "Enemy RigidBody": 2316102626
                     }
                 ],
                 "Script Resource": 4210965159,
@@ -79663,7 +79965,7 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "NumberOfEnemiesInLevel": 7
+                        "NumberOfEnemiesInLevel": 0
                     }
                 ],
                 "Script Resource": 3678518277,
