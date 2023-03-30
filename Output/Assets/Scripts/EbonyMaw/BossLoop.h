@@ -14,6 +14,8 @@ public:
 
     void OnCollisionEnter(API::API_RigidBody other);
 
+    API_GameObject boss;
+
     float dt;
     float weakTime = 0.0f;
 

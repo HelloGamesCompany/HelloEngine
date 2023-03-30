@@ -26,15 +26,11 @@ public:
 
 	API_GameObject boss;
 	API_GameObject player;
-	API_Vector3 playerPosition[5] = {0,0,0};
-	API_Vector3 bossPosition1;
-	API_Vector3 bossPosition2;
-	API_Vector3 bossPosition3;
-	API_Vector3 bossPosition4;
-	API_Vector3 bossPosition5;
+	API_Vector3 playerPosition[5] = { 0,0,0 };
+	API_Vector3 bossPosition[5] = { 0,0,0 };
 
 
-	float timeAttack[5] = { 2.0f,4.0f,4.5f,5.0f,5.5f };
+	float timeAttack[6] = { 2.0f,4.0f,4.5f,5.0f,5.5f,6.0f };
 	float currentTimeAttack = 0.0f;
 	bool endedAttacking = false;
 
@@ -45,7 +41,8 @@ public:
 	float yDistance = 0.0f;
 	float zDistance = 0.0f;
 
-	int attackType = 1;
+	int attackType = 0;
+	int numRocks[3] = { 3,4,5 };
 
 	int currentRock[5] = { 0,1,2,3,4 };
 
@@ -65,6 +62,11 @@ public:
 
 	float stoneSpeed = 1.0f;
 	float stoneLifeTime = 0.5f;
+
+	void OrbitingRocks(API_GameObject* orbitingRock1, API_GameObject* orbitingRock2, API_GameObject* orbitingRock3, API_GameObject* orbitingRock4, float rotationSpeed, float radius);
+	API_GameObject orbitingRocks;
+	float rotationSpeed = 1;
+	float radius = 0.5f;
 
 	enum class BOSS_STATE {
 		KO,

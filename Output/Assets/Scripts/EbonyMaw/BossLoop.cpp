@@ -23,6 +23,8 @@ void BossLoop::Start()
 }
 void BossLoop::Update()
 {
+    
+
     if (hp > 0) {
 if (canTakeDamage == true) {
         dt = Time::GetDeltaTime();
@@ -70,6 +72,8 @@ void BossLoop::OnCollisionEnter(API::API_RigidBody other)
     {
         PlayerStats* pStats = (PlayerStats*)other.GetGameObject().GetScript("PlayerStats");
         pStats->TakeDamage(meleeDmg);
+
+
     }
     }
     
