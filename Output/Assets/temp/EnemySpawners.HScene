@@ -28,5 +28,523 @@
         "PrefabUID": 0,
         "Tag": "None",
         "UID": 3102163706
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -312.3500671386719,
+                    -339.2992858886719,
+                    739.6115112304688
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    512.7766723632813,
+                    48.40102005004883,
+                    706.1923217773438
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 10,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube",
+        "ParentUID": 3102163706,
+        "PrefabUID": 0,
+        "Tag": "Primitive",
+        "UID": 2719512245
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -188.75927734375,
+                    199.74253845214844,
+                    -266.7705383300781
+                ],
+                "Rotation": [
+                    15.600021362304688,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Active camera": true,
+                "Active culling": true,
+                "Aspect ratio": 1.7000000476837158,
+                "Enabled": true,
+                "FOV": 60.0,
+                "Far plane": 1000.0,
+                "Frustum type": 2,
+                "Near plane": 0.009999999776482582,
+                "Orthographic size": 10.0,
+                "Type": 4
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Empty",
+        "ParentUID": 3102163706,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 118699576
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    -271.26165771484375,
+                    374.42803955078125
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    14.313886642456055,
+                    19.006000518798828,
+                    4.429999828338623
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 10,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "ColPosition": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    28.399999618530273,
+                    37.099998474121094,
+                    9.600000381469727
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "GlobalGravity": [
+                    0.0,
+                    -10.0,
+                    0.0
+                ],
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsShapeSelected": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsStatic": false,
+                "IsTrigger": false,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    1.0,
+                    0.04186046123504639,
+                    0.04186046123504639,
+                    1.0
+                ],
+                "ShapeSelected": 0,
+                "SphereHorSlices": 16,
+                "SphereRadius": 1.0,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "SmokeExtractor",
+        "ParentUID": 3102163706,
+        "PrefabUID": 1387571427,
+        "Tag": "Primitive",
+        "UID": 3197868760
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.3323488235473633,
+                    4.74664306640625
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    0.9999997019767761,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "ColPosition": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    28.399999618530273,
+                    18.600000381469727,
+                    51.70000076293945
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "GlobalGravity": [
+                    0.0,
+                    -10.0,
+                    0.0
+                ],
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsShapeSelected": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsStatic": false,
+                "IsTrigger": true,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    0.5,
+                    0.0,
+                    0.5,
+                    1.0
+                ],
+                "ShapeSelected": 0,
+                "SphereHorSlices": 16,
+                "SphereRadius": 1.0,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 13,
+                "ParticleModules": {
+                    "ModuleEmission": {
+                        "ParticlesPerSecond": 59
+                    },
+                    "ModuleMain": {
+                        "BeginScale": [
+                            7.0,
+                            7.0,
+                            1.0
+                        ],
+                        "Delay": 0.0,
+                        "Duration": 0.0,
+                        "EndScale": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "LifeTime": 1.5,
+                        "Looping": true,
+                        "PlayOnAwake": false,
+                        "Speed": [
+                            0.10000000149011612,
+                            1.399999976158142,
+                            18.5
+                        ],
+                        "SpeedVariation": [
+                            34.099998474121094,
+                            26.100000381469727,
+                            14.0
+                        ],
+                        "acceleration": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
+                    }
+                },
+                "ResourceTextUID": 3511744047,
+                "Type": 6
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Smoke Particle": 2886869027
+                    },
+                    {
+                        "Fire Particle": 601217207
+                    },
+                    {
+                        "Delay on Hit": 0.0
+                    },
+                    {
+                        "Min Distance Value": 0
+                    },
+                    {
+                        "Smoke Particle": 2886869027
+                    },
+                    {
+                        "Fire Particle": 601217207
+                    },
+                    {
+                        "Delay on Hit": 0.0
+                    },
+                    {
+                        "Min Distance Value": 0
+                    },
+                    {
+                        "Smoke Particle": 2886869027
+                    },
+                    {
+                        "Fire Particle": 601217207
+                    },
+                    {
+                        "Delay on Hit": 0.0
+                    },
+                    {
+                        "Min Distance Value": 0
+                    },
+                    {
+                        "Smoke Particle": 2886869027
+                    },
+                    {
+                        "Fire Particle": 601217207
+                    },
+                    {
+                        "Delay on Hit": 0.0
+                    },
+                    {
+                        "Min Distance Value": 0
+                    }
+                ],
+                "Script Resource": 677318794,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Trigger",
+        "ParentUID": 3197868760,
+        "PrefabUID": 1387571427,
+        "Tag": "Default",
+        "UID": 601217207
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.31287193298339844,
+                    2.7279434204101563
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    0.9999997019767761,
+                    0.513522207736969,
+                    1.5889276266098022
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 10,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "ColPosition": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    28.899999618530273,
+                    19.700000762939453,
+                    14.199999809265137
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "GlobalGravity": [
+                    0.0,
+                    -10.0,
+                    0.0
+                ],
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsShapeSelected": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsStatic": false,
+                "IsTrigger": false,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    0.5,
+                    0.0,
+                    0.5,
+                    1.0
+                ],
+                "ShapeSelected": 0,
+                "SphereHorSlices": 16,
+                "SphereRadius": 1.0,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 13,
+                "ParticleModules": {
+                    "ModuleEmission": {
+                        "ParticlesPerSecond": 50
+                    },
+                    "ModuleMain": {
+                        "BeginScale": [
+                            7.099999904632568,
+                            7.099999904632568,
+                            1.0
+                        ],
+                        "Delay": 0.0,
+                        "Duration": 0.0,
+                        "EndScale": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "LifeTime": 1.5,
+                        "Looping": true,
+                        "PlayOnAwake": false,
+                        "Speed": [
+                            0.20000000298023224,
+                            1.0,
+                            16.0
+                        ],
+                        "SpeedVariation": [
+                            20.0,
+                            6.199999809265137,
+                            57.20000076293945
+                        ],
+                        "acceleration": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
+                    }
+                },
+                "ResourceTextUID": 1192070465,
+                "Type": 6
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Cube",
+        "ParentUID": 3197868760,
+        "PrefabUID": 1387571427,
+        "Tag": "Primitive",
+        "UID": 2886869027
     }
 ]

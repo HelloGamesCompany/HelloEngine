@@ -5,7 +5,7 @@ HELLO_ENGINE_API_C TP_Cabin* CreateTP_Cabin(ScriptToInspectorInterface* script)
 	TP_Cabin* classInstance = new TP_Cabin();
 	//Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
 
-	script->AddDragBoxTransform("Point 1: ", &classInstance->destination);
+	script->AddDragBoxTransform("Destination: ", &classInstance->destination);
 	script->AddDragBoxParticleSystem("Smoke Particle", &classInstance->smoke);
 
 	return classInstance;
@@ -27,7 +27,10 @@ void TP_Cabin::OnCollisionEnter(API_RigidBody other)
 
 	if (detectionName == "Player")
 	{
-		if (Input::GetGamePadButton(GamePadButton::BUTTON_X) == KeyState::KEY_REPEAT  || Input::GetKey(KeyCode::KEY_1) == KeyState::KEY_REPEAT)
+
+		//INSERT UI
+
+		if (Input::GetGamePadButton(GamePadButton::BUTTON_X) == KeyState::KEY_REPEAT)
 		{
 			timeHoldButton += Time::GetDeltaTime();
 		}
