@@ -103,42 +103,6 @@
             {
                 "Enabled": true,
                 "Position": [
-                    0.8849999904632568,
-                    0.7350000143051147,
-                    -0.0010000000474974513
-                ],
-                "Rotation": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Scale": [
-                    0.05000000074505806,
-                    0.05000000074505806,
-                    0.5
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "FillImage": 1.0,
-                "MaterialResource": 240240,
-                "Type": 15
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "BluePrint Icon (I)",
-        "ParentUID": 3977713993,
-        "PrefabUID": 0,
-        "Tag": "UI",
-        "UID": 2618100728
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
                     0.0,
                     0.0,
                     0.0
@@ -204,50 +168,6 @@
         "PrefabUID": 0,
         "Tag": "UI",
         "UID": 810043863
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.7400000095367432,
-                    0.6875,
-                    0.0
-                ],
-                "Rotation": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Scale": [
-                    0.5,
-                    0.5,
-                    0.5
-                ],
-                "Type": 1
-            },
-            {
-                "Color": [
-                    0.0,
-                    0.0,
-                    0.0,
-                    1.0
-                ],
-                "Enabled": true,
-                "PositionX": 0.7400000095367432,
-                "PositionY": 0.6875,
-                "Scale": 0.5,
-                "Text": "11",
-                "Type": 17
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "BluePrint Amount (T)",
-        "ParentUID": 3977713993,
-        "PrefabUID": 0,
-        "Tag": "UI",
-        "UID": 1061093537
     },
     {
         "Active": true,
@@ -1221,6 +1141,124 @@
                 "MaterialResource": 0,
                 "Type": 16,
                 "listButtons": [
+                    0
+                ]
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "BluePrint Amount",
+        "ParentUID": 3550437662,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 1358811822
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.8849999904632568,
+                    0.7350000143051147,
+                    -0.0010000000474974513
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.05000000074505806,
+                    0.05000000074505806,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 240240,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "BluePrint Icon (I)",
+        "ParentUID": 1358811822,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 888197765
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.7400000095367432,
+                    0.6875,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.5,
+                    0.5,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Color": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "Enabled": false,
+                "PositionX": 0.7400000095367432,
+                "PositionY": 0.6875,
+                "Scale": 0.5,
+                "Text": "11",
+                "Type": 17
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "BluePrint Amount (T)",
+        "ParentUID": 1358811822,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 2572436553
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "Type": 16,
+                "listButtons": [
                     1025008367
                 ]
             }
@@ -1497,6 +1535,124 @@
         "PrefabUID": 0,
         "Tag": "UI",
         "UID": 1115690787
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "Type": 16,
+                "listButtons": [
+                    0
+                ]
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "BluePrint Amount",
+        "ParentUID": 2801017591,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 3662744997
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.8849999904632568,
+                    0.7350000143051147,
+                    -0.0010000000474974513
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.05000000074505806,
+                    0.05000000074505806,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 240240,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "BluePrint Icon (I)",
+        "ParentUID": 3662744997,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 3171138024
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.7400000095367432,
+                    0.6875,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.5,
+                    0.5,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Color": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "Enabled": false,
+                "PositionX": 0.7400000095367432,
+                "PositionY": 0.6875,
+                "Scale": 0.5,
+                "Text": "11",
+                "Type": 17
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "BluePrint Amount (T)",
+        "ParentUID": 3662744997,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 3596452616
     },
     {
         "Active": false,
@@ -1834,6 +1990,124 @@
             }
         ],
         "FirstOnPrefab": true,
+        "Name": "BluePrint Amount",
+        "ParentUID": 2553497408,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 2928357819
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.8849999904632568,
+                    0.7350000143051147,
+                    -0.0010000000474974513
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.05000000074505806,
+                    0.05000000074505806,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 240240,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "BluePrint Icon (I)",
+        "ParentUID": 2928357819,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 1692110070
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.7400000095367432,
+                    0.6875,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.5,
+                    0.5,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Color": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "Enabled": false,
+                "PositionX": 0.7400000095367432,
+                "PositionY": 0.6875,
+                "Scale": 0.5,
+                "Text": "11",
+                "Type": 17
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "BluePrint Amount (T)",
+        "ParentUID": 2928357819,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 4032188782
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "Type": 16,
+                "listButtons": [
+                    0
+                ]
+            }
+        ],
+        "FirstOnPrefab": true,
         "Name": "Unlock W5",
         "ParentUID": 795620229,
         "PrefabUID": 0,
@@ -2105,6 +2379,124 @@
         "PrefabUID": 0,
         "Tag": "UI",
         "UID": 1090877658
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "Type": 16,
+                "listButtons": [
+                    0
+                ]
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "BluePrint Amount",
+        "ParentUID": 2338172962,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 4158277832
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.8849999904632568,
+                    0.7350000143051147,
+                    -0.0010000000474974513
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.05000000074505806,
+                    0.05000000074505806,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 240240,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "BluePrint Icon (I)",
+        "ParentUID": 4158277832,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 1190354791
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.7400000095367432,
+                    0.6875,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.5,
+                    0.5,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Color": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "Enabled": false,
+                "PositionX": 0.7400000095367432,
+                "PositionY": 0.6875,
+                "Scale": 0.5,
+                "Text": "11",
+                "Type": 17
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "BluePrint Amount (T)",
+        "ParentUID": 4158277832,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 2296927891
     },
     {
         "Active": false,
@@ -2442,6 +2834,124 @@
             }
         ],
         "FirstOnPrefab": true,
+        "Name": "BluePrint Amount",
+        "ParentUID": 1984247676,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 4028656810
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.8849999904632568,
+                    0.7350000143051147,
+                    -0.0010000000474974513
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.05000000074505806,
+                    0.05000000074505806,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 240240,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "BluePrint Icon (I)",
+        "ParentUID": 4028656810,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 571471025
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.7400000095367432,
+                    0.6875,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.5,
+                    0.5,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Color": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "Enabled": false,
+                "PositionX": 0.7400000095367432,
+                "PositionY": 0.6875,
+                "Scale": 0.5,
+                "Text": "11",
+                "Type": 17
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "BluePrint Amount (T)",
+        "ParentUID": 4028656810,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 2102168677
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "Type": 16,
+                "listButtons": [
+                    0
+                ]
+            }
+        ],
+        "FirstOnPrefab": true,
         "Name": "Upgrate W1",
         "ParentUID": 795620229,
         "PrefabUID": 0,
@@ -2600,6 +3110,124 @@
         "PrefabUID": 0,
         "Tag": "UI",
         "UID": 3717619607
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "Type": 16,
+                "listButtons": [
+                    0
+                ]
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "BluePrint Amount",
+        "ParentUID": 2122020070,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 3543919591
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.8849999904632568,
+                    0.7350000143051147,
+                    -0.0010000000474974513
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.05000000074505806,
+                    0.05000000074505806,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 240240,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "BluePrint Icon (I)",
+        "ParentUID": 3543919591,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 2534558994
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.7400000095367432,
+                    0.6875,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.5,
+                    0.5,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Color": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "Enabled": false,
+                "PositionX": 0.7400000095367432,
+                "PositionY": 0.6875,
+                "Scale": 0.5,
+                "Text": "11",
+                "Type": 17
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "BluePrint Amount (T)",
+        "ParentUID": 3543919591,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 4095332410
     },
     {
         "Active": true,
@@ -2924,7 +3552,7 @@
             {
                 "Active camera": true,
                 "Active culling": true,
-                "Aspect ratio": 1.596625804901123,
+                "Aspect ratio": 1.9568345546722412,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,

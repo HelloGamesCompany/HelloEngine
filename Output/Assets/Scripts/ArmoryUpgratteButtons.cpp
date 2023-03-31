@@ -26,6 +26,8 @@ HELLO_ENGINE_API_C ArmoryUpgratteButtons* CreateArmoryUpgratteButtons(ScriptToIn
 void ArmoryUpgratteButtons::Start()
 {
 	weaponInstance = (ArmoryWeaponSelect*)currentWeapon.GetScript("ArmoryWeaponSelect");
+	upgrade1 = false;
+	upgrade2 = false;
 }
 void ArmoryUpgratteButtons::Update()
 {
@@ -40,37 +42,41 @@ void ArmoryUpgratteButtons::Update()
 	if (Unlock.OnPress() && oneTime != 500)
 	{
 		//GameObject Arma selected -> GetScript() -> set the correct bool as true
-		Console::Log("1");
-		Console::Log("On Press");
 		weaponInstance->isUnlocked = true;
 		PanelUpgrateW2.SetEnable(false);
 		PanelUnlockW2.SetEnable(false);
 		oneTime = 500;
-		Console::Log("2");
-		/*if (WeaponInstance->isUnlockWeapon2)
-		{
-			PanelUnlockW2.SetActive(false);
-		}
-
-		if (WeaponInstance->isUnlockWeapon3)
-		{
-			Console::Log("PEPE?");
-			PanelUnlockW3.SetActive(false);
-		}*/
 	}
 
 	if (Upgrate1.OnPress())
 	{
-
+		Upgrade1();
+		upgrade1 = true;
 	}
 
-	if (Upgrate2.OnPress())
+	if (Upgrate2.OnPress() && upgrade1)
 	{
-
+		Upgrade2();
+		upgrade2 = true;
 	}
 
-	if (Upgrate3.OnPress())
+	if (Upgrate3.OnPress() && upgrade2)
 	{
-
+		Upgrade3();
 	}
+}
+
+void ArmoryUpgratteButtons::Upgrade1()
+{
+
+}
+
+void ArmoryUpgratteButtons::Upgrade2()
+{
+
+}
+
+void ArmoryUpgratteButtons::Upgrade3()
+{
+
 }

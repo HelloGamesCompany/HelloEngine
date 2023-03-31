@@ -13,6 +13,10 @@ public:
 	void Start() override; 
 	void Update() override;
 
+	void Upgrade1();
+	void Upgrade2();
+	void Upgrade3();
+
 	API_UIButton Unlock;
 	API_UIButton Upgrate1;
 	API_UIButton Upgrate2;
@@ -41,6 +45,9 @@ public:
 	ArmoryWeaponSelect* weaponInstance;
 
 	bool isUnlocked;
+	bool upgrade1;
+	bool upgrade2;
+
 	int oneTime;
 };
 
