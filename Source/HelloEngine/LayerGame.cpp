@@ -108,7 +108,7 @@ void LayerGame::Update()
 			behaviorScript.second.lateStart = false;
 		}
 
-		if (behaviorScript.second.active)
+		if (behaviorScript.second.active && behaviorScript.second.script)
 			behaviorScript.second.script->Update();
 	}
 	API::Engine::EnginePropertiesUpdate();
