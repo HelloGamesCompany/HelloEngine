@@ -64,6 +64,12 @@ public:
     //Shooting
     float aimAngle;
 
+    // Impulse Player
+    void RecieveImpulse(API_Vector3 direction, float impulseDuration, float impulseForce);
+    API_Vector3 impulseDirection;
+    float impulseStrenght;
+    float impulseTime;
+
     //Animations
     API_AnimationPlayer playerAnimator;
     uint dashAnim = 0;
