@@ -111,6 +111,15 @@
                         "PanelMovement": 1770922130
                     },
                     {
+                        "PanelAbility2": 3208837267
+                    },
+                    {
+                        "PanelAbility3": 2184284589
+                    },
+                    {
+                        "PanelAbility4": 3186113256
+                    },
+                    {
                         "Movement": 3961102070
                     },
                     {
@@ -124,6 +133,15 @@
                     },
                     {
                         "PanelMovement": 1770922130
+                    },
+                    {
+                        "PanelAbility2": 3208837267
+                    },
+                    {
+                        "PanelAbility3": 2184284589
+                    },
+                    {
+                        "PanelAbility4": 3186113256
                     }
                 ],
                 "Script Resource": 1314393320,
@@ -162,7 +180,7 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 2228956348,
+                "MaterialResource": 1400199104,
                 "Type": 15
             }
         ],
@@ -179,8 +197,8 @@
             {
                 "Enabled": true,
                 "Position": [
-                    -0.6499999761581421,
-                    0.699999988079071,
+                    -0.6000000238418579,
+                    0.41999998688697815,
                     0.0
                 ],
                 "Rotation": [
@@ -189,16 +207,16 @@
                     0.0
                 ],
                 "Scale": [
-                    0.25,
-                    0.15000000596046448,
+                    0.20000000298023224,
+                    0.10000000149011612,
                     0.0
                 ],
                 "Type": 1
             },
             {
                 "Enabled": true,
-                "MaterialResource": 3923147828,
-                "State": 0,
+                "MaterialResource": 273176788,
+                "State": 1,
                 "Type": 12,
                 "hoverImage": 273176788,
                 "idleImage": 3923147828,
@@ -218,8 +236,8 @@
             {
                 "Enabled": true,
                 "Position": [
-                    -0.6499999761581421,
-                    0.25,
+                    -0.6000000238418579,
+                    0.15000000596046448,
                     0.0
                 ],
                 "Rotation": [
@@ -228,8 +246,8 @@
                     0.0
                 ],
                 "Scale": [
-                    0.25,
-                    0.15000000596046448,
+                    0.20000000298023224,
+                    0.10000000149011612,
                     0.0
                 ],
                 "Type": 1
@@ -245,7 +263,7 @@
             }
         ],
         "FirstOnPrefab": true,
-        "Name": "Button",
+        "Name": "Armory Tree",
         "ParentUID": 2933578115,
         "PrefabUID": 0,
         "Tag": "UI",
@@ -257,8 +275,8 @@
             {
                 "Enabled": true,
                 "Position": [
-                    -0.6499999761581421,
-                    -0.20000000298023224,
+                    -0.6000000238418579,
+                    -0.125,
                     0.0
                 ],
                 "Rotation": [
@@ -267,8 +285,8 @@
                     0.0
                 ],
                 "Scale": [
-                    0.25,
-                    0.15000000596046448,
+                    0.20000000298023224,
+                    0.10000000149011612,
                     0.0
                 ],
                 "Type": 1
@@ -284,7 +302,7 @@
             }
         ],
         "FirstOnPrefab": true,
-        "Name": "Button",
+        "Name": "Health Tree",
         "ParentUID": 2933578115,
         "PrefabUID": 0,
         "Tag": "UI",
@@ -296,8 +314,8 @@
             {
                 "Enabled": true,
                 "Position": [
-                    -0.6499999761581421,
-                    -0.6499999761581421,
+                    -0.6000000238418579,
+                    -0.4000000059604645,
                     0.0
                 ],
                 "Rotation": [
@@ -306,8 +324,8 @@
                     0.0
                 ],
                 "Scale": [
-                    0.25,
-                    0.15000000596046448,
+                    0.20000000298023224,
+                    0.10000000149011612,
                     0.0
                 ],
                 "Type": 1
@@ -323,7 +341,7 @@
             }
         ],
         "FirstOnPrefab": true,
-        "Name": "Button",
+        "Name": "Special Tree",
         "ParentUID": 2933578115,
         "PrefabUID": 0,
         "Tag": "UI",
@@ -358,6 +376,12 @@
                 "listButtons": [
                     0
                 ]
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": null,
+                "Script Resource": 0,
+                "Type": 5
             }
         ],
         "FirstOnPrefab": true,
@@ -529,6 +553,837 @@
             {
                 "Enabled": true,
                 "Position": [
+                    0.22499999403953552,
+                    -0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.574999988079071,
+                    0.75,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 2425707217,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Image",
+        "ParentUID": 1770922130,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 757335209
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.375,
+                    0.5,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.25,
+                    0.20000000298023224,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 0,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Description 1",
+        "ParentUID": 1770922130,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 3598254052
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.375,
+                    0.20000000298023224,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.25,
+                    0.20000000298023224,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 0,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Description 2",
+        "ParentUID": 1770922130,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 4049634766
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.375,
+                    -0.20000000298023224,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.25,
+                    0.20000000298023224,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 0,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Description 3",
+        "ParentUID": 1770922130,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 1827597929
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.375,
+                    -0.5,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.25,
+                    0.20000000298023224,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 0,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Description 4",
+        "ParentUID": 1770922130,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 18300843
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "Type": 16,
+                "listButtons": [
+                    0
+                ]
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Armory Panel",
+        "ParentUID": 653963415,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 3208837267
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.05000000074505806,
+                    0.6000000238418579,
+                    -0.0010000000474974513
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.15000000596046448,
+                    0.10000000149011612,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Ability 1",
+        "ParentUID": 3208837267,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 4030431663
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.05000000074505806,
+                    0.20000000298023224,
+                    -0.0010000000474974513
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.15000000596046448,
+                    0.10000000149011612,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Ability 2",
+        "ParentUID": 3208837267,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 3879427450
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.05000000074505806,
+                    -0.20000000298023224,
+                    -0.0010000000474974513
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.15000000596046448,
+                    0.10000000149011612,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Ability 3",
+        "ParentUID": 3208837267,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 600087489
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.05000000074505806,
+                    -0.6000000238418579,
+                    -0.0010000000474974513
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.15000000596046448,
+                    0.10000000149011612,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Ability 4",
+        "ParentUID": 3208837267,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 1544183477
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.30000001192092896,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.6000000238418579,
+                    0.800000011920929,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 2425707217,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Background",
+        "ParentUID": 3208837267,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 271466040
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.5,
+                    0.5,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 0,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Image",
+        "ParentUID": 3208837267,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 223800836
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "Type": 16,
+                "listButtons": [
+                    0
+                ]
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Health Panel",
+        "ParentUID": 653963415,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 2184284589
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.05000000074505806,
+                    0.5,
+                    -0.0010000000474974513
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.15000000596046448,
+                    0.10000000149011612,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Ability 1",
+        "ParentUID": 2184284589,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 170321296
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.05000000074505806,
+                    0.25,
+                    -0.0010000000474974513
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.15000000596046448,
+                    0.10000000149011612,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Ability 2",
+        "ParentUID": 2184284589,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 3829211856
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.05000000074505806,
+                    -0.0,
+                    -0.0010000000474974513
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.15000000596046448,
+                    0.10000000149011612,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Ability 3",
+        "ParentUID": 2184284589,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 643596559
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.05000000074505806,
+                    -0.25,
+                    -0.0010000000474974513
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.15000000596046448,
+                    0.10000000149011612,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Ability 4",
+        "ParentUID": 2184284589,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 2737202267
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.05000000074505806,
+                    -0.5,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.15000000596046448,
+                    0.10000000149011612,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Ability 5",
+        "ParentUID": 2184284589,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 1622182085
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.25,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.6000000238418579,
+                    0.6499999761581421,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 2425707217,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Image",
+        "ParentUID": 2184284589,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 3355074583
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "Type": 16,
+                "listButtons": [
+                    0
+                ]
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Special Panel",
+        "ParentUID": 653963415,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 3186113256
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.05000000074505806,
+                    0.5,
+                    -0.0010000000474974513
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.15000000596046448,
+                    0.10000000149011612,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Ability 1",
+        "ParentUID": 3186113256,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 2510026759
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.05000000074505806,
+                    0.0,
+                    -0.0010000000474974513
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.15000000596046448,
+                    0.10000000149011612,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Ability 2",
+        "ParentUID": 3186113256,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 1238615986
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
                     0.30000001192092896,
                     0.0,
                     0.0
@@ -554,9 +1409,9 @@
         ],
         "FirstOnPrefab": true,
         "Name": "Image",
-        "ParentUID": 1770922130,
+        "ParentUID": 3186113256,
         "PrefabUID": 0,
         "Tag": "UI",
-        "UID": 757335209
+        "UID": 3789819285
     }
 ]

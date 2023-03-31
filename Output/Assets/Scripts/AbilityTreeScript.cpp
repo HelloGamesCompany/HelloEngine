@@ -23,28 +23,35 @@ void AbilityTreeScript::Start()
 }
 void AbilityTreeScript::Update()
 {
+	
 	if (AbilityList1.OnHovered())
 	{
 		PanelAbility1.SetActive(true);
 		PanelAbility2.SetActive(false);
+		PanelAbility3.SetActive(false);
+		PanelAbility4.SetActive(false);
 	}
 
-	if (AbilityList2.OnHovered())
+	else if (AbilityList2.OnHovered())
 	{
 		PanelAbility1.SetActive(false);
 		PanelAbility2.SetActive(true);
 		PanelAbility3.SetActive(false);
+		PanelAbility4.SetActive(false);
 	}
 
-	if (AbilityList3.OnHovered())
+	else if (AbilityList3.OnHovered())
 	{
 		PanelAbility1.SetActive(false);
-		PanelAbility2.SetActive(true);
-		PanelAbility3.SetActive(false);
+		PanelAbility2.SetActive(false);
+		PanelAbility3.SetActive(true);
+		PanelAbility4.SetActive(false);
 	}
 
-	if (AbilityList4.OnHovered())
+	else if (AbilityList4.OnHovered())
 	{
+		PanelAbility1.SetActive(false);
+		PanelAbility2.SetActive(false);
 		PanelAbility3.SetActive(false);
 		PanelAbility4.SetActive(true);
 	}
