@@ -11,11 +11,10 @@ public:
     void Start() override;
     void Update() override;
     API_GameObject GetFirstActiveProjectile();
-    void LauchProjectile(float projectileSpeed, float projectileDamage, float projectileResistanceDamage, float projectileLifetime, API_Transform shootingSpawn, uint projectileMesh, uint projectileMaterial, API_Vector3 projectileScale, bool randomDirection);
+    void LauchProjectile(float projectileSpeed, float projectileDamage, float projectileResistanceDamage, float projectileLifetime, API_Transform shootingSpawn, uint projectileMesh, uint projectileMaterial, API_Vector3 enemyRotation, API_Vector3 projectileScale, bool randomDirection);
 
     int pullSize;
     std::vector<API_GameObject> pull;
-    API_GameObject enemyGO;
     API_ParticleSystem particleTest;
 };
 

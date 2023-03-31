@@ -19,7 +19,8 @@ void ProjectilePull::Start()
         API_GameObject newProjectile = Game::CreateGameObject("Projectile", "Projectile");
         newProjectile.AddMeshRenderer();
         newProjectile.AddMaterial();
-        newProjectile.CreateRigidBodyBox((0, 0, 0), (0, 0, 0), (0.3f, 0.3f, 0.3f), false);
+        API_RigidBody rb = newProjectile.CreateRigidBodyBox((0, 0, 0), (0, 0, 0), (0.3f, 0.3f, 0.3f), false);
+        rb.SetTrigger(true);
         newProjectile.AddParticleSystem(particleTest);
         newProjectile.AddScript("Projectile");
         newProjectile.SetActive(false);
@@ -42,7 +43,7 @@ API_GameObject ProjectilePull::GetFirstActiveProjectile()
     return pull[0];
 }
 
-void ProjectilePull::LauchProjectile(float projectileSpeed, float projectileDamage, float projectileResistanceDamage, float projectileLifetime, API_Transform shootingSpawn, uint projectileMesh, uint projectileMaterial, API_Vector3 projectileScale, PROJECTILE_ACTION projectileAction, bool randomDirection)
+void ProjectilePull::LauchProjectile(float projectileSpeed, float projectileDamage, float projectileResistanceDamage, float projectileLifetime, API_Transform shootingSpawn, uint projectileMesh, uint projectileMaterial, API_Vector3 projectileScale, PROJECTILE_ACTION projectileAction, float randomDirectionRange)
 {
     API_GameObject go = GetFirstActiveProjectile();
     go.SetActive(true);
@@ -60,10 +61,10 @@ void ProjectilePull::LauchProjectile(float projectileSpeed, float projectileDama
         go.GetParticleSystem().Play();
     }
 
-    if (randomDirection)
+    if (randomDirectionRange > 0.0f)
     {
-        float offsetX = (-49 + rand() % (100)) / 5.0f; // values between -25 and 25
-        float offsetY = (-49 + rand() % (100)) / 5.0f;
+        float offsetX = (-49 + rand() % (100)) * randomDirectionRange;
+        float offsetY = (-49 + rand() % (100)) * randomDirectionRange;
         go.GetTransform().Rotate(offsetX, offsetY, 0);
     }
 

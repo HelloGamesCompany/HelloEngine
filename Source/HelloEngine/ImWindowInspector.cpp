@@ -29,7 +29,8 @@ void ImWindowInspector::Update()
 				selectGameobject->SetActive(!selectGameobject->IsActive());
 			ImGui::SameLine(); 
 
-			ImGui::InputText("Name", &selectGameobject->name, 0);
+			ImGui::InputText("Name", &selectGameobject->name);
+			ImGui::InputText("Tag", &selectGameobject->tag);
 			
 #ifdef STANDALONE
 			selectGameobject->OnEditor();

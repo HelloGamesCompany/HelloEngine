@@ -2,7 +2,7 @@
 #include "API/HelloBehavior.h"
 #include "ScriptToInspectorInterface.h"
 #include "Macro.h"
-//#include "EnemyGun.h"
+#include "EnemyGun.h"
 #include "API/API.h"
 
 class EnemyRanger : HelloBehavior
@@ -24,9 +24,9 @@ public:
     void Start() override;
     void Update() override;
 
-    void Seek(float vel, API_Vector3 tarPos);
-    void Wander(float vel, API_Vector3 point);
-    void Attacking(float vel, API_Vector3 tarPos);
+    void Seek(float vel, API_Vector3 tarPos, API_RigidBody rb);
+    void Wander(float vel, API_Vector3 point, API_RigidBody rb);
+    void Attacking(float vel, API_Vector3 tarPos, API_RigidBody rb);
 
     API_Vector3 NormalizeVec3(float x, float y, float z);
 
@@ -62,8 +62,8 @@ public:
     uint idleAnim;
     uint walkAnim;
 
-    //EnemyGun* enemyGun = nullptr;
-    //API_GameObject gunObj;
+    EnemyGun* enemyGun = nullptr;
+    API_GameObject gunObj;
 private:
     int _avalPoints = 0;
     float _movCooldown;//max time that can be outside the zone

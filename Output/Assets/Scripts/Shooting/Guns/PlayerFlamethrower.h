@@ -15,9 +15,11 @@ public:
 
     void Shoot() override;
     void EnableGuns(bool enable) override;
+    void SetGunStatsPerLevel(int level) override;
 
     float fullShotCooldown;
     float shotCooldown;
+    float fullShotCooldownWithPowerUp;
     bool canShoot = true;
 
     API_ParticleSystem fireParticles;

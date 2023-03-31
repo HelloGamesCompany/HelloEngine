@@ -15,11 +15,10 @@ HELLO_ENGINE_API_C PlayerGun* CreatePlayerGun(ScriptToInspectorInterface* script
     script->AddDragFloat("Projectile ScaleY", &classInstance->projectileScale.y);
     script->AddDragFloat("Projectile ScaleZ", &classInstance->projectileScale.z);
     script->AddDragFloat("Projectiles per second", &classInstance->cadence);
+    script->AddDragFloat("Extra % firerate", &classInstance->upgradeFireratePercentage);
     script->AddDragBoxGameObject("Player Stats GO", &classInstance->player);
     script->AddDragInt("Ammo Type", &classInstance->ammoType);
     script->AddInputBox("Audio Event String", &classInstance->audioEventString);
-    script->AddDragBoxAnimationPlayer("AnimationPlayer", &classInstance->playerAnimator);
-    script->AddDragBoxAnimationResource("Shoot Animation", &classInstance->shootAnim);
     return classInstance;
 }
 
@@ -43,7 +42,12 @@ void PlayerGun::EnableGuns(bool enable)
     
 }
 
-void PlayerGun::LauchProjectile(API_Transform projectileSpawn, PROJECTILE_ACTION projectileAction, bool randomDirection)
+void PlayerGun::SetGunStatsPerLevel(int level)
+{
+
+}
+
+void PlayerGun::LauchProjectile(API_Transform projectileSpawn, PROJECTILE_ACTION projectileAction, float randomDirectionRange)
 {
     ProjectilePull* pull = (ProjectilePull*)projectilePull.GetScript("ProjectilePull");
     if (pull == nullptr)
@@ -51,7 +55,7 @@ void PlayerGun::LauchProjectile(API_Transform projectileSpawn, PROJECTILE_ACTION
         Console::Log("ProjectilePull not asigned");
         return;
     }
-    pull->LauchProjectile(projectileSpeed, projectileDamage, projectileResistanceDamage, projectileLifetime, projectileSpawn, projectileMesh, projectileMaterial, projectileScale, projectileAction, randomDirection);
+    pull->LauchProjectile(projectileSpeed, projectileDamage, projectileResistanceDamage, projectileLifetime, projectileSpawn, projectileMesh, projectileMaterial, projectileScale, projectileAction, randomDirectionRange);
 }
 
 void PlayerGun::PlayShotSound(std::string eventString)

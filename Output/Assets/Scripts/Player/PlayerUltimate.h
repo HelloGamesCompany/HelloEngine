@@ -5,9 +5,9 @@
 
 #include "API/API.h"
 
-#include "../Shooting/PlayerGunManager.h"
+#include "PlayerStats.h"
 
-class ChestTest : HelloBehavior
+class PlayerUltimate : HelloBehavior
 {
 public:
     void Start() override;
@@ -15,7 +15,13 @@ public:
 
     void OnCollisionEnter(API::API_RigidBody other) override;
 
-    int gunInsideChest;
-    int gunInsideChestSlot;
+    API_GameObject playerStatsGO;
+    PlayerStats* playerStats;
+
+    void UseUltimate();
+    API_RigidBody ult;
+    float bufferRJ;
+    float bufferLJ;
+    bool triggerUlt;
 };
 
