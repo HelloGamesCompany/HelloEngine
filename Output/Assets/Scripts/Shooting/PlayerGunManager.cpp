@@ -210,7 +210,7 @@ void PlayerGunManager::EquipGun(int index)
         equipedGun = (PlayerGun*)guns[index].GetScript("PlayerShotgun");
         break;
     case 5: // handgun
-        equipedGun = (PlayerGun*)guns[index].GetScript("PlayerSemiAuto");
+        equipedGun = (PlayerGun*)guns[index].GetScript("PlayerHandgun");
         break;
     case 6: // flamethrower
         equipedGun = (PlayerGun*)guns[index].GetScript("PlayerFlamethrower");
