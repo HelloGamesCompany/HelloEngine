@@ -12,7 +12,7 @@ HELLO_ENGINE_API_C Mision_Masacre* CreateMision_Masacre(ScriptToInspectorInterfa
 void Mision_Masacre::Start()
 {
 
-	enemies.reserve(enemiessize);
+	enemies.resize(enemiessize);
 
 	Game::FindGameObjectsWithTag("Enemy", &enemies[0], enemiessize);
 
