@@ -1,5 +1,6 @@
 #include "BossAttacks.h"
 #include "../EbonyMaw/RockDivider.h"
+#include "../Player/PlayerStats.h"
 #include "../EbonyMaw/BossLoop.h"
 #include <time.h>
 #include <random>
@@ -16,7 +17,7 @@ HELLO_ENGINE_API_C BossAttacks* CreateBossAttacks(ScriptToInspectorInterface* sc
 	script->AddDragBoxGameObject("Player", &classInstance->player);
 	script->AddDragBoxGameObject("OrbitingRocks", &classInstance->orbitingRocks);
 	script->AddDragBoxGameObject("explosionWave1", &classInstance->explosionWave1);
-	script->AddDragBoxGameObject("explosionWave2", &classInstance->explosionWave2);
+	script->AddDragFloat("Distance", &classInstance->distSA);
 	script->AddDragFloat("Cooldown", &classInstance->cooldownAttack);
 	script->AddDragFloat("RotationSpeed", &classInstance->rotationSpeed);
 	script->AddDragFloat("Radius", &classInstance->radius);
@@ -53,6 +54,7 @@ void BossAttacks::Start()
 	}
 	srand(time(NULL));
 	bLoop = (BossLoop*)boss.GetScript("BossLoop");
+	pStats = (PlayerStats*)boss.GetScript("PlayerStats");
 	if (bLoop == nullptr) {
 		Console::Log("BossLoop is nullptr in BOSSATTACK script");
 	}
@@ -156,16 +158,17 @@ void BossAttacks::Update()
 			break;
 		case 4:
 			explosionTime += Time::GetDeltaTime();
-			if (explosionWave1.GetTransform().GetLocalScale().x < 1.25f && explosionWave1HasArrived == false && explosionTime > 0.5) {
-				if (explosionWave1.IsActive() == false) explosionWave1.CreateRigidBodyBox(boss.GetTransform().GetGlobalPosition(), { 0,0,0 }, explosionRadius1, false);
-				explosionWave1.SetActive(true);
-				explosionWave1.GetTransform().Scale(0.001f * Time::GetDeltaTime());
-			}
-			else if(explosionWave1.GetTransform().GetLocalScale().x < 1.25f && explosionWave1HasArrived == false){
+			explosionWave1.GetTransform().Scale(0.1f * Time::GetDeltaTime());
+			distSA = player.GetTransform().GetGlobalPosition().Distance(gameObject.GetTransform().GetGlobalPosition());
+			/*if (explosionTime > 0.5f && distSA < 30.0f && explosionWave1HasArrived == false) {
+				pStats->TakeDamage(50);
 				explosionWave1HasArrived = true;
-				explosionWave1.GetTransform().SetScale(0.1f, 0.1f, 0.1f);
-				explosionWave1.SetActive(false);
 			}
+			if (explosionTime > 1.0f && distSA > 30.0f && distSA < 60.0f && explosionWave2HasArrived == false) {
+				pStats->TakeDamage(1);
+				explosionWave2HasArrived = true;
+
+			}*/
 		default:
 			break;
 		}
@@ -174,6 +177,7 @@ void BossAttacks::Update()
 		switch (bossState)
 		{
 		case BOSS_STATE::IDLE:
+			explosionTime = 0.0f;
 			currentTimeAttack = 0.0f;
 			for (int i = 0; i < 15; i++) {
 				hasReachedTarget[i] = false;
@@ -192,7 +196,7 @@ void BossAttacks::Update()
 		case BOSS_STATE::SELECTATTACK:
 			// Generate a random integer between 0 and 0
 			//attackType = rand() % 3;
-			attackType = 1;
+			attackType = 4;
 			if (attackType < 3) {
 				bossState = BOSS_STATE::ROCKSELECT;
 			}
@@ -200,10 +204,9 @@ void BossAttacks::Update()
 				bossState = BOSS_STATE::SPECIALATTACK;
 			}
 			else if (attackType == 4) {
-				explosionWave1HasArrived = false;
+				/*explosionWave1HasArrived = false;
 				bossState = BOSS_STATE::EXPLOSIONWAVE;
-				explosionWave1.SetActive(false);
-
+				explosionWave1.SetActive(true);*/
 				//explosionWave1.CreateRigidBodyBox(boss.GetTransform().GetGlobalPosition(), { 0,0,0 }, explosionRadius1, false);
 			}
 			hasBossCoords = false;

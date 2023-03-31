@@ -6,6 +6,7 @@
 
 #include "API/API.h"
 #include "BossLoop.h"
+#include "../Player/PlayerStats.h"
 #include "BossMovement.h"
 
 class BossAttacks : HelloBehavior
@@ -26,6 +27,7 @@ public:
 
 	API_Vector3 dir[15] = { 0,0,0 };
 	BossLoop* bLoop;
+	PlayerStats* pStats;
 	API_GameObject boss;
 	API_GameObject boss2;
 	API_GameObject player;
@@ -71,9 +73,11 @@ public:
 	void OrbitingRocks(API_GameObject* orbitingRock1, API_GameObject* orbitingRock2, API_GameObject* orbitingRock3, API_GameObject* orbitingRock4, float rotationSpeed, float radius);
 	API_GameObject orbitingRocks;
 	API_GameObject explosionWave1;
-	float explosionRadius1 = 60;
+	float explosionRadius1 = 60.0f;
+	float explosionRadius2 = 130.0f;
 	API_GameObject explosionWave2;
-
+	API_GameObject explosionWave3;
+	float distSA;
 	bool explosionWave1HasArrived = false;
 	bool explosionWave2HasArrived = false;
 
