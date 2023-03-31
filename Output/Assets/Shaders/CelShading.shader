@@ -6,7 +6,7 @@
 	uniform mat4 view;
 	uniform mat4 projection;
 	uniform mat4 model;
-
+	
 	out vec2 TextureCoords;
 
 	void main()
@@ -24,3 +24,4 @@
 		FragColor = texture(texture_albedo, TextureCoords);
 	} 
 #endif
+

@@ -2,6 +2,7 @@
 #include "ImWindowGLSL.h"
 
 #include "ModuleResourceManager.h"
+#include "LayerEditor.h"
 
 ImWindowGLSL::ImWindowGLSL()
 {
@@ -37,7 +38,6 @@ void ImWindowGLSL::Update()
 	if (ImGui::Begin(windowName.c_str(), &isEnabled, flags))
 	{
 		MenuBar();
-
 		std::string name = "";
 		if (shader) name = shader->debugName;
 

@@ -37,6 +37,9 @@ void ImWindowHierarchy::Update()
 {
 	if (ImGui::Begin(windowName.c_str(), &isEnabled, ImGuiWindowFlags_NoResize))
     {
+        if (ImGui::IsWindowFocused())
+            LayerEditor::detectInput = true;
+
         _hasSelectedAGameObject = false;
         
         DrawGameObjectChildren(ModuleLayers::rootGameObject);

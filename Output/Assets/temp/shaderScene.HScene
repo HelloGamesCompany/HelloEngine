@@ -50,6 +50,36 @@
                     1.0
                 ],
                 "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Nic",
+        "ParentUID": 3287047150,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2088010023
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
             },
             {
                 "Enabled": true,
@@ -72,6 +102,6 @@
         "ParentUID": 3287047150,
         "PrefabUID": 0,
         "Tag": "Primitive",
-        "UID": 2409749204
+        "UID": 1054124230
     }
 ]

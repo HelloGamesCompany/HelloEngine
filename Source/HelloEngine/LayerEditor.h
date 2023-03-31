@@ -86,10 +86,12 @@ public:
 	static GameObject* selectedGameObject;
 	static GameObject* draggedGameObject;
 
+	static bool detectInput;
 private:
 	static ImWindow* _imWindows[(uint)ImWindowID::MAX];
 
 	Application* _app = nullptr;
+
 
 	//Popup message variables
 	static std::vector<PopUpMessage> _popUpMessages;
