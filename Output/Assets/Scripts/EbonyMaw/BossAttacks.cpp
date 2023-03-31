@@ -54,7 +54,7 @@ void BossAttacks::Start()
 	}
 	srand(time(NULL));
 	bLoop = (BossLoop*)boss.GetScript("BossLoop");
-	pStats = (PlayerStats*)boss.GetScript("PlayerStats");
+	pStats = (PlayerStats*)player.GetScript("PlayerStats");
 	if (bLoop == nullptr) {
 		Console::Log("BossLoop is nullptr in BOSSATTACK script");
 	}
@@ -62,7 +62,8 @@ void BossAttacks::Start()
 
 void BossAttacks::Update()
 {
-	
+	distSA = player.GetTransform().GetGlobalPosition().Distance(gameObject.GetTransform().GetGlobalPosition());
+
 	if (bLoop && bLoop->weakTime > 0) {
 		bossState = BOSS_STATE::KO;
 		for (int i = 0; i < numRocks[attackType]; i++) {
@@ -158,17 +159,21 @@ void BossAttacks::Update()
 			break;
 		case 4:
 			explosionTime += Time::GetDeltaTime();
-			explosionWave1.GetTransform().Scale(0.1f * Time::GetDeltaTime());
-			distSA = player.GetTransform().GetGlobalPosition().Distance(gameObject.GetTransform().GetGlobalPosition());
-			/*if (explosionTime > 0.5f && distSA < 30.0f && explosionWave1HasArrived == false) {
+			explosionWave1.GetTransform().Scale(0.6 * Time::GetDeltaTime());
+			if (explosionTime < 0.5 && distSA < 30.0 && explosionWave1HasArrived == false) {
 				pStats->TakeDamage(50);
 				explosionWave1HasArrived = true;
 			}
-			if (explosionTime > 1.0f && distSA > 30.0f && distSA < 60.0f && explosionWave2HasArrived == false) {
+			if (explosionTime >= 0.5 && distSA > 30.0 && distSA < 60.0 && explosionWave2HasArrived == false) {
 				pStats->TakeDamage(1);
+				//KnockBack
 				explosionWave2HasArrived = true;
-
-			}*/
+			}
+			if (explosionTime > 0.6) {
+				explosionWave1.SetActive(false);
+				bossState = BOSS_STATE::IDLE;
+				attacking = false;
+			}
 		default:
 			break;
 		}
@@ -204,10 +209,11 @@ void BossAttacks::Update()
 				bossState = BOSS_STATE::SPECIALATTACK;
 			}
 			else if (attackType == 4) {
-				/*explosionWave1HasArrived = false;
+				explosionWave1HasArrived = false;
+				explosionWave2HasArrived = false;
 				bossState = BOSS_STATE::EXPLOSIONWAVE;
-				explosionWave1.SetActive(true);*/
-				//explosionWave1.CreateRigidBodyBox(boss.GetTransform().GetGlobalPosition(), { 0,0,0 }, explosionRadius1, false);
+				explosionWave1.SetActive(true);
+				explosionWave1.GetTransform().SetScale(0.1f, 0.1f, 0.1f);
 			}
 			hasBossCoords = false;
 			attacking = true;

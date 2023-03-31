@@ -35,7 +35,7 @@
             {
                 "Enabled": true,
                 "Position": [
-                    -57.37042236328125,
+                    -72.04352569580078,
                     3.0317094326019287,
                     404.20111083984375
                 ],
@@ -6913,7 +6913,7 @@
             {
                 "Active camera": true,
                 "Active culling": true,
-                "Aspect ratio": 2.25356125831604,
+                "Aspect ratio": 1.3033268451690674,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -6941,40 +6941,16 @@
                         "Offset_Z": -20.0
                     },
                     {
-                        "Rot_Offset_X": 50.0
+                        "Rot_X": 50.0
                     },
                     {
-                        "Rot_Offset_Y": 0.0
+                        "Rot_Y": 0.0
                     },
                     {
-                        "Rot_Offset_Z": 0.0
+                        "Rot_Z": 0.0
                     },
                     {
-                        "Use safe zone: ": true
-                    },
-                    {
-                        "Target": 2404673066
-                    },
-                    {
-                        "Delay": 0.019999999552965164
-                    },
-                    {
-                        "Offset_X": 0.0
-                    },
-                    {
-                        "Offset_Y": 25.0
-                    },
-                    {
-                        "Offset_Z": -20.0
-                    },
-                    {
-                        "Rot_Offset_X": 50.0
-                    },
-                    {
-                        "Rot_Offset_Y": 0.0
-                    },
-                    {
-                        "Rot_Offset_Z": 0.0
+                        "SafeZone_Distance": 10.0
                     },
                     {
                         "Use safe zone: ": true
@@ -6995,13 +6971,46 @@
                         "Offset_Z": -20.0
                     },
                     {
-                        "Rot_Offset_X": 50.0
+                        "Rot_X": 50.0
                     },
                     {
-                        "Rot_Offset_Y": 0.0
+                        "Rot_Y": 0.0
                     },
                     {
-                        "Rot_Offset_Z": 0.0
+                        "Rot_Z": 0.0
+                    },
+                    {
+                        "SafeZone_Distance": 10.0
+                    },
+                    {
+                        "Use safe zone: ": true
+                    },
+                    {
+                        "Target": 2404673066
+                    },
+                    {
+                        "Delay": 0.019999999552965164
+                    },
+                    {
+                        "Offset_X": 0.0
+                    },
+                    {
+                        "Offset_Y": 25.0
+                    },
+                    {
+                        "Offset_Z": -20.0
+                    },
+                    {
+                        "Rot_X": 50.0
+                    },
+                    {
+                        "Rot_Y": 0.0
+                    },
+                    {
+                        "Rot_Z": 0.0
+                    },
+                    {
+                        "SafeZone_Distance": 10.0
                     },
                     {
                         "Use safe zone: ": true
