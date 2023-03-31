@@ -10429,9 +10429,6 @@
                         "Velocity": 10.0
                     },
                     {
-                        "Upgrade Velocity": 2.0
-                    },
-                    {
                         "SecToMaxVel": 0.0
                     },
                     {
@@ -10442,15 +10439,6 @@
                     },
                     {
                         "Dash Distance": 5.0
-                    },
-                    {
-                        "Upgrade Dash Distance": 8.0
-                    },
-                    {
-                        "Dash Cooldown": 0.0
-                    },
-                    {
-                        "Upgrade Dash Cooldown": 0.0
                     },
                     {
                         "AnimationPlayer": 3431343063
@@ -10481,12 +10469,6 @@
                         "Max HP": 100.0
                     },
                     {
-                        "Current HP": 0.0
-                    },
-                    {
-                        "Upgraded Max HP": 0.0
-                    },
-                    {
                         "Laser Ammo": 99999
                     },
                     {
@@ -10496,16 +10478,7 @@
                         "Ricochet Ammo": 99999
                     },
                     {
-                        "tree1": 0
-                    },
-                    {
-                        "tree2": 0
-                    },
-                    {
-                        "tree3": 0
-                    },
-                    {
-                        "tree4": 0
+                        "Health bar": 293173081
                     }
                 ],
                 "Script Resource": 4283682555,
@@ -10763,7 +10736,7 @@
                 "Type": 9
             },
             {
-                "AnimationUID": 0,
+                "AnimationUID": 723048411,
                 "Enabled": true,
                 "Type": 10,
                 "isLoop": true,
@@ -13777,7 +13750,7 @@
             {
                 "Enabled": true,
                 "Index inside model": 0,
-                "ModelUID": 0,
+                "ModelUID": 2417919063,
                 "ShowAABB": false,
                 "ShowFaceNormals": false,
                 "ShowOBB": false,
@@ -16019,9 +15992,6 @@
                         "Projectiles per second": 1.0
                     },
                     {
-                        "Extra % firerate": 0.0
-                    },
-                    {
                         "Ammo Type": 1
                     },
                     {
@@ -16106,13 +16076,7 @@
                         "Projectiles per second": 1.2999999523162842
                     },
                     {
-                        "Extra % firerate": 0.0
-                    },
-                    {
                         "Pellets per shot": 10
-                    },
-                    {
-                        "Pellets Dispersion": 0.0
                     },
                     {
                         "Ammo Type": 1
@@ -16199,16 +16163,7 @@
                         "Projectiles per second": 3.0
                     },
                     {
-                        "Extra % firerate": 0.0
-                    },
-                    {
                         "Burst Space": 0.1599999964237213
-                    },
-                    {
-                        "Slow %": 0.0
-                    },
-                    {
-                        "Freeze %": 0.0
                     },
                     {
                         "Ammo Type": 0
@@ -17397,6 +17352,12 @@
                     },
                     {
                         "Game Bar Weapon 3": 3043836677
+                    },
+                    {
+                        "Text_Dash_on": 1033923317
+                    },
+                    {
+                        "Text_Dash_off": 2440110374
                     },
                     {
                         "Material_Dash": 2702449615
