@@ -5,32 +5,36 @@
 #include "Macro.h"
 
 #include "API/API.h"
+#include "BossLoop.h"
+#include "BossMovement.h"
 
 class BossAttacks : HelloBehavior
 {
 public:
 	void Start() override;
 	void Update() override;
-	void Seek(API_GameObject* seeker, API_Vector3 target, float speed, int rock, float endedAttacking);
+	void Seek(API_GameObject* seeker, API_Vector3 target, float speed, int rock, float endedAttacking, float time);
 	void SelectRock();
 	void HoldRock();
 	void ReturnRock(API_GameObject* rock, int numRock, float endedAttacking);
 
-	bool hasReachedTarget[5] = { false,false,false,false,false };
+	bool hasReachedTarget[15] = { false,false,false,false,false, false,false,false,false,false, false,false,false,false,false };
 
 	API_GameObject rocks[20];
 	API_Vector3 rockPositions[20];
 	API_GameObject selectedRock;
 
-	API_Vector3 dir[5] = { 0,0,0 };
-
+	API_Vector3 dir[15] = { 0,0,0 };
+	BossLoop* bLoop;
 	API_GameObject boss;
+	API_GameObject boss2;
 	API_GameObject player;
-	API_Vector3 playerPosition[5] = { 0,0,0 };
+	API_Vector3 playerPosition[15] = { 0,0,0 };
 	API_Vector3 bossPosition[5] = { 0,0,0 };
 
 
-	float timeAttack[6] = { 2.0f,4.0f,4.5f,5.0f,5.5f,6.0f };
+	float timeAttack[7] = { 2.0f,4.0f,4.5f,5.0f,5.5f,6.0f,6.5f };
+	float specialTimeAttack[11] = { 0.5f,1.0f,1.5f,2.0f,2.5f,3.0f,3.5f,4.0f,4.5f,5.0f,5.5f };
 	float currentTimeAttack = 0.0f;
 	bool endedAttacking = false;
 
@@ -42,9 +46,9 @@ public:
 	float zDistance = 0.0f;
 
 	int attackType = 0;
-	int numRocks[3] = { 3,4,5 };
+	int numRocks[4] = { 3,4,5,10 };
 
-	int currentRock[5] = { 0,1,2,3,4 };
+	int currentRock[15] = { 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14 };
 
 	bool selectRock = false;
 	float speed = 0.0f;
@@ -58,13 +62,23 @@ public:
 	float dt = 0.0f;
 
 	float rockDmg = 20.0f;
+	float orbitingRockDmg = 40.0f;
 	float stoneDmg = 10.0f;
 
 	float stoneSpeed = 1.0f;
 	float stoneLifeTime = 0.5f;
-
+	void SpecialAttack();
 	void OrbitingRocks(API_GameObject* orbitingRock1, API_GameObject* orbitingRock2, API_GameObject* orbitingRock3, API_GameObject* orbitingRock4, float rotationSpeed, float radius);
 	API_GameObject orbitingRocks;
+	API_GameObject explosionWave1;
+	float explosionRadius1 = 60;
+	API_GameObject explosionWave2;
+
+	bool explosionWave1HasArrived = false;
+	bool explosionWave2HasArrived = false;
+
+	float explosionTime = 0.0f;
+
 	float rotationSpeed = 1;
 	float radius = 0.5f;
 
@@ -76,6 +90,8 @@ public:
 		SEEKING,
 		HOLDING,
 		THROWING,
+		SPECIALATTACK,
+		EXPLOSIONWAVE,
 	};
 
 	BOSS_STATE bossState = BOSS_STATE::IDLE;

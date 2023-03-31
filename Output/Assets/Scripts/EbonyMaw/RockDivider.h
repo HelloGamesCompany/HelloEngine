@@ -2,6 +2,7 @@
 #include "API/HelloBehavior.h"
 #include "ScriptToInspectorInterface.h"
 #include "Macro.h"
+#include "BossAttacks.h"
 
 #include "API/API.h"
 
@@ -17,7 +18,7 @@ public:
 	uint stoneMesh;
 
 	API_GameObject boss;
-
+	BossAttacks* bAttacks;
 	bool rockDivided = false;
 
 	int whichRockAmI = 0;
