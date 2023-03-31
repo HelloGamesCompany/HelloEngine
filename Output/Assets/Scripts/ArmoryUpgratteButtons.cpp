@@ -10,30 +10,43 @@ HELLO_ENGINE_API_C ArmoryUpgratteButtons* CreateArmoryUpgratteButtons(ScriptToIn
 
 	script->AddDragBoxGameObject("Panel Upgrate W1", &classInstance->PanelUpgrateW1);
 
-	script->AddDragBoxGameObject("Panel Unlock W2", &classInstance->PanelUnlockW2);
-	script->AddDragBoxGameObject("Panel Upgrate W2", &classInstance->PanelUpgrateW2);
+	script->AddDragBoxUIInput("Panel Unlock W2", &classInstance->PanelUnlockW2);
+	script->AddDragBoxUIInput("Panel Upgrate W2", &classInstance->PanelUpgrateW2);
 
 	script->AddDragBoxGameObject("Panel Unlock W3", &classInstance->PanelUnlockW3);
 	script->AddDragBoxGameObject("Panel Upgrate W3", &classInstance->PanelUpgrateW3);
 
 	script->AddDragBoxGameObject("Weapon Associated", &classInstance->currentWeapon);
 
+	script->AddDragBoxUIInput("List Weapons", &classInstance->SelectWeaponList);
+
 	return classInstance;
 }
 
 void ArmoryUpgratteButtons::Start()
 {
-	//WeaponInstance = (ArmoryWeaponSelect*)currentWeapon.GetScript("ArmoryWeaponSelect");
-	Console::Log("Start");
-	isUnlocked = false;
+	weaponInstance = (ArmoryWeaponSelect*)currentWeapon.GetScript("ArmoryWeaponSelect");
 }
 void ArmoryUpgratteButtons::Update()
 {
-	if (Unlock.OnPress())
+	if (Input::GetGamePadButton(GamePadButton::BUTTON_B) == KeyState::KEY_DOWN)
+	{
+		Console::Log(std::to_string(oneTime));
+		SelectWeaponList.SetEnable(true);
+		PanelUpgrateW2.SetEnable(false);
+		PanelUnlockW2.SetEnable(false);
+	}
+
+	if (Unlock.OnPress() && oneTime != 500)
 	{
 		//GameObject Arma selected -> GetScript() -> set the correct bool as true
-		Console::Log("SI?");
-
+		Console::Log("1");
+		Console::Log("On Press");
+		weaponInstance->isUnlocked = true;
+		PanelUpgrateW2.SetEnable(false);
+		PanelUnlockW2.SetEnable(false);
+		oneTime = 500;
+		Console::Log("2");
 		/*if (WeaponInstance->isUnlockWeapon2)
 		{
 			PanelUnlockW2.SetActive(false);
@@ -44,8 +57,6 @@ void ArmoryUpgratteButtons::Update()
 			Console::Log("PEPE?");
 			PanelUnlockW3.SetActive(false);
 		}*/
-
-		isUnlocked = true;
 	}
 
 	if (Upgrate1.OnPress())

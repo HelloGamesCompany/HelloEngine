@@ -22,6 +22,7 @@ private:
 
 	ImWindowGame* _gameWindow = nullptr;
 	bool isPress = true;
+	bool AisPress = true;
 	int ButtonSelected = 0;
 
 #ifdef STANDALONE

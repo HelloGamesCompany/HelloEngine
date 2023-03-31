@@ -4,6 +4,8 @@
 #include "Macro.h"
 
 #include "API/API.h"
+#include "API/API_UIInput.h"
+#include "ArmoryWeaponSelect.h"
 
 class ArmoryUpgratteButtons : HelloBehavior
 {
@@ -18,8 +20,8 @@ public:
 
 	API_GameObject PanelUpgrateW1;
 
-	API_GameObject PanelUnlockW2;
-	API_GameObject PanelUpgrateW2;
+	API_UIInput PanelUnlockW2;
+	API_UIInput PanelUpgrateW2;
 
 	API_GameObject PanelUnlockW3;
 	API_GameObject PanelUpgrateW3;
@@ -34,9 +36,11 @@ public:
 	API_GameObject PanelUpgrateW6;
 
 	API_GameObject currentWeapon;
+	API_UIInput SelectWeaponList;
 
-	///ArmoryWeaponSelect* WeaponInstance = nullptr;
+	ArmoryWeaponSelect* weaponInstance;
 
 	bool isUnlocked;
+	int oneTime;
 };
 

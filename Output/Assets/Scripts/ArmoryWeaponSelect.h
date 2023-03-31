@@ -5,7 +5,6 @@
 
 #include "API/API.h"
 #include "API/API_UIInput.h"
-#include "ArmoryUpgratteButtons.h"
 
 class ArmoryWeaponSelect : HelloBehavior
 {
@@ -23,8 +22,8 @@ public:
 
 	API_GameObject PrevtWeapon;
 
-	API_GameObject CurrentPanelUpgrate;
-	API_GameObject CurrentPanelUnlock;
+	API_UIInput CurrentPanelUpgrate;
+	API_UIInput CurrentPanelUnlock;
 
 	API_GameObject NextPanelUpgrate;
 	API_GameObject NextPanelUnlock;

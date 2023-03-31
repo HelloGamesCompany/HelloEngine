@@ -103,51 +103,7 @@
             {
                 "Enabled": true,
                 "Position": [
-                    0.7400000095367432,
-                    0.6899999976158142,
-                    0.0
-                ],
-                "Rotation": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Scale": [
-                    0.5,
-                    0.5,
-                    0.5
-                ],
-                "Type": 1
-            },
-            {
-                "Color": [
-                    0.0,
-                    0.0,
-                    0.0,
-                    1.0
-                ],
-                "Enabled": true,
-                "PositionX": 0.7400000095367432,
-                "PositionY": 0.6899999976158142,
-                "Scale": 0.5,
-                "Text": "11",
-                "Type": 17
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "BluePrint Amount (T)",
-        "ParentUID": 3977713993,
-        "PrefabUID": 0,
-        "Tag": "UI",
-        "UID": 1061093537
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.8799999952316284,
+                    0.8849999904632568,
                     0.7350000143051147,
                     -0.0010000000474974513
                 ],
@@ -248,6 +204,50 @@
         "PrefabUID": 0,
         "Tag": "UI",
         "UID": 810043863
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.7400000095367432,
+                    0.6875,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.5,
+                    0.5,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Color": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "PositionX": 0.7400000095367432,
+                "PositionY": 0.6875,
+                "Scale": 0.5,
+                "Text": "11",
+                "Type": 17
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "BluePrint Amount (T)",
+        "ParentUID": 3977713993,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 1061093537
     },
     {
         "Active": true,
@@ -397,150 +397,6 @@
                     },
                     {
                         "List Weapons": 1703094761
-                    },
-                    {
-                        "Weapon": 4145208356
-                    },
-                    {
-                        "Next Weapon": 1911153676
-                    },
-                    {
-                        "Prev Weapon": 3518481655
-                    },
-                    {
-                        "Panel Upgrate": 3550437662
-                    },
-                    {
-                        "Panel Unlock": 274231072
-                    },
-                    {
-                        "Next Panel Upgrate": 2801017591
-                    },
-                    {
-                        "Next Panel Unlock": 2756292912
-                    },
-                    {
-                        "Prev Panel Upgrate": 2122020070
-                    },
-                    {
-                        "Prev Panel Unlock": 2122020070
-                    },
-                    {
-                        "Material Weapon": 2149418341
-                    },
-                    {
-                        "SelectedWeapon": 2478615852
-                    },
-                    {
-                        "List Weapons": 1703094761
-                    },
-                    {
-                        "Weapon": 4145208356
-                    },
-                    {
-                        "Next Weapon": 1911153676
-                    },
-                    {
-                        "Prev Weapon": 3518481655
-                    },
-                    {
-                        "Panel Upgrate": 3550437662
-                    },
-                    {
-                        "Panel Unlock": 274231072
-                    },
-                    {
-                        "Next Panel Upgrate": 2801017591
-                    },
-                    {
-                        "Next Panel Unlock": 2756292912
-                    },
-                    {
-                        "Prev Panel Upgrate": 2122020070
-                    },
-                    {
-                        "Prev Panel Unlock": 2122020070
-                    },
-                    {
-                        "Material Weapon": 2149418341
-                    },
-                    {
-                        "SelectedWeapon": 2478615852
-                    },
-                    {
-                        "List Weapons": 1703094761
-                    },
-                    {
-                        "Weapon": 4145208356
-                    },
-                    {
-                        "Next Weapon": 1911153676
-                    },
-                    {
-                        "Prev Weapon": 3518481655
-                    },
-                    {
-                        "Panel Upgrate": 3550437662
-                    },
-                    {
-                        "Panel Unlock": 274231072
-                    },
-                    {
-                        "Next Panel Upgrate": 2801017591
-                    },
-                    {
-                        "Next Panel Unlock": 2756292912
-                    },
-                    {
-                        "Prev Panel Upgrate": 2122020070
-                    },
-                    {
-                        "Prev Panel Unlock": 2122020070
-                    },
-                    {
-                        "Material Weapon": 2149418341
-                    },
-                    {
-                        "SelectedWeapon": 2478615852
-                    },
-                    {
-                        "List Weapons": 1703094761
-                    },
-                    {
-                        "Weapon": 4145208356
-                    },
-                    {
-                        "Next Weapon": 1911153676
-                    },
-                    {
-                        "Prev Weapon": 3518481655
-                    },
-                    {
-                        "Panel Upgrate": 3550437662
-                    },
-                    {
-                        "Panel Unlock": 274231072
-                    },
-                    {
-                        "Next Panel Upgrate": 2801017591
-                    },
-                    {
-                        "Next Panel Unlock": 2756292912
-                    },
-                    {
-                        "Prev Panel Upgrate": 2122020070
-                    },
-                    {
-                        "Prev Panel Unlock": 2122020070
-                    },
-                    {
-                        "Material Weapon": 2149418341
-                    },
-                    {
-                        "SelectedWeapon": 2478615852
-                    },
-                    {
-                        "List Weapons": 1703094761
                     }
                 ],
                 "Script Resource": 553099281,
@@ -588,150 +444,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Weapon": 1911153676
-                    },
-                    {
-                        "Next Weapon": 1415821494
-                    },
-                    {
-                        "Prev Weapon": 4145208356
-                    },
-                    {
-                        "Panel Upgrate": 2801017591
-                    },
-                    {
-                        "Panel Unlock": 2756292912
-                    },
-                    {
-                        "Next Panel Upgrate": 2553497408
-                    },
-                    {
-                        "Next Panel Unlock": 4118105479
-                    },
-                    {
-                        "Prev Panel Upgrate": 3550437662
-                    },
-                    {
-                        "Prev Panel Unlock": 274231072
-                    },
-                    {
-                        "Material Weapon": 273176788
-                    },
-                    {
-                        "SelectedWeapon": 2478615852
-                    },
-                    {
-                        "List Weapons": 1703094761
-                    },
-                    {
-                        "Weapon": 1911153676
-                    },
-                    {
-                        "Next Weapon": 1415821494
-                    },
-                    {
-                        "Prev Weapon": 4145208356
-                    },
-                    {
-                        "Panel Upgrate": 2801017591
-                    },
-                    {
-                        "Panel Unlock": 2756292912
-                    },
-                    {
-                        "Next Panel Upgrate": 2553497408
-                    },
-                    {
-                        "Next Panel Unlock": 4118105479
-                    },
-                    {
-                        "Prev Panel Upgrate": 3550437662
-                    },
-                    {
-                        "Prev Panel Unlock": 274231072
-                    },
-                    {
-                        "Material Weapon": 273176788
-                    },
-                    {
-                        "SelectedWeapon": 2478615852
-                    },
-                    {
-                        "List Weapons": 1703094761
-                    },
-                    {
-                        "Weapon": 1911153676
-                    },
-                    {
-                        "Next Weapon": 1415821494
-                    },
-                    {
-                        "Prev Weapon": 4145208356
-                    },
-                    {
-                        "Panel Upgrate": 2801017591
-                    },
-                    {
-                        "Panel Unlock": 2756292912
-                    },
-                    {
-                        "Next Panel Upgrate": 2553497408
-                    },
-                    {
-                        "Next Panel Unlock": 4118105479
-                    },
-                    {
-                        "Prev Panel Upgrate": 3550437662
-                    },
-                    {
-                        "Prev Panel Unlock": 274231072
-                    },
-                    {
-                        "Material Weapon": 273176788
-                    },
-                    {
-                        "SelectedWeapon": 2478615852
-                    },
-                    {
-                        "List Weapons": 1703094761
-                    },
-                    {
-                        "Weapon": 1911153676
-                    },
-                    {
-                        "Next Weapon": 1415821494
-                    },
-                    {
-                        "Prev Weapon": 4145208356
-                    },
-                    {
-                        "Panel Upgrate": 2801017591
-                    },
-                    {
-                        "Panel Unlock": 2756292912
-                    },
-                    {
-                        "Next Panel Upgrate": 2553497408
-                    },
-                    {
-                        "Next Panel Unlock": 4118105479
-                    },
-                    {
-                        "Prev Panel Upgrate": 3550437662
-                    },
-                    {
-                        "Prev Panel Unlock": 274231072
-                    },
-                    {
-                        "Material Weapon": 273176788
-                    },
-                    {
-                        "SelectedWeapon": 2478615852
-                    },
-                    {
-                        "List Weapons": 1703094761
-                    },
                     {
                         "Weapon": 1911153676
                     },
@@ -849,150 +561,6 @@
                     },
                     {
                         "List Weapons": 1703094761
-                    },
-                    {
-                        "Weapon": 1415821494
-                    },
-                    {
-                        "Next Weapon": 493668277
-                    },
-                    {
-                        "Prev Weapon": 1911153676
-                    },
-                    {
-                        "Panel Upgrate": 2553497408
-                    },
-                    {
-                        "Panel Unlock": 4118105479
-                    },
-                    {
-                        "Next Panel Upgrate": 2338172962
-                    },
-                    {
-                        "Next Panel Unlock": 3178778518
-                    },
-                    {
-                        "Prev Panel Upgrate": 2801017591
-                    },
-                    {
-                        "Prev Panel Unlock": 2756292912
-                    },
-                    {
-                        "Material Weapon": 3923147828
-                    },
-                    {
-                        "SelectedWeapon": 2478615852
-                    },
-                    {
-                        "List Weapons": 1703094761
-                    },
-                    {
-                        "Weapon": 1415821494
-                    },
-                    {
-                        "Next Weapon": 493668277
-                    },
-                    {
-                        "Prev Weapon": 1911153676
-                    },
-                    {
-                        "Panel Upgrate": 2553497408
-                    },
-                    {
-                        "Panel Unlock": 4118105479
-                    },
-                    {
-                        "Next Panel Upgrate": 2338172962
-                    },
-                    {
-                        "Next Panel Unlock": 3178778518
-                    },
-                    {
-                        "Prev Panel Upgrate": 2801017591
-                    },
-                    {
-                        "Prev Panel Unlock": 2756292912
-                    },
-                    {
-                        "Material Weapon": 3923147828
-                    },
-                    {
-                        "SelectedWeapon": 2478615852
-                    },
-                    {
-                        "List Weapons": 1703094761
-                    },
-                    {
-                        "Weapon": 1415821494
-                    },
-                    {
-                        "Next Weapon": 493668277
-                    },
-                    {
-                        "Prev Weapon": 1911153676
-                    },
-                    {
-                        "Panel Upgrate": 2553497408
-                    },
-                    {
-                        "Panel Unlock": 4118105479
-                    },
-                    {
-                        "Next Panel Upgrate": 2338172962
-                    },
-                    {
-                        "Next Panel Unlock": 3178778518
-                    },
-                    {
-                        "Prev Panel Upgrate": 2801017591
-                    },
-                    {
-                        "Prev Panel Unlock": 2756292912
-                    },
-                    {
-                        "Material Weapon": 3923147828
-                    },
-                    {
-                        "SelectedWeapon": 2478615852
-                    },
-                    {
-                        "List Weapons": 1703094761
-                    },
-                    {
-                        "Weapon": 1415821494
-                    },
-                    {
-                        "Next Weapon": 493668277
-                    },
-                    {
-                        "Prev Weapon": 1911153676
-                    },
-                    {
-                        "Panel Upgrate": 2553497408
-                    },
-                    {
-                        "Panel Unlock": 4118105479
-                    },
-                    {
-                        "Next Panel Upgrate": 2338172962
-                    },
-                    {
-                        "Next Panel Unlock": 3178778518
-                    },
-                    {
-                        "Prev Panel Upgrate": 2801017591
-                    },
-                    {
-                        "Prev Panel Unlock": 2756292912
-                    },
-                    {
-                        "Material Weapon": 3923147828
-                    },
-                    {
-                        "SelectedWeapon": 2478615852
-                    },
-                    {
-                        "List Weapons": 1703094761
                     }
                 ],
                 "Script Resource": 2943233861,
@@ -1040,150 +608,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Weapon": 493668277
-                    },
-                    {
-                        "Next Weapon": 601873605
-                    },
-                    {
-                        "Prev Weapon": 1415821494
-                    },
-                    {
-                        "Panel Upgrate": 2338172962
-                    },
-                    {
-                        "Panel Unlock": 3178778518
-                    },
-                    {
-                        "Next Panel Upgrate": 1984247676
-                    },
-                    {
-                        "Next Panel Unlock": 1410453886
-                    },
-                    {
-                        "Prev Panel Upgrate": 2553497408
-                    },
-                    {
-                        "Prev Panel Unlock": 4118105479
-                    },
-                    {
-                        "Material Weapon": 2736792734
-                    },
-                    {
-                        "SelectedWeapon": 2478615852
-                    },
-                    {
-                        "List Weapons": 1703094761
-                    },
-                    {
-                        "Weapon": 493668277
-                    },
-                    {
-                        "Next Weapon": 601873605
-                    },
-                    {
-                        "Prev Weapon": 1415821494
-                    },
-                    {
-                        "Panel Upgrate": 2338172962
-                    },
-                    {
-                        "Panel Unlock": 3178778518
-                    },
-                    {
-                        "Next Panel Upgrate": 1984247676
-                    },
-                    {
-                        "Next Panel Unlock": 1410453886
-                    },
-                    {
-                        "Prev Panel Upgrate": 2553497408
-                    },
-                    {
-                        "Prev Panel Unlock": 4118105479
-                    },
-                    {
-                        "Material Weapon": 2736792734
-                    },
-                    {
-                        "SelectedWeapon": 2478615852
-                    },
-                    {
-                        "List Weapons": 1703094761
-                    },
-                    {
-                        "Weapon": 493668277
-                    },
-                    {
-                        "Next Weapon": 601873605
-                    },
-                    {
-                        "Prev Weapon": 1415821494
-                    },
-                    {
-                        "Panel Upgrate": 2338172962
-                    },
-                    {
-                        "Panel Unlock": 3178778518
-                    },
-                    {
-                        "Next Panel Upgrate": 1984247676
-                    },
-                    {
-                        "Next Panel Unlock": 1410453886
-                    },
-                    {
-                        "Prev Panel Upgrate": 2553497408
-                    },
-                    {
-                        "Prev Panel Unlock": 4118105479
-                    },
-                    {
-                        "Material Weapon": 2736792734
-                    },
-                    {
-                        "SelectedWeapon": 2478615852
-                    },
-                    {
-                        "List Weapons": 1703094761
-                    },
-                    {
-                        "Weapon": 493668277
-                    },
-                    {
-                        "Next Weapon": 601873605
-                    },
-                    {
-                        "Prev Weapon": 1415821494
-                    },
-                    {
-                        "Panel Upgrate": 2338172962
-                    },
-                    {
-                        "Panel Unlock": 3178778518
-                    },
-                    {
-                        "Next Panel Upgrate": 1984247676
-                    },
-                    {
-                        "Next Panel Unlock": 1410453886
-                    },
-                    {
-                        "Prev Panel Upgrate": 2553497408
-                    },
-                    {
-                        "Prev Panel Unlock": 4118105479
-                    },
-                    {
-                        "Material Weapon": 2736792734
-                    },
-                    {
-                        "SelectedWeapon": 2478615852
-                    },
-                    {
-                        "List Weapons": 1703094761
-                    },
                     {
                         "Weapon": 493668277
                     },
@@ -1295,126 +719,6 @@
                     },
                     {
                         "List Weapons": 1703094761
-                    },
-                    {
-                        "Weapon": 601873605
-                    },
-                    {
-                        "Next Weapon": 601873605
-                    },
-                    {
-                        "Prev Weapon": 493668277
-                    },
-                    {
-                        "Panel Upgrate": 1984247676
-                    },
-                    {
-                        "Panel Unlock": 1410453886
-                    },
-                    {
-                        "Prev Panel Upgrate": 2338172962
-                    },
-                    {
-                        "Prev Panel Unlock": 3178778518
-                    },
-                    {
-                        "Material Weapon": 541261496
-                    },
-                    {
-                        "SelectedWeapon": 2478615852
-                    },
-                    {
-                        "List Weapons": 1703094761
-                    },
-                    {
-                        "Weapon": 601873605
-                    },
-                    {
-                        "Next Weapon": 601873605
-                    },
-                    {
-                        "Prev Weapon": 493668277
-                    },
-                    {
-                        "Panel Upgrate": 1984247676
-                    },
-                    {
-                        "Panel Unlock": 1410453886
-                    },
-                    {
-                        "Prev Panel Upgrate": 2338172962
-                    },
-                    {
-                        "Prev Panel Unlock": 3178778518
-                    },
-                    {
-                        "Material Weapon": 541261496
-                    },
-                    {
-                        "SelectedWeapon": 2478615852
-                    },
-                    {
-                        "List Weapons": 1703094761
-                    },
-                    {
-                        "Weapon": 601873605
-                    },
-                    {
-                        "Next Weapon": 601873605
-                    },
-                    {
-                        "Prev Weapon": 493668277
-                    },
-                    {
-                        "Panel Upgrate": 1984247676
-                    },
-                    {
-                        "Panel Unlock": 1410453886
-                    },
-                    {
-                        "Prev Panel Upgrate": 2338172962
-                    },
-                    {
-                        "Prev Panel Unlock": 3178778518
-                    },
-                    {
-                        "Material Weapon": 541261496
-                    },
-                    {
-                        "SelectedWeapon": 2478615852
-                    },
-                    {
-                        "List Weapons": 1703094761
-                    },
-                    {
-                        "Weapon": 601873605
-                    },
-                    {
-                        "Next Weapon": 601873605
-                    },
-                    {
-                        "Prev Weapon": 493668277
-                    },
-                    {
-                        "Panel Upgrate": 1984247676
-                    },
-                    {
-                        "Panel Unlock": 1410453886
-                    },
-                    {
-                        "Prev Panel Upgrate": 2338172962
-                    },
-                    {
-                        "Prev Panel Unlock": 3178778518
-                    },
-                    {
-                        "Material Weapon": 541261496
-                    },
-                    {
-                        "SelectedWeapon": 2478615852
-                    },
-                    {
-                        "List Weapons": 1703094761
                     }
                 ],
                 "Script Resource": 2943233861,
@@ -1462,126 +766,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Weapon": 3518481655
-                    },
-                    {
-                        "Next Weapon": 4145208356
-                    },
-                    {
-                        "Prev Weapon": 3518481655
-                    },
-                    {
-                        "Panel Upgrate": 2122020070
-                    },
-                    {
-                        "Panel Unlock": 2122020070
-                    },
-                    {
-                        "Next Panel Upgrate": 3550437662
-                    },
-                    {
-                        "Next Panel Unlock": 274231072
-                    },
-                    {
-                        "Material Weapon": 4120732920
-                    },
-                    {
-                        "SelectedWeapon": 2478615852
-                    },
-                    {
-                        "List Weapons": 1703094761
-                    },
-                    {
-                        "Weapon": 3518481655
-                    },
-                    {
-                        "Next Weapon": 4145208356
-                    },
-                    {
-                        "Prev Weapon": 3518481655
-                    },
-                    {
-                        "Panel Upgrate": 2122020070
-                    },
-                    {
-                        "Panel Unlock": 2122020070
-                    },
-                    {
-                        "Next Panel Upgrate": 3550437662
-                    },
-                    {
-                        "Next Panel Unlock": 274231072
-                    },
-                    {
-                        "Material Weapon": 4120732920
-                    },
-                    {
-                        "SelectedWeapon": 2478615852
-                    },
-                    {
-                        "List Weapons": 1703094761
-                    },
-                    {
-                        "Weapon": 3518481655
-                    },
-                    {
-                        "Next Weapon": 4145208356
-                    },
-                    {
-                        "Prev Weapon": 3518481655
-                    },
-                    {
-                        "Panel Upgrate": 2122020070
-                    },
-                    {
-                        "Panel Unlock": 2122020070
-                    },
-                    {
-                        "Next Panel Upgrate": 3550437662
-                    },
-                    {
-                        "Next Panel Unlock": 274231072
-                    },
-                    {
-                        "Material Weapon": 4120732920
-                    },
-                    {
-                        "SelectedWeapon": 2478615852
-                    },
-                    {
-                        "List Weapons": 1703094761
-                    },
-                    {
-                        "Weapon": 3518481655
-                    },
-                    {
-                        "Next Weapon": 4145208356
-                    },
-                    {
-                        "Prev Weapon": 3518481655
-                    },
-                    {
-                        "Panel Upgrate": 2122020070
-                    },
-                    {
-                        "Panel Unlock": 2122020070
-                    },
-                    {
-                        "Next Panel Upgrate": 3550437662
-                    },
-                    {
-                        "Next Panel Unlock": 274231072
-                    },
-                    {
-                        "Material Weapon": 4120732920
-                    },
-                    {
-                        "SelectedWeapon": 2478615852
-                    },
-                    {
-                        "List Weapons": 1703094761
-                    },
                     {
                         "Weapon": 3518481655
                     },
@@ -1670,67 +854,25 @@
                         "Upgrate 3": 4168233595
                     },
                     {
-                        "Weapon Associated": 4145208356
+                        "Panel Upgrate W1": 2122020070
                     },
                     {
-                        "Unlock": 2438101277
+                        "Panel Unlock W2": 274231072
                     },
                     {
-                        "Upgrate 1": 1714853689
+                        "Panel Upgrate W2": 3550437662
                     },
                     {
-                        "Upgrate 2": 2583239152
+                        "Panel Unlock W3": 2756292912
                     },
                     {
-                        "Upgrate 3": 4168233595
-                    },
-                    {
-                        "Weapon Associated": 4145208356
-                    },
-                    {
-                        "Unlock": 2438101277
-                    },
-                    {
-                        "Upgrate 1": 1714853689
-                    },
-                    {
-                        "Upgrate 2": 2583239152
-                    },
-                    {
-                        "Upgrate 3": 4168233595
+                        "Panel Upgrate W3": 2801017591
                     },
                     {
                         "Weapon Associated": 4145208356
                     },
                     {
-                        "Unlock": 2438101277
-                    },
-                    {
-                        "Upgrate 1": 1714853689
-                    },
-                    {
-                        "Upgrate 2": 2583239152
-                    },
-                    {
-                        "Upgrate 3": 4168233595
-                    },
-                    {
-                        "Weapon Associated": 4145208356
-                    },
-                    {
-                        "Unlock": 2438101277
-                    },
-                    {
-                        "Upgrate 1": 1714853689
-                    },
-                    {
-                        "Upgrate 2": 2583239152
-                    },
-                    {
-                        "Upgrate 3": 4168233595
-                    },
-                    {
-                        "Weapon Associated": 4145208356
+                        "List Weapons": 1703094761
                     }
                 ],
                 "Script Resource": 3444632365,
@@ -1789,6 +931,42 @@
             {
                 "Enabled": true,
                 "Position": [
+                    -0.3199999928474426,
+                    -0.7200000286102295,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.22499999403953552,
+                    0.18000000715255737,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 0,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "WeeaponInfo W2",
+        "ParentUID": 274231072,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 1140778359
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
                     0.0,
                     0.0,
                     0.0
@@ -1814,6 +992,46 @@
                     2583239152,
                     4168233595
                 ]
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Unlock": 2438101277
+                    },
+                    {
+                        "Upgrate 1": 1714853689
+                    },
+                    {
+                        "Upgrate 2": 2583239152
+                    },
+                    {
+                        "Upgrate 3": 4168233595
+                    },
+                    {
+                        "Panel Upgrate W1": 2122020070
+                    },
+                    {
+                        "Panel Unlock W2": 274231072
+                    },
+                    {
+                        "Panel Upgrate W2": 3550437662
+                    },
+                    {
+                        "Panel Unlock W3": 2756292912
+                    },
+                    {
+                        "Panel Upgrate W3": 2801017591
+                    },
+                    {
+                        "Weapon Associated": 4145208356
+                    },
+                    {
+                        "List Weapons": 1703094761
+                    }
+                ],
+                "Script Resource": 3444632365,
+                "Type": 5
             }
         ],
         "FirstOnPrefab": true,
@@ -1946,6 +1164,42 @@
             {
                 "Enabled": true,
                 "Position": [
+                    -0.3199999928474426,
+                    -0.7200000286102295,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.22499999403953552,
+                    0.18000000715255737,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 0,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "WeeaponInfo W2",
+        "ParentUID": 3550437662,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 2557785686
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
                     0.0,
                     0.0,
                     0.0
@@ -1969,88 +1223,6 @@
                 "listButtons": [
                     1025008367
                 ]
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Unlock": 1025008367
-                    },
-                    {
-                        "Upgrate 1": 950595426
-                    },
-                    {
-                        "Upgrate 2": 253089481
-                    },
-                    {
-                        "Upgrate 3": 2386908509
-                    },
-                    {
-                        "Weapon Associated": 1911153676
-                    },
-                    {
-                        "Unlock": 1025008367
-                    },
-                    {
-                        "Upgrate 1": 950595426
-                    },
-                    {
-                        "Upgrate 2": 253089481
-                    },
-                    {
-                        "Upgrate 3": 2386908509
-                    },
-                    {
-                        "Weapon Associated": 1911153676
-                    },
-                    {
-                        "Unlock": 1025008367
-                    },
-                    {
-                        "Upgrate 1": 950595426
-                    },
-                    {
-                        "Upgrate 2": 253089481
-                    },
-                    {
-                        "Upgrate 3": 2386908509
-                    },
-                    {
-                        "Weapon Associated": 1911153676
-                    },
-                    {
-                        "Unlock": 1025008367
-                    },
-                    {
-                        "Upgrate 1": 950595426
-                    },
-                    {
-                        "Upgrate 2": 253089481
-                    },
-                    {
-                        "Upgrate 3": 2386908509
-                    },
-                    {
-                        "Weapon Associated": 1911153676
-                    },
-                    {
-                        "Unlock": 1025008367
-                    },
-                    {
-                        "Upgrate 1": 950595426
-                    },
-                    {
-                        "Upgrate 2": 253089481
-                    },
-                    {
-                        "Upgrate 3": 2386908509
-                    },
-                    {
-                        "Weapon Associated": 1911153676
-                    }
-                ],
-                "Script Resource": 94929753,
-                "Type": 5
             }
         ],
         "FirstOnPrefab": true,
@@ -2098,6 +1270,42 @@
         "PrefabUID": 0,
         "Tag": "UI",
         "UID": 1025008367
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.3199999928474426,
+                    -0.7200000286102295,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.22499999403953552,
+                    0.18000000715255737,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 0,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "WeeaponInfo W2",
+        "ParentUID": 2756292912,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 3159708577
     },
     {
         "Active": false,
@@ -2260,6 +1468,42 @@
             {
                 "Enabled": true,
                 "Position": [
+                    -0.3199999928474426,
+                    -0.7200000286102295,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.22499999403953552,
+                    0.18000000715255737,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 0,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "WeeaponInfo W2",
+        "ParentUID": 2801017591,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 1115690787
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
                     0.0,
                     0.0,
                     0.0
@@ -2332,7 +1576,43 @@
         "UID": 374676274
     },
     {
-        "Active": true,
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.3199999928474426,
+                    -0.7200000286102295,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.22499999403953552,
+                    0.18000000715255737,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 0,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "WeeaponInfo W2",
+        "ParentUID": 4118105479,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 3568811926
+    },
+    {
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -2370,7 +1650,7 @@
         "UID": 2553497408
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -2409,7 +1689,7 @@
         "UID": 4051693632
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -2448,7 +1728,7 @@
         "UID": 2395254079
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -2485,6 +1765,42 @@
         "PrefabUID": 0,
         "Tag": "UI",
         "UID": 3583999563
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.3199999928474426,
+                    -0.7200000286102295,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.22499999403953552,
+                    0.18000000715255737,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 0,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "WeeaponInfo W2",
+        "ParentUID": 2553497408,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 3263577585
     },
     {
         "Active": false,
@@ -2564,7 +1880,43 @@
         "UID": 2959340685
     },
     {
-        "Active": true,
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.3199999928474426,
+                    -0.7200000286102295,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.22499999403953552,
+                    0.18000000715255737,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 0,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "WeeaponInfo W2",
+        "ParentUID": 3178778518,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 445699827
+    },
+    {
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -2602,7 +1954,7 @@
         "UID": 2338172962
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -2641,7 +1993,7 @@
         "UID": 2384301706
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -2680,7 +2032,7 @@
         "UID": 1278050321
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -2717,6 +2069,42 @@
         "PrefabUID": 0,
         "Tag": "UI",
         "UID": 303927108
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.3199999928474426,
+                    -0.7200000286102295,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.22499999403953552,
+                    0.18000000715255737,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 0,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "WeeaponInfo W2",
+        "ParentUID": 2338172962,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 1090877658
     },
     {
         "Active": false,
@@ -2796,7 +2184,43 @@
         "UID": 1372708757
     },
     {
-        "Active": true,
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.3199999928474426,
+                    -0.7200000286102295,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.22499999403953552,
+                    0.18000000715255737,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 0,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "WeeaponInfo W2",
+        "ParentUID": 1410453886,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 3970780949
+    },
+    {
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -2834,7 +2258,7 @@
         "UID": 1984247676
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -2873,7 +2297,7 @@
         "UID": 1979342251
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -2912,7 +2336,7 @@
         "UID": 4056132007
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -2951,7 +2375,43 @@
         "UID": 2161714642
     },
     {
-        "Active": true,
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.3199999928474426,
+                    -0.7200000286102295,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.22499999403953552,
+                    0.18000000715255737,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 0,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "WeeaponInfo W2",
+        "ParentUID": 1984247676,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 2053079276
+    },
+    {
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -2989,7 +2449,7 @@
         "UID": 2122020070
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -3028,7 +2488,7 @@
         "UID": 3169212958
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -3067,7 +2527,7 @@
         "UID": 2715418805
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -3104,6 +2564,42 @@
         "PrefabUID": 0,
         "Tag": "UI",
         "UID": 2892122169
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.3199999928474426,
+                    -0.7200000286102295,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.22499999403953552,
+                    0.18000000715255737,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 0,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "WeeaponInfo W2",
+        "ParentUID": 2122020070,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 3717619607
     },
     {
         "Active": true,
@@ -3182,42 +2678,6 @@
                     },
                     {
                         "Related Weapon": 4145208356
-                    },
-                    {
-                        "BluePrint Image Component": 842178646
-                    },
-                    {
-                        "Blueprint Unlocked": 3401443754
-                    },
-                    {
-                        "Related Weapon": 4145208356
-                    },
-                    {
-                        "BluePrint Image Component": 842178646
-                    },
-                    {
-                        "Blueprint Unlocked": 3401443754
-                    },
-                    {
-                        "Related Weapon": 4145208356
-                    },
-                    {
-                        "BluePrint Image Component": 842178646
-                    },
-                    {
-                        "Blueprint Unlocked": 3401443754
-                    },
-                    {
-                        "Related Weapon": 4145208356
-                    },
-                    {
-                        "BluePrint Image Component": 842178646
-                    },
-                    {
-                        "Blueprint Unlocked": 3401443754
-                    },
-                    {
-                        "Related Weapon": 4145208356
                     }
                 ],
                 "Script Resource": 2905751812,
@@ -3262,42 +2722,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "BluePrint Image Component": 1813219493
-                    },
-                    {
-                        "Blueprint Unlocked": 2224721247
-                    },
-                    {
-                        "Related Weapon": 1911153676
-                    },
-                    {
-                        "BluePrint Image Component": 1813219493
-                    },
-                    {
-                        "Blueprint Unlocked": 2224721247
-                    },
-                    {
-                        "Related Weapon": 1911153676
-                    },
-                    {
-                        "BluePrint Image Component": 1813219493
-                    },
-                    {
-                        "Blueprint Unlocked": 2224721247
-                    },
-                    {
-                        "Related Weapon": 1911153676
-                    },
-                    {
-                        "BluePrint Image Component": 1813219493
-                    },
-                    {
-                        "Blueprint Unlocked": 2224721247
-                    },
-                    {
-                        "Related Weapon": 1911153676
-                    },
                     {
                         "BluePrint Image Component": 1813219493
                     },
@@ -3358,42 +2782,6 @@
                     },
                     {
                         "Related Weapon": 1415821494
-                    },
-                    {
-                        "BluePrint Image Component": 3223954952
-                    },
-                    {
-                        "Blueprint Unlocked": 2224721247
-                    },
-                    {
-                        "Related Weapon": 1415821494
-                    },
-                    {
-                        "BluePrint Image Component": 3223954952
-                    },
-                    {
-                        "Blueprint Unlocked": 2224721247
-                    },
-                    {
-                        "Related Weapon": 1415821494
-                    },
-                    {
-                        "BluePrint Image Component": 3223954952
-                    },
-                    {
-                        "Blueprint Unlocked": 2224721247
-                    },
-                    {
-                        "Related Weapon": 1415821494
-                    },
-                    {
-                        "BluePrint Image Component": 3223954952
-                    },
-                    {
-                        "Blueprint Unlocked": 2224721247
-                    },
-                    {
-                        "Related Weapon": 1415821494
                     }
                 ],
                 "Script Resource": 2905751812,
@@ -3438,42 +2826,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "BluePrint Image Component": 1387559367
-                    },
-                    {
-                        "Blueprint Unlocked": 2224721247
-                    },
-                    {
-                        "Related Weapon": 493668277
-                    },
-                    {
-                        "BluePrint Image Component": 1387559367
-                    },
-                    {
-                        "Blueprint Unlocked": 2224721247
-                    },
-                    {
-                        "Related Weapon": 493668277
-                    },
-                    {
-                        "BluePrint Image Component": 1387559367
-                    },
-                    {
-                        "Blueprint Unlocked": 2224721247
-                    },
-                    {
-                        "Related Weapon": 493668277
-                    },
-                    {
-                        "BluePrint Image Component": 1387559367
-                    },
-                    {
-                        "Blueprint Unlocked": 2224721247
-                    },
-                    {
-                        "Related Weapon": 493668277
-                    },
                     {
                         "BluePrint Image Component": 1387559367
                     },
@@ -3534,42 +2886,6 @@
                     },
                     {
                         "Related Weapon": 601873605
-                    },
-                    {
-                        "BluePrint Image Component": 532733721
-                    },
-                    {
-                        "Blueprint Unlocked": 2224721247
-                    },
-                    {
-                        "Related Weapon": 601873605
-                    },
-                    {
-                        "BluePrint Image Component": 532733721
-                    },
-                    {
-                        "Blueprint Unlocked": 2224721247
-                    },
-                    {
-                        "Related Weapon": 601873605
-                    },
-                    {
-                        "BluePrint Image Component": 532733721
-                    },
-                    {
-                        "Blueprint Unlocked": 2224721247
-                    },
-                    {
-                        "Related Weapon": 601873605
-                    },
-                    {
-                        "BluePrint Image Component": 532733721
-                    },
-                    {
-                        "Blueprint Unlocked": 2224721247
-                    },
-                    {
-                        "Related Weapon": 601873605
                     }
                 ],
                 "Script Resource": 2905751812,
@@ -3582,5 +2898,47 @@
         "PrefabUID": 0,
         "Tag": "UI",
         "UID": 532733721
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Active camera": true,
+                "Active culling": true,
+                "Aspect ratio": 1.596625804901123,
+                "Enabled": true,
+                "FOV": 60.0,
+                "Far plane": 1000.0,
+                "Frustum type": 2,
+                "Near plane": 0.009999999776482582,
+                "Orthographic size": 10.0,
+                "Type": 4
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Empty",
+        "ParentUID": 295478848,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 55492740
     }
 ]

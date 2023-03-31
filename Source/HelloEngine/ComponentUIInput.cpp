@@ -50,18 +50,20 @@ void ComponentUIInput::InputUpdate()
 			isPress = true;
 		}
 
-		if (ModuleInput::S_GetGamePadButton(GamePad::BUTTON_A) == KEY_DOWN)
+		if (ModuleInput::S_GetGamePadButton(GamePad::BUTTON_A) == KEY_DOWN && AisPress)
 		{
 			_listButtons[ButtonSelected]->State = ButtonState::ONPRESS;
+			AisPress = false;
 		}
 		if (ModuleInput::S_GetGamePadButton(GamePad::BUTTON_A) == KEY_REPEAT)
 		{
 			_listButtons[ButtonSelected]->State = ButtonState::ONHOLD;
 		}
+		if (ModuleInput::S_GetGamePadButton(GamePad::BUTTON_A) == KEY_UP)
+		{
+			AisPress = true;
+		}
 	}
-
-	/**/
-
 }
 
 void ComponentUIInput::Serialization(json& j)

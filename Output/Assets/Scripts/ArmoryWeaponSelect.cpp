@@ -9,8 +9,8 @@ HELLO_ENGINE_API_C ArmoryWeaponSelect* CreateArmoryWeaponSelect(ScriptToInspecto
 
 	script->AddDragBoxGameObject("Prev Weapon", &classInstance->PrevtWeapon);
 
-	script->AddDragBoxGameObject("Panel Upgrate", &classInstance->CurrentPanelUpgrate);
-	script->AddDragBoxGameObject("Panel Unlock", &classInstance->CurrentPanelUnlock);
+	script->AddDragBoxUIInput("Panel Upgrate", &classInstance->CurrentPanelUpgrate);
+	script->AddDragBoxUIInput("Panel Unlock", &classInstance->CurrentPanelUnlock);
 
 	script->AddDragBoxGameObject("Next Panel Upgrate", &classInstance->NextPanelUpgrate);
 	script->AddDragBoxGameObject("Next Panel Unlock", &classInstance->NextPanelUnlock);
@@ -40,9 +40,9 @@ void ArmoryWeaponSelect::Update()
 		SelectedWeapon.ChangeAlbedoTexture(CurrentTextureWeapon);
 
 		if (isUnlocked)
-			CurrentPanelUpgrate.SetActive(true);
+			CurrentPanelUpgrate.GetGameObject().SetActive(true);
 		else
-			CurrentPanelUnlock.SetActive(true);
+			CurrentPanelUnlock.GetGameObject().SetActive(true);
 
 		if (nextW->isUnlocked && nextW != nullptr)
 			NextPanelUpgrate.SetActive(false);
@@ -58,8 +58,15 @@ void ArmoryWeaponSelect::Update()
 	if (CurrentWeapon.OnPress())
 	{
 		SelectWeaponList.SetEnable(false);
-		CurrentPanelUnlock.SetActive(false);
-		isUnlocked = true;
+		if (isUnlocked)
+		{
+			CurrentPanelUpgrate.SetEnable(true);
+		}
+		else
+		{
+			CurrentPanelUnlock.SetEnable(true);
+		}
+		//isUnlocked = true;
 	}
 }
 
