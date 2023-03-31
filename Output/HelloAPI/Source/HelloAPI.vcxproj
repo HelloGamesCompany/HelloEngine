@@ -190,6 +190,7 @@
 		<ClCompile Include="../../Assets/Scripts/InteractiveEnviroment/Chest.cpp" />
 		<ClCompile Include="../../Assets/Scripts/Enemies/EnemyGun.cpp" />
 		<ClCompile Include="../../Assets/Scripts/InteractiveEnviroment/TP_Cabin.cpp" />
+		<ClCompile Include="../../Assets/Scripts/InteractiveEnviroment/EnemySpawner.cpp" />
 	</ItemGroup>
 	<ItemGroup>
 		<ClInclude Include="..\..\Assets\Scripts\EbonyMaw\BossAttacks.h" />
@@ -247,6 +248,7 @@
 		<ClInclude Include="../../Assets/Scripts/InteractiveEnviroment/Chest.h" />
 		<ClInclude Include="../../Assets/Scripts/Enemies/EnemyGun.h" />
 		<ClInclude Include="../../Assets/Scripts/InteractiveEnviroment/TP_Cabin.h" />
+		<ClInclude Include="../../Assets/Scripts/InteractiveEnviroment/EnemySpawner.h" />
 	</ItemGroup>
 	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 	<ImportGroup Label="ExtensionTargets" />
