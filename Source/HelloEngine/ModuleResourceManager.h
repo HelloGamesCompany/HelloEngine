@@ -182,6 +182,7 @@ public:
     void Recompile(std::string text)
     {
         ModuleFiles::S_Save(resourcePath, text.data(), text.length(), false);
+        ModuleFiles::S_Save(assetsPath, text.data(), text.length(), false);
 
         shader.Recompile(resourcePath);
 
@@ -193,11 +194,14 @@ public:
         shader.Clear();
     }
 
+    void ReImport(const std::string& filePath) override;
+
     Shader shader;
 
     int version;
 
     bool _onEditor = false;
+    std::string assetsPath = "";
 };
 
 class ResourceMaterial : public Resource

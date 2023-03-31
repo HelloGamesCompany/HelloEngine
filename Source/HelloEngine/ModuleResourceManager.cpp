@@ -175,9 +175,25 @@ void ModuleResourceManager::S_ReImportFile(const std::string& filePath, Resource
 		if (resources[meta.UID] != nullptr)
 		{
 			ModuleFiles::S_UpdateMetaData(filePath, meta.resourcePath); // We do this before reimporting, because the new resource file will be named like the old, and this destroys that file.
-			resources[meta.UID]->ReImport("");
+			resources[meta.UID]->ReImport(""); // No necessary path for this kind of ReImport
 		}
 		break;
+	}
+	case ResourceType::SHADER:
+	{
+		if (resources[meta.UID] != nullptr)
+		{
+			ModuleFiles::S_UpdateMetaData(filePath, meta.resourcePath); // We do this before reimporting, because the new resource file will be named like the old, and this destroys that file.
+			resources[meta.UID]->ReImport(""); // No necessary path for this kind of ReImport
+		}
+		break;
+	}
+	case ResourceType::PREFAB:
+	{
+		if (resources[meta.UID] != nullptr)
+		{
+			ModuleFiles::S_UpdateMetaData(filePath, meta.resourcePath); // We do this before reimporting, because the new resource file will be named like the old, and this destroys that file.
+		}
 	}
 	}
 
@@ -784,7 +800,9 @@ void ModuleResourceManager::S_CreateResource(const MetaFile& metaFile)
 	break;
 	case ResourceType::SHADER:
 	{
-		resources[metaFile.UID] = new ResourceShader();
+		ResourceShader* shaderRes = new ResourceShader();
+		resources[metaFile.UID] = shaderRes;
+		shaderRes->assetsPath = metaFile.assetsPath;
 	}
 	break;
 	case ResourceType::MATERIAL:
@@ -1417,4 +1435,17 @@ void ResourceMaterial::Save()
 	std::string buffer = j.dump(4);
 	ModuleFiles::S_Save(resourcePath, buffer.data(), buffer.length(), false);
 	ModuleFiles::S_Save(assetsPath, buffer.data(), buffer.length(), false);
+}
+
+void ResourceShader::ReImport(const std::string& filePath)
+{
+	char* buffer = nullptr;
+	uint size = ModuleFiles::S_Load(assetsPath, &buffer);
+
+	if (buffer != nullptr)
+	{
+		ModuleFiles::S_Save(resourcePath, buffer, size, false);
+
+		RELEASE_ARRAY(buffer);
+	}
 }

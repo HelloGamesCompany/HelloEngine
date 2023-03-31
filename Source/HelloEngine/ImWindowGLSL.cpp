@@ -142,7 +142,7 @@ void ImWindowGLSL::SetShader(int UID)
 
 	//Sets text on editor
 	char* text = nullptr;
-	ModuleFiles::S_Load(shader->resourcePath, &text);
+	ModuleFiles::S_Load(shader->assetsPath, &text); // Use the Assets path instead of the resources one.
 
 	//editorData.lastSave = text;
 	editor.SetText(text);

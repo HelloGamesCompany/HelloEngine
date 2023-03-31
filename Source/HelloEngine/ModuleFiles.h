@@ -184,6 +184,7 @@ private:
 private:
     static bool _automaticCompilation;
     static bool _enabledAutomaticCompilation;
+    static std::vector<std::pair<std::string, Directory*>> lateResources;
 };
 
 #endif // !__MODULE_PHYSFS_H__

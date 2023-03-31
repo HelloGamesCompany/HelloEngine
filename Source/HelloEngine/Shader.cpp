@@ -241,6 +241,12 @@ void Shader::UniformParser(std::vector<Uniform*>& vec)
 	glGetProgramiv(data.ID, GL_ACTIVE_UNIFORM_MAX_LENGTH, &maxNameLen);
 	glGetProgramiv(data.ID, GL_ACTIVE_UNIFORMS, &count);
 
+	if (vec.empty())
+	{
+		Console::S_Log("Trying to Parse a missing Shader. Try ReImporting all Shaders!", LogType::ERR);
+		return;
+	}
+
 	UniformData uni;
 	std::vector<GLchar>uniName(maxNameLen, 0);
 

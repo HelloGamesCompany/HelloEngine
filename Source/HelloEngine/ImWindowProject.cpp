@@ -805,7 +805,9 @@ void ImWindowProject::PanelCreateShader()
         {
             _temporalName.append(".shader");
 
-            std::string resourcePath = "Resources/Shaders/" + _temporalName;
+			uint UUID = HelloUUID::GenerateUUID();
+
+            std::string resourcePath = "Resources/Shaders/" + std::to_string(UUID) + ".shader";
             std::string assetPath = _fileTree->_currentDir->path + _temporalName;
 
             int size = BaseShader::newShaderTextFileUnlit.length();
@@ -814,13 +816,11 @@ void ImWindowProject::PanelCreateShader()
             //Save Shader to resources
             ModuleFiles::S_Save(resourcePath, cstr, size, false);
 
-            //Save shadow file into assets
-            char buffer = 'S';
-            ModuleFiles::S_Save(assetPath, &buffer, sizeof(char), false);
+            //Save duplicated file into assets
+            ModuleFiles::S_Save(assetPath, cstr, size, false);
 
             //Create Metadata
-            ModuleFiles::S_CreateMetaData(assetPath, resourcePath);
-
+            ModuleFiles::S_CreateMetaData(assetPath, resourcePath, UUID);
 
             _temporalName = "default";
 
