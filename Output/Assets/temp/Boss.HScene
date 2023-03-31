@@ -35,19 +35,19 @@
             {
                 "Enabled": true,
                 "Position": [
-                    2470.89794921875,
+                    15.783064842224121,
                     1.246157169342041,
                     393.0403137207031
                 ],
                 "Rotation": [
-                    0.0,
-                    -90.0,
-                    0.0
+                    -179.99989318847656,
+                    -89.98020935058594,
+                    -179.99989318847656
                 ],
                 "Scale": [
-                    2.538203001022339,
+                    2.538203239440918,
                     2.538203477859497,
-                    2.538203001022339
+                    2.538203239440918
                 ],
                 "Type": 1
             },
@@ -210,7 +210,7 @@
                         "Max HP": 327.0
                     },
                     {
-                        "Current HP": 0.0
+                        "Current HP": 636.0
                     },
                     {
                         "Upgraded Max HP": 0.0
@@ -6753,7 +6753,7 @@
             {
                 "Active camera": true,
                 "Active culling": true,
-                "Aspect ratio": 1.2484724521636963,
+                "Aspect ratio": 1.012295126914978,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -6769,7 +6769,7 @@
                         "Target": 2404673066
                     },
                     {
-                        "Delay": 0.009999999776482582
+                        "Delay": 0.019999999552965164
                     },
                     {
                         "Offset_X": 0.0
@@ -6967,10 +6967,10 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "AttackType": 0
+                        "AttackType": 1
                     },
                     {
-                        "Attacking": false
+                        "Attacking": true
                     },
                     {
                         "Boss": 2563879370
@@ -12019,7 +12019,7 @@
         "UID": 3972765751
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -12147,7 +12147,7 @@
         "UID": 1978650304
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -12275,7 +12275,7 @@
         "UID": 4042063901
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -12403,7 +12403,7 @@
         "UID": 408018569
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -12604,19 +12604,19 @@
             },
             {
                 "ColPosition": [
-                    0.0,
-                    0.0,
-                    0.0
+                    0,
+                    0,
+                    0
                 ],
                 "ColRotation": [
-                    0.0,
-                    0.0,
-                    0.0
+                    0,
+                    0,
+                    0
                 ],
                 "ColScale": [
-                    1.0,
-                    1.0,
-                    1.0
+                    0,
+                    0,
+                    0
                 ],
                 "CylVerSlices": 16,
                 "CylinderRadiusHeight": [
@@ -12634,9 +12634,9 @@
                     -9.800000190734863,
                     0.0
                 ],
-                "HasPhysBody": true,
+                "HasPhysBody": false,
                 "IsKinematic": false,
-                "IsRenderingCol": true,
+                "IsRenderingCol": false,
                 "IsShapeCreated": [
                     false,
                     true,
@@ -12648,13 +12648,13 @@
                     false
                 ],
                 "IsStatic": false,
-                "IsTrigger": true,
-                "Mass": 0.0,
+                "IsTrigger": false,
+                "Mass": 1.0,
                 "RenderColColor": [
                     0.5,
-                    0.0,
+                    0,
                     0.5,
-                    1.0
+                    1
                 ],
                 "ShapeSelected": 1,
                 "SphereHorSlices": 16,
@@ -12664,21 +12664,8 @@
                 "WireframeSize": 3.0
             },
             {
-                "Enabled": false,
-                "Inspector Fields": [
-                    {
-                        "ExplosionWaveDmg": 50.0
-                    },
-                    {
-                        "Boss": 2563879370
-                    },
-                    {
-                        "ExplosionWaveDmg": 50.0
-                    },
-                    {
-                        "Boss": 2563879370
-                    }
-                ],
+                "Enabled": true,
+                "Inspector Fields": null,
                 "Script Resource": 410670823,
                 "Type": 5
             }
@@ -15211,7 +15198,7 @@
         "UID": 3014944340
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -15323,7 +15310,7 @@
         "UID": 3541793720
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -15435,7 +15422,7 @@
         "UID": 2214105578
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -15547,7 +15534,7 @@
         "UID": 2767358964
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -15659,7 +15646,7 @@
         "UID": 2352314858
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -15771,7 +15758,7 @@
         "UID": 3098604653
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -15883,7 +15870,7 @@
         "UID": 839347419
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -15995,7 +15982,7 @@
         "UID": 412453225
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -20003,7 +19990,7 @@
         "UID": 2220272854
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -27291,7 +27278,7 @@
         "UID": 777253617
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -27403,7 +27390,7 @@
         "UID": 67015932
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -27515,7 +27502,7 @@
         "UID": 1422435787
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -27627,7 +27614,7 @@
         "UID": 3993993626
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -27739,7 +27726,7 @@
         "UID": 2620156888
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -27851,7 +27838,7 @@
         "UID": 3323861898
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -27963,7 +27950,7 @@
         "UID": 3825668361
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -28075,7 +28062,7 @@
         "UID": 2140732859
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -32667,7 +32654,7 @@
         "UID": 4216885110
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -32779,7 +32766,7 @@
         "UID": 3200032004
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -32891,7 +32878,7 @@
         "UID": 4218012603
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -33003,7 +32990,7 @@
         "UID": 1342065221
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -33115,7 +33102,7 @@
         "UID": 414661451
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -33227,7 +33214,7 @@
         "UID": 2565093658
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -33339,7 +33326,7 @@
         "UID": 1120267740
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -33451,7 +33438,7 @@
         "UID": 3293479223
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -35355,7 +35342,7 @@
         "UID": 2797656806
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -35467,7 +35454,7 @@
         "UID": 1739650616
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -35579,7 +35566,7 @@
         "UID": 2658032343
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -35691,7 +35678,7 @@
         "UID": 203346876
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -35803,7 +35790,7 @@
         "UID": 3741738380
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -35915,7 +35902,7 @@
         "UID": 3794905250
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -36027,7 +36014,7 @@
         "UID": 1954016588
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -36139,7 +36126,7 @@
         "UID": 1510006114
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
