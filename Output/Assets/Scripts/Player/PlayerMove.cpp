@@ -39,6 +39,8 @@ void PlayerMove::Start()
     if (playerStats && playerStats->movementTreeLvl > 3) dashesAvailable = 2;
     else dashesAvailable = 1;
     dashBuffer = false;
+
+    impulseTime = 0.0f;
 } 
 
 void PlayerMove::Update()
@@ -47,6 +49,22 @@ void PlayerMove::Update()
     if (playerStats && playerStats->slowTimePowerUp > 0.0f /*&& !paused*/) dt = Time::GetRealTimeDeltaTime();
     else dt = Time::GetDeltaTime();
     Aim();
+
+    // impulse
+    if (impulseTime > 0.0f)
+    {
+        transform.Translate(impulseDirection * impulseStrenght);
+        impulseTime -= dt;
+
+        if (impulseTime <= 0.0f)
+        {
+            impulseTime = 0.0f;
+        }
+        else
+        {
+            return; // can't do other actions while is been impulsed
+        }
+    }
 
     if (Input::GetGamePadAxis(GamePadAxis::AXIS_TRIGGERRIGHT) < 5000)
     {
@@ -294,4 +312,11 @@ void PlayerMove::ShootAnim()
         currentAnim = PlayerAnims::SHOOT;
         isShooting = true;
     }
+}
+
+void PlayerMove::RecieveImpulse(API_Vector3 direction, float impulseDuration, float impulseForce)
+{
+    impulseDirection = direction;
+    impulseTime = impulseDuration;
+    impulseStrenght = impulseForce;
 }
