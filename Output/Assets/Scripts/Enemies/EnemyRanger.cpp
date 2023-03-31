@@ -62,7 +62,7 @@ void EnemyRanger::Update()
         {
             enemState = States::ATTACKIG;
         }
-        else if ((dis > lossingDis) || ((disZone > zoneRb.GetRadius() / 2) /*&& _outCooldown >= outTime*/))
+        else if ((dis > lossingDis) /*|| ((disZone > zoneRb.GetRadius() / 2)*/ /*&& _outCooldown >= outTime)*/)
         {
             enemState = States::WANDERING;
         }
