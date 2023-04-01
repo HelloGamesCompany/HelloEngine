@@ -50709,12 +50709,6 @@
                     },
                     {
                         "Smoke Particle": 118041523
-                    },
-                    {
-                        "Destination: ": 2595394373
-                    },
-                    {
-                        "Smoke Particle": 118041523
                     }
                 ],
                 "Script Resource": 3991898773,
@@ -50753,7 +50747,7 @@
             {
                 "Active camera": true,
                 "Active culling": false,
-                "Aspect ratio": 1.7902438640594482,
+                "Aspect ratio": 1.9578189849853516,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 2000.0,
@@ -80479,5 +80473,203 @@
         "PrefabUID": 0,
         "Tag": "Default",
         "UID": 4241270542
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -10.814126968383789,
+                    1.0517841577529907,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "ColPosition": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    2.200000047683716,
+                    2.5,
+                    2.5
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "GlobalGravity": [
+                    0.0,
+                    -10.0,
+                    0.0
+                ],
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsShapeSelected": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsStatic": false,
+                "IsTrigger": false,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    0.5,
+                    0.0,
+                    0.5,
+                    1.0
+                ],
+                "ShapeSelected": 0,
+                "SphereHorSlices": 16,
+                "SphereRadius": 1.0,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 13,
+                "ParticleModules": {
+                    "ModuleEmission": {
+                        "ParticlesPerSecond": 10
+                    },
+                    "ModuleMain": {
+                        "BeginScale": [
+                            1.0,
+                            0.5,
+                            1.0
+                        ],
+                        "Delay": 0.0,
+                        "Duration": 0.25,
+                        "EndScale": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "LifeTime": 1.0,
+                        "Looping": false,
+                        "PlayOnAwake": false,
+                        "Speed": [
+                            0.4000000059604645,
+                            0.4000000059604645,
+                            0.4000000059604645
+                        ],
+                        "SpeedVariation": [
+                            15.0,
+                            15.0,
+                            15.0
+                        ],
+                        "acceleration": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
+                    }
+                },
+                "ResourceTextUID": 1986747850,
+                "Type": 6
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 0,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Box Destroyed Particle": 1437281736
+                    },
+                    {
+                        "MaxHp": 50
+                    }
+                ],
+                "Script Resource": 4229972138,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Box",
+        "ParentUID": 2462894403,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1437281736
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 10,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube",
+        "ParentUID": 1437281736,
+        "PrefabUID": 0,
+        "Tag": "Primitive",
+        "UID": 4169938000
     }
 ]
