@@ -5,7 +5,7 @@
 struct ShaderData
 {
 public:
-	uint ID;
+	uint ID = 0;
 	std::string name;
 	
 	std::string vertexCode;

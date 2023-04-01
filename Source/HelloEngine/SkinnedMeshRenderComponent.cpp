@@ -209,7 +209,9 @@ void SkinnedMeshRenderComponent::Serialization(json& j)
 
 void SkinnedMeshRenderComponent::DeSerialization(json& j)
 {
-	ResourceModel* model = (ResourceModel*)ModuleResourceManager::resources[j["ModelUID"]];
+	ResourceModel* model = nullptr;
+	if (ModuleResourceManager::resources.count(j["ModelUID"]) != 0)
+		model = (ResourceModel*)ModuleResourceManager::resources[j["ModelUID"]];
 
 	if (model == nullptr)
 	{
