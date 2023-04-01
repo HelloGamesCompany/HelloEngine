@@ -1,6 +1,8 @@
 #include "EnemyMeleeMovement.h"
 #include "Enemy.h"
 #include <time.h>
+#include <random>
+#include <math.h>
 
 HELLO_ENGINE_API_C EnemyMeleeMovement* CreateEnemyMeleeMovement(ScriptToInspectorInterface* script)
 {
@@ -32,6 +34,7 @@ void EnemyMeleeMovement::Start()
     _avalPoints = 3;
     enemState = States::WANDERING;
     _outCooldown = 0;
+    srand(time(NULL));
 
     animState = AnimationState::NONE;
 }
@@ -53,12 +56,12 @@ void EnemyMeleeMovement::Update()
         {
             enemState = States::ATTACKIG;
         }
-        else if ((dis > lossingDis) || ((disZone > zoneRb.GetRadius() / 2)/* && _outCooldown >= outTime*/))
+        else if ((dis > lossingDis) /*|| ((disZone > zoneRb.GetRadius() / 2)*//* && _outCooldown >= outTime)*/)
         {
             enemState = States::WANDERING;
         }
 
-        if ((disZone > zoneRb.GetRadius() / 2) /*&& enemState == States::TARGETING*/)_outCooldown += dt, Console::Log(std::to_string(_outCooldown));
+        if ((disZone > zoneRb.GetRadius() / 2) /*&& enemState == States::TARGETING*/)_outCooldown += dt/*, Console::Log(std::to_string(_outCooldown))*/;
         else _outCooldown = 0;
 
 

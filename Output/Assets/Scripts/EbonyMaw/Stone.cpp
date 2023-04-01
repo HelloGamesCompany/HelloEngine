@@ -12,6 +12,7 @@ HELLO_ENGINE_API_C Stone* CreateStone(ScriptToInspectorInterface* script)
 
 void Stone::Start()
 {
+	bAttacks = (BossAttacks*)boss.GetScript("BossAttacks");
 
 }
 void Stone::Update()
@@ -22,8 +23,6 @@ void Stone::Update()
 void Stone::OnCollisionEnter(API::API_RigidBody other)
 {
 	std::string detectionName = other.GetGameObject().GetName();
-	API_GameObject go = boss;
-	BossAttacks* bAttacks = (BossAttacks*)go.GetScript("BossAttacks");
 
 	if (detectionName == "Player") {
 		PlayerStats* pStats = (PlayerStats*)other.GetGameObject().GetScript("PlayerStats");

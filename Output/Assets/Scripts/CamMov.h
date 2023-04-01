@@ -20,6 +20,8 @@ public:
 	API_Vector3 desiredPosition;
 	API_Vector3 smoothedPosition;
 
+	float safeZoneDistance = 10.0f;
 	float delay = 0.01f;
+	float tempDelay = 0.0f;
 	bool safeZone = true;
 };
