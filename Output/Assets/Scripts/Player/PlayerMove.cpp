@@ -5,23 +5,28 @@
 HELLO_ENGINE_API_C PlayerMove* CreatePlayerMove(ScriptToInspectorInterface* script)
 {
     PlayerMove* classInstance = new PlayerMove();
+
     //Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
     script->AddDragFloat("Velocity", &classInstance->vel);
     script->AddDragFloat("Upgrade Velocity", &classInstance->upgradedVel);
-    //script->AddDragFloat("Current Velocity", &classInstance->currentVel);
     script->AddDragFloat("SecToMaxVel", &classInstance->secToMaxVel);
     script->AddDragFloat("SecToZeroVel", &classInstance->secToZeroVel);
+    //script->AddDragFloat("Current Velocity", &classInstance->currentVel);
     //script->AddDragFloat("Current Input", &classInstance->currentInput);
+    script->AddDragFloat("Y tp limit", &classInstance->yTpLimit);
+
     script->AddDragFloat("Dash Time", &classInstance->dashTime);
     script->AddDragFloat("Dash Distance", &classInstance->dashDistance);
     script->AddDragFloat("Upgrade Dash Distance", &classInstance->upgradedDashDistance);
     script->AddDragFloat("Dash Cooldown", &classInstance->maxDashCooldown);
     script->AddDragFloat("Upgrade Dash Cooldown", &classInstance->maxFastDashCooldown);
+
     script->AddDragBoxAnimationPlayer("AnimationPlayer", &classInstance->playerAnimator);
     script->AddDragBoxAnimationResource("Dash Animation", &classInstance->dashAnim);
     script->AddDragBoxAnimationResource("Idle Animation", &classInstance->idleAnim);
     script->AddDragBoxAnimationResource("Run Animation", &classInstance->runAnim);
     script->AddDragBoxAnimationResource("Shoot Animations", &classInstance->shootAnim);
+
     script->AddDragBoxGameObject("Player Stats GO", &classInstance->playerStatsGO);
     script->AddDragBoxGameObject("HUD", &classInstance->HUDGameObject);
     return classInstance;
@@ -30,6 +35,7 @@ HELLO_ENGINE_API_C PlayerMove* CreatePlayerMove(ScriptToInspectorInterface* scri
 void PlayerMove::Start()
 {
     transform = gameObject.GetTransform();
+    initialPos = transform.GetGlobalPosition();
     departureTime = 0.0f;
     playerStats = (PlayerStats*)playerStatsGO.GetScript("PlayerStats");
     if (playerStats == nullptr) Console::Log("Missing PlayerStats on PlayerMove Script.");
@@ -46,8 +52,13 @@ void PlayerMove::Start()
 void PlayerMove::Update()
 {
     usingGamepad = Input::UsingGamepad();
+    
+    //Void tp
+    if (transform.GetGlobalPosition().y < yTpLimit) transform.SetPosition(initialPos);
+
     if (playerStats && playerStats->slowTimePowerUp > 0.0f /*&& !paused*/) dt = Time::GetRealTimeDeltaTime();
     else dt = Time::GetDeltaTime();
+
     Aim();
 
     // impulse

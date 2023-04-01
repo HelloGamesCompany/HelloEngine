@@ -57,5 +57,10 @@ public:
     // max ammo // 3
     float slowTimePowerUp; // 4
     void GetPowerUp(int index);
+
+    // casettes
+    bool casette1Picked;
+    bool casette2Picked;
+    bool casette3Picked;
 };
 

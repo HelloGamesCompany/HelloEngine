@@ -47,6 +47,10 @@ public:
     float secToZeroVel = 0.0f;
     API_Transform transform;
 
+    //Void Tp
+    API_Vector3 initialPos;
+    float yTpLimit = -50.0f;
+
     //Dash
     bool isDashing = false;
     float dashesAvailable;
