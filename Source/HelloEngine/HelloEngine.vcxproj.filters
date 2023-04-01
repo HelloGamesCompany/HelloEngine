@@ -164,6 +164,7 @@
     <ClCompile Include="UUID.cpp" />
     <ClCompile Include="XMLNode.cpp" />
     <ClCompile Include="API\API_UIInput.cpp" />
+    <ClCompile Include="API\API_UIText.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\External\ImGuiColorTextEdit\TextEditor.h" />
@@ -367,6 +368,7 @@
     <ClInclude Include="UUID.h" />
     <ClInclude Include="XMLNode.h" />
     <ClInclude Include="API\API_UIInput.h" />
+    <ClInclude Include="API\API_UIText.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="HelloEngine.rc" />

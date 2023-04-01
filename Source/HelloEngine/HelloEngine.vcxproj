@@ -312,6 +312,7 @@
     <ClCompile Include="API\API_Game.cpp" />
     <ClCompile Include="API\API_UIImage.cpp" />
     <ClCompile Include="API\API_UIInput.cpp" />
+    <ClCompile Include="API\API_UIText.cpp" />
     <ClCompile Include="API\API_Vector2.cpp" />
     <ClCompile Include="API\API_Vector3.cpp" />
     <ClCompile Include="API\API_Engine.cpp" />
@@ -511,6 +512,7 @@
     <ClInclude Include="API\API_Game.h" />
     <ClInclude Include="API\API_UIImage.h" />
     <ClInclude Include="API\API_UIInput.h" />
+    <ClInclude Include="API\API_UIText.h" />
     <ClInclude Include="API\API_Vector2.h" />
     <ClInclude Include="API\API_Vector3.h" />
     <ClInclude Include="API\API_Engine.h" />
