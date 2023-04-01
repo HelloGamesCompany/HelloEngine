@@ -152,6 +152,12 @@
                 "Inspector Fields": [
                     {
                         "hp": false
+                    },
+                    {
+                        "hp": false
+                    },
+                    {
+                        "hp": false
                     }
                 ],
                 "Script Resource": 1164455694,
@@ -273,6 +279,18 @@
                     },
                     {
                         "MAX HP": 100.0
+                    },
+                    {
+                        "HP": 100.0
+                    },
+                    {
+                        "MAX HP": 100.0
+                    },
+                    {
+                        "HP": 100.0
+                    },
+                    {
+                        "MAX HP": 100.0
                     }
                 ],
                 "Script Resource": 3828527852,
@@ -383,6 +401,78 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Text_Weapon_1_on": 1828660828
+                    },
+                    {
+                        "Text_Weapon_1_off": 1261649561
+                    },
+                    {
+                        "Material Weapon 1": 4102192440
+                    },
+                    {
+                        "Game Bar Weapon 1": 4172812350
+                    },
+                    {
+                        "Text_Weapon_2_on": 977509463
+                    },
+                    {
+                        "Text_Weapon_2_off": 1072796038
+                    },
+                    {
+                        "Material Weapon 2": 2595168131
+                    },
+                    {
+                        "Game Bar Weapon 2": 692296045
+                    },
+                    {
+                        "Text_Weapon_3_on": 12569475
+                    },
+                    {
+                        "Text_Weapon_3_off": 103443597
+                    },
+                    {
+                        "Material Weapon 3": 1805554832
+                    },
+                    {
+                        "Game Bar Weapon 3": 1496549210
+                    },
+                    {
+                        "Text_Weapon_1_on": 1828660828
+                    },
+                    {
+                        "Text_Weapon_1_off": 1261649561
+                    },
+                    {
+                        "Material Weapon 1": 4102192440
+                    },
+                    {
+                        "Game Bar Weapon 1": 4172812350
+                    },
+                    {
+                        "Text_Weapon_2_on": 977509463
+                    },
+                    {
+                        "Text_Weapon_2_off": 1072796038
+                    },
+                    {
+                        "Material Weapon 2": 2595168131
+                    },
+                    {
+                        "Game Bar Weapon 2": 692296045
+                    },
+                    {
+                        "Text_Weapon_3_on": 12569475
+                    },
+                    {
+                        "Text_Weapon_3_off": 103443597
+                    },
+                    {
+                        "Material Weapon 3": 1805554832
+                    },
+                    {
+                        "Game Bar Weapon 3": 1496549210
+                    },
                     {
                         "Text_Weapon_1_on": 1828660828
                     },
@@ -1044,7 +1134,7 @@
                 "Enabled": true,
                 "Position": [
                     0.10000000149011612,
-                    1.7999999523162842,
+                    1.7000000476837158,
                     0.0
                 ],
                 "Rotation": [
@@ -1054,7 +1144,7 @@
                 ],
                 "Scale": [
                     0.8999999761581421,
-                    0.10000000149011612,
+                    0.25,
                     0.5
                 ],
                 "Type": 1
@@ -1062,42 +1152,52 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 973302505,
+                "MaterialResource": 3409411885,
                 "Type": 15
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "HP": 69.0
-                    },
-                    {
-                        "MAX HP": 100.0
-                    }
-                ],
-                "Script Resource": 3828527852,
-                "Type": 5
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Bar": 221472945
-                    },
-                    {
-                        "hp": false
-                    }
-                ],
-                "Script Resource": 1164455694,
-                "Type": 5
             }
         ],
         "FirstOnPrefab": true,
-        "Name": "Boss_Bar",
+        "Name": "Boss_Bar_Background",
         "ParentUID": 2273192879,
         "PrefabUID": 0,
         "Tag": "UI",
         "UID": 221472945
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.5,
+                    0.5,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 0,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Image",
+        "ParentUID": 2273192879,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 30454805
     },
     {
         "Active": true,
@@ -1125,34 +1225,79 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Material Pick_up 1": 3330712065
+                        "Texture_SPEED_INCREASE": 1072796038
                     },
                     {
-                        "Material Pick_up 2": 3955892868
+                        "Texture_FIRERATE_INCREASE": 3583084629
                     },
                     {
-                        "Material Pick_up 3": 2411446382
+                        "Texture_SHIELD": 335904823
                     },
                     {
-                        "Material Pick_up 4": 1806803977
+                        "Texture_MAX_AMMO": 1214175512
                     },
                     {
-                        "Material Pick_up 5": 3047364684
+                        "Texture_SLOW_TIME": 1465322406
                     },
                     {
-                        "Texture_Pick_up_1": 1072796038
+                        "GamesObjects_1": 3330712065
                     },
                     {
-                        "Texture_Pick_up_2": 3583084629
+                        "GamesObjects_2": 3955892868
                     },
                     {
-                        "Texture_Pick_up_3": 977509463
+                        "GamesObjects_3": 2411446382
                     },
                     {
-                        "Texture_Pick_up_4": 4259070326
+                        "GamesObjects_4": 1806803977
                     },
                     {
-                        "Texture_Pick_up_5": 3102974161
+                        "GamesObjects_5": 3047364684
+                    },
+                    {
+                        "Texture_SPEED_INCREASE": 1072796038
+                    },
+                    {
+                        "Texture_FIRERATE_INCREASE": 3583084629
+                    },
+                    {
+                        "Texture_SHIELD": 335904823
+                    },
+                    {
+                        "Texture_MAX_AMMO": 1214175512
+                    },
+                    {
+                        "Texture_SLOW_TIME": 1465322406
+                    },
+                    {
+                        "GamesObjects_1": 3330712065
+                    },
+                    {
+                        "GamesObjects_2": 3955892868
+                    },
+                    {
+                        "GamesObjects_3": 2411446382
+                    },
+                    {
+                        "GamesObjects_4": 1806803977
+                    },
+                    {
+                        "GamesObjects_5": 3047364684
+                    },
+                    {
+                        "Texture_SPEED_INCREASE": 1072796038
+                    },
+                    {
+                        "Texture_FIRERATE_INCREASE": 3583084629
+                    },
+                    {
+                        "Texture_SHIELD": 335904823
+                    },
+                    {
+                        "Texture_MAX_AMMO": 1214175512
+                    },
+                    {
+                        "Texture_SLOW_TIME": 1465322406
                     },
                     {
                         "GamesObjects_1": 3330712065
@@ -1386,7 +1531,7 @@
             {
                 "Active camera": true,
                 "Active culling": true,
-                "Aspect ratio": 1.9408766031265259,
+                "Aspect ratio": 1.684466004371643,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,

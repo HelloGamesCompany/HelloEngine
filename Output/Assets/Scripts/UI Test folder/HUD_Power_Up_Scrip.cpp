@@ -4,50 +4,13 @@ HELLO_ENGINE_API_C HUD_Power_Up_Scrip* CreateHUD_Power_Up_Scrip(ScriptToInspecto
 	HUD_Power_Up_Scrip* classInstance = new HUD_Power_Up_Scrip();
 	
 	//Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
-	
-	
-	//weapon 1
-	//script->AddDragBoxTextureResource("Texture_Pick_up_1", &classInstance->Texture_Pick_up_1);
-	//script->AddDragBoxMaterialComponent("Material Pick_up 1", &classInstance->Material_Pick_up_1);
-	//script->AddDragBoxGameObject("GameObject Pick_up_1", &classInstance->Gameobject_Pick_up_1);
-
-
-	//weapon 2
-	//script->AddDragBoxTextureResource("Texture_Pick_up_2", &classInstance->Texture_Pick_up_2);
-	//script->AddDragBoxMaterialComponent("Material Pick_up 2", &classInstance->Material_Pick_up_2);
-	//script->AddDragBoxGameObject("GameObject Pick_up_2", &classInstance->Gameobject_Pick_up_2);
-
-
-	//weapon 3
-	//script->AddDragBoxTextureResource("Texture_Pick_up_3", &classInstance->Texture_Pick_up_3);
-	//script->AddDragBoxMaterialComponent("Material Pick_up 3", &classInstance->Material_Pick_up_3);
-	//script->AddDragBoxGameObject("GameObject Pick_up_3", &classInstance->Gameobject_Pick_up_3);
-
-
-	//weapon 4
-	//script->AddDragBoxTextureResource("Texture_Pick_up_4", &classInstance->Texture_Pick_up_4);
-	//script->AddDragBoxMaterialComponent("Material Pick_up 4", &classInstance->Material_Pick_up_4);
-	//script->AddDragBoxGameObject("GameObject Pick_up_4", &classInstance->Gameobject_Pick_up_4);
-
-
-	//weapon 5
-	//script->AddDragBoxTextureResource("Texture_Pick_up_5", &classInstance->Texture_Pick_up_5);
-	//script->AddDragBoxMaterialComponent("Material Pick_up 5", &classInstance->Material_Pick_up_5);
-	//script->AddDragBoxGameObject("GameObject Pick_up_5", &classInstance->Gameobject_Pick_up_5);
-	
-	
-	script->AddDragBoxMaterialComponent("Material Pick_up 1", &classInstance->Material_Pick_up[0]);
-	script->AddDragBoxMaterialComponent("Material Pick_up 2", &classInstance->Material_Pick_up[1]);
-	script->AddDragBoxMaterialComponent("Material Pick_up 3", &classInstance->Material_Pick_up[2]);
-	script->AddDragBoxMaterialComponent("Material Pick_up 4", &classInstance->Material_Pick_up[3]);
-	script->AddDragBoxMaterialComponent("Material Pick_up 5", &classInstance->Material_Pick_up[4]);
 
 	//Textures
-	script->AddDragBoxTextureResource("Texture_Pick_up_1", &classInstance->Texture_Pick_up[0]);
-	script->AddDragBoxTextureResource("Texture_Pick_up_2", &classInstance->Texture_Pick_up[1]);
-	script->AddDragBoxTextureResource("Texture_Pick_up_3", &classInstance->Texture_Pick_up[2]);
-	script->AddDragBoxTextureResource("Texture_Pick_up_4", &classInstance->Texture_Pick_up[3]);
-	script->AddDragBoxTextureResource("Texture_Pick_up_5", &classInstance->Texture_Pick_up[4]);
+	script->AddDragBoxTextureResource("Texture_SPEED_INCREASE", &classInstance->Texture_Pick_up[0]);
+	script->AddDragBoxTextureResource("Texture_FIRERATE_INCREASE", &classInstance->Texture_Pick_up[1]);
+	script->AddDragBoxTextureResource("Texture_SHIELD", &classInstance->Texture_Pick_up[2]);
+	script->AddDragBoxTextureResource("Texture_MAX_AMMO", &classInstance->Texture_Pick_up[3]);
+	script->AddDragBoxTextureResource("Texture_SLOW_TIME", &classInstance->Texture_Pick_up[4]);
 
 	//GameObjects
 	script->AddDragBoxGameObject("GamesObjects_1", &classInstance->Gameobjects_Pickables[0]);
@@ -62,72 +25,98 @@ HELLO_ENGINE_API_C HUD_Power_Up_Scrip* CreateHUD_Power_Up_Scrip(ScriptToInspecto
 
 void HUD_Power_Up_Scrip::Start()
 {
+	for (int i = 0; i < 5; i++)
+	{
+		timer_power_up[i] = 0;
+	}
 	
-	//Material_Pick_up[0].ChangeAlbedoTexture(Texture_Pick_up[0]);
-	//Material_Pick_up[1].ChangeAlbedoTexture(Texture_Pick_up[1]);
-	//Material_Pick_up[2].ChangeAlbedoTexture(Texture_Pick_up[2]);
-	//Material_Pick_up[3].ChangeAlbedoTexture(Texture_Pick_up[3]);
-	//Material_Pick_up[4].ChangeAlbedoTexture(Texture_Pick_up[4]);
-	/*
-	
-	*/
+
+	for (int i = 0; i < 5; i++)
+	{
+		Material_Pick_up[i]=Gameobjects_Pickables[i].GetMaterialCompoennt() ;
+	}
+
 	Gameobjects_Pickables[0].SetActive(false);
 	Gameobjects_Pickables[1].SetActive(false);
 	Gameobjects_Pickables[2].SetActive(false);
 	Gameobjects_Pickables[3].SetActive(false);
 	Gameobjects_Pickables[4].SetActive(false);
-	/*
-	Gameobject_Pick_up_1.SetActive(false);
-	Gameobject_Pick_up_2.SetActive(false);
-	Gameobject_Pick_up_3.SetActive(false);
-	Gameobject_Pick_up_4.SetActive(false);
-	Gameobject_Pick_up_5.SetActive(false);
-	*/
-	//Console::Log(Number_Picked);
+	
+
 }
 void HUD_Power_Up_Scrip::Update()
 {
+	
+	for (int i = 0; i < 5; i++)
+	{
+		if (Gameobjects_Pickables[i].IsActive())
+		{
+			timer_power_up[i] += Time::GetDeltaTime();
+			
+			if (timer_power_up[i] >= livetime_Power )
+			{
+				timer_power_up[i] = 0;
+				Gameobjects_Pickables[i].SetActive(false);
+			}
+		}
+	}
 
-	if (Input::GetKey(KeyCode::KEY_0) == KeyState::KEY_DOWN && Number_Picked < 5) {
-		Number_Picked++;
-		GetPowerUp(Texture_Pick_up[0]);
+
+
+	if (Input::GetKey(KeyCode::KEY_0) == KeyState::KEY_DOWN) {
+		AddPowerUp(PowerUp_Type::FIRERATE_INCREASE);
 		Console::Log("T0: ");
 	}
 	
-	if (Input::GetKey(KeyCode::KEY_9) == KeyState::KEY_DOWN && Number_Picked < 5) {
-		Number_Picked++;
-		GetPowerUp(Texture_Pick_up[1]);
+	if (Input::GetKey(KeyCode::KEY_9) == KeyState::KEY_DOWN) {
+		AddPowerUp(PowerUp_Type::MAX_AMMO);
 		Console::Log("T9: ");
 	}
 	
-	if (Input::GetKey(KeyCode::KEY_8) == KeyState::KEY_DOWN && Number_Picked < 5) {
-		Number_Picked++;
-		GetPowerUp(Texture_Pick_up[2]);
+	if (Input::GetKey(KeyCode::KEY_8) == KeyState::KEY_DOWN) {
+		AddPowerUp(PowerUp_Type::SHIELD);
 		Console::Log("T8: ");
 	}
 	
-	if (Input::GetKey(KeyCode::KEY_7) == KeyState::KEY_DOWN && Number_Picked < 5) {
+	if (Input::GetKey(KeyCode::KEY_7) == KeyState::KEY_DOWN) {
 		Number_Picked++;
-		GetPowerUp(Texture_Pick_up[3]);
+		AddPowerUp(PowerUp_Type::SLOW_TIME);
 		Console::Log("T7: ");
 	}
 	
-	if (Input::GetKey(KeyCode::KEY_6) == KeyState::KEY_DOWN && Number_Picked < 5) {
-		Number_Picked++;
-		GetPowerUp(Texture_Pick_up[4]);
+	if (Input::GetKey(KeyCode::KEY_6) == KeyState::KEY_DOWN) {
+		AddPowerUp(PowerUp_Type::SPEED_INCREASE);
 		Console::Log("T6: ");
 	}
 
 }
 
-void HUD_Power_Up_Scrip::GetPowerUp(uint texture)
+void HUD_Power_Up_Scrip::AddPowerUp(PowerUp_Type Powertype)
 {
-
-	//Console::Log(Number_Picked);
-
-	for (int i = 0; i < Number_Picked; i++) {
-		Gameobjects_Pickables[i].SetActive(true);
-		Material_Pick_up[i].ChangeAlbedoTexture(texture);
-		Console::Log("entrat: ");
+	for (int i = 0; i < 5; i++)
+	{
+		if (!Gameobjects_Pickables[i].IsActive())
+		{
+			Material_Pick_up[i].ChangeAlbedoTexture(Texture_Pick_up[(uint)Powertype]);
+			Current_texture[i] = Texture_Pick_up[(uint)Powertype];
+			Gameobjects_Pickables[i].SetActive(true);
+			return;
+		}
 	}
+
+	/*uint TemporalText[5];
+
+	for (int i = 0; i < 5; i++)
+	{
+		TemporalText[i] = Current_texture[i];
+	}
+	for (int i = 4; i > 0; --i)
+	{
+		Material_Pick_up[i - 1].ChangeAlbedoTexture(Current_texture[i]);
+		
+		Current_texture[i-1] = TemporalText[i];
+	}
+
+	Material_Pick_up[4].ChangeAlbedoTexture(Texture_Pick_up[(uint)Powertype]);
+	Current_texture[4] = Texture_Pick_up[(uint)Powertype];*/
 }
