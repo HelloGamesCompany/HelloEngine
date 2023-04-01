@@ -88,6 +88,7 @@ void RenderManager::Init()
 	lineShader = ModuleResourceManager::S_CreateResourceShader("Resources/shaders/lines.shader", 100, "Lines");
 	localLineShader = ModuleResourceManager::S_CreateResourceShader("Resources/shaders/localLines.shader", 101, "Local Lines");
 	textRenderingShader = new Shader("Resources/shaders/textRendering.shader");
+	InitDefaultShaders();
 
 	// Set up debug drawing variables:
 	// Manually created box index buffer that corresponds to the order given by MathGeoLib's AABB class GetCornerPoints() method.
@@ -167,6 +168,8 @@ void RenderManager::Init()
 
 void RenderManager::OnEditor()
 {
+	ImVec4 textColour = ImVec4(1.0f, 0.0f, 1.0f, 1.0f);
+
 	if (ImGui::Begin("Render System Debugging"))
 	{
 		ImGui::TextWrapped("Window to manage every RenderManager memory usage and instances. The memory allocated per RenderManager increases by 50 per cent every time the current allocated memory gets surpassed.");
@@ -179,26 +182,54 @@ void RenderManager::OnEditor()
 			{
 				std::string maxInstances = "Maximum number of instances: " + std::to_string(manager.second.instanceNum);
 				ImGui::Text(maxInstances.c_str());
+				
 				ImGui::Text("Instances: "); ImGui::SameLine();
-				ImGui::TextColored(ImVec4(1.0f, 0.0f, 1.0f, 1.0f), std::to_string(manager.second.meshes.size()).c_str());
+				ImGui::TextColored(textColour, std::to_string(manager.second.meshes.size()).c_str());
+				
 				ImGui::Text("Memory usage in bytes: "); ImGui::SameLine();
 				float memory = manager.second.instanceNum * sizeof(float4x4) + manager.second.instanceNum * sizeof(float);
 				memory += manager.second.totalIndices->size() * sizeof(uint);
 				memory += manager.second.totalVertices->size() * sizeof(Vertex);
-				ImGui::TextColored(ImVec4(1.0f, 0.0f, 1.0f, 1.0f), std::to_string(memory).c_str());
+				ImGui::TextColored(textColour, std::to_string(memory).c_str());
+
+				if (manager.second.resMat)
+				{
+					std::string headerMaterial = manager.second.resMat->debugName + "##" + std::to_string(manager.second.resMat->UID);
+					if (ImGui::CollapsingHeader(headerMaterial.c_str()))
+					{
+						ImGui::Text("Shader: "); ImGui::SameLine();
+						ImGui::TextColored(textColour, manager.second.resMat->material.GetShader()->debugName.c_str());
+					
+						ImGui::Text("Number of uniforms: "); ImGui::SameLine();
+						ImGui::TextColored(textColour, std::to_string(manager.second.resMat->material.uniforms.size()).c_str());
+					}
+				}
+				else
+				{
+					ImGui::TextColored(textColour, "Not using a Material");
+				}
 			}
 		}
 	}
 	ImGui::End();
 }
 
-InstanceRenderer* RenderManager::GetRenderManager(uint ID, bool create)
+InstanceRenderer* RenderManager::GetRenderManager(uint meshID, uint materialID, bool create)
 {
+	uint ID = meshID + materialID;
+	ResourceMaterial* mat = nullptr;
+
+	//It has to be check first or otherwise a NULL resource could be generated
+	if (materialID > 0)
+		if (ModuleResourceManager::resources.count(materialID))
+			mat = (ResourceMaterial*) ModuleResourceManager::resources[materialID];
+
 	// If there is no instance Renderer for this mesh resource
 	if (_renderMap.count(ID) == 0)
 	{
 		if (create)
-			_renderMap[ID].SetMeshInformation((ResourceMesh*)ModuleResourceManager::resources[ID]);
+			_renderMap[ID].SetMeshInformation((ResourceMesh*)ModuleResourceManager::resources[meshID],
+				mat);
 		else
 			return nullptr;
 	}
@@ -246,34 +277,47 @@ void RenderManager::Draw2D()
 	DrawTextObjects();
 }
 
-uint RenderManager::AddMesh(ResourceMesh* resource, ResourceMaterial* material,  MeshRenderType type)
+uint RenderManager::AddMesh(ResourceMesh* resource, uint resMat,  MeshRenderType type)
 {
 	switch (type)
 	{
 	case MeshRenderType::INSTANCED:
-		return AddInstancedMesh(resource);
+		return AddInstancedMesh(resource, resMat);
 	case MeshRenderType::INDEPENDENT:
-		return AddIndependentMesh(resource, material);
+		return AddIndependentMesh(resource, resMat);
 	case MeshRenderType::TRANSPARENCY:
-		return AddTransparentMesh(resource);
+		return AddTransparentMesh(resource, resMat);
 	case MeshRenderType::MESH2D:
 		return Add2DMesh();
 	}
 }
 
-uint RenderManager::AddTransparentMesh(ResourceMesh* resource)
+uint RenderManager::AddTransparentMesh(ResourceMesh* resource, uint resMat)
 {
 	uint randomID = HelloUUID::GenerateUUID();
 
-	_transparencyMeshes[randomID].InitWithResource(resource);
-	_transparencyMeshes[randomID].localAABB = resource->localAABB;
-	_transparencyMeshes[randomID].isIndependent = true;
-	_transparencyMeshes[randomID].CreateBufferData();
+	_transparencyMeshes[randomID].mesh.InitWithResource(resource);
+	_transparencyMeshes[randomID].mesh.localAABB = resource->localAABB;
+	_transparencyMeshes[randomID].mesh.isIndependent = true;
+	_transparencyMeshes[randomID].mesh.CreateBufferData();
 
+	//Set Material
+	if (resMat > 0)
+	{
+		ResourceMaterial* mat = (ResourceMaterial*)ModuleResourceManager::S_LoadResource(resMat);
+		_transparencyMeshes[randomID].resMat = resMat;
+		_transparencyMeshes[randomID].material = mat;
+
+		mat->Dereference();
+	}
+	/*else
+	{
+		_independentMeshes[randomID].material = Material(defaultShader.drawPerMesh->UID);
+	}*/
 	return randomID;
 }
 
-uint RenderManager::AddIndependentMesh(ResourceMesh* resource, ResourceMaterial* material)
+uint RenderManager::AddIndependentMesh(ResourceMesh* resource, uint resMat)
 {
 	uint randomID = HelloUUID::GenerateUUID();
 
@@ -284,24 +328,40 @@ uint RenderManager::AddIndependentMesh(ResourceMesh* resource, ResourceMaterial*
 	_independentMeshes[randomID].mesh.CreateBufferData();
 
 	//Set Material
-	if (material == nullptr)
-		_independentMeshes[randomID].material = nullptr;
-	else
-		_independentMeshes[randomID].material = material;
-	
+	if (resMat > 0) //Has been given a proper material UID
+	{
+		ResourceMaterial* mat = (ResourceMaterial*)ModuleResourceManager::S_LoadResource(resMat);
+		_independentMeshes[randomID].resMat = resMat;
+		_independentMeshes[randomID].material = mat;
+
+		mat->Dereference();
+	}
+	//else // Hasn't been given a proper material UID
+	//{
+	//	if (resource->meshInfo.boneDataMap.size() > 0) //Has bones
+	//	{
+	//		//Give a default bone mat
+	//		_independentMeshes[randomID].material = Material(defaultShader.boneMesh->UID);
+	//	}
+	//	else
+	//	{
+	//		//Give a basic default mat
+	//		_independentMeshes[randomID].material = Material(defaultShader.drawPerMesh->UID);
+	//	}
+	//}
 
 	return randomID;
 }
 
-uint RenderManager::AddInstancedMesh(ResourceMesh* resource)
+uint RenderManager::AddInstancedMesh(ResourceMesh* resource, uint resMat)
 {
-	InstanceRenderer* manager = GetRenderManager(resource->UID); // Create a renderManager.
+	InstanceRenderer* manager = GetRenderManager(resource->UID, resMat); // Create a renderManager.
 	return manager->AddMesh();
 }
 
 uint RenderManager::Add2DMesh()
 {
-	InstanceRenderer* manager = GetRenderManager(plane2DUID); // Create a renderManager.
+	InstanceRenderer* manager = GetRenderManager(plane2DUID, 0); // Create a renderManager.
 	renderer2D = manager;
 	renderer2D->SetAs2D();
 	uint ret = manager->AddMesh();
@@ -311,6 +371,10 @@ uint RenderManager::Add2DMesh()
 	renderer2D->meshes[ret].mesh.isIndependent = true;
 	renderer2D->meshes[ret].mesh.is2D = true;
 	renderer2D->meshes[ret].mesh.CreateBufferData();
+
+	//Set Material
+	//renderer2D->meshes[ret].material = Material(defaultShader.drawPerMesh2D->UID);
+
 	return ret;
 }
 
@@ -449,9 +513,24 @@ void RenderManager::DrawSelectedMesh()
 	if (_selectedMesh == nullptr && _selectedMeshRaw == nullptr)
 		return;
 
-	if (_selectedMesh && _selectedMesh->material != nullptr)
-		_selectedMesh->mesh.DrawAsSelected(&_selectedMesh->material->material);
+	//if (_selectedMesh && _selectedMesh->material != nullptr)
+	if (_selectedMesh)
+	{
+		if (!_selectedMesh->mesh.component->GetGameObject()->isSelected)
+		{
+			_selectedMesh = nullptr;
+			return;
+		}
+		_selectedMesh->mesh.DrawAsSelected(_selectedMesh->material->material);
+	}
 	else if (_selectedMeshRaw != nullptr)
+	{
+		if (!_selectedMeshRaw->component->GetGameObject()->isSelected)
+		{
+			_selectedMeshRaw = nullptr;
+			return;
+		}
+	}
 		_selectedMeshRaw->DrawAsSelected();
 }
 
@@ -973,36 +1052,40 @@ void RenderManager::DrawTransparentMeshes()
 	CameraObject* currentCamera = Application::Instance()->camera->currentDrawingCamera;
 
 	// Draw transparent objects with a draw call per mesh.
-	for (auto& mesh : _transparencyMeshes)
+	for (auto& entry : _transparencyMeshes)
 	{
 		float3 cameraPos = currentCamera->cameraFrustum.pos;
-		float distance = mesh.second.modelMatrix.Transposed().TranslatePart().DistanceSq(currentCamera->cameraFrustum.pos);
-		_orderedMeshes.emplace(std::make_pair(distance, &mesh.second));
+		float distance = entry.second.mesh.modelMatrix.Transposed().TranslatePart().DistanceSq(currentCamera->cameraFrustum.pos);
+		_orderedMeshes.emplace(std::make_pair(distance, &entry.second));
 	}
 
 	// iterate meshes from furthest to closest.
-	for (auto mesh = _orderedMeshes.rbegin(); mesh != _orderedMeshes.rend(); mesh++)
+	for (auto entry = _orderedMeshes.rbegin(); entry != _orderedMeshes.rend(); entry++)
 	{
 		// Do camera culling checks first
 		if (currentCamera->isCullingActive)
 		{
-			if (!currentCamera->IsInsideFrustum(mesh->second->globalAABB))
+			if (!currentCamera->IsInsideFrustum(entry->second->mesh.globalAABB))
 			{
-				mesh->second->outOfFrustum = true;
+				entry->second->mesh.outOfFrustum = true;
 				continue;
 			}
 			else
-				mesh->second->outOfFrustum = false;
+				entry->second->mesh.outOfFrustum = false;
 		}
 		else if (currentCamera->type != CameraType::SCENE)
 		{
-			mesh->second->outOfFrustum = false;
+			entry->second->mesh.outOfFrustum = false;
 		}
 
 		// Update mesh. If the mesh should draw this frame, call Draw.
-		if (mesh->second->Update())
+		if (entry->second->mesh.Update())
 		{
-			mesh->second->Draw();
+			entry->second->mesh.Draw(entry->second->material->material);
+		}
+		else
+		{
+			Application::Instance()->renderer3D->renderManager.SetSelectedMesh(entry->second);
 		}
 	}
 
@@ -1036,12 +1119,12 @@ void RenderManager::DrawIndependentMeshes()
 		// Update mesh. If the mesh should draw this frame, call Draw.
 		if (mesh.second.mesh.Update())
 		{
-			if (mesh.second.material == nullptr)
+			/*if (mesh.second.material == nullptr)
 			{
-				mesh.second.mesh.Draw(nullptr);
+				mesh.second.mesh.Draw();
 				continue;
-			}
-			mesh.second.mesh.Draw(&mesh.second.material->material);
+			}*/
+			mesh.second.mesh.Draw(mesh.second.material->material);
 		}
 		else
 		{
@@ -1106,4 +1189,15 @@ void RenderManager::DrawTextObjects()
 		glBindTexture(GL_TEXTURE_2D, 0);
 		glEnable(GL_DEPTH_TEST);
 	}
+}
+
+void RenderManager::InitDefaultShaders()
+{
+	defaultShader = DefaultShader();
+
+	defaultShader.drawPerMesh = ModuleResourceManager::S_CreateResourceShader("Resources/shaders/basic.shader", 103, "Basic");
+	defaultShader.drawPerMesh2D = ModuleResourceManager::S_CreateResourceShader("Resources/shaders/basic2D.shader", 110, "Basic2D");
+	defaultShader.boneMesh = ModuleResourceManager::S_CreateResourceShader("Resources/shaders/basicBone.shader", 105, "Basic Bone");
+	defaultShader.stencilShader = ModuleResourceManager::S_CreateResourceShader("Resources/shaders/stencil.shader", 109, "Stencil");
+	
 }

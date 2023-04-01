@@ -69,12 +69,12 @@ void MeshRenderComponent::CreateMesh(uint resourceUID, int materialUID, MeshRend
 		return;
 	}
 
-	//Material
-	ResourceMaterial* material = nullptr;
-	if (materialUID != -1)
-	{
-		material = (ResourceMaterial*)ModuleResourceManager::S_LoadResource(materialUID);
-	}
+	////Material
+	//ResourceMaterial* material = nullptr;
+	//if (materialUID != -1)
+	//{
+	//	material = (ResourceMaterial*)ModuleResourceManager::S_LoadResource(materialUID);
+	//}
 
 	renderType = type;
 
@@ -82,11 +82,11 @@ void MeshRenderComponent::CreateMesh(uint resourceUID, int materialUID, MeshRend
 	if (type == MeshRenderType::INSTANCED)
 	{
 		_meshID = resourceUID;
-		_instanceID = Application::Instance()->renderer3D->renderManager.AddMesh(_resource, material, MeshRenderType::INSTANCED);
+		_instanceID = Application::Instance()->renderer3D->renderManager.AddMesh(_resource, materialUID, MeshRenderType::INSTANCED);
 	}
 	else // Otherwise, we use only 1, that is the identifier for our mesh.
 	{
-		_meshID = Application::Instance()->renderer3D->renderManager.AddMesh(_resource, material, type);
+		_meshID = Application::Instance()->renderer3D->renderManager.AddMesh(_resource, materialUID, type);
 	}
 
 	if (_resource->meshInfo.boneDataMap.size() != 0) _hasBones = true;
@@ -103,11 +103,11 @@ void MeshRenderComponent::CreateMesh(uint resourceUID, int materialUID, MeshRend
 		_gameObject->GetComponent<TextureComponent>()->UpdateMaterial();
 	}
 
-	if (material != nullptr)
+	/*if (material != nullptr)
 	{
 		material->Dereference();
 		material = nullptr;
-	}
+	}*/
 }
 
 void MeshRenderComponent::CreateMesh2D()
@@ -115,7 +115,7 @@ void MeshRenderComponent::CreateMesh2D()
 	// Create Instancerenderer2D and have a mehs in it.
 	_meshID = Application::Instance()->renderer3D->renderManager.plane2DUID;
 	_resource = (ResourceMesh*)ModuleResourceManager::S_LoadResource(_meshID);
-	_instanceID = Application::Instance()->renderer3D->renderManager.AddMesh(_resource, nullptr, MeshRenderType::MESH2D);
+	_instanceID = Application::Instance()->renderer3D->renderManager.AddMesh(_resource, 0, MeshRenderType::MESH2D);
 
 }
 
@@ -145,7 +145,7 @@ Mesh& MeshRenderComponent::GetMesh()
 	{
 	case MeshRenderType::INSTANCED:
 	{
-		InstanceRenderer* manager = Application::Instance()->renderer3D->renderManager.GetRenderManager(_meshID);
+		InstanceRenderer* manager = Application::Instance()->renderer3D->renderManager.GetRenderManager(_meshID, 0);
 		Mesh& meshReference = manager->GetMap()[_instanceID].mesh;
 		return meshReference;
 	}
@@ -158,7 +158,7 @@ Mesh& MeshRenderComponent::GetMesh()
 	break;
 	case MeshRenderType::TRANSPARENCY:
 	{
-		Mesh& meshReference = Application::Instance()->renderer3D->renderManager._transparencyMeshes[_meshID];
+		Mesh& meshReference = Application::Instance()->renderer3D->renderManager._transparencyMeshes[_meshID].mesh;
 		return meshReference;
 	}
 	break;
@@ -431,7 +431,7 @@ void MeshRenderComponent::DeSerialization(json& j)
 		}
 		else
 		{
-			CreateMesh(resourceMesh->UID, -1, renderType);
+			CreateMesh(resourceMesh->UID, 0, renderType);
 
 			if (_meshID != -1)
 			{

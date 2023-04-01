@@ -49,71 +49,6 @@ void Shader::Clear()
 	glDeleteShader(data.ID);
 }
 
-//Shader::Shader(std::string& vertexPath, std::string& fragmentPath)
-//{
-	// Get shader name 
-	//std::string shaderName = ModuleFiles::S_GetFileName(vertexPath, false);
-
-	//if (loadedShaders.find(shaderName) != loadedShaders.end())
-	//{
-		//this->data.ID = loadedShaders[shaderName];
-		//return;
-	//}
-	// Get source code inside a string
-	/*std::string vertexSource = OpenShader(vertexPath);
-	std::string fragmentSource = OpenShader(fragmentPath);*/
-	//RetriveShader(vertexPath);
-
-	// Create OpenGL programs 
-	/*uint vertexShaderID = CompileShader(vertexSource, GL_VERTEX_SHADER);
-	uint fragmentShaderID = CompileShader(fragmentSource, GL_FRAGMENT_SHADER);*/
-	//CompileShader();
-
-	// Link both programs in a new one
-	/*programID = glCreateProgram();
-	glAttachShader(programID, vertexShaderID);
-	glAttachShader(programID, fragmentShaderID);
-	glLinkProgram(programID);
-	glValidateProgram(programID);*/
-
-	// Delete unnecesary programs.
-	/*glDeleteShader(vertexShaderID);
-	glDeleteShader(fragmentShaderID);*/
-//}
-
-//Shader::Shader(std::string&& vertexPath, std::string&& fragmentPath)
-//{	
-//	std::string shaderName = ModuleFiles::S_GetFileName(vertexPath, false);
-
-	//if (loadedShaders.find(shaderName) != loadedShaders.end())
-	//{
-	//	this->programID = loadedShaders[shaderName];
-	//	return;
-	//}
-
-	//// Get source code inside a string
-	//std::string vertexSource = OpenShader(vertexPath);
-	//std::string fragmentSource = OpenShader(fragmentPath);
-	//
-	//// Create OpenGL programs 
-	//unsigned int vertexShaderID = CompileShader(vertexSource, GL_VERTEX_SHADER);
-	//unsigned int fragmentShaderID = CompileShader(fragmentSource, GL_FRAGMENT_SHADER);
-	//
-	//// Link both programs in a new one
-	//programID = glCreateProgram();
-	//glAttachShader(programID, vertexShaderID);
-	//glAttachShader(programID, fragmentShaderID);
-	//glLinkProgram(programID);
-	//glValidateProgram(programID);
-
-	//// Delete unnecesary programs.
-	//glDeleteShader(vertexShaderID);
-	//glDeleteShader(fragmentShaderID);
-
-	//loadedShaders[shaderName] = programID;
-//}
-
-
 void Shader::RetriveShader(const std::string& shaderPath)
 {
 	const char* vDefine = "#define VERTEX_PROGRAM\n";
@@ -158,6 +93,9 @@ void Shader::CompileShader()
 {
 	const char* vShaderCode = data.vertexCode.c_str();
 	const char* fShaderCode = data.fragmentCode.c_str();
+
+	//Checks
+	VertexShaderCheck();
 
 	uint vertex, fragment;
 	int success;
@@ -234,6 +172,17 @@ void Shader::Recompile(std::string shaderPath)
 	UniformCompare(previousData);
 }
 
+void Shader::VertexShaderCheck()
+{
+	//String used to check if a shader is meant to be used as an Instanced Shader.
+	std::string instanced = "layout (location = 1) in mat4 model;";
+
+	if (data.vertexCode.find(instanced) != std::string::npos)
+	{
+		data.isIstanced = true;
+	}
+}
+
 void Shader::UniformParser(std::vector<Uniform*>& vec)
 {
 	if (data.ID == 0)
@@ -288,44 +237,6 @@ void Shader::UniformCompare(ShaderData previousShader)
 {
 
 }
-
-//uint Shader::CompileShader(const std::string& source, uint type)
-//{
-//	const char* src = source.c_str();
-//
-//	uint id = glCreateShader(type);
-//
-//	glShaderSource(id, 1, &src, nullptr);
-//	glCompileShader(id);
-//
-//	int compileResult;
-//	glGetShaderiv(id, GL_COMPILE_STATUS, &compileResult);
-//	if (compileResult == GL_FALSE)
-//	{
-//		int messageLength = 0;
-//
-//		glGetShaderiv(id, GL_INFO_LOG_LENGTH, &messageLength);
-//		std::vector<char> message;
-//		message.resize(messageLength);
-//		if (messageLength != 0)
-//			glGetShaderInfoLog(id, messageLength, &messageLength, &message.front());
-//
-//		Console::S_Log("Failed to compile shader!");
-//
-//		std::string errorString = "";
-//		for (int i = 0; i < messageLength; i++)
-//		{
-//			errorString += message[i];
-//		}
-//
-//		Console::S_Log(errorString);
-//
-//		glDeleteShader(id);
-//		return 0;
-//	}
-//
-//	return id;
-//}
 
 void Shader::Bind()
 {

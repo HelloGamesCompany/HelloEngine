@@ -49,7 +49,8 @@ Mesh::~Mesh()
 	{
 		CleanUp();
 	}
-	if (&Application::Instance()->renderer3D->renderManager._selectedMesh->mesh == this)
+	if (&Application::Instance()->renderer3D->renderManager._selectedMesh->mesh == this
+		|| Application::Instance()->renderer3D->renderManager._selectedMeshRaw == this)
 	{
 		Application::Instance()->renderer3D->renderManager.RemoveSelectedMesh();
 	}
@@ -69,18 +70,22 @@ void Mesh::CreateBufferData()
 		drawPerMesh2D = ModuleResourceManager::S_CreateResourceShader("Resources/shaders/basic2D.shader", 110, "Basic2D");
 }
 
-void Mesh::Draw(Material* material, bool useMaterial)
+void Mesh::Draw(Material material, bool useMaterial)
 {
 	if (useMaterial) // We use this function to draw the outilne too.
 	{
-		if (material != nullptr && material->GetShader() != nullptr)
-		{
-			UniformDraw(material);
-		}
-		else
-		{
-			DefaultDraw();
-		}
+		//if (material != nullptr && material->GetShader() != nullptr)
+		//{
+		UniformDraw(material);
+		//}
+		//else
+		//{
+			//DefaultDraw();
+		//}
+	}
+	else
+	{
+		DefaultDraw();
 	}
 
 	glBindVertexArray(_VAO);
@@ -136,10 +141,10 @@ void Mesh::DefaultDraw()
 
 }
 
-void Mesh::UniformDraw(Material* material)
+void Mesh::UniformDraw(Material material)
 {
 	//Update the material uniforms
-	material->Update(Application::Instance()->camera->currentDrawingCamera->GetViewMatrix(),
+	material.Update(Application::Instance()->camera->currentDrawingCamera->GetViewMatrix(),
 		Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix(),
 		&modelMatrix.v[0][0]);
 
@@ -153,8 +158,17 @@ void Mesh::UniformDraw(Material* material)
 			smComp->UpdateBones();
 		}
 
-		material->UpdateBones(smComp->goBonesArr);
+		material.UpdateBones(smComp->goBonesArr);
 	}
+}
+
+void Mesh::StencilDraw()
+{
+	stencilShader->shader.Bind();
+	stencilShader->shader.SetFloat("outlineSize", 1.04f);
+	stencilShader->shader.SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
+	stencilShader->shader.SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
+	stencilShader->shader.SetMatFloat4v("model", &modelMatrix.v[0][0]);
 }
 
 bool Mesh::Update()
@@ -194,7 +208,7 @@ bool Mesh::Update()
 	return true;
 }
 
-void Mesh::DrawAsSelected(Material* material)
+void Mesh::DrawAsSelected(Material material)
 {
 	//// TODO: Do this inside ModuleRender3D, and allow to enable and disable it.
 	glEnable(GL_DEPTH_TEST);
@@ -211,7 +225,7 @@ void Mesh::DrawAsSelected(Material* material)
 	}
 	else
 	{
-		InstanceRenderer* manager = Application::Instance()->renderer3D->renderManager.GetRenderManager(component->_meshID);
+		InstanceRenderer* manager = Application::Instance()->renderer3D->renderManager.GetRenderManager(component->_meshID, 0);
 		manager->DrawInstance(this);
 	}
 
@@ -220,20 +234,21 @@ void Mesh::DrawAsSelected(Material* material)
 	glDisable(GL_DEPTH_TEST);
 
 #ifdef STANDALONE
-	stencilShader->shader.Bind();
+	/*stencilShader->shader.Bind();
 	stencilShader->shader.SetFloat("outlineSize", 0.04f);
 	stencilShader->shader.SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
 	stencilShader->shader.SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
-	stencilShader->shader.SetMatFloat4v("model", &modelMatrix.v[0][0]);
+	stencilShader->shader.SetMatFloat4v("model", &modelMatrix.v[0][0]);*/
 #endif
 	// Draw model bigger size using the stencilShader
 	if (isIndependent)
 	{
-		Draw(material);
+		//Draw(material, false);
+		StencilDraw();
 	}
 	else
 	{
-		InstanceRenderer* manager = Application::Instance()->renderer3D->renderManager.GetRenderManager(component->_meshID);
+		InstanceRenderer* manager = Application::Instance()->renderer3D->renderManager.GetRenderManager(component->_meshID, 0);
 		manager->DrawInstance(this, false);
 	}
 
@@ -252,7 +267,7 @@ void Mesh::DrawAsSelected()
 	glStencilFunc(GL_ALWAYS, 1, 0xFF);
 	glStencilMask(0xFF);
 
-	InstanceRenderer* manager = Application::Instance()->renderer3D->renderManager.GetRenderManager(component->_meshID);
+	InstanceRenderer* manager = Application::Instance()->renderer3D->renderManager.GetRenderManager(component->_meshID, 0);
 	manager->DrawInstance(this);
 
 	glStencilFunc(GL_NOTEQUAL, 1, 0xFF);
@@ -267,7 +282,7 @@ void Mesh::DrawAsSelected()
 	stencilShader->shader.SetMatFloat4v("model", &modelMatrix.v[0][0]);
 #endif
 	
-	manager = Application::Instance()->renderer3D->renderManager.GetRenderManager(component->_meshID);
+	manager = Application::Instance()->renderer3D->renderManager.GetRenderManager(component->_meshID, 0);
 	manager->DrawInstance(this, false);
 
 	glStencilMask(0xFF);

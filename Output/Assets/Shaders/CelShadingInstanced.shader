@@ -1,12 +1,12 @@
 #version 410 core
 #ifdef VERTEX_PROGRAM
-	layout (location = 0) in vec3 aPos; 
-	layout (location = 1) in vec3 normals;
-	layout (location = 2) in vec2 textCoords;
+	layout (location = 0) in vec3 aPos;
+	layout (location = 1) in mat4 model;
+	layout (location = 5) in vec3 normals;
+	layout (location = 6) in vec2 texCoords;
 	
 	uniform mat4 view;
 	uniform mat4 projection;
-	uniform mat4 model;
 	uniform vec4 LightPosition;
 	uniform mat4 model_rot;
 	
@@ -22,7 +22,7 @@
 		
 		//OUT
 		FragPos = normalize(vec3(model * aPos4));
-		TextureCoords = textCoords;
+		TextureCoords = texCoords;
 		GlobalLightPos = clamp(LightPosition, -1.0, 1.0);
 		//vec3(View * vec4(light.direction, 0.0))
 		gl_Position = projection * view * model * aPos4;
@@ -101,5 +101,4 @@
 	}
 	
 #endif
-
 

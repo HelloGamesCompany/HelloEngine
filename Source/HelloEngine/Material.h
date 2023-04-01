@@ -16,6 +16,7 @@ public:
 
 	void UpdateBones(std::vector<float4x4>& bones);
 	void Update(const float* view, const float* projection, const float* model);
+	void UpdateInstanced(const float* view, const float* projection);
 
 	void Clear();
 
@@ -27,6 +28,8 @@ public:
 
 	void CheckVersion();
 private:
+	bool HandleKeyUniforms(Uniform* uni);
+
 	void CleanUniforms();
 
 public:

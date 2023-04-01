@@ -40,9 +40,42 @@ enum class PrimitiveModelsUID
 
 struct RenderEntry
 {
-	RenderEntry(){};
+	uint resMat = 0;
 	ResourceMaterial* material = nullptr;
 	Mesh mesh;
+};
+
+struct DefaultShader
+{
+	~DefaultShader()
+	{
+		if (drawPerMesh)
+		{
+			drawPerMesh->Dereference();
+			drawPerMesh = nullptr;
+		}
+		if (drawPerMesh2D)
+		{
+			drawPerMesh2D->Dereference();
+			drawPerMesh2D = nullptr;
+		}
+		if (boneMesh)
+		{
+			boneMesh->Dereference();
+			boneMesh = nullptr;
+		}
+		if (stencil)
+		{
+			stencil->Dereference();
+			stencil = nullptr;
+		}
+	}
+
+	ResourceMaterial* stencil = nullptr;
+	ResourceShader* drawPerMesh = nullptr;
+	ResourceShader* drawPerMesh2D = nullptr;
+	ResourceShader* boneMesh = nullptr;
+	ResourceShader* stencilShader = nullptr;
 };
 
 /// <summary>
@@ -59,18 +92,18 @@ public:
 
 	void OnEditor();
 
-	InstanceRenderer* GetRenderManager(uint ID, bool create = true);
+	InstanceRenderer* GetRenderManager(uint meshID, uint materialID, bool create = true);
 	uint GetMapSize() { return _renderMap.size(); };
 
 	void Draw();
 	void DrawDebug();
 	void Draw2D();
 
-	uint AddMesh(ResourceMesh* resource, ResourceMaterial* material, MeshRenderType type);
+	uint AddMesh(ResourceMesh* resource, uint resMat, MeshRenderType type);
 
-	uint AddTransparentMesh(ResourceMesh* resource);
-	uint AddIndependentMesh(ResourceMesh* resource, ResourceMaterial* material);
-	uint AddInstancedMesh(ResourceMesh* resource);
+	uint AddTransparentMesh(ResourceMesh* resource, uint resMat);
+	uint AddIndependentMesh(ResourceMesh* resource, uint resMat);
+	uint AddInstancedMesh(ResourceMesh* resource, uint resMat);
 	uint Add2DMesh();
 	uint AddTextObject(std::string text = "Default Text", float4 color = {1,1,1,1}, float2 position = {0, 0}, float scale = 1.0f);
 
@@ -101,10 +134,12 @@ public:
 	void DrawIndependentMeshes();
 	void DrawTextObjects();
 
+	void InitDefaultShaders();
+
 private:
 	std::map<uint, InstanceRenderer> _renderMap; // Render managers that use instance rendering to draw opaque meshes.
-	std::map<uint, Mesh> _transparencyMeshes; // Meshes with transparency that must be drawn with a draw call per mesh.
-	std::multimap<float, Mesh*> _orderedMeshes; // Meshes with transparency ordered from furthest to closest to the camera.
+	std::map<uint, RenderEntry> _transparencyMeshes; // Meshes with transparency that must be drawn with a draw call per mesh.
+	std::multimap<float, RenderEntry*> _orderedMeshes; // Meshes with transparency ordered from furthest to closest to the camera.
 	
 	std::map<uint, RenderEntry> _independentMeshes; // Opaque meshes that need to be drawn in an independent draw call.
 
@@ -126,6 +161,8 @@ private:
 	ResourceShader* lineShader = nullptr;
 	ResourceShader* localLineShader = nullptr;
 	Shader* textRenderingShader = nullptr;
+
+	DefaultShader defaultShader;
 
 	uint AABBVAO = 0;
 	uint AABBVBO = 0;

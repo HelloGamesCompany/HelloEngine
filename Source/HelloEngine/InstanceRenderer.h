@@ -16,9 +16,11 @@ public:
 	InstanceRenderer();
 	~InstanceRenderer();
 
-	void SetMeshInformation(ResourceMesh* resource);
+	void SetMeshInformation(ResourceMesh* resMes, ResourceMaterial* resMat);
 
 	void Draw();
+	void DrawMaterial();
+	void DrawRaw();
 
 	void Draw2D();
 
@@ -36,6 +38,7 @@ public:
 public:
 	bool initialized = false;
 	ResourceMesh* resource = nullptr;
+	ResourceMaterial* resMat = nullptr;
 	uint deletedResourceUID = 0;
 private:
 	void CreateBuffers();
@@ -51,6 +54,7 @@ private:
 	ResourceShader* perMeshShader = nullptr;
 	ResourceShader* mesh2DShader = nullptr;
 
+	std::map<uint, std::pair<uint, RenderEntry>> matMesh;
 	std::map<uint, RenderEntry> meshes;
 	std::vector<Vertex>* totalVertices = nullptr;
 	std::vector<uint>* totalIndices = nullptr;

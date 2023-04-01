@@ -10,4 +10,6 @@ public:
 	
 	std::string vertexCode;
 	std::string fragmentCode;
+
+	bool isIstanced = false;
 };

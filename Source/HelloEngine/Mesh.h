@@ -44,15 +44,16 @@ public:
 
 	// Only to be used for meshes that cannot be drawn with instanced rendering (meshes with transparency).
 	void CreateBufferData();
-	void Draw(Material* material = nullptr, bool useMaterial = true);
+	void Draw(Material material, bool useMaterial = true);
 	// ----------------------------------------------------------------------------------------------------
 private:
 	void DefaultDraw();
 
-	void UniformDraw(Material* material);
+	void UniformDraw(Material material);
 
+	void StencilDraw();
 public:
-	void DrawAsSelected(Material* material);
+	void DrawAsSelected(Material material);
 	void DrawAsSelected();
 
 	void InitAsMesh(std::vector<Vertex>& vertices, std::vector<uint>& indices);

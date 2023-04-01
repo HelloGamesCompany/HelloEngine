@@ -23,18 +23,19 @@ InstanceRenderer::~InstanceRenderer()
     mesh2DShader = nullptr;
 }
 
-void InstanceRenderer::SetMeshInformation(ResourceMesh* resource)
+void InstanceRenderer::SetMeshInformation(ResourceMesh* resMesh, ResourceMaterial* resMat)
 {
     if (initialized) 
         LOG("Tried to call RenderManager::SetMeshInformation more than once in a single Render Manager instance.");
     
-    if (resource == nullptr)
+    if (resMesh == nullptr)
         return;
 
     // Set this RenderManager Mesh information.
-    totalVertices = &resource->meshInfo.vertices;
-    totalIndices = &resource->meshInfo.indices;
-    this->resource = resource;
+    totalVertices = &resMesh->meshInfo.vertices;
+    totalIndices = &resMesh->meshInfo.indices;
+    this->resource = resMesh;
+    this->resMat = resMat;
 
     CreateBuffers();
     CreateBasicBuffers();
@@ -55,6 +56,61 @@ void InstanceRenderer::Draw()
         return;
     }
 
+    if (resMat != nullptr)
+    {
+        DrawMaterial(); //Draws using the current Material
+    }
+    else
+    {
+        DrawRaw(); //Draw using no material, "Legacy" Draw
+    }
+
+}
+
+void InstanceRenderer::DrawMaterial()
+{
+    for (auto& mesh : meshes)
+    {
+        //Selected Mesh
+        if (!mesh.second.mesh.Update())
+        {
+            if (mesh.second.mesh.isIndependent)
+                Application::Instance()->renderer3D->renderManager.SetSelectedMesh(&mesh.second);
+            continue;
+        }
+
+        modelMatrices.push_back(mesh.second.mesh.modelMatrix); // Insert updated matrices
+    }
+
+    if (!modelMatrices.empty())
+    {
+        // Update View and Projection matrices
+      //  instancedShader->shader.Bind();
+
+        // Draw using Dynamic Geometrys
+        glBindVertexArray(VAO);
+
+        // Update Model matrices
+        glBindBuffer(GL_ARRAY_BUFFER, MBO);
+        void* ptr = glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY);
+        memcpy(ptr, &modelMatrices.front(), modelMatrices.size() * sizeof(float4x4));
+        glUnmapBuffer(GL_ARRAY_BUFFER);
+
+        //Update all the uniforms
+        resMat->material.UpdateInstanced(Application::Instance()->camera->currentDrawingCamera->GetViewMatrix(),
+            Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
+
+        // Draw instanced
+        glDrawElementsInstanced(GL_TRIANGLES, totalIndices->size(), GL_UNSIGNED_INT, 0, modelMatrices.size());
+        glBindVertexArray(0);
+    }
+
+    // Reset model matrices.
+    modelMatrices.clear();
+}
+
+void InstanceRenderer::DrawRaw()
+{
     CameraObject* currentCamera = Application::Instance()->camera->currentDrawingCamera;
 
     if (is2D && currentCamera->type != CameraType::GAME)
@@ -97,7 +153,7 @@ void InstanceRenderer::Draw()
         instancedShader->shader.SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
         instancedShader->shader.SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
 
-        // Draw using Dynamic Geometry
+        // Draw using Dynamic Geometrys
         glBindVertexArray(VAO);
 
         // Update Model matrices
@@ -117,7 +173,7 @@ void InstanceRenderer::Draw()
             instancedShader->shader.SetInt(("textures[" + std::to_string(i) + "]").c_str(), i);
         }
 
-        // Draw
+        // Draw instanced
         glDrawElementsInstanced(GL_TRIANGLES, totalIndices->size(), GL_UNSIGNED_INT, 0, modelMatrices.size());
         glBindVertexArray(0);
     }
@@ -146,7 +202,7 @@ void InstanceRenderer::Draw2D()
     {
         if (mesh->second->Update())
         {
-            mesh->second->Draw();
+            //mesh->second->Draw();
         }
     }
     orderedMeshes.clear();
@@ -158,6 +214,7 @@ uint InstanceRenderer::AddMesh()
     {
         LOG("Trying to add mesh information into a RenderManager that has not been initialized yet!");
     }
+
     uint meshID = ++IDcounter; // We use a counter for easier debugging, but this could be an UUID.
     meshes[meshID].mesh.localAABB = resource->localAABB;
     meshes[meshID].mesh.resource = this->resource;
