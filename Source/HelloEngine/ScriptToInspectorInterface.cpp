@@ -1130,7 +1130,7 @@ void DragBoxUIText::OnEditor()
 {
 	API::API_UIText* Textui = (API::API_UIText*)value;
 
-	std::string TextName = "XY##" + std::to_string(UID);
+	std::string TextName = "X##" + std::to_string(UID);
 	if (ImGui::Button(TextName.c_str()))
 	{
 		Textui->SetComponent(nullptr);

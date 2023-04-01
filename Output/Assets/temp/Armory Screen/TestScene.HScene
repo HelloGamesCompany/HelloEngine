@@ -90,6 +90,40 @@
                     574205334,
                     3488934542
                 ]
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Unlock": 618596646
+                    },
+                    {
+                        "Upgrate 1": 833326043
+                    },
+                    {
+                        "Upgrate 2": 574205334
+                    },
+                    {
+                        "Upgrate 3": 3488934542
+                    },
+                    {
+                        "Panel Unlock": 1383730987
+                    },
+                    {
+                        "Panel Upgrate": 107600527
+                    },
+                    {
+                        "Weapon Associated": 508856247
+                    },
+                    {
+                        "List Weapons": 4148759232
+                    },
+                    {
+                        "Text Blueprints": 1918887109
+                    }
+                ],
+                "Script Resource": 3444632365,
+                "Type": 5
             }
         ],
         "FirstOnPrefab": true,
@@ -281,6 +315,40 @@
                 "listButtons": [
                     618596646
                 ]
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Unlock": 618596646
+                    },
+                    {
+                        "Upgrate 1": 833326043
+                    },
+                    {
+                        "Upgrate 2": 574205334
+                    },
+                    {
+                        "Upgrate 3": 3488934542
+                    },
+                    {
+                        "Panel Unlock": 1383730987
+                    },
+                    {
+                        "Panel Upgrate": 107600527
+                    },
+                    {
+                        "Weapon Associated": 508856247
+                    },
+                    {
+                        "List Weapons": 4148759232
+                    },
+                    {
+                        "Text Blueprints": 1918887109
+                    }
+                ],
+                "Script Resource": 3444632365,
+                "Type": 5
             }
         ],
         "FirstOnPrefab": true,
@@ -666,12 +734,6 @@
                 "hoverImage": 0,
                 "idleImage": 0,
                 "pressImage": 0
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": null,
-                "Script Resource": 2943233861,
-                "Type": 5
             }
         ],
         "FirstOnPrefab": false,
@@ -705,18 +767,12 @@
             },
             {
                 "Enabled": true,
-                "MaterialResource": 0,
+                "MaterialResource": 2149418341,
                 "State": 0,
                 "Type": 12,
-                "hoverImage": 0,
-                "idleImage": 0,
-                "pressImage": 0
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": null,
-                "Script Resource": 2943233861,
-                "Type": 5
+                "hoverImage": 273176788,
+                "idleImage": 2149418341,
+                "pressImage": 2736792734
             }
         ],
         "FirstOnPrefab": false,
@@ -756,12 +812,6 @@
                 "hoverImage": 0,
                 "idleImage": 0,
                 "pressImage": 0
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": null,
-                "Script Resource": 2943233861,
-                "Type": 5
             }
         ],
         "FirstOnPrefab": false,
@@ -801,12 +851,6 @@
                 "hoverImage": 0,
                 "idleImage": 0,
                 "pressImage": 0
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": null,
-                "Script Resource": 2943233861,
-                "Type": 5
             }
         ],
         "FirstOnPrefab": false,
@@ -846,12 +890,6 @@
                 "hoverImage": 0,
                 "idleImage": 0,
                 "pressImage": 0
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": null,
-                "Script Resource": 2943233861,
-                "Type": 5
             }
         ],
         "FirstOnPrefab": false,
@@ -891,12 +929,6 @@
                 "hoverImage": 0,
                 "idleImage": 0,
                 "pressImage": 0
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": null,
-                "Script Resource": 2943233861,
-                "Type": 5
             }
         ],
         "FirstOnPrefab": false,
@@ -1007,12 +1039,6 @@
                 "FillImage": 1.0,
                 "MaterialResource": 0,
                 "Type": 15
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": null,
-                "Script Resource": 2905751812,
-                "Type": 5
             }
         ],
         "FirstOnPrefab": false,
@@ -1049,12 +1075,6 @@
                 "FillImage": 1.0,
                 "MaterialResource": 0,
                 "Type": 15
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": null,
-                "Script Resource": 2905751812,
-                "Type": 5
             }
         ],
         "FirstOnPrefab": false,
@@ -1091,12 +1111,6 @@
                 "FillImage": 1.0,
                 "MaterialResource": 0,
                 "Type": 15
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": null,
-                "Script Resource": 2905751812,
-                "Type": 5
             }
         ],
         "FirstOnPrefab": false,
@@ -1133,12 +1147,6 @@
                 "FillImage": 1.0,
                 "MaterialResource": 0,
                 "Type": 15
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": null,
-                "Script Resource": 2905751812,
-                "Type": 5
             }
         ],
         "FirstOnPrefab": false,
@@ -1175,12 +1183,6 @@
                 "FillImage": 1.0,
                 "MaterialResource": 0,
                 "Type": 15
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": null,
-                "Script Resource": 2905751812,
-                "Type": 5
             }
         ],
         "FirstOnPrefab": false,

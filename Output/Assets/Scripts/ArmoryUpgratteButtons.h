@@ -23,22 +23,8 @@ public:
 	API_UIButton Upgrate2;
 	API_UIButton Upgrate3;
 
-	API_GameObject PanelUpgrateW1;
-
-	API_UIInput PanelUnlockW2;
-	API_UIInput PanelUpgrateW2;
-
-	API_GameObject PanelUnlockW3;
-	API_GameObject PanelUpgrateW3;
-
-	API_GameObject PanelUnlockW4;
-	API_GameObject PanelUpgrateW4;
-
-	API_GameObject PanelUnlockW5;
-	API_GameObject PanelUpgrateW5;
-
-	API_GameObject PanelUnlockW6;
-	API_GameObject PanelUpgrateW6;
+	API_UIInput PanelUnlock;
+	API_UIInput PanelUpgrate;
 
 	API_GameObject currentWeapon;
 	API_UIInput SelectWeaponList;

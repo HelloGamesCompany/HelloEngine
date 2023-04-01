@@ -44,14 +44,14 @@ void ArmoryWeaponSelect::Update()
 		else
 			CurrentPanelUnlock.GetGameObject().SetActive(true);
 
-		if (nextW->isUnlocked && nextW != nullptr)
+		if (nextW != nullptr && nextW->isUnlocked)
 			NextPanelUpgrate.SetActive(false);
-		else if (!nextW->isUnlocked && nextW != nullptr)
+		else if (nextW != nullptr && !nextW->isUnlocked)
 			NextPanelUnlock.SetActive(false);
 
-		if (PrevW->isUnlocked && PrevW != nullptr)
+		if (PrevW != nullptr && PrevW->isUnlocked)
 			PrevPanelUpgrate.SetActive(false);
-		else if (!PrevW->isUnlocked && PrevW != nullptr)
+		else if (PrevW != nullptr && !PrevW->isUnlocked)
 			PrevPanelUnlock.SetActive(false);
 	}
 

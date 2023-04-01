@@ -8,19 +8,14 @@ HELLO_ENGINE_API_C ArmoryUpgratteButtons* CreateArmoryUpgratteButtons(ScriptToIn
 	script->AddDragBoxUIButton("Upgrate 2", &classInstance->Upgrate2);
 	script->AddDragBoxUIButton("Upgrate 3", &classInstance->Upgrate3);
 
-	script->AddDragBoxGameObject("Panel Upgrate W1", &classInstance->PanelUpgrateW1);
-
-	script->AddDragBoxUIInput("Panel Unlock W2", &classInstance->PanelUnlockW2);
-	script->AddDragBoxUIInput("Panel Upgrate W2", &classInstance->PanelUpgrateW2);
-
-	script->AddDragBoxGameObject("Panel Unlock W3", &classInstance->PanelUnlockW3);
-	script->AddDragBoxGameObject("Panel Upgrate W3", &classInstance->PanelUpgrateW3);
+	script->AddDragBoxUIInput("Panel Unlock", &classInstance->PanelUnlock);
+	script->AddDragBoxUIInput("Panel Upgrate", &classInstance->PanelUpgrate);
 
 	script->AddDragBoxGameObject("Weapon Associated", &classInstance->currentWeapon);
 
 	script->AddDragBoxUIInput("List Weapons", &classInstance->SelectWeaponList);
 
-	//script->AddDragBoxUIText("Text Blueprints", &classInstance->bluePrintText);
+	script->AddDragBoxUIText("Text Blueprints", &classInstance->bluePrintText);
 
 	return classInstance;
 }
@@ -35,18 +30,18 @@ void ArmoryUpgratteButtons::Update()
 {
 	if (Input::GetGamePadButton(GamePadButton::BUTTON_B) == KeyState::KEY_DOWN)
 	{
-		Console::Log(std::to_string(oneTime));
+		//Console::Log(std::to_string(oneTime));
 		SelectWeaponList.SetEnable(true);
-		PanelUpgrateW2.SetEnable(false);
-		PanelUnlockW2.SetEnable(false);
+		PanelUpgrate.SetEnable(false);
+		PanelUnlock.SetEnable(false);
 	}
 
 	if (Unlock.OnPress() && oneTime != 500)
 	{
 		//GameObject Arma selected -> GetScript() -> set the correct bool as true
 		weaponInstance->isUnlocked = true;
-		PanelUpgrateW2.SetEnable(false);
-		PanelUnlockW2.SetEnable(false);
+		PanelUpgrate.SetEnable(false);
+		PanelUnlock.SetEnable(false);
 		oneTime = 500;
 	}
 

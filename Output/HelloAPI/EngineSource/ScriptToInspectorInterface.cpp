@@ -1141,12 +1141,12 @@ void DragBoxUIText::OnEditor()
 
 	if (Textui->_UIText == nullptr)
 	{
-		ImGui::TextColored(ImVec4(1, 1, 0, 1), "NULL (Drag an UI Panel Here)");
+		ImGui::TextColored(ImVec4(1, 1, 0, 1), "NULL (Drag an UI Text Here)");
 	}
 	else
 	{
 		std::string gameObjectName(Textui->GetGameObject().GetName());
-		std::string text = "(" + gameObjectName + ")" + ": UI Panel";
+		std::string text = "(" + gameObjectName + ")" + ": UI Text";
 		ImGui::TextColored(ImVec4(1, 1, 0, 1), text.c_str());
 	}
 
