@@ -734,6 +734,12 @@
                 "hoverImage": 0,
                 "idleImage": 0,
                 "pressImage": 0
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": null,
+                "Script Resource": 2943233861,
+                "Type": 5
             }
         ],
         "FirstOnPrefab": false,
@@ -773,6 +779,12 @@
                 "hoverImage": 273176788,
                 "idleImage": 2149418341,
                 "pressImage": 2736792734
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": null,
+                "Script Resource": 2943233861,
+                "Type": 5
             }
         ],
         "FirstOnPrefab": false,
@@ -812,6 +824,12 @@
                 "hoverImage": 0,
                 "idleImage": 0,
                 "pressImage": 0
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": null,
+                "Script Resource": 2943233861,
+                "Type": 5
             }
         ],
         "FirstOnPrefab": false,
@@ -851,6 +869,12 @@
                 "hoverImage": 0,
                 "idleImage": 0,
                 "pressImage": 0
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": null,
+                "Script Resource": 2943233861,
+                "Type": 5
             }
         ],
         "FirstOnPrefab": false,
@@ -890,6 +914,12 @@
                 "hoverImage": 0,
                 "idleImage": 0,
                 "pressImage": 0
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": null,
+                "Script Resource": 2943233861,
+                "Type": 5
             }
         ],
         "FirstOnPrefab": false,
@@ -929,6 +959,12 @@
                 "hoverImage": 0,
                 "idleImage": 0,
                 "pressImage": 0
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": null,
+                "Script Resource": 2943233861,
+                "Type": 5
             }
         ],
         "FirstOnPrefab": false,
@@ -1039,6 +1075,22 @@
                 "FillImage": 1.0,
                 "MaterialResource": 0,
                 "Type": 15
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "BluePrint Image Component": 1311065201
+                    },
+                    {
+                        "Blueprint Unlocked": 2149418341
+                    },
+                    {
+                        "Related Weapon": 508856247
+                    }
+                ],
+                "Script Resource": 2905751812,
+                "Type": 5
             }
         ],
         "FirstOnPrefab": false,
@@ -1075,6 +1127,22 @@
                 "FillImage": 1.0,
                 "MaterialResource": 0,
                 "Type": 15
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "BluePrint Image Component": 738364622
+                    },
+                    {
+                        "Blueprint Unlocked": 2149418341
+                    },
+                    {
+                        "Related Weapon": 144606590
+                    }
+                ],
+                "Script Resource": 2905751812,
+                "Type": 5
             }
         ],
         "FirstOnPrefab": false,
@@ -1111,6 +1179,22 @@
                 "FillImage": 1.0,
                 "MaterialResource": 0,
                 "Type": 15
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "BluePrint Image Component": 3219475805
+                    },
+                    {
+                        "Blueprint Unlocked": 2149418341
+                    },
+                    {
+                        "Related Weapon": 3767261326
+                    }
+                ],
+                "Script Resource": 3695252177,
+                "Type": 5
             }
         ],
         "FirstOnPrefab": false,
@@ -1147,6 +1231,22 @@
                 "FillImage": 1.0,
                 "MaterialResource": 0,
                 "Type": 15
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "BluePrint Image Component": 3221397760
+                    },
+                    {
+                        "Blueprint Unlocked": 2149418341
+                    },
+                    {
+                        "Related Weapon": 2317490973
+                    }
+                ],
+                "Script Resource": 2905751812,
+                "Type": 5
             }
         ],
         "FirstOnPrefab": false,
@@ -1183,6 +1283,22 @@
                 "FillImage": 1.0,
                 "MaterialResource": 0,
                 "Type": 15
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "BluePrint Image Component": 1306331402
+                    },
+                    {
+                        "Blueprint Unlocked": 2149418341
+                    },
+                    {
+                        "Related Weapon": 3445088448
+                    }
+                ],
+                "Script Resource": 2905751812,
+                "Type": 5
             }
         ],
         "FirstOnPrefab": false,
