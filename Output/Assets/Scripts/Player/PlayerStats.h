@@ -59,6 +59,8 @@ public:
     void GetPowerUp(int index);
 
     // casettes
-    int casettesPickedOnLevel;
+    bool casette1Picked;
+    bool casette2Picked;
+    bool casette3Picked;
 };
 

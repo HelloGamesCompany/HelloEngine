@@ -1,6 +1,7 @@
 #include "PlayerStats.h"
 #include "../Enemies/EnemyDrop.h"
 #include "../UI Test folder/HpBar.h"
+#include "../UsefulScripts/IndexContainer.h"
 HELLO_ENGINE_API_C PlayerStats* CreatePlayerStats(ScriptToInspectorInterface* script)
 {
     PlayerStats* classInstance = new PlayerStats();
@@ -36,7 +37,9 @@ void PlayerStats::Start()
     shield = 0;
     slowTimePowerUp = 0;
 
-    casettesPickedOnLevel = 0;
+    casette1Picked = false; // loaded from save data
+    casette2Picked = false;
+    casette3Picked = false;
 }
 
 void PlayerStats::Update()
@@ -130,7 +133,28 @@ void PlayerStats::OnCollisionEnter(API_RigidBody other)
     }
     else if (detectionTag == "Casette")
     {
-        casettesPickedOnLevel++;
+        IndexContainer* indexContainer = (IndexContainer*)other.GetGameObject().GetScript("IndexContainer");
+        if (!indexContainer)
+        {
+            Console::Log("Casette needs IndexContainer Script.");
+            return;
+        }
+
+        switch (indexContainer->index)
+        {
+        case 1:
+            casette1Picked = true;
+            break;
+        case 2:
+            casette2Picked = true;
+            break;
+        case 3:
+            casette3Picked = true;
+            break;
+        default:
+            Console::Log("Casette index only can be 1, 2 or 3.");
+            break;
+        }
         other.GetGameObject().SetActive(false);
     }
 }
