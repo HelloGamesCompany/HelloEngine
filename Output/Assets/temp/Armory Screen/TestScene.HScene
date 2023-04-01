@@ -67,7 +67,7 @@
                 "Position": [
                     0.0,
                     0.0,
-                    0.0
+                    -0.009999999776482582
                 ],
                 "Rotation": [
                     0.0,
@@ -86,14 +86,16 @@
                 "MaterialResource": 0,
                 "Type": 16,
                 "listButtons": [
-                    0
+                    833326043,
+                    574205334,
+                    3488934542
                 ]
             }
         ],
         "FirstOnPrefab": true,
         "Name": "Upgrate W2",
         "ParentUID": 2102101906,
-        "PrefabUID": 0,
+        "PrefabUID": 4047765099,
         "Tag": "UI",
         "UID": 107600527
     },
@@ -129,10 +131,10 @@
                 "pressImage": 0
             }
         ],
-        "FirstOnPrefab": true,
+        "FirstOnPrefab": false,
         "Name": "Upgrate 1 (B)",
         "ParentUID": 107600527,
-        "PrefabUID": 0,
+        "PrefabUID": 4047765099,
         "Tag": "UI",
         "UID": 833326043
     },
@@ -168,10 +170,10 @@
                 "pressImage": 0
             }
         ],
-        "FirstOnPrefab": true,
+        "FirstOnPrefab": false,
         "Name": "Upgrate 2 (B)",
         "ParentUID": 107600527,
-        "PrefabUID": 0,
+        "PrefabUID": 4047765099,
         "Tag": "UI",
         "UID": 574205334
     },
@@ -207,10 +209,10 @@
                 "pressImage": 0
             }
         ],
-        "FirstOnPrefab": true,
+        "FirstOnPrefab": false,
         "Name": "Upgrate 3 (B)",
         "ParentUID": 107600527,
-        "PrefabUID": 0,
+        "PrefabUID": 4047765099,
         "Tag": "UI",
         "UID": 3488934542
     },
@@ -220,9 +222,45 @@
             {
                 "Enabled": true,
                 "Position": [
+                    -0.3199999928474426,
+                    -0.75,
+                    0.0
+                ],
+                "Rotation": [
                     0.0,
                     0.0,
                     0.0
+                ],
+                "Scale": [
+                    0.22499999403953552,
+                    0.22499999403953552,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 0,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "WeeaponInfo W2 (I)",
+        "ParentUID": 107600527,
+        "PrefabUID": 4047765099,
+        "Tag": "UI",
+        "UID": 2310951937
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    -0.009999999776482582
                 ],
                 "Rotation": [
                     0.0,
@@ -241,14 +279,14 @@
                 "MaterialResource": 0,
                 "Type": 16,
                 "listButtons": [
-                    0
+                    618596646
                 ]
             }
         ],
         "FirstOnPrefab": true,
         "Name": "Unlock W2",
         "ParentUID": 2102101906,
-        "PrefabUID": 0,
+        "PrefabUID": 3648405693,
         "Tag": "UI",
         "UID": 1383730987
     },
@@ -284,12 +322,48 @@
                 "pressImage": 0
             }
         ],
-        "FirstOnPrefab": true,
+        "FirstOnPrefab": false,
         "Name": "Unlock (B)",
         "ParentUID": 1383730987,
-        "PrefabUID": 0,
+        "PrefabUID": 3648405693,
         "Tag": "UI",
         "UID": 618596646
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.3199999928474426,
+                    -0.75,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.22499999403953552,
+                    0.22499999403953552,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 0,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "WeeaponInfo W2 (I)",
+        "ParentUID": 1383730987,
+        "PrefabUID": 3648405693,
+        "Tag": "UI",
+        "UID": 3253601877
     },
     {
         "Active": true,
@@ -325,7 +399,7 @@
         "FirstOnPrefab": true,
         "Name": "BluePrint Amount",
         "ParentUID": 2102101906,
-        "PrefabUID": 0,
+        "PrefabUID": 3104215983,
         "Tag": "UI",
         "UID": 3041393107
     },
@@ -358,10 +432,10 @@
                 "Type": 15
             }
         ],
-        "FirstOnPrefab": true,
+        "FirstOnPrefab": false,
         "Name": "BluePrint Icon (I)",
         "ParentUID": 3041393107,
-        "PrefabUID": 0,
+        "PrefabUID": 3104215983,
         "Tag": "UI",
         "UID": 2941809646
     },
@@ -402,10 +476,10 @@
                 "Type": 17
             }
         ],
-        "FirstOnPrefab": true,
+        "FirstOnPrefab": false,
         "Name": "BluePrint Amount (T)",
         "ParentUID": 3041393107,
-        "PrefabUID": 0,
+        "PrefabUID": 3104215983,
         "Tag": "UI",
         "UID": 1918887109
     },
@@ -443,7 +517,7 @@
         "FirstOnPrefab": true,
         "Name": "BackGround",
         "ParentUID": 2102101906,
-        "PrefabUID": 0,
+        "PrefabUID": 3184370442,
         "Tag": "UI",
         "UID": 1577200399
     },
@@ -476,10 +550,10 @@
                 "Type": 15
             }
         ],
-        "FirstOnPrefab": true,
+        "FirstOnPrefab": false,
         "Name": "BackGround (I)",
         "ParentUID": 1577200399,
-        "PrefabUID": 0,
+        "PrefabUID": 3184370442,
         "Tag": "UI",
         "UID": 2944838178
     },
@@ -489,9 +563,9 @@
             {
                 "Enabled": true,
                 "Position": [
-                    -0.3199999928474426,
-                    -0.75,
-                    0.0
+                    0.0,
+                    -0.949999988079071,
+                    0.0010000000474974513
                 ],
                 "Rotation": [
                     0.0,
@@ -499,8 +573,8 @@
                     0.0
                 ],
                 "Scale": [
-                    0.22499999403953552,
-                    0.22499999403953552,
+                    0.8999999761581421,
+                    0.05000000074505806,
                     0.5
                 ],
                 "Type": 1
@@ -512,12 +586,361 @@
                 "Type": 15
             }
         ],
-        "FirstOnPrefab": true,
-        "Name": "WeeaponInfo W2",
-        "ParentUID": 2102101906,
-        "PrefabUID": 0,
+        "FirstOnPrefab": false,
+        "Name": "ButtonsGuide (I)",
+        "ParentUID": 1577200399,
+        "PrefabUID": 3184370442,
         "Tag": "UI",
-        "UID": 2310951937
+        "UID": 548007594
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "Type": 16,
+                "listButtons": [
+                    3640781781,
+                    508856247,
+                    144606590,
+                    3767261326,
+                    2317490973,
+                    3445088448
+                ]
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "WeaponList",
+        "ParentUID": 2102101906,
+        "PrefabUID": 2957652356,
+        "Tag": "UI",
+        "UID": 4148759232
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.8500000238418579,
+                    0.699999988079071,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.125,
+                    0.07500000298023224,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": null,
+                "Script Resource": 2943233861,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Weapon1 (B)",
+        "ParentUID": 4148759232,
+        "PrefabUID": 2957652356,
+        "Tag": "UI",
+        "UID": 3640781781
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.8500000238418579,
+                    0.36000001430511475,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.125,
+                    0.07500000298023224,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": null,
+                "Script Resource": 2943233861,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Weapon2 (B)",
+        "ParentUID": 4148759232,
+        "PrefabUID": 2957652356,
+        "Tag": "UI",
+        "UID": 508856247
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.8500000238418579,
+                    0.14000000059604645,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.125,
+                    0.07500000298023224,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": null,
+                "Script Resource": 2943233861,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Weapon3 (B)",
+        "ParentUID": 4148759232,
+        "PrefabUID": 2957652356,
+        "Tag": "UI",
+        "UID": 144606590
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.8500000238418579,
+                    -0.07999999821186066,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.125,
+                    0.07500000298023224,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": null,
+                "Script Resource": 2943233861,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Weapon4 (B)",
+        "ParentUID": 4148759232,
+        "PrefabUID": 2957652356,
+        "Tag": "UI",
+        "UID": 3767261326
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.8500000238418579,
+                    -0.30000001192092896,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.125,
+                    0.07500000298023224,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": null,
+                "Script Resource": 2943233861,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Weapon5 (B)",
+        "ParentUID": 4148759232,
+        "PrefabUID": 2957652356,
+        "Tag": "UI",
+        "UID": 2317490973
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.8500000238418579,
+                    -0.5199999809265137,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.125,
+                    0.07500000298023224,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": null,
+                "Script Resource": 2943233861,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Weapon6 (B)",
+        "ParentUID": 4148759232,
+        "PrefabUID": 2957652356,
+        "Tag": "UI",
+        "UID": 3445088448
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.20000000298023224,
+                    0.0,
+                    -0.0010000000474974513
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.4749999940395355,
+                    0.4749999940395355,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 0,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Weapon Selected (I)",
+        "ParentUID": 4148759232,
+        "PrefabUID": 2957652356,
+        "Tag": "UI",
+        "UID": 797707866
     },
     {
         "Active": true,
@@ -551,11 +974,11 @@
             }
         ],
         "FirstOnPrefab": true,
-        "Name": "WeaponList",
+        "Name": "BluePrints",
         "ParentUID": 2102101906,
-        "PrefabUID": 0,
+        "PrefabUID": 3397193272,
         "Tag": "UI",
-        "UID": 4148759232
+        "UID": 1136330889
     },
     {
         "Active": true,
@@ -563,8 +986,8 @@
             {
                 "Enabled": true,
                 "Position": [
-                    -0.8500000238418579,
-                    0.6700000166893005,
+                    -0.44999998807907104,
+                    0.7749999761581421,
                     0.0
                 ],
                 "Rotation": [
@@ -573,8 +996,375 @@
                     0.0
                 ],
                 "Scale": [
-                    0.125,
-                    0.07500000298023224,
+                    0.05000000074505806,
+                    0.05000000074505806,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 0,
+                "Type": 15
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": null,
+                "Script Resource": 2905751812,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "BluePrint W2 (I)",
+        "ParentUID": 1136330889,
+        "PrefabUID": 3397193272,
+        "Tag": "UI",
+        "UID": 1311065201
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.3400000035762787,
+                    0.7749999761581421,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.05000000074505806,
+                    0.05000000074505806,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 0,
+                "Type": 15
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": null,
+                "Script Resource": 2905751812,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "BluePrint W3 (I)",
+        "ParentUID": 1136330889,
+        "PrefabUID": 3397193272,
+        "Tag": "UI",
+        "UID": 738364622
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.23000000417232513,
+                    0.7749999761581421,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.05000000074505806,
+                    0.05000000074505806,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 0,
+                "Type": 15
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": null,
+                "Script Resource": 2905751812,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "BluePrint W4 (I)",
+        "ParentUID": 1136330889,
+        "PrefabUID": 3397193272,
+        "Tag": "UI",
+        "UID": 3219475805
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.11999999731779099,
+                    0.7749999761581421,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.05000000074505806,
+                    0.05000000074505806,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 0,
+                "Type": 15
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": null,
+                "Script Resource": 2905751812,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "BluePrint W5 (I)",
+        "ParentUID": 1136330889,
+        "PrefabUID": 3397193272,
+        "Tag": "UI",
+        "UID": 3221397760
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.009999999776482582,
+                    0.7749999761581421,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.05000000074505806,
+                    0.05000000074505806,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 0,
+                "Type": 15
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": null,
+                "Script Resource": 2905751812,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "BluePrint W6 (I)",
+        "ParentUID": 1136330889,
+        "PrefabUID": 3397193272,
+        "Tag": "UI",
+        "UID": 1306331402
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    -0.009999999776482582
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "Type": 16,
+                "listButtons": [
+                    833326043,
+                    574205334,
+                    3488934542
+                ]
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Upgrate W3",
+        "ParentUID": 2102101906,
+        "PrefabUID": 4047765099,
+        "Tag": "UI",
+        "UID": 3764765030
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.44999998807907104,
+                    0.15000000596046448,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.20000000298023224,
+                    0.10000000149011612,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Upgrate 1 (B)",
+        "ParentUID": 3764765030,
+        "PrefabUID": 4047765099,
+        "Tag": "UI",
+        "UID": 2031947933
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.44999998807907104,
+                    -0.15000000596046448,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.20000000298023224,
+                    0.10000000149011612,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Upgrate 2 (B)",
+        "ParentUID": 3764765030,
+        "PrefabUID": 4047765099,
+        "Tag": "UI",
+        "UID": 2909215041
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.44999998807907104,
+                    -0.44999998807907104,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.20000000298023224,
+                    0.10000000149011612,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Upgrate 3 (B)",
+        "ParentUID": 3764765030,
+        "PrefabUID": 4047765099,
+        "Tag": "UI",
+        "UID": 392624692
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.3199999928474426,
+                    -0.75,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.22499999403953552,
+                    0.22499999403953552,
                     0.5
                 ],
                 "Type": 1
@@ -586,11 +1376,1235 @@
                 "Type": 15
             }
         ],
-        "FirstOnPrefab": true,
-        "Name": "Weapon1",
-        "ParentUID": 4148759232,
-        "PrefabUID": 0,
+        "FirstOnPrefab": false,
+        "Name": "WeeaponInfo W3 (I)",
+        "ParentUID": 3764765030,
+        "PrefabUID": 4047765099,
         "Tag": "UI",
-        "UID": 1178473663
+        "UID": 1751809988
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    -0.009999999776482582
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "Type": 16,
+                "listButtons": [
+                    618596646
+                ]
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Unlock W3",
+        "ParentUID": 2102101906,
+        "PrefabUID": 3648405693,
+        "Tag": "UI",
+        "UID": 3266740145
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.44999998807907104,
+                    -0.15000000596046448,
+                    -0.0010000000474974513
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.20000000298023224,
+                    0.10000000149011612,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Unlock (B)",
+        "ParentUID": 3266740145,
+        "PrefabUID": 3648405693,
+        "Tag": "UI",
+        "UID": 2312409956
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.3199999928474426,
+                    -0.75,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.22499999403953552,
+                    0.22499999403953552,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 0,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "WeeaponInfo W3 (I)",
+        "ParentUID": 3266740145,
+        "PrefabUID": 3648405693,
+        "Tag": "UI",
+        "UID": 4034390708
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    -0.009999999776482582
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "Type": 16,
+                "listButtons": [
+                    833326043,
+                    574205334,
+                    3488934542
+                ]
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Upgrate W4",
+        "ParentUID": 2102101906,
+        "PrefabUID": 4047765099,
+        "Tag": "UI",
+        "UID": 1390031282
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.44999998807907104,
+                    0.15000000596046448,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.20000000298023224,
+                    0.10000000149011612,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Upgrate 1 (B)",
+        "ParentUID": 1390031282,
+        "PrefabUID": 4047765099,
+        "Tag": "UI",
+        "UID": 1164770649
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.44999998807907104,
+                    -0.15000000596046448,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.20000000298023224,
+                    0.10000000149011612,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Upgrate 2 (B)",
+        "ParentUID": 1390031282,
+        "PrefabUID": 4047765099,
+        "Tag": "UI",
+        "UID": 3514805549
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.44999998807907104,
+                    -0.44999998807907104,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.20000000298023224,
+                    0.10000000149011612,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Upgrate 3 (B)",
+        "ParentUID": 1390031282,
+        "PrefabUID": 4047765099,
+        "Tag": "UI",
+        "UID": 2810404624
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.3199999928474426,
+                    -0.75,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.22499999403953552,
+                    0.22499999403953552,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 0,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "WeeaponInfo W4 (I)",
+        "ParentUID": 1390031282,
+        "PrefabUID": 4047765099,
+        "Tag": "UI",
+        "UID": 1650190927
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    -0.009999999776482582
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "Type": 16,
+                "listButtons": [
+                    618596646
+                ]
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Unlock W4",
+        "ParentUID": 2102101906,
+        "PrefabUID": 3648405693,
+        "Tag": "UI",
+        "UID": 147604913
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.44999998807907104,
+                    -0.15000000596046448,
+                    -0.0010000000474974513
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.20000000298023224,
+                    0.10000000149011612,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Unlock (B)",
+        "ParentUID": 147604913,
+        "PrefabUID": 3648405693,
+        "Tag": "UI",
+        "UID": 2839875941
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.3199999928474426,
+                    -0.75,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.22499999403953552,
+                    0.22499999403953552,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 0,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "WeeaponInfo W4 (I)",
+        "ParentUID": 147604913,
+        "PrefabUID": 3648405693,
+        "Tag": "UI",
+        "UID": 478384296
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    -0.009999999776482582
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "Type": 16,
+                "listButtons": [
+                    833326043,
+                    574205334,
+                    3488934542
+                ]
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Upgrate W5",
+        "ParentUID": 2102101906,
+        "PrefabUID": 4047765099,
+        "Tag": "UI",
+        "UID": 1759035418
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.44999998807907104,
+                    0.15000000596046448,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.20000000298023224,
+                    0.10000000149011612,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Upgrate 1 (B)",
+        "ParentUID": 1759035418,
+        "PrefabUID": 4047765099,
+        "Tag": "UI",
+        "UID": 3402325730
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.44999998807907104,
+                    -0.15000000596046448,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.20000000298023224,
+                    0.10000000149011612,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Upgrate 2 (B)",
+        "ParentUID": 1759035418,
+        "PrefabUID": 4047765099,
+        "Tag": "UI",
+        "UID": 1578306633
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.44999998807907104,
+                    -0.44999998807907104,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.20000000298023224,
+                    0.10000000149011612,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Upgrate 3 (B)",
+        "ParentUID": 1759035418,
+        "PrefabUID": 4047765099,
+        "Tag": "UI",
+        "UID": 842795228
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.3199999928474426,
+                    -0.75,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.22499999403953552,
+                    0.22499999403953552,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 0,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "WeeaponInfo W5 (I)",
+        "ParentUID": 1759035418,
+        "PrefabUID": 4047765099,
+        "Tag": "UI",
+        "UID": 2698337932
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    -0.009999999776482582
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "Type": 16,
+                "listButtons": [
+                    618596646
+                ]
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Unlock W5",
+        "ParentUID": 2102101906,
+        "PrefabUID": 3648405693,
+        "Tag": "UI",
+        "UID": 1173460062
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.44999998807907104,
+                    -0.15000000596046448,
+                    -0.0010000000474974513
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.20000000298023224,
+                    0.10000000149011612,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Unlock (B)",
+        "ParentUID": 1173460062,
+        "PrefabUID": 3648405693,
+        "Tag": "UI",
+        "UID": 2890039286
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.3199999928474426,
+                    -0.75,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.22499999403953552,
+                    0.22499999403953552,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 0,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "WeeaponInfo W5 (I)",
+        "ParentUID": 1173460062,
+        "PrefabUID": 3648405693,
+        "Tag": "UI",
+        "UID": 1092214893
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    -0.009999999776482582
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "Type": 16,
+                "listButtons": [
+                    833326043,
+                    574205334,
+                    3488934542
+                ]
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Upgrate W6",
+        "ParentUID": 2102101906,
+        "PrefabUID": 4047765099,
+        "Tag": "UI",
+        "UID": 545001127
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.44999998807907104,
+                    0.15000000596046448,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.20000000298023224,
+                    0.10000000149011612,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Upgrate 1 (B)",
+        "ParentUID": 545001127,
+        "PrefabUID": 4047765099,
+        "Tag": "UI",
+        "UID": 1782370003
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.44999998807907104,
+                    -0.15000000596046448,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.20000000298023224,
+                    0.10000000149011612,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Upgrate 2 (B)",
+        "ParentUID": 545001127,
+        "PrefabUID": 4047765099,
+        "Tag": "UI",
+        "UID": 186862830
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.44999998807907104,
+                    -0.44999998807907104,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.20000000298023224,
+                    0.10000000149011612,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Upgrate 3 (B)",
+        "ParentUID": 545001127,
+        "PrefabUID": 4047765099,
+        "Tag": "UI",
+        "UID": 121147845
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.3199999928474426,
+                    -0.75,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.22499999403953552,
+                    0.22499999403953552,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 0,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "WeeaponInfo W6 (I)",
+        "ParentUID": 545001127,
+        "PrefabUID": 4047765099,
+        "Tag": "UI",
+        "UID": 3413314697
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    -0.009999999776482582
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "Type": 16,
+                "listButtons": [
+                    618596646
+                ]
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Unlock W6",
+        "ParentUID": 2102101906,
+        "PrefabUID": 3648405693,
+        "Tag": "UI",
+        "UID": 3624823927
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.44999998807907104,
+                    -0.15000000596046448,
+                    -0.0010000000474974513
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.20000000298023224,
+                    0.10000000149011612,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Unlock (B)",
+        "ParentUID": 3624823927,
+        "PrefabUID": 3648405693,
+        "Tag": "UI",
+        "UID": 178243298
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.3199999928474426,
+                    -0.75,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.22499999403953552,
+                    0.22499999403953552,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 0,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "WeeaponInfo W6 (I)",
+        "ParentUID": 3624823927,
+        "PrefabUID": 3648405693,
+        "Tag": "UI",
+        "UID": 1316131914
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    -0.009999999776482582
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "Type": 16,
+                "listButtons": [
+                    833326043,
+                    574205334,
+                    3488934542
+                ]
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Upgrate W1",
+        "ParentUID": 2102101906,
+        "PrefabUID": 4047765099,
+        "Tag": "UI",
+        "UID": 794799067
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.44999998807907104,
+                    0.15000000596046448,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.20000000298023224,
+                    0.10000000149011612,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Upgrate 1 (B)",
+        "ParentUID": 794799067,
+        "PrefabUID": 4047765099,
+        "Tag": "UI",
+        "UID": 2642169239
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.44999998807907104,
+                    -0.15000000596046448,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.20000000298023224,
+                    0.10000000149011612,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Upgrate 2 (B)",
+        "ParentUID": 794799067,
+        "PrefabUID": 4047765099,
+        "Tag": "UI",
+        "UID": 1310268034
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.44999998807907104,
+                    -0.44999998807907104,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.20000000298023224,
+                    0.10000000149011612,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "State": 0,
+                "Type": 12,
+                "hoverImage": 0,
+                "idleImage": 0,
+                "pressImage": 0
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Upgrate 3 (B)",
+        "ParentUID": 794799067,
+        "PrefabUID": 4047765099,
+        "Tag": "UI",
+        "UID": 1360395370
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.3199999928474426,
+                    -0.75,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.22499999403953552,
+                    0.22499999403953552,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 0,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "WeeaponInfo W1 (I)",
+        "ParentUID": 794799067,
+        "PrefabUID": 4047765099,
+        "Tag": "UI",
+        "UID": 3762210674
     }
 ]

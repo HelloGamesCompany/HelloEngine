@@ -53,7 +53,7 @@ void ArmoryUpgratteButtons::Update()
 	if (Upgrate1.OnPress())
 	{
 		Upgrade1();
-		//bluePrintText.SetText("HOLA");
+		bluePrintText.SetText("HOLA");
 		upgrade1 = true;
 	}
 
