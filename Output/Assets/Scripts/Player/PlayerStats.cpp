@@ -35,6 +35,8 @@ void PlayerStats::Start()
     fireratePowerUp = 0;
     shield = 0;
     slowTimePowerUp = 0;
+
+    casettesPickedOnLevel = 0;
 }
 
 void PlayerStats::Update()
@@ -125,6 +127,11 @@ void PlayerStats::OnCollisionEnter(API_RigidBody other)
         }
 
         enemyDrop->Destroy();
+    }
+    else if (detectionTag == "Casette")
+    {
+        casettesPickedOnLevel++;
+        other.GetGameObject().SetActive(false);
     }
 }
 
