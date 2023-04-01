@@ -178,9 +178,6 @@
     <ClCompile Include="../../Assets/Scripts/InteractiveEnviroment/TP_Cabin.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="../../Assets/Scripts/InteractiveEnviroment/EnemySpawner.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
     <ClCompile Include="../../Assets/Scripts/InteractiveEnviroment/SmokeExtractorTrap.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
@@ -191,6 +188,9 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Assets\Scripts\UI Test folder\ScoreScreen.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Assets\Scripts\InteractiveEnviroment\EnemyMeleeSpawner.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
@@ -358,9 +358,6 @@
     <ClInclude Include="../../Assets/Scripts/InteractiveEnviroment/TP_Cabin.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="../../Assets/Scripts/InteractiveEnviroment/EnemySpawner.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="../../Assets/Scripts/InteractiveEnviroment/SmokeExtractorTrap.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
@@ -371,6 +368,9 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Assets\Scripts\UI Test folder\ScoreScreen.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Assets\Scripts\InteractiveEnviroment\EnemyMeleeSpawner.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

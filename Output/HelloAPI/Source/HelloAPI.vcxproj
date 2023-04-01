@@ -165,6 +165,7 @@
     <ClCompile Include="..\..\Assets\Scripts\Enemies\EnemyProjectile.cpp" />
     <ClCompile Include="..\..\Assets\Scripts\Enemies\EnemyProjectilePull.cpp" />
     <ClCompile Include="..\..\Assets\Scripts\Enemies\EnemyRanger.cpp" />
+    <ClCompile Include="..\..\Assets\Scripts\InteractiveEnviroment\EnemyMeleeSpawner.cpp" />
     <ClCompile Include="..\..\Assets\Scripts\InteractiveEnviroment\GoToLevelTrigger.cpp" />
     <ClCompile Include="..\..\Assets\Scripts\Level2EndTrigger.cpp" />
     <ClCompile Include="..\..\Assets\Scripts\Level2FinalText.cpp" />
@@ -193,7 +194,6 @@
     <ClCompile Include="../../Assets/Scripts/InteractiveEnviroment/Chest.cpp" />
     <ClCompile Include="../../Assets/Scripts/Enemies/EnemyGun.cpp" />
     <ClCompile Include="../../Assets/Scripts/InteractiveEnviroment/TP_Cabin.cpp" />
-    <ClCompile Include="../../Assets/Scripts/InteractiveEnviroment/EnemySpawner.cpp" />
     <ClCompile Include="../../Assets/Scripts/InteractiveEnviroment/SmokeExtractorTrap.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -207,6 +207,7 @@
     <ClInclude Include="..\..\Assets\Scripts\Enemies\EnemyProjectile.h" />
     <ClInclude Include="..\..\Assets\Scripts\Enemies\EnemyProjectilePull.h" />
     <ClInclude Include="..\..\Assets\Scripts\Enemies\EnemyRanger.h" />
+    <ClInclude Include="..\..\Assets\Scripts\InteractiveEnviroment\EnemyMeleeSpawner.h" />
     <ClInclude Include="..\..\Assets\Scripts\InteractiveEnviroment\GoToLevelTrigger.h" />
     <ClInclude Include="..\..\Assets\Scripts\Level2EndTrigger.h" />
     <ClInclude Include="..\..\Assets\Scripts\Level2FinalText.h" />
@@ -255,7 +256,6 @@
     <ClInclude Include="../../Assets/Scripts/InteractiveEnviroment/Chest.h" />
     <ClInclude Include="../../Assets/Scripts/Enemies/EnemyGun.h" />
     <ClInclude Include="../../Assets/Scripts/InteractiveEnviroment/TP_Cabin.h" />
-    <ClInclude Include="../../Assets/Scripts/InteractiveEnviroment/EnemySpawner.h" />
     <ClInclude Include="../../Assets/Scripts/InteractiveEnviroment/SmokeExtractorTrap.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
