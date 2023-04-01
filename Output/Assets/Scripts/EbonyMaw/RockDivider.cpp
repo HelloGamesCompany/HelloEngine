@@ -1,7 +1,7 @@
 #include "RockDivider.h"
 #include "../Player/PlayerStats.h"
-#include "../EbonyMaw/BossLoop.h"
-#include "../EbonyMaw/BossAttacks.h"
+#include "BossLoop.h"
+#include "BossAttacks.h"
 //Pau Olmos
 
 HELLO_ENGINE_API_C RockDivider* CreateRockDivider(ScriptToInspectorInterface* script)
@@ -17,26 +17,25 @@ HELLO_ENGINE_API_C RockDivider* CreateRockDivider(ScriptToInspectorInterface* sc
 
 void RockDivider::Start()
 {
-	API_GameObject go = boss;
-	BossAttacks* bAttacks = (BossAttacks*)go.GetScript("BossAttacks");
-
+	bAttacks = (BossAttacks*)boss.GetScript("BossAttacks");
+	gameObject.CreateRigidBodyBox((0, 0, 0), (0, 0, 0), (0.6f, 0.6f, 0.6f), false);
 	for (size_t i = 0; i < 8; i++)
 	{
 		API_GameObject stone = Game::CreateGameObject("Stone", "Stone");
 		stone.AddMeshRenderer().ChangeMesh(stoneMesh);
 		stone.AddMaterial();
-		stone.CreateRigidBodyBox((0,0,0), (0, 0, 0), (0.3f, 0.3f, 0.3f), false);
+		stone.CreateRigidBodyBox((0, 0, 0), (0, 0, 0), (0.3f, 0.3f, 0.3f), false);
 		stone.AddScript("Stone");
-		stone.SetActive(true);
+		if(whichRockAmI < 16) stone.SetActive(true);
+		else  stone.SetActive(false);
+		
 		stones.push_back(stone);
 	}
 }
 void RockDivider::Update()
 {
-	API_GameObject go = boss;
-	BossAttacks* bAttacks = (BossAttacks*)go.GetScript("BossAttacks");
 
-	if (rockDivided == true) {
+	if (rockDivided == true && whichRockAmI < 16) {
 		dt = Time::GetDeltaTime();
 		stoneTime += dt;
 		bAttacks->ReturnRock(&gameObject, whichRockAmI, false);
@@ -66,15 +65,19 @@ void RockDivider::Update()
 void RockDivider::OnCollisionEnter(API::API_RigidBody other)
 {
 	std::string detectionName = other.GetGameObject().GetName();
-	API_GameObject go = boss;
-	BossAttacks* bAttacks = (BossAttacks*)go.GetScript("BossAttacks");
 
 	if (detectionName == "Player") {
 		PlayerStats* pStats = (PlayerStats*)other.GetGameObject().GetScript("PlayerStats");
-		pStats->TakeDamage(bAttacks->rockDmg);
-		bAttacks->ReturnRock(&gameObject, whichRockAmI, false);
+		if (whichRockAmI < 16) {	
+			pStats->TakeDamage(bAttacks->rockDmg);
+			bAttacks->ReturnRock(&gameObject, whichRockAmI, false);
+		}
+		else {
+			pStats->TakeDamage(bAttacks->orbitingRockDmg);
+		}
 	}
-	else if (detectionName != "Projectile" && detectionName != "Boss" && bAttacks->throwing == true && detectionName != "Stone") {
+	else if (detectionName != "Projectile" && detectionName != "Boss" && bAttacks->throwing == true && detectionName != "Stone" && whichRockAmI < 16 && whichRockAmI > 5) {
 		rockDivided = true;
 	}
+
 }

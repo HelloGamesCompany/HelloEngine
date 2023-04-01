@@ -35857,9 +35857,6 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Target": 1881844107
-                    },
-                    {
                         "Delay": 0.009999999776482582
                     },
                     {
@@ -35920,7 +35917,7 @@
             {
                 "Active camera": true,
                 "Active culling": true,
-                "Aspect ratio": 1.8648383617401123,
+                "Aspect ratio": 1.8838071823120117,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -35932,9 +35929,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Target": 1881844107
-                    },
                     {
                         "Delay": 0.009999999776482582
                     },
