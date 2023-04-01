@@ -190,6 +190,9 @@
     <ClCompile Include="..\..\Assets\Scripts\Level2EndTrigger.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Assets\Scripts\UI Test folder\ScoreScreen.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Macro.h">
@@ -365,6 +368,9 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Assets\Scripts\Level2EndTrigger.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Assets\Scripts\UI Test folder\ScoreScreen.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

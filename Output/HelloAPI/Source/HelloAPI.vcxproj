@@ -181,6 +181,7 @@
     <ClCompile Include="..\..\Assets\Scripts\Shooting\Guns\PlayerShotgun.cpp" />
     <ClCompile Include="..\..\Assets\Scripts\UI Test folder\DashUI.cpp" />
     <ClCompile Include="..\..\Assets\Scripts\UI Test folder\HpBar.cpp" />
+    <ClCompile Include="..\..\Assets\Scripts\UI Test folder\ScoreScreen.cpp" />
     <ClCompile Include="..\..\Assets\Scripts\UI Test folder\UIManager.cpp" />
     <ClCompile Include="../../Assets/Scripts/Player/PlayerUltimate.cpp" />
     <ClCompile Include="../../Assets/Scripts/Shooting/Guns/PlayerHandgun.cpp" />
@@ -222,6 +223,7 @@
     <ClInclude Include="..\..\Assets\Scripts\Shooting\Guns\PlayerShotgun.h" />
     <ClInclude Include="..\..\Assets\Scripts\UI Test folder\DashUI.h" />
     <ClInclude Include="..\..\Assets\Scripts\UI Test folder\HpBar.h" />
+    <ClInclude Include="..\..\Assets\Scripts\UI Test folder\ScoreScreen.h" />
     <ClInclude Include="..\..\Assets\Scripts\UI Test folder\UIManager.h" />
     <ClInclude Include="Macro.h" />
     <ClInclude Include="../../Assets/Scripts/Enemies/Enemy.h" />
