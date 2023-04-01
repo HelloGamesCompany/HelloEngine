@@ -3,7 +3,7 @@
 #include "Globals.h"
 #include "API/API_GameObject.h"
 
-class ComponentUIText;
+class TextRendererComponent;
 
 namespace API
 {
@@ -16,12 +16,13 @@ namespace API
 		API_GameObject GetGameObject();
 
 		//void SetEnable(bool);
+		void SetText(const char* text);
 
 	private:
-		ComponentUIText* GetComponent();
-		void SetComponent(ComponentUIText* component);
+		TextRendererComponent* GetComponent();
+		void SetComponent(TextRendererComponent* component);
 	private:
-		ComponentUIText* _UIText = nullptr;
+		TextRendererComponent* _UIText = nullptr;
 
 		friend class API_GameObject;
 		friend class DragBoxUIText;

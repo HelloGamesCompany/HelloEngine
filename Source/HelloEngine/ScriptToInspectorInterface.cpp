@@ -1157,10 +1157,10 @@ void DragBoxUIText::OnEditor()
 			const uint* drop = (uint*)payload->Data;
 
 			GameObject* droppedGO = ModuleLayers::S_GetGameObject(*drop);
-			ComponentUIText* component = nullptr;
+			TextRendererComponent* component = nullptr;
 
 			if (droppedGO != nullptr)
-				component = droppedGO->GetComponent<ComponentUIText>();
+				component = droppedGO->GetComponent<TextRendererComponent>();
 
 			Textui->SetComponent(component);
 		}
@@ -1189,9 +1189,9 @@ void DragBoxUIText::OnDeserialize(json& j)
 		{
 			uint id = j[i][valueName.c_str()];
 			GameObject* gameObject = ModuleLayers::S_GetGameObject(id);
-			ComponentUIText* component = nullptr;
+			TextRendererComponent* component = nullptr;
 			if (gameObject != nullptr)
-				component = gameObject->GetComponent<ComponentUIText>();
+				component = gameObject->GetComponent<TextRendererComponent>();
 			if (component != nullptr)
 			{
 				API::API_UIText* Textui = (API::API_UIText*)value;

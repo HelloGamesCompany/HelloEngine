@@ -24,14 +24,17 @@ API::API_GameObject API::API_UIText::GetGameObject()
 }
 
 
-ComponentUIText* API::API_UIText::GetComponent()
+TextRendererComponent* API::API_UIText::GetComponent()
 {
 	return _UIText;
 }
 
-void API::API_UIText::SetComponent(ComponentUIText* component)
+void API::API_UIText::SetComponent(TextRendererComponent* component)
 {
 	_UIText = component;
 }
 
-
+void API::API_UIText::SetText(const char* text)
+{
+	_UIText = component;
+}
