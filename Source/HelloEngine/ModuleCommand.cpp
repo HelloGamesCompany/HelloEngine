@@ -24,7 +24,7 @@ ModuleCommand::~ModuleCommand()
 UpdateStatus ModuleCommand::Update()
 {
 	// This has been added to avoid Undo/Redo taking place when the game is being simulated.
-	if (!_canUseCommand)
+	if (!_canUseCommand || !LayerEditor::detectInput)
 		return UpdateStatus::UPDATE_CONTINUE;
 
 	if(ModuleInput::S_GetKey(SDL_SCANCODE_LCTRL) == KEY_REPEAT)

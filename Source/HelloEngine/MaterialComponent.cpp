@@ -53,11 +53,47 @@ void MaterialComponent::OnEditor()
 				ImGui::Spacing();
 				ImGui::Spacing();
 			}
+
+			if (ImGui::Button("Apply changes"))
+			{
+				_resource->Save();
+			}
 		}
 	}
 	if (!created)
 		this->_gameObject->DestroyComponent(this);
 }
+
+void MaterialComponent::MarkAsDead()
+{
+	if (_resource == nullptr) return;
+
+	_resourceUID = _resource->UID;
+	_resource->Dereference();
+	_resource = nullptr;
+}
+
+void MaterialComponent::MarkAsAlive()
+{
+	_resource = (ResourceMaterial*)ModuleResourceManager::S_LoadResource(_resourceUID);
+	if (_resource != nullptr)
+	{
+		if (_resource->material.GetShader())
+		{
+			//Re create mesh into the RenderManager
+			MeshRenderComponent* comp = _gameObject->GetComponent<MeshRenderComponent>();
+			if (!comp)
+			{
+				comp = _gameObject->GetComponent<SkinnedMeshRenderComponent>();
+			}
+
+			if (comp) comp->CreateMesh(comp->GetResourceUID(), _resource->UID, comp->GetMeshRenderType());
+		}
+
+	}
+}
+
+
 #endif
 void MaterialComponent::MaterialDragNDrop()
 {
@@ -91,7 +127,7 @@ void MaterialComponent::MaterialDragNDrop()
 
 void MaterialComponent::ShaderSelectCombo()
 {
-	if (this->_resource == nullptr)return;
+	if (this->_resource == nullptr) return;
 	
 	std::string strSelected = "Select a shader";
 	ResourceShader* resShader = _resource->material.GetShader();

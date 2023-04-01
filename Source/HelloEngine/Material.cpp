@@ -151,10 +151,12 @@ void Material::LoadJSON(std::string filePath)
 {
 	char* data = nullptr;
 	ModuleFiles::S_Load(filePath, &data);
-	if (data == nullptr || data[0] == 'M')
+	if (data == nullptr)
 		return;
 	
 	json j = json::parse(data);
+
+	RELEASE_ARRAY(data);
 
 	if (!j.contains("Shader resource UID")) return;
 	if (!SetShader(j["Shader resource UID"])) return;

@@ -792,11 +792,6 @@ void RenderManager::DrawColliderCylinder(PhysBody3D* physBody, float2 radiusHeig
 	//rotMatrix[11] = 0;
 	//rotMatrix[15] = 1;
 
-
-
-
-
-	
 	std::vector<float3> CylinderPoints;
 	
 	//Down

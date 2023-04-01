@@ -53,6 +53,12 @@ void SceneCameraObject::UpdateInput()
 		if (ModuleInput::S_GetKey(SDL_SCANCODE_D) == KEY_REPEAT)
 			newPos += cameraFrustum.WorldRight() * speed;
 
+		if (ModuleInput::S_GetKey(SDL_SCANCODE_Q) == KEY_REPEAT)
+			newPos += cameraFrustum.up * speed;
+
+		if (ModuleInput::S_GetKey(SDL_SCANCODE_E) == KEY_REPEAT)
+			newPos -= cameraFrustum.up * speed;
+
 		cameraFrustum.pos += newPos;
 
 		if (dy != 0)

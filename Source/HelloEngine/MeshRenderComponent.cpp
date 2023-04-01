@@ -76,8 +76,6 @@ void MeshRenderComponent::CreateMesh(uint resourceUID, int materialUID, MeshRend
 		material = (ResourceMaterial*)ModuleResourceManager::S_LoadResource(materialUID);
 	}
 
-
-
 	renderType = type;
 
 	// If we are Instanced, we use 2 IDs, one for our resource and another for our instance identifier.
@@ -415,9 +413,7 @@ void MeshRenderComponent::Serialization(json& j)
 
 void MeshRenderComponent::DeSerialization(json& j)
 {
-	ResourceModel* model = nullptr;
-	if (ModuleResourceManager::resources.count(j["ModelUID"]) != 0)
-		model = (ResourceModel*)ModuleResourceManager::resources[j["ModelUID"]];
+	ResourceModel* model = (ResourceModel*)ModuleResourceManager::S_LoadResource(j["ModelUID"]);
 
 	if (model == nullptr)
 	{

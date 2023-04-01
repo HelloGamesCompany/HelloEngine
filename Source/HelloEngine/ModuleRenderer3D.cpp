@@ -13,7 +13,7 @@
 
 ModuleRenderer3D::ModuleRenderer3D(bool start_enabled) : Module(start_enabled)
 {
-
+	
 }
 
 // Destructor
@@ -26,8 +26,9 @@ bool ModuleRenderer3D::Init()
 	LOG("Creating 3D Renderer context");
 	bool ret = true;
 	_cameras = app->camera;
-	Console::S_Log("Initializing OpenGL 4.1");
 	
+	Console::S_Log("Initializing OpenGL 4.1");
+
 	//Create context
 	context = SDL_GL_CreateContext(ModuleWindow::window);
 
@@ -37,47 +38,39 @@ bool ModuleRenderer3D::Init()
 
 	SDL_GL_MakeCurrent(ModuleWindow::window, context);
 
-	if(ret == true)
-	{
-		//Use Vsync
-		XMLNode renderNode = app->xml->GetConfigXML().FindChildBreadth("renderer");
-		isVSync = renderNode.node.child("vsync").attribute("value").as_bool();
-		ToggleVSync(isVSync);
+	//Use Vsync
+	XMLNode renderNode = app->xml->GetConfigXML().FindChildBreadth("renderer");
+	isVSync = renderNode.node.child("vsync").attribute("value").as_bool();
+	ToggleVSync(isVSync);
 
-		glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
-		glClearDepth(1.0f);
+	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
+	glClearDepth(1.0f);
 
-		//Initialize clear color
-		glClearColor(0.f, 0.f, 0.f, 1.f);
+	//Initialize clear color
+	glClearColor(0.f, 0.f, 0.f, 1.f);
 
-		GLfloat LightModelAmbient[] = {0.0f, 0.0f, 0.0f, 1.0f};
-		glLightModelfv(GL_LIGHT_MODEL_AMBIENT, LightModelAmbient);
+	GLfloat LightModelAmbient[] = { 0.0f, 0.0f, 0.0f, 1.0f };
+	glLightModelfv(GL_LIGHT_MODEL_AMBIENT, LightModelAmbient);
 
-		//lights[0].ref = GL_LIGHT0;
-		//lights[0].ambient.Set(0.5f, 0.5f, 0.5f, 0.5f);
-		//lights[0].diffuse.Set(1.0f, 1.0f, 1.0f, 0.5f);
-		//lights[0].SetPos(0.0f, 0.0f, 2.5f);
-		//lights[0].Init();
+	GLfloat MaterialAmbient[] = { 1.0f, 1.0f, 1.0f, 1.0f };
+	glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, MaterialAmbient);
 
-		GLfloat MaterialAmbient[] = {1.0f, 1.0f, 1.0f, 1.0f};
-		glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, MaterialAmbient);
+	GLfloat MaterialDiffuse[] = { 1.0f, 1.0f, 1.0f, 1.0f };
+	glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, MaterialDiffuse);
 
-		GLfloat MaterialDiffuse[] = {1.0f, 1.0f, 1.0f, 1.0f};
-		glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, MaterialDiffuse);
+	glEnable(GL_DEPTH_TEST);
+	glEnable(GL_CULL_FACE);
+	glEnable(GL_LIGHTING);
+	glEnable(GL_COLOR_MATERIAL);
+	glEnable(GL_TEXTURE_2D);
 
-		glEnable(GL_DEPTH_TEST);
-		glEnable(GL_CULL_FACE);
-		glEnable(GL_LIGHTING);
-		glEnable(GL_COLOR_MATERIAL);
-		glEnable(GL_TEXTURE_2D);
+	glHint(GL_LINE_SMOOTH_HINT, GL_NICEST);
+	glEnable(GL_LINE_SMOOTH);
 
-		glHint(GL_LINE_SMOOTH_HINT, GL_NICEST);
-		glEnable(GL_LINE_SMOOTH);
+	// Enable opacity
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-		// Enable opacity
-		glEnable(GL_BLEND);
-		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	}
 
 	renderManager.Init();
 

@@ -27,6 +27,9 @@ void ImWindowScene::Update()
 {
     if (ImGui::Begin(windowName.c_str(), 0, ImGuiWindowFlags_MenuBar))
     {
+        if (ImGui::IsWindowFocused())
+            LayerEditor::detectInput = true;
+
         if (ImGui::BeginMenuBar())
         {
             std::string option = "Change to ";
