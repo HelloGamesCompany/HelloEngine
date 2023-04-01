@@ -5,7 +5,7 @@
 
 #include "API/API.h"
 #include "API/API_UIInput.h"
-#include "API/API_UIText.h"
+//#include "API/API_UIText.h"
 #include "ArmoryWeaponSelect.h"
 
 class ArmoryUpgratteButtons : HelloBehavior
@@ -43,7 +43,7 @@ public:
 	API_GameObject currentWeapon;
 	API_UIInput SelectWeaponList;
 
-	API_UIText bluePrintText;
+	//API_UIText bluePrintText;
 
 	ArmoryWeaponSelect* weaponInstance;
 
