@@ -1176,7 +1176,7 @@ void DragBoxUIText::OnSerialize(json& j)
 
 	if (Textui->_UIText != nullptr)
 	{
-		_j[valueName.c_str()] = Textui->_UIText;
+		_j[valueName.c_str()] = Textui->_UIText->GetGameObject()->GetID();
 		j.push_back(_j);
 	}
 }

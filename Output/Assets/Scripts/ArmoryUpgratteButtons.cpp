@@ -20,6 +20,8 @@ HELLO_ENGINE_API_C ArmoryUpgratteButtons* CreateArmoryUpgratteButtons(ScriptToIn
 
 	script->AddDragBoxUIInput("List Weapons", &classInstance->SelectWeaponList);
 
+	script->AddDragBoxUIText("Text Blueprints", &classInstance->bluePrintText);
+
 	return classInstance;
 }
 
@@ -51,6 +53,7 @@ void ArmoryUpgratteButtons::Update()
 	if (Upgrate1.OnPress())
 	{
 		Upgrade1();
+		bluePrintText.SetText("HOLA");
 		upgrade1 = true;
 	}
 
