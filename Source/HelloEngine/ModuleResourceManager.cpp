@@ -59,20 +59,14 @@ bool ModuleResourceManager::Init()
 {
 	// Create checkers texture resource
 	S_CreateResourceText("Null", CHECKERS_RESOURCE_UID, "Checkers", false);
+	return true;
+}
 
-	// Create meta files for every asset that doesnt have one.
-	// Check if file has a defined reosurce type
-	// If it does, create meta file. (MODULEFILESYSTEM)
-
+bool ModuleResourceManager::Start()
+{
 	_fileTree = new FileTree();
 
 	ModuleFiles::S_UpdateFileTree(_fileTree);
-
-	// Check all meta files and create a resource per file using FileTree.
-	// Save all resources in a map, using as key the meta file UID.
-	// Unload all resources.
-
-	// When a resource needs to be loaded, it will always be already created.
 	return true;
 }
 
@@ -176,6 +170,31 @@ void ModuleResourceManager::S_ReImportFile(const std::string& filePath, Resource
 		ModuleFiles::S_UpdateMetaData(filePath, "null");
 	}
 	break;
+	case ResourceType::MATERIAL:
+	{
+		if (resources[meta.UID] != nullptr)
+		{
+			ModuleFiles::S_UpdateMetaData(filePath, meta.resourcePath); // We do this before reimporting, because the new resource file will be named like the old, and this destroys that file.
+			resources[meta.UID]->ReImport(""); // No necessary path for this kind of ReImport
+		}
+		break;
+	}
+	case ResourceType::SHADER:
+	{
+		if (resources[meta.UID] != nullptr)
+		{
+			ModuleFiles::S_UpdateMetaData(filePath, meta.resourcePath); // We do this before reimporting, because the new resource file will be named like the old, and this destroys that file.
+			resources[meta.UID]->ReImport(""); // No necessary path for this kind of ReImport
+		}
+		break;
+	}
+	case ResourceType::PREFAB:
+	{
+		if (resources[meta.UID] != nullptr)
+		{
+			ModuleFiles::S_UpdateMetaData(filePath, meta.resourcePath); // We do this before reimporting, because the new resource file will be named like the old, and this destroys that file.
+		}
+	}
 	}
 
 	RELEASE_ARRAY(buffer);
@@ -221,6 +240,19 @@ void ModuleResourceManager::S_LoadFileIntoResource(Resource* resource)
 		ResourceAnimation* animRes = (ResourceAnimation*)resource;
 		animRes->animation.LoadFromBinaryFile(animRes->resourcePath);
 
+	}
+	break;
+	case ResourceType::SHADER:
+	{
+		ResourceShader* shaderRes = (ResourceShader*)resource;
+		shaderRes->shader = Shader(shaderRes->resourcePath);
+		shaderRes->version = HelloUUID::GenerateUUID();
+	}
+	break;
+	case ResourceType::MATERIAL:
+	{
+		ResourceMaterial* materialRes = (ResourceMaterial*)resource;
+		materialRes->material.LoadJSON(materialRes->assetsPath);
 	}
 	break;
 	}
@@ -768,12 +800,16 @@ void ModuleResourceManager::S_CreateResource(const MetaFile& metaFile)
 	break;
 	case ResourceType::SHADER:
 	{
-		resources[metaFile.UID] = new ResourceShader();
+		ResourceShader* shaderRes = new ResourceShader();
+		resources[metaFile.UID] = shaderRes;
+		shaderRes->assetsPath = metaFile.assetsPath;
 	}
 	break;
 	case ResourceType::MATERIAL:
 	{
-		resources[metaFile.UID] = new ResourceMaterial();
+		ResourceMaterial* materialRes = new ResourceMaterial();
+		resources[metaFile.UID] = materialRes;
+		materialRes->assetsPath = metaFile.assetsPath;
 	}
 	break;
 	default:
@@ -1382,5 +1418,34 @@ void ResourceScript::Destroy()
 				}
 			}
 		}
+	}
+}
+
+void ResourceMaterial::ReImport(const std::string& filePath)
+{
+	material.LoadJSON(assetsPath);
+	Save();
+}
+
+void ResourceMaterial::Save()
+{
+	json j;
+	material.Save(j);
+
+	std::string buffer = j.dump(4);
+	ModuleFiles::S_Save(resourcePath, buffer.data(), buffer.length(), false);
+	ModuleFiles::S_Save(assetsPath, buffer.data(), buffer.length(), false);
+}
+
+void ResourceShader::ReImport(const std::string& filePath)
+{
+	char* buffer = nullptr;
+	uint size = ModuleFiles::S_Load(assetsPath, &buffer);
+
+	if (buffer != nullptr)
+	{
+		ModuleFiles::S_Save(resourcePath, buffer, size, false);
+
+		RELEASE_ARRAY(buffer);
 	}
 }

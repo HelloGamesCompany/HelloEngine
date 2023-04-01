@@ -15,6 +15,9 @@ public:
 #ifdef STANDALONE
 	void OnEditor() override;
 
+	void MarkAsDead() override;
+	void MarkAsAlive() override;
+
 #endif // STANDALONE
 
 
@@ -26,5 +29,8 @@ private:
 
 private:
 	ResourceMaterial* _resource = nullptr;
+private:
+
+	uint _resourceUID = 0;
 };
 
