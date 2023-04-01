@@ -152,9 +152,6 @@
                 "Inspector Fields": [
                     {
                         "hp": false
-                    },
-                    {
-                        "hp": false
                     }
                 ],
                 "Script Resource": 1164455694,
@@ -276,12 +273,6 @@
                     },
                     {
                         "MAX HP": 100.0
-                    },
-                    {
-                        "HP": 100.0
-                    },
-                    {
-                        "MAX HP": 100.0
                     }
                 ],
                 "Script Resource": 3828527852,
@@ -392,42 +383,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Text_Weapon_1_on": 1828660828
-                    },
-                    {
-                        "Text_Weapon_1_off": 1261649561
-                    },
-                    {
-                        "Material Weapon 1": 4102192440
-                    },
-                    {
-                        "Game Bar Weapon 1": 4172812350
-                    },
-                    {
-                        "Text_Weapon_2_on": 977509463
-                    },
-                    {
-                        "Text_Weapon_2_off": 1072796038
-                    },
-                    {
-                        "Material Weapon 2": 2595168131
-                    },
-                    {
-                        "Game Bar Weapon 2": 692296045
-                    },
-                    {
-                        "Text_Weapon_3_on": 12569475
-                    },
-                    {
-                        "Text_Weapon_3_off": 103443597
-                    },
-                    {
-                        "Material Weapon 3": 1805554832
-                    },
-                    {
-                        "Game Bar Weapon 3": 1496549210
-                    },
                     {
                         "Text_Weapon_1_on": 1828660828
                     },
@@ -1107,8 +1062,34 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 0,
+                "MaterialResource": 973302505,
                 "Type": 15
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "HP": 69.0
+                    },
+                    {
+                        "MAX HP": 100.0
+                    }
+                ],
+                "Script Resource": 3828527852,
+                "Type": 5
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Bar": 221472945
+                    },
+                    {
+                        "hp": false
+                    }
+                ],
+                "Script Resource": 1164455694,
+                "Type": 5
             }
         ],
         "FirstOnPrefab": true,
@@ -1143,51 +1124,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Material Pick_up 1": 3330712065
-                    },
-                    {
-                        "Material Pick_up 2": 3955892868
-                    },
-                    {
-                        "Material Pick_up 3": 2411446382
-                    },
-                    {
-                        "Material Pick_up 4": 1806803977
-                    },
-                    {
-                        "Material Pick_up 5": 3047364684
-                    },
-                    {
-                        "Texture_Pick_up_1": 1072796038
-                    },
-                    {
-                        "Texture_Pick_up_2": 3583084629
-                    },
-                    {
-                        "Texture_Pick_up_3": 977509463
-                    },
-                    {
-                        "Texture_Pick_up_4": 4259070326
-                    },
-                    {
-                        "Texture_Pick_up_5": 3102974161
-                    },
-                    {
-                        "GamesObjects_1": 3330712065
-                    },
-                    {
-                        "GamesObjects_2": 3955892868
-                    },
-                    {
-                        "GamesObjects_3": 2411446382
-                    },
-                    {
-                        "GamesObjects_4": 1806803977
-                    },
-                    {
-                        "GamesObjects_5": 3047364684
-                    },
                     {
                         "Material Pick_up 1": 3330712065
                     },
