@@ -471,13 +471,13 @@ void ParticleSystemComponent::Serialization(json& j)
 
 void ParticleSystemComponent::DeSerialization(json& j)
 {
-
-	ResourceModel* model = (ResourceModel*)ModuleResourceManager::resources[j["ModelUID"]];
+	ResourceModel* model = nullptr;
+	if (ModuleResourceManager::resources.count(j["ModelUID"]) != 0)
+		model = (ResourceModel*)ModuleResourceManager::resources[j["ModelUID"]];
 
 	uint savedUID = j["ResourceTextUID"];
 
 	ResourceTexture* resourcetext = savedUID == 0 ? nullptr : (ResourceTexture*)ModuleResourceManager::S_LoadResource(j["ResourceTextUID"]);
-
 
 	if (model == nullptr)
 	{

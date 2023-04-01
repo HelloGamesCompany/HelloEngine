@@ -598,6 +598,11 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
 		if (currentFile->metaFile.type == ResourceType::MODEL && currentFile->pressed)
 		{
 			ResourceModel* model = (ResourceModel*)ModuleResourceManager::resources[_fileTree->_currentDir->files[i].metaFile.UID];
+
+			if (_fileTree->_currentDir->files[i].metaFile.UID == 2417919063)
+			{
+				std::cout << "a";
+			}
 			ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.3, 0.3, 0.3, 1));
 			for (int j = 0; j < model->modelMeshes.size(); j++)
 			{
