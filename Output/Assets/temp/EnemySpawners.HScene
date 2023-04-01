@@ -36,8 +36,8 @@
                 "Enabled": true,
                 "Position": [
                     -312.3500671386719,
-                    -339.2992858886719,
-                    739.6115112304688
+                    -45.33990478515625,
+                    415.5458068847656
                 ],
                 "Rotation": [
                     -0.0,
@@ -45,9 +45,9 @@
                     -0.0
                 ],
                 "Scale": [
-                    512.7766723632813,
-                    48.40102005004883,
-                    706.1923217773438
+                    152.6241912841797,
+                    12.242218971252441,
+                    250.26145935058594
                 ],
                 "Type": 1
             },
@@ -117,7 +117,7 @@
             {
                 "Enabled": true,
                 "Position": [
-                    0.0,
+                    456.9405212402344,
                     -271.26165771484375,
                     374.42803955078125
                 ],
@@ -389,6 +389,18 @@
                     },
                     {
                         "Min Distance Value": 0
+                    },
+                    {
+                        "Smoke Particle": 2886869027
+                    },
+                    {
+                        "Fire Particle": 601217207
+                    },
+                    {
+                        "Delay on Hit": 0.0
+                    },
+                    {
+                        "Min Distance Value": 0
                     }
                 ],
                 "Script Resource": 677318794,
@@ -546,5 +558,75 @@
         "PrefabUID": 1387571427,
         "Tag": "Primitive",
         "UID": 2886869027
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -310.0923156738281,
+                    -14.064420700073242,
+                    367.0723876953125
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    18.49022674560547,
+                    18.461544036865234,
+                    13.338127136230469
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 10,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube",
+        "ParentUID": 3102163706,
+        "PrefabUID": 0,
+        "Tag": "Primitive",
+        "UID": 4181446172
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Empty",
+        "ParentUID": 4181446172,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3422474284
     }
 ]
