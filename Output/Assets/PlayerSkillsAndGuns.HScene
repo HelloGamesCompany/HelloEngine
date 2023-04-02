@@ -54,7 +54,7 @@
             {
                 "Active camera": true,
                 "Active culling": true,
-                "Aspect ratio": 1.9408766031265259,
+                "Aspect ratio": 1.7858319282531738,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -109,6 +109,67 @@
                 "Type": 3
             },
             {
+                "ColPosition": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    2.0,
+                    2.0,
+                    2.0
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "GlobalGravity": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Gravity": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsShapeSelected": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsStatic": false,
+                "IsTrigger": false,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    0.5,
+                    0.0,
+                    0.5,
+                    1.0
+                ],
+                "ShapeSelected": 0,
+                "SphereHorSlices": 16,
+                "SphereRadius": 1.0,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
+            },
+            {
                 "Enabled": true,
                 "Inspector Fields": [
                     {
@@ -124,6 +185,9 @@
                         "SecToZeroVel": 0.0
                     },
                     {
+                        "Y tp limit": -50.0
+                    },
+                    {
                         "Dash Time": 0.5
                     },
                     {
@@ -137,6 +201,9 @@
                     },
                     {
                         "Upgrade Dash Cooldown": 0.0
+                    },
+                    {
+                        "Player Stats GO": 3681930564
                     }
                 ],
                 "Script Resource": 1247927621,
@@ -164,16 +231,19 @@
                         "Ricochet Ammo": 99999
                     },
                     {
-                        "tree1": 0
+                        "Storage GO": 3681930564
                     },
                     {
-                        "tree2": 0
+                        "movement tree lvl": 0
                     },
                     {
-                        "tree3": 0
+                        "armory tree lvl": 0
                     },
                     {
-                        "tree4": 0
+                        "health tree lvl": 0
+                    },
+                    {
+                        "special tree lvl": 0
                     }
                 ],
                 "Script Resource": 3870473519,
@@ -212,13 +282,19 @@
                 ],
                 "Script Resource": 1545024998,
                 "Type": 5
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": null,
+                "Script Resource": 1045846276,
+                "Type": 5
             }
         ],
         "FirstOnPrefab": true,
         "Name": "Player",
         "ParentUID": 2066812041,
         "PrefabUID": 0,
-        "Tag": "Primitive",
+        "Tag": "Player",
         "UID": 3681930564
     },
     {
@@ -370,6 +446,9 @@
                     },
                     {
                         "Freeze %": 0.0
+                    },
+                    {
+                        "Player Stats GO": 3681930564
                     },
                     {
                         "Ammo Type": 0
@@ -736,5 +815,121 @@
         "PrefabUID": 0,
         "Tag": "Default",
         "UID": 4082549604
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    40.59202194213867
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 10,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 240240,
+                "Type": 3
+            },
+            {
+                "ColPosition": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    5.0,
+                    5.0,
+                    5.0
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "GlobalGravity": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Gravity": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsShapeSelected": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsStatic": false,
+                "IsTrigger": false,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    0.5,
+                    0.0,
+                    0.5,
+                    1.0
+                ],
+                "ShapeSelected": 0,
+                "SphereHorSlices": 16,
+                "SphereRadius": 1.0,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Item Index": 0
+                    }
+                ],
+                "Script Resource": 2493606750,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube",
+        "ParentUID": 2066812041,
+        "PrefabUID": 0,
+        "Tag": "Primitive",
+        "UID": 592194697
     }
 ]
