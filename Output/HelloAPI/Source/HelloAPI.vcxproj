@@ -196,6 +196,8 @@
 		<ClCompile Include="../../Assets/Scripts/InteractiveEnviroment/TP_Cabin.cpp" />
 		<ClCompile Include="../../Assets/Scripts/InteractiveEnviroment/SmokeExtractorTrap.cpp" />
 		<ClCompile Include="../../Assets/Scripts/InteractiveEnviroment/BreakableBox.cpp" />
+		<ClCompile Include="../../Assets/Scripts/InteractiveEnviroment/BreakableWall.cpp" />
+		<ClCompile Include="../../Assets/Scripts/Player/PlayerStorage.cpp" />
 	</ItemGroup>
 	<ItemGroup>
 		<ClInclude Include="..\..\Assets\Scripts\EbonyMaw\BossAttacks.h" />
@@ -259,6 +261,8 @@
 		<ClInclude Include="../../Assets/Scripts/InteractiveEnviroment/TP_Cabin.h" />
 		<ClInclude Include="../../Assets/Scripts/InteractiveEnviroment/SmokeExtractorTrap.h" />
 		<ClInclude Include="../../Assets/Scripts/InteractiveEnviroment/BreakableBox.h" />
+		<ClInclude Include="../../Assets/Scripts/InteractiveEnviroment/BreakableWall.h" />
+		<ClInclude Include="../../Assets/Scripts/Player/PlayerStorage.h" />
 	</ItemGroup>
 	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 	<ImportGroup Label="ExtensionTargets" />
