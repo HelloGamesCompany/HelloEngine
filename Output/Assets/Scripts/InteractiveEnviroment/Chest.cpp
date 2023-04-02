@@ -32,14 +32,12 @@ void Chest::OnCollisionEnter(API::API_RigidBody other)
             switch (itemIndex)
             {
             case 0: // Upgrade Blueprint
-                // add 1 upgrade blueprint with save system or game manager or player system
-                break;
             case 1: // Unlock Gun
             case 2:
             case 3:
             case 4:
             case 5:
-                // 
+                playerStats->SaveInStorage(itemIndex);
                 break;
             case 6: // Get Flamethrower
                 playerGunManager->GetGun(3, 6);

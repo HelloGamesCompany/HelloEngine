@@ -5,6 +5,8 @@
 
 #include "API/API.h"
 
+#include "PlayerStorage.h"
+
 class HpBar;
 
 class PlayerStats : HelloBehavior
@@ -58,9 +60,9 @@ public:
     float slowTimePowerUp; // 4
     void GetPowerUp(int index);
 
-    // casettes
-    bool casette1Picked;
-    bool casette2Picked;
-    bool casette3Picked;
+    // storage
+    API_GameObject storageGameObject;
+    PlayerStorage* storage;
+    void SaveInStorage(int index);
 };
 

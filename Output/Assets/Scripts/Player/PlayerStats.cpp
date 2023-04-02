@@ -12,6 +12,7 @@ HELLO_ENGINE_API_C PlayerStats* CreatePlayerStats(ScriptToInspectorInterface* sc
     script->AddDragInt("Laser Ammo", &classInstance->laserAmmo);
     script->AddDragInt("Fire Ammo", &classInstance->fireAmmo);
     script->AddDragInt("Ricochet Ammo", &classInstance->ricochetAmmo);
+    script->AddDragBoxGameObject("Storage GO", &classInstance->storageGameObject);
     //script->AddDragBoxGameObject("Health bar", &classInstance->hpGameObject);
     script->AddDragInt("movement tree lvl", &classInstance->movementTreeLvl); // remove when save and load is ready
     script->AddDragInt("armory tree lvl", &classInstance->armoryTreeLvl);
@@ -37,9 +38,8 @@ void PlayerStats::Start()
     shield = 0;
     slowTimePowerUp = 0;
 
-    casette1Picked = false; // loaded from save data
-    casette2Picked = false;
-    casette3Picked = false;
+    storage = (PlayerStorage*)storageGameObject.GetScript("PlayerStorage");
+    if (!storage) Console::Log("Storage Missing in PlayerStats. Only needed in levels.");
 }
 
 void PlayerStats::Update()
@@ -139,17 +139,22 @@ void PlayerStats::OnCollisionEnter(API_RigidBody other)
             Console::Log("Casette needs IndexContainer Script.");
             return;
         }
+        if (!storage)
+        {
+            Console::Log("Storage missing in PlayerStats Script.");
+            return;
+        }
 
         switch (indexContainer->index)
         {
         case 1:
-            casette1Picked = true;
+            storage->casette1Picked = true;
             break;
         case 2:
-            casette2Picked = true;
+            storage->casette2Picked = true;
             break;
         case 3:
-            casette3Picked = true;
+            storage->casette3Picked = true;
             break;
         default:
             Console::Log("Casette index only can be 1, 2 or 3.");
@@ -315,6 +320,30 @@ void PlayerStats::GetPowerUp(int index)
         break;
     default:
         Console::Log("Invalid powe up index, can only be 0, 1, 2 or 3.");
+        break;
+    }
+}
+
+void PlayerStats::SaveInStorage(int index)
+{
+    if (!storage)
+    {
+        Console::Log("Storage missing in PlayerStats Script.");
+        return;
+    }
+
+    switch (index)
+    {
+    case 0:
+        storage->upgradeBlueprintAmount++;
+        break;
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+        storage->unlockGunBlueprint = index;
+        break;
+    default:
         break;
     }
 }
