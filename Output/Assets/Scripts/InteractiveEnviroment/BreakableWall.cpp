@@ -1,10 +1,11 @@
 #include "BreakableWall.h"
 #include "../Shooting/Projectile.h"
+#include "../Player/PlayerMove.h"
 HELLO_ENGINE_API_C BreakableWall* CreateBreakableWall(ScriptToInspectorInterface* script)
 {
     BreakableWall* classInstance = new BreakableWall();
     //Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
-    script->AddDragBoxParticleSystem("BWall Destroyed Particle", &classInstance->wallDestroyed);
+    script->AddDragBoxParticleSystem("Wall Destroyed Particle", &classInstance->wallDestroyed);
     script->AddDragInt("MaxHp", &classInstance->maxHp);
     return classInstance;
 }
@@ -28,6 +29,15 @@ void BreakableWall::OnCollisionEnter(API_RigidBody other)
         Projectile* projectile = (Projectile*)other.GetGameObject().GetScript("Projectile");
         ShootWall(projectile->damage);
 
+    }
+    else if (detectionName == "Player")
+    {
+        PlayerMove* playerMove = (PlayerMove*)other.GetGameObject().GetScript("PlayerMove");
+
+        if (playerMove->isDashing)
+        {
+            DestroyWall();
+        }
     }
 }
 

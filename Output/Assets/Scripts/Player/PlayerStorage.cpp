@@ -20,3 +20,8 @@ void PlayerStorage::Update()
 {
 
 }
+
+void PlayerStorage::SaveData()
+{
+    // save data
+}

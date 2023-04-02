@@ -162,6 +162,16 @@ void PlayerStats::OnCollisionEnter(API_RigidBody other)
         }
         other.GetGameObject().SetActive(false);
     }
+    else if (detectionTag == "CheckPoint")
+    {
+        if (!storage)
+        {
+            Console::Log("Storage missing in PlayerStats Script.");
+            return;
+        }
+
+        storage->SaveData();
+    }
 }
 
 void PlayerStats::TakeDamage(float amount)
@@ -346,4 +356,6 @@ void PlayerStats::SaveInStorage(int index)
     default:
         break;
     }
+
+    storage->SaveData();
 }

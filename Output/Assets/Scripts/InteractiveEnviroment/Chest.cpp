@@ -42,10 +42,12 @@ void Chest::OnCollisionEnter(API::API_RigidBody other)
             case 6: // Get Flamethrower
                 playerGunManager->GetGun(3, 6);
                 playerStats->GetAmmo(2, 200);
+                playerStats->SaveInStorage(-1); // save game
                 break;
             case 7: // Get Ricochet
                 playerGunManager->GetGun(3, 7);
                 playerStats->GetAmmo(3, 15);
+                playerStats->SaveInStorage(-1); // save game
                 break;
             default:
                 Console::Log("Item Index is not between 0 and 7.");
