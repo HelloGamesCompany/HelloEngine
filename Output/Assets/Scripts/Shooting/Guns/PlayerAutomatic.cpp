@@ -26,6 +26,8 @@ void PlayerAutomatic::Start()
 {
     playerStats = (PlayerStats*)player.GetScript("PlayerStats");
 
+    SetGunStatsPerLevel(0); // read from save file
+
     if (cadence == 0)
     {
         fullShotCooldown = 0;
@@ -89,7 +91,7 @@ void PlayerAutomatic::SetGunStatsPerLevel(int level)
         projectileDamage = 25.0f;
         projectileResistanceDamage = 0.0f;
         projectileLifetime = 1.0f;
-        cadence = 5.0f;
+        cadence = 3.0f;
         break;
     case 1:
         projectileSpeed = 40.0f;
@@ -99,15 +101,15 @@ void PlayerAutomatic::SetGunStatsPerLevel(int level)
         cadence = 5.0f;
         break;
     case 2:
-        projectileSpeed = 40.0f;
+        projectileSpeed = 50.0f;
         projectileDamage = 25.0f;
         projectileResistanceDamage = 0.0f;
         projectileLifetime = 1.0f;
         cadence = 5.0f;
         break;
     case 3:
-        projectileSpeed = 40.0f;
-        projectileDamage = 25.0f;
+        projectileSpeed = 50.0f;
+        projectileDamage = 35.0f;
         projectileResistanceDamage = 0.0f;
         projectileLifetime = 1.0f;
         cadence = 5.0f;
