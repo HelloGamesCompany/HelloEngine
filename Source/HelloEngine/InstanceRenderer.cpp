@@ -74,9 +74,11 @@ void InstanceRenderer::DrawMaterial()
         //Selected Mesh
         if (!mesh.second.mesh.Update())
         {
-            if (mesh.second.mesh.isIndependent)
-                Application::Instance()->renderer3D->renderManager.SetSelectedMesh(&mesh.second);
-            continue;
+        //    //if (mesh.second.mesh.isIndependent)
+            mesh.second.material = this->resMat;
+            mesh.second.resMat = this->resMat->UID;
+            Application::Instance()->renderer3D->renderManager.SetSelectedMesh(&mesh.second);
+        //    continue;
         }
 
         modelMatrices.push_back(mesh.second.mesh.modelMatrix); // Insert updated matrices
@@ -228,21 +230,31 @@ uint InstanceRenderer::AddMesh()
 
 void InstanceRenderer::DrawInstance(Mesh* mesh, bool useBasicShader)
 {
+    //
     if (useBasicShader)
     {
-        if (mesh->textureID != -1) 
+        if (resMat)
         {
-            glBindTexture(GL_TEXTURE_2D, mesh->textureID);
+            resMat->material.Update(Application::Instance()->camera->currentDrawingCamera->GetViewMatrix(),
+                Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix(),
+                &mesh->modelMatrix.v[0][0]);
         }
         else
         {
-            glBindTexture(GL_TEXTURE_2D, 0);
-        }
+            if (mesh->textureID != -1)
+            {
+                glBindTexture(GL_TEXTURE_2D, mesh->textureID);
+            }
+            else
+            {
+                glBindTexture(GL_TEXTURE_2D, 0);
+            }
 
-        perMeshShader->shader.Bind();
-        perMeshShader->shader.SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
-        perMeshShader->shader.SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
-        perMeshShader->shader.SetMatFloat4v("model", &mesh->modelMatrix.v[0][0]);
+            perMeshShader->shader.Bind();
+            perMeshShader->shader.SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
+            perMeshShader->shader.SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
+            perMeshShader->shader.SetMatFloat4v("model", &mesh->modelMatrix.v[0][0]);
+        }
     }
 
     glBindVertexArray(BasicVAO);
@@ -257,6 +269,14 @@ void InstanceRenderer::DrawInstance(Mesh* mesh, bool useBasicShader)
 void InstanceRenderer::SetAs2D()
 {
     is2D = true;
+}
+
+uint InstanceRenderer::GetRenderID()
+{
+    uint toReturn = 0;
+    if (resource) toReturn += resource->UID;
+    if (resMat) toReturn += resMat->UID;
+    return toReturn;
 }
 
 void InstanceRenderer::CreateBuffers()

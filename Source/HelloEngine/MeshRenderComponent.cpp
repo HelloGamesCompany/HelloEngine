@@ -145,7 +145,14 @@ Mesh& MeshRenderComponent::GetMesh()
 	{
 	case MeshRenderType::INSTANCED:
 	{
-		InstanceRenderer* manager = Application::Instance()->renderer3D->renderManager.GetRenderManager(_meshID, 0);
+		// meshID + materialID = RenderID (Real id on the instanced rederer map)
+		uint ID = _meshID;
+		if (MaterialComponent* matComp = _gameObject->GetComponent<MaterialComponent>())
+		{
+			ID += matComp->GetResourceUID();
+		}
+
+		InstanceRenderer* manager = Application::Instance()->renderer3D->renderManager.GetRenderManager(ID, 0);
 		Mesh& meshReference = manager->GetMap()[_instanceID].mesh;
 		return meshReference;
 	}
@@ -230,7 +237,7 @@ void MeshRenderComponent::ChangeMeshRenderType(MeshRenderType type)
 	if (mat)
 		CreateMesh(_resource->UID, mat->GetResourceUID(), type);
 	else
-		CreateMesh(_resource->UID, -1, type);
+		CreateMesh(_resource->UID, 0, type);
 
 	// Update mesh transfrom 
 	Mesh& mesh = GetMesh();

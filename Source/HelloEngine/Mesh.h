@@ -53,7 +53,7 @@ private:
 
 	void StencilDraw();
 public:
-	void DrawAsSelected(Material material);
+	void DrawAsSelected(Material material, uint materialID = 0);
 	void DrawAsSelected();
 
 	void InitAsMesh(std::vector<Vertex>& vertices, std::vector<uint>& indices);

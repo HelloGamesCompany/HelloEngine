@@ -193,7 +193,7 @@ bool Mesh::Update()
 			return false; // We dont want to render this object twice when selected.
 		else
 		{
-			Application::Instance()->renderer3D->renderManager.SetSelectedMesh(this);
+			//Application::Instance()->renderer3D->renderManager.SetSelectedMesh(this);
 			return false;
 		}
 	}
@@ -208,7 +208,7 @@ bool Mesh::Update()
 	return true;
 }
 
-void Mesh::DrawAsSelected(Material material)
+void Mesh::DrawAsSelected(Material material, uint materialID)
 {
 	//// TODO: Do this inside ModuleRender3D, and allow to enable and disable it.
 	glEnable(GL_DEPTH_TEST);
@@ -225,7 +225,7 @@ void Mesh::DrawAsSelected(Material material)
 	}
 	else
 	{
-		InstanceRenderer* manager = Application::Instance()->renderer3D->renderManager.GetRenderManager(component->_meshID, 0);
+		InstanceRenderer* manager = Application::Instance()->renderer3D->renderManager.GetRenderManager(component->_meshID + materialID, 0);
 		manager->DrawInstance(this);
 	}
 
@@ -267,23 +267,24 @@ void Mesh::DrawAsSelected()
 	glStencilFunc(GL_ALWAYS, 1, 0xFF);
 	glStencilMask(0xFF);
 
-	InstanceRenderer* manager = Application::Instance()->renderer3D->renderManager.GetRenderManager(component->_meshID, 0);
-	manager->DrawInstance(this);
+	/*InstanceRenderer* manager = Application::Instance()->renderer3D->renderManager.GetRenderManager(component->_meshID, 0);
+	manager->DrawInstance(this);*/
 
 	glStencilFunc(GL_NOTEQUAL, 1, 0xFF);
 	glStencilMask(0x00);
 	glDisable(GL_DEPTH_TEST);
 
-#ifdef STANDALONE
-	stencilShader->shader.Bind();
-	stencilShader->shader.SetFloat("outlineSize", 0.04f);
-	stencilShader->shader.SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
-	stencilShader->shader.SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
-	stencilShader->shader.SetMatFloat4v("model", &modelMatrix.v[0][0]);
-#endif
+//#ifdef STANDALONE
+//	stencilShader->shader.Bind();
+//	stencilShader->shader.SetFloat("outlineSize", 0.04f);
+//	stencilShader->shader.SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
+//	stencilShader->shader.SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
+//	stencilShader->shader.SetMatFloat4v("model", &modelMatrix.v[0][0]);
+//#endif
 	
-	manager = Application::Instance()->renderer3D->renderManager.GetRenderManager(component->_meshID, 0);
-	manager->DrawInstance(this, false);
+	StencilDraw();
+	/*manager = Application::Instance()->renderer3D->renderManager.GetRenderManager(component->_meshID, 0);
+	manager->DrawInstance(this, false);*/
 
 	glStencilMask(0xFF);
 	glStencilFunc(GL_ALWAYS, 0, 0xFF);

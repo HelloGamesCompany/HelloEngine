@@ -32,12 +32,15 @@ void MaterialComponent::OnEditor()
 		MaterialDragNDrop();
 		ShaderSelectCombo();
 
-		//INSTANCED ON A NON INSTANCED MESH ALERT MESSAGE
-		if (_resource->material.GetShader()->shader.data.isIstanced &&
-			GetOwnerMeshComponent()->GetMesh().isIndependent)
+		if (_resource)
 		{
-			ImGui::TextColored(ImVec4(1.0f, 0.0f, 0.0f, 1.0f),
-				"ALERT: Using an instanced Shader/Material on a non instanced Mesh!");
+			//INSTANCED ON A NON INSTANCED MESH ALERT MESSAGE
+			if (_resource->material.GetShader()->shader.data.isIstanced &&
+				GetOwnerMeshComponent()->GetMesh().isIndependent)
+			{
+				ImGui::TextColored(ImVec4(1.0f, 0.0f, 0.0f, 1.0f),
+					"ALERT: Using an instanced Shader/Material on a non instanced Mesh!");
+			}
 		}
 
 		//Loop Uniforms GUI

@@ -65,6 +65,17 @@ void Material::UpdateInstanced(const float* view, const float* projection)
 	}
 }
 
+void Material::UnbindAllTextures()
+{
+	for (uint i = 0; i < uniforms.size(); ++i)
+	{
+		if (uniforms[i]->data.type != GL_SAMPLER_2D) continue;
+
+		UniSampler2D* sampler = (UniSampler2D*)uniforms[i];
+		sampler->Unbind();
+	}
+}
+
 bool Material::SetShader(uint UID)
 {
 	//Clean current shader

@@ -18,6 +18,8 @@ public:
 	void Update(const float* view, const float* projection, const float* model);
 	void UpdateInstanced(const float* view, const float* projection);
 
+	void UnbindAllTextures();
+
 	void Clear();
 
 	ResourceShader* GetShader() { return shader; }

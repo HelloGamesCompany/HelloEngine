@@ -177,7 +177,7 @@ void RenderManager::OnEditor()
 		{
 			if (manager.second.resource == nullptr)
 				continue;
-			std::string headerName = manager.second.resource->debugName + "##" + std::to_string(manager.second.resource->UID);
+			std::string headerName = manager.second.resource->debugName + "##" + std::to_string(manager.second.GetRenderID());
 			if(ImGui::CollapsingHeader(headerName.c_str()))
 			{
 				std::string maxInstances = "Maximum number of instances: " + std::to_string(manager.second.instanceNum);
@@ -498,14 +498,18 @@ void RenderManager::DestroyRenderManager(uint managerUID)
 
 void RenderManager::SetSelectedMesh(RenderEntry* mesh)
 {
-	_selectedMesh = mesh;
 	_selectedMeshRaw = nullptr;
+
+	if (_selectedMesh == mesh) return;
+	_selectedMesh = mesh;
 }
 
 void RenderManager::SetSelectedMesh(Mesh* mesh)
 {
-	_selectedMeshRaw = mesh;
 	_selectedMesh = nullptr;
+
+	if (_selectedMeshRaw == mesh) return;
+	_selectedMeshRaw = mesh;
 }
 
 void RenderManager::DrawSelectedMesh()
@@ -521,7 +525,7 @@ void RenderManager::DrawSelectedMesh()
 			_selectedMesh = nullptr;
 			return;
 		}
-		_selectedMesh->mesh.DrawAsSelected(_selectedMesh->material->material);
+		_selectedMesh->mesh.DrawAsSelected(_selectedMesh->material->material, _selectedMesh->resMat);
 	}
 	else if (_selectedMeshRaw != nullptr)
 	{
@@ -530,8 +534,8 @@ void RenderManager::DrawSelectedMesh()
 			_selectedMeshRaw = nullptr;
 			return;
 		}
-	}
 		_selectedMeshRaw->DrawAsSelected();
+	}		
 }
 
 void RenderManager::RemoveSelectedMesh()
@@ -1124,11 +1128,17 @@ void RenderManager::DrawIndependentMeshes()
 				mesh.second.mesh.Draw();
 				continue;
 			}*/
-			mesh.second.mesh.Draw(mesh.second.material->material);
+			if (mesh.second.material != nullptr)
+				mesh.second.mesh.Draw(mesh.second.material->material);
+			else
+				mesh.second.mesh.Draw(Material(), false);
 		}
 		else
 		{
-			Application::Instance()->renderer3D->renderManager.SetSelectedMesh(&mesh.second);
+			if (mesh.second.material != nullptr)
+				Application::Instance()->renderer3D->renderManager.SetSelectedMesh(&mesh.second); //Selected with Mat
+			else
+				Application::Instance()->renderer3D->renderManager.SetSelectedMesh(&mesh.second.mesh); //Selected without Mat
 		}
 	}
 

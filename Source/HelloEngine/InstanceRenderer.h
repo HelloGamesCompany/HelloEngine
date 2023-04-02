@@ -35,6 +35,8 @@ public:
 	void DrawInstance(Mesh* mesh, bool useBasicShader = true);
 
 	void SetAs2D();
+	uint GetRenderID();
+
 public:
 	bool initialized = false;
 	ResourceMesh* resource = nullptr;
