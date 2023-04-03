@@ -6,14 +6,13 @@ HELLO_ENGINE_API_C PlayerMove* CreatePlayerMove(ScriptToInspectorInterface* scri
 {
     PlayerMove* classInstance = new PlayerMove();
 
-    //Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
     script->AddDragFloat("Velocity", &classInstance->vel);
     script->AddDragFloat("Upgrade Velocity", &classInstance->upgradedVel);
     script->AddDragFloat("SecToMaxVel", &classInstance->secToMaxVel);
     script->AddDragFloat("SecToZeroVel", &classInstance->secToZeroVel);
     //script->AddDragFloat("Current Velocity", &classInstance->currentVel);
-    //script->AddDragFloat("Current Input", &classInstance->currentInput);
     script->AddDragFloat("Y tp limit", &classInstance->yTpLimit);
+    script->AddDragBoxRigidBody("Rigid Body", &classInstance->rigidBody);
 
     script->AddDragFloat("Dash Time", &classInstance->dashTime);
     script->AddDragFloat("Dash Distance", &classInstance->dashDistance);
@@ -64,7 +63,7 @@ void PlayerMove::Update()
     // impulse
     if (impulseTime > 0.0f)
     {
-        transform.Translate(impulseDirection * impulseStrenght);
+        rigidBody.SetVelocity(impulseDirection * impulseStrenght);
         impulseTime -= dt;
 
         if (impulseTime <= 0.0f)
@@ -157,8 +156,8 @@ void PlayerMove::Update()
         lastMovInput = input;
     }
 
-    input *= currentVel * dt;
-    transform.Translate(input.x, 0.0f, input.y);
+    input *= currentVel;
+    rigidBody.SetVelocity(API_Vector3(input.x, 0.0f, input.y));
 
     if (currentVel <= 0.0f && currentAnim != PlayerAnims::IDLE && !isShooting) //NO INPUT
     {
@@ -183,14 +182,17 @@ void PlayerMove::DashSetup()
     else dashCooldown = maxDashCooldown;
 
     dashDepartTime = 0.0f;
-    dashInitialPos = transform.GetLocalPosition();
     float norm = sqrt(pow(lastMovInput.x, 2) + pow(lastMovInput.y, 2));
     API_Vector3 movDir;
     movDir.x = lastMovInput.x / norm;
     movDir.y = 0.0f;
     movDir.z = lastMovInput.y / norm;
-    if (playerStats && playerStats->movementTreeLvl > 2) dashFinalPos = transform.GetLocalPosition() + movDir * upgradedDashDistance; //transform.GetForward() // for looking dir
-    else dashFinalPos = transform.GetLocalPosition() + movDir * dashDistance;
+
+    float dist = dashDistance;
+    if (playerStats && playerStats->movementTreeLvl > 2) dist = upgradedDashDistance;
+
+    //Set dash vel
+    rigidBody.SetVelocity((movDir*dist) / dashTime);
 
     if (currentAnim != PlayerAnims::DASH)
     {
@@ -205,16 +207,6 @@ void PlayerMove::DashSetup()
 void PlayerMove::Dash()
 {
     dashDepartTime += dt;
-    if (dashDepartTime > dashTime) dashDepartTime = dashTime;
-
-    API_Vector2 newPos;
-    newPos.x = Lerp(dashInitialPos.x, dashFinalPos.x, dashDepartTime / dashTime) - transform.GetLocalPosition().x;
-    newPos.y = Lerp(dashInitialPos.z, dashFinalPos.z, dashDepartTime / dashTime) - transform.GetLocalPosition().z;
-
-    //Console::Log("X: " + to_string(newPos.x));
-    //Console::Log("Z: " + to_string(newPos.y));
-
-    transform.Translate(newPos.x, 0.0f, newPos.y);
      
     if (dashDepartTime >= dashTime)
     {
