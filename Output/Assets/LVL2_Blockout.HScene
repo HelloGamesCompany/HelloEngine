@@ -95,6 +95,36 @@
                     },
                     {
                         "Use safe zone: ": true
+                    },
+                    {
+                        "Target": 1881844107
+                    },
+                    {
+                        "Delay": 0.009999999776482582
+                    },
+                    {
+                        "Offset_X": 0.0
+                    },
+                    {
+                        "Offset_Y": 25.0
+                    },
+                    {
+                        "Offset_Z": -20.0
+                    },
+                    {
+                        "Rot_X": 50.0
+                    },
+                    {
+                        "Rot_Y": 0.0
+                    },
+                    {
+                        "Rot_Z": 0.0
+                    },
+                    {
+                        "SafeZone_Distance": 10.0
+                    },
+                    {
+                        "Use safe zone: ": true
                     }
                 ],
                 "Script Resource": 118417560,
@@ -310,19 +340,19 @@
             {
                 "Enabled": true,
                 "Position": [
-                    -101.45503997802734,
-                    0.6154593229293823,
-                    -14.136687278747559
+                    -101.40790557861328,
+                    0.6154594421386719,
+                    -13.957354545593262
                 ],
                 "Rotation": [
-                    3.8569624423980713,
-                    -62.3179817199707,
-                    4.2163920402526855
+                    3.856985330581665,
+                    -62.318206787109375,
+                    4.216418743133545
                 ],
                 "Scale": [
                     0.009999999776482582,
                     0.00869224313646555,
-                    0.004913474433124065
+                    0.004913483280688524
                 ],
                 "Type": 1
             },
@@ -337,6 +367,11 @@
                 "Type": 2
             },
             {
+                "Enabled": true,
+                "ResourceUID": 0,
+                "Type": 3
+            },
+            {
                 "ColPosition": [
                     0.0,
                     0.0,
@@ -344,13 +379,13 @@
                 ],
                 "ColRotation": [
                     0.0,
-                    28.600000381469727,
+                    27.100000381469727,
                     0.0
                 ],
                 "ColScale": [
                     4.400000095367432,
-                    1.5,
-                    1.7000000476837158
+                    1.399999976158142,
+                    2.0
                 ],
                 "CylVerSlices": 16,
                 "CylinderRadiusHeight": [
@@ -381,7 +416,7 @@
                     false,
                     false
                 ],
-                "IsStatic": true,
+                "IsStatic": false,
                 "IsTrigger": false,
                 "Mass": 0.0,
                 "RenderColColor": [
@@ -396,11 +431,6 @@
                 "SphereVerSlices": 16,
                 "Type": 8,
                 "WireframeSize": 3.0
-            },
-            {
-                "Enabled": true,
-                "ResourceUID": 540986672,
-                "Type": 3
             }
         ],
         "FirstOnPrefab": true,
@@ -5943,6 +5973,9 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Final text panel: ": 2592125732
+                    },
                     {
                         "Final text panel: ": 2592125732
                     }
@@ -20832,6 +20865,54 @@
                     },
                     {
                         "HUD": 790589102
+                    },
+                    {
+                        "Velocity": 10.0
+                    },
+                    {
+                        "Upgrade Velocity": 2.0
+                    },
+                    {
+                        "SecToMaxVel": 0.0
+                    },
+                    {
+                        "SecToZeroVel": 0.0
+                    },
+                    {
+                        "Dash Time": 0.5
+                    },
+                    {
+                        "Dash Distance": 5.0
+                    },
+                    {
+                        "Upgrade Dash Distance": 8.0
+                    },
+                    {
+                        "Dash Cooldown": 0.0
+                    },
+                    {
+                        "Upgrade Dash Cooldown": 0.0
+                    },
+                    {
+                        "AnimationPlayer": 2624315955
+                    },
+                    {
+                        "Dash Animation": 3786266361
+                    },
+                    {
+                        "Idle Animation": 723048411
+                    },
+                    {
+                        "Run Animation": 3184153436
+                    },
+                    {
+                        "Shoot Animations": 4285907288
+                    },
+                    {
+                        "Player Stats GO": 1881844107
+                    },
+                    {
+                        "HUD": 790589102
                     }
                 ],
                 "Script Resource": 3336682094,
@@ -20840,6 +20921,36 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Max HP": 100.0
+                    },
+                    {
+                        "Current HP": 0.0
+                    },
+                    {
+                        "Upgraded Max HP": 0.0
+                    },
+                    {
+                        "Laser Ammo": 99999
+                    },
+                    {
+                        "Fire Ammo": 99999
+                    },
+                    {
+                        "Ricochet Ammo": 99999
+                    },
+                    {
+                        "movement tree lvl": 0
+                    },
+                    {
+                        "armory tree lvl": 0
+                    },
+                    {
+                        "health tree lvl": 0
+                    },
+                    {
+                        "special tree lvl": 0
+                    },
                     {
                         "Max HP": 100.0
                     },
@@ -26342,6 +26453,9 @@
                 "Inspector Fields": [
                     {
                         "Gun Type": 1
+                    },
+                    {
+                        "Gun Type": 1
                     }
                 ],
                 "Script Resource": 1187195986,
@@ -26350,6 +26464,49 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Projectile Speed": 100.0
+                    },
+                    {
+                        "Projectile Damage": 60.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 0.0
+                    },
+                    {
+                        "Projectile Lifetime": 1.0
+                    },
+                    {
+                        "Projectile MeshIndexInsideModel": 0,
+                        "Projectile MeshModelUID": 1551155716
+                    },
+                    {
+                        "Projectile Material": 3260379948
+                    },
+                    {
+                        "Projectile ScaleX": 0.20000000298023224
+                    },
+                    {
+                        "Projectile ScaleY": 0.20000000298023224
+                    },
+                    {
+                        "Projectile ScaleZ": 0.4000000059604645
+                    },
+                    {
+                        "Projectiles per second": 1.0
+                    },
+                    {
+                        "Extra % firerate": 0.0
+                    },
+                    {
+                        "Player Stats GO": 1881844107
+                    },
+                    {
+                        "Ammo Type": 1
+                    },
+                    {
+                        "Audio Event String": ""
+                    },
                     {
                         "Projectile Speed": 100.0
                     },
@@ -26432,6 +26589,9 @@
                 "Inspector Fields": [
                     {
                         "Gun Type": 4
+                    },
+                    {
+                        "Gun Type": 4
                     }
                 ],
                 "Script Resource": 1421097082,
@@ -26440,6 +26600,55 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Projectile Speed": 40.0
+                    },
+                    {
+                        "Projectile Damage": 10.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 0.0
+                    },
+                    {
+                        "Projectile Lifetime": 0.5
+                    },
+                    {
+                        "Projectile MeshIndexInsideModel": 0,
+                        "Projectile MeshModelUID": 1551155716
+                    },
+                    {
+                        "Projectile Material": 3260379948
+                    },
+                    {
+                        "Projectile ScaleX": 0.05000000074505806
+                    },
+                    {
+                        "Projectile ScaleY": 0.05000000074505806
+                    },
+                    {
+                        "Projectile ScaleZ": 0.05000000074505806
+                    },
+                    {
+                        "Projectiles per second": 1.2999999523162842
+                    },
+                    {
+                        "Extra % firerate": 0.0
+                    },
+                    {
+                        "Pellets per shot": 10
+                    },
+                    {
+                        "Pellets Dispersion": 0.0
+                    },
+                    {
+                        "Player Stats GO": 1881844107
+                    },
+                    {
+                        "Ammo Type": 1
+                    },
+                    {
+                        "Audio Event String": ""
+                    },
                     {
                         "Projectile Speed": 40.0
                     },
@@ -26528,6 +26737,9 @@
                 "Inspector Fields": [
                     {
                         "Gun Type": 0
+                    },
+                    {
+                        "Gun Type": 0
                     }
                 ],
                 "Script Resource": 1421097082,
@@ -26536,6 +26748,61 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Projectile Speed": 30.0
+                    },
+                    {
+                        "Projectile Damage": 5.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 0.0
+                    },
+                    {
+                        "Projectile Lifetime": 1.0
+                    },
+                    {
+                        "Projectile MeshIndexInsideModel": 0,
+                        "Projectile MeshModelUID": 1551155716
+                    },
+                    {
+                        "Projectile Material": 3260379948
+                    },
+                    {
+                        "Projectile ScaleX": 0.10000000149011612
+                    },
+                    {
+                        "Projectile ScaleY": 0.10000000149011612
+                    },
+                    {
+                        "Projectile ScaleZ": 0.10000000149011612
+                    },
+                    {
+                        "Projectiles per second": 3.0
+                    },
+                    {
+                        "Extra % firerate": 0.0
+                    },
+                    {
+                        "Burst Space": 0.1599999964237213
+                    },
+                    {
+                        "Second Gun GO": 523493100
+                    },
+                    {
+                        "Slow %": 0.0
+                    },
+                    {
+                        "Freeze %": 0.0
+                    },
+                    {
+                        "Player Stats GO": 1881844107
+                    },
+                    {
+                        "Ammo Type": 0
+                    },
+                    {
+                        "Audio Event String": ""
+                    },
                     {
                         "Projectile Speed": 30.0
                     },
@@ -27476,6 +27743,9 @@
                 "Inspector Fields": [
                     {
                         "hp": false
+                    },
+                    {
+                        "hp": false
                     }
                 ],
                 "Script Resource": 1164455694,
@@ -27597,6 +27867,12 @@
                     },
                     {
                         "MAX HP": 100.0
+                    },
+                    {
+                        "HP": 100.0
+                    },
+                    {
+                        "MAX HP": 100.0
                     }
                 ],
                 "Script Resource": 3828527852,
@@ -27707,6 +27983,45 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Text_Weapon_1_on": 1828660828
+                    },
+                    {
+                        "Text_Weapon_1_off": 1261649561
+                    },
+                    {
+                        "Material Weapon 1": 4102192440
+                    },
+                    {
+                        "Game Bar Weapon 1": 4172812350
+                    },
+                    {
+                        "Text_Weapon_2_on": 977509463
+                    },
+                    {
+                        "Text_Weapon_2_off": 1072796038
+                    },
+                    {
+                        "Material Weapon 2": 692296045
+                    },
+                    {
+                        "Game Bar Weapon 2": 2595168131
+                    },
+                    {
+                        "Text_Weapon_3_on": 12569475
+                    },
+                    {
+                        "Text_Weapon_3_off": 103443597
+                    },
+                    {
+                        "Material Weapon 3": 1496549210
+                    },
+                    {
+                        "Game Bar Weapon 3": 1805554832
+                    },
+                    {
+                        "Material_Dash": 1199782281
+                    },
                     {
                         "Text_Weapon_1_on": 1828660828
                     },
@@ -28422,6 +28737,9 @@
                 "Inspector Fields": [
                     {
                         "Point 1: ": 2752448197
+                    },
+                    {
+                        "Point 1: ": 2752448197
                     }
                 ],
                 "Script Resource": 2375007746,
@@ -28551,6 +28869,9 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Point 1: ": 664696061
+                    },
                     {
                         "Point 1: ": 664696061
                     }
@@ -28684,6 +29005,9 @@
                 "Inspector Fields": [
                     {
                         "Point 1: ": 1896649622
+                    },
+                    {
+                        "Point 1: ": 1896649622
                     }
                 ],
                 "Script Resource": 2880680727,
@@ -28790,6 +29114,9 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Continute button: ": 449744243
+                    },
                     {
                         "Continute button: ": 449744243
                     }
@@ -28967,5 +29294,305 @@
         "PrefabUID": 1324546025,
         "Tag": "UI",
         "UID": 1915248142
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Node",
+        "ParentUID": 2462894403,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 344734813
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    3.329216241836548,
+                    2.756831407546997
+                ],
+                "Rotation": [
+                    -179.999755859375,
+                    -88.21995544433594,
+                    -179.999755859375
+                ],
+                "Scale": [
+                    0.16035330295562744,
+                    0.7472275495529175,
+                    0.1904950886964798
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2888243243,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 1366324282,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "pCube1",
+        "ParentUID": 344734813,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 505165825
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    140.48214721679688,
+                    6.127626895904541,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Node",
+        "ParentUID": 2462894403,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1999960868
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    13.928146362304688,
+                    -6.225370407104492,
+                    27.088415145874023
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    2.5,
+                    0.20000000298023224,
+                    2.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2439010209,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3521069009,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "pCube1",
+        "ParentUID": 1999960868,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 730822003
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Ground",
+        "ParentUID": 2462894403,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 302212072
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    160.75364685058594,
+                    0.000244140625,
+                    28.31784439086914
+                ],
+                "Rotation": [
+                    179.99989318847656,
+                    89.98020935058594,
+                    179.99989318847656
+                ],
+                "Scale": [
+                    7.500001907348633,
+                    0.6000000238418579,
+                    7.500001907348633
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 3272453054,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 622189701,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "pCube2",
+        "ParentUID": 302212072,
+        "PrefabUID": 2529838307,
+        "Tag": "Default",
+        "UID": 1853897278
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Node",
+        "ParentUID": 302212072,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3763025304
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    160.75364685058594,
+                    0.000244140625,
+                    7.363409042358398
+                ],
+                "Rotation": [
+                    179.99989318847656,
+                    89.98020935058594,
+                    179.99989318847656
+                ],
+                "Scale": [
+                    7.500001907348633,
+                    0.6000000238418579,
+                    7.500001907348633
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 3272453054,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 622189701,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "pCube2",
+        "ParentUID": 3763025304,
+        "PrefabUID": 2529838307,
+        "Tag": "Default",
+        "UID": 1169568375
     }
 ]
