@@ -13,7 +13,6 @@ HELLO_ENGINE_API_C PlayerStats* CreatePlayerStats(ScriptToInspectorInterface* sc
     script->AddDragInt("Fire Ammo", &classInstance->fireAmmo);
     script->AddDragInt("Ricochet Ammo", &classInstance->ricochetAmmo);
     script->AddDragBoxGameObject("Storage GO", &classInstance->storageGameObject);
-    //script->AddDragBoxGameObject("Health bar", &classInstance->hpGameObject);
     script->AddDragInt("movement tree lvl", &classInstance->movementTreeLvl); // remove when save and load is ready
     script->AddDragInt("armory tree lvl", &classInstance->armoryTreeLvl);
     script->AddDragInt("health tree lvl", &classInstance->healthTreeLvl);
@@ -26,8 +25,6 @@ void PlayerStats::Start()
     if (healthTreeLvl > 0) currentMaxHp = upgradedMaxHp;
     else currentMaxHp = maxHp;
     currentHp = currentMaxHp;
-    //healthBar = (HpBar*)hpGameObject.GetScript("HpBar");
-    //healthBar->maxHp = this->currentHp;
     detected = false;
 
     if (healthTreeLvl > 4) secondLife = true;
@@ -47,8 +44,6 @@ void PlayerStats::Update()
     float dt;
     if (slowTimePowerUp > 0.0f /*&& !paused*/) dt = Time::GetRealTimeDeltaTime();
     else dt = Time::GetDeltaTime();
-
-    //healthBar->hp = this->currentHp;
 
     // deadline healing
     float deathlineHp;

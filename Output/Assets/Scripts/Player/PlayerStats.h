@@ -41,9 +41,6 @@ public:
 
     bool detected;//if the player is being detected somehow
 
-    API_GameObject hpGameObject;
-    HpBar* healthBar;
-
     // skills tree
     void UpgradeTreeLvl(int tree);
 
