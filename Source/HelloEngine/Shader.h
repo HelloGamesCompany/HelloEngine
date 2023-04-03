@@ -43,7 +43,6 @@ private:
    
     void VertexShaderCheck();
 
-    void UniformCompare(ShaderData previousShader);
     //uint CompileShader(const std::string& source, uint type);
     static std::map<std::string, uint> loadedShaders;
 };

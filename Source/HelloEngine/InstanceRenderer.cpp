@@ -50,7 +50,7 @@ void InstanceRenderer::Draw()
     {
         LOG("A Render Manager is being updated without any meshes!");
         if (resource != nullptr)
-            Application::Instance()->renderer3D->renderManager.DestroyRenderManager(resource->UID);
+            Application::Instance()->renderer3D->renderManager.DestroyRenderManager(GetRenderID());
         else
             Application::Instance()->renderer3D->renderManager.DestroyRenderManager(deletedResourceUID);
         return;

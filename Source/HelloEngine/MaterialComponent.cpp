@@ -32,14 +32,30 @@ void MaterialComponent::OnEditor()
 		MaterialDragNDrop();
 		ShaderSelectCombo();
 
-		if (_resource && _resource->material.GetShader())
+		ResourceShader* shader = nullptr;
+		if (_resource && (shader = _resource->material.GetShader()))
 		{
+			MeshRenderComponent* meshComp = GetOwnerMeshComponent();
+			
 			//INSTANCED ON A NON INSTANCED MESH ALERT MESSAGE
-			if (_resource->material.GetShader()->shader.data.isIstanced &&
-				GetOwnerMeshComponent()->GetMesh().isIndependent)
+			if (shader->shader.data.isIstanced &&
+				meshComp->GetMesh().isIndependent)
 			{
 				ImGui::TextColored(ImVec4(1.0f, 0.0f, 0.0f, 1.0f),
-					"ALERT: Using an instanced Shader/Material on a non instanced Mesh!");
+					"INSTANCED: Using an instanced Shader/Material on a non instanced Mesh!");
+			}
+			else if (!shader->shader.data.isIstanced &&
+				!meshComp->GetMesh().isIndependent)
+			{
+				ImGui::TextColored(ImVec4(1.0f, 0.0f, 0.0f, 1.0f),
+					"NO_INSTANCED: Using an non instanced Shader/Material on an instanced Mesh!");
+			}
+
+			if (shader->shader.data.isBoned &&
+				!meshComp->HasBones())
+			{
+				ImGui::TextColored(ImVec4(1.0f, 0.0f, 0.0f, 1.0f),
+					"BONES: Using a Shader/Material for bones on a Mesh without bones!");
 			}
 		}
 

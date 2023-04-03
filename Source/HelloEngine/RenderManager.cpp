@@ -1091,11 +1091,17 @@ void RenderManager::DrawTransparentMeshes()
 		// Update mesh. If the mesh should draw this frame, call Draw.
 		if (entry->second->mesh.Update())
 		{
-			entry->second->mesh.Draw(entry->second->material->material);
+			if (entry->second->material != nullptr & entry->second->material->material.GetShader() != nullptr)
+				entry->second->mesh.Draw(entry->second->material->material);
+			else
+				entry->second->mesh.Draw(Material(), false);
 		}
 		else
 		{
-			Application::Instance()->renderer3D->renderManager.SetSelectedMesh(entry->second);
+			if (entry->second->material != nullptr & entry->second->material->material.GetShader() != nullptr)
+				Application::Instance()->renderer3D->renderManager.SetSelectedMesh(entry->second);
+			else
+				Application::Instance()->renderer3D->renderManager.SetSelectedMesh(&entry->second->mesh);
 		}
 	}
 

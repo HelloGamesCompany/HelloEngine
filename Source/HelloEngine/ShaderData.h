@@ -12,4 +12,5 @@ public:
 	std::string fragmentCode;
 
 	bool isIstanced = false;
+	bool isBoned = false;
 };

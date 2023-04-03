@@ -167,19 +167,21 @@ void Shader::Recompile(std::string shaderPath)
 
 	RetriveShader(shaderPath);
 	CompileShader();
-
-	//Gives values to unchanged uniforms.
-	UniformCompare(previousData);
 }
 
 void Shader::VertexShaderCheck()
 {
 	//String used to check if a shader is meant to be used as an Instanced Shader.
 	std::string instanced = "layout (location = 1) in mat4 model;";
-
+	std::string boned = "layout (location = 3) in ivec4 boneIds;";
 	if (data.vertexCode.find(instanced) != std::string::npos)
 	{
 		data.isIstanced = true;
+	}
+
+	if (data.vertexCode.find(boned) != std::string::npos)
+	{
+		data.isBoned = true;
 	}
 }
 
@@ -230,11 +232,6 @@ void Shader::UniformParser(std::vector<Uniform*>& vec)
 
 	std::string aux = "A total of '" + std::to_string(vec.size()) + "' uniform variables have been parsed in the shader'" + data.name + "'.";
 	Console::S_Log(aux, LogType::INFO);
-
-}
-
-void Shader::UniformCompare(ShaderData previousShader)
-{
 
 }
 
