@@ -81,10 +81,6 @@ public:
     PlayerAnims currentAnim;
     bool isShooting = false;
 
-    // HUD
-    API_GameObject HUDGameObject;
-    SwapWeapon* HUDScript;
-
     // skills
     API_GameObject playerStatsGO;
     PlayerStats* playerStats;
