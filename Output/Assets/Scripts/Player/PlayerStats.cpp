@@ -12,6 +12,7 @@ HELLO_ENGINE_API_C PlayerStats* CreatePlayerStats(ScriptToInspectorInterface* sc
     script->AddDragInt("Laser Ammo", &classInstance->laserAmmo);
     script->AddDragInt("Fire Ammo", &classInstance->fireAmmo);
     script->AddDragInt("Ricochet Ammo", &classInstance->ricochetAmmo);
+    script->AddDragBoxParticleSystem("Hit Particles", &classInstance->hitParticles);
     script->AddDragBoxGameObject("Storage GO", &classInstance->storageGameObject);
     script->AddDragInt("movement tree lvl", &classInstance->movementTreeLvl); // remove when save and load is ready
     script->AddDragInt("armory tree lvl", &classInstance->armoryTreeLvl);
@@ -45,6 +46,11 @@ void PlayerStats::Update()
     if (slowTimePowerUp > 0.0f /*&& !paused*/) dt = Time::GetRealTimeDeltaTime();
     else dt = Time::GetDeltaTime();
 
+    if (Input::GetKey(KeyCode::KEY_F) == KeyState::KEY_DOWN)
+    {
+        TakeDamage(1);
+    }
+
     // deadline healing
     float deathlineHp;
     if (healthTreeLvl > 1) deathlineHp = currentMaxHp * 0.25f;
@@ -72,6 +78,7 @@ void PlayerStats::Update()
     if (inmunityTime > 0.0f)
     {
         inmunityTime -= dt;
+        if (inmunityTime <= 0.0f) hitParticles.StopEmitting();
     }
 
     // power ups
@@ -202,6 +209,7 @@ void PlayerStats::TakeDamage(float amount)
     {
         inmunityTime = 2.0f;
         Audio::Event("starlord_damaged");
+        hitParticles.Play();
         // hit animation?
     }
 

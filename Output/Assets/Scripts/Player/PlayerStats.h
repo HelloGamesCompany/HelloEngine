@@ -27,6 +27,7 @@ public:
     bool secondLife;
     float lastHitTime;
     void Heal(float amount);
+    API_ParticleSystem hitParticles;
 
     int GetAmmonByType(int type);
     void GetAmmo(int type, int amount);
