@@ -155,9 +155,6 @@
                     },
                     {
                         "hp": false
-                    },
-                    {
-                        "hp": false
                     }
                 ],
                 "Script Resource": 1164455694,
@@ -285,12 +282,6 @@
                     },
                     {
                         "MAX HP": 100.0
-                    },
-                    {
-                        "HP": 100.0
-                    },
-                    {
-                        "MAX HP": 100.0
                     }
                 ],
                 "Script Resource": 3828527852,
@@ -303,42 +294,6 @@
         "PrefabUID": 2084806115,
         "Tag": "UI",
         "UID": 3158086540
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    -0.30000001192092896,
-                    0.12300000339746475,
-                    -0.00800000037997961
-                ],
-                "Rotation": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Scale": [
-                    0.14000000059604645,
-                    0.5,
-                    0.5
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "FillImage": 1.0,
-                "MaterialResource": 116120790,
-                "Type": 15
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "Casete",
-        "ParentUID": 3125714672,
-        "PrefabUID": 2084806115,
-        "Tag": "UI",
-        "UID": 1177184507
     },
     {
         "Active": true,
@@ -401,42 +356,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Text_Weapon_1_on": 1828660828
-                    },
-                    {
-                        "Text_Weapon_1_off": 1261649561
-                    },
-                    {
-                        "Material Weapon 1": 4102192440
-                    },
-                    {
-                        "Game Bar Weapon 1": 4172812350
-                    },
-                    {
-                        "Text_Weapon_2_on": 977509463
-                    },
-                    {
-                        "Text_Weapon_2_off": 1072796038
-                    },
-                    {
-                        "Material Weapon 2": 2595168131
-                    },
-                    {
-                        "Game Bar Weapon 2": 692296045
-                    },
-                    {
-                        "Text_Weapon_3_on": 12569475
-                    },
-                    {
-                        "Text_Weapon_3_off": 103443597
-                    },
-                    {
-                        "Material Weapon 3": 1805554832
-                    },
-                    {
-                        "Game Bar Weapon 3": 1496549210
-                    },
                     {
                         "Text_Weapon_1_on": 1828660828
                     },
@@ -675,8 +594,8 @@
                     0.0
                 ],
                 "Scale": [
-                    0.07000000029802322,
-                    0.07000000029802322,
+                    0.11999999731779099,
+                    0.11999999731779099,
                     0.5
                 ],
                 "Type": 1
@@ -684,7 +603,7 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 0,
+                "MaterialResource": 1828660828,
                 "Type": 15
             }
         ],
@@ -741,7 +660,7 @@
                     -1.2000000476837158
                 ],
                 "Scale": [
-                    0.30000001192092896,
+                    0.15000000596046448,
                     0.15000000596046448,
                     0.5
                 ],
@@ -750,7 +669,7 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 2891199984,
+                "MaterialResource": 1072796038,
                 "Type": 15
             }
         ],
@@ -828,7 +747,7 @@
         "UID": 2133767414
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -909,8 +828,8 @@
                     1.2999999523162842
                 ],
                 "Scale": [
-                    0.30000001192092896,
-                    0.15000000596046448,
+                    0.125,
+                    0.125,
                     0.5
                 ],
                 "Type": 1
@@ -918,7 +837,7 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 1340084174,
+                "MaterialResource": 103443597,
                 "Type": 15
             }
         ],
@@ -996,7 +915,7 @@
         "UID": 2639149071
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -1069,7 +988,7 @@
                 "Position": [
                     -0.36000001430511475,
                     -0.4000000059604645,
-                    -0.008999999612569809
+                    -0.03400000184774399
                 ],
                 "Rotation": [
                     0.0,
@@ -1096,6 +1015,229 @@
         "PrefabUID": 0,
         "Tag": "UI",
         "UID": 769001189
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Disable_HUD": 1177184507
+                    },
+                    {
+                        "Active_HUD": 506000632
+                    },
+                    {
+                        "Disable_HUD": 1177184507
+                    },
+                    {
+                        "Active_HUD": 506000632
+                    }
+                ],
+                "Script Resource": 105735810,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Casete",
+        "ParentUID": 3125714672,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 45473304
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.30000001192092896,
+                    0.12300000339746475,
+                    -0.00800000037997961
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.14000000059604645,
+                    0.5,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 116120790,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Casete_Off",
+        "ParentUID": 45473304,
+        "PrefabUID": 2084806115,
+        "Tag": "UI",
+        "UID": 1177184507
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Casete_On",
+        "ParentUID": 45473304,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 506000632
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.3140000104904175,
+                    -0.029999999329447746,
+                    -0.032999999821186066
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.05400000140070915,
+                    0.2199999988079071,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 3864763197,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Casete_On_Details",
+        "ParentUID": 506000632,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 948238680
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.3179999887943268,
+                    -0.019999999552965164,
+                    -0.03200000151991844
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.04500000178813934,
+                    0.20000000298023224,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 2598528301,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "PowerBackGround",
+        "ParentUID": 506000632,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 3396393623
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.30000001192092896,
+                    0.12300000339746475,
+                    -0.029999999329447746
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.14000000059604645,
+                    0.5,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 618267172,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Casete_Ult_Avaliable",
+        "ParentUID": 506000632,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 818717033
     },
     {
         "Active": true,
@@ -1333,49 +1475,19 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Texture_SPEED_INCREASE": 1072796038
+                        "Texture_SPEED_INCREASE": 898734028
                     },
                     {
-                        "Texture_FIRERATE_INCREASE": 3583084629
+                        "Texture_FIRERATE_INCREASE": 1345496260
                     },
                     {
-                        "Texture_SHIELD": 335904823
+                        "Texture_SHIELD": 499632542
                     },
                     {
-                        "Texture_MAX_AMMO": 1214175512
+                        "Texture_MAX_AMMO": 1636843371
                     },
                     {
-                        "Texture_SLOW_TIME": 1465322406
-                    },
-                    {
-                        "GamesObjects_1": 3330712065
-                    },
-                    {
-                        "GamesObjects_2": 3955892868
-                    },
-                    {
-                        "GamesObjects_3": 2411446382
-                    },
-                    {
-                        "GamesObjects_4": 1806803977
-                    },
-                    {
-                        "GamesObjects_5": 3047364684
-                    },
-                    {
-                        "Texture_SPEED_INCREASE": 1072796038
-                    },
-                    {
-                        "Texture_FIRERATE_INCREASE": 3583084629
-                    },
-                    {
-                        "Texture_SHIELD": 335904823
-                    },
-                    {
-                        "Texture_MAX_AMMO": 1214175512
-                    },
-                    {
-                        "Texture_SLOW_TIME": 1465322406
+                        "Texture_SLOW_TIME": 1755384749
                     },
                     {
                         "GamesObjects_1": 3330712065
@@ -1393,19 +1505,19 @@
                         "GamesObjects_5": 3047364684
                     },
                     {
-                        "Texture_SPEED_INCREASE": 1072796038
+                        "Texture_SPEED_INCREASE": 898734028
                     },
                     {
-                        "Texture_FIRERATE_INCREASE": 3583084629
+                        "Texture_FIRERATE_INCREASE": 1345496260
                     },
                     {
-                        "Texture_SHIELD": 335904823
+                        "Texture_SHIELD": 499632542
                     },
                     {
-                        "Texture_MAX_AMMO": 1214175512
+                        "Texture_MAX_AMMO": 1636843371
                     },
                     {
-                        "Texture_SLOW_TIME": 1465322406
+                        "Texture_SLOW_TIME": 1755384749
                     },
                     {
                         "GamesObjects_1": 3330712065
@@ -1435,7 +1547,7 @@
         "UID": 1800507562
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -1464,14 +1576,14 @@
             }
         ],
         "FirstOnPrefab": true,
-        "Name": "Power_up_1",
+        "Name": "Power_Up_1",
         "ParentUID": 1800507562,
         "PrefabUID": 0,
         "Tag": "UI",
         "UID": 3330712065
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -1507,7 +1619,7 @@
         "UID": 3955892868
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -1543,7 +1655,7 @@
         "UID": 2411446382
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -1579,7 +1691,7 @@
         "UID": 1806803977
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -1620,6 +1732,42 @@
             {
                 "Enabled": true,
                 "Position": [
+                    1.5499999523162842,
+                    1.75,
+                    0.0010000000474974513
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.41999998688697815,
+                    0.30000001192092896,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 3784778997,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "PowerBackGround",
+        "ParentUID": 1800507562,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 2164799607
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
                     0.0,
                     0.0,
                     0.0
@@ -1639,7 +1787,7 @@
             {
                 "Active camera": true,
                 "Active culling": true,
-                "Aspect ratio": 1.684466004371643,
+                "Aspect ratio": 1.596625804901123,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,

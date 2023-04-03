@@ -178,6 +178,7 @@
 		<ClCompile Include="../../Assets/Scripts/UI Test folder/HUD_Power_Up_Scrip.cpp" />
 		<ClCompile Include="../../Assets/Scripts/ArmoryBluePrints.cpp" />
 		<ClCompile Include="../../Assets/Scripts/AbilityTreeUpgrades.cpp" />
+		<ClCompile Include="../../Assets/Scripts/HUD_Ultimate.cpp" />
 	</ItemGroup>
 	<ItemGroup>
 		<ClInclude Include="..\..\Assets\Scripts\Enemies\EnemyMeleeMovement.h" />
@@ -223,6 +224,7 @@
 		<ClInclude Include="../../Assets/Scripts/UI Test folder/HUD_Power_Up_Scrip.h" />
 		<ClInclude Include="../../Assets/Scripts/ArmoryBluePrints.h" />
 		<ClInclude Include="../../Assets/Scripts/AbilityTreeUpgrades.h" />
+		<ClInclude Include="../../Assets/Scripts/HUD_Ultimate.h" />
 	</ItemGroup>
 	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 	<ImportGroup Label="ExtensionTargets" />
