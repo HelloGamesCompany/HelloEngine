@@ -38065,12 +38065,12 @@
             {
                 "Enabled": true,
                 "Position": [
-                    254.73455810546875,
-                    42.927330017089844,
-                    -40.694427490234375
+                    225.01124572753906,
+                    42.92731857299805,
+                    -45.9393424987793
                 ],
                 "Rotation": [
-                    24.75700569152832,
+                    24.757009506225586,
                     0.0,
                     -0.0
                 ],
@@ -38084,7 +38084,7 @@
             {
                 "Active camera": true,
                 "Active culling": false,
-                "Aspect ratio": 2.031304359436035,
+                "Aspect ratio": 1.976190447807312,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -38096,6 +38096,36 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Target": 1881844107
+                    },
+                    {
+                        "Delay": 0.009999999776482582
+                    },
+                    {
+                        "Offset_X": 0.0
+                    },
+                    {
+                        "Offset_Y": 25.0
+                    },
+                    {
+                        "Offset_Z": -20.0
+                    },
+                    {
+                        "Rot_X": 50.0
+                    },
+                    {
+                        "Rot_Y": 0.0
+                    },
+                    {
+                        "Rot_Z": 0.0
+                    },
+                    {
+                        "SafeZone_Distance": 10.0
+                    },
+                    {
+                        "Use safe zone: ": true
+                    },
                     {
                         "Target": 1881844107
                     },
@@ -38192,7 +38222,7 @@
             },
             {
                 "Active camera": true,
-                "Active culling": true,
+                "Active culling": false,
                 "Aspect ratio": 1.134353756904602,
                 "Enabled": true,
                 "FOV": 60.0,
@@ -38205,6 +38235,30 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Target": 1881844107
+                    },
+                    {
+                        "Delay": 0.009999999776482582
+                    },
+                    {
+                        "Offset_X": 0.0
+                    },
+                    {
+                        "Offset_Y": 45.0
+                    },
+                    {
+                        "Offset_Z": -17.0
+                    },
+                    {
+                        "Rot_Offset_X": 58.0
+                    },
+                    {
+                        "Rot_Offset_Y": 0.0
+                    },
+                    {
+                        "Rot_Offset_Z": 0.0
+                    },
                     {
                         "Target": 1881844107
                     },
@@ -38311,19 +38365,19 @@
             {
                 "Enabled": true,
                 "Position": [
-                    -29.38437843322754,
-                    1.2461589574813843,
-                    -109.71619415283203
+                    249.95433044433594,
+                    1.2465893030166626,
+                    7.712920188903809
                 ],
                 "Rotation": [
-                    -180.0,
+                    -179.10000610351563,
                     -89.98020935058594,
                     179.9995574951172
                 ],
                 "Scale": [
-                    1.0000001192092896,
-                    1.0,
-                    1.0000001192092896
+                    1.5,
+                    1.5,
+                    1.5
                 ],
                 "Type": 1
             },
@@ -38480,6 +38534,51 @@
                     },
                     {
                         "Player Stats GO": 1881844107
+                    },
+                    {
+                        "Velocity": 10.0
+                    },
+                    {
+                        "Upgrade Velocity": 2.0
+                    },
+                    {
+                        "SecToMaxVel": 0.0
+                    },
+                    {
+                        "SecToZeroVel": 0.0
+                    },
+                    {
+                        "Dash Time": 0.5
+                    },
+                    {
+                        "Dash Distance": 5.0
+                    },
+                    {
+                        "Upgrade Dash Distance": 8.0
+                    },
+                    {
+                        "Dash Cooldown": 0.0
+                    },
+                    {
+                        "Upgrade Dash Cooldown": 0.0
+                    },
+                    {
+                        "AnimationPlayer": 2624315955
+                    },
+                    {
+                        "Dash Animation": 3797853291
+                    },
+                    {
+                        "Idle Animation": 1165806223
+                    },
+                    {
+                        "Run Animation": 462511998
+                    },
+                    {
+                        "Shoot Animations": 3469875527
+                    },
+                    {
+                        "Player Stats GO": 1881844107
                     }
                 ],
                 "Script Resource": 3336682094,
@@ -38488,6 +38587,36 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Max HP": 100.0
+                    },
+                    {
+                        "Current HP": 0.0
+                    },
+                    {
+                        "Upgraded Max HP": 0.0
+                    },
+                    {
+                        "Laser Ammo": 99999
+                    },
+                    {
+                        "Fire Ammo": 99999
+                    },
+                    {
+                        "Ricochet Ammo": 99999
+                    },
+                    {
+                        "movement tree lvl": 0
+                    },
+                    {
+                        "armory tree lvl": 0
+                    },
+                    {
+                        "health tree lvl": 0
+                    },
+                    {
+                        "special tree lvl": 0
+                    },
                     {
                         "Max HP": 100.0
                     },
@@ -38608,6 +38737,33 @@
                     },
                     {
                         "Fast Swap Delay": 0.0
+                    },
+                    {
+                        "Player Stats GO": 1881844107
+                    },
+                    {
+                        "Base Gun": 0
+                    },
+                    {
+                        "Normal Gun": 1
+                    },
+                    {
+                        "Special Gun": 4
+                    },
+                    {
+                        "Duals": 1424627499
+                    },
+                    {
+                        "Semiautomatic": 2093071756
+                    },
+                    {
+                        "Shotgun": 2098305788
+                    },
+                    {
+                        "Swap Delay": 0.0
+                    },
+                    {
+                        "Fast Swap Delay": 0.0
                     }
                 ],
                 "Script Resource": 3024424734,
@@ -38616,6 +38772,12 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "MAIN CAMERA": 508667422
+                    },
+                    {
+                        "SECONDARY CAMERA": 1929231542
+                    },
                     {
                         "MAIN CAMERA": 508667422
                     },
@@ -44103,6 +44265,9 @@
                     },
                     {
                         "Gun Type": 1
+                    },
+                    {
+                        "Gun Type": 1
                     }
                 ],
                 "Script Resource": 1187195986,
@@ -44111,6 +44276,55 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Projectile Pull": 533254908
+                    },
+                    {
+                        "Projectile Speed": 100.0
+                    },
+                    {
+                        "Projectile Damage": 60.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 0.0
+                    },
+                    {
+                        "Projectile Lifetime": 1.0
+                    },
+                    {
+                        "Projectile Spawn": 2093071756
+                    },
+                    {
+                        "Projectile MeshIndexInsideModel": 0,
+                        "Projectile MeshModelUID": 1551155716
+                    },
+                    {
+                        "Projectile Material": 3260379948
+                    },
+                    {
+                        "Projectile ScaleX": 0.20000000298023224
+                    },
+                    {
+                        "Projectile ScaleY": 0.20000000298023224
+                    },
+                    {
+                        "Projectile ScaleZ": 0.4000000059604645
+                    },
+                    {
+                        "Projectiles per second": 1.0
+                    },
+                    {
+                        "Extra % firerate": 0.0
+                    },
+                    {
+                        "Player Stats GO": 1881844107
+                    },
+                    {
+                        "Ammo Type": 1
+                    },
+                    {
+                        "Audio Event String": "basic_shooting"
+                    },
                     {
                         "Projectile Pull": 533254908
                     },
@@ -44251,6 +44465,9 @@
                     },
                     {
                         "Gun Type": 4
+                    },
+                    {
+                        "Gun Type": 4
                     }
                 ],
                 "Script Resource": 1421097082,
@@ -44259,6 +44476,61 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Projectile Pull": 533254908
+                    },
+                    {
+                        "Projectile Speed": 40.0
+                    },
+                    {
+                        "Projectile Damage": 10.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 0.0
+                    },
+                    {
+                        "Projectile Lifetime": 0.5
+                    },
+                    {
+                        "Projectile Spawn": 2098305788
+                    },
+                    {
+                        "Projectile MeshIndexInsideModel": 0,
+                        "Projectile MeshModelUID": 1551155716
+                    },
+                    {
+                        "Projectile Material": 3260379948
+                    },
+                    {
+                        "Projectile ScaleX": 0.05000000074505806
+                    },
+                    {
+                        "Projectile ScaleY": 0.05000000074505806
+                    },
+                    {
+                        "Projectile ScaleZ": 0.05000000074505806
+                    },
+                    {
+                        "Projectiles per second": 1.2999999523162842
+                    },
+                    {
+                        "Extra % firerate": 0.0
+                    },
+                    {
+                        "Pellets per shot": 10
+                    },
+                    {
+                        "Pellets Dispersion": 0.0
+                    },
+                    {
+                        "Player Stats GO": 1881844107
+                    },
+                    {
+                        "Ammo Type": 1
+                    },
+                    {
+                        "Audio Event String": "basic_shooting"
+                    },
                     {
                         "Projectile Pull": 533254908
                     },
@@ -44411,6 +44683,9 @@
                     },
                     {
                         "Gun Type": 0
+                    },
+                    {
+                        "Gun Type": 0
                     }
                 ],
                 "Script Resource": 1421097082,
@@ -44419,6 +44694,70 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Projectile Pull": 533254908
+                    },
+                    {
+                        "Projectile Speed": 30.0
+                    },
+                    {
+                        "Projectile Damage": 5.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 0.0
+                    },
+                    {
+                        "Projectile Lifetime": 1.0
+                    },
+                    {
+                        "Projectile Spawn": 1424627499
+                    },
+                    {
+                        "Second Projectile Spawn": 523493100
+                    },
+                    {
+                        "Projectile MeshIndexInsideModel": 0,
+                        "Projectile MeshModelUID": 1551155716
+                    },
+                    {
+                        "Projectile Material": 3260379948
+                    },
+                    {
+                        "Projectile ScaleX": 0.10000000149011612
+                    },
+                    {
+                        "Projectile ScaleY": 0.10000000149011612
+                    },
+                    {
+                        "Projectile ScaleZ": 0.10000000149011612
+                    },
+                    {
+                        "Projectiles per second": 3.0
+                    },
+                    {
+                        "Extra % firerate": 0.0
+                    },
+                    {
+                        "Burst Space": 0.1599999964237213
+                    },
+                    {
+                        "Second Gun GO": 523493100
+                    },
+                    {
+                        "Slow %": 0.0
+                    },
+                    {
+                        "Freeze %": 0.0
+                    },
+                    {
+                        "Player Stats GO": 1881844107
+                    },
+                    {
+                        "Ammo Type": 0
+                    },
+                    {
+                        "Audio Event String": "basic_shooting"
+                    },
                     {
                         "Projectile Pull": 533254908
                     },
@@ -45381,6 +45720,15 @@
                     },
                     {
                         "Particles": 996843272
+                    },
+                    {
+                        "Pull Size": 30
+                    },
+                    {
+                        "Player": 1881844107
+                    },
+                    {
+                        "Particles": 996843272
                     }
                 ],
                 "Script Resource": 1341579112,
@@ -45467,5 +45815,500 @@
         "PrefabUID": 0,
         "Tag": "Default",
         "UID": 996843272
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    204.6910400390625,
+                    0.0,
+                    -3.5237507820129395
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    7.5,
+                    0.6000000238418579,
+                    7.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2439010209,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3521069009,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CenterGround",
+        "ParentUID": 1957540640,
+        "PrefabUID": 3766244713,
+        "Tag": "Default",
+        "UID": 3598902645
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    212.09832763671875,
+                    0.0,
+                    -3.488509178161621
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    7.5,
+                    0.6000000238418579,
+                    7.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2439010209,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3521069009,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CenterGround",
+        "ParentUID": 1957540640,
+        "PrefabUID": 3766244713,
+        "Tag": "Default",
+        "UID": 3419443073
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    219.5830535888672,
+                    0.0,
+                    -3.5007472038269043
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    7.5,
+                    0.6000000238418579,
+                    7.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2439010209,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3521069009,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CenterGround",
+        "ParentUID": 1957540640,
+        "PrefabUID": 3766244713,
+        "Tag": "Default",
+        "UID": 3906191122
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    227.06785583496094,
+                    0.0,
+                    -3.5
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    7.5,
+                    0.6000000238418579,
+                    7.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2439010209,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3521069009,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CenterGround",
+        "ParentUID": 1957540640,
+        "PrefabUID": 3766244713,
+        "Tag": "Default",
+        "UID": 3684594058
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    234.5129852294922,
+                    0.0,
+                    -3.5
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    7.5,
+                    0.6000000238418579,
+                    7.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2439010209,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3521069009,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CenterGround",
+        "ParentUID": 1957540640,
+        "PrefabUID": 3766244713,
+        "Tag": "Default",
+        "UID": 1969742972
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    197.1274871826172,
+                    0.0,
+                    -3.5
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    7.699999809265137,
+                    0.6000000238418579,
+                    7.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2439010209,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3521069009,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CenterGround",
+        "ParentUID": 1957540640,
+        "PrefabUID": 3766244713,
+        "Tag": "Default",
+        "UID": 3693900793
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    189.7075958251953,
+                    -0.000244140625,
+                    -3.5
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    7.5,
+                    0.6000000238418579,
+                    7.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2439010209,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3521069009,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CenterGround",
+        "ParentUID": 1957540640,
+        "PrefabUID": 3766244713,
+        "Tag": "Default",
+        "UID": 3562244332
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    182.24423217773438,
+                    0.0,
+                    -3.5
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    7.5,
+                    0.6000000238418579,
+                    7.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2439010209,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3521069009,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CenterGround",
+        "ParentUID": 1957540640,
+        "PrefabUID": 3766244713,
+        "Tag": "Default",
+        "UID": 653141910
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    174.7233428955078,
+                    0.0,
+                    -3.5
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    7.5,
+                    0.6000000238418579,
+                    7.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2439010209,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3521069009,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CenterGround",
+        "ParentUID": 1957540640,
+        "PrefabUID": 3766244713,
+        "Tag": "Default",
+        "UID": 1574153358
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    234.58200073242188,
+                    0.000244140625,
+                    4.017429351806641
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    7.5,
+                    0.6000000238418579,
+                    7.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2439010209,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3521069009,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CenterGround",
+        "ParentUID": 1957540640,
+        "PrefabUID": 3766244713,
+        "Tag": "Default",
+        "UID": 3745412582
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    227.10430908203125,
+                    0.0,
+                    4.017000198364258
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    7.5,
+                    0.6000000238418579,
+                    7.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2439010209,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3521069009,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CenterGround",
+        "ParentUID": 1957540640,
+        "PrefabUID": 3766244713,
+        "Tag": "Default",
+        "UID": 648309184
     }
 ]
