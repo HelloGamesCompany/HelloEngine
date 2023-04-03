@@ -18,7 +18,9 @@ void HpBar::Start()
 }
 void HpBar::Update()
 {
-    float finalScale = playerStats->currentHp * 0.4f / playerStats->currentMaxHp;
+    float finalScale;
+    if (playerStats) finalScale = playerStats->currentHp * 0.4f / playerStats->currentMaxHp;
+    else finalScale = 100.0f * 0.4f / 100.0f;
 
     if (finalScale != gameObject.GetTransform().GetLocalScale().x) {
 
