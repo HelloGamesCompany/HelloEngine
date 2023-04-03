@@ -1104,7 +1104,7 @@
                 "Enabled": true,
                 "Position": [
                     0.0,
-                    0.0,
+                    -0.10000000149011612,
                     0.0
                 ],
                 "Rotation": [
@@ -1134,8 +1134,8 @@
                 "Enabled": true,
                 "Position": [
                     0.10000000149011612,
-                    1.7000000476837158,
-                    0.0
+                    1.6699999570846558,
+                    -0.0020000000949949026
                 ],
                 "Rotation": [
                     0.0,
@@ -1144,7 +1144,7 @@
                 ],
                 "Scale": [
                     0.8999999761581421,
-                    0.25,
+                    0.3499999940395355,
                     0.5
                 ],
                 "Type": 1
@@ -1169,8 +1169,8 @@
             {
                 "Enabled": true,
                 "Position": [
-                    0.0,
-                    0.0,
+                    0.11699999868869781,
+                    1.600000023841858,
                     0.0
                 ],
                 "Rotation": [
@@ -1179,8 +1179,8 @@
                     0.0
                 ],
                 "Scale": [
-                    0.5,
-                    0.5,
+                    0.8100000023841858,
+                    0.17000000178813934,
                     0.5
                 ],
                 "Type": 1
@@ -1193,11 +1193,119 @@
             }
         ],
         "FirstOnPrefab": true,
-        "Name": "Image",
+        "Name": "Boss_Bar_Bachground_HP",
         "ParentUID": 2273192879,
         "PrefabUID": 0,
         "Tag": "UI",
         "UID": 30454805
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.11599999666213989,
+                    1.600000023841858,
+                    -0.0010000000474974513
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    0.8299999833106995,
+                    0.17000000178813934,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 3220306408,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Boss_HP",
+        "ParentUID": 2273192879,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 3846539246
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.699999988079071,
+                    1.899999976158142,
+                    -0.003000000026077032
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.15000000596046448,
+                    0.15000000596046448,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 3577591980,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Boss_Image/Icon",
+        "ParentUID": 2273192879,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 3894491776
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.4000000059604645,
+                    1.809999942779541,
+                    -0.004000000189989805
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.15000000596046448,
+                    0.05000000074505806,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 964082006,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Boss_Name_Image",
+        "ParentUID": 2273192879,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 2151913099
     },
     {
         "Active": true,
