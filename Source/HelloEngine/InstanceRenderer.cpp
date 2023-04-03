@@ -56,7 +56,7 @@ void InstanceRenderer::Draw()
         return;
     }
 
-    if (resMat != nullptr)
+    if (resMat != nullptr && resMat->material.GetShader() != nullptr)
     {
         DrawMaterial(); //Draws using the current Material
     }
@@ -137,9 +137,9 @@ void InstanceRenderer::DrawRaw()
 
         if (!mesh.second.mesh.Update())
         {
-            if (mesh.second.mesh.isIndependent)
-                Application::Instance()->renderer3D->renderManager.SetSelectedMesh(&mesh.second);
-            continue;
+            //if (mesh.second.mesh.isIndependent)
+            Application::Instance()->renderer3D->renderManager.SetSelectedMesh(&mesh.second.mesh);
+            //continue;
         }
 
         modelMatrices.push_back(mesh.second.mesh.modelMatrix); // Insert updated matrices

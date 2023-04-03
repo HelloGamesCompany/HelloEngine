@@ -225,8 +225,8 @@ void Mesh::DrawAsSelected(Material material, uint materialID)
 	}
 	else
 	{
-		InstanceRenderer* manager = Application::Instance()->renderer3D->renderManager.GetRenderManager(component->_meshID + materialID, 0);
-		manager->DrawInstance(this);
+		/*InstanceRenderer* manager = Application::Instance()->renderer3D->renderManager.GetRenderManager(component->_meshID + materialID, 0);
+		manager->DrawInstance(this);*/
 	}
 
 	glStencilFunc(GL_NOTEQUAL, 1, 0xFF);
@@ -241,16 +241,16 @@ void Mesh::DrawAsSelected(Material material, uint materialID)
 	stencilShader->shader.SetMatFloat4v("model", &modelMatrix.v[0][0]);*/
 #endif
 	// Draw model bigger size using the stencilShader
-	if (isIndependent)
-	{
+	/*if (isIndependent)
+	{*/
 		//Draw(material, false);
 		StencilDraw();
-	}
+	/*}
 	else
 	{
 		InstanceRenderer* manager = Application::Instance()->renderer3D->renderManager.GetRenderManager(component->_meshID, 0);
 		manager->DrawInstance(this, false);
-	}
+	}*/
 
 	glStencilMask(0xFF);
 	glStencilFunc(GL_ALWAYS, 0, 0xFF);
@@ -267,6 +267,10 @@ void Mesh::DrawAsSelected()
 	glStencilFunc(GL_ALWAYS, 1, 0xFF);
 	glStencilMask(0xFF);
 
+	if (isIndependent)
+	{
+		Draw(Material(), false);
+	}
 	/*InstanceRenderer* manager = Application::Instance()->renderer3D->renderManager.GetRenderManager(component->_meshID, 0);
 	manager->DrawInstance(this);*/
 

@@ -198,8 +198,11 @@ void RenderManager::OnEditor()
 					if (ImGui::CollapsingHeader(headerMaterial.c_str()))
 					{
 						ImGui::Text("Shader: "); ImGui::SameLine();
-						ImGui::TextColored(textColour, manager.second.resMat->material.GetShader()->debugName.c_str());
-					
+						if (manager.second.resMat->material.GetShader())
+							ImGui::TextColored(textColour, manager.second.resMat->material.GetShader()->debugName.c_str());
+						else
+							ImGui::TextColored(textColour, "Nullptr");
+
 						ImGui::Text("Number of uniforms: "); ImGui::SameLine();
 						ImGui::TextColored(textColour, std::to_string(manager.second.resMat->material.uniforms.size()).c_str());
 					}
@@ -219,7 +222,7 @@ InstanceRenderer* RenderManager::GetRenderManager(uint meshID, uint materialID, 
 	uint ID = meshID + materialID;
 	ResourceMaterial* mat = nullptr;
 
-	//It has to be check first or otherwise a NULL resource could be generated
+	//It has to check first or otherwise a NULL resource could be generated
 	if (materialID > 0)
 		if (ModuleResourceManager::resources.count(materialID))
 			mat = (ResourceMaterial*) ModuleResourceManager::resources[materialID];
@@ -228,8 +231,11 @@ InstanceRenderer* RenderManager::GetRenderManager(uint meshID, uint materialID, 
 	if (_renderMap.count(ID) == 0)
 	{
 		if (create)
+		{
 			_renderMap[ID].SetMeshInformation((ResourceMesh*)ModuleResourceManager::resources[meshID],
-				mat);
+					mat);
+		}
+			
 		else
 			return nullptr;
 	}
@@ -1123,19 +1129,14 @@ void RenderManager::DrawIndependentMeshes()
 		// Update mesh. If the mesh should draw this frame, call Draw.
 		if (mesh.second.mesh.Update())
 		{
-			/*if (mesh.second.material == nullptr)
-			{
-				mesh.second.mesh.Draw();
-				continue;
-			}*/
-			if (mesh.second.material != nullptr)
+			if (mesh.second.material != nullptr && mesh.second.material->material.GetShader() != nullptr)
 				mesh.second.mesh.Draw(mesh.second.material->material);
 			else
 				mesh.second.mesh.Draw(Material(), false);
 		}
 		else
 		{
-			if (mesh.second.material != nullptr)
+			if (mesh.second.material != nullptr && mesh.second.material->material.GetShader() != nullptr)
 				Application::Instance()->renderer3D->renderManager.SetSelectedMesh(&mesh.second); //Selected with Mat
 			else
 				Application::Instance()->renderer3D->renderManager.SetSelectedMesh(&mesh.second.mesh); //Selected without Mat

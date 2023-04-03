@@ -32,7 +32,7 @@ void MaterialComponent::OnEditor()
 		MaterialDragNDrop();
 		ShaderSelectCombo();
 
-		if (_resource)
+		if (_resource && _resource->material.GetShader())
 		{
 			//INSTANCED ON A NON INSTANCED MESH ALERT MESSAGE
 			if (_resource->material.GetShader()->shader.data.isIstanced &&
@@ -183,7 +183,7 @@ void MaterialComponent::ShaderSelectCombo()
 #endif
 int MaterialComponent::GetResourceUID()
 {
-	if (_resource == nullptr) return -1;
+	if (_resource == nullptr) return 0;
 
 	return _resource->UID;
 }
@@ -215,6 +215,12 @@ void MaterialComponent::Serialization(json& _j)
 		j["MaterialUID"] = 0;
 	}
 
+	MeshRenderComponent* mesh = GetOwnerMeshComponent();
+	if (mesh)
+	{
+		j["IsInstanced"] = !mesh->GetMesh().isIndependent;
+	}
+
 	j["Enabled"] = _isEnabled;
 
 	_j["Components"].push_back(j);
@@ -239,10 +245,13 @@ void MaterialComponent::DeSerialization(json& _j)
 	MeshRenderComponent* comp = GetOwnerMeshComponent();
 
 	if (comp)
-	if (_resource->material.GetShader()->shader.data.isIstanced)
-		comp->CreateMesh(comp->GetResourceUID(), _resource->UID, MeshRenderType::INSTANCED);
-	else
-		comp->CreateMesh(comp->GetResourceUID(), _resource->UID, MeshRenderType::INDEPENDENT);
+	{
+		if (_j["IsInstanced"])
+			comp->CreateMesh(comp->GetResourceUID(), _resource->UID, MeshRenderType::INSTANCED);
+		else
+			comp->CreateMesh(comp->GetResourceUID(), _resource->UID, MeshRenderType::INDEPENDENT);
+	}
+	
 
 	bool enabled = _j["Enabled"];
 	if (!enabled)

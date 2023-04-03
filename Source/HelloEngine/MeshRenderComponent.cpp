@@ -31,7 +31,7 @@ MeshRenderComponent::MeshRenderComponent(GameObject* gameObject, const MeshRende
 
 	if (copy._resource != nullptr)
 	{
-		CreateMesh(copy._resource->UID, -1, copy.renderType);
+		CreateMesh(copy._resource->UID, 0, copy.renderType);
 	}
 }
 
@@ -50,10 +50,11 @@ MeshRenderComponent::~MeshRenderComponent()
 	}
 }
 
-void MeshRenderComponent::CreateMesh(uint resourceUID, int materialUID, MeshRenderType type)
+void MeshRenderComponent::CreateMesh(uint resourceUID, uint materialUID, MeshRenderType type)
 {
 	if (_resource != nullptr)
 	{
+		//if (renderType == Mes)
 		DestroyMesh();
 
 		_resource->Dereference();
@@ -75,7 +76,7 @@ void MeshRenderComponent::CreateMesh(uint resourceUID, int materialUID, MeshRend
 	//{
 	//	material = (ResourceMaterial*)ModuleResourceManager::S_LoadResource(materialUID);
 	//}
-
+	_renderID = resourceUID + materialUID;
 	renderType = type;
 
 	// If we are Instanced, we use 2 IDs, one for our resource and another for our instance identifier.
@@ -147,12 +148,13 @@ Mesh& MeshRenderComponent::GetMesh()
 	{
 		// meshID + materialID = RenderID (Real id on the instanced rederer map)
 		uint ID = _meshID;
+		uint materialID = 0;
 		if (MaterialComponent* matComp = _gameObject->GetComponent<MaterialComponent>())
 		{
-			ID += matComp->GetResourceUID();
+			materialID += matComp->GetResourceUID();
 		}
 
-		InstanceRenderer* manager = Application::Instance()->renderer3D->renderManager.GetRenderManager(ID, 0);
+		InstanceRenderer* manager = Application::Instance()->renderer3D->renderManager.GetRenderManager(_meshID, materialID);
 		Mesh& meshReference = manager->GetMap()[_instanceID].mesh;
 		return meshReference;
 	}
@@ -181,7 +183,7 @@ void MeshRenderComponent::DestroyMesh()
 	{
 	case MeshRenderType::INSTANCED:
 	{
-		InstanceRenderer* manager = Application::Instance()->renderer3D->renderManager.GetRenderManager(_meshID, false);
+		InstanceRenderer* manager = Application::Instance()->renderer3D->renderManager.GetRenderManager(_meshID, (_renderID - _meshID));
 		if (manager != nullptr)
 			manager->GetMap().erase(_instanceID);
 	}
@@ -350,7 +352,7 @@ void MeshRenderComponent::MarkAsDead()
 
 void MeshRenderComponent::MarkAsAlive()
 {
-	CreateMesh(_resourceUID, -1, renderType);
+	CreateMesh(_resourceUID, 0, renderType);
 }
 #endif
 
