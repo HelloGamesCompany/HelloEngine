@@ -27,7 +27,6 @@ HELLO_ENGINE_API_C PlayerMove* CreatePlayerMove(ScriptToInspectorInterface* scri
     script->AddDragBoxAnimationResource("Shoot Animations", &classInstance->shootAnim);
 
     script->AddDragBoxGameObject("Player Stats GO", &classInstance->playerStatsGO);
-    script->AddDragBoxGameObject("HUD", &classInstance->HUDGameObject);
     return classInstance;
 }
 
@@ -38,8 +37,6 @@ void PlayerMove::Start()
     departureTime = 0.0f;
     playerStats = (PlayerStats*)playerStatsGO.GetScript("PlayerStats");
     if (playerStats == nullptr) Console::Log("Missing PlayerStats on PlayerMove Script.");
-    HUDScript = (SwapWeapon*)HUDGameObject.GetScript("SwapWeapon");
-    if (HUDScript == nullptr) Console::Log("Missing SwapWeapon on PlayerMove Script.");
 
     if (playerStats && playerStats->movementTreeLvl > 3) dashesAvailable = 2;
     else dashesAvailable = 1;
@@ -200,8 +197,6 @@ void PlayerMove::DashSetup()
         playerAnimator.Play();
         currentAnim = PlayerAnims::DASH;
     }
-
-    if (HUDScript) HUDScript->Dash();
 }
 
 void PlayerMove::Dash()
@@ -211,7 +206,6 @@ void PlayerMove::Dash()
     if (dashDepartTime >= dashTime)
     {
         isDashing = false;
-        if (HUDScript) HUDScript->Dash();
     }
 }
 
