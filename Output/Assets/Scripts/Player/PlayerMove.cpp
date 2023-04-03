@@ -175,8 +175,8 @@ void PlayerMove::DashSetup()
 
     // cooldown
     dashesAvailable--;
-    if (playerStats && playerStats->movementTreeLvl > 1) dashCooldown = maxFastDashCooldown;
-    else dashCooldown = maxDashCooldown;
+    if (playerStats && playerStats->movementTreeLvl > 1) dashCooldown = maxFastDashCooldown + 0.0001f;
+    else dashCooldown = maxDashCooldown + 0.0001f;
 
     dashDepartTime = 0.0f;
     float norm = sqrt(pow(lastMovInput.x, 2) + pow(lastMovInput.y, 2));
