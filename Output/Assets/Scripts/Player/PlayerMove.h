@@ -41,11 +41,11 @@ public:
     float vel = 1.0f;
     float upgradedVel = 2.0f;
     float currentVel = 0.0f;
-    float currentInput = 0.0f; //test
     float departureTime = 0.0f;
     float secToMaxVel = 0.0f;
     float secToZeroVel = 0.0f;
     API_Transform transform;
+    API_RigidBody rigidBody;
 
     //Void Tp
     API_Vector3 initialPos;
@@ -59,8 +59,6 @@ public:
     float dashCooldown;
     bool dashBuffer;
     float dashDepartTime = 0.0f;
-    API_Vector3 dashInitialPos;
-    API_Vector3 dashFinalPos;
     float dashTime = 0.5f;
     float dashDistance = 5.0f;
     float upgradedDashDistance = 8.0f;
