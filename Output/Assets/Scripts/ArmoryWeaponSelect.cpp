@@ -31,7 +31,6 @@ void ArmoryWeaponSelect::Start()
 {
 	nextW = (ArmoryWeaponSelect*)NextWeapon.GetScript("ArmoryWeaponSelect");
 	PrevW = (ArmoryWeaponSelect*)PrevtWeapon.GetScript("ArmoryWeaponSelect");
-
 }
 void ArmoryWeaponSelect::Update()
 {
