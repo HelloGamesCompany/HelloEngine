@@ -21,6 +21,19 @@ InstanceRenderer::~InstanceRenderer()
     perMeshShader = nullptr;
     mesh2DShader->Dereference();
     mesh2DShader = nullptr;
+
+    if (VAO == 0)
+        return;
+
+    glDeleteVertexArrays(1, &VAO);
+    glDeleteBuffers(1, &VBO);
+    glDeleteBuffers(1, &IBO);
+    glDeleteBuffers(1, &MBO);
+    glDeleteBuffers(1, &TBO);
+
+    glDeleteVertexArrays(1, &BasicVAO);
+    glDeleteBuffers(1, &BasicVBO);
+    glDeleteBuffers(1, &BasicIBO);
 }
 
 void InstanceRenderer::SetMeshInformation(ResourceMesh* resMesh, ResourceMaterial* resMat)

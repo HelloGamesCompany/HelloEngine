@@ -69,13 +69,6 @@ void MeshRenderComponent::CreateMesh(uint resourceUID, uint materialUID, MeshRen
 		_meshID = -1;
 		return;
 	}
-
-	////Material
-	//ResourceMaterial* material = nullptr;
-	//if (materialUID != -1)
-	//{
-	//	material = (ResourceMaterial*)ModuleResourceManager::S_LoadResource(materialUID);
-	//}
 	_renderID = resourceUID + materialUID;
 	renderType = type;
 
@@ -103,12 +96,6 @@ void MeshRenderComponent::CreateMesh(uint resourceUID, uint materialUID, MeshRen
 		_gameObject->GetComponent<TextureComponent>()->SetMeshRenderer(this);
 		_gameObject->GetComponent<TextureComponent>()->UpdateMaterial();
 	}
-
-	/*if (material != nullptr)
-	{
-		material->Dereference();
-		material = nullptr;
-	}*/
 }
 
 void MeshRenderComponent::CreateMesh2D()

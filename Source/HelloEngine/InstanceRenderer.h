@@ -75,15 +75,6 @@ private:
 	uint BasicVBO = 0;
 	uint BasicIBO = 0;
 
-	uint OBBIndexO = 0; // Elements buffer object for OBB
-	uint AABBIndexO = 0; // Elements buffer object for AABB
-
-	uint OBBLineVAO = 0; // Lines to display OBB
-	uint OBBLineVBO = 0;
-
-	uint AABBLineVAO = 0; // Lines to display AABB
-	uint AABBLineVBO = 0;
-
 	bool drawVertexNormals = false;
 	bool drawFaceNormals = true;
 
