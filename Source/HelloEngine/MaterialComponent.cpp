@@ -259,10 +259,14 @@ void MaterialComponent::DeSerialization(json& _j)
 
 	//Load to mesh
 	MeshRenderComponent* comp = GetOwnerMeshComponent();
+	bool isInstanced = true;
+
+	if (_j.contains("IsInstanced"))
+		isInstanced = _j["IsInstanced"];
 
 	if (comp)
 	{
-		if (_j["IsInstanced"])
+		if (isInstanced)
 			comp->CreateMesh(comp->GetResourceUID(), _resource->UID, MeshRenderType::INSTANCED);
 		else
 			comp->CreateMesh(comp->GetResourceUID(), _resource->UID, MeshRenderType::INDEPENDENT);
