@@ -234,7 +234,6 @@ InstanceRenderer* RenderManager::GetRenderManager(uint meshID, uint materialID, 
 			_renderMap[ID].SetMeshInformation((ResourceMesh*)ModuleResourceManager::resources[meshID],
 					mat);
 		}
-			
 		else
 			return nullptr;
 	}
@@ -1090,14 +1089,14 @@ void RenderManager::DrawTransparentMeshes()
 		RenderUpdateState renderState = entry->second->mesh.Update();
 		if (renderState == RenderUpdateState::DRAW)
 		{
-			if (entry->second->material != nullptr & entry->second->material->material.GetShader() != nullptr)
+			if (entry->second->material != nullptr && entry->second->material->material.GetShader() != nullptr)
 				entry->second->mesh.Draw(entry->second->material->material);
 			else
 				entry->second->mesh.Draw(Material(), false);
 		}
 		else if (renderState == RenderUpdateState::SELECTED)
 		{
-			if (entry->second->material != nullptr & entry->second->material->material.GetShader() != nullptr)
+			if (entry->second->material != nullptr && entry->second->material->material.GetShader() != nullptr)
 				Application::Instance()->renderer3D->renderManager.SetSelectedMesh(entry->second);
 			else
 				Application::Instance()->renderer3D->renderManager.SetSelectedMesh(&entry->second->mesh);

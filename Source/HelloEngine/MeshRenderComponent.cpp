@@ -146,8 +146,6 @@ Mesh& MeshRenderComponent::GetMesh()
 	{
 	case MeshRenderType::INSTANCED:
 	{
-		// meshID + materialID = RenderID (Real id on the instanced rederer map)
-		uint ID = _meshID;
 		uint materialID = 0;
 		if (MaterialComponent* matComp = _gameObject->GetComponent<MaterialComponent>())
 		{

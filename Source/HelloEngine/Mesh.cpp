@@ -189,6 +189,10 @@ RenderUpdateState Mesh::Update()
 		//else
 		//{
 			//Application::Instance()->renderer3D->renderManager.SetSelectedMesh(this);
+		if (textureID != -1.0f)
+		{
+			OpenGLTextureID = TextureManager::BindTexture(textureID);
+		}
 			return RenderUpdateState::SELECTED;
 		//}
 	}

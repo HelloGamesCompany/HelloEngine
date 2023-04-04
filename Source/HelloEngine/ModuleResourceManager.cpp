@@ -172,7 +172,7 @@ void ModuleResourceManager::S_ReImportFile(const std::string& filePath, Resource
 	break;
 	case ResourceType::MATERIAL:
 	{
-		if (resources[meta.UID] != nullptr)
+		if (resources[meta.UID] != nullptr && resources[meta.UID]->referenceCount != 0)
 		{
 			ModuleFiles::S_UpdateMetaData(filePath, meta.resourcePath); // We do this before reimporting, because the new resource file will be named like the old, and this destroys that file.
 			resources[meta.UID]->ReImport(""); // No necessary path for this kind of ReImport

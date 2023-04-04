@@ -72,7 +72,7 @@ void InstanceRenderer::DrawMaterial()
     for (auto& mesh : meshes)
     {
         //Selected Mesh
-        if (!mesh.second.mesh.Update() == RenderUpdateState::NODRAW)
+        if (mesh.second.mesh.Update() == RenderUpdateState::SELECTED)
         {
         //    //if (mesh.second.mesh.isIndependent)
             mesh.second.material = this->resMat;
@@ -135,7 +135,7 @@ void InstanceRenderer::DrawRaw()
             mesh.second.outOfFrustum = false;
         }*/
 
-        if (!mesh.second.mesh.Update() == RenderUpdateState::NODRAW)
+        if (mesh.second.mesh.Update() == RenderUpdateState::SELECTED)
         {
             //if (mesh.second.mesh.isIndependent)
             Application::Instance()->renderer3D->renderManager.SetSelectedMesh(&mesh.second.mesh);
