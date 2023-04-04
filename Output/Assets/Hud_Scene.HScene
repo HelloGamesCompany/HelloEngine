@@ -90,7 +90,7 @@
         "UID": 3125714672
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -302,7 +302,7 @@
                 "Enabled": true,
                 "Position": [
                     0.0,
-                    0.0,
+                    0.07999999821186066,
                     0.0
                 ],
                 "Rotation": [
@@ -311,8 +311,8 @@
                     0.0
                 ],
                 "Scale": [
-                    0.5,
-                    0.5,
+                    0.6000000238418579,
+                    0.6000000238418579,
                     0.5
                 ],
                 "Type": 1
@@ -320,7 +320,7 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 1535676784,
+                "MaterialResource": 137807845,
                 "Type": 15
             }
         ],
@@ -1246,6 +1246,85 @@
                 "Enabled": true,
                 "Position": [
                     0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Shield_GO": 759524979
+                    },
+                    {
+                        "Shield_GO": 759524979
+                    }
+                ],
+                "Script Resource": 1138999330,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Shield",
+        "ParentUID": 3125714672,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1125192794
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.2199999988079071,
+                    0.47999998927116394,
+                    -0.029999999329447746
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.3499999940395355,
+                    0.019999999552965164,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 2531036958,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Sield_Indicator",
+        "ParentUID": 1125192794,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 759524979
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
                     -0.10000000149011612,
                     0.0
                 ],
@@ -1368,6 +1447,25 @@
                 "FillImage": 1.0,
                 "MaterialResource": 3220306408,
                 "Type": 15
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "HP": 100.0
+                    },
+                    {
+                        "MAX HP": 100.0
+                    },
+                    {
+                        "HP": 100.0
+                    },
+                    {
+                        "MAX HP": 100.0
+                    }
+                ],
+                "Script Resource": 3828527852,
+                "Type": 5
             }
         ],
         "FirstOnPrefab": true,
