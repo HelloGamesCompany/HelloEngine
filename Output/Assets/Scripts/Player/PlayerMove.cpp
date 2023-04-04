@@ -91,7 +91,7 @@ void PlayerMove::Update()
                 DashSetup();
             }
         }
-        else if (dashBuffer)
+        else if (dashBuffer && !isDashing)
         {
             DashSetup();
             dashBuffer = false;
