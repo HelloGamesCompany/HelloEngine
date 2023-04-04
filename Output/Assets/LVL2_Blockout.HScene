@@ -125,36 +125,6 @@
                     },
                     {
                         "Use safe zone: ": true
-                    },
-                    {
-                        "Target": 1881844107
-                    },
-                    {
-                        "Delay": 0.009999999776482582
-                    },
-                    {
-                        "Offset_X": 0.0
-                    },
-                    {
-                        "Offset_Y": 25.0
-                    },
-                    {
-                        "Offset_Z": -20.0
-                    },
-                    {
-                        "Rot_X": 50.0
-                    },
-                    {
-                        "Rot_Y": 0.0
-                    },
-                    {
-                        "Rot_Z": 0.0
-                    },
-                    {
-                        "SafeZone_Distance": 10.0
-                    },
-                    {
-                        "Use safe zone: ": true
                     }
                 ],
                 "Script Resource": 118417560,
@@ -6008,9 +5978,6 @@
                     },
                     {
                         "Final text panel: ": 2592125732
-                    },
-                    {
-                        "Final text panel: ": 2592125732
                     }
                 ],
                 "Script Resource": 3660110539,
@@ -6697,9 +6664,9 @@
             {
                 "Enabled": true,
                 "Position": [
-                    -123.3800048828125,
-                    0.6640641093254089,
-                    -4.8859710693359375
+                    -119.03019714355469,
+                    0.6640642285346985,
+                    -5.727758407592773
                 ],
                 "Rotation": [
                     -0.0,
@@ -6721,11 +6688,11 @@
                 ],
                 "ColRotation": [
                     0.0,
-                    -30.5,
+                    -45.0,
                     0.0
                 ],
                 "ColScale": [
-                    17.200000762939453,
+                    22.200000762939453,
                     1.399999976158142,
                     1.0
                 ],
@@ -6788,9 +6755,9 @@
             {
                 "Enabled": true,
                 "Position": [
-                    -123.41952514648438,
-                    0.6235008835792542,
-                    -29.184263229370117
+                    -119.23149108886719,
+                    0.6228918433189392,
+                    -27.706233978271484
                 ],
                 "Rotation": [
                     -0.0,
@@ -6812,12 +6779,12 @@
                 ],
                 "ColRotation": [
                     0.0,
-                    36.29999923706055,
+                    45.0,
                     0.0
                 ],
                 "ColScale": [
-                    18.799999237060547,
-                    1.600000023841858,
+                    22.100000381469727,
+                    2.0,
                     1.0
                 ],
                 "CylVerSlices": 16,
@@ -6881,7 +6848,7 @@
                 "Position": [
                     -87.70966339111328,
                     0.5281953811645508,
-                    -0.34535670280456543
+                    1.752870798110962
                 ],
                 "Rotation": [
                     -0.0,
@@ -7152,9 +7119,9 @@
             {
                 "Enabled": true,
                 "Position": [
-                    -52.58479309082031,
-                    0.7399240732192993,
-                    -31.312108993530273
+                    -55.648216247558594,
+                    0.7399362921714783,
+                    -30.80367088317871
                 ],
                 "Rotation": [
                     -0.0,
@@ -7176,11 +7143,11 @@
                 ],
                 "ColRotation": [
                     0.0,
-                    -26.799999237060547,
+                    -45.0,
                     0.0
                 ],
                 "ColScale": [
-                    15.899999618530273,
+                    12.0,
                     1.600000023841858,
                     1.0
                 ],
@@ -7243,9 +7210,9 @@
             {
                 "Enabled": true,
                 "Position": [
-                    -52.32426071166992,
-                    0.6921467781066895,
-                    -7.331136703491211
+                    -59.367034912109375,
+                    0.6921469569206238,
+                    -5.871230602264404
                 ],
                 "Rotation": [
                     -0.0,
@@ -7267,13 +7234,13 @@
                 ],
                 "ColRotation": [
                     0.0,
-                    -42.599998474121094,
+                    -45.0,
                     0.0
                 ],
                 "ColScale": [
                     1.100000023841858,
                     1.399999976158142,
-                    19.899999618530273
+                    22.600000381469727
                 ],
                 "CylVerSlices": 16,
                 "CylinderRadiusHeight": [
@@ -20673,54 +20640,6 @@
                     },
                     {
                         "Player Stats GO": 1881844107
-                    },
-                    {
-                        "Velocity": 10.0
-                    },
-                    {
-                        "Upgrade Velocity": 2.0
-                    },
-                    {
-                        "SecToMaxVel": 0.0
-                    },
-                    {
-                        "SecToZeroVel": 0.0
-                    },
-                    {
-                        "Y tp limit": -50.0
-                    },
-                    {
-                        "Dash Time": 0.5
-                    },
-                    {
-                        "Dash Distance": 5.0
-                    },
-                    {
-                        "Upgrade Dash Distance": 8.0
-                    },
-                    {
-                        "Dash Cooldown": 0.0
-                    },
-                    {
-                        "Upgrade Dash Cooldown": 0.0
-                    },
-                    {
-                        "AnimationPlayer": 2624315955
-                    },
-                    {
-                        "Dash Animation": 3786266361
-                    },
-                    {
-                        "Idle Animation": 723048411
-                    },
-                    {
-                        "Run Animation": 3184153436
-                    },
-                    {
-                        "Shoot Animations": 4285907288
-                    },
-                    {
-                        "Player Stats GO": 1881844107
                     }
                 ],
                 "Script Resource": 3336682094,
@@ -20729,36 +20648,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Max HP": 100.0
-                    },
-                    {
-                        "Current HP": 0.0
-                    },
-                    {
-                        "Upgraded Max HP": 0.0
-                    },
-                    {
-                        "Laser Ammo": 99999
-                    },
-                    {
-                        "Fire Ammo": 99999
-                    },
-                    {
-                        "Ricochet Ammo": 99999
-                    },
-                    {
-                        "movement tree lvl": 0
-                    },
-                    {
-                        "armory tree lvl": 0
-                    },
-                    {
-                        "health tree lvl": 0
-                    },
-                    {
-                        "special tree lvl": 0
-                    },
                     {
                         "Max HP": 100.0
                     },
@@ -26294,9 +26183,6 @@
                     },
                     {
                         "Gun Type": 1
-                    },
-                    {
-                        "Gun Type": 1
                     }
                 ],
                 "Script Resource": 1187195986,
@@ -26305,49 +26191,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Projectile Speed": 100.0
-                    },
-                    {
-                        "Projectile Damage": 60.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 1.0
-                    },
-                    {
-                        "Projectile MeshIndexInsideModel": 0,
-                        "Projectile MeshModelUID": 1551155716
-                    },
-                    {
-                        "Projectile Material": 3260379948
-                    },
-                    {
-                        "Projectile ScaleX": 0.20000000298023224
-                    },
-                    {
-                        "Projectile ScaleY": 0.20000000298023224
-                    },
-                    {
-                        "Projectile ScaleZ": 0.4000000059604645
-                    },
-                    {
-                        "Projectiles per second": 1.0
-                    },
-                    {
-                        "Extra % firerate": 0.0
-                    },
-                    {
-                        "Player Stats GO": 1881844107
-                    },
-                    {
-                        "Ammo Type": 1
-                    },
-                    {
-                        "Audio Event String": ""
-                    },
                     {
                         "Projectile Speed": 100.0
                     },
@@ -26476,9 +26319,6 @@
                     },
                     {
                         "Gun Type": 4
-                    },
-                    {
-                        "Gun Type": 4
                     }
                 ],
                 "Script Resource": 1421097082,
@@ -26487,55 +26327,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Projectile Speed": 40.0
-                    },
-                    {
-                        "Projectile Damage": 10.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 0.5
-                    },
-                    {
-                        "Projectile MeshIndexInsideModel": 0,
-                        "Projectile MeshModelUID": 1551155716
-                    },
-                    {
-                        "Projectile Material": 3260379948
-                    },
-                    {
-                        "Projectile ScaleX": 0.05000000074505806
-                    },
-                    {
-                        "Projectile ScaleY": 0.05000000074505806
-                    },
-                    {
-                        "Projectile ScaleZ": 0.05000000074505806
-                    },
-                    {
-                        "Projectiles per second": 1.2999999523162842
-                    },
-                    {
-                        "Extra % firerate": 0.0
-                    },
-                    {
-                        "Pellets per shot": 10
-                    },
-                    {
-                        "Pellets Dispersion": 0.0
-                    },
-                    {
-                        "Player Stats GO": 1881844107
-                    },
-                    {
-                        "Ammo Type": 1
-                    },
-                    {
-                        "Audio Event String": ""
-                    },
                     {
                         "Projectile Speed": 40.0
                     },
@@ -26676,9 +26467,6 @@
                     },
                     {
                         "Gun Type": 0
-                    },
-                    {
-                        "Gun Type": 0
                     }
                 ],
                 "Script Resource": 1421097082,
@@ -26687,61 +26475,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Projectile Speed": 30.0
-                    },
-                    {
-                        "Projectile Damage": 5.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 1.0
-                    },
-                    {
-                        "Projectile MeshIndexInsideModel": 0,
-                        "Projectile MeshModelUID": 1551155716
-                    },
-                    {
-                        "Projectile Material": 3260379948
-                    },
-                    {
-                        "Projectile ScaleX": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleY": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleZ": 0.10000000149011612
-                    },
-                    {
-                        "Projectiles per second": 3.0
-                    },
-                    {
-                        "Extra % firerate": 0.0
-                    },
-                    {
-                        "Burst Space": 0.1599999964237213
-                    },
-                    {
-                        "Second Gun GO": 523493100
-                    },
-                    {
-                        "Slow %": 0.0
-                    },
-                    {
-                        "Freeze %": 0.0
-                    },
-                    {
-                        "Player Stats GO": 1881844107
-                    },
-                    {
-                        "Ammo Type": 0
-                    },
-                    {
-                        "Audio Event String": ""
-                    },
                     {
                         "Projectile Speed": 30.0
                     },
@@ -27740,9 +27473,6 @@
                     },
                     {
                         "hp": false
-                    },
-                    {
-                        "hp": false
                     }
                 ],
                 "Script Resource": 1164455694,
@@ -27967,45 +27697,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Text_Weapon_1_on": 1828660828
-                    },
-                    {
-                        "Text_Weapon_1_off": 1261649561
-                    },
-                    {
-                        "Material Weapon 1": 4102192440
-                    },
-                    {
-                        "Game Bar Weapon 1": 4172812350
-                    },
-                    {
-                        "Text_Weapon_2_on": 977509463
-                    },
-                    {
-                        "Text_Weapon_2_off": 1072796038
-                    },
-                    {
-                        "Material Weapon 2": 692296045
-                    },
-                    {
-                        "Game Bar Weapon 2": 2595168131
-                    },
-                    {
-                        "Text_Weapon_3_on": 12569475
-                    },
-                    {
-                        "Text_Weapon_3_off": 103443597
-                    },
-                    {
-                        "Material Weapon 3": 1496549210
-                    },
-                    {
-                        "Game Bar Weapon 3": 1805554832
-                    },
-                    {
-                        "Material_Dash": 1199782281
-                    },
                     {
                         "Text_Weapon_1_on": 1828660828
                     },
@@ -28763,9 +28454,6 @@
                     },
                     {
                         "Point 1: ": 2752448197
-                    },
-                    {
-                        "Point 1: ": 2752448197
                     }
                 ],
                 "Script Resource": 2375007746,
@@ -28895,9 +28583,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Point 1: ": 664696061
-                    },
                     {
                         "Point 1: ": 664696061
                     },
@@ -29037,9 +28722,6 @@
                     },
                     {
                         "Point 1: ": 1896649622
-                    },
-                    {
-                        "Point 1: ": 1896649622
                     }
                 ],
                 "Script Resource": 2880680727,
@@ -29146,9 +28828,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Continute button: ": 449744243
-                    },
                     {
                         "Continute button: ": 449744243
                     },
@@ -34931,6 +34610,51 @@
             {
                 "Enabled": true,
                 "Position": [
+                    162.52471923828125,
+                    1.0000027418136597,
+                    25.366830825805664
+                ],
+                "Rotation": [
+                    179.99989318847656,
+                    45.000003814697266,
+                    179.999755859375
+                ],
+                "Scale": [
+                    0.23966671526432037,
+                    1.1160000562667847,
+                    0.30000001192092896
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 48433420,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 441409638,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LimitEntireFence",
+        "ParentUID": 2024714050,
+        "PrefabUID": 3358704826,
+        "Tag": "Default",
+        "UID": 3712900228
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
                     0.0,
                     0.0,
                     0.0
@@ -34999,6 +34723,1446 @@
         "PrefabUID": 2061039072,
         "Tag": "Default",
         "UID": 4208506557
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Wall1Combo4",
+        "ParentUID": 1104030395,
+        "PrefabUID": 226675480,
+        "Tag": "Default",
+        "UID": 3569131071
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    152.91734313964844,
+                    -9.355999946594238,
+                    4.686999797821045
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    -9.220754873240367e-05,
+                    90.00001525878906
+                ],
+                "Scale": [
+                    0.25000113248825073,
+                    1.050004482269287,
+                    4.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 3283743879,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 1817495560,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "ModularWall_1",
+        "ParentUID": 3569131071,
+        "PrefabUID": 226675480,
+        "Tag": "Default",
+        "UID": 1998094400
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    145.3939971923828,
+                    -9.355630874633789,
+                    4.686857223510742
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    -9.733019396662712e-05,
+                    90.00000762939453
+                ],
+                "Scale": [
+                    0.25,
+                    1.0499999523162842,
+                    4.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 3283743879,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 1817495560,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "ModularWall_1",
+        "ParentUID": 3569131071,
+        "PrefabUID": 226675480,
+        "Tag": "Default",
+        "UID": 819959616
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    145.3943328857422,
+                    -3.0604422092437744,
+                    3.366609573364258
+                ],
+                "Rotation": [
+                    -115.69995880126953,
+                    -9.050000517163426e-05,
+                    90.0
+                ],
+                "Scale": [
+                    0.2500002384185791,
+                    1.0500009059906006,
+                    1.5000025033950806
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 3283743879,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 1817495560,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "ModularWall_1",
+        "ParentUID": 3569131071,
+        "PrefabUID": 226675480,
+        "Tag": "Default",
+        "UID": 907728541
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    152.98239135742188,
+                    -3.0604422092437744,
+                    3.366609573364258
+                ],
+                "Rotation": [
+                    -115.69995880126953,
+                    -9.050000517163426e-05,
+                    90.0
+                ],
+                "Scale": [
+                    0.2500002384185791,
+                    1.0500009059906006,
+                    1.5000025033950806
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 3283743879,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 1817495560,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "ModularWall_1",
+        "ParentUID": 3569131071,
+        "PrefabUID": 226675480,
+        "Tag": "Default",
+        "UID": 964358665
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -45.0,
+                    0.0,
+                    -3.9000000953674316
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Wall1Combo4",
+        "ParentUID": 1104030395,
+        "PrefabUID": 1141384010,
+        "Tag": "Default",
+        "UID": 3106216914
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    152.83969116210938,
+                    -9.355999946594238,
+                    4.686999797821045
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    -9.56226431299001e-05,
+                    90.0000228881836
+                ],
+                "Scale": [
+                    0.2500014305114746,
+                    1.0499999523162842,
+                    1.500011920928955
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 3283743879,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 1817495560,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "ModularWall_1",
+        "ParentUID": 3106216914,
+        "PrefabUID": 1141384010,
+        "Tag": "Default",
+        "UID": 2029448697
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    144.36239624023438,
+                    -9.355630874633789,
+                    4.686857223510742
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    -9.56226431299001e-05,
+                    90.0000228881836
+                ],
+                "Scale": [
+                    0.25000154972076416,
+                    1.3000011444091797,
+                    1.5000128746032715
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 3283743879,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 1817495560,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "ModularWall_1",
+        "ParentUID": 3106216914,
+        "PrefabUID": 1141384010,
+        "Tag": "Default",
+        "UID": 708597324
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    144.34136962890625,
+                    -3.0604422092437744,
+                    3.366609573364258
+                ],
+                "Rotation": [
+                    -115.69995880126953,
+                    -9.050000517163426e-05,
+                    90.0
+                ],
+                "Scale": [
+                    0.2500002384185791,
+                    1.2999999523162842,
+                    1.5000025033950806
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 3283743879,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 1817495560,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "ModularWall_1",
+        "ParentUID": 3106216914,
+        "PrefabUID": 1141384010,
+        "Tag": "Default",
+        "UID": 1259932348
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    152.8214569091797,
+                    -3.0604422092437744,
+                    3.366609573364258
+                ],
+                "Rotation": [
+                    -115.69995880126953,
+                    -9.050000517163426e-05,
+                    90.0
+                ],
+                "Scale": [
+                    0.2500002384185791,
+                    1.0500009059906006,
+                    1.5000025033950806
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 3283743879,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 1817495560,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "ModularWall_1",
+        "ParentUID": 3106216914,
+        "PrefabUID": 1141384010,
+        "Tag": "Default",
+        "UID": 1632913900
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -72.80000305175781,
+                    0.0,
+                    -3.9000000953674316
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Wall1Combo4",
+        "ParentUID": 1104030395,
+        "PrefabUID": 1141384010,
+        "Tag": "Default",
+        "UID": 1609274075
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    153.79672241210938,
+                    -9.355999946594238,
+                    4.686999797821045
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    -9.56226431299001e-05,
+                    90.0000228881836
+                ],
+                "Scale": [
+                    0.2500014305114746,
+                    1.3000011444091797,
+                    1.500011920928955
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 3283743879,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 1817495560,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "ModularWall_1",
+        "ParentUID": 1609274075,
+        "PrefabUID": 1141384010,
+        "Tag": "Default",
+        "UID": 753492118
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    144.5507049560547,
+                    -9.355630874633789,
+                    4.686857223510742
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    -9.56226431299001e-05,
+                    90.0000228881836
+                ],
+                "Scale": [
+                    0.25000154972076416,
+                    1.3000011444091797,
+                    1.5000128746032715
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 3283743879,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 1817495560,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "ModularWall_1",
+        "ParentUID": 1609274075,
+        "PrefabUID": 1141384010,
+        "Tag": "Default",
+        "UID": 144193933
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    144.48812866210938,
+                    -3.0604422092437744,
+                    3.366609573364258
+                ],
+                "Rotation": [
+                    -115.69995880126953,
+                    -9.050000517163426e-05,
+                    90.0
+                ],
+                "Scale": [
+                    0.2500002384185791,
+                    1.2999999523162842,
+                    1.5000025033950806
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 3283743879,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 1817495560,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "ModularWall_1",
+        "ParentUID": 1609274075,
+        "PrefabUID": 1141384010,
+        "Tag": "Default",
+        "UID": 1587238641
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    153.726318359375,
+                    -3.0604422092437744,
+                    3.366609573364258
+                ],
+                "Rotation": [
+                    -115.69995880126953,
+                    -9.050000517163426e-05,
+                    90.0
+                ],
+                "Scale": [
+                    0.2500002384185791,
+                    1.2999999523162842,
+                    1.5000025033950806
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 3283743879,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 1817495560,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "ModularWall_1",
+        "ParentUID": 1609274075,
+        "PrefabUID": 1141384010,
+        "Tag": "Default",
+        "UID": 4222833573
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -1.899999976158142,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Wall3Combo2",
+        "ParentUID": 1104030395,
+        "PrefabUID": 1389064474,
+        "Tag": "Default",
+        "UID": 3370984143
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    91.92340850830078,
+                    -2.6597847938537598,
+                    -1.2838565111160278
+                ],
+                "Rotation": [
+                    -115.69995880126953,
+                    6.830188794992864e-06,
+                    90.0
+                ],
+                "Scale": [
+                    1.0000001192092896,
+                    1.500000238418579,
+                    1.5000001192092896
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 1469137987,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 939197414,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "ModularWall_3",
+        "ParentUID": 3370984143,
+        "PrefabUID": 1389064474,
+        "Tag": "Default",
+        "UID": 547162980
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    91.90860748291016,
+                    -11.072465896606445,
+                    0.13382011651992798
+                ],
+                "Rotation": [
+                    -90.0,
+                    0.0,
+                    90.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.5,
+                    2.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 1469137987,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 939197414,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "ModularWall_3",
+        "ParentUID": 3370984143,
+        "PrefabUID": 1389064474,
+        "Tag": "Default",
+        "UID": 2784339280
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Wall4Combo2",
+        "ParentUID": 1104030395,
+        "PrefabUID": 236824065,
+        "Tag": "Default",
+        "UID": 137955590
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    140.5125274658203,
+                    -10.904576301574707,
+                    9.114999771118164
+                ],
+                "Rotation": [
+                    179.99989318847656,
+                    45.29990768432617,
+                    -179.99989318847656
+                ],
+                "Scale": [
+                    0.9999997019767761,
+                    1.0,
+                    1.6999999284744263
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2909636920,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 1820872453,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "ModularWall_4",
+        "ParentUID": 137955590,
+        "PrefabUID": 236824065,
+        "Tag": "Default",
+        "UID": 1886456649
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    140.43301391601563,
+                    -3.851372718811035,
+                    9.10237979888916
+                ],
+                "Rotation": [
+                    -179.7999725341797,
+                    44.89985275268555,
+                    -179.99989318847656
+                ],
+                "Scale": [
+                    1.0000046491622925,
+                    1.0,
+                    1.7000094652175903
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2909636920,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 1820872453,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "ModularWall_4",
+        "ParentUID": 137955590,
+        "PrefabUID": 236824065,
+        "Tag": "Default",
+        "UID": 1577293183
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -74.9000015258789,
+                    0.30000001192092896,
+                    -4.400000095367432
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Wall4Combo2",
+        "ParentUID": 1104030395,
+        "PrefabUID": 1059257534,
+        "Tag": "Default",
+        "UID": 1980302294
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    141.19631958007813,
+                    -12.061042785644531,
+                    10.024707794189453
+                ],
+                "Rotation": [
+                    179.99989318847656,
+                    45.29990768432617,
+                    -179.99989318847656
+                ],
+                "Scale": [
+                    0.9999997019767761,
+                    1.0,
+                    1.6999999284744263
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2909636920,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 1820872453,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "ModularWall_4",
+        "ParentUID": 1980302294,
+        "PrefabUID": 1059257534,
+        "Tag": "Default",
+        "UID": 2175808974
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    139.9981231689453,
+                    -4.0023651123046875,
+                    8.816242218017578
+                ],
+                "Rotation": [
+                    179.99989318847656,
+                    45.29990768432617,
+                    155.89999389648438
+                ],
+                "Scale": [
+                    0.9999997019767761,
+                    1.0,
+                    1.6999999284744263
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2909636920,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 1820872453,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "ModularWall_4",
+        "ParentUID": 1980302294,
+        "PrefabUID": 1059257534,
+        "Tag": "Default",
+        "UID": 2795016230
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Wall4Combo2",
+        "ParentUID": 1104030395,
+        "PrefabUID": 236824065,
+        "Tag": "Default",
+        "UID": 3843747317
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    112.12085723876953,
+                    -10.904574394226074,
+                    5.600087642669678
+                ],
+                "Rotation": [
+                    -0.00010427759116282687,
+                    44.00001525878906,
+                    0.00010427783854538575
+                ],
+                "Scale": [
+                    0.9999999403953552,
+                    1.0,
+                    1.7000062465667725
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2909636920,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 1820872453,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "ModularWall_4",
+        "ParentUID": 3843747317,
+        "PrefabUID": 236824065,
+        "Tag": "Default",
+        "UID": 3299612280
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    113.01542663574219,
+                    -3.851355791091919,
+                    4.612563133239746
+                ],
+                "Rotation": [
+                    -0.00010563275282038376,
+                    43.99999237060547,
+                    -24.100006103515625
+                ],
+                "Scale": [
+                    0.9999997019767761,
+                    1.0,
+                    1.6999999284744263
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2909636920,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 1820872453,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "ModularWall_4",
+        "ParentUID": 3843747317,
+        "PrefabUID": 236824065,
+        "Tag": "Default",
+        "UID": 1685752023
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Wall4Combo2",
+        "ParentUID": 1104030395,
+        "PrefabUID": 236824065,
+        "Tag": "Default",
+        "UID": 4131982751
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    119.78636932373047,
+                    -10.888742446899414,
+                    13.29323959350586
+                ],
+                "Rotation": [
+                    -0.00010427764209453017,
+                    44.00000762939453,
+                    0.00010427786037325859
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.7000062465667725
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2909636920,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 1820872453,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "ModularWall_4",
+        "ParentUID": 4131982751,
+        "PrefabUID": 236824065,
+        "Tag": "Default",
+        "UID": 156588586
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    121.15528869628906,
+                    -3.8513574600219727,
+                    11.961015701293945
+                ],
+                "Rotation": [
+                    -0.00010563275282038376,
+                    43.99999237060547,
+                    -24.100006103515625
+                ],
+                "Scale": [
+                    0.9999997019767761,
+                    1.0,
+                    1.6999999284744263
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2909636920,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 1820872453,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "ModularWall_4",
+        "ParentUID": 4131982751,
+        "PrefabUID": 236824065,
+        "Tag": "Default",
+        "UID": 1226948658
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Wall1Combo4",
+        "ParentUID": 1104030395,
+        "PrefabUID": 226675480,
+        "Tag": "Default",
+        "UID": 1663747576
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    136.36074829101563,
+                    -9.355999946594238,
+                    13.480561256408691
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    1.4916545776344492e-09,
+                    -179.99989318847656
+                ],
+                "Scale": [
+                    0.24999520182609558,
+                    1.0499694347381592,
+                    4.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 3283743879,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 1817495560,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "ModularWall_1",
+        "ParentUID": 1663747576,
+        "PrefabUID": 226675480,
+        "Tag": "Default",
+        "UID": 796982871
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    136.01943969726563,
+                    -9.355630874633789,
+                    21.048208236694336
+                ],
+                "Rotation": [
+                    -90.00001525878906,
+                    -9.732540638651699e-05,
+                    -179.99989318847656
+                ],
+                "Scale": [
+                    0.2500116527080536,
+                    1.0500041246414185,
+                    1.5000096559524536
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 3283743879,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 1817495560,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "ModularWall_1",
+        "ParentUID": 1663747576,
+        "PrefabUID": 226675480,
+        "Tag": "Default",
+        "UID": 61964866
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    135.34071350097656,
+                    -3.060438871383667,
+                    13.640235900878906
+                ],
+                "Rotation": [
+                    90.0,
+                    17.60000228881836,
+                    -179.99989318847656
+                ],
+                "Scale": [
+                    0.25000014901161194,
+                    1.0499722957611084,
+                    1.5000030994415283
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 3283743879,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 1817495560,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "ModularWall_1",
+        "ParentUID": 1663747576,
+        "PrefabUID": 226675480,
+        "Tag": "Default",
+        "UID": 1908770602
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    135.0,
+                    -3.0604422092437744,
+                    21.152484893798828
+                ],
+                "Rotation": [
+                    90.00000762939453,
+                    17.60000228881836,
+                    -179.99989318847656
+                ],
+                "Scale": [
+                    0.24999971687793732,
+                    1.0499916076660156,
+                    1.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 3283743879,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 1817495560,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "ModularWall_1",
+        "ParentUID": 1663747576,
+        "PrefabUID": 226675480,
+        "Tag": "Default",
+        "UID": 4229943602
     },
     {
         "Active": true,
@@ -35609,1040 +36773,5 @@
         "PrefabUID": 2054386153,
         "Tag": "Default",
         "UID": 2922564098
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "Wall1Combo4",
-        "ParentUID": 2462894403,
-        "PrefabUID": 1141384010,
-        "Tag": "Default",
-        "UID": 3569131071
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    152.91734313964844,
-                    -9.355999946594238,
-                    4.686999797821045
-                ],
-                "Rotation": [
-                    -90.00000762939453,
-                    -9.220754873240367e-05,
-                    90.00001525878906
-                ],
-                "Scale": [
-                    0.25000113248825073,
-                    1.050004482269287,
-                    1.500009536743164
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 3283743879,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "ResourceUID": 1817495560,
-                "Type": 3
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "ModularWall_1",
-        "ParentUID": 3569131071,
-        "PrefabUID": 1141384010,
-        "Tag": "Default",
-        "UID": 1998094400
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    145.3939971923828,
-                    -9.355630874633789,
-                    4.686857223510742
-                ],
-                "Rotation": [
-                    -90.00000762939453,
-                    -9.733019396662712e-05,
-                    90.00000762939453
-                ],
-                "Scale": [
-                    0.2500012516975403,
-                    1.0500049591064453,
-                    1.5000104904174805
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 3283743879,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "ResourceUID": 1817495560,
-                "Type": 3
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "ModularWall_1",
-        "ParentUID": 3569131071,
-        "PrefabUID": 1141384010,
-        "Tag": "Default",
-        "UID": 819959616
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    145.3943328857422,
-                    -3.0604422092437744,
-                    3.366609573364258
-                ],
-                "Rotation": [
-                    -115.69995880126953,
-                    -9.050000517163426e-05,
-                    90.0
-                ],
-                "Scale": [
-                    0.2500002384185791,
-                    1.0500009059906006,
-                    1.5000025033950806
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 3283743879,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "ResourceUID": 1817495560,
-                "Type": 3
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "ModularWall_1",
-        "ParentUID": 3569131071,
-        "PrefabUID": 1141384010,
-        "Tag": "Default",
-        "UID": 907728541
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    152.98239135742188,
-                    -3.0604422092437744,
-                    3.366609573364258
-                ],
-                "Rotation": [
-                    -115.69995880126953,
-                    -9.050000517163426e-05,
-                    90.0
-                ],
-                "Scale": [
-                    0.2500002384185791,
-                    1.0500009059906006,
-                    1.5000025033950806
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 3283743879,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "ResourceUID": 1817495560,
-                "Type": 3
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "ModularWall_1",
-        "ParentUID": 3569131071,
-        "PrefabUID": 1141384010,
-        "Tag": "Default",
-        "UID": 964358665
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    -45.0,
-                    0.0,
-                    -3.9000000953674316
-                ],
-                "Rotation": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "Wall1Combo4",
-        "ParentUID": 2462894403,
-        "PrefabUID": 1141384010,
-        "Tag": "Default",
-        "UID": 3106216914
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    152.83969116210938,
-                    -9.355999946594238,
-                    4.686999797821045
-                ],
-                "Rotation": [
-                    -90.00000762939453,
-                    -9.56226431299001e-05,
-                    90.0000228881836
-                ],
-                "Scale": [
-                    0.2500014305114746,
-                    1.0499999523162842,
-                    1.500011920928955
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 3283743879,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "ResourceUID": 1817495560,
-                "Type": 3
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "ModularWall_1",
-        "ParentUID": 3106216914,
-        "PrefabUID": 1141384010,
-        "Tag": "Default",
-        "UID": 2029448697
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    144.36239624023438,
-                    -9.355630874633789,
-                    4.686857223510742
-                ],
-                "Rotation": [
-                    -90.00000762939453,
-                    -9.56226431299001e-05,
-                    90.0000228881836
-                ],
-                "Scale": [
-                    0.25000154972076416,
-                    1.3000011444091797,
-                    1.5000128746032715
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 3283743879,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "ResourceUID": 1817495560,
-                "Type": 3
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "ModularWall_1",
-        "ParentUID": 3106216914,
-        "PrefabUID": 1141384010,
-        "Tag": "Default",
-        "UID": 708597324
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    144.34136962890625,
-                    -3.0604422092437744,
-                    3.366609573364258
-                ],
-                "Rotation": [
-                    -115.69995880126953,
-                    -9.050000517163426e-05,
-                    90.0
-                ],
-                "Scale": [
-                    0.2500002384185791,
-                    1.2999999523162842,
-                    1.5000025033950806
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 3283743879,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "ResourceUID": 1817495560,
-                "Type": 3
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "ModularWall_1",
-        "ParentUID": 3106216914,
-        "PrefabUID": 1141384010,
-        "Tag": "Default",
-        "UID": 1259932348
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    152.8214569091797,
-                    -3.0604422092437744,
-                    3.366609573364258
-                ],
-                "Rotation": [
-                    -115.69995880126953,
-                    -9.050000517163426e-05,
-                    90.0
-                ],
-                "Scale": [
-                    0.2500002384185791,
-                    1.0500009059906006,
-                    1.5000025033950806
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 3283743879,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "ResourceUID": 1817495560,
-                "Type": 3
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "ModularWall_1",
-        "ParentUID": 3106216914,
-        "PrefabUID": 1141384010,
-        "Tag": "Default",
-        "UID": 1632913900
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    -72.80000305175781,
-                    0.0,
-                    -3.9000000953674316
-                ],
-                "Rotation": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "Wall1Combo4",
-        "ParentUID": 2462894403,
-        "PrefabUID": 1141384010,
-        "Tag": "Default",
-        "UID": 1609274075
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    153.79672241210938,
-                    -9.355999946594238,
-                    4.686999797821045
-                ],
-                "Rotation": [
-                    -90.00000762939453,
-                    -9.56226431299001e-05,
-                    90.0000228881836
-                ],
-                "Scale": [
-                    0.2500014305114746,
-                    1.3000011444091797,
-                    1.500011920928955
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 3283743879,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "ResourceUID": 1817495560,
-                "Type": 3
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "ModularWall_1",
-        "ParentUID": 1609274075,
-        "PrefabUID": 1141384010,
-        "Tag": "Default",
-        "UID": 753492118
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    144.5507049560547,
-                    -9.355630874633789,
-                    4.686857223510742
-                ],
-                "Rotation": [
-                    -90.00000762939453,
-                    -9.56226431299001e-05,
-                    90.0000228881836
-                ],
-                "Scale": [
-                    0.25000154972076416,
-                    1.3000011444091797,
-                    1.5000128746032715
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 3283743879,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "ResourceUID": 1817495560,
-                "Type": 3
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "ModularWall_1",
-        "ParentUID": 1609274075,
-        "PrefabUID": 1141384010,
-        "Tag": "Default",
-        "UID": 144193933
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    144.48812866210938,
-                    -3.0604422092437744,
-                    3.366609573364258
-                ],
-                "Rotation": [
-                    -115.69995880126953,
-                    -9.050000517163426e-05,
-                    90.0
-                ],
-                "Scale": [
-                    0.2500002384185791,
-                    1.2999999523162842,
-                    1.5000025033950806
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 3283743879,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "ResourceUID": 1817495560,
-                "Type": 3
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "ModularWall_1",
-        "ParentUID": 1609274075,
-        "PrefabUID": 1141384010,
-        "Tag": "Default",
-        "UID": 1587238641
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    153.726318359375,
-                    -3.0604422092437744,
-                    3.366609573364258
-                ],
-                "Rotation": [
-                    -115.69995880126953,
-                    -9.050000517163426e-05,
-                    90.0
-                ],
-                "Scale": [
-                    0.2500002384185791,
-                    1.2999999523162842,
-                    1.5000025033950806
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 3283743879,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "ResourceUID": 1817495560,
-                "Type": 3
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "ModularWall_1",
-        "ParentUID": 1609274075,
-        "PrefabUID": 1141384010,
-        "Tag": "Default",
-        "UID": 4222833573
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    -1.899999976158142,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "Wall3Combo2",
-        "ParentUID": 2462894403,
-        "PrefabUID": 1389064474,
-        "Tag": "Default",
-        "UID": 3370984143
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    91.92340850830078,
-                    -2.6597847938537598,
-                    -1.2838565111160278
-                ],
-                "Rotation": [
-                    -115.69995880126953,
-                    6.830188794992864e-06,
-                    90.0
-                ],
-                "Scale": [
-                    1.0000001192092896,
-                    1.500000238418579,
-                    1.5000001192092896
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 1469137987,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "ResourceUID": 939197414,
-                "Type": 3
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "ModularWall_3",
-        "ParentUID": 3370984143,
-        "PrefabUID": 1389064474,
-        "Tag": "Default",
-        "UID": 547162980
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    91.90860748291016,
-                    -11.072465896606445,
-                    0.13382011651992798
-                ],
-                "Rotation": [
-                    -90.0,
-                    0.0,
-                    90.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.5,
-                    2.5
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 1469137987,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "ResourceUID": 939197414,
-                "Type": 3
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "ModularWall_3",
-        "ParentUID": 3370984143,
-        "PrefabUID": 1389064474,
-        "Tag": "Default",
-        "UID": 2784339280
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "Wall4Combo2",
-        "ParentUID": 2462894403,
-        "PrefabUID": 1059257534,
-        "Tag": "Default",
-        "UID": 137955590
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    141.1660919189453,
-                    -10.904576301574707,
-                    9.899868965148926
-                ],
-                "Rotation": [
-                    179.99989318847656,
-                    45.29990768432617,
-                    -179.99989318847656
-                ],
-                "Scale": [
-                    0.9999997019767761,
-                    1.0,
-                    1.6999999284744263
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 2909636920,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "ResourceUID": 1820872453,
-                "Type": 3
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "ModularWall_4",
-        "ParentUID": 137955590,
-        "PrefabUID": 1059257534,
-        "Tag": "Default",
-        "UID": 1886456649
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    139.8221893310547,
-                    -3.851250171661377,
-                    8.542283058166504
-                ],
-                "Rotation": [
-                    179.99989318847656,
-                    45.29990768432617,
-                    155.89999389648438
-                ],
-                "Scale": [
-                    0.9999997019767761,
-                    1.0,
-                    1.6999999284744263
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 2909636920,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "ResourceUID": 1820872453,
-                "Type": 3
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "ModularWall_4",
-        "ParentUID": 137955590,
-        "PrefabUID": 1059257534,
-        "Tag": "Default",
-        "UID": 1577293183
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    -74.9000015258789,
-                    0.30000001192092896,
-                    -4.400000095367432
-                ],
-                "Rotation": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "Wall4Combo2",
-        "ParentUID": 2462894403,
-        "PrefabUID": 1059257534,
-        "Tag": "Default",
-        "UID": 1980302294
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    141.19631958007813,
-                    -12.061042785644531,
-                    10.024707794189453
-                ],
-                "Rotation": [
-                    179.99989318847656,
-                    45.29990768432617,
-                    -179.99989318847656
-                ],
-                "Scale": [
-                    0.9999997019767761,
-                    1.0,
-                    1.6999999284744263
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 2909636920,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "ResourceUID": 1820872453,
-                "Type": 3
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "ModularWall_4",
-        "ParentUID": 1980302294,
-        "PrefabUID": 1059257534,
-        "Tag": "Default",
-        "UID": 2175808974
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    139.9981231689453,
-                    -4.0023651123046875,
-                    8.816242218017578
-                ],
-                "Rotation": [
-                    179.99989318847656,
-                    45.29990768432617,
-                    155.89999389648438
-                ],
-                "Scale": [
-                    0.9999997019767761,
-                    1.0,
-                    1.6999999284744263
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 2909636920,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "ResourceUID": 1820872453,
-                "Type": 3
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "ModularWall_4",
-        "ParentUID": 1980302294,
-        "PrefabUID": 1059257534,
-        "Tag": "Default",
-        "UID": 2795016230
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    162.52471923828125,
-                    1.0000027418136597,
-                    25.366830825805664
-                ],
-                "Rotation": [
-                    179.99989318847656,
-                    45.000003814697266,
-                    179.999755859375
-                ],
-                "Scale": [
-                    0.23966671526432037,
-                    1.1160000562667847,
-                    0.30000001192092896
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 48433420,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "ResourceUID": 441409638,
-                "Type": 3
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "LimitEntireFence",
-        "ParentUID": 2462894403,
-        "PrefabUID": 3358704826,
-        "Tag": "Default",
-        "UID": 3712900228
     }
 ]
