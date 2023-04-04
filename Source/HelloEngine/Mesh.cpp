@@ -74,14 +74,7 @@ void Mesh::Draw(Material material, bool useMaterial)
 {
 	if (useMaterial) // We use this function to draw the outilne too.
 	{
-		//if (material != nullptr && material->GetShader() != nullptr)
-		//{
 		UniformDraw(material);
-		//}
-		//else
-		//{
-			//DefaultDraw();
-		//}
 	}
 	else
 	{
@@ -108,6 +101,7 @@ void Mesh::DefaultDraw()
 	{
 		drawPerMesh2D->shader.Bind();
 		drawPerMesh2D->shader.SetMatFloat4v("model", &modelMatrix.v[0][0]);
+		//drawPerMesh2D->shader.SetInt("diffuseTexture", 0);
 		return;
 	}
 
@@ -171,10 +165,10 @@ void Mesh::StencilDraw()
 	stencilShader->shader.SetMatFloat4v("model", &modelMatrix.v[0][0]);
 }
 
-bool Mesh::Update()
+RenderUpdateState Mesh::Update()
 {
 	if (!draw)
-		return false;
+		return RenderUpdateState::NODRAW;
 
 	if (showVertexNormals)
 		Application::Instance()->renderer3D->renderManager.DrawVertexNormals(this);
@@ -186,26 +180,27 @@ bool Mesh::Update()
 		Application::Instance()->renderer3D->renderManager.DrawOBB(this);
 
 	if (outOfFrustum && !is2D)
-		return false;
+		return RenderUpdateState::NODRAW;
+
 	if (component && component->_gameObject->isSelected)
 	{
-		if (isIndependent)
-			return false; // We dont want to render this object twice when selected.
-		else
-		{
+		//if (isIndependent)
+		//	return false; // We dont want to render this object twice when selected.
+		//else
+		//{
 			//Application::Instance()->renderer3D->renderManager.SetSelectedMesh(this);
-			return false;
-		}
+			return RenderUpdateState::SELECTED;
+		//}
 	}
 	if (isIndependent) // We dont use the TextureManager to set independent meshes's textures.
-		return true;
+		return RenderUpdateState::DRAW;
 	
 	if (textureID != -1.0f)
 	{
 		OpenGLTextureID = TextureManager::BindTexture(textureID);
 	}
 
-	return true;
+	return RenderUpdateState::DRAW;
 }
 
 void Mesh::DrawAsSelected(Material material, uint materialID)

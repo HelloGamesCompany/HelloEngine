@@ -13,6 +13,13 @@ class MeshRenderComponent;
 class ResourceMesh;
 class ResourceShader;
 
+enum RenderUpdateState
+{
+	NODRAW = -1,
+	DRAW = 0,
+	SELECTED
+};
+
 struct Vertex
 {
 	Vertex() {}
@@ -59,7 +66,7 @@ public:
 	void InitAsMesh(std::vector<Vertex>& vertices, std::vector<uint>& indices);
 	void InitWithResource(ResourceMesh* res);
 
-	bool Update();
+	RenderUpdateState Update();
 
 	void CleanUp();
 

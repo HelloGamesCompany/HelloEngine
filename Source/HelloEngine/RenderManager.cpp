@@ -88,7 +88,6 @@ void RenderManager::Init()
 	lineShader = ModuleResourceManager::S_CreateResourceShader("Resources/shaders/lines.shader", 100, "Lines");
 	localLineShader = ModuleResourceManager::S_CreateResourceShader("Resources/shaders/localLines.shader", 101, "Local Lines");
 	textRenderingShader = new Shader("Resources/shaders/textRendering.shader");
-	InitDefaultShaders();
 
 	// Set up debug drawing variables:
 	// Manually created box index buffer that corresponds to the order given by MathGeoLib's AABB class GetCornerPoints() method.
@@ -523,7 +522,6 @@ void RenderManager::DrawSelectedMesh()
 	if (_selectedMesh == nullptr && _selectedMeshRaw == nullptr)
 		return;
 
-	//if (_selectedMesh && _selectedMesh->material != nullptr)
 	if (_selectedMesh)
 	{
 		if (!_selectedMesh->mesh.component->GetGameObject()->isSelected)
@@ -1089,14 +1087,15 @@ void RenderManager::DrawTransparentMeshes()
 		}
 
 		// Update mesh. If the mesh should draw this frame, call Draw.
-		if (entry->second->mesh.Update())
+		RenderUpdateState renderState = entry->second->mesh.Update();
+		if (renderState == RenderUpdateState::DRAW)
 		{
 			if (entry->second->material != nullptr & entry->second->material->material.GetShader() != nullptr)
 				entry->second->mesh.Draw(entry->second->material->material);
 			else
 				entry->second->mesh.Draw(Material(), false);
 		}
-		else
+		else if (renderState == RenderUpdateState::SELECTED)
 		{
 			if (entry->second->material != nullptr & entry->second->material->material.GetShader() != nullptr)
 				Application::Instance()->renderer3D->renderManager.SetSelectedMesh(entry->second);
@@ -1133,14 +1132,15 @@ void RenderManager::DrawIndependentMeshes()
 		}
 
 		// Update mesh. If the mesh should draw this frame, call Draw.
-		if (mesh.second.mesh.Update())
+		RenderUpdateState renderState = mesh.second.mesh.Update();
+		if (renderState == RenderUpdateState::DRAW)
 		{
 			if (mesh.second.material != nullptr && mesh.second.material->material.GetShader() != nullptr)
 				mesh.second.mesh.Draw(mesh.second.material->material);
 			else
 				mesh.second.mesh.Draw(Material(), false);
 		}
-		else
+		else if (renderState == RenderUpdateState::SELECTED)
 		{
 			if (mesh.second.material != nullptr && mesh.second.material->material.GetShader() != nullptr)
 				Application::Instance()->renderer3D->renderManager.SetSelectedMesh(&mesh.second); //Selected with Mat
@@ -1206,15 +1206,4 @@ void RenderManager::DrawTextObjects()
 		glBindTexture(GL_TEXTURE_2D, 0);
 		glEnable(GL_DEPTH_TEST);
 	}
-}
-
-void RenderManager::InitDefaultShaders()
-{
-	defaultShader = DefaultShader();
-
-	defaultShader.drawPerMesh = ModuleResourceManager::S_CreateResourceShader("Resources/shaders/basic.shader", 103, "Basic");
-	defaultShader.drawPerMesh2D = ModuleResourceManager::S_CreateResourceShader("Resources/shaders/basic2D.shader", 110, "Basic2D");
-	defaultShader.boneMesh = ModuleResourceManager::S_CreateResourceShader("Resources/shaders/basicBone.shader", 105, "Basic Bone");
-	defaultShader.stencilShader = ModuleResourceManager::S_CreateResourceShader("Resources/shaders/stencil.shader", 109, "Stencil");
-	
 }

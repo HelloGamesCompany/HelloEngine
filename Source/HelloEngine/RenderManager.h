@@ -45,39 +45,6 @@ struct RenderEntry
 	Mesh mesh;
 };
 
-struct DefaultShader
-{
-	~DefaultShader()
-	{
-		if (drawPerMesh)
-		{
-			drawPerMesh->Dereference();
-			drawPerMesh = nullptr;
-		}
-		if (drawPerMesh2D)
-		{
-			drawPerMesh2D->Dereference();
-			drawPerMesh2D = nullptr;
-		}
-		if (boneMesh)
-		{
-			boneMesh->Dereference();
-			boneMesh = nullptr;
-		}
-		if (stencil)
-		{
-			stencil->Dereference();
-			stencil = nullptr;
-		}
-	}
-
-	ResourceMaterial* stencil = nullptr;
-	ResourceShader* drawPerMesh = nullptr;
-	ResourceShader* drawPerMesh2D = nullptr;
-	ResourceShader* boneMesh = nullptr;
-	ResourceShader* stencilShader = nullptr;
-};
-
 /// <summary>
 /// This class contains a colletion of RenderManagers. It dynamically creates and destroys Render Managers tu fullfill the task of having one per Unique mesh.
 /// Every Render Manager updates and draws their corresponding Models.
@@ -134,8 +101,6 @@ public:
 	void DrawIndependentMeshes();
 	void DrawTextObjects();
 
-	void InitDefaultShaders();
-
 private:
 	std::map<uint, InstanceRenderer> _renderMap; // Render managers that use instance rendering to draw opaque meshes.
 	std::map<uint, RenderEntry> _transparencyMeshes; // Meshes with transparency that must be drawn with a draw call per mesh.
@@ -161,8 +126,6 @@ private:
 	ResourceShader* lineShader = nullptr;
 	ResourceShader* localLineShader = nullptr;
 	Shader* textRenderingShader = nullptr;
-
-	DefaultShader defaultShader;
 
 	uint AABBVAO = 0;
 	uint AABBVBO = 0;

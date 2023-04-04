@@ -117,7 +117,7 @@ void MeshRenderComponent::CreateMesh2D()
 	_meshID = Application::Instance()->renderer3D->renderManager.plane2DUID;
 	_resource = (ResourceMesh*)ModuleResourceManager::S_LoadResource(_meshID);
 	_instanceID = Application::Instance()->renderer3D->renderManager.AddMesh(_resource, 0, MeshRenderType::MESH2D);
-
+	_renderID = _meshID; // + materialID;
 }
 
 void MeshRenderComponent::OnTransformCallback(float4x4 worldMatrix)
