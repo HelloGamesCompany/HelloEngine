@@ -2,8 +2,8 @@
 #ifdef VERTEX_PROGRAM
 	layout (location = 0) in vec3 aPos; 
 	layout (location = 1) in mat4 model;
-	layout (location = 1) in vec3 normals;
-	layout (location = 2) in vec2 textCoords;
+	layout (location = 5) in vec3 normals;
+	layout (location = 6) in vec2 texCoords;
 	
 	uniform mat4 view;
 	uniform mat4 projection;
@@ -23,7 +23,7 @@
 		
 		//OUT
 		FragPos = normalize(vec3(model * aPos4));
-		TextureCoords = textCoords;
+		TextureCoords = texCoords;
 		GlobalLightPos = LightPosition;//clamp(LightPosition, -1.0, 1.0);
 		//vec3(View * vec4(light.direction, 0.0))
 		//Normal = normalize (vec3(model * vec4(normals, 0.0)));
