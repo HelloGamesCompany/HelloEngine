@@ -14,6 +14,10 @@ HELLO_ENGINE_API_C BossLoop* CreateBossLoop(ScriptToInspectorInterface* script)
     script->AddDragFloat("shield2Hp", &classInstance->shield[1]);
     script->AddDragFloat("shield3Hp", &classInstance->shield[2]);
     script->AddDragBoxGameObject("SHIELD", &classInstance->rockShield);
+    script->AddDragBoxGameObject("Cover1", &classInstance->cover1);
+    script->AddDragBoxGameObject("Cover2", &classInstance->cover2);
+    script->AddDragBoxGameObject("Cover3", &classInstance->cover3);
+    script->AddDragBoxGameObject("Cover4", &classInstance->cover4);
     //Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
     return classInstance;
 }
@@ -42,6 +46,12 @@ void BossLoop::Update()
         if (hp <= maxHpLoss[phase - 1]) {
             weakTime = 0;
             canTakeDamage = false;
+            if (phase == 1) {
+                cover1.SetActive(false);
+                cover2.SetActive(false);
+                cover3.SetActive(false);
+                cover4.SetActive(false);
+            }
         }
     }
     else {
