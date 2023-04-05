@@ -14,7 +14,7 @@ public:
     void Start() override;
     void Update() override;
 
-    API_GameObject GetFirstActiveProjectile();
+    API_GameObject GetFirstInactiveProjectile();
     void LauchProjectile(float projectileSpeed, float projectileDamage, float projectileResistanceDamage, float projectileLifetime, API_Transform shootingSpawn, uint projectileMesh, uint projectileMaterial, API_Vector3 projectileScale, PROJECTILE_ACTION projectileAction, float randomDirectionRange);
 
     int pullSize;

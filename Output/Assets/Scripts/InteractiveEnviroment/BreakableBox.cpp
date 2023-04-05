@@ -1,21 +1,28 @@
 #include "BreakableBox.h"
 #include "../Shooting/Projectile.h"
 #include "../Player/PlayerMove.h"
+
 HELLO_ENGINE_API_C BreakableBox* CreateBreakableBox(ScriptToInspectorInterface* script)
 {
 	BreakableBox* classInstance = new BreakableBox();
 	//Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
 	script->AddDragBoxParticleSystem("Box Destroyed Particle", &classInstance->boxDestroyed);
 	script->AddDragInt("MaxHp", &classInstance->maxHp);
+	script->AddDragBoxGameObject("Drop Manager", &classInstance->enemyDropManagerGO);
 
 	return classInstance;
 }
 
 void BreakableBox::Start()
 {
-	srand(time(NULL));
 
 	currentHp = maxHp;
+
+	enemyDropManager = (EnemyDropManager*)enemyDropManagerGO.GetScript("EnemyDropManager");
+	if (enemyDropManager == nullptr)
+	{
+		Console::Log("Enemy Drop Manager is nullptr in Breakable Box");
+	}
 }
 void BreakableBox::Update()
 {
@@ -24,12 +31,13 @@ void BreakableBox::Update()
 
 void BreakableBox::OnCollisionEnter(API_RigidBody other)
 {
+	if (!gameObject.IsActive())return;
 
 	std::string detectionName = other.GetGameObject().GetName();
 
 	if (detectionName == "Projectile")
 	{
-		
+
 		Projectile* projectile = (Projectile*)other.GetGameObject().GetScript("Projectile");
 
 		ShootBox(projectile->damage);
@@ -64,31 +72,11 @@ void BreakableBox::ShootBox(float projectileDamage)
 
 void BreakableBox::DestroyBox()
 {
-
 	gameObject.SetActive(false);
 
-}
-
-void BreakableBox::CreatePowerUps()
-{
-
-	int reward = rand() % 2;
-
-	switch (reward)
+	if (enemyDropManager)
 	{
-	case 0:
-	{
-		// FIRST AID KIT
-		
-	}break;
-	case 1:
-	{
-		// AMMO
-		
-	}break;
-	default:
-		break;
+		enemyDropManager->BoxSpinDropRate(gameObject.GetTransform().GetGlobalPosition());
 	}
-
-
 }
+

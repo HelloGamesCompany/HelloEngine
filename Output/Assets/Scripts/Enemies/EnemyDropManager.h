@@ -15,7 +15,22 @@ public:
     void Update() override;
 
     void SpinDropRate(API_Vector3 position);
-    API_GameObject GetFirstActiveObject(int index);
+    API_GameObject GetFirstInactiveObject(int index);
+
+    void BoxSpinDropRate(API_Vector3 position);
+
+    //Drop chances
+
+    //Enemy
+    int enemyDropRate;
+    int enemyAmmoDropRate;
+    int enemyAidKitDropRate;
+    int enemyPowerUpsDropRate;
+
+    //Breakable Box
+    int BoxDropRate;
+    int BoxAmmoDropRate;
+    int BoxAidKitDropRate;
 
     // meshes
     uint mesh0;
