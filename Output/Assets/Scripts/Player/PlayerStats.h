@@ -45,6 +45,14 @@ public:
 
     bool detected;//if the player is being detected somehow
 
+    // skills values
+    float deadlinePart = 20.0f;
+    float upgradedDeadlinePart = 25.0f;
+    float deadlineHeal = 5.0f;
+    float upgradedDeadlineHeal = 7.5f;
+    float aidKitHeal = 50.0f;
+    float upgradedAidKitHeal = 75.0f;
+
     // skills tree
     void UpgradeTreeLvl(int tree);
 

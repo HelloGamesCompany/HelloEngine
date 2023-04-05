@@ -9,6 +9,12 @@ HELLO_ENGINE_API_C PlayerStats* CreatePlayerStats(ScriptToInspectorInterface* sc
     script->AddDragFloat("Max HP", &classInstance->maxHp);
     script->AddDragFloat("Current HP", &classInstance->currentHp);
     script->AddDragFloat("Upgraded Max HP", &classInstance->upgradedMaxHp);
+    script->AddDragFloat("Deadline Percentage", &classInstance->deadlinePart);
+    script->AddDragFloat("Upgraded Deadline Percentage", &classInstance->upgradedDeadlinePart);
+    script->AddDragFloat("Deadline Heal Amount", &classInstance->deadlineHeal);
+    script->AddDragFloat("Upgraded Deadline Heal Amount", &classInstance->upgradedDeadlineHeal);
+    script->AddDragFloat("Aid Kit Heal Amount", &classInstance->aidKitHeal);
+    script->AddDragFloat("Upgraded Aid Kit Heal Amount", &classInstance->upgradedAidKitHeal);
     script->AddDragInt("Laser Ammo", &classInstance->laserAmmo);
     script->AddDragInt("Fire Ammo", &classInstance->fireAmmo);
     script->AddDragInt("Ricochet Ammo", &classInstance->ricochetAmmo);
@@ -57,15 +63,15 @@ void PlayerStats::Update()
 
     // deadline healing
     float deathlineHp;
-    if (healthTreeLvl > 1) deathlineHp = currentMaxHp * 0.25f;
-    else deathlineHp = currentMaxHp * 0.20f;
+    if (healthTreeLvl > 1) deathlineHp = currentMaxHp * (upgradedDeadlinePart / 100.0f);
+    else deathlineHp = currentMaxHp * (deadlinePart / 100.0f);
     if (currentHp < deathlineHp)
     {
         lastHitTime -= dt;
         if (lastHitTime <= 0.0f)
         {
-            if (healthTreeLvl > 3) currentHp += 7.5f;
-            else currentHp += 5.0f;
+            if (healthTreeLvl > 3) currentHp += upgradedDeadlineHeal;
+            else currentHp += deadlineHeal;
             
             if (currentHp > deathlineHp)
             {
@@ -131,7 +137,8 @@ void PlayerStats::OnCollisionEnter(API_RigidBody other)
             GetAmmo(1, 100);
             break;
         case 1: // first aid kit
-            Heal(50.0f);
+            if (healthTreeLvl > 3) Heal(upgradedAidKitHeal);
+            else Heal(aidKitHeal);
             break;
         case 2:
         case 3:
