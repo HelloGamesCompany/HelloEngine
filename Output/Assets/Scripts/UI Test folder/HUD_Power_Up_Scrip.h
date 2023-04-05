@@ -5,33 +5,35 @@
 
 #include "API/API.h"
 
+#include "../Player/PlayerStats.h"
+
 enum class PowerUp_Type
 {
-	SPEED_INCREASE,
-	FIRERATE_INCREASE,
-	SHIELD,
-	MAX_AMMO,
-	SLOW_TIME,
+    SPEED_INCREASE,
+    FIRERATE_INCREASE,
+    SHIELD,
+    SLOW_TIME,
 };
 
 
 class HUD_Power_Up_Scrip : HelloBehavior
 {
 public:
-	void Start() override; 
-	void Update() override;
+    void Start() override;
+    void Update() override;
 
-	void AddPowerUp(PowerUp_Type Powertype);
+    void RealocatePowerUps(int removedIndex);
+    void AddPowerUp(PowerUp_Type Powertype, float duration);
+    void RemovePowerUp(PowerUp_Type Powertype);
 
-	API_GameObject Gameobjects_Pickables[5];
-	uint Texture_Pick_up[5];
-	API_Material Material_Pick_up[5];
-	int Number_Picked = 0;
-	//bool activeDash = true;
+    API_GameObject Gameobjects_Pickables[4];
+    uint Texture_Pick_up[4];
+    API_Material Material_Pick_up[4];
+    int Number_Picked = 0;
+    uint Current_texture[4];
 
-	uint Current_texture[5];
+    float timer_power_up[4];
 
-	float timer_power_up[5];
-	float livetime_Power = 5.0f;
+    API_GameObject playerStatsGO;
+    PlayerStats* playerStats;
 };
-

@@ -2,6 +2,7 @@
 #include "../Enemies/EnemyDrop.h"
 #include "../UI Test folder/HpBar.h"
 #include "../UsefulScripts/IndexContainer.h"
+#include "../UI Test folder/HUD_Power_Up_Scrip.h"
 HELLO_ENGINE_API_C PlayerStats* CreatePlayerStats(ScriptToInspectorInterface* script)
 {
     PlayerStats* classInstance = new PlayerStats();
@@ -22,6 +23,7 @@ HELLO_ENGINE_API_C PlayerStats* CreatePlayerStats(ScriptToInspectorInterface* sc
     script->AddDragBoxParticleSystem("Heal Particles", &classInstance->healParticles);
     script->AddDragBoxParticleSystem("Heal Particles", &classInstance->aidKitParticles);
     script->AddDragBoxGameObject("Storage GO", &classInstance->storageGameObject);
+    script->AddDragBoxGameObject("HUD Power Up GO", &classInstance->hudPowerUpGO);
     script->AddDragInt("movement tree lvl", &classInstance->movementTreeLvl); // remove when save and load is ready
     script->AddDragInt("armory tree lvl", &classInstance->armoryTreeLvl);
     script->AddDragInt("health tree lvl", &classInstance->healthTreeLvl);
@@ -48,6 +50,9 @@ void PlayerStats::Start()
 
     storage = (PlayerStorage*)storageGameObject.GetScript("PlayerStorage");
     if (!storage) Console::Log("Storage Missing in PlayerStats. Only needed in levels.");
+
+    hudPowerUp = (HUD_Power_Up_Scrip*)hudPowerUpGO.GetScript("HUD_Power_Up_Scrip");
+    if (!hudPowerUp) Console::Log("HUD_Power_Up_Scrip Missing in PlayerStats. Only needed in levels.");
 }
 
 void PlayerStats::Update()
@@ -55,11 +60,6 @@ void PlayerStats::Update()
     float dt;
     if (slowTimePowerUp > 0.0f /*&& !paused*/) dt = Time::GetRealTimeDeltaTime();
     else dt = Time::GetDeltaTime();
-
-    if (Input::GetKey(KeyCode::KEY_F) == KeyState::KEY_DOWN)
-    {
-        TakeDamage(1);
-    }
 
     // deadline healing
     float deathlineHp;
@@ -72,7 +72,7 @@ void PlayerStats::Update()
         {
             if (healthTreeLvl > 3) currentHp += upgradedDeadlineHeal;
             else currentHp += deadlineHeal;
-            
+
             if (currentHp > deathlineHp)
             {
                 currentHp = deathlineHp;
@@ -130,7 +130,7 @@ void PlayerStats::OnCollisionEnter(API_RigidBody other)
     if (detectionTag == "EnemyDrop")
     {
         EnemyDrop* enemyDrop = (EnemyDrop*)other.GetGameObject().GetScript("EnemyDrop");
-        
+
         switch (enemyDrop->dropIndex)
         {
         case 0: // laser ammo
@@ -201,11 +201,13 @@ void PlayerStats::TakeDamage(float amount)
 {
     if (inmunityTime > 0.0f) return; // only VS2
 
+    float shieldBefore = shield;
     shield -= amount;
     if (shield <= 0.0f)
     {
         currentHp += shield;
         shield = 0.0f;
+        if (shieldBefore > 0) hudPowerUp->RemovePowerUp(PowerUp_Type::SHIELD);
     }
 
     if (currentHp <= 0)
@@ -341,13 +343,16 @@ void PlayerStats::GetPowerUp(int index)
     switch (index)
     {
     case 0:
-        speedPowerUp = 5;
+        speedPowerUp = 5.0f;
+        hudPowerUp->AddPowerUp(PowerUp_Type::SPEED_INCREASE, speedPowerUp);
         break;
     case 1:
-        fireratePowerUp = 5;
+        fireratePowerUp = 5.0f;
+        hudPowerUp->AddPowerUp(PowerUp_Type::FIRERATE_INCREASE, fireratePowerUp);
         break;
     case 2:
-        shield = 50;
+        shield = 50.0f;
+        hudPowerUp->AddPowerUp(PowerUp_Type::SHIELD, 1);
         break;
     case 3:
         GetAmmo(1, 9999);
@@ -357,6 +362,7 @@ void PlayerStats::GetPowerUp(int index)
     case 4:
         slowTimePowerUp = 5.0f;
         Time::ChangeTimeScale(0.5f);
+        hudPowerUp->AddPowerUp(PowerUp_Type::SLOW_TIME, slowTimePowerUp);
         break;
     default:
         Console::Log("Invalid powe up index, can only be 0, 1, 2 or 3.");

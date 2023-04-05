@@ -8,6 +8,7 @@
 #include "PlayerStorage.h"
 
 class HpBar;
+class HUD_Power_Up_Scrip;
 
 class PlayerStats : HelloBehavior
 {
@@ -73,5 +74,8 @@ public:
     API_GameObject storageGameObject;
     PlayerStorage* storage;
     void SaveInStorage(int index);
-};
 
+    // HUD
+    API_GameObject hudPowerUpGO;
+    HUD_Power_Up_Scrip* hudPowerUp;
+};
