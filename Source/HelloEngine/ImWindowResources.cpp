@@ -20,6 +20,7 @@ void ImWindowResources::Update()
 		{
 			for (auto& resource : ModuleResourceManager::resources)
 			{
+				if (!resource.second) continue;
 				if (resource.second->type == ResourceType::MESH)
 				{
 					ImGui::Text(resource.second->debugName.c_str()); ImGui::SameLine();
@@ -31,6 +32,7 @@ void ImWindowResources::Update()
 		{
 			for (auto& resource : ModuleResourceManager::resources)
 			{
+				if (!resource.second) continue;
 				if (resource.second->type == ResourceType::TEXTURE)
 				{
 					ImGui::Text(resource.second->debugName.c_str()); ImGui::SameLine();
@@ -42,6 +44,7 @@ void ImWindowResources::Update()
 		{
 			for (auto& resource : ModuleResourceManager::resources)
 			{
+				if (!resource.second) continue;
 				if (resource.second->type == ResourceType::CPPSCRIPT)
 				{
 					ImGui::Text(resource.second->debugName.c_str()); ImGui::SameLine();
@@ -53,6 +56,7 @@ void ImWindowResources::Update()
 		{
 			for (auto& resource : ModuleResourceManager::resources)
 			{
+				if (!resource.second) continue;
 				if (resource.second->type == ResourceType::SHADER)
 				{
 					ImGui::Text(resource.second->debugName.c_str()); ImGui::SameLine();
@@ -64,6 +68,7 @@ void ImWindowResources::Update()
 		{
 			for (auto& resource : ModuleResourceManager::resources)
 			{
+				if (!resource.second) continue;
 				if (resource.second->type == ResourceType::MATERIAL)
 				{
 					ImGui::Text(resource.second->debugName.c_str()); ImGui::SameLine();

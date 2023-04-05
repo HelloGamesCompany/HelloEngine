@@ -13,6 +13,13 @@ class MeshRenderComponent;
 class ResourceMesh;
 class ResourceShader;
 
+enum RenderUpdateState
+{
+	NODRAW = -1,
+	DRAW = 0,
+	SELECTED
+};
+
 struct Vertex
 {
 	Vertex() {}
@@ -44,21 +51,22 @@ public:
 
 	// Only to be used for meshes that cannot be drawn with instanced rendering (meshes with transparency).
 	void CreateBufferData();
-	void Draw(Material* material = nullptr, bool useMaterial = true);
+	void Draw(Material material, bool useMaterial = true);
 	// ----------------------------------------------------------------------------------------------------
 private:
 	void DefaultDraw();
 
-	void UniformDraw(Material* material);
+	void UniformDraw(Material material);
 
+	void StencilDraw();
 public:
-	void DrawAsSelected(Material* material);
+	void DrawAsSelected(Material material, uint materialID = 0);
 	void DrawAsSelected();
 
 	void InitAsMesh(std::vector<Vertex>& vertices, std::vector<uint>& indices);
 	void InitWithResource(ResourceMesh* res);
 
-	bool Update();
+	RenderUpdateState Update();
 
 	void CleanUp();
 

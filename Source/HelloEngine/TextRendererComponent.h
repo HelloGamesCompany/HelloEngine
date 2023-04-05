@@ -1,8 +1,8 @@
 #pragma once
-#include "Component.h"
+#include "ComponentUI.h"
 #include "FontManager.h"
 
-class TextRendererComponent : public Component
+class TextRendererComponent : public ComponentUI
 {
 public:
 	TextRendererComponent(GameObject* go);
