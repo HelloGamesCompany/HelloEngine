@@ -7,40 +7,82 @@
 
 #include "../Player/PlayerMove.h"
 
+enum class infinitWeapon_Type
+{
+    HANDGUNS,
+};
+
+enum class normalWeapon_Type
+{
+    NONE,
+    AUTO,
+    BURST,
+    SEMI,
+    SHOTGUN,
+    HANDGUN,
+};
+
+enum class specialWeapon_Type
+{
+    NONE,
+    FLAMETHROWER,
+    RICOCHET,
+};
+
+
+
 class SwapWeapon : HelloBehavior
 {
 public:
     void Start() override;
     void Update() override;
 
-    void SwapWeapon1();
-    void SwapWeapon2();
-    void SwapWeapon3();
+    //void SwapWeaponTexture(normalWeapon_Type normalWeapon);
+
+    void SwapWeapon1(infinitWeapon_Type infinitWeapon, bool active);
+    void SwapWeapon2(normalWeapon_Type normalWeapon, bool active);
+    void SwapWeapon3(specialWeapon_Type specialWeapon, bool active);
 
     void Dash();
 
-    //Weapon 1  
-    uint Texture_Weapon_1_on;
-    uint Texture_Weapon_1_off;
-    API_Material Material_Weapon_1;
+    //Normal Weapons on
+    uint normalWeaponsOn[6];
+    //Normal Weapons off
+    uint normalWeaponsOff[6];
 
-    //Weapon 2 
-    uint Texture_Weapon_2_on;
-    uint Texture_Weapon_2_off;
-    API_Material Material_Weapon_2;
+    //Inifit Weapons on
+    uint infinitWeaponsOn[1];
+    //Inifit Weapons off
+    uint infinitWeaponsOff[1];
+    
+    //Especiales Weapons on
+    uint specialsWeaponsOn[3];
+    //Especiales Weapons off
+    uint specialsWeaponsOff[3];
+
+    //Weapon 1  
+    API_Material material_Infinite_Weapon_on;
+    API_Material material_Infinite_Weapon_off;
+
+                 
+    //Weapon 2   
+    API_Material material_Normal_Weapon_on;
+    API_Material material_Normal_Weapon_off;
+
 
     //Weapon 3  
-    uint Texture_Weapon_3_on;
-    uint Texture_Weapon_3_off;
-    API_Material Material_Weapon_3;
+    API_Material material_Special_Weapon_on;
+    API_Material material_Special_Weapon_off;
 
-    API_GameObject Active_Bar_1;
-    API_GameObject Active_Bar_2;
-    API_GameObject Active_Bar_3;
 
-    uint Texture_Dash_on;
-    uint Texture_Dash_off;
-    API_Material Material_Dash;
+    //Bars
+    API_GameObject active_Bar_1;
+    API_GameObject active_Bar_2;
+    API_GameObject active_Bar_3;
+
+    uint texture_Dash_on;
+    uint texture_Dash_off;
+    API_Material material_Dash;
     bool dashingReady;
 
     API_GameObject playerMoveGO;
