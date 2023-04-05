@@ -7,6 +7,7 @@
 
 #include "../Shooting/PlayerGunManager.h"
 #include "../Player/PlayerStats.h"
+#include "../Player/PlayerMove.h"
 
 class Chest : HelloBehavior
 {
@@ -21,6 +22,7 @@ public:
     bool opening;
     PlayerGunManager* playerGunManager;
     PlayerStats* playerStats;
+    PlayerMove* playerMove;
 
     int itemIndex;
     // 0 -> Upgrade Blueprint

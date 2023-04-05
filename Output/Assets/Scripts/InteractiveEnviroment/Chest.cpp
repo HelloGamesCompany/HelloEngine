@@ -29,7 +29,7 @@ void Chest::Update()
         {
             opening = false;
 
-            if (!playerGunManager || !playerStats)
+            if (!playerGunManager || !playerStats || !playerMove)
             {
                 openChestTime = maxOpenChestTime;
                 return;
@@ -60,6 +60,7 @@ void Chest::Update()
                 break;
             }
 
+            playerMove->StopOpenChestAnim();
             gameObject.SetActive(false);
         }
     }
@@ -76,7 +77,9 @@ void Chest::OnCollisionEnter(API::API_RigidBody other)
         {
             playerGunManager = (PlayerGunManager*)other.GetGameObject().GetScript("PlayerGunManager");
             playerStats = (PlayerStats*)other.GetGameObject().GetScript("PlayerStats");
+            playerMove = (PlayerMove*)other.GetGameObject().GetScript("PlayerMove");
 
+            if (playerMove) playerMove->PlayOpenChestAnim();
             opening = true;
         }
     }

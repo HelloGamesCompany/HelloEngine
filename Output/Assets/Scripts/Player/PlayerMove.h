@@ -17,6 +17,7 @@ class PlayerMove : HelloBehavior
         RUN,
         DASH,
         SHOOT,
+        OPEN_CHEST
     };
 
 public:
@@ -78,6 +79,10 @@ public:
     uint idleAnim = 0;
     uint runAnim = 0;
     uint shootAnim = 0;
+    uint openChestAnim = 0;
+    bool openingChest = false;
+    void PlayOpenChestAnim();
+    void StopOpenChestAnim();
     PlayerAnims currentAnim;
     bool isShooting = false;
 
