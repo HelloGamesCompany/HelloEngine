@@ -1,33 +1,39 @@
 #include "Chest.h"
-#include "../Shooting/PlayerGunManager.h"
-#include "../Player/PlayerStats.h"
 HELLO_ENGINE_API_C Chest* CreateChest(ScriptToInspectorInterface* script)
 {
     Chest* classInstance = new Chest();
     //Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
+    script->AddDragFloat("Open Chest Time", &classInstance->maxOpenChestTime);
     script->AddDragInt("Item Index", &classInstance->itemIndex);
     return classInstance;
 }
 
 void Chest::Start()
 {
-
+    openChestTime = maxOpenChestTime;
+    opening = false;
 }
 
 void Chest::Update()
 {
-
-}
-
-void Chest::OnCollisionEnter(API::API_RigidBody other)
-{
-    std::string detectionTag = other.GetGameObject().GetTag();
-    if (detectionTag == "Player")
+    if (opening)
     {
-        if (Input::GetGamePadButton(GamePadButton::BUTTON_X) == KeyState::KEY_DOWN || Input::GetKey(KeyCode::KEY_E) == KeyState::KEY_DOWN)
+        openChestTime -= Time::GetRealTimeDeltaTime();
+
+        if (Input::GetGamePadButton(GamePadButton::BUTTON_X) == KeyState::KEY_UP || Input::GetKey(KeyCode::KEY_E) == KeyState::KEY_UP)
         {
-            PlayerGunManager* playerGunManager = (PlayerGunManager*)other.GetGameObject().GetScript("PlayerGunManager");
-            PlayerStats* playerStats = (PlayerStats*)other.GetGameObject().GetScript("PlayerStats");
+            openChestTime = maxOpenChestTime;
+            opening = false;
+        }
+        if (openChestTime <= 0.0f)
+        {
+            opening = false;
+
+            if (!playerGunManager || !playerStats)
+            {
+                openChestTime = maxOpenChestTime;
+                return;
+            }
 
             switch (itemIndex)
             {
@@ -53,8 +59,25 @@ void Chest::OnCollisionEnter(API::API_RigidBody other)
                 Console::Log("Item Index is not between 0 and 7.");
                 break;
             }
-            
+
             gameObject.SetActive(false);
+        }
+    }
+}
+
+void Chest::OnCollisionEnter(API::API_RigidBody other)
+{
+    std::string detectionTag = other.GetGameObject().GetTag();
+    if (detectionTag == "Player")
+    {
+        if (opening) return;
+
+        if (Input::GetGamePadButton(GamePadButton::BUTTON_X) == KeyState::KEY_DOWN || Input::GetKey(KeyCode::KEY_E) == KeyState::KEY_DOWN)
+        {
+            playerGunManager = (PlayerGunManager*)other.GetGameObject().GetScript("PlayerGunManager");
+            playerStats = (PlayerStats*)other.GetGameObject().GetScript("PlayerStats");
+
+            opening = true;
         }
     }
 }

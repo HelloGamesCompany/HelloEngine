@@ -9,10 +9,18 @@ HELLO_ENGINE_API_C PlayerStats* CreatePlayerStats(ScriptToInspectorInterface* sc
     script->AddDragFloat("Max HP", &classInstance->maxHp);
     script->AddDragFloat("Current HP", &classInstance->currentHp);
     script->AddDragFloat("Upgraded Max HP", &classInstance->upgradedMaxHp);
+    script->AddDragFloat("Deadline Percentage", &classInstance->deadlinePart);
+    script->AddDragFloat("Upgraded Deadline Percentage", &classInstance->upgradedDeadlinePart);
+    script->AddDragFloat("Deadline Heal Amount", &classInstance->deadlineHeal);
+    script->AddDragFloat("Upgraded Deadline Heal Amount", &classInstance->upgradedDeadlineHeal);
+    script->AddDragFloat("Aid Kit Heal Amount", &classInstance->aidKitHeal);
+    script->AddDragFloat("Upgraded Aid Kit Heal Amount", &classInstance->upgradedAidKitHeal);
     script->AddDragInt("Laser Ammo", &classInstance->laserAmmo);
     script->AddDragInt("Fire Ammo", &classInstance->fireAmmo);
     script->AddDragInt("Ricochet Ammo", &classInstance->ricochetAmmo);
     script->AddDragBoxParticleSystem("Hit Particles", &classInstance->hitParticles);
+    script->AddDragBoxParticleSystem("Heal Particles", &classInstance->healParticles);
+    script->AddDragBoxParticleSystem("Heal Particles", &classInstance->aidKitParticles);
     script->AddDragBoxGameObject("Storage GO", &classInstance->storageGameObject);
     script->AddDragInt("movement tree lvl", &classInstance->movementTreeLvl); // remove when save and load is ready
     script->AddDragInt("armory tree lvl", &classInstance->armoryTreeLvl);
@@ -26,6 +34,8 @@ void PlayerStats::Start()
     if (healthTreeLvl > 0) currentMaxHp = upgradedMaxHp;
     else currentMaxHp = maxHp;
     currentHp = currentMaxHp;
+    playingHealParticles = false;
+
     detected = false;
 
     if (healthTreeLvl > 4) secondLife = true;
@@ -53,24 +63,34 @@ void PlayerStats::Update()
 
     // deadline healing
     float deathlineHp;
-    if (healthTreeLvl > 1) deathlineHp = currentMaxHp * 0.25f;
-    else deathlineHp = currentMaxHp * 0.20f;
+    if (healthTreeLvl > 1) deathlineHp = currentMaxHp * (upgradedDeadlinePart / 100.0f);
+    else deathlineHp = currentMaxHp * (deadlinePart / 100.0f);
     if (currentHp < deathlineHp)
     {
         lastHitTime -= dt;
         if (lastHitTime <= 0.0f)
         {
-            if (healthTreeLvl > 3) currentHp += 7.5f;
-            else currentHp += 5.0f;
+            if (healthTreeLvl > 3) currentHp += upgradedDeadlineHeal;
+            else currentHp += deadlineHeal;
             
             if (currentHp > deathlineHp)
             {
                 currentHp = deathlineHp;
                 lastHitTime = 0.0f;
+                if (playingHealParticles)
+                {
+                    healParticles.StopEmitting();
+                    playingHealParticles = false;
+                }
             }
             else
             {
-                lastHitTime = 1.0f;
+                lastHitTime = 1.0f; // heal each second
+                if (!playingHealParticles)
+                {
+                    healParticles.Play();
+                    playingHealParticles = true;
+                }
             }
         }
     }
@@ -117,7 +137,8 @@ void PlayerStats::OnCollisionEnter(API_RigidBody other)
             GetAmmo(1, 100);
             break;
         case 1: // first aid kit
-            Heal(50.0f);
+            if (healthTreeLvl > 3) Heal(upgradedAidKitHeal);
+            else Heal(aidKitHeal);
             break;
         case 2:
         case 3:
@@ -214,11 +235,17 @@ void PlayerStats::TakeDamage(float amount)
     }
 
     lastHitTime = 3.0f; // 3 seg to auto heal after a hit
+    if (playingHealParticles)
+    {
+        healParticles.StopEmitting();
+        playingHealParticles = false;
+    }
 }
 
 void PlayerStats::Heal(float amount)
 {
     currentHp += amount;
+    healParticles.Play();
 
     if (currentHp > currentMaxHp) currentHp = currentMaxHp;
 }
