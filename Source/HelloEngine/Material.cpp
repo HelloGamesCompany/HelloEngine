@@ -40,45 +40,39 @@ void Material::Update(const float* view, const float* projection, const float* m
 
 	for (uint i = 0; i < uniforms.size(); ++i)
 	{
-		switch(uniforms[i]->data.type)
-		{ 
-			case GL_FLOAT_VEC3: 
-				if (uniforms[i]->data.name == "LightColor")
-				{
-					shader->shader.SetFloat3v("LightColor", &Lighting::global.lightColor.At(0));
-					continue;
-				}
-				else if (uniforms[i]->data.name == "ViewPoint")
-				{
-					float3 viewPoint = Application::Instance()->camera->currentDrawingCamera->GetPosition();
-					shader->shader.SetFloat3v("ViewPoint", &viewPoint.At(0));
-					continue;
-				}
-				break;
-			case GL_FLOAT_VEC4:
-				if (uniforms[i]->data.name == "LightPosition")
-				{
-					shader->shader.SetFloat4v("LightPosition", &Lighting::global.lightDirection.At(0));
-					continue;
-				}
-				break;
-			case GL_FLOAT:
-				if (uniforms[i]->data.name == "LightStrength")
-				{
-					shader->shader.SetFloat3v("LightStrength", &Lighting::global.lightStrength);
-					continue;
-				}
-				break;
-			case GL_FLOAT_MAT4:
-				if (uniforms[i]->data.name == "finalBonesMatrices")
-				{
-					continue;
-				}
-				break;
-		}
+		//If true, the uniform was Key and has already been Handled (Given Data)
+		if (HandleKeyUniforms(uniforms[i])) continue;
 
 
 		uniforms[i]->Update(shader->shader);
+	}
+}
+
+void Material::UpdateInstanced(const float* view, const float* projection)
+{
+	shader->shader.Bind();
+
+	shader->shader.SetMatFloat4v("view", view);
+	shader->shader.SetMatFloat4v("projection", projection);
+
+	for (uint i = 0; i < uniforms.size(); ++i)
+	{
+		//If true, the uniform was Key and has already been Handled (Given Data)
+		if (HandleKeyUniforms(uniforms[i])) continue;
+
+
+		uniforms[i]->Update(shader->shader);
+	}
+}
+
+void Material::UnbindAllTextures()
+{
+	for (uint i = 0; i < uniforms.size(); ++i)
+	{
+		if (uniforms[i]->data.type != GL_SAMPLER_2D) continue;
+
+		UniSampler2D* sampler = (UniSampler2D*)uniforms[i];
+		sampler->Unbind();
 	}
 }
 
@@ -118,6 +112,52 @@ void Material::CleanUniforms()
 		RELEASE(uniforms[i]);
 	}
 	uniforms.clear();
+}
+
+bool Material::HandleKeyUniforms(Uniform* uni)
+{
+	bool toReturn = false;
+	switch (uni->data.type)
+	{
+		case GL_FLOAT_VEC3:
+			if (uni->data.name == "LightColor")
+			{
+				shader->shader.SetFloat3v("LightColor", &Lighting::global.lightColor.At(0));
+				toReturn = true;
+			}
+			else if (uni->data.name == "ViewPoint")
+			{
+				float3 viewPoint = Application::Instance()->camera->currentDrawingCamera->GetPosition();
+				shader->shader.SetFloat3v("ViewPoint", &viewPoint.At(0));
+
+				toReturn = true;
+			}
+			break;
+		case GL_FLOAT_VEC4:
+			if (uni->data.name == "LightPosition")
+			{
+				shader->shader.SetFloat4v("LightPosition", &Lighting::global.lightDirection.At(0));
+				
+				toReturn = true;
+			}
+			break;
+		case GL_FLOAT:
+			if (uni->data.name == "LightStrength")
+			{
+				shader->shader.SetFloat3v("LightStrength", &Lighting::global.lightStrength);
+				
+				toReturn = true;
+			}
+			break;
+		case GL_FLOAT_MAT4:
+			if (uni->data.name == "finalBonesMatrices")
+			{
+				toReturn = true;
+			}
+			break;
+	}
+
+	return toReturn;
 }
 
 void Material::CheckVersion()

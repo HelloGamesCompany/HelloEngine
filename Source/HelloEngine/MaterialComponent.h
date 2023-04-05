@@ -2,6 +2,7 @@
 #include "Component.h"
 
 class ResourceMaterial;
+class MeshRenderComponent;
 
 class MaterialComponent : public Component
 {
@@ -26,6 +27,8 @@ public:
 private:
 	void MaterialDragNDrop();
 	void ShaderSelectCombo();
+
+	MeshRenderComponent* GetOwnerMeshComponent();
 
 private:
 	ResourceMaterial* _resource = nullptr;
