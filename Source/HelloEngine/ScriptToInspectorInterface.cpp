@@ -8,6 +8,8 @@
 #include "API/API_AnimationPlayer.h"
 #include "API/API_UIButton.h"
 #include "API/API_UIImage.h"
+#include "API/API_UIInput.h"
+#include "API/API_UIText.h"
 #include "API/API_ParticleSystem.h"
 #include "API/API_Material.h"
 
@@ -17,6 +19,8 @@
 #include "AnimationComponent.h"
 #include "ComponentUIButton.h"
 #include "ComponentUIImage.h"
+#include "ComponentUIInput.h"
+#include "TextRendererComponent.h"
 #include "ParticleSystemComponent.h"
 #include "TextureComponent.h"
 #include "MeshRenderComponent.h"
@@ -1065,6 +1069,156 @@ void DragBoxUIImage::OnDeserialize(json& j)
 			{
 				API::API_UIImage* buttonui = (API::API_UIImage*)value;
 				buttonui->SetComponent(component);
+			}
+		}
+	}
+}
+
+void DragBoxUIInput::OnEditor()
+{
+	API::API_UIInput* inputui = (API::API_UIInput*)value;
+
+	std::string inputName = "X##" + std::to_string(UID);
+	if (ImGui::Button(inputName.c_str()))
+	{
+		inputui->SetComponent(nullptr);
+	}
+	ImGui::SameLine();
+
+	ImGui::TextWrapped((valueName + ": ").c_str()); ImGui::SameLine();
+
+	if (inputui->_UIInput == nullptr)
+	{
+		ImGui::TextColored(ImVec4(1, 1, 0, 1), "NULL (Drag an UI Panel Here)");
+	}
+	else
+	{
+		std::string gameObjectName(inputui->GetGameObject().GetName());
+		std::string text = "(" + gameObjectName + ")" + ": UI Panel";
+		ImGui::TextColored(ImVec4(1, 1, 0, 1), text.c_str());
+	}
+
+	if (ImGui::BeginDragDropTarget())
+	{
+		if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("GameObject"))
+		{
+			const uint* drop = (uint*)payload->Data;
+
+			GameObject* droppedGO = ModuleLayers::S_GetGameObject(*drop);
+			ComponentUIInput* component = nullptr;
+
+			if (droppedGO != nullptr)
+				component = droppedGO->GetComponent<ComponentUIInput>();
+
+			inputui->SetComponent(component);
+		}
+		ImGui::EndDragDropTarget();
+	}
+}
+
+void DragBoxUIInput::OnSerialize(json& j)
+{
+	json _j;
+
+	API::API_UIInput* inputui = (API::API_UIInput*)value;
+
+	if (inputui->_UIInput != nullptr)
+	{
+		_j[valueName.c_str()] = inputui->_UIInput->GetGameObject()->GetID();
+		j.push_back(_j);
+	}
+}
+
+void DragBoxUIInput::OnDeserialize(json& j)
+{
+	for (int i = 0; i < j.size(); i++)
+	{
+		if (j[i].find(valueName) != j[i].end())
+		{
+			uint id = j[i][valueName.c_str()];
+			GameObject* gameObject = ModuleLayers::S_GetGameObject(id);
+			ComponentUIInput* component = nullptr;
+			if (gameObject != nullptr)
+				component = gameObject->GetComponent<ComponentUIInput>();
+			if (component != nullptr)
+			{
+				API::API_UIInput* inputui = (API::API_UIInput*)value;
+				inputui->SetComponent(component);
+			}
+		}
+	}
+}
+
+void DragBoxUIText::OnEditor()
+{
+	API::API_UIText* Textui = (API::API_UIText*)value;
+
+	std::string TextName = "X##" + std::to_string(UID);
+	if (ImGui::Button(TextName.c_str()))
+	{
+		Textui->SetComponent(nullptr);
+	}
+	ImGui::SameLine();
+
+	ImGui::TextWrapped((valueName + ": ").c_str()); ImGui::SameLine();
+
+	if (Textui->_UIText == nullptr)
+	{
+		ImGui::TextColored(ImVec4(1, 1, 0, 1), "NULL (Drag an UI Text Here)");
+	}
+	else
+	{
+		std::string gameObjectName(Textui->GetGameObject().GetName());
+		std::string text = "(" + gameObjectName + ")" + ": UI Text";
+		ImGui::TextColored(ImVec4(1, 1, 0, 1), text.c_str());
+	}
+
+	if (ImGui::BeginDragDropTarget())
+	{
+		if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("GameObject"))
+		{
+			const uint* drop = (uint*)payload->Data;
+
+			GameObject* droppedGO = ModuleLayers::S_GetGameObject(*drop);
+			TextRendererComponent* component = nullptr;
+
+			if (droppedGO != nullptr)
+				component = droppedGO->GetComponent<TextRendererComponent>();
+
+			Textui->SetComponent(component);
+		}
+		ImGui::EndDragDropTarget();
+	}
+}
+
+void DragBoxUIText::OnSerialize(json& j)
+{
+	json _j;
+
+	API::API_UIText* Textui = (API::API_UIText*)value;
+
+	if (Textui->_UIText != nullptr)
+	{
+		_j[valueName.c_str()] = Textui->_UIText->GetGameObject()->GetID();
+		j.push_back(_j);
+	}
+}
+
+void DragBoxUIText::OnDeserialize(json& j)
+{
+	for (int i = 0; i < j.size(); i++)
+	{
+		if (j[i].find(valueName) != j[i].end())
+		{
+			uint id = j[i][valueName.c_str()];
+			GameObject* gameObject = ModuleLayers::S_GetGameObject(id);
+			TextRendererComponent* component = nullptr;
+			if (gameObject != nullptr)
+				component = gameObject->GetComponent<TextRendererComponent>();
+			if (component != nullptr)
+			{
+				API::API_UIText* Textui = (API::API_UIText*)value;
+				Textui->SetComponent(component);
 			}
 		}
 	}
