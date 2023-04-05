@@ -731,6 +731,10 @@ void ModuleResourceManager::S_DeleteMetaFile(const std::string& file, bool onlyR
 		}
 	}
 	break;
+	case ResourceType::PREFAB: // When reimporting prefabs we dont want to destroy the old file, because it is probably already the new one. 
+								//Kinda confusing I know. Ask code lead for clarification.
+		break;
+	break;
 	default:
 	{
 		ModuleFiles::S_Delete(meta.resourcePath);
