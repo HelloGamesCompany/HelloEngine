@@ -70,7 +70,8 @@ void ArmoryWeaponSelect::Update()
 		}
 		else
 		{
-			CurrentPanelUnlock.SetEnable(true);
+			CurrentPanelUnlock.GetGameObject().SetActive(false);
+			//CurrentPanelUnlock.SetEnable(false);
 			unlockPress++;
 		}
 	}
