@@ -39,7 +39,10 @@ void ArmoryWeaponSelect::Update()
 		SelectedWeapon.ChangeAlbedoTexture(CurrentTextureWeapon);
 
 		if (isUnlocked)
+		{
 			CurrentPanelUpgrate.GetGameObject().SetActive(true);
+			CurrentWeapon.GetGameObject().GetMaterialCompoennt().ChangeAlbedoTexture(CurrentTextureWeapon);
+		}
 		else
 			CurrentPanelUnlock.GetGameObject().SetActive(true);
 
@@ -64,8 +67,8 @@ void ArmoryWeaponSelect::Update()
 		else
 		{
 			CurrentPanelUnlock.SetEnable(true);
+			unlockPress++;
 		}
-		//isUnlocked = true;
 	}
 }
 

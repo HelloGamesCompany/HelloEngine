@@ -37,6 +37,7 @@ public:
 
 	API_Material SelectedWeapon;
 
+	int unlockPress = 0;
 
 private:
 
