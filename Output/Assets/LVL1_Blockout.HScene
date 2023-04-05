@@ -117388,5 +117388,1235 @@
         "PrefabUID": 685844892,
         "Tag": "Default",
         "UID": 3646524735
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    74.44779968261719,
+                    0.7085061073303223,
+                    -22.187410354614258
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    0.5,
+                    0.5,
+                    0.5
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Chest",
+        "ParentUID": 2462894403,
+        "PrefabUID": 3391685345,
+        "Tag": "Default",
+        "UID": 1678195266
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    -0.012693610973656178,
+                    -0.00021958172146696597
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 1760321159,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3710193103,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "polySurface10",
+        "ParentUID": 1678195266,
+        "PrefabUID": 3391685345,
+        "Tag": "Default",
+        "UID": 1637261097
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -1.7501072883605957,
+                    0.8799998760223389,
+                    0.10000013560056686
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "polySurface16_$AssimpFbx$_RotationPivot",
+        "ParentUID": 1637261097,
+        "PrefabUID": 3391685345,
+        "Tag": "Default",
+        "UID": 3617765693
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    1.7501072883605957,
+                    -0.8799998760223389,
+                    -0.10000013560056686
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "polySurface16_$AssimpFbx$_RotationPivotInverse",
+        "ParentUID": 3617765693,
+        "PrefabUID": 3391685345,
+        "Tag": "Default",
+        "UID": 2698173024
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -1.7501072883605957,
+                    0.8799998760223389,
+                    0.10000013560056686
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "polySurface16_$AssimpFbx$_ScalingPivot",
+        "ParentUID": 2698173024,
+        "PrefabUID": 3391685345,
+        "Tag": "Default",
+        "UID": 519478751
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    1.7501072883605957,
+                    -0.8799998760223389,
+                    -0.10000013560056686
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "polySurface16_$AssimpFbx$_ScalingPivotInverse",
+        "ParentUID": 519478751,
+        "PrefabUID": 3391685345,
+        "Tag": "Default",
+        "UID": 3005491051
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 1,
+                "ModelUID": 1760321159,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3710193103,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "polySurface16",
+        "ParentUID": 3005491051,
+        "PrefabUID": 3391685345,
+        "Tag": "Default",
+        "UID": 3075735143
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 2,
+                "ModelUID": 1760321159,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3710193103,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "polySurface13",
+        "ParentUID": 1637261097,
+        "PrefabUID": 3391685345,
+        "Tag": "Default",
+        "UID": 1571914130
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 3,
+                "ModelUID": 1760321159,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3710193103,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "polySurface12",
+        "ParentUID": 1571914130,
+        "PrefabUID": 3391685345,
+        "Tag": "Default",
+        "UID": 2466942650
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 4,
+                "ModelUID": 1760321159,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3710193103,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "polySurface11",
+        "ParentUID": 1571914130,
+        "PrefabUID": 3391685345,
+        "Tag": "Default",
+        "UID": 3862003202
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 5,
+                "ModelUID": 1760321159,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3710193103,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "polySurface9",
+        "ParentUID": 1678195266,
+        "PrefabUID": 3391685345,
+        "Tag": "Default",
+        "UID": 2982262249
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.8500000238418579,
+                    2.1924743975887395e-07,
+                    -1.2999999523162842
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "polySurface14_$AssimpFbx$_RotationPivot",
+        "ParentUID": 2982262249,
+        "PrefabUID": 3391685345,
+        "Tag": "Default",
+        "UID": 771014396
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.8500000238418579,
+                    -2.1924743975887395e-07,
+                    1.2999999523162842
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "polySurface14_$AssimpFbx$_RotationPivotInverse",
+        "ParentUID": 771014396,
+        "PrefabUID": 3391685345,
+        "Tag": "Default",
+        "UID": 291998507
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.8500000238418579,
+                    2.1924743975887395e-07,
+                    -1.2999999523162842
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "polySurface14_$AssimpFbx$_ScalingPivot",
+        "ParentUID": 291998507,
+        "PrefabUID": 3391685345,
+        "Tag": "Default",
+        "UID": 1147843879
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.8500000238418579,
+                    -2.1924743975887395e-07,
+                    1.2999999523162842
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "polySurface14_$AssimpFbx$_ScalingPivotInverse",
+        "ParentUID": 1147843879,
+        "PrefabUID": 3391685345,
+        "Tag": "Default",
+        "UID": 1877190483
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 6,
+                "ModelUID": 1760321159,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3710193103,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "polySurface14",
+        "ParentUID": 1877190483,
+        "PrefabUID": 3391685345,
+        "Tag": "Default",
+        "UID": 318766958
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.8500000238418579,
+                    2.1606683731079102e-07,
+                    -1.2999999523162842
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "polySurface15_$AssimpFbx$_RotationPivot",
+        "ParentUID": 2982262249,
+        "PrefabUID": 3391685345,
+        "Tag": "Default",
+        "UID": 778364486
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.8500000238418579,
+                    -2.1606683731079102e-07,
+                    1.2999999523162842
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "polySurface15_$AssimpFbx$_RotationPivotInverse",
+        "ParentUID": 778364486,
+        "PrefabUID": 3391685345,
+        "Tag": "Default",
+        "UID": 911506174
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.8500000238418579,
+                    2.1606683731079102e-07,
+                    -1.2999999523162842
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "polySurface15_$AssimpFbx$_ScalingPivot",
+        "ParentUID": 911506174,
+        "PrefabUID": 3391685345,
+        "Tag": "Default",
+        "UID": 1829541654
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.8500000238418579,
+                    -2.1606683731079102e-07,
+                    1.2999999523162842
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "polySurface15_$AssimpFbx$_ScalingPivotInverse",
+        "ParentUID": 1829541654,
+        "PrefabUID": 3391685345,
+        "Tag": "Default",
+        "UID": 2969362958
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 7,
+                "ModelUID": 1760321159,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3710193103,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "polySurface15",
+        "ParentUID": 2969362958,
+        "PrefabUID": 3391685345,
+        "Tag": "Default",
+        "UID": 357640549
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    60.039546966552734,
+                    0.07337158918380737,
+                    -14.60578727722168
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "WalkwayEdge",
+        "ParentUID": 2462894403,
+        "PrefabUID": 792602577,
+        "Tag": "Default",
+        "UID": 2868934929
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    -0.016252323985099792
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.991156816482544,
+                    1.991156816482544,
+                    8.411584854125977
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 3011112332,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 1260268331,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Edge",
+        "ParentUID": 2868934929,
+        "PrefabUID": 792602577,
+        "Tag": "Default",
+        "UID": 664591428
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    90.00000762939453,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    -0.043971948325634,
+                    -1.0643292665481567,
+                    -0.1987793743610382
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 1,
+                "ModelUID": 3011112332,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 2970335097,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Pivot Wall 3 4.001",
+        "ParentUID": 2868934929,
+        "PrefabUID": 792602577,
+        "Tag": "Default",
+        "UID": 4132096276
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.043971948325634,
+                    1.0643292665481567,
+                    0.1987793743610382
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 2,
+                "ModelUID": 3011112332,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 2970335097,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Pivot Wall 1 2.001",
+        "ParentUID": 2868934929,
+        "PrefabUID": 792602577,
+        "Tag": "Default",
+        "UID": 3765345315
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -1.9140204191207886,
+                    1.0404636859893799,
+                    -0.0001389533281326294
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    0.06930340081453323,
+                    0.06929999589920044,
+                    2.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 3,
+                "ModelUID": 3011112332,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 2992341306,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Pivot Union 1 2.001",
+        "ParentUID": 2868934929,
+        "PrefabUID": 792602577,
+        "Tag": "Default",
+        "UID": 3777264255
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    -5.008955668017734e-06,
+                    180.0
+                ],
+                "Scale": [
+                    0.14239253103733063,
+                    0.2154516577720642,
+                    0.1987793743610382
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 4,
+                "ModelUID": 3011112332,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 2819093342,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Pivot 4.001",
+        "ParentUID": 2868934929,
+        "PrefabUID": 792602577,
+        "Tag": "Default",
+        "UID": 362130570
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    90.00000762939453,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    -0.14239253103733063,
+                    -0.2154516577720642,
+                    -0.1987793743610382
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 5,
+                "ModelUID": 3011112332,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 2819093342,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Pivot 3.001",
+        "ParentUID": 2868934929,
+        "PrefabUID": 792602577,
+        "Tag": "Default",
+        "UID": 434386450
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    90.00000762939453,
+                    5.008955668017734e-06,
+                    180.0
+                ],
+                "Scale": [
+                    -0.14239253103733063,
+                    -0.2154516577720642,
+                    -0.1987793743610382
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 6,
+                "ModelUID": 3011112332,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 2819093342,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Pivot 2.001",
+        "ParentUID": 2868934929,
+        "PrefabUID": 792602577,
+        "Tag": "Default",
+        "UID": 1554304314
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.14239253103733063,
+                    0.2154516577720642,
+                    0.1987793743610382
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 7,
+                "ModelUID": 3011112332,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 2819093342,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Pivot 1.001",
+        "ParentUID": 2868934929,
+        "PrefabUID": 792602577,
+        "Tag": "Default",
+        "UID": 519622273
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    2.0,
+                    2.0,
+                    8.41158390045166
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 8,
+                "ModelUID": 3011112332,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3489187627,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Floor.001",
+        "ParentUID": 2868934929,
+        "PrefabUID": 792602577,
+        "Tag": "Default",
+        "UID": 112734324
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    1.9057999849319458,
+                    1.0404636859893799,
+                    -0.0001389533281326294
+                ],
+                "Rotation": [
+                    -179.99996948242188,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    -0.06930340081453323,
+                    -0.06929999589920044,
+                    -2.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 9,
+                "ModelUID": 3011112332,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 2992341306,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Pivot Union 1 2.002",
+        "ParentUID": 2868934929,
+        "PrefabUID": 792602577,
+        "Tag": "Default",
+        "UID": 1771121412
     }
 ]
