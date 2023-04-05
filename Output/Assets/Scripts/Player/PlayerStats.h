@@ -28,6 +28,9 @@ public:
     float lastHitTime;
     void Heal(float amount);
     API_ParticleSystem hitParticles;
+    API_ParticleSystem healParticles;
+    bool playingHealParticles;
+    API_ParticleSystem aidKitParticles;
 
     int GetAmmonByType(int type);
     void GetAmmo(int type, int amount);

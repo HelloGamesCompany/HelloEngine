@@ -13,6 +13,8 @@ HELLO_ENGINE_API_C PlayerStats* CreatePlayerStats(ScriptToInspectorInterface* sc
     script->AddDragInt("Fire Ammo", &classInstance->fireAmmo);
     script->AddDragInt("Ricochet Ammo", &classInstance->ricochetAmmo);
     script->AddDragBoxParticleSystem("Hit Particles", &classInstance->hitParticles);
+    script->AddDragBoxParticleSystem("Heal Particles", &classInstance->healParticles);
+    script->AddDragBoxParticleSystem("Heal Particles", &classInstance->aidKitParticles);
     script->AddDragBoxGameObject("Storage GO", &classInstance->storageGameObject);
     script->AddDragInt("movement tree lvl", &classInstance->movementTreeLvl); // remove when save and load is ready
     script->AddDragInt("armory tree lvl", &classInstance->armoryTreeLvl);
@@ -26,6 +28,8 @@ void PlayerStats::Start()
     if (healthTreeLvl > 0) currentMaxHp = upgradedMaxHp;
     else currentMaxHp = maxHp;
     currentHp = currentMaxHp;
+    playingHealParticles = false;
+
     detected = false;
 
     if (healthTreeLvl > 4) secondLife = true;
@@ -67,10 +71,20 @@ void PlayerStats::Update()
             {
                 currentHp = deathlineHp;
                 lastHitTime = 0.0f;
+                if (playingHealParticles)
+                {
+                    healParticles.StopEmitting();
+                    playingHealParticles = false;
+                }
             }
             else
             {
-                lastHitTime = 1.0f;
+                lastHitTime = 1.0f; // heal each second
+                if (!playingHealParticles)
+                {
+                    healParticles.Play();
+                    playingHealParticles = true;
+                }
             }
         }
     }
@@ -214,11 +228,17 @@ void PlayerStats::TakeDamage(float amount)
     }
 
     lastHitTime = 3.0f; // 3 seg to auto heal after a hit
+    if (playingHealParticles)
+    {
+        healParticles.StopEmitting();
+        playingHealParticles = false;
+    }
 }
 
 void PlayerStats::Heal(float amount)
 {
     currentHp += amount;
+    healParticles.Play();
 
     if (currentHp > currentMaxHp) currentHp = currentMaxHp;
 }
