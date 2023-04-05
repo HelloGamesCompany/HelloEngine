@@ -31,6 +31,8 @@ void PlayerDuals::Start()
 {
     playerStats = (PlayerStats*)player.GetScript("PlayerStats");
 
+    SetGunStatsPerLevel(0); // read from save file
+
     if (cadence == 0)
     {
         fullShotCooldown = 0;
@@ -134,28 +136,32 @@ void PlayerDuals::SetGunStatsPerLevel(int level)
         projectileDamage = 5.0f;
         projectileResistanceDamage = 0.0f;
         projectileLifetime = 1.0f;
-        cadence = 2.0f;
+        cadence = 1.2f;
+        fullBurstDelay = 0.1f;
         break;
     case 1:
         projectileSpeed = 30.0f;
         projectileDamage = 5.0f;
         projectileResistanceDamage = 0.0f;
         projectileLifetime = 1.0f;
-        cadence = 4.0f;
+        cadence = 1.5f;
+        fullBurstDelay = 0.1f;
         break;
     case 2:
-        projectileSpeed = 45.0f;
+        projectileSpeed = 35.0f;
         projectileDamage = 5.0f;
         projectileResistanceDamage = 0.0f;
         projectileLifetime = 1.0f;
-        cadence = 4.0f;
+        cadence = 1.5f;
+        fullBurstDelay = 0.1f;
         break;
     case 3:
-        projectileSpeed = 45.0f;
+        projectileSpeed = 35.0f;
         projectileDamage = 15.0f;
         projectileResistanceDamage = 0.0f;
         projectileLifetime = 1.0f;
-        cadence = 4.0f;
+        cadence = 1.5f;
+        fullBurstDelay = 0.1f;
         break;
     default:
         Console::Log("Duals gun level can't be different from 0, 1, 2 or 3.");

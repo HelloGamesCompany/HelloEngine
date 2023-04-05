@@ -1,9 +1,10 @@
 #include "Headers.h"
 #include "TextRendererComponent.h"
+#include "GameObject.h"
 #include "ModuleRenderer3D.h"
 #include "RenderManager.h"
 
-TextRendererComponent::TextRendererComponent(GameObject* go) : Component(go)
+TextRendererComponent::TextRendererComponent(GameObject* go) : ComponentUI(go)
 {
 	_type = Component::Type::UI_TEXT;
 	_needsTransformCallback = true;

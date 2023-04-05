@@ -2,6 +2,7 @@
 #include "ImWindowGLSL.h"
 
 #include "ModuleResourceManager.h"
+#include "LayerEditor.h"
 
 ImWindowGLSL::ImWindowGLSL()
 {
@@ -37,7 +38,6 @@ void ImWindowGLSL::Update()
 	if (ImGui::Begin(windowName.c_str(), &isEnabled, flags))
 	{
 		MenuBar();
-
 		std::string name = "";
 		if (shader) name = shader->debugName;
 
@@ -134,7 +134,8 @@ void ImWindowGLSL::SetShader(int UID)
 		this->shader->_onEditor = false;
 	}
 
-	this->shader = (ResourceShader*)ModuleResourceManager::resources[UID];
+	if (ModuleResourceManager::resources.count(UID) != 0)
+		this->shader = (ResourceShader*)ModuleResourceManager::resources[UID];
 
 	if (this->shader == nullptr) return;
 
@@ -142,7 +143,7 @@ void ImWindowGLSL::SetShader(int UID)
 
 	//Sets text on editor
 	char* text = nullptr;
-	ModuleFiles::S_Load(shader->resourcePath, &text);
+	ModuleFiles::S_Load(shader->assetsPath, &text); // Use the Assets path instead of the resources one.
 
 	//editorData.lastSave = text;
 	editor.SetText(text);

@@ -12,6 +12,8 @@ ComponentUIInput::ComponentUIInput(GameObject* gameObject) : ComponentUI(gameObj
 	_meshRenderer->Disable();
 
 	_gameWindow = (ImWindowGame*)LayerEditor::_imWindows[(uint)ImWindowID::GAME];
+
+	_isComponentEnable = true;
 }
 
 ComponentUIInput::~ComponentUIInput()
@@ -20,7 +22,7 @@ ComponentUIInput::~ComponentUIInput()
 
 void ComponentUIInput::InputUpdate()
 {
-	if (_listButtons.size() != 0 && _gameObject->IsActive())
+	if (_listButtons.size() != 0 && _gameObject->IsActive() && _isComponentEnable)
 	{
 		if (ButtonSelected == 0)
 		{
@@ -48,18 +50,20 @@ void ComponentUIInput::InputUpdate()
 			isPress = true;
 		}
 
-		if (ModuleInput::S_GetGamePadButton(GamePad::BUTTON_A) == KEY_DOWN)
+		if (ModuleInput::S_GetGamePadButton(GamePad::BUTTON_A) == KEY_DOWN && AisPress)
 		{
 			_listButtons[ButtonSelected]->State = ButtonState::ONPRESS;
+			AisPress = false;
 		}
 		if (ModuleInput::S_GetGamePadButton(GamePad::BUTTON_A) == KEY_REPEAT)
 		{
 			_listButtons[ButtonSelected]->State = ButtonState::ONHOLD;
 		}
+		if (ModuleInput::S_GetGamePadButton(GamePad::BUTTON_A) == KEY_UP)
+		{
+			AisPress = true;
+		}
 	}
-
-	/**/
-
 }
 
 void ComponentUIInput::Serialization(json& j)
@@ -118,6 +122,10 @@ void ComponentUIInput::OnEditor()
 		_gameObject->DestroyComponent(this);
 		return;
 	}
+
+	//_isComponentEnable = _isEnabled;
+	if (ImGui::Checkbox("Active##Panel", &_isComponentEnable))
+		_isComponentEnable ? Enable() : Disable();
 
 	ImGui::Text("");
 	ImGui::SameLine();

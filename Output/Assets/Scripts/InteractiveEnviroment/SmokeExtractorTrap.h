@@ -23,5 +23,9 @@ public:
 
 	float delay;
 	float currentDelay = 0.0f;
+	float fireTimer;
+	float fireSeconds;
+
+	bool throwFire = false;
 };
 

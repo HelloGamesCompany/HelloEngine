@@ -310,6 +310,26 @@ void ScriptComponent::AddDragBoxUIImage(const char* name, API::API_UIImage* valu
 	inspectorFields.push_back(dragBoxField);
 }
 
+void ScriptComponent::AddDragBoxUIInput(const char* name, API::API_UIInput* value)
+{
+	DragBoxUIInput* dragBoxField = new DragBoxUIInput();
+	dragBoxField->valueName = name;
+	dragBoxField->value = value;
+	dragBoxField->className = scriptResource == nullptr ? addedScript : scriptResource->className;
+
+	inspectorFields.push_back(dragBoxField);
+}
+
+void ScriptComponent::AddDragBoxUIText(const char* name, API::API_UIText* value)
+{
+	DragBoxUIText* dragBoxField = new DragBoxUIText();
+	dragBoxField->valueName = name;
+	dragBoxField->value = value;
+	dragBoxField->className = scriptResource == nullptr ? addedScript : scriptResource->className;
+
+	inspectorFields.push_back(dragBoxField);
+}
+
 uint ScriptComponent::GetResourceUID()
 {
 	if (scriptResource != nullptr)

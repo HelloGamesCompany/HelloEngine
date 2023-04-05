@@ -16,9 +16,11 @@ public:
 	InstanceRenderer();
 	~InstanceRenderer();
 
-	void SetMeshInformation(ResourceMesh* resource);
+	void SetMeshInformation(ResourceMesh* resMes, ResourceMaterial* resMat);
 
 	void Draw();
+	void DrawMaterial();
+	void DrawRaw();
 
 	void Draw2D();
 
@@ -33,9 +35,12 @@ public:
 	void DrawInstance(Mesh* mesh, bool useBasicShader = true);
 
 	void SetAs2D();
+	uint GetRenderID();
+
 public:
 	bool initialized = false;
 	ResourceMesh* resource = nullptr;
+	ResourceMaterial* resMat = nullptr;
 	uint deletedResourceUID = 0;
 private:
 	void CreateBuffers();
@@ -51,6 +56,7 @@ private:
 	ResourceShader* perMeshShader = nullptr;
 	ResourceShader* mesh2DShader = nullptr;
 
+	std::map<uint, std::pair<uint, RenderEntry>> matMesh;
 	std::map<uint, RenderEntry> meshes;
 	std::vector<Vertex>* totalVertices = nullptr;
 	std::vector<uint>* totalIndices = nullptr;
@@ -68,15 +74,6 @@ private:
 	uint BasicVAO = 0;
 	uint BasicVBO = 0;
 	uint BasicIBO = 0;
-
-	uint OBBIndexO = 0; // Elements buffer object for OBB
-	uint AABBIndexO = 0; // Elements buffer object for AABB
-
-	uint OBBLineVAO = 0; // Lines to display OBB
-	uint OBBLineVBO = 0;
-
-	uint AABBLineVAO = 0; // Lines to display AABB
-	uint AABBLineVBO = 0;
 
 	bool drawVertexNormals = false;
 	bool drawFaceNormals = true;

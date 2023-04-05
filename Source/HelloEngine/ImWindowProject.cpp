@@ -598,6 +598,11 @@ void ImWindowProject::DrawTreeNodePanelRight(Directory*& newDir)
 		if (currentFile->metaFile.type == ResourceType::MODEL && currentFile->pressed)
 		{
 			ResourceModel* model = (ResourceModel*)ModuleResourceManager::resources[_fileTree->_currentDir->files[i].metaFile.UID];
+
+			if (_fileTree->_currentDir->files[i].metaFile.UID == 2417919063)
+			{
+				std::cout << "a";
+			}
 			ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.3, 0.3, 0.3, 1));
 			for (int j = 0; j < model->modelMeshes.size(); j++)
 			{
@@ -805,8 +810,16 @@ void ImWindowProject::PanelCreateShader()
         {
             _temporalName.append(".shader");
 
-            std::string resourcePath = "Resources/Shaders/" + _temporalName;
+			uint UUID = HelloUUID::GenerateUUID();
+
+            std::string resourcePath = "Resources/Shaders/" + std::to_string(UUID) + ".shader";
             std::string assetPath = _fileTree->_currentDir->path + _temporalName;
+
+			if (ModuleFiles::S_Exists(resourcePath)) 
+			{
+				LayerEditor::S_AddPopUpMessage("A shader with that name already exists.");
+				return;
+			}
 
             int size = BaseShader::newShaderTextFileUnlit.length();
             char* cstr = BaseShader::newShaderTextFileUnlit.data();
@@ -814,18 +827,18 @@ void ImWindowProject::PanelCreateShader()
             //Save Shader to resources
             ModuleFiles::S_Save(resourcePath, cstr, size, false);
 
-            //Save shadow file into assets
-            char buffer = 'S';
-            ModuleFiles::S_Save(assetPath, &buffer, sizeof(char), false);
+            //Save duplicated file into assets
+            ModuleFiles::S_Save(assetPath, cstr, size, false);
 
             //Create Metadata
-            ModuleFiles::S_CreateMetaData(assetPath, resourcePath);
-
+            ModuleFiles::S_CreateMetaData(assetPath, resourcePath, UUID);
 
             _temporalName = "default";
 
             _openCreateShaderPanel = false;
             delete[] cstr;
+
+			UpdateFileNodes();
         }
 
         ImGui::SameLine();
@@ -856,23 +869,47 @@ void ImWindowProject::PanelCreateMaterial()
         {
             _temporalName.append(".material");
 
-            std::string resourcePath = "Resources/Material/" + _temporalName;
+			uint UUID = HelloUUID::GenerateUUID();
+
+            std::string resourcePath = "Resources/Materials/" + std::to_string(UUID) + ".material";
             std::string assetPath = _fileTree->_currentDir->path + _temporalName;
 
-            char buffer = 'M';
+			if (ModuleFiles::S_Exists(resourcePath))
+			{
+				LayerEditor::S_AddPopUpMessage("A material with that name already exists.");
+				return;
+			}
+
+			json emptyMaterial;
+
+			emptyMaterial["Shader resource UID"] = 0;
+
+			json uni;
+
+			uni["Name"] = "Null";
+			uni["Type"] = 0;
+			uni["String Type"] = "Null";
+			uni["Index"] = 0;
+			uni["Read"] = 0;
+			uni["Size"] = 0;
+
+			emptyMaterial["Uniforms"] = uni;
+
+			std::string buffer = emptyMaterial.dump(4);
 
             //Resources
-            ModuleFiles::S_Save(resourcePath, &buffer, sizeof(char), false);
+            ModuleFiles::S_Save(resourcePath, &buffer[0], buffer.size(), false);
 
             //Assets
-            ModuleFiles::S_Save(assetPath, &buffer, sizeof(char), false);
+            ModuleFiles::S_Save(assetPath, &buffer[0], buffer.size(), false);
 
             //Create Metadata
-            ModuleFiles::S_CreateMetaData(assetPath, resourcePath);
+            ModuleFiles::S_CreateMetaData(assetPath, resourcePath, UUID);
 
             _temporalName = "default";
 
             _openCreateMaterialPanel = false;
+			UpdateFileNodes();
         }
 
         ImGui::SameLine();

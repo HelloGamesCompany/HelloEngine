@@ -30,8 +30,8 @@ public:
     int gunOnHandIndex2;
     int gunOnHandIndex3;
     int swapToIndex;
-    float maxSwapDelay;
-    float maxFastSwapDelay;
+    float maxSwapDelay = 1.0f;
+    float maxFastSwapDelay = 0.5f;
     float swapDelay;
 
     bool canShoot = true;

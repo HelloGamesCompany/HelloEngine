@@ -15,6 +15,7 @@ public:
 
 	API_Transform destination;
 	API_ParticleSystem smoke;
+	API_ParticleSystem destinationSmoke;
 
 	float timeHoldButton = 0.0f;
 };

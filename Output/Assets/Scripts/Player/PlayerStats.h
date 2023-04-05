@@ -5,6 +5,8 @@
 
 #include "API/API.h"
 
+#include "PlayerStorage.h"
+
 class HpBar;
 
 class PlayerStats : HelloBehavior
@@ -25,6 +27,10 @@ public:
     bool secondLife;
     float lastHitTime;
     void Heal(float amount);
+    API_ParticleSystem hitParticles;
+    API_ParticleSystem healParticles;
+    bool playingHealParticles;
+    API_ParticleSystem aidKitParticles;
 
     int GetAmmonByType(int type);
     void GetAmmo(int type, int amount);
@@ -39,8 +45,13 @@ public:
 
     bool detected;//if the player is being detected somehow
 
-    API_GameObject hpGameObject;
-    HpBar* healthBar;
+    // skills values
+    float deadlinePart = 20.0f;
+    float upgradedDeadlinePart = 25.0f;
+    float deadlineHeal = 5.0f;
+    float upgradedDeadlineHeal = 7.5f;
+    float aidKitHeal = 50.0f;
+    float upgradedAidKitHeal = 75.0f;
 
     // skills tree
     void UpgradeTreeLvl(int tree);
@@ -57,5 +68,10 @@ public:
     // max ammo // 3
     float slowTimePowerUp; // 4
     void GetPowerUp(int index);
+
+    // storage
+    API_GameObject storageGameObject;
+    PlayerStorage* storage;
+    void SaveInStorage(int index);
 };
 

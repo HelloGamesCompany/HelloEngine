@@ -219,17 +219,29 @@ void GameObject::OnEditor()
         if (ImGui::Button("Override prefab"))
         {
             // Find prefab(asset) with _prefabUID and override it
-            ResourcePrefab* aux = (ResourcePrefab*)ModuleResourceManager::resources[_prefabUID];
-            ModuleResourceManager::S_OverridePrefab(this, aux->path, _prefabUID);
+            ResourcePrefab* aux = nullptr;
+            if (ModuleResourceManager::resources.count(_prefabUID) != 0)
+                aux = (ResourcePrefab*)ModuleResourceManager::resources[_prefabUID];
+
+            if (aux != nullptr)
+            {
+                ModuleResourceManager::S_OverridePrefab(this, aux->path, _prefabUID);
+            }
         }
         if (ImGui::Button("Revert prefab"))
         {
             // Find prefab(asset) with _prefabUID and override this one with it
-            ResourcePrefab* aux = (ResourcePrefab*)ModuleResourceManager::resources[_prefabUID];
-            GameObject* newGameObject = ModuleResourceManager::S_DeserializeFromPrefab(aux->path, this->_parent);
-            TransformComponent* t = this->GetComponent<TransformComponent>();
-            newGameObject->GetComponent<TransformComponent>()->SetTransform(t->GetGlobalPosition(), t->GetGlobalScale(), t->GetLocalRotation());
-            Destroy();
+            ResourcePrefab* aux = nullptr;
+            if (ModuleResourceManager::resources.count(_prefabUID) != 0)
+                aux = (ResourcePrefab*)ModuleResourceManager::resources[_prefabUID];
+
+            if (aux != nullptr)
+            {
+                GameObject* newGameObject = ModuleResourceManager::S_DeserializeFromPrefab(aux->path, this->_parent);
+                TransformComponent* t = this->GetComponent<TransformComponent>();
+                newGameObject->GetComponent<TransformComponent>()->SetTransform(t->GetGlobalPosition(), t->GetGlobalScale(), t->GetLocalRotation());
+                Destroy();
+            }
         }
         if (ImGui::Button("Unpack from prefab"))
         {

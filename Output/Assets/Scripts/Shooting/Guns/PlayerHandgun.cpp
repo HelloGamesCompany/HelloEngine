@@ -26,6 +26,8 @@ void PlayerHandgun::Start()
 {
     playerStats = (PlayerStats*)player.GetScript("PlayerStats");
 
+    SetGunStatsPerLevel(0); // read from save file
+
     if (cadence == 0)
     {
         fullShotCooldown = 0;
@@ -82,7 +84,7 @@ void PlayerHandgun::Shoot()
 {
     if (canShoot)
     {
-        LauchProjectile(shootingSpawn);
+        LauchProjectile(shootingSpawn, PROJECTILE_ACTION::FLINCH);
         PlayShotSound(audioEventString);
         canShoot = false;
         if (playerStats->fireratePowerUp) shotCooldown = fullShotCooldownWithPowerUp;
@@ -107,32 +109,32 @@ void PlayerHandgun::SetGunStatsPerLevel(int level)
     switch (level)
     {
     case 0:
-        projectileSpeed = 100.0f;
-        projectileDamage = 60.0f;
+        projectileSpeed = 30.0f;
+        projectileDamage = 30.0f;
         projectileResistanceDamage = 0.0f;
         projectileLifetime = 1.0f;
         cadence = 1.0f;
         break;
     case 1:
-        projectileSpeed = 100.0f;
-        projectileDamage = 60.0f;
+        projectileSpeed = 50.0f;
+        projectileDamage = 30.0f;
         projectileResistanceDamage = 0.0f;
         projectileLifetime = 1.0f;
         cadence = 1.0f;
         break;
     case 2:
-        projectileSpeed = 120.0f;
-        projectileDamage = 60.0f;
+        projectileSpeed = 50.0f;
+        projectileDamage = 40.0f;
         projectileResistanceDamage = 0.0f;
         projectileLifetime = 1.0f;
         cadence = 1.0f;
         break;
     case 3:
-        projectileSpeed = 120.0f;
-        projectileDamage = 60.0f;
+        projectileSpeed = 50.0f;
+        projectileDamage = 40.0f;
         projectileResistanceDamage = 0.0f;
         projectileLifetime = 1.0f;
-        cadence = 1.0f;
+        cadence = 2.0f;
         break;
     default:
         Console::Log("Handgun gun level can't be different from 0, 1, 2 or 3.");

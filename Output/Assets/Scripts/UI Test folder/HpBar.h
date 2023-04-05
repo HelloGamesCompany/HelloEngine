@@ -5,18 +5,19 @@
 
 #include "API/API.h"
 
+#include "../Player/PlayerStats.h"
+
 class HpBar : HelloBehavior
 {
 public:
-	void Start() override; 
-	void Update() override;
+    void Start() override;
+    void Update() override;
 
-	float hp = 100;
-	float maxHp = 100;
+    float FirstPosX;
+    float FirstPosY;
+    float FirstPosZ;
 
-	float FirstPosX;
-	float FirstPosY;
-	float FirstPosZ;
-
+    API_GameObject playerStatsGO;
+    PlayerStats* playerStats;
 };
 

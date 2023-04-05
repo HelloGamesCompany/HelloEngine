@@ -25,6 +25,8 @@ void PlayerFlamethrower::Start()
 {
     playerStats = (PlayerStats*)player.GetScript("PlayerStats");
 
+    SetGunStatsPerLevel(0); // read from save file
+
     if (cadence == 0)
     {
         fullShotCooldown = 0;
@@ -34,12 +36,6 @@ void PlayerFlamethrower::Start()
     {
         fullShotCooldown = 1 / cadence;
         fullShotCooldownWithPowerUp = 1 / (cadence * 1.5f); // 50% increase
-
-        if (playerStats->armoryTreeLvl > 1)
-        {
-            fullShotCooldown = 1 / (cadence + cadence * upgradeFireratePercentage / 100.0f);
-            fullShotCooldownWithPowerUp = 1 / ((cadence + cadence * upgradeFireratePercentage / 100.0f) * 1.5f); // 50% increase
-        }
     }
 
     playingParticlesCd = 0;

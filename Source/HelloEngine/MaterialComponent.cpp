@@ -32,6 +32,33 @@ void MaterialComponent::OnEditor()
 		MaterialDragNDrop();
 		ShaderSelectCombo();
 
+		ResourceShader* shader = nullptr;
+		if (_resource && (shader = _resource->material.GetShader()))
+		{
+			MeshRenderComponent* meshComp = GetOwnerMeshComponent();
+			
+			//INSTANCED ON A NON INSTANCED MESH ALERT MESSAGE
+			if (shader->shader.data.isIstanced &&
+				meshComp->GetMesh().isIndependent)
+			{
+				ImGui::TextColored(ImVec4(1.0f, 0.0f, 0.0f, 1.0f),
+					"INSTANCED: Using an instanced Shader/Material on a non instanced Mesh!");
+			}
+			else if (!shader->shader.data.isIstanced &&
+				!meshComp->GetMesh().isIndependent)
+			{
+				ImGui::TextColored(ImVec4(1.0f, 0.0f, 0.0f, 1.0f),
+					"NO_INSTANCED: Using an non instanced Shader/Material on an instanced Mesh!");
+			}
+
+			if (shader->shader.data.isBoned &&
+				!meshComp->HasBones())
+			{
+				ImGui::TextColored(ImVec4(1.0f, 0.0f, 0.0f, 1.0f),
+					"BONES: Using a Shader/Material for bones on a Mesh without bones!");
+			}
+		}
+
 		//Loop Uniforms GUI
 		if (_resource != nullptr && _resource->material.uniforms.size() > 0)
 		{
@@ -53,12 +80,48 @@ void MaterialComponent::OnEditor()
 				ImGui::Spacing();
 				ImGui::Spacing();
 			}
+
+			if (ImGui::Button("Apply changes"))
+			{
+				_resource->Save();
+			}
 		}
 	}
 	if (!created)
 		this->_gameObject->DestroyComponent(this);
 }
-#endif
+
+void MaterialComponent::MarkAsDead()
+{
+	if (_resource == nullptr) return;
+
+	_resourceUID = _resource->UID;
+	_resource->Dereference();
+	_resource = nullptr;
+}
+
+void MaterialComponent::MarkAsAlive()
+{
+	_resource = (ResourceMaterial*)ModuleResourceManager::S_LoadResource(_resourceUID);
+	if (_resource != nullptr)
+	{
+		if (_resource->material.GetShader())
+		{
+			//Re create mesh into the RenderManager
+			MeshRenderComponent* comp = _gameObject->GetComponent<MeshRenderComponent>();
+			if (!comp)
+			{
+				comp = _gameObject->GetComponent<SkinnedMeshRenderComponent>();
+			}
+
+			if (comp) comp->CreateMesh(comp->GetResourceUID(), _resource->UID, comp->GetMeshRenderType());
+		}
+
+	}
+}
+
+
+
 void MaterialComponent::MaterialDragNDrop()
 {
 	std::string btnTxt = "EMPTY";
@@ -77,11 +140,7 @@ void MaterialComponent::MaterialDragNDrop()
 			if (_resource->material.GetShader())
 			{
 				//Re create mesh into the RenderManager
-				MeshRenderComponent* comp = _gameObject->GetComponent<MeshRenderComponent>();
-				if (!comp)
-				{
-					comp = _gameObject->GetComponent<SkinnedMeshRenderComponent>();
-				}
+				MeshRenderComponent* comp = GetOwnerMeshComponent();
 
 				if (comp) comp->CreateMesh(comp->GetResourceUID(), _resource->UID, comp->GetMeshRenderType());
 			}
@@ -91,11 +150,11 @@ void MaterialComponent::MaterialDragNDrop()
 
 void MaterialComponent::ShaderSelectCombo()
 {
-	if (this->_resource == nullptr)return;
+	if (this->_resource == nullptr) return;
 	
 	std::string strSelected = "Select a shader";
 	ResourceShader* resShader = _resource->material.GetShader();
-	if (resShader != nullptr) strSelected = resShader->debugName;
+	if (resShader != nullptr) strSelected = ModuleFiles::S_GetFileName(resShader->debugName);;
 
 	std::vector<Resource*> shaderPool;
 
@@ -106,9 +165,15 @@ void MaterialComponent::ShaderSelectCombo()
 
 		for (int i = 0; i < shaderPool.size(); ++i)
 		{
-			aux = shaderPool[i]->debugName;
+			ResourceShader* resShader = (ResourceShader*)shaderPool[i];
+
+			aux = ModuleFiles::S_GetFileName(resShader->debugName);
+
+			if (resShader->shader.data.isIstanced)
+				aux += "   (INSTANCED)";
 			aux += "##";
 			aux += shaderPool[i]->UID;
+
 			if (ImGui::Selectable(aux.c_str()))
 			{
 				if (_resource->material.SetShader(shaderPool[i]->UID))
@@ -131,12 +196,24 @@ void MaterialComponent::ShaderSelectCombo()
 		ImGui::EndCombo();
 	}
 }
-
+#endif
 int MaterialComponent::GetResourceUID()
 {
-	if (_resource == nullptr) return -1;
+	if (_resource == nullptr) return 0;
 
 	return _resource->UID;
+}
+
+MeshRenderComponent* MaterialComponent::GetOwnerMeshComponent()
+{
+	//Re create mesh into the RenderManager
+	MeshRenderComponent* comp = _gameObject->GetComponent<MeshRenderComponent>();
+	if (!comp)
+	{
+		comp = _gameObject->GetComponent<SkinnedMeshRenderComponent>();
+	}
+
+	return comp;
 }
 
 void MaterialComponent::Serialization(json& _j)
@@ -152,6 +229,12 @@ void MaterialComponent::Serialization(json& _j)
 	else
 	{
 		j["MaterialUID"] = 0;
+	}
+
+	MeshRenderComponent* mesh = GetOwnerMeshComponent();
+	if (mesh)
+	{
+		j["IsInstanced"] = !mesh->GetMesh().isIndependent;
 	}
 
 	j["Enabled"] = _isEnabled;
@@ -172,15 +255,23 @@ void MaterialComponent::DeSerialization(json& _j)
 	{
 		return;
 	}
+	
 
 	//Load to mesh
-	MeshRenderComponent* comp = _gameObject->GetComponent<MeshRenderComponent>();
-	if (!comp)
-	{
-		comp = _gameObject->GetComponent<SkinnedMeshRenderComponent>();
-	}
+	MeshRenderComponent* comp = GetOwnerMeshComponent();
+	bool isInstanced = true;
 
-	if (comp) comp->CreateMesh(comp->GetResourceUID(), _resource->UID, MeshRenderType::INDEPENDENT);
+	if (_j.contains("IsInstanced"))
+		isInstanced = _j["IsInstanced"];
+
+	if (comp)
+	{
+		if (isInstanced)
+			comp->CreateMesh(comp->GetResourceUID(), _resource->UID, MeshRenderType::INSTANCED);
+		else
+			comp->CreateMesh(comp->GetResourceUID(), _resource->UID, MeshRenderType::INDEPENDENT);
+	}
+	
 
 	bool enabled = _j["Enabled"];
 	if (!enabled)

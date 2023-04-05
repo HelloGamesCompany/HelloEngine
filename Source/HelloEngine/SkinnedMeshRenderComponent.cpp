@@ -29,7 +29,7 @@ SkinnedMeshRenderComponent::~SkinnedMeshRenderComponent()
 	rootBone = nullptr;
 }
 
-void SkinnedMeshRenderComponent::CreateMesh(uint resourceUID, int materialUID, MeshRenderType type)
+void SkinnedMeshRenderComponent::CreateMesh(uint resourceUID, uint materialUID, MeshRenderType type)
 {
 	MeshRenderComponent::CreateMesh(resourceUID, materialUID, MeshRenderType::INDEPENDENT);
 
@@ -209,7 +209,9 @@ void SkinnedMeshRenderComponent::Serialization(json& j)
 
 void SkinnedMeshRenderComponent::DeSerialization(json& j)
 {
-	ResourceModel* model = (ResourceModel*)ModuleResourceManager::resources[j["ModelUID"]];
+	ResourceModel* model = nullptr;
+	if (ModuleResourceManager::resources.count(j["ModelUID"]) != 0)
+		model = (ResourceModel*)ModuleResourceManager::resources[j["ModelUID"]];
 
 	if (model == nullptr)
 	{

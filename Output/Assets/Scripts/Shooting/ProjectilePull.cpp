@@ -33,7 +33,7 @@ void ProjectilePull::Update()
     
 }
 
-API_GameObject ProjectilePull::GetFirstActiveProjectile()
+API_GameObject ProjectilePull::GetFirstInactiveProjectile()
 {
     for (size_t i = 0; i < pullSize; i++)
     {
@@ -45,7 +45,7 @@ API_GameObject ProjectilePull::GetFirstActiveProjectile()
 
 void ProjectilePull::LauchProjectile(float projectileSpeed, float projectileDamage, float projectileResistanceDamage, float projectileLifetime, API_Transform shootingSpawn, uint projectileMesh, uint projectileMaterial, API_Vector3 projectileScale, PROJECTILE_ACTION projectileAction, float randomDirectionRange)
 {
-    API_GameObject go = GetFirstActiveProjectile();
+    API_GameObject go = GetFirstInactiveProjectile();
     go.SetActive(true);
     go.GetTransform().SetPosition(shootingSpawn.GetGlobalPosition());
     go.GetTransform().SetRotation(playerGO.GetTransform().GetLocalRotation());

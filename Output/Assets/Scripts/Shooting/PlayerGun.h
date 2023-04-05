@@ -42,7 +42,7 @@ public:
     API_Vector3 projectileScale;
 
     float cadence;
-    float upgradeFireratePercentage;
+    float upgradeFireratePercentage = 15.0f;
 
     int ammoType;
     std::string audioEventString;

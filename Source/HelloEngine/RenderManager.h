@@ -40,7 +40,7 @@ enum class PrimitiveModelsUID
 
 struct RenderEntry
 {
-	RenderEntry(){};
+	uint resMat = 0;
 	ResourceMaterial* material = nullptr;
 	Mesh mesh;
 };
@@ -59,18 +59,18 @@ public:
 
 	void OnEditor();
 
-	InstanceRenderer* GetRenderManager(uint ID, bool create = true);
+	InstanceRenderer* GetRenderManager(uint meshID, uint materialID, bool create = true);
 	uint GetMapSize() { return _renderMap.size(); };
 
 	void Draw();
 	void DrawDebug();
 	void Draw2D();
 
-	uint AddMesh(ResourceMesh* resource, ResourceMaterial* material, MeshRenderType type);
+	uint AddMesh(ResourceMesh* resource, uint resMat, MeshRenderType type);
 
-	uint AddTransparentMesh(ResourceMesh* resource);
-	uint AddIndependentMesh(ResourceMesh* resource, ResourceMaterial* material);
-	uint AddInstancedMesh(ResourceMesh* resource);
+	uint AddTransparentMesh(ResourceMesh* resource, uint resMat);
+	uint AddIndependentMesh(ResourceMesh* resource, uint resMat);
+	uint AddInstancedMesh(ResourceMesh* resource, uint resMat);
 	uint Add2DMesh();
 	uint AddTextObject(std::string text = "Default Text", float4 color = {1,1,1,1}, float2 position = {0, 0}, float scale = 1.0f);
 
@@ -103,8 +103,8 @@ public:
 
 private:
 	std::map<uint, InstanceRenderer> _renderMap; // Render managers that use instance rendering to draw opaque meshes.
-	std::map<uint, Mesh> _transparencyMeshes; // Meshes with transparency that must be drawn with a draw call per mesh.
-	std::multimap<float, Mesh*> _orderedMeshes; // Meshes with transparency ordered from furthest to closest to the camera.
+	std::map<uint, RenderEntry> _transparencyMeshes; // Meshes with transparency that must be drawn with a draw call per mesh.
+	std::multimap<float, RenderEntry*> _orderedMeshes; // Meshes with transparency ordered from furthest to closest to the camera.
 	
 	std::map<uint, RenderEntry> _independentMeshes; // Opaque meshes that need to be drawn in an independent draw call.
 

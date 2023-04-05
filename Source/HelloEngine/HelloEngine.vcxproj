@@ -141,7 +141,7 @@
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <GenerateDebugInformation>DebugFull</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)Source\External\freetype\lib;$(SolutionDir)Source\External\SDL\lib\x86;$(SolutionDir)Output\HelloAPI\bin\$(Configuration);$(SolutionDir)Source\External\Glew\libx86;$(SolutionDir)Source\External\MathGeoLib\libx86\Release;$(SolutionDir)Source\External\Assimp\libx86\Release;$(SolutionDir)Source\External\PhysFS\libx86;$(SolutionDir)Source\External\DevIL\lib;$(SolutionDir)Source\External\Bullet\lib;$(SolutionDir)Source\External\Wwise\Run</AdditionalLibraryDirectories>
       <AdditionalDependencies>freetype.lib;SDL2.lib;SDL2main.lib;MathGeoLib.lib;glew32.lib;opengl32.lib;DevIL.lib;ILU.lib;shell32.lib;ILUT.lib;assimp-vc142-mt.lib;physfs.lib;BulletCollision.lib;BulletDynamics.lib;LinearMath.lib;AkMemoryMgr.lib;AkMusicEngine.lib;AkRoomVerbFX.lib;AkSoundEngine.lib;AkSpatialAudio.lib;AkStreamMgr.lib</AdditionalDependencies>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
@@ -311,6 +311,8 @@
     <ClCompile Include="API\API_Transform.cpp" />
     <ClCompile Include="API\API_Game.cpp" />
     <ClCompile Include="API\API_UIImage.cpp" />
+    <ClCompile Include="API\API_UIInput.cpp" />
+    <ClCompile Include="API\API_UIText.cpp" />
     <ClCompile Include="API\API_Vector2.cpp" />
     <ClCompile Include="API\API_Vector3.cpp" />
     <ClCompile Include="API\API_Engine.cpp" />
@@ -509,6 +511,8 @@
     <ClInclude Include="API\API_Transform.h" />
     <ClInclude Include="API\API_Game.h" />
     <ClInclude Include="API\API_UIImage.h" />
+    <ClInclude Include="API\API_UIInput.h" />
+    <ClInclude Include="API\API_UIText.h" />
     <ClInclude Include="API\API_Vector2.h" />
     <ClInclude Include="API\API_Vector3.h" />
     <ClInclude Include="API\API_Engine.h" />
