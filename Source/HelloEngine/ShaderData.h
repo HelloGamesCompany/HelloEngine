@@ -5,9 +5,12 @@
 struct ShaderData
 {
 public:
-	uint ID;
+	uint ID = 0;
 	std::string name;
 	
 	std::string vertexCode;
 	std::string fragmentCode;
+
+	bool isIstanced = false;
+	bool isBoned = false;
 };

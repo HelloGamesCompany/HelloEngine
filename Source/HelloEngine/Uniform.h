@@ -23,7 +23,7 @@ class Uniform
 {
 public:
 	Uniform() {};
-	~Uniform(){};
+	virtual ~Uniform() {};
 
 	virtual void SetVariable(){};
 	virtual void Update(Shader& shader) {};
@@ -327,6 +327,8 @@ public:
 		this->data = data; 
 		SetVariable();
 	}
+
+	void Unbind();
 	
 	~UniSampler2D(); //On CPP
 

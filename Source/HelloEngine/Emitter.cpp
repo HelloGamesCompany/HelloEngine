@@ -172,7 +172,7 @@ void Emitter::UpdateParticleTransform(int i, const math::Quat& rotation)
 
 	ParticleList[i].SetTransformMatrix(rotation);
 
-	manager = app->renderer3D->renderManager.GetRenderManager(_meshID);
+	manager = app->renderer3D->renderManager.GetRenderManager(_meshID, 0);
 
 	Mesh& meshReference = manager->GetMap()[ParticleList[i]._instanceID].mesh;
 

@@ -1,0 +1,25 @@
+#pragma once
+#include "API/HelloBehavior.h"
+#include "ScriptToInspectorInterface.h"
+#include "Macro.h"
+
+#include "API/API.h"
+
+class Chest : HelloBehavior
+{
+public:
+    void Start() override;
+    void Update() override;
+
+    void OnCollisionEnter(API::API_RigidBody other) override;
+
+    int itemIndex;
+    // 0 -> Upgrade Blueprint
+    // 1 -> Unlock SemiAutomatic
+    // 2 -> Unlock Automatic
+    // 3 -> Unlock Burst
+    // 4 -> Unlock Shotgun
+    // 5 -> Unlock Handgun
+    // 6 -> Get Flamethrower
+    // 7 -> Get Ricochet
+};

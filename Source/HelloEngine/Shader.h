@@ -35,16 +35,15 @@ public:
 
     void UniformParser(std::vector<Uniform*>& vec);
 
+    ShaderData data;
+
 private:
     void RetriveShader(const std::string& shaderPath);
     void CompileShader();
    
+    void VertexShaderCheck();
 
-    void UniformCompare(ShaderData previousShader);
     //uint CompileShader(const std::string& source, uint type);
-
-    ShaderData data;
-
     static std::map<std::string, uint> loadedShaders;
 };
 

@@ -15,9 +15,15 @@ public:
 
     void Shoot() override;
     void EnableGuns(bool enable) override;
+    void SetGunStatsPerLevel(int level) override;
+
+    void CalculateShoot(API_Transform projectileSpawn);
+    float slowProbability;
+    float freezeProbability;
 
     float fullShotCooldown;
     float shotCooldown;
+    float fullShotCooldownWithPowerUp;
     bool canShoot = true;
     float shotBufferCooldown = SHOT_BUFFER;
     bool shotBuffer = false;

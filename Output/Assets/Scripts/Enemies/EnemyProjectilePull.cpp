@@ -1,28 +1,23 @@
 #include "EnemyProjectilePull.h"
 HELLO_ENGINE_API_C EnemyProjectilePull* CreateEnemyProjectilePull(ScriptToInspectorInterface* script)
 {
-	EnemyProjectilePull* classInstance = new EnemyProjectilePull();
-	//Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
-	
+    EnemyProjectilePull* classInstance = new EnemyProjectilePull();
+    //Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
     script->AddDragInt("Pull Size", &classInstance->pullSize);
-    script->AddDragBoxGameObject("Enemy", &classInstance->enemyGO);
     script->AddDragBoxParticleSystem("Particles", &classInstance->particleTest);
-
     return classInstance;
 }
 
 void EnemyProjectilePull::Start()
 {
-    srand(time(NULL));
-
     for (size_t i = 0; i < pullSize; i++)
     {
-        API_GameObject newProjectile = Game::CreateGameObject("Projectile", "Projectile");
+        API_GameObject newProjectile = Game::CreateGameObject("EnemyProjectile", "EnemyProjectile");
         newProjectile.AddMeshRenderer();
         newProjectile.AddMaterial();
         newProjectile.CreateRigidBodyBox((0, 0, 0), (0, 0, 0), (0.3f, 0.3f, 0.3f), false);
         newProjectile.AddParticleSystem(particleTest);
-        newProjectile.AddScript("Projectile");
+        newProjectile.AddScript("EnemyProjectile");
         newProjectile.SetActive(false);
         pull.push_back(newProjectile);
     }
@@ -43,18 +38,18 @@ API_GameObject EnemyProjectilePull::GetFirstActiveProjectile()
     return pull[0];
 }
 
-void EnemyProjectilePull::LauchProjectile(float projectileSpeed, float projectileDamage, float projectileResistanceDamage, float projectileLifetime, API_Transform shootingSpawn, uint projectileMesh, uint projectileMaterial, API_Vector3 projectileScale  , bool randomDirection)
+void EnemyProjectilePull::LauchProjectile(float projectileSpeed, float projectileDamage, float projectileResistanceDamage, float projectileLifetime, API_Transform shootingSpawn, uint projectileMesh, uint projectileMaterial, API_Vector3 enemyRotation, API_Vector3 projectileScale, bool randomDirection)
 {
     API_GameObject go = GetFirstActiveProjectile();
     go.SetActive(true);
     go.GetTransform().SetPosition(shootingSpawn.GetGlobalPosition());
-    go.GetTransform().SetRotation(enemyGO.GetTransform().GetLocalRotation());
+    go.GetTransform().SetRotation(enemyRotation);
     go.GetTransform().SetScale(projectileScale);
-    
-        go.GetMeshRenderer().ChangeMesh(projectileMesh);
-        go.GetMaterialCompoennt().ChangeAlbedoTexture(projectileMaterial);
-        go.GetParticleSystem().Play();
-    
+
+    go.GetMeshRenderer().ChangeMesh(projectileMesh);
+    go.GetMaterialCompoennt().ChangeAlbedoTexture(projectileMaterial);
+    go.GetParticleSystem().Play();
+
 
     if (randomDirection)
     {
@@ -68,7 +63,4 @@ void EnemyProjectilePull::LauchProjectile(float projectileSpeed, float projectil
     projectile->damage = projectileDamage;
     projectile->resistanceDamage = projectileResistanceDamage;
     projectile->lifeTime = projectileLifetime;
-   
-
-    Audio::Event("basic_shooting");
 }

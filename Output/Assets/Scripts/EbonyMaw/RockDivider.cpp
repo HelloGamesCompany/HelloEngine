@@ -1,0 +1,83 @@
+#include "RockDivider.h"
+#include "../Player/PlayerStats.h"
+#include "BossLoop.h"
+#include "BossAttacks.h"
+//Pau Olmos
+
+HELLO_ENGINE_API_C RockDivider* CreateRockDivider(ScriptToInspectorInterface* script)
+{
+	RockDivider* classInstance = new RockDivider();
+	script->AddDragBoxGameObject("Boss", &classInstance->boss);
+	script->AddDragInt("Num Rock", &classInstance->whichRockAmI);
+	script->AddDragBoxMeshResource("Stone Mesh", &classInstance->stoneMesh);
+
+	//Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
+	return classInstance;
+}
+
+void RockDivider::Start()
+{
+	bAttacks = (BossAttacks*)boss.GetScript("BossAttacks");
+	gameObject.CreateRigidBodyBox((0, 0, 0), (0, 0, 0), (0.6f, 0.6f, 0.6f), false);
+	for (size_t i = 0; i < 8; i++)
+	{
+		API_GameObject stone = Game::CreateGameObject("Stone", "Stone");
+		stone.AddMeshRenderer().ChangeMesh(stoneMesh);
+		stone.AddMaterial();
+		stone.CreateRigidBodyBox((0, 0, 0), (0, 0, 0), (0.3f, 0.3f, 0.3f), false);
+		stone.AddScript("Stone");
+		if(whichRockAmI < 16) stone.SetActive(true);
+		else  stone.SetActive(false);
+		
+		stones.push_back(stone);
+	}
+}
+void RockDivider::Update()
+{
+
+	if (rockDivided == true && whichRockAmI < 16) {
+		dt = Time::GetDeltaTime();
+		stoneTime += dt;
+		bAttacks->ReturnRock(&gameObject, whichRockAmI, false);
+		gameObject.GetTransform().SetRotation(0, 0, 0);
+		stones[0].GetTransform().Translate(0, 0, 0.1f * dt * 100);
+		stones[1].GetTransform().Translate(0.1f * dt * 100, 0, 0.1f * dt * 100);
+		stones[2].GetTransform().Translate(0.1f * dt * 100, 0, 0);
+		stones[3].GetTransform().Translate(0.1f * dt * 100, 0, -0.1f * dt * 100);
+		stones[4].GetTransform().Translate(0, 0, -0.1f * dt * 100);
+		stones[5].GetTransform().Translate(-0.1f * dt * 100, 0, -0.1f * dt * 100);
+		stones[6].GetTransform().Translate(-0.1f * dt * 100, 0, 0);
+		stones[7].GetTransform().Translate(-0.1f * dt * 100, 0, 0.1f * dt * 100);
+		if (bAttacks->stoneLifeTime < stoneTime) {
+			stoneTime = 0;
+			rockDivided = false;
+		}
+		
+	}
+	else {
+		//gameObject.SetActive(true);
+		for (int i = 0; i < 8; i++) {
+			stones[i].GetTransform().SetPosition(gameObject.GetTransform().GetGlobalPosition());
+		}
+	}
+}
+
+void RockDivider::OnCollisionEnter(API::API_RigidBody other)
+{
+	std::string detectionName = other.GetGameObject().GetName();
+
+	if (detectionName == "Player") {
+		PlayerStats* pStats = (PlayerStats*)other.GetGameObject().GetScript("PlayerStats");
+		if (whichRockAmI < 16) {	
+			pStats->TakeDamage(bAttacks->rockDmg);
+			bAttacks->ReturnRock(&gameObject, whichRockAmI, false);
+		}
+		else {
+			pStats->TakeDamage(bAttacks->orbitingRockDmg);
+		}
+	}
+	else if (detectionName != "Projectile" && detectionName != "Boss" && bAttacks->throwing == true && detectionName != "Stone" && whichRockAmI < 16 && whichRockAmI > 5) {
+		rockDivided = true;
+	}
+
+}

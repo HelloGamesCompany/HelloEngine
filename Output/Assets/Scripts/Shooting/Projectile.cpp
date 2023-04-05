@@ -29,27 +29,62 @@ void Projectile::Update()
 void Projectile::Destroy()
 {
     gameObject.GetParticleSystem().Stop();
+    gameObject.GetTransform().SetPosition(0, 9999, 0);
     gameObject.SetActive(false);
 }
 
 void Projectile::OnCollisionEnter(API::API_RigidBody other)
 {
-    std::string detectionName = other.GetGameObject().GetName();
+    std::string detectionTag = other.GetGameObject().GetTag();
+    
     switch (action)
     {
     case PROJECTILE_ACTION::NONE:
-        if (detectionName != "Player" && detectionName != "Projectile" && detectionName != "Zone")
+        if (detectionTag == "Wall" || detectionTag == "Enemy")
         {
+            Destroy();
+        }
+        break;
+    case PROJECTILE_ACTION::SLOW:
+        if (detectionTag == "Wall")
+        {
+            Destroy();
+        }
+        else if (detectionTag == "Enemy")
+        {
+            // apply slow to enemy
+            Destroy();
+        }
+        break;
+    case PROJECTILE_ACTION::FREEZE:
+        if (detectionTag == "Wall")
+        {
+            Destroy();
+        }
+        else if (detectionTag == "Enemy")
+        {
+            // apply freeze to enemy
             Destroy();
         }
         break;
     case PROJECTILE_ACTION::FLAMETROWER:
         break;
     case PROJECTILE_ACTION::RICOCHET:
-        if (detectionName == "Wall" && wallCd <= 0)
+        if (detectionTag == "Wall" && wallCd <= 0)
         {
             gameObject.GetTransform().Rotate(0, 180, 0);
             wallCd = 1;
+        }
+        break;
+    case PROJECTILE_ACTION::FLINCH:
+        if (detectionTag == "Wall")
+        {
+            Destroy();
+        }
+        else if (detectionTag == "Enemy")
+        {
+            // apply flinch to enemy
+            Destroy();
         }
         break;
     default:

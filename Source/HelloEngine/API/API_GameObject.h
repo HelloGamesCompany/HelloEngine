@@ -32,6 +32,14 @@ namespace API
         const char* GetName();
         const char* GetTag();
 
+        void SetTag(const char* tag);
+        void SetName(const char name);
+
+        /// WARNING: Do not call this function with an array too small!
+        /// <param name="buffer">An API_GameObject array to fill with this gameobject's children</param>
+        /// <param name="count">Number of children to get. -1 = All children.</param>
+        void GetChildren(API_GameObject* buffer, int count = -1);
+
         HelloBehavior* AddScript(const char* className);
         HelloBehavior* GetScript(const char* className);
 

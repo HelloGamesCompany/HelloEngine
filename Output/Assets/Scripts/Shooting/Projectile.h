@@ -8,8 +8,11 @@
 enum class PROJECTILE_ACTION
 {
     NONE,
+    SLOW,
+    FREEZE,
     FLAMETROWER,
-    RICOCHET
+    RICOCHET,
+    FLINCH
 };
 
 class Projectile : HelloBehavior
@@ -27,9 +30,6 @@ public:
     float damage = 0.0f;
     float resistanceDamage = 0.0f;
     PROJECTILE_ACTION action = PROJECTILE_ACTION::NONE;
-
-    // test
-    //API_ParticleSystem particles;
 
     // ricochet test
     float wallCd = 0;

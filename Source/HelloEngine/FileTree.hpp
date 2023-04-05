@@ -79,10 +79,10 @@ struct File : public SelectableFile
 		}
 		else
 		{
+			metaFile = ModuleFiles::S_LoadMeta(metaPath);
 			ModuleResourceManager::S_CreateResource(metaFile);
 			ModuleResourceManager::S_ReImportFile(path, metaFile.type);
 		}
-
 		if (metaFile.type != ResourceType::UNDEFINED)
 			metaFile = ModuleFiles::S_LoadMeta(metaPath);
 	}

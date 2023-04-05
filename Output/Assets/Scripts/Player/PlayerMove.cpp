@@ -5,62 +5,109 @@
 HELLO_ENGINE_API_C PlayerMove* CreatePlayerMove(ScriptToInspectorInterface* script)
 {
     PlayerMove* classInstance = new PlayerMove();
-    //Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
+
     script->AddDragFloat("Velocity", &classInstance->vel);
-    //script->AddDragFloat("Current Velocity", &classInstance->currentVel);
+    script->AddDragFloat("Upgrade Velocity", &classInstance->upgradedVel);
     script->AddDragFloat("SecToMaxVel", &classInstance->secToMaxVel);
     script->AddDragFloat("SecToZeroVel", &classInstance->secToZeroVel);
-    //script->AddDragFloat("Current Input", &classInstance->currentInput);
+    //script->AddDragFloat("Current Velocity", &classInstance->currentVel);
+    script->AddDragFloat("Y tp limit", &classInstance->yTpLimit);
+    script->AddDragBoxRigidBody("Rigid Body", &classInstance->rigidBody);
+
     script->AddDragFloat("Dash Time", &classInstance->dashTime);
     script->AddDragFloat("Dash Distance", &classInstance->dashDistance);
+    script->AddDragFloat("Upgrade Dash Distance", &classInstance->upgradedDashDistance);
+    script->AddDragFloat("Dash Cooldown", &classInstance->maxDashCooldown);
+    script->AddDragFloat("Upgrade Dash Cooldown", &classInstance->maxFastDashCooldown);
+
     script->AddDragBoxAnimationPlayer("AnimationPlayer", &classInstance->playerAnimator);
     script->AddDragBoxAnimationResource("Dash Animation", &classInstance->dashAnim);
     script->AddDragBoxAnimationResource("Idle Animation", &classInstance->idleAnim);
     script->AddDragBoxAnimationResource("Run Animation", &classInstance->runAnim);
     script->AddDragBoxAnimationResource("Shoot Animations", &classInstance->shootAnim);
-    script->AddDragBoxGameObject("HUD", &classInstance->HUDGameObject);
+
+    script->AddDragBoxGameObject("Player Stats GO", &classInstance->playerStatsGO);
     return classInstance;
 }
 
 void PlayerMove::Start()
 {
     transform = gameObject.GetTransform();
+    initialPos = transform.GetGlobalPosition();
     departureTime = 0.0f;
-    HUDScript = (SwapWeapon*)HUDGameObject.GetScript("SwapWeapon");
+    playerStats = (PlayerStats*)playerStatsGO.GetScript("PlayerStats");
+    if (playerStats == nullptr) Console::Log("Missing PlayerStats on PlayerMove Script.");
+
+    if (playerStats && playerStats->movementTreeLvl > 3) dashesAvailable = 2;
+    else dashesAvailable = 1;
+    dashBuffer = false;
+
+    impulseTime = 0.0f;
 } 
 
 void PlayerMove::Update()
 {
     usingGamepad = Input::UsingGamepad();
-    dt = Time::GetDeltaTime();
+    
+    //Void tp
+    if (transform.GetGlobalPosition().y < yTpLimit) transform.SetPosition(initialPos);
+
+    if (playerStats && playerStats->slowTimePowerUp > 0.0f /*&& !paused*/) dt = Time::GetRealTimeDeltaTime();
+    else dt = Time::GetDeltaTime();
+
     Aim();
+
+    // impulse
+    if (impulseTime > 0.0f)
+    {
+        rigidBody.SetVelocity(impulseDirection * impulseStrenght);
+        impulseTime -= dt;
+
+        if (impulseTime <= 0.0f)
+        {
+            impulseTime = 0.0f;
+        }
+        else
+        {
+            return; // can't do other actions while is been impulsed
+        }
+    }
 
     if (Input::GetGamePadAxis(GamePadAxis::AXIS_TRIGGERRIGHT) < 5000)
     {
         isShooting = false;
     }
 
-    if (dashAvailable && !isDashing && DashInput())
+    if (dashesAvailable > 0)
     {
-        isDashing = true;
-        //dashAvailable = false; TODO: UNCOMMENT
-        dashDepartTime = 0.0f;
-        dashInitialPos = transform.GetLocalPosition();
-        float norm = sqrt(pow(lastMovInput.x, 2) + pow(lastMovInput.y, 2));
-        API_Vector3 movDir;
-        movDir.x = lastMovInput.x / norm;
-        movDir.y = 0.0f;
-        movDir.z = lastMovInput.y / norm;
-        dashFinalPos = transform.GetLocalPosition() + movDir * dashDistance; //transform.GetForward() // for looking dir
-
-        if (currentAnim != PlayerAnims::DASH)
+        if (DashInput())
         {
-            playerAnimator.ChangeAnimation(dashAnim);
-            playerAnimator.Play();
-            currentAnim = PlayerAnims::DASH;
+            if (isDashing)
+            {
+                dashBuffer = true;
+            }
+            else
+            {
+                DashSetup();
+            }
         }
+        else if (dashBuffer && !isDashing)
+        {
+            DashSetup();
+            dashBuffer = false;
+        }
+    }
 
-        HUDScript->Dash();
+    // refresh dash
+    if (dashCooldown > 0.0f)
+    {
+        dashCooldown -= dt;
+        if (dashCooldown <= 0.0f)
+        {
+            dashCooldown = 0.0f;
+            if (playerStats && playerStats->movementTreeLvl > 3) dashesAvailable = 2;
+            else dashesAvailable = 1;
+        }
     }
 
     if (isDashing)
@@ -72,13 +119,19 @@ void PlayerMove::Update()
     API_Vector2 input = GetMoveInput();
     //currentInput = input.Distance(API_Vector2::S_Zero());   //TEST
 
+    float velocity;
+    if (playerStats && playerStats->movementTreeLvl > 0) velocity = upgradedVel;
+    else velocity = vel;
+
+    if (playerStats && playerStats->speedPowerUp > 0.0f) velocity *= 1.5f;
+    
     //SecToZero MUST be smaller than SecToMaxVel
     if (abs(input.x) < 0.01f && abs(input.y) < 0.01f) //NO INPUT
     {
         if (departureTime > secToZeroVel) departureTime = secToZeroVel;
 
         if (departureTime > 0.0f) {
-            currentVel = Lerp(0.0f, vel, departureTime / secToZeroVel);
+            currentVel = Lerp(0.0f, velocity, departureTime / secToZeroVel);
             departureTime -= dt;
             input = lastMovInput;
         }
@@ -91,17 +144,17 @@ void PlayerMove::Update()
         if (departureTime < 0.0f) departureTime = 0.0f;
 
         if (departureTime < secToMaxVel) {
-            currentVel = Lerp(0.0f, vel, departureTime / secToMaxVel);
+            currentVel = Lerp(0.0f, velocity, departureTime / secToMaxVel);
             departureTime += dt;
         }
         else {
-            currentVel = vel;
+            currentVel = velocity;
         }
         lastMovInput = input;
     }
 
-    input *= currentVel * dt;
-    transform.Translate(input.x, 0.0f, input.y);
+    input *= currentVel;
+    rigidBody.SetVelocity(API_Vector3(input.x, 0.0f, input.y));
 
     if (currentVel <= 0.0f && currentAnim != PlayerAnims::IDLE && !isShooting) //NO INPUT
     {
@@ -116,24 +169,43 @@ float PlayerMove:: Lerp(float a, float b, float time)
     return a + time * (b - a);
 }
 
+void PlayerMove::DashSetup()
+{
+    isDashing = true;
+
+    // cooldown
+    dashesAvailable--;
+    if (playerStats && playerStats->movementTreeLvl > 1) dashCooldown = maxFastDashCooldown + 0.0001f;
+    else dashCooldown = maxDashCooldown + 0.0001f;
+
+    dashDepartTime = 0.0f;
+    float norm = sqrt(pow(lastMovInput.x, 2) + pow(lastMovInput.y, 2));
+    API_Vector3 movDir;
+    movDir.x = lastMovInput.x / norm;
+    movDir.y = 0.0f;
+    movDir.z = lastMovInput.y / norm;
+
+    float dist = dashDistance;
+    if (playerStats && playerStats->movementTreeLvl > 2) dist = upgradedDashDistance;
+
+    //Set dash vel
+    rigidBody.SetVelocity((movDir*dist) / dashTime);
+
+    if (currentAnim != PlayerAnims::DASH)
+    {
+        playerAnimator.ChangeAnimation(dashAnim);
+        playerAnimator.Play();
+        currentAnim = PlayerAnims::DASH;
+    }
+}
+
 void PlayerMove::Dash()
 {
     dashDepartTime += dt;
-    if (dashDepartTime > dashTime) dashDepartTime = dashTime;
-
-    API_Vector2 newPos;
-    newPos.x = Lerp(dashInitialPos.x, dashFinalPos.x, dashDepartTime / dashTime) - transform.GetLocalPosition().x;
-    newPos.y = Lerp(dashInitialPos.z, dashFinalPos.z, dashDepartTime / dashTime) - transform.GetLocalPosition().z;
-
-    //Console::Log("X: " + to_string(newPos.x));
-    //Console::Log("Z: " + to_string(newPos.y));
-
-    transform.Translate(newPos.x, 0.0f, newPos.y);
      
     if (dashDepartTime >= dashTime)
     {
         isDashing = false;
-        HUDScript->Dash();
     }
 }
 
@@ -228,11 +300,6 @@ API_Vector2 PlayerMove::GetMoveInput()
     return input;
 }
 
-void PlayerMove::OnCollisionEnter(API_RigidBody other)
-{
-   // Console::Log(other.GetGameObject().GetName());
-}
-
 void PlayerMove::ShootAnim()
 {
     if (currentAnim != PlayerAnims::SHOOT)
@@ -242,4 +309,11 @@ void PlayerMove::ShootAnim()
         currentAnim = PlayerAnims::SHOOT;
         isShooting = true;
     }
+}
+
+void PlayerMove::RecieveImpulse(API_Vector3 direction, float impulseDuration, float impulseForce)
+{
+    impulseDirection = direction;
+    impulseTime = impulseDuration;
+    impulseStrenght = impulseForce;
 }

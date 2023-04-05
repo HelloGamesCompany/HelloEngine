@@ -45,6 +45,14 @@ bool Application::Init()
 	{
 		std::filesystem::create_directory("Resources/Textures");
 	}
+	if (!std::filesystem::exists("Resources/Materials"))
+	{
+		std::filesystem::create_directory("Resources/Materials");
+	}
+	if (!std::filesystem::exists("Resources/Shaders"))
+	{
+		std::filesystem::create_directory("Resources/Shaders");
+	}
 
 	window = new ModuleWindow(true);
 	file = new ModuleFiles();
