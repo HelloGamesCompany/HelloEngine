@@ -38992,6 +38992,12 @@
                         "SecToZeroVel": 0.0
                     },
                     {
+                        "Y tp limit": -50.0
+                    },
+                    {
+                        "Rigid Body": 3079281768
+                    },
+                    {
                         "Dash Time": 0.5
                     },
                     {
@@ -39023,9 +39029,6 @@
                     },
                     {
                         "Player Stats GO": 3079281768
-                    },
-                    {
-                        "HUD": 60163542
                     }
                 ],
                 "Script Resource": 3336682094,
@@ -47991,14 +47994,7 @@
             },
             {
                 "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "HP": 100.0
-                    },
-                    {
-                        "MAX HP": 100.0
-                    }
-                ],
+                "Inspector Fields": null,
                 "Script Resource": 3828527852,
                 "Type": 5
             }
@@ -50747,7 +50743,7 @@
             {
                 "Active camera": true,
                 "Active culling": false,
-                "Aspect ratio": 1.3656846284866333,
+                "Aspect ratio": 1.2417763471603394,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 2000.0,
@@ -80619,6 +80615,9 @@
                     },
                     {
                         "MaxHp": 50
+                    },
+                    {
+                        "Drop Manager": 3633671502
                     }
                 ],
                 "Script Resource": 4229972138,
@@ -102706,5 +102705,80 @@
         "PrefabUID": 645187195,
         "Tag": "Default",
         "UID": 257061879
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Enemy Drop Rate": 100
+                    },
+                    {
+                        "Enemy Ammo Drop Rate": 0
+                    },
+                    {
+                        "Enemy Aid Kit Drop Rate": 0
+                    },
+                    {
+                        "Enemy Power Ups Drop Rate": 0
+                    },
+                    {
+                        "Box Drop Rate": 100
+                    },
+                    {
+                        "Box Ammo Drop Rate": 50
+                    },
+                    {
+                        "Box Aid Kit Drop Rate": 50
+                    },
+                    {
+                        "Pull Size per Drop Type": 2
+                    },
+                    {
+                        "Lase Ammo Drop MeshIndexInsideModel": 0,
+                        "Lase Ammo Drop MeshModelUID": 4038983158
+                    },
+                    {
+                        "First Aid Kit Drop MeshIndexInsideModel": 0,
+                        "First Aid Kit Drop MeshModelUID": 266946549
+                    },
+                    {
+                        "Lase Ammo Drop Material": 3260379948
+                    },
+                    {
+                        "First Aid Kit Drop Material": 675553996
+                    }
+                ],
+                "Script Resource": 3027696016,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "DropManager",
+        "ParentUID": 2462894403,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3633671502
     }
 ]

@@ -3,6 +3,8 @@
 #include "ScriptToInspectorInterface.h"
 #include "Macro.h"
 
+#include "../Enemies/EnemyDropManager.h"
+
 #include "API/API.h"
 
 class BreakableBox : HelloBehavior
@@ -22,6 +24,14 @@ public:
 
 	int maxHp;
 	int currentHp;
+
+	uint meshAmmo;
+	uint meshAidKit;
+	uint materialAmmo;
+	uint materialAidKit;
+
+	API_GameObject enemyDropManagerGO;
+	EnemyDropManager* enemyDropManager;
 
 };
 
