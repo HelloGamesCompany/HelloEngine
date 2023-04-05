@@ -201,7 +201,7 @@ void BossAttacks::Update()
 		case BOSS_STATE::SELECTATTACK:
 			// Generate a random integer between 0 and 0
 			//attackType = rand() % 3;
-			attackType = 4;
+			attackType = 0;
 			if (attackType < 3) {
 				bossState = BOSS_STATE::ROCKSELECT;
 			}

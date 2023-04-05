@@ -3,6 +3,14 @@ HELLO_ENGINE_API_C EnemyDropManager* CreateEnemyDropManager(ScriptToInspectorInt
 {
     EnemyDropManager* classInstance = new EnemyDropManager();
     //Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
+    script->AddDragInt("Enemy Drop Rate", &classInstance->enemyDropRate);
+    script->AddDragInt("Enemy Ammo Drop Rate", &classInstance->enemyAmmoDropRate);
+    script->AddDragInt("Enemy Aid Kit Drop Rate", &classInstance->enemyAidKitDropRate);
+    script->AddDragInt("Enemy Power Ups Drop Rate", &classInstance->enemyPowerUpsDropRate);
+    script->AddDragInt("Box Drop Rate", &classInstance->BoxDropRate);
+    script->AddDragInt("Box Ammo Drop Rate", &classInstance->BoxAmmoDropRate);
+    script->AddDragInt("Box Aid Kit Drop Rate", &classInstance->BoxAidKitDropRate);
+
     script->AddDragInt("Pull Size per Drop Type", &classInstance->pullSize);
     script->AddDragBoxMeshResource("Lase Ammo Drop Mesh", &classInstance->mesh0);
     script->AddDragBoxMeshResource("First Aid Kit Drop Mesh", &classInstance->mesh1);
@@ -30,7 +38,7 @@ void EnemyDropManager::Start()
         newDrop.GetMeshRenderer().ChangeMesh(mesh0);
         newDrop.AddMaterial();
         newDrop.GetMaterialCompoennt().ChangeAlbedoTexture(material0);
-        newDrop.CreateRigidBodyBox((0, 0, 0), (0, 0, 0), (0.3f, 0.3f, 0.3f), false);
+        newDrop.CreateRigidBodyBox((0, 0, 0), (0, 0, 0), (2.0f, 2.0f, 2.0f), false);
         EnemyDrop* enemyDrop = (EnemyDrop*)newDrop.AddScript("EnemyDrop");
         enemyDrop->dropIndex = 0;
         newDrop.SetActive(false);
@@ -43,7 +51,7 @@ void EnemyDropManager::Start()
         newDrop.GetMeshRenderer().ChangeMesh(mesh1);
         newDrop.AddMaterial();
         newDrop.GetMaterialCompoennt().ChangeAlbedoTexture(material1);
-        newDrop.CreateRigidBodyBox((0, 0, 0), (0, 0, 0), (0.3f, 0.3f, 0.3f), false);
+        newDrop.CreateRigidBodyBox((0, 0, 0), (0, 0, 0), (2.0f, 2.0f, 2.0f), false);
         EnemyDrop* enemyDrop = (EnemyDrop*)newDrop.AddScript("EnemyDrop");
         enemyDrop->dropIndex = 1;
         newDrop.SetActive(false);
@@ -56,7 +64,7 @@ void EnemyDropManager::Start()
         newDrop.GetMeshRenderer().ChangeMesh(mesh2);
         newDrop.AddMaterial();
         newDrop.GetMaterialCompoennt().ChangeAlbedoTexture(material2);
-        newDrop.CreateRigidBodyBox((0, 0, 0), (0, 0, 0), (0.3f, 0.3f, 0.3f), false);
+        newDrop.CreateRigidBodyBox((0, 0, 0), (0, 0, 0), (2.0f, 2.0f, 2.0f), false);
         EnemyDrop* enemyDrop = (EnemyDrop*)newDrop.AddScript("EnemyDrop");
         enemyDrop->dropIndex = 2;
         newDrop.SetActive(false);
@@ -69,7 +77,7 @@ void EnemyDropManager::Start()
         newDrop.GetMeshRenderer().ChangeMesh(mesh3);
         newDrop.AddMaterial();
         newDrop.GetMaterialCompoennt().ChangeAlbedoTexture(material3);
-        newDrop.CreateRigidBodyBox((0, 0, 0), (0, 0, 0), (0.3f, 0.3f, 0.3f), false);
+        newDrop.CreateRigidBodyBox((0, 0, 0), (0, 0, 0), (2.0f, 2.0f, 2.0f), false);
         EnemyDrop* enemyDrop = (EnemyDrop*)newDrop.AddScript("EnemyDrop");
         enemyDrop->dropIndex = 3;
         newDrop.SetActive(false);
@@ -82,7 +90,7 @@ void EnemyDropManager::Start()
         newDrop.GetMeshRenderer().ChangeMesh(mesh4);
         newDrop.AddMaterial();
         newDrop.GetMaterialCompoennt().ChangeAlbedoTexture(material4);
-        newDrop.CreateRigidBodyBox((0, 0, 0), (0, 0, 0), (0.3f, 0.3f, 0.3f), false);
+        newDrop.CreateRigidBodyBox((0, 0, 0), (0, 0, 0), (2.0f, 2.0f, 2.0f), false);
         EnemyDrop* enemyDrop = (EnemyDrop*)newDrop.AddScript("EnemyDrop");
         enemyDrop->dropIndex = 4;
         newDrop.SetActive(false);
@@ -95,7 +103,7 @@ void EnemyDropManager::Start()
         newDrop.GetMeshRenderer().ChangeMesh(mesh5);
         newDrop.AddMaterial();
         newDrop.GetMaterialCompoennt().ChangeAlbedoTexture(material5);
-        newDrop.CreateRigidBodyBox((0, 0, 0), (0, 0, 0), (0.3f, 0.3f, 0.3f), false);
+        newDrop.CreateRigidBodyBox((0, 0, 0), (0, 0, 0), (2.0f, 2.0f, 2.0f), false);
         EnemyDrop* enemyDrop = (EnemyDrop*)newDrop.AddScript("EnemyDrop");
         enemyDrop->dropIndex = 5;
         newDrop.SetActive(false);
@@ -108,7 +116,7 @@ void EnemyDropManager::Start()
         newDrop.GetMeshRenderer().ChangeMesh(mesh6);
         newDrop.AddMaterial();
         newDrop.GetMaterialCompoennt().ChangeAlbedoTexture(material6);
-        newDrop.CreateRigidBodyBox((0, 0, 0), (0, 0, 0), (0.3f, 0.3f, 0.3f), false);
+        newDrop.CreateRigidBodyBox((0, 0, 0), (0, 0, 0), (2.0f, 2.0f, 2.0f), false);
         EnemyDrop* enemyDrop = (EnemyDrop*)newDrop.AddScript("EnemyDrop");
         enemyDrop->dropIndex = 6;
         newDrop.SetActive(false);
@@ -128,38 +136,38 @@ void EnemyDropManager::SpinDropRate(API_Vector3 position) // check if enemy drop
 
     if (n < 20) // 20% first aid kit
     {
-        go = GetFirstActiveObject(1);
+        go = GetFirstInactiveObject(1);
     }
     else if (n < 40) // 20% speed power up
     {
-        go = GetFirstActiveObject(2);
+        go = GetFirstInactiveObject(2);
     }
     else if (n < 50) // 10% firerate power up
     {
-        go = GetFirstActiveObject(3);
+        go = GetFirstInactiveObject(3);
     }
     else if (n < 60) // 10% shield power up
     {
-        go = GetFirstActiveObject(4);
+        go = GetFirstInactiveObject(4);
     }
     else if (n < 70) // 10% slow time power up
     {
-        go = GetFirstActiveObject(5);
+        go = GetFirstInactiveObject(5);
     }
     else if (n < 80) // 10% max ammo power up
     {
-        go = GetFirstActiveObject(6);
+        go = GetFirstInactiveObject(6);
     }
-    else // 20% laser ammo power up
+    else // 20% laser ammo 
     {
-        go = GetFirstActiveObject(0);
+        go = GetFirstInactiveObject(0);
     }
 
     go.SetActive(true);
     go.GetTransform().SetPosition(position);
 }
 
-API_GameObject EnemyDropManager::GetFirstActiveObject(int index)
+API_GameObject EnemyDropManager::GetFirstInactiveObject(int index)
 {
     switch (index)
     {
@@ -208,5 +216,37 @@ API_GameObject EnemyDropManager::GetFirstActiveObject(int index)
     default:
         return pull0[0];
         break;
+    }
+}
+
+void EnemyDropManager::BoxSpinDropRate(API_Vector3 position)
+{
+
+    float dropRate = rand() % 100;
+    
+
+    if (dropRate < BoxDropRate)
+    {
+
+        API_GameObject go;
+
+        float drop = rand() % 100;
+
+        if (drop < BoxAidKitDropRate) // 50% first aid kit
+        {
+            go = GetFirstInactiveObject(1);
+        }
+        else if (drop < BoxAmmoDropRate + BoxAidKitDropRate)  // 50% Normal Ammo
+        {
+            go = GetFirstInactiveObject(0);
+        }
+
+        go.SetActive(true);
+        go.GetTransform().SetPosition(position);
+
+    }
+    else 
+    {
+        return;
     }
 }

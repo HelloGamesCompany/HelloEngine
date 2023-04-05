@@ -62,10 +62,10 @@ void PlayerUltimate::Update()
 
 void PlayerUltimate::OnCollisionEnter(API::API_RigidBody other)
 {
-    if (triggerUlt) return;
-    std::string detectionName = other.GetGameObject().GetName();
+    if (!triggerUlt) return;
+    std::string detectionTag = other.GetGameObject().GetTag();
 
-    if (detectionName == "Enemy")
+    if (detectionTag == "Enemy")
     {
         // freeze enemy
     }

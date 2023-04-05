@@ -17,6 +17,7 @@ class PlayerMove : HelloBehavior
         RUN,
         DASH,
         SHOOT,
+        OPEN_CHEST
     };
 
 public:
@@ -38,8 +39,8 @@ public:
     //Movement
     API_Vector2 lastMovInput = { 1.0f, 1.0f };
     API_Vector2 lastAimInput = { 0.0f, 0.0f };
-    float vel = 1.0f;
-    float upgradedVel = 2.0f;
+    float vel = 7.5f;
+    float upgradedVel = 9.0f;
     float currentVel = 0.0f;
     float departureTime = 0.0f;
     float secToMaxVel = 0.0f;
@@ -54,13 +55,13 @@ public:
     //Dash
     bool isDashing = false;
     float dashesAvailable;
-    float maxDashCooldown;
-    float maxFastDashCooldown;
+    float maxDashCooldown = 6.0f;
+    float maxFastDashCooldown = 3.0f;
     float dashCooldown;
     bool dashBuffer;
     float dashDepartTime = 0.0f;
     float dashTime = 0.5f;
-    float dashDistance = 5.0f;
+    float dashDistance = 6.0f;
     float upgradedDashDistance = 8.0f;
 
     //Shooting
@@ -78,6 +79,10 @@ public:
     uint idleAnim = 0;
     uint runAnim = 0;
     uint shootAnim = 0;
+    uint openChestAnim = 0;
+    bool openingChest = false;
+    void PlayOpenChestAnim();
+    void StopOpenChestAnim();
     PlayerAnims currentAnim;
     bool isShooting = false;
 

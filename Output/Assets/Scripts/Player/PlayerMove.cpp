@@ -55,6 +55,8 @@ void PlayerMove::Update()
     if (playerStats && playerStats->slowTimePowerUp > 0.0f /*&& !paused*/) dt = Time::GetRealTimeDeltaTime();
     else dt = Time::GetDeltaTime();
 
+    if (openingChest) return; // can't do other actions while is opening a chest
+
     Aim();
 
     // impulse
@@ -316,4 +318,20 @@ void PlayerMove::RecieveImpulse(API_Vector3 direction, float impulseDuration, fl
     impulseDirection = direction;
     impulseTime = impulseDuration;
     impulseStrenght = impulseForce;
+}
+
+void PlayerMove::PlayOpenChestAnim()
+{
+    if (currentAnim != PlayerAnims::OPEN_CHEST)
+    {
+        playerAnimator.ChangeAnimation(openChestAnim);
+        playerAnimator.Play();
+        currentAnim = PlayerAnims::OPEN_CHEST;
+        openingChest = true;
+    }
+}
+
+void PlayerMove::StopOpenChestAnim()
+{
+    openingChest = false;
 }
