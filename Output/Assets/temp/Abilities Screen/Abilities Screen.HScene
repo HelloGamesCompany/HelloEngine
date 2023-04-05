@@ -142,6 +142,54 @@
                     },
                     {
                         "PanelAbility4": 3186113256
+                    },
+                    {
+                        "Movement": 3961102070
+                    },
+                    {
+                        "AbilityList2": 109185096
+                    },
+                    {
+                        "AbilityList3": 3655526919
+                    },
+                    {
+                        "AbilityList4": 3302747482
+                    },
+                    {
+                        "PanelMovement": 1770922130
+                    },
+                    {
+                        "PanelAbility2": 3208837267
+                    },
+                    {
+                        "PanelAbility3": 2184284589
+                    },
+                    {
+                        "PanelAbility4": 3186113256
+                    },
+                    {
+                        "Movement": 3961102070
+                    },
+                    {
+                        "AbilityList2": 109185096
+                    },
+                    {
+                        "AbilityList3": 3655526919
+                    },
+                    {
+                        "AbilityList4": 3302747482
+                    },
+                    {
+                        "PanelMovement": 1770922130
+                    },
+                    {
+                        "PanelAbility2": 3208837267
+                    },
+                    {
+                        "PanelAbility3": 2184284589
+                    },
+                    {
+                        "PanelAbility4": 3186113256
                     }
                 ],
                 "Script Resource": 1314393320,
@@ -180,7 +228,7 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 1400199104,
+                "MaterialResource": 1141388559,
                 "Type": 15
             }
         ],
@@ -198,7 +246,7 @@
                 "Enabled": true,
                 "Position": [
                     -0.6000000238418579,
-                    0.41999998688697815,
+                    0.30000001192092896,
                     0.0
                 ],
                 "Rotation": [
@@ -237,7 +285,7 @@
                 "Enabled": true,
                 "Position": [
                     -0.6000000238418579,
-                    0.15000000596046448,
+                    0.019999999552965164,
                     0.0
                 ],
                 "Rotation": [
@@ -276,7 +324,7 @@
                 "Enabled": true,
                 "Position": [
                     -0.6000000238418579,
-                    -0.125,
+                    -0.23999999463558197,
                     0.0
                 ],
                 "Rotation": [
@@ -315,7 +363,7 @@
                 "Enabled": true,
                 "Position": [
                     -0.6000000238418579,
-                    -0.4000000059604645,
+                    -0.5600000023841858,
                     0.0
                 ],
                 "Rotation": [
@@ -376,12 +424,6 @@
                 "listButtons": [
                     0
                 ]
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": null,
-                "Script Resource": 0,
-                "Type": 5
             }
         ],
         "FirstOnPrefab": true,
@@ -397,8 +439,8 @@
             {
                 "Enabled": true,
                 "Position": [
-                    -0.05000000074505806,
-                    0.6000000238418579,
+                    -0.07999999821186066,
+                    0.4000000059604645,
                     -0.0010000000474974513
                 ],
                 "Rotation": [
@@ -407,7 +449,7 @@
                     0.0
                 ],
                 "Scale": [
-                    0.15000000596046448,
+                    0.18000000715255737,
                     0.10000000149011612,
                     0.0
                 ],
@@ -421,6 +463,49 @@
                 "hoverImage": 0,
                 "idleImage": 0,
                 "pressImage": 0
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Ability1": 2687373958
+                    },
+                    {
+                        "DescriptionHovered": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 4049634766
+                    },
+                    {
+                        "Ability1": 2687373958
+                    },
+                    {
+                        "DescriptionHovered": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 4049634766
+                    },
+                    {
+                        "Ability1": 2687373958
+                    },
+                    {
+                        "DescriptionHovered": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 4049634766
+                    },
+                    {
+                        "Ability1": 2687373958
+                    },
+                    {
+                        "DescriptionHovered": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 4049634766
+                    }
+                ],
+                "Script Resource": 1508860481,
+                "Type": 5
             }
         ],
         "FirstOnPrefab": true,
@@ -436,8 +521,8 @@
             {
                 "Enabled": true,
                 "Position": [
-                    -0.05000000074505806,
-                    0.20000000298023224,
+                    -0.07999999821186066,
+                    0.10000000149011612,
                     -0.0010000000474974513
                 ],
                 "Rotation": [
@@ -446,7 +531,7 @@
                     0.0
                 ],
                 "Scale": [
-                    0.15000000596046448,
+                    0.18000000715255737,
                     0.10000000149011612,
                     0.0
                 ],
@@ -460,6 +545,61 @@
                 "hoverImage": 0,
                 "idleImage": 0,
                 "pressImage": 0
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Ability1": 1089061174
+                    },
+                    {
+                        "DescriptionHovered": 4049634766
+                    },
+                    {
+                        "DescriptionBack": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 1827597929
+                    },
+                    {
+                        "Ability1": 1089061174
+                    },
+                    {
+                        "DescriptionHovered": 4049634766
+                    },
+                    {
+                        "DescriptionBack": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 1827597929
+                    },
+                    {
+                        "Ability1": 1089061174
+                    },
+                    {
+                        "DescriptionHovered": 4049634766
+                    },
+                    {
+                        "DescriptionBack": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 1827597929
+                    },
+                    {
+                        "Ability1": 1089061174
+                    },
+                    {
+                        "DescriptionHovered": 4049634766
+                    },
+                    {
+                        "DescriptionBack": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 1827597929
+                    }
+                ],
+                "Script Resource": 1508860481,
+                "Type": 5
             }
         ],
         "FirstOnPrefab": true,
@@ -475,8 +615,8 @@
             {
                 "Enabled": true,
                 "Position": [
-                    -0.05000000074505806,
-                    -0.20000000298023224,
+                    -0.10000000149011612,
+                    -0.3499999940395355,
                     -0.0010000000474974513
                 ],
                 "Rotation": [
@@ -485,20 +625,75 @@
                     0.0
                 ],
                 "Scale": [
+                    0.18000000715255737,
                     0.15000000596046448,
-                    0.10000000149011612,
                     0.0
                 ],
                 "Type": 1
             },
             {
                 "Enabled": true,
-                "MaterialResource": 0,
+                "MaterialResource": 2230090421,
                 "State": 0,
                 "Type": 12,
                 "hoverImage": 0,
-                "idleImage": 0,
+                "idleImage": 2230090421,
                 "pressImage": 0
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Ability1": 1407843779
+                    },
+                    {
+                        "DescriptionHovered": 1827597929
+                    },
+                    {
+                        "DescriptionBack": 4049634766
+                    },
+                    {
+                        "DescriptionFoward": 18300843
+                    },
+                    {
+                        "Ability1": 1407843779
+                    },
+                    {
+                        "DescriptionHovered": 1827597929
+                    },
+                    {
+                        "DescriptionBack": 4049634766
+                    },
+                    {
+                        "DescriptionFoward": 18300843
+                    },
+                    {
+                        "Ability1": 1407843779
+                    },
+                    {
+                        "DescriptionHovered": 1827597929
+                    },
+                    {
+                        "DescriptionBack": 4049634766
+                    },
+                    {
+                        "DescriptionFoward": 18300843
+                    },
+                    {
+                        "Ability1": 1407843779
+                    },
+                    {
+                        "DescriptionHovered": 1827597929
+                    },
+                    {
+                        "DescriptionBack": 4049634766
+                    },
+                    {
+                        "DescriptionFoward": 18300843
+                    }
+                ],
+                "Script Resource": 1508860481,
+                "Type": 5
             }
         ],
         "FirstOnPrefab": true,
@@ -514,7 +709,7 @@
             {
                 "Enabled": true,
                 "Position": [
-                    -0.05000000074505806,
+                    -0.10000000149011612,
                     -0.6000000238418579,
                     -0.0010000000474974513
                 ],
@@ -524,20 +719,63 @@
                     0.0
                 ],
                 "Scale": [
+                    0.18000000715255737,
                     0.15000000596046448,
-                    0.10000000149011612,
                     0.0
                 ],
                 "Type": 1
             },
             {
                 "Enabled": true,
-                "MaterialResource": 0,
+                "MaterialResource": 2989695811,
                 "State": 0,
                 "Type": 12,
                 "hoverImage": 0,
-                "idleImage": 0,
+                "idleImage": 2989695811,
                 "pressImage": 0
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Ability1": 3002809720
+                    },
+                    {
+                        "DescriptionHovered": 18300843
+                    },
+                    {
+                        "DescriptionBack": 1827597929
+                    },
+                    {
+                        "Ability1": 3002809720
+                    },
+                    {
+                        "DescriptionHovered": 18300843
+                    },
+                    {
+                        "DescriptionBack": 1827597929
+                    },
+                    {
+                        "Ability1": 3002809720
+                    },
+                    {
+                        "DescriptionHovered": 18300843
+                    },
+                    {
+                        "DescriptionBack": 1827597929
+                    },
+                    {
+                        "Ability1": 3002809720
+                    },
+                    {
+                        "DescriptionHovered": 18300843
+                    },
+                    {
+                        "DescriptionBack": 1827597929
+                    }
+                ],
+                "Script Resource": 1508860481,
+                "Type": 5
             }
         ],
         "FirstOnPrefab": true,
@@ -548,13 +786,13 @@
         "UID": 3002809720
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
                 "Position": [
                     0.22499999403953552,
-                    -0.0,
+                    -0.07000000029802322,
                     0.0
                 ],
                 "Rotation": [
@@ -584,13 +822,13 @@
         "UID": 757335209
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
                 "Position": [
                     0.375,
-                    0.5,
+                    0.3499999940395355,
                     0.0
                 ],
                 "Rotation": [
@@ -600,7 +838,7 @@
                 ],
                 "Scale": [
                     0.25,
-                    0.20000000298023224,
+                    0.15000000596046448,
                     0.5
                 ],
                 "Type": 1
@@ -620,13 +858,13 @@
         "UID": 3598254052
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
                 "Position": [
                     0.375,
-                    0.20000000298023224,
+                    0.05000000074505806,
                     0.0
                 ],
                 "Rotation": [
@@ -636,7 +874,7 @@
                 ],
                 "Scale": [
                     0.25,
-                    0.20000000298023224,
+                    0.15000000596046448,
                     0.5
                 ],
                 "Type": 1
@@ -656,13 +894,13 @@
         "UID": 4049634766
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
                 "Position": [
                     0.375,
-                    -0.20000000298023224,
+                    -0.30000001192092896,
                     0.0
                 ],
                 "Rotation": [
@@ -672,7 +910,7 @@
                 ],
                 "Scale": [
                     0.25,
-                    0.20000000298023224,
+                    0.15000000596046448,
                     0.5
                 ],
                 "Type": 1
@@ -692,13 +930,13 @@
         "UID": 1827597929
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
                 "Position": [
                     0.375,
-                    -0.5,
+                    -0.6499999761581421,
                     0.0
                 ],
                 "Rotation": [
@@ -707,8 +945,8 @@
                     0.0
                 ],
                 "Scale": [
-                    0.25,
-                    0.20000000298023224,
+                    0.2750000059604645,
+                    0.15000000596046448,
                     0.5
                 ],
                 "Type": 1

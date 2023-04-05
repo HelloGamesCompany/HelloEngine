@@ -11,9 +11,10 @@ public:
 	void Start() override; 
 	void Update() override;
 
-	API_UIButton Ability1;
-	API_UIButton Ability2;
-	API_UIButton Ability3;
-	API_UIButton Ability4;
+	API_UIButton buttonHovered;
+
+	API_GameObject description;
+	API_GameObject descriptionBack;
+	API_GameObject descriptionFoward;
 };
 
