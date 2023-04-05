@@ -13,7 +13,7 @@ HELLO_ENGINE_API_C TP_Cabin* CreateTP_Cabin(ScriptToInspectorInterface* script)
 
 void TP_Cabin::Start()
 {
-
+	destinationSmoke = destination.GetGameObject().AddParticleSystem(smoke);
 }
 void TP_Cabin::Update()
 {
@@ -38,17 +38,21 @@ void TP_Cabin::OnCollisionEnter(API_RigidBody other)
 		{
 			timeHoldButton -= Time::GetDeltaTime();
 			smoke.StopEmitting();
+			destinationSmoke.StopEmitting();
 		}
 
 		if (1.9f > timeHoldButton && timeHoldButton > 1.4f)
 		{
 			smoke.Play();
+			destinationSmoke.Play();
 		}
 		else if (timeHoldButton > 2.0f)
 		{
 			other.GetGameObject().GetTransform().SetPosition(destination.GetGlobalPosition());
 			timeHoldButton = 0.0f;
 			smoke.StopEmitting();
+			destinationSmoke.StopEmitting();
+			
 		}
 	}
 

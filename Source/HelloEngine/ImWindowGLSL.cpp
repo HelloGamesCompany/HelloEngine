@@ -134,7 +134,8 @@ void ImWindowGLSL::SetShader(int UID)
 		this->shader->_onEditor = false;
 	}
 
-	this->shader = (ResourceShader*)ModuleResourceManager::resources[UID];
+	if (ModuleResourceManager::resources.count(UID) != 0)
+		this->shader = (ResourceShader*)ModuleResourceManager::resources[UID];
 
 	if (this->shader == nullptr) return;
 

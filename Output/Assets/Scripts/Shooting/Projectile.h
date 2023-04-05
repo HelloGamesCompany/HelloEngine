@@ -11,7 +11,8 @@ enum class PROJECTILE_ACTION
     SLOW,
     FREEZE,
     FLAMETROWER,
-    RICOCHET
+    RICOCHET,
+    FLINCH
 };
 
 class Projectile : HelloBehavior

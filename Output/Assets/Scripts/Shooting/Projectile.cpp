@@ -46,14 +46,22 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
         }
         break;
     case PROJECTILE_ACTION::SLOW:
-        if (detectionTag == "Wall" || detectionTag == "Enemy")
+        if (detectionTag == "Wall")
+        {
+            Destroy();
+        }
+        else if (detectionTag == "Enemy")
         {
             // apply slow to enemy
             Destroy();
         }
         break;
     case PROJECTILE_ACTION::FREEZE:
-        if (detectionTag == "Wall" || detectionTag == "Enemy")
+        if (detectionTag == "Wall")
+        {
+            Destroy();
+        }
+        else if (detectionTag == "Enemy")
         {
             // apply freeze to enemy
             Destroy();
@@ -66,6 +74,17 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
         {
             gameObject.GetTransform().Rotate(0, 180, 0);
             wallCd = 1;
+        }
+        break;
+    case PROJECTILE_ACTION::FLINCH:
+        if (detectionTag == "Wall")
+        {
+            Destroy();
+        }
+        else if (detectionTag == "Enemy")
+        {
+            // apply flinch to enemy
+            Destroy();
         }
         break;
     default:

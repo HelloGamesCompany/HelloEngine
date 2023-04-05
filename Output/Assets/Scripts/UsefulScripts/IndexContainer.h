@@ -5,10 +5,12 @@
 
 #include "API/API.h"
 
-class EnemySpawner : HelloBehavior
+class IndexContainer : HelloBehavior
 {
 public:
-	void Start() override; 
-	void Update() override;
+    void Start() override;
+    void Update() override;
+
+    int index;
 };
 

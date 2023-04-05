@@ -10429,6 +10429,9 @@
                         "Velocity": 10.0
                     },
                     {
+                        "Upgrade Velocity": 2.0
+                    },
+                    {
                         "SecToMaxVel": 0.0
                     },
                     {
@@ -10439,6 +10442,15 @@
                     },
                     {
                         "Dash Distance": 5.0
+                    },
+                    {
+                        "Upgrade Dash Distance": 8.0
+                    },
+                    {
+                        "Dash Cooldown": 0.0
+                    },
+                    {
+                        "Upgrade Dash Cooldown": 0.0
                     },
                     {
                         "AnimationPlayer": 3431343063
@@ -10456,6 +10468,9 @@
                         "Shoot Animations": 4285907288
                     },
                     {
+                        "Player Stats GO": 4290975610
+                    },
+                    {
                         "HUD": 2338237509
                     }
                 ],
@@ -10469,6 +10484,12 @@
                         "Max HP": 100.0
                     },
                     {
+                        "Current HP": 0.0
+                    },
+                    {
+                        "Upgraded Max HP": 0.0
+                    },
+                    {
                         "Laser Ammo": 99999
                     },
                     {
@@ -10478,7 +10499,16 @@
                         "Ricochet Ammo": 99999
                     },
                     {
-                        "Health bar": 293173081
+                        "movement tree lvl": 0
+                    },
+                    {
+                        "armory tree lvl": 0
+                    },
+                    {
+                        "health tree lvl": 0
+                    },
+                    {
+                        "special tree lvl": 0
                     }
                 ],
                 "Script Resource": 4283682555,
@@ -10736,7 +10766,7 @@
                 "Type": 9
             },
             {
-                "AnimationUID": 723048411,
+                "AnimationUID": 0,
                 "Enabled": true,
                 "Type": 10,
                 "isLoop": true,
@@ -13731,46 +13761,6 @@
             {
                 "Enabled": true,
                 "Position": [
-                    0.1234283447265625,
-                    -0.00022721290588378906,
-                    0.15403175354003906
-                ],
-                "Rotation": [
-                    158.28225708007813,
-                    55.0208740234375,
-                    108.17632293701172
-                ],
-                "Scale": [
-                    0.11000163108110428,
-                    0.11000112444162369,
-                    0.11000090837478638
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 2417919063,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "LeftPistol",
-        "ParentUID": 1053825521,
-        "PrefabUID": 3737530194,
-        "Tag": "Default",
-        "UID": 1530191201
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
                     -0.07249365746974945,
                     -2.8047823619203882e-08,
                     -0.1328447461128235
@@ -15926,264 +15916,6 @@
         "UID": 3961541265
     },
     {
-        "Active": false,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Gun Type": 1
-                    }
-                ],
-                "Script Resource": 1187195986,
-                "Type": 5
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Projectile Speed": 100.0
-                    },
-                    {
-                        "Projectile Damage": 60.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 1.0
-                    },
-                    {
-                        "Projectile MeshIndexInsideModel": 0,
-                        "Projectile MeshModelUID": 1551155716
-                    },
-                    {
-                        "Projectile Material": 3260379948
-                    },
-                    {
-                        "Projectile ScaleX": 0.20000000298023224
-                    },
-                    {
-                        "Projectile ScaleY": 0.20000000298023224
-                    },
-                    {
-                        "Projectile ScaleZ": 0.4000000059604645
-                    },
-                    {
-                        "Projectiles per second": 1.0
-                    },
-                    {
-                        "Ammo Type": 1
-                    },
-                    {
-                        "Audio Event String": ""
-                    }
-                ],
-                "Script Resource": 3967431277,
-                "Type": 5
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "SemiAuto",
-        "ParentUID": 499555574,
-        "PrefabUID": 3737530194,
-        "Tag": "Default",
-        "UID": 844530628
-    },
-    {
-        "Active": false,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Gun Type": 4
-                    }
-                ],
-                "Script Resource": 1421097082,
-                "Type": 5
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Projectile Speed": 40.0
-                    },
-                    {
-                        "Projectile Damage": 10.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 0.5
-                    },
-                    {
-                        "Projectile MeshIndexInsideModel": 0,
-                        "Projectile MeshModelUID": 1551155716
-                    },
-                    {
-                        "Projectile Material": 3260379948
-                    },
-                    {
-                        "Projectile ScaleX": 0.05000000074505806
-                    },
-                    {
-                        "Projectile ScaleY": 0.05000000074505806
-                    },
-                    {
-                        "Projectile ScaleZ": 0.05000000074505806
-                    },
-                    {
-                        "Projectiles per second": 1.2999999523162842
-                    },
-                    {
-                        "Pellets per shot": 10
-                    },
-                    {
-                        "Ammo Type": 1
-                    },
-                    {
-                        "Audio Event String": ""
-                    }
-                ],
-                "Script Resource": 1698500360,
-                "Type": 5
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "Shotgun",
-        "ParentUID": 499555574,
-        "PrefabUID": 3737530194,
-        "Tag": "Default",
-        "UID": 3259537044
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Gun Type": 0
-                    }
-                ],
-                "Script Resource": 1421097082,
-                "Type": 5
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Projectile Speed": 30.0
-                    },
-                    {
-                        "Projectile Damage": 5.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 1.0
-                    },
-                    {
-                        "Projectile MeshIndexInsideModel": 0,
-                        "Projectile MeshModelUID": 1551155716
-                    },
-                    {
-                        "Projectile Material": 3260379948
-                    },
-                    {
-                        "Projectile ScaleX": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleY": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleZ": 0.10000000149011612
-                    },
-                    {
-                        "Projectiles per second": 3.0
-                    },
-                    {
-                        "Burst Space": 0.1599999964237213
-                    },
-                    {
-                        "Ammo Type": 0
-                    },
-                    {
-                        "Audio Event String": ""
-                    }
-                ],
-                "Script Resource": 3840029457,
-                "Type": 5
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "DualRight",
-        "ParentUID": 499555574,
-        "PrefabUID": 3737530194,
-        "Tag": "Default",
-        "UID": 3336488868
-    },
-    {
         "Active": true,
         "Components": [
             {
@@ -17354,12 +17086,6 @@
                         "Game Bar Weapon 3": 3043836677
                     },
                     {
-                        "Text_Dash_on": 1033923317
-                    },
-                    {
-                        "Text_Dash_off": 2440110374
-                    },
-                    {
                         "Material_Dash": 2702449615
                     }
                 ],
@@ -17997,13 +17723,16 @@
                         "Offset_Z": -7.0
                     },
                     {
-                        "Rot_Offset_X": 50.0
+                        "Rot_X": 50.0
                     },
                     {
-                        "Rot_Offset_Y": 0.0
+                        "Rot_Y": 0.0
                     },
                     {
-                        "Rot_Offset_Z": 0.0
+                        "Rot_Z": 0.0
+                    },
+                    {
+                        "SafeZone_Distance": 10.0
                     },
                     {
                         "Use safe zone: ": false

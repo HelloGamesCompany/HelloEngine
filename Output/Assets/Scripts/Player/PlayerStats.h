@@ -5,6 +5,8 @@
 
 #include "API/API.h"
 
+#include "PlayerStorage.h"
+
 class HpBar;
 
 class PlayerStats : HelloBehavior
@@ -25,6 +27,7 @@ public:
     bool secondLife;
     float lastHitTime;
     void Heal(float amount);
+    API_ParticleSystem hitParticles;
 
     int GetAmmonByType(int type);
     void GetAmmo(int type, int amount);
@@ -38,9 +41,6 @@ public:
     int maxRicochetAmmo;
 
     bool detected;//if the player is being detected somehow
-
-    API_GameObject hpGameObject;
-    HpBar* healthBar;
 
     // skills tree
     void UpgradeTreeLvl(int tree);
@@ -57,5 +57,10 @@ public:
     // max ammo // 3
     float slowTimePowerUp; // 4
     void GetPowerUp(int index);
+
+    // storage
+    API_GameObject storageGameObject;
+    PlayerStorage* storage;
+    void SaveInStorage(int index);
 };
 

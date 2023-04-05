@@ -28,6 +28,8 @@ void PlayerShotgun::Start()
 {
     playerStats = (PlayerStats*)player.GetScript("PlayerStats");
 
+    SetGunStatsPerLevel(0); // read from save file
+
     if (cadence == 0)
     {
         fullShotCooldown = 0;
@@ -86,7 +88,7 @@ void PlayerShotgun::Shoot()
     {
         for (size_t i = 0; i < pellets; i++)
         {
-            LauchProjectile(shootingSpawn, PROJECTILE_ACTION::NONE, pelletsDisersion);
+            LauchProjectile(shootingSpawn, PROJECTILE_ACTION::FLINCH, pelletsDisersion);
         }
         PlayShotSound(audioEventString);
         canShoot = false;
@@ -112,36 +114,40 @@ void PlayerShotgun::SetGunStatsPerLevel(int level)
     switch (level)
     {
     case 0:
-        projectileSpeed = 30.0f;
-        projectileDamage = 5.0f;
+        projectileSpeed = 40.0f;
+        projectileDamage = 3.0f;
         projectileResistanceDamage = 0.0f;
-        projectileLifetime = 1.0f;
-        cadence = 2.0f;
-        pelletsDisersion = 0.25f;
+        projectileLifetime = 0.2f;
+        cadence = 1.3f;
+        pellets = 10;
+        pelletsDisersion = 0.2f;
         break;
     case 1:
-        projectileSpeed = 30.0f;
-        projectileDamage = 5.0f;
+        projectileSpeed = 40.0f;
+        projectileDamage = 3.0f;
         projectileResistanceDamage = 0.0f;
-        projectileLifetime = 1.0f;
-        cadence = 4.0f;
-        pelletsDisersion = 0.25f;
+        projectileLifetime = 0.2f;
+        cadence = 1.3f;
+        pellets = 10;
+        pelletsDisersion = 0.4f;
         break;
     case 2:
-        projectileSpeed = 45.0f;
-        projectileDamage = 5.0f;
+        projectileSpeed = 40.0f;
+        projectileDamage = 3.0f;
         projectileResistanceDamage = 0.0f;
-        projectileLifetime = 1.0f;
-        cadence = 4.0f;
-        pelletsDisersion = 0.25f;
+        projectileLifetime = 0.2f;
+        cadence = 1.3f;
+        pellets = 14;
+        pelletsDisersion = 0.4f;
         break;
     case 3:
-        projectileSpeed = 45.0f;
-        projectileDamage = 15.0f;
+        projectileSpeed = 40.0f;
+        projectileDamage = 5.0f;
         projectileResistanceDamage = 0.0f;
-        projectileLifetime = 1.0f;
-        cadence = 4.0f;
-        pelletsDisersion = 0.25f;
+        projectileLifetime = 0.2f;
+        cadence = 1.3f;
+        pellets = 14;
+        pelletsDisersion = 0.4f;
         break;
     default:
         Console::Log("Shotgun gun level can't be different from 0, 1, 2 or 3.");

@@ -26,6 +26,8 @@ void PlayerSemiAuto::Start()
 {
     playerStats = (PlayerStats*)player.GetScript("PlayerStats");
 
+    SetGunStatsPerLevel(0); // read from save file
+
     if (cadence == 0)
     {
         fullShotCooldown = 0;
@@ -82,11 +84,9 @@ void PlayerSemiAuto::Shoot()
 {
     if (canShoot)
     {
-        if (canCrit && (rand() % 100) < 20) {
-            projectileDamage = projectileDamageWithoutCrit + 20; Console::Log("crit");
-        }
+        if (canCrit && (rand() % 100) < 20) projectileDamage = 100.0f;
         else projectileDamage = projectileDamageWithoutCrit;
-        LauchProjectile(shootingSpawn);
+        LauchProjectile(shootingSpawn, PROJECTILE_ACTION::FLINCH);
         PlayShotSound(audioEventString);
         canShoot = false;
         if (playerStats->fireratePowerUp) shotCooldown = fullShotCooldownWithPowerUp;
@@ -111,34 +111,34 @@ void PlayerSemiAuto::SetGunStatsPerLevel(int level)
     switch (level)
     {
     case 0:
-        projectileSpeed = 100.0f;
+        projectileSpeed = 80.0f;
         projectileDamageWithoutCrit = 60.0f;
         projectileResistanceDamage = 0.0f;
-        projectileLifetime = 1.0f;
+        projectileLifetime = 0.5f;
         cadence = 1.0f;
         canCrit = false;
         break;
     case 1:
-        projectileSpeed = 100.0f;
-        projectileDamageWithoutCrit = 80.0f;
+        projectileSpeed = 80.0f;
+        projectileDamageWithoutCrit = 70.0f;
         projectileResistanceDamage = 0.0f;
-        projectileLifetime = 1.0f;
+        projectileLifetime = 0.5f;
         cadence = 1.0f;
         canCrit = false;
         break;
     case 2:
-        projectileSpeed = 120.0f;
-        projectileDamageWithoutCrit = 80.0f;
+        projectileSpeed = 100.0f;
+        projectileDamageWithoutCrit = 70.0f;
         projectileResistanceDamage = 0.0f;
-        projectileLifetime = 1.0f;
+        projectileLifetime = 0.5f;
         cadence = 1.0f;
         canCrit = false;
         break;
     case 3:
-        projectileSpeed = 120.0f;
-        projectileDamageWithoutCrit = 80.0f;
+        projectileSpeed = 100.0f;
+        projectileDamageWithoutCrit = 70.0f;
         projectileResistanceDamage = 0.0f;
-        projectileLifetime = 1.0f;
+        projectileLifetime = 0.5f;
         cadence = 1.0f;
         canCrit = true;
         break;

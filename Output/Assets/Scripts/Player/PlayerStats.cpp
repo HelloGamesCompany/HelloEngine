@@ -1,6 +1,7 @@
 #include "PlayerStats.h"
 #include "../Enemies/EnemyDrop.h"
 #include "../UI Test folder/HpBar.h"
+#include "../UsefulScripts/IndexContainer.h"
 HELLO_ENGINE_API_C PlayerStats* CreatePlayerStats(ScriptToInspectorInterface* script)
 {
     PlayerStats* classInstance = new PlayerStats();
@@ -11,7 +12,8 @@ HELLO_ENGINE_API_C PlayerStats* CreatePlayerStats(ScriptToInspectorInterface* sc
     script->AddDragInt("Laser Ammo", &classInstance->laserAmmo);
     script->AddDragInt("Fire Ammo", &classInstance->fireAmmo);
     script->AddDragInt("Ricochet Ammo", &classInstance->ricochetAmmo);
-    //script->AddDragBoxGameObject("Health bar", &classInstance->hpGameObject);
+    script->AddDragBoxParticleSystem("Hit Particles", &classInstance->hitParticles);
+    script->AddDragBoxGameObject("Storage GO", &classInstance->storageGameObject);
     script->AddDragInt("movement tree lvl", &classInstance->movementTreeLvl); // remove when save and load is ready
     script->AddDragInt("armory tree lvl", &classInstance->armoryTreeLvl);
     script->AddDragInt("health tree lvl", &classInstance->healthTreeLvl);
@@ -24,8 +26,6 @@ void PlayerStats::Start()
     if (healthTreeLvl > 0) currentMaxHp = upgradedMaxHp;
     else currentMaxHp = maxHp;
     currentHp = currentMaxHp;
-    //healthBar = (HpBar*)hpGameObject.GetScript("HpBar");
-    //healthBar->maxHp = this->currentHp;
     detected = false;
 
     if (healthTreeLvl > 4) secondLife = true;
@@ -35,6 +35,9 @@ void PlayerStats::Start()
     fireratePowerUp = 0;
     shield = 0;
     slowTimePowerUp = 0;
+
+    storage = (PlayerStorage*)storageGameObject.GetScript("PlayerStorage");
+    if (!storage) Console::Log("Storage Missing in PlayerStats. Only needed in levels.");
 }
 
 void PlayerStats::Update()
@@ -43,7 +46,10 @@ void PlayerStats::Update()
     if (slowTimePowerUp > 0.0f /*&& !paused*/) dt = Time::GetRealTimeDeltaTime();
     else dt = Time::GetDeltaTime();
 
-    //healthBar->hp = this->currentHp;
+    if (Input::GetKey(KeyCode::KEY_F) == KeyState::KEY_DOWN)
+    {
+        TakeDamage(1);
+    }
 
     // deadline healing
     float deathlineHp;
@@ -72,6 +78,7 @@ void PlayerStats::Update()
     if (inmunityTime > 0.0f)
     {
         inmunityTime -= dt;
+        if (inmunityTime <= 0.0f) hitParticles.StopEmitting();
     }
 
     // power ups
@@ -126,6 +133,47 @@ void PlayerStats::OnCollisionEnter(API_RigidBody other)
 
         enemyDrop->Destroy();
     }
+    else if (detectionTag == "Casette")
+    {
+        IndexContainer* indexContainer = (IndexContainer*)other.GetGameObject().GetScript("IndexContainer");
+        if (!indexContainer)
+        {
+            Console::Log("Casette needs IndexContainer Script.");
+            return;
+        }
+        if (!storage)
+        {
+            Console::Log("Storage missing in PlayerStats Script.");
+            return;
+        }
+
+        switch (indexContainer->index)
+        {
+        case 1:
+            storage->casette1Picked = true;
+            break;
+        case 2:
+            storage->casette2Picked = true;
+            break;
+        case 3:
+            storage->casette3Picked = true;
+            break;
+        default:
+            Console::Log("Casette index only can be 1, 2 or 3.");
+            break;
+        }
+        other.GetGameObject().SetActive(false);
+    }
+    else if (detectionTag == "CheckPoint")
+    {
+        if (!storage)
+        {
+            Console::Log("Storage missing in PlayerStats Script.");
+            return;
+        }
+
+        storage->SaveData();
+    }
 }
 
 void PlayerStats::TakeDamage(float amount)
@@ -161,6 +209,7 @@ void PlayerStats::TakeDamage(float amount)
     {
         inmunityTime = 2.0f;
         Audio::Event("starlord_damaged");
+        hitParticles.Play();
         // hit animation?
     }
 
@@ -286,4 +335,30 @@ void PlayerStats::GetPowerUp(int index)
         Console::Log("Invalid powe up index, can only be 0, 1, 2 or 3.");
         break;
     }
+}
+
+void PlayerStats::SaveInStorage(int index)
+{
+    if (!storage)
+    {
+        Console::Log("Storage missing in PlayerStats Script.");
+        return;
+    }
+
+    switch (index)
+    {
+    case 0:
+        storage->upgradeBlueprintAmount++;
+        break;
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+        storage->unlockGunBlueprint = index;
+        break;
+    default:
+        break;
+    }
+
+    storage->SaveData();
 }

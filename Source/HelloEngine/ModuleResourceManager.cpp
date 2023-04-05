@@ -20,6 +20,7 @@
 #include "RenderManager.h"
 #include "ModuleRenderer3D.h"
 #include "Component.h"
+#include "LayerEditor.h"
 
 // In create resource mesh method save my index and model UID.
 // Save ResourceModel UID and index.
@@ -538,6 +539,10 @@ void ModuleResourceManager::S_OverridePrefab(GameObject* g, const std::string& f
 
 bool ModuleResourceManager::S_DeserializeScene(const std::string& filePath)
 {
+	// Deselect current selected game object
+	LayerEditor::S_SetSelectGameObject(nullptr);
+	Application::Instance()->renderer3D->renderManager.RemoveSelectedMesh();
+	
 	char* buffer = nullptr;
 
 	uint size = ModuleFiles::S_Load(filePath, &buffer);

@@ -165,7 +165,10 @@
 		<ClCompile Include="..\..\Assets\Scripts\Enemies\EnemyProjectile.cpp" />
 		<ClCompile Include="..\..\Assets\Scripts\Enemies\EnemyProjectilePull.cpp" />
 		<ClCompile Include="..\..\Assets\Scripts\Enemies\EnemyRanger.cpp" />
+		<ClCompile Include="..\..\Assets\Scripts\InteractiveEnviroment\EnemyMeleeSpawner.cpp" />
 		<ClCompile Include="..\..\Assets\Scripts\InteractiveEnviroment\GoToLevelTrigger.cpp" />
+		<ClCompile Include="..\..\Assets\Scripts\Level2EndTrigger.cpp" />
+		<ClCompile Include="..\..\Assets\Scripts\Level2FinalText.cpp" />
 		<ClCompile Include="..\..\Assets\Scripts\LevelEndTrigger.cpp" />
 		<ClCompile Include="..\..\Assets\Scripts\Player\PlayerMove.cpp" />
 		<ClCompile Include="..\..\Assets\Scripts\Player\PlayerStats.cpp" />
@@ -179,6 +182,7 @@
 		<ClCompile Include="..\..\Assets\Scripts\Shooting\Guns\PlayerShotgun.cpp" />
 		<ClCompile Include="..\..\Assets\Scripts\UI Test folder\DashUI.cpp" />
 		<ClCompile Include="..\..\Assets\Scripts\UI Test folder\HpBar.cpp" />
+		<ClCompile Include="..\..\Assets\Scripts\UI Test folder\ScoreScreen.cpp" />
 		<ClCompile Include="..\..\Assets\Scripts\UI Test folder\UIManager.cpp" />
 		<ClCompile Include="../../Assets/Scripts/Player/PlayerUltimate.cpp" />
 		<ClCompile Include="../../Assets/Scripts/Shooting/Guns/PlayerHandgun.cpp" />
@@ -190,8 +194,10 @@
 		<ClCompile Include="../../Assets/Scripts/InteractiveEnviroment/Chest.cpp" />
 		<ClCompile Include="../../Assets/Scripts/Enemies/EnemyGun.cpp" />
 		<ClCompile Include="../../Assets/Scripts/InteractiveEnviroment/TP_Cabin.cpp" />
-		<ClCompile Include="../../Assets/Scripts/InteractiveEnviroment/EnemySpawner.cpp" />
 		<ClCompile Include="../../Assets/Scripts/InteractiveEnviroment/SmokeExtractorTrap.cpp" />
+		<ClCompile Include="../../Assets/Scripts/InteractiveEnviroment/BreakableBox.cpp" />
+		<ClCompile Include="../../Assets/Scripts/InteractiveEnviroment/BreakableWall.cpp" />
+		<ClCompile Include="../../Assets/Scripts/Player/PlayerStorage.cpp" />
 	</ItemGroup>
 	<ItemGroup>
 		<ClInclude Include="..\..\Assets\Scripts\EbonyMaw\BossAttacks.h" />
@@ -204,7 +210,10 @@
 		<ClInclude Include="..\..\Assets\Scripts\Enemies\EnemyProjectile.h" />
 		<ClInclude Include="..\..\Assets\Scripts\Enemies\EnemyProjectilePull.h" />
 		<ClInclude Include="..\..\Assets\Scripts\Enemies\EnemyRanger.h" />
+		<ClInclude Include="..\..\Assets\Scripts\InteractiveEnviroment\EnemyMeleeSpawner.h" />
 		<ClInclude Include="..\..\Assets\Scripts\InteractiveEnviroment\GoToLevelTrigger.h" />
+		<ClInclude Include="..\..\Assets\Scripts\Level2EndTrigger.h" />
+		<ClInclude Include="..\..\Assets\Scripts\Level2FinalText.h" />
 		<ClInclude Include="..\..\Assets\Scripts\LevelEndTrigger.h" />
 		<ClInclude Include="..\..\Assets\Scripts\Player\PlayerMove.h" />
 		<ClInclude Include="..\..\Assets\Scripts\Player\PlayerStats.h" />
@@ -218,6 +227,7 @@
 		<ClInclude Include="..\..\Assets\Scripts\Shooting\Guns\PlayerShotgun.h" />
 		<ClInclude Include="..\..\Assets\Scripts\UI Test folder\DashUI.h" />
 		<ClInclude Include="..\..\Assets\Scripts\UI Test folder\HpBar.h" />
+		<ClInclude Include="..\..\Assets\Scripts\UI Test folder\ScoreScreen.h" />
 		<ClInclude Include="..\..\Assets\Scripts\UI Test folder\UIManager.h" />
 		<ClInclude Include="Macro.h" />
 		<ClInclude Include="../../Assets/Scripts/Enemies/Enemy.h" />
@@ -249,8 +259,10 @@
 		<ClInclude Include="../../Assets/Scripts/InteractiveEnviroment/Chest.h" />
 		<ClInclude Include="../../Assets/Scripts/Enemies/EnemyGun.h" />
 		<ClInclude Include="../../Assets/Scripts/InteractiveEnviroment/TP_Cabin.h" />
-		<ClInclude Include="../../Assets/Scripts/InteractiveEnviroment/EnemySpawner.h" />
 		<ClInclude Include="../../Assets/Scripts/InteractiveEnviroment/SmokeExtractorTrap.h" />
+		<ClInclude Include="../../Assets/Scripts/InteractiveEnviroment/BreakableBox.h" />
+		<ClInclude Include="../../Assets/Scripts/InteractiveEnviroment/BreakableWall.h" />
+		<ClInclude Include="../../Assets/Scripts/Player/PlayerStorage.h" />
 	</ItemGroup>
 	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 	<ImportGroup Label="ExtensionTargets" />
