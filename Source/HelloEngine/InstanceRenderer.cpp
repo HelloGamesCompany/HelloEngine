@@ -84,14 +84,16 @@ void InstanceRenderer::DrawMaterial()
 {
     for (auto& mesh : meshes)
     {
+        RenderUpdateState state = mesh.second.mesh.Update();
+        if (state == RenderUpdateState::NODRAW)
+            continue;
+
         //Selected Mesh
-        if (mesh.second.mesh.Update() == RenderUpdateState::SELECTED)
+        if (state == RenderUpdateState::SELECTED)
         {
-        //    //if (mesh.second.mesh.isIndependent)
             mesh.second.material = this->resMat;
             mesh.second.resMat = this->resMat->UID;
             Application::Instance()->renderer3D->renderManager.SetSelectedMesh(&mesh.second);
-        //    continue;
         }
 
         modelMatrices.push_back(mesh.second.mesh.modelMatrix); // Insert updated matrices
@@ -133,26 +135,13 @@ void InstanceRenderer::DrawRaw()
 
     for (auto& mesh : meshes)
     {
-        /*if (currentCamera->isCullingActive)
-        {
-            if (!currentCamera->IsInsideFrustum(mesh.second.mesh.globalAABB))
-            {
-                mesh.second.mesh.outOfFrustum = true;
-                continue;
-            }
-            else
-                mesh.second.mesh.outOfFrustum = false;
-        }
-        else if (currentCamera->type != CameraType::SCENE)
-        {
-            mesh.second.outOfFrustum = false;
-        }*/
+        RenderUpdateState state = mesh.second.mesh.Update();
+        if (state == RenderUpdateState::NODRAW)
+            continue;
 
-        if (mesh.second.mesh.Update() == RenderUpdateState::SELECTED)
+        if (state == RenderUpdateState::SELECTED)
         {
-            //if (mesh.second.mesh.isIndependent)
             Application::Instance()->renderer3D->renderManager.SetSelectedMesh(&mesh.second.mesh);
-            //continue;
         }
 
         modelMatrices.push_back(mesh.second.mesh.modelMatrix); // Insert updated matrices
