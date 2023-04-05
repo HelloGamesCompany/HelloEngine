@@ -7,6 +7,7 @@
 #include "API/API.h"
 
 #include "EnemyDrop.h"
+#include "../Player/PlayerStats.h"
 
 class EnemyDropManager : HelloBehavior
 {
@@ -22,15 +23,18 @@ public:
     //Drop chances
 
     //Enemy
-    int enemyDropRate;
-    int enemyAmmoDropRate;
-    int enemyAidKitDropRate;
-    int enemyPowerUpsDropRate;
+    float enemyDropRate;
+    float upgradedEnemyDropRate;
+    float enemyAmmoDropRate;
+    float enemyAidKitDropRate;
+    float enemyPowerUpsDropRate;
+    API_GameObject playerStatsGO;
+    PlayerStats* playerStats;
 
     //Breakable Box
-    int BoxDropRate;
-    int BoxAmmoDropRate;
-    int BoxAidKitDropRate;
+    float BoxDropRate;
+    float BoxAmmoDropRate;
+    float BoxAidKitDropRate;
 
     // meshes
     uint mesh0;
