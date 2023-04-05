@@ -231,7 +231,11 @@ GameObject* ModuleRenderer3D::RaycastFromMousePosition(LineSegment& ray, CameraO
 			continue;
 		if (!gameObject.second->HasComponent<MeshRenderComponent>())
 			continue;
-		if (ray.Intersects(gameObject.second->GetComponent<MeshRenderComponent>()->GetMesh().globalAABB))
+		
+		MeshRenderComponent* aux = gameObject.second->GetComponent<MeshRenderComponent>();
+		if (aux->GetResourceUID() <= 0)
+			continue;
+		if (ray.Intersects(aux->GetMesh().globalAABB))
 		{
 			hitGameobjects.push_back(gameObject.first);
 		}

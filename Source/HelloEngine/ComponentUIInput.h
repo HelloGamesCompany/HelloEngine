@@ -15,11 +15,14 @@ class ComponentUIInput : public ComponentUI
 	void DeSerialization(json& j) override;
 
 	std::vector<ComponentUIButton *> _listButtons;
+	bool _isComponentEnable;
 
 private: 
 
+
 	ImWindowGame* _gameWindow = nullptr;
 	bool isPress = true;
+	bool AisPress = true;
 	int ButtonSelected = 0;
 
 #ifdef STANDALONE

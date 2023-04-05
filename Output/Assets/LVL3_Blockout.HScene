@@ -247,9 +247,9 @@
             {
                 "Enabled": true,
                 "Position": [
-                    76.75231170654297,
-                    29.419479370117188,
-                    14.852818489074707
+                    74.03022766113281,
+                    28.322250366210938,
+                    14.535162925720215
                 ],
                 "Rotation": [
                     -0.0,
@@ -38155,6 +38155,96 @@
                     },
                     {
                         "Use safe zone: ": true
+                    },
+                    {
+                        "Target": 1881844107
+                    },
+                    {
+                        "Delay": 0.009999999776482582
+                    },
+                    {
+                        "Offset_X": 0.0
+                    },
+                    {
+                        "Offset_Y": 25.0
+                    },
+                    {
+                        "Offset_Z": -20.0
+                    },
+                    {
+                        "Rot_X": 50.0
+                    },
+                    {
+                        "Rot_Y": 0.0
+                    },
+                    {
+                        "Rot_Z": 0.0
+                    },
+                    {
+                        "SafeZone_Distance": 10.0
+                    },
+                    {
+                        "Use safe zone: ": true
+                    },
+                    {
+                        "Target": 1881844107
+                    },
+                    {
+                        "Delay": 0.009999999776482582
+                    },
+                    {
+                        "Offset_X": 0.0
+                    },
+                    {
+                        "Offset_Y": 25.0
+                    },
+                    {
+                        "Offset_Z": -20.0
+                    },
+                    {
+                        "Rot_X": 50.0
+                    },
+                    {
+                        "Rot_Y": 0.0
+                    },
+                    {
+                        "Rot_Z": 0.0
+                    },
+                    {
+                        "SafeZone_Distance": 10.0
+                    },
+                    {
+                        "Use safe zone: ": true
+                    },
+                    {
+                        "Target": 1881844107
+                    },
+                    {
+                        "Delay": 0.009999999776482582
+                    },
+                    {
+                        "Offset_X": 0.0
+                    },
+                    {
+                        "Offset_Y": 25.0
+                    },
+                    {
+                        "Offset_Z": -20.0
+                    },
+                    {
+                        "Rot_X": 50.0
+                    },
+                    {
+                        "Rot_Y": 0.0
+                    },
+                    {
+                        "Rot_Z": 0.0
+                    },
+                    {
+                        "SafeZone_Distance": 10.0
+                    },
+                    {
+                        "Use safe zone: ": true
                     }
                 ],
                 "Script Resource": 2306703736,
@@ -38205,6 +38295,78 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Target": 1881844107
+                    },
+                    {
+                        "Delay": 0.009999999776482582
+                    },
+                    {
+                        "Offset_X": 0.0
+                    },
+                    {
+                        "Offset_Y": 45.0
+                    },
+                    {
+                        "Offset_Z": -17.0
+                    },
+                    {
+                        "Rot_Offset_X": 58.0
+                    },
+                    {
+                        "Rot_Offset_Y": 0.0
+                    },
+                    {
+                        "Rot_Offset_Z": 0.0
+                    },
+                    {
+                        "Target": 1881844107
+                    },
+                    {
+                        "Delay": 0.009999999776482582
+                    },
+                    {
+                        "Offset_X": 0.0
+                    },
+                    {
+                        "Offset_Y": 45.0
+                    },
+                    {
+                        "Offset_Z": -17.0
+                    },
+                    {
+                        "Rot_Offset_X": 58.0
+                    },
+                    {
+                        "Rot_Offset_Y": 0.0
+                    },
+                    {
+                        "Rot_Offset_Z": 0.0
+                    },
+                    {
+                        "Target": 1881844107
+                    },
+                    {
+                        "Delay": 0.009999999776482582
+                    },
+                    {
+                        "Offset_X": 0.0
+                    },
+                    {
+                        "Offset_Y": 45.0
+                    },
+                    {
+                        "Offset_Z": -17.0
+                    },
+                    {
+                        "Rot_Offset_X": 58.0
+                    },
+                    {
+                        "Rot_Offset_Y": 0.0
+                    },
+                    {
+                        "Rot_Offset_Z": 0.0
+                    },
                     {
                         "Target": 1881844107
                     },
@@ -38480,6 +38642,141 @@
                     },
                     {
                         "Player Stats GO": 1881844107
+                    },
+                    {
+                        "Velocity": 10.0
+                    },
+                    {
+                        "Upgrade Velocity": 2.0
+                    },
+                    {
+                        "SecToMaxVel": 0.0
+                    },
+                    {
+                        "SecToZeroVel": 0.0
+                    },
+                    {
+                        "Dash Time": 0.5
+                    },
+                    {
+                        "Dash Distance": 5.0
+                    },
+                    {
+                        "Upgrade Dash Distance": 8.0
+                    },
+                    {
+                        "Dash Cooldown": 0.0
+                    },
+                    {
+                        "Upgrade Dash Cooldown": 0.0
+                    },
+                    {
+                        "AnimationPlayer": 2624315955
+                    },
+                    {
+                        "Dash Animation": 3797853291
+                    },
+                    {
+                        "Idle Animation": 1165806223
+                    },
+                    {
+                        "Run Animation": 462511998
+                    },
+                    {
+                        "Shoot Animations": 3469875527
+                    },
+                    {
+                        "Player Stats GO": 1881844107
+                    },
+                    {
+                        "Velocity": 10.0
+                    },
+                    {
+                        "Upgrade Velocity": 2.0
+                    },
+                    {
+                        "SecToMaxVel": 0.0
+                    },
+                    {
+                        "SecToZeroVel": 0.0
+                    },
+                    {
+                        "Dash Time": 0.5
+                    },
+                    {
+                        "Dash Distance": 5.0
+                    },
+                    {
+                        "Upgrade Dash Distance": 8.0
+                    },
+                    {
+                        "Dash Cooldown": 0.0
+                    },
+                    {
+                        "Upgrade Dash Cooldown": 0.0
+                    },
+                    {
+                        "AnimationPlayer": 2624315955
+                    },
+                    {
+                        "Dash Animation": 3797853291
+                    },
+                    {
+                        "Idle Animation": 1165806223
+                    },
+                    {
+                        "Run Animation": 462511998
+                    },
+                    {
+                        "Shoot Animations": 3469875527
+                    },
+                    {
+                        "Player Stats GO": 1881844107
+                    },
+                    {
+                        "Velocity": 10.0
+                    },
+                    {
+                        "Upgrade Velocity": 2.0
+                    },
+                    {
+                        "SecToMaxVel": 0.0
+                    },
+                    {
+                        "SecToZeroVel": 0.0
+                    },
+                    {
+                        "Dash Time": 0.5
+                    },
+                    {
+                        "Dash Distance": 5.0
+                    },
+                    {
+                        "Upgrade Dash Distance": 8.0
+                    },
+                    {
+                        "Dash Cooldown": 0.0
+                    },
+                    {
+                        "Upgrade Dash Cooldown": 0.0
+                    },
+                    {
+                        "AnimationPlayer": 2624315955
+                    },
+                    {
+                        "Dash Animation": 3797853291
+                    },
+                    {
+                        "Idle Animation": 1165806223
+                    },
+                    {
+                        "Run Animation": 462511998
+                    },
+                    {
+                        "Shoot Animations": 3469875527
+                    },
+                    {
+                        "Player Stats GO": 1881844107
                     }
                 ],
                 "Script Resource": 3336682094,
@@ -38488,6 +38785,96 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Max HP": 100.0
+                    },
+                    {
+                        "Current HP": 0.0
+                    },
+                    {
+                        "Upgraded Max HP": 0.0
+                    },
+                    {
+                        "Laser Ammo": 99999
+                    },
+                    {
+                        "Fire Ammo": 99999
+                    },
+                    {
+                        "Ricochet Ammo": 99999
+                    },
+                    {
+                        "movement tree lvl": 0
+                    },
+                    {
+                        "armory tree lvl": 0
+                    },
+                    {
+                        "health tree lvl": 0
+                    },
+                    {
+                        "special tree lvl": 0
+                    },
+                    {
+                        "Max HP": 100.0
+                    },
+                    {
+                        "Current HP": 0.0
+                    },
+                    {
+                        "Upgraded Max HP": 0.0
+                    },
+                    {
+                        "Laser Ammo": 99999
+                    },
+                    {
+                        "Fire Ammo": 99999
+                    },
+                    {
+                        "Ricochet Ammo": 99999
+                    },
+                    {
+                        "movement tree lvl": 0
+                    },
+                    {
+                        "armory tree lvl": 0
+                    },
+                    {
+                        "health tree lvl": 0
+                    },
+                    {
+                        "special tree lvl": 0
+                    },
+                    {
+                        "Max HP": 100.0
+                    },
+                    {
+                        "Current HP": 0.0
+                    },
+                    {
+                        "Upgraded Max HP": 0.0
+                    },
+                    {
+                        "Laser Ammo": 99999
+                    },
+                    {
+                        "Fire Ammo": 99999
+                    },
+                    {
+                        "Ricochet Ammo": 99999
+                    },
+                    {
+                        "movement tree lvl": 0
+                    },
+                    {
+                        "armory tree lvl": 0
+                    },
+                    {
+                        "health tree lvl": 0
+                    },
+                    {
+                        "special tree lvl": 0
+                    },
                     {
                         "Max HP": 100.0
                     },
@@ -38608,6 +38995,87 @@
                     },
                     {
                         "Fast Swap Delay": 0.0
+                    },
+                    {
+                        "Player Stats GO": 1881844107
+                    },
+                    {
+                        "Base Gun": 0
+                    },
+                    {
+                        "Normal Gun": 1
+                    },
+                    {
+                        "Special Gun": 4
+                    },
+                    {
+                        "Duals": 1424627499
+                    },
+                    {
+                        "Semiautomatic": 2093071756
+                    },
+                    {
+                        "Shotgun": 2098305788
+                    },
+                    {
+                        "Swap Delay": 0.0
+                    },
+                    {
+                        "Fast Swap Delay": 0.0
+                    },
+                    {
+                        "Player Stats GO": 1881844107
+                    },
+                    {
+                        "Base Gun": 0
+                    },
+                    {
+                        "Normal Gun": 1
+                    },
+                    {
+                        "Special Gun": 4
+                    },
+                    {
+                        "Duals": 1424627499
+                    },
+                    {
+                        "Semiautomatic": 2093071756
+                    },
+                    {
+                        "Shotgun": 2098305788
+                    },
+                    {
+                        "Swap Delay": 0.0
+                    },
+                    {
+                        "Fast Swap Delay": 0.0
+                    },
+                    {
+                        "Player Stats GO": 1881844107
+                    },
+                    {
+                        "Base Gun": 0
+                    },
+                    {
+                        "Normal Gun": 1
+                    },
+                    {
+                        "Special Gun": 4
+                    },
+                    {
+                        "Duals": 1424627499
+                    },
+                    {
+                        "Semiautomatic": 2093071756
+                    },
+                    {
+                        "Shotgun": 2098305788
+                    },
+                    {
+                        "Swap Delay": 0.0
+                    },
+                    {
+                        "Fast Swap Delay": 0.0
                     }
                 ],
                 "Script Resource": 3024424734,
@@ -38616,6 +39084,24 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "MAIN CAMERA": 508667422
+                    },
+                    {
+                        "SECONDARY CAMERA": 1929231542
+                    },
+                    {
+                        "MAIN CAMERA": 508667422
+                    },
+                    {
+                        "SECONDARY CAMERA": 1929231542
+                    },
+                    {
+                        "MAIN CAMERA": 508667422
+                    },
+                    {
+                        "SECONDARY CAMERA": 1929231542
+                    },
                     {
                         "MAIN CAMERA": 508667422
                     },
@@ -44103,6 +44589,15 @@
                     },
                     {
                         "Gun Type": 1
+                    },
+                    {
+                        "Gun Type": 1
+                    },
+                    {
+                        "Gun Type": 1
+                    },
+                    {
+                        "Gun Type": 1
                     }
                 ],
                 "Script Resource": 1187195986,
@@ -44111,6 +44606,153 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Projectile Pull": 533254908
+                    },
+                    {
+                        "Projectile Speed": 100.0
+                    },
+                    {
+                        "Projectile Damage": 60.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 0.0
+                    },
+                    {
+                        "Projectile Lifetime": 1.0
+                    },
+                    {
+                        "Projectile Spawn": 2093071756
+                    },
+                    {
+                        "Projectile MeshIndexInsideModel": 0,
+                        "Projectile MeshModelUID": 1551155716
+                    },
+                    {
+                        "Projectile Material": 3260379948
+                    },
+                    {
+                        "Projectile ScaleX": 0.20000000298023224
+                    },
+                    {
+                        "Projectile ScaleY": 0.20000000298023224
+                    },
+                    {
+                        "Projectile ScaleZ": 0.4000000059604645
+                    },
+                    {
+                        "Projectiles per second": 1.0
+                    },
+                    {
+                        "Extra % firerate": 0.0
+                    },
+                    {
+                        "Player Stats GO": 1881844107
+                    },
+                    {
+                        "Ammo Type": 1
+                    },
+                    {
+                        "Audio Event String": "basic_shooting"
+                    },
+                    {
+                        "Projectile Pull": 533254908
+                    },
+                    {
+                        "Projectile Speed": 100.0
+                    },
+                    {
+                        "Projectile Damage": 60.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 0.0
+                    },
+                    {
+                        "Projectile Lifetime": 1.0
+                    },
+                    {
+                        "Projectile Spawn": 2093071756
+                    },
+                    {
+                        "Projectile MeshIndexInsideModel": 0,
+                        "Projectile MeshModelUID": 1551155716
+                    },
+                    {
+                        "Projectile Material": 3260379948
+                    },
+                    {
+                        "Projectile ScaleX": 0.20000000298023224
+                    },
+                    {
+                        "Projectile ScaleY": 0.20000000298023224
+                    },
+                    {
+                        "Projectile ScaleZ": 0.4000000059604645
+                    },
+                    {
+                        "Projectiles per second": 1.0
+                    },
+                    {
+                        "Extra % firerate": 0.0
+                    },
+                    {
+                        "Player Stats GO": 1881844107
+                    },
+                    {
+                        "Ammo Type": 1
+                    },
+                    {
+                        "Audio Event String": "basic_shooting"
+                    },
+                    {
+                        "Projectile Pull": 533254908
+                    },
+                    {
+                        "Projectile Speed": 100.0
+                    },
+                    {
+                        "Projectile Damage": 60.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 0.0
+                    },
+                    {
+                        "Projectile Lifetime": 1.0
+                    },
+                    {
+                        "Projectile Spawn": 2093071756
+                    },
+                    {
+                        "Projectile MeshIndexInsideModel": 0,
+                        "Projectile MeshModelUID": 1551155716
+                    },
+                    {
+                        "Projectile Material": 3260379948
+                    },
+                    {
+                        "Projectile ScaleX": 0.20000000298023224
+                    },
+                    {
+                        "Projectile ScaleY": 0.20000000298023224
+                    },
+                    {
+                        "Projectile ScaleZ": 0.4000000059604645
+                    },
+                    {
+                        "Projectiles per second": 1.0
+                    },
+                    {
+                        "Extra % firerate": 0.0
+                    },
+                    {
+                        "Player Stats GO": 1881844107
+                    },
+                    {
+                        "Ammo Type": 1
+                    },
+                    {
+                        "Audio Event String": "basic_shooting"
+                    },
                     {
                         "Projectile Pull": 533254908
                     },
@@ -44251,6 +44893,15 @@
                     },
                     {
                         "Gun Type": 4
+                    },
+                    {
+                        "Gun Type": 4
+                    },
+                    {
+                        "Gun Type": 4
+                    },
+                    {
+                        "Gun Type": 4
                     }
                 ],
                 "Script Resource": 1421097082,
@@ -44259,6 +44910,171 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Projectile Pull": 533254908
+                    },
+                    {
+                        "Projectile Speed": 40.0
+                    },
+                    {
+                        "Projectile Damage": 10.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 0.0
+                    },
+                    {
+                        "Projectile Lifetime": 0.5
+                    },
+                    {
+                        "Projectile Spawn": 2098305788
+                    },
+                    {
+                        "Projectile MeshIndexInsideModel": 0,
+                        "Projectile MeshModelUID": 1551155716
+                    },
+                    {
+                        "Projectile Material": 3260379948
+                    },
+                    {
+                        "Projectile ScaleX": 0.05000000074505806
+                    },
+                    {
+                        "Projectile ScaleY": 0.05000000074505806
+                    },
+                    {
+                        "Projectile ScaleZ": 0.05000000074505806
+                    },
+                    {
+                        "Projectiles per second": 1.2999999523162842
+                    },
+                    {
+                        "Extra % firerate": 0.0
+                    },
+                    {
+                        "Pellets per shot": 10
+                    },
+                    {
+                        "Pellets Dispersion": 0.0
+                    },
+                    {
+                        "Player Stats GO": 1881844107
+                    },
+                    {
+                        "Ammo Type": 1
+                    },
+                    {
+                        "Audio Event String": "basic_shooting"
+                    },
+                    {
+                        "Projectile Pull": 533254908
+                    },
+                    {
+                        "Projectile Speed": 40.0
+                    },
+                    {
+                        "Projectile Damage": 10.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 0.0
+                    },
+                    {
+                        "Projectile Lifetime": 0.5
+                    },
+                    {
+                        "Projectile Spawn": 2098305788
+                    },
+                    {
+                        "Projectile MeshIndexInsideModel": 0,
+                        "Projectile MeshModelUID": 1551155716
+                    },
+                    {
+                        "Projectile Material": 3260379948
+                    },
+                    {
+                        "Projectile ScaleX": 0.05000000074505806
+                    },
+                    {
+                        "Projectile ScaleY": 0.05000000074505806
+                    },
+                    {
+                        "Projectile ScaleZ": 0.05000000074505806
+                    },
+                    {
+                        "Projectiles per second": 1.2999999523162842
+                    },
+                    {
+                        "Extra % firerate": 0.0
+                    },
+                    {
+                        "Pellets per shot": 10
+                    },
+                    {
+                        "Pellets Dispersion": 0.0
+                    },
+                    {
+                        "Player Stats GO": 1881844107
+                    },
+                    {
+                        "Ammo Type": 1
+                    },
+                    {
+                        "Audio Event String": "basic_shooting"
+                    },
+                    {
+                        "Projectile Pull": 533254908
+                    },
+                    {
+                        "Projectile Speed": 40.0
+                    },
+                    {
+                        "Projectile Damage": 10.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 0.0
+                    },
+                    {
+                        "Projectile Lifetime": 0.5
+                    },
+                    {
+                        "Projectile Spawn": 2098305788
+                    },
+                    {
+                        "Projectile MeshIndexInsideModel": 0,
+                        "Projectile MeshModelUID": 1551155716
+                    },
+                    {
+                        "Projectile Material": 3260379948
+                    },
+                    {
+                        "Projectile ScaleX": 0.05000000074505806
+                    },
+                    {
+                        "Projectile ScaleY": 0.05000000074505806
+                    },
+                    {
+                        "Projectile ScaleZ": 0.05000000074505806
+                    },
+                    {
+                        "Projectiles per second": 1.2999999523162842
+                    },
+                    {
+                        "Extra % firerate": 0.0
+                    },
+                    {
+                        "Pellets per shot": 10
+                    },
+                    {
+                        "Pellets Dispersion": 0.0
+                    },
+                    {
+                        "Player Stats GO": 1881844107
+                    },
+                    {
+                        "Ammo Type": 1
+                    },
+                    {
+                        "Audio Event String": "basic_shooting"
+                    },
                     {
                         "Projectile Pull": 533254908
                     },
@@ -44411,6 +45227,15 @@
                     },
                     {
                         "Gun Type": 0
+                    },
+                    {
+                        "Gun Type": 0
+                    },
+                    {
+                        "Gun Type": 0
+                    },
+                    {
+                        "Gun Type": 0
                     }
                 ],
                 "Script Resource": 1421097082,
@@ -44419,6 +45244,198 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Projectile Pull": 533254908
+                    },
+                    {
+                        "Projectile Speed": 30.0
+                    },
+                    {
+                        "Projectile Damage": 5.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 0.0
+                    },
+                    {
+                        "Projectile Lifetime": 1.0
+                    },
+                    {
+                        "Projectile Spawn": 1424627499
+                    },
+                    {
+                        "Second Projectile Spawn": 523493100
+                    },
+                    {
+                        "Projectile MeshIndexInsideModel": 0,
+                        "Projectile MeshModelUID": 1551155716
+                    },
+                    {
+                        "Projectile Material": 3260379948
+                    },
+                    {
+                        "Projectile ScaleX": 0.10000000149011612
+                    },
+                    {
+                        "Projectile ScaleY": 0.10000000149011612
+                    },
+                    {
+                        "Projectile ScaleZ": 0.10000000149011612
+                    },
+                    {
+                        "Projectiles per second": 3.0
+                    },
+                    {
+                        "Extra % firerate": 0.0
+                    },
+                    {
+                        "Burst Space": 0.1599999964237213
+                    },
+                    {
+                        "Second Gun GO": 523493100
+                    },
+                    {
+                        "Slow %": 0.0
+                    },
+                    {
+                        "Freeze %": 0.0
+                    },
+                    {
+                        "Player Stats GO": 1881844107
+                    },
+                    {
+                        "Ammo Type": 0
+                    },
+                    {
+                        "Audio Event String": "basic_shooting"
+                    },
+                    {
+                        "Projectile Pull": 533254908
+                    },
+                    {
+                        "Projectile Speed": 30.0
+                    },
+                    {
+                        "Projectile Damage": 5.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 0.0
+                    },
+                    {
+                        "Projectile Lifetime": 1.0
+                    },
+                    {
+                        "Projectile Spawn": 1424627499
+                    },
+                    {
+                        "Second Projectile Spawn": 523493100
+                    },
+                    {
+                        "Projectile MeshIndexInsideModel": 0,
+                        "Projectile MeshModelUID": 1551155716
+                    },
+                    {
+                        "Projectile Material": 3260379948
+                    },
+                    {
+                        "Projectile ScaleX": 0.10000000149011612
+                    },
+                    {
+                        "Projectile ScaleY": 0.10000000149011612
+                    },
+                    {
+                        "Projectile ScaleZ": 0.10000000149011612
+                    },
+                    {
+                        "Projectiles per second": 3.0
+                    },
+                    {
+                        "Extra % firerate": 0.0
+                    },
+                    {
+                        "Burst Space": 0.1599999964237213
+                    },
+                    {
+                        "Second Gun GO": 523493100
+                    },
+                    {
+                        "Slow %": 0.0
+                    },
+                    {
+                        "Freeze %": 0.0
+                    },
+                    {
+                        "Player Stats GO": 1881844107
+                    },
+                    {
+                        "Ammo Type": 0
+                    },
+                    {
+                        "Audio Event String": "basic_shooting"
+                    },
+                    {
+                        "Projectile Pull": 533254908
+                    },
+                    {
+                        "Projectile Speed": 30.0
+                    },
+                    {
+                        "Projectile Damage": 5.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 0.0
+                    },
+                    {
+                        "Projectile Lifetime": 1.0
+                    },
+                    {
+                        "Projectile Spawn": 1424627499
+                    },
+                    {
+                        "Second Projectile Spawn": 523493100
+                    },
+                    {
+                        "Projectile MeshIndexInsideModel": 0,
+                        "Projectile MeshModelUID": 1551155716
+                    },
+                    {
+                        "Projectile Material": 3260379948
+                    },
+                    {
+                        "Projectile ScaleX": 0.10000000149011612
+                    },
+                    {
+                        "Projectile ScaleY": 0.10000000149011612
+                    },
+                    {
+                        "Projectile ScaleZ": 0.10000000149011612
+                    },
+                    {
+                        "Projectiles per second": 3.0
+                    },
+                    {
+                        "Extra % firerate": 0.0
+                    },
+                    {
+                        "Burst Space": 0.1599999964237213
+                    },
+                    {
+                        "Second Gun GO": 523493100
+                    },
+                    {
+                        "Slow %": 0.0
+                    },
+                    {
+                        "Freeze %": 0.0
+                    },
+                    {
+                        "Player Stats GO": 1881844107
+                    },
+                    {
+                        "Ammo Type": 0
+                    },
+                    {
+                        "Audio Event String": "basic_shooting"
+                    },
                     {
                         "Projectile Pull": 533254908
                     },
@@ -45364,6 +46381,33 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Pull Size": 30
+                    },
+                    {
+                        "Player": 1881844107
+                    },
+                    {
+                        "Particles": 996843272
+                    },
+                    {
+                        "Pull Size": 30
+                    },
+                    {
+                        "Player": 1881844107
+                    },
+                    {
+                        "Particles": 996843272
+                    },
+                    {
+                        "Pull Size": 30
+                    },
+                    {
+                        "Player": 1881844107
+                    },
+                    {
+                        "Particles": 996843272
+                    },
                     {
                         "Pull Size": 30
                     },
@@ -47889,9 +48933,9 @@
             {
                 "Enabled": true,
                 "Position": [
-                    238.16127014160156,
-                    1.0623358488082886,
-                    2.372312545776367
+                    152.49136352539063,
+                    11.105684280395508,
+                    -22.311325073242188
                 ],
                 "Rotation": [
                     -0.0,
@@ -47899,16 +48943,16 @@
                     -0.0
                 ],
                 "Scale": [
-                    0.23999999463558197,
-                    1.1160000562667847,
-                    0.2800000011920929
+                    7.5,
+                    0.6000000238418579,
+                    7.5
                 ],
                 "Type": 1
             },
             {
                 "Enabled": true,
                 "Index inside model": 0,
-                "ModelUID": 48433420,
+                "ModelUID": 2439010209,
                 "ShowAABB": false,
                 "ShowFaceNormals": false,
                 "ShowOBB": false,
@@ -47917,16 +48961,16 @@
             },
             {
                 "Enabled": true,
-                "ResourceUID": 441409638,
+                "ResourceUID": 3521069009,
                 "Type": 3
             }
         ],
         "FirstOnPrefab": true,
-        "Name": "LimitEntireFence",
+        "Name": "CenterGround",
         "ParentUID": 1957540640,
-        "PrefabUID": 645187195,
+        "PrefabUID": 3766244713,
         "Tag": "Default",
-        "UID": 1809721527
+        "UID": 122385599
     },
     {
         "Active": true,
@@ -47934,359 +48978,29 @@
             {
                 "Enabled": true,
                 "Position": [
-                    238.1444549560547,
-                    1.0947680473327637,
-                    -0.43557578325271606
-                ],
-                "Rotation": [
-                    -0.0,
                     0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    0.23999999463558197,
-                    1.1160000562667847,
-                    0.2800000011920929
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 48433420,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "ResourceUID": 441409638,
-                "Type": 3
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "LimitEntireFence",
-        "ParentUID": 1957540640,
-        "PrefabUID": 645187195,
-        "Tag": "Default",
-        "UID": 2494332573
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    238.1439971923828,
-                    1.061997652053833,
-                    -3.297506093978882
-                ],
-                "Rotation": [
-                    -0.0,
                     0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    0.23999999463558197,
-                    1.1160000562667847,
-                    0.2800000011920929
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 48433420,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "ResourceUID": 441409638,
-                "Type": 3
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "LimitEntireFence",
-        "ParentUID": 1957540640,
-        "PrefabUID": 645187195,
-        "Tag": "Default",
-        "UID": 1893607085
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    238.1439971923828,
-                    1.062000036239624,
-                    -6.0108642578125
+                    0.0
                 ],
                 "Rotation": [
-                    -0.0,
                     0.0,
-                    -0.0
+                    0.0,
+                    0.0
                 ],
                 "Scale": [
-                    0.23999999463558197,
-                    1.1160000562667847,
-                    0.25
+                    1.0,
+                    1.0,
+                    1.0
                 ],
                 "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 48433420,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "ResourceUID": 441409638,
-                "Type": 3
             }
         ],
         "FirstOnPrefab": true,
-        "Name": "LimitEntireFence",
+        "Name": "Fences1",
         "ParentUID": 1957540640,
-        "PrefabUID": 645187195,
+        "PrefabUID": 0,
         "Tag": "Default",
-        "UID": 754603979
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    236.77261352539063,
-                    1.0622481107711792,
-                    -7.222836971282959
-                ],
-                "Rotation": [
-                    179.99989318847656,
-                    89.98020935058594,
-                    179.99989318847656
-                ],
-                "Scale": [
-                    0.24000005424022675,
-                    1.1160000562667847,
-                    0.2800000011920929
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 48433420,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "ResourceUID": 441409638,
-                "Type": 3
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "LimitEntireFence",
-        "ParentUID": 1957540640,
-        "PrefabUID": 645187195,
-        "Tag": "Default",
-        "UID": 243657286
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    233.8962860107422,
-                    1.062000036239624,
-                    -7.2230000495910645
-                ],
-                "Rotation": [
-                    179.99989318847656,
-                    89.98020935058594,
-                    179.99989318847656
-                ],
-                "Scale": [
-                    0.24000002443790436,
-                    1.1159921884536743,
-                    0.2799980044364929
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 48433420,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "ResourceUID": 441409638,
-                "Type": 3
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "LimitEntireFence",
-        "ParentUID": 1957540640,
-        "PrefabUID": 645187195,
-        "Tag": "Default",
-        "UID": 2838056702
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    231.07107543945313,
-                    1.062000036239624,
-                    -7.2230000495910645
-                ],
-                "Rotation": [
-                    179.99989318847656,
-                    89.98020935058594,
-                    179.99989318847656
-                ],
-                "Scale": [
-                    0.24000005424022675,
-                    1.1160000562667847,
-                    0.2800000011920929
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 48433420,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "ResourceUID": 441409638,
-                "Type": 3
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "LimitEntireFence",
-        "ParentUID": 1957540640,
-        "PrefabUID": 645187195,
-        "Tag": "Default",
-        "UID": 2670164757
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    228.25228881835938,
-                    1.062000036239624,
-                    -7.2230000495910645
-                ],
-                "Rotation": [
-                    179.99989318847656,
-                    89.98020935058594,
-                    179.99989318847656
-                ],
-                "Scale": [
-                    0.24000005424022675,
-                    1.1160000562667847,
-                    0.2800000011920929
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 48433420,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "ResourceUID": 441409638,
-                "Type": 3
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "LimitEntireFence",
-        "ParentUID": 1957540640,
-        "PrefabUID": 645187195,
-        "Tag": "Default",
-        "UID": 3476884924
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    225.41262817382813,
-                    1.062000036239624,
-                    -7.2230000495910645
-                ],
-                "Rotation": [
-                    179.99989318847656,
-                    89.98020935058594,
-                    179.99989318847656
-                ],
-                "Scale": [
-                    0.23999999463558197,
-                    1.1160000562667847,
-                    0.2800000011920929
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 48433420,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "ResourceUID": 441409638,
-                "Type": 3
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "LimitEntireFence",
-        "ParentUID": 1957540640,
-        "PrefabUID": 645187195,
-        "Tag": "Default",
-        "UID": 4143458540
+        "UID": 1441124104
     },
     {
         "Active": true,
@@ -48328,9 +49042,2499 @@
         ],
         "FirstOnPrefab": true,
         "Name": "LimitEntireFence",
-        "ParentUID": 1957540640,
+        "ParentUID": 1441124104,
         "PrefabUID": 645187195,
         "Tag": "Default",
         "UID": 248577499
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    225.41262817382813,
+                    1.062000036239624,
+                    -7.2230000495910645
+                ],
+                "Rotation": [
+                    179.99989318847656,
+                    89.98020935058594,
+                    179.99989318847656
+                ],
+                "Scale": [
+                    0.23999999463558197,
+                    1.1160000562667847,
+                    0.2800000011920929
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 48433420,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 441409638,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LimitEntireFence",
+        "ParentUID": 1441124104,
+        "PrefabUID": 645187195,
+        "Tag": "Default",
+        "UID": 4143458540
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    228.25228881835938,
+                    1.062000036239624,
+                    -7.2230000495910645
+                ],
+                "Rotation": [
+                    179.99989318847656,
+                    89.98020935058594,
+                    179.99989318847656
+                ],
+                "Scale": [
+                    0.24000005424022675,
+                    1.1160000562667847,
+                    0.2800000011920929
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 48433420,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 441409638,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LimitEntireFence",
+        "ParentUID": 1441124104,
+        "PrefabUID": 645187195,
+        "Tag": "Default",
+        "UID": 3476884924
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    231.07107543945313,
+                    1.062000036239624,
+                    -7.2230000495910645
+                ],
+                "Rotation": [
+                    179.99989318847656,
+                    89.98020935058594,
+                    179.99989318847656
+                ],
+                "Scale": [
+                    0.24000005424022675,
+                    1.1160000562667847,
+                    0.2800000011920929
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 48433420,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 441409638,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LimitEntireFence",
+        "ParentUID": 1441124104,
+        "PrefabUID": 645187195,
+        "Tag": "Default",
+        "UID": 2670164757
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    233.8962860107422,
+                    1.062000036239624,
+                    -7.2230000495910645
+                ],
+                "Rotation": [
+                    179.99989318847656,
+                    89.98020935058594,
+                    179.99989318847656
+                ],
+                "Scale": [
+                    0.24000002443790436,
+                    1.1159921884536743,
+                    0.2799980044364929
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 48433420,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 441409638,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LimitEntireFence",
+        "ParentUID": 1441124104,
+        "PrefabUID": 645187195,
+        "Tag": "Default",
+        "UID": 2838056702
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    236.77261352539063,
+                    1.0622481107711792,
+                    -7.222836971282959
+                ],
+                "Rotation": [
+                    179.99989318847656,
+                    89.98020935058594,
+                    179.99989318847656
+                ],
+                "Scale": [
+                    0.24000005424022675,
+                    1.1160000562667847,
+                    0.2800000011920929
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 48433420,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 441409638,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LimitEntireFence",
+        "ParentUID": 1441124104,
+        "PrefabUID": 645187195,
+        "Tag": "Default",
+        "UID": 243657286
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    238.1439971923828,
+                    1.062000036239624,
+                    -6.0108642578125
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    0.23999999463558197,
+                    1.1160000562667847,
+                    0.25
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 48433420,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 441409638,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LimitEntireFence",
+        "ParentUID": 1441124104,
+        "PrefabUID": 645187195,
+        "Tag": "Default",
+        "UID": 754603979
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    238.1439971923828,
+                    1.061997652053833,
+                    -3.297506093978882
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    0.23999999463558197,
+                    1.1160000562667847,
+                    0.2800000011920929
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 48433420,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 441409638,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LimitEntireFence",
+        "ParentUID": 1441124104,
+        "PrefabUID": 645187195,
+        "Tag": "Default",
+        "UID": 1893607085
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    238.1444549560547,
+                    1.0947680473327637,
+                    -0.43557578325271606
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    0.23999999463558197,
+                    1.1160000562667847,
+                    0.2800000011920929
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 48433420,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 441409638,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LimitEntireFence",
+        "ParentUID": 1441124104,
+        "PrefabUID": 645187195,
+        "Tag": "Default",
+        "UID": 2494332573
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    238.16127014160156,
+                    1.0623358488082886,
+                    2.372312545776367
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    0.23999999463558197,
+                    1.1160000562667847,
+                    0.2800000011920929
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 48433420,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 441409638,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LimitEntireFence",
+        "ParentUID": 1441124104,
+        "PrefabUID": 645187195,
+        "Tag": "Default",
+        "UID": 1809721527
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Floor2",
+        "ParentUID": 1957540640,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3992679370
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    145.0780029296875,
+                    11.105999946594238,
+                    14.925238609313965
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    7.5,
+                    0.6000000238418579,
+                    7.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2439010209,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3521069009,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CenterGround",
+        "ParentUID": 3992679370,
+        "PrefabUID": 3766244713,
+        "Tag": "Default",
+        "UID": 2916159177
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    145.0780029296875,
+                    11.105999946594238,
+                    7.476329803466797
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    7.5,
+                    0.6000000238418579,
+                    7.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2439010209,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3521069009,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CenterGround",
+        "ParentUID": 3992679370,
+        "PrefabUID": 3766244713,
+        "Tag": "Default",
+        "UID": 1847616261
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    145.0780029296875,
+                    11.105999946594238,
+                    0.08398115634918213
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    7.5,
+                    0.6000000238418579,
+                    7.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2439010209,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3521069009,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CenterGround",
+        "ParentUID": 3992679370,
+        "PrefabUID": 3766244713,
+        "Tag": "Default",
+        "UID": 1057713361
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    145.0780029296875,
+                    11.105999946594238,
+                    -7.397120952606201
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    7.5,
+                    0.6000000238418579,
+                    7.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2439010209,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3521069009,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CenterGround",
+        "ParentUID": 3992679370,
+        "PrefabUID": 3766244713,
+        "Tag": "Default",
+        "UID": 3822555210
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    145.0780029296875,
+                    11.105999946594238,
+                    -14.840725898742676
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    7.5,
+                    0.6000000238418579,
+                    7.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2439010209,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3521069009,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CenterGround",
+        "ParentUID": 3992679370,
+        "PrefabUID": 3766244713,
+        "Tag": "Default",
+        "UID": 2495566562
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    145.0775909423828,
+                    11.105999946594238,
+                    -22.26793670654297
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    7.5,
+                    0.6000000238418579,
+                    7.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2439010209,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3521069009,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CenterGround",
+        "ParentUID": 3992679370,
+        "PrefabUID": 3766244713,
+        "Tag": "Default",
+        "UID": 2721335415
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    152.49099731445313,
+                    11.105999946594238,
+                    37.28584289550781
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    7.5,
+                    0.6000000238418579,
+                    7.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2439010209,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3521069009,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CenterGround",
+        "ParentUID": 3992679370,
+        "PrefabUID": 3766244713,
+        "Tag": "Default",
+        "UID": 4155585432
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    152.49099731445313,
+                    11.105999946594238,
+                    29.83241844177246
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    7.5,
+                    0.6000000238418579,
+                    7.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2439010209,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3521069009,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CenterGround",
+        "ParentUID": 3992679370,
+        "PrefabUID": 3766244713,
+        "Tag": "Default",
+        "UID": 3453689400
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    152.49099731445313,
+                    11.105999946594238,
+                    22.37506675720215
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    7.5,
+                    0.6000000238418579,
+                    7.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2439010209,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3521069009,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CenterGround",
+        "ParentUID": 3992679370,
+        "PrefabUID": 3766244713,
+        "Tag": "Default",
+        "UID": 3679960757
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    152.49099731445313,
+                    11.105999946594238,
+                    14.96375846862793
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    7.5,
+                    0.6000000238418579,
+                    7.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2439010209,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3521069009,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CenterGround",
+        "ParentUID": 3992679370,
+        "PrefabUID": 3766244713,
+        "Tag": "Default",
+        "UID": 1818262465
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    152.49099731445313,
+                    11.105999946594238,
+                    7.51737117767334
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    7.5,
+                    0.6000000238418579,
+                    7.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2439010209,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3521069009,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CenterGround",
+        "ParentUID": 3992679370,
+        "PrefabUID": 3766244713,
+        "Tag": "Default",
+        "UID": 4118700463
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    152.49099731445313,
+                    11.105999946594238,
+                    0.08161687850952148
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    7.5,
+                    0.6000000238418579,
+                    7.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2439010209,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3521069009,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CenterGround",
+        "ParentUID": 3992679370,
+        "PrefabUID": 3766244713,
+        "Tag": "Default",
+        "UID": 3661880008
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    152.49099731445313,
+                    11.105999946594238,
+                    -7.380061149597168
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    7.5,
+                    0.6000000238418579,
+                    7.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2439010209,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3521069009,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CenterGround",
+        "ParentUID": 3992679370,
+        "PrefabUID": 3766244713,
+        "Tag": "Default",
+        "UID": 2065210024
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    152.49099731445313,
+                    11.105999946594238,
+                    -14.856633186340332
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    7.5,
+                    0.6000000238418579,
+                    7.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2439010209,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3521069009,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CenterGround",
+        "ParentUID": 3992679370,
+        "PrefabUID": 3766244713,
+        "Tag": "Default",
+        "UID": 520658705
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    145.0780029296875,
+                    11.105999946594238,
+                    22.356428146362305
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    7.5,
+                    0.6000000238418579,
+                    7.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2439010209,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3521069009,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CenterGround",
+        "ParentUID": 3992679370,
+        "PrefabUID": 3766244713,
+        "Tag": "Default",
+        "UID": 2813979996
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    145.0780029296875,
+                    11.105999946594238,
+                    29.820404052734375
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    7.5,
+                    0.6000000238418579,
+                    7.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2439010209,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3521069009,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CenterGround",
+        "ParentUID": 3992679370,
+        "PrefabUID": 3766244713,
+        "Tag": "Default",
+        "UID": 4047021650
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    145.0780029296875,
+                    11.105999946594238,
+                    37.287452697753906
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    7.5,
+                    0.6000000238418579,
+                    7.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2439010209,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3521069009,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CenterGround",
+        "ParentUID": 3992679370,
+        "PrefabUID": 3766244713,
+        "Tag": "Default",
+        "UID": 3544709753
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    137.6208953857422,
+                    11.105999946594238,
+                    -22.249568939208984
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    7.5,
+                    0.6000000238418579,
+                    7.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2439010209,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3521069009,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CenterGround",
+        "ParentUID": 3992679370,
+        "PrefabUID": 3766244713,
+        "Tag": "Default",
+        "UID": 1711852748
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    137.62100219726563,
+                    11.105999946594238,
+                    -14.813226699829102
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    7.5,
+                    0.6000000238418579,
+                    7.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2439010209,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3521069009,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CenterGround",
+        "ParentUID": 3992679370,
+        "PrefabUID": 3766244713,
+        "Tag": "Default",
+        "UID": 4147639100
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    137.62100219726563,
+                    11.105999946594238,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    7.5,
+                    0.6000000238418579,
+                    7.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2439010209,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3521069009,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CenterGround",
+        "ParentUID": 3992679370,
+        "PrefabUID": 3766244713,
+        "Tag": "Default",
+        "UID": 3540536427
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    137.62100219726563,
+                    11.105999946594238,
+                    -7.387477874755859
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    7.5,
+                    0.6000000238418579,
+                    7.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2439010209,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3521069009,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CenterGround",
+        "ParentUID": 3992679370,
+        "PrefabUID": 3766244713,
+        "Tag": "Default",
+        "UID": 3218499430
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    137.62100219726563,
+                    11.105999946594238,
+                    7.437565803527832
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    7.5,
+                    0.6000000238418579,
+                    7.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2439010209,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3521069009,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CenterGround",
+        "ParentUID": 3992679370,
+        "PrefabUID": 3766244713,
+        "Tag": "Default",
+        "UID": 2410016413
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    137.62100219726563,
+                    11.105999946594238,
+                    14.884529113769531
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    7.5,
+                    0.6000000238418579,
+                    7.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2439010209,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3521069009,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CenterGround",
+        "ParentUID": 3992679370,
+        "PrefabUID": 3766244713,
+        "Tag": "Default",
+        "UID": 560303936
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    137.62100219726563,
+                    11.105999946594238,
+                    22.32181739807129
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    7.5,
+                    0.6000000238418579,
+                    7.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2439010209,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3521069009,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CenterGround",
+        "ParentUID": 3992679370,
+        "PrefabUID": 3766244713,
+        "Tag": "Default",
+        "UID": 2027345984
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    137.62100219726563,
+                    11.105999946594238,
+                    29.749982833862305
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    7.5,
+                    0.6000000238418579,
+                    7.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2439010209,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3521069009,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CenterGround",
+        "ParentUID": 3992679370,
+        "PrefabUID": 3766244713,
+        "Tag": "Default",
+        "UID": 344503615
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    137.62100219726563,
+                    11.105999946594238,
+                    37.21220397949219
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    7.5,
+                    0.6000000238418579,
+                    7.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2439010209,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3521069009,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CenterGround",
+        "ParentUID": 3992679370,
+        "PrefabUID": 3766244713,
+        "Tag": "Default",
+        "UID": 1987489505
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    130.13943481445313,
+                    11.105999946594238,
+                    -22.25693130493164
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    7.5,
+                    0.6000000238418579,
+                    7.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2439010209,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3521069009,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CenterGround",
+        "ParentUID": 3992679370,
+        "PrefabUID": 3766244713,
+        "Tag": "Default",
+        "UID": 45452372
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    130.13900756835938,
+                    11.105999946594238,
+                    -14.827195167541504
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    7.5,
+                    0.6000000238418579,
+                    7.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2439010209,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3521069009,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CenterGround",
+        "ParentUID": 3992679370,
+        "PrefabUID": 3766244713,
+        "Tag": "Default",
+        "UID": 3343661156
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    130.13900756835938,
+                    11.105999946594238,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    7.5,
+                    0.6000000238418579,
+                    7.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2439010209,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3521069009,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CenterGround",
+        "ParentUID": 3992679370,
+        "PrefabUID": 3766244713,
+        "Tag": "Default",
+        "UID": 1805898675
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    130.13900756835938,
+                    11.105999946594238,
+                    -7.398458003997803
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    7.5,
+                    0.6000000238418579,
+                    7.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2439010209,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3521069009,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CenterGround",
+        "ParentUID": 3992679370,
+        "PrefabUID": 3766244713,
+        "Tag": "Default",
+        "UID": 1893996367
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    130.13900756835938,
+                    11.105999946594238,
+                    7.3810272216796875
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    7.5,
+                    0.6000000238418579,
+                    7.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2439010209,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3521069009,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CenterGround",
+        "ParentUID": 3992679370,
+        "PrefabUID": 3766244713,
+        "Tag": "Default",
+        "UID": 2130112411
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    130.13900756835938,
+                    11.105999946594238,
+                    14.848320960998535
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    7.5,
+                    0.6000000238418579,
+                    7.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2439010209,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3521069009,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CenterGround",
+        "ParentUID": 3992679370,
+        "PrefabUID": 3766244713,
+        "Tag": "Default",
+        "UID": 2750725417
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    130.13900756835938,
+                    11.105999946594238,
+                    22.268030166625977
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    7.5,
+                    0.6000000238418579,
+                    7.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2439010209,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3521069009,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CenterGround",
+        "ParentUID": 3992679370,
+        "PrefabUID": 3766244713,
+        "Tag": "Default",
+        "UID": 4252462909
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    130.13900756835938,
+                    11.105999946594238,
+                    29.573848724365234
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    7.5,
+                    0.6000000238418579,
+                    7.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2439010209,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3521069009,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CenterGround",
+        "ParentUID": 3992679370,
+        "PrefabUID": 3766244713,
+        "Tag": "Default",
+        "UID": 34539616
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    130.13900756835938,
+                    11.105999946594238,
+                    37.04156494140625
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    7.5,
+                    0.6000000238418579,
+                    7.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2439010209,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3521069009,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CenterGround",
+        "ParentUID": 3992679370,
+        "PrefabUID": 3766244713,
+        "Tag": "Default",
+        "UID": 3795887072
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    122.68694305419922,
+                    11.105999946594238,
+                    -22.266281127929688
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    7.5,
+                    0.6000000238418579,
+                    7.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2439010209,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3521069009,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CenterGround",
+        "ParentUID": 3992679370,
+        "PrefabUID": 3766244713,
+        "Tag": "Default",
+        "UID": 4116116832
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    122.68699645996094,
+                    11.105999946594238,
+                    -14.793750762939453
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    7.5,
+                    0.6000000238418579,
+                    7.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2439010209,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3521069009,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CenterGround",
+        "ParentUID": 3992679370,
+        "PrefabUID": 3766244713,
+        "Tag": "Default",
+        "UID": 3657004255
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    122.68699645996094,
+                    11.105999946594238,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    7.5,
+                    0.6000000238418579,
+                    7.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2439010209,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3521069009,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CenterGround",
+        "ParentUID": 3992679370,
+        "PrefabUID": 3766244713,
+        "Tag": "Default",
+        "UID": 2926897770
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    122.68699645996094,
+                    11.105999946594238,
+                    -7.409600257873535
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    7.5,
+                    0.6000000238418579,
+                    7.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2439010209,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3521069009,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CenterGround",
+        "ParentUID": 3992679370,
+        "PrefabUID": 3766244713,
+        "Tag": "Default",
+        "UID": 3121253746
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    122.68699645996094,
+                    11.105999946594238,
+                    7.430292129516602
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    7.5,
+                    0.6000000238418579,
+                    7.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2439010209,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3521069009,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CenterGround",
+        "ParentUID": 3992679370,
+        "PrefabUID": 3766244713,
+        "Tag": "Default",
+        "UID": 936709145
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    122.68699645996094,
+                    11.105999946594238,
+                    14.903404235839844
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    7.5,
+                    0.6000000238418579,
+                    7.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2439010209,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3521069009,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CenterGround",
+        "ParentUID": 3992679370,
+        "PrefabUID": 3766244713,
+        "Tag": "Default",
+        "UID": 4138928877
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    122.68699645996094,
+                    11.105999946594238,
+                    22.358766555786133
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    7.5,
+                    0.6000000238418579,
+                    7.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2439010209,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3521069009,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CenterGround",
+        "ParentUID": 3992679370,
+        "PrefabUID": 3766244713,
+        "Tag": "Default",
+        "UID": 2716489680
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    122.68699645996094,
+                    11.105999946594238,
+                    29.72271728515625
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    7.5,
+                    0.6000000238418579,
+                    7.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2439010209,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3521069009,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CenterGround",
+        "ParentUID": 3992679370,
+        "PrefabUID": 3766244713,
+        "Tag": "Default",
+        "UID": 138099215
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    122.68699645996094,
+                    11.105999946594238,
+                    37.16117477416992
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    7.5,
+                    0.6000000238418579,
+                    7.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2439010209,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3521069009,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CenterGround",
+        "ParentUID": 3992679370,
+        "PrefabUID": 3766244713,
+        "Tag": "Default",
+        "UID": 2468639067
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Floor3",
+        "ParentUID": 1957540640,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1837720590
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    100.38448333740234,
+                    29.63631820678711,
+                    -37.7125244140625
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    7.5,
+                    0.6000000238418579,
+                    7.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2439010209,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3521069009,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CenterGround",
+        "ParentUID": 1957540640,
+        "PrefabUID": 3766244713,
+        "Tag": "Default",
+        "UID": 1709166870
     }
 ]

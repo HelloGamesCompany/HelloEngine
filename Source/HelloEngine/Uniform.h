@@ -327,6 +327,8 @@ public:
 		this->data = data; 
 		SetVariable();
 	}
+
+	void Unbind();
 	
 	~UniSampler2D(); //On CPP
 

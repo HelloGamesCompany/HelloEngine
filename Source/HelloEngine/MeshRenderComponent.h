@@ -19,7 +19,7 @@ public:
 	MeshRenderComponent(GameObject* gameObject, const MeshRenderComponent& copy);
 	virtual ~MeshRenderComponent() override;
 
-	virtual void CreateMesh(uint resourceUID, int materialUID = -1, MeshRenderType type = MeshRenderType::INSTANCED);
+	virtual void CreateMesh(uint resourceUID, uint materialUID = 0, MeshRenderType type = MeshRenderType::INSTANCED);
 
 	void CreateMesh2D();
 
@@ -65,6 +65,7 @@ protected:
 	ResourceMesh* _resource = nullptr;
 	int64_t _meshID = -1;
 	uint _instanceID = 0;
+	uint _renderID = 0; //ID of the stored map.
 
 	int _selectedNormalDisplay = 0;
 

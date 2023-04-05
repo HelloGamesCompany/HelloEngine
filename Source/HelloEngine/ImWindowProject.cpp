@@ -815,6 +815,12 @@ void ImWindowProject::PanelCreateShader()
             std::string resourcePath = "Resources/Shaders/" + std::to_string(UUID) + ".shader";
             std::string assetPath = _fileTree->_currentDir->path + _temporalName;
 
+			if (ModuleFiles::S_Exists(resourcePath)) 
+			{
+				LayerEditor::S_AddPopUpMessage("A shader with that name already exists.");
+				return;
+			}
+
             int size = BaseShader::newShaderTextFileUnlit.length();
             char* cstr = BaseShader::newShaderTextFileUnlit.data();
 
@@ -831,6 +837,8 @@ void ImWindowProject::PanelCreateShader()
 
             _openCreateShaderPanel = false;
             delete[] cstr;
+
+			UpdateFileNodes();
         }
 
         ImGui::SameLine();
@@ -866,6 +874,12 @@ void ImWindowProject::PanelCreateMaterial()
             std::string resourcePath = "Resources/Materials/" + std::to_string(UUID) + ".material";
             std::string assetPath = _fileTree->_currentDir->path + _temporalName;
 
+			if (ModuleFiles::S_Exists(resourcePath))
+			{
+				LayerEditor::S_AddPopUpMessage("A material with that name already exists.");
+				return;
+			}
+
 			json emptyMaterial;
 
 			emptyMaterial["Shader resource UID"] = 0;
@@ -895,6 +909,7 @@ void ImWindowProject::PanelCreateMaterial()
             _temporalName = "default";
 
             _openCreateMaterialPanel = false;
+			UpdateFileNodes();
         }
 
         ImGui::SameLine();
