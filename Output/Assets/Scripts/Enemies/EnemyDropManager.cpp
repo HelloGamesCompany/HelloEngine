@@ -3,14 +3,15 @@ HELLO_ENGINE_API_C EnemyDropManager* CreateEnemyDropManager(ScriptToInspectorInt
 {
     EnemyDropManager* classInstance = new EnemyDropManager();
     //Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
-    script->AddDragInt("Enemy Drop Rate", &classInstance->enemyDropRate);
-    script->AddDragInt("Enemy Ammo Drop Rate", &classInstance->enemyAmmoDropRate);
-    script->AddDragInt("Enemy Aid Kit Drop Rate", &classInstance->enemyAidKitDropRate);
-    script->AddDragInt("Enemy Power Ups Drop Rate", &classInstance->enemyPowerUpsDropRate);
-    script->AddDragInt("Box Drop Rate", &classInstance->BoxDropRate);
-    script->AddDragInt("Box Ammo Drop Rate", &classInstance->BoxAmmoDropRate);
-    script->AddDragInt("Box Aid Kit Drop Rate", &classInstance->BoxAidKitDropRate);
-
+    script->AddDragFloat("Enemy Drop Rate", &classInstance->enemyDropRate);
+    script->AddDragFloat("Upgraded Enemy Drop Rate", &classInstance->upgradedEnemyDropRate);
+    script->AddDragFloat("Enemy Ammo Drop Rate", &classInstance->enemyAmmoDropRate);
+    script->AddDragFloat("Enemy Aid Kit Drop Rate", &classInstance->enemyAidKitDropRate);
+    script->AddDragFloat("Enemy Power Ups Drop Rate", &classInstance->enemyPowerUpsDropRate);
+    script->AddDragFloat("Box Drop Rate", &classInstance->BoxDropRate);
+    script->AddDragFloat("Box Ammo Drop Rate", &classInstance->BoxAmmoDropRate);
+    script->AddDragFloat("Box Aid Kit Drop Rate", &classInstance->BoxAidKitDropRate);
+    script->AddDragBoxGameObject("Player Stats GO", &classInstance->playerStatsGO);
     script->AddDragInt("Pull Size per Drop Type", &classInstance->pullSize);
     script->AddDragBoxMeshResource("Lase Ammo Drop Mesh", &classInstance->mesh0);
     script->AddDragBoxMeshResource("First Aid Kit Drop Mesh", &classInstance->mesh1);
@@ -31,6 +32,9 @@ HELLO_ENGINE_API_C EnemyDropManager* CreateEnemyDropManager(ScriptToInspectorInt
 
 void EnemyDropManager::Start()
 {
+    playerStats = (PlayerStats*)playerStatsGO.GetScript("PlayerStats");
+    if (playerStats == nullptr) Console::Log("PlayerStats missing in EnemyDropManager Script.");
+
     for (size_t i = 0; i < pullSize; i++)
     {
         API_GameObject newDrop = Game::CreateGameObject("Ammo Drop", "EnemyDrop");
@@ -131,40 +135,53 @@ void EnemyDropManager::Update()
 
 void EnemyDropManager::SpinDropRate(API_Vector3 position) // check if enemy drop things
 {
-    float n = rand() % 100;
-    API_GameObject go;
+    float dropRate = rand() % 100;
+    float currentDropRate;
+    if (playerStats && playerStats->armoryTreeLvl > 2) currentDropRate = upgradedEnemyDropRate;
+    else currentDropRate = enemyDropRate;
 
-    if (n < 20) // 20% first aid kit
+    if (dropRate < currentDropRate)
     {
-        go = GetFirstInactiveObject(1);
-    }
-    else if (n < 40) // 20% speed power up
-    {
-        go = GetFirstInactiveObject(2);
-    }
-    else if (n < 50) // 10% firerate power up
-    {
-        go = GetFirstInactiveObject(3);
-    }
-    else if (n < 60) // 10% shield power up
-    {
-        go = GetFirstInactiveObject(4);
-    }
-    else if (n < 70) // 10% slow time power up
-    {
-        go = GetFirstInactiveObject(5);
-    }
-    else if (n < 80) // 10% max ammo power up
-    {
-        go = GetFirstInactiveObject(6);
-    }
-    else // 20% laser ammo 
-    {
-        go = GetFirstInactiveObject(0);
-    }
+        API_GameObject go;
+        float drop = rand() % 100;
 
-    go.SetActive(true);
-    go.GetTransform().SetPosition(position);
+        if (drop < enemyAmmoDropRate)
+        {
+            go = GetFirstInactiveObject(0);
+        }
+        else if (drop < enemyAmmoDropRate + enemyAidKitDropRate)
+        {
+            go = GetFirstInactiveObject(1);
+        }
+        else if (drop < enemyAmmoDropRate + enemyAidKitDropRate + enemyPowerUpsDropRate)
+        {
+            float powerUpDrop = rand() % 5;
+
+            if (powerUpDrop < 1.0f)
+            {
+                go = GetFirstInactiveObject(2);
+            }
+            else if (powerUpDrop < 2.0f)
+            {
+                go = GetFirstInactiveObject(3);
+            }
+            else if (powerUpDrop < 3.0f)
+            {
+                go = GetFirstInactiveObject(4);
+            }
+            else if (powerUpDrop < 4.0f)
+            {
+                go = GetFirstInactiveObject(5);
+            }
+            else if (powerUpDrop < 5.0f)
+            {
+                go = GetFirstInactiveObject(6);
+            }
+        }
+
+        go.SetActive(true);
+        go.GetTransform().SetPosition(position);
+    }
 }
 
 API_GameObject EnemyDropManager::GetFirstInactiveObject(int index)
@@ -221,13 +238,10 @@ API_GameObject EnemyDropManager::GetFirstInactiveObject(int index)
 
 void EnemyDropManager::BoxSpinDropRate(API_Vector3 position)
 {
-
     float dropRate = rand() % 100;
     
-
     if (dropRate < BoxDropRate)
     {
-
         API_GameObject go;
 
         float drop = rand() % 100;
