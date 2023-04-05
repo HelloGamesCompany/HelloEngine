@@ -28,6 +28,9 @@ public:
     float lastHitTime;
     void Heal(float amount);
     API_ParticleSystem hitParticles;
+    API_ParticleSystem healParticles;
+    bool playingHealParticles;
+    API_ParticleSystem aidKitParticles;
 
     int GetAmmonByType(int type);
     void GetAmmo(int type, int amount);
@@ -41,6 +44,14 @@ public:
     int maxRicochetAmmo;
 
     bool detected;//if the player is being detected somehow
+
+    // skills values
+    float deadlinePart = 20.0f;
+    float upgradedDeadlinePart = 25.0f;
+    float deadlineHeal = 5.0f;
+    float upgradedDeadlineHeal = 7.5f;
+    float aidKitHeal = 50.0f;
+    float upgradedAidKitHeal = 75.0f;
 
     // skills tree
     void UpgradeTreeLvl(int tree);

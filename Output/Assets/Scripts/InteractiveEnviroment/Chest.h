@@ -5,6 +5,9 @@
 
 #include "API/API.h"
 
+#include "../Shooting/PlayerGunManager.h"
+#include "../Player/PlayerStats.h"
+
 class Chest : HelloBehavior
 {
 public:
@@ -12,6 +15,12 @@ public:
     void Update() override;
 
     void OnCollisionEnter(API::API_RigidBody other) override;
+
+    float openChestTime;
+    float maxOpenChestTime = 1.0f;
+    bool opening;
+    PlayerGunManager* playerGunManager;
+    PlayerStats* playerStats;
 
     int itemIndex;
     // 0 -> Upgrade Blueprint
