@@ -17,6 +17,8 @@ namespace API
 
 		void ChangeMesh(uint meshResourceUID);
 
+		void SetActive(bool active);
+
 	private:
 		MeshRenderComponent* GetComponent();
 		void SetComponent(MeshRenderComponent* component);
