@@ -72,12 +72,16 @@ void SwapWeapon::Start()
     //weapon 2
     material_Normal_Weapon_on.ChangeAlbedoTexture(normalWeaponsOn[0]);
     material_Normal_Weapon_off.ChangeAlbedoTexture(normalWeaponsOff[0]);
+    material_Normal_Weapon_on.GetGameObject().SetActive(false);
+    material_Normal_Weapon_off.GetGameObject().SetActive(false);
     material_Normal_Weapon_off.GetGameObject().SetActive(false);
     active_Bar_2.SetActive(false);
     //weapon 3
     material_Special_Weapon_on.ChangeAlbedoTexture(specialsWeaponsOn[0]);
-    material_Normal_Weapon_off.ChangeAlbedoTexture(specialsWeaponsOff[0]);
-    material_Normal_Weapon_off.GetGameObject().SetActive(false);
+    material_Special_Weapon_off.ChangeAlbedoTexture(specialsWeaponsOff[0]);
+    material_Special_Weapon_on.GetGameObject().SetActive(false);
+    material_Special_Weapon_off.GetGameObject().SetActive(false);
+    material_Special_Weapon_off.GetGameObject().SetActive(false);
     active_Bar_3.SetActive(false);
 
     //Dash
@@ -89,6 +93,33 @@ void SwapWeapon::Start()
 }
 void SwapWeapon::Update()
 {
+
+    if (Input::GetKey(KeyCode::KEY_C) == KeyState::KEY_DOWN) {
+        arma_Princial = true;
+        arma_Secundaria = false;
+        arma_Especial = false;
+        SwapWeapon1(infinitWeapon_Type::HANDGUNS, arma_Princial);
+        Console::Log("si: ");
+    }
+
+    if (Input::GetKey(KeyCode::KEY_X) == KeyState::KEY_DOWN) {
+        arma_Princial = false;
+        arma_Secundaria = true;
+        arma_Especial = false;
+        SwapWeapon2(normalWeapon_Type::SEMI, arma_Secundaria);
+        Console::Log("no: ");
+    }
+
+    if (Input::GetKey(KeyCode::KEY_Z) == KeyState::KEY_DOWN) {
+        arma_Princial = false;
+        arma_Secundaria = false;
+        arma_Especial = true;
+        SwapWeapon3(specialWeapon_Type::RICOCHET, arma_Especial);
+        Console::Log("ss: ");
+    }
+
+
+
     if (playerMove && playerMove->dashesAvailable > 0 && !dashingReady)
     {
         Dash();
@@ -122,6 +153,7 @@ void SwapWeapon::SwapWeapon1(infinitWeapon_Type infinitWeapon,bool active)
             material_Infinite_Weapon_off.GetGameObject().SetActive(false);
             material_Normal_Weapon_off.GetGameObject().SetActive(true);
             material_Special_Weapon_off.GetGameObject().SetActive(true);
+
             //bars
             active_Bar_1.SetActive(true);
             active_Bar_2.SetActive(false);
@@ -138,6 +170,9 @@ void SwapWeapon::SwapWeapon2(normalWeapon_Type normalWeapon, bool active)
     case normalWeapon_Type::NONE:
         material_Normal_Weapon_on.ChangeAlbedoTexture(normalWeaponsOn[0]);
         material_Normal_Weapon_off.ChangeAlbedoTexture(normalWeaponsOff[0]);
+        material_Normal_Weapon_off.GetGameObject().SetActive(false);
+        material_Normal_Weapon_off.GetGameObject().SetActive(false);
+
         break;
     case normalWeapon_Type::AUTO:
         material_Normal_Weapon_on.ChangeAlbedoTexture(normalWeaponsOn[1]);
@@ -155,7 +190,7 @@ void SwapWeapon::SwapWeapon2(normalWeapon_Type normalWeapon, bool active)
         material_Normal_Weapon_on.ChangeAlbedoTexture(normalWeaponsOn[4]);
         material_Normal_Weapon_off.ChangeAlbedoTexture(normalWeaponsOff[4]);
         break;
-    case normalWeapon_Type::HANDGUN:
+    case normalWeapon_Type::REVOLVER:
         material_Normal_Weapon_on.ChangeAlbedoTexture(normalWeaponsOn[5]);
         material_Normal_Weapon_off.ChangeAlbedoTexture(normalWeaponsOff[5]);
         break;
@@ -187,15 +222,18 @@ void SwapWeapon::SwapWeapon3(specialWeapon_Type specialWeapon, bool active)
     {
     case specialWeapon_Type::NONE:
         material_Special_Weapon_on.ChangeAlbedoTexture(specialsWeaponsOn[0]);
-        material_Normal_Weapon_off.ChangeAlbedoTexture(specialsWeaponsOff[0]);
+        material_Special_Weapon_off.ChangeAlbedoTexture(specialsWeaponsOff[0]);
+        material_Special_Weapon_off.GetGameObject().SetActive(false);
+        material_Special_Weapon_off.GetGameObject().SetActive(false);
         break;
     case specialWeapon_Type::FLAMETHROWER:
         material_Special_Weapon_on.ChangeAlbedoTexture(specialsWeaponsOn[1]);
-        material_Normal_Weapon_off.ChangeAlbedoTexture(specialsWeaponsOff[1]);
+        material_Special_Weapon_off.ChangeAlbedoTexture(specialsWeaponsOff[1]);
         break;
     case specialWeapon_Type::RICOCHET:
         material_Special_Weapon_on.ChangeAlbedoTexture(specialsWeaponsOn[2]);
-        material_Normal_Weapon_off.ChangeAlbedoTexture(specialsWeaponsOff[2]);
+        material_Special_Weapon_off.ChangeAlbedoTexture(specialsWeaponsOff[2]);
+        Console::Log("ricochet:  ");
         break;
     default:
         break;
@@ -212,11 +250,13 @@ void SwapWeapon::SwapWeapon3(specialWeapon_Type specialWeapon, bool active)
         material_Infinite_Weapon_off.GetGameObject().SetActive(true);
         material_Normal_Weapon_off.GetGameObject().SetActive(true);
         material_Special_Weapon_off.GetGameObject().SetActive(false);
+        
         //bars
-
         active_Bar_1.SetActive(false);
         active_Bar_2.SetActive(false);
         active_Bar_3.SetActive(true);
+
+        Console::Log("active 3:  ");
     }
 
 }

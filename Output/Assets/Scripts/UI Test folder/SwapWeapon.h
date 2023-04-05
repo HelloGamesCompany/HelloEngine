@@ -19,7 +19,7 @@ enum class normalWeapon_Type
     BURST,
     SEMI,
     SHOTGUN,
-    HANDGUN,
+    REVOLVER,
 };
 
 enum class specialWeapon_Type
@@ -84,6 +84,10 @@ public:
     uint texture_Dash_off;
     API_Material material_Dash;
     bool dashingReady;
+    //swap weapon
+    bool arma_Princial = false;
+    bool arma_Secundaria = false;
+    bool arma_Especial = false;
 
     API_GameObject playerMoveGO;
     PlayerMove* playerMove;
