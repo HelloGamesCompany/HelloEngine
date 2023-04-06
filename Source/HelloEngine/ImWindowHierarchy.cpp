@@ -142,8 +142,18 @@ void ImWindowHierarchy::ProcessGameObject(GameObject* gameObject, int iteration)
     {
         isLeaf = true;
         node_flags |= ImGuiTreeNodeFlags_Leaf;
-        ImGui::TreeNodeEx((void*)(intptr_t)iteration, node_flags, gameObject->name.c_str(), iteration);
+        if (gameObject->isSelected)
+        {
+            ImGui::PushStyleColor(ImGuiCol_Text, { 1,0,0,1 });
+            ImGui::TreeNodeEx((void*)(intptr_t)iteration, node_flags, gameObject->name.c_str(), iteration);
+            ImGui::PopStyleColor();
+        }
+        else
+        {
+            ImGui::TreeNodeEx((void*)(intptr_t)iteration, node_flags, gameObject->name.c_str(), iteration);
+        }
         node_open = false;
+
     }
     else
         node_open = ImGui::TreeNodeEx((void*)(intptr_t)iteration, node_flags, gameObject->name.c_str(), iteration);
