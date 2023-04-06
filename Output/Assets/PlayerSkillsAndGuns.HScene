@@ -54,7 +54,7 @@
             {
                 "Active camera": true,
                 "Active culling": true,
-                "Aspect ratio": 1.7858319282531738,
+                "Aspect ratio": 1.8263157606124878,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -155,7 +155,7 @@
                 ],
                 "IsStatic": false,
                 "IsTrigger": false,
-                "Mass": 0.0,
+                "Mass": 1.0,
                 "RenderColColor": [
                     0.5,
                     0.0,
@@ -186,6 +186,9 @@
                     },
                     {
                         "Y tp limit": -50.0
+                    },
+                    {
+                        "Rigid Body": 3681930564
                     },
                     {
                         "Dash Time": 0.5
@@ -222,6 +225,24 @@
                         "Upgraded Max HP": 0.0
                     },
                     {
+                        "Deadline Percentage": 20.0
+                    },
+                    {
+                        "Upgraded Deadline Percentage": 25.0
+                    },
+                    {
+                        "Deadline Heal Amount": 5.0
+                    },
+                    {
+                        "Upgraded Deadline Heal Amount": 7.5
+                    },
+                    {
+                        "Aid Kit Heal Amount": 50.0
+                    },
+                    {
+                        "Upgraded Aid Kit Heal Amount": 75.0
+                    },
+                    {
                         "Laser Ammo": 99999
                     },
                     {
@@ -232,6 +253,9 @@
                     },
                     {
                         "Storage GO": 3681930564
+                    },
+                    {
+                        "HUD Power Up GO": 4065623467
                     },
                     {
                         "movement tree lvl": 0
@@ -824,7 +848,253 @@
                 "Position": [
                     0.0,
                     0.0,
-                    40.59202194213867
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Canvas",
+        "ParentUID": 2066812041,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 2393964819
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "Type": 16,
+                "listButtons": [
+                    0
+                ]
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Player Stats GO": 3681930564
+                    },
+                    {
+                        "Texture_SPEED_INCREASE": 1345496260
+                    },
+                    {
+                        "Texture_FIRERATE_INCREASE": 898734028
+                    },
+                    {
+                        "Texture_SHIELD": 499632542
+                    },
+                    {
+                        "Texture_SLOW_TIME": 1755384749
+                    },
+                    {
+                        "GamesObjects_1": 4070965764
+                    },
+                    {
+                        "GamesObjects_2": 3310973923
+                    },
+                    {
+                        "GamesObjects_3": 2506921558
+                    },
+                    {
+                        "GamesObjects_4": 2084097701
+                    }
+                ],
+                "Script Resource": 916144909,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "PowerUpManager",
+        "ParentUID": 2393964819,
+        "PrefabUID": 1029694012,
+        "Tag": "UI",
+        "UID": 4065623467
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.8999999761581421,
+                    0.800000011920929,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.05000000074505806,
+                    0.10000000149011612,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 0,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "PowerUp1",
+        "ParentUID": 4065623467,
+        "PrefabUID": 1029694012,
+        "Tag": "UI",
+        "UID": 4070965764
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.75,
+                    0.800000011920929,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.05000000074505806,
+                    0.10000000149011612,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 0,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "PowerUp2",
+        "ParentUID": 4065623467,
+        "PrefabUID": 1029694012,
+        "Tag": "UI",
+        "UID": 3310973923
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.6000000238418579,
+                    0.800000011920929,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.05000000074505806,
+                    0.10000000149011612,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 0,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "PowerUp3",
+        "ParentUID": 4065623467,
+        "PrefabUID": 1029694012,
+        "Tag": "UI",
+        "UID": 2506921558
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.44999998807907104,
+                    0.800000011920929,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.05000000074505806,
+                    0.10000000149011612,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 0,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "PowerUp4",
+        "ParentUID": 4065623467,
+        "PrefabUID": 1029694012,
+        "Tag": "UI",
+        "UID": 2084097701
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    29.655563354492188
                 ],
                 "Rotation": [
                     -0.0,
@@ -865,9 +1135,9 @@
                     0.0
                 ],
                 "ColScale": [
-                    5.0,
-                    5.0,
-                    5.0
+                    2.0,
+                    2.0,
+                    2.0
                 ],
                 "CylVerSlices": 16,
                 "CylinderRadiusHeight": [
@@ -899,7 +1169,7 @@
                     false
                 ],
                 "IsStatic": false,
-                "IsTrigger": false,
+                "IsTrigger": true,
                 "Mass": 0.0,
                 "RenderColColor": [
                     0.5,
@@ -918,10 +1188,10 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Item Index": 0
+                        "Drop Index": 3
                     }
                 ],
-                "Script Resource": 2493606750,
+                "Script Resource": 3013870112,
                 "Type": 5
             }
         ],
@@ -929,7 +1199,7 @@
         "Name": "Cube",
         "ParentUID": 2066812041,
         "PrefabUID": 0,
-        "Tag": "Primitive",
-        "UID": 592194697
+        "Tag": "EnemyDrop",
+        "UID": 1945456428
     }
 ]

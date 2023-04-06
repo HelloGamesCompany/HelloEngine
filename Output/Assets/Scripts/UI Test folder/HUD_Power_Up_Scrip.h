@@ -33,6 +33,7 @@ public:
     uint Current_texture[4];
 
     float timer_power_up[4];
+    float max_timer_power_up[4];
 
     API_GameObject playerStatsGO;
     PlayerStats* playerStats;
