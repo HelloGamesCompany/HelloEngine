@@ -51271,7 +51271,7 @@
             {
                 "Active camera": true,
                 "Active culling": false,
-                "Aspect ratio": 1.7065573930740356,
+                "Aspect ratio": 1.8648383617401123,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 2000.0,
@@ -51727,6 +51727,9 @@
                     },
                     {
                         "Enemy RigidBody": 3306337635
+                    },
+                    {
+                        "Has Shield": false
                     }
                 ],
                 "Script Resource": 4210965159,
@@ -55485,6 +55488,9 @@
                     },
                     {
                         "Enemy RigidBody": 3144339685
+                    },
+                    {
+                        "Has Shield": false
                     }
                 ],
                 "Script Resource": 4210965159,
@@ -59243,6 +59249,9 @@
                     },
                     {
                         "Enemy RigidBody": 1757690383
+                    },
+                    {
+                        "Has Shield": false
                     }
                 ],
                 "Script Resource": 4210965159,
@@ -63001,6 +63010,9 @@
                     },
                     {
                         "Enemy RigidBody": 1494185823
+                    },
+                    {
+                        "Has Shield": false
                     }
                 ],
                 "Script Resource": 4210965159,
@@ -66759,6 +66771,9 @@
                     },
                     {
                         "Enemy RigidBody": 979250570
+                    },
+                    {
+                        "Has Shield": false
                     }
                 ],
                 "Script Resource": 4210965159,
@@ -70572,6 +70587,9 @@
                     },
                     {
                         "Enemy RigidBody": 348138482
+                    },
+                    {
+                        "Has Shield": false
                     }
                 ],
                 "Script Resource": 4210965159,
@@ -75569,6 +75587,9 @@
                     },
                     {
                         "Enemy RigidBody": 2316102626
+                    },
+                    {
+                        "Has Shield": false
                     }
                 ],
                 "Script Resource": 4210965159,
@@ -139685,18 +139706,6 @@
                     },
                     {
                         "Fence Entire Rb": 931308607
-                    },
-                    {
-                        "MaxHp": 150
-                    },
-                    {
-                        "Fence Destroyed": 3469075300
-                    },
-                    {
-                        "Fence Entire": 1810227531
-                    },
-                    {
-                        "Fence Entire Rb": 931308607
                     }
                 ],
                 "Script Resource": 2750403053,
@@ -140280,5 +140289,106 @@
         "PrefabUID": 286443235,
         "Tag": "Default",
         "UID": 2725930709
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -15.317703247070313,
+                    3.6514711380004883,
+                    -8.072797775268555
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    2.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 10,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "ColPosition": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    2.0,
+                    4.0,
+                    2.0
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "GlobalGravity": [
+                    0.0,
+                    -10.0,
+                    0.0
+                ],
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsShapeSelected": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsStatic": false,
+                "IsTrigger": false,
+                "Mass": 1.0,
+                "RenderColColor": [
+                    0.5,
+                    0.0,
+                    0.5,
+                    1.0
+                ],
+                "ShapeSelected": 0,
+                "SphereHorSlices": 16,
+                "SphereRadius": 1.0,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Tank",
+        "ParentUID": 2462894403,
+        "PrefabUID": 0,
+        "Tag": "Primitive",
+        "UID": 2929858693
     }
 ]
