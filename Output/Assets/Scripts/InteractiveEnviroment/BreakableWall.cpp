@@ -9,6 +9,8 @@ HELLO_ENGINE_API_C BreakableWall* CreateBreakableWall(ScriptToInspectorInterface
     script->AddDragInt("MaxHp", &classInstance->maxHp);
     script->AddDragBoxGameObject("Fence Destroyed", &classInstance->fenceDestroyed);
     script->AddDragBoxGameObject("Fence Entire", &classInstance->fenceEntire);
+    script->AddDragBoxRigidBody("Fence Entire Rb", &classInstance->fenceRigidbody);
+
     return classInstance;
 }
 
@@ -21,7 +23,7 @@ void BreakableWall::Start()
 
 void BreakableWall::Update()
 {
-
+    
 }
 
 void BreakableWall::OnCollisionEnter(API_RigidBody other)
@@ -64,4 +66,5 @@ void BreakableWall::DestroyWall()
 
     fenceDestroyed.SetActive(true);
     fenceEntire.SetActive(false);
+    fenceRigidbody.SetTrigger(true);
 }
