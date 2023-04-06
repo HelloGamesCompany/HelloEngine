@@ -43,6 +43,8 @@ public:
     void SwapWeapon2(normalWeapon_Type normalWeapon, bool active);
     void SwapWeapon3(specialWeapon_Type specialWeapon, bool active);
 
+    void active_None_Weapon();
+
     void Dash();
 
     //Normal Weapons on
@@ -68,6 +70,7 @@ public:
     //Weapon 2   
     API_Material material_Normal_Weapon_on;
     API_Material material_Normal_Weapon_off;
+    //API_MeshRenderer;
 
 
     //Weapon 3  
@@ -88,6 +91,9 @@ public:
     bool arma_Princial = false;
     bool arma_Secundaria = false;
     bool arma_Especial = false;
+
+    bool normal_NONE = true;
+    bool special_NONE = true;
 
     API_GameObject playerMoveGO;
     PlayerMove* playerMove;

@@ -1,421 +1,158 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Archivos de origen">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Archivos de encabezado">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="Archivos de recursos">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
-    <Filter Include="Scripts">
-      <UniqueIdentifier>{965e8be6-78e5-4a3d-a5f4-a61d6259a350}</UniqueIdentifier>
-    </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="../../Assets/Scripts/Enemies/Enemy.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="../../Assets/Scripts/CamMov.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="../../Assets/Scripts/SwapCam.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="../../Assets/Scripts/StarShipCamMov.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="../../Assets/Scripts/Shooting/PlayerGunManager.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="../../Assets/Scripts/Shooting/PlayerGun.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="../../Assets/Scripts/Shooting/PlayerGunType.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="../../Assets/Scripts/Shooting/ProjectilePull.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="../../Assets/Scripts/Shooting/Projectile.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="../../Assets/Scripts/RotateContiniously.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="../../Assets/Scripts/UI Test folder/ButtonActionsTest.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="../../Assets/Scripts/UI Test folder/PauseMenu.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="../../Assets/Scripts/UI Test folder/Rotation.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
+    <ClCompile Include="../../Assets/Scripts/Enemies/Enemy.cpp" />
+    <ClCompile Include="../../Assets/Scripts/CamMov.cpp" />
+    <ClCompile Include="../../Assets/Scripts/SwapCam.cpp" />
+    <ClCompile Include="../../Assets/Scripts/StarShipCamMov.cpp" />
+    <ClCompile Include="../../Assets/Scripts/Shooting/PlayerGunManager.cpp" />
+    <ClCompile Include="../../Assets/Scripts/Shooting/PlayerGun.cpp" />
+    <ClCompile Include="../../Assets/Scripts/Shooting/PlayerGunType.cpp" />
+    <ClCompile Include="../../Assets/Scripts/Shooting/ProjectilePull.cpp" />
+    <ClCompile Include="../../Assets/Scripts/Shooting/Projectile.cpp" />
+    <ClCompile Include="../../Assets/Scripts/RotateContiniously.cpp" />
+    <ClCompile Include="../../Assets/Scripts/UI Test folder/ButtonActionsTest.cpp" />
+    <ClCompile Include="../../Assets/Scripts/UI Test folder/PauseMenu.cpp" />
+    <ClCompile Include="../../Assets/Scripts/UI Test folder/Rotation.cpp" />
     <ClCompile Include="../../Assets/Scripts/MenuButtons.cpp" />
-    <ClCompile Include="..\..\Assets\Scripts\Shooting\Guns\PlayerSemiAuto.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Assets\Scripts\Player\PlayerStats.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Assets\Scripts\Enemies\EnemyMeleeMovement.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Assets\Scripts\Player\PlayerMove.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Assets\Scripts\Shooting\Guns\PlayerAutomatic.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Assets\Scripts\Shooting\Guns\PlayerBurst.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Assets\Scripts\Shooting\Guns\PlayerDuals.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Assets\Scripts\Shooting\Guns\PlayerFlamethrower.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Assets\Scripts\Shooting\Guns\PlayerRicochet.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Assets\Scripts\Shooting\Guns\PlayerShotgun.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="../../Assets/Scripts/PauseButtons.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="../../Assets/Scripts/GamepadButtons.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="../../Assets/Scripts/UI Test folder/Movment_Bar.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="../../Assets/Scripts/UI Test folder/SwapWeapon.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="../../Assets/Scripts/UI Test folder/Movment_Bar_HP.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Assets\Scripts\UI Test folder\HpBar.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Assets\Scripts\UI Test folder\DashUI.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Assets\Scripts\LevelEndTrigger.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Assets\Scripts\UI Test folder\UIManager.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Assets\Scripts\Enemies\EnemyRanger.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Assets\Scripts\Player\Temp_Teleporter.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="../../Assets/Scripts/ArmoryUpgratteButtons.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="../../Assets/Scripts/ArmoryWeaponSelect.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="../../Assets/Scripts/AbilityTreeScript.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="../../Assets/Scripts/UI Test folder/HUD_Power_Up_Scrip.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="../../Assets/Scripts/ArmoryBluePrints.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="../../Assets/Scripts/AbilityTreeUpgrades.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="../../Assets/Scripts/HUD_Ultimate.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="../../Assets/Scripts/UI Test folder/HUD_Shield_Indicator.cpp">
-    <ClCompile Include="../../Assets/Scripts/Player/PlayerUltimate.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Assets\Scripts\InteractiveEnviroment\GoToLevelTrigger.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="../../Assets/Scripts/Shooting/Guns/PlayerHandgun.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="../../Assets/temp/TestAPI.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="../../Assets/Scripts/UsefulScripts/SetAllChildsTag.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="../../Assets/Scripts/Enemies/EnemyDropManager.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="../../Assets/Scripts/Enemies/EnemyDrop.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="../../Assets/Scripts/Quests/Secondary_Quests/Mision_Masacre.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="../../Assets/Scripts/InteractiveEnviroment/Chest.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Assets\Scripts\Enemies\EnemyProjectile.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Assets\Scripts\Enemies\EnemyProjectilePull.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Assets\Scripts\Enemies\EnemyGuns\EnemyAutomatic.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Assets\Scripts\EbonyMaw\BossAttacks.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Assets\Scripts\EbonyMaw\BossLoop.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Assets\Scripts\EbonyMaw\BossMovement.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Assets\Scripts\EbonyMaw\RockDivider.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Assets\Scripts\EbonyMaw\Stone.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="../../Assets/Scripts/Enemies/EnemyGun.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="../../Assets/Scripts/InteractiveEnviroment/TP_Cabin.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="../../Assets/Scripts/InteractiveEnviroment/SmokeExtractorTrap.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Assets\Scripts\Level2FinalText.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Assets\Scripts\Level2EndTrigger.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Assets\Scripts\UI Test folder\ScoreScreen.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Assets\Scripts\InteractiveEnviroment\EnemyMeleeSpawner.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
+    <ClCompile Include="../../Assets/Scripts/PauseButtons.cpp" />
+    <ClCompile Include="../../Assets/Scripts/GamepadButtons.cpp" />
+    <ClCompile Include="../../Assets/Scripts/UI Test folder/Movment_Bar.cpp" />
+    <ClCompile Include="../../Assets/Scripts/UI Test folder/SwapWeapon.cpp" />
+    <ClCompile Include="../../Assets/Scripts/UI Test folder/Movment_Bar_HP.cpp" />
+    <ClCompile Include="..\..\Assets\Scripts\EbonyMaw\BossAttacks.cpp" />
+    <ClCompile Include="..\..\Assets\Scripts\EbonyMaw\BossLoop.cpp" />
+    <ClCompile Include="..\..\Assets\Scripts\EbonyMaw\BossMovement.cpp" />
+    <ClCompile Include="..\..\Assets\Scripts\EbonyMaw\RockDivider.cpp" />
+    <ClCompile Include="..\..\Assets\Scripts\EbonyMaw\Stone.cpp" />
+    <ClCompile Include="..\..\Assets\Scripts\Enemies\EnemyGuns\EnemyAutomatic.cpp" />
+    <ClCompile Include="..\..\Assets\Scripts\Enemies\EnemyMeleeMovement.cpp" />
+    <ClCompile Include="..\..\Assets\Scripts\Enemies\EnemyProjectile.cpp" />
+    <ClCompile Include="..\..\Assets\Scripts\Enemies\EnemyProjectilePull.cpp" />
+    <ClCompile Include="..\..\Assets\Scripts\Enemies\EnemyRanger.cpp" />
+    <ClCompile Include="..\..\Assets\Scripts\InteractiveEnviroment\EnemyMeleeSpawner.cpp" />
+    <ClCompile Include="..\..\Assets\Scripts\InteractiveEnviroment\GoToLevelTrigger.cpp" />
+    <ClCompile Include="..\..\Assets\Scripts\Level2EndTrigger.cpp" />
+    <ClCompile Include="..\..\Assets\Scripts\Level2FinalText.cpp" />
+    <ClCompile Include="..\..\Assets\Scripts\LevelEndTrigger.cpp" />
+    <ClCompile Include="..\..\Assets\Scripts\Player\PlayerMove.cpp" />
+    <ClCompile Include="..\..\Assets\Scripts\Player\PlayerStats.cpp" />
+    <ClCompile Include="..\..\Assets\Scripts\Player\Temp_Teleporter.cpp" />
+    <ClCompile Include="..\..\Assets\Scripts\Shooting\Guns\PlayerAutomatic.cpp" />
+    <ClCompile Include="..\..\Assets\Scripts\Shooting\Guns\PlayerBurst.cpp" />
+    <ClCompile Include="..\..\Assets\Scripts\Shooting\Guns\PlayerDuals.cpp" />
+    <ClCompile Include="..\..\Assets\Scripts\Shooting\Guns\PlayerFlamethrower.cpp" />
+    <ClCompile Include="..\..\Assets\Scripts\Shooting\Guns\PlayerRicochet.cpp" />
+    <ClCompile Include="..\..\Assets\Scripts\Shooting\Guns\PlayerSemiAuto.cpp" />
+    <ClCompile Include="..\..\Assets\Scripts\Shooting\Guns\PlayerShotgun.cpp" />
+    <ClCompile Include="..\..\Assets\Scripts\UI Test folder\DashUI.cpp" />
+    <ClCompile Include="..\..\Assets\Scripts\UI Test folder\HpBar.cpp" />
+    <ClCompile Include="..\..\Assets\Scripts\UI Test folder\ScoreScreen.cpp" />
+    <ClCompile Include="..\..\Assets\Scripts\UI Test folder\UIManager.cpp" />
+    <ClCompile Include="../../Assets/Scripts/ArmoryUpgratteButtons.cpp" />
+    <ClCompile Include="../../Assets/Scripts/ArmoryWeaponSelect.cpp" />
+    <ClCompile Include="../../Assets/Scripts/AbilityTreeScript.cpp" />
+    <ClCompile Include="../../Assets/Scripts/UI Test folder/HUD_Power_Up_Scrip.cpp" />
+    <ClCompile Include="../../Assets/Scripts/ArmoryBluePrints.cpp" />
+    <ClCompile Include="../../Assets/Scripts/AbilityTreeUpgrades.cpp" />
+    <ClCompile Include="../../Assets/Scripts/HUD_Ultimate.cpp" />
+    <ClCompile Include="../../Assets/Scripts/UI Test folder/HUD_Shield_Indicator.cpp" />
+    <ClCompile Include="../../Assets/Scripts/ArmoryUnlock.cpp" />
+    <ClCompile Include="../../Assets/Scripts/Player/PlayerUltimate.cpp" />
+    <ClCompile Include="../../Assets/Scripts/Shooting/Guns/PlayerHandgun.cpp" />
+    <ClCompile Include="../../Assets/temp/TestAPI.cpp" />
+    <ClCompile Include="../../Assets/Scripts/UsefulScripts/SetAllChildsTag.cpp" />
+    <ClCompile Include="../../Assets/Scripts/Enemies/EnemyDropManager.cpp" />
+    <ClCompile Include="../../Assets/Scripts/Enemies/EnemyDrop.cpp" />
+    <ClCompile Include="../../Assets/Scripts/Quests/Secondary_Quests/Mision_Masacre.cpp" />
+    <ClCompile Include="../../Assets/Scripts/InteractiveEnviroment/Chest.cpp" />
+    <ClCompile Include="../../Assets/Scripts/Enemies/EnemyGun.cpp" />
+    <ClCompile Include="../../Assets/Scripts/InteractiveEnviroment/TP_Cabin.cpp" />
+    <ClCompile Include="../../Assets/Scripts/InteractiveEnviroment/SmokeExtractorTrap.cpp" />
+    <ClCompile Include="../../Assets/Scripts/InteractiveEnviroment/BreakableBox.cpp" />
+    <ClCompile Include="../../Assets/Scripts/InteractiveEnviroment/BreakableWall.cpp" />
+    <ClCompile Include="../../Assets/Scripts/Player/PlayerStorage.cpp" />
+    <ClCompile Include="../../Assets/Scripts/Enemies/EnemyGuns/EnemyBurst.cpp" />
+    <ClCompile Include="../../Assets/Scripts/Enemies/EnemyGuns/EnemyShotgun.cpp" />
+    <ClCompile Include="../../Assets/Scripts/UI Test folder/UI_Municion.cpp" />
+    <ClCompile Include="..\..\Assets\Scripts\UI Test folder\PlayerIndicator.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Macro.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="../../Assets/Scripts/Enemies/Enemy.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="../../Assets/Scripts/CamMov.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="../../Assets/Scripts/SwapCam.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="../../Assets/Scripts/StarShipCamMov.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="../../Assets/Scripts/Shooting/PlayerGunManager.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="../../Assets/Scripts/Shooting/PlayerGun.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="../../Assets/Scripts/Shooting/PlayerGunType.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="../../Assets/Scripts/Shooting/ProjectilePull.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="../../Assets/Scripts/Shooting/Projectile.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="../../Assets/Scripts/RotateContiniously.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="../../Assets/Scripts/UI Test folder/ButtonActionsTest.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="../../Assets/Scripts/UI Test folder/PauseMenu.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="../../Assets/Scripts/UI Test folder/Rotation.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
+    <ClInclude Include="..\..\Assets\Scripts\EbonyMaw\BossAttacks.h" />
+    <ClInclude Include="..\..\Assets\Scripts\EbonyMaw\BossLoop.h" />
+    <ClInclude Include="..\..\Assets\Scripts\EbonyMaw\BossMovement.h" />
+    <ClInclude Include="..\..\Assets\Scripts\EbonyMaw\RockDivider.h" />
+    <ClInclude Include="..\..\Assets\Scripts\EbonyMaw\Stone.h" />
+    <ClInclude Include="..\..\Assets\Scripts\Enemies\EnemyGuns\EnemyAutomatic.h" />
+    <ClInclude Include="..\..\Assets\Scripts\Enemies\EnemyMeleeMovement.h" />
+    <ClInclude Include="..\..\Assets\Scripts\Enemies\EnemyProjectile.h" />
+    <ClInclude Include="..\..\Assets\Scripts\Enemies\EnemyProjectilePull.h" />
+    <ClInclude Include="..\..\Assets\Scripts\Enemies\EnemyRanger.h" />
+    <ClInclude Include="..\..\Assets\Scripts\InteractiveEnviroment\EnemyMeleeSpawner.h" />
+    <ClInclude Include="..\..\Assets\Scripts\InteractiveEnviroment\GoToLevelTrigger.h" />
+    <ClInclude Include="..\..\Assets\Scripts\Level2EndTrigger.h" />
+    <ClInclude Include="..\..\Assets\Scripts\Level2FinalText.h" />
+    <ClInclude Include="..\..\Assets\Scripts\LevelEndTrigger.h" />
+    <ClInclude Include="..\..\Assets\Scripts\Player\PlayerMove.h" />
+    <ClInclude Include="..\..\Assets\Scripts\Player\PlayerStats.h" />
+    <ClInclude Include="..\..\Assets\Scripts\Player\Temp_Teleporter.h" />
+    <ClInclude Include="..\..\Assets\Scripts\Shooting\Guns\PlayerAutomatic.h" />
+    <ClInclude Include="..\..\Assets\Scripts\Shooting\Guns\PlayerBurst.h" />
+    <ClInclude Include="..\..\Assets\Scripts\Shooting\Guns\PlayerDuals.h" />
+    <ClInclude Include="..\..\Assets\Scripts\Shooting\Guns\PlayerFlamethrower.h" />
+    <ClInclude Include="..\..\Assets\Scripts\Shooting\Guns\PlayerRicochet.h" />
+    <ClInclude Include="..\..\Assets\Scripts\Shooting\Guns\PlayerSemiAuto.h" />
+    <ClInclude Include="..\..\Assets\Scripts\Shooting\Guns\PlayerShotgun.h" />
+    <ClInclude Include="..\..\Assets\Scripts\UI Test folder\DashUI.h" />
+    <ClInclude Include="..\..\Assets\Scripts\UI Test folder\HpBar.h" />
+    <ClInclude Include="..\..\Assets\Scripts\UI Test folder\ScoreScreen.h" />
+    <ClInclude Include="..\..\Assets\Scripts\UI Test folder\UIManager.h" />
+    <ClInclude Include="Macro.h" />
+    <ClInclude Include="../../Assets/Scripts/Enemies/Enemy.h" />
+    <ClInclude Include="../../Assets/Scripts/CamMov.h" />
+    <ClInclude Include="../../Assets/Scripts/SwapCam.h" />
+    <ClInclude Include="../../Assets/Scripts/StarShipCamMov.h" />
+    <ClInclude Include="../../Assets/Scripts/Shooting/PlayerGunManager.h" />
+    <ClInclude Include="../../Assets/Scripts/Shooting/PlayerGun.h" />
+    <ClInclude Include="../../Assets/Scripts/Shooting/PlayerGunType.h" />
+    <ClInclude Include="../../Assets/Scripts/Shooting/ProjectilePull.h" />
+    <ClInclude Include="../../Assets/Scripts/Shooting/Projectile.h" />
+    <ClInclude Include="../../Assets/Scripts/RotateContiniously.h" />
+    <ClInclude Include="../../Assets/Scripts/UI Test folder/ButtonActionsTest.h" />
+    <ClInclude Include="../../Assets/Scripts/UI Test folder/PauseMenu.h" />
+    <ClInclude Include="../../Assets/Scripts/UI Test folder/Rotation.h" />
     <ClInclude Include="../../Assets/Scripts/MenuButtons.h" />
-    <ClInclude Include="..\..\Assets\Scripts\Shooting\Guns\PlayerSemiAuto.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Assets\Scripts\Player\PlayerStats.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Assets\Scripts\Enemies\EnemyMeleeMovement.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Assets\Scripts\Player\PlayerMove.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Assets\Scripts\Shooting\Guns\PlayerAutomatic.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Assets\Scripts\Shooting\Guns\PlayerBurst.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Assets\Scripts\Shooting\Guns\PlayerDuals.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Assets\Scripts\Shooting\Guns\PlayerFlamethrower.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Assets\Scripts\Shooting\Guns\PlayerRicochet.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Assets\Scripts\Shooting\Guns\PlayerShotgun.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="../../Assets/Scripts/PauseButtons.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="../../Assets/Scripts/GamepadButtons.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="../../Assets/Scripts/UI Test folder/Movment_Bar.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="../../Assets/Scripts/UI Test folder/SwapWeapon.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="../../Assets/Scripts/UI Test folder/Movment_Bar_HP.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Assets\Scripts\UI Test folder\HpBar.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Assets\Scripts\UI Test folder\DashUI.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Assets\Scripts\LevelEndTrigger.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Assets\Scripts\UI Test folder\UIManager.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Assets\Scripts\Enemies\EnemyRanger.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Assets\Scripts\Player\Temp_Teleporter.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="../../Assets/Scripts/ArmoryUpgratteButtons.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="../../Assets/Scripts/ArmoryWeaponSelect.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="../../Assets/Scripts/AbilityTreeScript.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="../../Assets/Scripts/UI Test folder/HUD_Power_Up_Scrip.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="../../Assets/Scripts/ArmoryBluePrints.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="../../Assets/Scripts/AbilityTreeUpgrades.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="../../Assets/Scripts/HUD_Ultimate.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="../../Assets/Scripts/UI Test folder/HUD_Shield_Indicator.h">
-    <ClInclude Include="../../Assets/Scripts/Player/PlayerUltimate.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Assets\Scripts\InteractiveEnviroment\GoToLevelTrigger.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="../../Assets/Scripts/Shooting/Guns/PlayerHandgun.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="../../Assets/temp/TestAPI.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="../../Assets/Scripts/UsefulScripts/SetAllChildsTag.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="../../Assets/Scripts/Enemies/EnemyDropManager.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="../../Assets/Scripts/Enemies/EnemyDrop.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="../../Assets/Scripts/Quests/Secondary_Quests/Mision_Masacre.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="../../Assets/Scripts/InteractiveEnviroment/Chest.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Assets\Scripts\Enemies\EnemyProjectile.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Assets\Scripts\Enemies\EnemyProjectilePull.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Assets\Scripts\Enemies\EnemyGuns\EnemyAutomatic.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Assets\Scripts\EbonyMaw\BossAttacks.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Assets\Scripts\EbonyMaw\BossLoop.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Assets\Scripts\EbonyMaw\BossMovement.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Assets\Scripts\EbonyMaw\RockDivider.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Assets\Scripts\EbonyMaw\Stone.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="../../Assets/Scripts/Enemies/EnemyGun.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="../../Assets/Scripts/InteractiveEnviroment/TP_Cabin.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="../../Assets/Scripts/InteractiveEnviroment/SmokeExtractorTrap.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Assets\Scripts\Level2FinalText.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Assets\Scripts\Level2EndTrigger.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Assets\Scripts\UI Test folder\ScoreScreen.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Assets\Scripts\InteractiveEnviroment\EnemyMeleeSpawner.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
+    <ClInclude Include="../../Assets/Scripts/PauseButtons.h" />
+    <ClInclude Include="../../Assets/Scripts/GamepadButtons.h" />
+    <ClInclude Include="../../Assets/Scripts/UI Test folder/Movment_Bar.h" />
+    <ClInclude Include="../../Assets/Scripts/UI Test folder/SwapWeapon.h" />
+    <ClInclude Include="../../Assets/Scripts/UI Test folder/Movment_Bar_HP.h" />
+    <ClInclude Include="../../Assets/Scripts/ArmoryUpgratteButtons.h" />
+    <ClInclude Include="../../Assets/Scripts/ArmoryWeaponSelect.h" />
+    <ClInclude Include="../../Assets/Scripts/AbilityTreeScript.h" />
+    <ClInclude Include="../../Assets/Scripts/UI Test folder/HUD_Power_Up_Scrip.h" />
+    <ClInclude Include="../../Assets/Scripts/ArmoryBluePrints.h" />
+    <ClInclude Include="../../Assets/Scripts/AbilityTreeUpgrades.h" />
+    <ClInclude Include="../../Assets/Scripts/HUD_Ultimate.h" />
+    <ClInclude Include="../../Assets/Scripts/UI Test folder/HUD_Shield_Indicator.h" />
+    <ClInclude Include="../../Assets/Scripts/ArmoryUnlock.h" />
+    <ClInclude Include="../../Assets/Scripts/Player/PlayerUltimate.h" />
+    <ClInclude Include="../../Assets/Scripts/Shooting/Guns/PlayerHandgun.h" />
+    <ClInclude Include="../../Assets/temp/TestAPI.h" />
+    <ClInclude Include="../../Assets/Scripts/UsefulScripts/SetAllChildsTag.h" />
+    <ClInclude Include="../../Assets/Scripts/Enemies/EnemyDropManager.h" />
+    <ClInclude Include="../../Assets/Scripts/Enemies/EnemyDrop.h" />
+    <ClInclude Include="../../Assets/Scripts/Quests/Secondary_Quests/Mision_Masacre.h" />
+    <ClInclude Include="../../Assets/Scripts/InteractiveEnviroment/Chest.h" />
+    <ClInclude Include="../../Assets/Scripts/Enemies/EnemyGun.h" />
+    <ClInclude Include="../../Assets/Scripts/InteractiveEnviroment/TP_Cabin.h" />
+    <ClInclude Include="../../Assets/Scripts/InteractiveEnviroment/SmokeExtractorTrap.h" />
+    <ClInclude Include="../../Assets/Scripts/InteractiveEnviroment/BreakableBox.h" />
+    <ClInclude Include="../../Assets/Scripts/InteractiveEnviroment/BreakableWall.h" />
+    <ClInclude Include="../../Assets/Scripts/Player/PlayerStorage.h" />
+    <ClInclude Include="../../Assets/Scripts/Enemies/EnemyGuns/EnemyBurst.h" />
+    <ClInclude Include="../../Assets/Scripts/Enemies/EnemyGuns/EnemyShotgun.h" />
+    <ClInclude Include="../../Assets/Scripts/UI Test folder/UI_Municion.h" />
+    <ClInclude Include="..\..\Assets\Scripts\UI Test folder\PlayerIndicator.h" />
   </ItemGroup>
 </Project>

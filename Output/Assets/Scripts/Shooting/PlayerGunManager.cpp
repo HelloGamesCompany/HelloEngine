@@ -26,6 +26,8 @@ void PlayerGunManager::Start()
 {
     playerStats = (PlayerStats*)player.GetScript("PlayerStats");
     if (playerStats == nullptr) Console::Log("Missing PlayerStats on PlayerGunManager Script.");
+    playerMove = (PlayerMove*)player.GetScript("PlayerMove");
+    if (playerMove == nullptr) Console::Log("Missing PlayerMove on PlayerGunManager Script.");
 
     // add guns to the array in order
     guns.push_back(duals);
@@ -114,6 +116,7 @@ void PlayerGunManager::Update()
         if (playerStats && playerStats->GetAmmonByType(equipedGun->ammoType) > 0)
         {
             equipedGun->Shoot();
+            if (playerMove) playerMove->PlayShootAnim(equipedIndex);
         }
         else
         {
@@ -223,6 +226,8 @@ void PlayerGunManager::EquipGun(int index)
         break;
     }
     if (equipedGun != nullptr) equipedGun->EnableGuns(true);
+
+    if (playerMove) playerMove->StopSwapGunAnim();
 }
 
 void PlayerGunManager::UnequipGun(int index)
@@ -233,4 +238,6 @@ void PlayerGunManager::UnequipGun(int index)
     if (playerStats && playerStats->armoryTreeLvl > 0) swapDelay = maxFastSwapDelay + 0.001f;
     else swapDelay = maxSwapDelay + 0.001f;
     swapToIndex = index;
+
+    if (playerMove) playerMove->PlaySwapGunAnim();
 }

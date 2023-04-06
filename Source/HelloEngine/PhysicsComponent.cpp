@@ -677,7 +677,7 @@ void PhysicsComponent::OnEnable()
 	if (_physBody != nullptr)
 	{
 		_physBody->body->forceActivationState(ACTIVE_TAG);
-		_physBody->body->setCollisionFlags(_physBody->body->getCollisionFlags() | this->_isStatic ? btCollisionObject::CollisionFlags::CF_STATIC_OBJECT : btCollisionObject::CollisionFlags::CF_CHARACTER_OBJECT);
+		_physBody->body->setCollisionFlags(_physBody->body->getCollisionFlags() | (this->_isStatic ? btCollisionObject::CollisionFlags::CF_STATIC_OBJECT : btCollisionObject::CollisionFlags::CF_CHARACTER_OBJECT));
 	}
 }
 
