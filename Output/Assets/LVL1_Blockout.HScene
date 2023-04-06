@@ -140296,7 +140296,7 @@
             {
                 "Enabled": true,
                 "Position": [
-                    -15.317703247070313,
+                    -13.8524808883667,
                     3.6514711380004883,
                     -8.072797775268555
                 ],
@@ -140382,6 +140382,64 @@
                 "SphereVerSlices": 16,
                 "Type": 8,
                 "WireframeSize": 3.0
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 547731479,
+                "Type": 3
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Max Health": 400.0
+                    },
+                    {
+                        "Current Helath": 0.0
+                    },
+                    {
+                        "Resistance": 100.0
+                    },
+                    {
+                        "Speed": 75.0
+                    },
+                    {
+                        "Acceleration": 1.2000000476837158
+                    },
+                    {
+                        "Current speed": 0.0
+                    },
+                    {
+                        "Enemy RigidBody": 2929858693
+                    },
+                    {
+                        "Has Shield": false
+                    }
+                ],
+                "Script Resource": 4210965159,
+                "Type": 5
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Max Shield": 200.0
+                    },
+                    {
+                        "Current Shield": 0.0
+                    },
+                    {
+                        "Recover Shield Time": 60.0
+                    },
+                    {
+                        "Hp/s": 5.0
+                    },
+                    {
+                        "Hp/s Cooldown": 10.0
+                    }
+                ],
+                "Script Resource": 3182438663,
+                "Type": 5
             }
         ],
         "FirstOnPrefab": true,
