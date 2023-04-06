@@ -4,6 +4,7 @@
 #include "Macro.h"
 //#include "Timer.hpp"
 //#include <Timer.hpp>
+#include "Enemy.h"
 #include "API/API.h"
 
 class EnemyMeleeMovement : HelloBehavior
@@ -60,7 +61,7 @@ public:
     uint idleAnim;
     uint walkAnim;
 
-
+    Enemy* enemy = nullptr;
 private:
     int _avalPoints = 0;
     float _outCooldown;//max time that can be outside the zone

@@ -1,4 +1,5 @@
 #include "EnemyProjectile.h"
+#include "../Player/PlayerStats.h"
 HELLO_ENGINE_API_C EnemyProjectile* CreateEnemyProjectile(ScriptToInspectorInterface* script)
 {
     EnemyProjectile* classInstance = new EnemyProjectile();
@@ -33,8 +34,19 @@ void EnemyProjectile::Destroy()
 void EnemyProjectile::OnCollisionEnter(API::API_RigidBody other)
 {
     std::string detectionTag = other.GetGameObject().GetName();
-    if (detectionTag == "Player" || detectionTag == "Wall")
+    if (detectionTag == "Player" )
+    {
+        PlayerStats* playerStats = (PlayerStats*)other.GetGameObject().GetScript("PlayerStats");
+        if (playerStats)
+        {
+            playerStats->TakeDamage(damage);
+        }
+        Destroy();
+
+    }
+    else if ( detectionTag == "Wall")
     {
         Destroy();
     }
+
 }

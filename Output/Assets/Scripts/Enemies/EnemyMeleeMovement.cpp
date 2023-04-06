@@ -1,5 +1,4 @@
 #include "EnemyMeleeMovement.h"
-#include "Enemy.h"
 #include <time.h>
 #include <random>
 #include <math.h>
@@ -37,16 +36,20 @@ void EnemyMeleeMovement::Start()
     srand(time(NULL));
 
     animState = AnimationState::NONE;
+
+    enemy = (Enemy*)gameObject.GetScript("Enemy");
 }
 void EnemyMeleeMovement::Update()
 {
-    Enemy* enemy = (Enemy*)gameObject.GetScript("Enemy");
+    
     float dt = Time::GetDeltaTime();
 
     if (enemy != nullptr)
     {
-        float dis = gameObject.GetTransform().GetGlobalPosition().Distance(target.GetTransform().GetGlobalPosition());
+       float dis = gameObject.GetTransform().GetGlobalPosition().Distance(target.GetTransform().GetGlobalPosition());
         float disZone = gameObject.GetTransform().GetGlobalPosition().Distance(actionZone.GetTransform().GetGlobalPosition());
+       //  float dis = gameObject.GetTransform().GetLocalPosition().Distance(target.GetTransform().GetGlobalPosition());
+       // float disZone = gameObject.GetTransform().GetLocalPosition().Distance(actionZone.GetTransform().GetGlobalPosition());
         if (dis < detectionDis && enemState != States::TARGETING)
         {
             enemState = States::TARGETING;
@@ -69,9 +72,11 @@ void EnemyMeleeMovement::Update()
         switch (enemState)
         {
         case States::WANDERING:
-            Console::Log("NumPoint: " + std::to_string(numPoint));
+          ///  Console::Log("NumPoint: " + std::to_string(numPoint));
 
-            enemy->currentSpeed = enemy->speed * dt;
+            enemy->currentSpeed = enemy->speed * enemy->stunVel * enemy->slowVel /** dt*/;
+            
+            //if ((gameObject.GetTransform().GetLocalPosition().Distance(actualPoint) < 5))
             if ((gameObject.GetTransform().GetGlobalPosition().Distance(actualPoint) < 5))
             {
                 Console::Log("Change");
@@ -88,10 +93,13 @@ void EnemyMeleeMovement::Update()
                 animationPlayer.Play();
                 Console::Log("Walk");
             }
+            
             break;
 
         case States::TARGETING:
-            enemy->currentSpeed = enemy->speed * enemy->acceleration * dt;
+            enemy->currentSpeed = enemy->speed * enemy->acceleration * enemy->stunVel * enemy->slowVel /** dt*/;
+
+            
             Seek(enemy->currentSpeed, target.GetTransform().GetGlobalPosition(), enemy->enemyRb);
 
             if (animState != AnimationState::WALK)
@@ -100,15 +108,20 @@ void EnemyMeleeMovement::Update()
                 animationPlayer.ChangeAnimation(walkAnim);
                 animationPlayer.Play();
             }
+            
             break;
 
         case States::ATTACKIG:
+            
+            enemy->currentSpeed = enemy->speed * enemy->acceleration * enemy->stunVel * enemy->slowVel /** dt*/;
+
             if (animState != AnimationState::WALK)
             {
                 animState = AnimationState::WALK;
                 animationPlayer.ChangeAnimation(walkAnim);
                 animationPlayer.Play();
             }
+            
             break;
         default:
             break;
@@ -119,16 +132,24 @@ void EnemyMeleeMovement::Update()
 
 void EnemyMeleeMovement::Seek(float vel, API_Vector3 tarPos, API_RigidBody enemyRb)
 {
-    API_Vector2 lookDir;
-    lookDir.x = (tarPos.x - gameObject.GetTransform().GetGlobalPosition().x);
-    lookDir.y = (tarPos.z - gameObject.GetTransform().GetGlobalPosition().z);
+   
+    if (!enemy->actStun)
+    {
+        API_Vector3 _bRot = enemy->baseRot;
+        API_Vector2 lookDir;
+        /* lookDir.x = (point.x - gameObject.GetTransform().GetGlobalPosition().x);
+        lookDir.y = (point.z - gameObject.GetTransform().GetGlobalPosition().z);*/
+        lookDir.x = (tarPos.x - gameObject.GetTransform().GetLocalPosition().x);
+        lookDir.y = (tarPos.z - gameObject.GetTransform().GetLocalPosition().z);
 
-    API_Vector2 normLookDir;
-    normLookDir.x = lookDir.x / sqrt(pow(lookDir.x, 2) + pow(lookDir.y, 2));
-    normLookDir.y = lookDir.y / sqrt(pow(lookDir.x, 2) + pow(lookDir.y, 2));
-    float _angle = 0;
-    _angle = atan2(normLookDir.y, normLookDir.x) * RADTODEG - 90.0f;
-    gameObject.GetTransform().SetRotation(0, -_angle, 0);
+        API_Vector2 normLookDir;
+        normLookDir.x = lookDir.x / sqrt(pow(lookDir.x, 2) + pow(lookDir.y, 2));
+        normLookDir.y = lookDir.y / sqrt(pow(lookDir.x, 2) + pow(lookDir.y, 2));
+        float _angle = 0;
+        _angle = atan2(normLookDir.y, normLookDir.x) * RADTODEG - 90.0f;
+        //gameObject.GetTransform().SetRotation(0+_bRot.x, -_angle+ _bRot.y, 0+ _bRot.z);
+        gameObject.GetTransform().SetRotation(0, -_angle, 0);
+    }
 
     enemyRb.SetVelocity(gameObject.GetTransform().GetForward() * vel);
     //gameObject.GetTransform().Translate(gameObject.GetTransform().GetForward() * vel);
@@ -136,17 +157,25 @@ void EnemyMeleeMovement::Seek(float vel, API_Vector3 tarPos, API_RigidBody enemy
 
 void EnemyMeleeMovement::Wander(float vel, API_Vector3 point, API_RigidBody enemyRb)
 {
-    API_Vector2 lookDir;
-    lookDir.x = (point.x - gameObject.GetTransform().GetGlobalPosition().x);
-    lookDir.y = (point.z - gameObject.GetTransform().GetGlobalPosition().z);
 
-    API_Vector2 normLookDir;
-    normLookDir.x = lookDir.x / sqrt(pow(lookDir.x, 2) + pow(lookDir.y, 2));
-    normLookDir.y = lookDir.y / sqrt(pow(lookDir.x, 2) + pow(lookDir.y, 2));
-    float _angle = 0;
-    _angle = atan2(normLookDir.y, normLookDir.x) * RADTODEG - 90.0f;
     
-    gameObject.GetTransform().SetRotation(0, -_angle, 0);
+    if (!enemy->actStun)
+    {
+        API_Vector3 _bRot = enemy->baseRot;
+        API_Vector2 lookDir;
+        /* lookDir.x = (point.x - gameObject.GetTransform().GetGlobalPosition().x);
+         lookDir.y = (point.z - gameObject.GetTransform().GetGlobalPosition().z);*/
+        lookDir.x = (point.x - gameObject.GetTransform().GetLocalPosition().x);
+        lookDir.y = (point.z - gameObject.GetTransform().GetLocalPosition().z);
+
+        API_Vector2 normLookDir;
+        normLookDir.x = lookDir.x / sqrt(pow(lookDir.x, 2) + pow(lookDir.y, 2));
+        normLookDir.y = lookDir.y / sqrt(pow(lookDir.x, 2) + pow(lookDir.y, 2));
+        float _angle = 0;
+        _angle = atan2(normLookDir.y, normLookDir.x) * RADTODEG - 90.0f;
+        gameObject.GetTransform().SetRotation(0, -_angle, 0);
+        //gameObject.GetTransform().SetRotation(0 + _bRot.x, -_angle - _bRot.y, 0 + _bRot.z);
+    }
     enemyRb.SetVelocity(gameObject.GetTransform().GetForward() * vel);
     //gameObject.GetTransform().Translate(gameObject.GetTransform().GetForward() * vel);
 }

@@ -15,7 +15,8 @@ void EnemyProjectilePull::Start()
         API_GameObject newProjectile = Game::CreateGameObject("EnemyProjectile", "EnemyProjectile");
         newProjectile.AddMeshRenderer();
         newProjectile.AddMaterial();
-        newProjectile.CreateRigidBodyBox((0, 0, 0), (0, 0, 0), (0.3f, 0.3f, 0.3f), false);
+        API_RigidBody rb = newProjectile.CreateRigidBodyBox((0, 0, 0), (0, 0, 0), (0.3f, 0.3f, 0.3f), false);
+        rb.SetTrigger(true);
         newProjectile.AddParticleSystem(particleTest);
         newProjectile.AddScript("EnemyProjectile");
         newProjectile.SetActive(false);
