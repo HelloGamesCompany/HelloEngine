@@ -14,9 +14,13 @@ class PlayerMove : HelloBehavior
     enum class PlayerAnims
     {
         IDLE,
-        RUN,
+        RUN_FORWARD,
+        RUN_BACK,
+        RUN_LEFT,
+        RUN_RIGHT,
         DASH,
         SHOOT,
+        SWAP_GUN,
         OPEN_CHEST
     };
 
@@ -30,8 +34,6 @@ public:
     void DashSetup();
     void Dash();
     bool DashInput();
-
-    void ShootAnim();
 
     bool usingGamepad;
     float dt;
@@ -76,15 +78,25 @@ public:
     //Animations
     API_AnimationPlayer playerAnimator;
     uint dashAnim = 0;
-    uint idleAnim = 0;
-    uint runAnim = 0;
-    uint shootAnim = 0;
+    uint idle1Anim = 0;
+    uint idle2Anim = 0;
+    uint idle3Anim = 0;
+    uint runForwardAnim = 0;
+    uint runBackAnim = 0;
+    uint runLeftAnim = 0;
+    uint runRightAnim = 0;
+    uint shootAnim[6];
+    void PlayShootAnim(int gunIndex);
+    bool isShooting = false;
+    uint swapGunAnim;
+    void PlaySwapGunAnim();
+    void StopSwapGunAnim();
+    bool isSwapingGun = false;
     uint openChestAnim = 0;
     bool openingChest = false;
     void PlayOpenChestAnim();
     void StopOpenChestAnim();
     PlayerAnims currentAnim;
-    bool isShooting = false;
 
     // skills
     API_GameObject playerStatsGO;

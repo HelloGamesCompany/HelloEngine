@@ -93,8 +93,11 @@ void SwapWeapon::Start()
 }
 void SwapWeapon::Update()
 {
+  
+    active_None_Weapon();
 
-    if (Input::GetKey(KeyCode::KEY_C) == KeyState::KEY_DOWN) {
+
+   /* if (Input::GetKey(KeyCode::KEY_C) == KeyState::KEY_DOWN) {
         arma_Princial = true;
         arma_Secundaria = false;
         arma_Especial = false;
@@ -116,7 +119,7 @@ void SwapWeapon::Update()
         arma_Especial = true;
         SwapWeapon3(specialWeapon_Type::RICOCHET, arma_Especial);
         Console::Log("ss: ");
-    }
+    }*/
 
 
 
@@ -170,29 +173,32 @@ void SwapWeapon::SwapWeapon2(normalWeapon_Type normalWeapon, bool active)
     case normalWeapon_Type::NONE:
         material_Normal_Weapon_on.ChangeAlbedoTexture(normalWeaponsOn[0]);
         material_Normal_Weapon_off.ChangeAlbedoTexture(normalWeaponsOff[0]);
-        material_Normal_Weapon_off.GetGameObject().SetActive(false);
-        material_Normal_Weapon_off.GetGameObject().SetActive(false);
-
+        normal_NONE = true;
         break;
     case normalWeapon_Type::AUTO:
         material_Normal_Weapon_on.ChangeAlbedoTexture(normalWeaponsOn[1]);
         material_Normal_Weapon_off.ChangeAlbedoTexture(normalWeaponsOff[1]);
+        normal_NONE = false;
         break;
     case normalWeapon_Type::BURST:
         material_Normal_Weapon_on.ChangeAlbedoTexture(normalWeaponsOn[2]);
         material_Normal_Weapon_off.ChangeAlbedoTexture(normalWeaponsOff[2]);
+        normal_NONE = false;
         break;
     case normalWeapon_Type::SEMI:
         material_Normal_Weapon_on.ChangeAlbedoTexture(normalWeaponsOn[3]);
         material_Normal_Weapon_off.ChangeAlbedoTexture(normalWeaponsOff[3]);
+        normal_NONE = false;
         break;
     case normalWeapon_Type::SHOTGUN:
         material_Normal_Weapon_on.ChangeAlbedoTexture(normalWeaponsOn[4]);
         material_Normal_Weapon_off.ChangeAlbedoTexture(normalWeaponsOff[4]);
+        normal_NONE = false;
         break;
     case normalWeapon_Type::REVOLVER:
         material_Normal_Weapon_on.ChangeAlbedoTexture(normalWeaponsOn[5]);
         material_Normal_Weapon_off.ChangeAlbedoTexture(normalWeaponsOff[5]);
+        normal_NONE = false;
         break;
     default:
         break;
@@ -223,16 +229,17 @@ void SwapWeapon::SwapWeapon3(specialWeapon_Type specialWeapon, bool active)
     case specialWeapon_Type::NONE:
         material_Special_Weapon_on.ChangeAlbedoTexture(specialsWeaponsOn[0]);
         material_Special_Weapon_off.ChangeAlbedoTexture(specialsWeaponsOff[0]);
-        material_Special_Weapon_off.GetGameObject().SetActive(false);
-        material_Special_Weapon_off.GetGameObject().SetActive(false);
+        special_NONE = true;
         break;
     case specialWeapon_Type::FLAMETHROWER:
         material_Special_Weapon_on.ChangeAlbedoTexture(specialsWeaponsOn[1]);
         material_Special_Weapon_off.ChangeAlbedoTexture(specialsWeaponsOff[1]);
+        special_NONE = false;
         break;
     case specialWeapon_Type::RICOCHET:
         material_Special_Weapon_on.ChangeAlbedoTexture(specialsWeaponsOn[2]);
         material_Special_Weapon_off.ChangeAlbedoTexture(specialsWeaponsOff[2]);
+        special_NONE = false;
         Console::Log("ricochet:  ");
         break;
     default:
@@ -259,6 +266,31 @@ void SwapWeapon::SwapWeapon3(specialWeapon_Type specialWeapon, bool active)
         Console::Log("active 3:  ");
     }
 
+}
+
+void SwapWeapon::active_None_Weapon()
+{
+    if (normal_NONE == true)
+    {
+        material_Normal_Weapon_on.GetGameObject().GetMeshRenderer().SetActive(false);
+        material_Normal_Weapon_off.GetGameObject().GetMeshRenderer().SetActive(false);
+    }
+    else
+    {
+        material_Normal_Weapon_on.GetGameObject().GetMeshRenderer().SetActive(true);
+        material_Normal_Weapon_off.GetGameObject().GetMeshRenderer().SetActive(true);
+    }
+
+    if (special_NONE == true)
+    {
+        material_Special_Weapon_on.GetGameObject().GetMeshRenderer().SetActive(false);
+        material_Special_Weapon_off.GetGameObject().GetMeshRenderer().SetActive(false);
+    }
+    else
+    {
+        material_Special_Weapon_on.GetGameObject().GetMeshRenderer().SetActive(true);
+        material_Special_Weapon_off.GetGameObject().GetMeshRenderer().SetActive(true);
+    }
 }
 
 void SwapWeapon::Dash()

@@ -1320,6 +1320,9 @@
                 "Inspector Fields": [
                     {
                         "UI manager": 1929488284
+                    },
+                    {
+                        "UI manager": 1929488284
                     }
                 ],
                 "Script Resource": 3709259984,
@@ -31709,6 +31712,12 @@
                     },
                     {
                         "Set Tag For direct child only": false
+                    },
+                    {
+                        "Tag": ""
+                    },
+                    {
+                        "Set Tag For direct child only": false
                     }
                 ],
                 "Script Resource": 1649811707,
@@ -37940,6 +37949,12 @@
                     },
                     {
                         "Set Tag For direct child only": false
+                    },
+                    {
+                        "Tag": ""
+                    },
+                    {
+                        "Set Tag For direct child only": false
                     }
                 ],
                 "Script Resource": 898795311,
@@ -39445,12 +39460,12 @@
             {
                 "Enabled": true,
                 "Position": [
-                    114.48274993896484,
-                    -0.09844748675823212,
-                    -28.617443084716797
+                    -5.6010894775390625,
+                    -0.19999873638153076,
+                    -13.82691764831543
                 ],
                 "Rotation": [
-                    0.0004407745727803558,
+                    0.0,
                     -90.0,
                     0.0
                 ],
@@ -39565,13 +39580,46 @@
                         "Dash Animation": 3786266361
                     },
                     {
-                        "Idle Animation": 723048411
+                        "Player Stats GO": 3079281768
                     },
                     {
-                        "Run Animation": 3184153436
+                        "Velocity": 10.0
                     },
                     {
-                        "Shoot Animations": 4285907288
+                        "Upgrade Velocity": 2.0
+                    },
+                    {
+                        "SecToMaxVel": 0.0
+                    },
+                    {
+                        "SecToZeroVel": 0.0
+                    },
+                    {
+                        "Y tp limit": -50.0
+                    },
+                    {
+                        "Rigid Body": 3079281768
+                    },
+                    {
+                        "Dash Time": 0.5
+                    },
+                    {
+                        "Dash Distance": 5.0
+                    },
+                    {
+                        "Upgrade Dash Distance": 8.0
+                    },
+                    {
+                        "Dash Cooldown": 0.0
+                    },
+                    {
+                        "Upgrade Dash Cooldown": 0.0
+                    },
+                    {
+                        "AnimationPlayer": 104208182
+                    },
+                    {
+                        "Dash Animation": 3786266361
                     },
                     {
                         "Player Stats GO": 3079281768
@@ -39630,6 +39678,54 @@
                     },
                     {
                         "special tree lvl": 0
+                    },
+                    {
+                        "Max HP": 100.0
+                    },
+                    {
+                        "Current HP": 40.0
+                    },
+                    {
+                        "Upgraded Max HP": 0.0
+                    },
+                    {
+                        "Deadline Percentage": 20.0
+                    },
+                    {
+                        "Upgraded Deadline Percentage": 25.0
+                    },
+                    {
+                        "Deadline Heal Amount": 5.0
+                    },
+                    {
+                        "Upgraded Deadline Heal Amount": 7.5
+                    },
+                    {
+                        "Aid Kit Heal Amount": 50.0
+                    },
+                    {
+                        "Upgraded Aid Kit Heal Amount": 75.0
+                    },
+                    {
+                        "Laser Ammo": 99999
+                    },
+                    {
+                        "Fire Ammo": 99999
+                    },
+                    {
+                        "Ricochet Ammo": 99999
+                    },
+                    {
+                        "movement tree lvl": 0
+                    },
+                    {
+                        "armory tree lvl": 0
+                    },
+                    {
+                        "health tree lvl": 0
+                    },
+                    {
+                        "special tree lvl": 0
                     }
                 ],
                 "Script Resource": 4283682555,
@@ -39638,6 +39734,42 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Player Stats GO": 3079281768
+                    },
+                    {
+                        "Base Gun": 0
+                    },
+                    {
+                        "Normal Gun": 2
+                    },
+                    {
+                        "Special Gun": 3
+                    },
+                    {
+                        "Duals": 3496178011
+                    },
+                    {
+                        "Semiautomatic": 1833210665
+                    },
+                    {
+                        "Automatic": 611995559
+                    },
+                    {
+                        "Burst": 1292894324
+                    },
+                    {
+                        "Shotgun": 711540028
+                    },
+                    {
+                        "Handgun": 604654010
+                    },
+                    {
+                        "Swap Delay": 0.5
+                    },
+                    {
+                        "Fast Swap Delay": 0.25
+                    },
                     {
                         "Player Stats GO": 3079281768
                     },
@@ -45146,6 +45278,9 @@
                 "Inspector Fields": [
                     {
                         "Gun Type": 1
+                    },
+                    {
+                        "Gun Type": 1
                     }
                 ],
                 "Script Resource": 1187195986,
@@ -45154,6 +45289,55 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Projectile Pull": 4289989448
+                    },
+                    {
+                        "Projectile Speed": 100.0
+                    },
+                    {
+                        "Projectile Damage": 60.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 0.0
+                    },
+                    {
+                        "Projectile Lifetime": 1.0
+                    },
+                    {
+                        "Projectile Spawn": 1833210665
+                    },
+                    {
+                        "Projectile MeshIndexInsideModel": 0,
+                        "Projectile MeshModelUID": 1551155716
+                    },
+                    {
+                        "Projectile Material": 3260379948
+                    },
+                    {
+                        "Projectile ScaleX": 0.20000000298023224
+                    },
+                    {
+                        "Projectile ScaleY": 0.20000000298023224
+                    },
+                    {
+                        "Projectile ScaleZ": 0.4000000059604645
+                    },
+                    {
+                        "Projectiles per second": 1.0
+                    },
+                    {
+                        "Extra % firerate": 0.0
+                    },
+                    {
+                        "Player Stats GO": 3079281768
+                    },
+                    {
+                        "Ammo Type": 1
+                    },
+                    {
+                        "Audio Event String": "basic_shooting"
+                    },
                     {
                         "Projectile Pull": 4289989448
                     },
@@ -45242,6 +45426,9 @@
                 "Inspector Fields": [
                     {
                         "Gun Type": 4
+                    },
+                    {
+                        "Gun Type": 4
                     }
                 ],
                 "Script Resource": 1421097082,
@@ -45250,6 +45437,61 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Projectile Pull": 4289989448
+                    },
+                    {
+                        "Projectile Speed": 40.0
+                    },
+                    {
+                        "Projectile Damage": 10.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 0.0
+                    },
+                    {
+                        "Projectile Lifetime": 0.5
+                    },
+                    {
+                        "Projectile Spawn": 711540028
+                    },
+                    {
+                        "Projectile MeshIndexInsideModel": 0,
+                        "Projectile MeshModelUID": 1551155716
+                    },
+                    {
+                        "Projectile Material": 3260379948
+                    },
+                    {
+                        "Projectile ScaleX": 0.05000000074505806
+                    },
+                    {
+                        "Projectile ScaleY": 0.05000000074505806
+                    },
+                    {
+                        "Projectile ScaleZ": 0.05000000074505806
+                    },
+                    {
+                        "Projectiles per second": 1.2999999523162842
+                    },
+                    {
+                        "Extra % firerate": 0.0
+                    },
+                    {
+                        "Pellets per shot": 10
+                    },
+                    {
+                        "Pellets Dispersion": 0.0
+                    },
+                    {
+                        "Player Stats GO": 3079281768
+                    },
+                    {
+                        "Ammo Type": 1
+                    },
+                    {
+                        "Audio Event String": "basic_shooting"
+                    },
                     {
                         "Projectile Pull": 4289989448
                     },
@@ -45344,6 +45586,9 @@
                 "Inspector Fields": [
                     {
                         "Gun Type": 0
+                    },
+                    {
+                        "Gun Type": 0
                     }
                 ],
                 "Script Resource": 1421097082,
@@ -45352,6 +45597,70 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Projectile Pull": 4289989448
+                    },
+                    {
+                        "Projectile Speed": 30.0
+                    },
+                    {
+                        "Projectile Damage": 5.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 0.0
+                    },
+                    {
+                        "Projectile Lifetime": 1.0
+                    },
+                    {
+                        "Projectile Spawn": 3496178011
+                    },
+                    {
+                        "Second Projectile Spawn": 4270464620
+                    },
+                    {
+                        "Projectile MeshIndexInsideModel": 0,
+                        "Projectile MeshModelUID": 1551155716
+                    },
+                    {
+                        "Projectile Material": 3260379948
+                    },
+                    {
+                        "Projectile ScaleX": 0.10000000149011612
+                    },
+                    {
+                        "Projectile ScaleY": 0.10000000149011612
+                    },
+                    {
+                        "Projectile ScaleZ": 0.10000000149011612
+                    },
+                    {
+                        "Projectiles per second": 3.0
+                    },
+                    {
+                        "Extra % firerate": 0.0
+                    },
+                    {
+                        "Burst Space": 0.1599999964237213
+                    },
+                    {
+                        "Second Gun GO": 4178266457
+                    },
+                    {
+                        "Slow %": 0.0
+                    },
+                    {
+                        "Freeze %": 0.0
+                    },
+                    {
+                        "Player Stats GO": 3079281768
+                    },
+                    {
+                        "Ammo Type": 0
+                    },
+                    {
+                        "Audio Event String": "basic_shooting"
+                    },
                     {
                         "Projectile Pull": 4289989448
                     },
@@ -45455,6 +45764,9 @@
                 "Inspector Fields": [
                     {
                         "Gun Type": 2
+                    },
+                    {
+                        "Gun Type": 2
                     }
                 ],
                 "Script Resource": 1187195986,
@@ -45463,6 +45775,55 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Projectile Pull": 4289989448
+                    },
+                    {
+                        "Projectile Speed": 40.0
+                    },
+                    {
+                        "Projectile Damage": 10.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 0.0
+                    },
+                    {
+                        "Projectile Lifetime": 1.0
+                    },
+                    {
+                        "Projectile Spawn": 611995559
+                    },
+                    {
+                        "Projectile MeshIndexInsideModel": 0,
+                        "Projectile MeshModelUID": 1551155716
+                    },
+                    {
+                        "Projectile Material": 1192070465
+                    },
+                    {
+                        "Projectile ScaleX": 0.10000000149011612
+                    },
+                    {
+                        "Projectile ScaleY": 0.10000000149011612
+                    },
+                    {
+                        "Projectile ScaleZ": 0.10000000149011612
+                    },
+                    {
+                        "Projectiles per second": 5.0
+                    },
+                    {
+                        "Extra % firerate": 0.0
+                    },
+                    {
+                        "Player Stats GO": 3079281768
+                    },
+                    {
+                        "Ammo Type": 1
+                    },
+                    {
+                        "Audio Event String": "basic_shooting"
+                    },
                     {
                         "Projectile Pull": 4289989448
                     },
@@ -45551,6 +45912,9 @@
                 "Inspector Fields": [
                     {
                         "Gun Type": 3
+                    },
+                    {
+                        "Gun Type": 3
                     }
                 ],
                 "Script Resource": 1421097082,
@@ -45559,6 +45923,61 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Projectile Pull": 4289989448
+                    },
+                    {
+                        "Projectile Speed": 35.0
+                    },
+                    {
+                        "Projectile Damage": 20.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 0.0
+                    },
+                    {
+                        "Projectile Lifetime": 1.0
+                    },
+                    {
+                        "Projectile Spawn": 1292894324
+                    },
+                    {
+                        "Projectile MeshIndexInsideModel": 0,
+                        "Projectile MeshModelUID": 1551155716
+                    },
+                    {
+                        "Projectile Material": 1902967728
+                    },
+                    {
+                        "Projectile ScaleX": 0.10000000149011612
+                    },
+                    {
+                        "Projectile ScaleY": 0.10000000149011612
+                    },
+                    {
+                        "Projectile ScaleZ": 0.10000000149011612
+                    },
+                    {
+                        "Projectiles per second": 1.5
+                    },
+                    {
+                        "Extra % firerate": 0.0
+                    },
+                    {
+                        "Burst Space": 0.10000000149011612
+                    },
+                    {
+                        "Projectiles per burst": 3
+                    },
+                    {
+                        "Player Stats GO": 3079281768
+                    },
+                    {
+                        "Ammo Type": 1
+                    },
+                    {
+                        "Audio Event String": "basic_shooting"
+                    },
                     {
                         "Projectile Pull": 4289989448
                     },
@@ -45653,6 +46072,9 @@
                 "Inspector Fields": [
                     {
                         "Gun Type": 5
+                    },
+                    {
+                        "Gun Type": 5
                     }
                 ],
                 "Script Resource": 1421097082,
@@ -45661,6 +46083,55 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Projectile Pull": 4289989448
+                    },
+                    {
+                        "Projectile Speed": 50.0
+                    },
+                    {
+                        "Projectile Damage": 30.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 0.0
+                    },
+                    {
+                        "Projectile Lifetime": 1.0
+                    },
+                    {
+                        "Projectile Spawn": 604654010
+                    },
+                    {
+                        "Projectile MeshIndexInsideModel": 0,
+                        "Projectile MeshModelUID": 1551155716
+                    },
+                    {
+                        "Projectile Material": 163752753
+                    },
+                    {
+                        "Projectile ScaleX": 0.10000000149011612
+                    },
+                    {
+                        "Projectile ScaleY": 0.10000000149011612
+                    },
+                    {
+                        "Projectile ScaleZ": 0.10000000149011612
+                    },
+                    {
+                        "Projectiles per second": 2.0
+                    },
+                    {
+                        "Extra % firerate": 0.0
+                    },
+                    {
+                        "Player Stats GO": 3079281768
+                    },
+                    {
+                        "Ammo Type": 1
+                    },
+                    {
+                        "Audio Event String": "basic_shooting"
+                    },
                     {
                         "Projectile Pull": 4289989448
                     },
@@ -46527,6 +46998,15 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Pull Size": 20
+                    },
+                    {
+                        "Player": 3079281768
+                    },
+                    {
+                        "Particles": 3454571708
+                    },
                     {
                         "Pull Size": 20
                     },
@@ -47723,6 +48203,27 @@
                     },
                     {
                         "Continute button Final text": 4142976289
+                    },
+                    {
+                        "Pause Panel": 2351851433
+                    },
+                    {
+                        "Map Panel": 2261881879
+                    },
+                    {
+                        "HUD Panel": 534324232
+                    },
+                    {
+                        "Initial text Panel": 690857073
+                    },
+                    {
+                        "Final text Panel": 3270961405
+                    },
+                    {
+                        "Continute button Initial text": 599873896
+                    },
+                    {
+                        "Continute button Final text": 4142976289
                     }
                 ],
                 "Script Resource": 638239770,
@@ -47769,6 +48270,18 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "UI Manager: ": 1929488284
+                    },
+                    {
+                        "Continue: ": 3980368860
+                    },
+                    {
+                        "Settings: ": 1210391484
+                    },
+                    {
+                        "Main Menu: ": 1407160044
+                    },
                     {
                         "UI Manager: ": 1929488284
                     },
@@ -47953,7 +48466,7 @@
         "UID": 1675496843
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -47991,7 +48504,7 @@
         "UID": 2261881879
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -48027,7 +48540,7 @@
         "UID": 3797357315
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -48051,12 +48564,12 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 1502179773,
+                "MaterialResource": 2003333186,
                 "Type": 15
             }
         ],
         "FirstOnPrefab": false,
-        "Name": "Map",
+        "Name": "Map_1",
         "ParentUID": 2261881879,
         "PrefabUID": 2435402984,
         "Tag": "UI",
@@ -48099,7 +48612,7 @@
         "UID": 29412469
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -48123,7 +48636,7 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 801667611,
+                "MaterialResource": 859167279,
                 "Type": 15
             }
         ],
@@ -48243,7 +48756,7 @@
         "UID": 3727933175
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -48279,7 +48792,7 @@
         "UID": 1856846690
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -48315,7 +48828,7 @@
         "UID": 1302762185
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -48441,6 +48954,9 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "hp": false
+                    },
                     {
                         "hp": false
                     }
@@ -48667,6 +49183,18 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Game Bar Weapon 1": 2138997286
+                    },
+                    {
+                        "Game Bar Weapon 2": 226696496
+                    },
+                    {
+                        "Game Bar Weapon 3": 2691390326
+                    },
+                    {
+                        "Material_Dash": 208745187
+                    },
                     {
                         "Game Bar Weapon 1": 2138997286
                     },
@@ -50026,6 +50554,12 @@
                     },
                     {
                         "Smoke Particle": 4133840679
+                    },
+                    {
+                        "Destination: ": 2826794746
+                    },
+                    {
+                        "Smoke Particle": 4133840679
                     }
                 ],
                 "Script Resource": 3991898773,
@@ -50354,6 +50888,12 @@
                     },
                     {
                         "Smoke Particle": 1977662435
+                    },
+                    {
+                        "Destination: ": 285573953
+                    },
+                    {
+                        "Smoke Particle": 1977662435
                     }
                 ],
                 "Script Resource": 3991898773,
@@ -50373,7 +50913,7 @@
             {
                 "Enabled": true,
                 "Position": [
-                    -19.790836334228516,
+                    -18.47003746032715,
                     0.40095460414886475,
                     27.714597702026367
                 ],
@@ -50445,7 +50985,7 @@
                 ],
                 "ShapeSelected": 1,
                 "SphereHorSlices": 16,
-                "SphereRadius": 5.099999904632568,
+                "SphereRadius": 11.199999809265137,
                 "SphereVerSlices": 16,
                 "Type": 8,
                 "WireframeSize": 3.0
@@ -50497,6 +51037,12 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Destination: ": 139432025
+                    },
+                    {
+                        "Smoke Particle": 375676020
+                    },
                     {
                         "Destination: ": 139432025
                     },
@@ -50650,6 +51196,12 @@
                     },
                     {
                         "Smoke Particle": 1271607421
+                    },
+                    {
+                        "Destination: ": 2558188049
+                    },
+                    {
+                        "Smoke Particle": 1271607421
                     }
                 ],
                 "Script Resource": 3991898773,
@@ -50793,6 +51345,12 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Destination: ": 2869837807
+                    },
+                    {
+                        "Smoke Particle": 3600226063
+                    },
                     {
                         "Destination: ": 2869837807
                     },
@@ -50946,6 +51504,12 @@
                     },
                     {
                         "Smoke Particle": 3417205196
+                    },
+                    {
+                        "Destination: ": 2454296566
+                    },
+                    {
+                        "Smoke Particle": 3417205196
                     }
                 ],
                 "Script Resource": 3991898773,
@@ -51089,6 +51653,12 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Destination: ": 3881590118
+                    },
+                    {
+                        "Smoke Particle": 2211987922
+                    },
                     {
                         "Destination: ": 3881590118
                     },
@@ -51242,6 +51812,12 @@
                     },
                     {
                         "Smoke Particle": 118041523
+                    },
+                    {
+                        "Destination: ": 2595394373
+                    },
+                    {
+                        "Smoke Particle": 118041523
                     }
                 ],
                 "Script Resource": 3991898773,
@@ -51280,7 +51856,7 @@
             {
                 "Active camera": true,
                 "Active culling": false,
-                "Aspect ratio": 1.7065573930740356,
+                "Aspect ratio": 1.9408783912658691,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 2000.0,
@@ -51292,6 +51868,36 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Target": 3079281768
+                    },
+                    {
+                        "Delay": 0.019999999552965164
+                    },
+                    {
+                        "Offset_X": 0.0
+                    },
+                    {
+                        "Offset_Y": 16.0
+                    },
+                    {
+                        "Offset_Z": -8.0
+                    },
+                    {
+                        "Rot_X": 50.0
+                    },
+                    {
+                        "Rot_Y": 0.0
+                    },
+                    {
+                        "Rot_Z": 0.0
+                    },
+                    {
+                        "SafeZone_Distance": 10.0
+                    },
+                    {
+                        "Use safe zone: ": true
+                    },
                     {
                         "Target": 3079281768
                     },
@@ -51736,6 +52342,27 @@
                     },
                     {
                         "Enemy RigidBody": 3306337635
+                    },
+                    {
+                        "Max Health": 100.0
+                    },
+                    {
+                        "Current Helath": 0.0
+                    },
+                    {
+                        "Resistance": 100.0
+                    },
+                    {
+                        "Speed": 80.0
+                    },
+                    {
+                        "Acceleration": 1.2000000476837158
+                    },
+                    {
+                        "Current speed": 0.0
+                    },
+                    {
+                        "Enemy RigidBody": 3306337635
                     }
                 ],
                 "Script Resource": 4210965159,
@@ -51744,6 +52371,45 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Detection distance": 20.0
+                    },
+                    {
+                        "Lossing Enemy distance": 20.0
+                    },
+                    {
+                        "Range attack": 60.0
+                    },
+                    {
+                        "OutsideZone Time": 3.0
+                    },
+                    {
+                        "Target": 3079281768
+                    },
+                    {
+                        "Action zone": 4114299916
+                    },
+                    {
+                        "Action Rb zone": 4114299916
+                    },
+                    {
+                        "Point 1": 51089772
+                    },
+                    {
+                        "Point 2": 688095324
+                    },
+                    {
+                        "Point 3": 51089772
+                    },
+                    {
+                        "Animation Player": 3511899634
+                    },
+                    {
+                        "Idle Animation": 212790776
+                    },
+                    {
+                        "Walk Animation": 2698919658
+                    },
                     {
                         "Detection distance": 20.0
                     },
@@ -55494,6 +56160,27 @@
                     },
                     {
                         "Enemy RigidBody": 3144339685
+                    },
+                    {
+                        "Max Health": 100.0
+                    },
+                    {
+                        "Current Helath": 0.0
+                    },
+                    {
+                        "Resistance": 100.0
+                    },
+                    {
+                        "Speed": 80.0
+                    },
+                    {
+                        "Acceleration": 1.2000000476837158
+                    },
+                    {
+                        "Current speed": 0.0
+                    },
+                    {
+                        "Enemy RigidBody": 3144339685
                     }
                 ],
                 "Script Resource": 4210965159,
@@ -55502,6 +56189,45 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Detection distance": 20.0
+                    },
+                    {
+                        "Lossing Enemy distance": 20.0
+                    },
+                    {
+                        "Range attack": 60.0
+                    },
+                    {
+                        "OutsideZone Time": 3.0
+                    },
+                    {
+                        "Target": 3079281768
+                    },
+                    {
+                        "Action zone": 1384171162
+                    },
+                    {
+                        "Action Rb zone": 1384171162
+                    },
+                    {
+                        "Point 1": 1199249249
+                    },
+                    {
+                        "Point 2": 3062697685
+                    },
+                    {
+                        "Point 3": 1199249249
+                    },
+                    {
+                        "Animation Player": 1080847643
+                    },
+                    {
+                        "Idle Animation": 212790776
+                    },
+                    {
+                        "Walk Animation": 2698919658
+                    },
                     {
                         "Detection distance": 20.0
                     },
@@ -59252,6 +59978,27 @@
                     },
                     {
                         "Enemy RigidBody": 1757690383
+                    },
+                    {
+                        "Max Health": 100.0
+                    },
+                    {
+                        "Current Helath": 0.0
+                    },
+                    {
+                        "Resistance": 100.0
+                    },
+                    {
+                        "Speed": 80.0
+                    },
+                    {
+                        "Acceleration": 1.2000000476837158
+                    },
+                    {
+                        "Current speed": 0.0
+                    },
+                    {
+                        "Enemy RigidBody": 1757690383
                     }
                 ],
                 "Script Resource": 4210965159,
@@ -59260,6 +60007,45 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Detection distance": 20.0
+                    },
+                    {
+                        "Lossing Enemy distance": 20.0
+                    },
+                    {
+                        "Range attack": 60.0
+                    },
+                    {
+                        "OutsideZone Time": 3.0
+                    },
+                    {
+                        "Target": 3079281768
+                    },
+                    {
+                        "Action zone": 4114763282
+                    },
+                    {
+                        "Action Rb zone": 4114763282
+                    },
+                    {
+                        "Point 1": 3336393343
+                    },
+                    {
+                        "Point 2": 2619630730
+                    },
+                    {
+                        "Point 3": 3336393343
+                    },
+                    {
+                        "Animation Player": 2511718243
+                    },
+                    {
+                        "Idle Animation": 212790776
+                    },
+                    {
+                        "Walk Animation": 2698919658
+                    },
                     {
                         "Detection distance": 20.0
                     },
@@ -63010,6 +63796,27 @@
                     },
                     {
                         "Enemy RigidBody": 1494185823
+                    },
+                    {
+                        "Max Health": 100.0
+                    },
+                    {
+                        "Current Helath": 100.0
+                    },
+                    {
+                        "Resistance": 100.0
+                    },
+                    {
+                        "Speed": 80.0
+                    },
+                    {
+                        "Acceleration": 1.2000000476837158
+                    },
+                    {
+                        "Current speed": 0.0
+                    },
+                    {
+                        "Enemy RigidBody": 1494185823
                     }
                 ],
                 "Script Resource": 4210965159,
@@ -63018,6 +63825,45 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Detection distance": 20.0
+                    },
+                    {
+                        "Lossing Enemy distance": 20.0
+                    },
+                    {
+                        "Range attack": 60.0
+                    },
+                    {
+                        "OutsideZone Time": 3.0
+                    },
+                    {
+                        "Target": 3079281768
+                    },
+                    {
+                        "Action zone": 782401128
+                    },
+                    {
+                        "Action Rb zone": 782401128
+                    },
+                    {
+                        "Point 1": 502844421
+                    },
+                    {
+                        "Point 2": 253004744
+                    },
+                    {
+                        "Point 3": 502844421
+                    },
+                    {
+                        "Animation Player": 3183242914
+                    },
+                    {
+                        "Idle Animation": 212790776
+                    },
+                    {
+                        "Walk Animation": 2698919658
+                    },
                     {
                         "Detection distance": 20.0
                     },
@@ -66768,6 +67614,27 @@
                     },
                     {
                         "Enemy RigidBody": 979250570
+                    },
+                    {
+                        "Max Health": 100.0
+                    },
+                    {
+                        "Current Helath": 100.0
+                    },
+                    {
+                        "Resistance": 100.0
+                    },
+                    {
+                        "Speed": 80.0
+                    },
+                    {
+                        "Acceleration": 1.2000000476837158
+                    },
+                    {
+                        "Current speed": 0.0
+                    },
+                    {
+                        "Enemy RigidBody": 979250570
                     }
                 ],
                 "Script Resource": 4210965159,
@@ -66776,6 +67643,45 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Detection distance": 20.0
+                    },
+                    {
+                        "Lossing Enemy distance": 20.0
+                    },
+                    {
+                        "Range attack": 60.0
+                    },
+                    {
+                        "OutsideZone Time": 3.0
+                    },
+                    {
+                        "Target": 3079281768
+                    },
+                    {
+                        "Action zone": 2315350177
+                    },
+                    {
+                        "Action Rb zone": 2315350177
+                    },
+                    {
+                        "Point 1": 1682881478
+                    },
+                    {
+                        "Point 2": 1478512253
+                    },
+                    {
+                        "Point 3": 1682881478
+                    },
+                    {
+                        "Animation Player": 2412149139
+                    },
+                    {
+                        "Idle Animation": 212790776
+                    },
+                    {
+                        "Walk Animation": 2698919658
+                    },
                     {
                         "Detection distance": 20.0
                     },
@@ -70553,6 +71459,54 @@
                     },
                     {
                         "Walk Animation": 1817469882
+                    },
+                    {
+                        "Detection distance": 15.0
+                    },
+                    {
+                        "Lossing Enemy distance": 20.0
+                    },
+                    {
+                        "Distance player": 5.0
+                    },
+                    {
+                        "Range attack": 10.0
+                    },
+                    {
+                        "Cooldown betwen points": 3.0
+                    },
+                    {
+                        "OutsideZone Time": 3.0
+                    },
+                    {
+                        "Gun Type(0Semi/1burst)": 0
+                    },
+                    {
+                        "Target": 3079281768
+                    },
+                    {
+                        "Action zone": 695205673
+                    },
+                    {
+                        "Action Rb zone": 695205673
+                    },
+                    {
+                        "Point 1": 927701309
+                    },
+                    {
+                        "Point 2": 4069603937
+                    },
+                    {
+                        "Point 3": 3788082644
+                    },
+                    {
+                        "Animation Player": 532619435
+                    },
+                    {
+                        "Idle Animation": 3788757112
+                    },
+                    {
+                        "Walk Animation": 1817469882
                     }
                 ],
                 "Script Resource": 3669335644,
@@ -70561,6 +71515,27 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Max Health": 100.0
+                    },
+                    {
+                        "Current Helath": 0.0
+                    },
+                    {
+                        "Resistance": 100.0
+                    },
+                    {
+                        "Speed": 80.0
+                    },
+                    {
+                        "Acceleration": 1.2000000476837158
+                    },
+                    {
+                        "Current speed": 0.0
+                    },
+                    {
+                        "Enemy RigidBody": 348138482
+                    },
                     {
                         "Max Health": 100.0
                     },
@@ -75550,6 +76525,54 @@
                     },
                     {
                         "Walk Animation": 1817469882
+                    },
+                    {
+                        "Detection distance": 20.0
+                    },
+                    {
+                        "Lossing Enemy distance": 15.0
+                    },
+                    {
+                        "Distance player": 5.0
+                    },
+                    {
+                        "Range attack": 10.0
+                    },
+                    {
+                        "Cooldown betwen points": 3.0
+                    },
+                    {
+                        "OutsideZone Time": 3.0
+                    },
+                    {
+                        "Gun Type(0Semi/1burst)": 0
+                    },
+                    {
+                        "Target": 3079281768
+                    },
+                    {
+                        "Action zone": 1384171162
+                    },
+                    {
+                        "Action Rb zone": 1384171162
+                    },
+                    {
+                        "Point 1": 3236847788
+                    },
+                    {
+                        "Point 2": 4235761820
+                    },
+                    {
+                        "Point 3": 3236847788
+                    },
+                    {
+                        "Animation Player": 4030495407
+                    },
+                    {
+                        "Idle Animation": 3788757112
+                    },
+                    {
+                        "Walk Animation": 1817469882
                     }
                 ],
                 "Script Resource": 3669335644,
@@ -75558,6 +76581,27 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Max Health": 100.0
+                    },
+                    {
+                        "Current Helath": 0.0
+                    },
+                    {
+                        "Resistance": 100.0
+                    },
+                    {
+                        "Speed": 80.0
+                    },
+                    {
+                        "Acceleration": 1.2000000476837158
+                    },
+                    {
+                        "Current speed": 0.0
+                    },
+                    {
+                        "Enemy RigidBody": 2316102626
+                    },
                     {
                         "Max Health": 100.0
                     },
@@ -80818,6 +81862,18 @@
                     },
                     {
                         "Seconds emits fire": 2.0
+                    },
+                    {
+                        "Smoke Particle": 3387335297
+                    },
+                    {
+                        "Fire Particle": 3789214010
+                    },
+                    {
+                        "Delay on Hit": 5.0
+                    },
+                    {
+                        "Seconds emits fire": 2.0
                     }
                 ],
                 "Script Resource": 677318794,
@@ -81021,6 +82077,27 @@
                     },
                     {
                         "Point 3": 51089772
+                    },
+                    {
+                        "Enemy Pool Size": 5
+                    },
+                    {
+                        "Target": 3079281768
+                    },
+                    {
+                        "Action zone": 4114299916
+                    },
+                    {
+                        "Action Rb zone": 4114299916
+                    },
+                    {
+                        "Point 1": 51089772
+                    },
+                    {
+                        "Point 2": 688095324
+                    },
+                    {
+                        "Point 3": 51089772
                     }
                 ],
                 "Script Resource": 1103577651,
@@ -81174,6 +82251,12 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Box Destroyed Particle": 1437281736
+                    },
+                    {
+                        "MaxHp": 50
+                    },
                     {
                         "Box Destroyed Particle": 1437281736
                     },
@@ -116140,7 +117223,7 @@
             {
                 "Enabled": true,
                 "Position": [
-                    -1.1222686767578125,
+                    0.0,
                     0.0,
                     0.0
                 ],
@@ -116193,6 +117276,231 @@
         "PrefabUID": 1550116207,
         "Tag": "Default",
         "UID": 997200954
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.15595456957817078,
+                    0.14279472827911377,
+                    0.0
+                ],
+                "Rotation": [
+                    -91.49506378173828,
+                    8.749823570251465,
+                    0.22748032212257385
+                ],
+                "Scale": [
+                    109.52082061767578,
+                    99.99999237060547,
+                    50.99897384643555
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 852313984,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3317309550,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Fence Plane Broken",
+        "ParentUID": 997200954,
+        "PrefabUID": 1550116207,
+        "Tag": "Default",
+        "UID": 2276245890
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.24405363202095032,
+                    -0.2326871007680893,
+                    -1.8189894035458565e-10
+                ],
+                "Rotation": [
+                    -92.03500366210938,
+                    16.33588981628418,
+                    0.5726049542427063
+                ],
+                "Scale": [
+                    100.0,
+                    100.00000762939453,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 1,
+                "ModelUID": 852313984,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3870521420,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Fence Union Broken",
+        "ParentUID": 997200954,
+        "PrefabUID": 1550116207,
+        "Tag": "Default",
+        "UID": 3106787178
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    100.0,
+                    100.0,
+                    100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 2,
+                "ModelUID": 852313984,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3974956041,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Fence Stick Broken",
+        "ParentUID": 997200954,
+        "PrefabUID": 1550116207,
+        "Tag": "Default",
+        "UID": 3077092977
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.007342720404267311,
+                    0.02653433382511139,
+                    0.0
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    12.998866081237793,
+                    4.381136591291579e-07
+                ],
+                "Scale": [
+                    100.00000762939453,
+                    100.0,
+                    100.00000762939453
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 3,
+                "ModelUID": 852313984,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3870521420,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Fence Union 2 Broken",
+        "ParentUID": 997200954,
+        "PrefabUID": 1550116207,
+        "Tag": "Default",
+        "UID": 1616394532
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    90.00000762939453,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    -100.0,
+                    -100.0,
+                    -100.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 4,
+                "ModelUID": 852313984,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 3974956041,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Fence Stick 2 Broken",
+        "ParentUID": 997200954,
+        "PrefabUID": 1550116207,
+        "Tag": "Default",
+        "UID": 2565589876
     },
     {
         "Active": true,
@@ -135380,66 +136688,6 @@
                 "SphereVerSlices": 16,
                 "Type": 8,
                 "WireframeSize": 3.0
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 13,
-                "ParticleModules": {
-                    "ModuleEmission": {
-                        "ParticlesPerSecond": 15
-                    },
-                    "ModuleMain": {
-                        "BeginScale": [
-                            1.0,
-                            1.0,
-                            1.0
-                        ],
-                        "Delay": 0.0,
-                        "Duration": 0.5,
-                        "EndScale": [
-                            0.0,
-                            0.0,
-                            0.0
-                        ],
-                        "LifeTime": 1.0,
-                        "Looping": true,
-                        "PlayOnAwake": false,
-                        "Speed": [
-                            0.10000000149011612,
-                            0.10000000149011612,
-                            0.10000000149011612
-                        ],
-                        "SpeedVariation": [
-                            8.199999809265137,
-                            8.199999809265137,
-                            8.199999809265137
-                        ],
-                        "acceleration": [
-                            1.0,
-                            1.0,
-                            1.0
-                        ]
-                    }
-                },
-                "ResourceTextUID": 1382913145,
-                "Type": 6
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Box Destroyed Particle": 1355782264
-                    },
-                    {
-                        "MaxHp": 50
-                    },
-                    {
-                        "Drop Manager": 565823307
-                    }
-                ],
-                "Script Resource": 4229972138,
-                "Type": 5
             }
         ],
         "FirstOnPrefab": true,
@@ -135570,6 +136818,1284 @@
         "PrefabUID": 2410804149,
         "Tag": "Default",
         "UID": 1158424479
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -1.1049277782440186,
+                    25.700000762939453,
+                    23.777555465698242
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    0.4999999403953552,
+                    0.5,
+                    0.4999999403953552
+                ],
+                "Type": 1
+            },
+            {
+                "ColPosition": [
+                    0.0,
+                    0.699999988079071,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    1.7999999523162842,
+                    1.5,
+                    1.5
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "GlobalGravity": [
+                    0.0,
+                    -10.0,
+                    0.0
+                ],
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsShapeSelected": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsStatic": false,
+                "IsTrigger": false,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    1.0,
+                    0.5302325487136841,
+                    0.0,
+                    1.0
+                ],
+                "ShapeSelected": 0,
+                "SphereHorSlices": 16,
+                "SphereRadius": 1.0,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Box",
+        "ParentUID": 859625570,
+        "PrefabUID": 2410804149,
+        "Tag": "Default",
+        "UID": 3840482425
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    3.299999952316284,
+                    0.16745665669441223,
+                    2.555555582046509
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2206090924,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 487069363,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "pCube1",
+        "ParentUID": 3840482425,
+        "PrefabUID": 2410804149,
+        "Tag": "Default",
+        "UID": 3627833036
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "group",
+        "ParentUID": 3840482425,
+        "PrefabUID": 2410804149,
+        "Tag": "Default",
+        "UID": 3516990779
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    2.2401480674743652,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    3.299999952316284,
+                    0.16745665669441223,
+                    2.555555582046509
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 1,
+                "ModelUID": 2206090924,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 487069363,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "pasted__pCube1",
+        "ParentUID": 3516990779,
+        "PrefabUID": 2410804149,
+        "Tag": "Default",
+        "UID": 329479798
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    70.50820922851563,
+                    -0.09999772906303406,
+                    -22.41462516784668
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    0.4999999403953552,
+                    0.5,
+                    0.4999999403953552
+                ],
+                "Type": 1
+            },
+            {
+                "ColPosition": [
+                    0.0,
+                    0.699999988079071,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    1.7999999523162842,
+                    1.5,
+                    1.5
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "GlobalGravity": [
+                    0.0,
+                    -10.0,
+                    0.0
+                ],
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsShapeSelected": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsStatic": false,
+                "IsTrigger": false,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    1.0,
+                    0.5302325487136841,
+                    0.0,
+                    1.0
+                ],
+                "ShapeSelected": 0,
+                "SphereHorSlices": 16,
+                "SphereRadius": 1.0,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Box",
+        "ParentUID": 859625570,
+        "PrefabUID": 2410804149,
+        "Tag": "Default",
+        "UID": 2936281171
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    3.299999952316284,
+                    0.16745665669441223,
+                    2.555555582046509
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2206090924,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 487069363,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "pCube1",
+        "ParentUID": 2936281171,
+        "PrefabUID": 2410804149,
+        "Tag": "Default",
+        "UID": 3567985775
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "group",
+        "ParentUID": 2936281171,
+        "PrefabUID": 2410804149,
+        "Tag": "Default",
+        "UID": 3009109818
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    2.2401480674743652,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    3.299999952316284,
+                    0.16745665669441223,
+                    2.555555582046509
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 1,
+                "ModelUID": 2206090924,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 487069363,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "pasted__pCube1",
+        "ParentUID": 3009109818,
+        "PrefabUID": 2410804149,
+        "Tag": "Default",
+        "UID": 1614841985
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    4.467842102050781,
+                    25.700000762939453,
+                    23.836402893066406
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    0.4999999403953552,
+                    0.5,
+                    0.4999999403953552
+                ],
+                "Type": 1
+            },
+            {
+                "ColPosition": [
+                    0.0,
+                    0.699999988079071,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    1.7999999523162842,
+                    1.5,
+                    1.5
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "GlobalGravity": [
+                    0.0,
+                    -10.0,
+                    0.0
+                ],
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsShapeSelected": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsStatic": false,
+                "IsTrigger": false,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    1.0,
+                    0.5302325487136841,
+                    0.0,
+                    1.0
+                ],
+                "ShapeSelected": 0,
+                "SphereHorSlices": 16,
+                "SphereRadius": 1.0,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Box",
+        "ParentUID": 859625570,
+        "PrefabUID": 2410804149,
+        "Tag": "Default",
+        "UID": 2377571199
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    3.299999952316284,
+                    0.16745665669441223,
+                    2.555555582046509
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2206090924,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 487069363,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "pCube1",
+        "ParentUID": 2377571199,
+        "PrefabUID": 2410804149,
+        "Tag": "Default",
+        "UID": 844857738
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "group",
+        "ParentUID": 2377571199,
+        "PrefabUID": 2410804149,
+        "Tag": "Default",
+        "UID": 263458577
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    2.2401480674743652,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    3.299999952316284,
+                    0.16745665669441223,
+                    2.555555582046509
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 1,
+                "ModelUID": 2206090924,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 487069363,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "pasted__pCube1",
+        "ParentUID": 263458577,
+        "PrefabUID": 2410804149,
+        "Tag": "Default",
+        "UID": 2739235397
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    20.833967208862305,
+                    25.699947357177734,
+                    23.850427627563477
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    0.4999999403953552,
+                    0.5,
+                    0.4999999403953552
+                ],
+                "Type": 1
+            },
+            {
+                "ColPosition": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    1.7999999523162842,
+                    3.0,
+                    1.5
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "GlobalGravity": [
+                    0.0,
+                    -10.0,
+                    0.0
+                ],
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsShapeSelected": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsStatic": false,
+                "IsTrigger": false,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    1.0,
+                    0.5302325487136841,
+                    0.0,
+                    1.0
+                ],
+                "ShapeSelected": 0,
+                "SphereHorSlices": 16,
+                "SphereRadius": 1.0,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Box",
+        "ParentUID": 859625570,
+        "PrefabUID": 2410804149,
+        "Tag": "Default",
+        "UID": 3435626844
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    3.299999952316284,
+                    0.16745665669441223,
+                    2.555555582046509
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2206090924,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 487069363,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "pCube1",
+        "ParentUID": 3435626844,
+        "PrefabUID": 2410804149,
+        "Tag": "Default",
+        "UID": 752824587
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "group",
+        "ParentUID": 3435626844,
+        "PrefabUID": 2410804149,
+        "Tag": "Default",
+        "UID": 914658439
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    2.2401480674743652,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    3.299999952316284,
+                    0.16745665669441223,
+                    2.555555582046509
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 1,
+                "ModelUID": 2206090924,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 487069363,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "pasted__pCube1",
+        "ParentUID": 914658439,
+        "PrefabUID": 2410804149,
+        "Tag": "Default",
+        "UID": 2250051123
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    7.532571315765381,
+                    25.70020866394043,
+                    46.779457092285156
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    0.4999999403953552,
+                    0.5,
+                    0.4999999403953552
+                ],
+                "Type": 1
+            },
+            {
+                "ColPosition": [
+                    0.0,
+                    0.699999988079071,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    1.7999999523162842,
+                    1.5,
+                    1.5
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "GlobalGravity": [
+                    0.0,
+                    -10.0,
+                    0.0
+                ],
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsShapeSelected": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsStatic": false,
+                "IsTrigger": false,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    1.0,
+                    0.5302325487136841,
+                    0.0,
+                    1.0
+                ],
+                "ShapeSelected": 0,
+                "SphereHorSlices": 16,
+                "SphereRadius": 1.0,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Box",
+        "ParentUID": 859625570,
+        "PrefabUID": 2410804149,
+        "Tag": "Default",
+        "UID": 1331643639
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    3.299999952316284,
+                    0.16745665669441223,
+                    2.555555582046509
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2206090924,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 487069363,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "pCube1",
+        "ParentUID": 1331643639,
+        "PrefabUID": 2410804149,
+        "Tag": "Default",
+        "UID": 3492706659
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "group",
+        "ParentUID": 1331643639,
+        "PrefabUID": 2410804149,
+        "Tag": "Default",
+        "UID": 1861875902
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    2.2401480674743652,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    3.299999952316284,
+                    0.16745665669441223,
+                    2.555555582046509
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 1,
+                "ModelUID": 2206090924,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 487069363,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "pasted__pCube1",
+        "ParentUID": 1861875902,
+        "PrefabUID": 2410804149,
+        "Tag": "Default",
+        "UID": 3549179862
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -1.4210760593414307,
+                    25.700002670288086,
+                    38.040531158447266
+                ],
+                "Rotation": [
+                    179.99989318847656,
+                    89.98020935058594,
+                    179.99989318847656
+                ],
+                "Scale": [
+                    0.5,
+                    0.5,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "ColPosition": [
+                    0.0,
+                    0.699999988079071,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    90.0,
+                    0.0
+                ],
+                "ColScale": [
+                    1.7999999523162842,
+                    1.5,
+                    1.5
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "GlobalGravity": [
+                    0.0,
+                    -10.0,
+                    0.0
+                ],
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsShapeSelected": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsStatic": false,
+                "IsTrigger": false,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    1.0,
+                    0.5302325487136841,
+                    0.0,
+                    1.0
+                ],
+                "ShapeSelected": 0,
+                "SphereHorSlices": 16,
+                "SphereRadius": 1.0,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Box",
+        "ParentUID": 859625570,
+        "PrefabUID": 2410804149,
+        "Tag": "Default",
+        "UID": 3687666126
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    3.299999952316284,
+                    0.16745665669441223,
+                    2.555555582046509
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2206090924,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 487069363,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "pCube1",
+        "ParentUID": 3687666126,
+        "PrefabUID": 2410804149,
+        "Tag": "Default",
+        "UID": 3038272549
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "group",
+        "ParentUID": 3687666126,
+        "PrefabUID": 2410804149,
+        "Tag": "Default",
+        "UID": 433805928
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    2.2401480674743652,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    3.299999952316284,
+                    0.16745665669441223,
+                    2.555555582046509
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 1,
+                "ModelUID": 2206090924,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 487069363,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "pasted__pCube1",
+        "ParentUID": 433805928,
+        "PrefabUID": 2410804149,
+        "Tag": "Default",
+        "UID": 4087455112
     },
     {
         "Active": true,
@@ -137068,280 +139594,7 @@
             {
                 "Enabled": true,
                 "Position": [
-                    70.49468994140625,
-                    -0.09999772906303406,
-                    -22.42389488220215
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    0.4999999403953552,
-                    0.5,
-                    0.4999999403953552
-                ],
-                "Type": 1
-            },
-            {
-                "ColPosition": [
-                    0.0,
-                    0.699999988079071,
-                    0.0
-                ],
-                "ColRotation": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "ColScale": [
-                    1.7999999523162842,
-                    2.5,
-                    1.5
-                ],
-                "CylVerSlices": 16,
-                "CylinderRadiusHeight": [
-                    1.0,
-                    1.0
-                ],
-                "Enabled": true,
-                "GlobalGravity": [
-                    0.0,
-                    -10.0,
-                    0.0
-                ],
-                "Gravity": [
-                    0.0,
-                    -9.800000190734863,
-                    0.0
-                ],
-                "HasPhysBody": true,
-                "IsKinematic": false,
-                "IsRenderingCol": true,
-                "IsShapeCreated": [
-                    true,
-                    false,
-                    false
-                ],
-                "IsShapeSelected": [
-                    true,
-                    false,
-                    false
-                ],
-                "IsStatic": false,
-                "IsTrigger": false,
-                "Mass": 0.0,
-                "RenderColColor": [
-                    1.0,
-                    0.5302325487136841,
-                    0.0,
-                    1.0
-                ],
-                "ShapeSelected": 0,
-                "SphereHorSlices": 16,
-                "SphereRadius": 1.0,
-                "SphereVerSlices": 16,
-                "Type": 8,
-                "WireframeSize": 3.0
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 13,
-                "ParticleModules": {
-                    "ModuleEmission": {
-                        "ParticlesPerSecond": 15
-                    },
-                    "ModuleMain": {
-                        "BeginScale": [
-                            1.0,
-                            1.0,
-                            1.0
-                        ],
-                        "Delay": 0.0,
-                        "Duration": 0.5,
-                        "EndScale": [
-                            0.0,
-                            0.0,
-                            0.0
-                        ],
-                        "LifeTime": 1.0,
-                        "Looping": true,
-                        "PlayOnAwake": false,
-                        "Speed": [
-                            0.10000000149011612,
-                            0.10000000149011612,
-                            0.10000000149011612
-                        ],
-                        "SpeedVariation": [
-                            8.199999809265137,
-                            8.199999809265137,
-                            8.199999809265137
-                        ],
-                        "acceleration": [
-                            1.0,
-                            1.0,
-                            1.0
-                        ]
-                    }
-                },
-                "ResourceTextUID": 1382913145,
-                "Type": 6
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Box Destroyed Particle": 1355782264
-                    },
-                    {
-                        "MaxHp": 50
-                    },
-                    {
-                        "Drop Manager": 565823307
-                    }
-                ],
-                "Script Resource": 4229972138,
-                "Type": 5
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "Box",
-        "ParentUID": 859625570,
-        "PrefabUID": 2410804149,
-        "Tag": "Default",
-        "UID": 2691267316
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    3.299999952316284,
-                    0.16745665669441223,
-                    2.555555582046509
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 2206090924,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 487069363,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "pCube1",
-        "ParentUID": 2691267316,
-        "PrefabUID": 2410804149,
-        "Tag": "Default",
-        "UID": 773519235
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "group",
-        "ParentUID": 2691267316,
-        "PrefabUID": 2410804149,
-        "Tag": "Default",
-        "UID": 2882702687
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    -0.03753662109375,
-                    2.2401411533355713,
-                    -0.041748046875
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    3.299999952316284,
-                    0.16745665669441223,
-                    2.555555582046509
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 1,
-                "ModelUID": 2206090924,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 487069363,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "pasted__pCube1",
-        "ParentUID": 2882702687,
-        "PrefabUID": 2410804149,
-        "Tag": "Default",
-        "UID": 1411964138
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    77.16033172607422,
+                    77.1379623413086,
                     -0.09999772906303406,
                     -35.843631744384766
                 ],
@@ -137370,7 +139623,7 @@
                 ],
                 "ColScale": [
                     1.7999999523162842,
-                    2.5,
+                    1.5,
                     1.5
                 ],
                 "CylVerSlices": 16,
@@ -137417,66 +139670,6 @@
                 "SphereVerSlices": 16,
                 "Type": 8,
                 "WireframeSize": 3.0
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 13,
-                "ParticleModules": {
-                    "ModuleEmission": {
-                        "ParticlesPerSecond": 15
-                    },
-                    "ModuleMain": {
-                        "BeginScale": [
-                            1.0,
-                            1.0,
-                            1.0
-                        ],
-                        "Delay": 0.0,
-                        "Duration": 0.5,
-                        "EndScale": [
-                            0.0,
-                            0.0,
-                            0.0
-                        ],
-                        "LifeTime": 1.0,
-                        "Looping": true,
-                        "PlayOnAwake": false,
-                        "Speed": [
-                            0.10000000149011612,
-                            0.10000000149011612,
-                            0.10000000149011612
-                        ],
-                        "SpeedVariation": [
-                            8.199999809265137,
-                            8.199999809265137,
-                            8.199999809265137
-                        ],
-                        "acceleration": [
-                            1.0,
-                            1.0,
-                            1.0
-                        ]
-                    }
-                },
-                "ResourceTextUID": 1382913145,
-                "Type": 6
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Box Destroyed Particle": 1355782264
-                    },
-                    {
-                        "MaxHp": 50
-                    },
-                    {
-                        "Drop Manager": 565823307
-                    }
-                ],
-                "Script Resource": 4229972138,
-                "Type": 5
             }
         ],
         "FirstOnPrefab": true,
@@ -137484,7 +139677,7 @@
         "ParentUID": 859625570,
         "PrefabUID": 2410804149,
         "Tag": "Default",
-        "UID": 337792379
+        "UID": 1498471377
     },
     {
         "Active": true,
@@ -137527,10 +139720,10 @@
         ],
         "FirstOnPrefab": false,
         "Name": "pCube1",
-        "ParentUID": 337792379,
+        "ParentUID": 1498471377,
         "PrefabUID": 2410804149,
         "Tag": "Default",
-        "UID": 2497272759
+        "UID": 320118276
     },
     {
         "Active": true,
@@ -137557,10 +139750,10 @@
         ],
         "FirstOnPrefab": false,
         "Name": "group",
-        "ParentUID": 337792379,
+        "ParentUID": 1498471377,
         "PrefabUID": 2410804149,
         "Tag": "Default",
-        "UID": 2350612258
+        "UID": 369194452
     },
     {
         "Active": true,
@@ -137568,9 +139761,9 @@
             {
                 "Enabled": true,
                 "Position": [
-                    -0.03753662109375,
-                    2.2401411533355713,
-                    -0.041748046875
+                    0.0,
+                    2.2401480674743652,
+                    0.0
                 ],
                 "Rotation": [
                     -0.0,
@@ -137603,10 +139796,10 @@
         ],
         "FirstOnPrefab": false,
         "Name": "pasted__pCube1",
-        "ParentUID": 2350612258,
+        "ParentUID": 369194452,
         "PrefabUID": 2410804149,
         "Tag": "Default",
-        "UID": 837134729
+        "UID": 2602643428
     },
     {
         "Active": true,
@@ -137614,9 +139807,9 @@
             {
                 "Enabled": true,
                 "Position": [
-                    76.72859954833984,
-                    -0.09999772906303406,
-                    -22.152664184570313
+                    76.68977355957031,
+                    -0.10000000149011612,
+                    -22.15230369567871
                 ],
                 "Rotation": [
                     -0.0,
@@ -137643,7 +139836,7 @@
                 ],
                 "ColScale": [
                     1.7999999523162842,
-                    2.5,
+                    1.5,
                     1.5
                 ],
                 "CylVerSlices": 16,
@@ -137690,66 +139883,6 @@
                 "SphereVerSlices": 16,
                 "Type": 8,
                 "WireframeSize": 3.0
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 13,
-                "ParticleModules": {
-                    "ModuleEmission": {
-                        "ParticlesPerSecond": 15
-                    },
-                    "ModuleMain": {
-                        "BeginScale": [
-                            1.0,
-                            1.0,
-                            1.0
-                        ],
-                        "Delay": 0.0,
-                        "Duration": 0.5,
-                        "EndScale": [
-                            0.0,
-                            0.0,
-                            0.0
-                        ],
-                        "LifeTime": 1.0,
-                        "Looping": true,
-                        "PlayOnAwake": false,
-                        "Speed": [
-                            0.10000000149011612,
-                            0.10000000149011612,
-                            0.10000000149011612
-                        ],
-                        "SpeedVariation": [
-                            8.199999809265137,
-                            8.199999809265137,
-                            8.199999809265137
-                        ],
-                        "acceleration": [
-                            1.0,
-                            1.0,
-                            1.0
-                        ]
-                    }
-                },
-                "ResourceTextUID": 1382913145,
-                "Type": 6
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Box Destroyed Particle": 1355782264
-                    },
-                    {
-                        "MaxHp": 50
-                    },
-                    {
-                        "Drop Manager": 565823307
-                    }
-                ],
-                "Script Resource": 4229972138,
-                "Type": 5
             }
         ],
         "FirstOnPrefab": true,
@@ -137757,7 +139890,7 @@
         "ParentUID": 859625570,
         "PrefabUID": 2410804149,
         "Tag": "Default",
-        "UID": 4227859371
+        "UID": 852493714
     },
     {
         "Active": true,
@@ -137800,10 +139933,10 @@
         ],
         "FirstOnPrefab": false,
         "Name": "pCube1",
-        "ParentUID": 4227859371,
+        "ParentUID": 852493714,
         "PrefabUID": 2410804149,
         "Tag": "Default",
-        "UID": 803571622
+        "UID": 3606766266
     },
     {
         "Active": true,
@@ -137830,10 +139963,10 @@
         ],
         "FirstOnPrefab": false,
         "Name": "group",
-        "ParentUID": 4227859371,
+        "ParentUID": 852493714,
         "PrefabUID": 2410804149,
         "Tag": "Default",
-        "UID": 3510864862
+        "UID": 1411244545
     },
     {
         "Active": true,
@@ -137841,9 +139974,9 @@
             {
                 "Enabled": true,
                 "Position": [
-                    -0.03753662109375,
-                    2.2401411533355713,
-                    -0.041748046875
+                    0.0,
+                    2.2401480674743652,
+                    0.0
                 ],
                 "Rotation": [
                     -0.0,
@@ -137876,1375 +140009,10 @@
         ],
         "FirstOnPrefab": false,
         "Name": "pasted__pCube1",
-        "ParentUID": 3510864862,
+        "ParentUID": 1411244545,
         "PrefabUID": 2410804149,
         "Tag": "Default",
-        "UID": 3333741941
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    4.4679999351501465,
-                    25.700000762939453,
-                    23.836000442504883
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    0.4999999403953552,
-                    0.5,
-                    0.4999999403953552
-                ],
-                "Type": 1
-            },
-            {
-                "ColPosition": [
-                    0.0,
-                    0.699999988079071,
-                    0.0
-                ],
-                "ColRotation": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "ColScale": [
-                    1.7999999523162842,
-                    2.5,
-                    1.5
-                ],
-                "CylVerSlices": 16,
-                "CylinderRadiusHeight": [
-                    1.0,
-                    1.0
-                ],
-                "Enabled": true,
-                "GlobalGravity": [
-                    0.0,
-                    -10.0,
-                    0.0
-                ],
-                "Gravity": [
-                    0.0,
-                    -9.800000190734863,
-                    0.0
-                ],
-                "HasPhysBody": true,
-                "IsKinematic": false,
-                "IsRenderingCol": true,
-                "IsShapeCreated": [
-                    true,
-                    false,
-                    false
-                ],
-                "IsShapeSelected": [
-                    true,
-                    false,
-                    false
-                ],
-                "IsStatic": false,
-                "IsTrigger": false,
-                "Mass": 0.0,
-                "RenderColColor": [
-                    1.0,
-                    0.5302325487136841,
-                    0.0,
-                    1.0
-                ],
-                "ShapeSelected": 0,
-                "SphereHorSlices": 16,
-                "SphereRadius": 1.0,
-                "SphereVerSlices": 16,
-                "Type": 8,
-                "WireframeSize": 3.0
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 13,
-                "ParticleModules": {
-                    "ModuleEmission": {
-                        "ParticlesPerSecond": 15
-                    },
-                    "ModuleMain": {
-                        "BeginScale": [
-                            1.0,
-                            1.0,
-                            1.0
-                        ],
-                        "Delay": 0.0,
-                        "Duration": 0.5,
-                        "EndScale": [
-                            0.0,
-                            0.0,
-                            0.0
-                        ],
-                        "LifeTime": 1.0,
-                        "Looping": true,
-                        "PlayOnAwake": false,
-                        "Speed": [
-                            0.10000000149011612,
-                            0.10000000149011612,
-                            0.10000000149011612
-                        ],
-                        "SpeedVariation": [
-                            8.199999809265137,
-                            8.199999809265137,
-                            8.199999809265137
-                        ],
-                        "acceleration": [
-                            1.0,
-                            1.0,
-                            1.0
-                        ]
-                    }
-                },
-                "ResourceTextUID": 1382913145,
-                "Type": 6
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Box Destroyed Particle": 1355782264
-                    },
-                    {
-                        "MaxHp": 50
-                    },
-                    {
-                        "Drop Manager": 565823307
-                    }
-                ],
-                "Script Resource": 4229972138,
-                "Type": 5
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "Box",
-        "ParentUID": 859625570,
-        "PrefabUID": 2410804149,
-        "Tag": "Default",
-        "UID": 3302370214
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    3.299999952316284,
-                    0.16745665669441223,
-                    2.555555582046509
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 2206090924,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 487069363,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "pCube1",
-        "ParentUID": 3302370214,
-        "PrefabUID": 2410804149,
-        "Tag": "Default",
-        "UID": 422346717
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "group",
-        "ParentUID": 3302370214,
-        "PrefabUID": 2410804149,
-        "Tag": "Default",
-        "UID": 854675841
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    -0.03753662109375,
-                    2.2401411533355713,
-                    -0.041748046875
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    3.299999952316284,
-                    0.16745665669441223,
-                    2.555555582046509
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 1,
-                "ModelUID": 2206090924,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 487069363,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "pasted__pCube1",
-        "ParentUID": 854675841,
-        "PrefabUID": 2410804149,
-        "Tag": "Default",
-        "UID": 909807477
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    20.833999633789063,
-                    25.700000762939453,
-                    23.850000381469727
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    0.4999999403953552,
-                    0.5,
-                    0.4999999403953552
-                ],
-                "Type": 1
-            },
-            {
-                "ColPosition": [
-                    0.0,
-                    0.699999988079071,
-                    0.0
-                ],
-                "ColRotation": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "ColScale": [
-                    1.7999999523162842,
-                    2.5,
-                    1.5
-                ],
-                "CylVerSlices": 16,
-                "CylinderRadiusHeight": [
-                    1.0,
-                    1.0
-                ],
-                "Enabled": true,
-                "GlobalGravity": [
-                    0.0,
-                    -10.0,
-                    0.0
-                ],
-                "Gravity": [
-                    0.0,
-                    -9.800000190734863,
-                    0.0
-                ],
-                "HasPhysBody": true,
-                "IsKinematic": false,
-                "IsRenderingCol": true,
-                "IsShapeCreated": [
-                    true,
-                    false,
-                    false
-                ],
-                "IsShapeSelected": [
-                    true,
-                    false,
-                    false
-                ],
-                "IsStatic": false,
-                "IsTrigger": false,
-                "Mass": 0.0,
-                "RenderColColor": [
-                    1.0,
-                    0.5302325487136841,
-                    0.0,
-                    1.0
-                ],
-                "ShapeSelected": 0,
-                "SphereHorSlices": 16,
-                "SphereRadius": 1.0,
-                "SphereVerSlices": 16,
-                "Type": 8,
-                "WireframeSize": 3.0
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 13,
-                "ParticleModules": {
-                    "ModuleEmission": {
-                        "ParticlesPerSecond": 15
-                    },
-                    "ModuleMain": {
-                        "BeginScale": [
-                            1.0,
-                            1.0,
-                            1.0
-                        ],
-                        "Delay": 0.0,
-                        "Duration": 0.5,
-                        "EndScale": [
-                            0.0,
-                            0.0,
-                            0.0
-                        ],
-                        "LifeTime": 1.0,
-                        "Looping": true,
-                        "PlayOnAwake": false,
-                        "Speed": [
-                            0.10000000149011612,
-                            0.10000000149011612,
-                            0.10000000149011612
-                        ],
-                        "SpeedVariation": [
-                            8.199999809265137,
-                            8.199999809265137,
-                            8.199999809265137
-                        ],
-                        "acceleration": [
-                            1.0,
-                            1.0,
-                            1.0
-                        ]
-                    }
-                },
-                "ResourceTextUID": 1382913145,
-                "Type": 6
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Box Destroyed Particle": 1355782264
-                    },
-                    {
-                        "MaxHp": 50
-                    },
-                    {
-                        "Drop Manager": 565823307
-                    }
-                ],
-                "Script Resource": 4229972138,
-                "Type": 5
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "Box",
-        "ParentUID": 859625570,
-        "PrefabUID": 2410804149,
-        "Tag": "Default",
-        "UID": 934902008
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    3.299999952316284,
-                    0.16745665669441223,
-                    2.555555582046509
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 2206090924,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 487069363,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "pCube1",
-        "ParentUID": 934902008,
-        "PrefabUID": 2410804149,
-        "Tag": "Default",
-        "UID": 2878295384
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "group",
-        "ParentUID": 934902008,
-        "PrefabUID": 2410804149,
-        "Tag": "Default",
-        "UID": 3808767288
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    -0.03753662109375,
-                    2.2401411533355713,
-                    -0.041748046875
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    3.299999952316284,
-                    0.16745665669441223,
-                    2.555555582046509
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 1,
-                "ModelUID": 2206090924,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 487069363,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "pasted__pCube1",
-        "ParentUID": 3808767288,
-        "PrefabUID": 2410804149,
-        "Tag": "Default",
-        "UID": 3201470103
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    -1.1050000190734863,
-                    25.700000762939453,
-                    23.777999877929688
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    0.4999999403953552,
-                    0.5,
-                    0.4999999403953552
-                ],
-                "Type": 1
-            },
-            {
-                "ColPosition": [
-                    0.0,
-                    0.699999988079071,
-                    0.0
-                ],
-                "ColRotation": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "ColScale": [
-                    1.7999999523162842,
-                    2.5,
-                    1.5
-                ],
-                "CylVerSlices": 16,
-                "CylinderRadiusHeight": [
-                    1.0,
-                    1.0
-                ],
-                "Enabled": true,
-                "GlobalGravity": [
-                    0.0,
-                    -10.0,
-                    0.0
-                ],
-                "Gravity": [
-                    0.0,
-                    -9.800000190734863,
-                    0.0
-                ],
-                "HasPhysBody": true,
-                "IsKinematic": false,
-                "IsRenderingCol": true,
-                "IsShapeCreated": [
-                    true,
-                    false,
-                    false
-                ],
-                "IsShapeSelected": [
-                    true,
-                    false,
-                    false
-                ],
-                "IsStatic": false,
-                "IsTrigger": false,
-                "Mass": 0.0,
-                "RenderColColor": [
-                    1.0,
-                    0.5302325487136841,
-                    0.0,
-                    1.0
-                ],
-                "ShapeSelected": 0,
-                "SphereHorSlices": 16,
-                "SphereRadius": 1.0,
-                "SphereVerSlices": 16,
-                "Type": 8,
-                "WireframeSize": 3.0
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 13,
-                "ParticleModules": {
-                    "ModuleEmission": {
-                        "ParticlesPerSecond": 15
-                    },
-                    "ModuleMain": {
-                        "BeginScale": [
-                            1.0,
-                            1.0,
-                            1.0
-                        ],
-                        "Delay": 0.0,
-                        "Duration": 0.5,
-                        "EndScale": [
-                            0.0,
-                            0.0,
-                            0.0
-                        ],
-                        "LifeTime": 1.0,
-                        "Looping": true,
-                        "PlayOnAwake": false,
-                        "Speed": [
-                            0.10000000149011612,
-                            0.10000000149011612,
-                            0.10000000149011612
-                        ],
-                        "SpeedVariation": [
-                            8.199999809265137,
-                            8.199999809265137,
-                            8.199999809265137
-                        ],
-                        "acceleration": [
-                            1.0,
-                            1.0,
-                            1.0
-                        ]
-                    }
-                },
-                "ResourceTextUID": 1382913145,
-                "Type": 6
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Box Destroyed Particle": 1355782264
-                    },
-                    {
-                        "MaxHp": 50
-                    },
-                    {
-                        "Drop Manager": 565823307
-                    }
-                ],
-                "Script Resource": 4229972138,
-                "Type": 5
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "Box",
-        "ParentUID": 859625570,
-        "PrefabUID": 2410804149,
-        "Tag": "Default",
-        "UID": 308222087
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    3.299999952316284,
-                    0.16745665669441223,
-                    2.555555582046509
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 2206090924,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 487069363,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "pCube1",
-        "ParentUID": 308222087,
-        "PrefabUID": 2410804149,
-        "Tag": "Default",
-        "UID": 1073308211
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "group",
-        "ParentUID": 308222087,
-        "PrefabUID": 2410804149,
-        "Tag": "Default",
-        "UID": 949942222
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    -0.03753662109375,
-                    2.2401411533355713,
-                    -0.041748046875
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    3.299999952316284,
-                    0.16745665669441223,
-                    2.555555582046509
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 1,
-                "ModelUID": 2206090924,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 487069363,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "pasted__pCube1",
-        "ParentUID": 949942222,
-        "PrefabUID": 2410804149,
-        "Tag": "Default",
-        "UID": 2021014054
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    7.53000020980835,
-                    25.700000762939453,
-                    46.77899932861328
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    0.4999999403953552,
-                    0.5,
-                    0.4999999403953552
-                ],
-                "Type": 1
-            },
-            {
-                "ColPosition": [
-                    0.0,
-                    0.699999988079071,
-                    0.0
-                ],
-                "ColRotation": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "ColScale": [
-                    1.7999999523162842,
-                    2.5,
-                    1.5
-                ],
-                "CylVerSlices": 16,
-                "CylinderRadiusHeight": [
-                    1.0,
-                    1.0
-                ],
-                "Enabled": true,
-                "GlobalGravity": [
-                    0.0,
-                    -10.0,
-                    0.0
-                ],
-                "Gravity": [
-                    0.0,
-                    -9.800000190734863,
-                    0.0
-                ],
-                "HasPhysBody": true,
-                "IsKinematic": false,
-                "IsRenderingCol": true,
-                "IsShapeCreated": [
-                    true,
-                    false,
-                    false
-                ],
-                "IsShapeSelected": [
-                    true,
-                    false,
-                    false
-                ],
-                "IsStatic": false,
-                "IsTrigger": false,
-                "Mass": 0.0,
-                "RenderColColor": [
-                    1.0,
-                    0.5302325487136841,
-                    0.0,
-                    1.0
-                ],
-                "ShapeSelected": 0,
-                "SphereHorSlices": 16,
-                "SphereRadius": 1.0,
-                "SphereVerSlices": 16,
-                "Type": 8,
-                "WireframeSize": 3.0
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 13,
-                "ParticleModules": {
-                    "ModuleEmission": {
-                        "ParticlesPerSecond": 15
-                    },
-                    "ModuleMain": {
-                        "BeginScale": [
-                            1.0,
-                            1.0,
-                            1.0
-                        ],
-                        "Delay": 0.0,
-                        "Duration": 0.5,
-                        "EndScale": [
-                            0.0,
-                            0.0,
-                            0.0
-                        ],
-                        "LifeTime": 1.0,
-                        "Looping": true,
-                        "PlayOnAwake": false,
-                        "Speed": [
-                            0.10000000149011612,
-                            0.10000000149011612,
-                            0.10000000149011612
-                        ],
-                        "SpeedVariation": [
-                            8.199999809265137,
-                            8.199999809265137,
-                            8.199999809265137
-                        ],
-                        "acceleration": [
-                            1.0,
-                            1.0,
-                            1.0
-                        ]
-                    }
-                },
-                "ResourceTextUID": 1382913145,
-                "Type": 6
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Box Destroyed Particle": 1355782264
-                    },
-                    {
-                        "MaxHp": 50
-                    },
-                    {
-                        "Drop Manager": 565823307
-                    }
-                ],
-                "Script Resource": 4229972138,
-                "Type": 5
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "Box",
-        "ParentUID": 859625570,
-        "PrefabUID": 2410804149,
-        "Tag": "Default",
-        "UID": 2517879687
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    3.299999952316284,
-                    0.16745665669441223,
-                    2.555555582046509
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 2206090924,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 487069363,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "pCube1",
-        "ParentUID": 2517879687,
-        "PrefabUID": 2410804149,
-        "Tag": "Default",
-        "UID": 2506469682
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "group",
-        "ParentUID": 2517879687,
-        "PrefabUID": 2410804149,
-        "Tag": "Default",
-        "UID": 2699461338
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    -0.03753662109375,
-                    2.2401411533355713,
-                    -0.041748046875
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    3.299999952316284,
-                    0.16745665669441223,
-                    2.555555582046509
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 1,
-                "ModelUID": 2206090924,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 487069363,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "pasted__pCube1",
-        "ParentUID": 2699461338,
-        "PrefabUID": 2410804149,
-        "Tag": "Default",
-        "UID": 18874529
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    -1.4210000038146973,
-                    25.700000762939453,
-                    38.04100036621094
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    0.4999999403953552,
-                    0.5,
-                    0.4999999403953552
-                ],
-                "Type": 1
-            },
-            {
-                "ColPosition": [
-                    0.0,
-                    0.699999988079071,
-                    0.0
-                ],
-                "ColRotation": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "ColScale": [
-                    1.7999999523162842,
-                    2.5,
-                    1.5
-                ],
-                "CylVerSlices": 16,
-                "CylinderRadiusHeight": [
-                    1.0,
-                    1.0
-                ],
-                "Enabled": true,
-                "GlobalGravity": [
-                    0.0,
-                    -10.0,
-                    0.0
-                ],
-                "Gravity": [
-                    0.0,
-                    -9.800000190734863,
-                    0.0
-                ],
-                "HasPhysBody": true,
-                "IsKinematic": false,
-                "IsRenderingCol": true,
-                "IsShapeCreated": [
-                    true,
-                    false,
-                    false
-                ],
-                "IsShapeSelected": [
-                    true,
-                    false,
-                    false
-                ],
-                "IsStatic": false,
-                "IsTrigger": false,
-                "Mass": 0.0,
-                "RenderColColor": [
-                    1.0,
-                    0.5302325487136841,
-                    0.0,
-                    1.0
-                ],
-                "ShapeSelected": 0,
-                "SphereHorSlices": 16,
-                "SphereRadius": 1.0,
-                "SphereVerSlices": 16,
-                "Type": 8,
-                "WireframeSize": 3.0
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 13,
-                "ParticleModules": {
-                    "ModuleEmission": {
-                        "ParticlesPerSecond": 15
-                    },
-                    "ModuleMain": {
-                        "BeginScale": [
-                            1.0,
-                            1.0,
-                            1.0
-                        ],
-                        "Delay": 0.0,
-                        "Duration": 0.5,
-                        "EndScale": [
-                            0.0,
-                            0.0,
-                            0.0
-                        ],
-                        "LifeTime": 1.0,
-                        "Looping": true,
-                        "PlayOnAwake": false,
-                        "Speed": [
-                            0.10000000149011612,
-                            0.10000000149011612,
-                            0.10000000149011612
-                        ],
-                        "SpeedVariation": [
-                            8.199999809265137,
-                            8.199999809265137,
-                            8.199999809265137
-                        ],
-                        "acceleration": [
-                            1.0,
-                            1.0,
-                            1.0
-                        ]
-                    }
-                },
-                "ResourceTextUID": 1382913145,
-                "Type": 6
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Box Destroyed Particle": 1355782264
-                    },
-                    {
-                        "MaxHp": 50
-                    },
-                    {
-                        "Drop Manager": 565823307
-                    }
-                ],
-                "Script Resource": 4229972138,
-                "Type": 5
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "Box",
-        "ParentUID": 859625570,
-        "PrefabUID": 2410804149,
-        "Tag": "Default",
-        "UID": 3684097482
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    3.299999952316284,
-                    0.16745665669441223,
-                    2.555555582046509
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 2206090924,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 487069363,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "pCube1",
-        "ParentUID": 3684097482,
-        "PrefabUID": 2410804149,
-        "Tag": "Default",
-        "UID": 3693811794
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "group",
-        "ParentUID": 3684097482,
-        "PrefabUID": 2410804149,
-        "Tag": "Default",
-        "UID": 1409094777
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    -0.03753662109375,
-                    2.2401411533355713,
-                    -0.041748046875
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    3.299999952316284,
-                    0.16745665669441223,
-                    2.555555582046509
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 1,
-                "ModelUID": 2206090924,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 487069363,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "pasted__pCube1",
-        "ParentUID": 1409094777,
-        "PrefabUID": 2410804149,
-        "Tag": "Default",
-        "UID": 1239461580
+        "UID": 584604148
     },
     {
         "Active": true,
@@ -139867,975 +140635,5 @@
         "PrefabUID": 0,
         "Tag": "Default",
         "UID": 727690593
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    -16.484416961669922,
-                    0.30617550015449524,
-                    12.281567573547363
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 13,
-                "ParticleModules": {
-                    "ModuleEmission": {
-                        "ParticlesPerSecond": 50
-                    },
-                    "ModuleMain": {
-                        "BeginScale": [
-                            2.0,
-                            2.0,
-                            1.0
-                        ],
-                        "Delay": 0.0,
-                        "Duration": 1.0,
-                        "EndScale": [
-                            0.0,
-                            0.0,
-                            0.0
-                        ],
-                        "LifeTime": 0.800000011920929,
-                        "Looping": true,
-                        "PlayOnAwake": false,
-                        "Speed": [
-                            0.10000000149011612,
-                            0.10000000149011612,
-                            0.10000000149011612
-                        ],
-                        "SpeedVariation": [
-                            15.0,
-                            15.0,
-                            15.0
-                        ],
-                        "acceleration": [
-                            1.0,
-                            1.0,
-                            1.0
-                        ]
-                    }
-                },
-                "ResourceTextUID": 1986747850,
-                "Type": 6
-            },
-            {
-                "ColPosition": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "ColRotation": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "ColScale": [
-                    3.0,
-                    3.5,
-                    2.5
-                ],
-                "CylVerSlices": 16,
-                "CylinderRadiusHeight": [
-                    1.0,
-                    1.0
-                ],
-                "Enabled": true,
-                "GlobalGravity": [
-                    0.0,
-                    -10.0,
-                    0.0
-                ],
-                "Gravity": [
-                    0.0,
-                    -9.800000190734863,
-                    0.0
-                ],
-                "HasPhysBody": true,
-                "IsKinematic": false,
-                "IsRenderingCol": true,
-                "IsShapeCreated": [
-                    true,
-                    false,
-                    false
-                ],
-                "IsShapeSelected": [
-                    true,
-                    false,
-                    false
-                ],
-                "IsStatic": false,
-                "IsTrigger": false,
-                "Mass": 0.0,
-                "RenderColColor": [
-                    0.5,
-                    0.0,
-                    0.5,
-                    1.0
-                ],
-                "ShapeSelected": 0,
-                "SphereHorSlices": 16,
-                "SphereRadius": 1.0,
-                "SphereVerSlices": 16,
-                "Type": 8,
-                "WireframeSize": 3.0
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Wall Destroyed Particle": 774930753
-                    },
-                    {
-                        "MaxHp": 150
-                    },
-                    {
-                        "Fence Destroyed": 1658063523
-                    },
-                    {
-                        "Fence Entire": 997200954
-                    }
-                ],
-                "Script Resource": 2750403053,
-                "Type": 5
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "BreakableFence",
-        "ParentUID": 2462894403,
-        "PrefabUID": 0,
-        "Tag": "Default",
-        "UID": 774930753
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "BreakableFenceEntire",
-        "ParentUID": 774930753,
-        "PrefabUID": 1550116207,
-        "Tag": "Default",
-        "UID": 997200954
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    -0.15595456957817078,
-                    0.14279472827911377,
-                    0.0
-                ],
-                "Rotation": [
-                    -91.49506378173828,
-                    8.749823570251465,
-                    0.22748032212257385
-                ],
-                "Scale": [
-                    109.52082061767578,
-                    99.99999237060547,
-                    50.99897384643555
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 852313984,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "ResourceUID": 3317309550,
-                "Type": 3
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "Fence Plane Broken",
-        "ParentUID": 997200954,
-        "PrefabUID": 1550116207,
-        "Tag": "Default",
-        "UID": 2276245890
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    -0.24405363202095032,
-                    -0.2326871007680893,
-                    -1.8189894035458565e-10
-                ],
-                "Rotation": [
-                    -92.03500366210938,
-                    16.33588981628418,
-                    0.5726049542427063
-                ],
-                "Scale": [
-                    100.0,
-                    100.00000762939453,
-                    100.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 1,
-                "ModelUID": 852313984,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "ResourceUID": 3870521420,
-                "Type": 3
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "Fence Union Broken",
-        "ParentUID": 997200954,
-        "PrefabUID": 1550116207,
-        "Tag": "Default",
-        "UID": 3106787178
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -90.00000762939453,
-                    0.0,
-                    0.0
-                ],
-                "Scale": [
-                    100.0,
-                    100.0,
-                    100.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 2,
-                "ModelUID": 852313984,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "ResourceUID": 3974956041,
-                "Type": 3
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "Fence Stick Broken",
-        "ParentUID": 997200954,
-        "PrefabUID": 1550116207,
-        "Tag": "Default",
-        "UID": 3077092977
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    -0.007342720404267311,
-                    0.02653433382511139,
-                    0.0
-                ],
-                "Rotation": [
-                    -90.00000762939453,
-                    12.998866081237793,
-                    4.381136591291579e-07
-                ],
-                "Scale": [
-                    100.00000762939453,
-                    100.0,
-                    100.00000762939453
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 3,
-                "ModelUID": 852313984,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "ResourceUID": 3870521420,
-                "Type": 3
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "Fence Union 2 Broken",
-        "ParentUID": 997200954,
-        "PrefabUID": 1550116207,
-        "Tag": "Default",
-        "UID": 1616394532
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    90.00000762939453,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    -100.0,
-                    -100.0,
-                    -100.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 4,
-                "ModelUID": 852313984,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "ResourceUID": 3974956041,
-                "Type": 3
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "Fence Stick 2 Broken",
-        "ParentUID": 997200954,
-        "PrefabUID": 1550116207,
-        "Tag": "Default",
-        "UID": 2565589876
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    -0.15595456957817078,
-                    0.14279472827911377,
-                    0.0
-                ],
-                "Rotation": [
-                    -91.49506378173828,
-                    8.749823570251465,
-                    0.22748032212257385
-                ],
-                "Scale": [
-                    109.52082061767578,
-                    99.99999237060547,
-                    50.99897384643555
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 852313984,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "ResourceUID": 3317309550,
-                "Type": 3
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "Fence Plane Broken",
-        "ParentUID": 997200954,
-        "PrefabUID": 1550116207,
-        "Tag": "Default",
-        "UID": 2276245890
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    -0.24405363202095032,
-                    -0.2326871007680893,
-                    -1.8189894035458565e-10
-                ],
-                "Rotation": [
-                    -92.03500366210938,
-                    16.33588981628418,
-                    0.5726049542427063
-                ],
-                "Scale": [
-                    100.0,
-                    100.00000762939453,
-                    100.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 1,
-                "ModelUID": 852313984,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "ResourceUID": 3870521420,
-                "Type": 3
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "Fence Union Broken",
-        "ParentUID": 997200954,
-        "PrefabUID": 1550116207,
-        "Tag": "Default",
-        "UID": 3106787178
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -90.00000762939453,
-                    0.0,
-                    0.0
-                ],
-                "Scale": [
-                    100.0,
-                    100.0,
-                    100.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 2,
-                "ModelUID": 852313984,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "ResourceUID": 3974956041,
-                "Type": 3
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "Fence Stick Broken",
-        "ParentUID": 997200954,
-        "PrefabUID": 1550116207,
-        "Tag": "Default",
-        "UID": 3077092977
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    -0.007342720404267311,
-                    0.02653433382511139,
-                    0.0
-                ],
-                "Rotation": [
-                    -90.00000762939453,
-                    12.998866081237793,
-                    4.381136591291579e-07
-                ],
-                "Scale": [
-                    100.00000762939453,
-                    100.0,
-                    100.00000762939453
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 3,
-                "ModelUID": 852313984,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "ResourceUID": 3870521420,
-                "Type": 3
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "Fence Union 2 Broken",
-        "ParentUID": 997200954,
-        "PrefabUID": 1550116207,
-        "Tag": "Default",
-        "UID": 1616394532
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    90.00000762939453,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    -100.0,
-                    -100.0,
-                    -100.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 4,
-                "ModelUID": 852313984,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "ResourceUID": 3974956041,
-                "Type": 3
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "Fence Stick 2 Broken",
-        "ParentUID": 997200954,
-        "PrefabUID": 1550116207,
-        "Tag": "Default",
-        "UID": 2565589876
-    },
-    {
-        "Active": false,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "BreakableFenceDestroyed",
-        "ParentUID": 774930753,
-        "PrefabUID": 1122712825,
-        "Tag": "Default",
-        "UID": 1658063523
-    },
-    {
-        "Active": false,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    -2.0712192058563232,
-                    -0.14831630885601044,
-                    -0.15480883419513702
-                ],
-                "Rotation": [
-                    -97.3210220336914,
-                    84.23067474365234,
-                    16.184904098510742
-                ],
-                "Scale": [
-                    99.99999237060547,
-                    100.0,
-                    100.00000762939453
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 1191959401,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "ResourceUID": 2413149983,
-                "Type": 3
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "Fence Union Broken.001",
-        "ParentUID": 1658063523,
-        "PrefabUID": 1122712825,
-        "Tag": "Default",
-        "UID": 204520190
-    },
-    {
-        "Active": false,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -90.00000762939453,
-                    0.0,
-                    0.0
-                ],
-                "Scale": [
-                    100.0,
-                    100.0,
-                    100.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 1,
-                "ModelUID": 1191959401,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "ResourceUID": 1111182004,
-                "Type": 3
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "Fence Stick Broken.001",
-        "ParentUID": 1658063523,
-        "PrefabUID": 1122712825,
-        "Tag": "Default",
-        "UID": 1083561750
-    },
-    {
-        "Active": false,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.20899984240531921,
-                    0.057243358343839645,
-                    0.0
-                ],
-                "Rotation": [
-                    179.61929321289063,
-                    9.502486228942871,
-                    -0.061711348593235016
-                ],
-                "Scale": [
-                    99.99999237060547,
-                    100.00000762939453,
-                    99.99999237060547
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 2,
-                "ModelUID": 1191959401,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "ResourceUID": 2413149983,
-                "Type": 3
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "Fence Union 2 Broken.001",
-        "ParentUID": 1658063523,
-        "PrefabUID": 1122712825,
-        "Tag": "Default",
-        "UID": 1847009806
-    },
-    {
-        "Active": false,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    90.00000762939453,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    -100.0,
-                    -100.0,
-                    -100.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 3,
-                "ModelUID": 1191959401,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "ResourceUID": 1111182004,
-                "Type": 3
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "Fence Stick 2 Broken.001",
-        "ParentUID": 1658063523,
-        "PrefabUID": 1122712825,
-        "Tag": "Default",
-        "UID": 3643828582
-    },
-    {
-        "Active": false,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    -0.15595456957817078,
-                    0.14279472827911377,
-                    0.0
-                ],
-                "Rotation": [
-                    -91.49506378173828,
-                    8.749823570251465,
-                    0.22748032212257385
-                ],
-                "Scale": [
-                    109.52082061767578,
-                    99.99999237060547,
-                    50.99897384643555
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 4,
-                "ModelUID": 1191959401,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "ResourceUID": 1988412701,
-                "Type": 3
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "Fence Plane Broken.002",
-        "ParentUID": 1658063523,
-        "PrefabUID": 1122712825,
-        "Tag": "Default",
-        "UID": 451401885
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Enemy Drop Rate": 0.0
-                    },
-                    {
-                        "Upgraded Enemy Drop Rate": 0.0
-                    },
-                    {
-                        "Enemy Ammo Drop Rate": 0.0
-                    },
-                    {
-                        "Enemy Aid Kit Drop Rate": 0.0
-                    },
-                    {
-                        "Enemy Power Ups Drop Rate": 0.0
-                    },
-                    {
-                        "Box Drop Rate": 100.0
-                    },
-                    {
-                        "Box Ammo Drop Rate": 50.0
-                    },
-                    {
-                        "Box Aid Kit Drop Rate": 50.0
-                    },
-                    {
-                        "Player Stats GO": 3079281768
-                    },
-                    {
-                        "Pull Size per Drop Type": 3
-                    },
-                    {
-                        "Lase Ammo Drop MeshIndexInsideModel": 0,
-                        "Lase Ammo Drop MeshModelUID": 4038983158
-                    },
-                    {
-                        "First Aid Kit Drop MeshIndexInsideModel": 0,
-                        "First Aid Kit Drop MeshModelUID": 266946549
-                    },
-                    {
-                        "Lase Ammo Drop Material": 3260379948
-                    },
-                    {
-                        "First Aid Kit Drop Material": 675553996
-                    }
-                ],
-                "Script Resource": 3027696016,
-                "Type": 5
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "DropManager",
-        "ParentUID": 2462894403,
-        "PrefabUID": 0,
-        "Tag": "Default",
-        "UID": 565823307
     }
 ]
