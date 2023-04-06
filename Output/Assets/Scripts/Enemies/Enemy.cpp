@@ -1,6 +1,8 @@
 #include "Enemy.h"
 #include "../Player/PlayerStats.h"
 #include "../Shooting/Projectile.h"
+#include "EnemyTank.h"
+
 HELLO_ENGINE_API_C Enemy* CreateEnemy(ScriptToInspectorInterface* script)
 {
     Enemy* classInstance = new Enemy();
@@ -14,6 +16,7 @@ HELLO_ENGINE_API_C Enemy* CreateEnemy(ScriptToInspectorInterface* script)
     script->AddDragBoxGameObject("Enemy Manager", &classInstance->enemyDropManagerGO);
     script->AddDragBoxRigidBody("Enemy RigidBody", &classInstance->enemyRb);
     script->AddDragBoxParticleSystem("Hit particle system", &classInstance->hitParticles);
+    script->AddCheckBox("Has Shield", &classInstance->hasShield);
     return classInstance;
 }
 
@@ -47,8 +50,17 @@ void Enemy::TakeDamage(float damage, float resistanceDamage)
 {
     if (currentHp <= 0.0f) return;
 
-    // Health damage
-    currentHp -= damage;
+    if (hasShield == false) {
+
+        // Health damage
+        currentHp -= damage;
+    }
+    else {
+        EnemyTank* tankScript = (EnemyTank*)gameObject.GetScript("EnemyTank");
+
+        currentHp = tankScript->TakeDamageTank(currentHp, damage);
+    }
+
     if (currentHp <= 0)
     {
         currentHp = 0;
@@ -62,6 +74,7 @@ void Enemy::TakeDamage(float damage, float resistanceDamage)
         currentResistance = maxResistance;
         // reaction
     }
+
 
     hitParticles.Play();
 }

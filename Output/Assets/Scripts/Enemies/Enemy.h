@@ -38,6 +38,7 @@ public:
     float speed = 75.0f;
     float acceleration = 1.2f;
     float currentSpeed = 0.0f;
+    bool hasShield = false;
    // API_GameObject target;
 
     // Test Code, delete later
