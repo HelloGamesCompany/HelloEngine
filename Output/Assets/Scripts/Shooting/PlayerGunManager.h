@@ -9,6 +9,7 @@
 #include "PlayerGun.h"
 #include "PlayerGunType.h"
 #include "../Player/PlayerStats.h"
+#include "../Player/PlayerMove.h"
 
 class PlayerGunManager : HelloBehavior
 {
@@ -47,6 +48,9 @@ public:
     API_GameObject handgun; // index 5
     API_GameObject flamethrower; // index 6
     API_GameObject ricochet; // index 7
+
+    // animations
+    PlayerMove* playerMove;
 
     API_GameObject weaponUI;
 };
