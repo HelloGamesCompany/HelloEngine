@@ -19,6 +19,9 @@ class ComponentUIButton : public ComponentUI
 	void InputUpdate() override;
 	void Serialization(json& j) override;
 	void DeSerialization(json& j) override;
+
+	void UpdateGamePadInput() override;
+
 	ButtonState ChangeState(ButtonState State);
 
 	ButtonState State;

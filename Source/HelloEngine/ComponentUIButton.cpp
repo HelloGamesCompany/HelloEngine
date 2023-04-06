@@ -153,6 +153,11 @@ ButtonState ComponentUIButton::ChangeState(ButtonState State)
 	return State;
 }
 
+void ComponentUIButton::UpdateGamePadInput()
+{
+
+}
+
 #ifdef STANDALONE
 void ComponentUIButton::OnEditor()
 {
