@@ -4,6 +4,7 @@
 #include "Macro.h"
 #include "EnemyGun.h"
 #include "API/API.h"
+#include "Enemy.h"
 
 class EnemyRanger : HelloBehavior
 {
@@ -64,6 +65,10 @@ public:
 
     EnemyGun* enemyGun = nullptr;
     API_GameObject gunObj;
+
+    Enemy* enemy = nullptr;
+
+    int gunType;
 private:
     int _avalPoints = 0;
     float _movCooldown;//max time that can be outside the zone
