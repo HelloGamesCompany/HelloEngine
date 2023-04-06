@@ -208,6 +208,8 @@
 		<ClCompile Include="../../Assets/Scripts/InteractiveEnviroment/BreakableWall.cpp" />
 		<ClCompile Include="../../Assets/Scripts/Player/PlayerStorage.cpp" />
 		<ClCompile Include="../../Assets/Scripts/Enemies/EnemyGuns/EnemyBurst.cpp" />
+		<ClCompile Include="../../Assets/Scripts/Enemies/EnemyGuns/EnemyShotgun.cpp" />
+		<ClCompile Include="../../Assets/Scripts/UI Test folder/PlayerIndicator.cpp" />
 	</ItemGroup>
 	<ItemGroup>
 		<ClInclude Include="..\..\Assets\Scripts\EbonyMaw\BossAttacks.h" />
@@ -283,6 +285,8 @@
 		<ClInclude Include="../../Assets/Scripts/InteractiveEnviroment/BreakableWall.h" />
 		<ClInclude Include="../../Assets/Scripts/Player/PlayerStorage.h" />
 		<ClInclude Include="../../Assets/Scripts/Enemies/EnemyGuns/EnemyBurst.h" />
+		<ClInclude Include="../../Assets/Scripts/Enemies/EnemyGuns/EnemyShotgun.h" />
+		<ClInclude Include="../../Assets/Scripts/UI Test folder/PlayerIndicator.h" />
 	</ItemGroup>
 	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 	<ImportGroup Label="ExtensionTargets" />

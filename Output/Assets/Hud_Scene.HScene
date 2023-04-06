@@ -155,6 +155,12 @@
                     },
                     {
                         "hp": false
+                    },
+                    {
+                        "hp": false
+                    },
+                    {
+                        "hp": false
                     }
                 ],
                 "Script Resource": 1164455694,
@@ -283,6 +289,42 @@
         "UID": 3158086540
     },
     {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.15000000596046448,
+                    0.3100000023841858,
+                    -0.0010000000474974513
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.4000000059604645,
+                    0.11999999731779099,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 980036510,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Reg_Bar_PROV",
+        "ParentUID": 82426300,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 1542820324
+    },
+    {
         "Active": true,
         "Components": [
             {
@@ -343,6 +385,174 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "HandgunsWeapons_On": 1828660828
+                    },
+                    {
+                        "HandgunsWeapons_Off": 1261649561
+                    },
+                    {
+                        "Auto_On": 977509463
+                    },
+                    {
+                        "Burst_On": 1465322406
+                    },
+                    {
+                        "Semi_On": 1518552351
+                    },
+                    {
+                        "Shotgun_On": 4259070326
+                    },
+                    {
+                        "Handgun_On": 3102974161
+                    },
+                    {
+                        "Auto_Off": 1072796038
+                    },
+                    {
+                        "Burst_Off": 335904823
+                    },
+                    {
+                        "Semi_Off": 3583084629
+                    },
+                    {
+                        "Shotgun_Off": 4170447358
+                    },
+                    {
+                        "Handgun_Off": 1214175512
+                    },
+                    {
+                        "FlameThrower_On 1": 12569475
+                    },
+                    {
+                        "Ricochet_On 2": 143724778
+                    },
+                    {
+                        "FlameThrower_Off 1": 103443597
+                    },
+                    {
+                        "Ricochet_Off 2": 1840082596
+                    },
+                    {
+                        "Material Weapon 1 on": 4102192440
+                    },
+                    {
+                        "Material Weapon 1 off": 3236022021
+                    },
+                    {
+                        "Game Bar Weapon 1": 4172812350
+                    },
+                    {
+                        "Material Weapon 2 on": 692296045
+                    },
+                    {
+                        "Material Weapon 2 off": 1134633319
+                    },
+                    {
+                        "Game Bar Weapon 2": 2595168131
+                    },
+                    {
+                        "Material Weapon 3 on": 1496549210
+                    },
+                    {
+                        "Material Weapon 3 off": 3512805807
+                    },
+                    {
+                        "Game Bar Weapon 3": 1805554832
+                    },
+                    {
+                        "Text_Dash_on": 1033923317
+                    },
+                    {
+                        "Text_Dash_off": 2440110374
+                    },
+                    {
+                        "Material_Dash": 769001189
+                    },
+                    {
+                        "HandgunsWeapons_On": 1828660828
+                    },
+                    {
+                        "HandgunsWeapons_Off": 1261649561
+                    },
+                    {
+                        "Auto_On": 977509463
+                    },
+                    {
+                        "Burst_On": 1465322406
+                    },
+                    {
+                        "Semi_On": 1518552351
+                    },
+                    {
+                        "Shotgun_On": 4259070326
+                    },
+                    {
+                        "Handgun_On": 3102974161
+                    },
+                    {
+                        "Auto_Off": 1072796038
+                    },
+                    {
+                        "Burst_Off": 335904823
+                    },
+                    {
+                        "Semi_Off": 3583084629
+                    },
+                    {
+                        "Shotgun_Off": 4170447358
+                    },
+                    {
+                        "Handgun_Off": 1214175512
+                    },
+                    {
+                        "FlameThrower_On 1": 12569475
+                    },
+                    {
+                        "Ricochet_On 2": 143724778
+                    },
+                    {
+                        "FlameThrower_Off 1": 103443597
+                    },
+                    {
+                        "Ricochet_Off 2": 1840082596
+                    },
+                    {
+                        "Material Weapon 1 on": 4102192440
+                    },
+                    {
+                        "Material Weapon 1 off": 3236022021
+                    },
+                    {
+                        "Game Bar Weapon 1": 4172812350
+                    },
+                    {
+                        "Material Weapon 2 on": 692296045
+                    },
+                    {
+                        "Material Weapon 2 off": 1134633319
+                    },
+                    {
+                        "Game Bar Weapon 2": 2595168131
+                    },
+                    {
+                        "Material Weapon 3 on": 1496549210
+                    },
+                    {
+                        "Material Weapon 3 off": 3512805807
+                    },
+                    {
+                        "Game Bar Weapon 3": 1805554832
+                    },
+                    {
+                        "Text_Dash_on": 1033923317
+                    },
+                    {
+                        "Text_Dash_off": 2440110374
+                    },
+                    {
+                        "Material_Dash": 769001189
+                    },
                     {
                         "HandgunsWeapons_On": 1828660828
                     },
@@ -1243,6 +1453,18 @@
                     },
                     {
                         "Active_HUD": 506000632
+                    },
+                    {
+                        "Disable_HUD": 1177184507
+                    },
+                    {
+                        "Active_HUD": 506000632
+                    },
+                    {
+                        "Disable_HUD": 1177184507
+                    },
+                    {
+                        "Active_HUD": 506000632
                     }
                 ],
                 "Script Resource": 105735810,
@@ -1455,6 +1677,12 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Shield_GO": 759524979
+                    },
+                    {
+                        "Shield_GO": 759524979
+                    },
                     {
                         "Shield_GO": 759524979
                     },
@@ -1791,6 +2019,54 @@
                     },
                     {
                         "GamesObjects_4": 1806803977
+                    },
+                    {
+                        "Texture_SPEED_INCREASE": 898734028
+                    },
+                    {
+                        "Texture_FIRERATE_INCREASE": 1345496260
+                    },
+                    {
+                        "Texture_SHIELD": 499632542
+                    },
+                    {
+                        "Texture_SLOW_TIME": 1755384749
+                    },
+                    {
+                        "GamesObjects_1": 3330712065
+                    },
+                    {
+                        "GamesObjects_2": 3955892868
+                    },
+                    {
+                        "GamesObjects_3": 2411446382
+                    },
+                    {
+                        "GamesObjects_4": 1806803977
+                    },
+                    {
+                        "Texture_SPEED_INCREASE": 898734028
+                    },
+                    {
+                        "Texture_FIRERATE_INCREASE": 1345496260
+                    },
+                    {
+                        "Texture_SHIELD": 499632542
+                    },
+                    {
+                        "Texture_SLOW_TIME": 1755384749
+                    },
+                    {
+                        "GamesObjects_1": 3330712065
+                    },
+                    {
+                        "GamesObjects_2": 3955892868
+                    },
+                    {
+                        "GamesObjects_3": 2411446382
+                    },
+                    {
+                        "GamesObjects_4": 1806803977
                     }
                 ],
                 "Script Resource": 2660363889,
@@ -2045,7 +2321,7 @@
             {
                 "Active camera": true,
                 "Active culling": true,
-                "Aspect ratio": 1.4969325065612793,
+                "Aspect ratio": 1.9408766031265259,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
