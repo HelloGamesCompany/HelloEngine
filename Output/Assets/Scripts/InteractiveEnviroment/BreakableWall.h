@@ -18,6 +18,9 @@ public:
 
     API_ParticleSystem wallDestroyed;
 
+    API_GameObject fenceDestroyed;
+    API_GameObject fenceEntire;
+
     int maxHp;
     int currentHp;
 };
