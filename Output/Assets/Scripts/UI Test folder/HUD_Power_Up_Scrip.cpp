@@ -28,6 +28,7 @@ void HUD_Power_Up_Scrip::Start()
     for (int i = 0; i < 4; i++)
     {
         timer_power_up[i] = 0;
+        max_timer_power_up[i] = 0;
         Material_Pick_up[i] = Gameobjects_Pickables[i].GetMaterialCompoennt();
         Gameobjects_Pickables[i].SetActive(false);
     }
@@ -51,6 +52,23 @@ void HUD_Power_Up_Scrip::Update()
             }
         }
     }
+
+    if (Input::GetKey(KeyCode::KEY_0) == KeyState::KEY_DOWN)
+    {
+        AddPowerUp(PowerUp_Type::SPEED_INCREASE, 5);
+    }
+    if (Input::GetKey(KeyCode::KEY_9) == KeyState::KEY_DOWN)
+    {
+        AddPowerUp(PowerUp_Type::FIRERATE_INCREASE, 5);
+    }
+    if (Input::GetKey(KeyCode::KEY_8) == KeyState::KEY_DOWN)
+    {
+        AddPowerUp(PowerUp_Type::SHIELD, 1);
+    }
+    if (Input::GetKey(KeyCode::KEY_7) == KeyState::KEY_DOWN)
+    {
+        AddPowerUp(PowerUp_Type::SLOW_TIME, 5);
+    }
 }
 
 void HUD_Power_Up_Scrip::RealocatePowerUps(int removedIndex)
@@ -60,6 +78,7 @@ void HUD_Power_Up_Scrip::RealocatePowerUps(int removedIndex)
         if (Gameobjects_Pickables[i].IsActive())
         {
             Gameobjects_Pickables[i].SetActive(false);
+            break;
         }
     }
 
@@ -74,6 +93,7 @@ void HUD_Power_Up_Scrip::RealocatePowerUps(int removedIndex)
             Material_Pick_up[i].ChangeAlbedoTexture(Current_texture[i + 1]);
             Current_texture[i] = Current_texture[i + 1];
             timer_power_up[i] = timer_power_up[i + 1];
+            max_timer_power_up[i] = max_timer_power_up[i + 1];
         }
     }
 }
@@ -82,11 +102,18 @@ void HUD_Power_Up_Scrip::AddPowerUp(PowerUp_Type Powertype, float duration)
 {
     for (int i = 0; i < 4; i++)
     {
+        if (Current_texture[i] == Texture_Pick_up[(uint)Powertype])
+        {
+            timer_power_up[i] = duration;
+            return;
+        }
+
         if (!Gameobjects_Pickables[i].IsActive())
         {
             Material_Pick_up[i].ChangeAlbedoTexture(Texture_Pick_up[(uint)Powertype]);
             Current_texture[i] = Texture_Pick_up[(uint)Powertype];
             timer_power_up[i] = duration;
+            max_timer_power_up[i] = duration;
             Gameobjects_Pickables[i].SetActive(true);
             return;
         }
