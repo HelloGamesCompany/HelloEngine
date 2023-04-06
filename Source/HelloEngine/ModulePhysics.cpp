@@ -137,8 +137,9 @@ UpdateStatus ModulePhysics::PreUpdate()
 			{
 				if (ModuleLayers::gameObjects.count(pBodyA->gameObjectUID) != 0 && ModuleLayers::gameObjects[pBodyA->gameObjectUID] != nullptr)
 				{
-					GameObject* objectA = ModuleLayers::gameObjects[pBodyB->gameObjectUID];
-					if (!objectA->IsActive())
+					GameObject* objectA = ModuleLayers::gameObjects[pBodyA->gameObjectUID];
+					GameObject* objectB = ModuleLayers::gameObjects[pBodyB->gameObjectUID];
+					if (!objectA->IsActive() || !objectB->IsActive())
 						continue;
 					objectA->OnCollisionEnter(pBodyB);
 				}
