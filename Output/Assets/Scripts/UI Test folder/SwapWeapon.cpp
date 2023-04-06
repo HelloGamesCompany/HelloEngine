@@ -97,7 +97,7 @@ void SwapWeapon::Update()
     active_None_Weapon();
 
 
-   /* if (Input::GetKey(KeyCode::KEY_C) == KeyState::KEY_DOWN) {
+    /*if (Input::GetKey(KeyCode::KEY_C) == KeyState::KEY_DOWN) {
         arma_Princial = true;
         arma_Secundaria = false;
         arma_Especial = false;
@@ -107,13 +107,13 @@ void SwapWeapon::Update()
 
     if (Input::GetKey(KeyCode::KEY_X) == KeyState::KEY_DOWN) {
         arma_Princial = false;
-        arma_Secundaria = true;
+        arma_Secundaria = false;
         arma_Especial = false;
         SwapWeapon2(normalWeapon_Type::SEMI, arma_Secundaria);
         Console::Log("no: ");
     }
 
-    if (Input::GetKey(KeyCode::KEY_Z) == KeyState::KEY_DOWN) {
+    /*if (Input::GetKey(KeyCode::KEY_Z) == KeyState::KEY_DOWN) {
         arma_Princial = false;
         arma_Secundaria = false;
         arma_Especial = true;
@@ -167,41 +167,82 @@ void SwapWeapon::SwapWeapon1(infinitWeapon_Type infinitWeapon,bool active)
 
 void SwapWeapon::SwapWeapon2(normalWeapon_Type normalWeapon, bool active)
 {
-
-    switch (normalWeapon)
+    if (active == true)
     {
-    case normalWeapon_Type::NONE:
-        material_Normal_Weapon_on.ChangeAlbedoTexture(normalWeaponsOn[0]);
-        material_Normal_Weapon_off.ChangeAlbedoTexture(normalWeaponsOff[0]);
-        normal_NONE = true;
-        break;
-    case normalWeapon_Type::AUTO:
-        material_Normal_Weapon_on.ChangeAlbedoTexture(normalWeaponsOn[1]);
-        material_Normal_Weapon_off.ChangeAlbedoTexture(normalWeaponsOff[1]);
-        normal_NONE = false;
-        break;
-    case normalWeapon_Type::BURST:
-        material_Normal_Weapon_on.ChangeAlbedoTexture(normalWeaponsOn[2]);
-        material_Normal_Weapon_off.ChangeAlbedoTexture(normalWeaponsOff[2]);
-        normal_NONE = false;
-        break;
-    case normalWeapon_Type::SEMI:
-        material_Normal_Weapon_on.ChangeAlbedoTexture(normalWeaponsOn[3]);
-        material_Normal_Weapon_off.ChangeAlbedoTexture(normalWeaponsOff[3]);
-        normal_NONE = false;
-        break;
-    case normalWeapon_Type::SHOTGUN:
-        material_Normal_Weapon_on.ChangeAlbedoTexture(normalWeaponsOn[4]);
-        material_Normal_Weapon_off.ChangeAlbedoTexture(normalWeaponsOff[4]);
-        normal_NONE = false;
-        break;
-    case normalWeapon_Type::REVOLVER:
-        material_Normal_Weapon_on.ChangeAlbedoTexture(normalWeaponsOn[5]);
-        material_Normal_Weapon_off.ChangeAlbedoTexture(normalWeaponsOff[5]);
-        normal_NONE = false;
-        break;
-    default:
-        break;
+        switch (normalWeapon)
+        {
+        case normalWeapon_Type::NONE:
+            material_Normal_Weapon_on.ChangeAlbedoTexture(normalWeaponsOn[0]);
+            material_Normal_Weapon_off.ChangeAlbedoTexture(normalWeaponsOff[0]);
+            normal_NONE = true;
+            break;
+        case normalWeapon_Type::AUTO:
+            material_Normal_Weapon_on.ChangeAlbedoTexture(normalWeaponsOn[1]);
+            material_Normal_Weapon_off.ChangeAlbedoTexture(normalWeaponsOff[1]);
+            normal_NONE = false;
+            break;
+        case normalWeapon_Type::BURST:
+            material_Normal_Weapon_on.ChangeAlbedoTexture(normalWeaponsOn[2]);
+            material_Normal_Weapon_off.ChangeAlbedoTexture(normalWeaponsOff[2]);
+            normal_NONE = false;
+            break;
+        case normalWeapon_Type::SEMI:
+            material_Normal_Weapon_on.ChangeAlbedoTexture(normalWeaponsOn[3]);
+            material_Normal_Weapon_off.ChangeAlbedoTexture(normalWeaponsOff[3]);
+            normal_NONE = false;
+            break;
+        case normalWeapon_Type::SHOTGUN:
+            material_Normal_Weapon_on.ChangeAlbedoTexture(normalWeaponsOn[4]);
+            material_Normal_Weapon_off.ChangeAlbedoTexture(normalWeaponsOff[4]);
+            normal_NONE = false;
+            break;
+        case normalWeapon_Type::REVOLVER:
+            material_Normal_Weapon_on.ChangeAlbedoTexture(normalWeaponsOn[5]);
+            material_Normal_Weapon_off.ChangeAlbedoTexture(normalWeaponsOff[5]);
+            normal_NONE = false;
+            break;
+        default:
+            break;
+        }
+    }
+
+    if (active == false)
+    {
+        switch (normalWeapon)
+        {
+        case normalWeapon_Type::NONE:
+            material_Normal_Weapon_on.ChangeAlbedoTexture(normalWeaponsOn[0]);
+            material_Normal_Weapon_off.ChangeAlbedoTexture(normalWeaponsOff[0]);
+            normal_NONE = true;
+            break;
+        case normalWeapon_Type::AUTO:           
+            material_Normal_Weapon_on.ChangeAlbedoTexture(normalWeaponsOn[1]);
+            material_Normal_Weapon_off.ChangeAlbedoTexture(normalWeaponsOff[1]);
+            normal_NONE = false;
+            break;
+        case normalWeapon_Type::BURST:
+            material_Normal_Weapon_on.ChangeAlbedoTexture(normalWeaponsOn[2]);
+            material_Normal_Weapon_off.ChangeAlbedoTexture(normalWeaponsOff[2]);
+            normal_NONE = false;
+            break;
+        case normalWeapon_Type::SEMI:
+            material_Normal_Weapon_on.ChangeAlbedoTexture(normalWeaponsOn[3]);
+            material_Normal_Weapon_off.ChangeAlbedoTexture(normalWeaponsOff[3]);
+            normal_NONE = false;
+            break;
+        case normalWeapon_Type::SHOTGUN:
+            material_Normal_Weapon_on.ChangeAlbedoTexture(normalWeaponsOn[4]);
+            material_Normal_Weapon_off.ChangeAlbedoTexture(normalWeaponsOff[4]);
+            normal_NONE = false;
+            break;
+        case normalWeapon_Type::REVOLVER:
+            material_Normal_Weapon_on.ChangeAlbedoTexture(normalWeaponsOn[5]);
+            material_Normal_Weapon_off.ChangeAlbedoTexture(normalWeaponsOff[5]);
+            normal_NONE = false;
+            break;
+        default:
+            break;
+        }
     }
     if (active == true)
     {
@@ -219,31 +260,68 @@ void SwapWeapon::SwapWeapon2(normalWeapon_Type normalWeapon, bool active)
         active_Bar_2.SetActive(true);
         active_Bar_3.SetActive(false);
     }
+    
+    if (active == false)
+    {
+        //weapons on
+        material_Normal_Weapon_on.GetGameObject().SetActive(false);
+        //weapons off
+        material_Normal_Weapon_off.GetGameObject().SetActive(true);
+        //bars
+        active_Bar_2.SetActive(false);
+    
+    }
 
 }
 
 void SwapWeapon::SwapWeapon3(specialWeapon_Type specialWeapon, bool active)
 {
-    switch (specialWeapon)
+    if (active == true)
     {
-    case specialWeapon_Type::NONE:
-        material_Special_Weapon_on.ChangeAlbedoTexture(specialsWeaponsOn[0]);
-        material_Special_Weapon_off.ChangeAlbedoTexture(specialsWeaponsOff[0]);
-        special_NONE = true;
-        break;
-    case specialWeapon_Type::FLAMETHROWER:
-        material_Special_Weapon_on.ChangeAlbedoTexture(specialsWeaponsOn[1]);
-        material_Special_Weapon_off.ChangeAlbedoTexture(specialsWeaponsOff[1]);
-        special_NONE = false;
-        break;
-    case specialWeapon_Type::RICOCHET:
-        material_Special_Weapon_on.ChangeAlbedoTexture(specialsWeaponsOn[2]);
-        material_Special_Weapon_off.ChangeAlbedoTexture(specialsWeaponsOff[2]);
-        special_NONE = false;
-        Console::Log("ricochet:  ");
-        break;
-    default:
-        break;
+        switch (specialWeapon)
+        {
+        case specialWeapon_Type::NONE:
+            material_Special_Weapon_on.ChangeAlbedoTexture(specialsWeaponsOn[0]);
+            material_Special_Weapon_off.ChangeAlbedoTexture(specialsWeaponsOff[0]);
+            special_NONE = true;
+            break;
+        case specialWeapon_Type::FLAMETHROWER:
+            material_Special_Weapon_on.ChangeAlbedoTexture(specialsWeaponsOn[1]);
+            material_Special_Weapon_off.ChangeAlbedoTexture(specialsWeaponsOff[1]);
+            special_NONE = false;
+            break;
+        case specialWeapon_Type::RICOCHET:
+            material_Special_Weapon_on.ChangeAlbedoTexture(specialsWeaponsOn[2]);
+            material_Special_Weapon_off.ChangeAlbedoTexture(specialsWeaponsOff[2]);
+            special_NONE = false;
+            break;
+        default:
+            break;
+        }
+    }
+
+    if (active == false)
+    {
+        switch (specialWeapon)
+        {
+        case specialWeapon_Type::NONE:
+            material_Special_Weapon_on.ChangeAlbedoTexture(specialsWeaponsOn[0]);
+            material_Special_Weapon_off.ChangeAlbedoTexture(specialsWeaponsOff[0]);
+            special_NONE = true;
+            break;
+        case specialWeapon_Type::FLAMETHROWER:
+            material_Special_Weapon_on.ChangeAlbedoTexture(specialsWeaponsOn[1]);
+            material_Special_Weapon_off.ChangeAlbedoTexture(specialsWeaponsOff[1]);
+            special_NONE = false;
+            break;
+        case specialWeapon_Type::RICOCHET:
+            material_Special_Weapon_on.ChangeAlbedoTexture(specialsWeaponsOn[2]);
+            material_Special_Weapon_off.ChangeAlbedoTexture(specialsWeaponsOff[2]);
+            special_NONE = false;
+            break;
+        default:
+            break;
+        }
     }
 
     if (active == true)
@@ -263,7 +341,18 @@ void SwapWeapon::SwapWeapon3(specialWeapon_Type specialWeapon, bool active)
         active_Bar_2.SetActive(false);
         active_Bar_3.SetActive(true);
 
-        Console::Log("active 3:  ");
+    }
+
+
+    if (active == false)
+    {
+        //weapons on
+        material_Special_Weapon_on.GetGameObject().SetActive(false);
+        //weapons off
+        material_Special_Weapon_off.GetGameObject().SetActive(true);
+        //bars
+        active_Bar_3.SetActive(false);
+
     }
 
 }
