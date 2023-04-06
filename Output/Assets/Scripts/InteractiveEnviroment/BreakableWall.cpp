@@ -7,12 +7,16 @@ HELLO_ENGINE_API_C BreakableWall* CreateBreakableWall(ScriptToInspectorInterface
     //Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
     script->AddDragBoxParticleSystem("Wall Destroyed Particle", &classInstance->wallDestroyed);
     script->AddDragInt("MaxHp", &classInstance->maxHp);
+    script->AddDragBoxGameObject("Fence Destroyed", &classInstance->fenceDestroyed);
+    script->AddDragBoxGameObject("Fence Entire", &classInstance->fenceEntire);
     return classInstance;
 }
 
 void BreakableWall::Start()
 {
     currentHp = maxHp;
+
+    fenceDestroyed.SetActive(false);
 }
 
 void BreakableWall::Update()
@@ -50,11 +54,14 @@ void BreakableWall::ShootWall(float projectileDamage)
         currentHp = 0;
         DestroyWall();
 
-        wallDestroyed.Play();
+        
     }
 }
 
 void BreakableWall::DestroyWall()
 {
-    gameObject.SetActive(false);
+    wallDestroyed.Play();
+
+    fenceDestroyed.SetActive(true);
+    fenceEntire.SetActive(false);
 }
