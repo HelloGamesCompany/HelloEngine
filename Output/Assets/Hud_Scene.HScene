@@ -54,7 +54,7 @@
             {
                 "Active camera": true,
                 "Active culling": true,
-                "Aspect ratio": 1.4892966747283936,
+                "Aspect ratio": 1.8648383617401123,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -2040,7 +2040,16 @@
                         "Infinit munition off": 2364159685
                     },
                     {
-                        "Normal munition": 3688633035
+                        "Normal munition on": 3688633035
+                    },
+                    {
+                        "Normal munition off": 3298778947
+                    },
+                    {
+                        "variableName on": 2309207730
+                    },
+                    {
+                        "variableName off": 348854051
                     }
                 ],
                 "Script Resource": 3359258741,
