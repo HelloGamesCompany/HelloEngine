@@ -54,6 +54,9 @@ void PlayerGunManager::Update()
     if (playerStats && playerStats->slowTimePowerUp > 0.0f /*&& !paused*/) dt = Time::GetRealTimeDeltaTime();
     else dt = Time::GetDeltaTime();
 
+    if (playerMove && playerMove->openingChest) return; // return if opening chest
+    if (playerStats && playerStats->hittedTime > 0.0f) return; // return if hitted
+
     // Keyboard
     if (Input::GetKey(KeyCode::KEY_1) == KeyState::KEY_DOWN) { UnequipGun(gunOnHandIndex1); /*if (weaponUI.IsAlive() == true) { ((SwapWeapon*)weaponUI.GetScript("SwapWeapon"))->SwapWeapon1(); }*/  }
     else if (Input::GetKey(KeyCode::KEY_2) == KeyState::KEY_DOWN) { UnequipGun(gunOnHandIndex2); /*if (weaponUI.IsAlive() == true) { ((SwapWeapon*)weaponUI.GetScript("SwapWeapon"))->SwapWeapon2(); }*/ }
@@ -109,7 +112,7 @@ void PlayerGunManager::Update()
         return;
     }
 
-    if (equipedGun == nullptr) return;
+    if (equipedGun == nullptr || (playerMove && playerMove->isDashing)) return; // cant shoot if is dashing
 
     if (Input::GetGamePadAxis(GamePadAxis::AXIS_TRIGGERRIGHT) > 5000 || Input::GetMouseButton(MouseButton::LEFT) == KeyState::KEY_REPEAT)
     {

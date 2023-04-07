@@ -39,7 +39,7 @@ void EnemyProjectile::OnCollisionEnter(API::API_RigidBody other)
         PlayerStats* playerStats = (PlayerStats*)other.GetGameObject().GetScript("PlayerStats");
         if (playerStats)
         {
-            playerStats->TakeDamage(damage);
+            playerStats->TakeDamage(damage, resistanceDamage);
         }
         Destroy();
 

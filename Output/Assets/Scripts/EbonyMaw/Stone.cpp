@@ -26,6 +26,6 @@ void Stone::OnCollisionEnter(API::API_RigidBody other)
 
 	if (detectionName == "Player") {
 		PlayerStats* pStats = (PlayerStats*)other.GetGameObject().GetScript("PlayerStats");
-		pStats->TakeDamage(10);
+		pStats->TakeDamage(10, 0);
 	}
 }

@@ -1,4 +1,5 @@
 #include "PlayerStats.h"
+#include "PlayerMove.h"
 #include "../Enemies/EnemyDrop.h"
 #include "../UI Test folder/HpBar.h"
 #include "../UsefulScripts/IndexContainer.h"
@@ -10,6 +11,7 @@ HELLO_ENGINE_API_C PlayerStats* CreatePlayerStats(ScriptToInspectorInterface* sc
     script->AddDragFloat("Max HP", &classInstance->maxHp);
     script->AddDragFloat("Current HP", &classInstance->currentHp);
     script->AddDragFloat("Upgraded Max HP", &classInstance->upgradedMaxHp);
+    script->AddDragFloat("Resistance", &classInstance->maxResistance);
     script->AddDragFloat("Deadline Percentage", &classInstance->deadlinePart);
     script->AddDragFloat("Upgraded Deadline Percentage", &classInstance->upgradedDeadlinePart);
     script->AddDragFloat("Deadline Heal Amount", &classInstance->deadlineHeal);
@@ -22,8 +24,7 @@ HELLO_ENGINE_API_C PlayerStats* CreatePlayerStats(ScriptToInspectorInterface* sc
     script->AddDragBoxParticleSystem("Hit Particles", &classInstance->hitParticles);
     script->AddDragBoxParticleSystem("Heal Particles", &classInstance->healParticles);
     script->AddDragBoxParticleSystem("Heal Particles", &classInstance->aidKitParticles);
-    script->AddDragBoxGameObject("Storage GO", &classInstance->storageGameObject);
-    script->AddDragBoxGameObject("HUD Power Up GO", &classInstance->hudPowerUpGO);
+    script->AddDragBoxGameObject("Player GO", &classInstance->playerGO);
     script->AddDragInt("movement tree lvl", &classInstance->movementTreeLvl); // remove when save and load is ready
     script->AddDragInt("armory tree lvl", &classInstance->armoryTreeLvl);
     script->AddDragInt("health tree lvl", &classInstance->healthTreeLvl);
@@ -36,6 +37,7 @@ void PlayerStats::Start()
     if (healthTreeLvl > 0) currentMaxHp = upgradedMaxHp;
     else currentMaxHp = maxHp;
     currentHp = currentMaxHp;
+    currentResistance = maxResistance;
     playingHealParticles = false;
 
     detected = false;
@@ -48,10 +50,13 @@ void PlayerStats::Start()
     shield = 0;
     slowTimePowerUp = 0;
 
-    storage = (PlayerStorage*)storageGameObject.GetScript("PlayerStorage");
+    storage = (PlayerStorage*)playerGO.GetScript("PlayerStorage");
     if (!storage) Console::Log("Storage Missing in PlayerStats. Only needed in levels.");
 
-    hudPowerUp = (HUD_Power_Up_Scrip*)hudPowerUpGO.GetScript("HUD_Power_Up_Scrip");
+    playerMove = (PlayerMove*)playerGO.GetScript("PlayerMove");
+    if (!playerMove) Console::Log("PlayerMove Missing in PlayerStats.");
+
+    hudPowerUp = (HUD_Power_Up_Scrip*)playerGO.GetScript("HUD_Power_Up_Scrip");
     if (!hudPowerUp) Console::Log("HUD_Power_Up_Scrip Missing in PlayerStats. Only needed in levels.");
 }
 
@@ -95,6 +100,10 @@ void PlayerStats::Update()
         }
     }
 
+    if (hittedTime > 0.0f)
+    {
+        hittedTime -= dt;
+    }
     if (inmunityTime > 0.0f)
     {
         inmunityTime -= dt;
@@ -196,7 +205,7 @@ void PlayerStats::OnCollisionEnter(API_RigidBody other)
     }
 }
 
-void PlayerStats::TakeDamage(float amount)
+void PlayerStats::TakeDamage(float amount, float resistanceDamage)
 {
     if (inmunityTime > 0.0f) return; // only VS2
 
@@ -209,6 +218,7 @@ void PlayerStats::TakeDamage(float amount)
         if (shieldBefore > 0) hudPowerUp->RemovePowerUp(PowerUp_Type::SHIELD);
     }
 
+    // hp damage
     if (currentHp <= 0)
     {
         if (secondLife)
@@ -217,14 +227,14 @@ void PlayerStats::TakeDamage(float amount)
             currentHp = 1;
             inmunityTime = 2.0f;
             Audio::Event("starlord_damaged"); // second life audio
-            // hit animation?
         }
         else
         {
             currentHp = 0;
             Scene::LoadScene("LoseMenu.HScene");
             Audio::Event("starlord_dead");
-            // death
+            deathTime = 2.0f;
+            if (playerMove) playerMove->PlayDeathAnim();
         }
     }
     else
@@ -232,7 +242,14 @@ void PlayerStats::TakeDamage(float amount)
         inmunityTime = 2.0f;
         Audio::Event("starlord_damaged");
         hitParticles.Play();
-        // hit animation?
+    }
+
+    // Resistance damage
+    currentResistance -= resistanceDamage;
+    if (currentResistance <= 0)
+    {
+        currentResistance = maxResistance;
+        if (playerMove) playerMove->PlayHittedAnim();
     }
 
     lastHitTime = 3.0f; // 3 seg to auto heal after a hit

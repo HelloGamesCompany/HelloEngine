@@ -98,7 +98,7 @@ void Enemy::OnCollisionEnter(API::API_RigidBody other)
     else if(detectionTag == "Player")
     {
         PlayerStats* pStats = (PlayerStats*)other.GetGameObject().GetScript("PlayerStats");
-        pStats->TakeDamage(10);
+        pStats->TakeDamage(10, 0);
     }
 }
 

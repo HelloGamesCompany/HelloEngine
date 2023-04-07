@@ -21,6 +21,8 @@ class PlayerMove : HelloBehavior
         DASH,
         SHOOT,
         SWAP_GUN,
+        HITTED,
+        DEATH,
         OPEN_CHEST
     };
 
@@ -92,10 +94,14 @@ public:
     void PlaySwapGunAnim();
     void StopSwapGunAnim();
     bool isSwapingGun = false;
+    uint hittedAnim = 0;
+    void PlayHittedAnim();
     uint openChestAnim = 0;
     bool openingChest = false;
     void PlayOpenChestAnim();
     void StopOpenChestAnim();
+    uint deathAnim = 0;
+    void PlayDeathAnim();
     PlayerAnims currentAnim;
 
     // skills

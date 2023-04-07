@@ -59,13 +59,15 @@ void PlayerMove::Update()
 {
     usingGamepad = Input::UsingGamepad();
 
+    if (playerStats && !playerStats->PlayerAlive()) return;
+
     //Void tp
     if (transform.GetGlobalPosition().y < yTpLimit) transform.SetPosition(initialPos);
 
     if (playerStats && playerStats->slowTimePowerUp > 0.0f /*&& !paused*/) dt = Time::GetRealTimeDeltaTime();
     else dt = Time::GetDeltaTime();
 
-    if (openingChest) return; // can't do other actions while is opening a chest
+    if (openingChest || (playerStats && playerStats->hittedTime > 0.0f)) return; // can't do other actions while is opening a chest or been hitted
 
     Aim();
 
@@ -680,6 +682,16 @@ void PlayerMove::StopSwapGunAnim()
     isSwapingGun = false;
 }
 
+void PlayerMove::PlayHittedAnim()
+{
+    if (currentAnim != PlayerAnims::HITTED)
+    {
+        playerAnimator.ChangeAnimation(hittedAnim);
+        playerAnimator.Play();
+        currentAnim = PlayerAnims::HITTED;
+    }
+}
+
 void PlayerMove::PlayOpenChestAnim()
 {
     if (currentAnim != PlayerAnims::OPEN_CHEST)
@@ -694,4 +706,14 @@ void PlayerMove::PlayOpenChestAnim()
 void PlayerMove::StopOpenChestAnim()
 {
     openingChest = false;
+}
+
+void PlayerMove::PlayDeathAnim()
+{
+    if (currentAnim != PlayerAnims::DEATH)
+    {
+        playerAnimator.ChangeAnimation(deathAnim);
+        playerAnimator.Play();
+        currentAnim = PlayerAnims::DEATH;
+    }
 }
