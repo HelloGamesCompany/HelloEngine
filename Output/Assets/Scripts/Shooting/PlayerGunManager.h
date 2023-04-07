@@ -11,6 +11,8 @@
 #include "../Player/PlayerStats.h"
 #include "../Player/PlayerMove.h"
 
+class SwapWeapon;
+
 class PlayerGunManager : HelloBehavior
 {
 public:
@@ -27,9 +29,9 @@ public:
     std::vector<API_GameObject> guns;
     int equipedIndex;
     PlayerGun* equipedGun = nullptr;
-    int gunOnHandIndex1;
-    int gunOnHandIndex2;
-    int gunOnHandIndex3;
+    int gunOnHandIndex1 = -1;
+    int gunOnHandIndex2 = -1;
+    int gunOnHandIndex3 = -1;
     int swapToIndex;
     float maxSwapDelay = 1.0f;
     float maxFastSwapDelay = 0.5f;
@@ -52,5 +54,6 @@ public:
     // animations
     PlayerMove* playerMove;
 
-    API_GameObject weaponUI;
+    API_GameObject swapWeaponGO;
+    SwapWeapon* swapWeapon;
 };

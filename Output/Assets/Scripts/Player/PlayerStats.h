@@ -45,10 +45,9 @@ public:
 
     int laserAmmo; // index 1
     int maxLaserAmmo;
-    int fireAmmo; // index 2
-    int maxFireAmmo;
-    int ricochetAmmo; // index 3
-    int maxRicochetAmmo;
+    int specialAmmo;
+    int maxFireAmmo; // index 2
+    int maxRicochetAmmo; // index 3
 
     bool detected; //if the player is being detected somehow
 

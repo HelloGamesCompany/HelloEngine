@@ -7,6 +7,8 @@
 
 #include "../Player/PlayerMove.h"
 
+class PlayerGunManager;
+
 enum class infinitWeapon_Type
 {
     HANDGUNS,
@@ -39,9 +41,9 @@ public:
 
     //void SwapWeaponTexture(normalWeapon_Type normalWeapon);
 
-    void SwapWeapon1(infinitWeapon_Type infinitWeapon, bool active);
-    void SwapWeapon2(normalWeapon_Type normalWeapon, bool active);
-    void SwapWeapon3(specialWeapon_Type specialWeapon, bool active);
+    void SwapWeapon1(infinitWeapon_Type infinitWeapon);
+    void SwapWeapon2(normalWeapon_Type normalWeapon);
+    void SwapWeapon3(specialWeapon_Type specialWeapon);
 
     void active_None_Weapon();
 
@@ -95,7 +97,8 @@ public:
     bool normal_NONE = true;
     bool special_NONE = true;
 
-    API_GameObject playerMoveGO;
+    API_GameObject playerGO;
     PlayerMove* playerMove;
+    PlayerGunManager* playerGunManager;
 };
 
