@@ -78,12 +78,50 @@ void Chest::OnCollisionEnter(API::API_RigidBody other)
 
         if (Input::GetGamePadButton(GamePadButton::BUTTON_X) == KeyState::KEY_DOWN || Input::GetKey(KeyCode::KEY_E) == KeyState::KEY_DOWN)
         {
-            playerGunManager = (PlayerGunManager*)other.GetGameObject().GetScript("PlayerGunManager");
-            playerStats = (PlayerStats*)other.GetGameObject().GetScript("PlayerStats");
             playerMove = (PlayerMove*)other.GetGameObject().GetScript("PlayerMove");
+            if (playerMove == nullptr) return;
 
-            if (playerMove) playerMove->PlayOpenChestAnim();
-            opening = true;
+            float distanceX = gameObject.GetTransform().GetGlobalPosition().x - other.GetGameObject().GetTransform().GetGlobalPosition().x;
+            float distanceZ = gameObject.GetTransform().GetGlobalPosition().z - other.GetGameObject().GetTransform().GetGlobalPosition().z;
+
+            if (abs(distanceX) < abs(distanceZ))
+            {
+                if (distanceZ >= 0.0f && playerMove->aimAngle <= 45 && playerMove->aimAngle > -45) // chest up
+                {
+                    playerGunManager = (PlayerGunManager*)other.GetGameObject().GetScript("PlayerGunManager");
+                    playerStats = (PlayerStats*)other.GetGameObject().GetScript("PlayerStats");
+
+                    if (playerMove) playerMove->PlayOpenChestAnim();
+                    opening = true;
+                }
+                else if (distanceZ < 0.0f && playerMove->aimAngle <= -135 && playerMove->aimAngle > -225) // chest down
+                {
+                    playerGunManager = (PlayerGunManager*)other.GetGameObject().GetScript("PlayerGunManager");
+                    playerStats = (PlayerStats*)other.GetGameObject().GetScript("PlayerStats");
+
+                    if (playerMove) playerMove->PlayOpenChestAnim();
+                    opening = true;
+                }
+            }
+            else
+            {
+                if (distanceX < 0.0f && playerMove->aimAngle <= -45 && playerMove->aimAngle > -135) // chest left
+                {
+                    playerGunManager = (PlayerGunManager*)other.GetGameObject().GetScript("PlayerGunManager");
+                    playerStats = (PlayerStats*)other.GetGameObject().GetScript("PlayerStats");
+
+                    if (playerMove) playerMove->PlayOpenChestAnim();
+                    opening = true;
+                }
+                else if (distanceX >= 0.0f && (playerMove->aimAngle <= -225 || (playerMove->aimAngle < 45 && playerMove->aimAngle >= 0))) // chest right
+                {
+                    playerGunManager = (PlayerGunManager*)other.GetGameObject().GetScript("PlayerGunManager");
+                    playerStats = (PlayerStats*)other.GetGameObject().GetScript("PlayerStats");
+
+                    if (playerMove) playerMove->PlayOpenChestAnim();
+                    opening = true;
+                }
+            }
         }
     }
 }
