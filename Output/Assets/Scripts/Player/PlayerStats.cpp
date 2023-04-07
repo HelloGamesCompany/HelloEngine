@@ -98,7 +98,6 @@ void PlayerStats::Update()
     if (inmunityTime > 0.0f)
     {
         inmunityTime -= dt;
-        if (inmunityTime <= 0.0f) hitParticles.StopEmitting();
     }
 
     // power ups
