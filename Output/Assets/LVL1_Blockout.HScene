@@ -39431,13 +39431,13 @@
                 "Enabled": true,
                 "Position": [
                     0.0,
-                    0.0,
+                    1.5246226787567139,
                     0.0
                 ],
                 "Rotation": [
+                    -0.0,
                     0.0,
-                    0.0,
-                    0.0
+                    -0.0
                 ],
                 "Scale": [
                     1.0,
@@ -39577,28 +39577,28 @@
                         "AnimationPlayer": 104208182
                     },
                     {
-                        "Dash Animation": 308476627
+                        "Dash Animation": 800482701
                     },
                     {
-                        "Idle Animation 1": 1104758561
+                        "Idle Animation 1": 1773462018
                     },
                     {
-                        "Idle Animation 2": 1151007843
+                        "Idle Animation 2": 3099582192
                     },
                     {
-                        "Idle Animation 3": 2509312507
+                        "Idle Animation 3": 3084206131
                     },
                     {
-                        "Run Forward Animation": 2509657723
+                        "Run Forward Animation": 1445224697
                     },
                     {
-                        "Run Back Animation": 267461508
+                        "Run Back Animation": 2844274002
                     },
                     {
-                        "Run Left Animation": 2651154683
+                        "Run Left Animation": 1890073135
                     },
                     {
-                        "Run Right Animation": 1189727073
+                        "Run Right Animation": 221456122
                     },
                     {
                         "Shoot Duals Animation": 2557652467
@@ -39676,6 +39676,18 @@
                         "Run Right Animation": 221456122
                     },
                     {
+                        "Shoot Duals Animation": 2557652467
+                    },
+                    {
+                        "Hit Animation": 3656460299
+                    },
+                    {
+                        "Open Chest Animation": 3046633296
+                    },
+                    {
+                        "Dead Animation": 2080450294
+                    },
+                    {
                         "Player Stats GO": 3079281768
                     }
                 ],
@@ -39722,7 +39734,55 @@
                         "Fire Ammo": 99999
                     },
                     {
-                        "Ricochet Ammo": 99999
+                        "Player GO": 3079281768
+                    },
+                    {
+                        "movement tree lvl": 0
+                    },
+                    {
+                        "armory tree lvl": 0
+                    },
+                    {
+                        "health tree lvl": 0
+                    },
+                    {
+                        "special tree lvl": 0
+                    },
+                    {
+                        "Max HP": 100.0
+                    },
+                    {
+                        "Current HP": 100.0
+                    },
+                    {
+                        "Upgraded Max HP": 125.0
+                    },
+                    {
+                        "Resistance": 1.0
+                    },
+                    {
+                        "Deadline Percentage": 20.0
+                    },
+                    {
+                        "Upgraded Deadline Percentage": 30.0
+                    },
+                    {
+                        "Deadline Heal Amount": 2.5
+                    },
+                    {
+                        "Upgraded Deadline Heal Amount": 5.0
+                    },
+                    {
+                        "Aid Kit Heal Amount": 30.0
+                    },
+                    {
+                        "Upgraded Aid Kit Heal Amount": 60.0
+                    },
+                    {
+                        "Laser Ammo": 99999
+                    },
+                    {
+                        "Fire Ammo": 99999
                     },
                     {
                         "Player GO": 3079281768
@@ -91575,7 +91635,7 @@
                 ],
                 "Rotation": [
                     -0.0,
-                    20.00000762939453,
+                    20.000011444091797,
                     -0.0
                 ],
                 "Scale": [
@@ -144770,1700 +144830,6 @@
             {
                 "Enabled": true,
                 "Position": [
-                    -40.65055847167969,
-                    -12.771551132202148,
-                    -12.211259841918945
-                ],
-                "Rotation": [
-                    -179.99989318847656,
-                    0.37378817796707153,
-                    -179.9998779296875
-                ],
-                "Scale": [
-                    1.0000030994415283,
-                    1.0,
-                    1.0000030994415283
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "SmokeExtractor",
-        "ParentUID": 2462894403,
-        "PrefabUID": 549025197,
-        "Tag": "Default",
-        "UID": 1968987131
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 3513546551,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 3533307085,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "base",
-        "ParentUID": 1968987131,
-        "PrefabUID": 549025197,
-        "Tag": "Default",
-        "UID": 381860918
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    2.229776620864868,
-                    0.4449767768383026
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "thrower_$AssimpFbx$_RotationPivot",
-        "ParentUID": 1968987131,
-        "PrefabUID": 549025197,
-        "Tag": "Default",
-        "UID": 3986377134
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    -0.0,
-                    -2.229776620864868,
-                    -0.4449767768383026
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "thrower_$AssimpFbx$_RotationPivotInverse",
-        "ParentUID": 3986377134,
-        "PrefabUID": 549025197,
-        "Tag": "Default",
-        "UID": 3365713285
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    2.229776620864868,
-                    0.4449767768383026
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "thrower_$AssimpFbx$_ScalingPivot",
-        "ParentUID": 3365713285,
-        "PrefabUID": 549025197,
-        "Tag": "Default",
-        "UID": 3793847113
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    -0.0,
-                    -2.229776620864868,
-                    -0.4449767768383026
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "thrower_$AssimpFbx$_ScalingPivotInverse",
-        "ParentUID": 3793847113,
-        "PrefabUID": 549025197,
-        "Tag": "Default",
-        "UID": 3826052061
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 1,
-                "ModelUID": 3513546551,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 3533307085,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "thrower",
-        "ParentUID": 3826052061,
-        "PrefabUID": 549025197,
-        "Tag": "Default",
-        "UID": 3993808257
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    -77.83795166015625,
-                    -12.771551132202148,
-                    -12.565797805786133
-                ],
-                "Rotation": [
-                    -179.99989318847656,
-                    0.37378817796707153,
-                    -179.9998779296875
-                ],
-                "Scale": [
-                    1.0000030994415283,
-                    1.0,
-                    1.0000030994415283
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "SmokeExtractor",
-        "ParentUID": 2462894403,
-        "PrefabUID": 549025197,
-        "Tag": "Default",
-        "UID": 1265440714
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 3513546551,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 3533307085,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "base",
-        "ParentUID": 1265440714,
-        "PrefabUID": 549025197,
-        "Tag": "Default",
-        "UID": 2878773842
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    2.229776620864868,
-                    0.4449767768383026
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "thrower_$AssimpFbx$_RotationPivot",
-        "ParentUID": 1265440714,
-        "PrefabUID": 549025197,
-        "Tag": "Default",
-        "UID": 2759753337
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    -0.0,
-                    -2.229776620864868,
-                    -0.4449767768383026
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "thrower_$AssimpFbx$_RotationPivotInverse",
-        "ParentUID": 2759753337,
-        "PrefabUID": 549025197,
-        "Tag": "Default",
-        "UID": 1425088716
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    2.229776620864868,
-                    0.4449767768383026
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "thrower_$AssimpFbx$_ScalingPivot",
-        "ParentUID": 1425088716,
-        "PrefabUID": 549025197,
-        "Tag": "Default",
-        "UID": 2356959036
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    -0.0,
-                    -2.229776620864868,
-                    -0.4449767768383026
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "thrower_$AssimpFbx$_ScalingPivotInverse",
-        "ParentUID": 2356959036,
-        "PrefabUID": 549025197,
-        "Tag": "Default",
-        "UID": 324534379
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 1,
-                "ModelUID": 3513546551,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 3533307085,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "thrower",
-        "ParentUID": 324534379,
-        "PrefabUID": 549025197,
-        "Tag": "Default",
-        "UID": 2880023399
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.5514580607414246,
-                    -22.26309585571289
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "SmokeExtractor",
-        "ParentUID": 2462894403,
-        "PrefabUID": 549025197,
-        "Tag": "Default",
-        "UID": 3855815315
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 3513546551,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 3533307085,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "base",
-        "ParentUID": 3855815315,
-        "PrefabUID": 549025197,
-        "Tag": "Default",
-        "UID": 1672111022
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    2.229776620864868,
-                    0.4449767768383026
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "thrower_$AssimpFbx$_RotationPivot",
-        "ParentUID": 3855815315,
-        "PrefabUID": 549025197,
-        "Tag": "Default",
-        "UID": 3247871878
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    -0.0,
-                    -2.229776620864868,
-                    -0.4449767768383026
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "thrower_$AssimpFbx$_RotationPivotInverse",
-        "ParentUID": 3247871878,
-        "PrefabUID": 549025197,
-        "Tag": "Default",
-        "UID": 2944785725
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    2.229776620864868,
-                    0.4449767768383026
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "thrower_$AssimpFbx$_ScalingPivot",
-        "ParentUID": 2944785725,
-        "PrefabUID": 549025197,
-        "Tag": "Default",
-        "UID": 2958052961
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    -0.0,
-                    -2.229776620864868,
-                    -0.4449767768383026
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "thrower_$AssimpFbx$_ScalingPivotInverse",
-        "ParentUID": 2958052961,
-        "PrefabUID": 549025197,
-        "Tag": "Default",
-        "UID": 3218321877
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 1,
-                "ModelUID": 3513546551,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 3533307085,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "thrower",
-        "ParentUID": 3218321877,
-        "PrefabUID": 549025197,
-        "Tag": "Default",
-        "UID": 2933500888
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    -40.61354064941406,
-                    0.42866024374961853,
-                    36.34984588623047
-                ],
-                "Rotation": [
-                    -179.9998779296875,
-                    -46.919925689697266,
-                    -179.9996337890625
-                ],
-                "Scale": [
-                    1.0000038146972656,
-                    1.0,
-                    1.0000038146972656
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "SmokeExtractor",
-        "ParentUID": 2462894403,
-        "PrefabUID": 549025197,
-        "Tag": "Default",
-        "UID": 3275431352
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 3513546551,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 3533307085,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "base",
-        "ParentUID": 3275431352,
-        "PrefabUID": 549025197,
-        "Tag": "Default",
-        "UID": 1812543767
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    2.229776620864868,
-                    0.4449767768383026
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "thrower_$AssimpFbx$_RotationPivot",
-        "ParentUID": 3275431352,
-        "PrefabUID": 549025197,
-        "Tag": "Default",
-        "UID": 675478530
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    -0.0,
-                    -2.229776620864868,
-                    -0.4449767768383026
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "thrower_$AssimpFbx$_RotationPivotInverse",
-        "ParentUID": 675478530,
-        "PrefabUID": 549025197,
-        "Tag": "Default",
-        "UID": 1893813226
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    2.229776620864868,
-                    0.4449767768383026
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "thrower_$AssimpFbx$_ScalingPivot",
-        "ParentUID": 1893813226,
-        "PrefabUID": 549025197,
-        "Tag": "Default",
-        "UID": 2264554738
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    -0.0,
-                    -2.229776620864868,
-                    -0.4449767768383026
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "thrower_$AssimpFbx$_ScalingPivotInverse",
-        "ParentUID": 2264554738,
-        "PrefabUID": 549025197,
-        "Tag": "Default",
-        "UID": 905912729
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 1,
-                "ModelUID": 3513546551,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 3533307085,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "thrower",
-        "ParentUID": 905912729,
-        "PrefabUID": 549025197,
-        "Tag": "Default",
-        "UID": 3250331245
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    -60.90024948120117,
-                    0.4809086322784424,
-                    23.336261749267578
-                ],
-                "Rotation": [
-                    -0.00012126990623073652,
-                    1.4064184427261353,
-                    0.00016353539831470698
-                ],
-                "Scale": [
-                    1.0000040531158447,
-                    1.0,
-                    1.0000040531158447
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "SmokeExtractor",
-        "ParentUID": 2462894403,
-        "PrefabUID": 549025197,
-        "Tag": "Default",
-        "UID": 2369683792
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 3513546551,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 3533307085,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "base",
-        "ParentUID": 2369683792,
-        "PrefabUID": 549025197,
-        "Tag": "Default",
-        "UID": 1471508879
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    2.229776620864868,
-                    0.4449767768383026
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "thrower_$AssimpFbx$_RotationPivot",
-        "ParentUID": 2369683792,
-        "PrefabUID": 549025197,
-        "Tag": "Default",
-        "UID": 64753370
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    -0.0,
-                    -2.229776620864868,
-                    -0.4449767768383026
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "thrower_$AssimpFbx$_RotationPivotInverse",
-        "ParentUID": 64753370,
-        "PrefabUID": 549025197,
-        "Tag": "Default",
-        "UID": 2773679266
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    2.229776620864868,
-                    0.4449767768383026
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "thrower_$AssimpFbx$_ScalingPivot",
-        "ParentUID": 2773679266,
-        "PrefabUID": 549025197,
-        "Tag": "Default",
-        "UID": 299582729
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    -0.0,
-                    -2.229776620864868,
-                    -0.4449767768383026
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "thrower_$AssimpFbx$_ScalingPivotInverse",
-        "ParentUID": 299582729,
-        "PrefabUID": 549025197,
-        "Tag": "Default",
-        "UID": 887986333
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 1,
-                "ModelUID": 3513546551,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 3533307085,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "thrower",
-        "ParentUID": 887986333,
-        "PrefabUID": 549025197,
-        "Tag": "Default",
-        "UID": 737231168
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    -129.1791534423828,
-                    -12.771684646606445,
-                    -21.71702003479004
-                ],
-                "Rotation": [
-                    -0.00015660373901482671,
-                    19.43983268737793,
-                    0.00025630235904827714
-                ],
-                "Scale": [
-                    1.000003457069397,
-                    1.0,
-                    1.000003457069397
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "SmokeExtractor",
-        "ParentUID": 2462894403,
-        "PrefabUID": 549025197,
-        "Tag": "Default",
-        "UID": 1911960128
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 3513546551,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 3533307085,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "base",
-        "ParentUID": 1911960128,
-        "PrefabUID": 549025197,
-        "Tag": "Default",
-        "UID": 2949633856
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    2.229776620864868,
-                    0.4449767768383026
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "thrower_$AssimpFbx$_RotationPivot",
-        "ParentUID": 1911960128,
-        "PrefabUID": 549025197,
-        "Tag": "Default",
-        "UID": 1187364927
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    -0.0,
-                    -2.229776620864868,
-                    -0.4449767768383026
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "thrower_$AssimpFbx$_RotationPivotInverse",
-        "ParentUID": 1187364927,
-        "PrefabUID": 549025197,
-        "Tag": "Default",
-        "UID": 298036554
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    2.229776620864868,
-                    0.4449767768383026
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "thrower_$AssimpFbx$_ScalingPivot",
-        "ParentUID": 298036554,
-        "PrefabUID": 549025197,
-        "Tag": "Default",
-        "UID": 615919058
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    -0.0,
-                    -2.229776620864868,
-                    -0.4449767768383026
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "thrower_$AssimpFbx$_ScalingPivotInverse",
-        "ParentUID": 615919058,
-        "PrefabUID": 549025197,
-        "Tag": "Default",
-        "UID": 4242221050
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 1,
-                "ModelUID": 3513546551,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 3533307085,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "thrower",
-        "ParentUID": 4242221050,
-        "PrefabUID": 549025197,
-        "Tag": "Default",
-        "UID": 4245612610
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    -148.79705810546875,
-                    -13.621638298034668,
-                    -1.5515265464782715
-                ],
-                "Rotation": [
-                    -179.99989318847656,
-                    -16.4875545501709,
-                    -179.999755859375
-                ],
-                "Scale": [
-                    1.0000160932540894,
-                    1.0,
-                    1.0000160932540894
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "SmokeExtractor",
-        "ParentUID": 2462894403,
-        "PrefabUID": 549025197,
-        "Tag": "Default",
-        "UID": 4146210089
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 3513546551,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 3533307085,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "base",
-        "ParentUID": 4146210089,
-        "PrefabUID": 549025197,
-        "Tag": "Default",
-        "UID": 2835609404
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    2.229776620864868,
-                    0.4449767768383026
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "thrower_$AssimpFbx$_RotationPivot",
-        "ParentUID": 4146210089,
-        "PrefabUID": 549025197,
-        "Tag": "Default",
-        "UID": 4085522540
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    -0.0,
-                    -2.229776620864868,
-                    -0.4449767768383026
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "thrower_$AssimpFbx$_RotationPivotInverse",
-        "ParentUID": 4085522540,
-        "PrefabUID": 549025197,
-        "Tag": "Default",
-        "UID": 3955579739
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    2.229776620864868,
-                    0.4449767768383026
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "thrower_$AssimpFbx$_ScalingPivot",
-        "ParentUID": 3955579739,
-        "PrefabUID": 549025197,
-        "Tag": "Default",
-        "UID": 2408956694
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    -0.0,
-                    -2.229776620864868,
-                    -0.4449767768383026
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "thrower_$AssimpFbx$_ScalingPivotInverse",
-        "ParentUID": 2408956694,
-        "PrefabUID": 549025197,
-        "Tag": "Default",
-        "UID": 4091018766
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 1,
-                "ModelUID": 3513546551,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 3533307085,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "thrower",
-        "ParentUID": 4091018766,
-        "PrefabUID": 549025197,
-        "Tag": "Default",
-        "UID": 61273445
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
                     -224.6343231201172,
                     61.10236358642578,
                     14.324555397033691
@@ -147628,6 +145994,1974 @@
             {
                 "Enabled": true,
                 "Position": [
+                    -188.41990661621094,
+                    60.5986213684082,
+                    17.364761352539063
+                ],
+                "Rotation": [
+                    179.99191284179688,
+                    89.76593017578125,
+                    -179.99205017089844
+                ],
+                "Scale": [
+                    1.0000001192092896,
+                    1.0,
+                    1.0000001192092896
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "ConstructionFenceSegment",
+        "ParentUID": 2462894403,
+        "PrefabUID": 1993389018,
+        "Tag": "Default",
+        "UID": 2753553826
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 1584792848,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 4102644367,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "segment",
+        "ParentUID": 2753553826,
+        "PrefabUID": 1993389018,
+        "Tag": "Default",
+        "UID": 3600630282
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -1.1698877811431885,
+                    0.10000000149011612,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    0.19470594823360443,
+                    1.3842684030532837,
+                    1.4801032543182373
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 1,
+                "ModelUID": 1584792848,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 4102644367,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "joint",
+        "ParentUID": 2753553826,
+        "PrefabUID": 1993389018,
+        "Tag": "Default",
+        "UID": 3714632082
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -188.41990661621094,
+                    60.5986213684082,
+                    15.141658782958984
+                ],
+                "Rotation": [
+                    179.99191284179688,
+                    89.76593017578125,
+                    -179.99205017089844
+                ],
+                "Scale": [
+                    1.0000001192092896,
+                    1.0,
+                    1.0000001192092896
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "ConstructionFenceSegment",
+        "ParentUID": 2462894403,
+        "PrefabUID": 1993389018,
+        "Tag": "Default",
+        "UID": 2430518884
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 1584792848,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 4102644367,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "segment",
+        "ParentUID": 2430518884,
+        "PrefabUID": 1993389018,
+        "Tag": "Default",
+        "UID": 2033695155
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -1.1698877811431885,
+                    0.10000000149011612,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    0.19470594823360443,
+                    1.3842684030532837,
+                    1.4801032543182373
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 1,
+                "ModelUID": 1584792848,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 4102644367,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "joint",
+        "ParentUID": 2430518884,
+        "PrefabUID": 1993389018,
+        "Tag": "Default",
+        "UID": 4293473615
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "SmokeExtractors",
+        "ParentUID": 2462894403,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3231436892
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -40.65055847167969,
+                    -12.771551132202148,
+                    -12.211259841918945
+                ],
+                "Rotation": [
+                    -179.99989318847656,
+                    0.37378817796707153,
+                    -179.9998779296875
+                ],
+                "Scale": [
+                    1.0000030994415283,
+                    1.0,
+                    1.0000030994415283
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "SmokeExtractor",
+        "ParentUID": 3231436892,
+        "PrefabUID": 549025197,
+        "Tag": "Default",
+        "UID": 1968987131
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 3513546551,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 3533307085,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "base",
+        "ParentUID": 1968987131,
+        "PrefabUID": 549025197,
+        "Tag": "Default",
+        "UID": 381860918
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    2.229776620864868,
+                    0.4449767768383026
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "thrower_$AssimpFbx$_RotationPivot",
+        "ParentUID": 1968987131,
+        "PrefabUID": 549025197,
+        "Tag": "Default",
+        "UID": 3986377134
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.0,
+                    -2.229776620864868,
+                    -0.4449767768383026
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "thrower_$AssimpFbx$_RotationPivotInverse",
+        "ParentUID": 3986377134,
+        "PrefabUID": 549025197,
+        "Tag": "Default",
+        "UID": 3365713285
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    2.229776620864868,
+                    0.4449767768383026
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "thrower_$AssimpFbx$_ScalingPivot",
+        "ParentUID": 3365713285,
+        "PrefabUID": 549025197,
+        "Tag": "Default",
+        "UID": 3793847113
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.0,
+                    -2.229776620864868,
+                    -0.4449767768383026
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "thrower_$AssimpFbx$_ScalingPivotInverse",
+        "ParentUID": 3793847113,
+        "PrefabUID": 549025197,
+        "Tag": "Default",
+        "UID": 3826052061
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 1,
+                "ModelUID": 3513546551,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 3533307085,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "thrower",
+        "ParentUID": 3826052061,
+        "PrefabUID": 549025197,
+        "Tag": "Default",
+        "UID": 3993808257
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -77.83795166015625,
+                    -12.771551132202148,
+                    -12.565797805786133
+                ],
+                "Rotation": [
+                    -179.99989318847656,
+                    0.37378817796707153,
+                    -179.9998779296875
+                ],
+                "Scale": [
+                    1.0000030994415283,
+                    1.0,
+                    1.0000030994415283
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "SmokeExtractor",
+        "ParentUID": 3231436892,
+        "PrefabUID": 549025197,
+        "Tag": "Default",
+        "UID": 1265440714
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 3513546551,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 3533307085,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "base",
+        "ParentUID": 1265440714,
+        "PrefabUID": 549025197,
+        "Tag": "Default",
+        "UID": 2878773842
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    2.229776620864868,
+                    0.4449767768383026
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "thrower_$AssimpFbx$_RotationPivot",
+        "ParentUID": 1265440714,
+        "PrefabUID": 549025197,
+        "Tag": "Default",
+        "UID": 2759753337
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.0,
+                    -2.229776620864868,
+                    -0.4449767768383026
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "thrower_$AssimpFbx$_RotationPivotInverse",
+        "ParentUID": 2759753337,
+        "PrefabUID": 549025197,
+        "Tag": "Default",
+        "UID": 1425088716
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    2.229776620864868,
+                    0.4449767768383026
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "thrower_$AssimpFbx$_ScalingPivot",
+        "ParentUID": 1425088716,
+        "PrefabUID": 549025197,
+        "Tag": "Default",
+        "UID": 2356959036
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.0,
+                    -2.229776620864868,
+                    -0.4449767768383026
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "thrower_$AssimpFbx$_ScalingPivotInverse",
+        "ParentUID": 2356959036,
+        "PrefabUID": 549025197,
+        "Tag": "Default",
+        "UID": 324534379
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 1,
+                "ModelUID": 3513546551,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 3533307085,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "thrower",
+        "ParentUID": 324534379,
+        "PrefabUID": 549025197,
+        "Tag": "Default",
+        "UID": 2880023399
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.5514580607414246,
+                    -22.26309585571289
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "SmokeExtractor",
+        "ParentUID": 3231436892,
+        "PrefabUID": 549025197,
+        "Tag": "Default",
+        "UID": 3855815315
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 3513546551,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 3533307085,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "base",
+        "ParentUID": 3855815315,
+        "PrefabUID": 549025197,
+        "Tag": "Default",
+        "UID": 1672111022
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    2.229776620864868,
+                    0.4449767768383026
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "thrower_$AssimpFbx$_RotationPivot",
+        "ParentUID": 3855815315,
+        "PrefabUID": 549025197,
+        "Tag": "Default",
+        "UID": 3247871878
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.0,
+                    -2.229776620864868,
+                    -0.4449767768383026
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "thrower_$AssimpFbx$_RotationPivotInverse",
+        "ParentUID": 3247871878,
+        "PrefabUID": 549025197,
+        "Tag": "Default",
+        "UID": 2944785725
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    2.229776620864868,
+                    0.4449767768383026
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "thrower_$AssimpFbx$_ScalingPivot",
+        "ParentUID": 2944785725,
+        "PrefabUID": 549025197,
+        "Tag": "Default",
+        "UID": 2958052961
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.0,
+                    -2.229776620864868,
+                    -0.4449767768383026
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "thrower_$AssimpFbx$_ScalingPivotInverse",
+        "ParentUID": 2958052961,
+        "PrefabUID": 549025197,
+        "Tag": "Default",
+        "UID": 3218321877
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 1,
+                "ModelUID": 3513546551,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 3533307085,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "thrower",
+        "ParentUID": 3218321877,
+        "PrefabUID": 549025197,
+        "Tag": "Default",
+        "UID": 2933500888
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -40.61354064941406,
+                    0.42866024374961853,
+                    36.34984588623047
+                ],
+                "Rotation": [
+                    -179.9998779296875,
+                    -46.919925689697266,
+                    -179.9996337890625
+                ],
+                "Scale": [
+                    1.0000038146972656,
+                    1.0,
+                    1.0000038146972656
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "SmokeExtractor",
+        "ParentUID": 3231436892,
+        "PrefabUID": 549025197,
+        "Tag": "Default",
+        "UID": 3275431352
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 3513546551,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 3533307085,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "base",
+        "ParentUID": 3275431352,
+        "PrefabUID": 549025197,
+        "Tag": "Default",
+        "UID": 1812543767
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    2.229776620864868,
+                    0.4449767768383026
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "thrower_$AssimpFbx$_RotationPivot",
+        "ParentUID": 3275431352,
+        "PrefabUID": 549025197,
+        "Tag": "Default",
+        "UID": 675478530
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.0,
+                    -2.229776620864868,
+                    -0.4449767768383026
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "thrower_$AssimpFbx$_RotationPivotInverse",
+        "ParentUID": 675478530,
+        "PrefabUID": 549025197,
+        "Tag": "Default",
+        "UID": 1893813226
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    2.229776620864868,
+                    0.4449767768383026
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "thrower_$AssimpFbx$_ScalingPivot",
+        "ParentUID": 1893813226,
+        "PrefabUID": 549025197,
+        "Tag": "Default",
+        "UID": 2264554738
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.0,
+                    -2.229776620864868,
+                    -0.4449767768383026
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "thrower_$AssimpFbx$_ScalingPivotInverse",
+        "ParentUID": 2264554738,
+        "PrefabUID": 549025197,
+        "Tag": "Default",
+        "UID": 905912729
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 1,
+                "ModelUID": 3513546551,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 3533307085,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "thrower",
+        "ParentUID": 905912729,
+        "PrefabUID": 549025197,
+        "Tag": "Default",
+        "UID": 3250331245
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -60.90024948120117,
+                    0.4809086322784424,
+                    23.336261749267578
+                ],
+                "Rotation": [
+                    -0.00012126990623073652,
+                    1.4064184427261353,
+                    0.00016353539831470698
+                ],
+                "Scale": [
+                    1.0000040531158447,
+                    1.0,
+                    1.0000040531158447
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "SmokeExtractor",
+        "ParentUID": 3231436892,
+        "PrefabUID": 549025197,
+        "Tag": "Default",
+        "UID": 2369683792
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 3513546551,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 3533307085,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "base",
+        "ParentUID": 2369683792,
+        "PrefabUID": 549025197,
+        "Tag": "Default",
+        "UID": 1471508879
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    2.229776620864868,
+                    0.4449767768383026
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "thrower_$AssimpFbx$_RotationPivot",
+        "ParentUID": 2369683792,
+        "PrefabUID": 549025197,
+        "Tag": "Default",
+        "UID": 64753370
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.0,
+                    -2.229776620864868,
+                    -0.4449767768383026
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "thrower_$AssimpFbx$_RotationPivotInverse",
+        "ParentUID": 64753370,
+        "PrefabUID": 549025197,
+        "Tag": "Default",
+        "UID": 2773679266
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    2.229776620864868,
+                    0.4449767768383026
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "thrower_$AssimpFbx$_ScalingPivot",
+        "ParentUID": 2773679266,
+        "PrefabUID": 549025197,
+        "Tag": "Default",
+        "UID": 299582729
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.0,
+                    -2.229776620864868,
+                    -0.4449767768383026
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "thrower_$AssimpFbx$_ScalingPivotInverse",
+        "ParentUID": 299582729,
+        "PrefabUID": 549025197,
+        "Tag": "Default",
+        "UID": 887986333
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 1,
+                "ModelUID": 3513546551,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 3533307085,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "thrower",
+        "ParentUID": 887986333,
+        "PrefabUID": 549025197,
+        "Tag": "Default",
+        "UID": 737231168
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -129.1791534423828,
+                    -12.771684646606445,
+                    -21.71702003479004
+                ],
+                "Rotation": [
+                    -0.00015660373901482671,
+                    19.43983268737793,
+                    0.00025630235904827714
+                ],
+                "Scale": [
+                    1.000003457069397,
+                    1.0,
+                    1.000003457069397
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "SmokeExtractor",
+        "ParentUID": 3231436892,
+        "PrefabUID": 549025197,
+        "Tag": "Default",
+        "UID": 1911960128
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 3513546551,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 3533307085,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "base",
+        "ParentUID": 1911960128,
+        "PrefabUID": 549025197,
+        "Tag": "Default",
+        "UID": 2949633856
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    2.229776620864868,
+                    0.4449767768383026
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "thrower_$AssimpFbx$_RotationPivot",
+        "ParentUID": 1911960128,
+        "PrefabUID": 549025197,
+        "Tag": "Default",
+        "UID": 1187364927
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.0,
+                    -2.229776620864868,
+                    -0.4449767768383026
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "thrower_$AssimpFbx$_RotationPivotInverse",
+        "ParentUID": 1187364927,
+        "PrefabUID": 549025197,
+        "Tag": "Default",
+        "UID": 298036554
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    2.229776620864868,
+                    0.4449767768383026
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "thrower_$AssimpFbx$_ScalingPivot",
+        "ParentUID": 298036554,
+        "PrefabUID": 549025197,
+        "Tag": "Default",
+        "UID": 615919058
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.0,
+                    -2.229776620864868,
+                    -0.4449767768383026
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "thrower_$AssimpFbx$_ScalingPivotInverse",
+        "ParentUID": 615919058,
+        "PrefabUID": 549025197,
+        "Tag": "Default",
+        "UID": 4242221050
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 1,
+                "ModelUID": 3513546551,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 3533307085,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "thrower",
+        "ParentUID": 4242221050,
+        "PrefabUID": 549025197,
+        "Tag": "Default",
+        "UID": 4245612610
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -148.79705810546875,
+                    -13.621638298034668,
+                    -1.5515265464782715
+                ],
+                "Rotation": [
+                    -179.99989318847656,
+                    -16.4875545501709,
+                    -179.999755859375
+                ],
+                "Scale": [
+                    1.0000160932540894,
+                    1.0,
+                    1.0000160932540894
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "SmokeExtractor",
+        "ParentUID": 3231436892,
+        "PrefabUID": 549025197,
+        "Tag": "Default",
+        "UID": 4146210089
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 3513546551,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 3533307085,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "base",
+        "ParentUID": 4146210089,
+        "PrefabUID": 549025197,
+        "Tag": "Default",
+        "UID": 2835609404
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    2.229776620864868,
+                    0.4449767768383026
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "thrower_$AssimpFbx$_RotationPivot",
+        "ParentUID": 4146210089,
+        "PrefabUID": 549025197,
+        "Tag": "Default",
+        "UID": 4085522540
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.0,
+                    -2.229776620864868,
+                    -0.4449767768383026
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "thrower_$AssimpFbx$_RotationPivotInverse",
+        "ParentUID": 4085522540,
+        "PrefabUID": 549025197,
+        "Tag": "Default",
+        "UID": 3955579739
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    2.229776620864868,
+                    0.4449767768383026
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "thrower_$AssimpFbx$_ScalingPivot",
+        "ParentUID": 3955579739,
+        "PrefabUID": 549025197,
+        "Tag": "Default",
+        "UID": 2408956694
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.0,
+                    -2.229776620864868,
+                    -0.4449767768383026
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "thrower_$AssimpFbx$_ScalingPivotInverse",
+        "ParentUID": 2408956694,
+        "PrefabUID": 549025197,
+        "Tag": "Default",
+        "UID": 4091018766
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 1,
+                "ModelUID": 3513546551,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 3533307085,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "thrower",
+        "ParentUID": 4091018766,
+        "PrefabUID": 549025197,
+        "Tag": "Default",
+        "UID": 61273445
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
                     58.34019088745117,
                     -0.3636358976364136,
                     -0.6043277978897095
@@ -147647,7 +147981,7 @@
         ],
         "FirstOnPrefab": true,
         "Name": "SmokeExtractor",
-        "ParentUID": 2462894403,
+        "ParentUID": 3231436892,
         "PrefabUID": 549025197,
         "Tag": "Default",
         "UID": 1015989417
@@ -147889,7 +148223,7 @@
         ],
         "FirstOnPrefab": true,
         "Name": "SmokeExtractor",
-        "ParentUID": 2462894403,
+        "ParentUID": 3231436892,
         "PrefabUID": 549025197,
         "Tag": "Default",
         "UID": 3222381207
@@ -148105,5 +148439,1575 @@
         "PrefabUID": 549025197,
         "Tag": "Default",
         "UID": 3358887448
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -188.41990661621094,
+                    60.5986213684082,
+                    12.84756088256836
+                ],
+                "Rotation": [
+                    179.99191284179688,
+                    89.76593017578125,
+                    -179.99205017089844
+                ],
+                "Scale": [
+                    1.0000001192092896,
+                    1.0,
+                    1.0000001192092896
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "ConstructionFenceSegment",
+        "ParentUID": 2462894403,
+        "PrefabUID": 1993389018,
+        "Tag": "Default",
+        "UID": 1185926155
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 1584792848,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 4102644367,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "segment",
+        "ParentUID": 1185926155,
+        "PrefabUID": 1993389018,
+        "Tag": "Default",
+        "UID": 3208506247
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -1.1698877811431885,
+                    0.10000000149011612,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    0.19470594823360443,
+                    1.3842684030532837,
+                    1.4801032543182373
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 1,
+                "ModelUID": 1584792848,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 4102644367,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "joint",
+        "ParentUID": 1185926155,
+        "PrefabUID": 1993389018,
+        "Tag": "Default",
+        "UID": 2459324722
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -188.4834442138672,
+                    60.61394500732422,
+                    11.677543640136719
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "ConstructionFenceEnd",
+        "ParentUID": 2462894403,
+        "PrefabUID": 1470647211,
+        "Tag": "Default",
+        "UID": 204107686
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.10000000149011612,
+                    0.0
+                ],
+                "Rotation": [
+                    -180.0,
+                    89.98020935058594,
+                    -180.0
+                ],
+                "Scale": [
+                    0.19470594823360443,
+                    1.3842684030532837,
+                    1.4801032543182373
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 3719115231,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 3563892092,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "end",
+        "ParentUID": 204107686,
+        "PrefabUID": 1470647211,
+        "Tag": "Default",
+        "UID": 2429391838
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -190.3925323486328,
+                    60.59832763671875,
+                    3.1047322750091553
+                ],
+                "Rotation": [
+                    179.9998779296875,
+                    48.76515579223633,
+                    179.999755859375
+                ],
+                "Scale": [
+                    0.9999993443489075,
+                    1.0,
+                    0.9999993443489075
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "ConstructionFenceSegment",
+        "ParentUID": 2462894403,
+        "PrefabUID": 1993389018,
+        "Tag": "Default",
+        "UID": 1775215321
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 1584792848,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 4102644367,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "segment",
+        "ParentUID": 1775215321,
+        "PrefabUID": 1993389018,
+        "Tag": "Default",
+        "UID": 286953644
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -1.1698877811431885,
+                    0.10000000149011612,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    0.19470594823360443,
+                    1.3842684030532837,
+                    1.4801032543182373
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 1,
+                "ModelUID": 1584792848,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 4102644367,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "joint",
+        "ParentUID": 1775215321,
+        "PrefabUID": 1993389018,
+        "Tag": "Default",
+        "UID": 2106755228
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -191.90513610839844,
+                    60.59861755371094,
+                    1.3794281482696533
+                ],
+                "Rotation": [
+                    179.999755859375,
+                    48.764991760253906,
+                    179.999755859375
+                ],
+                "Scale": [
+                    1.0000008344650269,
+                    1.0,
+                    1.0000008344650269
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "ConstructionFenceSegment",
+        "ParentUID": 2462894403,
+        "PrefabUID": 1993389018,
+        "Tag": "Default",
+        "UID": 1062918041
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 1584792848,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 4102644367,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "segment",
+        "ParentUID": 1062918041,
+        "PrefabUID": 1993389018,
+        "Tag": "Default",
+        "UID": 3425389677
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -1.1698877811431885,
+                    0.10000000149011612,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    0.19470594823360443,
+                    1.3842684030532837,
+                    1.4801032543182373
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 1,
+                "ModelUID": 1584792848,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 4102644367,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "joint",
+        "ParentUID": 1062918041,
+        "PrefabUID": 1993389018,
+        "Tag": "Default",
+        "UID": 995592016
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -193.3688507080078,
+                    60.65460968017578,
+                    -0.4325186014175415
+                ],
+                "Rotation": [
+                    179.99191284179688,
+                    48.764991760253906,
+                    -179.99205017089844
+                ],
+                "Scale": [
+                    1.0000001192092896,
+                    1.0,
+                    1.0000001192092896
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "ConstructionFenceSegment",
+        "ParentUID": 2462894403,
+        "PrefabUID": 1993389018,
+        "Tag": "Default",
+        "UID": 1929523088
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 1584792848,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 4102644367,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "segment",
+        "ParentUID": 1929523088,
+        "PrefabUID": 1993389018,
+        "Tag": "Default",
+        "UID": 1634792655
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -1.1698877811431885,
+                    0.10000000149011612,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    0.19470594823360443,
+                    1.3842684030532837,
+                    1.4801032543182373
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 1,
+                "ModelUID": 1584792848,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 4102644367,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "joint",
+        "ParentUID": 1929523088,
+        "PrefabUID": 1993389018,
+        "Tag": "Default",
+        "UID": 3561057051
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -194.14022827148438,
+                    60.61421203613281,
+                    -1.293330192565918
+                ],
+                "Rotation": [
+                    -0.0,
+                    41.328468322753906,
+                    -0.0
+                ],
+                "Scale": [
+                    0.9999999403953552,
+                    1.0,
+                    0.9999999403953552
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "ConstructionFenceEnd",
+        "ParentUID": 2462894403,
+        "PrefabUID": 1470647211,
+        "Tag": "Default",
+        "UID": 2462141566
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.10000000149011612,
+                    0.0
+                ],
+                "Rotation": [
+                    -180.0,
+                    89.98020935058594,
+                    -180.0
+                ],
+                "Scale": [
+                    0.19470594823360443,
+                    1.3842684030532837,
+                    1.4801032543182373
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 3719115231,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 3563892092,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "end",
+        "ParentUID": 2462141566,
+        "PrefabUID": 1470647211,
+        "Tag": "Default",
+        "UID": 318215829
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -203.2508087158203,
+                    60.706764221191406,
+                    0.0872456431388855
+                ],
+                "Rotation": [
+                    179.99989318847656,
+                    -23.423494338989258,
+                    179.99974060058594
+                ],
+                "Scale": [
+                    1.0000019073486328,
+                    1.0,
+                    1.0000019073486328
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "ConstructionFenceSegment",
+        "ParentUID": 2462894403,
+        "PrefabUID": 1993389018,
+        "Tag": "Default",
+        "UID": 1660753366
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 1584792848,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 4102644367,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "segment",
+        "ParentUID": 1660753366,
+        "PrefabUID": 1993389018,
+        "Tag": "Default",
+        "UID": 2790485966
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -1.1698877811431885,
+                    0.10000000149011612,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    0.19470594823360443,
+                    1.3842684030532837,
+                    1.4801032543182373
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 1,
+                "ModelUID": 1584792848,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 4102644367,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "joint",
+        "ParentUID": 1660753366,
+        "PrefabUID": 1993389018,
+        "Tag": "Default",
+        "UID": 2167738917
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -205.32884216308594,
+                    60.5986213684082,
+                    1.0189670324325562
+                ],
+                "Rotation": [
+                    179.99191284179688,
+                    -23.42299461364746,
+                    -179.99205017089844
+                ],
+                "Scale": [
+                    1.0000101327896118,
+                    1.0,
+                    1.0000083446502686
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "ConstructionFenceSegment",
+        "ParentUID": 2462894403,
+        "PrefabUID": 1993389018,
+        "Tag": "Default",
+        "UID": 2586839468
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 1584792848,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 4102644367,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "segment",
+        "ParentUID": 2586839468,
+        "PrefabUID": 1993389018,
+        "Tag": "Default",
+        "UID": 1781945755
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -1.1698877811431885,
+                    0.10000000149011612,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    0.19470594823360443,
+                    1.3842684030532837,
+                    1.4801032543182373
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 1,
+                "ModelUID": 1584792848,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 4102644367,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "joint",
+        "ParentUID": 2586839468,
+        "PrefabUID": 1993389018,
+        "Tag": "Default",
+        "UID": 715063894
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -207.47616577148438,
+                    60.598384857177734,
+                    1.9213515520095825
+                ],
+                "Rotation": [
+                    179.999755859375,
+                    -23.422992706298828,
+                    179.9996337890625
+                ],
+                "Scale": [
+                    1.0000011920928955,
+                    1.0,
+                    1.0000011920928955
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "ConstructionFenceSegment",
+        "ParentUID": 2462894403,
+        "PrefabUID": 1993389018,
+        "Tag": "Default",
+        "UID": 497436237
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 1584792848,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 4102644367,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "segment",
+        "ParentUID": 497436237,
+        "PrefabUID": 1993389018,
+        "Tag": "Default",
+        "UID": 1686948529
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -1.1698877811431885,
+                    0.10000000149011612,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    0.19470594823360443,
+                    1.3842684030532837,
+                    1.4801032543182373
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 1,
+                "ModelUID": 1584792848,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 4102644367,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "joint",
+        "ParentUID": 497436237,
+        "PrefabUID": 1993389018,
+        "Tag": "Default",
+        "UID": 1162828388
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -209.5958709716797,
+                    60.59862518310547,
+                    2.826779842376709
+                ],
+                "Rotation": [
+                    179.99989318847656,
+                    -23.422992706298828,
+                    179.999755859375
+                ],
+                "Scale": [
+                    1.0000020265579224,
+                    1.0,
+                    1.0000020265579224
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "ConstructionFenceSegment",
+        "ParentUID": 2462894403,
+        "PrefabUID": 1993389018,
+        "Tag": "Default",
+        "UID": 1436638644
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 1584792848,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 4102644367,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "segment",
+        "ParentUID": 1436638644,
+        "PrefabUID": 1993389018,
+        "Tag": "Default",
+        "UID": 3315611972
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -1.1698877811431885,
+                    0.10000000149011612,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    0.19470594823360443,
+                    1.3842684030532837,
+                    1.4801032543182373
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 1,
+                "ModelUID": 1584792848,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 4102644367,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "joint",
+        "ParentUID": 1436638644,
+        "PrefabUID": 1993389018,
+        "Tag": "Default",
+        "UID": 3203779091
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -211.74667358398438,
+                    60.59886932373047,
+                    3.726881980895996
+                ],
+                "Rotation": [
+                    179.99191284179688,
+                    -23.422992706298828,
+                    -179.99205017089844
+                ],
+                "Scale": [
+                    1.0000083446502686,
+                    1.0,
+                    1.000007152557373
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "ConstructionFenceSegment",
+        "ParentUID": 2462894403,
+        "PrefabUID": 1993389018,
+        "Tag": "Default",
+        "UID": 4062478639
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 1584792848,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 4102644367,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "segment",
+        "ParentUID": 4062478639,
+        "PrefabUID": 1993389018,
+        "Tag": "Default",
+        "UID": 1638949626
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -1.1698877811431885,
+                    0.10000000149011612,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    0.19470594823360443,
+                    1.3842684030532837,
+                    1.4801032543182373
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 1,
+                "ModelUID": 1584792848,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 4102644367,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "joint",
+        "ParentUID": 4062478639,
+        "PrefabUID": 1993389018,
+        "Tag": "Default",
+        "UID": 915758913
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -212.89157104492188,
+                    60.653602600097656,
+                    4.219897747039795
+                ],
+                "Rotation": [
+                    -179.99989318847656,
+                    -23.536592483520508,
+                    -179.99989318847656
+                ],
+                "Scale": [
+                    0.9999997019767761,
+                    1.0,
+                    0.9999997019767761
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "ConstructionFenceCorner",
+        "ParentUID": 2462894403,
+        "PrefabUID": 1895612125,
+        "Tag": "Default",
+        "UID": 2951650433
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.10000000149011612,
+                    -0.2890622615814209
+                ],
+                "Rotation": [
+                    -0.0,
+                    45.000003814697266,
+                    -0.0
+                ],
+                "Scale": [
+                    0.4067521095275879,
+                    1.3842684030532837,
+                    1.4801032543182373
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 1585406564,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 2023296678,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "corner",
+        "ParentUID": 2951650433,
+        "PrefabUID": 1895612125,
+        "Tag": "Default",
+        "UID": 4144518773
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -212.52847290039063,
+                    60.597904205322266,
+                    5.75385046005249
+                ],
+                "Rotation": [
+                    -179.89035034179688,
+                    66.98300170898438,
+                    177.67306518554688
+                ],
+                "Scale": [
+                    1.000004529953003,
+                    0.9999999403953552,
+                    1.0000044107437134
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "ConstructionFenceSegment",
+        "ParentUID": 2462894403,
+        "PrefabUID": 1993389018,
+        "Tag": "Default",
+        "UID": 1556740149
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 1584792848,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 4102644367,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "segment",
+        "ParentUID": 1556740149,
+        "PrefabUID": 1993389018,
+        "Tag": "Default",
+        "UID": 2601166265
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -1.1698877811431885,
+                    0.10000000149011612,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    0.19470594823360443,
+                    1.3842684030532837,
+                    1.4801032543182373
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 1,
+                "ModelUID": 1584792848,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 4102644367,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "joint",
+        "ParentUID": 1556740149,
+        "PrefabUID": 1993389018,
+        "Tag": "Default",
+        "UID": 2795467021
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -211.57493591308594,
+                    60.598628997802734,
+                    7.901772499084473
+                ],
+                "Rotation": [
+                    179.9996337890625,
+                    65.96571350097656,
+                    179.999755859375
+                ],
+                "Scale": [
+                    1.0000008344650269,
+                    1.0,
+                    1.0000008344650269
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "ConstructionFenceSegment",
+        "ParentUID": 2462894403,
+        "PrefabUID": 1993389018,
+        "Tag": "Default",
+        "UID": 3848571120
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 1584792848,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 4102644367,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "segment",
+        "ParentUID": 3848571120,
+        "PrefabUID": 1993389018,
+        "Tag": "Default",
+        "UID": 4130151856
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -1.1698877811431885,
+                    0.10000000149011612,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    0.19470594823360443,
+                    1.3842684030532837,
+                    1.4801032543182373
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 1,
+                "ModelUID": 1584792848,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 4102644367,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "joint",
+        "ParentUID": 3848571120,
+        "PrefabUID": 1993389018,
+        "Tag": "Default",
+        "UID": 1536866671
     }
 ]
