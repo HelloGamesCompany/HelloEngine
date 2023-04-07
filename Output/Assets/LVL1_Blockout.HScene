@@ -325,7 +325,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -641,7 +641,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -957,7 +957,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -1273,7 +1273,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -1599,7 +1599,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -1915,7 +1915,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -4526,7 +4526,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -5607,7 +5607,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -6688,7 +6688,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -7769,7 +7769,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -8085,7 +8085,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -9166,7 +9166,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -10247,7 +10247,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -11583,7 +11583,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -11899,7 +11899,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -12215,7 +12215,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -12531,7 +12531,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -12847,7 +12847,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -13163,7 +13163,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -13479,7 +13479,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -13795,7 +13795,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -14111,7 +14111,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -14427,7 +14427,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -14743,7 +14743,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -15059,7 +15059,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -15375,7 +15375,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -15691,7 +15691,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -16007,7 +16007,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -16323,7 +16323,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -16639,7 +16639,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -16955,7 +16955,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -17271,7 +17271,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -17587,7 +17587,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -17903,7 +17903,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -22969,7 +22969,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -27305,7 +27305,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -27621,7 +27621,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -27937,7 +27937,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -28253,7 +28253,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -28569,7 +28569,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -28885,7 +28885,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -29201,7 +29201,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -29517,7 +29517,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -29833,7 +29833,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -30149,7 +30149,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -30255,7 +30255,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -30361,7 +30361,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -30467,7 +30467,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -30573,7 +30573,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -30679,7 +30679,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -30785,7 +30785,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -30891,7 +30891,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -30997,7 +30997,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -31313,7 +31313,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -31629,7 +31629,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -31768,7 +31768,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -31859,7 +31859,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -31950,7 +31950,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -32041,7 +32041,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -32132,7 +32132,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -32223,7 +32223,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -32314,7 +32314,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -32405,7 +32405,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -32496,7 +32496,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -32587,7 +32587,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -32678,7 +32678,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -32769,7 +32769,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -32860,7 +32860,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -32951,7 +32951,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -33042,7 +33042,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -33133,7 +33133,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -33224,7 +33224,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -33315,7 +33315,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -33406,7 +33406,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -33497,7 +33497,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -33588,7 +33588,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -33679,7 +33679,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -33770,7 +33770,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -33861,7 +33861,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -33952,7 +33952,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -34043,7 +34043,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -34134,7 +34134,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -34225,7 +34225,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -34316,7 +34316,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -34407,7 +34407,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -34498,7 +34498,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -34589,7 +34589,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -34680,7 +34680,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -34771,7 +34771,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -34862,7 +34862,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -34953,7 +34953,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -35044,7 +35044,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -35135,7 +35135,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -35226,7 +35226,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -35317,7 +35317,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -35408,7 +35408,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -35499,7 +35499,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -35590,7 +35590,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -35681,7 +35681,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -35772,7 +35772,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -35863,7 +35863,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -35954,7 +35954,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -36045,7 +36045,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -36136,7 +36136,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -36227,7 +36227,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -36318,7 +36318,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -36409,7 +36409,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -36500,7 +36500,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -36591,7 +36591,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -36682,7 +36682,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -36773,7 +36773,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -36864,7 +36864,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -36955,7 +36955,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -37046,7 +37046,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -37137,7 +37137,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -37228,7 +37228,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -37319,7 +37319,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -37410,7 +37410,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -37501,7 +37501,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -37592,7 +37592,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -37683,7 +37683,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -37774,7 +37774,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -37865,7 +37865,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -37999,7 +37999,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -38090,7 +38090,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -38181,7 +38181,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -38272,7 +38272,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -38363,7 +38363,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -38454,7 +38454,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -38545,7 +38545,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -38636,7 +38636,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -38727,7 +38727,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -38818,7 +38818,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -38909,7 +38909,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -39000,7 +39000,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -39091,7 +39091,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -39182,7 +39182,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -39273,7 +39273,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -39364,7 +39364,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -39485,7 +39485,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -47190,7 +47190,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -47281,7 +47281,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -47372,7 +47372,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -47463,7 +47463,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -47554,7 +47554,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -47645,7 +47645,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -50001,7 +50001,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -50329,7 +50329,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -50477,7 +50477,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -50625,7 +50625,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -50773,7 +50773,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -50921,7 +50921,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -51069,7 +51069,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -51217,7 +51217,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -51344,7 +51344,7 @@
             {
                 "Active camera": true,
                 "Active culling": false,
-                "Aspect ratio": 1.6245614290237427,
+                "Aspect ratio": 1.9408766031265259,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 2000.0,
@@ -51740,7 +51740,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -55501,7 +55501,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -59262,7 +59262,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -63023,7 +63023,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -66784,7 +66784,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -70545,7 +70545,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -75545,7 +75545,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -80717,7 +80717,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -80808,7 +80808,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -80972,7 +80972,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -81165,7 +81165,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -82640,14 +82640,14 @@
                     -29.0
                 ],
                 "Rotation": [
-                    -0.0,
+                    -179.99989318847656,
                     0.0,
-                    -0.0
+                    -179.99989318847656
                 ],
                 "Scale": [
-                    7.5,
+                    7.499999046325684,
                     0.6000000238418579,
-                    7.5
+                    7.499999046325684
                 ],
                 "Type": 1
             },
@@ -82664,7 +82664,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 33636250,
+                "MaterialUID": 3385356636,
                 "Type": 18
             }
         ],
@@ -83032,7 +83032,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 2183803060,
+                "MaterialUID": 2940026418,
                 "Type": 18
             }
         ],
@@ -83054,14 +83054,14 @@
                     -36.5
                 ],
                 "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
+                    9.007970480645611e-10,
+                    90.0,
+                    -179.99989318847656
                 ],
                 "Scale": [
-                    7.5,
-                    0.6000000238418579,
-                    7.5
+                    7.5000224113464355,
+                    0.6000016927719116,
+                    7.499999523162842
                 ],
                 "Type": 1
             },
@@ -83078,7 +83078,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 2183803060,
+                "MaterialUID": 549457178,
                 "Type": 18
             }
         ],
@@ -83216,7 +83216,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 2183803060,
+                "MaterialUID": 4001085502,
                 "Type": 18
             }
         ],
@@ -124230,7 +124230,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -124771,7 +124771,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -125342,7 +125342,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -125883,7 +125883,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -126454,7 +126454,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -127430,7 +127430,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -128001,7 +128001,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -128542,7 +128542,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -129113,7 +129113,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -130524,7 +130524,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -131105,7 +131105,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -131212,7 +131212,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -131319,7 +131319,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -131426,7 +131426,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -131533,7 +131533,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -131640,7 +131640,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -131747,7 +131747,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -131854,7 +131854,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -131961,7 +131961,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -132068,7 +132068,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -132175,7 +132175,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -132302,7 +132302,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -133121,7 +133121,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -133947,7 +133947,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -134051,7 +134051,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -134870,7 +134870,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -135765,7 +135765,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -135978,7 +135978,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -136191,7 +136191,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -136404,7 +136404,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -136617,7 +136617,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -136830,7 +136830,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -137043,7 +137043,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -137256,7 +137256,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -137469,7 +137469,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -137682,7 +137682,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -137895,7 +137895,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -138108,7 +138108,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -138321,7 +138321,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -138534,7 +138534,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -138747,7 +138747,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -138960,7 +138960,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -139249,7 +139249,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -139340,7 +139340,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -139431,7 +139431,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -139522,7 +139522,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -139613,7 +139613,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -139704,7 +139704,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -139839,7 +139839,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -139949,7 +139949,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -140530,7 +140530,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    0.0,
+                    -10.0,
                     0.0
                 ],
                 "Gravity": [
@@ -140632,5 +140632,1280 @@
         "PrefabUID": 0,
         "Tag": "Primitive",
         "UID": 2929858693
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -27.834762573242188,
+                    -14.034884452819824,
+                    -19.164770126342773
+                ],
+                "Rotation": [
+                    4.450316555448808e-05,
+                    3.276229563198285e-06,
+                    -179.99989318847656
+                ],
+                "Scale": [
+                    3.0,
+                    0.10000000149011612,
+                    2.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 3220403646,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 3657266654,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "TPCabin",
+        "ParentUID": 2462894403,
+        "PrefabUID": 4969532,
+        "Tag": "Default",
+        "UID": 1518312565
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.21223735809326172,
+                    -5.922314167022705,
+                    0.6650487184524536
+                ],
+                "Rotation": [
+                    1.0177774421860075e-13,
+                    -1.2639155455860923e-23,
+                    -1.4230423950323257e-08
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "ColPosition": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    13.800000190734863,
+                    0.0
+                ],
+                "ColScale": [
+                    1.399999976158142,
+                    2.0,
+                    1.0
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "GlobalGravity": [
+                    0.0,
+                    -10.0,
+                    0.0
+                ],
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsShapeSelected": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsStatic": true,
+                "IsTrigger": false,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    0.0,
+                    0.12093043327331543,
+                    1.0,
+                    1.0
+                ],
+                "ShapeSelected": 0,
+                "SphereHorSlices": 16,
+                "SphereRadius": 1.0,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "TP_Coll1",
+        "ParentUID": 1518312565,
+        "PrefabUID": 4969532,
+        "Tag": "Default",
+        "UID": 2998966009
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.03029346466064453,
+                    -10.649260520935059,
+                    1.1595945358276367
+                ],
+                "Rotation": [
+                    1.0177774421860075e-13,
+                    -1.8484031795339663e-23,
+                    -2.0811169676449026e-08
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "ColPosition": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    6.0,
+                    3.0,
+                    2.0
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "GlobalGravity": [
+                    0.0,
+                    -10.0,
+                    0.0
+                ],
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsShapeSelected": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsStatic": true,
+                "IsTrigger": false,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    0.018604278564453125,
+                    0.0,
+                    1.0,
+                    1.0
+                ],
+                "ShapeSelected": 0,
+                "SphereHorSlices": 16,
+                "SphereRadius": 1.0,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "TP_Coll2",
+        "ParentUID": 1518312565,
+        "PrefabUID": 4969532,
+        "Tag": "Default",
+        "UID": 4062319437
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    1.007669448852539,
+                    -10.20899772644043,
+                    -5.461365617520642e-07
+                ],
+                "Rotation": [
+                    1.0177774421860075e-13,
+                    -1.2005655183896853e-23,
+                    -1.3517166053134133e-08
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "ColPosition": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    2.0,
+                    3.0,
+                    6.0
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "GlobalGravity": [
+                    0.0,
+                    -10.0,
+                    0.0
+                ],
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsShapeSelected": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsStatic": true,
+                "IsTrigger": false,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    0.0,
+                    0.037209272384643555,
+                    1.0,
+                    1.0
+                ],
+                "ShapeSelected": 0,
+                "SphereHorSlices": 16,
+                "SphereRadius": 1.0,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "TP_Coll3",
+        "ParentUID": 1518312565,
+        "PrefabUID": 4969532,
+        "Tag": "Default",
+        "UID": 3440049072
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    -11.070103645324707,
+                    -1.1315841674804688
+                ],
+                "Rotation": [
+                    1.0177774421860075e-13,
+                    -1.4287812427761326e-23,
+                    -1.6086646681401362e-08
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "ColPosition": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    6.0,
+                    3.0,
+                    2.0
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "GlobalGravity": [
+                    0.0,
+                    -10.0,
+                    0.0
+                ],
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsShapeSelected": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsStatic": true,
+                "IsTrigger": false,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    0.04651165008544922,
+                    0.0,
+                    1.0,
+                    1.0
+                ],
+                "ShapeSelected": 0,
+                "SphereHorSlices": 16,
+                "SphereRadius": 1.0,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "TP_Coll4",
+        "ParentUID": 1518312565,
+        "PrefabUID": 4969532,
+        "Tag": "Default",
+        "UID": 3690082160
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.019188880920410156,
+                    1.6726109981536865,
+                    -0.03938494995236397
+                ],
+                "Rotation": [
+                    1.0177774421860075e-13,
+                    -3.835505461145701e-23,
+                    -4.3183952413983206e-08
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "ColPosition": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    6.0,
+                    1.0,
+                    6.0
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "GlobalGravity": [
+                    0.0,
+                    -10.0,
+                    0.0
+                ],
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsShapeSelected": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsStatic": true,
+                "IsTrigger": false,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    0.0,
+                    0.037209272384643555,
+                    1.0,
+                    1.0
+                ],
+                "ShapeSelected": 0,
+                "SphereHorSlices": 16,
+                "SphereRadius": 1.0,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "TP_Coll5",
+        "ParentUID": 1518312565,
+        "PrefabUID": 4969532,
+        "Tag": "Default",
+        "UID": 3741251120
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -1.226654052734375,
+                    4.069474220275879,
+                    0.11734014004468918
+                ],
+                "Rotation": [
+                    1.0177774421860075e-13,
+                    -1.9621584997886466e-23,
+                    -2.2091940721225e-08
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "ColPosition": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    -15.0
+                ],
+                "ColScale": [
+                    2.0,
+                    1.0,
+                    6.0
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "GlobalGravity": [
+                    0.0,
+                    -10.0,
+                    0.0
+                ],
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsShapeSelected": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsStatic": true,
+                "IsTrigger": false,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    0.04651165008544922,
+                    0.0,
+                    1.0,
+                    1.0
+                ],
+                "ShapeSelected": 0,
+                "SphereHorSlices": 16,
+                "SphereRadius": 1.0,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "TP_Coll6",
+        "ParentUID": 1518312565,
+        "PrefabUID": 4969532,
+        "Tag": "Default",
+        "UID": 1352559599
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -84.4951400756836,
+                    0.022973179817199707,
+                    12.25261402130127
+                ],
+                "Rotation": [
+                    0.00012705859262496233,
+                    -55.000022888183594,
+                    -179.9984588623047
+                ],
+                "Scale": [
+                    3.0000360012054443,
+                    0.10000162571668625,
+                    2.500007390975952
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 3220403646,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 3657266654,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "TPCabin",
+        "ParentUID": 2462894403,
+        "PrefabUID": 4969532,
+        "Tag": "Default",
+        "UID": 4005278949
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.21223735809326172,
+                    -5.922314167022705,
+                    0.6650487184524536
+                ],
+                "Rotation": [
+                    1.0177774421860075e-13,
+                    -1.2639155455860923e-23,
+                    -1.4230423950323257e-08
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "ColPosition": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    -38.29999923706055,
+                    0.0
+                ],
+                "ColScale": [
+                    1.399999976158142,
+                    2.0,
+                    1.0
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "GlobalGravity": [
+                    0.0,
+                    -10.0,
+                    0.0
+                ],
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsShapeSelected": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsStatic": true,
+                "IsTrigger": false,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    0.0,
+                    0.12093043327331543,
+                    1.0,
+                    1.0
+                ],
+                "ShapeSelected": 0,
+                "SphereHorSlices": 16,
+                "SphereRadius": 1.0,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "TP_Coll1",
+        "ParentUID": 4005278949,
+        "PrefabUID": 4969532,
+        "Tag": "Default",
+        "UID": 774015528
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.03029346466064453,
+                    -10.649260520935059,
+                    1.1595945358276367
+                ],
+                "Rotation": [
+                    1.0177774421860075e-13,
+                    -1.8484031795339663e-23,
+                    -2.0811169676449026e-08
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "ColPosition": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    -55.0,
+                    0.0
+                ],
+                "ColScale": [
+                    6.0,
+                    3.0,
+                    2.0
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "GlobalGravity": [
+                    0.0,
+                    -10.0,
+                    0.0
+                ],
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsShapeSelected": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsStatic": true,
+                "IsTrigger": false,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    0.018604278564453125,
+                    0.0,
+                    1.0,
+                    1.0
+                ],
+                "ShapeSelected": 0,
+                "SphereHorSlices": 16,
+                "SphereRadius": 1.0,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "TP_Coll2",
+        "ParentUID": 4005278949,
+        "PrefabUID": 4969532,
+        "Tag": "Default",
+        "UID": 3075379272
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    1.007669448852539,
+                    -10.20899772644043,
+                    -5.461365617520642e-07
+                ],
+                "Rotation": [
+                    1.0177774421860075e-13,
+                    -1.2005655183896853e-23,
+                    -1.3517166053134133e-08
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "ColPosition": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    -55.0,
+                    0.0
+                ],
+                "ColScale": [
+                    2.0,
+                    3.0,
+                    6.0
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "GlobalGravity": [
+                    0.0,
+                    -10.0,
+                    0.0
+                ],
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsShapeSelected": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsStatic": true,
+                "IsTrigger": false,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    0.0,
+                    0.037209272384643555,
+                    1.0,
+                    1.0
+                ],
+                "ShapeSelected": 0,
+                "SphereHorSlices": 16,
+                "SphereRadius": 1.0,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "TP_Coll3",
+        "ParentUID": 4005278949,
+        "PrefabUID": 4969532,
+        "Tag": "Default",
+        "UID": 2565623015
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    -11.070103645324707,
+                    -1.1315841674804688
+                ],
+                "Rotation": [
+                    1.0177774421860075e-13,
+                    -1.4287812427761326e-23,
+                    -1.6086646681401362e-08
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "ColPosition": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    -55.0,
+                    0.0
+                ],
+                "ColScale": [
+                    6.0,
+                    3.0,
+                    2.0
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "GlobalGravity": [
+                    0.0,
+                    -10.0,
+                    0.0
+                ],
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsShapeSelected": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsStatic": true,
+                "IsTrigger": false,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    0.04651165008544922,
+                    0.0,
+                    1.0,
+                    1.0
+                ],
+                "ShapeSelected": 0,
+                "SphereHorSlices": 16,
+                "SphereRadius": 1.0,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "TP_Coll4",
+        "ParentUID": 4005278949,
+        "PrefabUID": 4969532,
+        "Tag": "Default",
+        "UID": 2140021266
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.019188880920410156,
+                    1.6726109981536865,
+                    -0.03938494995236397
+                ],
+                "Rotation": [
+                    1.0177774421860075e-13,
+                    -3.835505461145701e-23,
+                    -4.3183952413983206e-08
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "ColPosition": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    -55.0,
+                    0.0
+                ],
+                "ColScale": [
+                    6.0,
+                    1.0,
+                    6.0
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "GlobalGravity": [
+                    0.0,
+                    -10.0,
+                    0.0
+                ],
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsShapeSelected": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsStatic": true,
+                "IsTrigger": false,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    0.0,
+                    0.037209272384643555,
+                    1.0,
+                    1.0
+                ],
+                "ShapeSelected": 0,
+                "SphereHorSlices": 16,
+                "SphereRadius": 1.0,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "TP_Coll5",
+        "ParentUID": 4005278949,
+        "PrefabUID": 4969532,
+        "Tag": "Default",
+        "UID": 2300029242
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -1.1488256454467773,
+                    6.543395042419434,
+                    -0.11123085021972656
+                ],
+                "Rotation": [
+                    -43.15849685668945,
+                    -13.670823097229004,
+                    -31.687393188476563
+                ],
+                "Scale": [
+                    28.987838745117188,
+                    27.95283317565918,
+                    4.308992385864258
+                ],
+                "Type": 1
+            },
+            {
+                "ColPosition": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    -57.29999923706055,
+                    0.0
+                ],
+                "ColScale": [
+                    2.0,
+                    1.0,
+                    6.0
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "GlobalGravity": [
+                    0.0,
+                    -10.0,
+                    0.0
+                ],
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsShapeSelected": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsStatic": true,
+                "IsTrigger": false,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    0.04651165008544922,
+                    0.0,
+                    1.0,
+                    1.0
+                ],
+                "ShapeSelected": 0,
+                "SphereHorSlices": 16,
+                "SphereRadius": 1.0,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "TP_Coll6",
+        "ParentUID": 4005278949,
+        "PrefabUID": 4969532,
+        "Tag": "Default",
+        "UID": 1070160513
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -1.2056207656860352,
+                    4.543904781341553,
+                    -0.045223236083984375
+                ],
+                "Rotation": [
+                    -1.6280710503704943e-12,
+                    -4.26886799687054e-06,
+                    1.000841454157353e-08
+                ],
+                "Scale": [
+                    1.000000238418579,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "ColPosition": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColRotation": [
+                    16.200000762939453,
+                    34.79999923706055,
+                    0.0
+                ],
+                "ColScale": [
+                    5.0,
+                    1.0,
+                    1.899999976158142
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "GlobalGravity": [
+                    0.0,
+                    -10.0,
+                    0.0
+                ],
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsShapeSelected": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsStatic": true,
+                "IsTrigger": false,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    0.5,
+                    0.0,
+                    0.5,
+                    1.0
+                ],
+                "ShapeSelected": 0,
+                "SphereHorSlices": 16,
+                "SphereRadius": 1.0,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Empty",
+        "ParentUID": 4005278949,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3047102415
     }
 ]

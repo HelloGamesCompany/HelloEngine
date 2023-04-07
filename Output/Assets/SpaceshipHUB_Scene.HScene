@@ -10470,9 +10470,6 @@
                 "Inspector Fields": [
                     {
                         "Scene path and name: ": "LVL1_Blockout.HScene"
-                    },
-                    {
-                        "Scene path and name: ": "LVL1_Blockout.HScene"
                     }
                 ],
                 "Script Resource": 1471858871,
@@ -10610,45 +10607,6 @@
                     },
                     {
                         "Player Stats GO": 4290975610
-                    },
-                    {
-                        "Velocity": 10.0
-                    },
-                    {
-                        "Upgrade Velocity": 2.0
-                    },
-                    {
-                        "SecToMaxVel": 0.0
-                    },
-                    {
-                        "SecToZeroVel": 0.0
-                    },
-                    {
-                        "Y tp limit": -50.0
-                    },
-                    {
-                        "Dash Time": 0.5
-                    },
-                    {
-                        "Dash Distance": 5.0
-                    },
-                    {
-                        "Upgrade Dash Distance": 8.0
-                    },
-                    {
-                        "Dash Cooldown": 0.0
-                    },
-                    {
-                        "Upgrade Dash Cooldown": 0.0
-                    },
-                    {
-                        "AnimationPlayer": 3431343063
-                    },
-                    {
-                        "Dash Animation": 3786266361
-                    },
-                    {
-                        "Player Stats GO": 4290975610
                     }
                 ],
                 "Script Resource": 3336682094,
@@ -10657,54 +10615,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Max HP": 100.0
-                    },
-                    {
-                        "Current HP": 0.0
-                    },
-                    {
-                        "Upgraded Max HP": 0.0
-                    },
-                    {
-                        "Deadline Percentage": 20.0
-                    },
-                    {
-                        "Upgraded Deadline Percentage": 25.0
-                    },
-                    {
-                        "Deadline Heal Amount": 5.0
-                    },
-                    {
-                        "Upgraded Deadline Heal Amount": 7.5
-                    },
-                    {
-                        "Aid Kit Heal Amount": 50.0
-                    },
-                    {
-                        "Upgraded Aid Kit Heal Amount": 75.0
-                    },
-                    {
-                        "Laser Ammo": 99999
-                    },
-                    {
-                        "Fire Ammo": 99999
-                    },
-                    {
-                        "Ricochet Ammo": 99999
-                    },
-                    {
-                        "movement tree lvl": 0
-                    },
-                    {
-                        "armory tree lvl": 0
-                    },
-                    {
-                        "health tree lvl": 0
-                    },
-                    {
-                        "special tree lvl": 0
-                    },
                     {
                         "Max HP": 100.0
                     },
@@ -17061,9 +16971,6 @@
                 "Inspector Fields": [
                     {
                         "hp": false
-                    },
-                    {
-                        "hp": false
                     }
                 ],
                 "Script Resource": 1164455694,
@@ -17288,18 +17195,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Game Bar Weapon 1": 3388116125
-                    },
-                    {
-                        "Game Bar Weapon 2": 3405447488
-                    },
-                    {
-                        "Game Bar Weapon 3": 3043836677
-                    },
-                    {
-                        "Material_Dash": 2702449615
-                    },
                     {
                         "Game Bar Weapon 1": 3388116125
                     },
@@ -17960,36 +17855,6 @@
                     },
                     {
                         "Use safe zone: ": false
-                    },
-                    {
-                        "Target": 4290975610
-                    },
-                    {
-                        "Delay": 0.10000000149011612
-                    },
-                    {
-                        "Offset_X": 0.0
-                    },
-                    {
-                        "Offset_Y": 10.0
-                    },
-                    {
-                        "Offset_Z": -7.0
-                    },
-                    {
-                        "Rot_X": 50.0
-                    },
-                    {
-                        "Rot_Y": 0.0
-                    },
-                    {
-                        "Rot_Z": 0.0
-                    },
-                    {
-                        "SafeZone_Distance": 10.0
-                    },
-                    {
-                        "Use safe zone: ": false
                     }
                 ],
                 "Script Resource": 2306703736,
@@ -18067,8 +17932,9 @@
             },
             {
                 "Enabled": true,
-                "ResourceUID": 4164112924,
-                "Type": 3
+                "IsInstanced": true,
+                "MaterialUID": 965795072,
+                "Type": 18
             }
         ],
         "FirstOnPrefab": true,
@@ -18112,8 +17978,9 @@
             },
             {
                 "Enabled": true,
-                "ResourceUID": 4164112924,
-                "Type": 3
+                "IsInstanced": true,
+                "MaterialUID": 965795072,
+                "Type": 18
             }
         ],
         "FirstOnPrefab": true,
@@ -18157,8 +18024,9 @@
             },
             {
                 "Enabled": true,
-                "ResourceUID": 4164112924,
-                "Type": 3
+                "IsInstanced": true,
+                "MaterialUID": 965795072,
+                "Type": 18
             }
         ],
         "FirstOnPrefab": true,
@@ -18202,8 +18070,9 @@
             },
             {
                 "Enabled": true,
-                "ResourceUID": 4164112924,
-                "Type": 3
+                "IsInstanced": true,
+                "MaterialUID": 965795072,
+                "Type": 18
             }
         ],
         "FirstOnPrefab": true,
@@ -18247,8 +18116,9 @@
             },
             {
                 "Enabled": true,
-                "ResourceUID": 4164112924,
-                "Type": 3
+                "IsInstanced": true,
+                "MaterialUID": 965795072,
+                "Type": 18
             }
         ],
         "FirstOnPrefab": true,
@@ -18292,8 +18162,9 @@
             },
             {
                 "Enabled": true,
-                "ResourceUID": 4164112924,
-                "Type": 3
+                "IsInstanced": true,
+                "MaterialUID": 965795072,
+                "Type": 18
             }
         ],
         "FirstOnPrefab": true,
@@ -18337,8 +18208,9 @@
             },
             {
                 "Enabled": true,
-                "ResourceUID": 4164112924,
-                "Type": 3
+                "IsInstanced": true,
+                "MaterialUID": 965795072,
+                "Type": 18
             }
         ],
         "FirstOnPrefab": true,
@@ -18382,8 +18254,9 @@
             },
             {
                 "Enabled": true,
-                "ResourceUID": 4164112924,
-                "Type": 3
+                "IsInstanced": true,
+                "MaterialUID": 965795072,
+                "Type": 18
             }
         ],
         "FirstOnPrefab": true,
