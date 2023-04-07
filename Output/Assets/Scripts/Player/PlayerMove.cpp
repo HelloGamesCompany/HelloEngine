@@ -35,7 +35,10 @@ HELLO_ENGINE_API_C PlayerMove* CreatePlayerMove(ScriptToInspectorInterface* scri
     script->AddDragBoxAnimationResource("Shoot Burst Animation", &classInstance->shootAnim[3]);
     script->AddDragBoxAnimationResource("Shoot Shotgun Animation", &classInstance->shootAnim[4]);
     script->AddDragBoxAnimationResource("Shoot Handgun Animation", &classInstance->shootAnim[5]);
+    script->AddDragBoxAnimationResource("Swap Gun Animation", &classInstance->swapGunAnim);
+    script->AddDragBoxAnimationResource("Hit Animation", &classInstance->hittedAnim);
     script->AddDragBoxAnimationResource("Open Chest Animation", &classInstance->openChestAnim);
+    script->AddDragBoxAnimationResource("Dead Animation", &classInstance->deathAnim);
     script->AddDragBoxGameObject("Player Stats GO", &classInstance->playerStatsGO);
     return classInstance;
 }

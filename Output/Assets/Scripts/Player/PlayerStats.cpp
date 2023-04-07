@@ -66,6 +66,11 @@ void PlayerStats::Update()
     if (slowTimePowerUp > 0.0f /*&& !paused*/) dt = Time::GetRealTimeDeltaTime();
     else dt = Time::GetDeltaTime();
 
+    if (Input::GetKey(KeyCode::KEY_G) == KeyState::KEY_DOWN) // remove it before build
+    {
+        TakeDamage(50, 1);
+    }
+
     // deadline healing
     float deathlineHp;
     if (healthTreeLvl > 1) deathlineHp = currentMaxHp * (upgradedDeadlinePart / 100.0f);
@@ -103,6 +108,11 @@ void PlayerStats::Update()
     if (hittedTime > 0.0f)
     {
         hittedTime -= dt;
+    }
+    if (deathTime > 0.0f)
+    {
+        deathTime -= dt;
+        if (deathTime <= 0.0f) Scene::LoadScene("LoseMenu.HScene");
     }
     if (inmunityTime > 0.0f)
     {
@@ -231,10 +241,10 @@ void PlayerStats::TakeDamage(float amount, float resistanceDamage)
         else
         {
             currentHp = 0;
-            Scene::LoadScene("LoseMenu.HScene");
             Audio::Event("starlord_dead");
-            deathTime = 2.0f;
+            deathTime = 1.5f;
             if (playerMove) playerMove->PlayDeathAnim();
+            return;
         }
     }
     else
@@ -246,9 +256,10 @@ void PlayerStats::TakeDamage(float amount, float resistanceDamage)
 
     // Resistance damage
     currentResistance -= resistanceDamage;
-    if (currentResistance <= 0)
+    if (currentResistance <= 0.0f)
     {
         currentResistance = maxResistance;
+        hittedTime = 0.5f;
         if (playerMove) playerMove->PlayHittedAnim();
     }
 

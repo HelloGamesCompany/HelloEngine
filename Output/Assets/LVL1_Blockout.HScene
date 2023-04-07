@@ -39562,28 +39562,40 @@
                         "AnimationPlayer": 104208182
                     },
                     {
-                        "Dash Animation": 800482701
+                        "Dash Animation": 308476627
                     },
                     {
-                        "Idle Animation 1": 1773462018
+                        "Idle Animation 1": 1104758561
                     },
                     {
-                        "Idle Animation 2": 3099582192
+                        "Idle Animation 2": 1151007843
                     },
                     {
-                        "Idle Animation 3": 3084206131
+                        "Idle Animation 3": 2509312507
                     },
                     {
-                        "Run Forward Animation": 1445224697
+                        "Run Forward Animation": 2509657723
                     },
                     {
-                        "Run Back Animation": 2844274002
+                        "Run Back Animation": 267461508
                     },
                     {
-                        "Run Left Animation": 1890073135
+                        "Run Left Animation": 2651154683
                     },
                     {
-                        "Run Right Animation": 221456122
+                        "Run Right Animation": 1189727073
+                    },
+                    {
+                        "Shoot Duals Animation": 2557652467
+                    },
+                    {
+                        "Hit Animation": 3656460299
+                    },
+                    {
+                        "Open Chest Animation": 3046633296
+                    },
+                    {
+                        "Dead Animation": 2080450294
                     },
                     {
                         "Player Stats GO": 3079281768
@@ -39603,6 +39615,9 @@
                     },
                     {
                         "Upgraded Max HP": 125.0
+                    },
+                    {
+                        "Resistance": 1.0
                     },
                     {
                         "Deadline Percentage": 20.0
@@ -39630,6 +39645,9 @@
                     },
                     {
                         "Ricochet Ammo": 99999
+                    },
+                    {
+                        "Player GO": 3079281768
                     },
                     {
                         "movement tree lvl": 0
@@ -48039,7 +48057,7 @@
         "UID": 3797357315
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -48363,7 +48381,7 @@
         "UID": 2781692253
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -51344,7 +51362,7 @@
             {
                 "Active camera": true,
                 "Active culling": false,
-                "Aspect ratio": 1.7065573930740356,
+                "Aspect ratio": 1.8263157606124878,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 2000.0,
