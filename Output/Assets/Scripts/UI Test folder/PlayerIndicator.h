@@ -17,5 +17,6 @@ public:
 
     float movementReductionX = 1000.0f;
     float movementReductionY = 1000.0f;
+    // value in LvL 1 --> x = 249.650, y = 122.530
 };
 
