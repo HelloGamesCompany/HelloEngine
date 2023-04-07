@@ -19,8 +19,7 @@ HELLO_ENGINE_API_C PlayerStats* CreatePlayerStats(ScriptToInspectorInterface* sc
     script->AddDragFloat("Aid Kit Heal Amount", &classInstance->aidKitHeal);
     script->AddDragFloat("Upgraded Aid Kit Heal Amount", &classInstance->upgradedAidKitHeal);
     script->AddDragInt("Laser Ammo", &classInstance->laserAmmo);
-    script->AddDragInt("Fire Ammo", &classInstance->fireAmmo);
-    script->AddDragInt("Ricochet Ammo", &classInstance->ricochetAmmo);
+    script->AddDragInt("Fire Ammo", &classInstance->specialAmmo);
     script->AddDragBoxParticleSystem("Hit Particles", &classInstance->hitParticles);
     script->AddDragBoxParticleSystem("Heal Particles", &classInstance->healParticles);
     script->AddDragBoxParticleSystem("Heal Particles", &classInstance->aidKitParticles);
@@ -290,10 +289,8 @@ int PlayerStats::GetAmmonByType(int type)
         return laserAmmo;
         break;
     case 2:
-        return fireAmmo;
-        break;
     case 3:
-        return ricochetAmmo;
+        return specialAmmo;
         break;
     default:
         Console::Log("Invalid type, type can only be 0, 1, 2 or 3.");
@@ -311,12 +308,12 @@ void PlayerStats::GetAmmo(int type, int amount)
         if (laserAmmo > maxLaserAmmo) laserAmmo = maxLaserAmmo;
         break;
     case 2:
-        fireAmmo += amount;
-        if (fireAmmo > maxFireAmmo) fireAmmo = maxFireAmmo;
+        specialAmmo += amount;
+        if (specialAmmo > maxFireAmmo) specialAmmo = maxFireAmmo;
         break;
     case 3:
-        ricochetAmmo += amount;
-        if (ricochetAmmo > maxRicochetAmmo) ricochetAmmo = maxRicochetAmmo;
+        specialAmmo += amount;
+        if (specialAmmo > maxRicochetAmmo) specialAmmo = maxRicochetAmmo;
         break;
     default:
         Console::Log("Invalid type, can only get ammo of types 1, 2 or 3.");
@@ -332,10 +329,8 @@ void PlayerStats::UseAmmo(int type, int amount)
         laserAmmo -= amount;
         break;
     case 2:
-        fireAmmo -= amount;
-        break;
     case 3:
-        ricochetAmmo -= amount;
+        specialAmmo -= amount;
         break;
     default:
         Console::Log("Invalid type, can only use ammo of types 1, 2 or 3.");
