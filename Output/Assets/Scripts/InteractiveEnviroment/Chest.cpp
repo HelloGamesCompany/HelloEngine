@@ -3,6 +3,7 @@ HELLO_ENGINE_API_C Chest* CreateChest(ScriptToInspectorInterface* script)
 {
     Chest* classInstance = new Chest();
     //Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
+    script->AddDragBoxAnimationPlayer("Chest Animator Player", &classInstance->chestAnimatorPlayer);
     script->AddDragFloat("Open Chest Time", &classInstance->maxOpenChestTime);
     script->AddDragInt("Item Index", &classInstance->itemIndex);
     return classInstance;
@@ -22,6 +23,7 @@ void Chest::Update()
 
         if (Input::GetGamePadButton(GamePadButton::BUTTON_X) == KeyState::KEY_UP || Input::GetKey(KeyCode::KEY_E) == KeyState::KEY_UP)
         {
+            playerMove->StopOpenChestAnim();
             openChestTime = maxOpenChestTime;
             opening = false;
         }
@@ -61,6 +63,7 @@ void Chest::Update()
             }
 
             playerMove->StopOpenChestAnim();
+            chestAnimatorPlayer.Play();
             gameObject.SetActive(false);
         }
     }

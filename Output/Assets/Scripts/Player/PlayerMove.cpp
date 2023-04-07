@@ -29,12 +29,13 @@ HELLO_ENGINE_API_C PlayerMove* CreatePlayerMove(ScriptToInspectorInterface* scri
     script->AddDragBoxAnimationResource("Run Back Animation", &classInstance->runBackAnim);
     script->AddDragBoxAnimationResource("Run Left Animation", &classInstance->runLeftAnim);
     script->AddDragBoxAnimationResource("Run Right Animation", &classInstance->runRightAnim);
-    script->AddDragBoxAnimationResource("Shoot Duals Animations", &classInstance->shootAnim[0]);
-    script->AddDragBoxAnimationResource("Shoot SemiAuto Animations", &classInstance->shootAnim[1]);
-    script->AddDragBoxAnimationResource("Shoot Automatic Animations", &classInstance->shootAnim[2]);
-    script->AddDragBoxAnimationResource("Shoot Burst Animations", &classInstance->shootAnim[3]);
-    script->AddDragBoxAnimationResource("Shoot Shotgun Animations", &classInstance->shootAnim[4]);
-    script->AddDragBoxAnimationResource("Shoot Handgun Animations", &classInstance->shootAnim[5]);
+    script->AddDragBoxAnimationResource("Shoot Duals Animation", &classInstance->shootAnim[0]);
+    script->AddDragBoxAnimationResource("Shoot SemiAuto Animation", &classInstance->shootAnim[1]);
+    script->AddDragBoxAnimationResource("Shoot Automatic Animation", &classInstance->shootAnim[2]);
+    script->AddDragBoxAnimationResource("Shoot Burst Animation", &classInstance->shootAnim[3]);
+    script->AddDragBoxAnimationResource("Shoot Shotgun Animation", &classInstance->shootAnim[4]);
+    script->AddDragBoxAnimationResource("Shoot Handgun Animation", &classInstance->shootAnim[5]);
+    script->AddDragBoxAnimationResource("Open Chest Animation", &classInstance->openChestAnim);
     script->AddDragBoxGameObject("Player Stats GO", &classInstance->playerStatsGO);
     return classInstance;
 }
@@ -299,7 +300,7 @@ API_Vector2 PlayerMove::GetMoveInput()
         // run animation
         if (abs(input.y) > abs(input.x))
         {
-            if (input.y == -32000.0f) // walk forward
+            if (input.y < 0.0f) // walk forward
             {
                 if (aimAngle <= 45 && aimAngle > -45) // move forward
                 {
@@ -338,7 +339,7 @@ API_Vector2 PlayerMove::GetMoveInput()
                     }
                 }
             }
-            else if (input.y == 32000.0f) // walk back
+            else if (input.y > 0.0f) // walk back
             {
                 if (aimAngle <= 45 && aimAngle > -45) // move back
                 {
@@ -380,7 +381,7 @@ API_Vector2 PlayerMove::GetMoveInput()
         }
         else
         {
-            if (input.x == 32000.0f) // walk right
+            if (input.x > 0.0f) // walk right
             {
                 if (aimAngle <= 45 && aimAngle > -45) // move right
                 {
@@ -419,7 +420,7 @@ API_Vector2 PlayerMove::GetMoveInput()
                     }
                 }
             }
-            else if (input.x == -32000.0f) // walk left
+            else if (input.x < 0.0f) // walk left
             {
                 if (aimAngle <= 45 && aimAngle > -45) // move left
                 {
@@ -468,6 +469,170 @@ API_Vector2 PlayerMove::GetMoveInput()
     input.x -= Input::GetKey(KeyCode::KEY_D) == KeyState::KEY_REPEAT;
     input.y = Input::GetKey(KeyCode::KEY_W) == KeyState::KEY_REPEAT;
     input.y -= Input::GetKey(KeyCode::KEY_S) == KeyState::KEY_REPEAT;
+
+    // run animation
+    if (abs(input.y) > abs(input.x))
+    {
+        if (input.y == -1.0f) // walk forward
+        {
+            if (aimAngle <= 45 && aimAngle > -45) // move forward
+            {
+                if (currentAnim != PlayerAnims::RUN_FORWARD && !isShooting && !isSwapingGun)
+                {
+                    playerAnimator.ChangeAnimation(runForwardAnim);
+                    playerAnimator.Play();
+                    currentAnim = PlayerAnims::RUN_FORWARD;
+                }
+            }
+            else if (aimAngle <= -45 && aimAngle > -135) // move left
+            {
+                if (currentAnim != PlayerAnims::RUN_LEFT && !isShooting && !isSwapingGun)
+                {
+                    playerAnimator.ChangeAnimation(runLeftAnim);
+                    playerAnimator.Play();
+                    currentAnim = PlayerAnims::RUN_LEFT;
+                }
+            }
+            else if (aimAngle <= -135 && aimAngle > -225) // move back
+            {
+                if (currentAnim != PlayerAnims::RUN_BACK && !isShooting && !isSwapingGun)
+                {
+                    playerAnimator.ChangeAnimation(runBackAnim);
+                    playerAnimator.Play();
+                    currentAnim = PlayerAnims::RUN_BACK;
+                }
+            }
+            else // move right
+            {
+                if (currentAnim != PlayerAnims::RUN_RIGHT && !isShooting && !isSwapingGun)
+                {
+                    playerAnimator.ChangeAnimation(runRightAnim);
+                    playerAnimator.Play();
+                    currentAnim = PlayerAnims::RUN_RIGHT;
+                }
+            }
+        }
+        else if (input.y == 1.0f) // walk back
+        {
+            if (aimAngle <= 45 && aimAngle > -45) // move back
+            {
+                if (currentAnim != PlayerAnims::RUN_BACK && !isShooting && !isSwapingGun)
+                {
+                    playerAnimator.ChangeAnimation(runBackAnim);
+                    playerAnimator.Play();
+                    currentAnim = PlayerAnims::RUN_BACK;
+                }
+            }
+            else if (aimAngle <= -45 && aimAngle > -135) // move right
+            {
+                if (currentAnim != PlayerAnims::RUN_RIGHT && !isShooting && !isSwapingGun)
+                {
+                    playerAnimator.ChangeAnimation(runRightAnim);
+                    playerAnimator.Play();
+                    currentAnim = PlayerAnims::RUN_RIGHT;
+                }
+            }
+            else if (aimAngle <= -135 && aimAngle > -225) // move forward
+            {
+                if (currentAnim != PlayerAnims::RUN_FORWARD && !isShooting && !isSwapingGun)
+                {
+                    playerAnimator.ChangeAnimation(runForwardAnim);
+                    playerAnimator.Play();
+                    currentAnim = PlayerAnims::RUN_FORWARD;
+                }
+            }
+            else // move left
+            {
+                if (currentAnim != PlayerAnims::RUN_LEFT && !isShooting && !isSwapingGun)
+                {
+                    playerAnimator.ChangeAnimation(runLeftAnim);
+                    playerAnimator.Play();
+                    currentAnim = PlayerAnims::RUN_LEFT;
+                }
+            }
+        }
+    }
+    else
+    {
+        if (input.x == -1.0f) // walk right
+        {
+            if (aimAngle <= 45 && aimAngle > -45) // move right
+            {
+                if (currentAnim != PlayerAnims::RUN_RIGHT && !isShooting && !isSwapingGun)
+                {
+                    playerAnimator.ChangeAnimation(runRightAnim);
+                    playerAnimator.Play();
+                    currentAnim = PlayerAnims::RUN_RIGHT;
+                }
+            }
+            else if (aimAngle <= -45 && aimAngle > -135) // move forward
+            {
+                if (currentAnim != PlayerAnims::RUN_FORWARD && !isShooting && !isSwapingGun)
+                {
+                    playerAnimator.ChangeAnimation(runForwardAnim);
+                    playerAnimator.Play();
+                    currentAnim = PlayerAnims::RUN_FORWARD;
+                }
+            }
+            else if (aimAngle <= -135 && aimAngle > -225) // move left
+            {
+                if (currentAnim != PlayerAnims::RUN_LEFT && !isShooting && !isSwapingGun)
+                {
+                    playerAnimator.ChangeAnimation(runLeftAnim);
+                    playerAnimator.Play();
+                    currentAnim = PlayerAnims::RUN_LEFT;
+                }
+            }
+            else // move back
+            {
+                if (currentAnim != PlayerAnims::RUN_BACK && !isShooting && !isSwapingGun)
+                {
+                    playerAnimator.ChangeAnimation(runBackAnim);
+                    playerAnimator.Play();
+                    currentAnim = PlayerAnims::RUN_BACK;
+                }
+            }
+        }
+        else if (input.x == 1.0f) // walk left
+        {
+            if (aimAngle <= 45 && aimAngle > -45) // move left
+            {
+                if (currentAnim != PlayerAnims::RUN_LEFT && !isShooting && !isSwapingGun)
+                {
+                    playerAnimator.ChangeAnimation(runLeftAnim);
+                    playerAnimator.Play();
+                    currentAnim = PlayerAnims::RUN_LEFT;
+                }
+            }
+            else if (aimAngle <= -45 && aimAngle > -135) // move back
+            {
+                if (currentAnim != PlayerAnims::RUN_BACK && !isShooting && !isSwapingGun)
+                {
+                    playerAnimator.ChangeAnimation(runBackAnim);
+                    playerAnimator.Play();
+                    currentAnim = PlayerAnims::RUN_BACK;
+                }
+            }
+            else if (aimAngle <= -135 && aimAngle > -225) // move right
+            {
+                if (currentAnim != PlayerAnims::RUN_RIGHT && !isShooting && !isSwapingGun)
+                {
+                    playerAnimator.ChangeAnimation(runRightAnim);
+                    playerAnimator.Play();
+                    currentAnim = PlayerAnims::RUN_RIGHT;
+                }
+            }
+            else // move forward
+            {
+                if (currentAnim != PlayerAnims::RUN_FORWARD && !isShooting && !isSwapingGun)
+                {
+                    playerAnimator.ChangeAnimation(runForwardAnim);
+                    playerAnimator.Play();
+                    currentAnim = PlayerAnims::RUN_FORWARD;
+                }
+            }
+        }
+    }
 
     //Diagonal movement
     if (input.x != 0.0f && input.y != 0.0f) {
