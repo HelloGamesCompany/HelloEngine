@@ -208,31 +208,31 @@ void PlayerGunManager::EquipGun(int index)
         break;
     case 1: // semiautomatic
         equipedGun = (PlayerGun*)guns[index].GetScript("PlayerSemiAuto");
-        swapWeapon->SwapWeapon2(normalWeapon_Type::SEMI);
+        if (swapWeapon) swapWeapon->SwapWeapon2(normalWeapon_Type::SEMI);
         break;
     case 2: // automatic
         equipedGun = (PlayerGun*)guns[index].GetScript("PlayerAutomatic");
-        swapWeapon->SwapWeapon2(normalWeapon_Type::AUTO);
+        if (swapWeapon) swapWeapon->SwapWeapon2(normalWeapon_Type::AUTO);
         break;
     case 3: // burst
         equipedGun = (PlayerGun*)guns[index].GetScript("PlayerBurst");
-        swapWeapon->SwapWeapon2(normalWeapon_Type::BURST);
+        if (swapWeapon) swapWeapon->SwapWeapon2(normalWeapon_Type::BURST);
         break;
     case 4: // shotgun
         equipedGun = (PlayerGun*)guns[index].GetScript("PlayerShotgun");
-        swapWeapon->SwapWeapon2(normalWeapon_Type::SHOTGUN);
+        if (swapWeapon) swapWeapon->SwapWeapon2(normalWeapon_Type::SHOTGUN);
         break;
     case 5: // handgun
         equipedGun = (PlayerGun*)guns[index].GetScript("PlayerHandgun");
-        swapWeapon->SwapWeapon2(normalWeapon_Type::REVOLVER);
+        if (swapWeapon) swapWeapon->SwapWeapon2(normalWeapon_Type::REVOLVER);
         break;
     case 6: // flamethrower
         equipedGun = (PlayerGun*)guns[index].GetScript("PlayerFlamethrower");
-        swapWeapon->SwapWeapon3(specialWeapon_Type::FLAMETHROWER);
+        if (swapWeapon) swapWeapon->SwapWeapon3(specialWeapon_Type::FLAMETHROWER);
         break;
     case 7: // ricochet
         equipedGun = (PlayerGun*)guns[index].GetScript("PlayerRicochet");
-        swapWeapon->SwapWeapon3(specialWeapon_Type::RICOCHET);
+        if (swapWeapon) swapWeapon->SwapWeapon3(specialWeapon_Type::RICOCHET);
         break;
     default:
         equipedGun = nullptr;
