@@ -165,6 +165,7 @@
     <ClCompile Include="XMLNode.cpp" />
     <ClCompile Include="API\API_UIInput.cpp" />
     <ClCompile Include="API\API_UIText.cpp" />
+    <ClCompile Include="API\API_QuickSave.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\External\ImGuiColorTextEdit\TextEditor.h" />
@@ -369,6 +370,7 @@
     <ClInclude Include="XMLNode.h" />
     <ClInclude Include="API\API_UIInput.h" />
     <ClInclude Include="API\API_UIText.h" />
+    <ClInclude Include="API\API_QuickSave.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="HelloEngine.rc" />
