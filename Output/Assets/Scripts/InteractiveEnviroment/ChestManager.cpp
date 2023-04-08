@@ -26,14 +26,16 @@ void ChestManager::Start()
 
 void ChestManager::Update()
 {
-    if (check || !playerStorage) return;
+    if (check || !playerStorage) return; // only do update 1 frame
 
     std::string saveActiveLabel = "level" + std::to_string(playerStorage->levelIndex) + "_chest";
 
-    Chest* chestScript = (Chest*)chest1.GetScript("Chest");
-    if (chestScript)
+    // skip???
+    Chest* chestScript1 = (Chest*)chest1.GetScript("Chest");
+    if (chestScript1)
     {
-        if (API_QuickSave::GetBool(saveActiveLabel + "1")) // if chest is not active on save
+        bool chestActive = API_QuickSave::GetBool(saveActiveLabel + "1", true);
+        if (!chestActive) // if chest is not active on save
         {
             int loot = API_QuickSave::GetInt(saveActiveLabel + "1" + "_content");
 
@@ -53,38 +55,16 @@ void ChestManager::Update()
                 break;
             }
 
-            chestScript->OpenChestOnStart();
+            chestScript1->OpenChestOnStart();
         }
-        else
-        {
-            if (chestScript->tutorialSpecialWeapon) chestScript->itemIndex = GetSpecialGun();
-            else if (chestScript->tutorialWeaponBlueprint) chestScript->itemIndex = GetGunBlueprint();
-            else
-            {
-                int loot = GetRandomLoot();
-
-                if (loot == 0)
-                {
-                    chestScript->itemIndex = GetSpecialGun();
-                }
-                else if (loot == 1)
-                {
-                    chestScript->itemIndex = GetGunBlueprint();
-                }
-                else // upgrade blueprint
-                {
-                    chestScript->itemIndex = 0;
-                    remainingUpgradeBlueprints--;
-                }
-            }
-            chestScript->chestIndex = 0;
-        }
+        skipChest1 = !chestActive;
     }
 
-    chestScript = (Chest*)chest2.GetScript("Chest");
-    if (chestScript)
+    Chest* chestScript2 = (Chest*)chest2.GetScript("Chest");
+    if (chestScript2)
     {
-        if (API_QuickSave::GetBool(saveActiveLabel + "2")) // if chest is not active on save
+        bool chestActive = API_QuickSave::GetBool(saveActiveLabel + "2", true);
+        if (!chestActive) // if chest is not active on save
         {
             int loot = API_QuickSave::GetInt(saveActiveLabel + "2" + "_content");
 
@@ -104,38 +84,16 @@ void ChestManager::Update()
                 break;
             }
 
-            chestScript->OpenChestOnStart();
+            chestScript2->OpenChestOnStart();
         }
-        else
-        {
-            if (chestScript->tutorialSpecialWeapon) chestScript->itemIndex = GetSpecialGun();
-            else if (chestScript->tutorialWeaponBlueprint) chestScript->itemIndex = GetGunBlueprint();
-            else
-            {
-                int loot = GetRandomLoot();
-
-                if (loot == 0)
-                {
-                    chestScript->itemIndex = GetSpecialGun();
-                }
-                else if (loot == 1)
-                {
-                    chestScript->itemIndex = GetGunBlueprint();
-                }
-                else // upgrade blueprint
-                {
-                    chestScript->itemIndex = 0;
-                    remainingUpgradeBlueprints--;
-                }
-            }
-            chestScript->chestIndex = 1;
-        }
+        skipChest2 = !chestActive;
     }
 
-    chestScript = (Chest*)chest3.GetScript("Chest");
-    if (chestScript)
+    Chest* chestScript3 = (Chest*)chest3.GetScript("Chest");
+    if (chestScript3)
     {
-        if (API_QuickSave::GetBool(saveActiveLabel + "3")) // if chest is not active on save
+        bool chestActive = API_QuickSave::GetBool(saveActiveLabel + "3", true);
+        if (!chestActive) // if chest is not active on save
         {
             int loot = API_QuickSave::GetInt(saveActiveLabel + "3" + "_content");
 
@@ -155,38 +113,16 @@ void ChestManager::Update()
                 break;
             }
 
-            chestScript->OpenChestOnStart();
+            chestScript3->OpenChestOnStart();
         }
-        else
-        {
-            if (chestScript->tutorialSpecialWeapon) chestScript->itemIndex = GetSpecialGun();
-            else if (chestScript->tutorialWeaponBlueprint) chestScript->itemIndex = GetGunBlueprint();
-            else
-            {
-                int loot = GetRandomLoot();
-
-                if (loot == 0)
-                {
-                    chestScript->itemIndex = GetSpecialGun();
-                }
-                else if (loot == 1)
-                {
-                    chestScript->itemIndex = GetGunBlueprint();
-                }
-                else // upgrade blueprint
-                {
-                    chestScript->itemIndex = 0;
-                    remainingUpgradeBlueprints--;
-                }
-            }
-            chestScript->chestIndex = 2;
-        }
+        skipChest3 = !chestActive;
     }
 
-    chestScript = (Chest*)chest4.GetScript("Chest");
-    if (chestScript)
+    Chest* chestScript4 = (Chest*)chest4.GetScript("Chest");
+    if (chestScript4)
     {
-        if (API_QuickSave::GetBool(saveActiveLabel + "4")) // if chest is not active on save
+        bool chestActive = API_QuickSave::GetBool(saveActiveLabel + "4", true);
+        if (!chestActive) // if chest is not active on save
         {
             int loot = API_QuickSave::GetInt(saveActiveLabel + "4" + "_content");
 
@@ -206,32 +142,110 @@ void ChestManager::Update()
                 break;
             }
 
-            chestScript->OpenChestOnStart();
+            chestScript4->OpenChestOnStart();
         }
+        skipChest4 = !chestActive;
+    }
+
+    // set loot
+    if (chestScript1 && !skipChest1)
+    {
+        if (chestScript1->tutorialSpecialWeapon) chestScript1->itemIndex = GetSpecialGun();
+        else if (chestScript1->tutorialWeaponBlueprint) chestScript1->itemIndex = GetGunBlueprint();
         else
         {
-            if (chestScript->tutorialSpecialWeapon) chestScript->itemIndex = GetSpecialGun();
-            else if (chestScript->tutorialWeaponBlueprint) chestScript->itemIndex = GetGunBlueprint();
-            else
-            {
-                int loot = GetRandomLoot();
+            int loot = GetRandomLoot();
 
-                if (loot == 0)
-                {
-                    chestScript->itemIndex = GetSpecialGun();
-                }
-                else if (loot == 1)
-                {
-                    chestScript->itemIndex = GetGunBlueprint();
-                }
-                else // upgrade blueprint
-                {
-                    chestScript->itemIndex = 0;
-                    remainingUpgradeBlueprints--;
-                }
+            if (loot == 0)
+            {
+                chestScript1->itemIndex = GetSpecialGun();
             }
-            chestScript->chestIndex = 3;
+            else if (loot == 1)
+            {
+                chestScript1->itemIndex = GetGunBlueprint();
+            }
+            else if (loot == 2) // upgrade blueprint
+            {
+                chestScript1->itemIndex = 0;
+                remainingUpgradeBlueprints--;
+            }
         }
+        chestScript1->chestIndex = 0;
+    }
+
+    if (chestScript2 && !skipChest2)
+    {
+        if (chestScript2->tutorialSpecialWeapon) chestScript2->itemIndex = GetSpecialGun();
+        else if (chestScript2->tutorialWeaponBlueprint) chestScript2->itemIndex = GetGunBlueprint();
+        else
+        {
+            int loot = GetRandomLoot();
+
+            if (loot == 0)
+            {
+                chestScript2->itemIndex = GetSpecialGun();
+            }
+            else if (loot == 1)
+            {
+                chestScript2->itemIndex = GetGunBlueprint();
+            }
+            else if (loot == 2) // upgrade blueprint
+            {
+                chestScript2->itemIndex = 0;
+                remainingUpgradeBlueprints--;
+            }
+        }
+        chestScript2->chestIndex = 1;
+    }
+
+    if (chestScript3 && !skipChest3)
+    {
+        if (chestScript3->tutorialSpecialWeapon) chestScript3->itemIndex = GetSpecialGun();
+        else if (chestScript3->tutorialWeaponBlueprint) chestScript3->itemIndex = GetGunBlueprint();
+        else
+        {
+            int loot = GetRandomLoot();
+
+            if (loot == 0)
+            {
+                chestScript3->itemIndex = GetSpecialGun();
+            }
+            else if (loot == 1)
+            {
+                chestScript3->itemIndex = GetGunBlueprint();
+            }
+            else if (loot == 2) // upgrade blueprint
+            {
+                chestScript3->itemIndex = 0;
+                remainingUpgradeBlueprints--;
+            }
+        }
+        chestScript3->chestIndex = 2;
+    }
+
+    if (chestScript4 && !skipChest4)
+    {
+        if (chestScript4->tutorialSpecialWeapon) chestScript4->itemIndex = GetSpecialGun();
+        else if (chestScript4->tutorialWeaponBlueprint) chestScript4->itemIndex = GetGunBlueprint();
+        else
+        {
+            int loot = GetRandomLoot();
+
+            if (loot == 0)
+            {
+                chestScript4->itemIndex = GetSpecialGun();
+            }
+            else if (loot == 1)
+            {
+                chestScript4->itemIndex = GetGunBlueprint();
+            }
+            else if (loot == 2) // upgrade blueprint
+            {
+                chestScript4->itemIndex = 0;
+                remainingUpgradeBlueprints--;
+            }
+        }
+        chestScript4->chestIndex = 3;
     }
 
     check = true;
@@ -263,13 +277,37 @@ int ChestManager::GetRandomLoot()
 int ChestManager::GetGunBlueprint()
 {
     gunBlueprintAsigned = true;
-    int random = rand() % 5;
-    return random + 1;
+    int random;
+    bool gun1 = API_QuickSave::GetBool("semiautomaticGunBlueprint");
+    bool gun2 = API_QuickSave::GetBool("automaticGunBlueprint");
+    bool gun3 = API_QuickSave::GetBool("burstGunBlueprint");
+    bool gun4 = API_QuickSave::GetBool("shotgunGunBlueprint");
+    bool gun5 = API_QuickSave::GetBool("handgunGunBlueprint");
+    if (gun1 && gun2 && gun3 && gun4 && gun5)
+    {
+        Console::Log("ChestManager funtion: GetGunBlueprint. That should never happend. Why can't have more than 5 normal guns...", API::Console::MessageType::ERR);
+        return -1;
+    }
+
+    do
+    {
+        random = (rand() % 5) + 1;
+        if ((random == 1 && gun1) || (random == 2 && gun2) || (random == 3 && gun3) || (random == 4 && gun4) || (random == 5 && gun5))
+        {
+            random = -1;
+        }
+        else
+        {
+            return random;
+        }
+    } while (random == -1);
+
+    return random;
 }
 
 int ChestManager::GetSpecialGun()
 {
     specialGunAsigned = true;
-    int random = rand() % 2;
-    return random + 6;
+    int random = (rand() % 2) + 6;
+    return random;
 }

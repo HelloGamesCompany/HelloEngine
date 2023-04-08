@@ -60,19 +60,19 @@ void PlayerStorage::SaveData()
     switch (unlockGunBlueprint)
     {
     case 1:
-        API_QuickSave::SetBool("semiautomaticGunUnlocked", true);
+        API_QuickSave::SetBool("semiautomaticGunBlueprint", true);
         break;
     case 2:
-        API_QuickSave::SetBool("automaticGunUnlocked", true);
+        API_QuickSave::SetBool("automaticGunBlueprint", true);
         break;
     case 3:
-        API_QuickSave::SetBool("burstGunUnlocked", true);
+        API_QuickSave::SetBool("burstGunBlueprint", true);
         break;
     case 4:
-        API_QuickSave::SetBool("shotgunGunUnlocked", true);
+        API_QuickSave::SetBool("shotgunGunBlueprint", true);
         break;
     case 5:
-        API_QuickSave::SetBool("handgunGunUnlocked", true);
+        API_QuickSave::SetBool("handgunGunBlueprint", true);
         break;
     default:
         break;
@@ -125,7 +125,7 @@ void PlayerStorage::SaveDataFromChest(int chestIndex, int chestContent)
     std::string saveContentLabel = saveActiveLabel + "_content";
 
     API_QuickSave::SetBool(saveActiveLabel, false); // active == false
-
+    
     if (chestContent <= 0) API_QuickSave::SetInt(saveContentLabel, 2); // chest have upgradeBlueprint
     else if (chestContent <= 5) API_QuickSave::SetInt(saveContentLabel, 1); // chest have gunBlueprint
     else API_QuickSave::SetInt(saveContentLabel, 0); // chest have specialGun

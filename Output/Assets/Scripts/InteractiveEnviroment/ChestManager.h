@@ -29,6 +29,11 @@ public:
     bool gunBlueprintAsigned;
     int remainingUpgradeBlueprints;
 
+    bool skipChest1;
+    bool skipChest2;
+    bool skipChest3;
+    bool skipChest4;
+
     bool check;
 };
 
