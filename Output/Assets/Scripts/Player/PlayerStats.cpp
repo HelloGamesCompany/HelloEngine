@@ -24,15 +24,20 @@ HELLO_ENGINE_API_C PlayerStats* CreatePlayerStats(ScriptToInspectorInterface* sc
     script->AddDragBoxParticleSystem("Heal Particles", &classInstance->healParticles);
     script->AddDragBoxParticleSystem("Heal Particles", &classInstance->aidKitParticles);
     script->AddDragBoxGameObject("Player GO", &classInstance->playerGO);
-    script->AddDragInt("movement tree lvl", &classInstance->movementTreeLvl); // remove when save and load is ready
-    script->AddDragInt("armory tree lvl", &classInstance->armoryTreeLvl);
-    script->AddDragInt("health tree lvl", &classInstance->healthTreeLvl);
-    script->AddDragInt("special tree lvl", &classInstance->specialTreeLvl);
+    //script->AddDragInt("movement tree lvl", &classInstance->movementTreeLvl); // use it only for playtesting
+    //script->AddDragInt("armory tree lvl", &classInstance->armoryTreeLvl);
+    //script->AddDragInt("health tree lvl", &classInstance->healthTreeLvl);
+    //script->AddDragInt("special tree lvl", &classInstance->specialTreeLvl);
     return classInstance;
 }
 
 void PlayerStats::Start()
 {
+    movementTreeLvl = API_QuickSave::GetInt("tree0_level");
+    armoryTreeLvl = API_QuickSave::GetInt("tree1_level");
+    healthTreeLvl = API_QuickSave::GetInt("tree2_level");
+    specialTreeLvl = API_QuickSave::GetInt("tree3_level");
+
     if (healthTreeLvl > 0) currentMaxHp = upgradedMaxHp;
     else currentMaxHp = maxHp;
     currentHp = currentMaxHp;
