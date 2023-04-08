@@ -92,9 +92,6 @@ void ModuleResourceManager::S_ImportFile(const std::string& filePath)
 	break;
 	case ResourceType::ANIMATION:
 	{
-
-
-		//std::string path = MeshImporter::
 	}
 	break;
 	case ResourceType::TEXTURE:
