@@ -54,7 +54,7 @@
             {
                 "Active camera": true,
                 "Active culling": true,
-                "Aspect ratio": 1.8263157606124878,
+                "Aspect ratio": 0.8947368264198303,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -252,6 +252,9 @@
                         "Fire Ammo": 99999
                     },
                     {
+                        "Player GO": 3681930564
+                    },
+                    {
                         "movement tree lvl": 0
                     },
                     {
@@ -305,7 +308,7 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Level Index": 0
+                        "Level Index": 1
                     }
                 ],
                 "Script Resource": 1045846276,
@@ -846,42 +849,12 @@
                 "Position": [
                     0.0,
                     0.0,
-                    0.0
+                    29.549713134765625
                 ],
                 "Rotation": [
+                    -0.0,
                     0.0,
-                    0.0,
-                    0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "Canvas",
-        "ParentUID": 2066812041,
-        "PrefabUID": 0,
-        "Tag": "UI",
-        "UID": 2393964819
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    0.0,
-                    0.0,
-                    0.0
+                    -0.0
                 ],
                 "Scale": [
                     1.0,
@@ -891,220 +864,65 @@
                 "Type": 1
             },
             {
-                "Enabled": true,
-                "MaterialResource": 0,
-                "Type": 16,
-                "listButtons": [
-                    0
-                ]
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Player Stats GO": 3681930564
-                    },
-                    {
-                        "Texture_SPEED_INCREASE": 1345496260
-                    },
-                    {
-                        "Texture_FIRERATE_INCREASE": 898734028
-                    },
-                    {
-                        "Texture_SHIELD": 499632542
-                    },
-                    {
-                        "Texture_SLOW_TIME": 1755384749
-                    },
-                    {
-                        "GamesObjects_1": 4070965764
-                    },
-                    {
-                        "GamesObjects_2": 3310973923
-                    },
-                    {
-                        "GamesObjects_3": 2506921558
-                    },
-                    {
-                        "GamesObjects_4": 2084097701
-                    }
-                ],
-                "Script Resource": 916144909,
-                "Type": 5
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "PowerUpManager",
-        "ParentUID": 2393964819,
-        "PrefabUID": 1029694012,
-        "Tag": "UI",
-        "UID": 4065623467
-    },
-    {
-        "Active": false,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.8999999761581421,
-                    0.800000011920929,
-                    0.0
-                ],
-                "Rotation": [
+                "ColPosition": [
                     0.0,
                     0.0,
                     0.0
                 ],
-                "Scale": [
-                    0.05000000074505806,
-                    0.10000000149011612,
-                    0.5
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "FillImage": 1.0,
-                "MaterialResource": 0,
-                "Type": 15
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "PowerUp1",
-        "ParentUID": 4065623467,
-        "PrefabUID": 1029694012,
-        "Tag": "UI",
-        "UID": 4070965764
-    },
-    {
-        "Active": false,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.75,
-                    0.800000011920929,
-                    0.0
-                ],
-                "Rotation": [
+                "ColRotation": [
                     0.0,
                     0.0,
                     0.0
                 ],
-                "Scale": [
-                    0.05000000074505806,
-                    0.10000000149011612,
-                    0.5
+                "ColScale": [
+                    2.0,
+                    2.0,
+                    2.0
                 ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "FillImage": 1.0,
-                "MaterialResource": 0,
-                "Type": 15
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "PowerUp2",
-        "ParentUID": 4065623467,
-        "PrefabUID": 1029694012,
-        "Tag": "UI",
-        "UID": 3310973923
-    },
-    {
-        "Active": false,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.6000000238418579,
-                    0.800000011920929,
-                    0.0
-                ],
-                "Rotation": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Scale": [
-                    0.05000000074505806,
-                    0.10000000149011612,
-                    0.5
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "FillImage": 1.0,
-                "MaterialResource": 0,
-                "Type": 15
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "PowerUp3",
-        "ParentUID": 4065623467,
-        "PrefabUID": 1029694012,
-        "Tag": "UI",
-        "UID": 2506921558
-    },
-    {
-        "Active": false,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.44999998807907104,
-                    0.800000011920929,
-                    0.0
-                ],
-                "Rotation": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Scale": [
-                    0.05000000074505806,
-                    0.10000000149011612,
-                    0.5
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "FillImage": 1.0,
-                "MaterialResource": 0,
-                "Type": 15
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "PowerUp4",
-        "ParentUID": 4065623467,
-        "PrefabUID": 1029694012,
-        "Tag": "UI",
-        "UID": 2084097701
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Scale": [
-                    1.0,
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
                     1.0,
                     1.0
                 ],
-                "Type": 1
+                "Enabled": true,
+                "GlobalGravity": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Gravity": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsShapeSelected": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsStatic": false,
+                "IsTrigger": true,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    0.5,
+                    0.46046510338783264,
+                    0.0,
+                    1.0
+                ],
+                "ShapeSelected": 0,
+                "SphereHorSlices": 16,
+                "SphereRadius": 1.0,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
             },
             {
                 "Enabled": true,
@@ -1113,10 +931,13 @@
                         "Open Chest Time": 1.0
                     },
                     {
-                        "Tutorial Special Weapon": true
+                        "Tutorial Special Weapon": false
                     },
                     {
                         "Tutorial Weapon Blueprint": false
+                    },
+                    {
+                        "tffff": 0
                     }
                 ],
                 "Script Resource": 2493606750,
@@ -1162,7 +983,10 @@
                         "Tutorial Special Weapon": false
                     },
                     {
-                        "Tutorial Weapon Blueprint": true
+                        "Tutorial Weapon Blueprint": false
+                    },
+                    {
+                        "tffff": 0
                     }
                 ],
                 "Script Resource": 2493606750,
@@ -1209,6 +1033,9 @@
                     },
                     {
                         "Tutorial Weapon Blueprint": false
+                    },
+                    {
+                        "tffff": 0
                     }
                 ],
                 "Script Resource": 2493606750,
@@ -1255,6 +1082,9 @@
                     },
                     {
                         "Tutorial Weapon Blueprint": false
+                    },
+                    {
+                        "tffff": 0
                     }
                 ],
                 "Script Resource": 2493606750,
@@ -1304,6 +1134,9 @@
                     },
                     {
                         "Chest 4": 1999847993
+                    },
+                    {
+                        "Player Storage GO": 3681930564
                     }
                 ],
                 "Script Resource": 4232309388,
