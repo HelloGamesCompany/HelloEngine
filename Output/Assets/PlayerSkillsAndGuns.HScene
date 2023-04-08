@@ -225,6 +225,9 @@
                         "Upgraded Max HP": 0.0
                     },
                     {
+                        "Resistance": 100.0
+                    },
+                    {
                         "Deadline Percentage": 20.0
                     },
                     {
@@ -247,15 +250,6 @@
                     },
                     {
                         "Fire Ammo": 99999
-                    },
-                    {
-                        "Ricochet Ammo": 99999
-                    },
-                    {
-                        "Storage GO": 3681930564
-                    },
-                    {
-                        "HUD Power Up GO": 4065623467
                     },
                     {
                         "movement tree lvl": 0
@@ -309,7 +303,11 @@
             },
             {
                 "Enabled": true,
-                "Inspector Fields": null,
+                "Inspector Fields": [
+                    {
+                        "Level Index": 0
+                    }
+                ],
                 "Script Resource": 1045846276,
                 "Type": 5
             }
@@ -1094,12 +1092,12 @@
                 "Position": [
                     0.0,
                     0.0,
-                    29.655563354492188
+                    0.0
                 ],
                 "Rotation": [
-                    -0.0,
                     0.0,
-                    -0.0
+                    0.0,
+                    0.0
                 ],
                 "Scale": [
                     1.0,
@@ -1110,96 +1108,213 @@
             },
             {
                 "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 10,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
+                "Inspector Fields": [
+                    {
+                        "Open Chest Time": 1.0
+                    },
+                    {
+                        "Tutorial Special Weapon": true
+                    },
+                    {
+                        "Tutorial Weapon Blueprint": false
+                    }
+                ],
+                "Script Resource": 2493606750,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Chest1",
+        "ParentUID": 2066812041,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1416538347
+    },
+    {
+        "Active": true,
+        "Components": [
             {
                 "Enabled": true,
-                "ResourceUID": 240240,
-                "Type": 3
-            },
-            {
-                "ColPosition": [
+                "Position": [
                     0.0,
                     0.0,
                     0.0
                 ],
-                "ColRotation": [
+                "Rotation": [
                     0.0,
                     0.0,
                     0.0
                 ],
-                "ColScale": [
-                    2.0,
-                    2.0,
-                    2.0
-                ],
-                "CylVerSlices": 16,
-                "CylinderRadiusHeight": [
+                "Scale": [
+                    1.0,
                     1.0,
                     1.0
                 ],
-                "Enabled": true,
-                "GlobalGravity": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Gravity": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "HasPhysBody": true,
-                "IsKinematic": false,
-                "IsRenderingCol": true,
-                "IsShapeCreated": [
-                    true,
-                    false,
-                    false
-                ],
-                "IsShapeSelected": [
-                    true,
-                    false,
-                    false
-                ],
-                "IsStatic": false,
-                "IsTrigger": true,
-                "Mass": 0.0,
-                "RenderColColor": [
-                    0.5,
-                    0.0,
-                    0.5,
-                    1.0
-                ],
-                "ShapeSelected": 0,
-                "SphereHorSlices": 16,
-                "SphereRadius": 1.0,
-                "SphereVerSlices": 16,
-                "Type": 8,
-                "WireframeSize": 3.0
+                "Type": 1
             },
             {
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Drop Index": 3
+                        "Open Chest Time": 1.0
+                    },
+                    {
+                        "Tutorial Special Weapon": false
+                    },
+                    {
+                        "Tutorial Weapon Blueprint": true
                     }
                 ],
-                "Script Resource": 3013870112,
+                "Script Resource": 2493606750,
                 "Type": 5
             }
         ],
         "FirstOnPrefab": true,
-        "Name": "Cube",
+        "Name": "Chest2",
         "ParentUID": 2066812041,
         "PrefabUID": 0,
-        "Tag": "EnemyDrop",
-        "UID": 1945456428
+        "Tag": "Default",
+        "UID": 4072173031
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Open Chest Time": 1.0
+                    },
+                    {
+                        "Tutorial Special Weapon": false
+                    },
+                    {
+                        "Tutorial Weapon Blueprint": false
+                    }
+                ],
+                "Script Resource": 2493606750,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Chest3",
+        "ParentUID": 2066812041,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2262349586
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Open Chest Time": 1.0
+                    },
+                    {
+                        "Tutorial Special Weapon": false
+                    },
+                    {
+                        "Tutorial Weapon Blueprint": false
+                    }
+                ],
+                "Script Resource": 2493606750,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Chest4",
+        "ParentUID": 2066812041,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1999847993
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Chest 1": 1416538347
+                    },
+                    {
+                        "Chest 2": 4072173031
+                    },
+                    {
+                        "Chest 3": 2262349586
+                    },
+                    {
+                        "Chest 4": 1999847993
+                    }
+                ],
+                "Script Resource": 4232309388,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Empty",
+        "ParentUID": 2066812041,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2585759021
     }
 ]

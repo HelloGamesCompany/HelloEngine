@@ -13,6 +13,10 @@ HELLO_ENGINE_API_C ChestManager* CreateChestManager(ScriptToInspectorInterface* 
 
 void ChestManager::Start()
 {
+    specialGunAsigned = false;
+    gunBlueprintAsigned = false;
+    remainingUpgradeBlueprints = 2;
+
     check = false;
 }
 
@@ -21,24 +25,141 @@ void ChestManager::Update()
     if (check) return;
 
     Chest* chestScript = (Chest*)chest1.GetScript("Chest");
-    if (chestScript->tutorialSpecialWeapon) chestScript->itemIndex = GetSpecialGun();
-    else if (chestScript->tutorialWeaponBlueprint) chestScript->itemIndex = GetGunBlueprint();
-    else
+    if (chestScript)
     {
+        if (chestScript->tutorialSpecialWeapon) chestScript->itemIndex = GetSpecialGun();
+        else if (chestScript->tutorialWeaponBlueprint) chestScript->itemIndex = GetGunBlueprint();
+        else
+        {
+            int loot = GetRandomLoot();
+            
+            if (loot == 0)
+            {
+                chestScript->itemIndex = GetSpecialGun();
+            }
+            else if (loot == 1)
+            {
+                chestScript->itemIndex = GetGunBlueprint();
+            }
+            else // upgrade blueprint
+            {
+                chestScript->itemIndex = 0;
+                remainingUpgradeBlueprints--;
+            }
+        }
+    }
 
+    chestScript = (Chest*)chest2.GetScript("Chest");
+    if (chestScript)
+    {
+        if (chestScript->tutorialSpecialWeapon) chestScript->itemIndex = GetSpecialGun();
+        else if (chestScript->tutorialWeaponBlueprint) chestScript->itemIndex = GetGunBlueprint();
+        else
+        {
+            int loot = GetRandomLoot();
+            
+            if (loot == 0)
+            {
+                chestScript->itemIndex = GetSpecialGun();
+            }
+            else if (loot == 1)
+            {
+                chestScript->itemIndex = GetGunBlueprint();
+            }
+            else // upgrade blueprint
+            {
+                chestScript->itemIndex = 0;
+                remainingUpgradeBlueprints--;
+            }
+        }
+    }
+
+    chestScript = (Chest*)chest3.GetScript("Chest");
+    if (chestScript)
+    {
+        if (chestScript->tutorialSpecialWeapon) chestScript->itemIndex = GetSpecialGun();
+        else if (chestScript->tutorialWeaponBlueprint) chestScript->itemIndex = GetGunBlueprint();
+        else
+        {
+            int loot = GetRandomLoot();
+            
+            if (loot == 0)
+            {
+                chestScript->itemIndex = GetSpecialGun();
+            }
+            else if (loot == 1)
+            {
+                chestScript->itemIndex = GetGunBlueprint();
+            }
+            else // upgrade blueprint
+            {
+                chestScript->itemIndex = 0;
+                remainingUpgradeBlueprints--;
+            }
+        }
+    }
+
+    chestScript = (Chest*)chest4.GetScript("Chest");
+    if (chestScript)
+    {
+        if (chestScript->tutorialSpecialWeapon) chestScript->itemIndex = GetSpecialGun();
+        else if (chestScript->tutorialWeaponBlueprint) chestScript->itemIndex = GetGunBlueprint();
+        else
+        {
+            int loot = GetRandomLoot();
+            
+            if (loot == 0)
+            {
+                chestScript->itemIndex = GetSpecialGun();
+            }
+            else if (loot == 1)
+            {
+                chestScript->itemIndex = GetGunBlueprint();
+            }
+            else // upgrade blueprint
+            {
+                chestScript->itemIndex = 0;
+                remainingUpgradeBlueprints--;
+            }
+        }
     }
 
     check = true;
 }
 
+int ChestManager::GetRandomLoot()
+{
+    if (specialGunAsigned && gunBlueprintAsigned && remainingUpgradeBlueprints == 0) return -1;
+
+    int random = rand() % 4;
+
+    if (random == 0)
+    {
+        if (!specialGunAsigned) return 0;
+        else return GetRandomLoot();
+    }
+    else if (random == 1)
+    {
+        if (!gunBlueprintAsigned) return 1;
+        else return GetRandomLoot();
+    }
+    else if (random > 1)
+    {
+        if (remainingUpgradeBlueprints > 0) return 2;
+        else return GetRandomLoot();
+    }
+}
+
 int ChestManager::GetGunBlueprint()
 {
-    float random = rand() % 5;
+    gunBlueprintAsigned = true;
+    int random = rand() % 5;
     return random + 1;
 }
 
 int ChestManager::GetSpecialGun()
 {
-    float random = rand() % 2;
+    specialGunAsigned = true;
+    int random = rand() % 2;
     return random + 6;
 }
