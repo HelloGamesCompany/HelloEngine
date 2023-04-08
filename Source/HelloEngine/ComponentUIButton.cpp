@@ -45,6 +45,11 @@ void ComponentUIButton::InputUpdate()
 	case ButtonState::ONHOLD:
 		State = ButtonState::HOVERED;
 		break;
+	case ButtonState::BLOCKED:
+		_material->ChangeTexture(textureIDBlocked);
+		isBlocked = true;
+		gameTimeCopy = EngineTime::GameTimeCount();
+		break;
 	default:
 		break;
 	}
@@ -111,6 +116,9 @@ void ComponentUIButton::DeSerialization(json& j)
 	case ButtonState::ONHOLD:
 		_material->ChangeTexture(pressButton);
 		break;
+	case ButtonState::BLOCKED:
+		_material->ChangeTexture(blockedButton);
+		break;
 	default:
 		break;
 	}
@@ -165,7 +173,14 @@ void ComponentUIButton::UpdateGamePadInput(std::vector<ComponentUI*>& _listButto
 			{
 				ComponentUIButton* prevButton = (ComponentUIButton*)_listButtons[buttonSelected - 1];
 
-				prevButton->State = ButtonState::NORMAL;
+				if (prevButton->isBlocked)
+				{
+					prevButton->State = ButtonState::BLOCKED;
+				}
+				else
+				{
+					prevButton->State = ButtonState::NORMAL;
+				}
 
 				_listButtons[buttonSelected - 1] = (ComponentUI*)prevButton;
 			}
@@ -197,7 +212,14 @@ void ComponentUIButton::UpdateGamePadInput(std::vector<ComponentUI*>& _listButto
 			{
 				ComponentUIButton* prevButton = (ComponentUIButton*)_listButtons[buttonSelected + 1];
 
-				prevButton->State = ButtonState::NORMAL;
+				if (prevButton->isBlocked)
+				{
+					prevButton->State = ButtonState::BLOCKED;
+				}
+				else
+				{
+					prevButton->State = ButtonState::NORMAL;
+				}
 
 				_listButtons[buttonSelected + 1] = (ComponentUI*)prevButton;
 			}
@@ -231,7 +253,14 @@ void ComponentUIButton::UpdateGamePadInput(std::vector<ComponentUI*>& _listButto
 			{
 				ComponentUIButton* prevButton = (ComponentUIButton*)_listButtons[buttonSelected + 1];
 
-				prevButton->State = ButtonState::NORMAL;
+				if (prevButton->isBlocked)
+				{
+					prevButton->State = ButtonState::BLOCKED;
+				}
+				else
+				{
+					prevButton->State = ButtonState::NORMAL;
+				}
 
 				_listButtons[buttonSelected + 1] = (ComponentUI*)prevButton;
 			}
@@ -265,7 +294,14 @@ void ComponentUIButton::UpdateGamePadInput(std::vector<ComponentUI*>& _listButto
 			{
 				ComponentUIButton* prevButton = (ComponentUIButton*)_listButtons[buttonSelected - 1];
 
-				prevButton->State = ButtonState::NORMAL;
+				if (prevButton->isBlocked)
+				{
+					prevButton->State = ButtonState::BLOCKED;
+				}
+				else
+				{
+					prevButton->State = ButtonState::NORMAL;
+				}
 
 				_listButtons[buttonSelected - 1] = (ComponentUI*)prevButton;
 			}
@@ -297,11 +333,25 @@ void ComponentUIButton::UpdateGamePadInput(std::vector<ComponentUI*>& _listButto
 
 	ComponentUIButton* auxiliarButton = (ComponentUIButton*)_listButtons[buttonSelected];
 
-	auxiliarButton->State = ButtonState::HOVERED;
-	
+	if (isBlocked)
+	{
+		auxiliarButton->State = ButtonState::BLOCKED;
+	}
+	else
+	{
+		auxiliarButton->State = ButtonState::HOVERED;
+	}
+
 	if (ModuleInput::S_GetGamePadButton(GamePad::BUTTON_A) == KEY_REPEAT)
 	{
-		auxiliarButton->State = ButtonState::ONPRESS;
+		if (isBlocked)
+		{
+			auxiliarButton->State = ButtonState::BLOCKED;
+		}
+		else
+		{
+			auxiliarButton->State = ButtonState::ONPRESS;
+		}
 	}
 
 	_listButtons[buttonSelected] = (ComponentUI*)auxiliarButton;
@@ -318,6 +368,11 @@ void ComponentUIButton::OnEditor()
 		_gameObject->DestroyComponent(this);
 		return;
 	}
+
+	if (ImGui::Checkbox("Button Blocked##Button", &isBlockedInspector))
+		isBlockedInspector ? isBlocked = true : isBlocked = false;
+
+
 	ImGui::Text("States Colors:");
 
 	ImGui::Text("NORMAL"); ImGui::SameLine();
@@ -473,6 +528,53 @@ void ComponentUIButton::OnEditor()
 		ImGui::TextColored(ImVec4(1, 1, 0, 1), std::to_string(height).c_str());
 	}
 
+	///////////////////////////////////////////////////////////////////////////////////////////
+	ImGui::Text("");
+	ImGui::Text("");
+	ImGui::Text("Block:"); ImGui::SameLine();
+	{
+		//Mesh& mesh = _material->GetMesh();
+
+		std::string imageName;
+		int width = 0;
+		int height = 0;
+
+		if (textureIDBlocked != -1.0f && blockedButton != nullptr)
+		{
+			ImGui::Image((ImTextureID)(uint)textureIDBlocked, ImVec2(64, 64), ImVec2(0, 1), ImVec2(1, 0));
+
+			imageName = blockedButton->debugName;
+			width = blockedButton->width;
+			height = blockedButton->height;
+		}
+		else
+		{
+			ImGui::Image((ImTextureID)0, ImVec2(64, 64), ImVec2(0, 1), ImVec2(1, 0));
+			imageName = "None";
+		}
+
+		if (ImGui::BeginDragDropTarget())
+		{
+			if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("Texture"))
+			{
+				//Drop asset from Asset window to scene window
+				const uint* drop = (uint*)payload->Data;
+
+				blockedButton = (ResourceTexture*)ModuleResourceManager::S_LoadResource(*drop);
+				textureIDBlocked = blockedButton->OpenGLID;
+			}
+			ImGui::EndDragDropTarget();
+		}
+
+		ImGui::TextWrapped("Path: "); ImGui::SameLine();
+		ImGui::TextColored(ImVec4(1, 1, 0, 1), imageName.c_str());
+
+		ImGui::TextWrapped("Width: "); ImGui::SameLine();
+		ImGui::TextColored(ImVec4(1, 1, 0, 1), std::to_string(width).c_str());
+
+		ImGui::TextWrapped("Height: "); ImGui::SameLine();
+		ImGui::TextColored(ImVec4(1, 1, 0, 1), std::to_string(height).c_str());
+	}
 }
 
 #endif // STANDALONE

@@ -100,7 +100,14 @@ void ComponentUISlider::UpdateGamePadInput(std::vector<ComponentUI*>& _listButto
 			{
 				ComponentUIButton* prevButton = (ComponentUIButton*)_listButtons[buttonSelected - 1];
 
-				prevButton->State = ButtonState::NORMAL;
+				if (prevButton->isBlocked)
+				{
+					prevButton->State = ButtonState::BLOCKED;
+				}
+				else
+				{
+					prevButton->State = ButtonState::NORMAL;
+				}
 
 				_listButtons[buttonSelected - 1] = (ComponentUI*)prevButton;
 			}
@@ -132,7 +139,14 @@ void ComponentUISlider::UpdateGamePadInput(std::vector<ComponentUI*>& _listButto
 			{
 				ComponentUIButton* prevButton = (ComponentUIButton*)_listButtons[buttonSelected + 1];
 
-				prevButton->State = ButtonState::NORMAL;
+				if (prevButton->isBlocked)
+				{
+					prevButton->State = ButtonState::BLOCKED;
+				}
+				else
+				{
+					prevButton->State = ButtonState::NORMAL;
+				}
 
 				_listButtons[buttonSelected + 1] = (ComponentUI*)prevButton;
 			}
@@ -166,7 +180,14 @@ void ComponentUISlider::UpdateGamePadInput(std::vector<ComponentUI*>& _listButto
 			{
 				ComponentUIButton* prevButton = (ComponentUIButton*)_listButtons[buttonSelected + 1];
 
-				prevButton->State = ButtonState::NORMAL;
+				if (prevButton->isBlocked)
+				{
+					prevButton->State = ButtonState::BLOCKED;
+				}
+				else
+				{
+					prevButton->State = ButtonState::NORMAL;
+				}
 
 				_listButtons[buttonSelected + 1] = (ComponentUI*)prevButton;
 			}
@@ -200,7 +221,14 @@ void ComponentUISlider::UpdateGamePadInput(std::vector<ComponentUI*>& _listButto
 			{
 				ComponentUIButton* prevButton = (ComponentUIButton*)_listButtons[buttonSelected - 1];
 
-				prevButton->State = ButtonState::NORMAL;
+				if (prevButton->isBlocked)
+				{
+					prevButton->State = ButtonState::BLOCKED;
+				}
+				else
+				{
+					prevButton->State = ButtonState::NORMAL;
+				}
 
 				_listButtons[buttonSelected - 1] = (ComponentUI*)prevButton;
 			}

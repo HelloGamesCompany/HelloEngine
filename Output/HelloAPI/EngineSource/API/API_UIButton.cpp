@@ -57,6 +57,8 @@ bool API::API_UIButton::OnHovered()
 }
 
 
+
+
 ComponentUIButton* API::API_UIButton::GetComponent()
 {
 	return _UIButton;
@@ -67,4 +69,14 @@ void API::API_UIButton::SetComponent(ComponentUIButton* component)
 	_UIButton = component;
 }
 
+
+bool API::API_UIButton::getIsBlocked()
+{
+	 return _UIButton->isBlocked;
+}
+
+void API::API_UIButton::SetBlocked(bool set)
+{
+	_UIButton->isBlocked = set;
+}
 

@@ -6,7 +6,8 @@ enum class ButtonState {
 	NORMAL,
 	HOVERED,
 	ONPRESS,
-	ONHOLD
+	ONHOLD,
+	BLOCKED
 };
 
 class ComponentUIButton : public ComponentUI
@@ -26,6 +27,10 @@ class ComponentUIButton : public ComponentUI
 
 	ButtonState State;
 	bool IsHold = false;
+
+	bool isBlocked = false;
+	bool isBlockedInspector = false;
+
 private:
 	double gameTimeCopy = 0;
 	float colors[4] = { 0,0,0,0 };
@@ -33,6 +38,7 @@ private:
 	int textureIDIdle = -1;
 	int textureIDHover = -1;
 	int textureIDPress = -1;
+	int textureIDBlocked = -1;
 
 	MeshRenderComponent* meshRenderer = nullptr;
 	ResourceTexture* currentResource = nullptr;
@@ -40,9 +46,12 @@ private:
 	ResourceTexture* idleButton = nullptr;
 	ResourceTexture* hoverButton = nullptr;
 	ResourceTexture* pressButton = nullptr;
+	ResourceTexture* blockedButton = nullptr;
 
 	bool isPress = true;
 	bool AisPress = true;
+
+
 
 #ifdef STANDALONE
 	void OnEditor() override;

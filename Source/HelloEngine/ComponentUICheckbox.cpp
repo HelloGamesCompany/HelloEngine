@@ -209,7 +209,14 @@ void ComponentUICheckbox::UpdateGamePadInput(std::vector<ComponentUI*>& _listBut
 			{
 				ComponentUIButton* prevButton = (ComponentUIButton*)_listButtons[buttonSelected - 1];
 
-				prevButton->State = ButtonState::NORMAL;
+				if (prevButton->isBlocked)
+				{
+					prevButton->State = ButtonState::BLOCKED;
+				}
+				else
+				{
+					prevButton->State = ButtonState::NORMAL;
+				}
 
 				_listButtons[buttonSelected - 1] = (ComponentUI*)prevButton;
 			}
@@ -241,7 +248,14 @@ void ComponentUICheckbox::UpdateGamePadInput(std::vector<ComponentUI*>& _listBut
 			{
 				ComponentUIButton* prevButton = (ComponentUIButton*)_listButtons[buttonSelected + 1];
 
-				prevButton->State = ButtonState::NORMAL;
+				if (prevButton->isBlocked)
+				{
+					prevButton->State = ButtonState::BLOCKED;
+				}
+				else
+				{
+					prevButton->State = ButtonState::NORMAL;
+				}
 
 				_listButtons[buttonSelected + 1] = (ComponentUI*)prevButton;
 			}
@@ -275,7 +289,14 @@ void ComponentUICheckbox::UpdateGamePadInput(std::vector<ComponentUI*>& _listBut
 			{
 				ComponentUIButton* prevButton = (ComponentUIButton*)_listButtons[buttonSelected + 1];
 
-				prevButton->State = ButtonState::NORMAL;
+				if (prevButton->isBlocked)
+				{
+					prevButton->State = ButtonState::BLOCKED;
+				}
+				else
+				{
+					prevButton->State = ButtonState::NORMAL;
+				}
 
 				_listButtons[buttonSelected + 1] = (ComponentUI*)prevButton;
 			}
@@ -309,7 +330,14 @@ void ComponentUICheckbox::UpdateGamePadInput(std::vector<ComponentUI*>& _listBut
 			{
 				ComponentUIButton* prevButton = (ComponentUIButton*)_listButtons[buttonSelected - 1];
 
-				prevButton->State = ButtonState::NORMAL;
+				if (prevButton->isBlocked)
+				{
+					prevButton->State = ButtonState::BLOCKED;
+				}
+				else
+				{
+					prevButton->State = ButtonState::NORMAL;
+				}
 
 				_listButtons[buttonSelected - 1] = (ComponentUI*)prevButton;
 			}
