@@ -12,6 +12,7 @@ public:
     void Update() override;
 
     void SaveData();
+    void SaveDataFromChest(int chestIndex, int chestContent);
 
     int levelIndex;
 

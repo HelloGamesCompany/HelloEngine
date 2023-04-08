@@ -116,3 +116,17 @@ void PlayerStorage::SaveData()
         break;
     }
 }
+
+void PlayerStorage::SaveDataFromChest(int chestIndex, int chestContent)
+{
+    if (levelIndex == 0) return;
+
+    std::string saveActiveLabel = "level" + std::to_string(levelIndex) + "_chest" + std::to_string(chestIndex + 1);
+    std::string saveContentLabel = saveActiveLabel + "_content";
+
+    API_QuickSave::SetBool(saveActiveLabel, false); // active == false
+
+    if (chestContent <= 0) API_QuickSave::SetInt(saveContentLabel, 2); // chest have upgradeBlueprint
+    else if (chestContent <= 5) API_QuickSave::SetInt(saveContentLabel, 1); // chest have gunBlueprint
+    else API_QuickSave::SetInt(saveContentLabel, 0); // chest have specialGun
+}

@@ -5,6 +5,8 @@
 
 #include "API/API.h"
 
+class PlayerStorage;
+
 class ChestManager : HelloBehavior
 {
 public:
@@ -19,6 +21,9 @@ public:
     API_GameObject chest2;
     API_GameObject chest3;
     API_GameObject chest4;
+
+    API_GameObject playerStorageGO;
+    PlayerStorage* playerStorage;
 
     bool specialGunAsigned;
     bool gunBlueprintAsigned;
