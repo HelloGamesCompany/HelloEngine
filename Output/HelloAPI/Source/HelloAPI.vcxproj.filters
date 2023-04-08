@@ -77,6 +77,8 @@
     <ClCompile Include="../../Assets/Scripts/UI Test folder/UI_Municion.cpp" />
     <ClCompile Include="..\..\Assets\Scripts\UI Test folder\PlayerIndicator.cpp" />
     <ClCompile Include="../../Assets/Scripts/Enemies/EnemyTank.cpp" />
+    <ClCompile Include="../../Assets/Scripts/InteractiveEnviroment/CasetteManager.cpp" />
+    <ClCompile Include="../../Assets/Scripts/InteractiveEnviroment/ChestManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Assets\Scripts\EbonyMaw\BossAttacks.h" />
@@ -156,5 +158,7 @@
     <ClInclude Include="../../Assets/Scripts/UI Test folder/UI_Municion.h" />
     <ClInclude Include="..\..\Assets\Scripts\UI Test folder\PlayerIndicator.h" />
     <ClInclude Include="../../Assets/Scripts/Enemies/EnemyTank.h" />
+    <ClInclude Include="../../Assets/Scripts/InteractiveEnviroment/CasetteManager.h" />
+    <ClInclude Include="../../Assets/Scripts/InteractiveEnviroment/ChestManager.h" />
   </ItemGroup>
 </Project>

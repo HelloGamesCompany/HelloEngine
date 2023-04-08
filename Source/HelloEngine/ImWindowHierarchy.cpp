@@ -26,7 +26,7 @@ ImWindowHierarchy::ImWindowHierarchy()
 
     LayerEditor::draggedGameObject = nullptr;
 
-    _base_flags = ImGuiTreeNodeFlags_DefaultOpen | ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_OpenOnDoubleClick | ImGuiTreeNodeFlags_SpanAvailWidth | ImGuiTreeNodeFlags_AllowItemOverlap;
+    _base_flags = ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_OpenOnDoubleClick | ImGuiTreeNodeFlags_SpanAvailWidth | ImGuiTreeNodeFlags_AllowItemOverlap;
 }
 
 ImWindowHierarchy::~ImWindowHierarchy()
