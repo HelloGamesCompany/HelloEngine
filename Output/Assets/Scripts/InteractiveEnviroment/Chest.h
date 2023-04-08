@@ -28,6 +28,9 @@ public:
     PlayerStats* playerStats;
     PlayerMove* playerMove;
 
+    bool tutorialSpecialWeapon;
+    bool tutorialWeaponBlueprint;
+
     int itemIndex;
     // 0 -> Upgrade Blueprint
     // 1 -> Unlock SemiAutomatic
