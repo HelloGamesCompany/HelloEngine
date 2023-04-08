@@ -12,6 +12,7 @@
 // Tools
 #include "API_Vector2.h"
 #include "API_Vector3.h"
+#include "API_QuickSave.h"
 
 // Entity & Components---------------
 #include "API_GameObject.h"

@@ -7,6 +7,7 @@ HELLO_ENGINE_API_C Chest* CreateChest(ScriptToInspectorInterface* script)
     script->AddDragFloat("Open Chest Time", &classInstance->maxOpenChestTime);
     script->AddCheckBox("Tutorial Special Weapon", &classInstance->tutorialSpecialWeapon);
     script->AddCheckBox("Tutorial Weapon Blueprint", &classInstance->tutorialWeaponBlueprint);
+    script->AddDragInt("tffff", &classInstance->itemIndex);
     return classInstance;
 }
 
@@ -46,23 +47,23 @@ void Chest::Update()
             case 3:
             case 4:
             case 5:
-                playerStats->SaveInStorage(itemIndex);
+                playerStats->SaveChestData(itemIndex, chestIndex);
                 break;
             case 6: // Get Flamethrower
                 playerGunManager->GetGun(3, 6);
                 playerStats->GetAmmo(2, 200);
-                playerStats->SaveInStorage(-1); // save game
+                playerStats->SaveChestData(-1, chestIndex); // save game
                 break;
             case 7: // Get Ricochet
                 playerGunManager->GetGun(3, 7);
                 playerStats->GetAmmo(3, 15);
-                playerStats->SaveInStorage(-1); // save game
+                playerStats->SaveChestData(-1, chestIndex); // save game
                 break;
             default:
                 Console::Log("Item Index is not between 0 and 7.");
                 break;
             }
-
+            Console::Log(std::to_string(itemIndex) + "itemIndex");
             playerMove->StopOpenChestAnim();
             chestAnimatorPlayer.Play();
             gameObject.SetActive(false);
@@ -130,4 +131,5 @@ void Chest::OnCollisionEnter(API::API_RigidBody other)
 void Chest::OpenChestOnStart()
 {
     chestAnimatorPlayer.Play();
+    gameObject.SetActive(false);
 }

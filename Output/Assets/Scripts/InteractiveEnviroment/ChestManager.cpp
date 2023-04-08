@@ -8,11 +8,15 @@ HELLO_ENGINE_API_C ChestManager* CreateChestManager(ScriptToInspectorInterface* 
     script->AddDragBoxGameObject("Chest 2", &classInstance->chest2);
     script->AddDragBoxGameObject("Chest 3", &classInstance->chest3);
     script->AddDragBoxGameObject("Chest 4", &classInstance->chest4);
+    script->AddDragBoxGameObject("Player Storage GO", &classInstance->playerStorageGO);
     return classInstance;
 }
 
 void ChestManager::Start()
 {
+    playerStorage = (PlayerStorage*)playerStorageGO.GetScript("PlayerStorage");
+    if (playerStorage == nullptr) Console::Log("PlayerStorage missing in CasetteManager.");
+
     specialGunAsigned = false;
     gunBlueprintAsigned = false;
     remainingUpgradeBlueprints = 2;
@@ -22,105 +26,211 @@ void ChestManager::Start()
 
 void ChestManager::Update()
 {
-    if (check) return;
+    if (check || !playerStorage) return;
+
+    std::string saveActiveLabel = "level" + std::to_string(playerStorage->levelIndex) + "_chest";
 
     Chest* chestScript = (Chest*)chest1.GetScript("Chest");
     if (chestScript)
     {
-        if (chestScript->tutorialSpecialWeapon) chestScript->itemIndex = GetSpecialGun();
-        else if (chestScript->tutorialWeaponBlueprint) chestScript->itemIndex = GetGunBlueprint();
+        if (API_QuickSave::GetBool(saveActiveLabel + "1")) // if chest is not active on save
+        {
+            int loot = API_QuickSave::GetInt(saveActiveLabel + "1" + "_content");
+
+            switch (loot)
+            {
+            case 0:
+                specialGunAsigned = true;
+                break;
+            case 1:
+                gunBlueprintAsigned = true;
+                break;
+            case 2:
+                remainingUpgradeBlueprints--;
+                break;
+            default:
+                Console::Log("Chest save is wrong.", API::Console::MessageType::ERR);
+                break;
+            }
+
+            chestScript->OpenChestOnStart();
+        }
         else
         {
-            int loot = GetRandomLoot();
-            
-            if (loot == 0)
+            if (chestScript->tutorialSpecialWeapon) chestScript->itemIndex = GetSpecialGun();
+            else if (chestScript->tutorialWeaponBlueprint) chestScript->itemIndex = GetGunBlueprint();
+            else
             {
-                chestScript->itemIndex = GetSpecialGun();
+                int loot = GetRandomLoot();
+
+                if (loot == 0)
+                {
+                    chestScript->itemIndex = GetSpecialGun();
+                }
+                else if (loot == 1)
+                {
+                    chestScript->itemIndex = GetGunBlueprint();
+                }
+                else // upgrade blueprint
+                {
+                    chestScript->itemIndex = 0;
+                    remainingUpgradeBlueprints--;
+                }
             }
-            else if (loot == 1)
-            {
-                chestScript->itemIndex = GetGunBlueprint();
-            }
-            else // upgrade blueprint
-            {
-                chestScript->itemIndex = 0;
-                remainingUpgradeBlueprints--;
-            }
+            chestScript->chestIndex = 0;
         }
     }
 
     chestScript = (Chest*)chest2.GetScript("Chest");
     if (chestScript)
     {
-        if (chestScript->tutorialSpecialWeapon) chestScript->itemIndex = GetSpecialGun();
-        else if (chestScript->tutorialWeaponBlueprint) chestScript->itemIndex = GetGunBlueprint();
+        if (API_QuickSave::GetBool(saveActiveLabel + "2")) // if chest is not active on save
+        {
+            int loot = API_QuickSave::GetInt(saveActiveLabel + "2" + "_content");
+
+            switch (loot)
+            {
+            case 0:
+                specialGunAsigned = true;
+                break;
+            case 1:
+                gunBlueprintAsigned = true;
+                break;
+            case 2:
+                remainingUpgradeBlueprints--;
+                break;
+            default:
+                Console::Log("Chest save is wrong.", API::Console::MessageType::ERR);
+                break;
+            }
+
+            chestScript->OpenChestOnStart();
+        }
         else
         {
-            int loot = GetRandomLoot();
-            
-            if (loot == 0)
+            if (chestScript->tutorialSpecialWeapon) chestScript->itemIndex = GetSpecialGun();
+            else if (chestScript->tutorialWeaponBlueprint) chestScript->itemIndex = GetGunBlueprint();
+            else
             {
-                chestScript->itemIndex = GetSpecialGun();
+                int loot = GetRandomLoot();
+
+                if (loot == 0)
+                {
+                    chestScript->itemIndex = GetSpecialGun();
+                }
+                else if (loot == 1)
+                {
+                    chestScript->itemIndex = GetGunBlueprint();
+                }
+                else // upgrade blueprint
+                {
+                    chestScript->itemIndex = 0;
+                    remainingUpgradeBlueprints--;
+                }
             }
-            else if (loot == 1)
-            {
-                chestScript->itemIndex = GetGunBlueprint();
-            }
-            else // upgrade blueprint
-            {
-                chestScript->itemIndex = 0;
-                remainingUpgradeBlueprints--;
-            }
+            chestScript->chestIndex = 1;
         }
     }
 
     chestScript = (Chest*)chest3.GetScript("Chest");
     if (chestScript)
     {
-        if (chestScript->tutorialSpecialWeapon) chestScript->itemIndex = GetSpecialGun();
-        else if (chestScript->tutorialWeaponBlueprint) chestScript->itemIndex = GetGunBlueprint();
+        if (API_QuickSave::GetBool(saveActiveLabel + "3")) // if chest is not active on save
+        {
+            int loot = API_QuickSave::GetInt(saveActiveLabel + "3" + "_content");
+
+            switch (loot)
+            {
+            case 0:
+                specialGunAsigned = true;
+                break;
+            case 1:
+                gunBlueprintAsigned = true;
+                break;
+            case 2:
+                remainingUpgradeBlueprints--;
+                break;
+            default:
+                Console::Log("Chest save is wrong.", API::Console::MessageType::ERR);
+                break;
+            }
+
+            chestScript->OpenChestOnStart();
+        }
         else
         {
-            int loot = GetRandomLoot();
-            
-            if (loot == 0)
+            if (chestScript->tutorialSpecialWeapon) chestScript->itemIndex = GetSpecialGun();
+            else if (chestScript->tutorialWeaponBlueprint) chestScript->itemIndex = GetGunBlueprint();
+            else
             {
-                chestScript->itemIndex = GetSpecialGun();
+                int loot = GetRandomLoot();
+
+                if (loot == 0)
+                {
+                    chestScript->itemIndex = GetSpecialGun();
+                }
+                else if (loot == 1)
+                {
+                    chestScript->itemIndex = GetGunBlueprint();
+                }
+                else // upgrade blueprint
+                {
+                    chestScript->itemIndex = 0;
+                    remainingUpgradeBlueprints--;
+                }
             }
-            else if (loot == 1)
-            {
-                chestScript->itemIndex = GetGunBlueprint();
-            }
-            else // upgrade blueprint
-            {
-                chestScript->itemIndex = 0;
-                remainingUpgradeBlueprints--;
-            }
+            chestScript->chestIndex = 2;
         }
     }
 
     chestScript = (Chest*)chest4.GetScript("Chest");
     if (chestScript)
     {
-        if (chestScript->tutorialSpecialWeapon) chestScript->itemIndex = GetSpecialGun();
-        else if (chestScript->tutorialWeaponBlueprint) chestScript->itemIndex = GetGunBlueprint();
+        if (API_QuickSave::GetBool(saveActiveLabel + "4")) // if chest is not active on save
+        {
+            int loot = API_QuickSave::GetInt(saveActiveLabel + "4" + "_content");
+
+            switch (loot)
+            {
+            case 0:
+                specialGunAsigned = true;
+                break;
+            case 1:
+                gunBlueprintAsigned = true;
+                break;
+            case 2:
+                remainingUpgradeBlueprints--;
+                break;
+            default:
+                Console::Log("Chest save is wrong.", API::Console::MessageType::ERR);
+                break;
+            }
+
+            chestScript->OpenChestOnStart();
+        }
         else
         {
-            int loot = GetRandomLoot();
-            
-            if (loot == 0)
+            if (chestScript->tutorialSpecialWeapon) chestScript->itemIndex = GetSpecialGun();
+            else if (chestScript->tutorialWeaponBlueprint) chestScript->itemIndex = GetGunBlueprint();
+            else
             {
-                chestScript->itemIndex = GetSpecialGun();
+                int loot = GetRandomLoot();
+
+                if (loot == 0)
+                {
+                    chestScript->itemIndex = GetSpecialGun();
+                }
+                else if (loot == 1)
+                {
+                    chestScript->itemIndex = GetGunBlueprint();
+                }
+                else // upgrade blueprint
+                {
+                    chestScript->itemIndex = 0;
+                    remainingUpgradeBlueprints--;
+                }
             }
-            else if (loot == 1)
-            {
-                chestScript->itemIndex = GetGunBlueprint();
-            }
-            else // upgrade blueprint
-            {
-                chestScript->itemIndex = 0;
-                remainingUpgradeBlueprints--;
-            }
+            chestScript->chestIndex = 3;
         }
     }
 

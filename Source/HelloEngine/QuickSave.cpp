@@ -50,8 +50,8 @@ void QuickSave::SetInt(std::string name, int value)
 bool QuickSave::GetBool(std::string name, bool defaultValue)
 {
     std::string value = GetValue(name, std::to_string(defaultValue), nBool);
-
-    return (value == "true");
+    bool bValue = value == "true";
+    return bValue;
 }
 
 std::string QuickSave::GetString(std::string name, std::string defaultValue)
@@ -96,7 +96,7 @@ bool QuickSave::GetBool(const char* name, bool defaultValue)
 {
     std::string value = GetValue(name, std::to_string(defaultValue), nBool);
 
-    return (value == "true");
+    return (value == "1");
 }
 
 const char* QuickSave::GetString(const char* name, const char* defaultValue)

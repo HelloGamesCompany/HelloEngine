@@ -417,3 +417,10 @@ void PlayerStats::SaveInStorage(int index)
 
     storage->SaveData();
 }
+
+void PlayerStats::SaveChestData(int chestContent, int chestIndex)
+{
+    storage->SaveDataFromChest(chestIndex, chestContent);
+
+    SaveInStorage(chestContent);
+}
