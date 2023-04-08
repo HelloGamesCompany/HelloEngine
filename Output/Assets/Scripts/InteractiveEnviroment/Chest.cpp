@@ -5,7 +5,8 @@ HELLO_ENGINE_API_C Chest* CreateChest(ScriptToInspectorInterface* script)
     //Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
     script->AddDragBoxAnimationPlayer("Chest Animator Player", &classInstance->chestAnimatorPlayer);
     script->AddDragFloat("Open Chest Time", &classInstance->maxOpenChestTime);
-    script->AddDragInt("Item Index", &classInstance->itemIndex);
+    script->AddCheckBox("Tutorial Special Weapon", &classInstance->tutorialSpecialWeapon);
+    script->AddCheckBox("Tutorial Weapon Blueprint", &classInstance->tutorialWeaponBlueprint);
     return classInstance;
 }
 
