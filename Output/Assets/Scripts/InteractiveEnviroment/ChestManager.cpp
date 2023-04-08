@@ -278,11 +278,11 @@ int ChestManager::GetGunBlueprint()
 {
     gunBlueprintAsigned = true;
     int random;
-    bool gun1 = API_QuickSave::GetBool("semiautomaticGunUnlocked");
-    bool gun2 = API_QuickSave::GetBool("automaticGunUnlocked");
-    bool gun3 = API_QuickSave::GetBool("burstGunUnlocked");
-    bool gun4 = API_QuickSave::GetBool("shotgunGunUnlocked");
-    bool gun5 = API_QuickSave::GetBool("handgunGunUnlocked");
+    bool gun1 = API_QuickSave::GetBool("semiautomaticGunBlueprint");
+    bool gun2 = API_QuickSave::GetBool("automaticGunBlueprint");
+    bool gun3 = API_QuickSave::GetBool("burstGunBlueprint");
+    bool gun4 = API_QuickSave::GetBool("shotgunGunBlueprint");
+    bool gun5 = API_QuickSave::GetBool("handgunGunBlueprint");
     if (gun1 && gun2 && gun3 && gun4 && gun5)
     {
         Console::Log("ChestManager funtion: GetGunBlueprint. That should never happend. Why can't have more than 5 normal guns...", API::Console::MessageType::ERR);

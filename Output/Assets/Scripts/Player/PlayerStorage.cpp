@@ -60,19 +60,19 @@ void PlayerStorage::SaveData()
     switch (unlockGunBlueprint)
     {
     case 1:
-        API_QuickSave::SetBool("semiautomaticGunUnlocked", true);
+        API_QuickSave::SetBool("semiautomaticGunBlueprint", true);
         break;
     case 2:
-        API_QuickSave::SetBool("automaticGunUnlocked", true);
+        API_QuickSave::SetBool("automaticGunBlueprint", true);
         break;
     case 3:
-        API_QuickSave::SetBool("burstGunUnlocked", true);
+        API_QuickSave::SetBool("burstGunBlueprint", true);
         break;
     case 4:
-        API_QuickSave::SetBool("shotgunGunUnlocked", true);
+        API_QuickSave::SetBool("shotgunGunBlueprint", true);
         break;
     case 5:
-        API_QuickSave::SetBool("handgunGunUnlocked", true);
+        API_QuickSave::SetBool("handgunGunBlueprint", true);
         break;
     default:
         break;
