@@ -52,18 +52,18 @@ void Chest::Update()
             case 6: // Get Flamethrower
                 playerGunManager->GetGun(3, 6);
                 playerStats->GetAmmo(2, 200);
-                playerStats->SaveChestData(-1, chestIndex); // save game
+                playerStats->SaveChestData(6, chestIndex); // save game
                 break;
             case 7: // Get Ricochet
                 playerGunManager->GetGun(3, 7);
                 playerStats->GetAmmo(3, 15);
-                playerStats->SaveChestData(-1, chestIndex); // save game
+                playerStats->SaveChestData(7, chestIndex); // save game
                 break;
             default:
                 Console::Log("Item Index is not between 0 and 7.");
                 break;
             }
-            Console::Log(std::to_string(itemIndex) + "itemIndex");
+            
             playerMove->StopOpenChestAnim();
             chestAnimatorPlayer.Play();
             gameObject.SetActive(false);
