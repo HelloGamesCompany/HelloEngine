@@ -125,3 +125,8 @@ void Chest::OnCollisionEnter(API::API_RigidBody other)
         }
     }
 }
+
+void Chest::OpenChestOnStart()
+{
+    chestAnimatorPlayer.Play();
+}

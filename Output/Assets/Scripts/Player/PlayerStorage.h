@@ -13,6 +13,8 @@ public:
 
     void SaveData();
 
+    int levelIndex;
+
     int unlockGunBlueprint;
     int upgradeBlueprintAmount;
 

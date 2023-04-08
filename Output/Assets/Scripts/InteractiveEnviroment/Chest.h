@@ -17,6 +17,8 @@ public:
 
     void OnCollisionEnter(API::API_RigidBody other) override;
 
+    void OpenChestOnStart();
+
     API_AnimationPlayer chestAnimatorPlayer;
 
     float openChestTime;
