@@ -20,7 +20,7 @@ class ComponentUIButton : public ComponentUI
 	void Serialization(json& j) override;
 	void DeSerialization(json& j) override;
 
-	void UpdateGamePadInput() override;
+	void UpdateGamePadInput(std::vector<ComponentUI*>& _listButtons, int buttonSelected) override;
 
 	ButtonState ChangeState(ButtonState State);
 
@@ -41,7 +41,8 @@ private:
 	ResourceTexture* hoverButton = nullptr;
 	ResourceTexture* pressButton = nullptr;
 
-
+	bool isPress = true;
+	bool AisPress = true;
 
 #ifdef STANDALONE
 	void OnEditor() override;

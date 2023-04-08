@@ -2,6 +2,8 @@
 #include "ComponentUICheckbox.h"
 #include "GameObject.h"
 #include "TextureComponent.h"
+#include "ComponentUIButton.h"
+#include "ComponentUISlider.h"
 
 ComponentUICheckbox::ComponentUICheckbox(GameObject* gameObject) : ComponentUI(gameObject)
 {
@@ -19,7 +21,7 @@ void ComponentUICheckbox::InputUpdate()
 
 	// PROBLEMA A SOLUCIONAR: NO PODEM TENIR ACTIVE I HOVERED AL MATEI TEMPS (EN PROCES DE PENSAR UNA SOLUCIÓ) 
 
-	State = ChangeState(State);
+	/*State = ChangeState(State);
 	
 	switch (State)
 	{
@@ -37,6 +39,27 @@ void ComponentUICheckbox::InputUpdate()
 		break;
 	case CheckboxState::ACTIVE:
 
+		break;
+	default:
+		break;
+	}*/
+
+	switch (State)
+	{
+	case CheckboxState::NORMAL:
+		_material->ChangeTexture(textureIDIdleCB);
+		break;
+	case CheckboxState::HOVERED:
+		_material->ChangeTexture(textureIDHoverCB);
+		break;
+	case CheckboxState::HOVEREDACTIVE:
+		_material->ChangeTexture(textureIDHoverCB);
+		break;
+	case CheckboxState::ONPRESS:
+		_material->ChangeTexture(textureIDPressCB);
+		break;
+	case CheckboxState::ACTIVE:
+		_material->ChangeTexture(textureIDActiveCB);
 		break;
 	default:
 		break;
@@ -107,12 +130,14 @@ void ComponentUICheckbox::DeSerialization(json& j)
 		_material->ChangeTexture(pressCB);
 		break;
 	case CheckboxState::ACTIVE:
-		_material->ChangeTexture(pressCB);
+		_material->ChangeTexture(activeCB);
 		break;
 	default:
 		break;
 	}
 }
+
+
 
 CheckboxState ComponentUICheckbox::ChangeState(CheckboxState State)
 {
@@ -172,6 +197,171 @@ CheckboxState ComponentUICheckbox::ChangeState(CheckboxState State)
 	}
 
 	return State;
+}
+
+void ComponentUICheckbox::UpdateGamePadInput(std::vector<ComponentUI*>& _listButtons, int buttonSelected)
+{
+	if (_listButtons.size() != 1)
+	{
+		if (buttonSelected > 0 && buttonSelected < _listButtons.size() - 1)
+		{
+			if (_listButtons[buttonSelected - 1]->GetGameObject()->GetComponent<ComponentUIButton>())
+			{
+				ComponentUIButton* prevButton = (ComponentUIButton*)_listButtons[buttonSelected - 1];
+
+				prevButton->State = ButtonState::NORMAL;
+
+				_listButtons[buttonSelected - 1] = (ComponentUI*)prevButton;
+			}
+			else if (_listButtons[buttonSelected - 1]->GetGameObject()->GetComponent<ComponentUISlider>())
+			{
+				ComponentUISlider* prevButton = (ComponentUISlider*)_listButtons[buttonSelected - 1];
+
+				prevButton->State = SliderState::NORMAL;
+
+				_listButtons[buttonSelected - 1] = (ComponentUI*)prevButton;
+			}
+			else if (_listButtons[buttonSelected - 1]->GetGameObject()->GetComponent<ComponentUICheckbox>())
+			{
+				ComponentUICheckbox* prevButton = (ComponentUICheckbox*)_listButtons[buttonSelected - 1];
+
+				if (!prevButton->checkActive)
+				{
+					prevButton->State = CheckboxState::NORMAL;
+				}
+				else
+				{
+					prevButton->State = CheckboxState::ACTIVE;
+				}
+
+				_listButtons[buttonSelected - 1] = (ComponentUI*)prevButton;
+			}
+
+			if (_listButtons[buttonSelected + 1]->GetGameObject()->GetComponent<ComponentUIButton>())
+			{
+				ComponentUIButton* prevButton = (ComponentUIButton*)_listButtons[buttonSelected + 1];
+
+				prevButton->State = ButtonState::NORMAL;
+
+				_listButtons[buttonSelected + 1] = (ComponentUI*)prevButton;
+			}
+			else if (_listButtons[buttonSelected + 1]->GetGameObject()->GetComponent<ComponentUISlider>())
+			{
+				ComponentUISlider* prevButton = (ComponentUISlider*)_listButtons[buttonSelected + 1];
+
+				prevButton->State = SliderState::NORMAL;
+
+				_listButtons[buttonSelected + 1] = (ComponentUI*)prevButton;
+			}
+			else if (_listButtons[buttonSelected + 1]->GetGameObject()->GetComponent<ComponentUICheckbox>())
+			{
+				ComponentUICheckbox* prevButton = (ComponentUICheckbox*)_listButtons[buttonSelected + 1];
+
+				if (!prevButton->checkActive)
+				{
+					prevButton->State = CheckboxState::NORMAL;
+				}
+				else
+				{
+					prevButton->State = CheckboxState::ACTIVE;
+				}
+
+				_listButtons[buttonSelected + 1] = (ComponentUI*)prevButton;
+			}
+		}
+		else if (buttonSelected == 0)
+		{
+			if (_listButtons[buttonSelected + 1]->GetGameObject()->GetComponent<ComponentUIButton>())
+			{
+				ComponentUIButton* prevButton = (ComponentUIButton*)_listButtons[buttonSelected + 1];
+
+				prevButton->State = ButtonState::NORMAL;
+
+				_listButtons[buttonSelected + 1] = (ComponentUI*)prevButton;
+			}
+			else if (_listButtons[buttonSelected + 1]->GetGameObject()->GetComponent<ComponentUISlider>())
+			{
+				ComponentUISlider* prevButton = (ComponentUISlider*)_listButtons[buttonSelected + 1];
+
+				prevButton->State = SliderState::NORMAL;
+
+				_listButtons[buttonSelected + 1] = (ComponentUI*)prevButton;
+			}
+			else if (_listButtons[buttonSelected + 1]->GetGameObject()->GetComponent<ComponentUICheckbox>())
+			{
+				ComponentUICheckbox* prevButton = (ComponentUICheckbox*)_listButtons[buttonSelected + 1];
+
+				if (!prevButton->checkActive)
+				{
+					prevButton->State = CheckboxState::NORMAL;
+				}
+				else
+				{
+					prevButton->State = CheckboxState::ACTIVE;
+				}
+
+				_listButtons[buttonSelected + 1] = (ComponentUI*)prevButton;
+			}
+		}
+		else if (buttonSelected == _listButtons.size() - 1)
+		{
+			if (_listButtons[buttonSelected - 1]->GetGameObject()->GetComponent<ComponentUIButton>())
+			{
+				ComponentUIButton* prevButton = (ComponentUIButton*)_listButtons[buttonSelected - 1];
+
+				prevButton->State = ButtonState::NORMAL;
+
+				_listButtons[buttonSelected - 1] = (ComponentUI*)prevButton;
+			}
+			else if (_listButtons[buttonSelected - 1]->GetGameObject()->GetComponent<ComponentUISlider>())
+			{
+				ComponentUISlider* prevButton = (ComponentUISlider*)_listButtons[buttonSelected - 1];
+
+				prevButton->State = SliderState::NORMAL;
+
+				_listButtons[buttonSelected - 1] = (ComponentUI*)prevButton;
+			}
+			else if (_listButtons[buttonSelected - 1]->GetGameObject()->GetComponent<ComponentUICheckbox>())
+			{
+				ComponentUICheckbox* prevButton = (ComponentUICheckbox*)_listButtons[buttonSelected - 1];
+
+				if (!prevButton->checkActive)
+				{
+					prevButton->State = CheckboxState::NORMAL;
+				}
+				else
+				{
+					prevButton->State = CheckboxState::ACTIVE;
+				}
+
+				_listButtons[buttonSelected - 1] = (ComponentUI*)prevButton;
+			}
+		}
+	}
+
+	ComponentUICheckbox* auxiliarChec = (ComponentUICheckbox*)_listButtons[buttonSelected];
+
+	if (!auxiliarChec->checkActive)
+	{
+		auxiliarChec->State = CheckboxState::HOVERED;
+	}
+	else
+	{
+		auxiliarChec->State = CheckboxState::HOVEREDACTIVE;
+	}
+
+
+	if (ModuleInput::S_GetGamePadButton(GamePad::BUTTON_A) == KEY_REPEAT)
+	{
+		auxiliarChec->State = CheckboxState::ONPRESS;
+	}
+
+	if (ModuleInput::S_GetGamePadButton(GamePad::BUTTON_A) == KEY_UP)
+	{
+		auxiliarChec->checkActive = !auxiliarChec->checkActive;
+	}
+
+	_listButtons[buttonSelected] = (ComponentUI*)auxiliarChec;
 }
 
 #ifdef STANDALONE
@@ -331,6 +521,54 @@ void ComponentUICheckbox::OnEditor()
 
 				pressCB = (ResourceTexture*)ModuleResourceManager::S_LoadResource(*drop);
 				textureIDPressCB = pressCB->OpenGLID;
+			}
+			ImGui::EndDragDropTarget();
+		}
+
+		ImGui::TextWrapped("Path: "); ImGui::SameLine();
+		ImGui::TextColored(ImVec4(1, 1, 0, 1), imageName.c_str());
+
+		ImGui::TextWrapped("Width: "); ImGui::SameLine();
+		ImGui::TextColored(ImVec4(1, 1, 0, 1), std::to_string(width).c_str());
+
+		ImGui::TextWrapped("Height: "); ImGui::SameLine();
+		ImGui::TextColored(ImVec4(1, 1, 0, 1), std::to_string(height).c_str());
+	}
+
+	//////////////////////////////////////////////////////////////////////////////////////
+	ImGui::Text("");
+	ImGui::Text("");
+	ImGui::Text("Active:"); ImGui::SameLine();
+	{
+		//Mesh& mesh = _material->GetMesh();
+
+		std::string imageName;
+		int width = 0;
+		int height = 0;
+
+		if (textureIDActiveCB != -1.0f && hoverCB != nullptr)
+		{
+			ImGui::Image((ImTextureID)(uint)textureIDActiveCB, ImVec2(64, 64), ImVec2(0, 1), ImVec2(1, 0));
+
+			imageName = activeCB->debugName;
+			width = activeCB->width;
+			height = activeCB->height;
+		}
+		else
+		{
+			ImGui::Image((ImTextureID)0, ImVec2(64, 64), ImVec2(0, 1), ImVec2(1, 0));
+			imageName = "None";
+		}
+
+		if (ImGui::BeginDragDropTarget())
+		{
+			if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("Texture"))
+			{
+				//Drop asset from Asset window to scene window
+				const uint* drop = (uint*)payload->Data;
+
+				activeCB = (ResourceTexture*)ModuleResourceManager::S_LoadResource(*drop);
+				textureIDActiveCB = activeCB->OpenGLID;
 			}
 			ImGui::EndDragDropTarget();
 		}

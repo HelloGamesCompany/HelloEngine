@@ -4,6 +4,8 @@
 #include "TextureComponent.h"
 #include "ImWindowGame.h"
 #include "LayerEditor.h"
+#include "ComponentUIButton.h"
+#include "ComponentUICheckbox.h"
 
 ComponentUISlider::ComponentUISlider(GameObject* gameObject) : ComponentUI(gameObject)
 {
@@ -86,6 +88,187 @@ void ComponentUISlider::InputUpdate()
 			State = SliderState::NORMAL;
 		}
 	}
+}
+
+void ComponentUISlider::UpdateGamePadInput(std::vector<ComponentUI*>& _listButtons, int buttonSelected)
+{
+	if (_listButtons.size() != 1)
+	{
+		if (buttonSelected > 0 && buttonSelected < _listButtons.size() - 1)
+		{
+			if (_listButtons[buttonSelected - 1]->GetGameObject()->GetComponent<ComponentUIButton>())
+			{
+				ComponentUIButton* prevButton = (ComponentUIButton*)_listButtons[buttonSelected - 1];
+
+				prevButton->State = ButtonState::NORMAL;
+
+				_listButtons[buttonSelected - 1] = (ComponentUI*)prevButton;
+			}
+			else if (_listButtons[buttonSelected - 1]->GetGameObject()->GetComponent<ComponentUISlider>())
+			{
+				ComponentUISlider* prevButton = (ComponentUISlider*)_listButtons[buttonSelected - 1];
+
+				prevButton->State = SliderState::NORMAL;
+
+				_listButtons[buttonSelected - 1] = (ComponentUI*)prevButton;
+			}
+			else if (_listButtons[buttonSelected - 1]->GetGameObject()->GetComponent<ComponentUICheckbox>())
+			{
+				ComponentUICheckbox* prevButton = (ComponentUICheckbox*)_listButtons[buttonSelected - 1];
+
+				if (!prevButton->checkActive)
+				{
+					prevButton->State = CheckboxState::NORMAL;
+				}
+				else
+				{
+					prevButton->State = CheckboxState::ACTIVE;
+				}
+
+				_listButtons[buttonSelected - 1] = (ComponentUI*)prevButton;
+			}
+
+			if (_listButtons[buttonSelected + 1]->GetGameObject()->GetComponent<ComponentUIButton>())
+			{
+				ComponentUIButton* prevButton = (ComponentUIButton*)_listButtons[buttonSelected + 1];
+
+				prevButton->State = ButtonState::NORMAL;
+
+				_listButtons[buttonSelected + 1] = (ComponentUI*)prevButton;
+			}
+			else if (_listButtons[buttonSelected + 1]->GetGameObject()->GetComponent<ComponentUISlider>())
+			{
+				ComponentUISlider* prevButton = (ComponentUISlider*)_listButtons[buttonSelected + 1];
+
+				prevButton->State = SliderState::NORMAL;
+
+				_listButtons[buttonSelected + 1] = (ComponentUI*)prevButton;
+			}
+			else if (_listButtons[buttonSelected + 1]->GetGameObject()->GetComponent<ComponentUICheckbox>())
+			{
+				ComponentUICheckbox* prevButton = (ComponentUICheckbox*)_listButtons[buttonSelected + 1];
+
+				if (!prevButton->checkActive)
+				{
+					prevButton->State = CheckboxState::NORMAL;
+				}
+				else
+				{
+					prevButton->State = CheckboxState::ACTIVE;
+				}
+
+				_listButtons[buttonSelected + 1] = (ComponentUI*)prevButton;
+			}
+		}
+		else if (buttonSelected == 0)
+		{
+			if (_listButtons[buttonSelected + 1]->GetGameObject()->GetComponent<ComponentUIButton>())
+			{
+				ComponentUIButton* prevButton = (ComponentUIButton*)_listButtons[buttonSelected + 1];
+
+				prevButton->State = ButtonState::NORMAL;
+
+				_listButtons[buttonSelected + 1] = (ComponentUI*)prevButton;
+			}
+			else if (_listButtons[buttonSelected + 1]->GetGameObject()->GetComponent<ComponentUISlider>())
+			{
+				ComponentUISlider* prevButton = (ComponentUISlider*)_listButtons[buttonSelected + 1];
+
+				prevButton->State = SliderState::NORMAL;
+
+				_listButtons[buttonSelected + 1] = (ComponentUI*)prevButton;
+			}
+			else if (_listButtons[buttonSelected + 1]->GetGameObject()->GetComponent<ComponentUICheckbox>())
+			{
+				ComponentUICheckbox* prevButton = (ComponentUICheckbox*)_listButtons[buttonSelected + 1];
+
+				if (!prevButton->checkActive)
+				{
+					prevButton->State = CheckboxState::NORMAL;
+				}
+				else
+				{
+					prevButton->State = CheckboxState::ACTIVE;
+				}
+
+				_listButtons[buttonSelected + 1] = (ComponentUI*)prevButton;
+			}
+		}
+		else if (buttonSelected == _listButtons.size() - 1)
+		{
+			if (_listButtons[buttonSelected - 1]->GetGameObject()->GetComponent<ComponentUIButton>())
+			{
+				ComponentUIButton* prevButton = (ComponentUIButton*)_listButtons[buttonSelected - 1];
+
+				prevButton->State = ButtonState::NORMAL;
+
+				_listButtons[buttonSelected - 1] = (ComponentUI*)prevButton;
+			}
+			else if (_listButtons[buttonSelected - 1]->GetGameObject()->GetComponent<ComponentUISlider>())
+			{
+				ComponentUISlider* prevButton = (ComponentUISlider*)_listButtons[buttonSelected - 1];
+
+				prevButton->State = SliderState::NORMAL;
+
+				_listButtons[buttonSelected - 1] = (ComponentUI*)prevButton;
+			}
+			else if (_listButtons[buttonSelected - 1]->GetGameObject()->GetComponent<ComponentUICheckbox>())
+			{
+				ComponentUICheckbox* prevButton = (ComponentUICheckbox*)_listButtons[buttonSelected - 1];
+
+				if (!prevButton->checkActive)
+				{
+					prevButton->State = CheckboxState::NORMAL;
+				}
+				else
+				{
+					prevButton->State = CheckboxState::ACTIVE;
+				}
+
+				_listButtons[buttonSelected - 1] = (ComponentUI*)prevButton;
+			}
+		}
+	}
+
+	ComponentUISlider* auxiliarSlider = (ComponentUISlider*)_listButtons[buttonSelected];
+
+	auxiliarSlider->State = SliderState::ONPRESS;
+
+	if (ModuleInput::S_GetGamePadAxis(SDL_CONTROLLER_AXIS_LEFTX) < -10000 || ModuleInput::S_GetGamePadButton(GamePad::BUTTON_LEFT) == KEY_DOWN)
+	{
+		for (size_t i = 0; i < _gameObject->GetParent()->GetChildren()->size(); i++)
+		{
+			if (_gameObject->GetParent()->GetChildren()->at(i)->GetTag() == "UIsliderBar")
+			{
+				widthBar = _gameObject->GetParent()->GetChildren()->at(i)->transform->GetGlobalScale().x;
+			}
+		}
+
+		if (mousePosX > -widthBar)
+		{
+			mousePosX -= 0.01f;
+		}
+	}
+	if (ModuleInput::S_GetGamePadAxis(SDL_CONTROLLER_AXIS_LEFTX) > 10000 || ModuleInput::S_GetGamePadButton(GamePad::BUTTON_RIGHT) == KEY_DOWN)
+	{
+		for (size_t i = 0; i < _gameObject->GetParent()->GetChildren()->size(); i++)
+		{
+			if (_gameObject->GetParent()->GetChildren()->at(i)->GetTag() == "UIsliderBar")
+			{
+				widthBar = _gameObject->GetParent()->GetChildren()->at(i)->transform->GetGlobalScale().x;
+			}
+		}
+
+		if (mousePosX < widthBar)
+		{
+			mousePosX += 0.01f;
+		}
+	}
+
+	_gameObject->transform->SetPosition({ mousePosX, _gameObject->transform->GetGlobalScale().y, _gameObject->transform->GetGlobalScale().z });
+
+
+	_listButtons[buttonSelected] = (ComponentUI*)auxiliarSlider;
 }
 
 void ComponentUISlider::Serialization(json& j)

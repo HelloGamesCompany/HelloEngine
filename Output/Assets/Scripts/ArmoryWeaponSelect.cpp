@@ -32,6 +32,7 @@ void ArmoryWeaponSelect::Start()
 {
 	nextW = (ArmoryWeaponSelect*)NextWeapon.GetScript("ArmoryWeaponSelect");
 	PrevW = (ArmoryWeaponSelect*)PrevtWeapon.GetScript("ArmoryWeaponSelect");
+	CurrentPanelUnlock.SetEnable(false);
 }
 void ArmoryWeaponSelect::Update()
 {
@@ -42,6 +43,7 @@ void ArmoryWeaponSelect::Update()
 		{
 			SelectedWeapon.ChangeAlbedoTexture(CurrentTextureWeapon);
 			CurrentPanelUpgrate.GetGameObject().SetActive(true);
+			CurrentPanelUnlock.GetGameObject().SetActive(false);
 			//CurrentWeapon.GetGameObject().GetMaterialCompoennt().ChangeAlbedoTexture(CurrentTextureWeapon);
 		}
 		else
@@ -70,8 +72,7 @@ void ArmoryWeaponSelect::Update()
 		}
 		else
 		{
-			CurrentPanelUnlock.GetGameObject().SetActive(false);
-			//CurrentPanelUnlock.SetEnable(false);
+			CurrentPanelUnlock.SetEnable(true);
 			unlockPress++;
 		}
 	}
