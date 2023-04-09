@@ -32,5 +32,8 @@ public:
 
     int gunIndex;
     int gunLevel;
+
+    float manteinTime = 0.0f;
+    int upgradingLevel;
 };
 
