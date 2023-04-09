@@ -156,90 +156,6 @@
                     },
                     {
                         "Player Stats GO": 2404673066
-                    },
-                    {
-                        "Velocity": 10.0
-                    },
-                    {
-                        "Upgrade Velocity": 2.0
-                    },
-                    {
-                        "SecToMaxVel": 0.0
-                    },
-                    {
-                        "SecToZeroVel": 0.0
-                    },
-                    {
-                        "Dash Time": 0.5
-                    },
-                    {
-                        "Dash Distance": 5.0
-                    },
-                    {
-                        "Upgrade Dash Distance": 8.0
-                    },
-                    {
-                        "Dash Cooldown": 0.0
-                    },
-                    {
-                        "Upgrade Dash Cooldown": 0.0
-                    },
-                    {
-                        "Dash Animation": 3797853291
-                    },
-                    {
-                        "Idle Animation": 1165806223
-                    },
-                    {
-                        "Run Animation": 462511998
-                    },
-                    {
-                        "Shoot Animations": 3469875527
-                    },
-                    {
-                        "Player Stats GO": 2404673066
-                    },
-                    {
-                        "Velocity": 10.0
-                    },
-                    {
-                        "Upgrade Velocity": 2.0
-                    },
-                    {
-                        "SecToMaxVel": 0.0
-                    },
-                    {
-                        "SecToZeroVel": 0.0
-                    },
-                    {
-                        "Dash Time": 0.5
-                    },
-                    {
-                        "Dash Distance": 5.0
-                    },
-                    {
-                        "Upgrade Dash Distance": 8.0
-                    },
-                    {
-                        "Dash Cooldown": 0.0
-                    },
-                    {
-                        "Upgrade Dash Cooldown": 0.0
-                    },
-                    {
-                        "Dash Animation": 3797853291
-                    },
-                    {
-                        "Idle Animation": 1165806223
-                    },
-                    {
-                        "Run Animation": 462511998
-                    },
-                    {
-                        "Shoot Animations": 3469875527
-                    },
-                    {
-                        "Player Stats GO": 2404673066
                     }
                 ],
                 "Script Resource": 3336682094,
@@ -277,66 +193,6 @@
                     },
                     {
                         "special tree lvl": 0
-                    },
-                    {
-                        "Max HP": 327.0
-                    },
-                    {
-                        "Current HP": 127.0
-                    },
-                    {
-                        "Upgraded Max HP": 0.0
-                    },
-                    {
-                        "Laser Ammo": 99999
-                    },
-                    {
-                        "Fire Ammo": 99999
-                    },
-                    {
-                        "Ricochet Ammo": 99999
-                    },
-                    {
-                        "movement tree lvl": 0
-                    },
-                    {
-                        "armory tree lvl": 0
-                    },
-                    {
-                        "health tree lvl": 0
-                    },
-                    {
-                        "special tree lvl": 0
-                    },
-                    {
-                        "Max HP": 327.0
-                    },
-                    {
-                        "Current HP": 127.0
-                    },
-                    {
-                        "Upgraded Max HP": 0.0
-                    },
-                    {
-                        "Laser Ammo": 99999
-                    },
-                    {
-                        "Fire Ammo": 99999
-                    },
-                    {
-                        "Ricochet Ammo": 99999
-                    },
-                    {
-                        "movement tree lvl": 0
-                    },
-                    {
-                        "armory tree lvl": 0
-                    },
-                    {
-                        "health tree lvl": 0
-                    },
-                    {
-                        "special tree lvl": 0
                     }
                 ],
                 "Script Resource": 4283682555,
@@ -345,48 +201,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Player Stats GO": 2404673066
-                    },
-                    {
-                        "Base Gun": 0
-                    },
-                    {
-                        "Normal Gun": 0
-                    },
-                    {
-                        "Special Gun": 0
-                    },
-                    {
-                        "Duals": 3362283822
-                    },
-                    {
-                        "Swap Delay": 0.0
-                    },
-                    {
-                        "Fast Swap Delay": 0.0
-                    },
-                    {
-                        "Player Stats GO": 2404673066
-                    },
-                    {
-                        "Base Gun": 0
-                    },
-                    {
-                        "Normal Gun": 0
-                    },
-                    {
-                        "Special Gun": 0
-                    },
-                    {
-                        "Duals": 3362283822
-                    },
-                    {
-                        "Swap Delay": 0.0
-                    },
-                    {
-                        "Fast Swap Delay": 0.0
-                    },
                     {
                         "Player Stats GO": 2404673066
                     },
@@ -5890,12 +5704,6 @@
                 "Inspector Fields": [
                     {
                         "Gun Type": 0
-                    },
-                    {
-                        "Gun Type": 0
-                    },
-                    {
-                        "Gun Type": 0
                     }
                 ],
                 "Script Resource": 1421097082,
@@ -5904,134 +5712,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Projectile Pull": 3221176294
-                    },
-                    {
-                        "Projectile Speed": 40.0
-                    },
-                    {
-                        "Projectile Damage": 5.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 1.0
-                    },
-                    {
-                        "Projectile Spawn": 3362283822
-                    },
-                    {
-                        "Second Projectile Spawn": 2416443458
-                    },
-                    {
-                        "Projectile MeshIndexInsideModel": 0,
-                        "Projectile MeshModelUID": 1551155716
-                    },
-                    {
-                        "Projectile Material": 1412513036
-                    },
-                    {
-                        "Projectile ScaleX": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleY": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleZ": 0.10000000149011612
-                    },
-                    {
-                        "Projectiles per second": 2.0
-                    },
-                    {
-                        "Extra % firerate": 0.0
-                    },
-                    {
-                        "Burst Space": 0.10000000149011612
-                    },
-                    {
-                        "Second Gun GO": 2416443458
-                    },
-                    {
-                        "Slow %": 0.0
-                    },
-                    {
-                        "Freeze %": 0.0
-                    },
-                    {
-                        "Player Stats GO": 2404673066
-                    },
-                    {
-                        "Ammo Type": 0
-                    },
-                    {
-                        "Audio Event String": "basic_shooting"
-                    },
-                    {
-                        "Projectile Pull": 3221176294
-                    },
-                    {
-                        "Projectile Speed": 40.0
-                    },
-                    {
-                        "Projectile Damage": 5.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 1.0
-                    },
-                    {
-                        "Projectile Spawn": 3362283822
-                    },
-                    {
-                        "Second Projectile Spawn": 2416443458
-                    },
-                    {
-                        "Projectile MeshIndexInsideModel": 0,
-                        "Projectile MeshModelUID": 1551155716
-                    },
-                    {
-                        "Projectile Material": 1412513036
-                    },
-                    {
-                        "Projectile ScaleX": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleY": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleZ": 0.10000000149011612
-                    },
-                    {
-                        "Projectiles per second": 2.0
-                    },
-                    {
-                        "Extra % firerate": 0.0
-                    },
-                    {
-                        "Burst Space": 0.10000000149011612
-                    },
-                    {
-                        "Second Gun GO": 2416443458
-                    },
-                    {
-                        "Slow %": 0.0
-                    },
-                    {
-                        "Freeze %": 0.0
-                    },
-                    {
-                        "Player Stats GO": 2404673066
-                    },
-                    {
-                        "Ammo Type": 0
-                    },
-                    {
-                        "Audio Event String": "basic_shooting"
-                    },
                     {
                         "Projectile Pull": 3221176294
                     },
@@ -6913,7 +6593,7 @@
             {
                 "Active camera": true,
                 "Active culling": true,
-                "Aspect ratio": 1.3033268451690674,
+                "Aspect ratio": 2.017937183380127,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -6925,66 +6605,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Target": 2404673066
-                    },
-                    {
-                        "Delay": 0.019999999552965164
-                    },
-                    {
-                        "Offset_X": 0.0
-                    },
-                    {
-                        "Offset_Y": 25.0
-                    },
-                    {
-                        "Offset_Z": -20.0
-                    },
-                    {
-                        "Rot_X": 50.0
-                    },
-                    {
-                        "Rot_Y": 0.0
-                    },
-                    {
-                        "Rot_Z": 0.0
-                    },
-                    {
-                        "SafeZone_Distance": 10.0
-                    },
-                    {
-                        "Use safe zone: ": true
-                    },
-                    {
-                        "Target": 2404673066
-                    },
-                    {
-                        "Delay": 0.019999999552965164
-                    },
-                    {
-                        "Offset_X": 0.0
-                    },
-                    {
-                        "Offset_Y": 25.0
-                    },
-                    {
-                        "Offset_Z": -20.0
-                    },
-                    {
-                        "Rot_X": 50.0
-                    },
-                    {
-                        "Rot_Y": 0.0
-                    },
-                    {
-                        "Rot_Z": 0.0
-                    },
-                    {
-                        "SafeZone_Distance": 10.0
-                    },
-                    {
-                        "Use safe zone: ": true
-                    },
                     {
                         "Target": 2404673066
                     },
@@ -7135,46 +6755,16 @@
                         "SHIELD": 3102069384
                     },
                     {
-                        "hp": 1500.0
+                        "Cover1": 3379009837
                     },
                     {
-                        "Phase": 0
+                        "Cover2": 14120590
                     },
                     {
-                        "Weakness": 0.0
+                        "Cover3": 3837052902
                     },
                     {
-                        "shield1Hp": 490.0
-                    },
-                    {
-                        "shield2Hp": 750.0
-                    },
-                    {
-                        "shield3Hp": 1000.0
-                    },
-                    {
-                        "SHIELD": 3102069384
-                    },
-                    {
-                        "hp": 1500.0
-                    },
-                    {
-                        "Phase": 0
-                    },
-                    {
-                        "Weakness": 0.0
-                    },
-                    {
-                        "shield1Hp": 490.0
-                    },
-                    {
-                        "shield2Hp": 750.0
-                    },
-                    {
-                        "shield3Hp": 1000.0
-                    },
-                    {
-                        "SHIELD": 3102069384
+                        "Cover4": 1084213533
                     }
                 ],
                 "Script Resource": 749246839,
@@ -7272,186 +6862,6 @@
                     },
                     {
                         "Rock20": 1978650304
-                    },
-                    {
-                        "AttackType": 4
-                    },
-                    {
-                        "Attacking": false
-                    },
-                    {
-                        "Boss": 2563879370
-                    },
-                    {
-                        "Player": 2404673066
-                    },
-                    {
-                        "OrbitingRocks": 3972765751
-                    },
-                    {
-                        "explosionWave1": 3933760063
-                    },
-                    {
-                        "Distance": 0.0
-                    },
-                    {
-                        "Cooldown": 1.0180000066757202
-                    },
-                    {
-                        "RotationSpeed": 1.0
-                    },
-                    {
-                        "Radius": 0.5
-                    },
-                    {
-                        "Rock1": 2410607890
-                    },
-                    {
-                        "Rock2": 3084818490
-                    },
-                    {
-                        "Rock3": 1560165084
-                    },
-                    {
-                        "Rock4": 530397323
-                    },
-                    {
-                        "Rock5": 2958180871
-                    },
-                    {
-                        "Rock6": 3533609395
-                    },
-                    {
-                        "Rock7": 1987941710
-                    },
-                    {
-                        "Rock8": 1463645605
-                    },
-                    {
-                        "Rock9": 2371568105
-                    },
-                    {
-                        "Rock10": 3810245373
-                    },
-                    {
-                        "Rock11": 3028010784
-                    },
-                    {
-                        "Rock12": 3259003296
-                    },
-                    {
-                        "Rock13": 536157727
-                    },
-                    {
-                        "Rock14": 276341930
-                    },
-                    {
-                        "Rock15": 2042989746
-                    },
-                    {
-                        "Rock16": 2852131930
-                    },
-                    {
-                        "Rock17": 3349069858
-                    },
-                    {
-                        "Rock18": 408018569
-                    },
-                    {
-                        "Rock19": 4042063901
-                    },
-                    {
-                        "Rock20": 1978650304
-                    },
-                    {
-                        "AttackType": 4
-                    },
-                    {
-                        "Attacking": false
-                    },
-                    {
-                        "Boss": 2563879370
-                    },
-                    {
-                        "Player": 2404673066
-                    },
-                    {
-                        "OrbitingRocks": 3972765751
-                    },
-                    {
-                        "explosionWave1": 3933760063
-                    },
-                    {
-                        "Distance": 0.0
-                    },
-                    {
-                        "Cooldown": 1.0180000066757202
-                    },
-                    {
-                        "RotationSpeed": 1.0
-                    },
-                    {
-                        "Radius": 0.5
-                    },
-                    {
-                        "Rock1": 2410607890
-                    },
-                    {
-                        "Rock2": 3084818490
-                    },
-                    {
-                        "Rock3": 1560165084
-                    },
-                    {
-                        "Rock4": 530397323
-                    },
-                    {
-                        "Rock5": 2958180871
-                    },
-                    {
-                        "Rock6": 3533609395
-                    },
-                    {
-                        "Rock7": 1987941710
-                    },
-                    {
-                        "Rock8": 1463645605
-                    },
-                    {
-                        "Rock9": 2371568105
-                    },
-                    {
-                        "Rock10": 3810245373
-                    },
-                    {
-                        "Rock11": 3028010784
-                    },
-                    {
-                        "Rock12": 3259003296
-                    },
-                    {
-                        "Rock13": 536157727
-                    },
-                    {
-                        "Rock14": 276341930
-                    },
-                    {
-                        "Rock15": 2042989746
-                    },
-                    {
-                        "Rock16": 2852131930
-                    },
-                    {
-                        "Rock17": 3349069858
-                    },
-                    {
-                        "Rock18": 408018569
-                    },
-                    {
-                        "Rock19": 4042063901
-                    },
-                    {
-                        "Rock20": 1978650304
                     }
                 ],
                 "Script Resource": 216237784,
@@ -7460,18 +6870,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Player": 2404673066
-                    },
-                    {
-                        "Boss": 2563879370
-                    },
-                    {
-                        "Player": 2404673066
-                    },
-                    {
-                        "Boss": 2563879370
-                    },
                     {
                         "Player": 2404673066
                     },
@@ -12558,26 +11956,6 @@
                     {
                         "Stone MeshIndexInsideModel": 0,
                         "Stone MeshModelUID": 1551155716
-                    },
-                    {
-                        "Boss": 2563879370
-                    },
-                    {
-                        "Num Rock": 19
-                    },
-                    {
-                        "Stone MeshIndexInsideModel": 0,
-                        "Stone MeshModelUID": 1551155716
-                    },
-                    {
-                        "Boss": 2563879370
-                    },
-                    {
-                        "Num Rock": 19
-                    },
-                    {
-                        "Stone MeshIndexInsideModel": 0,
-                        "Stone MeshModelUID": 1551155716
                     }
                 ],
                 "Script Resource": 1938644800,
@@ -12809,26 +12187,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Boss": 2563879370
-                    },
-                    {
-                        "Num Rock": 18
-                    },
-                    {
-                        "Stone MeshIndexInsideModel": 0,
-                        "Stone MeshModelUID": 1551155716
-                    },
-                    {
-                        "Boss": 2563879370
-                    },
-                    {
-                        "Num Rock": 18
-                    },
-                    {
-                        "Stone MeshIndexInsideModel": 0,
-                        "Stone MeshModelUID": 1551155716
-                    },
                     {
                         "Boss": 2563879370
                     },
@@ -13078,26 +12436,6 @@
                     {
                         "Stone MeshIndexInsideModel": 0,
                         "Stone MeshModelUID": 1551155716
-                    },
-                    {
-                        "Boss": 2563879370
-                    },
-                    {
-                        "Num Rock": 17
-                    },
-                    {
-                        "Stone MeshIndexInsideModel": 0,
-                        "Stone MeshModelUID": 1551155716
-                    },
-                    {
-                        "Boss": 2563879370
-                    },
-                    {
-                        "Num Rock": 17
-                    },
-                    {
-                        "Stone MeshIndexInsideModel": 0,
-                        "Stone MeshModelUID": 1551155716
                     }
                 ],
                 "Script Resource": 1938644800,
@@ -13329,26 +12667,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Boss": 2563879370
-                    },
-                    {
-                        "Num Rock": 16
-                    },
-                    {
-                        "Stone MeshIndexInsideModel": 0,
-                        "Stone MeshModelUID": 1551155716
-                    },
-                    {
-                        "Boss": 2563879370
-                    },
-                    {
-                        "Num Rock": 16
-                    },
-                    {
-                        "Stone MeshIndexInsideModel": 0,
-                        "Stone MeshModelUID": 1551155716
-                    },
                     {
                         "Boss": 2563879370
                     },
@@ -13819,26 +13137,6 @@
                     {
                         "Stone MeshIndexInsideModel": 0,
                         "Stone MeshModelUID": 1551155716
-                    },
-                    {
-                        "Boss": 2563879370
-                    },
-                    {
-                        "Num Rock": 0
-                    },
-                    {
-                        "Stone MeshIndexInsideModel": 0,
-                        "Stone MeshModelUID": 1551155716
-                    },
-                    {
-                        "Boss": 2563879370
-                    },
-                    {
-                        "Num Rock": 0
-                    },
-                    {
-                        "Stone MeshIndexInsideModel": 0,
-                        "Stone MeshModelUID": 1551155716
                     }
                 ],
                 "Script Resource": 1938644800,
@@ -14140,26 +13438,6 @@
                     {
                         "Stone MeshIndexInsideModel": 0,
                         "Stone MeshModelUID": 1551155716
-                    },
-                    {
-                        "Boss": 2563879370
-                    },
-                    {
-                        "Num Rock": 1
-                    },
-                    {
-                        "Stone MeshIndexInsideModel": 0,
-                        "Stone MeshModelUID": 1551155716
-                    },
-                    {
-                        "Boss": 2563879370
-                    },
-                    {
-                        "Num Rock": 1
-                    },
-                    {
-                        "Stone MeshIndexInsideModel": 0,
-                        "Stone MeshModelUID": 1551155716
                     }
                 ],
                 "Script Resource": 1938644800,
@@ -14268,7 +13546,7 @@
             }
         ],
         "FirstOnPrefab": true,
-        "Name": "Cube",
+        "Name": "Cover1",
         "ParentUID": 848935399,
         "PrefabUID": 0,
         "Tag": "Primitive",
@@ -14492,26 +13770,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Boss": 2563879370
-                    },
-                    {
-                        "Num Rock": 2
-                    },
-                    {
-                        "Stone MeshIndexInsideModel": 0,
-                        "Stone MeshModelUID": 1551155716
-                    },
-                    {
-                        "Boss": 2563879370
-                    },
-                    {
-                        "Num Rock": 2
-                    },
-                    {
-                        "Stone MeshIndexInsideModel": 0,
-                        "Stone MeshModelUID": 1551155716
-                    },
                     {
                         "Boss": 2563879370
                     },
@@ -14761,26 +14019,6 @@
                     {
                         "Stone MeshIndexInsideModel": 0,
                         "Stone MeshModelUID": 1551155716
-                    },
-                    {
-                        "Boss": 2563879370
-                    },
-                    {
-                        "Num Rock": 3
-                    },
-                    {
-                        "Stone MeshIndexInsideModel": 0,
-                        "Stone MeshModelUID": 1551155716
-                    },
-                    {
-                        "Boss": 2563879370
-                    },
-                    {
-                        "Num Rock": 3
-                    },
-                    {
-                        "Stone MeshIndexInsideModel": 0,
-                        "Stone MeshModelUID": 1551155716
                     }
                 ],
                 "Script Resource": 1938644800,
@@ -15012,26 +14250,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Boss": 2563879370
-                    },
-                    {
-                        "Num Rock": 4
-                    },
-                    {
-                        "Stone MeshIndexInsideModel": 0,
-                        "Stone MeshModelUID": 1551155716
-                    },
-                    {
-                        "Boss": 2563879370
-                    },
-                    {
-                        "Num Rock": 4
-                    },
-                    {
-                        "Stone MeshIndexInsideModel": 0,
-                        "Stone MeshModelUID": 1551155716
-                    },
                     {
                         "Boss": 2563879370
                     },
@@ -15281,26 +14499,6 @@
                     {
                         "Stone MeshIndexInsideModel": 0,
                         "Stone MeshModelUID": 1551155716
-                    },
-                    {
-                        "Boss": 2563879370
-                    },
-                    {
-                        "Num Rock": 5
-                    },
-                    {
-                        "Stone MeshIndexInsideModel": 0,
-                        "Stone MeshModelUID": 1551155716
-                    },
-                    {
-                        "Boss": 2563879370
-                    },
-                    {
-                        "Num Rock": 5
-                    },
-                    {
-                        "Stone MeshIndexInsideModel": 0,
-                        "Stone MeshModelUID": 1551155716
                     }
                 ],
                 "Script Resource": 1938644800,
@@ -15360,7 +14558,7 @@
                 "ColScale": [
                     0.6000000238418579,
                     0.6000000238418579,
-                    0.6000000238418579
+                    2.5999999046325684
                 ],
                 "CylVerSlices": 16,
                 "CylinderRadiusHeight": [
@@ -15380,7 +14578,7 @@
                 ],
                 "HasPhysBody": true,
                 "IsKinematic": false,
-                "IsRenderingCol": false,
+                "IsRenderingCol": true,
                 "IsShapeCreated": [
                     false,
                     false,
@@ -15393,7 +14591,7 @@
                 ],
                 "IsStatic": false,
                 "IsTrigger": false,
-                "Mass": 0.0,
+                "Mass": 1.9500000476837158,
                 "RenderColColor": [
                     0.5,
                     0.0,
@@ -15421,7 +14619,7 @@
                 "ColScale": [
                     0.6000000238418579,
                     0.6000000238418579,
-                    0.6000000238418579
+                    2.5999999046325684
                 ],
                 "CylVerSlices": 16,
                 "CylinderRadiusHeight": [
@@ -15454,7 +14652,7 @@
                 ],
                 "IsStatic": false,
                 "IsTrigger": false,
-                "Mass": 0.0,
+                "Mass": 1.9500000476837158,
                 "RenderColColor": [
                     0.5,
                     0.0,
@@ -15482,7 +14680,7 @@
                 "ColScale": [
                     0.6000000238418579,
                     0.6000000238418579,
-                    0.6000000238418579
+                    2.5999999046325684
                 ],
                 "CylVerSlices": 16,
                 "CylinderRadiusHeight": [
@@ -15515,7 +14713,7 @@
                 ],
                 "IsStatic": false,
                 "IsTrigger": false,
-                "Mass": 0.0,
+                "Mass": 1.9500000476837158,
                 "RenderColColor": [
                     0.5,
                     0.0,
@@ -15532,26 +14730,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Boss": 2563879370
-                    },
-                    {
-                        "Num Rock": 6
-                    },
-                    {
-                        "Stone MeshIndexInsideModel": 0,
-                        "Stone MeshModelUID": 1551155716
-                    },
-                    {
-                        "Boss": 2563879370
-                    },
-                    {
-                        "Num Rock": 6
-                    },
-                    {
-                        "Stone MeshIndexInsideModel": 0,
-                        "Stone MeshModelUID": 1551155716
-                    },
                     {
                         "Boss": 2563879370
                     },
@@ -15801,26 +14979,6 @@
                     {
                         "Stone MeshIndexInsideModel": 0,
                         "Stone MeshModelUID": 1551155716
-                    },
-                    {
-                        "Boss": 2563879370
-                    },
-                    {
-                        "Num Rock": 7
-                    },
-                    {
-                        "Stone MeshIndexInsideModel": 0,
-                        "Stone MeshModelUID": 1551155716
-                    },
-                    {
-                        "Boss": 2563879370
-                    },
-                    {
-                        "Num Rock": 7
-                    },
-                    {
-                        "Stone MeshIndexInsideModel": 0,
-                        "Stone MeshModelUID": 1551155716
                     }
                 ],
                 "Script Resource": 1938644800,
@@ -16052,26 +15210,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Boss": 2563879370
-                    },
-                    {
-                        "Num Rock": 8
-                    },
-                    {
-                        "Stone MeshIndexInsideModel": 0,
-                        "Stone MeshModelUID": 1551155716
-                    },
-                    {
-                        "Boss": 2563879370
-                    },
-                    {
-                        "Num Rock": 8
-                    },
-                    {
-                        "Stone MeshIndexInsideModel": 0,
-                        "Stone MeshModelUID": 1551155716
-                    },
                     {
                         "Boss": 2563879370
                     },
@@ -16321,26 +15459,6 @@
                     {
                         "Stone MeshIndexInsideModel": 0,
                         "Stone MeshModelUID": 1551155716
-                    },
-                    {
-                        "Boss": 2563879370
-                    },
-                    {
-                        "Num Rock": 9
-                    },
-                    {
-                        "Stone MeshIndexInsideModel": 0,
-                        "Stone MeshModelUID": 1551155716
-                    },
-                    {
-                        "Boss": 2563879370
-                    },
-                    {
-                        "Num Rock": 9
-                    },
-                    {
-                        "Stone MeshIndexInsideModel": 0,
-                        "Stone MeshModelUID": 1551155716
                     }
                 ],
                 "Script Resource": 1938644800,
@@ -16572,26 +15690,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Boss": 2563879370
-                    },
-                    {
-                        "Num Rock": 10
-                    },
-                    {
-                        "Stone MeshIndexInsideModel": 0,
-                        "Stone MeshModelUID": 1551155716
-                    },
-                    {
-                        "Boss": 2563879370
-                    },
-                    {
-                        "Num Rock": 10
-                    },
-                    {
-                        "Stone MeshIndexInsideModel": 0,
-                        "Stone MeshModelUID": 1551155716
-                    },
                     {
                         "Boss": 2563879370
                     },
@@ -16841,26 +15939,6 @@
                     {
                         "Stone MeshIndexInsideModel": 0,
                         "Stone MeshModelUID": 1551155716
-                    },
-                    {
-                        "Boss": 2563879370
-                    },
-                    {
-                        "Num Rock": 11
-                    },
-                    {
-                        "Stone MeshIndexInsideModel": 0,
-                        "Stone MeshModelUID": 1551155716
-                    },
-                    {
-                        "Boss": 2563879370
-                    },
-                    {
-                        "Num Rock": 11
-                    },
-                    {
-                        "Stone MeshIndexInsideModel": 0,
-                        "Stone MeshModelUID": 1551155716
                     }
                 ],
                 "Script Resource": 1938644800,
@@ -17092,26 +16170,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Boss": 2563879370
-                    },
-                    {
-                        "Num Rock": 12
-                    },
-                    {
-                        "Stone MeshIndexInsideModel": 0,
-                        "Stone MeshModelUID": 1551155716
-                    },
-                    {
-                        "Boss": 2563879370
-                    },
-                    {
-                        "Num Rock": 12
-                    },
-                    {
-                        "Stone MeshIndexInsideModel": 0,
-                        "Stone MeshModelUID": 1551155716
-                    },
                     {
                         "Boss": 2563879370
                     },
@@ -17361,26 +16419,6 @@
                     {
                         "Stone MeshIndexInsideModel": 0,
                         "Stone MeshModelUID": 1551155716
-                    },
-                    {
-                        "Boss": 2563879370
-                    },
-                    {
-                        "Num Rock": 13
-                    },
-                    {
-                        "Stone MeshIndexInsideModel": 0,
-                        "Stone MeshModelUID": 1551155716
-                    },
-                    {
-                        "Boss": 2563879370
-                    },
-                    {
-                        "Num Rock": 13
-                    },
-                    {
-                        "Stone MeshIndexInsideModel": 0,
-                        "Stone MeshModelUID": 1551155716
                     }
                 ],
                 "Script Resource": 1938644800,
@@ -17612,26 +16650,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Boss": 2563879370
-                    },
-                    {
-                        "Num Rock": 14
-                    },
-                    {
-                        "Stone MeshIndexInsideModel": 0,
-                        "Stone MeshModelUID": 1551155716
-                    },
-                    {
-                        "Boss": 2563879370
-                    },
-                    {
-                        "Num Rock": 14
-                    },
-                    {
-                        "Stone MeshIndexInsideModel": 0,
-                        "Stone MeshModelUID": 1551155716
-                    },
                     {
                         "Boss": 2563879370
                     },
@@ -17881,26 +16899,6 @@
                     {
                         "Stone MeshIndexInsideModel": 0,
                         "Stone MeshModelUID": 1551155716
-                    },
-                    {
-                        "Boss": 2563879370
-                    },
-                    {
-                        "Num Rock": 15
-                    },
-                    {
-                        "Stone MeshIndexInsideModel": 0,
-                        "Stone MeshModelUID": 1551155716
-                    },
-                    {
-                        "Boss": 2563879370
-                    },
-                    {
-                        "Num Rock": 15
-                    },
-                    {
-                        "Stone MeshIndexInsideModel": 0,
-                        "Stone MeshModelUID": 1551155716
                     }
                 ],
                 "Script Resource": 1938644800,
@@ -17939,24 +16937,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Pull Size": 20
-                    },
-                    {
-                        "Player": 2404673066
-                    },
-                    {
-                        "Particles": 121206811
-                    },
-                    {
-                        "Pull Size": 20
-                    },
-                    {
-                        "Player": 2404673066
-                    },
-                    {
-                        "Particles": 121206811
-                    },
                     {
                         "Pull Size": 20
                     },
@@ -81251,5 +80231,125 @@
         "PrefabUID": 0,
         "Tag": "Stone",
         "UID": 201246460
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    387.47381591796875
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    4.380000114440918,
+                    4.380000114440918,
+                    4.380000114440918
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 10,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cover2",
+        "ParentUID": 848935399,
+        "PrefabUID": 0,
+        "Tag": "Primitive",
+        "UID": 14120590
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -87.85614013671875,
+                    0.0,
+                    404.74658203125
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    3.609999895095825,
+                    3.609999895095825,
+                    3.609999895095825
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 10,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cover3",
+        "ParentUID": 848935399,
+        "PrefabUID": 0,
+        "Tag": "Primitive",
+        "UID": 3837052902
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -52.866188049316406,
+                    6.948231220245361,
+                    443.65875244140625
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    5.409999847412109,
+                    5.409999847412109,
+                    5.409999847412109
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 10,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cover4",
+        "ParentUID": 848935399,
+        "PrefabUID": 0,
+        "Tag": "Primitive",
+        "UID": 1084213533
     }
 ]

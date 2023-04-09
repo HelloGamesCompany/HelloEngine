@@ -136,11 +136,21 @@ UpdateStatus ModulePhysics::PreUpdate()
 			if (pBodyA && pBodyB)
 			{
 				if (ModuleLayers::gameObjects.count(pBodyA->gameObjectUID) != 0 && ModuleLayers::gameObjects[pBodyA->gameObjectUID] != nullptr)
-					ModuleLayers::gameObjects[pBodyA->gameObjectUID]->OnCollisionEnter(pBodyB);
-
+				{
+					GameObject* objectA = ModuleLayers::gameObjects[pBodyA->gameObjectUID];
+					GameObject* objectB = ModuleLayers::gameObjects[pBodyB->gameObjectUID];
+					if (!objectA->IsActive() || !objectB->IsActive())
+						continue;
+					objectA->OnCollisionEnter(pBodyB);
+				}
+				
 				if (ModuleLayers::gameObjects.count(pBodyB->gameObjectUID) != 0 && ModuleLayers::gameObjects[pBodyB->gameObjectUID] != nullptr)
-					ModuleLayers::gameObjects[pBodyB->gameObjectUID]->OnCollisionEnter(pBodyA);
-
+				{
+					GameObject* objectB = ModuleLayers::gameObjects[pBodyB->gameObjectUID];
+					if (!objectB->IsActive())
+						continue;
+					objectB->OnCollisionEnter(pBodyA);
+				}
 			}
 		}
 	}

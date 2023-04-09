@@ -48,7 +48,11 @@ std::string MeshImporter::ImportModel(std::string path, uint UID)
 		ModuleFiles::S_Save(assetPath, &buffer, sizeof(char), false);
 
 		//Save
-		ModuleFiles::S_CreateMetaData(assetPath, pathRes);
+		std::string metaDataPath = assetPath + ".helloMeta";
+		if (!ModuleFiles::S_Exists(metaDataPath))
+			ModuleFiles::S_CreateMetaData(assetPath, pathRes);
+		else
+			ModuleFiles::S_UpdateMetaData(assetPath, pathRes);
 	}
 
 	currentPath = "";

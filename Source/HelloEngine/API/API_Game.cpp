@@ -41,6 +41,29 @@ API::API_GameObject API::Game::CreateGameObject(const char* name, const char* ta
 	return newAPIGameObject;
 }
 
+TO_API API::API_GameObject API::Game::InstancePrefab(uint uid, API_GameObject parent)
+{
+	ResourcePrefab* prefabResource = (ResourcePrefab*)ModuleResourceManager::S_LoadResource(uid);
+
+	// Get prefab
+	if (prefabResource != nullptr)
+	{
+		// Find path of prefab. Resource path refrences an Assets path.
+		std::string prefabPath = prefabResource->resourcePath;
+		GameObject* parentGO = ModuleLayers::rootGameObject;
+		// Set parent if given game object is valid
+		if (parent.IsAlive())
+			parentGO = parent.GetGameObject();
+
+		GameObject* newGameObject = ModuleResourceManager::S_DeserializeFromPrefab(prefabPath, parentGO);
+
+		API_GameObject newAPIGameObject;
+		newAPIGameObject.SetGameObject(newGameObject);
+		return newAPIGameObject;
+	}
+	return API_GameObject();
+}
+
 TO_API void API::Game::ExitApplication()
 {
 #ifdef STANDALONE

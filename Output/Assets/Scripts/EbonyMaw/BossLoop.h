@@ -16,6 +16,10 @@ public:
 
     API_GameObject boss;
     API_GameObject rockShield;
+    API_GameObject cover1;
+    API_GameObject cover2;
+    API_GameObject cover3;
+    API_GameObject cover4;
 
     float dt;
     float weakTime = 0.0f;

@@ -54,7 +54,7 @@
             {
                 "Active camera": true,
                 "Active culling": true,
-                "Aspect ratio": 1.7858319282531738,
+                "Aspect ratio": 0.8859649300575256,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -155,7 +155,7 @@
                 ],
                 "IsStatic": false,
                 "IsTrigger": false,
-                "Mass": 0.0,
+                "Mass": 1.0,
                 "RenderColColor": [
                     0.5,
                     0.0,
@@ -186,6 +186,9 @@
                     },
                     {
                         "Y tp limit": -50.0
+                    },
+                    {
+                        "Rigid Body": 3681930564
                     },
                     {
                         "Dash Time": 0.5
@@ -222,16 +225,34 @@
                         "Upgraded Max HP": 0.0
                     },
                     {
+                        "Resistance": 100.0
+                    },
+                    {
+                        "Deadline Percentage": 20.0
+                    },
+                    {
+                        "Upgraded Deadline Percentage": 25.0
+                    },
+                    {
+                        "Deadline Heal Amount": 5.0
+                    },
+                    {
+                        "Upgraded Deadline Heal Amount": 7.5
+                    },
+                    {
+                        "Aid Kit Heal Amount": 50.0
+                    },
+                    {
+                        "Upgraded Aid Kit Heal Amount": 75.0
+                    },
+                    {
                         "Laser Ammo": 99999
                     },
                     {
                         "Fire Ammo": 99999
                     },
                     {
-                        "Ricochet Ammo": 99999
-                    },
-                    {
-                        "Storage GO": 3681930564
+                        "Player GO": 3681930564
                     },
                     {
                         "movement tree lvl": 0
@@ -285,7 +306,11 @@
             },
             {
                 "Enabled": true,
-                "Inspector Fields": null,
+                "Inspector Fields": [
+                    {
+                        "Level Index": 1
+                    }
+                ],
                 "Script Resource": 1045846276,
                 "Type": 5
             }
@@ -824,7 +849,7 @@
                 "Position": [
                     0.0,
                     0.0,
-                    40.59202194213867
+                    29.549713134765625
                 ],
                 "Rotation": [
                     -0.0,
@@ -839,21 +864,6 @@
                 "Type": 1
             },
             {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 10,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "ResourceUID": 240240,
-                "Type": 3
-            },
-            {
                 "ColPosition": [
                     0.0,
                     0.0,
@@ -865,9 +875,9 @@
                     0.0
                 ],
                 "ColScale": [
-                    5.0,
-                    5.0,
-                    5.0
+                    2.0,
+                    2.0,
+                    2.0
                 ],
                 "CylVerSlices": 16,
                 "CylinderRadiusHeight": [
@@ -899,12 +909,12 @@
                     false
                 ],
                 "IsStatic": false,
-                "IsTrigger": false,
+                "IsTrigger": true,
                 "Mass": 0.0,
                 "RenderColColor": [
                     0.5,
+                    0.46046510338783264,
                     0.0,
-                    0.5,
                     1.0
                 ],
                 "ShapeSelected": 0,
@@ -918,7 +928,16 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Item Index": 0
+                        "Open Chest Time": 1.0
+                    },
+                    {
+                        "Tutorial Special Weapon": false
+                    },
+                    {
+                        "Tutorial Weapon Blueprint": false
+                    },
+                    {
+                        "tffff": 0
                     }
                 ],
                 "Script Resource": 2493606750,
@@ -926,10 +945,209 @@
             }
         ],
         "FirstOnPrefab": true,
-        "Name": "Cube",
+        "Name": "Chest1",
         "ParentUID": 2066812041,
         "PrefabUID": 0,
-        "Tag": "Primitive",
-        "UID": 592194697
+        "Tag": "Default",
+        "UID": 1416538347
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Open Chest Time": 1.0
+                    },
+                    {
+                        "Tutorial Special Weapon": false
+                    },
+                    {
+                        "Tutorial Weapon Blueprint": false
+                    },
+                    {
+                        "tffff": 0
+                    }
+                ],
+                "Script Resource": 2493606750,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Chest2",
+        "ParentUID": 2066812041,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 4072173031
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Open Chest Time": 1.0
+                    },
+                    {
+                        "Tutorial Special Weapon": false
+                    },
+                    {
+                        "Tutorial Weapon Blueprint": false
+                    },
+                    {
+                        "tffff": 0
+                    }
+                ],
+                "Script Resource": 2493606750,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Chest3",
+        "ParentUID": 2066812041,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2262349586
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Open Chest Time": 1.0
+                    },
+                    {
+                        "Tutorial Special Weapon": false
+                    },
+                    {
+                        "Tutorial Weapon Blueprint": false
+                    },
+                    {
+                        "tffff": 0
+                    }
+                ],
+                "Script Resource": 2493606750,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Chest4",
+        "ParentUID": 2066812041,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1999847993
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Chest 1": 1416538347
+                    },
+                    {
+                        "Chest 2": 4072173031
+                    },
+                    {
+                        "Chest 3": 2262349586
+                    },
+                    {
+                        "Chest 4": 1999847993
+                    },
+                    {
+                        "Player Storage GO": 3681930564
+                    }
+                ],
+                "Script Resource": 4232309388,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Empty",
+        "ParentUID": 2066812041,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2585759021
     }
 ]

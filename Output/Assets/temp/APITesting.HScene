@@ -250,5 +250,87 @@
         "PrefabUID": 0,
         "Tag": "Default",
         "UID": 1602817049
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Velocity": 7.5
+                    },
+                    {
+                        "Upgrade Velocity": 9.0
+                    },
+                    {
+                        "SecToMaxVel": 0.0
+                    },
+                    {
+                        "SecToZeroVel": 0.0
+                    },
+                    {
+                        "Y tp limit": -50.0
+                    },
+                    {
+                        "Dash Time": 0.5
+                    },
+                    {
+                        "Dash Distance": 6.0
+                    },
+                    {
+                        "Upgrade Dash Distance": 8.0
+                    },
+                    {
+                        "Dash Cooldown": 6.0
+                    },
+                    {
+                        "Upgrade Dash Cooldown": 3.0
+                    },
+                    {
+                        "Dash Animation": 131993477
+                    },
+                    {
+                        "Idle Animation 1": 2656809367
+                    },
+                    {
+                        "Idle Animation 2": 3056967183
+                    },
+                    {
+                        "Hit Animation": 2656809367
+                    },
+                    {
+                        "Dead Animation": 1356460792
+                    }
+                ],
+                "Script Resource": 1247927621,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Empty",
+        "ParentUID": 3050111611,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3383773638
     }
 ]

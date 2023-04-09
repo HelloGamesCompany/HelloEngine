@@ -7,7 +7,9 @@
 
 #include "PlayerStorage.h"
 
+class PlayerMove;
 class HpBar;
+class HUD_Power_Up_Scrip;
 
 class PlayerStats : HelloBehavior
 {
@@ -21,13 +23,21 @@ public:
     float maxHp;
     float upgradedMaxHp;
     float currentHp;
-    void TakeDamage(float amount);
+    void TakeDamage(float amount, float resistanceDamage);
+    bool PlayerAlive() { return currentHp > 0.0f; }
     float shield;
+    float maxResistance = 100.0f;
+    float currentResistance;
     float inmunityTime = 2.0f;
+    float hittedTime = 0.0f;
     bool secondLife;
     float lastHitTime;
+    float deathTime = 0.0f;
     void Heal(float amount);
     API_ParticleSystem hitParticles;
+    API_ParticleSystem healParticles;
+    bool playingHealParticles;
+    API_ParticleSystem aidKitParticles;
 
     int GetAmmonByType(int type);
     void GetAmmo(int type, int amount);
@@ -35,12 +45,19 @@ public:
 
     int laserAmmo; // index 1
     int maxLaserAmmo;
-    int fireAmmo; // index 2
-    int maxFireAmmo;
-    int ricochetAmmo; // index 3
-    int maxRicochetAmmo;
+    int specialAmmo;
+    int maxFireAmmo; // index 2
+    int maxRicochetAmmo; // index 3
 
-    bool detected;//if the player is being detected somehow
+    bool detected; //if the player is being detected somehow
+
+    // skills values
+    float deadlinePart = 20.0f;
+    float upgradedDeadlinePart = 25.0f;
+    float deadlineHeal = 5.0f;
+    float upgradedDeadlineHeal = 7.5f;
+    float aidKitHeal = 50.0f;
+    float upgradedAidKitHeal = 75.0f;
 
     // skills tree
     void UpgradeTreeLvl(int tree);
@@ -59,8 +76,14 @@ public:
     void GetPowerUp(int index);
 
     // storage
-    API_GameObject storageGameObject;
+    API_GameObject playerGO;
     PlayerStorage* storage;
     void SaveInStorage(int index);
-};
+    void SaveChestData(int chestContent, int chestIndex);
 
+    // move
+    PlayerMove* playerMove;
+
+    // HUD
+    HUD_Power_Up_Scrip* hudPowerUp;
+};

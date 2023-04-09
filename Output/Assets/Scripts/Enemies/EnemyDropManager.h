@@ -7,6 +7,7 @@
 #include "API/API.h"
 
 #include "EnemyDrop.h"
+#include "../Player/PlayerStats.h"
 
 class EnemyDropManager : HelloBehavior
 {
@@ -15,7 +16,25 @@ public:
     void Update() override;
 
     void SpinDropRate(API_Vector3 position);
-    API_GameObject GetFirstActiveObject(int index);
+    API_GameObject GetFirstInactiveObject(int index);
+
+    void BoxSpinDropRate(API_Vector3 position);
+
+    //Drop chances
+
+    //Enemy
+    float enemyDropRate;
+    float upgradedEnemyDropRate;
+    float enemyAmmoDropRate;
+    float enemyAidKitDropRate;
+    float enemyPowerUpsDropRate;
+    API_GameObject playerStatsGO;
+    PlayerStats* playerStats;
+
+    //Breakable Box
+    float BoxDropRate;
+    float BoxAmmoDropRate;
+    float BoxAidKitDropRate;
 
     // meshes
     uint mesh0;

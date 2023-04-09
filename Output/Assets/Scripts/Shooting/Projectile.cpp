@@ -1,4 +1,5 @@
 #include "Projectile.h"
+#include "../Enemies/Enemy.h"
 #include <iostream>
 HELLO_ENGINE_API_C Projectile* CreateProjectile(ScriptToInspectorInterface* script)
 {
@@ -53,6 +54,11 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
         else if (detectionTag == "Enemy")
         {
             // apply slow to enemy
+            Enemy* enemy = (Enemy*)other.GetGameObject().GetScript("Enemy");
+            if (enemy)
+            {
+                enemy->ActiveSlow(0.5,2);
+            }
             Destroy();
         }
         break;
@@ -64,6 +70,11 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
         else if (detectionTag == "Enemy")
         {
             // apply freeze to enemy
+            Enemy* enemy = (Enemy*)other.GetGameObject().GetScript("Enemy");
+            if (enemy)
+            {
+                enemy->ActiveStun( 2);
+            }
             Destroy();
         }
         break;
@@ -84,6 +95,11 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
         else if (detectionTag == "Enemy")
         {
             // apply flinch to enemy
+            Enemy* enemy = (Enemy*)other.GetGameObject().GetScript("Enemy");
+            if (enemy)
+            {
+                enemy->EnemyRecoil(1);
+            }
             Destroy();
         }
         break;

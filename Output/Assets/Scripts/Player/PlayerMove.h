@@ -14,9 +14,16 @@ class PlayerMove : HelloBehavior
     enum class PlayerAnims
     {
         IDLE,
-        RUN,
+        RUN_FORWARD,
+        RUN_BACK,
+        RUN_LEFT,
+        RUN_RIGHT,
         DASH,
         SHOOT,
+        SWAP_GUN,
+        HITTED,
+        DEATH,
+        OPEN_CHEST
     };
 
 public:
@@ -30,16 +37,14 @@ public:
     void Dash();
     bool DashInput();
 
-    void ShootAnim();
-
     bool usingGamepad;
     float dt;
 
     //Movement
     API_Vector2 lastMovInput = { 1.0f, 1.0f };
     API_Vector2 lastAimInput = { 0.0f, 0.0f };
-    float vel = 1.0f;
-    float upgradedVel = 2.0f;
+    float vel = 7.5f;
+    float upgradedVel = 9.0f;
     float currentVel = 0.0f;
     float departureTime = 0.0f;
     float secToMaxVel = 0.0f;
@@ -54,13 +59,13 @@ public:
     //Dash
     bool isDashing = false;
     float dashesAvailable;
-    float maxDashCooldown;
-    float maxFastDashCooldown;
+    float maxDashCooldown = 6.0f;
+    float maxFastDashCooldown = 3.0f;
     float dashCooldown;
     bool dashBuffer;
     float dashDepartTime = 0.0f;
     float dashTime = 0.5f;
-    float dashDistance = 5.0f;
+    float dashDistance = 6.0f;
     float upgradedDashDistance = 8.0f;
 
     //Shooting
@@ -75,11 +80,29 @@ public:
     //Animations
     API_AnimationPlayer playerAnimator;
     uint dashAnim = 0;
-    uint idleAnim = 0;
-    uint runAnim = 0;
-    uint shootAnim = 0;
-    PlayerAnims currentAnim;
+    uint idle1Anim = 0;
+    uint idle2Anim = 0;
+    uint idle3Anim = 0;
+    uint runForwardAnim = 0;
+    uint runBackAnim = 0;
+    uint runLeftAnim = 0;
+    uint runRightAnim = 0;
+    uint shootAnim[6];
+    void PlayShootAnim(int gunIndex);
     bool isShooting = false;
+    uint swapGunAnim;
+    void PlaySwapGunAnim();
+    void StopSwapGunAnim();
+    bool isSwapingGun = false;
+    uint hittedAnim = 0;
+    void PlayHittedAnim();
+    uint openChestAnim = 0;
+    bool openingChest = false;
+    void PlayOpenChestAnim();
+    void StopOpenChestAnim();
+    uint deathAnim = 0;
+    void PlayDeathAnim();
+    PlayerAnims currentAnim;
 
     // skills
     API_GameObject playerStatsGO;
