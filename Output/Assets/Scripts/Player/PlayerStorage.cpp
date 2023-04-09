@@ -10,6 +10,7 @@ HELLO_ENGINE_API_C PlayerStorage* CreatePlayerStorage(ScriptToInspectorInterface
 
 void PlayerStorage::Start()
 {
+    skillPoints = API_QuickSave::GetInt("skillPointsAmount");
     unlockGunBlueprint = -1; // -1 --> no gun unlocked
     upgradeBlueprintAmount = API_QuickSave::GetInt("upgradeBlueprintAmount");
 
@@ -56,6 +57,9 @@ void PlayerStorage::Update()
 
 void PlayerStorage::SaveData()
 {
+    // skill points
+    API_QuickSave::SetInt("skillPointsAmount", skillPoints);
+
     // save unlocked gun
     switch (unlockGunBlueprint)
     {

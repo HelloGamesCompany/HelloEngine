@@ -16,6 +16,7 @@ public:
 
     int levelIndex;
 
+    int skillPoints;
     int unlockGunBlueprint;
     int upgradeBlueprintAmount;
 
