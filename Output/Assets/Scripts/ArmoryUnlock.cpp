@@ -34,12 +34,12 @@ void ArmoryUnlock::Start()
         break;
     }
 
-    Unlock.SetBlocked(!haveBlueprint);
+    //Unlock.SetBlocked(!haveBlueprint);
 }
 
 void ArmoryUnlock::Update()
 {
-    if (Input::GetGamePadButton(GamePadButton::BUTTON_B) == KeyState::KEY_DOWN && !PanelUnlock.IsEnabled())
+    if (Input::GetGamePadButton(GamePadButton::BUTTON_B) == KeyState::KEY_DOWN && PanelUnlock.IsEnabled())
     {
         SelectWeaponList.SetEnable(true);
         PanelUnlock.SetEnable(false);
@@ -49,11 +49,11 @@ void ArmoryUnlock::Update()
     {
         manteinTime -= Time::GetRealTimeDeltaTime();
 
-        /*if (!Unlock.OnHold())
+        if (Unlock.OnRelease())
         {
             manteinTime = 0.0f;
         }
-        else */if (manteinTime <= 0.0f)
+        else if (manteinTime <= 0.0f)
         {
             manteinTime = 0.0f;
 

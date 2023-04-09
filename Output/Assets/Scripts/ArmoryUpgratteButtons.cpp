@@ -69,11 +69,11 @@ void ArmoryUpgratteButtons::Update()
     {
         manteinTime -= Time::GetRealTimeDeltaTime();
 
-        /*if (!Unlock.OnHold())
+        if (Upgrate1.OnRelease() || Upgrate2.OnRelease() || Upgrate3.OnRelease())
         {
             manteinTime = 0.0f;
         }
-        else */if (manteinTime <= 0.0f)
+        else if (manteinTime <= 0.0f)
         {
             manteinTime = 0.0f;
 
