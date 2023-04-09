@@ -25,11 +25,19 @@ HELLO_ENGINE_API_C EnemyTank* CreateEnemyTank(ScriptToInspectorInterface* script
 	script->AddDragInt("Gun Type(0Semi/1Burst/2Shotgun)", &classInstance->gunType);
 	script->AddDragBoxGameObject("Enemy gun", &classInstance->gunObj);
 
+	script->AddDragBoxGameObject("Target", &classInstance->target);
+	script->AddDragBoxRigidBody("Action Rb zone", &classInstance->zoneRb);
+	script->AddDragFloat("Attack Range", &classInstance->attackRange);
+	script->AddDragFloat("Separate Range", &classInstance->separateRange);
+
+	script->AddDragFloat("Return Distance", &classInstance->returnToZoneDistance);
+
 	return classInstance;
 }
 
 void EnemyTank::Start()
 {
+	isReturning = false;
 	currentShield = maxShield;
 	isRecoveringShield = false;
 	isRestoringHealth = false;
@@ -41,6 +49,7 @@ void EnemyTank::Start()
 	}
 
 	initialPosition = gameObject.GetTransform().GetGlobalPosition();
+	actionZone = zoneRb.GetGameObject();
 
 	switch (gunType)
 	{
@@ -64,53 +73,147 @@ void EnemyTank::Update()
 {
 	Recovering();
 
-	switch (state)
-	{	
+	CheckDistance();
+
+	if (isReturning == false) {
+		switch (state)
+		{
 		case States::WANDERING:
 			Wander();
-		break;
+			break;
 		case States::TARGETING:
 			Seek();
-		break;
+			break;
 		case States::ATTACKING:
-			Attack();
-		break;
+			//Attack();
+			break;
+		}
 	}
+	else {
+		ReturnToZone();
+	}
+	
 
 }
+void EnemyTank::ReturnToZone() {
+
+	float xDif = gameObject.GetTransform().GetGlobalPosition().x - actionZone.GetTransform().GetGlobalPosition().x;
+	float zDif = gameObject.GetTransform().GetGlobalPosition().z - actionZone.GetTransform().GetGlobalPosition().z;
+
+	if ((abs(xDif) > initPosRange) || (abs(zDif) > initPosRange)) {
+
+		MoveToDirection(actionZone.GetTransform().GetGlobalPosition().x, actionZone.GetTransform().GetGlobalPosition().z, seekVelocity);
+	}
+	else {
+		enemyScript->enemyRb.SetVelocity(gameObject.GetTransform().GetForward() * 0);
+	}
+
+	float enemyZoneDistance = gameObject.GetTransform().GetGlobalPosition().Distance(actionZone.GetTransform().GetGlobalPosition());
+	if (enemyZoneDistance < (zoneRb.GetRadius() / 2.f) - returnToZoneDistance)
+	{
+		isReturning = false;
+	}
+}
+
+void EnemyTank::CheckDistance() {
+
+	float targetZoneDistance = target.GetTransform().GetGlobalPosition().Distance(actionZone.GetTransform().GetGlobalPosition());
+	float enemyZoneDistance = gameObject.GetTransform().GetGlobalPosition().Distance(actionZone.GetTransform().GetGlobalPosition());
+	if (targetZoneDistance > zoneRb.GetRadius() / 2.f) {
+		state = States::WANDERING;
+	}
+	else if (enemyZoneDistance > zoneRb.GetRadius() / 2.f) {
+		state = States::WANDERING;
+		isReturning = true;
+	}
+	else {
+		targetDistance = gameObject.GetTransform().GetGlobalPosition().Distance(target.GetTransform().GetGlobalPosition());
+		if (targetDistance < detectionDistance) {
+			if (state == States::WANDERING)
+			{
+				state = States::TARGETING;
+			}
+		}
+		else {
+			if (state == States::TARGETING)
+			{
+				state = States::WANDERING;
+			}
+		}
+	}
+}
+
 void EnemyTank::Wander() {
 
 	float xDif = gameObject.GetTransform().GetGlobalPosition().x - initialPosition.x;
-	//float yDif = gameObject.GetTransform().GetGlobalPosition().y - initialPosition.y;
 	float zDif = gameObject.GetTransform().GetGlobalPosition().z - initialPosition.z;
-	//Console::Log();
+
 	if ((abs(xDif) > initPosRange) || (abs(zDif) > initPosRange)) {
 
-		API_Vector2 lookDir;
-		lookDir.x = (initialPosition.x - gameObject.GetTransform().GetLocalPosition().x);
-		lookDir.y = (initialPosition.z - gameObject.GetTransform().GetLocalPosition().z);
-
-		API_Vector2 normLookDir;
-		normLookDir.x = lookDir.x / sqrt(pow(lookDir.x, 2) + pow(lookDir.y, 2));
-		normLookDir.y = lookDir.y / sqrt(pow(lookDir.x, 2) + pow(lookDir.y, 2));
-
-		float _angle = 0;
-		_angle = atan2(normLookDir.y, normLookDir.x) * RADTODEG - 90.0f;
-
-		gameObject.GetTransform().SetRotation(0, -_angle, 0);
-		enemyScript->enemyRb.SetVelocity(gameObject.GetTransform().GetForward() * walkVelocity);
+		MoveToDirection(initialPosition.x, initialPosition.z, walkVelocity);
 	}
 	else {
 		enemyScript->enemyRb.SetVelocity(gameObject.GetTransform().GetForward() * 0);
 	}
 }
-void EnemyTank::Seek() {}
+
+void EnemyTank::Seek() 
+{
+	if (!enemyScript->actStun)
+	{
+		if (targetDistance > attackRange) {
+			MoveToDirection(target.GetTransform().GetGlobalPosition().x, target.GetTransform().GetGlobalPosition().z, seekVelocity);
+		}
+		else if(targetDistance < separateRange) {
+			EscapeFromDirection(target.GetTransform().GetGlobalPosition().x, target.GetTransform().GetGlobalPosition().z, seekVelocity);
+		}
+		else {
+			enemyScript->enemyRb.SetVelocity(gameObject.GetTransform().GetForward() * 0);
+		}
+		
+	}
+}
+
 void EnemyTank::Attack() 
 {
 	if (enemyGun != nullptr)
 	{
 		enemyGun->Shoot();
 	}
+}
+
+void EnemyTank::MoveToDirection(float pointX, float pointY, float velocity)
+{
+	API_Vector2 lookDir;
+	lookDir.x = (pointX - gameObject.GetTransform().GetLocalPosition().x);
+	lookDir.y = (pointY - gameObject.GetTransform().GetLocalPosition().z);
+
+	API_Vector2 normLookDir;
+	normLookDir.x = lookDir.x / sqrt(pow(lookDir.x, 2) + pow(lookDir.y, 2));
+	normLookDir.y = lookDir.y / sqrt(pow(lookDir.x, 2) + pow(lookDir.y, 2));
+
+	float _angle = 0;
+	_angle = atan2(normLookDir.y, normLookDir.x) * RADTODEG - 90.0f;
+
+	gameObject.GetTransform().SetRotation(0, -_angle, 0);
+	enemyScript->enemyRb.SetVelocity(gameObject.GetTransform().GetForward() * velocity);
+}
+
+void EnemyTank::EscapeFromDirection(float pointX, float pointY, float velocity)
+{
+	API_Vector2 lookDir;
+	lookDir.x = (pointX - gameObject.GetTransform().GetLocalPosition().x);
+	lookDir.y = (pointY - gameObject.GetTransform().GetLocalPosition().z);
+
+	API_Vector2 normLookDir;
+	normLookDir.x = lookDir.x / sqrt(pow(lookDir.x, 2) + pow(lookDir.y, 2));
+	normLookDir.y = lookDir.y / sqrt(pow(lookDir.x, 2) + pow(lookDir.y, 2));
+
+	float _angle = 0;
+	_angle = atan2(-normLookDir.y, -normLookDir.x) * RADTODEG - 90.0f;
+
+	gameObject.GetTransform().SetRotation(0, -_angle, 0);
+	enemyScript->enemyRb.SetVelocity(gameObject.GetTransform().GetForward() * velocity);
 }
 
 void EnemyTank::Recovering()
