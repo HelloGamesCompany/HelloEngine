@@ -43,7 +43,7 @@ void ArmoryWeaponSelect::Update()
     if (CurrentWeapon.OnHovered() && SelectWeaponList.IsEnabled() && findUnlock)
     {
         FindUnlock();
-        Console::Log("hhhh");
+
         if (isUnlocked)
         {
             SelectedWeapon.ChangeAlbedoTexture(CurrentTextureWeapon);

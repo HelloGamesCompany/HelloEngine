@@ -26,7 +26,6 @@ void ArmoryUpgratteButtons::Start()
     {
     case 0:
         gunLevel = API_QuickSave::GetInt("duals_level");
-        Console::Log("duals level: " + std::to_string(gunLevel));
         break;
     case 1:
         gunLevel = API_QuickSave::GetInt("semiautomatic_level");
@@ -50,7 +49,7 @@ void ArmoryUpgratteButtons::Start()
     _playerStorage = (PlayerStorage*)Player.GetScript("PlayerStorage");
     if (_playerStorage == nullptr) Console::Log("Player Storage missing in ArmaryUpgradeButtons.");
 
-    if (gunLevel != 0) Upgrate1.SetBlocked(true); // not working
+    if (gunLevel != 0) Upgrate1.SetBlocked(true);
     if (gunLevel != 1) Upgrate2.SetBlocked(true);
     if (gunLevel != 2) Upgrate3.SetBlocked(true);
 }
@@ -63,7 +62,7 @@ void ArmoryUpgratteButtons::Update()
         PanelUpgrate.SetEnable(false);
     }
 
-    if (!_playerStorage) return;
+    //if (!_playerStorage) return;
 
     if (manteinTime > 0.0f)
     {

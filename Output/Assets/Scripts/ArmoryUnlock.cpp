@@ -45,6 +45,15 @@ void ArmoryUnlock::Update()
         PanelUnlock.SetEnable(false);
     }
 
+    if (Unlock.OnRelease())
+    {
+        Console::Log("release"); 
+    }
+    if (Unlock.OnPress())
+    {
+        Console::Log("press");
+    }
+
     if (manteinTime > 0.0f)
     {
         manteinTime -= Time::GetRealTimeDeltaTime();
