@@ -36,6 +36,21 @@ void API::API_UIInput::SetComponent(ComponentUIInput* component)
 
 void API::API_UIInput::SetEnable(bool isActive)
 {
+	if (!_UIInput)
+	{
+		Engine::Console::S_Log("Trying to acces a NULLPTR UIInput. SetEnable()");
+		return;
+	}
 	_UIInput->_isComponentEnable = isActive;
+}
+
+bool API::API_UIInput::IsEnabled()
+{
+	if (!_UIInput)
+	{
+		Engine::Console::S_Log("Trying to acces a NULLPTR UIInput. IsEnabled()");
+		return false;
+	}
+	return _UIInput->IsEnabled();
 }
 
