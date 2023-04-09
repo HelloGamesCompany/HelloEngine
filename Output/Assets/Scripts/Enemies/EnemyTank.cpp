@@ -8,6 +8,10 @@ HELLO_ENGINE_API_C EnemyTank* CreateEnemyTank(ScriptToInspectorInterface* script
 	script->AddDragFloat("Recover Shield Time", &classInstance->recoverShieldTime);
 	script->AddDragFloat("Hp/s", &classInstance->healthRestorePerSecond);
 	script->AddDragFloat("Hp/s Cooldown", &classInstance->healthRestoreCooldown);
+
+	script->AddDragInt("Gun Type(0Semi/1Burst/2Shotgun)", &classInstance->gunType);
+	script->AddDragBoxGameObject("Enemy gun", &classInstance->gunObj);
+
 	return classInstance;
 }
 
@@ -22,6 +26,22 @@ void EnemyTank::Start()
 	if (enemyScript->hasShield == false) {
 		enemyScript->hasShield = true;
 	}
+
+	switch (gunType)
+	{
+	case 0:
+		enemyGun = (EnemyGun*)gunObj.GetScript("EnemyAutomatic");
+		break;
+	case 1:
+		enemyGun = (EnemyGun*)gunObj.GetScript("EnemyBurst");
+		break;
+	case 2:
+		enemyGun = (EnemyGun*)gunObj.GetScript("EnemyShotgun");
+		break;
+	default:
+		break;
+	}
+
 }
 void EnemyTank::Update()
 {
@@ -69,6 +89,12 @@ void EnemyTank::Update()
 			healthRestoreCounter = 0;
 		}
 	}
+
+	if (enemyGun != nullptr)
+	{
+		enemyGun->Shoot();
+	}
+
 }
 
 float EnemyTank::TakeDamageTank(float life, float damage)
