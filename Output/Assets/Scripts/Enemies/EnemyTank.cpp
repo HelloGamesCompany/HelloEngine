@@ -19,8 +19,8 @@ HELLO_ENGINE_API_C EnemyTank* CreateEnemyTank(ScriptToInspectorInterface* script
 	script->AddDragFloat("Max Shield", &classInstance->maxShield);
 
 	script->AddDragFloat("Detection Distance", &classInstance->detectionDistance);
-	script->AddDragFloat("Walk Velocity", &classInstance->walkVelocity);
-	script->AddDragFloat("Seek Velocity", &classInstance->seekVelocity);
+	/*script->AddDragFloat("Walk Velocity", &classInstance->walkVelocity);
+	script->AddDragFloat("Seek Velocity", &classInstance->seekVelocity);*/
 
 	script->AddDragInt("Gun Type(0Semi/1Burst/2Shotgun)", &classInstance->gunType);
 	script->AddDragBoxGameObject("Enemy gun", &classInstance->gunObj);
@@ -31,6 +31,7 @@ HELLO_ENGINE_API_C EnemyTank* CreateEnemyTank(ScriptToInspectorInterface* script
 	script->AddDragFloat("Separate Range", &classInstance->separateRange);
 
 	script->AddDragFloat("Return Distance", &classInstance->returnToZoneDistance);
+	//script->AddCheckBox("Test", &classInstance->test);
 
 	return classInstance;
 }
@@ -101,8 +102,8 @@ void EnemyTank::ReturnToZone() {
 	float zDif = gameObject.GetTransform().GetGlobalPosition().z - actionZone.GetTransform().GetGlobalPosition().z;
 
 	if ((abs(xDif) > initPosRange) || (abs(zDif) > initPosRange)) {
-
-		MoveToDirection(actionZone.GetTransform().GetGlobalPosition().x, actionZone.GetTransform().GetGlobalPosition().z, seekVelocity);
+		enemyScript->currentSpeed = enemyScript->speed * enemyScript->acceleration * enemyScript->stunVel * enemyScript->slowVel;
+		MoveToDirection(actionZone.GetTransform().GetGlobalPosition().x, actionZone.GetTransform().GetGlobalPosition().z, enemyScript->currentSpeed);
 	}
 	else {
 		enemyScript->enemyRb.SetVelocity(gameObject.GetTransform().GetForward() * 0);
@@ -150,9 +151,13 @@ void EnemyTank::Wander() {
 
 	if ((abs(xDif) > initPosRange) || (abs(zDif) > initPosRange)) {
 
-		MoveToDirection(initialPosition.x, initialPosition.z, walkVelocity);
+		//enemy->currentSpeed = enemy->speed * enemy->acceleration * enemy->stunVel * enemy->slowVel/** dt*/;
+		enemyScript->currentSpeed = enemyScript->speed * enemyScript->stunVel * enemyScript->slowVel;
+		MoveToDirection(initialPosition.x, initialPosition.z, enemyScript->currentSpeed);
+		//test = true;
 	}
 	else {
+		
 		enemyScript->enemyRb.SetVelocity(gameObject.GetTransform().GetForward() * 0);
 	}
 }
@@ -162,10 +167,12 @@ void EnemyTank::Seek()
 	if (!enemyScript->actStun)
 	{
 		if (targetDistance > attackRange) {
-			MoveToDirection(target.GetTransform().GetGlobalPosition().x, target.GetTransform().GetGlobalPosition().z, seekVelocity);
+			enemyScript->currentSpeed = enemyScript->speed * enemyScript->acceleration * enemyScript->stunVel * enemyScript->slowVel;
+			MoveToDirection(target.GetTransform().GetGlobalPosition().x, target.GetTransform().GetGlobalPosition().z, enemyScript->currentSpeed);
 		}
 		else if(targetDistance < separateRange) {
-			EscapeFromDirection(target.GetTransform().GetGlobalPosition().x, target.GetTransform().GetGlobalPosition().z, seekVelocity);
+			enemyScript->currentSpeed = enemyScript->speed * enemyScript->acceleration * enemyScript->stunVel * enemyScript->slowVel;
+			EscapeFromDirection(target.GetTransform().GetGlobalPosition().x, target.GetTransform().GetGlobalPosition().z, enemyScript->currentSpeed);
 		}
 		else {
 			enemyScript->enemyRb.SetVelocity(gameObject.GetTransform().GetForward() * 0);
@@ -197,6 +204,7 @@ void EnemyTank::MoveToDirection(float pointX, float pointY, float velocity)
 
 	gameObject.GetTransform().SetRotation(0, -_angle, 0);
 	enemyScript->enemyRb.SetVelocity(gameObject.GetTransform().GetForward() * velocity);
+	//test = true;
 }
 
 void EnemyTank::EscapeFromDirection(float pointX, float pointY, float velocity)
@@ -210,10 +218,10 @@ void EnemyTank::EscapeFromDirection(float pointX, float pointY, float velocity)
 	normLookDir.y = lookDir.y / sqrt(pow(lookDir.x, 2) + pow(lookDir.y, 2));
 
 	float _angle = 0;
-	_angle = atan2(-normLookDir.y, -normLookDir.x) * RADTODEG - 90.0f;
+	_angle = atan2(normLookDir.y, normLookDir.x) * RADTODEG - 90.0f;
 
 	gameObject.GetTransform().SetRotation(0, -_angle, 0);
-	enemyScript->enemyRb.SetVelocity(gameObject.GetTransform().GetForward() * velocity);
+	enemyScript->enemyRb.SetVelocity(gameObject.GetTransform().GetBackward() * velocity);
 }
 
 void EnemyTank::Recovering()
