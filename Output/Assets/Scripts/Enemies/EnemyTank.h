@@ -61,6 +61,7 @@ public:
 	API_RigidBody zoneRb;
 
 	float attackRange;
+	float approximateRange;
 	float separateRange;
 	float returnToZoneDistance;
 	//bool test;
