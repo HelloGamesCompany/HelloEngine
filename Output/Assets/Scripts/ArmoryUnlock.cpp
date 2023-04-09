@@ -39,14 +39,13 @@ void ArmoryUnlock::Start()
 
     Unlock.SetBlocked(!haveBlueprint);
 }
+
 void ArmoryUnlock::Update()
 {
-    Console::Log("ffff");
-    if (Input::GetGamePadButton(GamePadButton::BUTTON_B) == KeyState::KEY_DOWN/* && PanelUnlock.IsEnabled()*/)
+    if (Input::GetGamePadButton(GamePadButton::BUTTON_B) == KeyState::KEY_DOWN && !PanelUnlock.IsEnabled())
     {
         SelectWeaponList.SetEnable(true);
         PanelUnlock.SetEnable(false);
-        Console::Log("dddd");
     }
     
     if (Unlock.OnPress() && weaponInstance->unlockPress != 1 && haveBlueprint)

@@ -50,9 +50,8 @@ void ArmoryUpgratteButtons::Start()
     if (gunLevel > 0) Upgrate1.SetBlocked(true);
     if (gunLevel > 1) Upgrate2.SetBlocked(true);
     if (gunLevel > 2) Upgrate3.SetBlocked(true);
-
-    //bluePrintText.GetGameObject().GetMeshRenderer()
 }
+
 void ArmoryUpgratteButtons::Update()
 {
     if (Input::GetGamePadButton(GamePadButton::BUTTON_B) == KeyState::KEY_DOWN)

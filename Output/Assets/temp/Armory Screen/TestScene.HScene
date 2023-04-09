@@ -280,7 +280,25 @@
                         "BluePrint Image Component": 1311065201
                     },
                     {
-                        "Related Weapon": 508856247
+                        "Gun Index": 4
+                    },
+                    {
+                        "BluePrint Image Component": 1311065201
+                    },
+                    {
+                        "Gun Index": 4
+                    },
+                    {
+                        "BluePrint Image Component": 1311065201
+                    },
+                    {
+                        "Gun Index": 4
+                    },
+                    {
+                        "BluePrint Image Component": 1311065201
+                    },
+                    {
+                        "Gun Index": 4
                     }
                 ],
                 "Script Resource": 2905751812,
@@ -329,7 +347,25 @@
                         "BluePrint Image Component": 738364622
                     },
                     {
-                        "Related Weapon": 144606590
+                        "Gun Index": 3
+                    },
+                    {
+                        "BluePrint Image Component": 738364622
+                    },
+                    {
+                        "Gun Index": 3
+                    },
+                    {
+                        "BluePrint Image Component": 738364622
+                    },
+                    {
+                        "Gun Index": 3
+                    },
+                    {
+                        "BluePrint Image Component": 738364622
+                    },
+                    {
+                        "Gun Index": 3
                     }
                 ],
                 "Script Resource": 2905751812,
@@ -378,7 +414,25 @@
                         "BluePrint Image Component": 3219475805
                     },
                     {
-                        "Related Weapon": 3767261326
+                        "Gun Index": 2
+                    },
+                    {
+                        "BluePrint Image Component": 3219475805
+                    },
+                    {
+                        "Gun Index": 2
+                    },
+                    {
+                        "BluePrint Image Component": 3219475805
+                    },
+                    {
+                        "Gun Index": 2
+                    },
+                    {
+                        "BluePrint Image Component": 3219475805
+                    },
+                    {
+                        "Gun Index": 2
                     }
                 ],
                 "Script Resource": 3695252177,
@@ -427,7 +481,25 @@
                         "BluePrint Image Component": 3221397760
                     },
                     {
-                        "Related Weapon": 2317490973
+                        "Gun Index": 1
+                    },
+                    {
+                        "BluePrint Image Component": 3221397760
+                    },
+                    {
+                        "Gun Index": 1
+                    },
+                    {
+                        "BluePrint Image Component": 3221397760
+                    },
+                    {
+                        "Gun Index": 1
+                    },
+                    {
+                        "BluePrint Image Component": 3221397760
+                    },
+                    {
+                        "Gun Index": 1
                     }
                 ],
                 "Script Resource": 2905751812,
@@ -476,7 +548,25 @@
                         "BluePrint Image Component": 1306331402
                     },
                     {
-                        "Related Weapon": 3445088448
+                        "Gun Index": 5
+                    },
+                    {
+                        "BluePrint Image Component": 1306331402
+                    },
+                    {
+                        "Gun Index": 5
+                    },
+                    {
+                        "BluePrint Image Component": 1306331402
+                    },
+                    {
+                        "Gun Index": 5
+                    },
+                    {
+                        "BluePrint Image Component": 1306331402
+                    },
+                    {
+                        "Gun Index": 5
                     }
                 ],
                 "Script Resource": 2905751812,
@@ -561,8 +651,13 @@
                 "PositionX": 0.7400000095367432,
                 "PositionY": 0.6875,
                 "Scale": 0.5,
-                "Text": "11",
+                "Text": "0",
                 "Type": 17
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 0,
+                "Type": 3
             }
         ],
         "FirstOnPrefab": false,
@@ -684,6 +779,126 @@
                     },
                     {
                         "List Weapons": 4148759232
+                    },
+                    {
+                        "Gun Index": 0
+                    },
+                    {
+                        "Weapon": 3640781781
+                    },
+                    {
+                        "Next Weapon": 508856247
+                    },
+                    {
+                        "Panel Upgrate": 794799067
+                    },
+                    {
+                        "Panel Unlock": 794799067
+                    },
+                    {
+                        "Next Panel Upgrate": 107600527
+                    },
+                    {
+                        "Next Panel Unlock": 1383730987
+                    },
+                    {
+                        "Prev Panel Upgrate": 794799067
+                    },
+                    {
+                        "Prev Panel Unlock": 794799067
+                    },
+                    {
+                        "Material Weapon": 3613693446
+                    },
+                    {
+                        "Material Weapon Locked": 3613693446
+                    },
+                    {
+                        "SelectedWeapon": 797707866
+                    },
+                    {
+                        "List Weapons": 4148759232
+                    },
+                    {
+                        "Gun Index": 0
+                    },
+                    {
+                        "Weapon": 3640781781
+                    },
+                    {
+                        "Next Weapon": 508856247
+                    },
+                    {
+                        "Panel Upgrate": 794799067
+                    },
+                    {
+                        "Panel Unlock": 794799067
+                    },
+                    {
+                        "Next Panel Upgrate": 107600527
+                    },
+                    {
+                        "Next Panel Unlock": 1383730987
+                    },
+                    {
+                        "Prev Panel Upgrate": 794799067
+                    },
+                    {
+                        "Prev Panel Unlock": 794799067
+                    },
+                    {
+                        "Material Weapon": 3613693446
+                    },
+                    {
+                        "Material Weapon Locked": 3613693446
+                    },
+                    {
+                        "SelectedWeapon": 797707866
+                    },
+                    {
+                        "List Weapons": 4148759232
+                    },
+                    {
+                        "Gun Index": 0
+                    },
+                    {
+                        "Weapon": 3640781781
+                    },
+                    {
+                        "Next Weapon": 508856247
+                    },
+                    {
+                        "Panel Upgrate": 794799067
+                    },
+                    {
+                        "Panel Unlock": 794799067
+                    },
+                    {
+                        "Next Panel Upgrate": 107600527
+                    },
+                    {
+                        "Next Panel Unlock": 1383730987
+                    },
+                    {
+                        "Prev Panel Upgrate": 794799067
+                    },
+                    {
+                        "Prev Panel Unlock": 794799067
+                    },
+                    {
+                        "Material Weapon": 3613693446
+                    },
+                    {
+                        "Material Weapon Locked": 3613693446
+                    },
+                    {
+                        "SelectedWeapon": 797707866
+                    },
+                    {
+                        "List Weapons": 4148759232
+                    },
+                    {
+                        "Gun Index": 0
                     }
                 ],
                 "Script Resource": 2943233861,
@@ -769,6 +984,135 @@
                     },
                     {
                         "List Weapons": 4148759232
+                    },
+                    {
+                        "Gun Index": 4
+                    },
+                    {
+                        "Weapon": 508856247
+                    },
+                    {
+                        "Next Weapon": 144606590
+                    },
+                    {
+                        "Prev Weapon": 3640781781
+                    },
+                    {
+                        "Panel Upgrate": 107600527
+                    },
+                    {
+                        "Panel Unlock": 1383730987
+                    },
+                    {
+                        "Next Panel Upgrate": 3764765030
+                    },
+                    {
+                        "Next Panel Unlock": 3266740145
+                    },
+                    {
+                        "Prev Panel Upgrate": 794799067
+                    },
+                    {
+                        "Prev Panel Unlock": 794799067
+                    },
+                    {
+                        "Material Weapon": 1026044394
+                    },
+                    {
+                        "Material Weapon Locked": 1639815392
+                    },
+                    {
+                        "SelectedWeapon": 797707866
+                    },
+                    {
+                        "List Weapons": 4148759232
+                    },
+                    {
+                        "Gun Index": 4
+                    },
+                    {
+                        "Weapon": 508856247
+                    },
+                    {
+                        "Next Weapon": 144606590
+                    },
+                    {
+                        "Prev Weapon": 3640781781
+                    },
+                    {
+                        "Panel Upgrate": 107600527
+                    },
+                    {
+                        "Panel Unlock": 1383730987
+                    },
+                    {
+                        "Next Panel Upgrate": 3764765030
+                    },
+                    {
+                        "Next Panel Unlock": 3266740145
+                    },
+                    {
+                        "Prev Panel Upgrate": 794799067
+                    },
+                    {
+                        "Prev Panel Unlock": 794799067
+                    },
+                    {
+                        "Material Weapon": 1026044394
+                    },
+                    {
+                        "Material Weapon Locked": 1639815392
+                    },
+                    {
+                        "SelectedWeapon": 797707866
+                    },
+                    {
+                        "List Weapons": 4148759232
+                    },
+                    {
+                        "Gun Index": 4
+                    },
+                    {
+                        "Weapon": 508856247
+                    },
+                    {
+                        "Next Weapon": 144606590
+                    },
+                    {
+                        "Prev Weapon": 3640781781
+                    },
+                    {
+                        "Panel Upgrate": 107600527
+                    },
+                    {
+                        "Panel Unlock": 1383730987
+                    },
+                    {
+                        "Next Panel Upgrate": 3764765030
+                    },
+                    {
+                        "Next Panel Unlock": 3266740145
+                    },
+                    {
+                        "Prev Panel Upgrate": 794799067
+                    },
+                    {
+                        "Prev Panel Unlock": 794799067
+                    },
+                    {
+                        "Material Weapon": 1026044394
+                    },
+                    {
+                        "Material Weapon Locked": 1639815392
+                    },
+                    {
+                        "SelectedWeapon": 797707866
+                    },
+                    {
+                        "List Weapons": 4148759232
+                    },
+                    {
+                        "Gun Index": 4
                     }
                 ],
                 "Script Resource": 2943233861,
@@ -854,6 +1198,135 @@
                     },
                     {
                         "List Weapons": 4148759232
+                    },
+                    {
+                        "Gun Index": 3
+                    },
+                    {
+                        "Weapon": 144606590
+                    },
+                    {
+                        "Next Weapon": 3767261326
+                    },
+                    {
+                        "Prev Weapon": 508856247
+                    },
+                    {
+                        "Panel Upgrate": 3764765030
+                    },
+                    {
+                        "Panel Unlock": 3266740145
+                    },
+                    {
+                        "Next Panel Upgrate": 1390031282
+                    },
+                    {
+                        "Next Panel Unlock": 147604913
+                    },
+                    {
+                        "Prev Panel Upgrate": 107600527
+                    },
+                    {
+                        "Prev Panel Unlock": 1383730987
+                    },
+                    {
+                        "Material Weapon": 334261511
+                    },
+                    {
+                        "Material Weapon Locked": 2202060709
+                    },
+                    {
+                        "SelectedWeapon": 797707866
+                    },
+                    {
+                        "List Weapons": 4148759232
+                    },
+                    {
+                        "Gun Index": 3
+                    },
+                    {
+                        "Weapon": 144606590
+                    },
+                    {
+                        "Next Weapon": 3767261326
+                    },
+                    {
+                        "Prev Weapon": 508856247
+                    },
+                    {
+                        "Panel Upgrate": 3764765030
+                    },
+                    {
+                        "Panel Unlock": 3266740145
+                    },
+                    {
+                        "Next Panel Upgrate": 1390031282
+                    },
+                    {
+                        "Next Panel Unlock": 147604913
+                    },
+                    {
+                        "Prev Panel Upgrate": 107600527
+                    },
+                    {
+                        "Prev Panel Unlock": 1383730987
+                    },
+                    {
+                        "Material Weapon": 334261511
+                    },
+                    {
+                        "Material Weapon Locked": 2202060709
+                    },
+                    {
+                        "SelectedWeapon": 797707866
+                    },
+                    {
+                        "List Weapons": 4148759232
+                    },
+                    {
+                        "Gun Index": 3
+                    },
+                    {
+                        "Weapon": 144606590
+                    },
+                    {
+                        "Next Weapon": 3767261326
+                    },
+                    {
+                        "Prev Weapon": 508856247
+                    },
+                    {
+                        "Panel Upgrate": 3764765030
+                    },
+                    {
+                        "Panel Unlock": 3266740145
+                    },
+                    {
+                        "Next Panel Upgrate": 1390031282
+                    },
+                    {
+                        "Next Panel Unlock": 147604913
+                    },
+                    {
+                        "Prev Panel Upgrate": 107600527
+                    },
+                    {
+                        "Prev Panel Unlock": 1383730987
+                    },
+                    {
+                        "Material Weapon": 334261511
+                    },
+                    {
+                        "Material Weapon Locked": 2202060709
+                    },
+                    {
+                        "SelectedWeapon": 797707866
+                    },
+                    {
+                        "List Weapons": 4148759232
+                    },
+                    {
+                        "Gun Index": 3
                     }
                 ],
                 "Script Resource": 2943233861,
@@ -939,6 +1412,135 @@
                     },
                     {
                         "List Weapons": 4148759232
+                    },
+                    {
+                        "Gun Index": 2
+                    },
+                    {
+                        "Weapon": 3767261326
+                    },
+                    {
+                        "Next Weapon": 2317490973
+                    },
+                    {
+                        "Prev Weapon": 144606590
+                    },
+                    {
+                        "Panel Upgrate": 1390031282
+                    },
+                    {
+                        "Panel Unlock": 147604913
+                    },
+                    {
+                        "Next Panel Upgrate": 1759035418
+                    },
+                    {
+                        "Next Panel Unlock": 1173460062
+                    },
+                    {
+                        "Prev Panel Upgrate": 3764765030
+                    },
+                    {
+                        "Prev Panel Unlock": 3266740145
+                    },
+                    {
+                        "Material Weapon": 1780030818
+                    },
+                    {
+                        "Material Weapon Locked": 3711690831
+                    },
+                    {
+                        "SelectedWeapon": 797707866
+                    },
+                    {
+                        "List Weapons": 4148759232
+                    },
+                    {
+                        "Gun Index": 2
+                    },
+                    {
+                        "Weapon": 3767261326
+                    },
+                    {
+                        "Next Weapon": 2317490973
+                    },
+                    {
+                        "Prev Weapon": 144606590
+                    },
+                    {
+                        "Panel Upgrate": 1390031282
+                    },
+                    {
+                        "Panel Unlock": 147604913
+                    },
+                    {
+                        "Next Panel Upgrate": 1759035418
+                    },
+                    {
+                        "Next Panel Unlock": 1173460062
+                    },
+                    {
+                        "Prev Panel Upgrate": 3764765030
+                    },
+                    {
+                        "Prev Panel Unlock": 3266740145
+                    },
+                    {
+                        "Material Weapon": 1780030818
+                    },
+                    {
+                        "Material Weapon Locked": 3711690831
+                    },
+                    {
+                        "SelectedWeapon": 797707866
+                    },
+                    {
+                        "List Weapons": 4148759232
+                    },
+                    {
+                        "Gun Index": 2
+                    },
+                    {
+                        "Weapon": 3767261326
+                    },
+                    {
+                        "Next Weapon": 2317490973
+                    },
+                    {
+                        "Prev Weapon": 144606590
+                    },
+                    {
+                        "Panel Upgrate": 1390031282
+                    },
+                    {
+                        "Panel Unlock": 147604913
+                    },
+                    {
+                        "Next Panel Upgrate": 1759035418
+                    },
+                    {
+                        "Next Panel Unlock": 1173460062
+                    },
+                    {
+                        "Prev Panel Upgrate": 3764765030
+                    },
+                    {
+                        "Prev Panel Unlock": 3266740145
+                    },
+                    {
+                        "Material Weapon": 1780030818
+                    },
+                    {
+                        "Material Weapon Locked": 3711690831
+                    },
+                    {
+                        "SelectedWeapon": 797707866
+                    },
+                    {
+                        "List Weapons": 4148759232
+                    },
+                    {
+                        "Gun Index": 2
                     }
                 ],
                 "Script Resource": 2943233861,
@@ -1024,6 +1626,135 @@
                     },
                     {
                         "List Weapons": 4148759232
+                    },
+                    {
+                        "Gun Index": 1
+                    },
+                    {
+                        "Weapon": 2317490973
+                    },
+                    {
+                        "Next Weapon": 3445088448
+                    },
+                    {
+                        "Prev Weapon": 3767261326
+                    },
+                    {
+                        "Panel Upgrate": 1759035418
+                    },
+                    {
+                        "Panel Unlock": 1173460062
+                    },
+                    {
+                        "Next Panel Upgrate": 545001127
+                    },
+                    {
+                        "Next Panel Unlock": 3624823927
+                    },
+                    {
+                        "Prev Panel Upgrate": 1390031282
+                    },
+                    {
+                        "Prev Panel Unlock": 147604913
+                    },
+                    {
+                        "Material Weapon": 2392737524
+                    },
+                    {
+                        "Material Weapon Locked": 3104510813
+                    },
+                    {
+                        "SelectedWeapon": 797707866
+                    },
+                    {
+                        "List Weapons": 4148759232
+                    },
+                    {
+                        "Gun Index": 1
+                    },
+                    {
+                        "Weapon": 2317490973
+                    },
+                    {
+                        "Next Weapon": 3445088448
+                    },
+                    {
+                        "Prev Weapon": 3767261326
+                    },
+                    {
+                        "Panel Upgrate": 1759035418
+                    },
+                    {
+                        "Panel Unlock": 1173460062
+                    },
+                    {
+                        "Next Panel Upgrate": 545001127
+                    },
+                    {
+                        "Next Panel Unlock": 3624823927
+                    },
+                    {
+                        "Prev Panel Upgrate": 1390031282
+                    },
+                    {
+                        "Prev Panel Unlock": 147604913
+                    },
+                    {
+                        "Material Weapon": 2392737524
+                    },
+                    {
+                        "Material Weapon Locked": 3104510813
+                    },
+                    {
+                        "SelectedWeapon": 797707866
+                    },
+                    {
+                        "List Weapons": 4148759232
+                    },
+                    {
+                        "Gun Index": 1
+                    },
+                    {
+                        "Weapon": 2317490973
+                    },
+                    {
+                        "Next Weapon": 3445088448
+                    },
+                    {
+                        "Prev Weapon": 3767261326
+                    },
+                    {
+                        "Panel Upgrate": 1759035418
+                    },
+                    {
+                        "Panel Unlock": 1173460062
+                    },
+                    {
+                        "Next Panel Upgrate": 545001127
+                    },
+                    {
+                        "Next Panel Unlock": 3624823927
+                    },
+                    {
+                        "Prev Panel Upgrate": 1390031282
+                    },
+                    {
+                        "Prev Panel Unlock": 147604913
+                    },
+                    {
+                        "Material Weapon": 2392737524
+                    },
+                    {
+                        "Material Weapon Locked": 3104510813
+                    },
+                    {
+                        "SelectedWeapon": 797707866
+                    },
+                    {
+                        "List Weapons": 4148759232
+                    },
+                    {
+                        "Gun Index": 1
                     }
                 ],
                 "Script Resource": 2943233861,
@@ -1106,6 +1837,126 @@
                     },
                     {
                         "List Weapons": 4148759232
+                    },
+                    {
+                        "Gun Index": 5
+                    },
+                    {
+                        "Weapon": 3445088448
+                    },
+                    {
+                        "Prev Weapon": 2317490973
+                    },
+                    {
+                        "Panel Upgrate": 545001127
+                    },
+                    {
+                        "Panel Unlock": 3624823927
+                    },
+                    {
+                        "Next Panel Upgrate": 545001127
+                    },
+                    {
+                        "Next Panel Unlock": 3624823927
+                    },
+                    {
+                        "Prev Panel Upgrate": 1759035418
+                    },
+                    {
+                        "Prev Panel Unlock": 1173460062
+                    },
+                    {
+                        "Material Weapon": 1837055462
+                    },
+                    {
+                        "Material Weapon Locked": 575076703
+                    },
+                    {
+                        "SelectedWeapon": 797707866
+                    },
+                    {
+                        "List Weapons": 4148759232
+                    },
+                    {
+                        "Gun Index": 5
+                    },
+                    {
+                        "Weapon": 3445088448
+                    },
+                    {
+                        "Prev Weapon": 2317490973
+                    },
+                    {
+                        "Panel Upgrate": 545001127
+                    },
+                    {
+                        "Panel Unlock": 3624823927
+                    },
+                    {
+                        "Next Panel Upgrate": 545001127
+                    },
+                    {
+                        "Next Panel Unlock": 3624823927
+                    },
+                    {
+                        "Prev Panel Upgrate": 1759035418
+                    },
+                    {
+                        "Prev Panel Unlock": 1173460062
+                    },
+                    {
+                        "Material Weapon": 1837055462
+                    },
+                    {
+                        "Material Weapon Locked": 575076703
+                    },
+                    {
+                        "SelectedWeapon": 797707866
+                    },
+                    {
+                        "List Weapons": 4148759232
+                    },
+                    {
+                        "Gun Index": 5
+                    },
+                    {
+                        "Weapon": 3445088448
+                    },
+                    {
+                        "Prev Weapon": 2317490973
+                    },
+                    {
+                        "Panel Upgrate": 545001127
+                    },
+                    {
+                        "Panel Unlock": 3624823927
+                    },
+                    {
+                        "Next Panel Upgrate": 545001127
+                    },
+                    {
+                        "Next Panel Unlock": 3624823927
+                    },
+                    {
+                        "Prev Panel Upgrate": 1759035418
+                    },
+                    {
+                        "Prev Panel Unlock": 1173460062
+                    },
+                    {
+                        "Material Weapon": 1837055462
+                    },
+                    {
+                        "Material Weapon Locked": 575076703
+                    },
+                    {
+                        "SelectedWeapon": 797707866
+                    },
+                    {
+                        "List Weapons": 4148759232
+                    },
+                    {
+                        "Gun Index": 5
                     }
                 ],
                 "Script Resource": 2943233861,
@@ -1210,6 +2061,81 @@
                     },
                     {
                         "Text Blueprints": 1918887109
+                    },
+                    {
+                        "Gun Index": 0
+                    },
+                    {
+                        "Upgrate 1": 2642169239
+                    },
+                    {
+                        "Upgrate 2": 1310268034
+                    },
+                    {
+                        "Upgrate 3": 1360395370
+                    },
+                    {
+                        "Panel Upgrate": 794799067
+                    },
+                    {
+                        "Weapon Associated": 3640781781
+                    },
+                    {
+                        "List Weapons": 4148759232
+                    },
+                    {
+                        "Text Blueprints": 1918887109
+                    },
+                    {
+                        "Gun Index": 0
+                    },
+                    {
+                        "Upgrate 1": 2642169239
+                    },
+                    {
+                        "Upgrate 2": 1310268034
+                    },
+                    {
+                        "Upgrate 3": 1360395370
+                    },
+                    {
+                        "Panel Upgrate": 794799067
+                    },
+                    {
+                        "Weapon Associated": 3640781781
+                    },
+                    {
+                        "List Weapons": 4148759232
+                    },
+                    {
+                        "Text Blueprints": 1918887109
+                    },
+                    {
+                        "Gun Index": 0
+                    },
+                    {
+                        "Upgrate 1": 2642169239
+                    },
+                    {
+                        "Upgrate 2": 1310268034
+                    },
+                    {
+                        "Upgrate 3": 1360395370
+                    },
+                    {
+                        "Panel Upgrate": 794799067
+                    },
+                    {
+                        "Weapon Associated": 3640781781
+                    },
+                    {
+                        "List Weapons": 4148759232
+                    },
+                    {
+                        "Text Blueprints": 1918887109
+                    },
+                    {
+                        "Gun Index": 0
                     }
                 ],
                 "Script Resource": 3444632365,
@@ -1423,6 +2349,63 @@
                     },
                     {
                         "Weapon Associated": 508856247
+                    },
+                    {
+                        "Gun Index": 0
+                    },
+                    {
+                        "Unlock": 618596646
+                    },
+                    {
+                        "Panel Upgrate": 107600527
+                    },
+                    {
+                        "Panel Unlock": 1383730987
+                    },
+                    {
+                        "List Weapons": 4148759232
+                    },
+                    {
+                        "Weapon Associated": 508856247
+                    },
+                    {
+                        "Gun Index": 0
+                    },
+                    {
+                        "Unlock": 618596646
+                    },
+                    {
+                        "Panel Upgrate": 107600527
+                    },
+                    {
+                        "Panel Unlock": 1383730987
+                    },
+                    {
+                        "List Weapons": 4148759232
+                    },
+                    {
+                        "Weapon Associated": 508856247
+                    },
+                    {
+                        "Gun Index": 0
+                    },
+                    {
+                        "Unlock": 618596646
+                    },
+                    {
+                        "Panel Upgrate": 107600527
+                    },
+                    {
+                        "Panel Unlock": 1383730987
+                    },
+                    {
+                        "List Weapons": 4148759232
+                    },
+                    {
+                        "Weapon Associated": 508856247
+                    },
+                    {
+                        "Gun Index": 0
                     }
                 ],
                 "Script Resource": 1907481788,
@@ -1566,6 +2549,81 @@
                     },
                     {
                         "Text Blueprints": 1918887109
+                    },
+                    {
+                        "Gun Index": 0
+                    },
+                    {
+                        "Upgrate 1": 833326043
+                    },
+                    {
+                        "Upgrate 2": 574205334
+                    },
+                    {
+                        "Upgrate 3": 3488934542
+                    },
+                    {
+                        "Panel Upgrate": 107600527
+                    },
+                    {
+                        "Weapon Associated": 508856247
+                    },
+                    {
+                        "List Weapons": 4148759232
+                    },
+                    {
+                        "Text Blueprints": 1918887109
+                    },
+                    {
+                        "Gun Index": 0
+                    },
+                    {
+                        "Upgrate 1": 833326043
+                    },
+                    {
+                        "Upgrate 2": 574205334
+                    },
+                    {
+                        "Upgrate 3": 3488934542
+                    },
+                    {
+                        "Panel Upgrate": 107600527
+                    },
+                    {
+                        "Weapon Associated": 508856247
+                    },
+                    {
+                        "List Weapons": 4148759232
+                    },
+                    {
+                        "Text Blueprints": 1918887109
+                    },
+                    {
+                        "Gun Index": 0
+                    },
+                    {
+                        "Upgrate 1": 833326043
+                    },
+                    {
+                        "Upgrate 2": 574205334
+                    },
+                    {
+                        "Upgrate 3": 3488934542
+                    },
+                    {
+                        "Panel Upgrate": 107600527
+                    },
+                    {
+                        "Weapon Associated": 508856247
+                    },
+                    {
+                        "List Weapons": 4148759232
+                    },
+                    {
+                        "Text Blueprints": 1918887109
+                    },
+                    {
+                        "Gun Index": 0
                     }
                 ],
                 "Script Resource": 3444632365,
@@ -1779,6 +2837,63 @@
                     },
                     {
                         "Weapon Associated": 144606590
+                    },
+                    {
+                        "Gun Index": 0
+                    },
+                    {
+                        "Unlock": 2312409956
+                    },
+                    {
+                        "Panel Upgrate": 3764765030
+                    },
+                    {
+                        "Panel Unlock": 3266740145
+                    },
+                    {
+                        "List Weapons": 4148759232
+                    },
+                    {
+                        "Weapon Associated": 144606590
+                    },
+                    {
+                        "Gun Index": 0
+                    },
+                    {
+                        "Unlock": 2312409956
+                    },
+                    {
+                        "Panel Upgrate": 3764765030
+                    },
+                    {
+                        "Panel Unlock": 3266740145
+                    },
+                    {
+                        "List Weapons": 4148759232
+                    },
+                    {
+                        "Weapon Associated": 144606590
+                    },
+                    {
+                        "Gun Index": 0
+                    },
+                    {
+                        "Unlock": 2312409956
+                    },
+                    {
+                        "Panel Upgrate": 3764765030
+                    },
+                    {
+                        "Panel Unlock": 3266740145
+                    },
+                    {
+                        "List Weapons": 4148759232
+                    },
+                    {
+                        "Weapon Associated": 144606590
+                    },
+                    {
+                        "Gun Index": 0
                     }
                 ],
                 "Script Resource": 1907481788,
@@ -1922,6 +3037,81 @@
                     },
                     {
                         "Text Blueprints": 1918887109
+                    },
+                    {
+                        "Gun Index": 0
+                    },
+                    {
+                        "Upgrate 1": 2031947933
+                    },
+                    {
+                        "Upgrate 2": 2909215041
+                    },
+                    {
+                        "Upgrate 3": 392624692
+                    },
+                    {
+                        "Panel Upgrate": 3764765030
+                    },
+                    {
+                        "Weapon Associated": 144606590
+                    },
+                    {
+                        "List Weapons": 4148759232
+                    },
+                    {
+                        "Text Blueprints": 1918887109
+                    },
+                    {
+                        "Gun Index": 0
+                    },
+                    {
+                        "Upgrate 1": 2031947933
+                    },
+                    {
+                        "Upgrate 2": 2909215041
+                    },
+                    {
+                        "Upgrate 3": 392624692
+                    },
+                    {
+                        "Panel Upgrate": 3764765030
+                    },
+                    {
+                        "Weapon Associated": 144606590
+                    },
+                    {
+                        "List Weapons": 4148759232
+                    },
+                    {
+                        "Text Blueprints": 1918887109
+                    },
+                    {
+                        "Gun Index": 0
+                    },
+                    {
+                        "Upgrate 1": 2031947933
+                    },
+                    {
+                        "Upgrate 2": 2909215041
+                    },
+                    {
+                        "Upgrate 3": 392624692
+                    },
+                    {
+                        "Panel Upgrate": 3764765030
+                    },
+                    {
+                        "Weapon Associated": 144606590
+                    },
+                    {
+                        "List Weapons": 4148759232
+                    },
+                    {
+                        "Text Blueprints": 1918887109
+                    },
+                    {
+                        "Gun Index": 0
                     }
                 ],
                 "Script Resource": 3444632365,
@@ -2135,6 +3325,63 @@
                     },
                     {
                         "Weapon Associated": 3767261326
+                    },
+                    {
+                        "Gun Index": 0
+                    },
+                    {
+                        "Unlock": 2839875941
+                    },
+                    {
+                        "Panel Upgrate": 1390031282
+                    },
+                    {
+                        "Panel Unlock": 147604913
+                    },
+                    {
+                        "List Weapons": 4148759232
+                    },
+                    {
+                        "Weapon Associated": 3767261326
+                    },
+                    {
+                        "Gun Index": 0
+                    },
+                    {
+                        "Unlock": 2839875941
+                    },
+                    {
+                        "Panel Upgrate": 1390031282
+                    },
+                    {
+                        "Panel Unlock": 147604913
+                    },
+                    {
+                        "List Weapons": 4148759232
+                    },
+                    {
+                        "Weapon Associated": 3767261326
+                    },
+                    {
+                        "Gun Index": 0
+                    },
+                    {
+                        "Unlock": 2839875941
+                    },
+                    {
+                        "Panel Upgrate": 1390031282
+                    },
+                    {
+                        "Panel Unlock": 147604913
+                    },
+                    {
+                        "List Weapons": 4148759232
+                    },
+                    {
+                        "Weapon Associated": 3767261326
+                    },
+                    {
+                        "Gun Index": 0
                     }
                 ],
                 "Script Resource": 1907481788,
@@ -2278,6 +3525,81 @@
                     },
                     {
                         "Text Blueprints": 1918887109
+                    },
+                    {
+                        "Gun Index": 0
+                    },
+                    {
+                        "Upgrate 1": 1164770649
+                    },
+                    {
+                        "Upgrate 2": 3514805549
+                    },
+                    {
+                        "Upgrate 3": 2810404624
+                    },
+                    {
+                        "Panel Upgrate": 1390031282
+                    },
+                    {
+                        "Weapon Associated": 3767261326
+                    },
+                    {
+                        "List Weapons": 4148759232
+                    },
+                    {
+                        "Text Blueprints": 1918887109
+                    },
+                    {
+                        "Gun Index": 0
+                    },
+                    {
+                        "Upgrate 1": 1164770649
+                    },
+                    {
+                        "Upgrate 2": 3514805549
+                    },
+                    {
+                        "Upgrate 3": 2810404624
+                    },
+                    {
+                        "Panel Upgrate": 1390031282
+                    },
+                    {
+                        "Weapon Associated": 3767261326
+                    },
+                    {
+                        "List Weapons": 4148759232
+                    },
+                    {
+                        "Text Blueprints": 1918887109
+                    },
+                    {
+                        "Gun Index": 0
+                    },
+                    {
+                        "Upgrate 1": 1164770649
+                    },
+                    {
+                        "Upgrate 2": 3514805549
+                    },
+                    {
+                        "Upgrate 3": 2810404624
+                    },
+                    {
+                        "Panel Upgrate": 1390031282
+                    },
+                    {
+                        "Weapon Associated": 3767261326
+                    },
+                    {
+                        "List Weapons": 4148759232
+                    },
+                    {
+                        "Text Blueprints": 1918887109
+                    },
+                    {
+                        "Gun Index": 0
                     }
                 ],
                 "Script Resource": 3444632365,
@@ -2491,6 +3813,63 @@
                     },
                     {
                         "Weapon Associated": 2317490973
+                    },
+                    {
+                        "Gun Index": 0
+                    },
+                    {
+                        "Unlock": 2890039286
+                    },
+                    {
+                        "Panel Upgrate": 1759035418
+                    },
+                    {
+                        "Panel Unlock": 1173460062
+                    },
+                    {
+                        "List Weapons": 4148759232
+                    },
+                    {
+                        "Weapon Associated": 2317490973
+                    },
+                    {
+                        "Gun Index": 0
+                    },
+                    {
+                        "Unlock": 2890039286
+                    },
+                    {
+                        "Panel Upgrate": 1759035418
+                    },
+                    {
+                        "Panel Unlock": 1173460062
+                    },
+                    {
+                        "List Weapons": 4148759232
+                    },
+                    {
+                        "Weapon Associated": 2317490973
+                    },
+                    {
+                        "Gun Index": 0
+                    },
+                    {
+                        "Unlock": 2890039286
+                    },
+                    {
+                        "Panel Upgrate": 1759035418
+                    },
+                    {
+                        "Panel Unlock": 1173460062
+                    },
+                    {
+                        "List Weapons": 4148759232
+                    },
+                    {
+                        "Weapon Associated": 2317490973
+                    },
+                    {
+                        "Gun Index": 0
                     }
                 ],
                 "Script Resource": 1907481788,
@@ -2634,6 +4013,81 @@
                     },
                     {
                         "Text Blueprints": 1918887109
+                    },
+                    {
+                        "Gun Index": 0
+                    },
+                    {
+                        "Upgrate 1": 3402325730
+                    },
+                    {
+                        "Upgrate 2": 1578306633
+                    },
+                    {
+                        "Upgrate 3": 842795228
+                    },
+                    {
+                        "Panel Upgrate": 1759035418
+                    },
+                    {
+                        "Weapon Associated": 2317490973
+                    },
+                    {
+                        "List Weapons": 4148759232
+                    },
+                    {
+                        "Text Blueprints": 1918887109
+                    },
+                    {
+                        "Gun Index": 0
+                    },
+                    {
+                        "Upgrate 1": 3402325730
+                    },
+                    {
+                        "Upgrate 2": 1578306633
+                    },
+                    {
+                        "Upgrate 3": 842795228
+                    },
+                    {
+                        "Panel Upgrate": 1759035418
+                    },
+                    {
+                        "Weapon Associated": 2317490973
+                    },
+                    {
+                        "List Weapons": 4148759232
+                    },
+                    {
+                        "Text Blueprints": 1918887109
+                    },
+                    {
+                        "Gun Index": 0
+                    },
+                    {
+                        "Upgrate 1": 3402325730
+                    },
+                    {
+                        "Upgrate 2": 1578306633
+                    },
+                    {
+                        "Upgrate 3": 842795228
+                    },
+                    {
+                        "Panel Upgrate": 1759035418
+                    },
+                    {
+                        "Weapon Associated": 2317490973
+                    },
+                    {
+                        "List Weapons": 4148759232
+                    },
+                    {
+                        "Text Blueprints": 1918887109
+                    },
+                    {
+                        "Gun Index": 0
                     }
                 ],
                 "Script Resource": 3444632365,
@@ -2847,6 +4301,63 @@
                     },
                     {
                         "Weapon Associated": 3445088448
+                    },
+                    {
+                        "Gun Index": 0
+                    },
+                    {
+                        "Unlock": 178243298
+                    },
+                    {
+                        "Panel Upgrate": 545001127
+                    },
+                    {
+                        "Panel Unlock": 3624823927
+                    },
+                    {
+                        "List Weapons": 4148759232
+                    },
+                    {
+                        "Weapon Associated": 3445088448
+                    },
+                    {
+                        "Gun Index": 0
+                    },
+                    {
+                        "Unlock": 178243298
+                    },
+                    {
+                        "Panel Upgrate": 545001127
+                    },
+                    {
+                        "Panel Unlock": 3624823927
+                    },
+                    {
+                        "List Weapons": 4148759232
+                    },
+                    {
+                        "Weapon Associated": 3445088448
+                    },
+                    {
+                        "Gun Index": 0
+                    },
+                    {
+                        "Unlock": 178243298
+                    },
+                    {
+                        "Panel Upgrate": 545001127
+                    },
+                    {
+                        "Panel Unlock": 3624823927
+                    },
+                    {
+                        "List Weapons": 4148759232
+                    },
+                    {
+                        "Weapon Associated": 3445088448
+                    },
+                    {
+                        "Gun Index": 0
                     }
                 ],
                 "Script Resource": 1907481788,
@@ -2990,6 +4501,81 @@
                     },
                     {
                         "Text Blueprints": 1918887109
+                    },
+                    {
+                        "Gun Index": 0
+                    },
+                    {
+                        "Upgrate 1": 1782370003
+                    },
+                    {
+                        "Upgrate 2": 186862830
+                    },
+                    {
+                        "Upgrate 3": 121147845
+                    },
+                    {
+                        "Panel Upgrate": 545001127
+                    },
+                    {
+                        "Weapon Associated": 3445088448
+                    },
+                    {
+                        "List Weapons": 4148759232
+                    },
+                    {
+                        "Text Blueprints": 1918887109
+                    },
+                    {
+                        "Gun Index": 0
+                    },
+                    {
+                        "Upgrate 1": 1782370003
+                    },
+                    {
+                        "Upgrate 2": 186862830
+                    },
+                    {
+                        "Upgrate 3": 121147845
+                    },
+                    {
+                        "Panel Upgrate": 545001127
+                    },
+                    {
+                        "Weapon Associated": 3445088448
+                    },
+                    {
+                        "List Weapons": 4148759232
+                    },
+                    {
+                        "Text Blueprints": 1918887109
+                    },
+                    {
+                        "Gun Index": 0
+                    },
+                    {
+                        "Upgrate 1": 1782370003
+                    },
+                    {
+                        "Upgrate 2": 186862830
+                    },
+                    {
+                        "Upgrate 3": 121147845
+                    },
+                    {
+                        "Panel Upgrate": 545001127
+                    },
+                    {
+                        "Weapon Associated": 3445088448
+                    },
+                    {
+                        "List Weapons": 4148759232
+                    },
+                    {
+                        "Text Blueprints": 1918887109
+                    },
+                    {
+                        "Gun Index": 0
                     }
                 ],
                 "Script Resource": 3444632365,
@@ -3181,7 +4767,7 @@
             {
                 "Active camera": true,
                 "Active culling": true,
-                "Aspect ratio": 2.0079259872436523,
+                "Aspect ratio": 1.9569706916809082,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
