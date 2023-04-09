@@ -163,198 +163,50 @@ ButtonState ComponentUIButton::ChangeState(ButtonState State)
 	return State;
 }
 
-void ComponentUIButton::UpdateGamePadInput(std::vector<ComponentUI*>& _listButtons, int buttonSelected)
+void ComponentUIButton::UpdateGamePadInput(bool selected)
 {
-	if (_listButtons.size() != 1)
+	isPress = false;
+
+	State = ButtonState::NORMAL;
+
+	if (selected)
 	{
-		if (buttonSelected > 0 && buttonSelected < _listButtons.size() - 1)
+		if (ModuleInput::S_GetGamePadButton(GamePad::BUTTON_A) == KEY_DOWN && State != ButtonState::ONPRESS)
 		{
-			if (_listButtons[buttonSelected - 1]->GetGameObject()->GetComponent<ComponentUIButton>())
-			{
-				ComponentUIButton* prevButton = (ComponentUIButton*)_listButtons[buttonSelected - 1];
-
-				if (prevButton->isBlocked)
-				{
-					prevButton->State = ButtonState::BLOCKED;
-				}
-				else
-				{
-					prevButton->State = ButtonState::NORMAL;
-				}
-
-				_listButtons[buttonSelected - 1] = (ComponentUI*)prevButton;
-			}
-			else if (_listButtons[buttonSelected - 1]->GetGameObject()->GetComponent<ComponentUISlider>())
-			{
-				ComponentUISlider* prevButton = (ComponentUISlider*)_listButtons[buttonSelected - 1];
-
-				prevButton->State = SliderState::NORMAL;
-
-				_listButtons[buttonSelected - 1] = (ComponentUI*)prevButton;
-			}
-			else if (_listButtons[buttonSelected - 1]->GetGameObject()->GetComponent<ComponentUICheckbox>())
-			{
-				ComponentUICheckbox* prevButton = (ComponentUICheckbox*)_listButtons[buttonSelected - 1];
-
-				if (!prevButton->checkActive)
-				{
-					prevButton->State = CheckboxState::NORMAL;
-				}
-				else
-				{
-					prevButton->State = CheckboxState::ACTIVE;
-				}
-
-				_listButtons[buttonSelected - 1] = (ComponentUI*)prevButton;
-			}
-
-			if (_listButtons[buttonSelected + 1]->GetGameObject()->GetComponent<ComponentUIButton>())
-			{
-				ComponentUIButton* prevButton = (ComponentUIButton*)_listButtons[buttonSelected + 1];
-
-				if (prevButton->isBlocked)
-				{
-					prevButton->State = ButtonState::BLOCKED;
-				}
-				else
-				{
-					prevButton->State = ButtonState::NORMAL;
-				}
-
-				_listButtons[buttonSelected + 1] = (ComponentUI*)prevButton;
-			}
-			else if (_listButtons[buttonSelected + 1]->GetGameObject()->GetComponent<ComponentUISlider>())
-			{
-				ComponentUISlider* prevButton = (ComponentUISlider*)_listButtons[buttonSelected + 1];
-
-				prevButton->State = SliderState::NORMAL;
-
-				_listButtons[buttonSelected + 1] = (ComponentUI*)prevButton;
-			}
-			else if (_listButtons[buttonSelected + 1]->GetGameObject()->GetComponent<ComponentUICheckbox>())
-			{
-				ComponentUICheckbox* prevButton = (ComponentUICheckbox*)_listButtons[buttonSelected + 1];
-
-				if (!prevButton->checkActive)
-				{
-					prevButton->State = CheckboxState::NORMAL;
-				}
-				else
-				{
-					prevButton->State = CheckboxState::ACTIVE;
-				}
-
-				_listButtons[buttonSelected + 1] = (ComponentUI*)prevButton;
-			}
+			State = ButtonState::ONPRESS;
+			isPress = true;
 		}
-		else if (buttonSelected == 0)
+		else if (ModuleInput::S_GetGamePadButton(GamePad::BUTTON_A) == KEY_REPEAT)
 		{
-			if (_listButtons[buttonSelected + 1]->GetGameObject()->GetComponent<ComponentUIButton>())
-			{
-				ComponentUIButton* prevButton = (ComponentUIButton*)_listButtons[buttonSelected + 1];
-
-				if (prevButton->isBlocked)
-				{
-					prevButton->State = ButtonState::BLOCKED;
-				}
-				else
-				{
-					prevButton->State = ButtonState::NORMAL;
-				}
-
-				_listButtons[buttonSelected + 1] = (ComponentUI*)prevButton;
-			}
-			else if (_listButtons[buttonSelected + 1]->GetGameObject()->GetComponent<ComponentUISlider>())
-			{
-				ComponentUISlider* prevButton = (ComponentUISlider*)_listButtons[buttonSelected + 1];
-
-				prevButton->State = SliderState::NORMAL;
-
-				_listButtons[buttonSelected + 1] = (ComponentUI*)prevButton;
-			}
-			else if (_listButtons[buttonSelected + 1]->GetGameObject()->GetComponent<ComponentUICheckbox>())
-			{
-				ComponentUICheckbox* prevButton = (ComponentUICheckbox*)_listButtons[buttonSelected + 1];
-
-				if (!prevButton->checkActive)
-				{
-					prevButton->State = CheckboxState::NORMAL;
-				}
-				else
-				{
-					prevButton->State = CheckboxState::ACTIVE;
-				}
-
-				_listButtons[buttonSelected + 1] = (ComponentUI*)prevButton;
-			}
-		}
-		else if (buttonSelected == _listButtons.size() - 1)
-		{
-			if (_listButtons[buttonSelected - 1]->GetGameObject()->GetComponent<ComponentUIButton>())
-			{
-				ComponentUIButton* prevButton = (ComponentUIButton*)_listButtons[buttonSelected - 1];
-
-				if (prevButton->isBlocked)
-				{
-					prevButton->State = ButtonState::BLOCKED;
-				}
-				else
-				{
-					prevButton->State = ButtonState::NORMAL;
-				}
-
-				_listButtons[buttonSelected - 1] = (ComponentUI*)prevButton;
-			}
-			else if (_listButtons[buttonSelected - 1]->GetGameObject()->GetComponent<ComponentUISlider>())
-			{
-				ComponentUISlider* prevButton = (ComponentUISlider*)_listButtons[buttonSelected - 1];
-
-				prevButton->State = SliderState::NORMAL;
-
-				_listButtons[buttonSelected - 1] = (ComponentUI*)prevButton;
-			}
-			else if (_listButtons[buttonSelected - 1]->GetGameObject()->GetComponent<ComponentUICheckbox>())
-			{
-				ComponentUICheckbox* prevButton = (ComponentUICheckbox*)_listButtons[buttonSelected - 1];
-
-				if (!prevButton->checkActive)
-				{
-					prevButton->State = CheckboxState::NORMAL;
-				}
-				else
-				{
-					prevButton->State = CheckboxState::ACTIVE;
-				}
-
-				_listButtons[buttonSelected - 1] = (ComponentUI*)prevButton;
-			}
-		}
-	}
-
-	ComponentUIButton* auxiliarButton = (ComponentUIButton*)_listButtons[buttonSelected];
-
-	if (isBlocked)
-	{
-		auxiliarButton->State = ButtonState::BLOCKED;
-	}
-	else
-	{
-		auxiliarButton->State = ButtonState::HOVERED;
-	}
-
-	if (ModuleInput::S_GetGamePadButton(GamePad::BUTTON_A) == KEY_REPEAT)
-	{
-		if (isBlocked)
-		{
-			auxiliarButton->State = ButtonState::BLOCKED;
+			State = ButtonState::ONHOLD;
 		}
 		else
 		{
-			auxiliarButton->State = ButtonState::ONPRESS;
+			State = ButtonState::HOVERED;
 		}
 	}
 
-	_listButtons[buttonSelected] = (ComponentUI*)auxiliarButton;
+	if (blockedButton)
+		State = ButtonState::BLOCKED;
+
+	switch (State)
+	{
+	case ButtonState::NORMAL:
+		_material->ChangeTexture(textureIDIdle);
+		break;
+	case ButtonState::HOVERED:
+		_material->ChangeTexture(textureIDHover);
+		break;
+	case ButtonState::ONPRESS:
+	case ButtonState::ONHOLD:
+		_material->ChangeTexture(textureIDPress);
+		break;
+	case ButtonState::BLOCKED:
+		_material->ChangeTexture(textureIDBlocked);
+		break;
+	default:
+		break;
+	}
 }
 
 #ifdef STANDALONE

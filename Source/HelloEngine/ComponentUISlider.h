@@ -16,7 +16,7 @@ public:
 
 	void InputUpdate() override;
 
-	void UpdateGamePadInput(std::vector<ComponentUI*>& _listButtons, int buttonSelected) override;
+	void UpdateGamePadInput(bool selected) override;
 
 	SliderState State;
 
