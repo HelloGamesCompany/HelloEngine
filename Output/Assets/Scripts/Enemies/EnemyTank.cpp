@@ -28,6 +28,7 @@ HELLO_ENGINE_API_C EnemyTank* CreateEnemyTank(ScriptToInspectorInterface* script
 	script->AddDragBoxGameObject("Target", &classInstance->target);
 	script->AddDragBoxRigidBody("Action Rb zone", &classInstance->zoneRb);
 	script->AddDragFloat("Attack Range", &classInstance->attackRange);
+	script->AddDragFloat("Approximate Range", &classInstance->approximateRange);
 	script->AddDragFloat("Separate Range", &classInstance->separateRange);
 
 	script->AddDragFloat("Return Distance", &classInstance->returnToZoneDistance);
@@ -86,7 +87,7 @@ void EnemyTank::Update()
 			Seek();
 			break;
 		case States::ATTACKING:
-			//Attack();
+			Attack();
 			break;
 		}
 	}
@@ -130,17 +131,15 @@ void EnemyTank::CheckDistance() {
 	else {
 		targetDistance = gameObject.GetTransform().GetGlobalPosition().Distance(target.GetTransform().GetGlobalPosition());
 		if (targetDistance < detectionDistance) {
-			if (state == States::WANDERING)
-			{
-				state = States::TARGETING;
-			}
+			state = States::TARGETING;
 		}
 		else {
-			if (state == States::TARGETING)
-			{
-				state = States::WANDERING;
-			}
+			state = States::WANDERING;
 		}
+		/*else if ((targetDistance <= attackRange) && (targetDistance >= separateRange)) {
+			state = States::ATTACKING;
+		}
+		state = States::TARGETING;*/
 	}
 }
 
@@ -166,9 +165,10 @@ void EnemyTank::Seek()
 {
 	if (!enemyScript->actStun)
 	{
-		if (targetDistance > attackRange) {
+		if (targetDistance > approximateRange) {
 			enemyScript->currentSpeed = enemyScript->speed * enemyScript->acceleration * enemyScript->stunVel * enemyScript->slowVel;
 			MoveToDirection(target.GetTransform().GetGlobalPosition().x, target.GetTransform().GetGlobalPosition().z, enemyScript->currentSpeed);
+			//Attack();
 		}
 		else if(targetDistance < separateRange) {
 			enemyScript->currentSpeed = enemyScript->speed * enemyScript->acceleration * enemyScript->stunVel * enemyScript->slowVel;
@@ -176,6 +176,10 @@ void EnemyTank::Seek()
 		}
 		else {
 			enemyScript->enemyRb.SetVelocity(gameObject.GetTransform().GetForward() * 0);
+		}
+
+		if (targetDistance < attackRange) {
+			Attack();
 		}
 		
 	}
