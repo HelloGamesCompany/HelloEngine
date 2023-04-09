@@ -187,7 +187,7 @@ void ComponentUIButton::UpdateGamePadInput(bool selected)
 		}
 	}
 
-	if (blockedButton)
+	if (isBlocked)
 		State = ButtonState::BLOCKED;
 
 	switch (State)
