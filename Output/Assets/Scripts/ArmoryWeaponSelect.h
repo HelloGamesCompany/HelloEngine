@@ -13,7 +13,7 @@ public:
     void Update() override;
 
     void FindUnlock();
-    bool findUnlock;
+    bool findUnlock = true;
 
     API_UIButton CurrentWeapon;
 
@@ -39,8 +39,6 @@ public:
     int gunIndex;
 
     API_Material SelectedWeapon;
-
-    int unlockPress = 0;
 
 private:
 

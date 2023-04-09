@@ -24,5 +24,6 @@
 #include "API_ParticleSystem.h"
 #include "API_RigidBody.h"
 #include "API_Material.h"
+#include "API_SkinnedMeshRenderer.h"
 
 using namespace API;

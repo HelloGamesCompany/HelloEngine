@@ -26,13 +26,14 @@ public:
     API_GameObject currentWeapon;
     API_UIInput SelectWeaponList;
 
-    API_UIText bluePrintText;
-
     ArmoryWeaponSelect* weaponInstance;
     PlayerStorage* _playerStorage;
     API_GameObject Player;
 
     int gunIndex;
     int gunLevel;
+
+    float manteinTime = 0.0f;
+    int upgradingLevel;
 };
 

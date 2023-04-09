@@ -19,6 +19,7 @@ void ArmoryBluePrints::Start()
         break;
     case 2:
         haveBlueprint = API_QuickSave::GetBool("automaticGunBlueprint");
+        Console::Log("automatic gun: " + std::to_string(haveBlueprint));
         break;
     case 3:
         haveBlueprint = API_QuickSave::GetBool("burstGunBlueprint");

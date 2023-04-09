@@ -7,6 +7,8 @@ HELLO_ENGINE_API_C EnemyMeleeSpawner* CreateEnemyMeleeSpawner(ScriptToInspectorI
 	EnemyMeleeSpawner* classInstance = new EnemyMeleeSpawner();
 	//Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
 
+	script->AddDragBoxPrefabResource("Enemy Prefab", &classInstance->enemyPrefabRes);
+	script->AddDragBoxGameObject(" Parent of the Pool", &classInstance->parent);
 	script->AddDragInt("Enemy Pool Size", &classInstance->spawnPoolSize);
 	script->AddDragBoxParticleSystem("Particles", &classInstance->enemySpawnParticle);
 	script->AddDragBoxGameObject("Target", &classInstance->target);
@@ -16,9 +18,7 @@ HELLO_ENGINE_API_C EnemyMeleeSpawner* CreateEnemyMeleeSpawner(ScriptToInspectorI
 	script->AddDragBoxGameObject("Point 2", &classInstance->listPoints[1]);
 	script->AddDragBoxGameObject("Point 3", &classInstance->listPoints[2]);
 
-	script->AddDragBoxAnimationPlayer("Animation Player", &classInstance->animationPlayer);
-
-	return classInstance;
+	return classInstance; 
 }
 
 void EnemyMeleeSpawner::Start()
@@ -29,30 +29,58 @@ void EnemyMeleeSpawner::Start()
 
 	for (size_t i = 0; i < spawnPoolSize; i++)
 	{
+		
+		API_GameObject rootBoneRef;
+		API_SkinnedMeshRenderer skinnedMeshRef;
 
-		enemiesInSpawn[i] = Game::CreateGameObject("Enemy", "Enemy");
-		enemiesInSpawn[i].AddScript("Enemy");
-		enemiesInSpawn[i].AddScript("EnemyMeleeMovement");
-		enemiesInSpawn[i].AddParticleSystem(enemySpawnParticle);
-		Enemy* enemyMelee = (Enemy*)enemiesInSpawn[i].GetScript("Enemy");
-		enemyMelee->enemyRb = enemiesInSpawn[i].CreateRigidBodyBox(API_Vector3(0.0f, 1.2f, -0.5f), API_Vector3(0.0f, 0.0f, 0.0f), API_Vector3(2.3f, 2.0f, 2.9f), false);
+		std::string detectionTag;
+
+		enemiesInSpawn[i] = Game::InstancePrefab(enemyPrefabRes, parent);
+
+		enemiesInSpawn[i].GetChildren(childs);
+
+		for(API_GameObject& var : childs) 
+		{
+			detectionTag = var.GetTag();
+
+			if (detectionTag == "SkinnedMesh")
+			{
+				skinnedMeshRef = var.GetSkinnedMeshRender();
+			}
+			else if (detectionTag == "RootBone")
+			{  
+				rootBoneRef = var;
+			}
+		}
+
+		skinnedMeshRef.SetRootBone(rootBoneRef);
+
 		EnemyMeleeMovement* enemyMeleeMov = (EnemyMeleeMovement*)enemiesInSpawn[i].GetScript("EnemyMeleeMovement");
-		enemyMeleeMov->target = this->target;
-		enemyMeleeMov->actionZone = this->actionZone;
-		enemyMeleeMov->zoneRb = this->zoneRb;
-		enemyMeleeMov->listPoints[0] = listPoints[0];
-		enemyMeleeMov->listPoints[1] = listPoints[1];
-		enemyMeleeMov->listPoints[2] = listPoints[2];
+		if (enemyMeleeMov != nullptr)
+		{
 
+			enemyMeleeMov->target = target;
+			enemyMeleeMov->actionZone = actionZone;
+			enemyMeleeMov->zoneRb = zoneRb;
+			enemyMeleeMov->listPoints[0] = listPoints[0];
+			enemyMeleeMov->listPoints[1] = listPoints[1];
+			enemyMeleeMov->listPoints[2] = listPoints[2];
+		}
+		else
+		{
+		}
+		
 		//API_GameObject enemy_melee = Game::CreateGameObject("enemy_melee1", "enemy_melee1", &enemiesInSpawn[i]);
 		////enemy_melee.AddSkinnedmeshrenderer
 		//enemy_melee = 
 
+
+		enemiesInSpawn[i].GetTransform().SetPosition(gameObject.GetTransform().GetGlobalPosition());
 	}
 }
 void EnemyMeleeSpawner::Update()
 {
-
+	
 }
 
 void EnemyMeleeSpawner::OnCollisionEnter(API_RigidBody other)

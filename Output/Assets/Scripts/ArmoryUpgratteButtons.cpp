@@ -14,9 +14,8 @@ HELLO_ENGINE_API_C ArmoryUpgratteButtons* CreateArmoryUpgratteButtons(ScriptToIn
 
     script->AddDragBoxUIInput("List Weapons", &classInstance->SelectWeaponList);
 
-    script->AddDragBoxUIText("Text Blueprints", &classInstance->bluePrintText);
-
     script->AddDragInt("Gun Index", &classInstance->gunIndex);
+    script->AddDragFloat("fffff", &classInstance->manteinTime);
 
     return classInstance;
 }
@@ -25,20 +24,24 @@ void ArmoryUpgratteButtons::Start()
 {
     switch (gunIndex)
     {
+    case 0:
+        gunLevel = API_QuickSave::GetInt("duals_level");
+        Console::Log("duals level: " + std::to_string(gunLevel));
+        break;
     case 1:
-        gunLevel = API_QuickSave::GetBool("semiautomatic_level");
+        gunLevel = API_QuickSave::GetInt("semiautomatic_level");
         break;
     case 2:
-        gunLevel = API_QuickSave::GetBool("automatic_level");
+        gunLevel = API_QuickSave::GetInt("automatic_level");
         break;
     case 3:
-        gunLevel = API_QuickSave::GetBool("burst_level");
+        gunLevel = API_QuickSave::GetInt("burst_level");
         break;
     case 4:
-        gunLevel = API_QuickSave::GetBool("shotgun_level");
+        gunLevel = API_QuickSave::GetInt("shotgun_level");
         break;
     case 5:
-        gunLevel = API_QuickSave::GetBool("handgun_level");
+        gunLevel = API_QuickSave::GetInt("handgun_level");
         break;
     default:
         break;
@@ -47,12 +50,11 @@ void ArmoryUpgratteButtons::Start()
     _playerStorage = (PlayerStorage*)Player.GetScript("PlayerStorage");
     if (_playerStorage == nullptr) Console::Log("Player Storage missing in ArmaryUpgradeButtons.");
 
-    if (gunLevel > 0) Upgrate1.SetBlocked(true);
-    if (gunLevel > 1) Upgrate2.SetBlocked(true);
-    if (gunLevel > 2) Upgrate3.SetBlocked(true);
-
-    //bluePrintText.GetGameObject().GetMeshRenderer()
+    if (gunLevel != 0) Upgrate1.SetBlocked(true); // not working
+    if (gunLevel != 1) Upgrate2.SetBlocked(true);
+    if (gunLevel != 2) Upgrate3.SetBlocked(true);
 }
+
 void ArmoryUpgratteButtons::Update()
 {
     if (Input::GetGamePadButton(GamePadButton::BUTTON_B) == KeyState::KEY_DOWN)
@@ -63,32 +65,74 @@ void ArmoryUpgratteButtons::Update()
 
     if (!_playerStorage) return;
 
-    if (Upgrate1.OnPress() && _playerStorage->upgradeBlueprintAmount > 0)
+    if (manteinTime > 0.0f)
     {
-        UpgradeGun();
-        Upgrate2.SetBlocked(false);
-        if (_playerStorage != nullptr)
+        manteinTime -= Time::GetRealTimeDeltaTime();
+
+        /*if (!Unlock.OnHold())
         {
-            bluePrintText.SetText(std::to_string(_playerStorage->upgradeBlueprintAmount).c_str());
+            manteinTime = 0.0f;
+        }
+        else */if (manteinTime <= 0.0f)
+        {
+            manteinTime = 0.0f;
+
+            if (upgradingLevel == 1)
+            {
+                UpgradeGun();
+                Upgrate1.SetBlocked(true);
+                Upgrate2.SetBlocked(false);
+            }
+            else if (upgradingLevel == 2)
+            {
+                UpgradeGun();
+                Upgrate2.SetBlocked(true);
+                Upgrate3.SetBlocked(false);
+            }
+            else if (upgradingLevel == 3)
+            {
+                UpgradeGun();
+                Upgrate3.SetBlocked(true);
+            }
         }
     }
 
-    if (Upgrate2.OnPress() && _playerStorage->upgradeBlueprintAmount > 0)
+    if (Upgrate1.OnPress() && manteinTime == 0.0f)
     {
-        UpgradeGun();
-        Upgrate3.SetBlocked(false);
-        if (_playerStorage != nullptr)
+        if (_playerStorage->upgradeBlueprintAmount > 0)
         {
-            bluePrintText.SetText(std::to_string(_playerStorage->upgradeBlueprintAmount).c_str());
+            manteinTime = 1.0f;
+            upgradingLevel = 1;
+        }
+        else
+        {
+            // wrong sound
         }
     }
 
-    if (Upgrate3.OnPress() && _playerStorage->upgradeBlueprintAmount > 0)
+    if (Upgrate2.OnPress() && manteinTime == 0.0f)
     {
-        UpgradeGun();
-        if (_playerStorage != nullptr)
+        if (_playerStorage->upgradeBlueprintAmount > 0)
         {
-            bluePrintText.SetText(std::to_string(_playerStorage->upgradeBlueprintAmount).c_str());
+            manteinTime = 1.0f;
+            upgradingLevel = 2;
+        }
+        else
+        {
+            // wrong sound
+        }
+    }
+
+    if (Upgrate3.OnPress() && manteinTime == 0.0f)
+    {
+        if (_playerStorage->upgradeBlueprintAmount > 0)
+        {
+            manteinTime = 1.0f;
+            upgradingLevel = 3;
+        }
+        else
+        {
+            // wrong sound
         }
     }
 }
@@ -102,20 +146,23 @@ void ArmoryUpgratteButtons::UpgradeGun()
 
     switch (gunIndex)
     {
+    case 0:
+        API_QuickSave::SetInt("duals_level", gunLevel);
+        break;
     case 1:
-        API_QuickSave::SetBool("semiautomatic_level", gunLevel);
+        API_QuickSave::SetInt("semiautomatic_level", gunLevel);
         break;
     case 2:
-        API_QuickSave::SetBool("automatic_level", gunLevel);
+        API_QuickSave::SetInt("automatic_level", gunLevel);
         break;
     case 3:
-        API_QuickSave::SetBool("burst_level", gunLevel);
+        API_QuickSave::SetInt("burst_level", gunLevel);
         break;
     case 4:
-        API_QuickSave::SetBool("shotgun_level", gunLevel);
+        API_QuickSave::SetInt("shotgun_level", gunLevel);
         break;
     case 5:
-        API_QuickSave::SetBool("handgun_level", gunLevel);
+        API_QuickSave::SetInt("handgun_level", gunLevel);
         break;
     default:
         break;
