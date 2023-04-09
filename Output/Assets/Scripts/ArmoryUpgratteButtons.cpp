@@ -15,6 +15,7 @@ HELLO_ENGINE_API_C ArmoryUpgratteButtons* CreateArmoryUpgratteButtons(ScriptToIn
     script->AddDragBoxUIInput("List Weapons", &classInstance->SelectWeaponList);
 
     script->AddDragInt("Gun Index", &classInstance->gunIndex);
+    script->AddDragFloat("fffff", &classInstance->manteinTime);
 
     return classInstance;
 }
@@ -64,13 +65,44 @@ void ArmoryUpgratteButtons::Update()
 
     if (!_playerStorage) return;
 
-    if (Upgrate1.OnPress() && _playerStorage->upgradeBlueprintAmount > 0)
+    if (manteinTime > 0.0f)
+    {
+        manteinTime -= Time::GetRealTimeDeltaTime();
+
+        /*if (!Unlock.OnHold())
+        {
+            manteinTime = 0.0f;
+        }
+        else */if (manteinTime <= 0.0f)
+        {
+            manteinTime = 0.0f;
+
+            if (upgradingLevel == 1)
+            {
+                UpgradeGun();
+                Upgrate1.SetBlocked(true);
+                Upgrate2.SetBlocked(false);
+            }
+            else if (upgradingLevel == 2)
+            {
+                UpgradeGun();
+                Upgrate2.SetBlocked(true);
+                Upgrate3.SetBlocked(false);
+            }
+            else if (upgradingLevel == 3)
+            {
+                UpgradeGun();
+                Upgrate3.SetBlocked(true);
+            }
+        }
+    }
+
+    if (Upgrate1.OnPress() && manteinTime == 0.0f)
     {
         if (_playerStorage->upgradeBlueprintAmount > 0)
         {
-            UpgradeGun();
-            Upgrate1.SetBlocked(true);
-            Upgrate2.SetBlocked(false);
+            manteinTime = 1.0f;
+            upgradingLevel = 1;
         }
         else
         {
@@ -78,13 +110,12 @@ void ArmoryUpgratteButtons::Update()
         }
     }
 
-    if (Upgrate2.OnPress() && _playerStorage->upgradeBlueprintAmount > 0)
+    if (Upgrate2.OnPress() && manteinTime == 0.0f)
     {
         if (_playerStorage->upgradeBlueprintAmount > 0)
         {
-            UpgradeGun();
-            Upgrate2.SetBlocked(true);
-            Upgrate3.SetBlocked(false);
+            manteinTime = 1.0f;
+            upgradingLevel = 2;
         }
         else
         {
@@ -92,12 +123,12 @@ void ArmoryUpgratteButtons::Update()
         }
     }
 
-    if (Upgrate3.OnPress() && _playerStorage->upgradeBlueprintAmount > 0)
+    if (Upgrate3.OnPress() && manteinTime == 0.0f)
     {
         if (_playerStorage->upgradeBlueprintAmount > 0)
         {
-            UpgradeGun();
-            Upgrate3.SetBlocked(true);
+            manteinTime = 1.0f;
+            upgradingLevel = 3;
         }
         else
         {
