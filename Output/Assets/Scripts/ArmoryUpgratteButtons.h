@@ -26,8 +26,6 @@ public:
     API_GameObject currentWeapon;
     API_UIInput SelectWeaponList;
 
-    API_UIText bluePrintText;
-
     ArmoryWeaponSelect* weaponInstance;
     PlayerStorage* _playerStorage;
     API_GameObject Player;
