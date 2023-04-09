@@ -22,7 +22,7 @@ public:
 	// This is a method to check all input necessary on the given UI. It is called at the PreUpdate method of LayerUI.
 	virtual void InputUpdate() { IsMouseOver(); };
 
-	virtual void UpdateGamePadInput(std::vector<ComponentUI*>& _listButtons, int buttonSelected);
+	virtual void UpdateGamePadInput(bool selected) {};
 
 
 private:

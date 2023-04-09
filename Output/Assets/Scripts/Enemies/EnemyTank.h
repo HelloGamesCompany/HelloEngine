@@ -5,20 +5,28 @@
 
 #include "API/API.h"
 #include "Enemy.h"
+#include "EnemyGun.h"
 
 class EnemyTank : HelloBehavior
 {
 public:
 
 	enum class States {
+		WANDERING,
 		TARGETING,
-		ATTACKIG
+		ATTACKING
 	};
+
+	void Recovering();
 
 	void Start() override;
 	void Update() override;
 
 	float TakeDamageTank(float life, float damage);
+
+	void Wander();
+	void Seek();
+	void Attack();
 
 	/*void Seek(float vel, API_Vector3 tarPos, API_RigidBody rb);
 	void Attacking(float vel, API_Vector3 tarPos, API_RigidBody rb);*/
@@ -32,6 +40,18 @@ public:
 
 	//API_GameObject tank;
 	Enemy* enemyScript;
+
+	EnemyGun* enemyGun = nullptr;
+	API_GameObject gunObj;
+	int gunType;
+	States state;
+
+	float detectionDistance;
+	float walkVelocity;
+	float seekVelocity;
+	API_Vector3 initialPosition;
+	float initPosRange;
+
 private:
 	bool isRecoveringShield;
 	bool isRestoringHealth;

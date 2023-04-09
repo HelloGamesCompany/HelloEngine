@@ -280,7 +280,7 @@
                         "BluePrint Image Component": 1311065201
                     },
                     {
-                        "Related Weapon": 508856247
+                        "Gun Index": 4
                     }
                 ],
                 "Script Resource": 2905751812,
@@ -329,7 +329,7 @@
                         "BluePrint Image Component": 738364622
                     },
                     {
-                        "Related Weapon": 144606590
+                        "Gun Index": 3
                     }
                 ],
                 "Script Resource": 2905751812,
@@ -378,7 +378,7 @@
                         "BluePrint Image Component": 3219475805
                     },
                     {
-                        "Related Weapon": 3767261326
+                        "Gun Index": 2
                     }
                 ],
                 "Script Resource": 3695252177,
@@ -427,7 +427,7 @@
                         "BluePrint Image Component": 3221397760
                     },
                     {
-                        "Related Weapon": 2317490973
+                        "Gun Index": 1
                     }
                 ],
                 "Script Resource": 2905751812,
@@ -476,7 +476,7 @@
                         "BluePrint Image Component": 1306331402
                     },
                     {
-                        "Related Weapon": 3445088448
+                        "Gun Index": 5
                     }
                 ],
                 "Script Resource": 2905751812,
@@ -561,8 +561,13 @@
                 "PositionX": 0.7400000095367432,
                 "PositionY": 0.6875,
                 "Scale": 0.5,
-                "Text": "11",
+                "Text": "0",
                 "Type": 17
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 0,
+                "Type": 3
             }
         ],
         "FirstOnPrefab": false,
@@ -684,6 +689,9 @@
                     },
                     {
                         "List Weapons": 4148759232
+                    },
+                    {
+                        "Gun Index": 0
                     }
                 ],
                 "Script Resource": 2943233861,
@@ -769,6 +777,9 @@
                     },
                     {
                         "List Weapons": 4148759232
+                    },
+                    {
+                        "Gun Index": 4
                     }
                 ],
                 "Script Resource": 2943233861,
@@ -854,6 +865,9 @@
                     },
                     {
                         "List Weapons": 4148759232
+                    },
+                    {
+                        "Gun Index": 3
                     }
                 ],
                 "Script Resource": 2943233861,
@@ -939,6 +953,9 @@
                     },
                     {
                         "List Weapons": 4148759232
+                    },
+                    {
+                        "Gun Index": 2
                     }
                 ],
                 "Script Resource": 2943233861,
@@ -1024,6 +1041,9 @@
                     },
                     {
                         "List Weapons": 4148759232
+                    },
+                    {
+                        "Gun Index": 1
                     }
                 ],
                 "Script Resource": 2943233861,
@@ -1106,6 +1126,9 @@
                     },
                     {
                         "List Weapons": 4148759232
+                    },
+                    {
+                        "Gun Index": 5
                     }
                 ],
                 "Script Resource": 2943233861,
@@ -1209,7 +1232,7 @@
                         "List Weapons": 4148759232
                     },
                     {
-                        "Text Blueprints": 1918887109
+                        "Gun Index": 0
                     }
                 ],
                 "Script Resource": 3444632365,
@@ -1413,16 +1436,16 @@
                         "Unlock": 618596646
                     },
                     {
-                        "Panel Upgrate": 107600527
-                    },
-                    {
                         "Panel Unlock": 1383730987
                     },
                     {
                         "List Weapons": 4148759232
                     },
                     {
-                        "Weapon Associated": 508856247
+                        "Gun Index": 4
+                    },
+                    {
+                        "fffff": 0.0
                     }
                 ],
                 "Script Resource": 1907481788,
@@ -1565,7 +1588,7 @@
                         "List Weapons": 4148759232
                     },
                     {
-                        "Text Blueprints": 1918887109
+                        "Gun Index": 4
                     }
                 ],
                 "Script Resource": 3444632365,
@@ -1769,16 +1792,16 @@
                         "Unlock": 2312409956
                     },
                     {
-                        "Panel Upgrate": 3764765030
-                    },
-                    {
                         "Panel Unlock": 3266740145
                     },
                     {
                         "List Weapons": 4148759232
                     },
                     {
-                        "Weapon Associated": 144606590
+                        "Gun Index": 3
+                    },
+                    {
+                        "fffff": 0.0
                     }
                 ],
                 "Script Resource": 1907481788,
@@ -1921,7 +1944,7 @@
                         "List Weapons": 4148759232
                     },
                     {
-                        "Text Blueprints": 1918887109
+                        "Gun Index": 3
                     }
                 ],
                 "Script Resource": 3444632365,
@@ -2125,16 +2148,16 @@
                         "Unlock": 2839875941
                     },
                     {
-                        "Panel Upgrate": 1390031282
-                    },
-                    {
                         "Panel Unlock": 147604913
                     },
                     {
                         "List Weapons": 4148759232
                     },
                     {
-                        "Weapon Associated": 3767261326
+                        "Gun Index": 2
+                    },
+                    {
+                        "fffff": 0.0
                     }
                 ],
                 "Script Resource": 1907481788,
@@ -2277,7 +2300,7 @@
                         "List Weapons": 4148759232
                     },
                     {
-                        "Text Blueprints": 1918887109
+                        "Gun Index": 2
                     }
                 ],
                 "Script Resource": 3444632365,
@@ -2481,16 +2504,16 @@
                         "Unlock": 2890039286
                     },
                     {
-                        "Panel Upgrate": 1759035418
-                    },
-                    {
                         "Panel Unlock": 1173460062
                     },
                     {
                         "List Weapons": 4148759232
                     },
                     {
-                        "Weapon Associated": 2317490973
+                        "Gun Index": 1
+                    },
+                    {
+                        "fffff": 0.0
                     }
                 ],
                 "Script Resource": 1907481788,
@@ -2633,7 +2656,7 @@
                         "List Weapons": 4148759232
                     },
                     {
-                        "Text Blueprints": 1918887109
+                        "Gun Index": 1
                     }
                 ],
                 "Script Resource": 3444632365,
@@ -2837,16 +2860,16 @@
                         "Unlock": 178243298
                     },
                     {
-                        "Panel Upgrate": 545001127
-                    },
-                    {
                         "Panel Unlock": 3624823927
                     },
                     {
                         "List Weapons": 4148759232
                     },
                     {
-                        "Weapon Associated": 3445088448
+                        "Gun Index": 5
+                    },
+                    {
+                        "fffff": 0.0
                     }
                 ],
                 "Script Resource": 1907481788,
@@ -2989,7 +3012,7 @@
                         "List Weapons": 4148759232
                     },
                     {
-                        "Text Blueprints": 1918887109
+                        "Gun Index": 5
                     }
                 ],
                 "Script Resource": 3444632365,
@@ -3181,7 +3204,7 @@
             {
                 "Active camera": true,
                 "Active culling": true,
-                "Aspect ratio": 2.0079259872436523,
+                "Aspect ratio": 1.9330065250396729,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
