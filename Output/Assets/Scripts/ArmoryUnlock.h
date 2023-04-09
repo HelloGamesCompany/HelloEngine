@@ -10,19 +10,19 @@
 class ArmoryUnlock : HelloBehavior
 {
 public:
-	void Start() override; 
-	void Update() override;
+    void Start() override;
+    void Update() override;
 
-	API_UIButton Unlock;
-	API_UIInput PanelUpgrate;
-	API_UIInput PanelUnlock;
+    API_UIButton Unlock;
+    API_UIInput PanelUpgrate;
+    API_UIInput PanelUnlock;
 
-	API_GameObject currentWeapon;
-	API_UIInput SelectWeaponList;
+    API_GameObject currentWeapon;
+    API_UIInput SelectWeaponList;
 
-	ArmoryWeaponSelect* weaponInstance;
+    ArmoryWeaponSelect* weaponInstance;
 
-	int oneTime;
-
+    bool haveBlueprint = false;
+    int gunIndex;
 };
 
