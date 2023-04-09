@@ -51,8 +51,8 @@ public:
 	States state;
 
 	float detectionDistance;
-	float walkVelocity;
-	float seekVelocity;
+	/*float walkVelocity;
+	float seekVelocity;*/
 	API_Vector3 initialPosition;
 	float initPosRange;
 	API_GameObject target;
@@ -63,6 +63,7 @@ public:
 	float attackRange;
 	float separateRange;
 	float returnToZoneDistance;
+	//bool test;
 
 private:
 	bool isRecoveringShield;
