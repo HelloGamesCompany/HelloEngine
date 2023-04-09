@@ -14,15 +14,14 @@ public:
     void Update() override;
 
     API_UIButton Unlock;
-    API_UIInput PanelUpgrate;
     API_UIInput PanelUnlock;
 
     API_GameObject currentWeapon;
     API_UIInput SelectWeaponList;
 
-    ArmoryWeaponSelect* weaponInstance;
-
     bool haveBlueprint = false;
     int gunIndex;
+
+    float manteinTime = 0.0f;
 };
 
