@@ -32,11 +32,13 @@ public:
 	API_GameObject PrevPanelUnlock;
 
 	uint CurrentTextureWeapon;
+	uint CurrentTextureWeaponLocked;
 
 	bool isUnlocked = false;
 
 	API_Material SelectedWeapon;
 
+	int unlockPress = 0;
 
 private:
 

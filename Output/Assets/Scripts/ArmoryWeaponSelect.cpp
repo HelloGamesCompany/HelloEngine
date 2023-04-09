@@ -19,6 +19,7 @@ HELLO_ENGINE_API_C ArmoryWeaponSelect* CreateArmoryWeaponSelect(ScriptToInspecto
 	script->AddDragBoxGameObject("Prev Panel Unlock", &classInstance->PrevPanelUnlock);
 
 	script->AddDragBoxTextureResource("Material Weapon", &classInstance->CurrentTextureWeapon);
+	script->AddDragBoxTextureResource("Material Weapon Locked", &classInstance->CurrentTextureWeaponLocked);
 
 	script->AddDragBoxMaterialComponent("SelectedWeapon", &classInstance->SelectedWeapon);
 
@@ -31,17 +32,25 @@ void ArmoryWeaponSelect::Start()
 {
 	nextW = (ArmoryWeaponSelect*)NextWeapon.GetScript("ArmoryWeaponSelect");
 	PrevW = (ArmoryWeaponSelect*)PrevtWeapon.GetScript("ArmoryWeaponSelect");
+	CurrentPanelUnlock.SetEnable(false);
 }
 void ArmoryWeaponSelect::Update()
 {
 	if (CurrentWeapon.OnHovered())
 	{
-		SelectedWeapon.ChangeAlbedoTexture(CurrentTextureWeapon);
 
 		if (isUnlocked)
+		{
+			SelectedWeapon.ChangeAlbedoTexture(CurrentTextureWeapon);
 			CurrentPanelUpgrate.GetGameObject().SetActive(true);
+			CurrentPanelUnlock.GetGameObject().SetActive(false);
+			//CurrentWeapon.GetGameObject().GetMaterialCompoennt().ChangeAlbedoTexture(CurrentTextureWeapon);
+		}
 		else
+		{
+			SelectedWeapon.ChangeAlbedoTexture(CurrentTextureWeaponLocked);
 			CurrentPanelUnlock.GetGameObject().SetActive(true);
+		}
 
 		if (nextW != nullptr && nextW->isUnlocked)
 			NextPanelUpgrate.SetActive(false);
@@ -64,8 +73,8 @@ void ArmoryWeaponSelect::Update()
 		else
 		{
 			CurrentPanelUnlock.SetEnable(true);
+			unlockPress++;
 		}
-		//isUnlocked = true;
 	}
 }
 

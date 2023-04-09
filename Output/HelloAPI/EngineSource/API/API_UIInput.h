@@ -15,6 +15,7 @@ namespace API
 		API_GameObject GetGameObject();
 
 		void SetEnable(bool);
+		bool IsEnabled();
 
 	private:
 		ComponentUIInput* GetComponent();

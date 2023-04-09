@@ -1,6 +1,8 @@
 #pragma once
 #include "ComponentUI.h"
 #include "ComponentUIButton.h"
+#include "ComponentUISlider.h"
+#include "ComponentUICheckbox.h"
 
 class ComponentUIInput : public ComponentUI
 {
@@ -14,16 +16,17 @@ class ComponentUIInput : public ComponentUI
 	void Serialization(json& j) override;
 	void DeSerialization(json& j) override;
 
-	std::vector<ComponentUIButton *> _listButtons;
 	bool _isComponentEnable;
 
-private: 
+	std::vector<ComponentUI*> _listButtons;
 
-
-	ImWindowGame* _gameWindow = nullptr;
 	bool isPress = true;
 	bool AisPress = true;
 	int ButtonSelected = 0;
+private: 
+
+	ImWindowGame* _gameWindow = nullptr;
+
 
 #ifdef STANDALONE
 	void OnEditor() override;

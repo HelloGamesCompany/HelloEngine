@@ -110,3 +110,8 @@ void ComponentUI::DeSerialization(json& j)
 
     _gameObject->transform->ForceUpdate();
 }
+
+void ComponentUI::UpdateGamePadInput(std::vector<ComponentUI*>& _listButtons, int )
+{
+
+}

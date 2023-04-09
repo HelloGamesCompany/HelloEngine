@@ -7,6 +7,7 @@
 #include "API/API_UIInput.h"
 #include "API/API_UIText.h"
 #include "ArmoryWeaponSelect.h"
+#include "Player/PlayerStorage.h"
 
 class ArmoryUpgratteButtons : HelloBehavior
 {
@@ -30,6 +31,8 @@ public:
 	API_UIText bluePrintText;
 
 	ArmoryWeaponSelect* weaponInstance;
+	PlayerStorage* _playerStorage;
+	API_GameObject Player;
 
 	bool isUnlocked;
 	bool upgrade1;
