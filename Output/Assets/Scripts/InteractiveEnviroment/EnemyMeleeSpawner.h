@@ -16,12 +16,17 @@ public:
 	API_GameObject enemy;
 	API_GameObject target;
 	API_GameObject actionZone;
+	API_GameObject parent;
 
 	API_RigidBody zoneRb;
 
 	API_AnimationPlayer animationPlayer;
 
 	API_GameObject listPoints[5];
+
+	uint enemyPrefabRes;
+
+	API_GameObject childs[60];
 
 	int spawnPoolSize;
 	std::vector<API_GameObject> enemiesInSpawn;
