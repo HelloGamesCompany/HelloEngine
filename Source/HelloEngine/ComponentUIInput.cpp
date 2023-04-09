@@ -24,25 +24,20 @@ void ComponentUIInput::InputUpdate()
 {
 	if (_listButtons.size() != 0 && _gameObject->IsActive() && _isComponentEnable)
 	{
-		if (ButtonSelected == 0)
-		{
-			_listButtons[0]->State = ButtonState::HOVERED;
-		}
-
 		if (ButtonSelected < _listButtons.size() - 1 && ((ModuleInput::S_GetGamePadAxis(SDL_CONTROLLER_AXIS_LEFTY) > 10000 && isPress) || ModuleInput::S_GetGamePadButton(GamePad::BUTTON_DOWN) == KEY_DOWN))
 		{
-			_listButtons[ButtonSelected]->State = ButtonState::NORMAL;
-			_listButtons[ButtonSelected]->IsHold = false;
+			//_listButtons[ButtonSelected]->State = ButtonState::NORMAL;
+			//_listButtons[ButtonSelected]->IsHold = false;
 			ButtonSelected++;
-			_listButtons[ButtonSelected]->State = ButtonState::HOVERED;
+			//_listButtons[ButtonSelected]->State = ButtonState::HOVERED;
 			isPress = false;
 		}
 		else if (ButtonSelected > 0 && ((ModuleInput::S_GetGamePadAxis(SDL_CONTROLLER_AXIS_LEFTY) < -10000 && isPress) || ModuleInput::S_GetGamePadButton(GamePad::BUTTON_UP) == KEY_DOWN))
 		{
-			_listButtons[ButtonSelected]->State = ButtonState::NORMAL;
-			_listButtons[ButtonSelected]->IsHold = false;
+			//_listButtons[ButtonSelected]->State = ButtonState::NORMAL;
+			//_listButtons[ButtonSelected]->IsHold = false;
 			ButtonSelected--;
-			_listButtons[ButtonSelected]->State = ButtonState::HOVERED;
+			//_listButtons[ButtonSelected]->State = ButtonState::HOVERED;
 			isPress = false;
 		}
 		else if (ModuleInput::S_GetGamePadAxis(SDL_CONTROLLER_AXIS_LEFTY) > -10000 && ModuleInput::S_GetGamePadAxis(SDL_CONTROLLER_AXIS_LEFTY) < 10000)
@@ -52,17 +47,31 @@ void ComponentUIInput::InputUpdate()
 
 		if (ModuleInput::S_GetGamePadButton(GamePad::BUTTON_A) == KEY_DOWN && AisPress)
 		{
-			_listButtons[ButtonSelected]->State = ButtonState::ONPRESS;
+			//_listButtons[ButtonSelected]->State = ButtonState::ONPRESS;
 			AisPress = false;
 		}
 		if (ModuleInput::S_GetGamePadButton(GamePad::BUTTON_A) == KEY_REPEAT)
 		{
-			_listButtons[ButtonSelected]->State = ButtonState::ONHOLD;
+			//_listButtons[ButtonSelected]->State = ButtonState::ONHOLD;
 		}
 		if (ModuleInput::S_GetGamePadButton(GamePad::BUTTON_A) == KEY_UP)
 		{
 			AisPress = true;
 		}
+
+		if (_listButtons[ButtonSelected]->GetGameObject()->GetComponent<ComponentUIButton>())
+		{
+			_listButtons[ButtonSelected]->UpdateGamePadInput(_listButtons, ButtonSelected);
+		}
+		else if (_listButtons[ButtonSelected]->GetGameObject()->GetComponent<ComponentUISlider>())
+		{
+			_listButtons[ButtonSelected]->UpdateGamePadInput(_listButtons, ButtonSelected);
+		}
+		else if (_listButtons[ButtonSelected]->GetGameObject()->GetComponent<ComponentUICheckbox>())
+		{
+			_listButtons[ButtonSelected]->UpdateGamePadInput(_listButtons, ButtonSelected);
+		}
+
 	}
 }
 
@@ -103,9 +112,23 @@ void ComponentUIInput::DeSerialization(json& j)
 
 		ComponentUIButton* CUIB = GOAux->GetComponent<ComponentUIButton>();
 
-		if (CUIB != nullptr)
+		if (CUIB != nullptr && CUIB->GetGameObject()->GetComponent<ComponentUIButton>())
 		{
 			_listButtons.push_back(CUIB);
+		}
+
+		ComponentUICheckbox* CUIC = GOAux->GetComponent<ComponentUICheckbox>();
+
+		if (CUIC != nullptr && CUIC->GetGameObject()->GetComponent<ComponentUICheckbox>())
+		{
+			_listButtons.push_back(CUIC);
+		}
+
+		ComponentUISlider* CUIS = GOAux->GetComponent<ComponentUISlider>();
+
+		if (CUIS != nullptr && CUIS->GetGameObject()->GetComponent<ComponentUISlider>())
+		{
+			_listButtons.push_back(CUIS);
 		}
 	}
 
@@ -146,9 +169,8 @@ void ComponentUIInput::OnEditor()
 				ImGui::SameLine();
 				ImGui::Button("Insert a button");
 			}
-
 			
-
+			//DragBox Button
 			if (ImGui::BeginDragDropTarget())
 			{
 				if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("GameObject"))
@@ -163,6 +185,56 @@ void ComponentUIInput::OnEditor()
 						if (i != _listButtons.size())
 						{
 							_listButtons[i] = ModuleLayers::gameObjects[*drop]->GetComponent<ComponentUIButton>();
+						}
+						else
+						{
+							_listButtons.push_back(UIB);
+						}
+					}
+				}
+				ImGui::EndDragDropTarget();
+			}
+
+			//DragBox CheckBox
+			if (ImGui::BeginDragDropTarget())
+			{
+				if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("GameObject"))
+				{
+					//Drop asset from Asset window to scene window
+					const uint* drop = (uint*)payload->Data;
+
+					ComponentUICheckbox* UIB = ModuleLayers::gameObjects[*drop]->GetComponent<ComponentUICheckbox>();
+
+					if (UIB != nullptr)
+					{
+						if (i != _listButtons.size())
+						{
+							_listButtons[i] = ModuleLayers::gameObjects[*drop]->GetComponent<ComponentUICheckbox>();
+						}
+						else
+						{
+							_listButtons.push_back(UIB);
+						}
+					}
+				}
+				ImGui::EndDragDropTarget();
+			}
+
+			//DragBox Slider
+			if (ImGui::BeginDragDropTarget())
+			{
+				if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("GameObject"))
+				{
+					//Drop asset from Asset window to scene window
+					const uint* drop = (uint*)payload->Data;
+
+					ComponentUISlider* UIB = ModuleLayers::gameObjects[*drop]->GetComponent<ComponentUISlider>();
+
+					if (UIB != nullptr)
+					{
+						if (i != _listButtons.size())
+						{
+							_listButtons[i] = ModuleLayers::gameObjects[*drop]->GetComponent<ComponentUISlider>();
 						}
 						else
 						{

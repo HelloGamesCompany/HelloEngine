@@ -19,6 +19,10 @@ namespace API
 		bool OnHold();
 
 		bool OnHovered();
+
+		bool getIsBlocked();
+
+		void SetBlocked(bool);
 	
 	private:
 		ComponentUIButton* GetComponent();
@@ -28,8 +32,5 @@ namespace API
 
 		friend class API_GameObject;
 		friend class DragBoxUIButton;
-
-		
-
 	};
 }

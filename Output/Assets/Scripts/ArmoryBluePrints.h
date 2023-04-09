@@ -16,7 +16,7 @@ public:
 
 	API_Material bluePrint;
 
-	uint bluePrintTexture;
+	API_MeshRenderer bluePrintMR;
 
 	ArmoryWeaponSelect* WeaponUnlocked;
 
