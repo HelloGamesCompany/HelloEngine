@@ -11,8 +11,13 @@ HELLO_ENGINE_API_C EnemyMeleeMovement* CreateEnemyMeleeMovement(ScriptToInspecto
     script->AddDragFloat("Lossing Enemy distance", &classInstance->lossingDis);
     script->AddDragFloat("Range attack", &classInstance->rangeAtk);
     script->AddDragFloat("OutsideZone Time", &classInstance->outTime);
+    script->AddDragFloat("Attack Time", &classInstance->attackTimeCpy);
+    script->AddDragFloat("Attack Charge", &classInstance->attackChargeCpy);
+    script->AddDragFloat("Attack Cooldown", &classInstance->attackCDCpy);
+    script->AddDragFloat("Attack Timer LOG", &classInstance->timer);
     script->AddDragBoxGameObject("Target", &classInstance->target);
     script->AddDragBoxGameObject("Action zone", &classInstance->actionZone);
+    script->AddDragBoxGameObject("Attack zone", &classInstance->attackZoneGO);
     script->AddDragBoxRigidBody("Action Rb zone", &classInstance->zoneRb);
     script->AddDragBoxGameObject("Point 1", &classInstance->listPoints[0]);
     script->AddDragBoxGameObject("Point 2", &classInstance->listPoints[1]);
@@ -35,34 +40,42 @@ void EnemyMeleeMovement::Start()
     _outCooldown = 0;
     srand(time(NULL));
 
+    timer = 0.0;
+    attackCharge = attackChargeCpy;
+    attackTime = attackCharge + attackTimeCpy;
+    attackCD = attackTime + attackCDCpy;
+
     animState = AnimationState::NONE;
 
     enemy = (Enemy*)gameObject.GetScript("Enemy");
+    attackZone = (EnemyMeleeAttackZone*)attackZoneGO.GetScript("EnemyMeleeAttackZone");
 }
 void EnemyMeleeMovement::Update()
 {
     
     float dt = Time::GetDeltaTime();
 
-    if (enemy != nullptr)
+    if (enemy != nullptr && attackZone != nullptr)
     {
        float dis = gameObject.GetTransform().GetGlobalPosition().Distance(target.GetTransform().GetGlobalPosition());
         float disZone = gameObject.GetTransform().GetGlobalPosition().Distance(actionZone.GetTransform().GetGlobalPosition());
        //  float dis = gameObject.GetTransform().GetLocalPosition().Distance(target.GetTransform().GetGlobalPosition());
        // float disZone = gameObject.GetTransform().GetLocalPosition().Distance(actionZone.GetTransform().GetGlobalPosition());
-        if (dis < detectionDis && enemState != States::TARGETING)
-        {
-            enemState = States::TARGETING;
-
-        }
-        else if (dis <= rangeAtk && enemState == States::TARGETING)
+        if (attackZone->attack)
         {
             enemState = States::ATTACKIG;
         }
+        else if (dis < detectionDis && enemState != States::TARGETING)
+        {
+            attackZone->attack = false;
+            enemState = States::TARGETING;
+        }
         else if ((dis > lossingDis) /*|| ((disZone > zoneRb.GetRadius() / 2)*//* && _outCooldown >= outTime)*/)
         {
+            attackZone->attack = false;
             enemState = States::WANDERING;
         }
+        
 
         if ((disZone > zoneRb.GetRadius() / 2) /*&& enemState == States::TARGETING*/)_outCooldown += dt/*, Console::Log(std::to_string(_outCooldown))*/;
         else _outCooldown = 0;
@@ -112,15 +125,46 @@ void EnemyMeleeMovement::Update()
             break;
 
         case States::ATTACKIG:
-            
-            enemy->currentSpeed = enemy->speed * enemy->acceleration * enemy->stunVel * enemy->slowVel /** dt*/;
 
-            if (animState != AnimationState::WALK)
+            if (timer < attackCharge)
             {
-                animState = AnimationState::WALK;
-                animationPlayer.ChangeAnimation(walkAnim);
-                animationPlayer.Play();
+                ChargeAttack();
             }
+            else if (timer < attackTime)
+            {
+                Attack();
+            }
+            else if (timer < attackCD)
+            {
+                WalkAway();
+            }
+            else {
+                timer = 0.0f;
+                attackCharge = attackChargeCpy;
+                attackTime = attackCharge + attackTimeCpy;
+                attackCD = attackTime + attackCDCpy;
+                attackZone->attack = false;
+            }
+
+            timer += dt;
+            
+            ////enemy->currentSpeed = enemy->speed * enemy->acceleration * enemy->stunVel * enemy->slowVel /** dt*/;
+            //if (attackCharge > 0.0f) {
+            //    if (animState != AnimationState::IDLE)
+            //    {
+            //        animState = AnimationState::IDLE;
+            //        animationPlayer.ChangeAnimation(idleAnim);
+            //        animationPlayer.Play();
+            //    }
+            //}
+            //else {
+            //    if (animState != AnimationState::WALK)
+            //    {
+            //        animState = AnimationState::WALK;
+            //        animationPlayer.ChangeAnimation(walkAnim);
+            //        animationPlayer.Play();
+            //    }
+            //}
             
             break;
         default:
@@ -193,4 +237,26 @@ API_Vector3 EnemyMeleeMovement::NormalizeVec3(float x, float y, float z)
 float EnemyMeleeMovement::Lerp(float a, float b, float time)
 {
     return a + time * (b - a);
+}
+
+void EnemyMeleeMovement::WalkAway()
+{
+    enemy->currentSpeed = -5.0f;
+    Seek(enemy->currentSpeed, target.GetTransform().GetGlobalPosition(), enemy->enemyRb);
+}
+void EnemyMeleeMovement::ChargeAttack()
+{
+    enemy->currentSpeed = 0.0f;
+    Seek(enemy->currentSpeed, target.GetTransform().GetGlobalPosition(), enemy->enemyRb);
+    targetPosOnAttack = target.GetTransform().GetGlobalPosition();
+}
+void EnemyMeleeMovement::Attack()
+{
+    if (gameObject.GetTransform().GetGlobalPosition() == targetPosOnAttack)
+    {
+        timer = attackTime + 2;
+        attackCD += 2;
+    }
+    enemy->currentSpeed = 15.0f;
+    Seek(enemy->currentSpeed, targetPosOnAttack, enemy->enemyRb);
 }
