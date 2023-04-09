@@ -71,6 +71,11 @@ public:
 		_mouse_buttons[id] = KEY_STATE::KEY_IDLE;
 	}
 
+	static void S_HandleGamePadButton(GamePad id)
+	{
+		gamePadButtons[id] = KEY_STATE::KEY_IDLE;
+	}
+
 	static int S_GetMouseX()
 	{
 		return _mouse_x;
@@ -133,9 +138,9 @@ private:
 	static std::function<void(std::string)> _dropEvent;
 
 	// Joysticks Controller variables
+	static KEY_STATE gamePadButtons[MAX_CONTROLLER_BUTTONS];
 	static int maxGamePads;
 	static int gamePadIndex;
-	static KEY_STATE gamePadButtons[MAX_CONTROLLER_BUTTONS];
 
 	static SDL_GameControllerButton sdlGamePadButtons[MAX_CONTROLLER_BUTTONS];
 

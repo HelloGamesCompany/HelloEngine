@@ -14,7 +14,9 @@ HELLO_ENGINE_API_C EnemyMeleeMovement* CreateEnemyMeleeMovement(ScriptToInspecto
     script->AddDragFloat("Attack Time", &classInstance->attackTimeCpy);
     script->AddDragFloat("Attack Charge", &classInstance->attackChargeCpy);
     script->AddDragFloat("Attack Cooldown", &classInstance->attackCDCpy);
-    script->AddDragFloat("Attack Timer LOG", &classInstance->timer);
+    script->AddDragFloat("Attack Speed", &classInstance->attackSpeed);
+    script->AddDragFloat("Charge Speed", &classInstance->chargeSpeed);
+    script->AddDragFloat("Walk Away Speed", &classInstance->walkAwaySpeed);
     script->AddDragBoxGameObject("Target", &classInstance->target);
     script->AddDragBoxGameObject("Action zone", &classInstance->actionZone);
     script->AddDragBoxGameObject("Attack zone", &classInstance->attackZoneGO);
@@ -27,7 +29,6 @@ HELLO_ENGINE_API_C EnemyMeleeMovement* CreateEnemyMeleeMovement(ScriptToInspecto
     script->AddDragBoxAnimationPlayer("Animation Player", &classInstance->animationPlayer);
     script->AddDragBoxAnimationResource("Idle Animation", &classInstance->idleAnim);
     script->AddDragBoxAnimationResource("Walk Animation", &classInstance->walkAnim);
-
 
     return classInstance;
 }
@@ -241,22 +242,22 @@ float EnemyMeleeMovement::Lerp(float a, float b, float time)
 
 void EnemyMeleeMovement::WalkAway()
 {
-    enemy->currentSpeed = -5.0f;
+    enemy->currentSpeed = -walkAwaySpeed;
     Seek(enemy->currentSpeed, target.GetTransform().GetGlobalPosition(), enemy->enemyRb);
 }
 void EnemyMeleeMovement::ChargeAttack()
 {
-    enemy->currentSpeed = 0.0f;
+    enemy->currentSpeed = chargeSpeed;
     Seek(enemy->currentSpeed, target.GetTransform().GetGlobalPosition(), enemy->enemyRb);
     targetPosOnAttack = target.GetTransform().GetGlobalPosition();
 }
 void EnemyMeleeMovement::Attack()
 {
-    if (gameObject.GetTransform().GetGlobalPosition() == targetPosOnAttack)
+   /* if (gameObject.GetTransform().GetGlobalPosition() == targetPosOnAttack)
     {
         timer = attackTime + 2;
         attackCD += 2;
-    }
-    enemy->currentSpeed = 15.0f;
+    }*/
+    enemy->currentSpeed = attackSpeed;
     Seek(enemy->currentSpeed, targetPosOnAttack, enemy->enemyRb);
 }

@@ -173,6 +173,7 @@ void ComponentUIButton::UpdateGamePadInput(bool selected)
 	{
 		if (ModuleInput::S_GetGamePadButton(GamePad::BUTTON_A) == KEY_DOWN && State != ButtonState::ONPRESS)
 		{
+			ModuleInput::S_HandleGamePadButton(GamePad::BUTTON_A); // Handle A button so no other UI detects it.
 			State = ButtonState::ONPRESS;
 			isPress = true;
 		}
