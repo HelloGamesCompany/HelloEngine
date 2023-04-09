@@ -166,7 +166,7 @@ ButtonState ComponentUIButton::ChangeState(ButtonState State)
 void ComponentUIButton::UpdateGamePadInput(bool selected)
 {
 	isPress = false;
-
+	isReleased = false;
 	State = ButtonState::NORMAL;
 
 	if (selected)
@@ -181,8 +181,11 @@ void ComponentUIButton::UpdateGamePadInput(bool selected)
 		{
 			State = ButtonState::ONHOLD;
 		}
-		else
+		else 
 		{
+			// If previous state was hold or press, this frame the button was released
+			if (State == ButtonState::ONHOLD || State == ButtonState::ONPRESS)
+				isReleased = true;
 			State = ButtonState::HOVERED;
 		}
 	}
