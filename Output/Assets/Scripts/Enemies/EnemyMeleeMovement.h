@@ -55,7 +55,11 @@ public:
     float attackTimeCpy;
     float attackChargeCpy;
     float timer = 0.0f;
-    bool hasAttack = false;
+
+    float attackSpeed;
+    float walkAwaySpeed;
+    float chargeSpeed;
+
     API_Vector3 targetPosOnAttack;
 
     API_GameObject target;
