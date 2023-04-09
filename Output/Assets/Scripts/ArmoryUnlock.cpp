@@ -23,13 +23,12 @@ void ArmoryUnlock::Update()
 		PanelUnlock.SetEnable(false);
 	}
 
-	if (Unlock.OnPress() && oneTime != 500)
+	if (Unlock.OnPress() && weaponInstance->unlockPress != 1 /*&& blueprint found*/)
 	{
-		//GameObject Arma selected -> GetScript() -> set the correct bool as true.
-		Console::Log("Unlock");
+		//Console::Log(std::to_string(weaponInstance->unlockPress++));
 		weaponInstance->isUnlocked = true;
 		PanelUnlock.SetEnable(false);
 		PanelUpgrate.SetEnable(true);
-		oneTime = 500;
+		weaponInstance->unlockPress++;
 	}
 }

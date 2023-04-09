@@ -5,6 +5,7 @@
 
 #include "API/API.h"
 #include "Enemy.h"
+#include "EnemyGun.h"
 
 class EnemyTank : HelloBehavior
 {
@@ -32,6 +33,10 @@ public:
 
 	//API_GameObject tank;
 	Enemy* enemyScript;
+
+	EnemyGun* enemyGun = nullptr;
+	API_GameObject gunObj;
+	int gunType;
 private:
 	bool isRecoveringShield;
 	bool isRestoringHealth;

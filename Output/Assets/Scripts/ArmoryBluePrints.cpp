@@ -4,7 +4,6 @@ HELLO_ENGINE_API_C ArmoryBluePrints* CreateArmoryBluePrints(ScriptToInspectorInt
 	ArmoryBluePrints* classInstance = new ArmoryBluePrints();
 
 	script->AddDragBoxMaterialComponent("BluePrint Image Component", &classInstance->bluePrint);
-	script->AddDragBoxTextureResource("Blueprint Unlocked", &classInstance->bluePrintTexture);
 
 	script->AddDragBoxGameObject("Related Weapon", &classInstance->Weapon);
 
@@ -20,7 +19,7 @@ void ArmoryBluePrints::Update()
 {
 	if (WeaponUnlocked->isUnlocked && textureChanged == false)
 	{
-		bluePrint.ChangeAlbedoTexture(bluePrintTexture);
+		bluePrint.GetGameObject().GetMeshRenderer().SetActive(true);
 		textureChanged = true;
 	}
 }
