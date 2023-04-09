@@ -16,14 +16,19 @@ void AbilitySelect::Start()
 }
 void AbilitySelect::Update()
 {
+	Console::Log("Enter");
 	if (abilitySelect.OnPress())
 	{
 		abilityTypePanel.SetEnable(false);
 		abilityPanel.SetEnable(true);
+		setEnablePanel = true;
+		Console::Log("Enter");
 	}
-	if (Input::GetGamePadButton(GamePadButton::BUTTON_B) == KeyState::KEY_DOWN)
+	if ((Input::GetKey(KeyCode::KEY_SPACE) == KeyState::KEY_DOWN || (Input::GetGamePadButton(GamePadButton::BUTTON_B) == KeyState::KEY_DOWN)) && setEnablePanel == true)
 	{
-		//SelectWeaponList.SetEnable(true);
-		//PanelUnlock.SetEnable(false);
+		setEnablePanel = false;
+		abilityTypePanel.SetEnable(true);
+		abilityPanel.SetEnable(false);
+		Console::Log("Exit");
 	}
 }
