@@ -109,6 +109,156 @@
                     },
                     {
                         "PanelMovement": 1770922130
+                    },
+                    {
+                        "Movement": 3961102070
+                    },
+                    {
+                        "AbilityList2": 109185096
+                    },
+                    {
+                        "AbilityList3": 3655526919
+                    },
+                    {
+                        "AbilityList4": 3302747482
+                    },
+                    {
+                        "PanelMovement": 1770922130
+                    },
+                    {
+                        "Movement": 3961102070
+                    },
+                    {
+                        "AbilityList2": 109185096
+                    },
+                    {
+                        "AbilityList3": 3655526919
+                    },
+                    {
+                        "AbilityList4": 3302747482
+                    },
+                    {
+                        "PanelMovement": 1770922130
+                    },
+                    {
+                        "Movement": 3961102070
+                    },
+                    {
+                        "AbilityList2": 109185096
+                    },
+                    {
+                        "AbilityList3": 3655526919
+                    },
+                    {
+                        "AbilityList4": 3302747482
+                    },
+                    {
+                        "PanelMovement": 1770922130
+                    },
+                    {
+                        "Movement": 3961102070
+                    },
+                    {
+                        "AbilityList2": 109185096
+                    },
+                    {
+                        "AbilityList3": 3655526919
+                    },
+                    {
+                        "AbilityList4": 3302747482
+                    },
+                    {
+                        "PanelMovement": 1770922130
+                    },
+                    {
+                        "Movement": 3961102070
+                    },
+                    {
+                        "AbilityList2": 109185096
+                    },
+                    {
+                        "AbilityList3": 3655526919
+                    },
+                    {
+                        "AbilityList4": 3302747482
+                    },
+                    {
+                        "PanelMovement": 1770922130
+                    },
+                    {
+                        "Movement": 3961102070
+                    },
+                    {
+                        "AbilityList2": 109185096
+                    },
+                    {
+                        "AbilityList3": 3655526919
+                    },
+                    {
+                        "AbilityList4": 3302747482
+                    },
+                    {
+                        "PanelMovement": 1770922130
+                    },
+                    {
+                        "Movement": 3961102070
+                    },
+                    {
+                        "AbilityList2": 109185096
+                    },
+                    {
+                        "AbilityList3": 3655526919
+                    },
+                    {
+                        "AbilityList4": 3302747482
+                    },
+                    {
+                        "PanelMovement": 1770922130
+                    },
+                    {
+                        "Movement": 3961102070
+                    },
+                    {
+                        "AbilityList2": 109185096
+                    },
+                    {
+                        "AbilityList3": 3655526919
+                    },
+                    {
+                        "AbilityList4": 3302747482
+                    },
+                    {
+                        "PanelMovement": 1770922130
+                    },
+                    {
+                        "Movement": 3961102070
+                    },
+                    {
+                        "AbilityList2": 109185096
+                    },
+                    {
+                        "AbilityList3": 3655526919
+                    },
+                    {
+                        "AbilityList4": 3302747482
+                    },
+                    {
+                        "PanelMovement": 1770922130
+                    },
+                    {
+                        "Movement": 3961102070
+                    },
+                    {
+                        "AbilityList2": 109185096
+                    },
+                    {
+                        "AbilityList3": 3655526919
+                    },
+                    {
+                        "AbilityList4": 3302747482
+                    },
+                    {
+                        "PanelMovement": 1770922130
                     }
                 ],
                 "Script Resource": 1314393320,
@@ -191,17 +341,7 @@
             },
             {
                 "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Panel Type": 2933578115
-                    },
-                    {
-                        "Panel Ability": 1770922130
-                    },
-                    {
-                        "AbilityButton": 3961102070
-                    }
-                ],
+                "Inspector Fields": null,
                 "Script Resource": 1616702921,
                 "Type": 5
             }
@@ -246,17 +386,7 @@
             },
             {
                 "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Panel Type": 2933578115
-                    },
-                    {
-                        "Panel Ability": 959223077
-                    },
-                    {
-                        "AbilityButton": 109185096
-                    }
-                ],
+                "Inspector Fields": null,
                 "Script Resource": 1616702921,
                 "Type": 5
             }
@@ -301,17 +431,7 @@
             },
             {
                 "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Panel Type": 2933578115
-                    },
-                    {
-                        "Panel Ability": 1068775963
-                    },
-                    {
-                        "AbilityButton": 3655526919
-                    }
-                ],
+                "Inspector Fields": null,
                 "Script Resource": 1616702921,
                 "Type": 5
             }
@@ -356,17 +476,7 @@
             },
             {
                 "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Panel Type": 2933578115
-                    },
-                    {
-                        "Panel Ability": 474755568
-                    },
-                    {
-                        "AbilityButton": 3302747482
-                    }
-                ],
+                "Inspector Fields": null,
                 "Script Resource": 1616702921,
                 "Type": 5
             }
@@ -379,7 +489,7 @@
         "UID": 3302747482
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -417,7 +527,7 @@
         "UID": 1770922130
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -458,6 +568,96 @@
                     },
                     {
                         "DescriptionFoward": 4049634766
+                    },
+                    {
+                        "Ability1": 2687373958
+                    },
+                    {
+                        "DescriptionHovered": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 4049634766
+                    },
+                    {
+                        "Ability1": 2687373958
+                    },
+                    {
+                        "DescriptionHovered": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 4049634766
+                    },
+                    {
+                        "Ability1": 2687373958
+                    },
+                    {
+                        "DescriptionHovered": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 4049634766
+                    },
+                    {
+                        "Ability1": 2687373958
+                    },
+                    {
+                        "DescriptionHovered": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 4049634766
+                    },
+                    {
+                        "Ability1": 2687373958
+                    },
+                    {
+                        "DescriptionHovered": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 4049634766
+                    },
+                    {
+                        "Ability1": 2687373958
+                    },
+                    {
+                        "DescriptionHovered": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 4049634766
+                    },
+                    {
+                        "Ability1": 2687373958
+                    },
+                    {
+                        "DescriptionHovered": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 4049634766
+                    },
+                    {
+                        "Ability1": 2687373958
+                    },
+                    {
+                        "DescriptionHovered": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 4049634766
+                    },
+                    {
+                        "Ability1": 2687373958
+                    },
+                    {
+                        "DescriptionHovered": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 4049634766
+                    },
+                    {
+                        "Ability1": 2687373958
+                    },
+                    {
+                        "DescriptionHovered": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 4049634766
                     }
                 ],
                 "Script Resource": 1508860481,
@@ -472,7 +672,7 @@
         "UID": 2687373958
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -516,6 +716,126 @@
                     },
                     {
                         "DescriptionFoward": 1827597929
+                    },
+                    {
+                        "Ability1": 1089061174
+                    },
+                    {
+                        "DescriptionHovered": 4049634766
+                    },
+                    {
+                        "DescriptionBack": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 1827597929
+                    },
+                    {
+                        "Ability1": 1089061174
+                    },
+                    {
+                        "DescriptionHovered": 4049634766
+                    },
+                    {
+                        "DescriptionBack": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 1827597929
+                    },
+                    {
+                        "Ability1": 1089061174
+                    },
+                    {
+                        "DescriptionHovered": 4049634766
+                    },
+                    {
+                        "DescriptionBack": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 1827597929
+                    },
+                    {
+                        "Ability1": 1089061174
+                    },
+                    {
+                        "DescriptionHovered": 4049634766
+                    },
+                    {
+                        "DescriptionBack": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 1827597929
+                    },
+                    {
+                        "Ability1": 1089061174
+                    },
+                    {
+                        "DescriptionHovered": 4049634766
+                    },
+                    {
+                        "DescriptionBack": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 1827597929
+                    },
+                    {
+                        "Ability1": 1089061174
+                    },
+                    {
+                        "DescriptionHovered": 4049634766
+                    },
+                    {
+                        "DescriptionBack": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 1827597929
+                    },
+                    {
+                        "Ability1": 1089061174
+                    },
+                    {
+                        "DescriptionHovered": 4049634766
+                    },
+                    {
+                        "DescriptionBack": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 1827597929
+                    },
+                    {
+                        "Ability1": 1089061174
+                    },
+                    {
+                        "DescriptionHovered": 4049634766
+                    },
+                    {
+                        "DescriptionBack": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 1827597929
+                    },
+                    {
+                        "Ability1": 1089061174
+                    },
+                    {
+                        "DescriptionHovered": 4049634766
+                    },
+                    {
+                        "DescriptionBack": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 1827597929
+                    },
+                    {
+                        "Ability1": 1089061174
+                    },
+                    {
+                        "DescriptionHovered": 4049634766
+                    },
+                    {
+                        "DescriptionBack": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 1827597929
                     }
                 ],
                 "Script Resource": 1508860481,
@@ -530,7 +850,7 @@
         "UID": 1089061174
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -574,6 +894,126 @@
                     },
                     {
                         "DescriptionFoward": 18300843
+                    },
+                    {
+                        "Ability1": 1407843779
+                    },
+                    {
+                        "DescriptionHovered": 1827597929
+                    },
+                    {
+                        "DescriptionBack": 4049634766
+                    },
+                    {
+                        "DescriptionFoward": 18300843
+                    },
+                    {
+                        "Ability1": 1407843779
+                    },
+                    {
+                        "DescriptionHovered": 1827597929
+                    },
+                    {
+                        "DescriptionBack": 4049634766
+                    },
+                    {
+                        "DescriptionFoward": 18300843
+                    },
+                    {
+                        "Ability1": 1407843779
+                    },
+                    {
+                        "DescriptionHovered": 1827597929
+                    },
+                    {
+                        "DescriptionBack": 4049634766
+                    },
+                    {
+                        "DescriptionFoward": 18300843
+                    },
+                    {
+                        "Ability1": 1407843779
+                    },
+                    {
+                        "DescriptionHovered": 1827597929
+                    },
+                    {
+                        "DescriptionBack": 4049634766
+                    },
+                    {
+                        "DescriptionFoward": 18300843
+                    },
+                    {
+                        "Ability1": 1407843779
+                    },
+                    {
+                        "DescriptionHovered": 1827597929
+                    },
+                    {
+                        "DescriptionBack": 4049634766
+                    },
+                    {
+                        "DescriptionFoward": 18300843
+                    },
+                    {
+                        "Ability1": 1407843779
+                    },
+                    {
+                        "DescriptionHovered": 1827597929
+                    },
+                    {
+                        "DescriptionBack": 4049634766
+                    },
+                    {
+                        "DescriptionFoward": 18300843
+                    },
+                    {
+                        "Ability1": 1407843779
+                    },
+                    {
+                        "DescriptionHovered": 1827597929
+                    },
+                    {
+                        "DescriptionBack": 4049634766
+                    },
+                    {
+                        "DescriptionFoward": 18300843
+                    },
+                    {
+                        "Ability1": 1407843779
+                    },
+                    {
+                        "DescriptionHovered": 1827597929
+                    },
+                    {
+                        "DescriptionBack": 4049634766
+                    },
+                    {
+                        "DescriptionFoward": 18300843
+                    },
+                    {
+                        "Ability1": 1407843779
+                    },
+                    {
+                        "DescriptionHovered": 1827597929
+                    },
+                    {
+                        "DescriptionBack": 4049634766
+                    },
+                    {
+                        "DescriptionFoward": 18300843
+                    },
+                    {
+                        "Ability1": 1407843779
+                    },
+                    {
+                        "DescriptionHovered": 1827597929
+                    },
+                    {
+                        "DescriptionBack": 4049634766
+                    },
+                    {
+                        "DescriptionFoward": 18300843
                     }
                 ],
                 "Script Resource": 1508860481,
@@ -588,7 +1028,7 @@
         "UID": 1407843779
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -629,6 +1069,96 @@
                     },
                     {
                         "DescriptionBack": 1827597929
+                    },
+                    {
+                        "Ability1": 3002809720
+                    },
+                    {
+                        "DescriptionHovered": 18300843
+                    },
+                    {
+                        "DescriptionBack": 1827597929
+                    },
+                    {
+                        "Ability1": 3002809720
+                    },
+                    {
+                        "DescriptionHovered": 18300843
+                    },
+                    {
+                        "DescriptionBack": 1827597929
+                    },
+                    {
+                        "Ability1": 3002809720
+                    },
+                    {
+                        "DescriptionHovered": 18300843
+                    },
+                    {
+                        "DescriptionBack": 1827597929
+                    },
+                    {
+                        "Ability1": 3002809720
+                    },
+                    {
+                        "DescriptionHovered": 18300843
+                    },
+                    {
+                        "DescriptionBack": 1827597929
+                    },
+                    {
+                        "Ability1": 3002809720
+                    },
+                    {
+                        "DescriptionHovered": 18300843
+                    },
+                    {
+                        "DescriptionBack": 1827597929
+                    },
+                    {
+                        "Ability1": 3002809720
+                    },
+                    {
+                        "DescriptionHovered": 18300843
+                    },
+                    {
+                        "DescriptionBack": 1827597929
+                    },
+                    {
+                        "Ability1": 3002809720
+                    },
+                    {
+                        "DescriptionHovered": 18300843
+                    },
+                    {
+                        "DescriptionBack": 1827597929
+                    },
+                    {
+                        "Ability1": 3002809720
+                    },
+                    {
+                        "DescriptionHovered": 18300843
+                    },
+                    {
+                        "DescriptionBack": 1827597929
+                    },
+                    {
+                        "Ability1": 3002809720
+                    },
+                    {
+                        "DescriptionHovered": 18300843
+                    },
+                    {
+                        "DescriptionBack": 1827597929
+                    },
+                    {
+                        "Ability1": 3002809720
+                    },
+                    {
+                        "DescriptionHovered": 18300843
+                    },
+                    {
+                        "DescriptionBack": 1827597929
                     }
                 ],
                 "Script Resource": 1508860481,
@@ -643,7 +1173,7 @@
         "UID": 3002809720
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -679,7 +1209,7 @@
         "UID": 3598254052
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -715,7 +1245,7 @@
         "UID": 4049634766
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -751,7 +1281,7 @@
         "UID": 1827597929
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -866,6 +1396,96 @@
                     },
                     {
                         "DescriptionFoward": 4049634766
+                    },
+                    {
+                        "Ability1": 2687373958
+                    },
+                    {
+                        "DescriptionHovered": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 4049634766
+                    },
+                    {
+                        "Ability1": 2687373958
+                    },
+                    {
+                        "DescriptionHovered": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 4049634766
+                    },
+                    {
+                        "Ability1": 2687373958
+                    },
+                    {
+                        "DescriptionHovered": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 4049634766
+                    },
+                    {
+                        "Ability1": 2687373958
+                    },
+                    {
+                        "DescriptionHovered": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 4049634766
+                    },
+                    {
+                        "Ability1": 2687373958
+                    },
+                    {
+                        "DescriptionHovered": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 4049634766
+                    },
+                    {
+                        "Ability1": 2687373958
+                    },
+                    {
+                        "DescriptionHovered": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 4049634766
+                    },
+                    {
+                        "Ability1": 2687373958
+                    },
+                    {
+                        "DescriptionHovered": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 4049634766
+                    },
+                    {
+                        "Ability1": 2687373958
+                    },
+                    {
+                        "DescriptionHovered": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 4049634766
+                    },
+                    {
+                        "Ability1": 2687373958
+                    },
+                    {
+                        "DescriptionHovered": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 4049634766
+                    },
+                    {
+                        "Ability1": 2687373958
+                    },
+                    {
+                        "DescriptionHovered": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 4049634766
                     }
                 ],
                 "Script Resource": 1508860481,
@@ -913,6 +1533,126 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Ability1": 1089061174
+                    },
+                    {
+                        "DescriptionHovered": 4049634766
+                    },
+                    {
+                        "DescriptionBack": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 1827597929
+                    },
+                    {
+                        "Ability1": 1089061174
+                    },
+                    {
+                        "DescriptionHovered": 4049634766
+                    },
+                    {
+                        "DescriptionBack": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 1827597929
+                    },
+                    {
+                        "Ability1": 1089061174
+                    },
+                    {
+                        "DescriptionHovered": 4049634766
+                    },
+                    {
+                        "DescriptionBack": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 1827597929
+                    },
+                    {
+                        "Ability1": 1089061174
+                    },
+                    {
+                        "DescriptionHovered": 4049634766
+                    },
+                    {
+                        "DescriptionBack": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 1827597929
+                    },
+                    {
+                        "Ability1": 1089061174
+                    },
+                    {
+                        "DescriptionHovered": 4049634766
+                    },
+                    {
+                        "DescriptionBack": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 1827597929
+                    },
+                    {
+                        "Ability1": 1089061174
+                    },
+                    {
+                        "DescriptionHovered": 4049634766
+                    },
+                    {
+                        "DescriptionBack": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 1827597929
+                    },
+                    {
+                        "Ability1": 1089061174
+                    },
+                    {
+                        "DescriptionHovered": 4049634766
+                    },
+                    {
+                        "DescriptionBack": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 1827597929
+                    },
+                    {
+                        "Ability1": 1089061174
+                    },
+                    {
+                        "DescriptionHovered": 4049634766
+                    },
+                    {
+                        "DescriptionBack": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 1827597929
+                    },
+                    {
+                        "Ability1": 1089061174
+                    },
+                    {
+                        "DescriptionHovered": 4049634766
+                    },
+                    {
+                        "DescriptionBack": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 1827597929
+                    },
+                    {
+                        "Ability1": 1089061174
+                    },
+                    {
+                        "DescriptionHovered": 4049634766
+                    },
+                    {
+                        "DescriptionBack": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 1827597929
+                    },
                     {
                         "Ability1": 1089061174
                     },
@@ -982,6 +1722,126 @@
                     },
                     {
                         "DescriptionFoward": 18300843
+                    },
+                    {
+                        "Ability1": 1407843779
+                    },
+                    {
+                        "DescriptionHovered": 1827597929
+                    },
+                    {
+                        "DescriptionBack": 4049634766
+                    },
+                    {
+                        "DescriptionFoward": 18300843
+                    },
+                    {
+                        "Ability1": 1407843779
+                    },
+                    {
+                        "DescriptionHovered": 1827597929
+                    },
+                    {
+                        "DescriptionBack": 4049634766
+                    },
+                    {
+                        "DescriptionFoward": 18300843
+                    },
+                    {
+                        "Ability1": 1407843779
+                    },
+                    {
+                        "DescriptionHovered": 1827597929
+                    },
+                    {
+                        "DescriptionBack": 4049634766
+                    },
+                    {
+                        "DescriptionFoward": 18300843
+                    },
+                    {
+                        "Ability1": 1407843779
+                    },
+                    {
+                        "DescriptionHovered": 1827597929
+                    },
+                    {
+                        "DescriptionBack": 4049634766
+                    },
+                    {
+                        "DescriptionFoward": 18300843
+                    },
+                    {
+                        "Ability1": 1407843779
+                    },
+                    {
+                        "DescriptionHovered": 1827597929
+                    },
+                    {
+                        "DescriptionBack": 4049634766
+                    },
+                    {
+                        "DescriptionFoward": 18300843
+                    },
+                    {
+                        "Ability1": 1407843779
+                    },
+                    {
+                        "DescriptionHovered": 1827597929
+                    },
+                    {
+                        "DescriptionBack": 4049634766
+                    },
+                    {
+                        "DescriptionFoward": 18300843
+                    },
+                    {
+                        "Ability1": 1407843779
+                    },
+                    {
+                        "DescriptionHovered": 1827597929
+                    },
+                    {
+                        "DescriptionBack": 4049634766
+                    },
+                    {
+                        "DescriptionFoward": 18300843
+                    },
+                    {
+                        "Ability1": 1407843779
+                    },
+                    {
+                        "DescriptionHovered": 1827597929
+                    },
+                    {
+                        "DescriptionBack": 4049634766
+                    },
+                    {
+                        "DescriptionFoward": 18300843
+                    },
+                    {
+                        "Ability1": 1407843779
+                    },
+                    {
+                        "DescriptionHovered": 1827597929
+                    },
+                    {
+                        "DescriptionBack": 4049634766
+                    },
+                    {
+                        "DescriptionFoward": 18300843
+                    },
+                    {
+                        "Ability1": 1407843779
+                    },
+                    {
+                        "DescriptionHovered": 1827597929
+                    },
+                    {
+                        "DescriptionBack": 4049634766
+                    },
+                    {
+                        "DescriptionFoward": 18300843
                     }
                 ],
                 "Script Resource": 1508860481,
@@ -1029,6 +1889,96 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Ability1": 3002809720
+                    },
+                    {
+                        "DescriptionHovered": 18300843
+                    },
+                    {
+                        "DescriptionBack": 1827597929
+                    },
+                    {
+                        "Ability1": 3002809720
+                    },
+                    {
+                        "DescriptionHovered": 18300843
+                    },
+                    {
+                        "DescriptionBack": 1827597929
+                    },
+                    {
+                        "Ability1": 3002809720
+                    },
+                    {
+                        "DescriptionHovered": 18300843
+                    },
+                    {
+                        "DescriptionBack": 1827597929
+                    },
+                    {
+                        "Ability1": 3002809720
+                    },
+                    {
+                        "DescriptionHovered": 18300843
+                    },
+                    {
+                        "DescriptionBack": 1827597929
+                    },
+                    {
+                        "Ability1": 3002809720
+                    },
+                    {
+                        "DescriptionHovered": 18300843
+                    },
+                    {
+                        "DescriptionBack": 1827597929
+                    },
+                    {
+                        "Ability1": 3002809720
+                    },
+                    {
+                        "DescriptionHovered": 18300843
+                    },
+                    {
+                        "DescriptionBack": 1827597929
+                    },
+                    {
+                        "Ability1": 3002809720
+                    },
+                    {
+                        "DescriptionHovered": 18300843
+                    },
+                    {
+                        "DescriptionBack": 1827597929
+                    },
+                    {
+                        "Ability1": 3002809720
+                    },
+                    {
+                        "DescriptionHovered": 18300843
+                    },
+                    {
+                        "DescriptionBack": 1827597929
+                    },
+                    {
+                        "Ability1": 3002809720
+                    },
+                    {
+                        "DescriptionHovered": 18300843
+                    },
+                    {
+                        "DescriptionBack": 1827597929
+                    },
+                    {
+                        "Ability1": 3002809720
+                    },
+                    {
+                        "DescriptionHovered": 18300843
+                    },
+                    {
+                        "DescriptionBack": 1827597929
+                    },
                     {
                         "Ability1": 3002809720
                     },
@@ -1274,6 +2224,96 @@
                     },
                     {
                         "DescriptionFoward": 4049634766
+                    },
+                    {
+                        "Ability1": 2687373958
+                    },
+                    {
+                        "DescriptionHovered": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 4049634766
+                    },
+                    {
+                        "Ability1": 2687373958
+                    },
+                    {
+                        "DescriptionHovered": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 4049634766
+                    },
+                    {
+                        "Ability1": 2687373958
+                    },
+                    {
+                        "DescriptionHovered": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 4049634766
+                    },
+                    {
+                        "Ability1": 2687373958
+                    },
+                    {
+                        "DescriptionHovered": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 4049634766
+                    },
+                    {
+                        "Ability1": 2687373958
+                    },
+                    {
+                        "DescriptionHovered": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 4049634766
+                    },
+                    {
+                        "Ability1": 2687373958
+                    },
+                    {
+                        "DescriptionHovered": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 4049634766
+                    },
+                    {
+                        "Ability1": 2687373958
+                    },
+                    {
+                        "DescriptionHovered": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 4049634766
+                    },
+                    {
+                        "Ability1": 2687373958
+                    },
+                    {
+                        "DescriptionHovered": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 4049634766
+                    },
+                    {
+                        "Ability1": 2687373958
+                    },
+                    {
+                        "DescriptionHovered": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 4049634766
+                    },
+                    {
+                        "Ability1": 2687373958
+                    },
+                    {
+                        "DescriptionHovered": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 4049634766
                     }
                 ],
                 "Script Resource": 1508860481,
@@ -1321,6 +2361,126 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Ability1": 1089061174
+                    },
+                    {
+                        "DescriptionHovered": 4049634766
+                    },
+                    {
+                        "DescriptionBack": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 1827597929
+                    },
+                    {
+                        "Ability1": 1089061174
+                    },
+                    {
+                        "DescriptionHovered": 4049634766
+                    },
+                    {
+                        "DescriptionBack": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 1827597929
+                    },
+                    {
+                        "Ability1": 1089061174
+                    },
+                    {
+                        "DescriptionHovered": 4049634766
+                    },
+                    {
+                        "DescriptionBack": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 1827597929
+                    },
+                    {
+                        "Ability1": 1089061174
+                    },
+                    {
+                        "DescriptionHovered": 4049634766
+                    },
+                    {
+                        "DescriptionBack": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 1827597929
+                    },
+                    {
+                        "Ability1": 1089061174
+                    },
+                    {
+                        "DescriptionHovered": 4049634766
+                    },
+                    {
+                        "DescriptionBack": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 1827597929
+                    },
+                    {
+                        "Ability1": 1089061174
+                    },
+                    {
+                        "DescriptionHovered": 4049634766
+                    },
+                    {
+                        "DescriptionBack": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 1827597929
+                    },
+                    {
+                        "Ability1": 1089061174
+                    },
+                    {
+                        "DescriptionHovered": 4049634766
+                    },
+                    {
+                        "DescriptionBack": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 1827597929
+                    },
+                    {
+                        "Ability1": 1089061174
+                    },
+                    {
+                        "DescriptionHovered": 4049634766
+                    },
+                    {
+                        "DescriptionBack": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 1827597929
+                    },
+                    {
+                        "Ability1": 1089061174
+                    },
+                    {
+                        "DescriptionHovered": 4049634766
+                    },
+                    {
+                        "DescriptionBack": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 1827597929
+                    },
+                    {
+                        "Ability1": 1089061174
+                    },
+                    {
+                        "DescriptionHovered": 4049634766
+                    },
+                    {
+                        "DescriptionBack": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 1827597929
+                    },
                     {
                         "Ability1": 1089061174
                     },
@@ -1390,6 +2550,126 @@
                     },
                     {
                         "DescriptionFoward": 18300843
+                    },
+                    {
+                        "Ability1": 1407843779
+                    },
+                    {
+                        "DescriptionHovered": 1827597929
+                    },
+                    {
+                        "DescriptionBack": 4049634766
+                    },
+                    {
+                        "DescriptionFoward": 18300843
+                    },
+                    {
+                        "Ability1": 1407843779
+                    },
+                    {
+                        "DescriptionHovered": 1827597929
+                    },
+                    {
+                        "DescriptionBack": 4049634766
+                    },
+                    {
+                        "DescriptionFoward": 18300843
+                    },
+                    {
+                        "Ability1": 1407843779
+                    },
+                    {
+                        "DescriptionHovered": 1827597929
+                    },
+                    {
+                        "DescriptionBack": 4049634766
+                    },
+                    {
+                        "DescriptionFoward": 18300843
+                    },
+                    {
+                        "Ability1": 1407843779
+                    },
+                    {
+                        "DescriptionHovered": 1827597929
+                    },
+                    {
+                        "DescriptionBack": 4049634766
+                    },
+                    {
+                        "DescriptionFoward": 18300843
+                    },
+                    {
+                        "Ability1": 1407843779
+                    },
+                    {
+                        "DescriptionHovered": 1827597929
+                    },
+                    {
+                        "DescriptionBack": 4049634766
+                    },
+                    {
+                        "DescriptionFoward": 18300843
+                    },
+                    {
+                        "Ability1": 1407843779
+                    },
+                    {
+                        "DescriptionHovered": 1827597929
+                    },
+                    {
+                        "DescriptionBack": 4049634766
+                    },
+                    {
+                        "DescriptionFoward": 18300843
+                    },
+                    {
+                        "Ability1": 1407843779
+                    },
+                    {
+                        "DescriptionHovered": 1827597929
+                    },
+                    {
+                        "DescriptionBack": 4049634766
+                    },
+                    {
+                        "DescriptionFoward": 18300843
+                    },
+                    {
+                        "Ability1": 1407843779
+                    },
+                    {
+                        "DescriptionHovered": 1827597929
+                    },
+                    {
+                        "DescriptionBack": 4049634766
+                    },
+                    {
+                        "DescriptionFoward": 18300843
+                    },
+                    {
+                        "Ability1": 1407843779
+                    },
+                    {
+                        "DescriptionHovered": 1827597929
+                    },
+                    {
+                        "DescriptionBack": 4049634766
+                    },
+                    {
+                        "DescriptionFoward": 18300843
+                    },
+                    {
+                        "Ability1": 1407843779
+                    },
+                    {
+                        "DescriptionHovered": 1827597929
+                    },
+                    {
+                        "DescriptionBack": 4049634766
+                    },
+                    {
+                        "DescriptionFoward": 18300843
                     }
                 ],
                 "Script Resource": 1508860481,
@@ -1445,6 +2725,96 @@
                     },
                     {
                         "DescriptionBack": 1827597929
+                    },
+                    {
+                        "Ability1": 3002809720
+                    },
+                    {
+                        "DescriptionHovered": 18300843
+                    },
+                    {
+                        "DescriptionBack": 1827597929
+                    },
+                    {
+                        "Ability1": 3002809720
+                    },
+                    {
+                        "DescriptionHovered": 18300843
+                    },
+                    {
+                        "DescriptionBack": 1827597929
+                    },
+                    {
+                        "Ability1": 3002809720
+                    },
+                    {
+                        "DescriptionHovered": 18300843
+                    },
+                    {
+                        "DescriptionBack": 1827597929
+                    },
+                    {
+                        "Ability1": 3002809720
+                    },
+                    {
+                        "DescriptionHovered": 18300843
+                    },
+                    {
+                        "DescriptionBack": 1827597929
+                    },
+                    {
+                        "Ability1": 3002809720
+                    },
+                    {
+                        "DescriptionHovered": 18300843
+                    },
+                    {
+                        "DescriptionBack": 1827597929
+                    },
+                    {
+                        "Ability1": 3002809720
+                    },
+                    {
+                        "DescriptionHovered": 18300843
+                    },
+                    {
+                        "DescriptionBack": 1827597929
+                    },
+                    {
+                        "Ability1": 3002809720
+                    },
+                    {
+                        "DescriptionHovered": 18300843
+                    },
+                    {
+                        "DescriptionBack": 1827597929
+                    },
+                    {
+                        "Ability1": 3002809720
+                    },
+                    {
+                        "DescriptionHovered": 18300843
+                    },
+                    {
+                        "DescriptionBack": 1827597929
+                    },
+                    {
+                        "Ability1": 3002809720
+                    },
+                    {
+                        "DescriptionHovered": 18300843
+                    },
+                    {
+                        "DescriptionBack": 1827597929
+                    },
+                    {
+                        "Ability1": 3002809720
+                    },
+                    {
+                        "DescriptionHovered": 18300843
+                    },
+                    {
+                        "DescriptionBack": 1827597929
                     }
                 ],
                 "Script Resource": 1508860481,
@@ -1492,6 +2862,96 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Ability1": 235469866
+                    },
+                    {
+                        "DescriptionHovered": 18300843
+                    },
+                    {
+                        "DescriptionBack": 1827597929
+                    },
+                    {
+                        "Ability1": 235469866
+                    },
+                    {
+                        "DescriptionHovered": 18300843
+                    },
+                    {
+                        "DescriptionBack": 1827597929
+                    },
+                    {
+                        "Ability1": 235469866
+                    },
+                    {
+                        "DescriptionHovered": 18300843
+                    },
+                    {
+                        "DescriptionBack": 1827597929
+                    },
+                    {
+                        "Ability1": 235469866
+                    },
+                    {
+                        "DescriptionHovered": 18300843
+                    },
+                    {
+                        "DescriptionBack": 1827597929
+                    },
+                    {
+                        "Ability1": 235469866
+                    },
+                    {
+                        "DescriptionHovered": 18300843
+                    },
+                    {
+                        "DescriptionBack": 1827597929
+                    },
+                    {
+                        "Ability1": 235469866
+                    },
+                    {
+                        "DescriptionHovered": 18300843
+                    },
+                    {
+                        "DescriptionBack": 1827597929
+                    },
+                    {
+                        "Ability1": 235469866
+                    },
+                    {
+                        "DescriptionHovered": 18300843
+                    },
+                    {
+                        "DescriptionBack": 1827597929
+                    },
+                    {
+                        "Ability1": 235469866
+                    },
+                    {
+                        "DescriptionHovered": 18300843
+                    },
+                    {
+                        "DescriptionBack": 1827597929
+                    },
+                    {
+                        "Ability1": 235469866
+                    },
+                    {
+                        "DescriptionHovered": 18300843
+                    },
+                    {
+                        "DescriptionBack": 1827597929
+                    },
+                    {
+                        "Ability1": 235469866
+                    },
+                    {
+                        "DescriptionHovered": 18300843
+                    },
+                    {
+                        "DescriptionBack": 1827597929
+                    },
                     {
                         "Ability1": 235469866
                     },
@@ -1737,6 +3197,96 @@
                     },
                     {
                         "DescriptionFoward": 4049634766
+                    },
+                    {
+                        "Ability1": 2687373958
+                    },
+                    {
+                        "DescriptionHovered": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 4049634766
+                    },
+                    {
+                        "Ability1": 2687373958
+                    },
+                    {
+                        "DescriptionHovered": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 4049634766
+                    },
+                    {
+                        "Ability1": 2687373958
+                    },
+                    {
+                        "DescriptionHovered": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 4049634766
+                    },
+                    {
+                        "Ability1": 2687373958
+                    },
+                    {
+                        "DescriptionHovered": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 4049634766
+                    },
+                    {
+                        "Ability1": 2687373958
+                    },
+                    {
+                        "DescriptionHovered": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 4049634766
+                    },
+                    {
+                        "Ability1": 2687373958
+                    },
+                    {
+                        "DescriptionHovered": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 4049634766
+                    },
+                    {
+                        "Ability1": 2687373958
+                    },
+                    {
+                        "DescriptionHovered": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 4049634766
+                    },
+                    {
+                        "Ability1": 2687373958
+                    },
+                    {
+                        "DescriptionHovered": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 4049634766
+                    },
+                    {
+                        "Ability1": 2687373958
+                    },
+                    {
+                        "DescriptionHovered": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 4049634766
+                    },
+                    {
+                        "Ability1": 2687373958
+                    },
+                    {
+                        "DescriptionHovered": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 4049634766
                     }
                 ],
                 "Script Resource": 1508860481,
@@ -1795,6 +3345,126 @@
                     },
                     {
                         "DescriptionFoward": 1827597929
+                    },
+                    {
+                        "Ability1": 1089061174
+                    },
+                    {
+                        "DescriptionHovered": 4049634766
+                    },
+                    {
+                        "DescriptionBack": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 1827597929
+                    },
+                    {
+                        "Ability1": 1089061174
+                    },
+                    {
+                        "DescriptionHovered": 4049634766
+                    },
+                    {
+                        "DescriptionBack": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 1827597929
+                    },
+                    {
+                        "Ability1": 1089061174
+                    },
+                    {
+                        "DescriptionHovered": 4049634766
+                    },
+                    {
+                        "DescriptionBack": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 1827597929
+                    },
+                    {
+                        "Ability1": 1089061174
+                    },
+                    {
+                        "DescriptionHovered": 4049634766
+                    },
+                    {
+                        "DescriptionBack": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 1827597929
+                    },
+                    {
+                        "Ability1": 1089061174
+                    },
+                    {
+                        "DescriptionHovered": 4049634766
+                    },
+                    {
+                        "DescriptionBack": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 1827597929
+                    },
+                    {
+                        "Ability1": 1089061174
+                    },
+                    {
+                        "DescriptionHovered": 4049634766
+                    },
+                    {
+                        "DescriptionBack": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 1827597929
+                    },
+                    {
+                        "Ability1": 1089061174
+                    },
+                    {
+                        "DescriptionHovered": 4049634766
+                    },
+                    {
+                        "DescriptionBack": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 1827597929
+                    },
+                    {
+                        "Ability1": 1089061174
+                    },
+                    {
+                        "DescriptionHovered": 4049634766
+                    },
+                    {
+                        "DescriptionBack": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 1827597929
+                    },
+                    {
+                        "Ability1": 1089061174
+                    },
+                    {
+                        "DescriptionHovered": 4049634766
+                    },
+                    {
+                        "DescriptionBack": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 1827597929
+                    },
+                    {
+                        "Ability1": 1089061174
+                    },
+                    {
+                        "DescriptionHovered": 4049634766
+                    },
+                    {
+                        "DescriptionBack": 3598254052
+                    },
+                    {
+                        "DescriptionFoward": 1827597929
                     }
                 ],
                 "Script Resource": 1508860481,
@@ -1842,6 +3512,126 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Ability1": 1407843779
+                    },
+                    {
+                        "DescriptionHovered": 1827597929
+                    },
+                    {
+                        "DescriptionBack": 4049634766
+                    },
+                    {
+                        "DescriptionFoward": 18300843
+                    },
+                    {
+                        "Ability1": 1407843779
+                    },
+                    {
+                        "DescriptionHovered": 1827597929
+                    },
+                    {
+                        "DescriptionBack": 4049634766
+                    },
+                    {
+                        "DescriptionFoward": 18300843
+                    },
+                    {
+                        "Ability1": 1407843779
+                    },
+                    {
+                        "DescriptionHovered": 1827597929
+                    },
+                    {
+                        "DescriptionBack": 4049634766
+                    },
+                    {
+                        "DescriptionFoward": 18300843
+                    },
+                    {
+                        "Ability1": 1407843779
+                    },
+                    {
+                        "DescriptionHovered": 1827597929
+                    },
+                    {
+                        "DescriptionBack": 4049634766
+                    },
+                    {
+                        "DescriptionFoward": 18300843
+                    },
+                    {
+                        "Ability1": 1407843779
+                    },
+                    {
+                        "DescriptionHovered": 1827597929
+                    },
+                    {
+                        "DescriptionBack": 4049634766
+                    },
+                    {
+                        "DescriptionFoward": 18300843
+                    },
+                    {
+                        "Ability1": 1407843779
+                    },
+                    {
+                        "DescriptionHovered": 1827597929
+                    },
+                    {
+                        "DescriptionBack": 4049634766
+                    },
+                    {
+                        "DescriptionFoward": 18300843
+                    },
+                    {
+                        "Ability1": 1407843779
+                    },
+                    {
+                        "DescriptionHovered": 1827597929
+                    },
+                    {
+                        "DescriptionBack": 4049634766
+                    },
+                    {
+                        "DescriptionFoward": 18300843
+                    },
+                    {
+                        "Ability1": 1407843779
+                    },
+                    {
+                        "DescriptionHovered": 1827597929
+                    },
+                    {
+                        "DescriptionBack": 4049634766
+                    },
+                    {
+                        "DescriptionFoward": 18300843
+                    },
+                    {
+                        "Ability1": 1407843779
+                    },
+                    {
+                        "DescriptionHovered": 1827597929
+                    },
+                    {
+                        "DescriptionBack": 4049634766
+                    },
+                    {
+                        "DescriptionFoward": 18300843
+                    },
+                    {
+                        "Ability1": 1407843779
+                    },
+                    {
+                        "DescriptionHovered": 1827597929
+                    },
+                    {
+                        "DescriptionBack": 4049634766
+                    },
+                    {
+                        "DescriptionFoward": 18300843
+                    },
                     {
                         "Ability1": 1407843779
                     },
