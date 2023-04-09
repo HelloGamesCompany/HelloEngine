@@ -40,15 +40,15 @@ void ArmoryWeaponSelect::Start()
 }
 void ArmoryWeaponSelect::Update()
 {
-    if (CurrentWeapon.OnHovered())
+    if (CurrentWeapon.OnHovered() && SelectWeaponList.IsEnabled() && findUnlock)
     {
-        if (findUnlock) FindUnlock();
+        FindUnlock();
 
         if (isUnlocked)
         {
             SelectedWeapon.ChangeAlbedoTexture(CurrentTextureWeapon);
-            CurrentPanelUpgrate.GetGameObject().SetActive(true);
             CurrentPanelUnlock.GetGameObject().SetActive(false);
+            CurrentPanelUpgrate.GetGameObject().SetActive(true);
             //CurrentWeapon.GetGameObject().GetMaterialCompoennt().ChangeAlbedoTexture(CurrentTextureWeapon);
         }
         else
@@ -57,15 +57,22 @@ void ArmoryWeaponSelect::Update()
             CurrentPanelUnlock.GetGameObject().SetActive(true);
         }
 
-        if (nextW != nullptr && nextW->isUnlocked)
+        if (nextW != nullptr)
+        {
             NextPanelUpgrate.SetActive(false);
-        else if (nextW != nullptr && !nextW->isUnlocked)
             NextPanelUnlock.SetActive(false);
-
-        if (PrevW != nullptr && PrevW->isUnlocked)
+        }
+        if (PrevW != nullptr)
+        {
             PrevPanelUpgrate.SetActive(false);
-        else if (PrevW != nullptr && !PrevW->isUnlocked)
             PrevPanelUnlock.SetActive(false);
+        }
+
+        findUnlock = false;
+    }
+    else if (!CurrentWeapon.OnHovered())
+    {
+        findUnlock = true;
     }
 
     if (CurrentWeapon.OnPress())
@@ -78,8 +85,8 @@ void ArmoryWeaponSelect::Update()
         else
         {
             CurrentPanelUnlock.SetEnable(true);
-            unlockPress++;
         }
+        findUnlock = true;
     }
 }
 
@@ -109,6 +116,4 @@ void ArmoryWeaponSelect::FindUnlock()
             break;
         }
     }
-
-    findUnlock = false;
 }

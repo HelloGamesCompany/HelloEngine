@@ -3,19 +3,16 @@ HELLO_ENGINE_API_C ArmoryUnlock* CreateArmoryUnlock(ScriptToInspectorInterface* 
 {
     ArmoryUnlock* classInstance = new ArmoryUnlock();
     script->AddDragBoxUIButton("Unlock", &classInstance->Unlock);
-    script->AddDragBoxUIInput("Panel Upgrate", &classInstance->PanelUpgrate);
     script->AddDragBoxUIInput("Panel Unlock", &classInstance->PanelUnlock);
     script->AddDragBoxUIInput("List Weapons", &classInstance->SelectWeaponList);
-    script->AddDragBoxGameObject("Weapon Associated", &classInstance->currentWeapon);
 
     script->AddDragInt("Gun Index", &classInstance->gunIndex);
+    script->AddDragFloat("fffff", &classInstance->manteinTime);
     return classInstance;
 }
 
 void ArmoryUnlock::Start()
 {
-    weaponInstance = (ArmoryWeaponSelect*)currentWeapon.GetScript("ArmoryWeaponSelect");
-
     switch (gunIndex)
     {
     case 1:
@@ -47,34 +44,47 @@ void ArmoryUnlock::Update()
         SelectWeaponList.SetEnable(true);
         PanelUnlock.SetEnable(false);
     }
-    
-    if (Unlock.OnPress() && weaponInstance->unlockPress != 1 && haveBlueprint)
-    {
-        switch (gunIndex)
-        {
-        case 1:
-            API_QuickSave::SetBool("semiautomaticUnlocked", true);
-            break;
-        case 2:
-            API_QuickSave::SetBool("automaticUnlocked", true);
-            break;
-        case 3:
-            API_QuickSave::SetBool("burstUnlocked", true);
-            break;
-        case 4:
-            API_QuickSave::SetBool("shotgunUnlocked", true);
-            break;
-        case 5:
-            API_QuickSave::SetBool("handgunUnlocked", true);
-            break;
-        default:
-            break;
-        }
 
-        //Console::Log(std::to_string(weaponInstance->unlockPress++));
-        weaponInstance->isUnlocked = true;
-        PanelUnlock.SetEnable(false);
-        PanelUpgrate.SetEnable(true);
-        weaponInstance->unlockPress++;
+    if (manteinTime > 0.0f)
+    {
+        manteinTime -= Time::GetRealTimeDeltaTime();
+
+        /*if (!Unlock.OnHold())
+        {
+            manteinTime = 0.0f;
+        }
+        else */if (manteinTime <= 0.0f)
+        {
+            manteinTime = 0.0f;
+
+            switch (gunIndex)
+            {
+            case 1:
+                API_QuickSave::SetBool("semiautomaticUnlocked", true);
+                break;
+            case 2:
+                API_QuickSave::SetBool("automaticUnlocked", true);
+                break;
+            case 3:
+                API_QuickSave::SetBool("burstUnlocked", true);
+                break;
+            case 4:
+                API_QuickSave::SetBool("shotgunUnlocked", true);
+                break;
+            case 5:
+                API_QuickSave::SetBool("handgunUnlocked", true);
+                break;
+            default:
+                break;
+            }
+
+            PanelUnlock.SetEnable(false);
+            SelectWeaponList.SetEnable(true);
+        }
+    }
+    
+    if (Unlock.OnPress() && manteinTime == 0.0f/* && haveBlueprint*/)
+    {
+        manteinTime = 1.0f;
     }
 }
