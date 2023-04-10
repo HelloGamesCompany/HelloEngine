@@ -96,7 +96,7 @@ bool QuickSave::GetBool(const char* name, bool defaultValue)
 {
     std::string value = GetValue(name, std::to_string(defaultValue), nBool);
 
-    return (value == "1");
+    return (value == "true");
 }
 
 const char* QuickSave::GetString(const char* name, const char* defaultValue)
@@ -164,7 +164,8 @@ std::string QuickSave::GetValue(std::string name, std::string value, XMLNode& no
      std::string ret = value;
 
     // If there wasnt any node with the given name, return default value.
-    if (n != node) ret = n.node.attribute("value").as_string();
+    if (n != node) 
+        ret = n.node.attribute("value").as_string();
     
     return ret;
 }
