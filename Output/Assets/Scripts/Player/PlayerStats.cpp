@@ -21,8 +21,8 @@ HELLO_ENGINE_API_C PlayerStats* CreatePlayerStats(ScriptToInspectorInterface* sc
     script->AddDragInt("Laser Ammo", &classInstance->laserAmmo);
     script->AddDragInt("Fire Ammo", &classInstance->specialAmmo);
     script->AddDragBoxParticleSystem("Hit Particles", &classInstance->hitParticles);
-    script->AddDragBoxParticleSystem("Heal Particles", &classInstance->healParticles);
-    script->AddDragBoxParticleSystem("Heal Particles", &classInstance->aidKitParticles);
+    script->AddDragBoxParticleSystem("Passive Heal Particles", &classInstance->healParticles);
+    script->AddDragBoxParticleSystem("Kid Heal Particles", &classInstance->aidKitParticles);
     script->AddDragBoxGameObject("Player GO", &classInstance->playerGO);
     //script->AddDragInt("movement tree lvl", &classInstance->movementTreeLvl); // use it only for playtesting
     //script->AddDragInt("armory tree lvl", &classInstance->armoryTreeLvl);
