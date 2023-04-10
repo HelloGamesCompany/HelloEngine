@@ -424,7 +424,7 @@ GameObject* ModuleResourceManager::S_DeserializeFromPrefab(const std::string& fi
 
 	for (int i = 0; i < temp.size(); i++)
 	{
-		if (temp[i].second != 0)
+		if (temp[i].second != 0 && ModuleLayers::gameObjects.count(temp[i].second) != 0)
 			temp[i].first->SetParent(ModuleLayers::gameObjects[temp[i].second]);
 		else if (!loadingScene)
 			temp[i].first->SetParent(parent);
