@@ -27,7 +27,7 @@ API::API_GameObject API::API_SkinnedMeshRenderer::GetGameObject()
 
 void API::API_SkinnedMeshRenderer::SetRootBone(API_GameObject rootBone)
 {
-	if (_skinnedMeshRenderer == nullptr)
+	if (_skinnedMeshRenderer == nullptr || !rootBone.IsAlive())
 	{
 		Engine::Console::S_Log("Trying to acces a NULLPTR SkinnedMeshRender. SetRootBone()");
 		return;

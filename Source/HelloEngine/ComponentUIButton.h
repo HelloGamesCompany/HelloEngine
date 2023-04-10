@@ -32,6 +32,7 @@ class ComponentUIButton : public ComponentUI
 	bool isBlockedInspector = false;
 
 	bool isPress = true;
+	bool isReleased = false;
 private:
 	double gameTimeCopy = 0;
 	float colors[4] = { 0,0,0,0 };

@@ -12,8 +12,6 @@ ComponentUIInput::ComponentUIInput(GameObject* gameObject) : ComponentUI(gameObj
 	_meshRenderer->Disable();
 
 	_gameWindow = (ImWindowGame*)LayerEditor::_imWindows[(uint)ImWindowID::GAME];
-
-	_isComponentEnable = true;
 }
 
 ComponentUIInput::~ComponentUIInput()
@@ -22,7 +20,7 @@ ComponentUIInput::~ComponentUIInput()
 
 void ComponentUIInput::InputUpdate()
 {
-	if (_listButtons.size() != 0 && _gameObject->IsActive() && _isComponentEnable)
+	if (_listButtons.size() != 0 && _gameObject->IsActive() && _isEnabled)
 	{
 		if (ButtonSelected < _listButtons.size() - 1 && ((ModuleInput::S_GetGamePadAxis(SDL_CONTROLLER_AXIS_LEFTY) > 10000 && isPress) || ModuleInput::S_GetGamePadButton(GamePad::BUTTON_DOWN) == KEY_DOWN))
 		{
@@ -70,10 +68,6 @@ void ComponentUIInput::DeSerialization(json& j)
 {
 	_material->ChangeTexture((ResourceTexture*)ModuleResourceManager::S_LoadResource(j["MaterialResource"]));
 
-	bool enabled = j["Enabled"];
-	if (!enabled)
-		Disable();
-
 	std::vector<uint> listAux = j["listButtons"];
 
 	for (size_t i = 0; i < listAux.size(); i++)
@@ -108,6 +102,10 @@ void ComponentUIInput::DeSerialization(json& j)
 	}
 
 	_gameObject->transform->ForceUpdate();
+
+	bool enabled = j["Enabled"];
+	if (!enabled)
+		Disable();
 }
 
 #ifdef STANDALONE
@@ -121,9 +119,8 @@ void ComponentUIInput::OnEditor()
 		return;
 	}
 
-	//_isComponentEnable = _isEnabled;
-	if (ImGui::Checkbox("Active##Panel", &_isComponentEnable))
-		_isComponentEnable ? Enable() : Disable();
+	if (ImGui::Checkbox("Active##Panel", &_isEnabled))
+		_isEnabled ? Enable() : Disable();
 
 	ImGui::Text("");
 	ImGui::SameLine();

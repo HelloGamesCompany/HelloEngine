@@ -25,6 +25,8 @@ namespace API
 		bool getIsBlocked();
 
 		void SetBlocked(bool);
+
+		bool OnRelease();
 	
 	private:
 		ComponentUIButton* GetComponent();

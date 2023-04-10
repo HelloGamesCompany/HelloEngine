@@ -23,6 +23,10 @@ public:
 	void Update() override;
 
 	float TakeDamageTank(float life, float damage);
+	void CheckDistance();
+	void ReturnToZone();
+	void MoveToDirection(float pointX, float pointY, float velocity);
+	void EscapeFromDirection(float pointX, float pointY, float velocity);
 
 	void Wander();
 	void Seek();
@@ -47,10 +51,20 @@ public:
 	States state;
 
 	float detectionDistance;
-	float walkVelocity;
-	float seekVelocity;
+	/*float walkVelocity;
+	float seekVelocity;*/
 	API_Vector3 initialPosition;
 	float initPosRange;
+	API_GameObject target;
+
+	API_GameObject actionZone;
+	API_RigidBody zoneRb;
+
+	float attackRange;
+	float approximateRange;
+	float separateRange;
+	float returnToZoneDistance;
+	//bool test;
 
 private:
 	bool isRecoveringShield;
@@ -58,5 +72,7 @@ private:
 	bool hasToRestoreHealth;
 	float shieldRecoverCounter;
 	float healthRestoreCounter;
+	float targetDistance;
+	bool isReturning;
 };
 
