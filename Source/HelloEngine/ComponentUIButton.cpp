@@ -66,6 +66,7 @@ void ComponentUIButton::Serialization(json& j)
     _j["idleImage"] = idleButton ? idleButton->UID : 0;
     _j["hoverImage"] = hoverButton ? hoverButton->UID : 0;
     _j["pressImage"] = pressButton ? pressButton->UID : 0;
+    _j["blockImage"] = blockedButton ? blockedButton->UID : 0;
     j["Components"].push_back(_j);
 }
 
@@ -99,6 +100,16 @@ void ComponentUIButton::DeSerialization(json& j)
         textureIDPress = pressButton->OpenGLID;
     else
         textureIDPress = -1;
+
+    if (j.contains("blockImage"))
+    {
+        uint savedUIDBlocked = j["blockImage"];
+        blockedButton = savedUIDBlocked == 0 ? nullptr : (ResourceTexture*)ModuleResourceManager::S_LoadResource(j["blockImage"]);
+        if (blockedButton != nullptr)
+            textureIDBlocked = blockedButton->OpenGLID;
+        else
+            textureIDBlocked = -1;
+    }
 
     State = j["State"];
 
