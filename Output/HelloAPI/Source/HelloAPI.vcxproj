@@ -217,6 +217,7 @@
 		<ClCompile Include="../../Assets/Scripts/AbilitySelect.cpp" />
 		<ClCompile Include="../../Assets/Scripts/Enemies/EnemyMeleeAttackZone.cpp" />
 		<ClCompile Include="../../Assets/Scripts/InteractiveEnviroment/BarrierSpawner.cpp" />
+		<ClCompile Include="../../Assets/Scripts/InteractiveEnviroment/OpenMenuInterruptor.cpp" />
 	</ItemGroup>
 	<ItemGroup>
 		<ClInclude Include="..\..\Assets\Scripts\EbonyMaw\BossAttacks.h" />
@@ -301,6 +302,7 @@
 		<ClInclude Include="../../Assets/Scripts/AbilitySelect.h" />
 		<ClInclude Include="../../Assets/Scripts/Enemies/EnemyMeleeAttackZone.h" />
 		<ClInclude Include="../../Assets/Scripts/InteractiveEnviroment/BarrierSpawner.h" />
+		<ClInclude Include="../../Assets/Scripts/InteractiveEnviroment/OpenMenuInterruptor.h" />
 	</ItemGroup>
 	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 	<ImportGroup Label="ExtensionTargets" />

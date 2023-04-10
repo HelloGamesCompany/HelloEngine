@@ -82,6 +82,11 @@
                 "Type": 1
             },
             {
+                "AngularFactor": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
                 "ColPosition": [
                     0.0,
                     0.0,
@@ -105,7 +110,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    -10.0,
+                    0.0,
                     0.0
                 ],
                 "Gravity": [
@@ -173,6 +178,11 @@
                 "Type": 1
             },
             {
+                "AngularFactor": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
                 "ColPosition": [
                     0.0,
                     0.0,
@@ -196,7 +206,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    -10.0,
+                    0.0,
                     0.0
                 ],
                 "Gravity": [
@@ -264,6 +274,11 @@
                 "Type": 1
             },
             {
+                "AngularFactor": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
                 "ColPosition": [
                     0.0,
                     0.0,
@@ -287,7 +302,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    -10.0,
+                    0.0,
                     0.0
                 ],
                 "Gravity": [
@@ -355,6 +370,11 @@
                 "Type": 1
             },
             {
+                "AngularFactor": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
                 "ColPosition": [
                     0.0,
                     0.0,
@@ -378,7 +398,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    -10.0,
+                    0.0,
                     0.0
                 ],
                 "Gravity": [
@@ -446,6 +466,11 @@
                 "Type": 1
             },
             {
+                "AngularFactor": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
                 "ColPosition": [
                     0.0,
                     0.0,
@@ -469,7 +494,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    -10.0,
+                    0.0,
                     0.0
                 ],
                 "Gravity": [
@@ -537,6 +562,11 @@
                 "Type": 1
             },
             {
+                "AngularFactor": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
                 "ColPosition": [
                     0.0,
                     0.0,
@@ -560,7 +590,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    -10.0,
+                    0.0,
                     0.0
                 ],
                 "Gravity": [
@@ -628,6 +658,11 @@
                 "Type": 1
             },
             {
+                "AngularFactor": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
                 "ColPosition": [
                     0.0,
                     0.0,
@@ -651,7 +686,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    -10.0,
+                    0.0,
                     0.0
                 ],
                 "Gravity": [
@@ -719,6 +754,11 @@
                 "Type": 1
             },
             {
+                "AngularFactor": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
                 "ColPosition": [
                     0.0,
                     0.0,
@@ -742,7 +782,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    -10.0,
+                    0.0,
                     0.0
                 ],
                 "Gravity": [
@@ -810,6 +850,11 @@
                 "Type": 1
             },
             {
+                "AngularFactor": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
                 "ColPosition": [
                     0.0,
                     0.0,
@@ -833,7 +878,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    -10.0,
+                    0.0,
                     0.0
                 ],
                 "Gravity": [
@@ -901,6 +946,11 @@
                 "Type": 1
             },
             {
+                "AngularFactor": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
                 "ColPosition": [
                     0.0,
                     0.0,
@@ -924,7 +974,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    -10.0,
+                    0.0,
                     0.0
                 ],
                 "Gravity": [
@@ -992,6 +1042,11 @@
                 "Type": 1
             },
             {
+                "AngularFactor": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
                 "ColPosition": [
                     0.0,
                     0.0,
@@ -1015,7 +1070,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    -10.0,
+                    0.0,
                     0.0
                 ],
                 "Gravity": [
@@ -1083,6 +1138,11 @@
                 "Type": 1
             },
             {
+                "AngularFactor": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
                 "ColPosition": [
                     0.0,
                     0.0,
@@ -1106,7 +1166,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    -10.0,
+                    0.0,
                     0.0
                 ],
                 "Gravity": [
@@ -1174,6 +1234,11 @@
                 "Type": 1
             },
             {
+                "AngularFactor": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
                 "ColPosition": [
                     0.0,
                     0.0,
@@ -1197,7 +1262,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    -10.0,
+                    0.0,
                     0.0
                 ],
                 "Gravity": [
@@ -1295,6 +1360,11 @@
                 "Type": 1
             },
             {
+                "AngularFactor": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
                 "ColPosition": [
                     0.0,
                     0.0,
@@ -1318,7 +1388,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    -10.0,
+                    0.0,
                     0.0
                 ],
                 "Gravity": [
@@ -1386,6 +1456,11 @@
                 "Type": 1
             },
             {
+                "AngularFactor": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
                 "ColPosition": [
                     0.0,
                     0.0,
@@ -1409,7 +1484,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    -10.0,
+                    0.0,
                     0.0
                 ],
                 "Gravity": [
@@ -1477,6 +1552,11 @@
                 "Type": 1
             },
             {
+                "AngularFactor": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
                 "ColPosition": [
                     0.0,
                     0.0,
@@ -1500,7 +1580,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    -10.0,
+                    0.0,
                     0.0
                 ],
                 "Gravity": [
@@ -1568,6 +1648,11 @@
                 "Type": 1
             },
             {
+                "AngularFactor": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
                 "ColPosition": [
                     0.0,
                     0.0,
@@ -1591,7 +1676,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    -10.0,
+                    0.0,
                     0.0
                 ],
                 "Gravity": [
@@ -1659,6 +1744,11 @@
                 "Type": 1
             },
             {
+                "AngularFactor": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
                 "ColPosition": [
                     0.0,
                     0.0,
@@ -1682,7 +1772,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    -10.0,
+                    0.0,
                     0.0
                 ],
                 "Gravity": [
@@ -1750,6 +1840,11 @@
                 "Type": 1
             },
             {
+                "AngularFactor": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
                 "ColPosition": [
                     0.0,
                     0.0,
@@ -1773,7 +1868,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    -10.0,
+                    0.0,
                     0.0
                 ],
                 "Gravity": [
@@ -1841,6 +1936,11 @@
                 "Type": 1
             },
             {
+                "AngularFactor": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
                 "ColPosition": [
                     0.0,
                     0.0,
@@ -1864,7 +1964,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    -10.0,
+                    0.0,
                     0.0
                 ],
                 "Gravity": [
@@ -1932,6 +2032,11 @@
                 "Type": 1
             },
             {
+                "AngularFactor": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
                 "ColPosition": [
                     0.0,
                     0.0,
@@ -1955,7 +2060,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    -10.0,
+                    0.0,
                     0.0
                 ],
                 "Gravity": [
@@ -2023,6 +2128,11 @@
                 "Type": 1
             },
             {
+                "AngularFactor": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
                 "ColPosition": [
                     0.0,
                     0.0,
@@ -2046,7 +2156,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    -10.0,
+                    0.0,
                     0.0
                 ],
                 "Gravity": [
@@ -2144,6 +2254,11 @@
                 "Type": 1
             },
             {
+                "AngularFactor": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
                 "ColPosition": [
                     0.0,
                     0.0,
@@ -2167,7 +2282,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    -10.0,
+                    0.0,
                     0.0
                 ],
                 "Gravity": [
@@ -2235,6 +2350,11 @@
                 "Type": 1
             },
             {
+                "AngularFactor": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
                 "ColPosition": [
                     0.0,
                     0.0,
@@ -2258,7 +2378,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    -10.0,
+                    0.0,
                     0.0
                 ],
                 "Gravity": [
@@ -2326,6 +2446,11 @@
                 "Type": 1
             },
             {
+                "AngularFactor": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
                 "ColPosition": [
                     0.0,
                     0.0,
@@ -2349,7 +2474,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    -10.0,
+                    0.0,
                     0.0
                 ],
                 "Gravity": [
@@ -2417,6 +2542,11 @@
                 "Type": 1
             },
             {
+                "AngularFactor": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
                 "ColPosition": [
                     0.0,
                     0.0,
@@ -2440,7 +2570,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    -10.0,
+                    0.0,
                     0.0
                 ],
                 "Gravity": [
@@ -2508,6 +2638,11 @@
                 "Type": 1
             },
             {
+                "AngularFactor": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
                 "ColPosition": [
                     0.0,
                     0.0,
@@ -2531,7 +2666,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    -10.0,
+                    0.0,
                     0.0
                 ],
                 "Gravity": [
@@ -2599,6 +2734,11 @@
                 "Type": 1
             },
             {
+                "AngularFactor": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
                 "ColPosition": [
                     0.0,
                     0.0,
@@ -2622,7 +2762,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    -10.0,
+                    0.0,
                     0.0
                 ],
                 "Gravity": [
@@ -2690,6 +2830,11 @@
                 "Type": 1
             },
             {
+                "AngularFactor": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
                 "ColPosition": [
                     0.0,
                     0.0,
@@ -2713,7 +2858,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    -10.0,
+                    0.0,
                     0.0
                 ],
                 "Gravity": [
@@ -2781,6 +2926,11 @@
                 "Type": 1
             },
             {
+                "AngularFactor": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
                 "ColPosition": [
                     0.0,
                     0.0,
@@ -2804,7 +2954,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    -10.0,
+                    0.0,
                     0.0
                 ],
                 "Gravity": [
@@ -2872,6 +3022,11 @@
                 "Type": 1
             },
             {
+                "AngularFactor": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
                 "ColPosition": [
                     0.0,
                     0.0,
@@ -2895,7 +3050,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    -10.0,
+                    0.0,
                     0.0
                 ],
                 "Gravity": [
@@ -2963,6 +3118,11 @@
                 "Type": 1
             },
             {
+                "AngularFactor": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
                 "ColPosition": [
                     0.0,
                     0.0,
@@ -2986,7 +3146,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    -10.0,
+                    0.0,
                     0.0
                 ],
                 "Gravity": [
@@ -3054,6 +3214,11 @@
                 "Type": 1
             },
             {
+                "AngularFactor": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
                 "ColPosition": [
                     0.0,
                     0.0,
@@ -3077,7 +3242,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    -10.0,
+                    0.0,
                     0.0
                 ],
                 "Gravity": [
@@ -3145,6 +3310,11 @@
                 "Type": 1
             },
             {
+                "AngularFactor": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
                 "ColPosition": [
                     0.0,
                     0.0,
@@ -3168,7 +3338,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    -10.0,
+                    0.0,
                     0.0
                 ],
                 "Gravity": [
@@ -3236,6 +3406,11 @@
                 "Type": 1
             },
             {
+                "AngularFactor": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
                 "ColPosition": [
                     0.0,
                     0.0,
@@ -3259,7 +3434,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    -10.0,
+                    0.0,
                     0.0
                 ],
                 "Gravity": [
@@ -3327,6 +3502,11 @@
                 "Type": 1
             },
             {
+                "AngularFactor": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
                 "ColPosition": [
                     0.0,
                     0.0,
@@ -3350,7 +3530,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    -10.0,
+                    0.0,
                     0.0
                 ],
                 "Gravity": [
@@ -3418,6 +3598,11 @@
                 "Type": 1
             },
             {
+                "AngularFactor": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
                 "ColPosition": [
                     0.0,
                     0.0,
@@ -3441,7 +3626,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    -10.0,
+                    0.0,
                     0.0
                 ],
                 "Gravity": [
@@ -3509,6 +3694,11 @@
                 "Type": 1
             },
             {
+                "AngularFactor": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
                 "ColPosition": [
                     0.0,
                     0.0,
@@ -3532,7 +3722,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    -10.0,
+                    0.0,
                     0.0
                 ],
                 "Gravity": [
@@ -3600,6 +3790,11 @@
                 "Type": 1
             },
             {
+                "AngularFactor": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
                 "ColPosition": [
                     0.0,
                     0.0,
@@ -3623,7 +3818,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    -10.0,
+                    0.0,
                     0.0
                 ],
                 "Gravity": [
@@ -10405,6 +10600,11 @@
                 "Type": 1
             },
             {
+                "AngularFactor": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
                 "ColPosition": [
                     0.0,
                     0.0,
@@ -10428,7 +10628,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    -10.0,
+                    0.0,
                     0.0
                 ],
                 "Gravity": [
@@ -10469,10 +10669,25 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Scene path and name: ": "LVL1_Blockout.HScene"
+                        "Is Hub Scene": true
                     },
                     {
                         "Scene path and name: ": "LVL1_Blockout.HScene"
+                    },
+                    {
+                        "Is Hub Scene": true
+                    },
+                    {
+                        "Scene path and name: ": "LVL1_Blockout.HScene"
+                    },
+                    {
+                        "Is Hub Scene": true
+                    },
+                    {
+                        "Scene path and name: ": "LVL1_Blockout.HScene"
+                    },
+                    {
+                        "Is Hub Scene": true
                     },
                     {
                         "Scene path and name: ": "LVL1_Blockout.HScene"
@@ -10496,22 +10711,27 @@
                 "Enabled": true,
                 "Position": [
                     0.08718446642160416,
-                    0.8269394636154175,
+                    0.057070016860961914,
                     5.889803886413574
                 ],
                 "Rotation": [
-                    -0.0008879246306605637,
-                    -90.0,
-                    0.0
+                    -180.0,
+                    -89.98020935058594,
+                    -179.99911499023438
                 ],
                 "Scale": [
-                    1.0000001192092896,
+                    1.000000238418579,
                     1.0,
-                    1.0000001192092896
+                    1.000000238418579
                 ],
                 "Type": 1
             },
             {
+                "AngularFactor": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
                 "ColPosition": [
                     0.0,
                     1.2000000476837158,
@@ -10535,7 +10755,7 @@
                 "Enabled": true,
                 "GlobalGravity": [
                     0.0,
-                    -10.0,
+                    0.0,
                     0.0
                 ],
                 "Gravity": [
@@ -10575,6 +10795,48 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Velocity": 10.0
+                    },
+                    {
+                        "Upgrade Velocity": 2.0
+                    },
+                    {
+                        "SecToMaxVel": 0.0
+                    },
+                    {
+                        "SecToZeroVel": 0.0
+                    },
+                    {
+                        "Y tp limit": -50.0
+                    },
+                    {
+                        "Rigid Body": 4290975610
+                    },
+                    {
+                        "Dash Time": 0.5
+                    },
+                    {
+                        "Dash Distance": 5.0
+                    },
+                    {
+                        "Upgrade Dash Distance": 8.0
+                    },
+                    {
+                        "Dash Cooldown": 0.0
+                    },
+                    {
+                        "Upgrade Dash Cooldown": 0.0
+                    },
+                    {
+                        "AnimationPlayer": 3431343063
+                    },
+                    {
+                        "Dash Animation": 3786266361
+                    },
+                    {
+                        "Player Stats GO": 4290975610
+                    },
                     {
                         "Velocity": 10.0
                     },
@@ -10745,40 +11007,7 @@
                         "Fire Ammo": 99999
                     },
                     {
-                        "Max HP": 100.0
-                    },
-                    {
-                        "Current HP": 0.0
-                    },
-                    {
-                        "Upgraded Max HP": 0.0
-                    },
-                    {
-                        "Resistance": 100.0
-                    },
-                    {
-                        "Deadline Percentage": 20.0
-                    },
-                    {
-                        "Upgraded Deadline Percentage": 25.0
-                    },
-                    {
-                        "Deadline Heal Amount": 5.0
-                    },
-                    {
-                        "Upgraded Deadline Heal Amount": 7.5
-                    },
-                    {
-                        "Aid Kit Heal Amount": 50.0
-                    },
-                    {
-                        "Upgraded Aid Kit Heal Amount": 75.0
-                    },
-                    {
-                        "Laser Ammo": 99999
-                    },
-                    {
-                        "Fire Ammo": 99999
+                        "Player GO": 4290975610
                     },
                     {
                         "Max HP": 100.0
@@ -10815,6 +11044,87 @@
                     },
                     {
                         "Fire Ammo": 99999
+                    },
+                    {
+                        "Player GO": 4290975610
+                    },
+                    {
+                        "Max HP": 100.0
+                    },
+                    {
+                        "Current HP": 0.0
+                    },
+                    {
+                        "Upgraded Max HP": 0.0
+                    },
+                    {
+                        "Resistance": 100.0
+                    },
+                    {
+                        "Deadline Percentage": 20.0
+                    },
+                    {
+                        "Upgraded Deadline Percentage": 25.0
+                    },
+                    {
+                        "Deadline Heal Amount": 5.0
+                    },
+                    {
+                        "Upgraded Deadline Heal Amount": 7.5
+                    },
+                    {
+                        "Aid Kit Heal Amount": 50.0
+                    },
+                    {
+                        "Upgraded Aid Kit Heal Amount": 75.0
+                    },
+                    {
+                        "Laser Ammo": 99999
+                    },
+                    {
+                        "Fire Ammo": 99999
+                    },
+                    {
+                        "Player GO": 4290975610
+                    },
+                    {
+                        "Max HP": 100.0
+                    },
+                    {
+                        "Current HP": 0.0
+                    },
+                    {
+                        "Upgraded Max HP": 0.0
+                    },
+                    {
+                        "Resistance": 100.0
+                    },
+                    {
+                        "Deadline Percentage": 20.0
+                    },
+                    {
+                        "Upgraded Deadline Percentage": 25.0
+                    },
+                    {
+                        "Deadline Heal Amount": 5.0
+                    },
+                    {
+                        "Upgraded Deadline Heal Amount": 7.5
+                    },
+                    {
+                        "Aid Kit Heal Amount": 50.0
+                    },
+                    {
+                        "Upgraded Aid Kit Heal Amount": 75.0
+                    },
+                    {
+                        "Laser Ammo": 99999
+                    },
+                    {
+                        "Fire Ammo": 99999
+                    },
+                    {
+                        "Player GO": 4290975610
                     }
                 ],
                 "Script Resource": 4283682555,
@@ -10825,7 +11135,7 @@
         "Name": "Player",
         "ParentUID": 2830428646,
         "PrefabUID": 3737530194,
-        "Tag": "Default",
+        "Tag": "Player",
         "UID": 4290975610
     },
     {
@@ -17130,6 +17440,9 @@
                     },
                     {
                         "hp": false
+                    },
+                    {
+                        "hp": false
                     }
                 ],
                 "Script Resource": 1164455694,
@@ -17354,6 +17667,18 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Game Bar Weapon 1": 3388116125
+                    },
+                    {
+                        "Game Bar Weapon 2": 3405447488
+                    },
+                    {
+                        "Game Bar Weapon 3": 3043836677
+                    },
+                    {
+                        "Material_Dash": 2702449615
+                    },
                     {
                         "Game Bar Weapon 1": 3388116125
                     },
@@ -17997,7 +18322,7 @@
             {
                 "Active camera": true,
                 "Active culling": true,
-                "Aspect ratio": 1.7609970569610596,
+                "Aspect ratio": 1.9392917156219482,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -18009,6 +18334,36 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Target": 4290975610
+                    },
+                    {
+                        "Delay": 0.10000000149011612
+                    },
+                    {
+                        "Offset_X": 0.0
+                    },
+                    {
+                        "Offset_Y": 10.0
+                    },
+                    {
+                        "Offset_Z": -7.0
+                    },
+                    {
+                        "Rot_X": 50.0
+                    },
+                    {
+                        "Rot_Y": 0.0
+                    },
+                    {
+                        "Rot_Z": 0.0
+                    },
+                    {
+                        "SafeZone_Distance": 10.0
+                    },
+                    {
+                        "Use safe zone: ": false
+                    },
                     {
                         "Target": 4290975610
                     },
@@ -19243,5 +19598,4592 @@
         "PrefabUID": 54949993,
         "Tag": "Primitive",
         "UID": 709111377
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "Type": 16,
+                "listButtons": [
+                    0
+                ]
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Armory",
+        "ParentUID": 2830428646,
+        "PrefabUID": 2406411174,
+        "Tag": "UI",
+        "UID": 2963029982
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "Type": 16,
+                "listButtons": [
+                    0
+                ]
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "BackGround",
+        "ParentUID": 2963029982,
+        "PrefabUID": 2406411174,
+        "Tag": "UI",
+        "UID": 1831149941
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.5
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 139376968,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "BackGround (I)",
+        "ParentUID": 1831149941,
+        "PrefabUID": 2406411174,
+        "Tag": "UI",
+        "UID": 3270762489
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    -0.949999988079071,
+                    0.0010000000474974513
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.8999999761581421,
+                    0.05000000074505806,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 0,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "ButtonsGuide (I)",
+        "ParentUID": 1831149941,
+        "PrefabUID": 2406411174,
+        "Tag": "UI",
+        "UID": 3179147340
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "Type": 16,
+                "listButtons": [
+                    0
+                ]
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "BluePrints",
+        "ParentUID": 2963029982,
+        "PrefabUID": 2406411174,
+        "Tag": "UI",
+        "UID": 2867293371
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.44999998807907104,
+                    0.7599999904632568,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.05000000074505806,
+                    0.07500000298023224,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 3838844858,
+                "Type": 15
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "BluePrint Image Component": 2341798902
+                    },
+                    {
+                        "Gun Index": 1
+                    },
+                    {
+                        "BluePrint Image Component": 2341798902
+                    },
+                    {
+                        "Gun Index": 1
+                    },
+                    {
+                        "BluePrint Image Component": 2341798902
+                    },
+                    {
+                        "Gun Index": 1
+                    },
+                    {
+                        "BluePrint Image Component": 2341798902
+                    },
+                    {
+                        "Gun Index": 1
+                    }
+                ],
+                "Script Resource": 2905751812,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "BluePrint W2 (I)",
+        "ParentUID": 2867293371,
+        "PrefabUID": 2406411174,
+        "Tag": "UI",
+        "UID": 2341798902
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.3400000035762787,
+                    0.7599999904632568,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.05000000074505806,
+                    0.07500000298023224,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 985804532,
+                "Type": 15
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "BluePrint Image Component": 1422799981
+                    },
+                    {
+                        "Gun Index": 2
+                    },
+                    {
+                        "BluePrint Image Component": 1422799981
+                    },
+                    {
+                        "Gun Index": 2
+                    },
+                    {
+                        "BluePrint Image Component": 1422799981
+                    },
+                    {
+                        "Gun Index": 2
+                    },
+                    {
+                        "BluePrint Image Component": 1422799981
+                    },
+                    {
+                        "Gun Index": 2
+                    }
+                ],
+                "Script Resource": 2905751812,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "BluePrint W3 (I)",
+        "ParentUID": 2867293371,
+        "PrefabUID": 2406411174,
+        "Tag": "UI",
+        "UID": 1422799981
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.23000000417232513,
+                    0.7599999904632568,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.05000000074505806,
+                    0.07500000298023224,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 809546067,
+                "Type": 15
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "BluePrint Image Component": 1926729553
+                    },
+                    {
+                        "Gun Index": 3
+                    },
+                    {
+                        "BluePrint Image Component": 1926729553
+                    },
+                    {
+                        "Gun Index": 3
+                    },
+                    {
+                        "BluePrint Image Component": 1926729553
+                    },
+                    {
+                        "Gun Index": 3
+                    },
+                    {
+                        "BluePrint Image Component": 1926729553
+                    },
+                    {
+                        "Gun Index": 3
+                    }
+                ],
+                "Script Resource": 3695252177,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "BluePrint W4 (I)",
+        "ParentUID": 2867293371,
+        "PrefabUID": 2406411174,
+        "Tag": "UI",
+        "UID": 1926729553
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.11999999731779099,
+                    0.7599999904632568,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.05000000074505806,
+                    0.07500000298023224,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 1352642618,
+                "Type": 15
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "BluePrint Image Component": 419620740
+                    },
+                    {
+                        "Gun Index": 4
+                    },
+                    {
+                        "BluePrint Image Component": 419620740
+                    },
+                    {
+                        "Gun Index": 4
+                    },
+                    {
+                        "BluePrint Image Component": 419620740
+                    },
+                    {
+                        "Gun Index": 4
+                    },
+                    {
+                        "BluePrint Image Component": 419620740
+                    },
+                    {
+                        "Gun Index": 4
+                    }
+                ],
+                "Script Resource": 2905751812,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "BluePrint W5 (I)",
+        "ParentUID": 2867293371,
+        "PrefabUID": 2406411174,
+        "Tag": "UI",
+        "UID": 419620740
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.009999999776482582,
+                    0.7599999904632568,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.05000000074505806,
+                    0.07500000298023224,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 3727522677,
+                "Type": 15
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "BluePrint Image Component": 47992147
+                    },
+                    {
+                        "Gun Index": 5
+                    },
+                    {
+                        "BluePrint Image Component": 47992147
+                    },
+                    {
+                        "Gun Index": 5
+                    },
+                    {
+                        "BluePrint Image Component": 47992147
+                    },
+                    {
+                        "Gun Index": 5
+                    },
+                    {
+                        "BluePrint Image Component": 47992147
+                    },
+                    {
+                        "Gun Index": 5
+                    }
+                ],
+                "Script Resource": 2905751812,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "BluePrint W6 (I)",
+        "ParentUID": 2867293371,
+        "PrefabUID": 2406411174,
+        "Tag": "UI",
+        "UID": 47992147
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "Type": 16,
+                "listButtons": [
+                    0
+                ]
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "BluePrint Amount",
+        "ParentUID": 2963029982,
+        "PrefabUID": 2406411174,
+        "Tag": "UI",
+        "UID": 4071677295
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.7400000095367432,
+                    0.6875,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.5,
+                    0.5,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Color": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Enabled": false,
+                "PositionX": 0.7400000095367432,
+                "PositionY": 0.6875,
+                "Scale": 0.5,
+                "Text": "0",
+                "Type": 17
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 0,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "BluePrint Amount (T)",
+        "ParentUID": 4071677295,
+        "PrefabUID": 2406411174,
+        "Tag": "UI",
+        "UID": 2108451898
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 0,
+                "Type": 16,
+                "listButtons": [
+                    2125686633,
+                    740957820,
+                    3667161260,
+                    1398139035,
+                    2993926487,
+                    1098109250
+                ]
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "WeaponList",
+        "ParentUID": 2963029982,
+        "PrefabUID": 2406411174,
+        "Tag": "UI",
+        "UID": 3432315266
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.8700000047683716,
+                    0.6200000047683716,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.125,
+                    0.125,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 1409015305,
+                "State": 0,
+                "Type": 12,
+                "blockImage": 0,
+                "hoverImage": 3707835447,
+                "idleImage": 1409015305,
+                "pressImage": 1597583807
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Weapon": 2125686633
+                    },
+                    {
+                        "Next Weapon": 740957820
+                    },
+                    {
+                        "Panel Upgrate": 911611964
+                    },
+                    {
+                        "Panel Unlock": 911611964
+                    },
+                    {
+                        "Next Panel Upgrate": 2121029335
+                    },
+                    {
+                        "Next Panel Unlock": 2412948481
+                    },
+                    {
+                        "Material Weapon": 3613693446
+                    },
+                    {
+                        "Material Weapon Locked": 2497864979
+                    },
+                    {
+                        "SelectedWeapon": 1046225449
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 0
+                    },
+                    {
+                        "Open Menu Interruptor": 1766493025
+                    },
+                    {
+                        "Weapon": 2125686633
+                    },
+                    {
+                        "Next Weapon": 740957820
+                    },
+                    {
+                        "Panel Upgrate": 911611964
+                    },
+                    {
+                        "Panel Unlock": 911611964
+                    },
+                    {
+                        "Next Panel Upgrate": 2121029335
+                    },
+                    {
+                        "Next Panel Unlock": 2412948481
+                    },
+                    {
+                        "Material Weapon": 3613693446
+                    },
+                    {
+                        "Material Weapon Locked": 2497864979
+                    },
+                    {
+                        "SelectedWeapon": 1046225449
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 0
+                    },
+                    {
+                        "Open Menu Interruptor": 1766493025
+                    },
+                    {
+                        "Weapon": 2125686633
+                    },
+                    {
+                        "Next Weapon": 740957820
+                    },
+                    {
+                        "Panel Upgrate": 911611964
+                    },
+                    {
+                        "Panel Unlock": 911611964
+                    },
+                    {
+                        "Next Panel Upgrate": 2121029335
+                    },
+                    {
+                        "Next Panel Unlock": 2412948481
+                    },
+                    {
+                        "Material Weapon": 3613693446
+                    },
+                    {
+                        "Material Weapon Locked": 2497864979
+                    },
+                    {
+                        "SelectedWeapon": 1046225449
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 0
+                    },
+                    {
+                        "Open Menu Interruptor": 1766493025
+                    },
+                    {
+                        "Weapon": 2125686633
+                    },
+                    {
+                        "Next Weapon": 740957820
+                    },
+                    {
+                        "Panel Upgrate": 911611964
+                    },
+                    {
+                        "Panel Unlock": 911611964
+                    },
+                    {
+                        "Next Panel Upgrate": 2121029335
+                    },
+                    {
+                        "Next Panel Unlock": 2412948481
+                    },
+                    {
+                        "Material Weapon": 3613693446
+                    },
+                    {
+                        "Material Weapon Locked": 2497864979
+                    },
+                    {
+                        "SelectedWeapon": 1046225449
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 0
+                    },
+                    {
+                        "Open Menu Interruptor": 1766493025
+                    }
+                ],
+                "Script Resource": 2943233861,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Weapon1 (B)",
+        "ParentUID": 3432315266,
+        "PrefabUID": 2406411174,
+        "Tag": "UI",
+        "UID": 2125686633
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.8700000047683716,
+                    0.36000001430511475,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.125,
+                    0.125,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 1822315430,
+                "State": 0,
+                "Type": 12,
+                "blockImage": 0,
+                "hoverImage": 1677387699,
+                "idleImage": 1822315430,
+                "pressImage": 3649915254
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Weapon": 740957820
+                    },
+                    {
+                        "Next Weapon": 3667161260
+                    },
+                    {
+                        "Prev Weapon": 2125686633
+                    },
+                    {
+                        "Panel Upgrate": 2121029335
+                    },
+                    {
+                        "Panel Unlock": 2412948481
+                    },
+                    {
+                        "Next Panel Upgrate": 1250319448
+                    },
+                    {
+                        "Next Panel Unlock": 1692539270
+                    },
+                    {
+                        "Prev Panel Upgrate": 911611964
+                    },
+                    {
+                        "Prev Panel Unlock": 911611964
+                    },
+                    {
+                        "Material Weapon": 1026044394
+                    },
+                    {
+                        "Material Weapon Locked": 1639815392
+                    },
+                    {
+                        "SelectedWeapon": 1046225449
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 4
+                    },
+                    {
+                        "Weapon": 740957820
+                    },
+                    {
+                        "Next Weapon": 3667161260
+                    },
+                    {
+                        "Prev Weapon": 2125686633
+                    },
+                    {
+                        "Panel Upgrate": 2121029335
+                    },
+                    {
+                        "Panel Unlock": 2412948481
+                    },
+                    {
+                        "Next Panel Upgrate": 1250319448
+                    },
+                    {
+                        "Next Panel Unlock": 1692539270
+                    },
+                    {
+                        "Prev Panel Upgrate": 911611964
+                    },
+                    {
+                        "Prev Panel Unlock": 911611964
+                    },
+                    {
+                        "Material Weapon": 1026044394
+                    },
+                    {
+                        "Material Weapon Locked": 1639815392
+                    },
+                    {
+                        "SelectedWeapon": 1046225449
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 4
+                    },
+                    {
+                        "Weapon": 740957820
+                    },
+                    {
+                        "Next Weapon": 3667161260
+                    },
+                    {
+                        "Prev Weapon": 2125686633
+                    },
+                    {
+                        "Panel Upgrate": 2121029335
+                    },
+                    {
+                        "Panel Unlock": 2412948481
+                    },
+                    {
+                        "Next Panel Upgrate": 1250319448
+                    },
+                    {
+                        "Next Panel Unlock": 1692539270
+                    },
+                    {
+                        "Prev Panel Upgrate": 911611964
+                    },
+                    {
+                        "Prev Panel Unlock": 911611964
+                    },
+                    {
+                        "Material Weapon": 1026044394
+                    },
+                    {
+                        "Material Weapon Locked": 1639815392
+                    },
+                    {
+                        "SelectedWeapon": 1046225449
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 4
+                    },
+                    {
+                        "Weapon": 740957820
+                    },
+                    {
+                        "Next Weapon": 3667161260
+                    },
+                    {
+                        "Prev Weapon": 2125686633
+                    },
+                    {
+                        "Panel Upgrate": 2121029335
+                    },
+                    {
+                        "Panel Unlock": 2412948481
+                    },
+                    {
+                        "Next Panel Upgrate": 1250319448
+                    },
+                    {
+                        "Next Panel Unlock": 1692539270
+                    },
+                    {
+                        "Prev Panel Upgrate": 911611964
+                    },
+                    {
+                        "Prev Panel Unlock": 911611964
+                    },
+                    {
+                        "Material Weapon": 1026044394
+                    },
+                    {
+                        "Material Weapon Locked": 1639815392
+                    },
+                    {
+                        "SelectedWeapon": 1046225449
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 4
+                    }
+                ],
+                "Script Resource": 2943233861,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Weapon2 (B)",
+        "ParentUID": 3432315266,
+        "PrefabUID": 2406411174,
+        "Tag": "UI",
+        "UID": 740957820
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.8650000095367432,
+                    0.14000000059604645,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.125,
+                    0.125,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 1567315137,
+                "State": 0,
+                "Type": 12,
+                "blockImage": 0,
+                "hoverImage": 109319305,
+                "idleImage": 1567315137,
+                "pressImage": 3209887626
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Weapon": 3667161260
+                    },
+                    {
+                        "Next Weapon": 1398139035
+                    },
+                    {
+                        "Prev Weapon": 740957820
+                    },
+                    {
+                        "Panel Upgrate": 1250319448
+                    },
+                    {
+                        "Panel Unlock": 1692539270
+                    },
+                    {
+                        "Next Panel Upgrate": 385359660
+                    },
+                    {
+                        "Next Panel Unlock": 801303102
+                    },
+                    {
+                        "Prev Panel Upgrate": 2121029335
+                    },
+                    {
+                        "Prev Panel Unlock": 2412948481
+                    },
+                    {
+                        "Material Weapon": 334261511
+                    },
+                    {
+                        "Material Weapon Locked": 2202060709
+                    },
+                    {
+                        "SelectedWeapon": 1046225449
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 3
+                    },
+                    {
+                        "Weapon": 3667161260
+                    },
+                    {
+                        "Next Weapon": 1398139035
+                    },
+                    {
+                        "Prev Weapon": 740957820
+                    },
+                    {
+                        "Panel Upgrate": 1250319448
+                    },
+                    {
+                        "Panel Unlock": 1692539270
+                    },
+                    {
+                        "Next Panel Upgrate": 385359660
+                    },
+                    {
+                        "Next Panel Unlock": 801303102
+                    },
+                    {
+                        "Prev Panel Upgrate": 2121029335
+                    },
+                    {
+                        "Prev Panel Unlock": 2412948481
+                    },
+                    {
+                        "Material Weapon": 334261511
+                    },
+                    {
+                        "Material Weapon Locked": 2202060709
+                    },
+                    {
+                        "SelectedWeapon": 1046225449
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 3
+                    },
+                    {
+                        "Weapon": 3667161260
+                    },
+                    {
+                        "Next Weapon": 1398139035
+                    },
+                    {
+                        "Prev Weapon": 740957820
+                    },
+                    {
+                        "Panel Upgrate": 1250319448
+                    },
+                    {
+                        "Panel Unlock": 1692539270
+                    },
+                    {
+                        "Next Panel Upgrate": 385359660
+                    },
+                    {
+                        "Next Panel Unlock": 801303102
+                    },
+                    {
+                        "Prev Panel Upgrate": 2121029335
+                    },
+                    {
+                        "Prev Panel Unlock": 2412948481
+                    },
+                    {
+                        "Material Weapon": 334261511
+                    },
+                    {
+                        "Material Weapon Locked": 2202060709
+                    },
+                    {
+                        "SelectedWeapon": 1046225449
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 3
+                    },
+                    {
+                        "Weapon": 3667161260
+                    },
+                    {
+                        "Next Weapon": 1398139035
+                    },
+                    {
+                        "Prev Weapon": 740957820
+                    },
+                    {
+                        "Panel Upgrate": 1250319448
+                    },
+                    {
+                        "Panel Unlock": 1692539270
+                    },
+                    {
+                        "Next Panel Upgrate": 385359660
+                    },
+                    {
+                        "Next Panel Unlock": 801303102
+                    },
+                    {
+                        "Prev Panel Upgrate": 2121029335
+                    },
+                    {
+                        "Prev Panel Unlock": 2412948481
+                    },
+                    {
+                        "Material Weapon": 334261511
+                    },
+                    {
+                        "Material Weapon Locked": 2202060709
+                    },
+                    {
+                        "SelectedWeapon": 1046225449
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 3
+                    }
+                ],
+                "Script Resource": 2943233861,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Weapon3 (B)",
+        "ParentUID": 3432315266,
+        "PrefabUID": 2406411174,
+        "Tag": "UI",
+        "UID": 3667161260
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.8700000047683716,
+                    -0.07999999821186066,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.125,
+                    0.125,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 3293086449,
+                "State": 0,
+                "Type": 12,
+                "blockImage": 0,
+                "hoverImage": 587270201,
+                "idleImage": 3293086449,
+                "pressImage": 154785093
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Weapon": 1398139035
+                    },
+                    {
+                        "Next Weapon": 2993926487
+                    },
+                    {
+                        "Prev Weapon": 3667161260
+                    },
+                    {
+                        "Panel Upgrate": 385359660
+                    },
+                    {
+                        "Panel Unlock": 801303102
+                    },
+                    {
+                        "Next Panel Upgrate": 2021939713
+                    },
+                    {
+                        "Next Panel Unlock": 3043641959
+                    },
+                    {
+                        "Prev Panel Upgrate": 1250319448
+                    },
+                    {
+                        "Prev Panel Unlock": 1692539270
+                    },
+                    {
+                        "Material Weapon": 1780030818
+                    },
+                    {
+                        "Material Weapon Locked": 3711690831
+                    },
+                    {
+                        "SelectedWeapon": 1046225449
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 2
+                    },
+                    {
+                        "Weapon": 1398139035
+                    },
+                    {
+                        "Next Weapon": 2993926487
+                    },
+                    {
+                        "Prev Weapon": 3667161260
+                    },
+                    {
+                        "Panel Upgrate": 385359660
+                    },
+                    {
+                        "Panel Unlock": 801303102
+                    },
+                    {
+                        "Next Panel Upgrate": 2021939713
+                    },
+                    {
+                        "Next Panel Unlock": 3043641959
+                    },
+                    {
+                        "Prev Panel Upgrate": 1250319448
+                    },
+                    {
+                        "Prev Panel Unlock": 1692539270
+                    },
+                    {
+                        "Material Weapon": 1780030818
+                    },
+                    {
+                        "Material Weapon Locked": 3711690831
+                    },
+                    {
+                        "SelectedWeapon": 1046225449
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 2
+                    },
+                    {
+                        "Weapon": 1398139035
+                    },
+                    {
+                        "Next Weapon": 2993926487
+                    },
+                    {
+                        "Prev Weapon": 3667161260
+                    },
+                    {
+                        "Panel Upgrate": 385359660
+                    },
+                    {
+                        "Panel Unlock": 801303102
+                    },
+                    {
+                        "Next Panel Upgrate": 2021939713
+                    },
+                    {
+                        "Next Panel Unlock": 3043641959
+                    },
+                    {
+                        "Prev Panel Upgrate": 1250319448
+                    },
+                    {
+                        "Prev Panel Unlock": 1692539270
+                    },
+                    {
+                        "Material Weapon": 1780030818
+                    },
+                    {
+                        "Material Weapon Locked": 3711690831
+                    },
+                    {
+                        "SelectedWeapon": 1046225449
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 2
+                    },
+                    {
+                        "Weapon": 1398139035
+                    },
+                    {
+                        "Next Weapon": 2993926487
+                    },
+                    {
+                        "Prev Weapon": 3667161260
+                    },
+                    {
+                        "Panel Upgrate": 385359660
+                    },
+                    {
+                        "Panel Unlock": 801303102
+                    },
+                    {
+                        "Next Panel Upgrate": 2021939713
+                    },
+                    {
+                        "Next Panel Unlock": 3043641959
+                    },
+                    {
+                        "Prev Panel Upgrate": 1250319448
+                    },
+                    {
+                        "Prev Panel Unlock": 1692539270
+                    },
+                    {
+                        "Material Weapon": 1780030818
+                    },
+                    {
+                        "Material Weapon Locked": 3711690831
+                    },
+                    {
+                        "SelectedWeapon": 1046225449
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 2
+                    }
+                ],
+                "Script Resource": 2943233861,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Weapon4 (B)",
+        "ParentUID": 3432315266,
+        "PrefabUID": 2406411174,
+        "Tag": "UI",
+        "UID": 1398139035
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.8700000047683716,
+                    -0.30000001192092896,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.125,
+                    0.125,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 3324075840,
+                "State": 0,
+                "Type": 12,
+                "blockImage": 0,
+                "hoverImage": 1747512733,
+                "idleImage": 3324075840,
+                "pressImage": 1842904264
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Weapon": 2993926487
+                    },
+                    {
+                        "Next Weapon": 1098109250
+                    },
+                    {
+                        "Prev Weapon": 1398139035
+                    },
+                    {
+                        "Panel Upgrate": 2021939713
+                    },
+                    {
+                        "Panel Unlock": 3043641959
+                    },
+                    {
+                        "Next Panel Upgrate": 445014355
+                    },
+                    {
+                        "Next Panel Unlock": 227055725
+                    },
+                    {
+                        "Prev Panel Upgrate": 385359660
+                    },
+                    {
+                        "Prev Panel Unlock": 801303102
+                    },
+                    {
+                        "Material Weapon": 2392737524
+                    },
+                    {
+                        "Material Weapon Locked": 3104510813
+                    },
+                    {
+                        "SelectedWeapon": 1046225449
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 1
+                    },
+                    {
+                        "Weapon": 2993926487
+                    },
+                    {
+                        "Next Weapon": 1098109250
+                    },
+                    {
+                        "Prev Weapon": 1398139035
+                    },
+                    {
+                        "Panel Upgrate": 2021939713
+                    },
+                    {
+                        "Panel Unlock": 3043641959
+                    },
+                    {
+                        "Next Panel Upgrate": 445014355
+                    },
+                    {
+                        "Next Panel Unlock": 227055725
+                    },
+                    {
+                        "Prev Panel Upgrate": 385359660
+                    },
+                    {
+                        "Prev Panel Unlock": 801303102
+                    },
+                    {
+                        "Material Weapon": 2392737524
+                    },
+                    {
+                        "Material Weapon Locked": 3104510813
+                    },
+                    {
+                        "SelectedWeapon": 1046225449
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 1
+                    },
+                    {
+                        "Weapon": 2993926487
+                    },
+                    {
+                        "Next Weapon": 1098109250
+                    },
+                    {
+                        "Prev Weapon": 1398139035
+                    },
+                    {
+                        "Panel Upgrate": 2021939713
+                    },
+                    {
+                        "Panel Unlock": 3043641959
+                    },
+                    {
+                        "Next Panel Upgrate": 445014355
+                    },
+                    {
+                        "Next Panel Unlock": 227055725
+                    },
+                    {
+                        "Prev Panel Upgrate": 385359660
+                    },
+                    {
+                        "Prev Panel Unlock": 801303102
+                    },
+                    {
+                        "Material Weapon": 2392737524
+                    },
+                    {
+                        "Material Weapon Locked": 3104510813
+                    },
+                    {
+                        "SelectedWeapon": 1046225449
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 1
+                    },
+                    {
+                        "Weapon": 2993926487
+                    },
+                    {
+                        "Next Weapon": 1098109250
+                    },
+                    {
+                        "Prev Weapon": 1398139035
+                    },
+                    {
+                        "Panel Upgrate": 2021939713
+                    },
+                    {
+                        "Panel Unlock": 3043641959
+                    },
+                    {
+                        "Next Panel Upgrate": 445014355
+                    },
+                    {
+                        "Next Panel Unlock": 227055725
+                    },
+                    {
+                        "Prev Panel Upgrate": 385359660
+                    },
+                    {
+                        "Prev Panel Unlock": 801303102
+                    },
+                    {
+                        "Material Weapon": 2392737524
+                    },
+                    {
+                        "Material Weapon Locked": 3104510813
+                    },
+                    {
+                        "SelectedWeapon": 1046225449
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 1
+                    }
+                ],
+                "Script Resource": 2943233861,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Weapon5 (B)",
+        "ParentUID": 3432315266,
+        "PrefabUID": 2406411174,
+        "Tag": "UI",
+        "UID": 2993926487
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.8799999952316284,
+                    -0.5199999809265137,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.125,
+                    0.125,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 1767948154,
+                "State": 0,
+                "Type": 12,
+                "blockImage": 0,
+                "hoverImage": 1317989011,
+                "idleImage": 1767948154,
+                "pressImage": 957302266
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Weapon": 1098109250
+                    },
+                    {
+                        "Prev Weapon": 2993926487
+                    },
+                    {
+                        "Panel Upgrate": 445014355
+                    },
+                    {
+                        "Panel Unlock": 227055725
+                    },
+                    {
+                        "Prev Panel Upgrate": 2021939713
+                    },
+                    {
+                        "Prev Panel Unlock": 3043641959
+                    },
+                    {
+                        "Material Weapon": 1837055462
+                    },
+                    {
+                        "Material Weapon Locked": 575076703
+                    },
+                    {
+                        "SelectedWeapon": 1046225449
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 5
+                    },
+                    {
+                        "Weapon": 1098109250
+                    },
+                    {
+                        "Prev Weapon": 2993926487
+                    },
+                    {
+                        "Panel Upgrate": 445014355
+                    },
+                    {
+                        "Panel Unlock": 227055725
+                    },
+                    {
+                        "Prev Panel Upgrate": 2021939713
+                    },
+                    {
+                        "Prev Panel Unlock": 3043641959
+                    },
+                    {
+                        "Material Weapon": 1837055462
+                    },
+                    {
+                        "Material Weapon Locked": 575076703
+                    },
+                    {
+                        "SelectedWeapon": 1046225449
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 5
+                    },
+                    {
+                        "Weapon": 1098109250
+                    },
+                    {
+                        "Prev Weapon": 2993926487
+                    },
+                    {
+                        "Panel Upgrate": 445014355
+                    },
+                    {
+                        "Panel Unlock": 227055725
+                    },
+                    {
+                        "Prev Panel Upgrate": 2021939713
+                    },
+                    {
+                        "Prev Panel Unlock": 3043641959
+                    },
+                    {
+                        "Material Weapon": 1837055462
+                    },
+                    {
+                        "Material Weapon Locked": 575076703
+                    },
+                    {
+                        "SelectedWeapon": 1046225449
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 5
+                    },
+                    {
+                        "Weapon": 1098109250
+                    },
+                    {
+                        "Prev Weapon": 2993926487
+                    },
+                    {
+                        "Panel Upgrate": 445014355
+                    },
+                    {
+                        "Panel Unlock": 227055725
+                    },
+                    {
+                        "Prev Panel Upgrate": 2021939713
+                    },
+                    {
+                        "Prev Panel Unlock": 3043641959
+                    },
+                    {
+                        "Material Weapon": 1837055462
+                    },
+                    {
+                        "Material Weapon Locked": 575076703
+                    },
+                    {
+                        "SelectedWeapon": 1046225449
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 5
+                    }
+                ],
+                "Script Resource": 2943233861,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Weapon6 (B)",
+        "ParentUID": 3432315266,
+        "PrefabUID": 2406411174,
+        "Tag": "UI",
+        "UID": 1098109250
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.20000000298023224,
+                    0.0,
+                    -0.0010000000474974513
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.32499998807907104,
+                    0.4749999940395355,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 0,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Weapon Selected (I)",
+        "ParentUID": 3432315266,
+        "PrefabUID": 2406411174,
+        "Tag": "UI",
+        "UID": 1046225449
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    -0.009999999776482582
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": false,
+                "MaterialResource": 0,
+                "Type": 16,
+                "listButtons": [
+                    604812651,
+                    4097172583,
+                    3294404498
+                ]
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Upgrate 1": 604812651
+                    },
+                    {
+                        "Upgrate 2": 4097172583
+                    },
+                    {
+                        "Upgrate 3": 3294404498
+                    },
+                    {
+                        "Panel Upgrate": 911611964
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 0
+                    },
+                    {
+                        "Upgrate 1": 604812651
+                    },
+                    {
+                        "Upgrate 2": 4097172583
+                    },
+                    {
+                        "Upgrate 3": 3294404498
+                    },
+                    {
+                        "Panel Upgrate": 911611964
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 0
+                    },
+                    {
+                        "Upgrate 1": 604812651
+                    },
+                    {
+                        "Upgrate 2": 4097172583
+                    },
+                    {
+                        "Upgrate 3": 3294404498
+                    },
+                    {
+                        "Panel Upgrate": 911611964
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 0
+                    },
+                    {
+                        "Upgrate 1": 604812651
+                    },
+                    {
+                        "Upgrate 2": 4097172583
+                    },
+                    {
+                        "Upgrate 3": 3294404498
+                    },
+                    {
+                        "Panel Upgrate": 911611964
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 0
+                    }
+                ],
+                "Script Resource": 3444632365,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Upgrate W1",
+        "ParentUID": 2963029982,
+        "PrefabUID": 2406411174,
+        "Tag": "UI",
+        "UID": 911611964
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.44999998807907104,
+                    0.25,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.30000001192092896,
+                    0.20000000298023224,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 2478038607,
+                "State": 0,
+                "Type": 12,
+                "blockImage": 4074849189,
+                "hoverImage": 172135175,
+                "idleImage": 2478038607,
+                "pressImage": 3248408230
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Upgrate 1 (B)",
+        "ParentUID": 911611964,
+        "PrefabUID": 2406411174,
+        "Tag": "UI",
+        "UID": 604812651
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.44999998807907104,
+                    -0.10000000149011612,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.30000001192092896,
+                    0.20000000298023224,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 4186940495,
+                "State": 0,
+                "Type": 12,
+                "blockImage": 1006989028,
+                "hoverImage": 2219247879,
+                "idleImage": 4186940495,
+                "pressImage": 2258801793
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Upgrate 2 (B)",
+        "ParentUID": 911611964,
+        "PrefabUID": 2406411174,
+        "Tag": "UI",
+        "UID": 4097172583
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.44999998807907104,
+                    -0.44999998807907104,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.30000001192092896,
+                    0.20000000298023224,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 2041397986,
+                "State": 0,
+                "Type": 12,
+                "blockImage": 2244738760,
+                "hoverImage": 3263093199,
+                "idleImage": 2041397986,
+                "pressImage": 4103131384
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Upgrate 3 (B)",
+        "ParentUID": 911611964,
+        "PrefabUID": 2406411174,
+        "Tag": "UI",
+        "UID": 3294404498
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.3199999928474426,
+                    -0.75,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.2750000059604645,
+                    0.2750000059604645,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 645059070,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "WeeaponInfo W1 (I)",
+        "ParentUID": 911611964,
+        "PrefabUID": 2406411174,
+        "Tag": "UI",
+        "UID": 4186981562
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    -0.009999999776482582
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": false,
+                "MaterialResource": 0,
+                "Type": 16,
+                "listButtons": [
+                    2830347253
+                ]
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Unlock": 2830347253
+                    },
+                    {
+                        "Panel Unlock": 2412948481
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 4
+                    },
+                    {
+                        "Unlock": 2830347253
+                    },
+                    {
+                        "Panel Unlock": 2412948481
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 4
+                    },
+                    {
+                        "Unlock": 2830347253
+                    },
+                    {
+                        "Panel Unlock": 2412948481
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 4
+                    },
+                    {
+                        "Unlock": 2830347253
+                    },
+                    {
+                        "Panel Unlock": 2412948481
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 4
+                    }
+                ],
+                "Script Resource": 1907481788,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Unlock W2",
+        "ParentUID": 2963029982,
+        "PrefabUID": 2406411174,
+        "Tag": "UI",
+        "UID": 2412948481
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.44999998807907104,
+                    -0.10000000149011612,
+                    -0.0010000000474974513
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.30000001192092896,
+                    0.20000000298023224,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 674657286,
+                "State": 0,
+                "Type": 12,
+                "blockImage": 3374075361,
+                "hoverImage": 2248120447,
+                "idleImage": 674657286,
+                "pressImage": 1212544785
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Unlock (B)",
+        "ParentUID": 2412948481,
+        "PrefabUID": 2406411174,
+        "Tag": "UI",
+        "UID": 2830347253
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.3199999928474426,
+                    -0.75,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.2750000059604645,
+                    0.2750000059604645,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 4256432398,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "WeeaponInfo W2 (I)",
+        "ParentUID": 2412948481,
+        "PrefabUID": 2406411174,
+        "Tag": "UI",
+        "UID": 2801527928
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    -0.009999999776482582
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": false,
+                "MaterialResource": 0,
+                "Type": 16,
+                "listButtons": [
+                    2912728259,
+                    173239198,
+                    818036790
+                ]
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Upgrate 1": 2912728259
+                    },
+                    {
+                        "Upgrate 2": 173239198
+                    },
+                    {
+                        "Upgrate 3": 818036790
+                    },
+                    {
+                        "Panel Upgrate": 2121029335
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 4
+                    },
+                    {
+                        "Upgrate 1": 2912728259
+                    },
+                    {
+                        "Upgrate 2": 173239198
+                    },
+                    {
+                        "Upgrate 3": 818036790
+                    },
+                    {
+                        "Panel Upgrate": 2121029335
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 4
+                    },
+                    {
+                        "Upgrate 1": 2912728259
+                    },
+                    {
+                        "Upgrate 2": 173239198
+                    },
+                    {
+                        "Upgrate 3": 818036790
+                    },
+                    {
+                        "Panel Upgrate": 2121029335
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 4
+                    },
+                    {
+                        "Upgrate 1": 2912728259
+                    },
+                    {
+                        "Upgrate 2": 173239198
+                    },
+                    {
+                        "Upgrate 3": 818036790
+                    },
+                    {
+                        "Panel Upgrate": 2121029335
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 4
+                    }
+                ],
+                "Script Resource": 3444632365,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Upgrate W2",
+        "ParentUID": 2963029982,
+        "PrefabUID": 2406411174,
+        "Tag": "UI",
+        "UID": 2121029335
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.44999998807907104,
+                    0.25,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.30000001192092896,
+                    0.20000000298023224,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 84388814,
+                "State": 0,
+                "Type": 12,
+                "blockImage": 2930020352,
+                "hoverImage": 2716363911,
+                "idleImage": 84388814,
+                "pressImage": 2077013315
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Upgrate 1 (B)",
+        "ParentUID": 2121029335,
+        "PrefabUID": 2406411174,
+        "Tag": "UI",
+        "UID": 2912728259
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.44999998807907104,
+                    -0.10000000149011612,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.30000001192092896,
+                    0.20000000298023224,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 1695339837,
+                "State": 0,
+                "Type": 12,
+                "blockImage": 1422322410,
+                "hoverImage": 3855024139,
+                "idleImage": 1695339837,
+                "pressImage": 432176309
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Upgrate 2 (B)",
+        "ParentUID": 2121029335,
+        "PrefabUID": 2406411174,
+        "Tag": "UI",
+        "UID": 173239198
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.44999998807907104,
+                    -0.44999998807907104,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.30000001192092896,
+                    0.20000000298023224,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 760803408,
+                "State": 0,
+                "Type": 12,
+                "blockImage": 1070251866,
+                "hoverImage": 2296858777,
+                "idleImage": 760803408,
+                "pressImage": 1592136076
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Upgrate 3 (B)",
+        "ParentUID": 2121029335,
+        "PrefabUID": 2406411174,
+        "Tag": "UI",
+        "UID": 818036790
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.3199999928474426,
+                    -0.75,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.2750000059604645,
+                    0.2750000059604645,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 4256432398,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "WeeaponInfo W2 (I)",
+        "ParentUID": 2121029335,
+        "PrefabUID": 2406411174,
+        "Tag": "UI",
+        "UID": 1273011630
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    -0.009999999776482582
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": false,
+                "MaterialResource": 0,
+                "Type": 16,
+                "listButtons": [
+                    3848750910
+                ]
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Unlock": 3848750910
+                    },
+                    {
+                        "Panel Unlock": 1692539270
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 3
+                    },
+                    {
+                        "Unlock": 3848750910
+                    },
+                    {
+                        "Panel Unlock": 1692539270
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 3
+                    },
+                    {
+                        "Unlock": 3848750910
+                    },
+                    {
+                        "Panel Unlock": 1692539270
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 3
+                    },
+                    {
+                        "Unlock": 3848750910
+                    },
+                    {
+                        "Panel Unlock": 1692539270
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 3
+                    }
+                ],
+                "Script Resource": 1907481788,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Unlock W3",
+        "ParentUID": 2963029982,
+        "PrefabUID": 2406411174,
+        "Tag": "UI",
+        "UID": 1692539270
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.44999998807907104,
+                    -0.10000000149011612,
+                    -0.0010000000474974513
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.30000001192092896,
+                    0.20000000298023224,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 674657286,
+                "State": 0,
+                "Type": 12,
+                "blockImage": 3374075361,
+                "hoverImage": 2248120447,
+                "idleImage": 674657286,
+                "pressImage": 1212544785
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Unlock (B)",
+        "ParentUID": 1692539270,
+        "PrefabUID": 2406411174,
+        "Tag": "UI",
+        "UID": 3848750910
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.3199999928474426,
+                    -0.75,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.2750000059604645,
+                    0.2750000059604645,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 527183784,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "WeeaponInfo W3 (I)",
+        "ParentUID": 1692539270,
+        "PrefabUID": 2406411174,
+        "Tag": "UI",
+        "UID": 3762409557
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    -0.009999999776482582
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": false,
+                "MaterialResource": 0,
+                "Type": 16,
+                "listButtons": [
+                    2388101176,
+                    3807946136,
+                    1866621559
+                ]
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Upgrate 1": 2388101176
+                    },
+                    {
+                        "Upgrate 2": 3807946136
+                    },
+                    {
+                        "Upgrate 3": 1866621559
+                    },
+                    {
+                        "Panel Upgrate": 1250319448
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 3
+                    },
+                    {
+                        "Upgrate 1": 2388101176
+                    },
+                    {
+                        "Upgrate 2": 3807946136
+                    },
+                    {
+                        "Upgrate 3": 1866621559
+                    },
+                    {
+                        "Panel Upgrate": 1250319448
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 3
+                    },
+                    {
+                        "Upgrate 1": 2388101176
+                    },
+                    {
+                        "Upgrate 2": 3807946136
+                    },
+                    {
+                        "Upgrate 3": 1866621559
+                    },
+                    {
+                        "Panel Upgrate": 1250319448
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 3
+                    },
+                    {
+                        "Upgrate 1": 2388101176
+                    },
+                    {
+                        "Upgrate 2": 3807946136
+                    },
+                    {
+                        "Upgrate 3": 1866621559
+                    },
+                    {
+                        "Panel Upgrate": 1250319448
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 3
+                    }
+                ],
+                "Script Resource": 3444632365,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Upgrate W3",
+        "ParentUID": 2963029982,
+        "PrefabUID": 2406411174,
+        "Tag": "UI",
+        "UID": 1250319448
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.44999998807907104,
+                    0.25,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.30000001192092896,
+                    0.20000000298023224,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 965577152,
+                "State": 0,
+                "Type": 12,
+                "blockImage": 1435069777,
+                "hoverImage": 2281484681,
+                "idleImage": 965577152,
+                "pressImage": 2937302943
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Upgrate 1 (B)",
+        "ParentUID": 1250319448,
+        "PrefabUID": 2406411174,
+        "Tag": "UI",
+        "UID": 2388101176
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.44999998807907104,
+                    -0.10000000149011612,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.30000001192092896,
+                    0.20000000298023224,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 655373696,
+                "State": 0,
+                "Type": 12,
+                "blockImage": 3371830546,
+                "hoverImage": 2209303369,
+                "idleImage": 655373696,
+                "pressImage": 371741233
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Upgrate 2 (B)",
+        "ParentUID": 1250319448,
+        "PrefabUID": 2406411174,
+        "Tag": "UI",
+        "UID": 3807946136
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.44999998807907104,
+                    -0.44999998807907104,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.30000001192092896,
+                    0.20000000298023224,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 2697353124,
+                "State": 0,
+                "Type": 12,
+                "blockImage": 4133370479,
+                "hoverImage": 1588223373,
+                "idleImage": 2697353124,
+                "pressImage": 1221949736
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Upgrate 3 (B)",
+        "ParentUID": 1250319448,
+        "PrefabUID": 2406411174,
+        "Tag": "UI",
+        "UID": 1866621559
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.3199999928474426,
+                    -0.75,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.2750000059604645,
+                    0.2750000059604645,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 527183784,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "WeeaponInfo W3 (I)",
+        "ParentUID": 1250319448,
+        "PrefabUID": 2406411174,
+        "Tag": "UI",
+        "UID": 3234084067
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    -0.009999999776482582
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": false,
+                "MaterialResource": 0,
+                "Type": 16,
+                "listButtons": [
+                    193056597
+                ]
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Unlock": 193056597
+                    },
+                    {
+                        "Panel Unlock": 801303102
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 2
+                    },
+                    {
+                        "Unlock": 193056597
+                    },
+                    {
+                        "Panel Unlock": 801303102
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 2
+                    },
+                    {
+                        "Unlock": 193056597
+                    },
+                    {
+                        "Panel Unlock": 801303102
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 2
+                    },
+                    {
+                        "Unlock": 193056597
+                    },
+                    {
+                        "Panel Unlock": 801303102
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 2
+                    }
+                ],
+                "Script Resource": 1907481788,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Unlock W4",
+        "ParentUID": 2963029982,
+        "PrefabUID": 2406411174,
+        "Tag": "UI",
+        "UID": 801303102
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.44999998807907104,
+                    -0.10000000149011612,
+                    -0.0010000000474974513
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.30000001192092896,
+                    0.20000000298023224,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 674657286,
+                "State": 0,
+                "Type": 12,
+                "blockImage": 3374075361,
+                "hoverImage": 2248120447,
+                "idleImage": 674657286,
+                "pressImage": 1212544785
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Unlock (B)",
+        "ParentUID": 801303102,
+        "PrefabUID": 2406411174,
+        "Tag": "UI",
+        "UID": 193056597
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.3199999928474426,
+                    -0.75,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.2750000059604645,
+                    0.2750000059604645,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 2821424744,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "WeeaponInfo W4 (I)",
+        "ParentUID": 801303102,
+        "PrefabUID": 2406411174,
+        "Tag": "UI",
+        "UID": 1840670553
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    -0.009999999776482582
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": false,
+                "MaterialResource": 0,
+                "Type": 16,
+                "listButtons": [
+                    2759158044,
+                    2929867724,
+                    3733990972
+                ]
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Upgrate 1": 2759158044
+                    },
+                    {
+                        "Upgrate 2": 2929867724
+                    },
+                    {
+                        "Upgrate 3": 3733990972
+                    },
+                    {
+                        "Panel Upgrate": 385359660
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 2
+                    },
+                    {
+                        "Upgrate 1": 2759158044
+                    },
+                    {
+                        "Upgrate 2": 2929867724
+                    },
+                    {
+                        "Upgrate 3": 3733990972
+                    },
+                    {
+                        "Panel Upgrate": 385359660
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 2
+                    },
+                    {
+                        "Upgrate 1": 2759158044
+                    },
+                    {
+                        "Upgrate 2": 2929867724
+                    },
+                    {
+                        "Upgrate 3": 3733990972
+                    },
+                    {
+                        "Panel Upgrate": 385359660
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 2
+                    },
+                    {
+                        "Upgrate 1": 2759158044
+                    },
+                    {
+                        "Upgrate 2": 2929867724
+                    },
+                    {
+                        "Upgrate 3": 3733990972
+                    },
+                    {
+                        "Panel Upgrate": 385359660
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 2
+                    }
+                ],
+                "Script Resource": 3444632365,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Upgrate W4",
+        "ParentUID": 2963029982,
+        "PrefabUID": 2406411174,
+        "Tag": "UI",
+        "UID": 385359660
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.44999998807907104,
+                    0.25,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.30000001192092896,
+                    0.20000000298023224,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 2607176441,
+                "State": 0,
+                "Type": 12,
+                "blockImage": 4240662503,
+                "hoverImage": 732294785,
+                "idleImage": 2607176441,
+                "pressImage": 2766095335
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Upgrate 1 (B)",
+        "ParentUID": 385359660,
+        "PrefabUID": 2406411174,
+        "Tag": "UI",
+        "UID": 2759158044
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.44999998807907104,
+                    -0.10000000149011612,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.30000001192092896,
+                    0.20000000298023224,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 4206903025,
+                "State": 0,
+                "Type": 12,
+                "blockImage": 1988115038,
+                "hoverImage": 1570743353,
+                "idleImage": 4206903025,
+                "pressImage": 3780012090
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Upgrate 2 (B)",
+        "ParentUID": 385359660,
+        "PrefabUID": 2406411174,
+        "Tag": "UI",
+        "UID": 2929867724
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.44999998807907104,
+                    -0.44999998807907104,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.30000001192092896,
+                    0.20000000298023224,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 3597791025,
+                "State": 0,
+                "Type": 12,
+                "blockImage": 3911930088,
+                "hoverImage": 3427092089,
+                "idleImage": 3597791025,
+                "pressImage": 868381556
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Upgrate 3 (B)",
+        "ParentUID": 385359660,
+        "PrefabUID": 2406411174,
+        "Tag": "UI",
+        "UID": 3733990972
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.3199999928474426,
+                    -0.75,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.2750000059604645,
+                    0.2750000059604645,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 2821424744,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "WeeaponInfo W4 (I)",
+        "ParentUID": 385359660,
+        "PrefabUID": 2406411174,
+        "Tag": "UI",
+        "UID": 2699936619
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    -0.009999999776482582
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": false,
+                "MaterialResource": 0,
+                "Type": 16,
+                "listButtons": [
+                    595344786
+                ]
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Unlock": 595344786
+                    },
+                    {
+                        "Panel Unlock": 3043641959
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 1
+                    },
+                    {
+                        "Unlock": 595344786
+                    },
+                    {
+                        "Panel Unlock": 3043641959
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 1
+                    },
+                    {
+                        "Unlock": 595344786
+                    },
+                    {
+                        "Panel Unlock": 3043641959
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 1
+                    },
+                    {
+                        "Unlock": 595344786
+                    },
+                    {
+                        "Panel Unlock": 3043641959
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 1
+                    }
+                ],
+                "Script Resource": 1907481788,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Unlock W5",
+        "ParentUID": 2963029982,
+        "PrefabUID": 2406411174,
+        "Tag": "UI",
+        "UID": 3043641959
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.44999998807907104,
+                    -0.10000000149011612,
+                    -0.0010000000474974513
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.30000001192092896,
+                    0.20000000298023224,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 674657286,
+                "State": 0,
+                "Type": 12,
+                "blockImage": 3374075361,
+                "hoverImage": 2248120447,
+                "idleImage": 674657286,
+                "pressImage": 1212544785
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Unlock (B)",
+        "ParentUID": 3043641959,
+        "PrefabUID": 2406411174,
+        "Tag": "UI",
+        "UID": 595344786
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.3199999928474426,
+                    -0.75,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.2750000059604645,
+                    0.2750000059604645,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 2127722291,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "WeeaponInfo W5 (I)",
+        "ParentUID": 3043641959,
+        "PrefabUID": 2406411174,
+        "Tag": "UI",
+        "UID": 2064939706
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    -0.009999999776482582
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": false,
+                "MaterialResource": 0,
+                "Type": 16,
+                "listButtons": [
+                    1911632372,
+                    1605769859,
+                    1599605854
+                ]
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Upgrate 1": 1911632372
+                    },
+                    {
+                        "Upgrate 2": 1605769859
+                    },
+                    {
+                        "Upgrate 3": 1599605854
+                    },
+                    {
+                        "Panel Upgrate": 2021939713
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 1
+                    },
+                    {
+                        "Upgrate 1": 1911632372
+                    },
+                    {
+                        "Upgrate 2": 1605769859
+                    },
+                    {
+                        "Upgrate 3": 1599605854
+                    },
+                    {
+                        "Panel Upgrate": 2021939713
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 1
+                    },
+                    {
+                        "Upgrate 1": 1911632372
+                    },
+                    {
+                        "Upgrate 2": 1605769859
+                    },
+                    {
+                        "Upgrate 3": 1599605854
+                    },
+                    {
+                        "Panel Upgrate": 2021939713
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 1
+                    },
+                    {
+                        "Upgrate 1": 1911632372
+                    },
+                    {
+                        "Upgrate 2": 1605769859
+                    },
+                    {
+                        "Upgrate 3": 1599605854
+                    },
+                    {
+                        "Panel Upgrate": 2021939713
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 1
+                    }
+                ],
+                "Script Resource": 3444632365,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Upgrate W5",
+        "ParentUID": 2963029982,
+        "PrefabUID": 2406411174,
+        "Tag": "UI",
+        "UID": 2021939713
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.44999998807907104,
+                    0.25,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.30000001192092896,
+                    0.20000000298023224,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 1935501734,
+                "State": 0,
+                "Type": 12,
+                "blockImage": 706212868,
+                "hoverImage": 2588487091,
+                "idleImage": 1935501734,
+                "pressImage": 540086739
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Upgrate 1 (B)",
+        "ParentUID": 2021939713,
+        "PrefabUID": 2406411174,
+        "Tag": "UI",
+        "UID": 1911632372
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.44999998807907104,
+                    -0.10000000149011612,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.30000001192092896,
+                    0.20000000298023224,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 1805580362,
+                "State": 0,
+                "Type": 12,
+                "blockImage": 3171665256,
+                "hoverImage": 2171917795,
+                "idleImage": 1805580362,
+                "pressImage": 1770867898
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Upgrate 2 (B)",
+        "ParentUID": 2021939713,
+        "PrefabUID": 2406411174,
+        "Tag": "UI",
+        "UID": 1605769859
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.44999998807907104,
+                    -0.44999998807907104,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.30000001192092896,
+                    0.20000000298023224,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 3085186598,
+                "State": 0,
+                "Type": 12,
+                "blockImage": 3844474880,
+                "hoverImage": 2620407347,
+                "idleImage": 3085186598,
+                "pressImage": 4232938474
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Upgrate 3 (B)",
+        "ParentUID": 2021939713,
+        "PrefabUID": 2406411174,
+        "Tag": "UI",
+        "UID": 1599605854
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.3199999928474426,
+                    -0.75,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.2750000059604645,
+                    0.2750000059604645,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 2127722291,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "WeeaponInfo W5 (I)",
+        "ParentUID": 2021939713,
+        "PrefabUID": 2406411174,
+        "Tag": "UI",
+        "UID": 1952143350
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    -0.009999999776482582
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": false,
+                "MaterialResource": 0,
+                "Type": 16,
+                "listButtons": [
+                    2366980945
+                ]
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Unlock": 2366980945
+                    },
+                    {
+                        "Panel Unlock": 227055725
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 5
+                    },
+                    {
+                        "Unlock": 2366980945
+                    },
+                    {
+                        "Panel Unlock": 227055725
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 5
+                    },
+                    {
+                        "Unlock": 2366980945
+                    },
+                    {
+                        "Panel Unlock": 227055725
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 5
+                    },
+                    {
+                        "Unlock": 2366980945
+                    },
+                    {
+                        "Panel Unlock": 227055725
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 5
+                    }
+                ],
+                "Script Resource": 1907481788,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Unlock W6",
+        "ParentUID": 2963029982,
+        "PrefabUID": 2406411174,
+        "Tag": "UI",
+        "UID": 227055725
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.44999998807907104,
+                    -0.10000000149011612,
+                    -0.0010000000474974513
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.30000001192092896,
+                    0.20000000298023224,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 674657286,
+                "State": 0,
+                "Type": 12,
+                "blockImage": 3374075361,
+                "hoverImage": 2248120447,
+                "idleImage": 674657286,
+                "pressImage": 1212544785
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Unlock (B)",
+        "ParentUID": 227055725,
+        "PrefabUID": 2406411174,
+        "Tag": "UI",
+        "UID": 2366980945
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.3199999928474426,
+                    -0.75,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.2750000059604645,
+                    0.2750000059604645,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 3794872102,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "WeeaponInfo W6 (I)",
+        "ParentUID": 227055725,
+        "PrefabUID": 2406411174,
+        "Tag": "UI",
+        "UID": 2275158916
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    -0.009999999776482582
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": false,
+                "MaterialResource": 0,
+                "Type": 16,
+                "listButtons": [
+                    2745303407,
+                    428859450,
+                    3306093954
+                ]
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Upgrate 1": 2745303407
+                    },
+                    {
+                        "Upgrate 2": 428859450
+                    },
+                    {
+                        "Upgrate 3": 3306093954
+                    },
+                    {
+                        "Panel Upgrate": 445014355
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 5
+                    },
+                    {
+                        "Upgrate 1": 2745303407
+                    },
+                    {
+                        "Upgrate 2": 428859450
+                    },
+                    {
+                        "Upgrate 3": 3306093954
+                    },
+                    {
+                        "Panel Upgrate": 445014355
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 5
+                    },
+                    {
+                        "Upgrate 1": 2745303407
+                    },
+                    {
+                        "Upgrate 2": 428859450
+                    },
+                    {
+                        "Upgrate 3": 3306093954
+                    },
+                    {
+                        "Panel Upgrate": 445014355
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 5
+                    },
+                    {
+                        "Upgrate 1": 2745303407
+                    },
+                    {
+                        "Upgrate 2": 428859450
+                    },
+                    {
+                        "Upgrate 3": 3306093954
+                    },
+                    {
+                        "Panel Upgrate": 445014355
+                    },
+                    {
+                        "List Weapons": 3432315266
+                    },
+                    {
+                        "Gun Index": 5
+                    }
+                ],
+                "Script Resource": 3444632365,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Upgrate W6",
+        "ParentUID": 2963029982,
+        "PrefabUID": 339790564,
+        "Tag": "UI",
+        "UID": 445014355
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.44999998807907104,
+                    0.25,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.30000001192092896,
+                    0.20000000298023224,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 749026489,
+                "State": 0,
+                "Type": 12,
+                "blockImage": 375025647,
+                "hoverImage": 1408808970,
+                "idleImage": 749026489,
+                "pressImage": 2133100964
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Upgrate 1 (B)",
+        "ParentUID": 445014355,
+        "PrefabUID": 339790564,
+        "Tag": "UI",
+        "UID": 2745303407
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.44999998807907104,
+                    -0.10000000149011612,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.30000001192092896,
+                    0.20000000298023224,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 2548065214,
+                "State": 0,
+                "Type": 12,
+                "blockImage": 1117865188,
+                "hoverImage": 1733052407,
+                "idleImage": 2548065214,
+                "pressImage": 720010894
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Upgrate 2 (B)",
+        "ParentUID": 445014355,
+        "PrefabUID": 339790564,
+        "Tag": "UI",
+        "UID": 428859450
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.44999998807907104,
+                    -0.44999998807907104,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.30000001192092896,
+                    0.20000000298023224,
+                    0.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "MaterialResource": 2548065214,
+                "State": 0,
+                "Type": 12,
+                "blockImage": 704264630,
+                "hoverImage": 1733052407,
+                "idleImage": 2548065214,
+                "pressImage": 1218351389
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Upgrate 3 (B)",
+        "ParentUID": 445014355,
+        "PrefabUID": 339790564,
+        "Tag": "UI",
+        "UID": 3306093954
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.3199999928474426,
+                    -0.75,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.2750000059604645,
+                    0.2750000059604645,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 3794872102,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "WeeaponInfo W6 (I)",
+        "ParentUID": 445014355,
+        "PrefabUID": 339790564,
+        "Tag": "UI",
+        "UID": 1974811497
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    8.663601875305176,
+                    1.556624412536621,
+                    9.319341659545898
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "AngularFactor": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "ColPosition": [
+                    -1.2999999523162842,
+                    0.0,
+                    -0.30000001192092896
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    3.0,
+                    3.0,
+                    3.0
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "GlobalGravity": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Gravity": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsShapeSelected": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsStatic": false,
+                "IsTrigger": true,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    0.5,
+                    0.0,
+                    0.5,
+                    1.0
+                ],
+                "ShapeSelected": 0,
+                "SphereHorSlices": 16,
+                "SphereRadius": 1.0,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Number of menus": 4
+                    },
+                    {
+                        "Menu to Open 1": 1831149941
+                    },
+                    {
+                        "Menu to Open 2": 2867293371
+                    },
+                    {
+                        "Menu to Open 3": 4071677295
+                    },
+                    {
+                        "Menu to Open 4": 3432315266
+                    },
+                    {
+                        "Armory Panel": 2963029982
+                    },
+                    {
+                        "Number of menus": 4
+                    },
+                    {
+                        "Menu to Open 1": 1831149941
+                    },
+                    {
+                        "Menu to Open 2": 2867293371
+                    },
+                    {
+                        "Menu to Open 3": 4071677295
+                    },
+                    {
+                        "Menu to Open 4": 3432315266
+                    },
+                    {
+                        "Armory Panel": 2963029982
+                    },
+                    {
+                        "Number of menus": 4
+                    },
+                    {
+                        "Menu to Open 1": 1831149941
+                    },
+                    {
+                        "Menu to Open 2": 2867293371
+                    },
+                    {
+                        "Menu to Open 3": 4071677295
+                    },
+                    {
+                        "Menu to Open 4": 3432315266
+                    },
+                    {
+                        "Armory Panel": 2963029982
+                    },
+                    {
+                        "Number of menus": 4
+                    },
+                    {
+                        "Menu to Open 1": 1831149941
+                    },
+                    {
+                        "Menu to Open 2": 2867293371
+                    },
+                    {
+                        "Menu to Open 3": 4071677295
+                    },
+                    {
+                        "Menu to Open 4": 3432315266
+                    },
+                    {
+                        "Armory Panel": 2963029982
+                    }
+                ],
+                "Script Resource": 453096561,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "ArmoryPlace",
+        "ParentUID": 2830428646,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1766493025
     }
 ]

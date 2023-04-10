@@ -8,11 +8,12 @@
 class GoToLevelTrigger : HelloBehavior
 {
 public:
-	void Start() override; 
-	void Update() override;
+    void Start() override;
+    void Update() override;
 
-	void OnCollisionEnter(API_RigidBody other);
+    void OnCollisionEnter(API_RigidBody other);
 
-	std::string scene = "";
+    std::string scene = "";
+    bool isHub = false;
 };
 

@@ -9,7 +9,6 @@ HELLO_ENGINE_API_C ArmoryUpgratteButtons* CreateArmoryUpgratteButtons(ScriptToIn
 
     script->AddDragBoxUIInput("Panel Upgrate", &classInstance->PanelUpgrate);
 
-    script->AddDragBoxGameObject("Weapon Associated", &classInstance->currentWeapon);
     script->AddDragBoxGameObject("Player", &classInstance->Player);
 
     script->AddDragBoxUIInput("List Weapons", &classInstance->SelectWeaponList);

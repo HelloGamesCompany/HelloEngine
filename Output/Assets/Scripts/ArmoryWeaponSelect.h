@@ -6,6 +6,8 @@
 #include "API/API.h"
 #include "API/API_UIInput.h"
 
+class OpenMenuInterruptor;
+
 class ArmoryWeaponSelect : HelloBehavior
 {
 public:
@@ -39,6 +41,9 @@ public:
     int gunIndex;
 
     API_Material SelectedWeapon;
+
+    API_GameObject interruptorGO;
+    OpenMenuInterruptor* interruptor;
 
 private:
 
