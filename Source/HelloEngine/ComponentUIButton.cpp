@@ -37,13 +37,13 @@ void ComponentUIButton::InputUpdate()
         break;
     case ButtonState::ONPRESS:
         _material->ChangeTexture(textureIDPress);
-        if (EngineTime::GameTimeCount() >= gameTimeCopy + 0.5)
+        /*if (EngineTime::GameTimeCount() >= gameTimeCopy + 0.5)
         {
             State = ButtonState::ONHOLD;
-        }
+        }*/
         break;
     case ButtonState::ONHOLD:
-        State = ButtonState::HOVERED;
+        //State = ButtonState::HOVERED;
         break;
     case ButtonState::BLOCKED:
         _material->ChangeTexture(textureIDBlocked);
@@ -181,6 +181,7 @@ void ComponentUIButton::UpdateGamePadInput(bool selected)
 
     if (selected)
     {
+        Console::S_Log((int)State);
         if (ModuleInput::S_GetGamePadButton(GamePad::BUTTON_A) == KEY_DOWN && State != ButtonState::ONPRESS)
         {
             ModuleInput::S_HandleGamePadButton(GamePad::BUTTON_A); // Handle A button so no other UI detects it.
@@ -189,13 +190,17 @@ void ComponentUIButton::UpdateGamePadInput(bool selected)
         }
         else if (ModuleInput::S_GetGamePadButton(GamePad::BUTTON_A) == KEY_REPEAT)
         {
+            Console::S_Log("hiold");
             State = ButtonState::ONHOLD;
         }
         else
         {
             // If previous state was hold or press, this frame the button was released
-            if (State == ButtonState::ONHOLD || State == ButtonState::ONPRESS)
+            if (ModuleInput::S_GetGamePadButton(GamePad::BUTTON_A) == KEY_UP && (State == ButtonState::ONHOLD || State == ButtonState::ONPRESS))
+            {
                 isReleased = true;
+            }
+                
             State = ButtonState::HOVERED;
         }
     }
