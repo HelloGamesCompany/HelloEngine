@@ -48,6 +48,7 @@ public:
 
     float cooldownPoint = 3.0f;
     float outTime = 3.0f;
+    float hitOutTime = 2.0f;
 
     API_GameObject target;
     API_GameObject actionZone;
@@ -71,12 +72,14 @@ public:
     API_GameObject gunObj;
 
     Enemy* enemy = nullptr;
+    PlayerStats* targStats = nullptr;
 
     int gunType;
 private:
     int _avalPoints = 0;
     float _movCooldown;//max time that can be outside the zone
     float _outCooldown;//max time that can be outside the zone
+    float _hitOutCooldown;//
     bool _canWalk = false;
 
 };
