@@ -15,7 +15,6 @@ HELLO_ENGINE_API_C ArmoryUpgratteButtons* CreateArmoryUpgratteButtons(ScriptToIn
     script->AddDragBoxUIInput("List Weapons", &classInstance->SelectWeaponList);
 
     script->AddDragInt("Gun Index", &classInstance->gunIndex);
-    script->AddDragFloat("fffff", &classInstance->manteinTime);
 
     return classInstance;
 }

@@ -7,7 +7,6 @@ HELLO_ENGINE_API_C ArmoryUnlock* CreateArmoryUnlock(ScriptToInspectorInterface* 
     script->AddDragBoxUIInput("List Weapons", &classInstance->SelectWeaponList);
 
     script->AddDragInt("Gun Index", &classInstance->gunIndex);
-    script->AddDragFloat("fffff", &classInstance->manteinTime);
     return classInstance;
 }
 
@@ -43,15 +42,7 @@ void ArmoryUnlock::Update()
     {
         SelectWeaponList.SetEnable(true);
         PanelUnlock.SetEnable(false);
-    }
-
-    if (Unlock.OnRelease())
-    {
-        Console::Log("release"); 
-    }
-    if (Unlock.OnPress())
-    {
-        Console::Log("press");
+        Console::Log("BACK");
     }
 
     if (manteinTime > 0.0f)
@@ -65,7 +56,7 @@ void ArmoryUnlock::Update()
         else if (manteinTime <= 0.0f)
         {
             manteinTime = 0.0f;
-
+            
             switch (gunIndex)
             {
             case 1:
