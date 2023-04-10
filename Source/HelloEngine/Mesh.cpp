@@ -101,7 +101,38 @@ void Mesh::DefaultDraw()
 	{
 		drawPerMesh2D->shader.Bind();
 		drawPerMesh2D->shader.SetMatFloat4v("model", &modelMatrix.v[0][0]);
-		//drawPerMesh2D->shader.SetInt("diffuseTexture", 0);
+
+		// Calculate vertex positions:
+		// Vertex 1
+		float4 vertex1 = { resource->meshInfo.vertices[0].position.x, resource->meshInfo.vertices[0].position.y,0,1 };
+		float4 vertex2 = { resource->meshInfo.vertices[1].position.x, resource->meshInfo.vertices[1].position.y,0,1 };
+		float4 vertex3 = { resource->meshInfo.vertices[2].position.x, resource->meshInfo.vertices[2].position.y,0,1 };
+		float4 vertex4 = { resource->meshInfo.vertices[3].position.x, resource->meshInfo.vertices[3].position.y,0,1 };
+
+		vertex1 = modelMatrix * vertex1;
+		vertex2 = modelMatrix * vertex2;
+		vertex3 = modelMatrix * vertex3;
+		vertex4 = modelMatrix * vertex4;
+
+		GLint viewport[4];
+		glGetIntegerv(GL_VIEWPORT, viewport);
+
+		// Convert NDC coordinates to window coordinates
+		float2 windowVertex1 = float2((vertex1.x + 1.0f) * 0.5f * viewport[2], (vertex1.y + 1.0f) * 0.5f * viewport[3]);
+		float2 windowVertex2 = float2((vertex2.x + 1.0f) * 0.5f * viewport[2], (vertex2.y + 1.0f) * 0.5f * viewport[3]);
+		float2 windowVertex3 = float2((vertex3.x + 1.0f) * 0.5f * viewport[2], (vertex3.y + 1.0f) * 0.5f * viewport[3]);
+		float2 windowVertex4 = float2((vertex4.x + 1.0f) * 0.5f * viewport[2], (vertex4.y + 1.0f) * 0.5f * viewport[3]);
+
+		float quadWidth = abs(windowVertex2.x - windowVertex1.x);
+		float quadHeight = abs(windowVertex3.y - windowVertex1.y);
+
+		float2 quadDimensions = { quadWidth, quadHeight };
+		float2 quadPositions = { windowVertex1.x, windowVertex1.y };
+
+
+		drawPerMesh2D->shader.SetFloat2v("normalizedPosition", quadPositions.ptr());
+		drawPerMesh2D->shader.SetFloat2v("normalizedSize", quadDimensions.ptr());
+		drawPerMesh2D->shader.SetFloat("limit", 0.5f);
 		return;
 	}
 

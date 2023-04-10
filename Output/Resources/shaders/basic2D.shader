@@ -6,6 +6,7 @@ layout (location = 2) in vec2 textCoords;
 
 uniform mat4 model;
 
+
 out vec2 TextureCoords;
 
 void main()
@@ -18,11 +19,23 @@ void main()
 out vec4 FragColor;
 
 	in vec2 TextureCoords;
+	uniform vec2 normalizedPosition;
+	uniform vec2 normalizedSize;
+	uniform float limit;
 
 	uniform sampler2D diffuseTexture;
 
 	void main()
 	{
-		FragColor = texture(diffuseTexture, TextureCoords);
+		float threshold = normalizedPosition.x + (limit * normalizedSize.x);
+
+		if (gl_FragCoord.x < threshold)
+		{
+			FragColor = vec4(0.0,0.0,0.0,0.0);
+		}
+		else
+		{
+			FragColor = texture(diffuseTexture, TextureCoords);
+		}
 	}
 #endif
