@@ -1,4 +1,5 @@
 #include "PlayerUltimate.h"
+#include "../Enemies/Enemy.h"
 HELLO_ENGINE_API_C PlayerUltimate* CreatePlayerUltimate(ScriptToInspectorInterface* script)
 {
     PlayerUltimate* classInstance = new PlayerUltimate();
@@ -16,8 +17,6 @@ void PlayerUltimate::Start()
 void PlayerUltimate::Update()
 {
     if (playerStats->specialTreeLvl < 3) return;
-
-    if (triggerUlt) triggerUlt = false;
 
     if (Input::GetKey(KeyCode::KEY_F) == KeyState::KEY_DOWN)
     {
@@ -67,8 +66,11 @@ void PlayerUltimate::OnCollisionEnter(API::API_RigidBody other)
 
     if (detectionTag == "Enemy")
     {
-        // freeze enemy
+        Enemy* enemyScript = (Enemy*)other.GetGameObject().GetScript("Enemy");
+        if (enemyScript) enemyScript->ActiveStun(3.0f);
     }
+
+    triggerUlt = false;
 }
 
 void PlayerUltimate::UseUltimate()
