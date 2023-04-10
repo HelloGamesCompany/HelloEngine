@@ -2,6 +2,7 @@
 #include "../EbonyMaw/RockDivider.h"
 #include "../Player/PlayerStats.h"
 #include "../EbonyMaw/BossLoop.h"
+#include "../Player/PlayerMove.h"
 #include <time.h>
 #include <random>
 #include <math.h>
@@ -11,6 +12,8 @@ HELLO_ENGINE_API_C BossAttacks* CreateBossAttacks(ScriptToInspectorInterface* sc
 {
 	BossAttacks* classInstance = new BossAttacks();
 	script->AddDragInt("AttackType", &classInstance->attackType);
+	script->AddDragInt("Random", &classInstance->difficultySetter);
+	script->AddDragFloat("specialAttackCooldown", &classInstance->specialAttackCooldown);
 
 	script->AddCheckBox("Attacking", &classInstance->attacking);
 	script->AddDragBoxGameObject("Boss", &classInstance->boss);
@@ -55,6 +58,7 @@ void BossAttacks::Start()
 	srand(time(NULL));
 	bLoop = (BossLoop*)boss.GetScript("BossLoop");
 	pStats = (PlayerStats*)player.GetScript("PlayerStats");
+	pMove = (PlayerMove*)player.GetScript("PlayerMove");
 	if (bLoop == nullptr) {
 		Console::Log("BossLoop is nullptr in BOSSATTACK script");
 	}
@@ -63,163 +67,216 @@ void BossAttacks::Start()
 void BossAttacks::Update()
 {
 	distSA = player.GetTransform().GetGlobalPosition().Distance(gameObject.GetTransform().GetGlobalPosition());
-
-	if (bLoop && bLoop->weakTime > 0) {
-		bossState = BOSS_STATE::KO;
-		for (int i = 0; i < numRocks[attackType]; i++) {
-			ReturnRock(&rocks[currentRock[i]], i, true);
-		}
-	}
-	else if(bossState == BOSS_STATE::KO) {
-		bossState = BOSS_STATE::IDLE;
-	}
-	//OrbitingRocks(&rocks[19], &rocks[18], &rocks[17], &rocks[16], rotationSpeed, radius);
-	if (bLoop->canTakeDamage == false) {
-		switch (bLoop->phase)
-		{
-		case 0:
-			rocks[16].SetActive(false);
-			rocks[17].SetActive(false);
-			rocks[18].SetActive(false);
-			rocks[19].SetActive(false);
-			break;
-		case 1:
-			rocks[16].SetActive(true);
-			rocks[17].SetActive(true);
-			rocks[18].SetActive(true);
-			rocks[19].SetActive(true);
-			if (bossState != BOSS_STATE::KO) OrbitingRocks(&rocks[19], &rocks[18], &rocks[17], &rocks[16], rotationSpeed, radius);
-			break;
-		case 2:
-			rocks[16].SetActive(true);
-			rocks[17].SetActive(true);
-			rocks[18].SetActive(true);
-			rocks[19].SetActive(true);
-			if (bossState != BOSS_STATE::KO) OrbitingRocks(&rocks[19], &rocks[18], &rocks[17], &rocks[16], rotationSpeed * 1.5, radius * 1.25);
-		default:
-			break;
+	if (distSA < 80.0f) {
+		if (bLoop->phase == 2) {
+			specialAttackCooldown += Time::GetDeltaTime();
 		}
 
-	}
-	
-	if (attacking) {
-		switch (attackType)
-		{
-		case 0:
-		case 1:
-		case 2:
-			speed = 1.0f;
-			switch (bossState)
+		if (bLoop && bLoop->weakTime > 0) {
+			bossState = BOSS_STATE::KO;
+			for (int i = 0; i < numRocks[attackType]; i++) {
+				ReturnRock(&rocks[currentRock[i]], i, true);
+			}
+		}
+		else if (bossState == BOSS_STATE::KO) {
+			bossState = BOSS_STATE::IDLE;
+			attacking = false;
+		}
+		if (bLoop->canTakeDamage == false) {
+			switch (bLoop->phase)
 			{
-			case BossAttacks::BOSS_STATE::ROCKSELECT: SelectRock();
+			case 0:
+				rocks[16].SetActive(false);
+				rocks[17].SetActive(false);
+				rocks[18].SetActive(false);
+				rocks[19].SetActive(false);
 				break;
-			case BossAttacks::BOSS_STATE::SEEKING:
-				bossPosition[0] = { gameObject.GetTransform().GetGlobalPosition().x, gameObject.GetTransform().GetGlobalPosition().y + 10.0f,gameObject.GetTransform().GetGlobalPosition().z - 4.0f };
-				bossPosition[1] = { gameObject.GetTransform().GetGlobalPosition().x + 4.0f,gameObject.GetTransform().GetGlobalPosition().y + 8.0f,gameObject.GetTransform().GetGlobalPosition().z + 4.0f };
-				bossPosition[2] = { gameObject.GetTransform().GetGlobalPosition().x - 4.0f,gameObject.GetTransform().GetGlobalPosition().y + 8.0f,gameObject.GetTransform().GetGlobalPosition().z + 4.0f };
-				bossPosition[3] = { gameObject.GetTransform().GetGlobalPosition().x + 6.0f,gameObject.GetTransform().GetGlobalPosition().y + 13.0f,gameObject.GetTransform().GetGlobalPosition().z };
-				bossPosition[4] = { gameObject.GetTransform().GetGlobalPosition().x - 6.0f,gameObject.GetTransform().GetGlobalPosition().y + 13.0f,gameObject.GetTransform().GetGlobalPosition().z };
-				
-				for (int i = 0; i < numRocks[attackType]; i++) {
-					Seek(&rocks[currentRock[i]], bossPosition[i], speed / 3, i, false, 60.0f);
-				}
+			case 1:
+				rocks[16].SetActive(true);
+				rocks[17].SetActive(true);
+				rocks[18].SetActive(true);
+				rocks[19].SetActive(true);
+				if (bossState != BOSS_STATE::KO) OrbitingRocks(&rocks[19], &rocks[18], &rocks[17], &rocks[16], rotationSpeed, radius);
 				break;
-			case BossAttacks::BOSS_STATE::HOLDING: HoldRock();
+			case 2:
+				rocks[16].SetActive(true);
+				rocks[17].SetActive(true);
+				rocks[18].SetActive(true);
+				rocks[19].SetActive(true);
+				if (bossState != BOSS_STATE::KO) OrbitingRocks(&rocks[19], &rocks[18], &rocks[17], &rocks[16], rotationSpeed * 1.5, radius * 1.25);
+			default:
 				break;
-			case BossAttacks::BOSS_STATE::THROWING:
-				currentTimeAttack += Time::GetDeltaTime();
+			}
 
-				for (int i = 0; i < numRocks[attackType]; i++) {
-					if (currentTimeAttack <= timeAttack[i]) {
-						playerPosition[i] = player.GetTransform().GetGlobalPosition();
-						dir[i] = player.GetTransform().GetGlobalPosition() - rocks[currentRock[i]].GetTransform().GetGlobalPosition();
+		}
+
+		if (attacking) {
+			switch (attackType)
+			{
+			case 0:
+			case 1:
+			case 2:
+				speed = 1.0f;
+				switch (bossState)
+				{
+				case BossAttacks::BOSS_STATE::ROCKSELECT: SelectRock();
+					break;
+				case BossAttacks::BOSS_STATE::SEEKING:
+					bossPosition[0] = { gameObject.GetTransform().GetGlobalPosition().x, gameObject.GetTransform().GetGlobalPosition().y + 10.0f,gameObject.GetTransform().GetGlobalPosition().z - 4.0f };
+					bossPosition[1] = { gameObject.GetTransform().GetGlobalPosition().x + 4.0f,gameObject.GetTransform().GetGlobalPosition().y + 8.0f,gameObject.GetTransform().GetGlobalPosition().z + 4.0f };
+					bossPosition[2] = { gameObject.GetTransform().GetGlobalPosition().x - 4.0f,gameObject.GetTransform().GetGlobalPosition().y + 8.0f,gameObject.GetTransform().GetGlobalPosition().z + 4.0f };
+					bossPosition[3] = { gameObject.GetTransform().GetGlobalPosition().x + 6.0f,gameObject.GetTransform().GetGlobalPosition().y + 13.0f,gameObject.GetTransform().GetGlobalPosition().z };
+					bossPosition[4] = { gameObject.GetTransform().GetGlobalPosition().x - 6.0f,gameObject.GetTransform().GetGlobalPosition().y + 13.0f,gameObject.GetTransform().GetGlobalPosition().z };
+
+					for (int i = 0; i < numRocks[attackType]; i++) {
+						Seek(&rocks[currentRock[i]], bossPosition[i], speed / 3, i, false, 60.0f);
 					}
-					if (currentTimeAttack > timeAttack[i] && hasReachedTarget[i] == false) Seek(&rocks[currentRock[i]], playerPosition[i], speed / 2, i, false, 60.0f);
-				}
+					break;
+				case BossAttacks::BOSS_STATE::HOLDING: HoldRock();
+					break;
+				case BossAttacks::BOSS_STATE::THROWING:
+					currentTimeAttack += Time::GetDeltaTime();
 
-				if (currentTimeAttack >= timeAttack[numRocks[attackType]]) {
+					for (int i = 0; i < numRocks[attackType]; i++) {
+						if (currentTimeAttack <= timeAttack[i]) {
+							playerPosition[i] = player.GetTransform().GetGlobalPosition();
+							dir[i] = player.GetTransform().GetGlobalPosition() - rocks[currentRock[i]].GetTransform().GetGlobalPosition();
+						}
+						if (currentTimeAttack > timeAttack[i] && hasReachedTarget[i] == false) Seek(&rocks[currentRock[i]], playerPosition[i], speed / 2, i, false, 60.0f);
+					}
+
+					if (currentTimeAttack >= timeAttack[numRocks[attackType]]) {
+						bossState = BOSS_STATE::IDLE;
+						attacking = false;
+					}
+
+					break;
+				default:
+					break;
+				}
+				break;
+			case 3:
+				currentTimeAttack += Time::GetDeltaTime();
+				throwing = false;
+				SpecialAttack();
+				if (currentTimeAttack >= specialTimeAttack[numRocks[attackType]] && bossState == BOSS_STATE::SPECIALATTACK) {
+					bossState = BOSS_STATE::IDLE;
+					specialAttackCooldown = 0.0f;
+					attacking = false;
+				}
+				break;
+			case 4:
+				explosionTime += Time::GetDeltaTime();
+				explosionWave1.GetTransform().Scale(1.0f * Time::GetDeltaTime());
+				if (explosionTime < 0.5 && distSA < 30.0 && explosionWave1HasArrived == false) {
+					pStats->TakeDamage(50);
+					explosionWave1HasArrived = true;
+				}
+				if (explosionTime >= 0.5 && distSA > 30.0 && distSA < 60.0 && explosionWave2HasArrived == false) {
+
+					pStats->TakeDamage(1);
+
+					//pMove->RecieveImpulse(gameObject.GetTransform().GetGlobalPosition() - player.GetTransform().GetGlobalPosition(), 100, 100);
+					//KnockBack
+					explosionWave2HasArrived = true;
+				}
+				if (explosionTime > 0.6) {
+					bLoop->exploting = false;
+					explosionWave1.SetActive(false);
 					bossState = BOSS_STATE::IDLE;
 					attacking = false;
 				}
+			default:
+				break;
+			}
+		}
+		else {
+			switch (bossState)
+			{
+			case BOSS_STATE::IDLE:
+				attackType = 0.0f;
+				explosionTime = 0.0f;
+				currentTimeAttack = 0.0f;
+				for (int i = 0; i < 15; i++) {
+					hasReachedTarget[i] = false;
+					playerPosition[i] = { 0,0,0 };
+					dir[i] = { 0,0,0 };
+				}
+				for (int i = 0; i < 15; i++) {
+					rocks[i].GetTransform().SetPosition(rockPositions[i]);
+				}
+				cooldownAttack += Time::GetDeltaTime();
+				if (cooldownAttack > 3.0f) {
+					bossState = BOSS_STATE::SELECTATTACK;
+					cooldownAttack = 0;
+				}
+				break;
+			case BOSS_STATE::SELECTATTACK:
+				// Generate a random integer between 0 and 0
+				difficultySetter = rand() % 100 + 1;
 
+				switch (bLoop->phase)
+				{
+				case 0:
+					speed = 1.0f;
+					if (difficultySetter <= 60) attackType = 0;
+					else if (difficultySetter > 60 && difficultySetter <= 90) attackType = 1;
+					else if (difficultySetter > 90) attackType = 2;
+
+					break;
+
+				case 1:
+					speed = 1.25f;
+					if (difficultySetter <= 40) attackType = 0;
+					else if (difficultySetter > 40 && difficultySetter <= 85) attackType = 1;
+					else if (difficultySetter > 85) attackType = 2;
+
+					break;
+
+				case 2:
+					speed = 1.5f;
+					if (difficultySetter <= 20) attackType = 0;
+					else if (difficultySetter > 20 && difficultySetter <= 65) attackType = 1;
+					else if (difficultySetter > 65) attackType = 2;
+
+					if (specialAttackCooldown >= 60.0f) {
+						difficultySetter = rand() % 10 + 1;
+						if (difficultySetter <= 5) {
+							attackType = 3;
+							specialAttackCooldown = 0.0f;
+						}
+					}
+					break;
+
+				default:
+					break;
+				}
+				if (attackType < 3) {
+					bossState = BOSS_STATE::ROCKSELECT;
+				}
+				else if (attackType == 3) {
+					bossState = BOSS_STATE::SPECIALATTACK;
+				}
+
+				if (bLoop->exploting == true) {
+
+					attackType = 4;
+
+				}
+
+				if (attackType == 4) {
+					explosionWave1HasArrived = false;
+					explosionWave2HasArrived = false;
+					bossState = BOSS_STATE::EXPLOSIONWAVE;
+					explosionWave1.SetActive(true);
+					explosionWave1.GetTransform().SetScale(0.1f, 0.1f, 0.1f);
+				}
+				hasBossCoords = false;
+				attacking = true;
 				break;
 			default:
 				break;
 			}
-			break;
-		case 3:
-			currentTimeAttack += Time::GetDeltaTime();
-			speed = 0.5f;
-			throwing = false;
-			SpecialAttack();
-			if (currentTimeAttack >= specialTimeAttack[numRocks[attackType]] && bossState == BOSS_STATE::SPECIALATTACK) {
-				bossState = BOSS_STATE::IDLE;
-				attacking = false;
-			}
-			break;
-		case 4:
-			explosionTime += Time::GetDeltaTime();
-			explosionWave1.GetTransform().Scale(0.6 * Time::GetDeltaTime());
-			if (explosionTime < 0.5 && distSA < 30.0 && explosionWave1HasArrived == false) {
-				pStats->TakeDamage(50);
-				explosionWave1HasArrived = true;
-			}
-			if (explosionTime >= 0.5 && distSA > 30.0 && distSA < 60.0 && explosionWave2HasArrived == false) {
-				pStats->TakeDamage(1);
-				//KnockBack
-				explosionWave2HasArrived = true;
-			}
-			if (explosionTime > 0.6) {
-				explosionWave1.SetActive(false);
-				bossState = BOSS_STATE::IDLE;
-				attacking = false;
-			}
-		default:
-			break;
-		}
-	}
-	else {
-		switch (bossState)
-		{
-		case BOSS_STATE::IDLE:
-			explosionTime = 0.0f;
-			currentTimeAttack = 0.0f;
-			for (int i = 0; i < 15; i++) {
-				hasReachedTarget[i] = false;
-				playerPosition[i] = { 0,0,0 };
-				dir[i] = { 0,0,0 };
-			}
-			for (int i = 0; i < 15; i++) {
-				rocks[i].GetTransform().SetPosition(rockPositions[i]);
-			}
-			cooldownAttack += Time::GetDeltaTime();
-			if (cooldownAttack > 3.0f) {
-				bossState = BOSS_STATE::SELECTATTACK;
-				cooldownAttack = 0;
-			}
-			break;
-		case BOSS_STATE::SELECTATTACK:
-			// Generate a random integer between 0 and 0
-			//attackType = rand() % 3;
-			attackType = 0;
-			if (attackType < 3) {
-				bossState = BOSS_STATE::ROCKSELECT;
-			}
-			else if(attackType == 3 ){
-				bossState = BOSS_STATE::SPECIALATTACK;
-			}
-			else if (attackType == 4) {
-				explosionWave1HasArrived = false;
-				explosionWave2HasArrived = false;
-				bossState = BOSS_STATE::EXPLOSIONWAVE;
-				explosionWave1.SetActive(true);
-				explosionWave1.GetTransform().SetScale(0.1f, 0.1f, 0.1f);
-			}
-			hasBossCoords = false;
-			attacking = true;
-			break;
-		default:
-			break;
 		}
 	}
 }
@@ -244,9 +301,9 @@ void BossAttacks::Seek(API_GameObject* seeker, API_Vector3 target, float speed, 
 	seeker->GetTransform().Rotate(150 * dt, 300 * dt, 250 * dt);
 	} 
 	API_Vector3 dist = target - seeker->GetTransform().GetGlobalPosition();
-	seeker->GetTransform().Translate((dir[rock] / 60.0f) * speed * dt * 400);
+	seeker->GetTransform().Translate((dir[rock] / time) * speed * dt * 400);
 
-	if (dist.x < 0.03 && dist.x > -0.03 && dist.y < 0.03 && dist.y && dist.z < 0.03 && dist.z) {
+	if ( dist.x < 0.03 && dist.x > -0.03 && dist.y < 0.03 && dist.y && dist.z < 0.03 && dist.z) {
 		if (bossState == BOSS_STATE::SEEKING) {
 			bossState = BOSS_STATE::HOLDING;
 		}
@@ -282,26 +339,19 @@ void BossAttacks::ReturnRock(API_GameObject* rock, int numRock, float endedAttac
 	rock->GetTransform().SetPosition(rockPositions[currentRock[numRock]]);
 	if (bossState != BOSS_STATE::KO && endedAttacking == true) {
 		bossState = BOSS_STATE::IDLE;
-	}
-	if (endedAttacking == true) {
 		attacking = false;
-	}
-	else {
-		attacking = true;
 	}
 }
 
 void BossAttacks::SpecialAttack()
 {
+
 	for (int i = 0; i < 10; i++) {
 		if (currentTimeAttack <= specialTimeAttack[i]) {
 			playerPosition[i+5] = player.GetTransform().GetGlobalPosition();
 			dir[i+5] = player.GetTransform().GetGlobalPosition() - rocks[currentRock[i+5]].GetTransform().GetGlobalPosition();
 		}
-	}
-	
-	for (int i = 0; i < 10; i++) {
-		if (currentTimeAttack > specialTimeAttack[i] && hasReachedTarget[i] == false) Seek(&rocks[currentRock[i+5]], playerPosition[i+5], speed, i+5, false, 80.0f);
+		if (currentTimeAttack > specialTimeAttack[i] && hasReachedTarget[i + 5] == false) Seek(&rocks[currentRock[i + 5]], playerPosition[i + 5], speed / 2, i + 5, false, 80.0f);
 	}
 }
 

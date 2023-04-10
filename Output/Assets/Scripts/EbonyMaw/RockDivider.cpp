@@ -26,7 +26,7 @@ void RockDivider::Start()
 		stone.AddMaterial();
 		stone.CreateRigidBodyBox((0, 0, 0), (0, 0, 0), (0.3f, 0.3f, 0.3f), false);
 		stone.AddScript("Stone");
-		if(whichRockAmI < 16) stone.SetActive(true);
+		if(whichRockAmI < 5) stone.SetActive(true);
 		else  stone.SetActive(false);
 		
 		stones.push_back(stone);
@@ -35,7 +35,7 @@ void RockDivider::Start()
 void RockDivider::Update()
 {
 
-	if (rockDivided == true && whichRockAmI < 16) {
+	if (rockDivided == true && whichRockAmI < 5) {
 		dt = Time::GetDeltaTime();
 		stoneTime += dt;
 		bAttacks->ReturnRock(&gameObject, whichRockAmI, false);
@@ -48,7 +48,7 @@ void RockDivider::Update()
 		stones[5].GetTransform().Translate(-0.1f * dt * 100, 0, -0.1f * dt * 100);
 		stones[6].GetTransform().Translate(-0.1f * dt * 100, 0, 0);
 		stones[7].GetTransform().Translate(-0.1f * dt * 100, 0, 0.1f * dt * 100);
-		if (bAttacks->stoneLifeTime < stoneTime) {
+		if (stoneTime > bAttacks->stoneLifeTime) {
 			stoneTime = 0;
 			rockDivided = false;
 		}
@@ -57,7 +57,7 @@ void RockDivider::Update()
 	else {
 		//gameObject.SetActive(true);
 		for (int i = 0; i < 8; i++) {
-			stones[i].GetTransform().SetPosition(gameObject.GetTransform().GetGlobalPosition());
+			stones[i].GetTransform().SetPosition(gameObject.GetTransform().GetLocalPosition());
 		}
 	}
 }
@@ -65,6 +65,7 @@ void RockDivider::Update()
 void RockDivider::OnCollisionEnter(API::API_RigidBody other)
 {
 	std::string detectionName = other.GetGameObject().GetName();
+	std::string detectionTag = other.GetGameObject().GetTag();
 
 	if (detectionName == "Player") {
 		PlayerStats* pStats = (PlayerStats*)other.GetGameObject().GetScript("PlayerStats");
@@ -76,7 +77,7 @@ void RockDivider::OnCollisionEnter(API::API_RigidBody other)
 			pStats->TakeDamage(bAttacks->orbitingRockDmg);
 		}
 	}
-	else if (detectionName != "Projectile" && detectionName != "Boss" && bAttacks->throwing == true && detectionName != "Stone" && whichRockAmI < 16 && whichRockAmI > 5) {
+	else if ((detectionTag == "Cover" || detectionTag == "Floor") && whichRockAmI < 5) {
 		rockDivided = true;
 	}
 

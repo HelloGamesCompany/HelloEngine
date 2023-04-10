@@ -5,7 +5,6 @@
 #include "Macro.h"
 
 #include "API/API.h"
-
 class BossLoop : HelloBehavior
 {
 public:
@@ -14,12 +13,15 @@ public:
 
     void OnCollisionEnter(API::API_RigidBody other);
 
+    API_GameObject player;
     API_GameObject boss;
     API_GameObject rockShield;
     API_GameObject cover1;
     API_GameObject cover2;
     API_GameObject cover3;
     API_GameObject cover4;
+
+    float dist;
 
     float dt;
     float weakTime = 0.0f;
@@ -34,6 +36,8 @@ public:
     bool isBossAlive = false;
     bool isBossActive = false;
     bool canTakeDamage = false;
+    bool exploting = false;
+    bool readyToExplote = false;
     int phase = 0;
 
     float meleeDmg = 10.0f;

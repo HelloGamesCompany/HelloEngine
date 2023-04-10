@@ -7,6 +7,7 @@
 #include "API/API.h"
 #include "BossLoop.h"
 #include "../Player/PlayerStats.h"
+#include "../Player/PlayerMove.h"
 #include "BossMovement.h"
 
 class BossAttacks : HelloBehavior
@@ -28,6 +29,7 @@ public:
 	API_Vector3 dir[15] = { 0,0,0 };
 	BossLoop* bLoop;
 	PlayerStats* pStats;
+	PlayerMove* pMove;
 	API_GameObject boss;
 	API_GameObject boss2;
 	API_GameObject player;
@@ -47,13 +49,14 @@ public:
 	float yDistance = 0.0f;
 	float zDistance = 0.0f;
 
+	int difficultySetter = 0;
 	int attackType = 0;
 	int numRocks[4] = { 3,4,5,10 };
 
 	int currentRock[15] = { 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14 };
 
 	bool selectRock = false;
-	float speed = 0.0f;
+	float speed = 1.0f;
 
 	bool seeking = false;
 	bool attacking = false;
@@ -81,10 +84,14 @@ public:
 	bool explosionWave1HasArrived = false;
 	bool explosionWave2HasArrived = false;
 
+	float specialAttackCooldown = 0.0f;
+
 	float explosionTime = 0.0f;
 
 	float rotationSpeed = 1;
 	float radius = 0.5f;
+
+	bool exploted = false;
 
 	enum class BOSS_STATE {
 		KO,
