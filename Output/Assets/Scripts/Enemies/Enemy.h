@@ -54,6 +54,10 @@ public:
 
     API_ParticleSystem hitParticles;
 
+    bool isOut;
+    bool isHit;
+    bool isTargIn;
+
 private:
     float _coldStun;
     float _coldSlow;

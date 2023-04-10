@@ -10,6 +10,7 @@ HELLO_ENGINE_API_C EnemyMeleeAttackZone* CreateEnemyMeleeAttackZone(ScriptToInsp
 void EnemyMeleeAttackZone::Start()
 {
     //attack = false;
+    shooted = false;
 }
 void EnemyMeleeAttackZone::Update()
 {
@@ -21,7 +22,7 @@ void EnemyMeleeAttackZone::OnCollisionEnter(API::API_RigidBody other)
     std::string detectionTag = other.GetGameObject().GetTag();
     if (detectionTag == "Projectile")
     {
-
+        shooted = true;
     }
     else if (detectionTag == "Player")
     {

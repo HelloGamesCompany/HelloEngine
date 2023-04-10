@@ -12,7 +12,11 @@ class EnemyRanger : HelloBehavior
     {
         NONE,
         IDLE,
-        WALK
+        WALK,
+        RUN,
+        SHOOT,
+        HITTED,
+        DIE,
     };
 
 public:
