@@ -62,7 +62,7 @@ void ArmoryUpgratteButtons::Update()
         PanelUpgrate.SetEnable(false);
     }
 
-    //if (!_playerStorage) return;
+    if (!_playerStorage) return;
 
     if (manteinTime > 0.0f)
     {
