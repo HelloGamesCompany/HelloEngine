@@ -70,12 +70,7 @@ void ArmoryWeaponSelect::Update()
 
         findUnlock = false;
     }
-    else if (!CurrentWeapon.OnHovered())
-    {
-        findUnlock = true;
-    }
-
-    if (CurrentWeapon.OnPress())
+    else if (CurrentWeapon.OnPress() && !findUnlock)
     {
         SelectWeaponList.SetEnable(false);
         if (isUnlocked)
@@ -86,6 +81,10 @@ void ArmoryWeaponSelect::Update()
         {
             CurrentPanelUnlock.SetEnable(true);
         }
+        findUnlock = true;
+    }
+    else if (!CurrentWeapon.OnHovered())
+    {
         findUnlock = true;
     }
 }
