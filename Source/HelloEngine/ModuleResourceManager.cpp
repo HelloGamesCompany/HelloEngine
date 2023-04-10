@@ -662,6 +662,9 @@ bool ModuleResourceManager::S_DeserializeScene(const std::string& filePath)
 
 	Application::Instance()->xml->GetConfigXML().FindChildBreadth("currentScene").node.attribute("value").set_value(filePath.c_str());
 
+	if (LayerGame::S_IsPlaying())
+		LayerGame::StartAllScripts();
+
 	return true;
 }
 
