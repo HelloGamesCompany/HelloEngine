@@ -28,6 +28,9 @@ public:
 	void MoveToDirection(float pointX, float pointY, float velocity);
 	void EscapeFromDirection(float pointX, float pointY, float velocity);
 
+	void ProtectEnemy();
+	//void OnCollisionEnter(API::API_RigidBody other) override;
+
 	void Wander();
 	void Seek();
 	void Attack();
@@ -64,7 +67,19 @@ public:
 	float approximateRange;
 	float separateRange;
 	float returnToZoneDistance;
+
+	//API_GameObject enemyToProtect;
 	//bool test;
+	float testingFloat1;
+	float testingFloat2;
+	float testingFloat3;
+	float testingFloat4;
+	float testingFloat5;
+
+	API_GameObject protectedEnemy;
+	float alliesDistance;
+
+	bool isProtectingAlly;
 
 private:
 	bool isRecoveringShield;
