@@ -181,7 +181,6 @@ void ComponentUIButton::UpdateGamePadInput(bool selected)
 
     if (selected)
     {
-        Console::S_Log((int)State);
         if (ModuleInput::S_GetGamePadButton(GamePad::BUTTON_A) == KEY_DOWN && State != ButtonState::ONPRESS)
         {
             ModuleInput::S_HandleGamePadButton(GamePad::BUTTON_A); // Handle A button so no other UI detects it.
@@ -190,7 +189,6 @@ void ComponentUIButton::UpdateGamePadInput(bool selected)
         }
         else if (ModuleInput::S_GetGamePadButton(GamePad::BUTTON_A) == KEY_REPEAT)
         {
-            Console::S_Log("hiold");
             State = ButtonState::ONHOLD;
         }
         else
