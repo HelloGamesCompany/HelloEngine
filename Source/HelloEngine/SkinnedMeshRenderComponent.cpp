@@ -247,7 +247,10 @@ void SkinnedMeshRenderComponent::DeSerialization(json& j)
 	uint rootBoneUuid = j["RootBoneUuid"];
 	if (rootBoneUuid > 0)
 	{
-		rootBone = ModuleLayers::gameObjects[rootBoneUuid];
+		if (ModuleLayers::gameObjects.count(rootBoneUuid) != 0)
+			rootBone = ModuleLayers::gameObjects[rootBoneUuid];
+		else
+			rootBone = nullptr;
 		UpdateBones();
 	}
 
