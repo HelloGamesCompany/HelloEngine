@@ -56,7 +56,6 @@ bool API::API_UIButton::OnHovered()
 	return _UIButton->State == ButtonState::HOVERED;
 }
 
-
 ComponentUIButton* API::API_UIButton::GetComponent()
 {
 	return _UIButton;
@@ -67,4 +66,34 @@ void API::API_UIButton::SetComponent(ComponentUIButton* component)
 	_UIButton = component;
 }
 
+
+bool API::API_UIButton::getIsBlocked()
+{
+	if (!_UIButton)
+	{
+		Engine::Console::S_Log("Trying to acces a NULLPTR UI Button");
+		return false;
+	}
+	 return _UIButton->isBlocked;
+}
+
+void API::API_UIButton::SetBlocked(bool set)
+{
+	if (!_UIButton)
+	{
+		Engine::Console::S_Log("Trying to acces a NULLPTR UI Button");
+		return;
+	}
+	_UIButton->isBlocked = set;
+}
+
+bool API::API_UIButton::OnRelease()
+{
+	if (!_UIButton)
+	{
+		Engine::Console::S_Log("Trying to acces a NULLPTR UI Button");
+		return false;
+	}
+	return _UIButton->isReleased;
+}
 

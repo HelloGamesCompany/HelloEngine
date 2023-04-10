@@ -96,7 +96,7 @@ void BossLoop::OnCollisionEnter(API::API_RigidBody other)
     else if (detectionName == "Player")
     {
         PlayerStats* pStats = (PlayerStats*)other.GetGameObject().GetScript("PlayerStats");
-        pStats->TakeDamage(meleeDmg);
+        pStats->TakeDamage(meleeDmg, 0);
     }
     }
 }

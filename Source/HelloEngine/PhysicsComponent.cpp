@@ -40,6 +40,10 @@ PhysicsComponent::PhysicsComponent(GameObject* gameObject) : Component(gameObjec
 	_gravity[1] = { -9.8 };
 	_gravity[2] = { 0 };
 
+	_angularFactor[0] = 1.0f;
+	_angularFactor[1] = 1.0f;
+	_angularFactor[2] = 1.0f;
+
 	globalGravity[0] = { 0 };
 	globalGravity[1] = { -9.8 };
 	globalGravity[2] = { 0 };
@@ -119,7 +123,7 @@ void PhysicsComponent::Serialization(json& j)
 		_j["IsTrigger"] = _physBody->isTrigger;
 
 		_j["Gravity"] = { _gravity[0], _gravity[1], _gravity[2] };
-
+		_j["AngularFactor"] = { _angularFactor[0], _angularFactor[1], _angularFactor[2] };
 		_j["WireframeSize"] = wireframeSize;
 
 		_j["SphereVerSlices"] = sphereVerSlices;
@@ -127,7 +131,7 @@ void PhysicsComponent::Serialization(json& j)
 		_j["CylVerSlices"] = cylinderVerSlices;
 
 		_j["RenderColColor"] = { renderColColor[0] , renderColColor[1] , renderColColor[2], renderColColor[3] };
-		
+
 		
 	}
 	else
@@ -211,6 +215,15 @@ void PhysicsComponent::DeSerialization(json& j)
 		_gravity[1] = newGrav[1];
 		_gravity[2] = newGrav[2];
 		_physBody->SetGravity(float3(_gravity[0], _gravity[1], _gravity[2]));
+
+		if (j.contains("AngularFactor"))
+		{
+			std::vector<float> newAngularFactor = j["AngularFactor"];
+			_angularFactor[0] = newAngularFactor[0];
+			_angularFactor[1] = newAngularFactor[1];
+			_angularFactor[2] = newAngularFactor[2];
+			SetAngularFactor({ _angularFactor[0], _angularFactor[1],_angularFactor[2] });
+		}
 
 		_physBody->isRenderingCol = j["IsRenderingCol"];
 		std::vector<float> colPosTemp = j["ColPosition"];
@@ -345,6 +358,13 @@ void PhysicsComponent::OnEditor()
 			if (ImGui::DragFloat3("Gravity", _gravity, 0.01)) {
 				if (_physBody != nullptr) {
 					_physBody->SetGravity(float3(_gravity[0], _gravity[1], _gravity[2]));
+				}
+			}
+
+			if (ImGui::DragFloat3("Angular Factor", _angularFactor))
+			{
+				if (_physBody != nullptr) {
+					SetAngularFactor({ _angularFactor[0], _angularFactor[1], _angularFactor[2] });
 				}
 			}
 
@@ -518,6 +538,11 @@ float PhysicsComponent::GetRadius()
 	return sphereRadius;
 }
 
+void PhysicsComponent::SetAngularFactor(float3 angle)
+{
+	this->_physBody->body->setAngularFactor({ angle.x, angle.y, angle.z });
+}
+
 void PhysicsComponent::CallUpdatePos()
 {
 	ModulePhysics::UpdatePhysBodyPos(_physBody);
@@ -677,7 +702,7 @@ void PhysicsComponent::OnEnable()
 	if (_physBody != nullptr)
 	{
 		_physBody->body->forceActivationState(ACTIVE_TAG);
-		_physBody->body->setCollisionFlags(_physBody->body->getCollisionFlags() | this->_isStatic ? btCollisionObject::CollisionFlags::CF_STATIC_OBJECT : btCollisionObject::CollisionFlags::CF_CHARACTER_OBJECT);
+		_physBody->body->setCollisionFlags(_physBody->body->getCollisionFlags() | (this->_isStatic ? btCollisionObject::CollisionFlags::CF_STATIC_OBJECT : btCollisionObject::CollisionFlags::CF_CHARACTER_OBJECT));
 	}
 }
 

@@ -16,6 +16,8 @@ public:
 
 	void InputUpdate() override;
 
+	void UpdateGamePadInput(bool selected) override;
+
 	SliderState State;
 
 

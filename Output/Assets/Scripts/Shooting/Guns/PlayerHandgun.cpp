@@ -26,7 +26,7 @@ void PlayerHandgun::Start()
 {
     playerStats = (PlayerStats*)player.GetScript("PlayerStats");
 
-    SetGunStatsPerLevel(0); // read from save file
+    SetGunStatsPerLevel(API_QuickSave::GetInt("handgun_level")); // read from save file
 
     if (cadence == 0)
     {

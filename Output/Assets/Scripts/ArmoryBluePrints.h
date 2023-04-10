@@ -9,17 +9,12 @@
 class ArmoryBluePrints : HelloBehavior
 {
 public:
-	void Start() override; 
-	void Update() override;
+    void Start() override;
+    void Update() override;
 
-	API_GameObject Weapon;
+    API_Material bluePrint;
 
-	API_Material bluePrint;
-
-	uint bluePrintTexture;
-
-	ArmoryWeaponSelect* WeaponUnlocked;
-
-	bool textureChanged;
+    bool haveBlueprint = false;
+    int gunIndex;
 };
 

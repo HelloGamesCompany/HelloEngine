@@ -14,11 +14,19 @@ namespace API
 
 		API_GameObject GetGameObject();
 
+		///Returns true the first frame is pressed
 		bool OnPress();
 
+		///Returns true every frame it is pressed.
 		bool OnHold();
 
 		bool OnHovered();
+
+		bool getIsBlocked();
+
+		void SetBlocked(bool);
+
+		bool OnRelease();
 	
 	private:
 		ComponentUIButton* GetComponent();
@@ -28,8 +36,5 @@ namespace API
 
 		friend class API_GameObject;
 		friend class DragBoxUIButton;
-
-		
-
 	};
 }

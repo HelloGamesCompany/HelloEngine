@@ -4,6 +4,8 @@
 #include "Macro.h"
 //#include "Timer.hpp"
 //#include <Timer.hpp>
+#include "Enemy.h"
+#include "EnemyMeleeAttackZone.h"
 #include "API/API.h"
 
 class EnemyMeleeMovement : HelloBehavior
@@ -29,6 +31,10 @@ public:
     void Seek(float vel, API_Vector3 tarPos, API_RigidBody rb);
     void Wander(float vel, API_Vector3 point, API_RigidBody rb);
 
+    void WalkAway();
+    void ChargeAttack();
+    void Attack();
+
     API_Vector3 NormalizeVec3(float x, float y, float z);
 
     float Lerp(float a, float b, float time);
@@ -42,8 +48,23 @@ public:
     float rangeAtk = 60.0f;
     float outTime = 3.0f;
 
+    float attackCD;
+    float attackTime;
+    float attackCharge;
+    float attackCDCpy;
+    float attackTimeCpy;
+    float attackChargeCpy;
+    float timer = 0.0f;
+
+    float attackSpeed;
+    float walkAwaySpeed;
+    float chargeSpeed;
+
+    API_Vector3 targetPosOnAttack;
+
     API_GameObject target;
     API_GameObject actionZone;
+    API_GameObject attackZoneGO;
 
     API_RigidBody zoneRb;
 
@@ -60,7 +81,8 @@ public:
     uint idleAnim;
     uint walkAnim;
 
-
+    Enemy* enemy = nullptr;
+    EnemyMeleeAttackZone* attackZone = nullptr;
 private:
     int _avalPoints = 0;
     float _outCooldown;//max time that can be outside the zone

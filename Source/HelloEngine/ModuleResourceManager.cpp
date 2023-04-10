@@ -92,9 +92,6 @@ void ModuleResourceManager::S_ImportFile(const std::string& filePath)
 	break;
 	case ResourceType::ANIMATION:
 	{
-
-
-		//std::string path = MeshImporter::
 	}
 	break;
 	case ResourceType::TEXTURE:
@@ -193,14 +190,21 @@ void ModuleResourceManager::S_ReImportFile(const std::string& filePath, Resource
 	{
 		if (resources[meta.UID] != nullptr)
 		{
-			ModuleFiles::S_UpdateMetaData(filePath, meta.resourcePath); // We do this before reimporting, because the new resource file will be named like the old, and this destroys that file.
+			ModuleFiles::S_UpdateMetaData(filePath, meta.resourcePath); 
 		}
 	}
+	break;
+	case ResourceType::ANIMATION:
+	{
+		if (resources[meta.UID] != nullptr)
+		{
+			ModuleFiles::S_UpdateMetaData(filePath, meta.resourcePath);
+		}
+	}
+	break;
 	}
 
 	RELEASE_ARRAY(buffer);
-
-	//S_SerializeScene(ModuleLayers::rootGameObject); // Serialize scene, so the reimported changes get applied next time the scene is loaded
 }
 
 void ModuleResourceManager::S_LoadFileIntoResource(Resource* resource)
@@ -420,7 +424,7 @@ GameObject* ModuleResourceManager::S_DeserializeFromPrefab(const std::string& fi
 
 	for (int i = 0; i < temp.size(); i++)
 	{
-		if (temp[i].second != 0)
+		if (temp[i].second != 0 && ModuleLayers::gameObjects.count(temp[i].second) != 0)
 			temp[i].first->SetParent(ModuleLayers::gameObjects[temp[i].second]);
 		else if (!loadingScene)
 			temp[i].first->SetParent(parent);
@@ -730,6 +734,12 @@ void ModuleResourceManager::S_DeleteMetaFile(const std::string& file, bool onlyR
 			ModuleFiles::S_RemoveScriptFromDLLSolution(scriptName, true);
 		}
 	}
+	break;
+	case ResourceType::ANIMATION:
+	case ResourceType::PREFAB: // When reimporting prefabs we dont want to destroy the old file, because it is probably already the new one. 
+								//Kinda confusing I know. Ask code lead for clarification.
+		break;
+
 	break;
 	default:
 	{

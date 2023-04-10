@@ -70,11 +70,11 @@ void RockDivider::OnCollisionEnter(API::API_RigidBody other)
 	if (detectionName == "Player") {
 		PlayerStats* pStats = (PlayerStats*)other.GetGameObject().GetScript("PlayerStats");
 		if (whichRockAmI < 16) {	
-			pStats->TakeDamage(bAttacks->rockDmg);
+			pStats->TakeDamage(bAttacks->rockDmg, 0);
 			bAttacks->ReturnRock(&gameObject, whichRockAmI, false);
 		}
 		else {
-			pStats->TakeDamage(bAttacks->orbitingRockDmg);
+			pStats->TakeDamage(bAttacks->orbitingRockDmg, 0);
 		}
 	}
 	else if ((detectionTag == "Cover" || detectionTag == "Floor") && whichRockAmI < 5) {

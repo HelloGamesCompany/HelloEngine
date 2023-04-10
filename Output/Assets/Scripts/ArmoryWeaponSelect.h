@@ -9,38 +9,40 @@
 class ArmoryWeaponSelect : HelloBehavior
 {
 public:
-	void Start() override;
-	void Update() override;
+    void Start() override;
+    void Update() override;
 
-	void UnlockWeapon2();
+    void FindUnlock();
+    bool findUnlock = true;
 
-	API_UIButton CurrentWeapon;
+    API_UIButton CurrentWeapon;
 
-	API_UIInput SelectWeaponList;
+    API_UIInput SelectWeaponList;
 
-	API_GameObject NextWeapon;
+    API_GameObject NextWeapon;
 
-	API_GameObject PrevtWeapon;
+    API_GameObject PrevtWeapon;
 
-	API_UIInput CurrentPanelUpgrate;
-	API_UIInput CurrentPanelUnlock;
+    API_UIInput CurrentPanelUpgrate;
+    API_UIInput CurrentPanelUnlock;
 
-	API_GameObject NextPanelUpgrate;
-	API_GameObject NextPanelUnlock;
+    API_GameObject NextPanelUpgrate;
+    API_GameObject NextPanelUnlock;
 
-	API_GameObject PrevPanelUpgrate;
-	API_GameObject PrevPanelUnlock;
+    API_GameObject PrevPanelUpgrate;
+    API_GameObject PrevPanelUnlock;
 
-	uint CurrentTextureWeapon;
+    uint CurrentTextureWeapon;
+    uint CurrentTextureWeaponLocked;
 
-	bool isUnlocked = false;
+    bool isUnlocked = false;
+    int gunIndex;
 
-	API_Material SelectedWeapon;
-
+    API_Material SelectedWeapon;
 
 private:
 
-	ArmoryWeaponSelect* nextW;
-	ArmoryWeaponSelect* PrevW;
+    ArmoryWeaponSelect* nextW;
+    ArmoryWeaponSelect* PrevW;
 };
 

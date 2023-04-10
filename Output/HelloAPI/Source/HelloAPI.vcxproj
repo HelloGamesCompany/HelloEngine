@@ -182,6 +182,7 @@
 		<ClCompile Include="..\..\Assets\Scripts\Shooting\Guns\PlayerShotgun.cpp" />
 		<ClCompile Include="..\..\Assets\Scripts\UI Test folder\DashUI.cpp" />
 		<ClCompile Include="..\..\Assets\Scripts\UI Test folder\HpBar.cpp" />
+		<ClCompile Include="..\..\Assets\Scripts\UI Test folder\PlayerIndicator.cpp" />
 		<ClCompile Include="..\..\Assets\Scripts\UI Test folder\ScoreScreen.cpp" />
 		<ClCompile Include="..\..\Assets\Scripts\UI Test folder\UIManager.cpp" />
 		<ClCompile Include="../../Assets/Scripts/ArmoryUpgratteButtons.cpp" />
@@ -207,6 +208,15 @@
 		<ClCompile Include="../../Assets/Scripts/InteractiveEnviroment/BreakableBox.cpp" />
 		<ClCompile Include="../../Assets/Scripts/InteractiveEnviroment/BreakableWall.cpp" />
 		<ClCompile Include="../../Assets/Scripts/Player/PlayerStorage.cpp" />
+		<ClCompile Include="../../Assets/Scripts/Enemies/EnemyGuns/EnemyBurst.cpp" />
+		<ClCompile Include="../../Assets/Scripts/Enemies/EnemyGuns/EnemyShotgun.cpp" />
+		<ClCompile Include="../../Assets/Scripts/UI Test folder/UI_Municion.cpp" />
+		<ClCompile Include="../../Assets/Scripts/Enemies/EnemyTank.cpp" />
+		<ClCompile Include="../../Assets/Scripts/InteractiveEnviroment/CasetteManager.cpp" />
+		<ClCompile Include="../../Assets/Scripts/InteractiveEnviroment/ChestManager.cpp" />
+		<ClCompile Include="../../Assets/Scripts/AbilitySelect.cpp" />
+		<ClCompile Include="../../Assets/Scripts/Enemies/EnemyMeleeAttackZone.cpp" />
+		<ClCompile Include="../../Assets/Scripts/InteractiveEnviroment/BarrierSpawner.cpp" />
 	</ItemGroup>
 	<ItemGroup>
 		<ClInclude Include="..\..\Assets\Scripts\EbonyMaw\BossAttacks.h" />
@@ -236,6 +246,7 @@
 		<ClInclude Include="..\..\Assets\Scripts\Shooting\Guns\PlayerShotgun.h" />
 		<ClInclude Include="..\..\Assets\Scripts\UI Test folder\DashUI.h" />
 		<ClInclude Include="..\..\Assets\Scripts\UI Test folder\HpBar.h" />
+		<ClInclude Include="..\..\Assets\Scripts\UI Test folder\PlayerIndicator.h" />
 		<ClInclude Include="..\..\Assets\Scripts\UI Test folder\ScoreScreen.h" />
 		<ClInclude Include="..\..\Assets\Scripts\UI Test folder\UIManager.h" />
 		<ClInclude Include="Macro.h" />
@@ -281,6 +292,15 @@
 		<ClInclude Include="../../Assets/Scripts/InteractiveEnviroment/BreakableBox.h" />
 		<ClInclude Include="../../Assets/Scripts/InteractiveEnviroment/BreakableWall.h" />
 		<ClInclude Include="../../Assets/Scripts/Player/PlayerStorage.h" />
+		<ClInclude Include="../../Assets/Scripts/Enemies/EnemyGuns/EnemyBurst.h" />
+		<ClInclude Include="../../Assets/Scripts/Enemies/EnemyGuns/EnemyShotgun.h" />
+		<ClInclude Include="../../Assets/Scripts/UI Test folder/UI_Municion.h" />
+		<ClInclude Include="../../Assets/Scripts/Enemies/EnemyTank.h" />
+		<ClInclude Include="../../Assets/Scripts/InteractiveEnviroment/CasetteManager.h" />
+		<ClInclude Include="../../Assets/Scripts/InteractiveEnviroment/ChestManager.h" />
+		<ClInclude Include="../../Assets/Scripts/AbilitySelect.h" />
+		<ClInclude Include="../../Assets/Scripts/Enemies/EnemyMeleeAttackZone.h" />
+		<ClInclude Include="../../Assets/Scripts/InteractiveEnviroment/BarrierSpawner.h" />
 	</ItemGroup>
 	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 	<ImportGroup Label="ExtensionTargets" />

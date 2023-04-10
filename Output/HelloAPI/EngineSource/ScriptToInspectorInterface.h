@@ -195,6 +195,16 @@ class DragBoxUIText : public ScriptInspectorField
 #endif
 };
 
+class DragBoxPrefabResource : public ScriptInspectorField
+{
+	void OnEditor() override;
+#ifndef HELLO_ENGINE_EXPORTS
+	void OnSerialize(json& j) override;
+	void OnDeserialize(json& j) override;
+#endif
+};
+
+
 class TO_API ScriptToInspectorInterface
 {
 public:
@@ -217,6 +227,7 @@ public:
 	virtual void AddDragBoxUIImage(const char* name, API::API_UIImage* value) = 0;
 	virtual void AddDragBoxUIInput(const char* name, API::API_UIInput* value) = 0;
 	virtual void AddDragBoxUIText(const char* name, API::API_UIText* value) = 0;
+	virtual void AddDragBoxPrefabResource(const char* name, uint* value) = 0;
 
 protected:
 	std::vector<ScriptInspectorField*> inspectorFields;

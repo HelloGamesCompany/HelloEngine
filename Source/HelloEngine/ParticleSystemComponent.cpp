@@ -514,6 +514,7 @@ void ParticleSystemComponent::DeSerialization(json& j)
 	ParticleEmitter.ParticlesPerSecond = j["ParticleModules"]["ModuleEmission"]["ParticlesPerSecond"];
 	ParticleEmitter.StartDelay = j["ParticleModules"]["ModuleMain"]["Delay"];
 	ParticleEmitter.playOnAwake = j["ParticleModules"]["ModuleMain"]["PlayOnAwake"];
+	ParticleEmitter.loop = j["ParticleModules"]["ModuleMain"]["Looping"];
 	bool enabled = j["Enabled"];
 
 }

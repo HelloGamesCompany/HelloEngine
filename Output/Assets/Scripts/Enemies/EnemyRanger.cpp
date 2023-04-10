@@ -1,5 +1,4 @@
 #include "EnemyRanger.h"
-#include "Enemy.h"
 #include <time.h>
 HELLO_ENGINE_API_C EnemyRanger* CreateEnemyRanger(ScriptToInspectorInterface* script)
 {
@@ -11,6 +10,7 @@ HELLO_ENGINE_API_C EnemyRanger* CreateEnemyRanger(ScriptToInspectorInterface* sc
     script->AddDragFloat("Range attack", &classInstance->disShoot);
     script->AddDragFloat("Cooldown betwen points", &classInstance->cooldownPoint);
     script->AddDragFloat("OutsideZone Time", &classInstance->outTime);
+    script->AddDragInt("Gun Type(0Semi/1burst)", &classInstance->gunType);
     script->AddDragBoxGameObject("Enemy gun", &classInstance->gunObj);
     script->AddDragBoxGameObject("Target", &classInstance->target);
     script->AddDragBoxGameObject("Action zone", &classInstance->actionZone);
@@ -37,20 +37,33 @@ void EnemyRanger::Start()
     _movCooldown = 0;
     _outCooldown = 0;
     _canWalk = true;
-    //enemyGun = (EnemyGun*)gunObj.GetScript("EnemyAutomatic");
+    switch (gunType)
+    {
+        case 0: 
+            enemyGun = (EnemyGun*)gunObj.GetScript("EnemyAutomatic");
+            break;
+        case 1: 
+            enemyGun = (EnemyGun*)gunObj.GetScript("EnemyBurst");
+            break;
+    default:
+        break;
+    }
+   
     //zoneRb.GetGameObject().
     //clock.s
+     enemy = (Enemy*)gameObject.GetScript("Enemy");
 }
 void EnemyRanger::Update()
 {
-    Enemy* enemy = (Enemy*)gameObject.GetScript("Enemy");
     float dt = Time::GetDeltaTime();
 
 
     if (enemy != nullptr)
     {
-        float dis = gameObject.GetTransform().GetGlobalPosition().Distance(target.GetTransform().GetGlobalPosition());
+         float dis = gameObject.GetTransform().GetGlobalPosition().Distance(target.GetTransform().GetGlobalPosition());
         float disZone = gameObject.GetTransform().GetGlobalPosition().Distance(actionZone.GetTransform().GetGlobalPosition());
+       // float dis = gameObject.GetTransform().GetLocalPosition().Distance(target.GetTransform().GetGlobalPosition());
+        //float disZone = gameObject.GetTransform().GetLocalPosition().Distance(actionZone.GetTransform().GetGlobalPosition());
 
         if ((dis < detectionDis) && (dis > disShoot) && enemState != States::TARGETING)
         {
@@ -74,60 +87,73 @@ void EnemyRanger::Update()
         {
         case States::WANDERING:
 
-            enemy->currentSpeed = enemy->speed * dt;
-            if ((gameObject.GetTransform().GetGlobalPosition().Distance(actualPoint) < 5))
-            {
-                numPoint++;
-                if (numPoint >= _avalPoints)numPoint = 0;
-                _canWalk = false;
-            }
-            if (!_canWalk)_movCooldown += dt;
-            if (_movCooldown >= cooldownPoint)
-            {
-                _movCooldown = 0;
-                _canWalk = true;
-            }
+            enemy->currentSpeed = enemy->speed * enemy->stunVel * enemy->slowVel/** dt*/;
+            
 
-            actualPoint = listPoints[numPoint].GetTransform().GetGlobalPosition();
+                //if ((gameObject.GetTransform().GetLocalPosition().Distance(actualPoint) < 5))
+                if ((gameObject.GetTransform().GetGlobalPosition().Distance(actualPoint) < 5))
+                {
+                    numPoint++;
+                    if (numPoint >= _avalPoints)numPoint = 0;
+                    _canWalk = false;
+                }
+                if (!_canWalk)_movCooldown += dt;
+                if (_movCooldown >= cooldownPoint)
+                {
+                    _movCooldown = 0;
+                    _canWalk = true;
+                }
 
-            if (_canWalk)Wander(enemy->currentSpeed, actualPoint, enemy->enemyRb);
+                actualPoint = listPoints[numPoint].GetTransform().GetGlobalPosition();
 
-            if (animState != AnimationState::WALK)
-            {
-                animState = AnimationState::WALK;
-                animationPlayer.ChangeAnimation(walkAnim);
-                animationPlayer.Play();
-                Console::Log("Walk");
-            }
+                if (_canWalk)Wander(enemy->currentSpeed, actualPoint, enemy->enemyRb);
 
+                if (animState != AnimationState::WALK)
+                {
+                    animState = AnimationState::WALK;
+                    animationPlayer.ChangeAnimation(walkAnim);
+                    animationPlayer.Play();
+                    Console::Log("Walk");
+                }
+            
             break;
 
         case States::TARGETING:
 
-            enemy->currentSpeed = enemy->speed * enemy->acceleration * dt;
-            Seek(enemy->currentSpeed, target.GetTransform().GetGlobalPosition(), enemy->enemyRb);
+            enemy->currentSpeed = enemy->speed * enemy->acceleration * enemy->stunVel * enemy->slowVel/** dt*/;
+           
 
-            if (animState != AnimationState::WALK)
-            {
-                animState = AnimationState::WALK;
-                animationPlayer.ChangeAnimation(walkAnim);
-                animationPlayer.Play();
-                Console::Log("Walk");
-            }
+                Seek(enemy->currentSpeed, target.GetTransform().GetGlobalPosition(), enemy->enemyRb);
 
+                if (animState != AnimationState::WALK)
+                {
+                    animState = AnimationState::WALK;
+                    animationPlayer.ChangeAnimation(walkAnim);
+                    animationPlayer.Play();
+                    Console::Log("Walk");
+                }
+            
             break;
 
         case States::ATTACKIG:
 
-            enemy->currentSpeed = enemy->speed * enemy->acceleration * dt;
+            enemy->currentSpeed = enemy->speed * enemy->acceleration * enemy->stunVel * enemy->slowVel /** dt*/;
+            
+                if (dis >= disPlayer)
+                {
+                    Seek(enemy->currentSpeed, target.GetTransform().GetGlobalPosition(), enemy->enemyRb);
 
-            if (dis >= disPlayer)
-                Seek(enemy->currentSpeed, target.GetTransform().GetGlobalPosition(), enemy->enemyRb);
-            else
-                enemy->enemyRb.SetVelocity(gameObject.GetTransform().GetBackward() * enemy->currentSpeed);
+                }
+                else
+                {
+                    enemy->enemyRb.SetVelocity(gameObject.GetTransform().GetBackward() * enemy->currentSpeed);
+
+                }
+
                 //gameObject.GetTransform().Translate(gameObject.GetTransform().GetBackward() * enemy->currentSpeed);
 
-            Attacking(enemy->currentSpeed * 0.5f, target.GetTransform().GetGlobalPosition(), enemy->enemyRb);
+                Attacking(enemy->currentSpeed * 0.5f, target.GetTransform().GetGlobalPosition(), enemy->enemyRb);
+            
 
             break;
         default:
@@ -138,17 +164,25 @@ void EnemyRanger::Update()
 
 void EnemyRanger::Seek(float vel, API_Vector3 tarPos, API_RigidBody enemyRb)
 {
-    API_Vector2 lookDir;
-    lookDir.x = (tarPos.x - gameObject.GetTransform().GetGlobalPosition().x);
-    lookDir.y = (tarPos.z - gameObject.GetTransform().GetGlobalPosition().z);
+   
+    if (!enemy->actStun)
+    {
+        API_Vector3 _bRot = enemy->baseRot;
+        API_Vector2 lookDir;
+        /* lookDir.x = (point.x - gameObject.GetTransform().GetGlobalPosition().x);
+        lookDir.y = (point.z - gameObject.GetTransform().GetGlobalPosition().z);*/
+        lookDir.x = (tarPos.x - gameObject.GetTransform().GetLocalPosition().x);
+        lookDir.y = (tarPos.z - gameObject.GetTransform().GetLocalPosition().z);
 
-    API_Vector2 normLookDir;
-    normLookDir.x = lookDir.x / sqrt(pow(lookDir.x, 2) + pow(lookDir.y, 2));
-    normLookDir.y = lookDir.y / sqrt(pow(lookDir.x, 2) + pow(lookDir.y, 2));
-    float _angle = 0;
-    _angle = atan2(normLookDir.y, normLookDir.x) * RADTODEG - 90.0f;
-    gameObject.GetTransform().SetRotation(0, -_angle, 0);
+        API_Vector2 normLookDir;
+        normLookDir.x = lookDir.x / sqrt(pow(lookDir.x, 2) + pow(lookDir.y, 2));
+        normLookDir.y = lookDir.y / sqrt(pow(lookDir.x, 2) + pow(lookDir.y, 2));
+        float _angle = 0;
+        _angle = atan2(normLookDir.y, normLookDir.x) * RADTODEG - 90.0f;
 
+        gameObject.GetTransform().SetRotation(0, -_angle, 0);
+        //gameObject.GetTransform().SetRotation(0 + _bRot.x, -_angle + _bRot.y, 0 + _bRot.z);
+    }
     enemyRb.SetVelocity(gameObject.GetTransform().GetForward() * vel);
     //gameObject.GetTransform().Translate(gameObject.GetTransform().GetForward() * vel);
 
@@ -156,39 +190,52 @@ void EnemyRanger::Seek(float vel, API_Vector3 tarPos, API_RigidBody enemyRb)
 
 void EnemyRanger::Wander(float vel, API_Vector3 point, API_RigidBody enemyRb)
 {
+  
+    if (!enemy->actStun)
+    {
+        API_Vector3 _bRot = enemy->baseRot;
+        API_Vector2 lookDir;
+        /* lookDir.x = (point.x - gameObject.GetTransform().GetGlobalPosition().x);
+        lookDir.y = (point.z - gameObject.GetTransform().GetGlobalPosition().z);*/
+        lookDir.x = (point.x - gameObject.GetTransform().GetLocalPosition().x);
+        lookDir.y = (point.z - gameObject.GetTransform().GetLocalPosition().z);
 
-    API_Vector2 lookDir;
-    lookDir.x = (point.x - gameObject.GetTransform().GetGlobalPosition().x);
-    lookDir.y = (point.z - gameObject.GetTransform().GetGlobalPosition().z);
-
-    API_Vector2 normLookDir;
-    normLookDir.x = lookDir.x / sqrt(pow(lookDir.x, 2) + pow(lookDir.y, 2));
-    normLookDir.y = lookDir.y / sqrt(pow(lookDir.x, 2) + pow(lookDir.y, 2));
-    float _angle = 0;
-    _angle = atan2(normLookDir.y, normLookDir.x) * RADTODEG - 90.0f;
-
-    gameObject.GetTransform().SetRotation(0, -_angle, 0);
+        API_Vector2 normLookDir;
+        normLookDir.x = lookDir.x / sqrt(pow(lookDir.x, 2) + pow(lookDir.y, 2));
+        normLookDir.y = lookDir.y / sqrt(pow(lookDir.x, 2) + pow(lookDir.y, 2));
+        float _angle = 0;
+        _angle = atan2(normLookDir.y, normLookDir.x) * RADTODEG - 90.0f;
+        gameObject.GetTransform().SetRotation(0, -_angle, 0);
+        //gameObject.GetTransform().SetRotation(0 + _bRot.x, -_angle + _bRot.y, 0 + _bRot.z);
+    }
     enemyRb.SetVelocity(gameObject.GetTransform().GetForward() * vel);
     //gameObject.GetTransform().Translate(gameObject.GetTransform().GetForward() * vel);
 }
 
 void EnemyRanger::Attacking(float vel, API_Vector3 tarPos, API_RigidBody enemyRb)
 {
-    API_Vector2 lookDir;
-    lookDir.x = (tarPos.x - gameObject.GetTransform().GetGlobalPosition().x);
-    lookDir.y = (tarPos.z - gameObject.GetTransform().GetGlobalPosition().z);
-
-    API_Vector2 normLookDir;
-    normLookDir.x = lookDir.x / sqrt(pow(lookDir.x, 2) + pow(lookDir.y, 2));
-    normLookDir.y = lookDir.y / sqrt(pow(lookDir.x, 2) + pow(lookDir.y, 2));
-    float _angle = 0;
-    _angle = atan2(normLookDir.y, normLookDir.x) * RADTODEG - 90.0f;
-
-    gameObject.GetTransform().SetRotation(0, -_angle, 0);
-
-    if (enemyGun != nullptr)
+   
+    if (!enemy->actStun)
     {
-        enemyGun->Shoot();
+        API_Vector3 _bRot = enemy->baseRot;
+        API_Vector2 lookDir;
+        /* lookDir.x = (point.x - gameObject.GetTransform().GetGlobalPosition().x);
+        lookDir.y = (point.z - gameObject.GetTransform().GetGlobalPosition().z);*/
+        lookDir.x = (tarPos.x - gameObject.GetTransform().GetLocalPosition().x);
+        lookDir.y = (tarPos.z - gameObject.GetTransform().GetLocalPosition().z);
+
+        API_Vector2 normLookDir;
+        normLookDir.x = lookDir.x / sqrt(pow(lookDir.x, 2) + pow(lookDir.y, 2));
+        normLookDir.y = lookDir.y / sqrt(pow(lookDir.x, 2) + pow(lookDir.y, 2));
+        float _angle = 0;
+        _angle = atan2(normLookDir.y, normLookDir.x) * RADTODEG - 90.0f;
+        gameObject.GetTransform().SetRotation(0, -_angle, 0);
+        // gameObject.GetTransform().SetRotation(0 + _bRot.x, -_angle + _bRot.y, 0 + _bRot.z);
+
+        if (enemyGun != nullptr)
+        {
+            enemyGun->Shoot();
+        }
     }
     //Console::Log(std::to_string(_angle));
 }

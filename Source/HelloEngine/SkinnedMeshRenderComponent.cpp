@@ -123,6 +123,14 @@ void SkinnedMeshRenderComponent::UpdateBones(Animation3D* animation, float anima
 	LinkBones(rootBone, _resource->meshInfo.boneDataMap, animation, float4x4::identity, animationTime);
 }
 
+void SkinnedMeshRenderComponent::SetRootBone(GameObject* nextRootBone)
+{
+	rootBone = nextRootBone;
+
+	goBonesArr.clear();
+	LinkBones(rootBone, _resource->meshInfo.boneDataMap);
+}
+
 void SkinnedMeshRenderComponent::LinkBones(GameObject* goBone, std::map<std::string, BoneData>& boneDataMap, Animation3D* animation, float4x4 parentTransform, float animationTime)
 {
 	if (boneDataMap.count(goBone->name))
@@ -209,9 +217,7 @@ void SkinnedMeshRenderComponent::Serialization(json& j)
 
 void SkinnedMeshRenderComponent::DeSerialization(json& j)
 {
-	ResourceModel* model = nullptr;
-	if (ModuleResourceManager::resources.count(j["ModelUID"]) != 0)
-		model = (ResourceModel*)ModuleResourceManager::resources[j["ModelUID"]];
+	ResourceModel* model = (ResourceModel*)ModuleResourceManager::S_LoadResource(j["ModelUID"]);
 
 	if (model == nullptr)
 	{
@@ -241,7 +247,10 @@ void SkinnedMeshRenderComponent::DeSerialization(json& j)
 	uint rootBoneUuid = j["RootBoneUuid"];
 	if (rootBoneUuid > 0)
 	{
-		rootBone = ModuleLayers::gameObjects[rootBoneUuid];
+		if (ModuleLayers::gameObjects.count(rootBoneUuid) != 0)
+			rootBone = ModuleLayers::gameObjects[rootBoneUuid];
+		else
+			rootBone = nullptr;
 		UpdateBones();
 	}
 

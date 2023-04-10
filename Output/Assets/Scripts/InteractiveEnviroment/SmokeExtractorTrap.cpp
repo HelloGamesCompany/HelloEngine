@@ -66,7 +66,7 @@ void SmokeExtractorTrap::OnCollisionEnter(API_RigidBody other)
 		{
 			PlayerStats* playerStats = (PlayerStats*)other.GetGameObject().GetScript("PlayerStats");
 
-			playerStats->TakeDamage(10.0f);
+			playerStats->TakeDamage(10.0f, 0);
 		}
 	}
 }

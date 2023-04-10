@@ -21,6 +21,7 @@ namespace API
 	class API_UIImage;
 	class API_UIInput;
 	class API_UIText;
+    class API_SkinnedMeshRenderer;
     class TO_API API_GameObject
     {
     public:
@@ -45,16 +46,20 @@ namespace API
 
         API_MeshRenderer AddMeshRenderer();
         API_MeshRenderer AddMeshRenderer(API_MeshRenderer& copy);
+        API_MeshRenderer GetMeshRenderer();
 
         API_ParticleSystem AddParticleSystem();
         API_ParticleSystem AddParticleSystem(API_ParticleSystem& copy);
+        API_ParticleSystem GetParticleSystem();
 
         API_Material AddMaterial();
-
-        API_MeshRenderer GetMeshRenderer();
         API_Material GetMaterialCompoennt();
 
-        API_ParticleSystem GetParticleSystem();
+        API_RigidBody GetRigidBody();
+
+        API_AnimationPlayer GetAnimationPlayer();
+
+        API_SkinnedMeshRenderer GetSkinnedMeshRender();
 
         void SetActive(bool active);
         bool IsActive();
@@ -90,5 +95,6 @@ namespace API
 		friend class API_UIImage;
 		friend class API_UIInput;
 		friend class API_UIText;
+        friend class API_SkinnedMeshRenderer;
     };
 }

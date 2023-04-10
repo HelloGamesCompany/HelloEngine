@@ -17,6 +17,10 @@ public:
 
     void OnCollisionEnter(API::API_RigidBody other) override;
 
+    void OpenChestOnStart();
+
+    API_AnimationPlayer chestAnimatorPlayer;
+
     float openChestTime;
     float maxOpenChestTime = 1.0f;
     bool opening;
@@ -24,6 +28,10 @@ public:
     PlayerStats* playerStats;
     PlayerMove* playerMove;
 
+    bool tutorialSpecialWeapon;
+    bool tutorialWeaponBlueprint;
+
+    int chestIndex;
     int itemIndex;
     // 0 -> Upgrade Blueprint
     // 1 -> Unlock SemiAutomatic

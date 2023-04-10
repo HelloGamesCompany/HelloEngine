@@ -4,6 +4,8 @@
 #include "TextureComponent.h"
 #include "ImWindowGame.h"
 #include "LayerEditor.h"
+#include "ComponentUIButton.h"
+#include "ComponentUICheckbox.h"
 
 ComponentUISlider::ComponentUISlider(GameObject* gameObject) : ComponentUI(gameObject)
 {
@@ -86,6 +88,11 @@ void ComponentUISlider::InputUpdate()
 			State = SliderState::NORMAL;
 		}
 	}
+}
+
+void ComponentUISlider::UpdateGamePadInput(bool selected)
+{
+	
 }
 
 void ComponentUISlider::Serialization(json& j)

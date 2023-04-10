@@ -22,6 +22,8 @@ public:
 
 	float GetRadius();
 
+	void SetAngularFactor(float3 angle);
+
 private:
 #ifdef STANDALONE
 	void OnEditor() override;
@@ -62,6 +64,7 @@ private:
 	bool _isShapeCreated[3];
 	bool _isStatic = false;
 	float _gravity[3];
+	float _angularFactor[3] = { 1.0f, 1.0f, 1.0f };
 	
 	friend class API::API_GameObject;
 	friend class API::API_RigidBody;

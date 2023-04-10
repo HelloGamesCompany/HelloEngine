@@ -7,32 +7,33 @@
 #include "API/API_UIInput.h"
 #include "API/API_UIText.h"
 #include "ArmoryWeaponSelect.h"
+#include "Player/PlayerStorage.h"
 
 class ArmoryUpgratteButtons : HelloBehavior
 {
 public:
-	void Start() override; 
-	void Update() override;
+    void Start() override;
+    void Update() override;
 
-	void Upgrade1();
-	void Upgrade2();
-	void Upgrade3();
+    void UpgradeGun();
 
-	API_UIButton Upgrate1;
-	API_UIButton Upgrate2;
-	API_UIButton Upgrate3;
+    API_UIButton Upgrate1;
+    API_UIButton Upgrate2;
+    API_UIButton Upgrate3;
 
-	API_UIInput PanelUpgrate;
+    API_UIInput PanelUpgrate;
 
-	API_GameObject currentWeapon;
-	API_UIInput SelectWeaponList;
+    API_GameObject currentWeapon;
+    API_UIInput SelectWeaponList;
 
-	API_UIText bluePrintText;
+    ArmoryWeaponSelect* weaponInstance;
+    PlayerStorage* _playerStorage;
+    API_GameObject Player;
 
-	ArmoryWeaponSelect* weaponInstance;
+    int gunIndex;
+    int gunLevel;
 
-	bool isUnlocked;
-	bool upgrade1;
-	bool upgrade2;
+    float manteinTime = 0.0f;
+    int upgradingLevel;
 };
 
