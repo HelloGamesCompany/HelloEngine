@@ -11,12 +11,13 @@ HELLO_ENGINE_API_C PlayerUltimate* CreatePlayerUltimate(ScriptToInspectorInterfa
 void PlayerUltimate::Start()
 {
     playerStats = (PlayerStats*)playerStatsGO.GetScript("PlayerStats");
+    if (playerStats == nullptr) Console::Log("PlayerStats missing in PlayerUltimate Script.");
     triggerUlt = false;
 }
 
 void PlayerUltimate::Update()
 {
-    if (playerStats->specialTreeLvl < 3) return;
+    if (playerStats && playerStats->specialTreeLvl < 3) return;
 
     if (Input::GetKey(KeyCode::KEY_F) == KeyState::KEY_DOWN)
     {
