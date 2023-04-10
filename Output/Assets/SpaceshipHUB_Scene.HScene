@@ -10470,6 +10470,12 @@
                 "Inspector Fields": [
                     {
                         "Scene path and name: ": "LVL1_Blockout.HScene"
+                    },
+                    {
+                        "Scene path and name: ": "LVL1_Blockout.HScene"
+                    },
+                    {
+                        "Scene path and name: ": "LVL1_Blockout.HScene"
                     }
                 ],
                 "Script Resource": 1471858871,
@@ -10585,6 +10591,93 @@
                         "Y tp limit": -50.0
                     },
                     {
+                        "Rigid Body": 4290975610
+                    },
+                    {
+                        "Dash Time": 0.5
+                    },
+                    {
+                        "Dash Distance": 5.0
+                    },
+                    {
+                        "Upgrade Dash Distance": 8.0
+                    },
+                    {
+                        "Dash Cooldown": 0.0
+                    },
+                    {
+                        "Upgrade Dash Cooldown": 0.0
+                    },
+                    {
+                        "AnimationPlayer": 3431343063
+                    },
+                    {
+                        "Dash Animation": 3786266361
+                    },
+                    {
+                        "Player Stats GO": 4290975610
+                    },
+                    {
+                        "Velocity": 10.0
+                    },
+                    {
+                        "Upgrade Velocity": 2.0
+                    },
+                    {
+                        "SecToMaxVel": 0.0
+                    },
+                    {
+                        "SecToZeroVel": 0.0
+                    },
+                    {
+                        "Y tp limit": -50.0
+                    },
+                    {
+                        "Rigid Body": 4290975610
+                    },
+                    {
+                        "Dash Time": 0.5
+                    },
+                    {
+                        "Dash Distance": 5.0
+                    },
+                    {
+                        "Upgrade Dash Distance": 8.0
+                    },
+                    {
+                        "Dash Cooldown": 0.0
+                    },
+                    {
+                        "Upgrade Dash Cooldown": 0.0
+                    },
+                    {
+                        "AnimationPlayer": 3431343063
+                    },
+                    {
+                        "Dash Animation": 3786266361
+                    },
+                    {
+                        "Player Stats GO": 4290975610
+                    },
+                    {
+                        "Velocity": 10.0
+                    },
+                    {
+                        "Upgrade Velocity": 2.0
+                    },
+                    {
+                        "SecToMaxVel": 0.0
+                    },
+                    {
+                        "SecToZeroVel": 0.0
+                    },
+                    {
+                        "Y tp limit": -50.0
+                    },
+                    {
+                        "Rigid Body": 4290975610
+                    },
+                    {
                         "Dash Time": 0.5
                     },
                     {
@@ -10625,6 +10718,9 @@
                         "Upgraded Max HP": 0.0
                     },
                     {
+                        "Resistance": 100.0
+                    },
+                    {
                         "Deadline Percentage": 20.0
                     },
                     {
@@ -10649,19 +10745,76 @@
                         "Fire Ammo": 99999
                     },
                     {
-                        "Ricochet Ammo": 99999
+                        "Max HP": 100.0
                     },
                     {
-                        "movement tree lvl": 0
+                        "Current HP": 0.0
                     },
                     {
-                        "armory tree lvl": 0
+                        "Upgraded Max HP": 0.0
                     },
                     {
-                        "health tree lvl": 0
+                        "Resistance": 100.0
                     },
                     {
-                        "special tree lvl": 0
+                        "Deadline Percentage": 20.0
+                    },
+                    {
+                        "Upgraded Deadline Percentage": 25.0
+                    },
+                    {
+                        "Deadline Heal Amount": 5.0
+                    },
+                    {
+                        "Upgraded Deadline Heal Amount": 7.5
+                    },
+                    {
+                        "Aid Kit Heal Amount": 50.0
+                    },
+                    {
+                        "Upgraded Aid Kit Heal Amount": 75.0
+                    },
+                    {
+                        "Laser Ammo": 99999
+                    },
+                    {
+                        "Fire Ammo": 99999
+                    },
+                    {
+                        "Max HP": 100.0
+                    },
+                    {
+                        "Current HP": 0.0
+                    },
+                    {
+                        "Upgraded Max HP": 0.0
+                    },
+                    {
+                        "Resistance": 100.0
+                    },
+                    {
+                        "Deadline Percentage": 20.0
+                    },
+                    {
+                        "Upgraded Deadline Percentage": 25.0
+                    },
+                    {
+                        "Deadline Heal Amount": 5.0
+                    },
+                    {
+                        "Upgraded Deadline Heal Amount": 7.5
+                    },
+                    {
+                        "Aid Kit Heal Amount": 50.0
+                    },
+                    {
+                        "Upgraded Aid Kit Heal Amount": 75.0
+                    },
+                    {
+                        "Laser Ammo": 99999
+                    },
+                    {
+                        "Fire Ammo": 99999
                     }
                 ],
                 "Script Resource": 4283682555,
@@ -16971,6 +17124,12 @@
                 "Inspector Fields": [
                     {
                         "hp": false
+                    },
+                    {
+                        "hp": false
+                    },
+                    {
+                        "hp": false
                     }
                 ],
                 "Script Resource": 1164455694,
@@ -17195,6 +17354,30 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Game Bar Weapon 1": 3388116125
+                    },
+                    {
+                        "Game Bar Weapon 2": 3405447488
+                    },
+                    {
+                        "Game Bar Weapon 3": 3043836677
+                    },
+                    {
+                        "Material_Dash": 2702449615
+                    },
+                    {
+                        "Game Bar Weapon 1": 3388116125
+                    },
+                    {
+                        "Game Bar Weapon 2": 3405447488
+                    },
+                    {
+                        "Game Bar Weapon 3": 3043836677
+                    },
+                    {
+                        "Material_Dash": 2702449615
+                    },
                     {
                         "Game Bar Weapon 1": 3388116125
                     },
@@ -17855,6 +18038,66 @@
                     },
                     {
                         "Use safe zone: ": false
+                    },
+                    {
+                        "Target": 4290975610
+                    },
+                    {
+                        "Delay": 0.10000000149011612
+                    },
+                    {
+                        "Offset_X": 0.0
+                    },
+                    {
+                        "Offset_Y": 10.0
+                    },
+                    {
+                        "Offset_Z": -7.0
+                    },
+                    {
+                        "Rot_X": 50.0
+                    },
+                    {
+                        "Rot_Y": 0.0
+                    },
+                    {
+                        "Rot_Z": 0.0
+                    },
+                    {
+                        "SafeZone_Distance": 10.0
+                    },
+                    {
+                        "Use safe zone: ": false
+                    },
+                    {
+                        "Target": 4290975610
+                    },
+                    {
+                        "Delay": 0.10000000149011612
+                    },
+                    {
+                        "Offset_X": 0.0
+                    },
+                    {
+                        "Offset_Y": 10.0
+                    },
+                    {
+                        "Offset_Z": -7.0
+                    },
+                    {
+                        "Rot_X": 50.0
+                    },
+                    {
+                        "Rot_Y": 0.0
+                    },
+                    {
+                        "Rot_Z": 0.0
+                    },
+                    {
+                        "SafeZone_Distance": 10.0
+                    },
+                    {
+                        "Use safe zone: ": false
                     }
                 ],
                 "Script Resource": 2306703736,
@@ -18265,5 +18508,740 @@
         "PrefabUID": 0,
         "Tag": "Default",
         "UID": 4254459913
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    -1.991290807723999
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    50.0,
+                    50.0,
+                    50.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 13,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 2595676033,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "BlackExetrior",
+        "ParentUID": 2830428646,
+        "PrefabUID": 0,
+        "Tag": "Primitive",
+        "UID": 2812114293
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "_BlackExteriorGroup",
+        "ParentUID": 2830428646,
+        "PrefabUID": 54949993,
+        "Tag": "Default",
+        "UID": 1054388596
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -19.5,
+                    3.0,
+                    10.0
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    10.0,
+                    9.999795913696289,
+                    9.999795913696289
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 13,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 2595676033,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Plane",
+        "ParentUID": 1054388596,
+        "PrefabUID": 54949993,
+        "Tag": "Primitive",
+        "UID": 2302386180
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -10.644030570983887,
+                    3.0,
+                    -0.3578071594238281
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    5.0,
+                    4.999948501586914,
+                    4.999948501586914
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 13,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 2595676033,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Plane",
+        "ParentUID": 1054388596,
+        "PrefabUID": 54949993,
+        "Tag": "Primitive",
+        "UID": 1953783763
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -5.390180587768555,
+                    3.0,
+                    1.113783597946167
+                ],
+                "Rotation": [
+                    -90.00004577636719,
+                    2.219811358372681e-05,
+                    -45.000099182128906
+                ],
+                "Scale": [
+                    2.180000066757202,
+                    2.580000638961792,
+                    2.1800005435943604
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 13,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 2595676033,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Plane",
+        "ParentUID": 1054388596,
+        "PrefabUID": 54949993,
+        "Tag": "Primitive",
+        "UID": 2765099503
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -7.0032124519348145,
+                    3.0,
+                    -4.1058807373046875
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    5.0,
+                    4.999887943267822,
+                    4.999887943267822
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 13,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 2595676033,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Plane",
+        "ParentUID": 1054388596,
+        "PrefabUID": 54949993,
+        "Tag": "Primitive",
+        "UID": 4263324347
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -10.75518798828125,
+                    3.0,
+                    19.480440139770508
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    5.0,
+                    4.999914169311523,
+                    4.999914169311523
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 13,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 2595676033,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Plane",
+        "ParentUID": 1054388596,
+        "PrefabUID": 54949993,
+        "Tag": "Primitive",
+        "UID": 168433627
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -5.768746852874756,
+                    3.0,
+                    21.561784744262695
+                ],
+                "Rotation": [
+                    -90.00008392333984,
+                    1.707547198748216e-06,
+                    45.00006866455078
+                ],
+                "Scale": [
+                    5.000000953674316,
+                    4.999990463256836,
+                    4.999987602233887
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 13,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 2595676033,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Plane",
+        "ParentUID": 1054388596,
+        "PrefabUID": 54949993,
+        "Tag": "Primitive",
+        "UID": 1256827287
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    3.0,
+                    23.212390899658203
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    5.0,
+                    4.999964237213135,
+                    4.999964237213135
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 13,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 2595676033,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Plane",
+        "ParentUID": 1054388596,
+        "PrefabUID": 54949993,
+        "Tag": "Primitive",
+        "UID": 203826818
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    19.015220642089844
+                ],
+                "Rotation": [
+                    -179.99989318847656,
+                    0.9999998211860657,
+                    -179.99989318847656
+                ],
+                "Scale": [
+                    0.999979555606842,
+                    1.0,
+                    0.999979555606842
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "_BlackExteriorGroup",
+        "ParentUID": 2830428646,
+        "PrefabUID": 54949993,
+        "Tag": "Default",
+        "UID": 3152569213
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -19.5,
+                    3.0,
+                    10.0
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    10.0,
+                    9.999795913696289,
+                    9.999795913696289
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 13,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 2595676033,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Plane",
+        "ParentUID": 3152569213,
+        "PrefabUID": 54949993,
+        "Tag": "Primitive",
+        "UID": 3602418081
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -10.644030570983887,
+                    3.0,
+                    -0.3179817199707031
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    5.0,
+                    4.999965190887451,
+                    4.999965190887451
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 13,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 2595676033,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Plane",
+        "ParentUID": 3152569213,
+        "PrefabUID": 54949993,
+        "Tag": "Primitive",
+        "UID": 3628934677
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -5.323450088500977,
+                    3.0,
+                    1.2310655117034912
+                ],
+                "Rotation": [
+                    -90.0,
+                    -1.707547198748216e-06,
+                    -45.00006866455078
+                ],
+                "Scale": [
+                    2.180000066757202,
+                    2.5799999237060547,
+                    2.180000066757202
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 13,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 2595676033,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Plane",
+        "ParentUID": 3152569213,
+        "PrefabUID": 54949993,
+        "Tag": "Primitive",
+        "UID": 2904927512
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -6.820839881896973,
+                    3.0,
+                    -4.1058807373046875
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    5.0,
+                    4.999904632568359,
+                    4.999904632568359
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 13,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 2595676033,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Plane",
+        "ParentUID": 3152569213,
+        "PrefabUID": 54949993,
+        "Tag": "Primitive",
+        "UID": 2538278903
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -10.635753631591797,
+                    3.0,
+                    19.392738342285156
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    1.6651243868182064e-06,
+                    -2.1345042000575631e-07
+                ],
+                "Scale": [
+                    5.0,
+                    4.9998955726623535,
+                    4.9998955726623535
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 13,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 2595676033,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Plane",
+        "ParentUID": 3152569213,
+        "PrefabUID": 54949993,
+        "Tag": "Primitive",
+        "UID": 1086111842
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -7.2671709060668945,
+                    2.9998843669891357,
+                    19.815231323242188
+                ],
+                "Rotation": [
+                    -90.00007629394531,
+                    -2.3905660782475024e-05,
+                    45.00013732910156
+                ],
+                "Scale": [
+                    5.0000104904174805,
+                    2.700000047683716,
+                    4.300009250640869
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 13,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 2595676033,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Plane",
+        "ParentUID": 3152569213,
+        "PrefabUID": 54949993,
+        "Tag": "Primitive",
+        "UID": 3293305802
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -6.8090057373046875,
+                    3.0000133514404297,
+                    23.10305404663086
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    8.242625881393906e-06,
+                    -3.287063918833155e-06
+                ],
+                "Scale": [
+                    5.0,
+                    4.999888896942139,
+                    4.999888896942139
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 13,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 2595676033,
+                "Type": 3
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Plane",
+        "ParentUID": 3152569213,
+        "PrefabUID": 54949993,
+        "Tag": "Primitive",
+        "UID": 709111377
     }
 ]
