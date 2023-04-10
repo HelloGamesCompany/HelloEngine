@@ -12,6 +12,7 @@ HELLO_ENGINE_API_C BarrierSpawner* CreateBarrierSpawner(ScriptToInspectorInterfa
 	script->AddDragBoxTextureResource("Lamps Texture Spawn Alive", &classInstance->materialLamps);
 	script->AddDragBoxTextureResource("Lamp 1 Text Spawn Destroy", &classInstance->materialLamp1);
 	script->AddDragBoxTextureResource("Lamp 2 Text Spawn Destroy", &classInstance->materialLamp2);
+	script->AddDragBoxRigidBody("Barrier Collider", &classInstance->barrierRb);
 
 	return classInstance;
 }
@@ -19,7 +20,7 @@ HELLO_ENGINE_API_C BarrierSpawner* CreateBarrierSpawner(ScriptToInspectorInterfa
 void BarrierSpawner::Start()
 {
 	enemyMeleeSpawner1Ref = (EnemyMeleeSpawner*)spawner1.GetScript("EnemyMeleeSpawner");
-	enemyMeleeSpawner1Ref = (EnemyMeleeSpawner*)spawner2.GetScript("EnemyMeleeSpawner");
+	enemyMeleeSpawner2Ref = (EnemyMeleeSpawner*)spawner2.GetScript("EnemyMeleeSpawner");
 	Lamp1.GetMaterialCompoennt().ChangeAlbedoTexture(materialLamps);
 	Lamp2.GetMaterialCompoennt().ChangeAlbedoTexture(materialLamps);
 }
@@ -36,4 +37,10 @@ void BarrierSpawner::Update()
 		Lamp2TextChanged = true;
 	}
 	
+	if (Lamp1TextChanged && Lamp2TextChanged && !collAsTrigger)
+	{
+		barrierRb.GetGameObject().GetMeshRenderer().SetActive(false);
+		barrierRb.SetTrigger(true);
+		collAsTrigger = true;
+	}
 }
