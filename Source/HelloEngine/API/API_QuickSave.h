@@ -48,5 +48,11 @@ namespace API
 		/// </summary>
 		/// <param name="name">: There will ignore all spacebacks</param>
 		static int GetInt(const std::string name, const int defaultValue = 0);
+
+		static void ResetAll();
+		static void ResetBool();
+		static void ResetFloat();
+		static void ResetInt();
+		static void ResetString();
 	};
 }

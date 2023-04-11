@@ -34,6 +34,7 @@ void ArmoryUnlock::Start()
     }
 
     Unlock.SetBlocked(!haveBlueprint);
+    gameObject.SetActive(false);
 }
 
 void ArmoryUnlock::Update()
