@@ -28,7 +28,8 @@ void ComponentUIButton::InputUpdate()
     switch (State)
     {
     case ButtonState::NORMAL:
-        _material->ChangeTexture(textureIDIdle);
+        if (isBlocked) _material->ChangeTexture(textureIDBlocked);
+        else _material->ChangeTexture(textureIDIdle);
         gameTimeCopy = EngineTime::GameTimeCount();
         break;
     case ButtonState::HOVERED:
