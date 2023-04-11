@@ -33,7 +33,7 @@ void ArmoryUnlock::Start()
         break;
     }
 
-    //Unlock.SetBlocked(!haveBlueprint);
+    Unlock.SetBlocked(!haveBlueprint);
 }
 
 void ArmoryUnlock::Update()
@@ -82,7 +82,7 @@ void ArmoryUnlock::Update()
         }
     }
     
-    if (Unlock.OnPress() && manteinTime == 0.0f/* && haveBlueprint*/)
+    if (Unlock.OnPress() && manteinTime == 0.0f && haveBlueprint)
     {
         manteinTime = 1.0f;
     }
