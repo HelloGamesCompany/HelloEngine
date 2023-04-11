@@ -50,8 +50,7 @@ void QuickSave::SetInt(std::string name, int value)
 bool QuickSave::GetBool(std::string name, bool defaultValue)
 {
     std::string value = GetValue(name, std::to_string(defaultValue), nBool);
-    bool bValue = value == "true";
-    return bValue;
+    return (value == "true");
 }
 
 std::string QuickSave::GetString(std::string name, std::string defaultValue)
@@ -143,6 +142,8 @@ XMLNode QuickSave::GetRootNodeInt()
 
 void QuickSave::SetValue(std::string name, std::string value, XMLNode& node)
 {
+    name.erase(std::remove(name.begin(), name.end(), ' '), name.end());
+
     XMLNode n = node.FindChildBreadth(name);
 
     // If there wasn't any node with the given name, create one.
@@ -160,6 +161,8 @@ void QuickSave::SetValue(std::string name, std::string value, XMLNode& node)
 
 std::string QuickSave::GetValue(std::string name, std::string value, XMLNode& node)
 {
+    name.erase(std::remove(name.begin(), name.end(), ' '), name.end());
+
      XMLNode n = node.FindChildBreadth(name);
      std::string ret = value;
 
