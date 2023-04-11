@@ -16,7 +16,6 @@ class ComponentUIInput : public ComponentUI
 	void Serialization(json& j) override;
 	void DeSerialization(json& j) override;
 
-	bool _isComponentEnable;
 
 	std::vector<ComponentUI*> _listButtons;
 

@@ -5,20 +5,35 @@
 
 #include "API/API.h"
 #include "Enemy.h"
+#include "EnemyGun.h"
 
 class EnemyTank : HelloBehavior
 {
 public:
 
 	enum class States {
+		WANDERING,
 		TARGETING,
-		ATTACKIG
+		ATTACKING
 	};
+
+	void Recovering();
 
 	void Start() override;
 	void Update() override;
 
 	float TakeDamageTank(float life, float damage);
+	void CheckDistance();
+	void ReturnToZone();
+	void MoveToDirection(float pointX, float pointY, float velocity);
+	void EscapeFromDirection(float pointX, float pointY, float velocity);
+
+	void ProtectEnemy();
+	//void OnCollisionEnter(API::API_RigidBody other) override;
+
+	void Wander();
+	void Seek();
+	void Attack();
 
 	/*void Seek(float vel, API_Vector3 tarPos, API_RigidBody rb);
 	void Attacking(float vel, API_Vector3 tarPos, API_RigidBody rb);*/
@@ -32,11 +47,47 @@ public:
 
 	//API_GameObject tank;
 	Enemy* enemyScript;
+
+	EnemyGun* enemyGun = nullptr;
+	API_GameObject gunObj;
+	int gunType;
+	States state;
+
+	float detectionDistance;
+	/*float walkVelocity;
+	float seekVelocity;*/
+	API_Vector3 initialPosition;
+	float initPosRange;
+	API_GameObject target;
+
+	API_GameObject actionZone;
+	API_RigidBody zoneRb;
+
+	float attackRange;
+	float approximateRange;
+	float separateRange;
+	float returnToZoneDistance;
+
+	//API_GameObject enemyToProtect;
+	//bool test;
+	float testingFloat1;
+	float testingFloat2;
+	float testingFloat3;
+	float testingFloat4;
+	float testingFloat5;
+
+	API_GameObject protectedEnemy;
+	float alliesDistance;
+
+	bool isProtectingAlly;
+
 private:
 	bool isRecoveringShield;
 	bool isRestoringHealth;
 	bool hasToRestoreHealth;
 	float shieldRecoverCounter;
 	float healthRestoreCounter;
+	float targetDistance;
+	bool isReturning;
 };
 

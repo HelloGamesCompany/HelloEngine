@@ -45,3 +45,28 @@ int API::API_QuickSave::GetInt(const std::string name, const int defaultValue)
 {
 	return 	QuickSave::GetInt(name.c_str(), defaultValue);
 }
+
+void API::API_QuickSave::ResetAll()
+{
+	QuickSave::ResetAllNodes();
+}
+
+void API::API_QuickSave::ResetBool()
+{
+	QuickSave::ResetBoolNode();
+}
+
+void API::API_QuickSave::ResetFloat()
+{
+	QuickSave::ResetFloatNode();
+}
+
+void API::API_QuickSave::ResetInt()
+{
+	QuickSave::ResetIntNode();
+}
+
+void API::API_QuickSave::ResetString()
+{
+	QuickSave::ResetStringNode();
+}

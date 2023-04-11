@@ -43,9 +43,11 @@ void PlayerGunManager::Start()
     guns.push_back(ricochet);
 
     // get start guns
-    GetGun(1, gunOnHandIndex1);
-    GetGun(2, gunOnHandIndex2);
-    GetGun(3, gunOnHandIndex3);
+    GetGun(1, 0);
+    int equipedNormalGun = API_QuickSave::GetInt("equipedNormalGun");
+    if (equipedNormalGun < -1 || equipedNormalGun > 5) equipedNormalGun = -1;
+    GetGun(2, equipedNormalGun);
+    GetGun(3, -1);
 
     // start with base gun selected
     UnequipGun(0);

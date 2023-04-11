@@ -3,12 +3,20 @@
 	<Bool>
 		<default value="0" />
 		<test value="true" />
+		<level1_chest1 value="false" />
+		<automaticGunBlueprint value="true" />
+		<level1_casette1 value="false" />
+		<level1_casette2 value="false" />
+		<level1_casette3 value="false" />
 	</Bool>
 	<String>
 		<default value="default" />
 	</String>
 	<Int>
 		<default value="0" />
+		<level1_chest1_content value="1" />
+		<skillPointsAmount value="0" />
+		<upgradeBlueprintAmount value="0" />
 	</Int>
 	<Float>
 		<default value="1.0f" />

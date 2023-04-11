@@ -50,8 +50,7 @@ void QuickSave::SetInt(std::string name, int value)
 bool QuickSave::GetBool(std::string name, bool defaultValue)
 {
     std::string value = GetValue(name, std::to_string(defaultValue), nBool);
-    bool bValue = value == "true";
-    return bValue;
+    return (value == "true");
 }
 
 std::string QuickSave::GetString(std::string name, std::string defaultValue)
@@ -96,7 +95,7 @@ bool QuickSave::GetBool(const char* name, bool defaultValue)
 {
     std::string value = GetValue(name, std::to_string(defaultValue), nBool);
 
-    return (value == "1");
+    return (value == "true");
 }
 
 const char* QuickSave::GetString(const char* name, const char* defaultValue)
@@ -141,8 +140,58 @@ XMLNode QuickSave::GetRootNodeInt()
     return nInt;
 }
 
+void QuickSave::ResetAllNodes()
+{
+    ResetBoolNode();
+    ResetFloatNode();
+    ResetIntNode();
+    ResetStringNode();
+}
+
+void QuickSave::ResetBoolNode()
+{
+    while (nBool.node.first_child()) 
+    {
+        nBool.node.remove_child(nBool.node.first_child());
+    }
+
+    nBool.Save();
+}
+
+void QuickSave::ResetFloatNode()
+{
+    while (nFloat.node.first_child())
+    {
+        nFloat.node.remove_child(nFloat.node.first_child());
+    }
+
+    nFloat.Save();
+}
+
+void QuickSave::ResetIntNode()
+{
+    while (nInt.node.first_child())
+    {
+        nInt.node.remove_child(nInt.node.first_child());
+    }
+
+    nInt.Save();
+}
+
+void QuickSave::ResetStringNode()
+{
+    while (nString.node.first_child())
+    {
+        nString.node.remove_child(nString.node.first_child());
+    }
+
+    nString.Save();
+}
+
 void QuickSave::SetValue(std::string name, std::string value, XMLNode& node)
 {
+    name.erase(std::remove(name.begin(), name.end(), ' '), name.end());
+
     XMLNode n = node.FindChildBreadth(name);
 
     // If there wasn't any node with the given name, create one.
@@ -160,11 +209,14 @@ void QuickSave::SetValue(std::string name, std::string value, XMLNode& node)
 
 std::string QuickSave::GetValue(std::string name, std::string value, XMLNode& node)
 {
+    name.erase(std::remove(name.begin(), name.end(), ' '), name.end());
+
      XMLNode n = node.FindChildBreadth(name);
      std::string ret = value;
 
     // If there wasnt any node with the given name, return default value.
-    if (n != node) ret = n.node.attribute("value").as_string();
+    if (n != node) 
+        ret = n.node.attribute("value").as_string();
     
     return ret;
 }

@@ -14,8 +14,10 @@ namespace API
 
 		API_GameObject GetGameObject();
 
+		///Returns true the first frame is pressed
 		bool OnPress();
 
+		///Returns true every frame it is pressed.
 		bool OnHold();
 
 		bool OnHovered();
@@ -23,6 +25,8 @@ namespace API
 		bool getIsBlocked();
 
 		void SetBlocked(bool);
+
+		bool OnRelease();
 	
 	private:
 		ComponentUIButton* GetComponent();

@@ -160,6 +160,7 @@
     <ClCompile Include="..\..\Assets\Scripts\EbonyMaw\BossMovement.cpp" />
     <ClCompile Include="..\..\Assets\Scripts\EbonyMaw\RockDivider.cpp" />
     <ClCompile Include="..\..\Assets\Scripts\EbonyMaw\Stone.cpp" />
+    <ClCompile Include="..\..\Assets\Scripts\Enemies\AllyEnemiesDetection.cpp" />
     <ClCompile Include="..\..\Assets\Scripts\Enemies\EnemyGuns\EnemyAutomatic.cpp" />
     <ClCompile Include="..\..\Assets\Scripts\Enemies\EnemyMeleeMovement.cpp" />
     <ClCompile Include="..\..\Assets\Scripts\Enemies\EnemyProjectile.cpp" />
@@ -180,6 +181,7 @@
     <ClCompile Include="..\..\Assets\Scripts\Shooting\Guns\PlayerRicochet.cpp" />
     <ClCompile Include="..\..\Assets\Scripts\Shooting\Guns\PlayerSemiAuto.cpp" />
     <ClCompile Include="..\..\Assets\Scripts\Shooting\Guns\PlayerShotgun.cpp" />
+    <ClCompile Include="..\..\Assets\Scripts\UI Test folder\Armory\DisplayUpgradeBpAmount.cpp" />
     <ClCompile Include="..\..\Assets\Scripts\UI Test folder\DashUI.cpp" />
     <ClCompile Include="..\..\Assets\Scripts\UI Test folder\HpBar.cpp" />
     <ClCompile Include="..\..\Assets\Scripts\UI Test folder\PlayerIndicator.cpp" />
@@ -215,6 +217,10 @@
     <ClCompile Include="../../Assets/Scripts/InteractiveEnviroment/CasetteManager.cpp" />
     <ClCompile Include="../../Assets/Scripts/InteractiveEnviroment/ChestManager.cpp" />
     <ClCompile Include="../../Assets/Scripts/AbilitySelect.cpp" />
+    <ClCompile Include="../../Assets/Scripts/Enemies/EnemyMeleeAttackZone.cpp" />
+    <ClCompile Include="../../Assets/Scripts/InteractiveEnviroment/BarrierSpawner.cpp" />
+    <ClCompile Include="../../Assets/Scripts/InteractiveEnviroment/OpenMenuInterruptor.cpp" />
+    <ClCompile Include="../../Assets/temp/QuickSave/SaveTest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Assets\Scripts\EbonyMaw\BossAttacks.h" />
@@ -222,6 +228,7 @@
     <ClInclude Include="..\..\Assets\Scripts\EbonyMaw\BossMovement.h" />
     <ClInclude Include="..\..\Assets\Scripts\EbonyMaw\RockDivider.h" />
     <ClInclude Include="..\..\Assets\Scripts\EbonyMaw\Stone.h" />
+    <ClInclude Include="..\..\Assets\Scripts\Enemies\AllyEnemiesDetection.h" />
     <ClInclude Include="..\..\Assets\Scripts\Enemies\EnemyGuns\EnemyAutomatic.h" />
     <ClInclude Include="..\..\Assets\Scripts\Enemies\EnemyMeleeMovement.h" />
     <ClInclude Include="..\..\Assets\Scripts\Enemies\EnemyProjectile.h" />
@@ -242,6 +249,7 @@
     <ClInclude Include="..\..\Assets\Scripts\Shooting\Guns\PlayerRicochet.h" />
     <ClInclude Include="..\..\Assets\Scripts\Shooting\Guns\PlayerSemiAuto.h" />
     <ClInclude Include="..\..\Assets\Scripts\Shooting\Guns\PlayerShotgun.h" />
+    <ClInclude Include="..\..\Assets\Scripts\UI Test folder\Armory\DisplayUpgradeBpAmount.h" />
     <ClInclude Include="..\..\Assets\Scripts\UI Test folder\DashUI.h" />
     <ClInclude Include="..\..\Assets\Scripts\UI Test folder\HpBar.h" />
     <ClInclude Include="..\..\Assets\Scripts\UI Test folder\PlayerIndicator.h" />
@@ -297,6 +305,10 @@
     <ClInclude Include="../../Assets/Scripts/InteractiveEnviroment/CasetteManager.h" />
     <ClInclude Include="../../Assets/Scripts/InteractiveEnviroment/ChestManager.h" />
     <ClInclude Include="../../Assets/Scripts/AbilitySelect.h" />
+    <ClInclude Include="../../Assets/Scripts/Enemies/EnemyMeleeAttackZone.h" />
+    <ClInclude Include="../../Assets/Scripts/InteractiveEnviroment/BarrierSpawner.h" />
+    <ClInclude Include="../../Assets/Scripts/InteractiveEnviroment/OpenMenuInterruptor.h" />
+    <ClInclude Include="../../Assets/temp/QuickSave/SaveTest.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />

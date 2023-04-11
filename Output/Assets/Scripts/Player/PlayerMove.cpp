@@ -70,10 +70,6 @@ void PlayerMove::Update()
     if (playerStats && playerStats->slowTimePowerUp > 0.0f /*&& !paused*/) dt = Time::GetRealTimeDeltaTime();
     else dt = Time::GetDeltaTime();
 
-    if (openingChest || (playerStats && playerStats->hittedTime > 0.0f)) return; // can't do other actions while is opening a chest or been hitted
-
-    Aim();
-
     // impulse
     if (impulseTime > 0.0f)
     {
@@ -89,6 +85,10 @@ void PlayerMove::Update()
             return; // can't do other actions while is been impulsed
         }
     }
+
+    if (openingChest || (playerStats && playerStats->hittedTime > 0.0f)) return; // can't do other actions while is opening a chest or been hitted
+
+    Aim();
 
     if (Input::GetGamePadAxis(GamePadAxis::AXIS_TRIGGERRIGHT) < 5000 || isSwapingGun)
     {
@@ -173,21 +173,41 @@ void PlayerMove::Update()
     input *= currentVel;
     rigidBody.SetVelocity(API_Vector3(input.x, 0.0f, input.y));
 
+    if (specialIdleActive && specialIdleTime > 0.0f)
+    {
+        specialIdleTime -= dt;
+
+        if (specialIdleTime <= 0.0f)
+        {
+            specialIdleActive = false;
+            specialIdleTime = 0.0f;
+        }
+    }
+
     if (currentVel <= 0.0f && currentAnim != PlayerAnims::IDLE && !isShooting && !isSwapingGun) //NO INPUT
     {
         float random = rand() % 100;
         if (random < 5.0f)
         {
             playerAnimator.ChangeAnimation(idle2Anim);
+            specialIdleActive = true;
         }
         else if (random < 10.0f)
         {
             playerAnimator.ChangeAnimation(idle3Anim);
+            specialIdleActive = true;
         }
         else
         {
             playerAnimator.ChangeAnimation(idle1Anim);
         }
+        playerAnimator.Play();
+        currentAnim = PlayerAnims::IDLE;
+    }
+    else if (currentVel <= 0.0f && specialIdleTime == 0.0f && !isShooting && !isSwapingGun) //NO INPUT
+    {
+        specialIdleTime = 1.0f;
+        playerAnimator.ChangeAnimation(idle1Anim);
         playerAnimator.Play();
         currentAnim = PlayerAnims::IDLE;
     }
@@ -659,7 +679,7 @@ void PlayerMove::RecieveImpulse(API_Vector3 direction, float impulseDuration, fl
 void PlayerMove::PlayShootAnim(int gunIndex)
 {
     isShooting = true;
-
+    
     if (currentAnim != PlayerAnims::SHOOT)
     {
         playerAnimator.ChangeAnimation(shootAnim[gunIndex]);

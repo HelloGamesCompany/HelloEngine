@@ -21,7 +21,7 @@ class ComponentUIButton : public ComponentUI
 	void Serialization(json& j) override;
 	void DeSerialization(json& j) override;
 
-	void UpdateGamePadInput(std::vector<ComponentUI*>& _listButtons, int buttonSelected) override;
+	void UpdateGamePadInput(bool selected) override;
 
 	ButtonState ChangeState(ButtonState State);
 
@@ -31,6 +31,8 @@ class ComponentUIButton : public ComponentUI
 	bool isBlocked = false;
 	bool isBlockedInspector = false;
 
+	bool isPress = true;
+	bool isReleased = false;
 private:
 	double gameTimeCopy = 0;
 	float colors[4] = { 0,0,0,0 };
@@ -48,7 +50,6 @@ private:
 	ResourceTexture* pressButton = nullptr;
 	ResourceTexture* blockedButton = nullptr;
 
-	bool isPress = true;
 	bool AisPress = true;
 
 

@@ -123,9 +123,12 @@ void SkinnedMeshRenderComponent::UpdateBones(Animation3D* animation, float anima
 	LinkBones(rootBone, _resource->meshInfo.boneDataMap, animation, float4x4::identity, animationTime);
 }
 
-void SkinnedMeshRenderComponent::SetRootBone(GameObject nextRootBone)
+void SkinnedMeshRenderComponent::SetRootBone(GameObject* nextRootBone)
 {
-	rootBone = &nextRootBone;
+	rootBone = nextRootBone;
+
+	goBonesArr.clear();
+	LinkBones(rootBone, _resource->meshInfo.boneDataMap);
 }
 
 void SkinnedMeshRenderComponent::LinkBones(GameObject* goBone, std::map<std::string, BoneData>& boneDataMap, Animation3D* animation, float4x4 parentTransform, float animationTime)
@@ -244,7 +247,10 @@ void SkinnedMeshRenderComponent::DeSerialization(json& j)
 	uint rootBoneUuid = j["RootBoneUuid"];
 	if (rootBoneUuid > 0)
 	{
-		rootBone = ModuleLayers::gameObjects[rootBoneUuid];
+		if (ModuleLayers::gameObjects.count(rootBoneUuid) != 0)
+			rootBone = ModuleLayers::gameObjects[rootBoneUuid];
+		else
+			rootBone = nullptr;
 		UpdateBones();
 	}
 

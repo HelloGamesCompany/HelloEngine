@@ -424,7 +424,7 @@ GameObject* ModuleResourceManager::S_DeserializeFromPrefab(const std::string& fi
 
 	for (int i = 0; i < temp.size(); i++)
 	{
-		if (temp[i].second != 0)
+		if (temp[i].second != 0 && ModuleLayers::gameObjects.count(temp[i].second) != 0)
 			temp[i].first->SetParent(ModuleLayers::gameObjects[temp[i].second]);
 		else if (!loadingScene)
 			temp[i].first->SetParent(parent);
@@ -661,6 +661,9 @@ bool ModuleResourceManager::S_DeserializeScene(const std::string& filePath)
 	ModuleLayers::rootGameObject = temp[0].first;
 
 	Application::Instance()->xml->GetConfigXML().FindChildBreadth("currentScene").node.attribute("value").set_value(filePath.c_str());
+
+	if (LayerGame::S_IsPlaying())
+		LayerGame::StartAllScripts();
 
 	return true;
 }
