@@ -68,6 +68,7 @@ void ComponentUIButton::Serialization(json& j)
     _j["hoverImage"] = hoverButton ? hoverButton->UID : 0;
     _j["pressImage"] = pressButton ? pressButton->UID : 0;
     _j["blockImage"] = blockedButton ? blockedButton->UID : 0;
+    SaveMeshState(_j);
     j["Components"].push_back(_j);
 }
 
@@ -113,6 +114,8 @@ void ComponentUIButton::DeSerialization(json& j)
     }
 
     State = j["State"];
+
+    LoadMeshState(j);
 
     switch (State)
     {

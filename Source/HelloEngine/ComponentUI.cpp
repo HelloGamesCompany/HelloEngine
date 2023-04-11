@@ -110,3 +110,21 @@ void ComponentUI::DeSerialization(json& j)
 
     _gameObject->transform->ForceUpdate();
 }
+
+void ComponentUI::SaveMeshState(json& j)
+{
+    j["MeshEnabled"] = _meshRenderer->IsEnabled();
+}
+
+void ComponentUI::LoadMeshState(json& j)
+{
+    if (j.contains("MeshEnabled"))
+    {
+        bool enabled = j["MeshEnabled"];
+
+        if (!enabled)
+        {
+            _meshRenderer->Disable();
+        }
+    }
+}

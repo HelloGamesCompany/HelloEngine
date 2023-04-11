@@ -25,6 +25,7 @@ void MenuButtons::Update()
     if (NewGame.OnPress())
     {
         API_QuickSave::ResetAll();
+        API_QuickSave::SetInt("equipedNormalGun", 2); // starter weapon
         Scene::LoadScene("SpaceshipHUB_Scene.HScene");
     }
     if (Exit.OnPress())
