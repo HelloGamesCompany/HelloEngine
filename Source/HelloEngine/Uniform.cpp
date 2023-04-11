@@ -32,7 +32,10 @@ void UniSampler2D::Unbind()
 	ResourceTexture* texture = static_cast<ResourceTexture*>(data.value);
 
 	if (texture)
+	{
+		glActiveTexture(GL_TEXTURE0 + layer);
 		glBindTexture(GL_TEXTURE_2D, 0);
+	}	
 }
 
 /*Variable Set*/

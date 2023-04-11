@@ -103,6 +103,11 @@ void TextRendererComponent::DeSerialization(json& j)
 	scale = textObject.scale;
 	color = textObject.color;
 	_gameObject->transform->SetPosition({ textObject.position.x, textObject.position.y, 0 });
+
+	if (MeshRenderComponent* mesh = _gameObject->GetComponent<MeshRenderComponent>())
+	{
+		mesh->Disable();
+	}
 }
 
 void TextRendererComponent::ChangeColor(float4 newColor)
