@@ -278,7 +278,7 @@ void PlayerStats::TakeDamage(float amount, float resistanceDamage)
 void PlayerStats::Heal(float amount)
 {
     currentHp += amount;
-    healParticles.Play();
+    aidKitParticles.Play();
 
     if (currentHp > currentMaxHp) currentHp = currentMaxHp;
 }
