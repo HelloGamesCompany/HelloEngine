@@ -38,6 +38,8 @@ void SaveTest::Start()
 	print = "testString: " + print;
 	Console::Log(print);
 
+	// For remove variables that it have been saved
+	QSave::ResetAll();
 }
 void SaveTest::Update()
 {

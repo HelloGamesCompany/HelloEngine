@@ -140,6 +140,54 @@ XMLNode QuickSave::GetRootNodeInt()
     return nInt;
 }
 
+void QuickSave::ResetAllNodes()
+{
+    ResetBoolNode();
+    ResetFloatNode();
+    ResetIntNode();
+    ResetStringNode();
+}
+
+void QuickSave::ResetBoolNode()
+{
+    while (nBool.node.first_child()) 
+    {
+        nBool.node.remove_child(nBool.node.first_child());
+    }
+
+    nBool.Save();
+}
+
+void QuickSave::ResetFloatNode()
+{
+    while (nFloat.node.first_child())
+    {
+        nFloat.node.remove_child(nFloat.node.first_child());
+    }
+
+    nFloat.Save();
+}
+
+void QuickSave::ResetIntNode()
+{
+    while (nInt.node.first_child())
+    {
+        nInt.node.remove_child(nInt.node.first_child());
+    }
+
+    nInt.Save();
+}
+
+void QuickSave::ResetStringNode()
+{
+    while (nString.node.first_child())
+    {
+        nString.node.remove_child(nString.node.first_child());
+    }
+
+    nString.Save();
+}
+
 void QuickSave::SetValue(std::string name, std::string value, XMLNode& node)
 {
     name.erase(std::remove(name.begin(), name.end(), ' '), name.end());
