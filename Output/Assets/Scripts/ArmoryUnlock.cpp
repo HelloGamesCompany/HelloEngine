@@ -42,7 +42,6 @@ void ArmoryUnlock::Update()
     {
         SelectWeaponList.SetEnable(true);
         PanelUnlock.SetEnable(false);
-        Console::Log("BACK");
     }
 
     if (manteinTime > 0.0f)

@@ -1,5 +1,6 @@
 #include "ArmoryWeaponSelect.h"
 #include "InteractiveEnviroment/OpenMenuInterruptor.h"
+#include "Player/PlayerMove.h"
 HELLO_ENGINE_API_C ArmoryWeaponSelect* CreateArmoryWeaponSelect(ScriptToInspectorInterface* script)
 {
     ArmoryWeaponSelect* classInstance = new ArmoryWeaponSelect();
@@ -28,6 +29,7 @@ HELLO_ENGINE_API_C ArmoryWeaponSelect* CreateArmoryWeaponSelect(ScriptToInspecto
 
     script->AddDragInt("Gun Index", &classInstance->gunIndex);
     script->AddDragBoxGameObject("Open Menu Interruptor", &classInstance->interruptorGO);
+    script->AddDragBoxGameObject("Player", &classInstance->playerGO);
 
     return classInstance;
 }
@@ -41,6 +43,9 @@ void ArmoryWeaponSelect::Start()
     interruptor = (OpenMenuInterruptor*)interruptorGO.GetScript("OpenMenuInterruptor");
     if (interruptor == nullptr && gunIndex == 0) Console::Log("OpenMenuInterruptor missing in ArmoryWeaponSelect Script with gunIndex 0.");
 
+    playerMove = (PlayerMove*)playerGO.GetScript("PlayerMove");
+    if (playerMove == nullptr && gunIndex == 0) Console::Log("PlayerMove missing in ArmoryWeaponSelect Script with gunIndex 0.");
+
     FindUnlock();
 }
 void ArmoryWeaponSelect::Update()
@@ -51,6 +56,7 @@ void ArmoryWeaponSelect::Update()
         // IT'S CORRECT DON'T REMOVE NOTHING
         interruptor->armoryPanel.SetActive(true); // can set false if is not true
         interruptor->armoryPanel.SetActive(false);
+        if (playerMove) playerMove->openingChest = false;
         interruptor->open = false;
     }
 

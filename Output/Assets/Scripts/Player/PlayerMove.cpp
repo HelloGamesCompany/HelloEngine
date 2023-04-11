@@ -70,10 +70,6 @@ void PlayerMove::Update()
     if (playerStats && playerStats->slowTimePowerUp > 0.0f /*&& !paused*/) dt = Time::GetRealTimeDeltaTime();
     else dt = Time::GetDeltaTime();
 
-    if (openingChest || (playerStats && playerStats->hittedTime > 0.0f)) return; // can't do other actions while is opening a chest or been hitted
-
-    Aim();
-
     // impulse
     if (impulseTime > 0.0f)
     {
@@ -89,6 +85,10 @@ void PlayerMove::Update()
             return; // can't do other actions while is been impulsed
         }
     }
+
+    if (openingChest || (playerStats && playerStats->hittedTime > 0.0f)) return; // can't do other actions while is opening a chest or been hitted
+
+    Aim();
 
     if (Input::GetGamePadAxis(GamePadAxis::AXIS_TRIGGERRIGHT) < 5000 || isSwapingGun)
     {
@@ -659,7 +659,7 @@ void PlayerMove::RecieveImpulse(API_Vector3 direction, float impulseDuration, fl
 void PlayerMove::PlayShootAnim(int gunIndex)
 {
     isShooting = true;
-
+    
     if (currentAnim != PlayerAnims::SHOOT)
     {
         playerAnimator.ChangeAnimation(shootAnim[gunIndex]);

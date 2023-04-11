@@ -7,6 +7,7 @@
 #include "API/API_UIInput.h"
 
 class OpenMenuInterruptor;
+class PlayerMove;
 
 class ArmoryWeaponSelect : HelloBehavior
 {
@@ -44,6 +45,9 @@ public:
 
     API_GameObject interruptorGO;
     OpenMenuInterruptor* interruptor;
+
+    API_GameObject playerGO;
+    PlayerMove* playerMove;
 
 private:
 

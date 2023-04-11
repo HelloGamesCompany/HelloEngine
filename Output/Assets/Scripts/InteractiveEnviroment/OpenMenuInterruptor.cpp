@@ -39,13 +39,14 @@ void OpenMenuInterruptor::OnCollisionEnter(API::API_RigidBody other)
         if (Input::GetGamePadButton(GamePadButton::BUTTON_X) == KeyState::KEY_DOWN || Input::GetKey(KeyCode::KEY_E) == KeyState::KEY_DOWN)
         {
             playerMove = (PlayerMove*)other.GetGameObject().GetScript("PlayerMove");
-            if (playerMove == nullptr) return;
+            if (playerMove != nullptr) playerMove->openingChest = true;
 
             float distanceX = gameObject.GetTransform().GetGlobalPosition().x - other.GetGameObject().GetTransform().GetGlobalPosition().x;
             float distanceZ = gameObject.GetTransform().GetGlobalPosition().z - other.GetGameObject().GetTransform().GetGlobalPosition().z;
 
             OpenMenus();
             open = true;
+
         }
     }
 }
