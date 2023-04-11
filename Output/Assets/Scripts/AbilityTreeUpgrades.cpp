@@ -25,4 +25,8 @@ void AbilityTreeUpgrades::Update()
 		descriptionBack.SetActive(false);
 		descriptionFoward.SetActive(false);
 	}
+	if (buttonHovered.OnPress())
+	{
+		buttonHovered.SetBlocked(true);
+	}
 }

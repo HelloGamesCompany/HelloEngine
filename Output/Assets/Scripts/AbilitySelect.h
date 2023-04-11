@@ -15,5 +15,7 @@ public:
 	API_UIButton abilitySelect;
 	API_UIInput abilityTypePanel;
 	API_UIInput abilityPanel;
+
+	int setEnablePanel = false;
 };
 

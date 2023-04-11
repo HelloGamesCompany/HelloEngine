@@ -54,7 +54,7 @@
             {
                 "Active camera": true,
                 "Active culling": false,
-                "Aspect ratio": 1.9274873733520508,
+                "Aspect ratio": 1.1888701915740967,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -5623,7 +5623,7 @@
                         "Projectile MeshModelUID": 1551155716
                     },
                     {
-                        "Projectile Material": 3245286453
+                        "Projectile Material": 1412513036
                     },
                     {
                         "Projectile ScaleX": 0.10000000149011612
@@ -5731,7 +5731,7 @@
                         "Projectile MeshModelUID": 1551155716
                     },
                     {
-                        "Projectile Material": 1682791083
+                        "Projectile Material": 1412513036
                     },
                     {
                         "Projectile ScaleX": 0.20000000298023224
@@ -5827,7 +5827,7 @@
                         "Projectile MeshModelUID": 1551155716
                     },
                     {
-                        "Projectile Material": 1278393042
+                        "Projectile Material": 1412513036
                     },
                     {
                         "Projectile ScaleX": 0.10000000149011612
@@ -5923,7 +5923,7 @@
                         "Projectile MeshModelUID": 1551155716
                     },
                     {
-                        "Projectile Material": 815293368
+                        "Projectile Material": 1412513036
                     },
                     {
                         "Projectile ScaleX": 0.10000000149011612
@@ -6025,7 +6025,7 @@
                         "Projectile MeshModelUID": 1551155716
                     },
                     {
-                        "Projectile Material": 2501517815
+                        "Projectile Material": 1412513036
                     },
                     {
                         "Projectile ScaleX": 0.05000000074505806
@@ -6127,7 +6127,7 @@
                         "Projectile MeshModelUID": 1551155716
                     },
                     {
-                        "Projectile Material": 1986747850
+                        "Projectile Material": 1412513036
                     },
                     {
                         "Projectile ScaleX": 0.10000000149011612
@@ -7493,7 +7493,7 @@
                         ]
                     }
                 },
-                "ResourceTextUID": 2841828716,
+                "ResourceTextUID": 2051396242,
                 "Type": 6
             },
             {

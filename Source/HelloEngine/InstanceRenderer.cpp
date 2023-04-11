@@ -101,8 +101,9 @@ void InstanceRenderer::DrawMaterial()
 
     if (!modelMatrices.empty())
     {
-        // Update View and Projection matrices
-      //  instancedShader->shader.Bind();
+        //Update all the uniforms
+        resMat->material.UpdateInstanced(Application::Instance()->camera->currentDrawingCamera->GetViewMatrix(),
+            Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
 
         // Draw using Dynamic Geometrys
         glBindVertexArray(VAO);
@@ -113,15 +114,12 @@ void InstanceRenderer::DrawMaterial()
         memcpy(ptr, &modelMatrices.front(), modelMatrices.size() * sizeof(float4x4));
         glUnmapBuffer(GL_ARRAY_BUFFER);
 
-        //Update all the uniforms
-        resMat->material.UpdateInstanced(Application::Instance()->camera->currentDrawingCamera->GetViewMatrix(),
-            Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
-
         // Draw instanced
         glDrawElementsInstanced(GL_TRIANGLES, totalIndices->size(), GL_UNSIGNED_INT, 0, modelMatrices.size());
         glBindVertexArray(0);
     }
 
+    resMat->material.UnbindAllTextures();
     // Reset model matrices.
     modelMatrices.clear();
 }
