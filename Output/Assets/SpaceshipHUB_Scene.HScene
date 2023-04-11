@@ -11652,7 +11652,7 @@
             {
                 "Active camera": true,
                 "Active culling": true,
-                "Aspect ratio": 1.7942664623260498,
+                "Aspect ratio": 1.9392917156219482,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -13345,6 +13345,19 @@
                 "Enabled": true,
                 "ResourceUID": 0,
                 "Type": 3
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Text Blueprints": 2108451898
+                    },
+                    {
+                        "PlayerStorage GO": 1862169540
+                    }
+                ],
+                "Script Resource": 2896437230,
+                "Type": 5
             }
         ],
         "FirstOnPrefab": false,
@@ -13467,6 +13480,9 @@
                     },
                     {
                         "Open Menu Interruptor": 1766493025
+                    },
+                    {
+                        "Player": 1862169540
                     }
                 ],
                 "Script Resource": 2943233861,
@@ -14000,6 +14016,9 @@
                         "Panel Upgrate": 911611964
                     },
                     {
+                        "Player": 1862169540
+                    },
+                    {
                         "List Weapons": 3432315266
                     },
                     {
@@ -14352,6 +14371,9 @@
                     },
                     {
                         "Panel Upgrate": 2121029335
+                    },
+                    {
+                        "Player": 1862169540
                     },
                     {
                         "List Weapons": 3432315266
@@ -14708,6 +14730,9 @@
                         "Panel Upgrate": 1250319448
                     },
                     {
+                        "Player": 1862169540
+                    },
+                    {
                         "List Weapons": 3432315266
                     },
                     {
@@ -15060,6 +15085,9 @@
                     },
                     {
                         "Panel Upgrate": 385359660
+                    },
+                    {
+                        "Player": 1862169540
                     },
                     {
                         "List Weapons": 3432315266
@@ -15416,6 +15444,9 @@
                         "Panel Upgrate": 2021939713
                     },
                     {
+                        "Player": 1862169540
+                    },
+                    {
                         "List Weapons": 3432315266
                     },
                     {
@@ -15768,6 +15799,9 @@
                     },
                     {
                         "Panel Upgrate": 445014355
+                    },
+                    {
+                        "Player": 1862169540
                     },
                     {
                         "List Weapons": 3432315266
