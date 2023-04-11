@@ -173,21 +173,41 @@ void PlayerMove::Update()
     input *= currentVel;
     rigidBody.SetVelocity(API_Vector3(input.x, 0.0f, input.y));
 
+    if (specialIdleActive && specialIdleTime > 0.0f)
+    {
+        specialIdleTime -= dt;
+
+        if (specialIdleTime <= 0.0f)
+        {
+            specialIdleActive = false;
+            specialIdleTime = 0.0f;
+        }
+    }
+
     if (currentVel <= 0.0f && currentAnim != PlayerAnims::IDLE && !isShooting && !isSwapingGun) //NO INPUT
     {
         float random = rand() % 100;
         if (random < 5.0f)
         {
             playerAnimator.ChangeAnimation(idle2Anim);
+            specialIdleActive = true;
         }
         else if (random < 10.0f)
         {
             playerAnimator.ChangeAnimation(idle3Anim);
+            specialIdleActive = true;
         }
         else
         {
             playerAnimator.ChangeAnimation(idle1Anim);
         }
+        playerAnimator.Play();
+        currentAnim = PlayerAnims::IDLE;
+    }
+    else if (currentVel <= 0.0f && specialIdleTime == 0.0f && !isShooting && !isSwapingGun) //NO INPUT
+    {
+        specialIdleTime = 1.0f;
+        playerAnimator.ChangeAnimation(idle1Anim);
         playerAnimator.Play();
         currentAnim = PlayerAnims::IDLE;
     }
