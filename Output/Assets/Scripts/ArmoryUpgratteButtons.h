@@ -25,7 +25,6 @@ public:
 
     API_UIInput SelectWeaponList;
 
-    ArmoryWeaponSelect* weaponInstance;
     PlayerStorage* _playerStorage;
     API_GameObject Player;
 

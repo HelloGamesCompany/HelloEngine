@@ -9,13 +9,13 @@
 class AbilitySelect : HelloBehavior
 {
 public:
-	void Start() override; 
-	void Update() override;
+    void Start() override;
+    void Update() override;
 
-	API_UIButton abilitySelect;
-	API_UIInput abilityTypePanel;
-	API_UIInput abilityPanel;
+    API_UIButton abilitySelect;
+    API_UIInput mainPanel;
+    API_UIInput abilityPanel;
 
-	int setEnablePanel = false;
+    bool waitFrame = false;
 };
 

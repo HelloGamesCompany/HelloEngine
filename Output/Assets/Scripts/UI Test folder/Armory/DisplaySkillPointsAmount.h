@@ -4,26 +4,19 @@
 #include "Macro.h"
 
 #include "API/API.h"
+#include "API/API_UIText.h"
 
-#include "Player/PlayerStorage.h"
+class PlayerStorage;
 
-class AbilityTreeUpgrades : HelloBehavior
+class DisplaySkillPointsAmount : HelloBehavior
 {
 public:
     void Start() override;
     void Update() override;
 
-    API_UIButton buttonHovered;
-    API_UIInput mainPanel;
-    API_UIInput currentPanel;
-    int upgradeIndex;
-    int treeIndex;
+    API_UIText skillPointsAmountText;
 
     API_GameObject playerStorageGO;
     PlayerStorage* playerStorage;
-
-    float manteinTime = 0.0f;
-
-    int skillLevel;
 };
 
