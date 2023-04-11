@@ -87,4 +87,5 @@ public:
 
     // HUD
     HUD_Power_Up_Scrip* hudPowerUp;
+    API_GameObject hudPowerUpGO;
 };
