@@ -50,6 +50,8 @@ void ArmoryUpgratteButtons::Start()
     if (gunLevel != 0) Upgrate1.SetBlocked(true);
     if (gunLevel != 1) Upgrate2.SetBlocked(true);
     if (gunLevel != 2) Upgrate3.SetBlocked(true);
+
+    gameObject.SetActive(false);
 }
 
 void ArmoryUpgratteButtons::Update()
