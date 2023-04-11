@@ -50,6 +50,7 @@ public:
     int maxRicochetAmmo; // index 3
 
     bool detected; //if the player is being detected somehow
+    API_RigidBody actualZone;//the zone where the player is
 
     // skills values
     float deadlinePart = 20.0f;
@@ -86,4 +87,5 @@ public:
 
     // HUD
     HUD_Power_Up_Scrip* hudPowerUp;
+    API_GameObject hudPowerUpGO;
 };

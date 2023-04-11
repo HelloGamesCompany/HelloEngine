@@ -48,7 +48,7 @@ void ProjectilePull::LauchProjectile(float projectileSpeed, float projectileDama
     API_GameObject go = GetFirstInactiveProjectile();
     go.SetActive(true);
     go.GetTransform().SetPosition(shootingSpawn.GetGlobalPosition());
-    go.GetTransform().SetRotation(playerGO.GetTransform().GetLocalRotation());
+    go.GetTransform().SetRotation(playerGO.GetTransform().GetGlobalRotation());
     go.GetTransform().SetScale(projectileScale);
     if (projectileAction == PROJECTILE_ACTION::FLAMETROWER)
     {

@@ -41,12 +41,12 @@ void TP_Cabin::OnCollisionEnter(API_RigidBody other)
 			destinationSmoke.StopEmitting();
 		}
 
-		if (1.9f > timeHoldButton && timeHoldButton > 1.4f)
+		if (1.4f > timeHoldButton && timeHoldButton > 1.0f)
 		{
 			smoke.Play();
 			destinationSmoke.Play();
 		}
-		else if (timeHoldButton > 2.0f)
+		else if (timeHoldButton > 1.5f)
 		{
 			other.GetGameObject().GetTransform().SetPosition(destination.GetGlobalPosition());
 			timeHoldButton = 0.0f;

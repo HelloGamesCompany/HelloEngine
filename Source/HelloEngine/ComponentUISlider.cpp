@@ -106,6 +106,7 @@ void ComponentUISlider::Serialization(json& j)
 	_j["MinValue"] = numMin;
 	_j["MaxValue"] = numMax;
 	_j["SliderPerCent"] = mousePosX;
+	SaveMeshState(_j);
 	j["Components"].push_back(_j);
 }
 
@@ -113,17 +114,20 @@ void ComponentUISlider::DeSerialization(json& j)
 {
 	_material->ChangeTexture((ResourceTexture*)ModuleResourceManager::S_LoadResource(j["MaterialResource"]));
 
-	bool enabled = j["Enabled"];
-	if (!enabled)
-		Disable();
-	
 	State = j["StateButton"];
 
 	numMin = j["MinValue"];
 	numMax = j["MaxValue"];
 	mousePosX = j["SliderPerCent"];
 
+	LoadMeshState(j);
+
 	_gameObject->transform->ForceUpdate();
+
+	bool enabled = j["Enabled"];
+	if (!enabled)
+		Disable();
+
 }
 
 #ifdef STANDALONE

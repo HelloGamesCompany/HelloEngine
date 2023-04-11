@@ -14,5 +14,6 @@ public:
 	void OnCollisionEnter(API::API_RigidBody other) override;
 
 	bool attack;
+	bool shooted;
 };
 

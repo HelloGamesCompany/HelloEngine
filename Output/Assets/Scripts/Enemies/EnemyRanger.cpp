@@ -52,30 +52,60 @@ void EnemyRanger::Start()
     //zoneRb.GetGameObject().
     //clock.s
      enemy = (Enemy*)gameObject.GetScript("Enemy");
+     targStats = (PlayerStats*)target.GetScript("PlayerStats");
 }
 void EnemyRanger::Update()
 {
     float dt = Time::GetDeltaTime();
 
 
-    if (enemy != nullptr)
+    if (enemy != nullptr /*&& targStats != nullptr*/)
     {
          float dis = gameObject.GetTransform().GetGlobalPosition().Distance(target.GetTransform().GetGlobalPosition());
         float disZone = gameObject.GetTransform().GetGlobalPosition().Distance(actionZone.GetTransform().GetGlobalPosition());
        // float dis = gameObject.GetTransform().GetLocalPosition().Distance(target.GetTransform().GetGlobalPosition());
         //float disZone = gameObject.GetTransform().GetLocalPosition().Distance(actionZone.GetTransform().GetGlobalPosition());
+        //float targDisZone = target.GetTransform().GetGlobalPosition().Distance(actionZone.GetTransform().GetGlobalPosition());
 
-        if ((dis < detectionDis) && (dis > disShoot) && enemState != States::TARGETING)
+
+        //float zoneRad = zoneRb.GetRadius() / 2;
+
+
+        //disZone > (zoneRad) ? enemy->isOut = true : enemy->isOut = false;
+        //targDisZone < (zoneRad) ? enemy->isTargIn = true : enemy->isTargIn = false;
+        //disZone > zoneRad ? _outCooldown += dt : _outCooldown = 0;
+        //enemy->isHit ? _hitOutCooldown += dt : _hitOutCooldown = 0;
+
+        //if (_hitOutCooldown >= hitOutTime) enemy->isHit = false;
+
+        //if (enemy->isTargIn)
+        //{
+        //    if (zoneRb.GetGameObject().GetTransform().GetGlobalPosition() != targStats->actualZone.GetGameObject().GetTransform().GetGlobalPosition())
+        //    {
+        //        targStats->actualZone = zoneRb;
+        //        targStats->detected = false;
+        //    }
+        //}
+        //if (!enemy->isTargIn)
+        //{
+        //    if (zoneRb.GetGameObject().GetTransform().GetGlobalPosition() == targStats->actualZone.GetGameObject().GetTransform().GetGlobalPosition())
+        //    {
+        //        //targStats->actualZone = zoneRb;
+        //        targStats->detected = false;
+        //    }
+        //}
+
+        if ((dis < detectionDis) && (dis > disShoot) && enemState != States::TARGETING /*&& !enemy->isOut && enemy->isTargIn || enemy->isHit || targStats->detected*/)
         {
             _movCooldown = 0;
             //_outCooldown = 0;
             enemState = States::TARGETING;
         }
-        else if ((dis < disShoot) && enemState == States::TARGETING)
+        else if ((dis < disShoot) && enemState == States::TARGETING )
         {
             enemState = States::ATTACKIG;
         }
-        else if ((dis > lossingDis) /*|| ((disZone > zoneRb.GetRadius() / 2)*/ /*&& _outCooldown >= outTime)*/)
+        else if ((dis > lossingDis) /*|| enemy->isOut && !enemy->isTargIn && _outCooldown >= outTime*/)
         {
             enemState = States::WANDERING;
         }

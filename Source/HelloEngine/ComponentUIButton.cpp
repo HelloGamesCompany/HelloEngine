@@ -28,7 +28,8 @@ void ComponentUIButton::InputUpdate()
     switch (State)
     {
     case ButtonState::NORMAL:
-        _material->ChangeTexture(textureIDIdle);
+        if (isBlocked) _material->ChangeTexture(textureIDBlocked);
+        else _material->ChangeTexture(textureIDIdle);
         gameTimeCopy = EngineTime::GameTimeCount();
         break;
     case ButtonState::HOVERED:
@@ -37,13 +38,13 @@ void ComponentUIButton::InputUpdate()
         break;
     case ButtonState::ONPRESS:
         _material->ChangeTexture(textureIDPress);
-        if (EngineTime::GameTimeCount() >= gameTimeCopy + 0.5)
+        /*if (EngineTime::GameTimeCount() >= gameTimeCopy + 0.5)
         {
             State = ButtonState::ONHOLD;
-        }
+        }*/
         break;
     case ButtonState::ONHOLD:
-        State = ButtonState::HOVERED;
+        //State = ButtonState::HOVERED;
         break;
     case ButtonState::BLOCKED:
         _material->ChangeTexture(textureIDBlocked);
@@ -67,6 +68,7 @@ void ComponentUIButton::Serialization(json& j)
     _j["hoverImage"] = hoverButton ? hoverButton->UID : 0;
     _j["pressImage"] = pressButton ? pressButton->UID : 0;
     _j["blockImage"] = blockedButton ? blockedButton->UID : 0;
+    SaveMeshState(_j);
     j["Components"].push_back(_j);
 }
 
@@ -112,6 +114,8 @@ void ComponentUIButton::DeSerialization(json& j)
     }
 
     State = j["State"];
+
+    LoadMeshState(j);
 
     switch (State)
     {
@@ -194,8 +198,11 @@ void ComponentUIButton::UpdateGamePadInput(bool selected)
         else
         {
             // If previous state was hold or press, this frame the button was released
-            if (State == ButtonState::ONHOLD || State == ButtonState::ONPRESS)
+            if (ModuleInput::S_GetGamePadButton(GamePad::BUTTON_A) == KEY_UP && (State == ButtonState::ONHOLD || State == ButtonState::ONPRESS))
+            {
                 isReleased = true;
+            }
+                
             State = ButtonState::HOVERED;
         }
     }

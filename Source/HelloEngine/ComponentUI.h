@@ -24,6 +24,9 @@ public:
 
 	virtual void UpdateGamePadInput(bool selected) {};
 
+	void SaveMeshState(json& j);
+	void LoadMeshState(json& j);
+
 
 private:
 #ifdef STANDALONE

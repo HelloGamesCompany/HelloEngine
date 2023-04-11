@@ -83,6 +83,8 @@ public:
     uint idle1Anim = 0;
     uint idle2Anim = 0;
     uint idle3Anim = 0;
+    bool specialIdleActive = false;
+    float specialIdleTime = 1.0f;
     uint runForwardAnim = 0;
     uint runBackAnim = 0;
     uint runLeftAnim = 0;

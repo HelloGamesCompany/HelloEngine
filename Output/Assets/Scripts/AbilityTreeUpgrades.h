@@ -5,16 +5,25 @@
 
 #include "API/API.h"
 
+#include "Player/PlayerStorage.h"
+
 class AbilityTreeUpgrades : HelloBehavior
 {
 public:
-	void Start() override; 
-	void Update() override;
+    void Start() override;
+    void Update() override;
 
-	API_UIButton buttonHovered;
+    API_UIButton buttonHovered;
+    API_UIInput mainPanel;
+    API_UIInput currentPanel;
+    int upgradeIndex;
+    int treeIndex;
 
-	API_GameObject description;
-	API_GameObject descriptionBack;
-	API_GameObject descriptionFoward;
+    API_GameObject playerStorageGO;
+    PlayerStorage* playerStorage;
+
+    float manteinTime = 0.0f;
+
+    int skillLevel;
 };
 

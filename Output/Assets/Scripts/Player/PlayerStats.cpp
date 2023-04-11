@@ -21,9 +21,10 @@ HELLO_ENGINE_API_C PlayerStats* CreatePlayerStats(ScriptToInspectorInterface* sc
     script->AddDragInt("Laser Ammo", &classInstance->laserAmmo);
     script->AddDragInt("Fire Ammo", &classInstance->specialAmmo);
     script->AddDragBoxParticleSystem("Hit Particles", &classInstance->hitParticles);
-    script->AddDragBoxParticleSystem("Heal Particles", &classInstance->healParticles);
-    script->AddDragBoxParticleSystem("Heal Particles", &classInstance->aidKitParticles);
+    script->AddDragBoxParticleSystem("Passive Heal Particles", &classInstance->healParticles);
+    script->AddDragBoxParticleSystem("Kid Heal Particles", &classInstance->aidKitParticles);
     script->AddDragBoxGameObject("Player GO", &classInstance->playerGO);
+    script->AddDragBoxGameObject("Power Ups Managers (HUD)", &classInstance->hudPowerUpGO);
     //script->AddDragInt("movement tree lvl", &classInstance->movementTreeLvl); // use it only for playtesting
     //script->AddDragInt("armory tree lvl", &classInstance->armoryTreeLvl);
     //script->AddDragInt("health tree lvl", &classInstance->healthTreeLvl);
@@ -60,7 +61,7 @@ void PlayerStats::Start()
     playerMove = (PlayerMove*)playerGO.GetScript("PlayerMove");
     if (!playerMove) Console::Log("PlayerMove Missing in PlayerStats.");
 
-    hudPowerUp = (HUD_Power_Up_Scrip*)playerGO.GetScript("HUD_Power_Up_Scrip");
+    hudPowerUp = (HUD_Power_Up_Scrip*)hudPowerUpGO.GetScript("HUD_Power_Up_Scrip");
     if (!hudPowerUp) Console::Log("HUD_Power_Up_Scrip Missing in PlayerStats. Only needed in levels.");
 }
 
@@ -278,7 +279,7 @@ void PlayerStats::TakeDamage(float amount, float resistanceDamage)
 void PlayerStats::Heal(float amount)
 {
     currentHp += amount;
-    healParticles.Play();
+    aidKitParticles.Play();
 
     if (currentHp > currentMaxHp) currentHp = currentMaxHp;
 }
@@ -367,6 +368,8 @@ void PlayerStats::UpgradeTreeLvl(int tree)
 
 void PlayerStats::GetPowerUp(int index)
 {
+    if (hudPowerUp == nullptr)return;
+
     switch (index)
     {
     case 0:

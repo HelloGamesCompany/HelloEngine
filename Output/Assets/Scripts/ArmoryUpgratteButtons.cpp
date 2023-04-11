@@ -9,13 +9,11 @@ HELLO_ENGINE_API_C ArmoryUpgratteButtons* CreateArmoryUpgratteButtons(ScriptToIn
 
     script->AddDragBoxUIInput("Panel Upgrate", &classInstance->PanelUpgrate);
 
-    script->AddDragBoxGameObject("Weapon Associated", &classInstance->currentWeapon);
     script->AddDragBoxGameObject("Player", &classInstance->Player);
 
     script->AddDragBoxUIInput("List Weapons", &classInstance->SelectWeaponList);
 
     script->AddDragInt("Gun Index", &classInstance->gunIndex);
-    script->AddDragFloat("fffff", &classInstance->manteinTime);
 
     return classInstance;
 }
@@ -52,6 +50,8 @@ void ArmoryUpgratteButtons::Start()
     if (gunLevel != 0) Upgrate1.SetBlocked(true);
     if (gunLevel != 1) Upgrate2.SetBlocked(true);
     if (gunLevel != 2) Upgrate3.SetBlocked(true);
+
+    gameObject.SetActive(false);
 }
 
 void ArmoryUpgratteButtons::Update()
@@ -62,7 +62,7 @@ void ArmoryUpgratteButtons::Update()
         PanelUpgrate.SetEnable(false);
     }
 
-    //if (!_playerStorage) return;
+    if (!_playerStorage) return;
 
     if (manteinTime > 0.0f)
     {

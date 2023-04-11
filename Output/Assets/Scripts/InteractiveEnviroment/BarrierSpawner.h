@@ -18,6 +18,7 @@ public:
 	API_GameObject spawner2;
 	API_GameObject Lamp1;
 	API_GameObject Lamp2;
+	API_RigidBody barrierRb;
 
 	uint materialLamps;
 	uint materialLamp1;
@@ -28,5 +29,6 @@ public:
 
 	bool Lamp1TextChanged = false;
 	bool Lamp2TextChanged = false;
+	bool collAsTrigger = false;
 };
 

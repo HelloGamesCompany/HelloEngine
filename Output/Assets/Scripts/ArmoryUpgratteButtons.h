@@ -23,10 +23,8 @@ public:
 
     API_UIInput PanelUpgrate;
 
-    API_GameObject currentWeapon;
     API_UIInput SelectWeaponList;
 
-    ArmoryWeaponSelect* weaponInstance;
     PlayerStorage* _playerStorage;
     API_GameObject Player;
 

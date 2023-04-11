@@ -87,13 +87,20 @@ void Mesh::Draw(Material material, bool useMaterial)
 
 	glBindVertexArray(0);
 
-	glBindTexture(GL_TEXTURE_2D, 0);
+	material.UnbindAllTextures();
+
+	if (!useMaterial)
+	{
+		glActiveTexture(GL_TEXTURE0);
+		glBindTexture(GL_TEXTURE_2D, 0);
+	}
 }
 
 void Mesh::DefaultDraw()
 {
 	if (textureID != -1) // Only happens when material components is deactivated.
 	{
+		glActiveTexture(GL_TEXTURE0);
 		glBindTexture(GL_TEXTURE_2D, textureID);
 	}
 
@@ -143,6 +150,8 @@ void Mesh::DefaultDraw()
 		boneMeshShader->shader.SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
 		boneMeshShader->shader.SetMatFloat4v("model", &modelMatrix.v[0][0]);
 
+		//boneMeshShader->shader.SetInt("diffuseTexture", textureID);
+
 		SkinnedMeshRenderComponent* smComp = (SkinnedMeshRenderComponent*)component;
 
 		if (!smComp->hasAnim)
@@ -162,6 +171,8 @@ void Mesh::DefaultDraw()
 		drawPerMeshShader->shader.SetMatFloat4v("view", Application::Instance()->camera->currentDrawingCamera->GetViewMatrix());
 		drawPerMeshShader->shader.SetMatFloat4v("projection", Application::Instance()->camera->currentDrawingCamera->GetProjectionMatrix());
 		drawPerMeshShader->shader.SetMatFloat4v("model", &modelMatrix.v[0][0]);
+		
+		//drawPerMeshShader->shader.SetInt("diffuseTexture", textureID);
 	}
 
 }

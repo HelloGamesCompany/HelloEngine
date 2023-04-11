@@ -14,7 +14,7 @@ HELLO_ENGINE_API_C Enemy* CreateEnemy(ScriptToInspectorInterface* script)
     script->AddDragFloat("Acceleration", &classInstance->acceleration);
     script->AddDragFloat("Current speed", &classInstance->currentSpeed);
     script->AddDragBoxGameObject("Enemy Manager", &classInstance->enemyDropManagerGO);
-    script->AddDragBoxRigidBody("Enemy RigidBody", &classInstance->enemyRb);
+    //script->AddDragBoxRigidBody("Enemy RigidBody", &classInstance->enemyRb);
     script->AddDragBoxParticleSystem("Hit particle system", &classInstance->hitParticles);
     script->AddCheckBox("Has Shield", &classInstance->hasShield);
     return classInstance;
@@ -30,7 +30,7 @@ void Enemy::Start()
     baseRot = gameObject.GetTransform().GetGlobalRotation();
     slowVel = stunVel = 1;
     
-    
+    enemyRb = gameObject.GetRigidBody();
 
     _coldSlow = _coldStun = 0;
 }
@@ -42,6 +42,7 @@ void Enemy::Update()
     if (actSlow)EnemySlow(_qSlow, _tSlow);
 
     if (actStun)EnemyStun(_tStun);
+
 
 
 }
@@ -93,7 +94,7 @@ void Enemy::OnCollisionEnter(API::API_RigidBody other)
     {
         Projectile* projectile = (Projectile*)other.GetGameObject().GetScript("Projectile");
         TakeDamage(projectile->damage, projectile->resistanceDamage);
-       
+        isHit = true;
     }
     else if(detectionTag == "Player")
     {
