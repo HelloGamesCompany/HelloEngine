@@ -77,6 +77,7 @@ void ComponentUICheckbox::Serialization(json& j)
 	_j["idleImage"] = idleCB ? idleCB->UID : 0;
 	_j["hoverImage"] = hoverCB ? hoverCB->UID : 0;
 	_j["pressImage"] = pressCB ? pressCB->UID : 0;
+	SaveMeshState(_j);
 	//_j["checkActive"] = checkActive;
 	j["Components"].push_back(_j);
 }
@@ -114,6 +115,7 @@ void ComponentUICheckbox::DeSerialization(json& j)
 
 	State = j["State"];
 	//checkActive = j["checkActive"];
+	LoadMeshState(j);
 
 	switch (State)
 	{

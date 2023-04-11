@@ -60,7 +60,7 @@ void ComponentUIInput::Serialization(json& j)
 	{
 		_j["listButtons"][i] = _listButtons[i]->GetGameObject()->GetID();
 	}
-
+	SaveMeshState(_j);
 	j["Components"].push_back(_j);
 }
 
@@ -102,6 +102,8 @@ void ComponentUIInput::DeSerialization(json& j)
 	}
 
 	_gameObject->transform->ForceUpdate();
+	
+	LoadMeshState(j);
 
 	bool enabled = j["Enabled"];
 	if (!enabled)

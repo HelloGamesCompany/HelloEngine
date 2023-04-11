@@ -33,6 +33,7 @@ void ComponentUIImage::Serialization(json& j)
 	_j["MaterialResource"] = _material->GetResourceUID();
 	_j["Enabled"] = _isEnabled;
 	_j["FillImage"] = _fillImage;
+	SaveMeshState(_j);
 	j["Components"].push_back(_j);
 }
 
@@ -40,14 +41,15 @@ void ComponentUIImage::DeSerialization(json& j)
 {
 	_material->ChangeTexture((ResourceTexture*)ModuleResourceManager::S_LoadResource(j["MaterialResource"]));
 
+	_fillImage = j["FillImage"];
+
+	LoadMeshState(j);
+
+	_gameObject->transform->ForceUpdate();
+	
 	bool enabled = j["Enabled"];
 	if (!enabled)
 		Disable();
-
-	_fillImage = j["FillImage"];
-
-	_gameObject->transform->ForceUpdate();
-
 }
 
 #ifdef STANDALONE
