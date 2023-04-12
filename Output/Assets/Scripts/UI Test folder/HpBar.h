@@ -26,5 +26,7 @@ public:
     API_UIImage hp__Regen_Bar;
     API_UIImage shield_Bar;
 
+    float hp_regen = false;
+
 };
 
