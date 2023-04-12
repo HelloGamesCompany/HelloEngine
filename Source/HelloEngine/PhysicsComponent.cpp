@@ -23,7 +23,7 @@ PhysicsComponent::PhysicsComponent(GameObject* gameObject) : Component(gameObjec
 	_isShapeCreated[2] = false;
 
 	sphereRadius = 1;
-	cylRadiusHeight = {1,1};
+	cylRadiusHeight = { 1,1 };
 
 	renderColColor[0] = 0.5f;
 	renderColColor[1] = 0.0f;
@@ -43,19 +43,11 @@ PhysicsComponent::PhysicsComponent(GameObject* gameObject) : Component(gameObjec
 	_angularFactor[0] = 1.0f;
 	_angularFactor[1] = 1.0f;
 	_angularFactor[2] = 1.0f;
-
-	globalGravity[0] = { 0 };
-	globalGravity[1] = { -9.8 };
-	globalGravity[2] = { 0 };
-
-	localGlobalGravity[0] = { 0 };
-	localGlobalGravity[1] = { -9.8 };
-	localGlobalGravity[2] = { 0 };
 }
 
 PhysicsComponent::~PhysicsComponent()
 {
-	if (_physBody != nullptr)
+	if (_physBody)
 		RemoveCollider();
 }
 
@@ -90,14 +82,16 @@ void PhysicsComponent::Serialization(json& j)
 	json _j;
 
 	_j["Type"] = _type;
-	
+
 	_j["Enabled"] = _isEnabled;
 
-	if (_physBody != nullptr) {
+	if (_physBody)
+	{
 		_j["HasPhysBody"] = true;
 		_j["IsRenderingCol"] = _physBody->isRenderingCol;
 	}
-	else {
+	else 
+	{
 		_j["HasPhysBody"] = false;
 		_j["IsRenderingCol"] = false;
 	}
@@ -107,10 +101,7 @@ void PhysicsComponent::Serialization(json& j)
 	_j["IsShapeSelected"] = { _isShapeSelected[0], _isShapeSelected[1], _isShapeSelected[2] };
 	_j["IsShapeCreated"] = { _isShapeCreated[0], _isShapeCreated[1], _isShapeCreated[2] };
 
-	float3 getGrav = Application::Instance()->physic->GetGlobalGravity();
-	_j["GlobalGravity"] = { getGrav[0], getGrav[1], getGrav[2] };
-
-	if (_physBody != nullptr)
+	if (_physBody)
 	{
 		_j["Mass"] = _physBody->mass;
 
@@ -131,14 +122,12 @@ void PhysicsComponent::Serialization(json& j)
 		_j["CylVerSlices"] = cylinderVerSlices;
 
 		_j["RenderColColor"] = { renderColColor[0] , renderColColor[1] , renderColColor[2], renderColColor[3] };
-
-		
 	}
 	else
 	{
-		_j["Mass"] = 1.f;
+		_j["Mass"] = 1.0f;
 
-		_j["ColPosition"] = {0, 0, 0 };
+		_j["ColPosition"] = { 0, 0, 0 };
 		_j["ColRotation"] = { 0, 0, 0 };
 		_j["ColScale"] = { 0, 0, 0 };
 
@@ -159,9 +148,7 @@ void PhysicsComponent::Serialization(json& j)
 
 	_j["SphereRadius"] = sphereRadius;
 
-	_j["CylinderRadiusHeight"] = { cylRadiusHeight[0], cylRadiusHeight[1]};
-
-	_j["Gravity"] = { _gravity[0], _gravity[1], _gravity[2] };
+	_j["CylinderRadiusHeight"] = { cylRadiusHeight[0], cylRadiusHeight[1] };
 
 	j["Components"].push_back(_j);
 }
@@ -169,6 +156,7 @@ void PhysicsComponent::Serialization(json& j)
 void PhysicsComponent::DeSerialization(json& j)
 {
 	bool enabled = j["Enabled"];
+
 	if (!enabled)
 		Disable();
 
@@ -189,18 +177,7 @@ void PhysicsComponent::DeSerialization(json& j)
 	std::vector<float> cylRadiusHeightTemp = j["CylinderRadiusHeight"];
 	cylRadiusHeight = { cylRadiusHeightTemp[0], cylRadiusHeightTemp[1] };
 
-	std::vector<float> newGrav = j["GlobalGravity"];
-	ModulePhysics::SetGlobalGravityAtFirst(float3(newGrav[0], newGrav[1], newGrav[2]));
-
-	globalGravity[0] = newGrav[0];
-	globalGravity[1] = newGrav[1];
-	globalGravity[2] = newGrav[2];
-
-	localGlobalGravity[0] = newGrav[0];
-	localGlobalGravity[1] = newGrav[1];
-	localGlobalGravity[2] = newGrav[2];
-
-	if (j["HasPhysBody"] == true)
+	if (j["HasPhysBody"])
 	{
 		temporalMass = j["Mass"];
 		CreateCollider();
@@ -211,18 +188,12 @@ void PhysicsComponent::DeSerialization(json& j)
 		_physBody->isTrigger = j["IsTrigger"];
 
 		std::vector<float> newGrav = j["Gravity"];
-		_gravity[0] = newGrav[0];
-		_gravity[1] = newGrav[1];
-		_gravity[2] = newGrav[2];
-		_physBody->SetGravity(float3(_gravity[0], _gravity[1], _gravity[2]));
+		SetGravity({ newGrav[0], newGrav[1], newGrav[2] });
 
 		if (j.contains("AngularFactor"))
 		{
 			std::vector<float> newAngularFactor = j["AngularFactor"];
-			_angularFactor[0] = newAngularFactor[0];
-			_angularFactor[1] = newAngularFactor[1];
-			_angularFactor[2] = newAngularFactor[2];
-			SetAngularFactor({ _angularFactor[0], _angularFactor[1],_angularFactor[2] });
+			SetAngularFactor({ newAngularFactor[0] ,newAngularFactor[1],newAngularFactor[2] });
 		}
 
 		_physBody->isRenderingCol = j["IsRenderingCol"];
@@ -247,14 +218,7 @@ void PhysicsComponent::DeSerialization(json& j)
 		renderColColor[2] = RenderColColorTemp[2];
 		renderColColor[3] = RenderColColorTemp[3];
 
-		
-		
-		CallUpdateMass();
-		CallUpdateColliderType();
-
-		CallUpdatePos();
-		CallUpdateRotation();
-		CallUpdateScale();
+		CallUpdateAllPram();
 	}
 }
 
@@ -265,25 +229,16 @@ void PhysicsComponent::OnEditor()
 	bool created = true;
 	if (ImGui::CollapsingHeader("Physics", &created, ImGuiTreeNodeFlags_DefaultOpen))
 	{
-		if (ImGui::DragFloat3("Global Gravity", localGlobalGravity, 0.01)) {
-			
-			if ((localGlobalGravity[0] != globalGravity[0]) || (localGlobalGravity[1] != globalGravity[1]) || (localGlobalGravity[2] != globalGravity[2])) {
-				//if (ImGui::Button("Apply")) {
-					Application::Instance()->physic->PrepareNewGravityAtLast(float3(localGlobalGravity[0], localGlobalGravity[1], localGlobalGravity[2]));
-				//}
-
-			}
-		}
-		
-		if (ImGui::DragFloat("Mass: ", &temporalMass, 0.01, 0, 99999.999)) {
-			if (_physBody != nullptr)
+		if (ImGui::DragFloat("Mass: ", &temporalMass, 0.01, 0, 99999.999)) 
+		{
+			if (_physBody)
 			{
 				_physBody->mass = temporalMass;
 				CallUpdateMass();
 			}
-		};
+		}
 
-		if (_physBody == nullptr)
+		if (!_physBody)
 		{
 			ImGui::Text("This object has no collider attached to it.");
 			ImGui::Text("Select one shape and create one.");
@@ -296,7 +251,8 @@ void PhysicsComponent::OnEditor()
 
 			CheckShapes();
 
-			if (_shapeSelected != ColliderShape::NONE) {
+			if (_shapeSelected != ColliderShape::NONE) 
+			{
 				if (ImGui::Button("Create Collider"))
 				{
 					CreateCollider();
@@ -305,7 +261,8 @@ void PhysicsComponent::OnEditor()
 			}
 
 		}
-		else {
+		else 
+		{
 			const char* colliderType = "";
 			switch (_shapeSelected)
 			{
@@ -324,52 +281,54 @@ void PhysicsComponent::OnEditor()
 				colliderType = "Cylinder";
 			}
 			break;
-			default:
-				break;
 			}
 			std::string colName = "Collider Attached: ";
 			colName += colliderType;
 			ImGui::Text(colName.c_str());
 
 			if (ImGui::Checkbox("Static", &_physBody->isStatic)) {
-				if (_physBody != nullptr) {
-					if (_physBody->isStatic == true) {
+				if (_physBody)
+				{
+					if (_physBody->isStatic)
 						_physBody->isKinematic = false;
-					}
-					CallUpdateColliderType();
+
+					CallUpdateAllPram();
 				}
 			}
 
-			if (ImGui::Checkbox("Kinematic", &_physBody->isKinematic)) {
-				if (_physBody != nullptr) {
-					if (_physBody->isKinematic == true) {
+			if (ImGui::Checkbox("Kinematic", &_physBody->isKinematic)) 
+			{
+				if (_physBody)
+				{
+					if (_physBody->isKinematic) 
 						_physBody->isStatic = false;
-					}
-					CallUpdateColliderType();
+
+					CallUpdateAllPram();
 				}
 			}
 
-			if (ImGui::Checkbox("Trigger", &_physBody->isTrigger)) {
-				if (_physBody != nullptr) {
-					CallUpdateColliderType();
-				}
+			if (ImGui::Checkbox("Trigger", &_physBody->isTrigger)) 
+			{
+				if (_physBody)
+					CallUpdateAllPram();		
 			}
 
-			if (ImGui::DragFloat3("Gravity", _gravity, 0.01)) {
-				if (_physBody != nullptr) {
+			if (ImGui::DragFloat3("Gravity", _gravity, 0.01))
+			{
+				if (_physBody)
 					_physBody->SetGravity(float3(_gravity[0], _gravity[1], _gravity[2]));
-				}
 			}
 
 			if (ImGui::DragFloat3("Angular Factor", _angularFactor))
 			{
-				if (_physBody != nullptr) {
+				if (_physBody) 
 					SetAngularFactor({ _angularFactor[0], _angularFactor[1], _angularFactor[2] });
-				}
 			}
 
-			if (ImGui::Checkbox("Render", &_physBody->isRenderingCol)) {
-				if (_physBody->isRenderingCol == true) {
+			if (ImGui::Checkbox("Render", &_physBody->isRenderingCol)) 
+			{
+				if (_physBody->isRenderingCol) 
+				{
 					switch (_shapeSelected)
 					{
 					case ColliderShape::SPHERE:
@@ -388,61 +347,56 @@ void PhysicsComponent::OnEditor()
 							sphereHorSlices = MAX_HORIZONTAL_SLICES_SPHERE;
 						}
 						Application::Instance()->renderer3D->renderManager.CalculateSphereBuffer(sphereVerSlices, sphereHorSlices);
-
 					}
 					break;
 					case ColliderShape::CYLINDER:
 					{
-						if (cylinderVerSlices < 3) {
+						if (cylinderVerSlices < 3) 
+						{
 							cylinderVerSlices = 3;
 						}
-						if (cylinderVerSlices > MAX_VERTICAL_SLICES_CYLINDER) {
+						if (cylinderVerSlices > MAX_VERTICAL_SLICES_CYLINDER) 
+						{
 							cylinderVerSlices = MAX_VERTICAL_SLICES_CYLINDER;
 						}
 						Application::Instance()->renderer3D->renderManager.CalculateCylinderBuffer(cylinderVerSlices);
 					}
 					break;
-					default:
-						break;
 					}
 				}
 
 			}
 
-			if (_physBody->isRenderingCol == true) {
+			if (_physBody->isRenderingCol)
+			{
+				ImGui::ColorEdit4("Color", renderColColor);
 
-				if (ImGui::ColorEdit4("Color", renderColColor)) {
-
-				}
-				if (ImGui::DragFloat("Line Size: ", &wireframeSize, 0.1f, 0.5f, 100.f)) {
-
-				}
+				ImGui::DragFloat("Line Size: ", &wireframeSize, 0.1f, 0.5f, 100.f);
 
 				switch (_shapeSelected)
 				{
 				case ColliderShape::SPHERE:
 				{
-					if (ImGui::DragInt("Ver. Slices: ", &sphereVerSlices, 1, 3, MAX_VERTICAL_SLICES_SPHERE)) {
+					if (ImGui::DragInt("Ver. Slices: ", &sphereVerSlices, 1, 3, MAX_VERTICAL_SLICES_SPHERE))
+					{
 						Application::Instance()->renderer3D->renderManager.CalculateSphereBuffer(sphereVerSlices, sphereHorSlices);
 					}
-					if (ImGui::DragInt("Hor. Slices: ", &sphereHorSlices, 1, 1, MAX_HORIZONTAL_SLICES_SPHERE)) {
+					if (ImGui::DragInt("Hor. Slices: ", &sphereHorSlices, 1, 1, MAX_HORIZONTAL_SLICES_SPHERE))
+					{
 						Application::Instance()->renderer3D->renderManager.CalculateSphereBuffer(sphereVerSlices, sphereHorSlices);
 					}
 				}
 				break;
 				case ColliderShape::CYLINDER:
 				{
-					if (ImGui::DragInt("Ver. Slices: ", &cylinderVerSlices, 1, 3, MAX_VERTICAL_SLICES_CYLINDER)) {
+					if (ImGui::DragInt("Ver. Slices: ", &cylinderVerSlices, 1, 3, MAX_VERTICAL_SLICES_CYLINDER))
+					{
 						Application::Instance()->renderer3D->renderManager.CalculateCylinderBuffer(cylinderVerSlices);
 					}
 				}
 				break;
-				default:
-					break;
 				}
-
 				//CheckRenderBuffers();
-				
 			}
 
 
@@ -450,57 +404,55 @@ void PhysicsComponent::OnEditor()
 			{
 			case ColliderShape::BOX:
 			{
-				if (ImGui::DragFloat3("Position: ", _physBody->colPos.ptr(), 0.1)) {
+				if (ImGui::DragFloat3("Position: ", _physBody->colPos.ptr(), 0.1))
+				{
 					CallUpdatePos();
 				}
 
-				if (ImGui::DragFloat3("Rotation: ", _physBody->colRot.ptr(), 0.1)) {
+				if (ImGui::DragFloat3("Rotation: ", _physBody->colRot.ptr(), 0.1))
+				{
 					CallUpdateRotation();
 				}
 
-				if (ImGui::DragFloat3("Scale: ", _physBody->colScl.ptr(), 0.1)) {
+				if (ImGui::DragFloat3("Scale: ", _physBody->colScl.ptr(), 0.1))
+				{
 					CallUpdateScale();
 				}
 			}
 			break;
 			case ColliderShape::SPHERE:
 			{
-				if (ImGui::DragFloat3("Position: ", _physBody->colPos.ptr(), 0.1)) {
+				if (ImGui::DragFloat3("Position: ", _physBody->colPos.ptr(), 0.1))
+				{
 					CallUpdatePos();
 				}
 
-				if (ImGui::DragFloat3("Rotation: ", _physBody->colRot.ptr(), 0.1)) {
+				if (ImGui::DragFloat3("Rotation: ", _physBody->colRot.ptr(), 0.1))
+				{
 					CallUpdateRotation();
 				}
-				if (ImGui::DragFloat("Radius: ", &sphereRadius, 0.1)) {
+				if (ImGui::DragFloat("Radius: ", &sphereRadius, 0.1))
+				{
 					CallUpdateScale();
 				}
 			}
 			break;
 			case ColliderShape::CYLINDER:
 			{
-
-				if (ImGui::DragFloat3("Position: ", _physBody->colPos.ptr(), 0.1)) {
+				if (ImGui::DragFloat3("Position: ", _physBody->colPos.ptr(), 0.1))
+				{
 					CallUpdatePos();
 				}
-				if (ImGui::DragFloat3("Rotation: ", _physBody->colRot.ptr(), 0.1)) {
+				if (ImGui::DragFloat3("Rotation: ", _physBody->colRot.ptr(), 0.1))
+				{
 					CallUpdateRotation();
 				}
-				if (ImGui::DragFloat2("Radius & Height: ", cylRadiusHeight.ptr(), 0.1)) {
+				if (ImGui::DragFloat2("Radius & Height: ", cylRadiusHeight.ptr(), 0.1))
+				{
 					CallUpdateScale();
-					
-
-					//btCollisionShape* shape = physBody->body->getCollisionShape();
-					//shape->setLocalScaling({ cylRadiusHeight.x, cylRadiusHeight.y, cylRadiusHeight.x });
-					/*if (isStatic == false && isKinematic == false) {
-						SetMass();
-					}*/
-				//	physBody->
 				}
 			}
 			break;
-			default:
-				break;
 			}
 
 			if (ImGui::Button("Remove Collider"))
@@ -519,7 +471,7 @@ void PhysicsComponent::CheckRenderBuffers()
 	switch (_shapeSelected)
 	{
 	case ColliderShape::SPHERE:
-	{	
+	{
 		Application::Instance()->renderer3D->renderManager.CalculateSphereBuffer(sphereVerSlices, sphereHorSlices);
 	}
 	break;
@@ -567,59 +519,61 @@ void PhysicsComponent::CallUpdateScale()
 		ModulePhysics::UpdatePhysBodyScaleCylinder(_physBody, cylRadiusHeight.x, cylRadiusHeight.y);
 		break;
 	}
-	
 }
 
 void PhysicsComponent::CallUpdateMass()
 {
-	if (_physBody->isStatic == false && _physBody->isKinematic == false) {
+	if (!_physBody->isStatic && !_physBody->isKinematic)
+	{
 		btVector3 inertia;
 		btCollisionShape* shape = _physBody->body->getCollisionShape();
 		shape->calculateLocalInertia(_physBody->mass, inertia);
 		_physBody->body->setMassProps(_physBody->mass, inertia);
 	}
-	else {
-		btVector3 inertia(0,0,0);
+	else
+	{
+		btVector3 inertia(0, 0, 0);
 		_physBody->body->setMassProps(0, inertia);
 	}
 }
 
-void PhysicsComponent::CallUpdateStatic()
+void PhysicsComponent::CallUpdateColliderType()
 {
-	if (_physBody->isStatic == true) {
+	if (_physBody->isStatic == true)
+	{
 		_physBody->body->setCollisionFlags(_physBody->body->getCollisionFlags() | btCollisionObject::CF_STATIC_OBJECT);
 	}
-	else {
+	else
+	{
 		_physBody->body->setCollisionFlags(_physBody->body->getCollisionFlags() & ~btCollisionObject::CF_STATIC_OBJECT);
+	}
+
+	if (_physBody->isKinematic == true)
+	{
+		_physBody->body->setCollisionFlags(_physBody->body->getCollisionFlags() | btCollisionObject::CF_KINEMATIC_OBJECT);
+	}
+	else
+	{
+		_physBody->body->setCollisionFlags(_physBody->body->getCollisionFlags() & ~btCollisionObject::CF_KINEMATIC_OBJECT);
 	}
 	CallUpdateMass();
 }
 
 void PhysicsComponent::CallUpdateTrigger()
 {
-	if (_physBody->isTrigger == true) {
+	if (_physBody->isTrigger == true)
+	{
 		_physBody->body->setCollisionFlags(_physBody->body->getCollisionFlags() | btCollisionObject::CF_NO_CONTACT_RESPONSE);
 	}
-	else {
+	else
+	{
 		_physBody->body->setCollisionFlags(_physBody->body->getCollisionFlags() & ~btCollisionObject::CF_NO_CONTACT_RESPONSE);
 	}
 }
 
-void PhysicsComponent::CallUpdateKinematic()
+void PhysicsComponent::CallUpdateAllPram()
 {
-	if (_physBody->isKinematic == true) {
-		_physBody->body->setCollisionFlags(_physBody->body->getCollisionFlags() | btCollisionObject::CF_KINEMATIC_OBJECT);
-	}
-	else {
-		_physBody->body->setCollisionFlags(_physBody->body->getCollisionFlags() & ~btCollisionObject::CF_KINEMATIC_OBJECT);
-	}
-	CallUpdateMass();
-}
-
-void PhysicsComponent::CallUpdateColliderType()
-{
-	CallUpdateStatic();
-	CallUpdateKinematic();
+	CallUpdateColliderType();
 	CallUpdateTrigger();
 
 	CallUpdatePos();
@@ -629,46 +583,40 @@ void PhysicsComponent::CallUpdateColliderType()
 
 void PhysicsComponent::CreateCollider()
 {
-
 	switch (_shapeSelected)
 	{
-		case ColliderShape::BOX:
-		{
-			PrimCube cube;
-			cube.transform = cube.transform.identity;
+	case ColliderShape::BOX:
+	{
+		PrimCube cube;
+		cube.transform = cube.transform.identity;
 
-			cube.size.x = 1;//GetScale().x;
-			cube.size.y = 1;
-			cube.size.z = 1;
-			//cube.transform.Translate(_gameObject->GetComponent<TransformComponent>()->GetGlobalPosition());
+		cube.size.x = 1;//GetScale().x;
+		cube.size.y = 1;
+		cube.size.z = 1;
+		//cube.transform.Translate(_gameObject->GetComponent<TransformComponent>()->GetGlobalPosition());
 
-			_physBody = Application::Instance()->physic->CreatePhysBody(&cube, 1);
+		_physBody = Application::Instance()->physic->CreatePhysBody(&cube, 1);
+	}
+	break;
+	case ColliderShape::SPHERE:
+	{
+		PrimSphere sphere;
 
-		}
-		break;
-		case ColliderShape::SPHERE:
-		{
-			PrimSphere sphere;
+		sphere.radius = _gameObject->GetComponent<TransformComponent>()->GetGlobalScale().y * WORLD_TO_RENDER_RELATION;
 
-			sphere.radius = _gameObject->GetComponent<TransformComponent>()->GetGlobalScale().y * WORLD_TO_RENDER_RELATION;
+		_physBody = Application::Instance()->physic->CreatePhysBody(&sphere, 1);
+	}
+	break;
+	case ColliderShape::CYLINDER:
+	{
+		PrimCylinder cylinder;
 
-			_physBody = Application::Instance()->physic->CreatePhysBody(&sphere, 1);
+		cylinder.radius = _gameObject->GetComponent<TransformComponent>()->GetGlobalScale().x * WORLD_TO_RENDER_RELATION;
+		cylinder.height = _gameObject->GetComponent<TransformComponent>()->GetGlobalScale().y * WORLD_TO_RENDER_RELATION;
 
-		}
-		break;
-		case ColliderShape::CYLINDER:
-		{
-			PrimCylinder cylinder;
-
-			cylinder.radius = _gameObject->GetComponent<TransformComponent>()->GetGlobalScale().x * WORLD_TO_RENDER_RELATION;
-			cylinder.height = _gameObject->GetComponent<TransformComponent>()->GetGlobalScale().y * WORLD_TO_RENDER_RELATION;
-
-			_physBody = Application::Instance()->physic->CreatePhysBody(&cylinder, 1);
-
-		}
-		break;
-		default:
-			break;
+		_physBody = Application::Instance()->physic->CreatePhysBody(&cylinder, 1);
+	}
+	break;
 	}
 
 	_physBody->gameObjectUID = _gameObject->GetID();
@@ -715,55 +663,37 @@ void PhysicsComponent::OnDisable()
 	}
 }
 
-void PhysicsComponent::CheckShapes() {
-
-	for (int h = 0; h < static_cast<int>(ColliderShape::Count); h++) {
-
-
-		if (_isShapeSelected[h] == true) {
-			if (_isShapeCreated[h] == false)
-			{
-				if (_shapeSelected != ColliderShape::NONE && _shapeSelected != static_cast<ColliderShape>(h)) {
-
-				}
-				_shapeSelected = static_cast<ColliderShape>(h);
-				_isShapeCreated[h] = true;
-			}
-		}
-		else {
-			if (_isShapeCreated[h] == true) {
-
-			}
-		}
-
-	}
-
-	int a = 0;
-	for (int i = 0; i < static_cast<int>(ColliderShape::Count); i++) {
+void PhysicsComponent::CheckShapes()
+{
+	bool hasCount = false;
+	for (int i = 0; i < static_cast<int>(ColliderShape::Count); i++)
+	{
 		if (_isShapeSelected[i] == true)
 		{
-			a++;
+			hasCount = true;
+			break;
 		}
 	}
 
-	if (a == 0) {
+	if (hasCount)
+	{
 		_shapeSelected = ColliderShape::NONE;
-		for (int i = 0; i < static_cast<int>(ColliderShape::Count); i++) {
-			if (_isShapeCreated[i] == true)
-			{
-				_isShapeCreated[i] = false;
-			}
+		for (int i = 0; i < static_cast<int>(ColliderShape::Count); i++)
+		{
+			_isShapeCreated[i] = false;
 		}
 	}
 
 	if (_shapeSelected == ColliderShape::NONE)
 	{
-		for (int i = 0; i < static_cast<int>(ColliderShape::Count); i++) {
-			if (_isShapeSelected[i] == true) {
+		for (int i = 0; i < static_cast<int>(ColliderShape::Count); i++)
+		{
+			if (_isShapeSelected[i] == true)
+			{
 				_isShapeSelected[i] = false;
-				if (_isShapeCreated[i] == true) {
+
+				if (_isShapeCreated[i] == true)
 					_isShapeCreated[i] = false;
-				}
 			}
 		}
 	}
@@ -771,15 +701,16 @@ void PhysicsComponent::CheckShapes() {
 	{
 		for (int i = 0; i < static_cast<int>(ColliderShape::Count); i++) {
 
-			if (i != static_cast<int>(_shapeSelected)) {
-				if (_isShapeSelected[i] == true) {
+			if (i != static_cast<int>(_shapeSelected))
+			{
+				if (_isShapeSelected[i] == true)
+				{
 					_isShapeSelected[i] = false;
-					if (_isShapeCreated[i] == true) {
+
+					if (_isShapeCreated[i] == true)
 						_isShapeCreated[i] = false;
-					}
 				}
 			}
-
 		}
 	}
 }
