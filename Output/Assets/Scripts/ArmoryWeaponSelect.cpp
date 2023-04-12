@@ -54,8 +54,8 @@ void ArmoryWeaponSelect::Update()
     {
         if (!interruptor) return;
         // IT'S CORRECT DON'T REMOVE NOTHING
-        interruptor->armoryPanel.SetActive(true); // can set false if is not true
-        interruptor->armoryPanel.SetActive(false);
+        interruptor->menuPanel.SetActive(true); // can set false if is not true
+        interruptor->menuPanel.SetActive(false);
         if (playerMove) playerMove->openingChest = false;
         interruptor->open = false;
     }
