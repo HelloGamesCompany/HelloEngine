@@ -143,54 +143,6 @@
                     },
                     {
                         "PanelAbility4": 474755568
-                    },
-                    {
-                        "Movement": 3961102070
-                    },
-                    {
-                        "AbilityList2": 109185096
-                    },
-                    {
-                        "AbilityList3": 3655526919
-                    },
-                    {
-                        "AbilityList4": 3302747482
-                    },
-                    {
-                        "PanelMovement": 1770922130
-                    },
-                    {
-                        "PanelAbility2": 959223077
-                    },
-                    {
-                        "PanelAbility3": 1068775963
-                    },
-                    {
-                        "PanelAbility4": 474755568
-                    },
-                    {
-                        "Movement": 3961102070
-                    },
-                    {
-                        "AbilityList2": 109185096
-                    },
-                    {
-                        "AbilityList3": 3655526919
-                    },
-                    {
-                        "AbilityList4": 3302747482
-                    },
-                    {
-                        "PanelMovement": 1770922130
-                    },
-                    {
-                        "PanelAbility2": 959223077
-                    },
-                    {
-                        "PanelAbility3": 1068775963
-                    },
-                    {
-                        "PanelAbility4": 474755568
                     }
                 ],
                 "Script Resource": 1314393320,
@@ -231,6 +183,7 @@
                 "FillImage": 1.0,
                 "MaterialResource": 38484368,
                 "MeshEnabled": true,
+                "OpacityDirection": 0,
                 "Type": 15
             }
         ],
@@ -277,24 +230,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Panel Type": 2933578115
-                    },
-                    {
-                        "Panel Ability": 1770922130
-                    },
-                    {
-                        "AbilityButton": 3961102070
-                    },
-                    {
-                        "Panel Type": 2933578115
-                    },
-                    {
-                        "Panel Ability": 1770922130
-                    },
-                    {
-                        "AbilityButton": 3961102070
-                    },
                     {
                         "Panel Type": 2933578115
                     },
@@ -378,24 +313,6 @@
                     },
                     {
                         "AbilityButton": 109185096
-                    },
-                    {
-                        "Panel Type": 2933578115
-                    },
-                    {
-                        "Panel Ability": 959223077
-                    },
-                    {
-                        "AbilityButton": 109185096
-                    },
-                    {
-                        "Panel Type": 2933578115
-                    },
-                    {
-                        "Panel Ability": 959223077
-                    },
-                    {
-                        "AbilityButton": 109185096
                     }
                 ],
                 "Script Resource": 1616702921,
@@ -462,24 +379,6 @@
                     },
                     {
                         "AbilityButton": 3655526919
-                    },
-                    {
-                        "Panel Type": 2933578115
-                    },
-                    {
-                        "Panel Ability": 1068775963
-                    },
-                    {
-                        "AbilityButton": 3655526919
-                    },
-                    {
-                        "Panel Type": 2933578115
-                    },
-                    {
-                        "Panel Ability": 1068775963
-                    },
-                    {
-                        "AbilityButton": 3655526919
                     }
                 ],
                 "Script Resource": 1616702921,
@@ -529,24 +428,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Panel Type": 2933578115
-                    },
-                    {
-                        "Panel Ability": 474755568
-                    },
-                    {
-                        "AbilityButton": 3302747482
-                    },
-                    {
-                        "Panel Type": 2933578115
-                    },
-                    {
-                        "Panel Ability": 474755568
-                    },
-                    {
-                        "AbilityButton": 3302747482
-                    },
                     {
                         "Panel Type": 2933578115
                     },
@@ -671,18 +552,6 @@
                     },
                     {
                         "PlayerStorage GO": 2178022744
-                    },
-                    {
-                        "Text Blueprints": 1164937625
-                    },
-                    {
-                        "PlayerStorage GO": 2178022744
-                    },
-                    {
-                        "Text Blueprints": 1164937625
-                    },
-                    {
-                        "PlayerStorage GO": 2178022744
                     }
                 ],
                 "Script Resource": 1516218704,
@@ -729,6 +598,97 @@
                     1407843779,
                     3002809720
                 ]
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Upgrate 1": 2687373958
+                    },
+                    {
+                        "Skillpoints needed LvL 1": 1
+                    },
+                    {
+                        "Upgrate 2": 1089061174
+                    },
+                    {
+                        "Skillpoints needed LvL 2": 2
+                    },
+                    {
+                        "Upgrate 3": 1407843779
+                    },
+                    {
+                        "Skillpoints needed LvL 3": 2
+                    },
+                    {
+                        "Upgrate 4": 3002809720
+                    },
+                    {
+                        "Skillpoints needed LvL 4": 3
+                    },
+                    {
+                        "Skillpoints needed LvL 5": 0
+                    },
+                    {
+                        "Upgrade Number": 4
+                    },
+                    {
+                        "Main Panel": 2933578115
+                    },
+                    {
+                        "Current Panel": 1770922130
+                    },
+                    {
+                        "Tree Index": 0
+                    },
+                    {
+                        "Player": 2178022744
+                    },
+                    {
+                        "Upgrate 1": 2687373958
+                    },
+                    {
+                        "Skillpoints needed LvL 1": 1
+                    },
+                    {
+                        "Upgrate 2": 1089061174
+                    },
+                    {
+                        "Skillpoints needed LvL 2": 2
+                    },
+                    {
+                        "Upgrate 3": 1407843779
+                    },
+                    {
+                        "Skillpoints needed LvL 3": 2
+                    },
+                    {
+                        "Upgrate 4": 3002809720
+                    },
+                    {
+                        "Skillpoints needed LvL 4": 3
+                    },
+                    {
+                        "Skillpoints needed LvL 5": 0
+                    },
+                    {
+                        "Upgrade Number": 4
+                    },
+                    {
+                        "Main Panel": 2933578115
+                    },
+                    {
+                        "Current Panel": 1770922130
+                    },
+                    {
+                        "Tree Index": 0
+                    },
+                    {
+                        "Player": 2178022744
+                    }
+                ],
+                "Script Resource": 1508860481,
+                "Type": 5
             }
         ],
         "FirstOnPrefab": true,
@@ -770,85 +730,6 @@
                 "hoverImage": 3644347538,
                 "idleImage": 3301583117,
                 "pressImage": 305171208
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Ability1": 2687373958
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 1770922130
-                    },
-                    {
-                        "Upgrade Index": 1
-                    },
-                    {
-                        "Tree Index": 0
-                    },
-                    {
-                        "Player": 2178022744
-                    },
-                    {
-                        "Ability1": 2687373958
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 1770922130
-                    },
-                    {
-                        "Upgrade Index": 1
-                    },
-                    {
-                        "Tree Index": 0
-                    },
-                    {
-                        "Player": 2178022744
-                    },
-                    {
-                        "Ability1": 2687373958
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 1770922130
-                    },
-                    {
-                        "Upgrade Index": 1
-                    },
-                    {
-                        "Tree Index": 0
-                    },
-                    {
-                        "Player": 2178022744
-                    },
-                    {
-                        "Ability1": 2687373958
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 1770922130
-                    },
-                    {
-                        "Upgrade Index": 1
-                    },
-                    {
-                        "Tree Index": 0
-                    },
-                    {
-                        "Player": 2178022744
-                    }
-                ],
-                "Script Resource": 1508860481,
-                "Type": 5
             }
         ],
         "FirstOnPrefab": false,
@@ -890,85 +771,6 @@
                 "hoverImage": 3498986557,
                 "idleImage": 976165087,
                 "pressImage": 821851951
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Ability1": 1089061174
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 1770922130
-                    },
-                    {
-                        "Upgrade Index": 2
-                    },
-                    {
-                        "Tree Index": 0
-                    },
-                    {
-                        "Player": 2178022744
-                    },
-                    {
-                        "Ability1": 1089061174
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 1770922130
-                    },
-                    {
-                        "Upgrade Index": 2
-                    },
-                    {
-                        "Tree Index": 0
-                    },
-                    {
-                        "Player": 2178022744
-                    },
-                    {
-                        "Ability1": 1089061174
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 1770922130
-                    },
-                    {
-                        "Upgrade Index": 2
-                    },
-                    {
-                        "Tree Index": 0
-                    },
-                    {
-                        "Player": 2178022744
-                    },
-                    {
-                        "Ability1": 1089061174
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 1770922130
-                    },
-                    {
-                        "Upgrade Index": 2
-                    },
-                    {
-                        "Tree Index": 0
-                    },
-                    {
-                        "Player": 2178022744
-                    }
-                ],
-                "Script Resource": 1508860481,
-                "Type": 5
             }
         ],
         "FirstOnPrefab": false,
@@ -1010,85 +812,6 @@
                 "hoverImage": 2532698648,
                 "idleImage": 843752791,
                 "pressImage": 1508254054
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Ability1": 1407843779
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 1770922130
-                    },
-                    {
-                        "Upgrade Index": 3
-                    },
-                    {
-                        "Tree Index": 0
-                    },
-                    {
-                        "Player": 2178022744
-                    },
-                    {
-                        "Ability1": 1407843779
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 1770922130
-                    },
-                    {
-                        "Upgrade Index": 3
-                    },
-                    {
-                        "Tree Index": 0
-                    },
-                    {
-                        "Player": 2178022744
-                    },
-                    {
-                        "Ability1": 1407843779
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 1770922130
-                    },
-                    {
-                        "Upgrade Index": 3
-                    },
-                    {
-                        "Tree Index": 0
-                    },
-                    {
-                        "Player": 2178022744
-                    },
-                    {
-                        "Ability1": 1407843779
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 1770922130
-                    },
-                    {
-                        "Upgrade Index": 3
-                    },
-                    {
-                        "Tree Index": 0
-                    },
-                    {
-                        "Player": 2178022744
-                    }
-                ],
-                "Script Resource": 1508860481,
-                "Type": 5
             }
         ],
         "FirstOnPrefab": false,
@@ -1130,85 +853,6 @@
                 "hoverImage": 2104715135,
                 "idleImage": 391265041,
                 "pressImage": 2120627682
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Ability1": 3002809720
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 1770922130
-                    },
-                    {
-                        "Upgrade Index": 4
-                    },
-                    {
-                        "Tree Index": 0
-                    },
-                    {
-                        "Player": 2178022744
-                    },
-                    {
-                        "Ability1": 3002809720
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 1770922130
-                    },
-                    {
-                        "Upgrade Index": 4
-                    },
-                    {
-                        "Tree Index": 0
-                    },
-                    {
-                        "Player": 2178022744
-                    },
-                    {
-                        "Ability1": 3002809720
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 1770922130
-                    },
-                    {
-                        "Upgrade Index": 4
-                    },
-                    {
-                        "Tree Index": 0
-                    },
-                    {
-                        "Player": 2178022744
-                    },
-                    {
-                        "Ability1": 3002809720
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 1770922130
-                    },
-                    {
-                        "Upgrade Index": 4
-                    },
-                    {
-                        "Tree Index": 0
-                    },
-                    {
-                        "Player": 2178022744
-                    }
-                ],
-                "Script Resource": 1508860481,
-                "Type": 5
             }
         ],
         "FirstOnPrefab": false,
@@ -1251,6 +895,97 @@
                     1264709803,
                     3531626663
                 ]
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Upgrate 1": 3918325609
+                    },
+                    {
+                        "Skillpoints needed LvL 1": 1
+                    },
+                    {
+                        "Upgrate 2": 2899418748
+                    },
+                    {
+                        "Skillpoints needed LvL 2": 2
+                    },
+                    {
+                        "Upgrate 3": 1264709803
+                    },
+                    {
+                        "Skillpoints needed LvL 3": 2
+                    },
+                    {
+                        "Upgrate 4": 3531626663
+                    },
+                    {
+                        "Skillpoints needed LvL 4": 3
+                    },
+                    {
+                        "Skillpoints needed LvL 5": 0
+                    },
+                    {
+                        "Upgrade Number": 4
+                    },
+                    {
+                        "Main Panel": 2933578115
+                    },
+                    {
+                        "Current Panel": 959223077
+                    },
+                    {
+                        "Tree Index": 1
+                    },
+                    {
+                        "Player": 2178022744
+                    },
+                    {
+                        "Upgrate 1": 3918325609
+                    },
+                    {
+                        "Skillpoints needed LvL 1": 1
+                    },
+                    {
+                        "Upgrate 2": 2899418748
+                    },
+                    {
+                        "Skillpoints needed LvL 2": 2
+                    },
+                    {
+                        "Upgrate 3": 1264709803
+                    },
+                    {
+                        "Skillpoints needed LvL 3": 2
+                    },
+                    {
+                        "Upgrate 4": 3531626663
+                    },
+                    {
+                        "Skillpoints needed LvL 4": 3
+                    },
+                    {
+                        "Skillpoints needed LvL 5": 0
+                    },
+                    {
+                        "Upgrade Number": 4
+                    },
+                    {
+                        "Main Panel": 2933578115
+                    },
+                    {
+                        "Current Panel": 959223077
+                    },
+                    {
+                        "Tree Index": 1
+                    },
+                    {
+                        "Player": 2178022744
+                    }
+                ],
+                "Script Resource": 1508860481,
+                "Type": 5
             }
         ],
         "FirstOnPrefab": true,
@@ -1292,85 +1027,6 @@
                 "hoverImage": 1299706994,
                 "idleImage": 1573435885,
                 "pressImage": 2743990961
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Ability1": 3918325609
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 959223077
-                    },
-                    {
-                        "Upgrade Index": 1
-                    },
-                    {
-                        "Tree Index": 1
-                    },
-                    {
-                        "Player": 2178022744
-                    },
-                    {
-                        "Ability1": 3918325609
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 959223077
-                    },
-                    {
-                        "Upgrade Index": 1
-                    },
-                    {
-                        "Tree Index": 1
-                    },
-                    {
-                        "Player": 2178022744
-                    },
-                    {
-                        "Ability1": 3918325609
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 959223077
-                    },
-                    {
-                        "Upgrade Index": 1
-                    },
-                    {
-                        "Tree Index": 1
-                    },
-                    {
-                        "Player": 2178022744
-                    },
-                    {
-                        "Ability1": 3918325609
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 959223077
-                    },
-                    {
-                        "Upgrade Index": 1
-                    },
-                    {
-                        "Tree Index": 1
-                    },
-                    {
-                        "Player": 2178022744
-                    }
-                ],
-                "Script Resource": 1508860481,
-                "Type": 5
             }
         ],
         "FirstOnPrefab": false,
@@ -1412,85 +1068,6 @@
                 "hoverImage": 1204102912,
                 "idleImage": 2089774848,
                 "pressImage": 1789190298
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Ability1": 2899418748
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 959223077
-                    },
-                    {
-                        "Upgrade Index": 2
-                    },
-                    {
-                        "Tree Index": 1
-                    },
-                    {
-                        "Player": 2178022744
-                    },
-                    {
-                        "Ability1": 2899418748
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 959223077
-                    },
-                    {
-                        "Upgrade Index": 2
-                    },
-                    {
-                        "Tree Index": 1
-                    },
-                    {
-                        "Player": 2178022744
-                    },
-                    {
-                        "Ability1": 2899418748
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 959223077
-                    },
-                    {
-                        "Upgrade Index": 2
-                    },
-                    {
-                        "Tree Index": 1
-                    },
-                    {
-                        "Player": 2178022744
-                    },
-                    {
-                        "Ability1": 2899418748
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 959223077
-                    },
-                    {
-                        "Upgrade Index": 2
-                    },
-                    {
-                        "Tree Index": 1
-                    },
-                    {
-                        "Player": 2178022744
-                    }
-                ],
-                "Script Resource": 1508860481,
-                "Type": 5
             }
         ],
         "FirstOnPrefab": false,
@@ -1532,85 +1109,6 @@
                 "hoverImage": 4007021474,
                 "idleImage": 2640179101,
                 "pressImage": 489318155
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Ability1": 1264709803
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 959223077
-                    },
-                    {
-                        "Upgrade Index": 3
-                    },
-                    {
-                        "Tree Index": 1
-                    },
-                    {
-                        "Player": 2178022744
-                    },
-                    {
-                        "Ability1": 1264709803
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 959223077
-                    },
-                    {
-                        "Upgrade Index": 3
-                    },
-                    {
-                        "Tree Index": 1
-                    },
-                    {
-                        "Player": 2178022744
-                    },
-                    {
-                        "Ability1": 1264709803
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 959223077
-                    },
-                    {
-                        "Upgrade Index": 3
-                    },
-                    {
-                        "Tree Index": 1
-                    },
-                    {
-                        "Player": 2178022744
-                    },
-                    {
-                        "Ability1": 1264709803
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 959223077
-                    },
-                    {
-                        "Upgrade Index": 3
-                    },
-                    {
-                        "Tree Index": 1
-                    },
-                    {
-                        "Player": 2178022744
-                    }
-                ],
-                "Script Resource": 1508860481,
-                "Type": 5
             }
         ],
         "FirstOnPrefab": false,
@@ -1652,85 +1150,6 @@
                 "hoverImage": 1341330046,
                 "idleImage": 933395853,
                 "pressImage": 3715060032
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Ability1": 3531626663
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 959223077
-                    },
-                    {
-                        "Upgrade Index": 4
-                    },
-                    {
-                        "Tree Index": 1
-                    },
-                    {
-                        "Player": 2178022744
-                    },
-                    {
-                        "Ability1": 3531626663
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 959223077
-                    },
-                    {
-                        "Upgrade Index": 4
-                    },
-                    {
-                        "Tree Index": 1
-                    },
-                    {
-                        "Player": 2178022744
-                    },
-                    {
-                        "Ability1": 3531626663
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 959223077
-                    },
-                    {
-                        "Upgrade Index": 4
-                    },
-                    {
-                        "Tree Index": 1
-                    },
-                    {
-                        "Player": 2178022744
-                    },
-                    {
-                        "Ability1": 3531626663
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 959223077
-                    },
-                    {
-                        "Upgrade Index": 4
-                    },
-                    {
-                        "Tree Index": 1
-                    },
-                    {
-                        "Player": 2178022744
-                    }
-                ],
-                "Script Resource": 1508860481,
-                "Type": 5
             }
         ],
         "FirstOnPrefab": false,
@@ -1771,8 +1190,106 @@
                     3237884119,
                     3371718339,
                     964916638,
-                    877777461
+                    877777461,
+                    235469866
                 ]
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Upgrate 1": 3237884119
+                    },
+                    {
+                        "Skillpoints needed LvL 1": 1
+                    },
+                    {
+                        "Upgrate 2": 3371718339
+                    },
+                    {
+                        "Skillpoints needed LvL 2": 2
+                    },
+                    {
+                        "Upgrate 3": 964916638
+                    },
+                    {
+                        "Skillpoints needed LvL 3": 2
+                    },
+                    {
+                        "Upgrate 4": 877777461
+                    },
+                    {
+                        "Skillpoints needed LvL 4": 2
+                    },
+                    {
+                        "Upgrate 5": 235469866
+                    },
+                    {
+                        "Skillpoints needed LvL 5": 3
+                    },
+                    {
+                        "Upgrade Number": 5
+                    },
+                    {
+                        "Main Panel": 2933578115
+                    },
+                    {
+                        "Current Panel": 1068775963
+                    },
+                    {
+                        "Tree Index": 2
+                    },
+                    {
+                        "Player": 2178022744
+                    },
+                    {
+                        "Upgrate 1": 3237884119
+                    },
+                    {
+                        "Skillpoints needed LvL 1": 1
+                    },
+                    {
+                        "Upgrate 2": 3371718339
+                    },
+                    {
+                        "Skillpoints needed LvL 2": 2
+                    },
+                    {
+                        "Upgrate 3": 964916638
+                    },
+                    {
+                        "Skillpoints needed LvL 3": 2
+                    },
+                    {
+                        "Upgrate 4": 877777461
+                    },
+                    {
+                        "Skillpoints needed LvL 4": 2
+                    },
+                    {
+                        "Upgrate 5": 235469866
+                    },
+                    {
+                        "Skillpoints needed LvL 5": 3
+                    },
+                    {
+                        "Upgrade Number": 5
+                    },
+                    {
+                        "Main Panel": 2933578115
+                    },
+                    {
+                        "Current Panel": 1068775963
+                    },
+                    {
+                        "Tree Index": 2
+                    },
+                    {
+                        "Player": 2178022744
+                    }
+                ],
+                "Script Resource": 1508860481,
+                "Type": 5
             }
         ],
         "FirstOnPrefab": true,
@@ -1814,85 +1331,6 @@
                 "hoverImage": 3953265922,
                 "idleImage": 2978502141,
                 "pressImage": 3912368383
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Ability1": 3237884119
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 1068775963
-                    },
-                    {
-                        "Upgrade Index": 1
-                    },
-                    {
-                        "Tree Index": 2
-                    },
-                    {
-                        "Player": 2178022744
-                    },
-                    {
-                        "Ability1": 3237884119
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 1068775963
-                    },
-                    {
-                        "Upgrade Index": 1
-                    },
-                    {
-                        "Tree Index": 2
-                    },
-                    {
-                        "Player": 2178022744
-                    },
-                    {
-                        "Ability1": 3237884119
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 1068775963
-                    },
-                    {
-                        "Upgrade Index": 1
-                    },
-                    {
-                        "Tree Index": 2
-                    },
-                    {
-                        "Player": 2178022744
-                    },
-                    {
-                        "Ability1": 3237884119
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 1068775963
-                    },
-                    {
-                        "Upgrade Index": 1
-                    },
-                    {
-                        "Tree Index": 2
-                    },
-                    {
-                        "Player": 2178022744
-                    }
-                ],
-                "Script Resource": 1508860481,
-                "Type": 5
             }
         ],
         "FirstOnPrefab": false,
@@ -1934,85 +1372,6 @@
                 "hoverImage": 1086617566,
                 "idleImage": 3371657197,
                 "pressImage": 2893395104
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Ability1": 3371718339
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 1068775963
-                    },
-                    {
-                        "Upgrade Index": 2
-                    },
-                    {
-                        "Tree Index": 2
-                    },
-                    {
-                        "Player": 2178022744
-                    },
-                    {
-                        "Ability1": 3371718339
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 1068775963
-                    },
-                    {
-                        "Upgrade Index": 2
-                    },
-                    {
-                        "Tree Index": 2
-                    },
-                    {
-                        "Player": 2178022744
-                    },
-                    {
-                        "Ability1": 3371718339
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 1068775963
-                    },
-                    {
-                        "Upgrade Index": 2
-                    },
-                    {
-                        "Tree Index": 2
-                    },
-                    {
-                        "Player": 2178022744
-                    },
-                    {
-                        "Ability1": 3371718339
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 1068775963
-                    },
-                    {
-                        "Upgrade Index": 2
-                    },
-                    {
-                        "Tree Index": 2
-                    },
-                    {
-                        "Player": 2178022744
-                    }
-                ],
-                "Script Resource": 1508860481,
-                "Type": 5
             }
         ],
         "FirstOnPrefab": false,
@@ -2054,85 +1413,6 @@
                 "hoverImage": 1007175369,
                 "idleImage": 3528328460,
                 "pressImage": 1823158032
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Ability1": 964916638
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 1068775963
-                    },
-                    {
-                        "Upgrade Index": 3
-                    },
-                    {
-                        "Tree Index": 2
-                    },
-                    {
-                        "Player": 2178022744
-                    },
-                    {
-                        "Ability1": 964916638
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 1068775963
-                    },
-                    {
-                        "Upgrade Index": 3
-                    },
-                    {
-                        "Tree Index": 2
-                    },
-                    {
-                        "Player": 2178022744
-                    },
-                    {
-                        "Ability1": 964916638
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 1068775963
-                    },
-                    {
-                        "Upgrade Index": 3
-                    },
-                    {
-                        "Tree Index": 2
-                    },
-                    {
-                        "Player": 2178022744
-                    },
-                    {
-                        "Ability1": 964916638
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 1068775963
-                    },
-                    {
-                        "Upgrade Index": 3
-                    },
-                    {
-                        "Tree Index": 2
-                    },
-                    {
-                        "Player": 2178022744
-                    }
-                ],
-                "Script Resource": 1508860481,
-                "Type": 5
             }
         ],
         "FirstOnPrefab": false,
@@ -2174,85 +1454,6 @@
                 "hoverImage": 2129167693,
                 "idleImage": 3170836837,
                 "pressImage": 1021829803
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Ability1": 877777461
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 1068775963
-                    },
-                    {
-                        "Upgrade Index": 4
-                    },
-                    {
-                        "Tree Index": 2
-                    },
-                    {
-                        "Player": 2178022744
-                    },
-                    {
-                        "Ability1": 877777461
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 1068775963
-                    },
-                    {
-                        "Upgrade Index": 4
-                    },
-                    {
-                        "Tree Index": 2
-                    },
-                    {
-                        "Player": 2178022744
-                    },
-                    {
-                        "Ability1": 877777461
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 1068775963
-                    },
-                    {
-                        "Upgrade Index": 4
-                    },
-                    {
-                        "Tree Index": 2
-                    },
-                    {
-                        "Player": 2178022744
-                    },
-                    {
-                        "Ability1": 877777461
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 1068775963
-                    },
-                    {
-                        "Upgrade Index": 4
-                    },
-                    {
-                        "Tree Index": 2
-                    },
-                    {
-                        "Player": 2178022744
-                    }
-                ],
-                "Script Resource": 1508860481,
-                "Type": 5
             }
         ],
         "FirstOnPrefab": false,
@@ -2294,85 +1495,6 @@
                 "hoverImage": 2763763002,
                 "idleImage": 1703415925,
                 "pressImage": 2902321340
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Ability1": 235469866
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 1068775963
-                    },
-                    {
-                        "Upgrade Index": 5
-                    },
-                    {
-                        "Tree Index": 2
-                    },
-                    {
-                        "Player": 2178022744
-                    },
-                    {
-                        "Ability1": 235469866
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 1068775963
-                    },
-                    {
-                        "Upgrade Index": 5
-                    },
-                    {
-                        "Tree Index": 2
-                    },
-                    {
-                        "Player": 2178022744
-                    },
-                    {
-                        "Ability1": 235469866
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 1068775963
-                    },
-                    {
-                        "Upgrade Index": 5
-                    },
-                    {
-                        "Tree Index": 2
-                    },
-                    {
-                        "Player": 2178022744
-                    },
-                    {
-                        "Ability1": 235469866
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 1068775963
-                    },
-                    {
-                        "Upgrade Index": 5
-                    },
-                    {
-                        "Tree Index": 2
-                    },
-                    {
-                        "Player": 2178022744
-                    }
-                ],
-                "Script Resource": 1508860481,
-                "Type": 5
             }
         ],
         "FirstOnPrefab": false,
@@ -2414,6 +1536,91 @@
                     1085905519,
                     1813794107
                 ]
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Upgrate 1": 3184057008
+                    },
+                    {
+                        "Skillpoints needed LvL 1": 3
+                    },
+                    {
+                        "Upgrate 2": 1085905519
+                    },
+                    {
+                        "Skillpoints needed LvL 2": 3
+                    },
+                    {
+                        "Upgrate 3": 1813794107
+                    },
+                    {
+                        "Skillpoints needed LvL 3": 4
+                    },
+                    {
+                        "Skillpoints needed LvL 4": 0
+                    },
+                    {
+                        "Skillpoints needed LvL 5": 0
+                    },
+                    {
+                        "Upgrade Number": 3
+                    },
+                    {
+                        "Main Panel": 2933578115
+                    },
+                    {
+                        "Current Panel": 474755568
+                    },
+                    {
+                        "Tree Index": 3
+                    },
+                    {
+                        "Player": 2178022744
+                    },
+                    {
+                        "Upgrate 1": 3184057008
+                    },
+                    {
+                        "Skillpoints needed LvL 1": 3
+                    },
+                    {
+                        "Upgrate 2": 1085905519
+                    },
+                    {
+                        "Skillpoints needed LvL 2": 3
+                    },
+                    {
+                        "Upgrate 3": 1813794107
+                    },
+                    {
+                        "Skillpoints needed LvL 3": 4
+                    },
+                    {
+                        "Skillpoints needed LvL 4": 0
+                    },
+                    {
+                        "Skillpoints needed LvL 5": 0
+                    },
+                    {
+                        "Upgrade Number": 3
+                    },
+                    {
+                        "Main Panel": 2933578115
+                    },
+                    {
+                        "Current Panel": 474755568
+                    },
+                    {
+                        "Tree Index": 3
+                    },
+                    {
+                        "Player": 2178022744
+                    }
+                ],
+                "Script Resource": 1508860481,
+                "Type": 5
             }
         ],
         "FirstOnPrefab": true,
@@ -2455,85 +1662,6 @@
                 "hoverImage": 1690812387,
                 "idleImage": 3222245962,
                 "pressImage": 2443171672
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Ability1": 3184057008
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 474755568
-                    },
-                    {
-                        "Upgrade Index": 1
-                    },
-                    {
-                        "Tree Index": 3
-                    },
-                    {
-                        "Player": 2178022744
-                    },
-                    {
-                        "Ability1": 3184057008
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 474755568
-                    },
-                    {
-                        "Upgrade Index": 1
-                    },
-                    {
-                        "Tree Index": 3
-                    },
-                    {
-                        "Player": 2178022744
-                    },
-                    {
-                        "Ability1": 3184057008
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 474755568
-                    },
-                    {
-                        "Upgrade Index": 1
-                    },
-                    {
-                        "Tree Index": 3
-                    },
-                    {
-                        "Player": 2178022744
-                    },
-                    {
-                        "Ability1": 3184057008
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 474755568
-                    },
-                    {
-                        "Upgrade Index": 1
-                    },
-                    {
-                        "Tree Index": 3
-                    },
-                    {
-                        "Player": 2178022744
-                    }
-                ],
-                "Script Resource": 1508860481,
-                "Type": 5
             }
         ],
         "FirstOnPrefab": false,
@@ -2575,85 +1703,6 @@
                 "hoverImage": 2028033966,
                 "idleImage": 788406600,
                 "pressImage": 1440306437
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Ability1": 1085905519
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 474755568
-                    },
-                    {
-                        "Upgrade Index": 2
-                    },
-                    {
-                        "Tree Index": 3
-                    },
-                    {
-                        "Player": 2178022744
-                    },
-                    {
-                        "Ability1": 1085905519
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 474755568
-                    },
-                    {
-                        "Upgrade Index": 2
-                    },
-                    {
-                        "Tree Index": 3
-                    },
-                    {
-                        "Player": 2178022744
-                    },
-                    {
-                        "Ability1": 1085905519
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 474755568
-                    },
-                    {
-                        "Upgrade Index": 2
-                    },
-                    {
-                        "Tree Index": 3
-                    },
-                    {
-                        "Player": 2178022744
-                    },
-                    {
-                        "Ability1": 1085905519
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 474755568
-                    },
-                    {
-                        "Upgrade Index": 2
-                    },
-                    {
-                        "Tree Index": 3
-                    },
-                    {
-                        "Player": 2178022744
-                    }
-                ],
-                "Script Resource": 1508860481,
-                "Type": 5
             }
         ],
         "FirstOnPrefab": false,
@@ -2695,85 +1744,6 @@
                 "hoverImage": 2858573973,
                 "idleImage": 736343671,
                 "pressImage": 875215623
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Ability1": 1813794107
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 474755568
-                    },
-                    {
-                        "Upgrade Index": 3
-                    },
-                    {
-                        "Tree Index": 3
-                    },
-                    {
-                        "Player": 2178022744
-                    },
-                    {
-                        "Ability1": 1813794107
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 474755568
-                    },
-                    {
-                        "Upgrade Index": 3
-                    },
-                    {
-                        "Tree Index": 3
-                    },
-                    {
-                        "Player": 2178022744
-                    },
-                    {
-                        "Ability1": 1813794107
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 474755568
-                    },
-                    {
-                        "Upgrade Index": 3
-                    },
-                    {
-                        "Tree Index": 3
-                    },
-                    {
-                        "Player": 2178022744
-                    },
-                    {
-                        "Ability1": 1813794107
-                    },
-                    {
-                        "Main Panel": 2933578115
-                    },
-                    {
-                        "Current Panel": 474755568
-                    },
-                    {
-                        "Upgrade Index": 3
-                    },
-                    {
-                        "Tree Index": 3
-                    },
-                    {
-                        "Player": 2178022744
-                    }
-                ],
-                "Script Resource": 1508860481,
-                "Type": 5
             }
         ],
         "FirstOnPrefab": false,
@@ -2808,7 +1778,7 @@
             {
                 "Active camera": true,
                 "Active culling": false,
-                "Aspect ratio": 1.9408766031265259,
+                "Aspect ratio": 1.8122271299362183,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -2820,12 +1790,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Level Index": 0
-                    },
-                    {
-                        "Level Index": 0
-                    },
                     {
                         "Level Index": 0
                     },

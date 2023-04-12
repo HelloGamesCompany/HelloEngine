@@ -27,6 +27,8 @@ namespace API
 
 		void ChangeAnimation(uint animationResourceUID);
 
+		void SetLoop(bool loop);
+
 	private:
 		AnimationComponent* GetComponent();
 		void SetComponent(AnimationComponent* component);

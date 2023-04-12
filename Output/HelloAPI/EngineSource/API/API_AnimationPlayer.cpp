@@ -83,6 +83,16 @@ void API::API_AnimationPlayer::ChangeAnimation(uint animationResourceUID)
 	_animation->ChangeAnimation(animationResourceUID);
 }
 
+void API::API_AnimationPlayer::SetLoop(bool loop)
+{
+	if (!_animation)
+	{
+		Engine::Console::S_Log("Trying to acces a NULLPTR AnimationPlayer");
+		return;
+	}
+	_animation->SetLoop(loop);
+}
+
 AnimationComponent* API::API_AnimationPlayer::GetComponent()
 {
     return _animation;

@@ -48,6 +48,8 @@ void PlayerStorage::Start()
         Console::Log("Wrong level index", API::Console::MessageType::ERR);
         break;
     }
+
+    gameObject.GetTransform().SetPosition(API_QuickSave::GetFloat("PlayerPosX"), API_QuickSave::GetFloat("PlayerPosY"), API_QuickSave::GetFloat("PlayerPosZ"));
 }
 
 void PlayerStorage::Update()
@@ -57,6 +59,11 @@ void PlayerStorage::Update()
 
 void PlayerStorage::SaveData()
 {
+
+    //Player Position
+    API_QuickSave::SetFloat("PlayerPosX", gameObject.GetTransform().GetGlobalPosition().x);
+    API_QuickSave::SetFloat("PlayerPosY", gameObject.GetTransform().GetGlobalPosition().y);
+    API_QuickSave::SetFloat("PlayerPosZ", gameObject.GetTransform().GetGlobalPosition().z);
     // skill points
     API_QuickSave::SetInt("skillPointsAmount", skillPoints);
 

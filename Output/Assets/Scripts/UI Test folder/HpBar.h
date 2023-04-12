@@ -4,20 +4,27 @@
 #include "Macro.h"
 
 #include "API/API.h"
+#include "API/API_UIImage.h"
 
 #include "../Player/PlayerStats.h"
+
+
 
 class HpBar : HelloBehavior
 {
 public:
     void Start() override;
     void Update() override;
+    void HpPlayerbar(float vida_Player_value, float Regen_Player_value, bool Regen_Bar_Active);
+    void ShieldPlayerbar(float Shield_Player_value, bool Shield_Active);
 
-    float FirstPosX;
-    float FirstPosY;
-    float FirstPosZ;
 
     API_GameObject playerStatsGO;
     PlayerStats* playerStats;
+
+    API_UIImage hp_Bar;
+    API_UIImage hp__Regen_Bar;
+    API_UIImage shield_Bar;
+
 };
 
