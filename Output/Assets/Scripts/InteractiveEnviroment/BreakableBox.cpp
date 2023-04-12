@@ -55,7 +55,7 @@ void BreakableBox::OnCollisionEnter(API_RigidBody other)
 }
 
 void BreakableBox::ShootBox(float projectileDamage)
-{
+{ 
 
     // Health damage
     currentHp -= projectileDamage;

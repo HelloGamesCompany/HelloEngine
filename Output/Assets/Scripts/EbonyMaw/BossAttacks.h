@@ -99,6 +99,8 @@ public:
 
 	bool exploted = false;
 
+	float rotationBoss = 0.0f;
+
 	enum class BOSS_STATE {
 		KO,
 		IDLE,
