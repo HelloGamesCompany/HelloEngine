@@ -49,7 +49,7 @@ public:
 
     bool wander = false;
     bool targeting = false;
-    bool canDash = false;
+    bool dashing = false;
    // bool shooted = false;
 
     float detectionDis = 2.0f;
@@ -72,7 +72,7 @@ public:
     float chargeSpeed;
 
     float tDash;
-    float velDash;
+    float velDash = 10;
 
     int probDash = 10;
     int sideDash = 0;

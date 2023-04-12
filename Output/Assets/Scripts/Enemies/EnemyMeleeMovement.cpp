@@ -18,8 +18,8 @@ HELLO_ENGINE_API_C EnemyMeleeMovement* CreateEnemyMeleeMovement(ScriptToInspecto
     script->AddDragFloat("Charge Speed", &classInstance->chargeSpeed);
     script->AddDragFloat("Walk Away Speed", &classInstance->walkAwaySpeed);
     script->AddDragInt("Probaility to dodge %", &classInstance->probDash);
-    script->AddDragFloat("Vel dash", &classInstance->tDash);
-    script->AddDragFloat("Time Dash", &classInstance->velDash);
+    script->AddDragFloat("Vel dash", &classInstance->velDash);
+    script->AddDragFloat("Time Dash", &classInstance->tDash);
     script->AddDragBoxGameObject("Target", &classInstance->target);
     script->AddDragBoxGameObject("Action zone", &classInstance->actionZone);
     script->AddDragBoxGameObject("Attack zone", &classInstance->attackZoneGO);
@@ -36,6 +36,7 @@ HELLO_ENGINE_API_C EnemyMeleeMovement* CreateEnemyMeleeMovement(ScriptToInspecto
     script->AddDragBoxAnimationResource("Attack Animation", &classInstance->attackAnim);
     script->AddDragBoxAnimationResource("Charge Animation", &classInstance->chargeAnim);
     script->AddDragBoxAnimationResource("Dash Animation", &classInstance->dashAnim);
+    script->AddCheckBox("Dashiing", &classInstance->dashing);
     return classInstance;
 }
 
@@ -98,34 +99,40 @@ void EnemyMeleeMovement::Update()
             }
          }
 
-         if (enemState != States::ATTACKIG && attackZone->shooted && (rand() % 100) <= probDash )
+         if (/*enemState != States::ATTACKIG ||*/ attackZone->shooted && (rand() % 100) <= probDash && !dashing )
         {
-             canDash = true;
+             dashing = true;
              sideDash = rand() % 1;
+             _dashCooldown = 0;
+             enemState = States::DASHING;
         }
+        
 
-        if ((enemState == States::ATTACKIG || enemState == States::TARGETING || enemy->isHit)&& enemy->isTargIn  )
-        {
-            targStats->detected = true;
-        }
-       /* else if((enemState != States::ATTACKIG || enemState != States::TARGETING || !enemy->isHit) && !enemy->isTargIn && targStats->detected) {
-            targStats->detected = false;
-        }*/
-        if (attackZone->attack)
-        {
-            enemState = States::ATTACKIG;
-        }
-        else if (dis < detectionDis && enemState != States::TARGETING && !enemy->isOut && enemy->isTargIn || enemy->isHit || targStats->detected)
-        {
-            attackZone->attack = false;
-            enemState = States::TARGETING;
-            
-        }
-        else if (dis > lossingDis || enemy->isOut && !enemy->isTargIn  && _outCooldown >= outTime)
-        {
-            attackZone->attack = false;
-            enemState = States::WANDERING;
-        }
+         if (!dashing)
+         {
+             if ((enemState == States::ATTACKIG || enemState == States::TARGETING || enemy->isHit) && enemy->isTargIn)
+             {
+                 targStats->detected = true;
+             }
+             /* else if((enemState != States::ATTACKIG || enemState != States::TARGETING || !enemy->isHit) && !enemy->isTargIn && targStats->detected) {
+                  targStats->detected = false;
+              }*/
+             if (attackZone->attack)
+             {
+                 enemState = States::ATTACKIG;
+             }
+             else if (dis < detectionDis && enemState != States::TARGETING && !enemy->isOut && enemy->isTargIn || enemy->isHit || targStats->detected)
+             {
+                 attackZone->attack = false;
+                 enemState = States::TARGETING;
+
+             }
+             else if (dis > lossingDis || enemy->isOut && !enemy->isTargIn && _outCooldown >= outTime)
+             {
+                 attackZone->attack = false;
+                 enemState = States::WANDERING;
+             }
+         }
         
         switch (enemState)
         {
@@ -228,7 +235,25 @@ void EnemyMeleeMovement::Update()
 
             case States::DASHING:
                 _dashCooldown += dt;
-
+                if (_dashCooldown < tDash)
+                {
+                    if (sideDash == 0)
+                    {
+                        enemy->enemyRb.SetVelocity(gameObject.GetTransform().GetRight() * velDash);
+                    }
+                    else
+                    {
+                        enemy->enemyRb.SetVelocity(gameObject.GetTransform().GetLeft() * velDash);
+                    }
+                    Console::Log("aaaaaaaaaaaaaaaaaaaaaaaaaaa");
+                }
+                else
+                {
+                    Console::Log("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
+                    dashing = false;
+                    attackZone->shooted = false;
+                }
+                
                 break;
         default:
             break;
