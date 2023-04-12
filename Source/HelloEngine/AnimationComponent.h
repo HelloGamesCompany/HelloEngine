@@ -23,7 +23,7 @@ public:
 	void DeSerialization(json& j) override;
 
 	bool IsPlaying() { return isPlaying; };
-
+	void SetLoop(bool value) { isLoop = value; }
 #ifdef STANDALONE
 	void OnEditor() override;
 #endif
@@ -31,7 +31,7 @@ private:
 	void AnimationDropArea();
 	
 	bool GetLoop(bool value) { return isLoop; }
-	void SetLoop(bool value) { isLoop = value; }
+	
 	void SetStayLast(bool value) { isStayLast = value; }
 	bool GetStayLast(bool value) { return isStayLast; }
 
