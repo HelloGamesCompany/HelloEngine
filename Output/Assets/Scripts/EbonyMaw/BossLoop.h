@@ -20,6 +20,14 @@ public:
     API_GameObject cover2;
     API_GameObject cover3;
     API_GameObject cover4;
+    API_GameObject cover5;
+    API_GameObject cover6;
+    API_GameObject cover7;
+    API_GameObject cover8;
+    API_GameObject cover9;
+    API_GameObject cover10;
+    API_GameObject cover11;
+    API_GameObject cover12;
 
     float dist;
 

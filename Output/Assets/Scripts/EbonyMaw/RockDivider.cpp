@@ -2,6 +2,7 @@
 #include "../Player/PlayerStats.h"
 #include "BossLoop.h"
 #include "BossAttacks.h"
+#include <cmath>
 //Pau Olmos
 
 HELLO_ENGINE_API_C RockDivider* CreateRockDivider(ScriptToInspectorInterface* script)
@@ -77,7 +78,7 @@ void RockDivider::OnCollisionEnter(API::API_RigidBody other)
 			pStats->TakeDamage(bAttacks->orbitingRockDmg, 0);
 		}
 	}
-	else if ((detectionTag == "Cover" || detectionTag == "Wall") && whichRockAmI < 5) {
+	else if ((detectionTag == "Cover" || detectionTag == "Wall") && whichRockAmI < 5 && bAttacks->bossState != BossAttacks::BOSS_STATE::SEEKING && bAttacks->bossState != BossAttacks::BOSS_STATE::FIREROCKATTACK) {
 		rockDivided = true;
 	}
 

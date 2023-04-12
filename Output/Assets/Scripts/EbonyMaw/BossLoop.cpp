@@ -18,6 +18,14 @@ HELLO_ENGINE_API_C BossLoop* CreateBossLoop(ScriptToInspectorInterface* script)
     script->AddDragBoxGameObject("Cover2", &classInstance->cover2);
     script->AddDragBoxGameObject("Cover3", &classInstance->cover3);
     script->AddDragBoxGameObject("Cover4", &classInstance->cover4);
+    script->AddDragBoxGameObject("Cover5", &classInstance->cover5);
+    script->AddDragBoxGameObject("Cover6", &classInstance->cover6);
+    script->AddDragBoxGameObject("Cover7", &classInstance->cover7);
+    script->AddDragBoxGameObject("Cover8", &classInstance->cover8);
+    script->AddDragBoxGameObject("Cover9", &classInstance->cover9);
+    script->AddDragBoxGameObject("Cover10", &classInstance->cover10);
+    script->AddDragBoxGameObject("Cover11", &classInstance->cover11);
+    script->AddDragBoxGameObject("Cover12", &classInstance->cover12);
     //Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
     return classInstance;
 }
@@ -55,6 +63,14 @@ void BossLoop::Update()
                     cover2.SetActive(false);
                     cover3.SetActive(false);
                     cover4.SetActive(false);
+                    cover5.SetActive(false);
+                    cover6.SetActive(false);
+                    cover7.SetActive(false);
+                    cover8.SetActive(false);
+                    cover9.SetActive(false);
+                    cover10.SetActive(false);
+                    cover11.SetActive(false);
+                    cover12.SetActive(false);
                 }
             }
         }
