@@ -14,6 +14,7 @@ public:
     void OnCollisionEnter(API_RigidBody other);
 
     std::string scene = "";
+    int nextLevel;
     bool isHub = false;
 };
 
