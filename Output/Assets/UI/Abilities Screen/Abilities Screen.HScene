@@ -68,9 +68,6 @@
                 "Inspector Fields": [
                     {
                         "Level Index": 0
-                    },
-                    {
-                        "Level Index": 0
                     }
                 ],
                 "Script Resource": 3283995345,
@@ -151,30 +148,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Movement": 239946000
-                    },
-                    {
-                        "AbilityList2": 2152651856
-                    },
-                    {
-                        "AbilityList3": 1186039951
-                    },
-                    {
-                        "AbilityList4": 2541162971
-                    },
-                    {
-                        "PanelMovement": 2057771493
-                    },
-                    {
-                        "PanelAbility2": 3163792051
-                    },
-                    {
-                        "PanelAbility3": 2134789458
-                    },
-                    {
-                        "PanelAbility4": 2176358520
-                    },
                     {
                         "Movement": 239946000
                     },
@@ -293,15 +266,6 @@
                     },
                     {
                         "AbilityButton": 239946000
-                    },
-                    {
-                        "Main Panel": 2695870297
-                    },
-                    {
-                        "Current Panel": 2057771493
-                    },
-                    {
-                        "AbilityButton": 239946000
                     }
                 ],
                 "Script Resource": 1616702921,
@@ -351,15 +315,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Main Panel": 2695870297
-                    },
-                    {
-                        "Current Panel": 3163792051
-                    },
-                    {
-                        "AbilityButton": 2152651856
-                    },
                     {
                         "Main Panel": 2695870297
                     },
@@ -425,15 +380,6 @@
                     },
                     {
                         "AbilityButton": 1186039951
-                    },
-                    {
-                        "Main Panel": 2695870297
-                    },
-                    {
-                        "Current Panel": 2134789458
-                    },
-                    {
-                        "AbilityButton": 1186039951
                     }
                 ],
                 "Script Resource": 1616702921,
@@ -483,15 +429,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Main Panel": 2695870297
-                    },
-                    {
-                        "Current Panel": 2176358520
-                    },
-                    {
-                        "AbilityButton": 2541162971
-                    },
                     {
                         "Main Panel": 2695870297
                     },
@@ -601,12 +538,6 @@
                     },
                     {
                         "PlayerStorage GO": 2178022744
-                    },
-                    {
-                        "Text Blueprints": 2431074446
-                    },
-                    {
-                        "PlayerStorage GO": 2178022744
                     }
                 ],
                 "Script Resource": 1516218704,
@@ -657,48 +588,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Upgrate 1": 1179988776
-                    },
-                    {
-                        "Skillpoints needed LvL 1": 1
-                    },
-                    {
-                        "Upgrate 2": 2159103304
-                    },
-                    {
-                        "Skillpoints needed LvL 2": 2
-                    },
-                    {
-                        "Upgrate 3": 3665702376
-                    },
-                    {
-                        "Skillpoints needed LvL 3": 2
-                    },
-                    {
-                        "Upgrate 4": 2908391175
-                    },
-                    {
-                        "Skillpoints needed LvL 4": 3
-                    },
-                    {
-                        "Skillpoints needed LvL 5": 0
-                    },
-                    {
-                        "Upgrade Number": 4
-                    },
-                    {
-                        "Main Panel": 2695870297
-                    },
-                    {
-                        "Current Panel": 2057771493
-                    },
-                    {
-                        "Tree Index": 0
-                    },
-                    {
-                        "Player": 2178022744
-                    },
                     {
                         "Upgrate 1": 1179988776
                     },
@@ -954,48 +843,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Upgrate 1": 3263574607
-                    },
-                    {
-                        "Skillpoints needed LvL 1": 1
-                    },
-                    {
-                        "Upgrate 2": 967820954
-                    },
-                    {
-                        "Skillpoints needed LvL 2": 2
-                    },
-                    {
-                        "Upgrate 3": 1215698786
-                    },
-                    {
-                        "Skillpoints needed LvL 3": 2
-                    },
-                    {
-                        "Upgrate 4": 1539645130
-                    },
-                    {
-                        "Skillpoints needed LvL 4": 3
-                    },
-                    {
-                        "Skillpoints needed LvL 5": 0
-                    },
-                    {
-                        "Upgrade Number": 4
-                    },
-                    {
-                        "Main Panel": 2695870297
-                    },
-                    {
-                        "Current Panel": 3163792051
-                    },
-                    {
-                        "Tree Index": 1
-                    },
-                    {
-                        "Player": 2178022744
-                    },
                     {
                         "Upgrate 1": 3263574607
                     },
@@ -1296,51 +1143,6 @@
                     },
                     {
                         "Player": 2178022744
-                    },
-                    {
-                        "Upgrate 1": 3128544634
-                    },
-                    {
-                        "Skillpoints needed LvL 1": 1
-                    },
-                    {
-                        "Upgrate 2": 1729481665
-                    },
-                    {
-                        "Skillpoints needed LvL 2": 2
-                    },
-                    {
-                        "Upgrate 3": 3129822901
-                    },
-                    {
-                        "Skillpoints needed LvL 3": 2
-                    },
-                    {
-                        "Upgrate 4": 529395256
-                    },
-                    {
-                        "Skillpoints needed LvL 4": 2
-                    },
-                    {
-                        "Upgrate 5": 1912751000
-                    },
-                    {
-                        "Skillpoints needed LvL 5": 3
-                    },
-                    {
-                        "Upgrade Number": 5
-                    },
-                    {
-                        "Main Panel": 2695870297
-                    },
-                    {
-                        "Current Panel": 2134789458
-                    },
-                    {
-                        "Tree Index": 2
-                    },
-                    {
-                        "Player": 2178022744
                     }
                 ],
                 "Script Resource": 1508860481,
@@ -1595,45 +1397,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Upgrate 1": 2400252632
-                    },
-                    {
-                        "Skillpoints needed LvL 1": 3
-                    },
-                    {
-                        "Upgrate 2": 3695907000
-                    },
-                    {
-                        "Skillpoints needed LvL 2": 3
-                    },
-                    {
-                        "Upgrate 3": 1250543639
-                    },
-                    {
-                        "Skillpoints needed LvL 3": 4
-                    },
-                    {
-                        "Skillpoints needed LvL 4": 0
-                    },
-                    {
-                        "Skillpoints needed LvL 5": 0
-                    },
-                    {
-                        "Upgrade Number": 3
-                    },
-                    {
-                        "Main Panel": 2695870297
-                    },
-                    {
-                        "Current Panel": 2176358520
-                    },
-                    {
-                        "Tree Index": 3
-                    },
-                    {
-                        "Player": 2178022744
-                    },
                     {
                         "Upgrate 1": 2400252632
                     },

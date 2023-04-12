@@ -22,6 +22,6 @@ public:
     bool open;
     int numberOfAsignedMenus;
     API_GameObject menu[10];
-    API_GameObject armoryPanel;
+    API_GameObject menuPanel;
 };
 

@@ -27,6 +27,7 @@ void AbilityTreeUpgrades::Start()
 
     playerStorage = (PlayerStorage*)playerStorageGO.GetScript("PlayerStorage");
     if (playerStorage == nullptr) Console::Log("Player Storage missing in AbilitytreeUpdates.");
+    currentPanel.SetEnable(false);
 
     if (skillLevel != 0) Upgrate1.SetBlocked(true);
     if (skillLevel != 1) Upgrate2.SetBlocked(true);

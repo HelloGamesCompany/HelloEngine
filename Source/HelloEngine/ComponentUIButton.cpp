@@ -48,7 +48,7 @@ void ComponentUIButton::InputUpdate()
         break;
     case ButtonState::BLOCKED:
         _material->ChangeTexture(textureIDBlocked);
-        isBlocked = true;
+        //isBlocked = true;
         gameTimeCopy = EngineTime::GameTimeCount();
         break;
     default:
@@ -210,7 +210,7 @@ void ComponentUIButton::UpdateGamePadInput(bool selected)
     {
         State = ButtonState::NORMAL;
     }
-
+    
     if (isBlocked)
         State = ButtonState::BLOCKED;
 
@@ -246,9 +246,7 @@ void ComponentUIButton::OnEditor()
         return;
     }
 
-    if (ImGui::Checkbox("Button Blocked##Button", &isBlockedInspector))
-        isBlockedInspector ? isBlocked = true : isBlocked = false;
-
+    if (ImGui::Checkbox("Button Blocked##Button", &isBlocked))
 
     ImGui::Text("States Colors:");
 

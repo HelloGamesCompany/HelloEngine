@@ -15,7 +15,7 @@ HELLO_ENGINE_API_C OpenMenuInterruptor* CreateOpenMenuInterruptor(ScriptToInspec
     script->AddDragBoxGameObject("Menu to Open 8", &classInstance->menu[7]);
     script->AddDragBoxGameObject("Menu to Open 9", &classInstance->menu[8]);
     script->AddDragBoxGameObject("Menu to Open 10", &classInstance->menu[9]);
-    script->AddDragBoxGameObject("Menu Panel", &classInstance->armoryPanel);
+    script->AddDragBoxGameObject("Menu Panel", &classInstance->menuPanel);
     return classInstance;
 }
 
