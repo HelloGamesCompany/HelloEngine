@@ -135,7 +135,7 @@ void PlayerStorage::SaveDataFromChest(int chestIndex, int chestContent)
     std::string saveActiveLabel = "level" + std::to_string(levelIndex) + "_chest" + std::to_string(chestIndex + 1);
     std::string saveContentLabel = saveActiveLabel + "_content";
 
-    API_QuickSave::SetBool(saveActiveLabel, false); // active == false
+    API_QuickSave::SetBool(saveActiveLabel, true); // active == true
     
     if (chestContent <= 0) API_QuickSave::SetInt(saveContentLabel, 2); // chest have upgradeBlueprint
     else if (chestContent <= 5) API_QuickSave::SetInt(saveContentLabel, 1); // chest have gunBlueprint

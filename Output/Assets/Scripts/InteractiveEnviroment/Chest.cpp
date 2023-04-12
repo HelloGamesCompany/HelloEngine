@@ -7,7 +7,7 @@ HELLO_ENGINE_API_C Chest* CreateChest(ScriptToInspectorInterface* script)
     script->AddDragFloat("Open Chest Time", &classInstance->maxOpenChestTime);
     script->AddCheckBox("Tutorial Special Weapon", &classInstance->tutorialSpecialWeapon);
     script->AddCheckBox("Tutorial Weapon Blueprint", &classInstance->tutorialWeaponBlueprint);
-    script->AddDragInt("tffff", &classInstance->itemIndex);
+    script->AddDragInt("tffff", &classInstance->chestIndex);
     return classInstance;
 }
 

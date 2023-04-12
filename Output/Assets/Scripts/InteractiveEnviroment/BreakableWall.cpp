@@ -49,6 +49,7 @@ void BreakableWall::OnCollisionEnter(API_RigidBody other)
 
 void BreakableWall::ShootWall(float projectileDamage)
 {
+    if (fenceDestroyed.IsActive())return;
     // Health damage
     currentHp -= projectileDamage;
     if (currentHp <= 0)
@@ -62,6 +63,8 @@ void BreakableWall::ShootWall(float projectileDamage)
 
 void BreakableWall::DestroyWall()
 {
+    if (fenceDestroyed.IsActive())return;
+
     wallDestroyed.Play();
 
     Audio::Event("fence_breaking");

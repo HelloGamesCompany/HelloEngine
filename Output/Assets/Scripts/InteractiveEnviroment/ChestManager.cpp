@@ -34,8 +34,9 @@ void ChestManager::Update()
     Chest* chestScript1 = (Chest*)chest1.GetScript("Chest");
     if (chestScript1)
     {
-        bool chestActive = API_QuickSave::GetBool(saveActiveLabel + "1", true);
-        if (!chestActive) // if chest is not active on save
+        bool chestActive = API_QuickSave::GetBool(saveActiveLabel + "1");
+        Console::Log("chest 1: " + std::to_string(chestActive));
+        if (chestActive) // if chest is not active on save
         {
             int loot = API_QuickSave::GetInt(saveActiveLabel + "1" + "_content");
 
@@ -63,8 +64,9 @@ void ChestManager::Update()
     Chest* chestScript2 = (Chest*)chest2.GetScript("Chest");
     if (chestScript2)
     {
-        bool chestActive = API_QuickSave::GetBool(saveActiveLabel + "2", true);
-        if (!chestActive) // if chest is not active on save
+        bool chestActive = API_QuickSave::GetBool(saveActiveLabel + "2");
+        Console::Log("chest 2: " + std::to_string(chestActive));
+        if (chestActive) // if chest is not active on save
         {
             int loot = API_QuickSave::GetInt(saveActiveLabel + "2" + "_content");
 
@@ -92,8 +94,9 @@ void ChestManager::Update()
     Chest* chestScript3 = (Chest*)chest3.GetScript("Chest");
     if (chestScript3)
     {
-        bool chestActive = API_QuickSave::GetBool(saveActiveLabel + "3", true);
-        if (!chestActive) // if chest is not active on save
+        bool chestActive = API_QuickSave::GetBool(saveActiveLabel + "3");
+        Console::Log("chest 3: " + std::to_string(chestActive));
+        if (chestActive) // if chest is not active on save
         {
             int loot = API_QuickSave::GetInt(saveActiveLabel + "3" + "_content");
 
@@ -121,8 +124,9 @@ void ChestManager::Update()
     Chest* chestScript4 = (Chest*)chest4.GetScript("Chest");
     if (chestScript4)
     {
-        bool chestActive = API_QuickSave::GetBool(saveActiveLabel + "4", true);
-        if (!chestActive) // if chest is not active on save
+        bool chestActive = API_QuickSave::GetBool(saveActiveLabel + "4");
+        Console::Log("chest 4: " + std::to_string(chestActive));
+        if (chestActive) // if chest is not active on save
         {
             int loot = API_QuickSave::GetInt(saveActiveLabel + "4" + "_content");
 
