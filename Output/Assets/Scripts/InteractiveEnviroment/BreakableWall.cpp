@@ -64,6 +64,8 @@ void BreakableWall::DestroyWall()
 {
     wallDestroyed.Play();
 
+    Audio::Event("fence_breaking");
+
     fenceDestroyed.SetActive(true);
     fenceEntire.SetActive(false);
     fenceRigidbody.SetTrigger(true);
