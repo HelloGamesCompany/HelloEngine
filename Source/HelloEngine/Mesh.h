@@ -13,6 +13,14 @@ class MeshRenderComponent;
 class ResourceMesh;
 class ResourceShader;
 
+enum class OpacityDirection
+{
+	LEFT_TO_RIGHT,
+	RIGHT_TO_LEFT,
+	UP_TO_DOWN,
+	DOWN_TO_UP
+};
+
 enum RenderUpdateState
 {
 	NODRAW = -1,
@@ -95,6 +103,11 @@ public:
 
 	bool isIndependent = false;
 	bool is2D = false;
+
+	// TODO: Change this when refacotring the UI rendering pipeline!! TEMPORAL CODE FOR ALPHA 1
+	float opacity = 1.0f;
+	float opacityLimit = 1.0f;
+	OpacityDirection opacityDir = OpacityDirection::LEFT_TO_RIGHT;
 
 private:
 	ResourceMesh* resource = nullptr;

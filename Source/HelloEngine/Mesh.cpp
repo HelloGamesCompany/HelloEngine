@@ -109,6 +109,8 @@ void Mesh::DefaultDraw()
 		drawPerMesh2D->shader.Bind();
 		drawPerMesh2D->shader.SetMatFloat4v("model", &modelMatrix.v[0][0]);
 
+		float4x4 matrix = modelMatrix.Transposed();
+
 		// Calculate vertex positions:
 		// Vertex 1
 		float4 vertex1 = { resource->meshInfo.vertices[0].position.x, resource->meshInfo.vertices[0].position.y,0,1 };
@@ -116,10 +118,10 @@ void Mesh::DefaultDraw()
 		float4 vertex3 = { resource->meshInfo.vertices[2].position.x, resource->meshInfo.vertices[2].position.y,0,1 };
 		float4 vertex4 = { resource->meshInfo.vertices[3].position.x, resource->meshInfo.vertices[3].position.y,0,1 };
 
-		vertex1 = modelMatrix * vertex1;
-		vertex2 = modelMatrix * vertex2;
-		vertex3 = modelMatrix * vertex3;
-		vertex4 = modelMatrix * vertex4;
+		vertex1 = matrix * vertex1;
+		vertex2 = matrix * vertex2;
+		vertex3 = matrix * vertex3;
+		vertex4 = matrix * vertex4;
 
 		GLint viewport[4];
 		glGetIntegerv(GL_VIEWPORT, viewport);
@@ -134,12 +136,14 @@ void Mesh::DefaultDraw()
 		float quadHeight = abs(windowVertex3.y - windowVertex1.y);
 
 		float2 quadDimensions = { quadWidth, quadHeight };
-		float2 quadPositions = { windowVertex1.x, windowVertex1.y };
+		float2 quadPositions = { windowVertex1.x, windowVertex1.y};
 
 
 		drawPerMesh2D->shader.SetFloat2v("normalizedPosition", quadPositions.ptr());
 		drawPerMesh2D->shader.SetFloat2v("normalizedSize", quadDimensions.ptr());
-		drawPerMesh2D->shader.SetFloat("limit", 0.5f);
+		drawPerMesh2D->shader.SetFloat("limit", opacityLimit);
+		drawPerMesh2D->shader.SetInt("opacityDir", (int)opacityDir);
+
 		return;
 	}
 

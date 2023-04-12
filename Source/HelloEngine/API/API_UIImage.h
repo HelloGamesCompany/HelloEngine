@@ -13,7 +13,8 @@ namespace API
 		~API_UIImage();
 
 		API_GameObject GetGameObject();
-		float FillImage(float _GetFillImage);
+		/// Value gets clamped to 0->1 range.
+		void FillImage(float _GetFillImage);
 
 	private:
 		ComponentUIImage* GetComponent();

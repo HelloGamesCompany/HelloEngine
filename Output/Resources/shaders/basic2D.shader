@@ -6,7 +6,6 @@ layout (location = 2) in vec2 textCoords;
 
 uniform mat4 model;
 
-
 out vec2 TextureCoords;
 
 void main()
@@ -22,20 +21,48 @@ out vec4 FragColor;
 	uniform vec2 normalizedPosition;
 	uniform vec2 normalizedSize;
 	uniform float limit;
+	uniform int opacityDir;
 
 	uniform sampler2D diffuseTexture;
 
 	void main()
 	{
-		float threshold = normalizedPosition.x + (limit * normalizedSize.x);
-
-		if (gl_FragCoord.x < threshold)
+		float threshold = 1.0;
+		switch (opacityDir)
 		{
-			FragColor = vec4(0.0,0.0,0.0,0.0);
+			case 0: // LEFT_TO_RIGHT
+				threshold = (normalizedPosition.x + normalizedSize.x) - (limit * normalizedSize.x);
+				if (gl_FragCoord.x < threshold)
+				{
+					FragColor = vec4(1.0,0.0,0.0,0.0);
+					return;
+				}
+				break;
+			case 1: // RIGHT_TO_LEFT
+				threshold = normalizedPosition.x + (limit * normalizedSize.x);
+				if (gl_FragCoord.x > threshold)
+				{
+					FragColor = vec4(1.0,0.0,0.0,0.0);
+					return;
+				}
+				break;
+			case 2: // UP_TO_DOWN
+				threshold = (normalizedPosition.y + normalizedSize.y) - (limit * normalizedSize.y);
+				if (gl_FragCoord.y < threshold)
+				{
+					FragColor = vec4(1.0,0.0,0.0,0.0);
+					return;
+				}
+				break;
+			case 3: // DOWN_TO_UP
+				threshold = normalizedPosition.y + (limit * normalizedSize.y);
+				if (gl_FragCoord.y > threshold)
+				{
+					FragColor = vec4(1.0,0.0,0.0,0.0);
+					return;
+				}
+				break;
 		}
-		else
-		{
-			FragColor = texture(diffuseTexture, TextureCoords);
-		}
+		FragColor = texture(diffuseTexture, TextureCoords);
 	}
 #endif
