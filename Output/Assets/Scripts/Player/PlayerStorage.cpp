@@ -49,7 +49,7 @@ void PlayerStorage::Start()
         break;
     }
 
-    gameObject.GetTransform().SetPosition(API_QuickSave::GetFloat("PlayerPosX"), API_QuickSave::GetFloat("PlayerPosY"), API_QuickSave::GetFloat("PlayerPosZ"));
+    if (levelIndex != 0) gameObject.GetTransform().SetPosition(API_QuickSave::GetFloat("PlayerPosX"), API_QuickSave::GetFloat("PlayerPosY"), API_QuickSave::GetFloat("PlayerPosZ"));
 }
 
 void PlayerStorage::Update()
