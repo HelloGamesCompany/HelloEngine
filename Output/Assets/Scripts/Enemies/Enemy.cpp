@@ -59,7 +59,11 @@ void Enemy::TakeDamage(float damage, float resistanceDamage)
     else {
         EnemyTank* tankScript = (EnemyTank*)gameObject.GetScript("EnemyTank");
 
-        currentHp = tankScript->TakeDamageTank(currentHp, damage);
+        if (tankScript)
+        {
+
+         currentHp = tankScript->TakeDamageTank(currentHp, damage);
+        }
     }
 
     if (currentHp <= 0)
@@ -88,6 +92,7 @@ void Enemy::Die()
 {
     // some animation
     //enemyDropManager->SpinDropRate(gameObject.GetTransform().GetGlobalPosition());
+    hitParticles.Stop();
     gameObject.SetActive(false);
 }
 
