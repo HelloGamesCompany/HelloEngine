@@ -511,6 +511,7 @@ void ParticleSystemComponent::DeSerialization(json& j)
 	particleProps.acceleration = { tempacceleration[0],tempacceleration[1],tempacceleration[2] };
 	particleProps.Lifetime = j["ParticleModules"]["ModuleMain"]["LifeTime"];
 	ParticleEmitter.Duration = j["ParticleModules"]["ModuleMain"]["Duration"];
+	ParticleEmitter.DurationCpy = ParticleEmitter.Duration;
 	ParticleEmitter.ParticlesPerSecond = j["ParticleModules"]["ModuleEmission"]["ParticlesPerSecond"];
 	ParticleEmitter.StartDelay = j["ParticleModules"]["ModuleMain"]["Delay"];
 	ParticleEmitter.playOnAwake = j["ParticleModules"]["ModuleMain"]["PlayOnAwake"];
