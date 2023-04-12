@@ -50,14 +50,69 @@
                     1.0
                 ],
                 "Type": 1
+            },
+            {
+                "Active camera": true,
+                "Active culling": false,
+                "Aspect ratio": 1.9392917156219482,
+                "Enabled": true,
+                "FOV": 60.0,
+                "Far plane": 1000.0,
+                "Frustum type": 2,
+                "Near plane": 0.009999999776482582,
+                "Orthographic size": 10.0,
+                "Type": 4
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Level Index": 0
+                    },
+                    {
+                        "Level Index": 0
+                    }
+                ],
+                "Script Resource": 3283995345,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Empty",
+        "ParentUID": 326476507,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2178022744
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
             }
         ],
         "FirstOnPrefab": true,
         "Name": "Skill Tree",
         "ParentUID": 326476507,
-        "PrefabUID": 0,
+        "PrefabUID": 3943484743,
         "Tag": "UI",
-        "UID": 653963415
+        "UID": 190046037
     },
     {
         "Active": true,
@@ -87,74 +142,74 @@
                 "MeshEnabled": false,
                 "Type": 16,
                 "listButtons": [
-                    3961102070,
-                    109185096,
-                    3655526919,
-                    3302747482
+                    239946000,
+                    2152651856,
+                    1186039951,
+                    2541162971
                 ]
             },
             {
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Movement": 3961102070
+                        "Movement": 239946000
                     },
                     {
-                        "AbilityList2": 109185096
+                        "AbilityList2": 2152651856
                     },
                     {
-                        "AbilityList3": 3655526919
+                        "AbilityList3": 1186039951
                     },
                     {
-                        "AbilityList4": 3302747482
+                        "AbilityList4": 2541162971
                     },
                     {
-                        "PanelMovement": 1770922130
+                        "PanelMovement": 2057771493
                     },
                     {
-                        "PanelAbility2": 959223077
+                        "PanelAbility2": 3163792051
                     },
                     {
-                        "PanelAbility3": 1068775963
+                        "PanelAbility3": 2134789458
                     },
                     {
-                        "PanelAbility4": 474755568
+                        "PanelAbility4": 2176358520
                     },
                     {
-                        "Movement": 3961102070
+                        "Movement": 239946000
                     },
                     {
-                        "AbilityList2": 109185096
+                        "AbilityList2": 2152651856
                     },
                     {
-                        "AbilityList3": 3655526919
+                        "AbilityList3": 1186039951
                     },
                     {
-                        "AbilityList4": 3302747482
+                        "AbilityList4": 2541162971
                     },
                     {
-                        "PanelMovement": 1770922130
+                        "PanelMovement": 2057771493
                     },
                     {
-                        "PanelAbility2": 959223077
+                        "PanelAbility2": 3163792051
                     },
                     {
-                        "PanelAbility3": 1068775963
+                        "PanelAbility3": 2134789458
                     },
                     {
-                        "PanelAbility4": 474755568
+                        "PanelAbility4": 2176358520
                     }
                 ],
                 "Script Resource": 1314393320,
                 "Type": 5
             }
         ],
-        "FirstOnPrefab": true,
+        "FirstOnPrefab": false,
         "Name": "Main Panel",
-        "ParentUID": 653963415,
-        "PrefabUID": 0,
+        "ParentUID": 190046037,
+        "PrefabUID": 3943484743,
         "Tag": "UI",
-        "UID": 2933578115
+        "UID": 2695870297
     },
     {
         "Active": true,
@@ -187,12 +242,12 @@
                 "Type": 15
             }
         ],
-        "FirstOnPrefab": true,
+        "FirstOnPrefab": false,
         "Name": "Background",
-        "ParentUID": 2933578115,
-        "PrefabUID": 0,
+        "ParentUID": 2695870297,
+        "PrefabUID": 3943484743,
         "Tag": "UI",
-        "UID": 1784992337
+        "UID": 3410079533
     },
     {
         "Active": true,
@@ -231,34 +286,34 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Panel Type": 2933578115
+                        "Main Panel": 2695870297
                     },
                     {
-                        "Panel Ability": 1770922130
+                        "Current Panel": 2057771493
                     },
                     {
-                        "AbilityButton": 3961102070
+                        "AbilityButton": 239946000
                     },
                     {
-                        "Panel Type": 2933578115
+                        "Main Panel": 2695870297
                     },
                     {
-                        "Panel Ability": 1770922130
+                        "Current Panel": 2057771493
                     },
                     {
-                        "AbilityButton": 3961102070
+                        "AbilityButton": 239946000
                     }
                 ],
                 "Script Resource": 1616702921,
                 "Type": 5
             }
         ],
-        "FirstOnPrefab": true,
+        "FirstOnPrefab": false,
         "Name": "Movement Tree",
-        "ParentUID": 2933578115,
-        "PrefabUID": 0,
+        "ParentUID": 2695870297,
+        "PrefabUID": 3943484743,
         "Tag": "UI",
-        "UID": 3961102070
+        "UID": 239946000
     },
     {
         "Active": true,
@@ -297,34 +352,34 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Panel Type": 2933578115
+                        "Main Panel": 2695870297
                     },
                     {
-                        "Panel Ability": 959223077
+                        "Current Panel": 3163792051
                     },
                     {
-                        "AbilityButton": 109185096
+                        "AbilityButton": 2152651856
                     },
                     {
-                        "Panel Type": 2933578115
+                        "Main Panel": 2695870297
                     },
                     {
-                        "Panel Ability": 959223077
+                        "Current Panel": 3163792051
                     },
                     {
-                        "AbilityButton": 109185096
+                        "AbilityButton": 2152651856
                     }
                 ],
                 "Script Resource": 1616702921,
                 "Type": 5
             }
         ],
-        "FirstOnPrefab": true,
+        "FirstOnPrefab": false,
         "Name": "Armory Tree",
-        "ParentUID": 2933578115,
-        "PrefabUID": 0,
+        "ParentUID": 2695870297,
+        "PrefabUID": 3943484743,
         "Tag": "UI",
-        "UID": 109185096
+        "UID": 2152651856
     },
     {
         "Active": true,
@@ -363,34 +418,34 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Panel Type": 2933578115
+                        "Main Panel": 2695870297
                     },
                     {
-                        "Panel Ability": 1068775963
+                        "Current Panel": 2134789458
                     },
                     {
-                        "AbilityButton": 3655526919
+                        "AbilityButton": 1186039951
                     },
                     {
-                        "Panel Type": 2933578115
+                        "Main Panel": 2695870297
                     },
                     {
-                        "Panel Ability": 1068775963
+                        "Current Panel": 2134789458
                     },
                     {
-                        "AbilityButton": 3655526919
+                        "AbilityButton": 1186039951
                     }
                 ],
                 "Script Resource": 1616702921,
                 "Type": 5
             }
         ],
-        "FirstOnPrefab": true,
+        "FirstOnPrefab": false,
         "Name": "Health Tree",
-        "ParentUID": 2933578115,
-        "PrefabUID": 0,
+        "ParentUID": 2695870297,
+        "PrefabUID": 3943484743,
         "Tag": "UI",
-        "UID": 3655526919
+        "UID": 1186039951
     },
     {
         "Active": true,
@@ -429,34 +484,34 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Panel Type": 2933578115
+                        "Main Panel": 2695870297
                     },
                     {
-                        "Panel Ability": 474755568
+                        "Current Panel": 2176358520
                     },
                     {
-                        "AbilityButton": 3302747482
+                        "AbilityButton": 2541162971
                     },
                     {
-                        "Panel Type": 2933578115
+                        "Main Panel": 2695870297
                     },
                     {
-                        "Panel Ability": 474755568
+                        "Current Panel": 2176358520
                     },
                     {
-                        "AbilityButton": 3302747482
+                        "AbilityButton": 2541162971
                     }
                 ],
                 "Script Resource": 1616702921,
                 "Type": 5
             }
         ],
-        "FirstOnPrefab": true,
+        "FirstOnPrefab": false,
         "Name": "Special Tree",
-        "ParentUID": 2933578115,
-        "PrefabUID": 0,
+        "ParentUID": 2695870297,
+        "PrefabUID": 3943484743,
         "Tag": "UI",
-        "UID": 3302747482
+        "UID": 2541162971
     },
     {
         "Active": true,
@@ -490,12 +545,12 @@
                 ]
             }
         ],
-        "FirstOnPrefab": true,
+        "FirstOnPrefab": false,
         "Name": "SkillPoints Amount",
-        "ParentUID": 2933578115,
-        "PrefabUID": 0,
+        "ParentUID": 2695870297,
+        "PrefabUID": 3943484743,
         "Tag": "UI",
-        "UID": 486817941
+        "UID": 14347158
     },
     {
         "Active": true,
@@ -542,13 +597,13 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Text Blueprints": 1164937625
+                        "Text Blueprints": 2431074446
                     },
                     {
                         "PlayerStorage GO": 2178022744
                     },
                     {
-                        "Text Blueprints": 1164937625
+                        "Text Blueprints": 2431074446
                     },
                     {
                         "PlayerStorage GO": 2178022744
@@ -558,12 +613,12 @@
                 "Type": 5
             }
         ],
-        "FirstOnPrefab": true,
+        "FirstOnPrefab": false,
         "Name": "SkillPoints Amount (T)",
-        "ParentUID": 486817941,
-        "PrefabUID": 0,
+        "ParentUID": 14347158,
+        "PrefabUID": 3943484743,
         "Tag": "UI",
-        "UID": 1164937625
+        "UID": 2431074446
     },
     {
         "Active": true,
@@ -588,40 +643,40 @@
                 "Type": 1
             },
             {
-                "Enabled": true,
+                "Enabled": false,
                 "MaterialResource": 0,
                 "MeshEnabled": false,
                 "Type": 16,
                 "listButtons": [
-                    2687373958,
-                    1089061174,
-                    1407843779,
-                    3002809720
+                    1179988776,
+                    2159103304,
+                    3665702376,
+                    2908391175
                 ]
             },
             {
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Upgrate 1": 2687373958
+                        "Upgrate 1": 1179988776
                     },
                     {
                         "Skillpoints needed LvL 1": 1
                     },
                     {
-                        "Upgrate 2": 1089061174
+                        "Upgrate 2": 2159103304
                     },
                     {
                         "Skillpoints needed LvL 2": 2
                     },
                     {
-                        "Upgrate 3": 1407843779
+                        "Upgrate 3": 3665702376
                     },
                     {
                         "Skillpoints needed LvL 3": 2
                     },
                     {
-                        "Upgrate 4": 3002809720
+                        "Upgrate 4": 2908391175
                     },
                     {
                         "Skillpoints needed LvL 4": 3
@@ -633,10 +688,10 @@
                         "Upgrade Number": 4
                     },
                     {
-                        "Main Panel": 2933578115
+                        "Main Panel": 2695870297
                     },
                     {
-                        "Current Panel": 1770922130
+                        "Current Panel": 2057771493
                     },
                     {
                         "Tree Index": 0
@@ -645,25 +700,25 @@
                         "Player": 2178022744
                     },
                     {
-                        "Upgrate 1": 2687373958
+                        "Upgrate 1": 1179988776
                     },
                     {
                         "Skillpoints needed LvL 1": 1
                     },
                     {
-                        "Upgrate 2": 1089061174
+                        "Upgrate 2": 2159103304
                     },
                     {
                         "Skillpoints needed LvL 2": 2
                     },
                     {
-                        "Upgrate 3": 1407843779
+                        "Upgrate 3": 3665702376
                     },
                     {
                         "Skillpoints needed LvL 3": 2
                     },
                     {
-                        "Upgrate 4": 3002809720
+                        "Upgrate 4": 2908391175
                     },
                     {
                         "Skillpoints needed LvL 4": 3
@@ -675,10 +730,10 @@
                         "Upgrade Number": 4
                     },
                     {
-                        "Main Panel": 2933578115
+                        "Main Panel": 2695870297
                     },
                     {
-                        "Current Panel": 1770922130
+                        "Current Panel": 2057771493
                     },
                     {
                         "Tree Index": 0
@@ -691,12 +746,12 @@
                 "Type": 5
             }
         ],
-        "FirstOnPrefab": true,
+        "FirstOnPrefab": false,
         "Name": "Movement Panel",
-        "ParentUID": 653963415,
-        "PrefabUID": 565170004,
+        "ParentUID": 190046037,
+        "PrefabUID": 3943484743,
         "Tag": "UI",
-        "UID": 1770922130
+        "UID": 2057771493
     },
     {
         "Active": true,
@@ -734,10 +789,10 @@
         ],
         "FirstOnPrefab": false,
         "Name": "Ability 1",
-        "ParentUID": 1770922130,
-        "PrefabUID": 565170004,
+        "ParentUID": 2057771493,
+        "PrefabUID": 3943484743,
         "Tag": "UI",
-        "UID": 2687373958
+        "UID": 1179988776
     },
     {
         "Active": true,
@@ -775,10 +830,10 @@
         ],
         "FirstOnPrefab": false,
         "Name": "Ability 2",
-        "ParentUID": 1770922130,
-        "PrefabUID": 565170004,
+        "ParentUID": 2057771493,
+        "PrefabUID": 3943484743,
         "Tag": "UI",
-        "UID": 1089061174
+        "UID": 2159103304
     },
     {
         "Active": true,
@@ -816,10 +871,10 @@
         ],
         "FirstOnPrefab": false,
         "Name": "Ability 3",
-        "ParentUID": 1770922130,
-        "PrefabUID": 565170004,
+        "ParentUID": 2057771493,
+        "PrefabUID": 3943484743,
         "Tag": "UI",
-        "UID": 1407843779
+        "UID": 3665702376
     },
     {
         "Active": true,
@@ -857,10 +912,10 @@
         ],
         "FirstOnPrefab": false,
         "Name": "Ability 4",
-        "ParentUID": 1770922130,
-        "PrefabUID": 565170004,
+        "ParentUID": 2057771493,
+        "PrefabUID": 3943484743,
         "Tag": "UI",
-        "UID": 3002809720
+        "UID": 2908391175
     },
     {
         "Active": true,
@@ -885,40 +940,40 @@
                 "Type": 1
             },
             {
-                "Enabled": true,
+                "Enabled": false,
                 "MaterialResource": 0,
                 "MeshEnabled": false,
                 "Type": 16,
                 "listButtons": [
-                    3918325609,
-                    2899418748,
-                    1264709803,
-                    3531626663
+                    3263574607,
+                    967820954,
+                    1215698786,
+                    1539645130
                 ]
             },
             {
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Upgrate 1": 3918325609
+                        "Upgrate 1": 3263574607
                     },
                     {
                         "Skillpoints needed LvL 1": 1
                     },
                     {
-                        "Upgrate 2": 2899418748
+                        "Upgrate 2": 967820954
                     },
                     {
                         "Skillpoints needed LvL 2": 2
                     },
                     {
-                        "Upgrate 3": 1264709803
+                        "Upgrate 3": 1215698786
                     },
                     {
                         "Skillpoints needed LvL 3": 2
                     },
                     {
-                        "Upgrate 4": 3531626663
+                        "Upgrate 4": 1539645130
                     },
                     {
                         "Skillpoints needed LvL 4": 3
@@ -930,10 +985,10 @@
                         "Upgrade Number": 4
                     },
                     {
-                        "Main Panel": 2933578115
+                        "Main Panel": 2695870297
                     },
                     {
-                        "Current Panel": 959223077
+                        "Current Panel": 3163792051
                     },
                     {
                         "Tree Index": 1
@@ -942,25 +997,25 @@
                         "Player": 2178022744
                     },
                     {
-                        "Upgrate 1": 3918325609
+                        "Upgrate 1": 3263574607
                     },
                     {
                         "Skillpoints needed LvL 1": 1
                     },
                     {
-                        "Upgrate 2": 2899418748
+                        "Upgrate 2": 967820954
                     },
                     {
                         "Skillpoints needed LvL 2": 2
                     },
                     {
-                        "Upgrate 3": 1264709803
+                        "Upgrate 3": 1215698786
                     },
                     {
                         "Skillpoints needed LvL 3": 2
                     },
                     {
-                        "Upgrate 4": 3531626663
+                        "Upgrate 4": 1539645130
                     },
                     {
                         "Skillpoints needed LvL 4": 3
@@ -972,10 +1027,10 @@
                         "Upgrade Number": 4
                     },
                     {
-                        "Main Panel": 2933578115
+                        "Main Panel": 2695870297
                     },
                     {
-                        "Current Panel": 959223077
+                        "Current Panel": 3163792051
                     },
                     {
                         "Tree Index": 1
@@ -988,12 +1043,12 @@
                 "Type": 5
             }
         ],
-        "FirstOnPrefab": true,
+        "FirstOnPrefab": false,
         "Name": "Armory Panel",
-        "ParentUID": 653963415,
-        "PrefabUID": 565170004,
+        "ParentUID": 190046037,
+        "PrefabUID": 3943484743,
         "Tag": "UI",
-        "UID": 959223077
+        "UID": 3163792051
     },
     {
         "Active": true,
@@ -1031,10 +1086,10 @@
         ],
         "FirstOnPrefab": false,
         "Name": "Ability 1",
-        "ParentUID": 959223077,
-        "PrefabUID": 565170004,
+        "ParentUID": 3163792051,
+        "PrefabUID": 3943484743,
         "Tag": "UI",
-        "UID": 3918325609
+        "UID": 3263574607
     },
     {
         "Active": true,
@@ -1072,10 +1127,10 @@
         ],
         "FirstOnPrefab": false,
         "Name": "Ability 2",
-        "ParentUID": 959223077,
-        "PrefabUID": 565170004,
+        "ParentUID": 3163792051,
+        "PrefabUID": 3943484743,
         "Tag": "UI",
-        "UID": 2899418748
+        "UID": 967820954
     },
     {
         "Active": true,
@@ -1113,10 +1168,10 @@
         ],
         "FirstOnPrefab": false,
         "Name": "Ability 3",
-        "ParentUID": 959223077,
-        "PrefabUID": 565170004,
+        "ParentUID": 3163792051,
+        "PrefabUID": 3943484743,
         "Tag": "UI",
-        "UID": 1264709803
+        "UID": 1215698786
     },
     {
         "Active": true,
@@ -1154,10 +1209,10 @@
         ],
         "FirstOnPrefab": false,
         "Name": "Ability 4",
-        "ParentUID": 959223077,
-        "PrefabUID": 565170004,
+        "ParentUID": 3163792051,
+        "PrefabUID": 3943484743,
         "Tag": "UI",
-        "UID": 3531626663
+        "UID": 1539645130
     },
     {
         "Active": true,
@@ -1182,47 +1237,47 @@
                 "Type": 1
             },
             {
-                "Enabled": true,
+                "Enabled": false,
                 "MaterialResource": 0,
                 "MeshEnabled": false,
                 "Type": 16,
                 "listButtons": [
-                    3237884119,
-                    3371718339,
-                    964916638,
-                    877777461,
-                    235469866
+                    3128544634,
+                    1729481665,
+                    3129822901,
+                    529395256,
+                    1912751000
                 ]
             },
             {
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Upgrate 1": 3237884119
+                        "Upgrate 1": 3128544634
                     },
                     {
                         "Skillpoints needed LvL 1": 1
                     },
                     {
-                        "Upgrate 2": 3371718339
+                        "Upgrate 2": 1729481665
                     },
                     {
                         "Skillpoints needed LvL 2": 2
                     },
                     {
-                        "Upgrate 3": 964916638
+                        "Upgrate 3": 3129822901
                     },
                     {
                         "Skillpoints needed LvL 3": 2
                     },
                     {
-                        "Upgrate 4": 877777461
+                        "Upgrate 4": 529395256
                     },
                     {
                         "Skillpoints needed LvL 4": 2
                     },
                     {
-                        "Upgrate 5": 235469866
+                        "Upgrate 5": 1912751000
                     },
                     {
                         "Skillpoints needed LvL 5": 3
@@ -1231,10 +1286,10 @@
                         "Upgrade Number": 5
                     },
                     {
-                        "Main Panel": 2933578115
+                        "Main Panel": 2695870297
                     },
                     {
-                        "Current Panel": 1068775963
+                        "Current Panel": 2134789458
                     },
                     {
                         "Tree Index": 2
@@ -1243,31 +1298,31 @@
                         "Player": 2178022744
                     },
                     {
-                        "Upgrate 1": 3237884119
+                        "Upgrate 1": 3128544634
                     },
                     {
                         "Skillpoints needed LvL 1": 1
                     },
                     {
-                        "Upgrate 2": 3371718339
+                        "Upgrate 2": 1729481665
                     },
                     {
                         "Skillpoints needed LvL 2": 2
                     },
                     {
-                        "Upgrate 3": 964916638
+                        "Upgrate 3": 3129822901
                     },
                     {
                         "Skillpoints needed LvL 3": 2
                     },
                     {
-                        "Upgrate 4": 877777461
+                        "Upgrate 4": 529395256
                     },
                     {
                         "Skillpoints needed LvL 4": 2
                     },
                     {
-                        "Upgrate 5": 235469866
+                        "Upgrate 5": 1912751000
                     },
                     {
                         "Skillpoints needed LvL 5": 3
@@ -1276,10 +1331,10 @@
                         "Upgrade Number": 5
                     },
                     {
-                        "Main Panel": 2933578115
+                        "Main Panel": 2695870297
                     },
                     {
-                        "Current Panel": 1068775963
+                        "Current Panel": 2134789458
                     },
                     {
                         "Tree Index": 2
@@ -1292,12 +1347,12 @@
                 "Type": 5
             }
         ],
-        "FirstOnPrefab": true,
+        "FirstOnPrefab": false,
         "Name": "Health Panel",
-        "ParentUID": 653963415,
-        "PrefabUID": 565170004,
+        "ParentUID": 190046037,
+        "PrefabUID": 3943484743,
         "Tag": "UI",
-        "UID": 1068775963
+        "UID": 2134789458
     },
     {
         "Active": true,
@@ -1335,10 +1390,10 @@
         ],
         "FirstOnPrefab": false,
         "Name": "Ability 1",
-        "ParentUID": 1068775963,
-        "PrefabUID": 565170004,
+        "ParentUID": 2134789458,
+        "PrefabUID": 3943484743,
         "Tag": "UI",
-        "UID": 3237884119
+        "UID": 3128544634
     },
     {
         "Active": true,
@@ -1376,10 +1431,10 @@
         ],
         "FirstOnPrefab": false,
         "Name": "Ability 2",
-        "ParentUID": 1068775963,
-        "PrefabUID": 565170004,
+        "ParentUID": 2134789458,
+        "PrefabUID": 3943484743,
         "Tag": "UI",
-        "UID": 3371718339
+        "UID": 1729481665
     },
     {
         "Active": true,
@@ -1417,10 +1472,10 @@
         ],
         "FirstOnPrefab": false,
         "Name": "Ability 3",
-        "ParentUID": 1068775963,
-        "PrefabUID": 565170004,
+        "ParentUID": 2134789458,
+        "PrefabUID": 3943484743,
         "Tag": "UI",
-        "UID": 964916638
+        "UID": 3129822901
     },
     {
         "Active": true,
@@ -1458,10 +1513,10 @@
         ],
         "FirstOnPrefab": false,
         "Name": "Ability 4",
-        "ParentUID": 1068775963,
-        "PrefabUID": 1574102943,
+        "ParentUID": 2134789458,
+        "PrefabUID": 3943484743,
         "Tag": "UI",
-        "UID": 877777461
+        "UID": 529395256
     },
     {
         "Active": true,
@@ -1499,10 +1554,10 @@
         ],
         "FirstOnPrefab": false,
         "Name": "Ability 5",
-        "ParentUID": 1068775963,
-        "PrefabUID": 1574102943,
+        "ParentUID": 2134789458,
+        "PrefabUID": 3943484743,
         "Tag": "UI",
-        "UID": 235469866
+        "UID": 1912751000
     },
     {
         "Active": true,
@@ -1527,33 +1582,33 @@
                 "Type": 1
             },
             {
-                "Enabled": true,
+                "Enabled": false,
                 "MaterialResource": 0,
                 "MeshEnabled": false,
                 "Type": 16,
                 "listButtons": [
-                    3184057008,
-                    1085905519,
-                    1813794107
+                    2400252632,
+                    3695907000,
+                    1250543639
                 ]
             },
             {
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Upgrate 1": 3184057008
+                        "Upgrate 1": 2400252632
                     },
                     {
                         "Skillpoints needed LvL 1": 3
                     },
                     {
-                        "Upgrate 2": 1085905519
+                        "Upgrate 2": 3695907000
                     },
                     {
                         "Skillpoints needed LvL 2": 3
                     },
                     {
-                        "Upgrate 3": 1813794107
+                        "Upgrate 3": 1250543639
                     },
                     {
                         "Skillpoints needed LvL 3": 4
@@ -1568,10 +1623,10 @@
                         "Upgrade Number": 3
                     },
                     {
-                        "Main Panel": 2933578115
+                        "Main Panel": 2695870297
                     },
                     {
-                        "Current Panel": 474755568
+                        "Current Panel": 2176358520
                     },
                     {
                         "Tree Index": 3
@@ -1580,19 +1635,19 @@
                         "Player": 2178022744
                     },
                     {
-                        "Upgrate 1": 3184057008
+                        "Upgrate 1": 2400252632
                     },
                     {
                         "Skillpoints needed LvL 1": 3
                     },
                     {
-                        "Upgrate 2": 1085905519
+                        "Upgrate 2": 3695907000
                     },
                     {
                         "Skillpoints needed LvL 2": 3
                     },
                     {
-                        "Upgrate 3": 1813794107
+                        "Upgrate 3": 1250543639
                     },
                     {
                         "Skillpoints needed LvL 3": 4
@@ -1607,10 +1662,10 @@
                         "Upgrade Number": 3
                     },
                     {
-                        "Main Panel": 2933578115
+                        "Main Panel": 2695870297
                     },
                     {
-                        "Current Panel": 474755568
+                        "Current Panel": 2176358520
                     },
                     {
                         "Tree Index": 3
@@ -1623,12 +1678,12 @@
                 "Type": 5
             }
         ],
-        "FirstOnPrefab": true,
+        "FirstOnPrefab": false,
         "Name": "Special Panel",
-        "ParentUID": 653963415,
-        "PrefabUID": 565170004,
+        "ParentUID": 190046037,
+        "PrefabUID": 3943484743,
         "Tag": "UI",
-        "UID": 474755568
+        "UID": 2176358520
     },
     {
         "Active": true,
@@ -1666,10 +1721,10 @@
         ],
         "FirstOnPrefab": false,
         "Name": "Ability 1",
-        "ParentUID": 474755568,
-        "PrefabUID": 565170004,
+        "ParentUID": 2176358520,
+        "PrefabUID": 3943484743,
         "Tag": "UI",
-        "UID": 3184057008
+        "UID": 2400252632
     },
     {
         "Active": true,
@@ -1700,17 +1755,17 @@
                 "State": 0,
                 "Type": 12,
                 "blockImage": 619234547,
-                "hoverImage": 358825831,
+                "hoverImage": 2028033966,
                 "idleImage": 788406600,
                 "pressImage": 1440306437
             }
         ],
         "FirstOnPrefab": false,
         "Name": "Ability 2",
-        "ParentUID": 474755568,
-        "PrefabUID": 565170004,
+        "ParentUID": 2176358520,
+        "PrefabUID": 3943484743,
         "Tag": "UI",
-        "UID": 1085905519
+        "UID": 3695907000
     },
     {
         "Active": true,
@@ -1748,64 +1803,9 @@
         ],
         "FirstOnPrefab": false,
         "Name": "Ability 3",
-        "ParentUID": 474755568,
-        "PrefabUID": 565170004,
+        "ParentUID": 2176358520,
+        "PrefabUID": 3943484743,
         "Tag": "UI",
-        "UID": 1813794107
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "Active camera": true,
-                "Active culling": false,
-                "Aspect ratio": 1.8122271299362183,
-                "Enabled": true,
-                "FOV": 60.0,
-                "Far plane": 1000.0,
-                "Frustum type": 2,
-                "Near plane": 0.009999999776482582,
-                "Orthographic size": 10.0,
-                "Type": 4
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Level Index": 0
-                    },
-                    {
-                        "Level Index": 0
-                    }
-                ],
-                "Script Resource": 3283995345,
-                "Type": 5
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "Empty",
-        "ParentUID": 326476507,
-        "PrefabUID": 0,
-        "Tag": "Default",
-        "UID": 2178022744
+        "UID": 1250543639
     }
 ]
