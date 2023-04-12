@@ -45,6 +45,7 @@ void TP_Cabin::OnCollisionEnter(API_RigidBody other)
 		{
 			smoke.Play();
 			destinationSmoke.Play();
+			Audio::Event("teleport_1");
 		}
 		else if (timeHoldButton > 1.5f)
 		{
@@ -52,6 +53,7 @@ void TP_Cabin::OnCollisionEnter(API_RigidBody other)
 			timeHoldButton = 0.0f;
 			smoke.StopEmitting();
 			destinationSmoke.StopEmitting();
+			Audio::Event("teleport_2");
 			
 		}
 	}

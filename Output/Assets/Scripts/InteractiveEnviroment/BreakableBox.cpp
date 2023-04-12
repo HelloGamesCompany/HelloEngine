@@ -72,6 +72,9 @@ void BreakableBox::ShootBox(float projectileDamage)
 
 void BreakableBox::DestroyBox()
 {
+
+	Audio::Event("box_breaking");
+
 	gameObject.SetActive(false);
 
 	if (enemyDropManager)
