@@ -59,17 +59,16 @@ void ArmoryWeaponSelect::Update()
         if (playerMove) playerMove->openingChest = false;
         interruptor->open = false;
     }
-
-    if (CurrentWeapon.OnHovered() && SelectWeaponList.IsEnabled() && findUnlock)
+    
+    if ((CurrentWeapon.OnHovered() || CurrentWeapon.OnPress()) && SelectWeaponList.IsEnabled() && findUnlock)
     {
         FindUnlock();
-
+        
         if (isUnlocked)
         {
             SelectedWeapon.ChangeAlbedoTexture(CurrentTextureWeapon);
             CurrentPanelUnlock.GetGameObject().SetActive(false);
             CurrentPanelUpgrate.GetGameObject().SetActive(true);
-            //CurrentWeapon.GetGameObject().GetMaterialCompoennt().ChangeAlbedoTexture(CurrentTextureWeapon);
         }
         else
         {
