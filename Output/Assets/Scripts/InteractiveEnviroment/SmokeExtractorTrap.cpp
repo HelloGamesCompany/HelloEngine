@@ -36,6 +36,8 @@ void SmokeExtractorTrap::Update()
 
 		throwFire = true;
 
+		//Audio::Event("trap_fire");
+
 	}
 	else
 	{
@@ -51,6 +53,8 @@ void SmokeExtractorTrap::Update()
 		smoke.Play();
 
 		throwFire = false;
+
+		//Audio::Event("trap_smoke");
 
 	}
 }
