@@ -77,7 +77,7 @@ void RockDivider::OnCollisionEnter(API::API_RigidBody other)
 			pStats->TakeDamage(bAttacks->orbitingRockDmg, 0);
 		}
 	}
-	else if ((detectionTag == "Cover" || detectionTag == "Floor") && whichRockAmI < 5) {
+	else if ((detectionTag == "Cover" || detectionTag == "Wall") && whichRockAmI < 5) {
 		rockDivided = true;
 	}
 

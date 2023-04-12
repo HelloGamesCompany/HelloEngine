@@ -190,7 +190,7 @@ void BossAttacks::Update()
 
 					pStats->TakeDamage(1,0);
 
-					//pMove->RecieveImpulse(gameObject.GetTransform().GetGlobalPosition() - player.GetTransform().GetGlobalPosition(), 100, 100);
+					pMove->RecieveImpulse(gameObject.GetTransform().GetGlobalPosition() - player.GetTransform().GetGlobalPosition(), 1, 1);
 					//KnockBack
 					explosionWave2HasArrived = true;
 				}
@@ -330,7 +330,7 @@ void BossAttacks::Update()
 					explosionWave1.GetTransform().SetScale(0.1f, 0.1f, 0.1f);
 				}
 
-				//attackType = 5;
+				//attackType = 4;
 
 				if (attackType == 5) {
 					bossState = BOSS_STATE::FIREROCKATTACK;
