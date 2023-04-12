@@ -9,8 +9,8 @@ HELLO_ENGINE_API_C UI_Municion* CreateUI_Municion(ScriptToInspectorInterface* sc
 
     script->AddDragBoxUIText("Normal munition on", &classInstance->text_munition_Normal_On);
     script->AddDragBoxUIText("Normal munition off", &classInstance->text_munition_Normal_Off);
-    script->AddDragBoxUIText("variableName on", &classInstance->text_munition_Special_On);
-    script->AddDragBoxUIText("variableName off", &classInstance->text_munition_Special_Off);
+    script->AddDragBoxUIText("Special munition on", &classInstance->text_munition_Special_On);
+    script->AddDragBoxUIText("Special munition off", &classInstance->text_munition_Special_Off);
     return classInstance;
 }
 

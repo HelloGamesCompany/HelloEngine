@@ -49,6 +49,27 @@ void PlayerGunManager::Start()
     GetGun(2, equipedNormalGun);
     GetGun(3, -1);
 
+    switch (equipedNormalGun)
+    {
+    case 1: // semiautomatic
+        if (swapWeapon) swapWeapon->SwapWeapon2(normalWeapon_Type::SEMI);
+        break;
+    case 2: // automatic
+        if (swapWeapon) swapWeapon->SwapWeapon2(normalWeapon_Type::AUTO);
+        break;
+    case 3: // burst
+        if (swapWeapon) swapWeapon->SwapWeapon2(normalWeapon_Type::BURST);
+        break;
+    case 4: // shotgun
+       
+        if (swapWeapon) swapWeapon->SwapWeapon2(normalWeapon_Type::SHOTGUN);
+        break;
+    case 5: // handgun
+        if (swapWeapon) swapWeapon->SwapWeapon2(normalWeapon_Type::REVOLVER);
+        break;
+    default:
+        break;
+    }
     // start with base gun selected
     UnequipGun(0);
 }

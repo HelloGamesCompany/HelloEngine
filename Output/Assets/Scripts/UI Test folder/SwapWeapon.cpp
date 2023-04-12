@@ -74,15 +74,13 @@ void SwapWeapon::Start()
     material_Normal_Weapon_on.ChangeAlbedoTexture(normalWeaponsOn[0]);
     material_Normal_Weapon_off.ChangeAlbedoTexture(normalWeaponsOff[0]);
     material_Normal_Weapon_on.GetGameObject().SetActive(false);
-    material_Normal_Weapon_off.GetGameObject().SetActive(false);
-    material_Normal_Weapon_off.GetGameObject().SetActive(false);
+    material_Normal_Weapon_off.GetGameObject().SetActive(true);
     active_Bar_2.SetActive(false);
     //weapon 3
     material_Special_Weapon_on.ChangeAlbedoTexture(specialsWeaponsOn[0]);
     material_Special_Weapon_off.ChangeAlbedoTexture(specialsWeaponsOff[0]);
     material_Special_Weapon_on.GetGameObject().SetActive(false);
-    material_Special_Weapon_off.GetGameObject().SetActive(false);
-    material_Special_Weapon_off.GetGameObject().SetActive(false);
+    material_Special_Weapon_off.GetGameObject().SetActive(true);
     active_Bar_3.SetActive(false);
 
     //Dash

@@ -13,6 +13,7 @@
 		<default value="default" />
 	</String>
 	<Int>
+		<equipedNormalGun value="2" />
 		<default value="0" />
 		<level1_chest1_content value="1" />
 		<skillPointsAmount value="0" />
@@ -21,8 +22,8 @@
 	<Float>
 		<default value="1.0f" />
 		<hi value="20.500000f" />
-		<PlayerPosX value="39.099693f" />
-		<PlayerPosY value="-0.201146f" />
-		<PlayerPosZ value="-2.141766f" />
+		<PlayerPosX value="38.607929f" />
+		<PlayerPosY value="-0.199999f" />
+		<PlayerPosZ value="-1.859124f" />
 	</Float>
 </QuickSave>
