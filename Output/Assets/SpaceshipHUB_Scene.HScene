@@ -10717,7 +10717,7 @@
             {
                 "Active camera": true,
                 "Active culling": true,
-                "Aspect ratio": 1.8648383617401123,
+                "Aspect ratio": 1.9392917156219482,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -23841,6 +23841,52 @@
             {
                 "Enabled": true,
                 "Position": [
+                    0.0,
+                    0.10000000149011612,
+                    0.0
+                ],
+                "Rotation": [
+                    -90.0,
+                    0.0,
+                    180.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 13,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 3571212546,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Aura",
+        "ParentUID": 1862169540,
+        "PrefabUID": 0,
+        "Tag": "Primitive",
+        "UID": 2103541328
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
                     -6.905828475952148,
                     1.120224952697754,
                     12.342223167419434
@@ -24212,7 +24258,7 @@
                 "Enabled": true,
                 "Position": [
                     -0.6000000238418579,
-                    0.019999999552965164,
+                    0.2199999988079071,
                     0.0
                 ],
                 "Rotation": [
