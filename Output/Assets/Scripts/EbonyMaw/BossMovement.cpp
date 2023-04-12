@@ -25,15 +25,15 @@ void BossMovement::Update()
         if (bLoop->canTakeDamage == false && bossDash == false) {
             angle = Rotate(player.GetTransform().GetGlobalPosition(), angle);
 
-            if (distBP > 40.0f) {
+            if (distBP > 20.0f) {
                 Seek(&gameObject, player.GetTransform().GetGlobalPosition(), bossSpeed);
             }
-            else if (distBP < 20.0f) {
+            else if (distBP < 10.0f) {
                 Hide(&gameObject, player.GetTransform().GetGlobalPosition(), bossSpeed * 1.5);
             }
         }
         if (bossDash == true) {
-            Seek(&gameObject, target.GetTransform().GetGlobalPosition(), 20.0f);
+            Seek(&gameObject, target.GetTransform().GetGlobalPosition(), 10.0f);
         }
     }
    
