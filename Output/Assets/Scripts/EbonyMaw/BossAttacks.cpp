@@ -110,6 +110,8 @@ void BossAttacks::Update()
 				rocks[18].SetActive(true);
 				rocks[19].SetActive(true);
 				if (bossState != BOSS_STATE::KO) OrbitingRocks(&rocks[19], &rocks[18], &rocks[17], &rocks[16], rotationSpeed, radius);
+				//rotationBoss = boss.GetTransform().GetGlobalRotation().y;
+
 				break;
 			case 2:
 				rocks[16].SetActive(true);
@@ -190,7 +192,14 @@ void BossAttacks::Update()
 
 					pStats->TakeDamage(1,0);
 
-					pMove->RecieveImpulse(gameObject.GetTransform().GetGlobalPosition() - player.GetTransform().GetGlobalPosition(), 1, 1);
+					API_Vector3 normalizedvector = boss.GetTransform().GetGlobalPosition() - player.GetTransform().GetGlobalPosition();
+					float x = normalizedvector.x * normalizedvector.x;
+					float y = 0;
+					float z = normalizedvector.z * normalizedvector.z;
+					float sum = x + y + z;
+					API_Vector3 direction = { normalizedvector.x / sum, 0, normalizedvector.z / sum };
+					pMove->RecieveImpulse(-direction, 0.25f, 50);
+
 					//KnockBack
 					explosionWave2HasArrived = true;
 				}
@@ -330,8 +339,6 @@ void BossAttacks::Update()
 					explosionWave1.GetTransform().SetScale(0.1f, 0.1f, 0.1f);
 				}
 
-				//attackType = 4;
-
 				if (attackType == 5) {
 					bossState = BOSS_STATE::FIREROCKATTACK;
 
@@ -434,10 +441,11 @@ void BossAttacks::SpecialAttack()
 
 void BossAttacks::OrbitingRocks(API_GameObject* orbitingRock1, API_GameObject* orbitingRock2, API_GameObject* orbitingRock3, API_GameObject* orbitingRock4, float rotationSpeed, float radius)
 {
+	//float finalRotationBoss = boss.GetTransform().GetGlobalRotation().y - rotationBoss;
+
 	orbitingRock1->GetTransform().SetPosition(radius, 0, 0);
 	orbitingRock2->GetTransform().SetPosition(-radius, 0, 0);
 	orbitingRock3->GetTransform().SetPosition(0, 0, radius);
 	orbitingRock4->GetTransform().SetPosition(0, 0, -radius);
 	orbitingRocks.GetTransform().Rotate(0, rotationSpeed, 0);
-
 }
