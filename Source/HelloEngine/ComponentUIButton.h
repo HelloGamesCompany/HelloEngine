@@ -29,7 +29,6 @@ class ComponentUIButton : public ComponentUI
 	bool IsHold = false;
 
 	bool isBlocked = false;
-	bool isBlockedInspector = false;
 
 	bool isPress = true;
 	bool isReleased = false;
