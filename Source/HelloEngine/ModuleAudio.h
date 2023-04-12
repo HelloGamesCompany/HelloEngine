@@ -44,7 +44,8 @@ private:
 	CAkFilePackageLowLevelIOBlocking g_lowLevelIO;
 
 	AkBankID _initBank;
-	AkBankID _testBank;
+	AkBankID _sfxBank;
+	AkBankID _musicBank;
 
 	static AkGameObjectID defaultListener;
 	static AkGameObjectID defaultSource;

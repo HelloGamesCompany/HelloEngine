@@ -221,12 +221,17 @@ void ModuleAudio::InitSoundBanks()
 
     if (eResult == AK_Success)
     {
-        eResult = AK::SoundEngine::LoadBank(L"Vertical_Slice2_Soundbank.bnk", _testBank);
+        eResult = AK::SoundEngine::LoadBank(L"General_Soundbank.bnk", _sfxBank);
+    }
+    if (eResult == AK_Success)
+    {
+        eResult = AK::SoundEngine::LoadBank(L"Music_Soundbank.bnk", _musicBank);
     }
 }
 
 void ModuleAudio::TerminateSoundBanks()
 {
-    AK::SoundEngine::UnloadBank(L"Test.bnk", NULL);
+    AK::SoundEngine::UnloadBank(L"General_Soundbank.bnk", NULL);
+    AK::SoundEngine::UnloadBank(L"Music_Soundbank.bnk", NULL);
     AK::SoundEngine::UnloadBank(L"Init.bnk", NULL);
 }
