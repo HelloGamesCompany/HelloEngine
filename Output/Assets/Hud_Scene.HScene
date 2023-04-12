@@ -152,6 +152,25 @@
                     1.0
                 ],
                 "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "All GO HUD BOSS": 2273192879
+                    },
+                    {
+                        "HP BOSS": 3846539246
+                    },
+                    {
+                        "All GO HUD BOSS": 2273192879
+                    },
+                    {
+                        "HP BOSS": 3846539246
+                    }
+                ],
+                "Script Resource": 2046259589,
+                "Type": 5
             }
         ],
         "FirstOnPrefab": true,
@@ -187,6 +206,8 @@
                 "Enabled": true,
                 "FillImage": 1.0,
                 "MaterialResource": 3409411885,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
                 "Type": 15
             }
         ],
@@ -223,6 +244,8 @@
                 "Enabled": true,
                 "FillImage": 1.0,
                 "MaterialResource": 0,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
                 "Type": 15
             }
         ],
@@ -259,6 +282,8 @@
                 "Enabled": true,
                 "FillImage": 1.0,
                 "MaterialResource": 3220306408,
+                "MeshEnabled": true,
+                "OpacityDirection": 1,
                 "Type": 15
             }
         ],
@@ -295,6 +320,8 @@
                 "Enabled": true,
                 "FillImage": 1.0,
                 "MaterialResource": 3577591980,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
                 "Type": 15
             }
         ],
@@ -331,6 +358,8 @@
                 "Enabled": true,
                 "FillImage": 1.0,
                 "MaterialResource": 964082006,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
                 "Type": 15
             }
         ],
@@ -366,6 +395,30 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Texture_SPEED_INCREASE": 898734028
+                    },
+                    {
+                        "Texture_FIRERATE_INCREASE": 1345496260
+                    },
+                    {
+                        "Texture_SHIELD": 499632542
+                    },
+                    {
+                        "Texture_SLOW_TIME": 1755384749
+                    },
+                    {
+                        "GamesObjects_1": 3330712065
+                    },
+                    {
+                        "GamesObjects_2": 3955892868
+                    },
+                    {
+                        "GamesObjects_3": 2411446382
+                    },
+                    {
+                        "GamesObjects_4": 1806803977
+                    },
                     {
                         "Texture_SPEED_INCREASE": 898734028
                     },
@@ -428,6 +481,8 @@
                 "Enabled": true,
                 "FillImage": 1.0,
                 "MaterialResource": 240240,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
                 "Type": 15
             }
         ],
@@ -464,6 +519,8 @@
                 "Enabled": true,
                 "FillImage": 1.0,
                 "MaterialResource": 240240,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
                 "Type": 15
             }
         ],
@@ -500,6 +557,8 @@
                 "Enabled": true,
                 "FillImage": 1.0,
                 "MaterialResource": 240240,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
                 "Type": 15
             }
         ],
@@ -536,6 +595,8 @@
                 "Enabled": true,
                 "FillImage": 1.0,
                 "MaterialResource": 240240,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
                 "Type": 15
             }
         ],
@@ -545,42 +606,6 @@
         "PrefabUID": 0,
         "Tag": "UI",
         "UID": 1806803977
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    1.850000023841858,
-                    1.600000023841858,
-                    0.0
-                ],
-                "Rotation": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Scale": [
-                    0.07000000029802322,
-                    0.07000000029802322,
-                    0.5
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "FillImage": 1.0,
-                "MaterialResource": 240240,
-                "Type": 15
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "Power_up_5",
-        "ParentUID": 1800507562,
-        "PrefabUID": 0,
-        "Tag": "UI",
-        "UID": 3047364684
     },
     {
         "Active": true,
@@ -608,6 +633,8 @@
                 "Enabled": true,
                 "FillImage": 1.0,
                 "MaterialResource": 3784778997,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
                 "Type": 15
             }
         ],
@@ -674,6 +701,8 @@
                 "Enabled": true,
                 "FillImage": 1.0,
                 "MaterialResource": 2366743240,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
                 "Type": 15
             }
         ],
@@ -711,9 +740,37 @@
                 "Inspector Fields": [
                     {
                         "hp": false
+                    },
+                    {
+                        "hp": false
                     }
                 ],
                 "Script Resource": 1164455694,
+                "Type": 5
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "HP_BAR": 3158086540
+                    },
+                    {
+                        "HP_REGEN_BAR": 1542820324
+                    },
+                    {
+                        "SHIELD_BAR": 759524979
+                    },
+                    {
+                        "HP_BAR": 3158086540
+                    },
+                    {
+                        "HP_REGEN_BAR": 1542820324
+                    },
+                    {
+                        "SHIELD_BAR": 759524979
+                    }
+                ],
+                "Script Resource": 3828527852,
                 "Type": 5
             }
         ],
@@ -750,6 +807,8 @@
                 "Enabled": true,
                 "FillImage": 1.0,
                 "MaterialResource": 973302505,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
                 "Type": 15
             }
         ],
@@ -786,6 +845,8 @@
                 "Enabled": true,
                 "FillImage": 1.0,
                 "MaterialResource": 2442532908,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
                 "Type": 15
             }
         ],
@@ -822,13 +883,9 @@
                 "Enabled": true,
                 "FillImage": 1.0,
                 "MaterialResource": 973302505,
+                "MeshEnabled": true,
+                "OpacityDirection": 1,
                 "Type": 15
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": null,
-                "Script Resource": 3828527852,
-                "Type": 5
             }
         ],
         "FirstOnPrefab": false,
@@ -864,6 +921,8 @@
                 "Enabled": true,
                 "FillImage": 1.0,
                 "MaterialResource": 980036510,
+                "MeshEnabled": true,
+                "OpacityDirection": 1,
                 "Type": 15
             }
         ],
@@ -900,6 +959,8 @@
                 "Enabled": true,
                 "FillImage": 1.0,
                 "MaterialResource": 137807845,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
                 "Type": 15
             }
         ],
@@ -935,6 +996,90 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "HandgunsWeapons_On": 1828660828
+                    },
+                    {
+                        "HandgunsWeapons_Off": 1261649561
+                    },
+                    {
+                        "Auto_On": 977509463
+                    },
+                    {
+                        "Burst_On": 1465322406
+                    },
+                    {
+                        "Semi_On": 1518552351
+                    },
+                    {
+                        "Shotgun_On": 4259070326
+                    },
+                    {
+                        "Handgun_On": 3102974161
+                    },
+                    {
+                        "Auto_Off": 1072796038
+                    },
+                    {
+                        "Burst_Off": 335904823
+                    },
+                    {
+                        "Semi_Off": 3583084629
+                    },
+                    {
+                        "Shotgun_Off": 4170447358
+                    },
+                    {
+                        "Handgun_Off": 1214175512
+                    },
+                    {
+                        "FlameThrower_On 1": 12569475
+                    },
+                    {
+                        "Ricochet_On 2": 143724778
+                    },
+                    {
+                        "FlameThrower_Off 1": 103443597
+                    },
+                    {
+                        "Ricochet_Off 2": 1840082596
+                    },
+                    {
+                        "Material Weapon 1 on": 4102192440
+                    },
+                    {
+                        "Material Weapon 1 off": 3236022021
+                    },
+                    {
+                        "Game Bar Weapon 1": 4172812350
+                    },
+                    {
+                        "Material Weapon 2 on": 692296045
+                    },
+                    {
+                        "Material Weapon 2 off": 1134633319
+                    },
+                    {
+                        "Game Bar Weapon 2": 2595168131
+                    },
+                    {
+                        "Material Weapon 3 on": 1496549210
+                    },
+                    {
+                        "Material Weapon 3 off": 3512805807
+                    },
+                    {
+                        "Game Bar Weapon 3": 1805554832
+                    },
+                    {
+                        "Text_Dash_on": 1033923317
+                    },
+                    {
+                        "Text_Dash_off": 2440110374
+                    },
+                    {
+                        "Material_Dash": 769001189
+                    },
                     {
                         "HandgunsWeapons_On": 1828660828
                     },
@@ -1093,6 +1238,8 @@
                 "Enabled": true,
                 "FillImage": 1.0,
                 "MaterialResource": 2891199984,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
                 "Type": 15
             }
         ],
@@ -1129,6 +1276,8 @@
                 "Enabled": true,
                 "FillImage": 1.0,
                 "MaterialResource": 4055084493,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
                 "Type": 15
             }
         ],
@@ -1195,6 +1344,8 @@
                 "Enabled": true,
                 "FillImage": 1.0,
                 "MaterialResource": 1828660828,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
                 "Type": 15
             }
         ],
@@ -1231,6 +1382,8 @@
                 "Enabled": true,
                 "FillImage": 1.0,
                 "MaterialResource": 0,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
                 "Type": 15
             }
         ],
@@ -1297,6 +1450,8 @@
                 "Enabled": true,
                 "FillImage": 1.0,
                 "MaterialResource": 2891199984,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
                 "Type": 15
             }
         ],
@@ -1333,6 +1488,8 @@
                 "Enabled": true,
                 "FillImage": 1.0,
                 "MaterialResource": 4055084493,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
                 "Type": 15
             }
         ],
@@ -1399,6 +1556,8 @@
                 "Enabled": true,
                 "FillImage": 1.0,
                 "MaterialResource": 1518552351,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
                 "Type": 15
             }
         ],
@@ -1435,6 +1594,8 @@
                 "Enabled": true,
                 "FillImage": 1.0,
                 "MaterialResource": 3583084629,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
                 "Type": 15
             }
         ],
@@ -1501,6 +1662,8 @@
                 "Enabled": true,
                 "FillImage": 1.0,
                 "MaterialResource": 1340084174,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
                 "Type": 15
             }
         ],
@@ -1537,6 +1700,8 @@
                 "Enabled": true,
                 "FillImage": 1.0,
                 "MaterialResource": 944959623,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
                 "Type": 15
             }
         ],
@@ -1603,6 +1768,8 @@
                 "Enabled": true,
                 "FillImage": 1.0,
                 "MaterialResource": 0,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
                 "Type": 15
             }
         ],
@@ -1639,6 +1806,8 @@
                 "Enabled": true,
                 "FillImage": 1.0,
                 "MaterialResource": 0,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
                 "Type": 15
             }
         ],
@@ -1705,6 +1874,8 @@
                 "Enabled": true,
                 "FillImage": 1.0,
                 "MaterialResource": 1033923317,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
                 "Type": 15
             }
         ],
@@ -1740,6 +1911,12 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Disable_HUD": 1177184507
+                    },
+                    {
+                        "Active_HUD": 506000632
+                    },
                     {
                         "Disable_HUD": 1177184507
                     },
@@ -1784,6 +1961,8 @@
                 "Enabled": true,
                 "FillImage": 1.0,
                 "MaterialResource": 116120790,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
                 "Type": 15
             }
         ],
@@ -1850,6 +2029,8 @@
                 "Enabled": true,
                 "FillImage": 1.0,
                 "MaterialResource": 3864763197,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
                 "Type": 15
             }
         ],
@@ -1886,6 +2067,8 @@
                 "Enabled": true,
                 "FillImage": 1.0,
                 "MaterialResource": 2598528301,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
                 "Type": 15
             }
         ],
@@ -1922,6 +2105,8 @@
                 "Enabled": true,
                 "FillImage": 1.0,
                 "MaterialResource": 618267172,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
                 "Type": 15
             }
         ],
@@ -1957,6 +2142,9 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Shield_GO": 759524979
+                    },
                     {
                         "Shield_GO": 759524979
                     }
@@ -1998,6 +2186,8 @@
                 "Enabled": true,
                 "FillImage": 1.0,
                 "MaterialResource": 2531036958,
+                "MeshEnabled": true,
+                "OpacityDirection": 1,
                 "Type": 15
             }
         ],
@@ -2033,6 +2223,24 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
+                    {
+                        "Infinit munition on": 3505080404
+                    },
+                    {
+                        "Infinit munition off": 2364159685
+                    },
+                    {
+                        "Normal munition on": 3688633035
+                    },
+                    {
+                        "Normal munition off": 3298778947
+                    },
+                    {
+                        "variableName on": 2309207730
+                    },
+                    {
+                        "variableName off": 348854051
+                    },
                     {
                         "Infinit munition on": 3505080404
                     },
@@ -2089,6 +2297,8 @@
                 "Enabled": true,
                 "FillImage": 1.0,
                 "MaterialResource": 1724944906,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
                 "Type": 15
             }
         ],
@@ -2125,6 +2335,8 @@
                 "Enabled": true,
                 "FillImage": 1.0,
                 "MaterialResource": 61591832,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
                 "Type": 15
             }
         ],
