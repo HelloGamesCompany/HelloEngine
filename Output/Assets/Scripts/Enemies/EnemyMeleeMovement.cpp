@@ -23,7 +23,7 @@ HELLO_ENGINE_API_C EnemyMeleeMovement* CreateEnemyMeleeMovement(ScriptToInspecto
     script->AddDragBoxGameObject("Target", &classInstance->target);
     script->AddDragBoxGameObject("Action zone", &classInstance->actionZone);
     script->AddDragBoxGameObject("Attack zone", &classInstance->attackZoneGO);
-    script->AddDragBoxRigidBody("Action Rb zone", &classInstance->zoneRb);
+    //script->AddDragBoxRigidBody("Action Rb zone", &classInstance->zoneRb);
     script->AddDragBoxGameObject("Point 1", &classInstance->listPoints[0]);
     script->AddDragBoxGameObject("Point 2", &classInstance->listPoints[1]);
     script->AddDragBoxGameObject("Point 3", &classInstance->listPoints[2]);
@@ -54,6 +54,7 @@ void EnemyMeleeMovement::Start()
     attackCD = attackTime + attackCDCpy;
 
     animState = AnimationState::NONE;
+    zoneRb = actionZone.GetRigidBody();
 
     enemy = (Enemy*)gameObject.GetScript("Enemy");
     attackZone = (EnemyMeleeAttackZone*)attackZoneGO.GetScript("EnemyMeleeAttackZone");
@@ -105,6 +106,12 @@ void EnemyMeleeMovement::Update()
              sideDash = rand() % 1;
              _dashCooldown = 0;
              enemState = States::DASHING;
+
+             timer = 0.0f;
+             attackCharge = attackChargeCpy;
+             attackTime = attackCharge + attackTimeCpy;
+             attackCD = attackTime + attackCDCpy;
+             attackZone->attack = false;
         }
         
 
@@ -117,7 +124,7 @@ void EnemyMeleeMovement::Update()
              /* else if((enemState != States::ATTACKIG || enemState != States::TARGETING || !enemy->isHit) && !enemy->isTargIn && targStats->detected) {
                   targStats->detected = false;
               }*/
-             if (attackZone->attack)
+             if (attackZone->attack && enemy->isTargIn || attackZone->attack && enemy->isHit)
              {
                  enemState = States::ATTACKIG;
              }
@@ -211,6 +218,7 @@ void EnemyMeleeMovement::Update()
                 attackZone->attack = false;
             }
 
+           
             timer += dt;
             
             ////enemy->currentSpeed = enemy->speed * enemy->acceleration * enemy->stunVel * enemy->slowVel /** dt*/;
