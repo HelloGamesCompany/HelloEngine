@@ -2,7 +2,7 @@
 #include "../Player/PlayerStats.h"
 #include "../Shooting/Projectile.h"
 #include "EnemyTank.h"
-
+#include "EnemyMeleeMovement.h"
 HELLO_ENGINE_API_C Enemy* CreateEnemy(ScriptToInspectorInterface* script)
 {
     Enemy* classInstance = new Enemy();
@@ -76,7 +76,11 @@ void Enemy::TakeDamage(float damage, float resistanceDamage)
         // reaction
     }
 
-
+    EnemyMeleeMovement* meleeScript = (EnemyMeleeMovement*)gameObject.GetScript("EnemyMeleeMovement");
+    if (meleeScript)
+    {
+        meleeScript->HitAnim();
+    }
     hitParticles.Play();
 }
 

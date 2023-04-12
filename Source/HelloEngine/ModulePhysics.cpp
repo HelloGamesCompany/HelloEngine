@@ -17,6 +17,7 @@ ModulePhysics::ModulePhysics()
 	solver = new btSequentialImpulseConstraintSolver();
 
 	hasToChangeGravity = false;
+
 	gravityToChange = float3(0, -9.8, 0);
 
 	hasToSetRenderBuffers = true;
@@ -39,10 +40,11 @@ bool ModulePhysics::Init()
 bool ModulePhysics::Start()
 {
 	world = new btDiscreteDynamicsWorld(dispatcher, broad_phase, solver, collision_conf);
+	
 	world->setGravity(btVector3(0.0f, -10.0f, 0.0f));
 
 	// Testing------------------------------------------
-	PrimCube cube = PrimCube(2);
+	//PrimCube cube = PrimCube(2);
 	///////testBody = CreatePhysBody(&cube);
 	//testBody->SetVelocity(12, 10, 10);
 	///////testBody->SetPos(10, 10, 10);
@@ -59,19 +61,11 @@ bool ModulePhysics::Start()
 	//testBody2->body->setGravity(btVector3(0, 0, 0));
 	// Testing------------------------------------------
 
-	
-	for (int i = 0; i < physBodies.size(); i++) {
+	for (int i = 0; i < physBodies.size(); i++) 
+	{
 		if (ModuleLayers::gameObjects.count(physBodies[i]->gameObjectUID) != 0)
 		{
 			GameObject* go = ModuleLayers::gameObjects[physBodies[i]->gameObjectUID];
-
-			float3 grav = GetGlobalGravity();
-			float gravFloat[3] = { grav[0], grav[1], grav[2] };
-
-			go->GetComponent<PhysicsComponent>()->localGlobalGravity[0] = gravFloat[0];
-			go->GetComponent<PhysicsComponent>()->localGlobalGravity[1] = gravFloat[1];
-			go->GetComponent<PhysicsComponent>()->localGlobalGravity[2] = gravFloat[2];
-
 			go->GetComponent<PhysicsComponent>()->CheckRenderBuffers();
 		}
 	}
@@ -81,8 +75,10 @@ bool ModulePhysics::Start()
 
 UpdateStatus ModulePhysics::PreUpdate()
 {
-	if (hasToSetRenderBuffers == true) {
-		for (int i = 0; i < physBodies.size(); i++) {
+	if (hasToSetRenderBuffers == true) 
+	{
+		for (int i = 0; i < physBodies.size(); i++) 
+		{
 			if (ModuleLayers::gameObjects.count(physBodies[i]->gameObjectUID) != 0)
 			{
 				GameObject* go = ModuleLayers::gameObjects[physBodies[i]->gameObjectUID];
@@ -139,16 +135,20 @@ UpdateStatus ModulePhysics::PreUpdate()
 				{
 					GameObject* objectA = ModuleLayers::gameObjects[pBodyA->gameObjectUID];
 					GameObject* objectB = ModuleLayers::gameObjects[pBodyB->gameObjectUID];
+
 					if (!objectA->IsActive() || !objectB->IsActive())
 						continue;
+
 					objectA->OnCollisionEnter(pBodyB);
 				}
 				
 				if (ModuleLayers::gameObjects.count(pBodyB->gameObjectUID) != 0 && ModuleLayers::gameObjects[pBodyB->gameObjectUID] != nullptr)
 				{
 					GameObject* objectB = ModuleLayers::gameObjects[pBodyB->gameObjectUID];
+
 					if (!objectB->IsActive())
 						continue;
+
 					objectB->OnCollisionEnter(pBodyA);
 				}
 			}
@@ -162,12 +162,10 @@ UpdateStatus ModulePhysics::Update()
 {
 	world->updateAabbs();
 
-	for (int i = 0; i < physBodies.size(); i++) {
-
+	for (int i = 0; i < physBodies.size(); i++) 
+	{
 		if (LayerGame::S_IsPlaying())
-		{
 			physBodies[i]->Update();
-		}
 	}
 
 	return UpdateStatus::UPDATE_CONTINUE;
@@ -175,10 +173,12 @@ UpdateStatus ModulePhysics::Update()
 
 UpdateStatus ModulePhysics::PostUpdate()
 {
-	if (hasToChangeGravity == true) {
+	if (hasToChangeGravity == true)
+	{
 		SetNewGravityAtLast();
 		hasToChangeGravity = false;
 	}
+
 	return UpdateStatus::UPDATE_CONTINUE;
 }
 
@@ -342,21 +342,6 @@ void ModulePhysics::UpdatePhysBodyScaleCylinder(PhysBody3D* physBody, float radi
 void ModulePhysics::SetGlobalGravity(float3 grav)
 {
 	world->setGravity(btVector3(grav[0], grav[1], grav[2]));
-	for (int i = 0; i < physBodies.size(); i++) {
-		if (ModuleLayers::gameObjects.count(physBodies[i]->gameObjectUID) != 0)
-		{
-			GameObject* go = ModuleLayers::gameObjects[physBodies[i]->gameObjectUID];
-			float gravFloat[3] = { grav[0], grav[1], grav[2] };
-
-			go->GetComponent<PhysicsComponent>()->globalGravity[0] = gravFloat[0];
-			go->GetComponent<PhysicsComponent>()->globalGravity[1] = gravFloat[1];
-			go->GetComponent<PhysicsComponent>()->globalGravity[2] = gravFloat[2];
-
-			go->GetComponent<PhysicsComponent>()->localGlobalGravity[0] = gravFloat[0];
-			go->GetComponent<PhysicsComponent>()->localGlobalGravity[1] = gravFloat[1];
-			go->GetComponent<PhysicsComponent>()->localGlobalGravity[2] = gravFloat[2];
-		}
-	}
 }
 
 void ModulePhysics::SetGlobalGravityAtFirst(float3 grav)
@@ -380,4 +365,3 @@ void ModulePhysics::PrepareNewGravityAtLast(float3 grav)
 	hasToChangeGravity = true;
 	gravityToChange = grav;
 }
-

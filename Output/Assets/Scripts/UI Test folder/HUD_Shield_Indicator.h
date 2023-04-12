@@ -11,9 +11,5 @@ public:
 	void Start() override; 
 	void Update() override;
 
-	void isShieldEnable(bool Shieldpowerup_True);
-
-	API_GameObject Shield;
-	bool shield_Enable = false;
 };
 

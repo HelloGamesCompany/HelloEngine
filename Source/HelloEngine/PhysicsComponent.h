@@ -8,7 +8,6 @@
 class PhysicsComponent : public Component
 {
 public:
-
 	PhysicsComponent(GameObject* gameObject);
 
 	~PhysicsComponent();
@@ -35,15 +34,14 @@ private:
 	//Physics
 	void CheckShapes();
 
+	void CallUpdateMass();
+
 	void CallUpdatePos();
 	void CallUpdateRotation();
 	void CallUpdateScale();
-	void CallUpdateMass();
-
-	void CallUpdateStatic();
-	void CallUpdateTrigger();
-	void CallUpdateKinematic();
 	void CallUpdateColliderType();
+	void CallUpdateTrigger();
+	void CallUpdateAllPram();
 
 	void CreateCollider();
 
@@ -55,7 +53,6 @@ private:
 	void OnDisable();
 
 private:
-
 	PhysBody3D* _physBody = nullptr;
 
 	ColliderShape _shapeSelected;
@@ -70,9 +67,6 @@ private:
 	friend class API::API_RigidBody;
 
 public:
-	float localGlobalGravity[3];
-	float globalGravity[3];
-
 	float sphereRadius = 0;
 	float2 cylRadiusHeight;
 	float renderColColor[4];

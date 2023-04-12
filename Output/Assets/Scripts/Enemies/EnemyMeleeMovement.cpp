@@ -9,8 +9,9 @@ HELLO_ENGINE_API_C EnemyMeleeMovement* CreateEnemyMeleeMovement(ScriptToInspecto
     //Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
     script->AddDragFloat("Detection distance", &classInstance->detectionDis);
     script->AddDragFloat("Lossing Enemy distance", &classInstance->lossingDis);
-    script->AddDragFloat("Range attack", &classInstance->rangeAtk);
+   // script->AddDragFloat("Range attack", &classInstance->rangeAtk);
     script->AddDragFloat("OutsideZone Time", &classInstance->outTime);
+    script->AddDragFloat("Time cooldown between shoots", &classInstance->hitOutTime);
     script->AddDragFloat("Attack Time", &classInstance->attackTimeCpy);
     script->AddDragFloat("Attack Charge", &classInstance->attackChargeCpy);
     script->AddDragFloat("Attack Cooldown", &classInstance->attackCDCpy);
@@ -30,13 +31,15 @@ HELLO_ENGINE_API_C EnemyMeleeMovement* CreateEnemyMeleeMovement(ScriptToInspecto
     //script->AddDragBoxGameObject("Point 4", &classInstance->listPoints[3]);
     //script->AddDragBoxGameObject("Point 5", &classInstance->listPoints[4]);
     script->AddDragBoxAnimationPlayer("Animation Player", &classInstance->animationPlayer);
-    script->AddDragBoxAnimationResource("Idle Animation", &classInstance->idleAnim);
+    //script->AddDragBoxAnimationResource("Idle Animation", &classInstance->idleAnim);
     script->AddDragBoxAnimationResource("Walk Animation", &classInstance->walkAnim);
     script->AddDragBoxAnimationResource("Run Animation", &classInstance->runAnim);
     script->AddDragBoxAnimationResource("Attack Animation", &classInstance->attackAnim);
     script->AddDragBoxAnimationResource("Charge Animation", &classInstance->chargeAnim);
     script->AddDragBoxAnimationResource("Dash Animation", &classInstance->dashAnim);
-    script->AddCheckBox("Dashiing", &classInstance->dashing);
+    script->AddDragBoxAnimationResource("Die Animation", &classInstance->dieAnim);
+    script->AddDragBoxAnimationResource("Hit Animation", &classInstance->hitAnim);
+  //  script->AddCheckBox("Dashiing", &classInstance->dashing);
     return classInstance;
 }
 
@@ -81,7 +84,7 @@ void EnemyMeleeMovement::Update()
         disZone > zoneRad ? _outCooldown += dt:_outCooldown = 0;
         enemy->isHit? _hitOutCooldown += dt : _hitOutCooldown = 0;
 
-        if (_hitOutCooldown >= hitOutTime) enemy->isHit = false;
+        if (_hitOutCooldown >= hitOutTime) enemy->isHit = false, enemy->hitParticles.Stop();
         
          if (enemy->isTargIn)
          {
@@ -100,19 +103,19 @@ void EnemyMeleeMovement::Update()
             }
          }
 
-         if (/*enemState != States::ATTACKIG ||*/ attackZone->shooted && (rand() % 100) <= probDash && !dashing )
-        {
-             dashing = true;
-             sideDash = rand() % 1;
-             _dashCooldown = 0;
-             enemState = States::DASHING;
+        // if (/*enemState != States::ATTACKIG ||*/ attackZone->shooted && (rand() % 100) <= probDash && !dashing )
+        //{
+        //     dashing = true;
+        //     sideDash = rand() % 1;
+        //     _dashCooldown = 0;
+        //     enemState = States::DASHING;
 
-             timer = 0.0f;
-             attackCharge = attackChargeCpy;
-             attackTime = attackCharge + attackTimeCpy;
-             attackCD = attackTime + attackCDCpy;
-             attackZone->attack = false;
-        }
+        //     timer = 0.0f;
+        //     attackCharge = attackChargeCpy;
+        //     attackTime = attackCharge + attackTimeCpy;
+        //     attackCD = attackTime + attackCDCpy;
+        //     attackZone->attack = false;
+        //}
         
 
          if (!dashing)
@@ -177,7 +180,7 @@ void EnemyMeleeMovement::Update()
             if (animState != AnimationState::RUN)
             {
                 animState = AnimationState::RUN;
-                animationPlayer.ChangeAnimation(walkAnim);
+                animationPlayer.ChangeAnimation(runAnim);
                 animationPlayer.Play();
             }
             
@@ -202,7 +205,7 @@ void EnemyMeleeMovement::Update()
                 if (animState != AnimationState::ATTACK)
                 {
                     animState = AnimationState::ATTACK;
-                    animationPlayer.ChangeAnimation(chargeAnim);
+                    animationPlayer.ChangeAnimation(attackAnim);
                     animationPlayer.Play();
                 }
             }
@@ -254,6 +257,12 @@ void EnemyMeleeMovement::Update()
                         enemy->enemyRb.SetVelocity(gameObject.GetTransform().GetLeft() * velDash);
                     }
                     Console::Log("aaaaaaaaaaaaaaaaaaaaaaaaaaa");
+                    if (animState != AnimationState::DASH)
+                    {
+                        animState = AnimationState::DASH;
+                        animationPlayer.ChangeAnimation(dashAnim);
+                        animationPlayer.Play();
+                    }
                 }
                 else
                 {
@@ -289,6 +298,7 @@ void EnemyMeleeMovement::Seek(float vel, API_Vector3 tarPos, API_RigidBody enemy
         _angle = atan2(normLookDir.y, normLookDir.x) * RADTODEG - 90.0f;
         //gameObject.GetTransform().SetRotation(0+_bRot.x, -_angle+ _bRot.y, 0+ _bRot.z);
         gameObject.GetTransform().SetRotation(0, -_angle, 0);
+        
     }
 
     enemyRb.SetVelocity(gameObject.GetTransform().GetForward() * vel);
@@ -355,4 +365,14 @@ void EnemyMeleeMovement::Attack()
     }*/
     enemy->currentSpeed = attackSpeed;
     Seek(enemy->currentSpeed, targetPosOnAttack, enemy->enemyRb);
+}
+
+void EnemyMeleeMovement::HitAnim()
+{
+    if (animState != AnimationState::HITTED)
+    {
+        animState = AnimationState::HITTED;
+        animationPlayer.ChangeAnimation(hitAnim);
+        animationPlayer.Play();
+    }
 }
