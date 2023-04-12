@@ -43,6 +43,8 @@ public:
     void ChargeAttack();
     void Attack();
 
+    void HitAnim();
+
     API_Vector3 NormalizeVec3(float x, float y, float z);
 
     float Lerp(float a, float b, float time);
@@ -100,6 +102,8 @@ public:
     uint attackAnim;
     uint dashAnim;
     uint chargeAnim;
+    uint dieAnim;
+    uint hitAnim;
     
 
     Enemy* enemy = nullptr;
