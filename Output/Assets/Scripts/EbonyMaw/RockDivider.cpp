@@ -35,7 +35,7 @@ void RockDivider::Start()
 void RockDivider::Update()
 {
 
-	if (rockDivided == true && whichRockAmI < 5) {
+	if (rockDivided == true && whichRockAmI < 5 && bAttacks->bossState != BossAttacks::BOSS_STATE::RESIZINGROCK) {
 		dt = Time::GetDeltaTime();
 		stoneTime += dt;
 		bAttacks->ReturnRock(&gameObject, whichRockAmI, false);

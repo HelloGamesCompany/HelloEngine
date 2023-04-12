@@ -15,6 +15,8 @@ HELLO_ENGINE_API_C BossAttacks* CreateBossAttacks(ScriptToInspectorInterface* sc
 	script->AddDragInt("Random", &classInstance->difficultySetter);
 	script->AddDragFloat("specialAttackCooldown", &classInstance->specialAttackCooldown);
 
+	script->AddDragBoxParticleSystem("Fire From Rock", &classInstance->groundFire);
+
 	script->AddCheckBox("Attacking", &classInstance->attacking);
 	script->AddDragBoxGameObject("Boss", &classInstance->boss);
 	script->AddDragBoxGameObject("Player", &classInstance->player);
@@ -67,6 +69,17 @@ void BossAttacks::Start()
 void BossAttacks::Update()
 {
 	distSA = player.GetTransform().GetGlobalPosition().Distance(gameObject.GetTransform().GetGlobalPosition());
+
+	if (isFireOn == true) {
+		fireTime += Time::GetDeltaTime();
+		if (fireTime > 10.0f) {
+			isFireOn = false;
+			fireTime = 0.0f;
+			groundFire.StopEmitting();
+			groundFire.GetGameObject().SetActive(false);
+		}
+	}
+
 	if (distSA < 80.0f) {
 		if (bLoop->phase == 2) {
 			specialAttackCooldown += Time::GetDeltaTime();
@@ -151,6 +164,7 @@ void BossAttacks::Update()
 					}
 
 					break;
+				
 				default:
 					break;
 				}
@@ -186,6 +200,45 @@ void BossAttacks::Update()
 					bossState = BOSS_STATE::IDLE;
 					attacking = false;
 				}
+				break;
+			case 5: 
+				switch (bossState)
+				{
+				case BossAttacks::BOSS_STATE::FIREROCKATTACK:
+
+					Seek(&rocks[currentRock[1]], { boss.GetTransform().GetGlobalPosition().x,  boss.GetTransform().GetGlobalPosition().y + 12.0f, boss.GetTransform().GetGlobalPosition().z}, speed / 3, 1, false, 60.0f);
+					dir[1] = player.GetTransform().GetGlobalPosition() - rocks[1].GetTransform().GetGlobalPosition();
+
+					break;
+
+				case BossAttacks::BOSS_STATE::RESIZINGROCK:
+
+					if (rocks[1].GetTransform().GetGlobalScale().x >= 6.0f) {
+
+
+						Seek(&rocks[currentRock[1]], lastPlayerPosition, speed / 5, 1, false, 60.0f);
+
+						returnFireRockTime += Time::GetDeltaTime();
+
+						if (returnFireRockTime > 0.6f) {
+							bossState = BOSS_STATE::IDLE;
+							attacking = false;
+							groundFire.GetGameObject().GetTransform().SetPosition(lastPlayerPosition);
+							groundFire.GetGameObject().SetActive(true);
+							groundFire.Play();
+							isFireOn = true;
+						}
+
+					}
+					else {
+						rocks[1].GetTransform().Scale(10 * Time::GetDeltaTime());
+						lastPlayerPosition = player.GetTransform().GetGlobalPosition();
+					}
+
+					break;
+				default:
+					break;
+				}
 			default:
 				break;
 			}
@@ -195,8 +248,10 @@ void BossAttacks::Update()
 			{
 			case BOSS_STATE::IDLE:
 				attackType = 0.0f;
+				returnFireRockTime = 0.0f;
 				explosionTime = 0.0f;
 				currentTimeAttack = 0.0f;
+				rocks[1].GetTransform().SetScale(1.0f, 1.0f, 1.0f);
 				for (int i = 0; i < 15; i++) {
 					hasReachedTarget[i] = false;
 					playerPosition[i] = { 0,0,0 };
@@ -213,7 +268,7 @@ void BossAttacks::Update()
 				break;
 			case BOSS_STATE::SELECTATTACK:
 				// Generate a random integer between 0 and 0
-				difficultySetter = rand() % 100 + 1;
+				difficultySetter = rand() % 120 + 1;
 
 				switch (bLoop->phase)
 				{
@@ -221,7 +276,8 @@ void BossAttacks::Update()
 					speed = 1.0f;
 					if (difficultySetter <= 60) attackType = 0;
 					else if (difficultySetter > 60 && difficultySetter <= 90) attackType = 1;
-					else if (difficultySetter > 90) attackType = 2;
+					else if (difficultySetter > 90 && difficultySetter < 101) attackType = 2;
+					else if (difficultySetter > 100) attackType = 5;
 
 					break;
 
@@ -229,7 +285,8 @@ void BossAttacks::Update()
 					speed = 1.25f;
 					if (difficultySetter <= 40) attackType = 0;
 					else if (difficultySetter > 40 && difficultySetter <= 85) attackType = 1;
-					else if (difficultySetter > 85) attackType = 2;
+					else if (difficultySetter > 85 && difficultySetter < 101) attackType = 2;
+					else if (difficultySetter > 100) attackType = 5;
 
 					break;
 
@@ -237,7 +294,8 @@ void BossAttacks::Update()
 					speed = 1.5f;
 					if (difficultySetter <= 20) attackType = 0;
 					else if (difficultySetter > 20 && difficultySetter <= 65) attackType = 1;
-					else if (difficultySetter > 65) attackType = 2;
+					else if (difficultySetter > 65 && difficultySetter < 101) attackType = 2;
+					else if (difficultySetter > 100) attackType = 5;
 
 					if (specialAttackCooldown >= 60.0f) {
 						difficultySetter = rand() % 10 + 1;
@@ -271,6 +329,14 @@ void BossAttacks::Update()
 					explosionWave1.SetActive(true);
 					explosionWave1.GetTransform().SetScale(0.1f, 0.1f, 0.1f);
 				}
+
+				//attackType = 5;
+
+				if (attackType == 5) {
+					bossState = BOSS_STATE::FIREROCKATTACK;
+
+				}
+
 				hasBossCoords = false;
 				attacking = true;
 				break;
@@ -296,14 +362,24 @@ void BossAttacks::SelectRock()
 void BossAttacks::Seek(API_GameObject* seeker, API_Vector3 target, float speed, int rock, float endedAttacking, float time)
 {
 	dt = Time::GetDeltaTime();
-	if (bossState == BOSS_STATE::SEEKING) {
+	if (bossState == BOSS_STATE::SEEKING || bossState == BOSS_STATE::FIREROCKATTACK) {
 	dir[rock] = target - seeker->GetTransform().GetGlobalPosition();
 	seeker->GetTransform().Rotate(150 * dt, 300 * dt, 250 * dt);
 	} 
 	API_Vector3 dist = target - seeker->GetTransform().GetGlobalPosition();
 	seeker->GetTransform().Translate((dir[rock] / time) * speed * dt * 400);
-
-	if ( dist.x < 0.03 && dist.x > -0.03 && dist.y < 0.03 && dist.y && dist.z < 0.03 && dist.z) {
+	if ((dist.x < 2 && dist.x > -2 && dist.y < 2 && dist.y && dist.z < 2 && dist.z)) {
+		if (bossState == BOSS_STATE::FIREROCKATTACK) bossState = BOSS_STATE::RESIZINGROCK;
+		else if (bossState == BOSS_STATE::RESIZINGROCK) {
+			bossState = BOSS_STATE::IDLE;
+			attacking = false;
+			groundFire.GetGameObject().GetTransform().SetPosition(target);
+			groundFire.GetGameObject().SetActive(true);
+			groundFire.Play();
+			isFireOn = true;
+		}
+	}
+	if ( dist.x < 0.3 && dist.x > -0.3 && dist.y < 0.3 && dist.y && dist.z < 0.3 && dist.z) {
 		if (bossState == BOSS_STATE::SEEKING) {
 			bossState = BOSS_STATE::HOLDING;
 		}
@@ -319,6 +395,7 @@ void BossAttacks::Seek(API_GameObject* seeker, API_Vector3 target, float speed, 
 			bossState = BOSS_STATE::IDLE;
 			attacking = false;
 		}
+		
 	}
 }
 

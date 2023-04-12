@@ -26,7 +26,7 @@ public:
 	API_Vector3 rockPositions[20];
 	API_GameObject selectedRock;
 
-	API_Vector3 dir[15] = { 0,0,0 };
+	API_Vector3 dir[16] = { 0,0,0 };
 	BossLoop* bLoop;
 	PlayerStats* pStats;
 	PlayerMove* pMove;
@@ -36,6 +36,11 @@ public:
 	API_Vector3 playerPosition[15] = { 0,0,0 };
 	API_Vector3 bossPosition[5] = { 0,0,0 };
 
+	API_Vector3 lastPlayerPosition = { 0,0,0 };
+	API_ParticleSystem groundFire;
+	float fireTime = 0.0f;
+	bool isFireOn = false;
+	float returnFireRockTime;
 
 	float timeAttack[7] = { 2.0f,4.0f,4.5f,5.0f,5.5f,6.0f,6.5f };
 	float specialTimeAttack[11] = { 0.5f,1.0f,1.5f,2.0f,2.5f,3.0f,3.5f,4.0f,4.5f,5.0f,5.5f };
@@ -53,7 +58,7 @@ public:
 	int attackType = 0;
 	int numRocks[4] = { 3,4,5,10 };
 
-	int currentRock[15] = { 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14 };
+	int currentRock[16] = { 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15 };
 
 	bool selectRock = false;
 	float speed = 1.0f;
@@ -68,6 +73,7 @@ public:
 
 	float rockDmg = 20.0f;
 	float orbitingRockDmg = 40.0f;
+	float fireDmg = 10.0f;
 	float stoneDmg = 10.0f;
 
 	float stoneSpeed = 1.0f;
@@ -103,6 +109,8 @@ public:
 		THROWING,
 		SPECIALATTACK,
 		EXPLOSIONWAVE,
+		FIREROCKATTACK,
+		RESIZINGROCK,
 	};
 
 	BOSS_STATE bossState = BOSS_STATE::IDLE;

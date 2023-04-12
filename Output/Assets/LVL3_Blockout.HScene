@@ -32959,9 +32959,9 @@
             {
                 "Enabled": true,
                 "Position": [
-                    20.988704681396484,
-                    93.13591003417969,
-                    -63.455020904541016
+                    -9.555535316467285,
+                    93.27733612060547,
+                    -63.45502471923828
                 ],
                 "Rotation": [
                     -0.0,
@@ -39130,7 +39130,7 @@
             {
                 "Active camera": true,
                 "Active culling": false,
-                "Aspect ratio": 1.5388273000717163,
+                "Aspect ratio": 1.9408766031265259,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -88359,6 +88359,9 @@
                         "specialAttackCooldown": 0.0
                     },
                     {
+                        "Fire From Rock": 183131043
+                    },
+                    {
                         "Attacking": false
                     },
                     {
@@ -90061,7 +90064,7 @@
                     false
                 ],
                 "IsStatic": false,
-                "IsTrigger": false,
+                "IsTrigger": true,
                 "Mass": 0.0,
                 "RenderColColor": [
                     0.5,
@@ -90184,7 +90187,7 @@
                     false
                 ],
                 "IsStatic": false,
-                "IsTrigger": false,
+                "IsTrigger": true,
                 "Mass": 0.0,
                 "RenderColColor": [
                     0.5,
@@ -90307,7 +90310,7 @@
                     false
                 ],
                 "IsStatic": false,
-                "IsTrigger": false,
+                "IsTrigger": true,
                 "Mass": 0.0,
                 "RenderColColor": [
                     0.5,
@@ -90430,7 +90433,7 @@
                     false
                 ],
                 "IsStatic": false,
-                "IsTrigger": false,
+                "IsTrigger": true,
                 "Mass": 0.0,
                 "RenderColColor": [
                     0.5,
@@ -91104,14 +91107,14 @@
             {
                 "Enabled": true,
                 "Position": [
-                    0.0,
-                    0.0,
-                    0.0
+                    -204.63206481933594,
+                    87.92837524414063,
+                    51.01308059692383
                 ],
                 "Rotation": [
+                    -0.0,
                     0.0,
-                    0.0,
-                    0.0
+                    -0.0
                 ],
                 "Scale": [
                     1.0,
@@ -91220,5 +91223,155 @@
         "PrefabUID": 0,
         "Tag": "Primitive",
         "UID": 3998401190
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -137.70608520507813,
+                    67.92950439453125,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 13,
+                "ParticleModules": {
+                    "ModuleEmission": {
+                        "ParticlesPerSecond": 1
+                    },
+                    "ModuleMain": {
+                        "BeginScale": [
+                            8.899999618530273,
+                            6.900000095367432,
+                            4.300000190734863
+                        ],
+                        "Delay": 0.0,
+                        "Duration": 0.0,
+                        "EndScale": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "LifeTime": 10.0,
+                        "Looping": true,
+                        "PlayOnAwake": false,
+                        "Speed": [
+                            0.0,
+                            1.0,
+                            0.0
+                        ],
+                        "SpeedVariation": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "acceleration": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ]
+                    }
+                },
+                "ResourceTextUID": 0,
+                "Type": 6
+            },
+            {
+                "AngularFactor": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "ColPosition": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    12.899999618530273,
+                    2.200000047683716,
+                    16.799999237060547
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "GlobalGravity": [
+                    0.0,
+                    -10.0,
+                    0.0
+                ],
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsShapeSelected": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsStatic": false,
+                "IsTrigger": true,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    0.5,
+                    0.0,
+                    0.5,
+                    1.0
+                ],
+                "ShapeSelected": 0,
+                "SphereHorSlices": 16,
+                "SphereRadius": 1.0,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "BOSS": 4283218684
+                    }
+                ],
+                "Script Resource": 3957516914,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "FireEmitter",
+        "ParentUID": 1957540640,
+        "PrefabUID": 0,
+        "Tag": "Emitter",
+        "UID": 183131043
     }
 ]

@@ -222,6 +222,7 @@
 		<ClCompile Include="../../Assets/Scripts/InteractiveEnviroment/OpenMenuInterruptor.cpp" />
 		<ClCompile Include="../../Assets/temp/QuickSave/SaveTest.cpp" />
 		<ClCompile Include="../../Assets/Scripts/UI Test folder/Armory/DisplaySkillPointsAmount.cpp" />
+		<ClCompile Include="../../Assets/Scripts/EbonyMaw/FireDamage.cpp" />
 	</ItemGroup>
 	<ItemGroup>
 		<ClInclude Include="..\..\Assets\Scripts\EbonyMaw\BossAttacks.h" />
@@ -311,6 +312,7 @@
 		<ClInclude Include="../../Assets/Scripts/InteractiveEnviroment/OpenMenuInterruptor.h" />
 		<ClInclude Include="../../Assets/temp/QuickSave/SaveTest.h" />
 		<ClInclude Include="../../Assets/Scripts/UI Test folder/Armory/DisplaySkillPointsAmount.h" />
+		<ClInclude Include="../../Assets/Scripts/EbonyMaw/FireDamage.h" />
 	</ItemGroup>
 	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 	<ImportGroup Label="ExtensionTargets" />
