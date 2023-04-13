@@ -4,25 +4,25 @@
 
 HELLO_ENGINE_API_C BreakableBox* CreateBreakableBox(ScriptToInspectorInterface* script)
 {
-	BreakableBox* classInstance = new BreakableBox();
-	//Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
-	script->AddDragBoxParticleSystem("Box Destroyed Particle", &classInstance->boxDestroyed);
-	script->AddDragInt("MaxHp", &classInstance->maxHp);
-	script->AddDragBoxGameObject("Drop Manager", &classInstance->enemyDropManagerGO);
+    BreakableBox* classInstance = new BreakableBox();
+    //Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
+    script->AddDragBoxParticleSystem("Box Destroyed Particle", &classInstance->boxDestroyed);
+    script->AddDragInt("MaxHp", &classInstance->maxHp);
+    script->AddDragBoxGameObject("Drop Manager", &classInstance->enemyDropManagerGO);
 
-	return classInstance;
+    return classInstance;
 }
 
 void BreakableBox::Start()
 {
 
-	currentHp = maxHp;
+    currentHp = maxHp;
 
-	enemyDropManager = (EnemyDropManager*)enemyDropManagerGO.GetScript("EnemyDropManager");
-	if (enemyDropManager == nullptr)
-	{
-		Console::Log("Enemy Drop Manager is nullptr in Breakable Box");
-	}
+    enemyDropManager = (EnemyDropManager*)enemyDropManagerGO.GetScript("EnemyDropManager");
+    if (enemyDropManager == nullptr)
+    {
+        Console::Log("Enemy Drop Manager is nullptr in Breakable Box");
+    }
 }
 void BreakableBox::Update()
 {
@@ -31,31 +31,31 @@ void BreakableBox::Update()
 
 void BreakableBox::OnCollisionEnter(API_RigidBody other)
 {
-	if (!gameObject.IsActive())return;
+    if (!gameObject.IsActive())return;
 
-	std::string detectionName = other.GetGameObject().GetName();
+    std::string detectionName = other.GetGameObject().GetName();
 
-	if (detectionName == "Projectile")
-	{
+    if (detectionName == "Projectile")
+    {
 
-		Projectile* projectile = (Projectile*)other.GetGameObject().GetScript("Projectile");
+        Projectile* projectile = (Projectile*)other.GetGameObject().GetScript("Projectile");
 
-		ShootBox(projectile->damage);
-		
-	}
-	else if (detectionName == "Player")
-	{
-		PlayerMove* playerMove = (PlayerMove*)other.GetGameObject().GetScript("PlayerMove");
+        ShootBox(projectile->damage);
 
-		if (playerMove->isDashing)
-		{
-			DestroyBox();
-		}
-	} 
+    }
+    else if (detectionName == "Player")
+    {
+        PlayerMove* playerMove = (PlayerMove*)other.GetGameObject().GetScript("PlayerMove");
+
+        if (playerMove->isDashing)
+        {
+            DestroyBox();
+        }
+    }
 }
 
 void BreakableBox::ShootBox(float projectileDamage)
-{ 
+{
 
     // Health damage
     currentHp -= projectileDamage;
@@ -64,7 +64,7 @@ void BreakableBox::ShootBox(float projectileDamage)
         currentHp = 0;
         DestroyBox();
 
-		boxDestroyed.Play();
+        boxDestroyed.Play();
 
     }
 
@@ -72,14 +72,13 @@ void BreakableBox::ShootBox(float projectileDamage)
 
 void BreakableBox::DestroyBox()
 {
+    Audio::Event("box_breaking");
 
-	Audio::Event("box_breaking");
+    if (enemyDropManager)
+    {
+        enemyDropManager->BoxSpinDropRate(gameObject.GetTransform().GetGlobalPosition());
+    }
 
-	gameObject.SetActive(false);
-
-	if (enemyDropManager)
-	{
-		enemyDropManager->BoxSpinDropRate(gameObject.GetTransform().GetGlobalPosition());
-	}
+    gameObject.SetActive(false);
 }
 
