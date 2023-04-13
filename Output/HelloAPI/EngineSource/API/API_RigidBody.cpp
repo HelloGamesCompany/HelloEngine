@@ -74,7 +74,7 @@ void API::API_RigidBody::SetTrigger(bool isTrigger)
 		return;
 	}
 	_rigidBody->_physBody->isTrigger = isTrigger;
-	_rigidBody->CallUpdateColliderType();
+	_rigidBody->CallUpdateAllPram();
 }
 
 float API::API_RigidBody::GetRadius()

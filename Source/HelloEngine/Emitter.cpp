@@ -15,7 +15,7 @@ Emitter::Emitter()
 
 	loop = true;
 	stop = false;
-	SetParticlePoolSize(1000);
+	SetParticlePoolSize(100);
 
 	StartDelay = 0.0f;
 	StartDelayCpy = 0.0f;
@@ -63,7 +63,6 @@ void Emitter::SetPlayOnAwake(bool b)
 
 void Emitter::EmitParticles(ParticleProperties& particleProps)
 {
-
 	if (currentparticle <= 0)
 	{
 		currentparticle = ParticleList.size() - 1;
