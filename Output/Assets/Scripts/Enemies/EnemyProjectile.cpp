@@ -33,7 +33,7 @@ void EnemyProjectile::Destroy()
 
 void EnemyProjectile::OnCollisionEnter(API::API_RigidBody other)
 {
-    std::string detectionTag = other.GetGameObject().GetName();
+    std::string detectionTag = other.GetGameObject().GetTag();
     if (detectionTag == "Player" )
     {
         PlayerStats* playerStats = (PlayerStats*)other.GetGameObject().GetScript("PlayerStats");

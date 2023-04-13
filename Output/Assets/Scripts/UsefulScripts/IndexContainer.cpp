@@ -9,7 +9,7 @@ HELLO_ENGINE_API_C IndexContainer* CreateIndexContainer(ScriptToInspectorInterfa
 
 void IndexContainer::Start()
 {
-
+     
 }
 
 void IndexContainer::Update()

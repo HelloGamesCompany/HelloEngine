@@ -103,9 +103,8 @@ void Enemy::Die()
 {
     // some animation
     //enemyDropManager->SpinDropRate(gameObject.GetTransform().GetGlobalPosition());
-    hitParticles.Stop();
+
     hitParticles.StopEmitting();
-    hitParticles.Pause();
 
     gameObject.SetActive(false);
 }

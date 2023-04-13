@@ -222,7 +222,7 @@ void PlayerStats::OnCollisionEnter(API_RigidBody other)
 
 void PlayerStats::TakeDamage(float amount, float resistanceDamage)
 {
-    if (inmunityTime > 0.0f) return; // only VS2
+    if (inmunityTime > 0.0f || currentHp <= 0) return; // only VS2
 
     float shieldBefore = shield;
     shield -= amount;
@@ -240,7 +240,7 @@ void PlayerStats::TakeDamage(float amount, float resistanceDamage)
         {
             secondLife = false;
             currentHp = 1;
-            inmunityTime = 2.0f;
+            inmunityTime = 1.0f;
             Audio::Event("starlord_damaged"); // second life audio
         }
         else
@@ -254,7 +254,7 @@ void PlayerStats::TakeDamage(float amount, float resistanceDamage)
     }
     else
     {
-        inmunityTime = 2.0f;
+        inmunityTime = 1.0f;
         Audio::Event("starlord_damaged");
         hitParticles.Play();
     }
@@ -417,8 +417,10 @@ void PlayerStats::SaveInStorage(int index)
     case 2:
     case 3:
     case 4:
+    case 5:
         storage->unlockGunBlueprint = index;
         break;
+    
     default:
         break;
     }
