@@ -26,6 +26,10 @@ HELLO_ENGINE_API_C BossLoop* CreateBossLoop(ScriptToInspectorInterface* script)
     script->AddDragBoxGameObject("Cover10", &classInstance->cover10);
     script->AddDragBoxGameObject("Cover11", &classInstance->cover11);
     script->AddDragBoxGameObject("Cover12", &classInstance->cover12);
+
+    //TEMPORAL FOR ALPHA 1
+    script->AddDragBoxGameObject("TEMPORAL- finalTextPanel", &classInstance->finalTextPanel);
+
     //Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
     return classInstance;
 }
@@ -55,7 +59,6 @@ void BossLoop::Update()
                 canTakeDamage = false;
             }
             if (hp <= maxHpLoss[phase - 1]) {
-                Console::Log("EXPLOTEEEEEE__________________________________________");
                 weakTime = 0;
                 canTakeDamage = false;
                 if (phase == 2) {
@@ -77,6 +80,9 @@ void BossLoop::Update()
         else {
             gameObject.SetActive(false);
             gameObject.GetTransform().SetScale(0, 0, 0);
+            //TEMPORAL FOR ALPHA 1
+            finalTextPanel.SetActive(true);
+            API_QuickSave::SetBool("level3_completed", true);
         }
     }
 

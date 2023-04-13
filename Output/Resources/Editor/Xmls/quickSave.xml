@@ -1,30 +1,13 @@
 <?xml version="1.0"?>
 <QuickSave>
-	<Bool>
-		<default value="0" />
-		<test value="true" />
-		<level1_chest1 value="false" />
-		<automaticGunBlueprint value="true" />
-		<level1_casette1 value="false" />
-		<level1_casette2 value="false" />
-		<level1_casette3 value="false" />
-		<level2_completed value="true" />
-	</Bool>
-	<String>
-		<default value="default" />
-	</String>
+	<Bool />
+	<String />
 	<Int>
 		<equipedNormalGun value="2" />
-		<default value="0" />
-		<level1_chest1_content value="1" />
-		<skillPointsAmount value="15" />
-		<upgradeBlueprintAmount value="0" />
 	</Int>
 	<Float>
-		<default value="1.0f" />
-		<hi value="20.500000f" />
-		<PlayerPosX value="-61.700001f" />
-		<PlayerPosY value="92.500000f" />
-		<PlayerPosZ value="47.299999f" />
+		<PlayerPosX value="110.500000f" />
+		<PlayerPosY value="0.000000f" />
+		<PlayerPosZ value="-29.200001f" />
 	</Float>
 </QuickSave>

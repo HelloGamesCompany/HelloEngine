@@ -29,6 +29,9 @@ public:
     API_GameObject cover11;
     API_GameObject cover12;
 
+    //TEMPORAL FOR ALPHA 1
+    API_GameObject finalTextPanel;
+
     float dist;
 
     float dt;
