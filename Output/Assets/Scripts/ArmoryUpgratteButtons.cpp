@@ -56,8 +56,9 @@ void ArmoryUpgratteButtons::Start()
 
 void ArmoryUpgratteButtons::Update()
 {
-    if (Input::GetGamePadButton(GamePadButton::BUTTON_B) == KeyState::KEY_DOWN)
+    if (Input::GetGamePadButton(GamePadButton::BUTTON_B) == KeyState::KEY_DOWN && PanelUpgrate.IsEnabled())
     {
+        Input::HandleGamePadButton(GamePadButton::BUTTON_B);
         SelectWeaponList.SetEnable(true);
         PanelUpgrate.SetEnable(false);
     }

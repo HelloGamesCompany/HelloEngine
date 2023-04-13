@@ -14,6 +14,7 @@ enum KEY_STATE
 	KEY_DOWN,
 	KEY_REPEAT,
 	KEY_UP,
+	KEY_HANDLED,
 	KEY_ERROR
 };
 
@@ -73,7 +74,7 @@ public:
 
 	static void S_HandleGamePadButton(GamePad id)
 	{
-		gamePadButtons[id] = KEY_STATE::KEY_IDLE;
+		gamePadButtons[id] = KEY_STATE::KEY_HANDLED;
 	}
 
 	static int S_GetMouseX()

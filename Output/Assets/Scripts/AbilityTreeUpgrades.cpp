@@ -40,8 +40,10 @@ void AbilityTreeUpgrades::Update()
 {
     if (Input::GetGamePadButton(GamePadButton::BUTTON_B) == KeyState::KEY_DOWN && currentPanel.IsEnabled())
     {
+        Input::HandleGamePadButton(GamePadButton::BUTTON_B);;
         mainPanel.SetEnable(true);
         currentPanel.SetEnable(false);
+        return;
     }
 
     if (!playerStorage) return;

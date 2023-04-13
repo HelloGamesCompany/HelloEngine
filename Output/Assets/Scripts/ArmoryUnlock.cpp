@@ -41,6 +41,7 @@ void ArmoryUnlock::Update()
 {
     if (Input::GetGamePadButton(GamePadButton::BUTTON_B) == KeyState::KEY_DOWN && PanelUnlock.IsEnabled())
     {
+        Input::HandleGamePadButton(GamePadButton::BUTTON_B);
         SelectWeaponList.SetEnable(true);
         PanelUnlock.SetEnable(false);
     }

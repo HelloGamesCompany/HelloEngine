@@ -300,9 +300,9 @@ bool LayerGame::S_IsCreatingBehaviorsEnabled()
 
 void LayerGame::CleanUp()
 {
-	for (auto& script : _behaviorScripts)
+	for (int i = 0; i < _scriptComponents.size(); ++i)
 	{
-		RELEASE(script.second.script);
+		S_DestroyBehaviorScript(_scriptComponents[i]);
 	}
 	FreeLibrary(_dllFile);
 }
