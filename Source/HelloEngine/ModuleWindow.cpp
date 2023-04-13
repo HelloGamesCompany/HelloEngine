@@ -98,6 +98,8 @@ bool ModuleWindow::Init()
 	S_SetTitle("Hello Engine");
 #endif // STANDALONE
 
+
+
 	return ret;
 }
 

@@ -210,9 +210,6 @@ void ModuleXML::CreateDefaultConfigFile()
 				"<vsync value = \"true\"/>\n"
 				"<framerate value = \"90\"/>\n"
 			"</renderer>\n"
-			"<input>\n"
-				"<mouseWheel value = \"0.1\"/>\n"
-			"/<input>\n"
 			"<scene>\n"
 				"<currentScene value = \"null\"/>\n"
 			"</scene>\n"
@@ -258,8 +255,7 @@ void ModuleXML::EncryptDecryptXML(std::string fileName, bool encrypt)
 
 	// Encrypt or decrypt all characters
 
-	for (; c != EOF; c = readBuff->sbumpc()) 
-		contex += c ^ KEY;
+	for (; c != EOF; c = readBuff->sbumpc()) contex += c ^ KEY;
 
 	iFile.close();
 

@@ -5,7 +5,6 @@
 #include "ImWindow.h"
 
 class Application;
-class SceneCameraObject;
 
 namespace Htool
 {
@@ -27,34 +26,32 @@ public:
 public:
 	std::map<std::string, std::pair<bool, int>> renderConfigs;
 
+
 private:
-	Application* _app = nullptr;
+	Application* app = nullptr;
 
 	// Need more testing, but i think is good
-	Htool::CycleArray<float>* _frames = nullptr;
+	Htool::CycleArray<float>* frames = nullptr;
 
-	bool _fullscreen = false;
+	bool fullscreen = false;
 
-	int _countCPU = 0;
+	int countCPU = 0;
 
-	float _systemRAM = 0.0f;
+	float systemRAM = 0;
 
-	float _mouseWheel = 0.01f;
+	int frameLimit = 60;
 
-	int _frameLimit = 60;
+	const int* windowWidth = nullptr;
+	const int* windowHeight = nullptr;
 
-	const int* _windowWidth = nullptr;
-	const int* _windowHeight = nullptr;
+	float* windowBrightness = nullptr;
 
-	float* _windowBrightness = nullptr;
+	bool isVSyncOn;
 
-	bool _isVSyncOn;
+	bool automaticCompilation = false;
 
-	bool _automaticCompilation = false;
+	float* sceneCameraSpeed = nullptr;
 
-	float* _sceneCameraSpeed = nullptr;
 
-	SceneCameraObject* _sceneCamera = nullptr;
-
-	ModuleRenderer3D* _moduleRenderer = nullptr;
+	ModuleRenderer3D* moduleRenderer = nullptr;
 };

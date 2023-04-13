@@ -5,7 +5,6 @@
 #include "ModuleFiles.h"
 #include "CycleArray.hpp"
 #include "ModuleCamera3D.h"
-#include "SceneCameraObject.h"
 
 #include "Lighting.h"
 
@@ -15,30 +14,30 @@ ImWindowConfiguration::ImWindowConfiguration() : ImWindow()
 
 	isEnabled = true;
 
-	_frames = new CArrayF(60, 0.0f);
+	frames = new CArrayF(60, 0.0f);
 
-	_app = Application::Instance();
+	app = Application::Instance();
 
-	_countCPU = SDL_GetCPUCount();
+	countCPU = SDL_GetCPUCount();
 
-	_systemRAM = SDL_GetSystemRAM();
+	systemRAM = SDL_GetSystemRAM();
 
-	_windowWidth = &ModuleWindow::width;
+	windowWidth = &ModuleWindow::width;
 
-	_windowHeight = &ModuleWindow::height;
+	windowHeight = &ModuleWindow::height;
 
-	_windowBrightness = &ModuleWindow::brightness;
+	windowBrightness = &ModuleWindow::brightness;
 
-	_isVSyncOn = _app->renderer3D->isVSync;
+	isVSyncOn = app->renderer3D->isVSync;
 
-	_frameLimit = _app->frameCap;
+	frameLimit = app->frameCap;
 
-	_automaticCompilation = ModuleFiles::S_IsMSBuildOn();
+	automaticCompilation = ModuleFiles::S_IsMSBuildOn();
 
 	// Init render configurations
-	_moduleRenderer = Application::Instance()->renderer3D;
+	moduleRenderer = Application::Instance()->renderer3D;
 
-	_sceneCameraSpeed = &Application::Instance()->camera->sceneCamera->cameraSpeed;
+	sceneCameraSpeed = &Application::Instance()->camera->sceneCamera->cameraSpeed;
 
 	// Get openGl node with module xml
 	XMLNode openGlNode = Application::Instance()->xml->GetConfigXML().FindChildBreadth("openGL");
@@ -54,19 +53,11 @@ ImWindowConfiguration::ImWindowConfiguration() : ImWindow()
 					n.attribute("value").as_bool(false),	// config value
 					n.attribute("tag").as_int(0))));	// config tag
 	}
-
-	XMLNode inputNode = Application::Instance()->xml->GetConfigXML().FindChildBreadth("input");
-
-	_mouseWheel = inputNode.node.child("mouseWheel").attribute("value").as_float();
-
-	_sceneCamera = Application::Instance()->camera->sceneCamera;
-
-	_sceneCamera->SetWheelSpeed(_mouseWheel);
 }
 
 ImWindowConfiguration::~ImWindowConfiguration()
 {
-	RELEASE(_frames);
+	RELEASE(frames);
 
 	// Save values to the xml file
 	XMLNode openGlNode = Application::Instance()->xml->GetConfigXML().FindChildBreadth("openGL");
@@ -75,57 +66,50 @@ ImWindowConfiguration::~ImWindowConfiguration()
 		n.attribute("value").set_value(renderConfigs[n.name()].first);
 
 	openGlNode.Save();
-
-	// Save input setting
-	XMLNode inputNode = Application::Instance()->xml->GetConfigXML().FindChildBreadth("input");
-
-	inputNode.node.child("mouseWheel").attribute("value").set_value(_mouseWheel);
-
-	inputNode.Save();
 }
 
 void ImWindowConfiguration::Update()
 {
 	std::string framerate = "Framerate: " + std::to_string(ImGui::GetIO().Framerate);
 
-	_frames->push_back(ImGui::GetIO().Framerate);
+	frames->push_back(ImGui::GetIO().Framerate);
 
 	if (ImGui::Begin(windowName.c_str(), &isEnabled, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_AlwaysAutoResize))
 	{
 		if (ImGui::CollapsingHeader("Application", ImGuiTreeNodeFlags_DefaultOpen))
 		{
-			ImGui::PlotHistogram("##Framerate", _frames->front(), _frames->size(), 0, framerate.c_str(), 0.0f, 160.0f, ImVec2(300, 160));
-			if (ImGui::SliderInt("FPS Limit", &_frameLimit, 30, 120))
+			ImGui::PlotHistogram("##Framerate", frames->front(), frames->size(), 0, framerate.c_str(), 0.0f, 160.0f, ImVec2(300, 160));
+			if (ImGui::SliderInt("FPS Limit", &frameLimit, 30, 120))
 			{
-				_app->SetFPS(_frameLimit);
+				app->SetFPS(frameLimit);
 			}
 			ImGui::Separator();
 			if (ModuleFiles::S_IsMSBuildOn())
 			{
-				if (ImGui::Checkbox("Automatic Compilation", &_automaticCompilation))
-					ModuleFiles::S_SetAutomaticCompilation(_automaticCompilation);
+				if (ImGui::Checkbox("Automatic Compilation", &automaticCompilation))
+					ModuleFiles::S_SetAutomaticCompilation(automaticCompilation);
 			}
-			ImGui::SliderFloat("Scene camera speed", _sceneCameraSpeed, 0.0f, 1000.0f);
+			ImGui::SliderFloat("Scene camera speed", sceneCameraSpeed, 0.0f, 1000.0f);
 		}
 
 		if (ImGui::CollapsingHeader("Window", ImGuiTreeNodeFlags_DefaultOpen))
 		{
 			ImGui::TextWrapped("Window Size: ");
 			ImGui::TextWrapped("Width:"); ImGui::SameLine();
-			ImGui::TextColored(ImVec4(255, 255, 0, 255), std::to_string(*_windowWidth).c_str());
+			ImGui::TextColored(ImVec4(255, 255, 0, 255), std::to_string(*windowWidth).c_str());
 
 			ImGui::TextWrapped("Height:"); ImGui::SameLine();
-			ImGui::TextColored(ImVec4(255, 255, 0, 255), std::to_string(*_windowHeight).c_str()); ImGui::SameLine();
+			ImGui::TextColored(ImVec4(255, 255, 0, 255), std::to_string(*windowHeight).c_str()); ImGui::SameLine();
 
 			ImGui::HelpMarker("Shows Window Width and Height");
 
-			if (ImGui::SliderFloat("Brightness", _windowBrightness, 0.2f, 1.0f))
+			if (ImGui::SliderFloat("Brightness", windowBrightness, 0.2f, 1.0f))
 			{
-				ModuleWindow::S_SetBrightness(*_windowBrightness);
+				ModuleWindow::S_SetBrightness(*windowBrightness);
 			}
 
-			ImGui::Checkbox("VSync", &_isVSyncOn);
-			_app->renderer3D->ToggleVSync(_isVSyncOn);	
+			ImGui::Checkbox("VSync", &isVSyncOn);
+			app->renderer3D->ToggleVSync(isVSyncOn);	
 		}
 
 		if (ImGui::CollapsingHeader("Game Time", ImGuiTreeNodeFlags_DefaultOpen))
@@ -158,12 +142,6 @@ void ImWindowConfiguration::Update()
 			ImGui::TextColored(ImVec4(255, 255, 0, 255), "%d", ModuleInput::S_GetMouseX()); ImGui::SameLine();
 			ImGui::TextWrapped(" y = "); ImGui::SameLine();
 			ImGui::TextColored(ImVec4(255, 255, 0, 255), "%d", ModuleInput::S_GetMouseY());
-
-			if(ImGui::SliderFloat("Mouse Wheel Speed", &_mouseWheel, 0, 10))
-			{
-				if (_sceneCamera)
-					_sceneCamera->SetWheelSpeed(_mouseWheel);
-			}
 
 			if (ImGui::CollapsingHeader("GamePad Input"))
 			{
@@ -245,6 +223,7 @@ void ImWindowConfiguration::Update()
 				ImGui::TextWrapped("Right Trigger Axis: "); ImGui::SameLine();
 				ImGui::TextColored(ImVec4(255, 255, 0, 255), "%d", ModuleInput::S_GetGamePadAxis(SDL_GameControllerAxis::SDL_CONTROLLER_AXIS_TRIGGERRIGHT));
 			}
+
 		}
 
 		if(ImGui::CollapsingHeader("Render", ImGuiTreeNodeFlags_DefaultOpen))
@@ -252,21 +231,18 @@ void ImWindowConfiguration::Update()
 			for (auto& iter : renderConfigs)
 			{
 				ImGui::Checkbox(iter.first.c_str(), &iter.second.first);
-
-				if (iter.first == "wireframe") 
-					_moduleRenderer->ToggleOpenGLWireframe(iter.second.first);
-				else 
-					_moduleRenderer->ToggleOpenGLSystem(iter.second.first, iter.second.second);
+				if (iter.first == "wireframe") moduleRenderer->ToggleOpenGLWireframe(iter.second.first);
+				else moduleRenderer->ToggleOpenGLSystem(iter.second.first, iter.second.second);
 			}
 		}
 
 		if (ImGui::CollapsingHeader("Hardware", ImGuiTreeNodeFlags_DefaultOpen))
 		{
 			ImGui::TextWrapped("CPU Count: "); ImGui::SameLine();
-			ImGui::TextColored(ImVec4(255, 255, 0, 255), std::to_string(_countCPU).c_str());
+			ImGui::TextColored(ImVec4(255, 255, 0, 255), std::to_string(countCPU).c_str());
 
 			ImGui::TextWrapped("RAM: "); ImGui::SameLine();
-			ImGui::TextColored(ImVec4(255, 255, 0, 255), std::to_string(_systemRAM).c_str());
+			ImGui::TextColored(ImVec4(255, 255, 0, 255), std::to_string(systemRAM).c_str());
 
 			ImGui::Separator();
 			ImGui::TextWrapped("Vendor %s", glGetString(GL_VENDOR));

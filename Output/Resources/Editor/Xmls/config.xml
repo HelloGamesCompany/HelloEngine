@@ -9,11 +9,8 @@
 		<vsync value="false" />
 		<framerate value="120" />
 	</renderer>
-	<input>
-		<mouseWheel value="0.0480000004" />
-	</input>
 	<scene>
-		<currentScene value="Assets/LVL1_Blockout.HScene" />
+		<currentScene value="Assets/SpaceshipHUB_Scene.HScene" />
 	</scene>
 	<openGL>
 		<blend value="true" tag="0x0BE2" />

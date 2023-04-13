@@ -14,8 +14,6 @@ public:
 
 	float cameraSpeed = 100.0f;
 
-	bool SetWheelSpeed(float speed);
-
 private:
 	/// <summary>
 	/// Focus on a point in space with an offset set by distance
@@ -28,7 +26,5 @@ private:
 	/// Focus on a gameObject. If it has a mesh, will take into account the mesh's AABB
 	/// </summary>
 	void Focus(GameObject* gameObject);
-
-	float _wheelSpeed = 0.01f;
 };
 
