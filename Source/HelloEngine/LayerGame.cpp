@@ -207,6 +207,12 @@ void LayerGame::StartAllScripts()
 	}
 }
 
+void LayerGame::RemoveAllScripts()
+{
+	_behaviorScripts.clear();
+	_scriptComponents.clear();
+}
+
 void LayerGame::S_AddScriptComponent(ScriptComponent* component)
 {
 	_scriptComponents.push_back(component);

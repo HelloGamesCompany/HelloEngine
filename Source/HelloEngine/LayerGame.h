@@ -48,6 +48,7 @@ public:
 
 	/// To be called when a new scene is loaded in-game.
 	static void StartAllScripts();
+	static void RemoveAllScripts();
 
 	static void S_AddScriptComponent(ScriptComponent* component);
 	static void S_RemoveScriptComponent(ScriptComponent* component);
