@@ -23,7 +23,7 @@ HELLO_ENGINE_API_C Enemy* CreateEnemy(ScriptToInspectorInterface* script)
 
 void Enemy::Start()
 {
-    //enemyDropManager = (EnemyDropManager*)enemyDropManagerGO.GetScript("EnemyDropManager");
+    enemyDropManager = (EnemyDropManager*)enemyDropManagerGO.GetScript("EnemyDropManager");
 
     currentHp = maxHp;
     currentResistance = maxResistance;
@@ -102,7 +102,7 @@ void Enemy::TakeDamage(float damage, float resistanceDamage)
 void Enemy::Die()
 {
     // some animation
-    //enemyDropManager->SpinDropRate(gameObject.GetTransform().GetGlobalPosition());
+    if(enemyDropManager != nullptr)enemyDropManager->SpinDropRate(gameObject.GetTransform().GetGlobalPosition());
 
     hitParticles.StopEmitting();
 

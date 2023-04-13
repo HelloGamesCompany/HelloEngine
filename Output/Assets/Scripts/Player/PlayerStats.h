@@ -44,7 +44,7 @@ public:
     void UseAmmo(int type, int amount = 1);
 
     int laserAmmo; // index 1
-    int maxLaserAmmo;
+    int maxLaserAmmo = 99999;
     int specialAmmo;
     int maxFireAmmo; // index 2
     int maxRicochetAmmo; // index 3
