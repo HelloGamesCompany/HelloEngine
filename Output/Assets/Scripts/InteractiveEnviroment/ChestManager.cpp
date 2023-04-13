@@ -15,7 +15,7 @@ HELLO_ENGINE_API_C ChestManager* CreateChestManager(ScriptToInspectorInterface* 
 void ChestManager::Start()
 {
     playerStorage = (PlayerStorage*)playerStorageGO.GetScript("PlayerStorage");
-    if (playerStorage == nullptr) Console::Log("PlayerStorage missing in CasetteManager.");
+    if (playerStorage == nullptr) Console::Log("PlayerStorage missing in ChestManager.");
 
     specialGunAsigned = false;
     gunBlueprintAsigned = false;

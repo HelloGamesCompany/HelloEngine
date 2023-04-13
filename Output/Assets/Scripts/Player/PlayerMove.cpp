@@ -67,6 +67,12 @@ void PlayerMove::Update()
     //Void tp
     if (transform.GetGlobalPosition().y < yTpLimit) transform.SetPosition(initialPos);
 
+    if (moveSoundCooldown > 0.0f)
+    {
+        moveSoundCooldown -= dt;
+        if (moveSoundCooldown <= 0.0f) moveSoundCooldown = 0.0f;
+    }
+
     if (playerStats && playerStats->slowTimePowerUp > 0.0f /*&& !paused*/) dt = Time::GetRealTimeDeltaTime();
     else dt = Time::GetDeltaTime();
 
@@ -168,6 +174,11 @@ void PlayerMove::Update()
             currentVel = velocity;
         }
         lastMovInput = input;
+        if (moveSoundCooldown == 0.0f)
+        {
+            moveSoundCooldown = 0.5f;
+            Audio::Event("starlord_walk");
+        }
     }
 
     input *= currentVel;
@@ -246,6 +257,8 @@ void PlayerMove::DashSetup()
         playerAnimator.Play();
         currentAnim = PlayerAnims::DASH;
     }
+
+    Audio::Event("starlord_dash");
 }
 
 void PlayerMove::Dash()

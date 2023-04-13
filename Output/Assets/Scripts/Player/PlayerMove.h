@@ -51,6 +51,7 @@ public:
     float secToZeroVel = 0.0f;
     API_Transform transform;
     API_RigidBody rigidBody;
+    float moveSoundCooldown = 0.0f;
 
     //Void Tp
     API_Vector3 initialPos;
