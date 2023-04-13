@@ -256,7 +256,8 @@ void EnemyDropManager::BoxSpinDropRate(API_Vector3 position)
         }
 
         go.SetActive(true);
-        go.GetTransform().SetPosition(position);
+        API_Vector3 newPos = { position.x, position.y + 1.0f, position.z };
+        go.GetTransform().SetPosition(newPos);
 
     }
     else 

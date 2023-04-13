@@ -24,6 +24,13 @@ TO_API KeyState API::Input::GetGamePadButton(GamePadButton gamePadButton)
     return (KeyState)ModuleInput::S_GetGamePadButton((GamePad)gamePadButton);
 }
 
+TO_API void API::Input::HandleGamePadButton(GamePadButton gamePadButton)
+{
+    if (!LayerGame::detectInput)
+        return;
+    ModuleInput::S_HandleGamePadButton((GamePad)gamePadButton);
+}
+
 TO_API int API::Input::GetGamePadAxis(GamePadAxis gamePadAxis)
 {
     if (!LayerGame::detectInput)
