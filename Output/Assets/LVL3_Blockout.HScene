@@ -39277,7 +39277,7 @@
             {
                 "Active camera": true,
                 "Active culling": false,
-                "Aspect ratio": 1.6984126567840576,
+                "Aspect ratio": 1.8648383617401123,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -75104,14 +75104,14 @@
             {
                 "Enabled": true,
                 "Position": [
-                    -3.814697265625e-06,
+                    -5.7220458984375e-06,
                     0.0,
                     1.52587890625e-05
                 ],
                 "Rotation": [
-                    0.0,
-                    0.0,
-                    0.0
+                    -0.0,
+                    6.104985459387535e-07,
+                    -0.0
                 ],
                 "Scale": [
                     1.3984856605529785,
@@ -96017,13 +96017,16 @@
                         "HP BOSS UI IMAGE": 2571830806
                     },
                     {
+                        "SHIELD BOSS UI IMAGE": 1140742751
+                    },
+                    {
                         "HP BOSS 1 TEXTURE": 3220306408
                     },
                     {
                         "SHIELD BOSS 1 TEXTURE": 3346703336
                     },
                     {
-                        "SHIELD BOSS 2 TEXTURE": 2041014450
+                        "SHIELD BOSS 2 TEXTURE": 2852098104
                     },
                     {
                         "SHIELD BOSS 3 TEXTURE": 1121958945
@@ -96038,13 +96041,16 @@
                         "HP BOSS UI IMAGE": 2571830806
                     },
                     {
+                        "SHIELD BOSS UI IMAGE": 1140742751
+                    },
+                    {
                         "HP BOSS 1 TEXTURE": 3220306408
                     },
                     {
                         "SHIELD BOSS 1 TEXTURE": 3346703336
                     },
                     {
-                        "SHIELD BOSS 2 TEXTURE": 2041014450
+                        "SHIELD BOSS 2 TEXTURE": 2852098104
                     },
                     {
                         "SHIELD BOSS 3 TEXTURE": 1121958945
@@ -96069,7 +96075,7 @@
                 "Position": [
                     0.10000000149011612,
                     1.6699999570846558,
-                    -0.0020000000949949026
+                    -0.003000000026077032
                 ],
                 "Rotation": [
                     0.0,
@@ -96183,7 +96189,7 @@
                 "Position": [
                     -0.699999988079071,
                     1.899999976158142,
-                    -0.003000000026077032
+                    -0.004000000189989805
                 ],
                 "Rotation": [
                     0.0,
@@ -96221,7 +96227,7 @@
                 "Position": [
                     -0.4000000059604645,
                     1.809999942779541,
-                    -0.004000000189989805
+                    -0.004999999888241291
                 ],
                 "Rotation": [
                     0.0,
@@ -96250,6 +96256,44 @@
         "PrefabUID": 3202643080,
         "Tag": "UI",
         "UID": 2620559473
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.11599999666213989,
+                    1.600000023841858,
+                    -0.0020000000949949026
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.8299999833106995,
+                    0.17000000178813934,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 0,
+                "MeshEnabled": true,
+                "OpacityDirection": 1,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Boss_Shield",
+        "ParentUID": 456782903,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 1140742751
     },
     {
         "Active": true,
