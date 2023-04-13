@@ -5,6 +5,8 @@
 
 #include "API/API.h"
 
+class PlayerStorage;
+
 class Level2EndTrigger : HelloBehavior
 {
 public:
@@ -13,6 +15,8 @@ public:
 
 	void OnCollisionEnter(API_RigidBody other);
 
+	API_GameObject playerStorageGO;
+	PlayerStorage* playerStorage;
 	API_GameObject finalTextPanel;
 };
 

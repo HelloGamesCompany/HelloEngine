@@ -8,6 +8,7 @@
 		<level1_casette1 value="false" />
 		<level1_casette2 value="false" />
 		<level1_casette3 value="false" />
+		<level2_completed value="true" />
 	</Bool>
 	<String>
 		<default value="default" />
@@ -16,14 +17,14 @@
 		<equipedNormalGun value="2" />
 		<default value="0" />
 		<level1_chest1_content value="1" />
-		<skillPointsAmount value="0" />
+		<skillPointsAmount value="15" />
 		<upgradeBlueprintAmount value="0" />
 	</Int>
 	<Float>
 		<default value="1.0f" />
 		<hi value="20.500000f" />
-		<PlayerPosX value="38.607929f" />
-		<PlayerPosY value="-0.199999f" />
-		<PlayerPosZ value="-1.859124f" />
+		<PlayerPosX value="-176.991943f" />
+		<PlayerPosY value="63.129498f" />
+		<PlayerPosZ value="-70.035049f" />
 	</Float>
 </QuickSave>

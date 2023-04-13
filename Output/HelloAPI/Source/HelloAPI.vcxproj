@@ -229,6 +229,7 @@
 		<ClCompile Include="../../Assets/Scripts/Missions/LVL 1/GetDiviner.cpp" />
 		<ClCompile Include="../../Assets/Scripts/InteractiveEnviroment/PlayAmbienceMusic.cpp" />
 		<ClCompile Include="../../Assets/Scripts/UI Test folder/ChangeSceneButton.cpp" />
+		<ClCompile Include="../../Assets/Scripts/UI Test folder/InitialText.cpp" />
 	</ItemGroup>
 	<ItemGroup>
 		<ClInclude Include="..\..\Assets\Scripts\EbonyMaw\BossAttacks.h" />
@@ -325,6 +326,7 @@
 		<ClInclude Include="../../Assets/Scripts/Missions/LVL 1/GetDiviner.h" />
 		<ClInclude Include="../../Assets/Scripts/InteractiveEnviroment/PlayAmbienceMusic.h" />
 		<ClInclude Include="../../Assets/Scripts/UI Test folder/ChangeSceneButton.h" />
+		<ClInclude Include="../../Assets/Scripts/UI Test folder/InitialText.h" />
 	</ItemGroup>
 	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 	<ImportGroup Label="ExtensionTargets" />
