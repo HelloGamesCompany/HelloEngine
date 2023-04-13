@@ -183,7 +183,7 @@ void BossAttacks::Update()
 				break;
 			case 4:
 				explosionTime += Time::GetDeltaTime();
-				explosionWave1.GetTransform().Scale(1.0f * Time::GetDeltaTime());
+				explosionWave1.GetTransform().Scale(20.0f * Time::GetDeltaTime());
 				if (explosionTime < 0.5 && distSA < 30.0 && explosionWave1HasArrived == false) {
 					pStats->TakeDamage(50,0);
 					explosionWave1HasArrived = true;

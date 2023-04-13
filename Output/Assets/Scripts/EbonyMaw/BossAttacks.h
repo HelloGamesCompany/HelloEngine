@@ -90,7 +90,7 @@ public:
 	bool explosionWave1HasArrived = false;
 	bool explosionWave2HasArrived = false;
 
-	float specialAttackCooldown = 0.0f;
+	float specialAttackCooldown = 30.0f;
 
 	float explosionTime = 0.0f;
 
