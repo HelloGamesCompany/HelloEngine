@@ -232,21 +232,6 @@
                     },
                     {
                         "Collectibles": 1057867941
-                    },
-                    {
-                        "Continue": 351199318
-                    },
-                    {
-                        "NewGame": 1741124431
-                    },
-                    {
-                        "Exit": 1551021094
-                    },
-                    {
-                        "Settings": 3765630460
-                    },
-                    {
-                        "Collectibles": 1057867941
                     }
                 ],
                 "Script Resource": 186220908,
@@ -255,18 +240,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Button": 1741124431
-                    },
-                    {
-                        "minY": 0.0
-                    },
-                    {
-                        "maxY": 0.019999999552965164
-                    },
-                    {
-                        "Vel": 0.0010000000474974513
-                    },
                     {
                         "Button": 1741124431
                     },
@@ -341,21 +314,6 @@
                     },
                     {
                         "Collectibles": 1057867941
-                    },
-                    {
-                        "Continue": 351199318
-                    },
-                    {
-                        "NewGame": 1741124431
-                    },
-                    {
-                        "Exit": 1551021094
-                    },
-                    {
-                        "Settings": 3765630460
-                    },
-                    {
-                        "Collectibles": 1057867941
                     }
                 ],
                 "Script Resource": 186220908,
@@ -364,18 +322,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Button": 351199318
-                    },
-                    {
-                        "minY": 0.0
-                    },
-                    {
-                        "maxY": 0.019999999552965164
-                    },
-                    {
-                        "Vel": 0.0005000000237487257
-                    },
                     {
                         "Button": 351199318
                     },
@@ -450,21 +396,6 @@
                     },
                     {
                         "Collectibles": 1057867941
-                    },
-                    {
-                        "Continue": 351199318
-                    },
-                    {
-                        "NewGame": 1741124431
-                    },
-                    {
-                        "Exit": 1551021094
-                    },
-                    {
-                        "Settings": 3765630460
-                    },
-                    {
-                        "Collectibles": 1057867941
                     }
                 ],
                 "Script Resource": 186220908,
@@ -473,18 +404,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Button": 1057867941
-                    },
-                    {
-                        "minY": 0.0
-                    },
-                    {
-                        "maxY": 0.019999999552965164
-                    },
-                    {
-                        "Vel": 0.0010000000474974513
-                    },
                     {
                         "Button": 1057867941
                     },
@@ -559,21 +478,6 @@
                     },
                     {
                         "Collectibles": 1057867941
-                    },
-                    {
-                        "Continue": 351199318
-                    },
-                    {
-                        "NewGame": 1741124431
-                    },
-                    {
-                        "Exit": 1551021094
-                    },
-                    {
-                        "Settings": 3765630460
-                    },
-                    {
-                        "Collectibles": 1057867941
                     }
                 ],
                 "Script Resource": 186220908,
@@ -582,18 +486,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Button": 3765630460
-                    },
-                    {
-                        "minY": 0.0
-                    },
-                    {
-                        "maxY": 0.019999999552965164
-                    },
-                    {
-                        "Vel": 0.0010000000474974513
-                    },
                     {
                         "Button": 3765630460
                     },
@@ -668,21 +560,6 @@
                     },
                     {
                         "Collectibles": 1057867941
-                    },
-                    {
-                        "Continue": 351199318
-                    },
-                    {
-                        "NewGame": 1741124431
-                    },
-                    {
-                        "Exit": 1551021094
-                    },
-                    {
-                        "Settings": 3765630460
-                    },
-                    {
-                        "Collectibles": 1057867941
                     }
                 ],
                 "Script Resource": 186220908,
@@ -691,18 +568,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Button": 1551021094
-                    },
-                    {
-                        "minY": 0.0
-                    },
-                    {
-                        "maxY": 0.019999999552965164
-                    },
-                    {
-                        "Vel": 0.0010000000474974513
-                    },
                     {
                         "Button": 1551021094
                     },
@@ -798,9 +663,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Velocity": 0.5
-                    },
                     {
                         "Velocity": 0.5
                     }
