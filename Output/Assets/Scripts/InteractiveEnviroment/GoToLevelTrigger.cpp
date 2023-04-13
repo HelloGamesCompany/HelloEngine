@@ -4,6 +4,7 @@ HELLO_ENGINE_API_C GoToLevelTrigger* CreateGoToLevelTrigger(ScriptToInspectorInt
     GoToLevelTrigger* classInstance = new GoToLevelTrigger();
     //Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
     script->AddCheckBox("Is Hub Scene", &classInstance->isHub);
+    script->AddDragInt("(IF NO HUB) Current Level", &classInstance->nextLevel);
     script->AddInputBox("Scene path and name: ", &classInstance->scene);
     return classInstance;
 }
@@ -73,6 +74,10 @@ void GoToLevelTrigger::OnCollisionEnter(API_RigidBody other)
             default:
                 break;
             }*/
+        }
+        else
+        {
+            API_QuickSave::SetBool("level" + std::to_string(nextLevel) + "_completed", true);
         }
         Scene::LoadScene(scene.c_str());
     }
