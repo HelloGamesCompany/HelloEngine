@@ -54,26 +54,26 @@ void GoToLevelTrigger::OnCollisionEnter(API_RigidBody other)
         Console::Log("Trigger");
         if (isHub)
         {
-            /*switch (nextLevel)
+            switch (nextLevel)
             {
             case 1:
-                API_QuickSave::SetFloat("PlayerPosX", );
-                API_QuickSave::SetFloat("PlayerPosY", );
-                API_QuickSave::SetFloat("PlayerPosZ", );
+                API_QuickSave::SetFloat("PlayerPosX", 110.5f);
+                API_QuickSave::SetFloat("PlayerPosY", 0.0f);
+                API_QuickSave::SetFloat("PlayerPosZ", -29.2f);
                 break;
             case 2:
-                API_QuickSave::SetFloat("PlayerPosX", );
-                API_QuickSave::SetFloat("PlayerPosY", );
-                API_QuickSave::SetFloat("PlayerPosZ", );
+                API_QuickSave::SetFloat("PlayerPosX", 147.6f);
+                API_QuickSave::SetFloat("PlayerPosY", 2.115f);
+                API_QuickSave::SetFloat("PlayerPosZ", 14.54f);
                 break;
             case 3:
-                API_QuickSave::SetFloat("PlayerPosX", );
-                API_QuickSave::SetFloat("PlayerPosY", );
-                API_QuickSave::SetFloat("PlayerPosZ", );
+                API_QuickSave::SetFloat("PlayerPosX", -61.7f);
+                API_QuickSave::SetFloat("PlayerPosY", 92.5f);
+                API_QuickSave::SetFloat("PlayerPosZ", 47.3f);
                 break;
             default:
                 break;
-            }*/
+            }
         }
         else
         {
