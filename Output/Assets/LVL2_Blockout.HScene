@@ -54,7 +54,7 @@
             {
                 "Active camera": true,
                 "Active culling": false,
-                "Aspect ratio": 0.9014308452606201,
+                "Aspect ratio": 1.9392917156219482,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -66,66 +66,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Target": 373022943
-                    },
-                    {
-                        "Delay": 0.009999999776482582
-                    },
-                    {
-                        "Offset_X": 0.0
-                    },
-                    {
-                        "Offset_Y": 25.0
-                    },
-                    {
-                        "Offset_Z": -20.0
-                    },
-                    {
-                        "Rot_X": 50.0
-                    },
-                    {
-                        "Rot_Y": 0.0
-                    },
-                    {
-                        "Rot_Z": 0.0
-                    },
-                    {
-                        "SafeZone_Distance": 10.0
-                    },
-                    {
-                        "Use safe zone: ": true
-                    },
-                    {
-                        "Target": 373022943
-                    },
-                    {
-                        "Delay": 0.009999999776482582
-                    },
-                    {
-                        "Offset_X": 0.0
-                    },
-                    {
-                        "Offset_Y": 25.0
-                    },
-                    {
-                        "Offset_Z": -20.0
-                    },
-                    {
-                        "Rot_X": 50.0
-                    },
-                    {
-                        "Rot_Y": 0.0
-                    },
-                    {
-                        "Rot_Z": 0.0
-                    },
-                    {
-                        "SafeZone_Distance": 10.0
-                    },
-                    {
-                        "Use safe zone: ": true
-                    },
                     {
                         "Target": 373022943
                     },
@@ -6178,12 +6118,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Final text panel: ": 2592125732
-                    },
-                    {
-                        "Final text panel: ": 2592125732
-                    },
                     {
                         "Final text panel: ": 2592125732
                     }
@@ -21424,12 +21358,6 @@
                 "Inspector Fields": [
                     {
                         "Point 1: ": 2752448197
-                    },
-                    {
-                        "Point 1: ": 2752448197
-                    },
-                    {
-                        "Point 1: ": 2752448197
                     }
                 ],
                 "Script Resource": 2375007746,
@@ -21564,12 +21492,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Point 1: ": 664696061
-                    },
-                    {
-                        "Point 1: ": 664696061
-                    },
                     {
                         "Point 1: ": 664696061
                     }
@@ -21708,12 +21630,6 @@
                 "Inspector Fields": [
                     {
                         "Point 1: ": 1896649622
-                    },
-                    {
-                        "Point 1: ": 1896649622
-                    },
-                    {
-                        "Point 1: ": 1896649622
                     }
                 ],
                 "Script Resource": 2880680727,
@@ -21821,12 +21737,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Continute button: ": 449744243
-                    },
-                    {
-                        "Continute button: ": 449744243
-                    },
                     {
                         "Continute button: ": 449744243
                     }
@@ -22094,60 +22004,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Player Stats GO": 373022943
-                    },
-                    {
-                        "Texture_SPEED_INCREASE": 898734028
-                    },
-                    {
-                        "Texture_FIRERATE_INCREASE": 1345496260
-                    },
-                    {
-                        "Texture_SHIELD": 499632542
-                    },
-                    {
-                        "Texture_SLOW_TIME": 1755384749
-                    },
-                    {
-                        "GamesObjects_1": 275846147
-                    },
-                    {
-                        "GamesObjects_2": 1955845492
-                    },
-                    {
-                        "GamesObjects_3": 1885819871
-                    },
-                    {
-                        "GamesObjects_4": 4104934763
-                    },
-                    {
-                        "Player Stats GO": 373022943
-                    },
-                    {
-                        "Texture_SPEED_INCREASE": 898734028
-                    },
-                    {
-                        "Texture_FIRERATE_INCREASE": 1345496260
-                    },
-                    {
-                        "Texture_SHIELD": 499632542
-                    },
-                    {
-                        "Texture_SLOW_TIME": 1755384749
-                    },
-                    {
-                        "GamesObjects_1": 275846147
-                    },
-                    {
-                        "GamesObjects_2": 1955845492
-                    },
-                    {
-                        "GamesObjects_3": 1885819871
-                    },
-                    {
-                        "GamesObjects_4": 4104934763
-                    },
                     {
                         "Player Stats GO": 373022943
                     },
@@ -22472,12 +22328,6 @@
                 "Inspector Fields": [
                     {
                         "hp": false
-                    },
-                    {
-                        "hp": false
-                    },
-                    {
-                        "hp": false
                     }
                 ],
                 "Script Resource": 1164455694,
@@ -22486,36 +22336,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Player Stats GO": 373022943
-                    },
-                    {
-                        "HP_BAR": 2805963011
-                    },
-                    {
-                        "SHIELD_BAR": 1184260047
-                    },
-                    {
-                        "HP Texture": 1905881056
-                    },
-                    {
-                        "HP Regen Texture": 980036510
-                    },
-                    {
-                        "Player Stats GO": 373022943
-                    },
-                    {
-                        "HP_BAR": 2805963011
-                    },
-                    {
-                        "SHIELD_BAR": 1184260047
-                    },
-                    {
-                        "HP Texture": 1905881056
-                    },
-                    {
-                        "HP Regen Texture": 980036510
-                    },
                     {
                         "Player Stats GO": 373022943
                     },
@@ -22720,180 +22540,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "HandgunsWeapons_On": 1828660828
-                    },
-                    {
-                        "HandgunsWeapons_Off": 1261649561
-                    },
-                    {
-                        "Auto_On": 977509463
-                    },
-                    {
-                        "Burst_On": 1465322406
-                    },
-                    {
-                        "Semi_On": 1518552351
-                    },
-                    {
-                        "Shotgun_On": 4259070326
-                    },
-                    {
-                        "Handgun_On": 3102974161
-                    },
-                    {
-                        "Auto_Off": 1072796038
-                    },
-                    {
-                        "Burst_Off": 335904823
-                    },
-                    {
-                        "Semi_Off": 3583084629
-                    },
-                    {
-                        "Shotgun_Off": 4170447358
-                    },
-                    {
-                        "Handgun_Off": 1214175512
-                    },
-                    {
-                        "FlameThrower_On 1": 12569475
-                    },
-                    {
-                        "Ricochet_On 2": 143724778
-                    },
-                    {
-                        "FlameThrower_Off 1": 103443597
-                    },
-                    {
-                        "Ricochet_Off 2": 1840082596
-                    },
-                    {
-                        "Material Weapon 1 on": 3776990906
-                    },
-                    {
-                        "Material Weapon 1 off": 2806136321
-                    },
-                    {
-                        "Game Bar Weapon 1": 1641239556
-                    },
-                    {
-                        "Material Weapon 2 on": 2532755391
-                    },
-                    {
-                        "Material Weapon 2 off": 3080739531
-                    },
-                    {
-                        "Game Bar Weapon 2": 3321290372
-                    },
-                    {
-                        "Material Weapon 3 on": 3920428013
-                    },
-                    {
-                        "Material Weapon 3 off": 3241999568
-                    },
-                    {
-                        "Game Bar Weapon 3": 2877340158
-                    },
-                    {
-                        "Text_Dash_on": 1033923317
-                    },
-                    {
-                        "Text_Dash_off": 2440110374
-                    },
-                    {
-                        "Material_Dash": 2421452379
-                    },
-                    {
-                        "Player Move GO": 373022943
-                    },
-                    {
-                        "HandgunsWeapons_On": 1828660828
-                    },
-                    {
-                        "HandgunsWeapons_Off": 1261649561
-                    },
-                    {
-                        "Auto_On": 977509463
-                    },
-                    {
-                        "Burst_On": 1465322406
-                    },
-                    {
-                        "Semi_On": 1518552351
-                    },
-                    {
-                        "Shotgun_On": 4259070326
-                    },
-                    {
-                        "Handgun_On": 3102974161
-                    },
-                    {
-                        "Auto_Off": 1072796038
-                    },
-                    {
-                        "Burst_Off": 335904823
-                    },
-                    {
-                        "Semi_Off": 3583084629
-                    },
-                    {
-                        "Shotgun_Off": 4170447358
-                    },
-                    {
-                        "Handgun_Off": 1214175512
-                    },
-                    {
-                        "FlameThrower_On 1": 12569475
-                    },
-                    {
-                        "Ricochet_On 2": 143724778
-                    },
-                    {
-                        "FlameThrower_Off 1": 103443597
-                    },
-                    {
-                        "Ricochet_Off 2": 1840082596
-                    },
-                    {
-                        "Material Weapon 1 on": 3776990906
-                    },
-                    {
-                        "Material Weapon 1 off": 2806136321
-                    },
-                    {
-                        "Game Bar Weapon 1": 1641239556
-                    },
-                    {
-                        "Material Weapon 2 on": 2532755391
-                    },
-                    {
-                        "Material Weapon 2 off": 3080739531
-                    },
-                    {
-                        "Game Bar Weapon 2": 3321290372
-                    },
-                    {
-                        "Material Weapon 3 on": 3920428013
-                    },
-                    {
-                        "Material Weapon 3 off": 3241999568
-                    },
-                    {
-                        "Game Bar Weapon 3": 2877340158
-                    },
-                    {
-                        "Text_Dash_on": 1033923317
-                    },
-                    {
-                        "Text_Dash_off": 2440110374
-                    },
-                    {
-                        "Material_Dash": 2421452379
-                    },
-                    {
-                        "Player Move GO": 373022943
-                    },
                     {
                         "HandgunsWeapons_On": 1828660828
                     },
@@ -23727,18 +23373,6 @@
                     },
                     {
                         "Active_HUD": 1607867505
-                    },
-                    {
-                        "Disable_HUD": 1599600909
-                    },
-                    {
-                        "Active_HUD": 1607867505
-                    },
-                    {
-                        "Disable_HUD": 1599600909
-                    },
-                    {
-                        "Active_HUD": 1607867505
                     }
                 ],
                 "Script Resource": 105735810,
@@ -24027,48 +23661,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Player Stats GO": 373022943
-                    },
-                    {
-                        "Infinit munition on": 210544854
-                    },
-                    {
-                        "Infinit munition off": 3914866382
-                    },
-                    {
-                        "Normal munition on": 2582744357
-                    },
-                    {
-                        "Normal munition off": 144064360
-                    },
-                    {
-                        "Special munition on": 1156171400
-                    },
-                    {
-                        "Special munition off": 1826945064
-                    },
-                    {
-                        "Player Stats GO": 373022943
-                    },
-                    {
-                        "Infinit munition on": 210544854
-                    },
-                    {
-                        "Infinit munition off": 3914866382
-                    },
-                    {
-                        "Normal munition on": 2582744357
-                    },
-                    {
-                        "Normal munition off": 144064360
-                    },
-                    {
-                        "Special munition on": 1156171400
-                    },
-                    {
-                        "Special munition off": 1826945064
-                    },
                     {
                         "Player Stats GO": 373022943
                     },
@@ -53464,186 +53056,6 @@
                     },
                     {
                         "Player Stats GO": 373022943
-                    },
-                    {
-                        "Velocity": 7.5
-                    },
-                    {
-                        "Upgrade Velocity": 9.0
-                    },
-                    {
-                        "SecToMaxVel": 0.20000000298023224
-                    },
-                    {
-                        "SecToZeroVel": 0.20000000298023224
-                    },
-                    {
-                        "Y tp limit": -20.0
-                    },
-                    {
-                        "Rigid Body": 373022943
-                    },
-                    {
-                        "Dash Time": 0.5
-                    },
-                    {
-                        "Dash Distance": 6.0
-                    },
-                    {
-                        "Upgrade Dash Distance": 8.0
-                    },
-                    {
-                        "Dash Cooldown": 6.0
-                    },
-                    {
-                        "Upgrade Dash Cooldown": 3.0
-                    },
-                    {
-                        "AnimationPlayer": 985693684
-                    },
-                    {
-                        "Dash Animation": 2507556472
-                    },
-                    {
-                        "Idle Animation 1": 3023315871
-                    },
-                    {
-                        "Idle Animation 2": 1326726481
-                    },
-                    {
-                        "Idle Animation 3": 2473549254
-                    },
-                    {
-                        "Run Forward Animation": 110925646
-                    },
-                    {
-                        "Run Back Animation": 3429164760
-                    },
-                    {
-                        "Run Left Animation": 3745079584
-                    },
-                    {
-                        "Run Right Animation": 2728303408
-                    },
-                    {
-                        "Shoot Duals Animation": 513253499
-                    },
-                    {
-                        "Shoot SemiAuto Animation": 513253499
-                    },
-                    {
-                        "Shoot Automatic Animation": 513253499
-                    },
-                    {
-                        "Shoot Burst Animation": 513253499
-                    },
-                    {
-                        "Shoot Shotgun Animation": 513253499
-                    },
-                    {
-                        "Shoot Handgun Animation": 513253499
-                    },
-                    {
-                        "Hit Animation": 384287013
-                    },
-                    {
-                        "Open Chest Animation": 2012184105
-                    },
-                    {
-                        "Dead Animation": 2084958723
-                    },
-                    {
-                        "Player Stats GO": 373022943
-                    },
-                    {
-                        "Velocity": 7.5
-                    },
-                    {
-                        "Upgrade Velocity": 9.0
-                    },
-                    {
-                        "SecToMaxVel": 0.20000000298023224
-                    },
-                    {
-                        "SecToZeroVel": 0.20000000298023224
-                    },
-                    {
-                        "Y tp limit": -20.0
-                    },
-                    {
-                        "Rigid Body": 373022943
-                    },
-                    {
-                        "Dash Time": 0.5
-                    },
-                    {
-                        "Dash Distance": 6.0
-                    },
-                    {
-                        "Upgrade Dash Distance": 8.0
-                    },
-                    {
-                        "Dash Cooldown": 6.0
-                    },
-                    {
-                        "Upgrade Dash Cooldown": 3.0
-                    },
-                    {
-                        "AnimationPlayer": 985693684
-                    },
-                    {
-                        "Dash Animation": 2507556472
-                    },
-                    {
-                        "Idle Animation 1": 3023315871
-                    },
-                    {
-                        "Idle Animation 2": 1326726481
-                    },
-                    {
-                        "Idle Animation 3": 2473549254
-                    },
-                    {
-                        "Run Forward Animation": 110925646
-                    },
-                    {
-                        "Run Back Animation": 3429164760
-                    },
-                    {
-                        "Run Left Animation": 3745079584
-                    },
-                    {
-                        "Run Right Animation": 2728303408
-                    },
-                    {
-                        "Shoot Duals Animation": 513253499
-                    },
-                    {
-                        "Shoot SemiAuto Animation": 513253499
-                    },
-                    {
-                        "Shoot Automatic Animation": 513253499
-                    },
-                    {
-                        "Shoot Burst Animation": 513253499
-                    },
-                    {
-                        "Shoot Shotgun Animation": 513253499
-                    },
-                    {
-                        "Shoot Handgun Animation": 513253499
-                    },
-                    {
-                        "Hit Animation": 384287013
-                    },
-                    {
-                        "Open Chest Animation": 2012184105
-                    },
-                    {
-                        "Dead Animation": 2084958723
-                    },
-                    {
-                        "Player Stats GO": 373022943
                     }
                 ],
                 "Script Resource": 1247927621,
@@ -53652,108 +53064,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Max HP": 100.0
-                    },
-                    {
-                        "Current HP": 100.0
-                    },
-                    {
-                        "Upgraded Max HP": 125.0
-                    },
-                    {
-                        "Resistance": 100.0
-                    },
-                    {
-                        "Deadline Percentage": 20.0
-                    },
-                    {
-                        "Upgraded Deadline Percentage": 50.0
-                    },
-                    {
-                        "Deadline Heal Amount": 2.5
-                    },
-                    {
-                        "Upgraded Deadline Heal Amount": 5.0
-                    },
-                    {
-                        "Aid Kit Heal Amount": 30.0
-                    },
-                    {
-                        "Upgraded Aid Kit Heal Amount": 60.0
-                    },
-                    {
-                        "Laser Ammo": 99999
-                    },
-                    {
-                        "Fire Ammo": 0
-                    },
-                    {
-                        "Hit Particles": 4287485572
-                    },
-                    {
-                        "Passive Heal Particles": 1471927406
-                    },
-                    {
-                        "Kid Heal Particles": 3100903507
-                    },
-                    {
-                        "Player GO": 373022943
-                    },
-                    {
-                        "Power Ups Managers (HUD)": 55302948
-                    },
-                    {
-                        "Max HP": 100.0
-                    },
-                    {
-                        "Current HP": 100.0
-                    },
-                    {
-                        "Upgraded Max HP": 125.0
-                    },
-                    {
-                        "Resistance": 100.0
-                    },
-                    {
-                        "Deadline Percentage": 20.0
-                    },
-                    {
-                        "Upgraded Deadline Percentage": 50.0
-                    },
-                    {
-                        "Deadline Heal Amount": 2.5
-                    },
-                    {
-                        "Upgraded Deadline Heal Amount": 5.0
-                    },
-                    {
-                        "Aid Kit Heal Amount": 30.0
-                    },
-                    {
-                        "Upgraded Aid Kit Heal Amount": 60.0
-                    },
-                    {
-                        "Laser Ammo": 99999
-                    },
-                    {
-                        "Fire Ammo": 0
-                    },
-                    {
-                        "Hit Particles": 4287485572
-                    },
-                    {
-                        "Passive Heal Particles": 1471927406
-                    },
-                    {
-                        "Kid Heal Particles": 3100903507
-                    },
-                    {
-                        "Player GO": 373022943
-                    },
-                    {
-                        "Power Ups Managers (HUD)": 55302948
-                    },
                     {
                         "Max HP": 100.0
                     },
@@ -53850,84 +53160,6 @@
                     },
                     {
                         "Swap Weapon GO (HUD)": 1663296749
-                    },
-                    {
-                        "Player Stats GO": 373022943
-                    },
-                    {
-                        "Base Gun": 0
-                    },
-                    {
-                        "Normal Gun": 1
-                    },
-                    {
-                        "Special Gun": 2
-                    },
-                    {
-                        "Duals": 851574187
-                    },
-                    {
-                        "Semiautomatic": 4012886439
-                    },
-                    {
-                        "Automatic": 2134099410
-                    },
-                    {
-                        "Burst": 2331353082
-                    },
-                    {
-                        "Shotgun": 23838785
-                    },
-                    {
-                        "Handgun": 1822674229
-                    },
-                    {
-                        "Swap Delay": 1.0
-                    },
-                    {
-                        "Fast Swap Delay": 0.5
-                    },
-                    {
-                        "Swap Weapon GO (HUD)": 1663296749
-                    },
-                    {
-                        "Player Stats GO": 373022943
-                    },
-                    {
-                        "Base Gun": 0
-                    },
-                    {
-                        "Normal Gun": 1
-                    },
-                    {
-                        "Special Gun": 2
-                    },
-                    {
-                        "Duals": 851574187
-                    },
-                    {
-                        "Semiautomatic": 4012886439
-                    },
-                    {
-                        "Automatic": 2134099410
-                    },
-                    {
-                        "Burst": 2331353082
-                    },
-                    {
-                        "Shotgun": 23838785
-                    },
-                    {
-                        "Handgun": 1822674229
-                    },
-                    {
-                        "Swap Delay": 1.0
-                    },
-                    {
-                        "Fast Swap Delay": 0.5
-                    },
-                    {
-                        "Swap Weapon GO (HUD)": 1663296749
                     }
                 ],
                 "Script Resource": 3024424734,
@@ -53936,12 +53168,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Level Index": 0
-                    },
-                    {
-                        "Level Index": 0
-                    },
                     {
                         "Level Index": 0
                     }
@@ -59174,12 +58400,6 @@
                 "Inspector Fields": [
                     {
                         "Gun Type": 0
-                    },
-                    {
-                        "Gun Type": 0
-                    },
-                    {
-                        "Gun Type": 0
                     }
                 ],
                 "Script Resource": 1187195986,
@@ -59188,134 +58408,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Projectile Pull": 3433217862
-                    },
-                    {
-                        "Projectile Speed": 0.0
-                    },
-                    {
-                        "Projectile Damage": 0.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 0.0
-                    },
-                    {
-                        "Projectile Spawn": 851574187
-                    },
-                    {
-                        "Second Projectile Spawn": 701275422
-                    },
-                    {
-                        "Projectile MeshIndexInsideModel": 0,
-                        "Projectile MeshModelUID": 1551155716
-                    },
-                    {
-                        "Projectile Material": 1412513036
-                    },
-                    {
-                        "Projectile ScaleX": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleY": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleZ": 0.10000000149011612
-                    },
-                    {
-                        "Projectiles per second": 0.0
-                    },
-                    {
-                        "Extra % firerate": 15.0
-                    },
-                    {
-                        "Burst Space": 0.0
-                    },
-                    {
-                        "Second Gun GO": 701275422
-                    },
-                    {
-                        "Slow %": 0.0
-                    },
-                    {
-                        "Freeze %": 0.0
-                    },
-                    {
-                        "Player Stats GO": 373022943
-                    },
-                    {
-                        "Ammo Type": 0
-                    },
-                    {
-                        "Audio Event String": "w_basic"
-                    },
-                    {
-                        "Projectile Pull": 3433217862
-                    },
-                    {
-                        "Projectile Speed": 0.0
-                    },
-                    {
-                        "Projectile Damage": 0.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 0.0
-                    },
-                    {
-                        "Projectile Spawn": 851574187
-                    },
-                    {
-                        "Second Projectile Spawn": 701275422
-                    },
-                    {
-                        "Projectile MeshIndexInsideModel": 0,
-                        "Projectile MeshModelUID": 1551155716
-                    },
-                    {
-                        "Projectile Material": 1412513036
-                    },
-                    {
-                        "Projectile ScaleX": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleY": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleZ": 0.10000000149011612
-                    },
-                    {
-                        "Projectiles per second": 0.0
-                    },
-                    {
-                        "Extra % firerate": 15.0
-                    },
-                    {
-                        "Burst Space": 0.0
-                    },
-                    {
-                        "Second Gun GO": 701275422
-                    },
-                    {
-                        "Slow %": 0.0
-                    },
-                    {
-                        "Freeze %": 0.0
-                    },
-                    {
-                        "Player Stats GO": 373022943
-                    },
-                    {
-                        "Ammo Type": 0
-                    },
-                    {
-                        "Audio Event String": "w_basic"
-                    },
                     {
                         "Projectile Pull": 3433217862
                     },
@@ -59419,12 +58511,6 @@
                 "Inspector Fields": [
                     {
                         "Gun Type": 1
-                    },
-                    {
-                        "Gun Type": 1
-                    },
-                    {
-                        "Gun Type": 1
                     }
                 ],
                 "Script Resource": 1187195986,
@@ -59433,104 +58519,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Projectile Pull": 3433217862
-                    },
-                    {
-                        "Projectile Speed": 0.0
-                    },
-                    {
-                        "Projectile Damage": 0.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 0.0
-                    },
-                    {
-                        "Projectile Spawn": 4012886439
-                    },
-                    {
-                        "Projectile MeshIndexInsideModel": 0,
-                        "Projectile MeshModelUID": 1551155716
-                    },
-                    {
-                        "Projectile Material": 1412513036
-                    },
-                    {
-                        "Projectile ScaleX": 0.20000000298023224
-                    },
-                    {
-                        "Projectile ScaleY": 0.20000000298023224
-                    },
-                    {
-                        "Projectile ScaleZ": 0.4000000059604645
-                    },
-                    {
-                        "Projectiles per second": 0.0
-                    },
-                    {
-                        "Extra % firerate": 15.0
-                    },
-                    {
-                        "Player Stats GO": 373022943
-                    },
-                    {
-                        "Ammo Type": 1
-                    },
-                    {
-                        "Audio Event String": "w_semi"
-                    },
-                    {
-                        "Projectile Pull": 3433217862
-                    },
-                    {
-                        "Projectile Speed": 0.0
-                    },
-                    {
-                        "Projectile Damage": 0.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 0.0
-                    },
-                    {
-                        "Projectile Spawn": 4012886439
-                    },
-                    {
-                        "Projectile MeshIndexInsideModel": 0,
-                        "Projectile MeshModelUID": 1551155716
-                    },
-                    {
-                        "Projectile Material": 1412513036
-                    },
-                    {
-                        "Projectile ScaleX": 0.20000000298023224
-                    },
-                    {
-                        "Projectile ScaleY": 0.20000000298023224
-                    },
-                    {
-                        "Projectile ScaleZ": 0.4000000059604645
-                    },
-                    {
-                        "Projectiles per second": 0.0
-                    },
-                    {
-                        "Extra % firerate": 15.0
-                    },
-                    {
-                        "Player Stats GO": 373022943
-                    },
-                    {
-                        "Ammo Type": 1
-                    },
-                    {
-                        "Audio Event String": "w_semi"
-                    },
                     {
                         "Projectile Pull": 3433217862
                     },
@@ -59619,12 +58607,6 @@
                 "Inspector Fields": [
                     {
                         "Gun Type": 2
-                    },
-                    {
-                        "Gun Type": 2
-                    },
-                    {
-                        "Gun Type": 2
                     }
                 ],
                 "Script Resource": 1187195986,
@@ -59633,104 +58615,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Projectile Pull": 3433217862
-                    },
-                    {
-                        "Projectile Speed": 0.0
-                    },
-                    {
-                        "Projectile Damage": 0.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 0.0
-                    },
-                    {
-                        "Projectile Spawn": 2134099410
-                    },
-                    {
-                        "Projectile MeshIndexInsideModel": 0,
-                        "Projectile MeshModelUID": 1551155716
-                    },
-                    {
-                        "Projectile Material": 1412513036
-                    },
-                    {
-                        "Projectile ScaleX": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleY": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleZ": 0.10000000149011612
-                    },
-                    {
-                        "Projectiles per second": 0.0
-                    },
-                    {
-                        "Extra % firerate": 15.0
-                    },
-                    {
-                        "Player Stats GO": 373022943
-                    },
-                    {
-                        "Ammo Type": 1
-                    },
-                    {
-                        "Audio Event String": "w_automatic"
-                    },
-                    {
-                        "Projectile Pull": 3433217862
-                    },
-                    {
-                        "Projectile Speed": 0.0
-                    },
-                    {
-                        "Projectile Damage": 0.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 0.0
-                    },
-                    {
-                        "Projectile Spawn": 2134099410
-                    },
-                    {
-                        "Projectile MeshIndexInsideModel": 0,
-                        "Projectile MeshModelUID": 1551155716
-                    },
-                    {
-                        "Projectile Material": 1412513036
-                    },
-                    {
-                        "Projectile ScaleX": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleY": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleZ": 0.10000000149011612
-                    },
-                    {
-                        "Projectiles per second": 0.0
-                    },
-                    {
-                        "Extra % firerate": 15.0
-                    },
-                    {
-                        "Player Stats GO": 373022943
-                    },
-                    {
-                        "Ammo Type": 1
-                    },
-                    {
-                        "Audio Event String": "w_automatic"
-                    },
                     {
                         "Projectile Pull": 3433217862
                     },
@@ -59819,12 +58703,6 @@
                 "Inspector Fields": [
                     {
                         "Gun Type": 3
-                    },
-                    {
-                        "Gun Type": 3
-                    },
-                    {
-                        "Gun Type": 3
                     }
                 ],
                 "Script Resource": 1187195986,
@@ -59833,116 +58711,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Projectile Pull": 3433217862
-                    },
-                    {
-                        "Projectile Speed": 0.0
-                    },
-                    {
-                        "Projectile Damage": 0.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 0.0
-                    },
-                    {
-                        "Projectile Spawn": 2331353082
-                    },
-                    {
-                        "Projectile MeshIndexInsideModel": 0,
-                        "Projectile MeshModelUID": 1551155716
-                    },
-                    {
-                        "Projectile Material": 1412513036
-                    },
-                    {
-                        "Projectile ScaleX": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleY": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleZ": 0.10000000149011612
-                    },
-                    {
-                        "Projectiles per second": 0.0
-                    },
-                    {
-                        "Extra % firerate": 15.0
-                    },
-                    {
-                        "Burst Space": 0.0
-                    },
-                    {
-                        "Projectiles per burst": 0
-                    },
-                    {
-                        "Player Stats GO": 373022943
-                    },
-                    {
-                        "Ammo Type": 1
-                    },
-                    {
-                        "Audio Event String": "w_burst"
-                    },
-                    {
-                        "Projectile Pull": 3433217862
-                    },
-                    {
-                        "Projectile Speed": 0.0
-                    },
-                    {
-                        "Projectile Damage": 0.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 0.0
-                    },
-                    {
-                        "Projectile Spawn": 2331353082
-                    },
-                    {
-                        "Projectile MeshIndexInsideModel": 0,
-                        "Projectile MeshModelUID": 1551155716
-                    },
-                    {
-                        "Projectile Material": 1412513036
-                    },
-                    {
-                        "Projectile ScaleX": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleY": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleZ": 0.10000000149011612
-                    },
-                    {
-                        "Projectiles per second": 0.0
-                    },
-                    {
-                        "Extra % firerate": 15.0
-                    },
-                    {
-                        "Burst Space": 0.0
-                    },
-                    {
-                        "Projectiles per burst": 0
-                    },
-                    {
-                        "Player Stats GO": 373022943
-                    },
-                    {
-                        "Ammo Type": 1
-                    },
-                    {
-                        "Audio Event String": "w_burst"
-                    },
                     {
                         "Projectile Pull": 3433217862
                     },
@@ -60037,12 +58805,6 @@
                 "Inspector Fields": [
                     {
                         "Gun Type": 4
-                    },
-                    {
-                        "Gun Type": 4
-                    },
-                    {
-                        "Gun Type": 4
                     }
                 ],
                 "Script Resource": 1187195986,
@@ -60051,116 +58813,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Projectile Pull": 3433217862
-                    },
-                    {
-                        "Projectile Speed": 0.0
-                    },
-                    {
-                        "Projectile Damage": 0.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 0.0
-                    },
-                    {
-                        "Projectile Spawn": 23838785
-                    },
-                    {
-                        "Projectile MeshIndexInsideModel": 0,
-                        "Projectile MeshModelUID": 1551155716
-                    },
-                    {
-                        "Projectile Material": 1412513036
-                    },
-                    {
-                        "Projectile ScaleX": 0.05000000074505806
-                    },
-                    {
-                        "Projectile ScaleY": 0.05000000074505806
-                    },
-                    {
-                        "Projectile ScaleZ": 0.05000000074505806
-                    },
-                    {
-                        "Projectiles per second": 0.0
-                    },
-                    {
-                        "Extra % firerate": 15.0
-                    },
-                    {
-                        "Pellets per shot": 0
-                    },
-                    {
-                        "Pellets Dispersion": 0.0
-                    },
-                    {
-                        "Player Stats GO": 373022943
-                    },
-                    {
-                        "Ammo Type": 1
-                    },
-                    {
-                        "Audio Event String": "w_shotgun"
-                    },
-                    {
-                        "Projectile Pull": 3433217862
-                    },
-                    {
-                        "Projectile Speed": 0.0
-                    },
-                    {
-                        "Projectile Damage": 0.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 0.0
-                    },
-                    {
-                        "Projectile Spawn": 23838785
-                    },
-                    {
-                        "Projectile MeshIndexInsideModel": 0,
-                        "Projectile MeshModelUID": 1551155716
-                    },
-                    {
-                        "Projectile Material": 1412513036
-                    },
-                    {
-                        "Projectile ScaleX": 0.05000000074505806
-                    },
-                    {
-                        "Projectile ScaleY": 0.05000000074505806
-                    },
-                    {
-                        "Projectile ScaleZ": 0.05000000074505806
-                    },
-                    {
-                        "Projectiles per second": 0.0
-                    },
-                    {
-                        "Extra % firerate": 15.0
-                    },
-                    {
-                        "Pellets per shot": 0
-                    },
-                    {
-                        "Pellets Dispersion": 0.0
-                    },
-                    {
-                        "Player Stats GO": 373022943
-                    },
-                    {
-                        "Ammo Type": 1
-                    },
-                    {
-                        "Audio Event String": "w_shotgun"
-                    },
                     {
                         "Projectile Pull": 3433217862
                     },
@@ -60255,12 +58907,6 @@
                 "Inspector Fields": [
                     {
                         "Gun Type": 5
-                    },
-                    {
-                        "Gun Type": 5
-                    },
-                    {
-                        "Gun Type": 5
                     }
                 ],
                 "Script Resource": 1187195986,
@@ -60269,104 +58915,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Projectile Pull": 3433217862
-                    },
-                    {
-                        "Projectile Speed": 0.0
-                    },
-                    {
-                        "Projectile Damage": 0.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 0.0
-                    },
-                    {
-                        "Projectile Spawn": 1822674229
-                    },
-                    {
-                        "Projectile MeshIndexInsideModel": 0,
-                        "Projectile MeshModelUID": 1551155716
-                    },
-                    {
-                        "Projectile Material": 1412513036
-                    },
-                    {
-                        "Projectile ScaleX": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleY": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleZ": 0.10000000149011612
-                    },
-                    {
-                        "Projectiles per second": 0.0
-                    },
-                    {
-                        "Extra % firerate": 15.0
-                    },
-                    {
-                        "Player Stats GO": 373022943
-                    },
-                    {
-                        "Ammo Type": 1
-                    },
-                    {
-                        "Audio Event String": "w_handgun"
-                    },
-                    {
-                        "Projectile Pull": 3433217862
-                    },
-                    {
-                        "Projectile Speed": 0.0
-                    },
-                    {
-                        "Projectile Damage": 0.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 0.0
-                    },
-                    {
-                        "Projectile Spawn": 1822674229
-                    },
-                    {
-                        "Projectile MeshIndexInsideModel": 0,
-                        "Projectile MeshModelUID": 1551155716
-                    },
-                    {
-                        "Projectile Material": 1412513036
-                    },
-                    {
-                        "Projectile ScaleX": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleY": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleZ": 0.10000000149011612
-                    },
-                    {
-                        "Projectiles per second": 0.0
-                    },
-                    {
-                        "Extra % firerate": 15.0
-                    },
-                    {
-                        "Player Stats GO": 373022943
-                    },
-                    {
-                        "Ammo Type": 1
-                    },
-                    {
-                        "Audio Event String": "w_handgun"
-                    },
                     {
                         "Projectile Pull": 3433217862
                     },
@@ -61770,24 +60318,6 @@
                     },
                     {
                         "Particles": 3433217862
-                    },
-                    {
-                        "Pull Size": 20
-                    },
-                    {
-                        "Player": 373022943
-                    },
-                    {
-                        "Particles": 3433217862
-                    },
-                    {
-                        "Pull Size": 20
-                    },
-                    {
-                        "Player": 373022943
-                    },
-                    {
-                        "Particles": 3433217862
                     }
                 ],
                 "Script Resource": 1341579112,
@@ -61894,12 +60424,6 @@
                 "Inspector Fields": [
                     {
                         "Player Stats GO": 373022943
-                    },
-                    {
-                        "Player Stats GO": 373022943
-                    },
-                    {
-                        "Player Stats GO": 373022943
                     }
                 ],
                 "Script Resource": 496589073,
@@ -61912,6 +60436,52 @@
         "PrefabUID": 2709458494,
         "Tag": "Default",
         "UID": 540813309
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.10000000149011612,
+                    0.0
+                ],
+                "Rotation": [
+                    -90.0,
+                    0.0,
+                    180.0
+                ],
+                "Scale": [
+                    1.399999976158142,
+                    1.399999976158142,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 13,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 3571212546,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Aura",
+        "ParentUID": 373022943,
+        "PrefabUID": 0,
+        "Tag": "Primitive",
+        "UID": 3071851265
     },
     {
         "Active": true,
@@ -61938,94 +60508,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Enemy Drop Rate": 20.0
-                    },
-                    {
-                        "Upgraded Enemy Drop Rate": 35.0
-                    },
-                    {
-                        "Enemy Ammo Drop Rate": 35.0
-                    },
-                    {
-                        "Enemy Aid Kit Drop Rate": 35.0
-                    },
-                    {
-                        "Enemy Power Ups Drop Rate": 30.0
-                    },
-                    {
-                        "Box Drop Rate": 35.0
-                    },
-                    {
-                        "Box Ammo Drop Rate": 50.0
-                    },
-                    {
-                        "Box Aid Kit Drop Rate": 50.0
-                    },
-                    {
-                        "Player Stats GO": 373022943
-                    },
-                    {
-                        "Pull Size per Drop Type": 2
-                    },
-                    {
-                        "Lase Ammo Drop MeshIndexInsideModel": 0,
-                        "Lase Ammo Drop MeshModelUID": 4010212417
-                    },
-                    {
-                        "First Aid Kit Drop MeshIndexInsideModel": 0,
-                        "First Aid Kit Drop MeshModelUID": 1978845170
-                    },
-                    {
-                        "Lase Ammo Drop Material": 4027040098
-                    },
-                    {
-                        "First Aid Kit Drop Material": 3406689042
-                    },
-                    {
-                        "Enemy Drop Rate": 20.0
-                    },
-                    {
-                        "Upgraded Enemy Drop Rate": 35.0
-                    },
-                    {
-                        "Enemy Ammo Drop Rate": 35.0
-                    },
-                    {
-                        "Enemy Aid Kit Drop Rate": 35.0
-                    },
-                    {
-                        "Enemy Power Ups Drop Rate": 30.0
-                    },
-                    {
-                        "Box Drop Rate": 35.0
-                    },
-                    {
-                        "Box Ammo Drop Rate": 50.0
-                    },
-                    {
-                        "Box Aid Kit Drop Rate": 50.0
-                    },
-                    {
-                        "Player Stats GO": 373022943
-                    },
-                    {
-                        "Pull Size per Drop Type": 2
-                    },
-                    {
-                        "Lase Ammo Drop MeshIndexInsideModel": 0,
-                        "Lase Ammo Drop MeshModelUID": 4010212417
-                    },
-                    {
-                        "First Aid Kit Drop MeshIndexInsideModel": 0,
-                        "First Aid Kit Drop MeshModelUID": 1978845170
-                    },
-                    {
-                        "Lase Ammo Drop Material": 4027040098
-                    },
-                    {
-                        "First Aid Kit Drop Material": 3406689042
-                    },
                     {
                         "Enemy Drop Rate": 20.0
                     },
@@ -63431,24 +61913,6 @@
                     },
                     {
                         "Drop Manager": 2371815913
-                    },
-                    {
-                        "Box Destroyed Particle": 2313208169
-                    },
-                    {
-                        "MaxHp": 10
-                    },
-                    {
-                        "Drop Manager": 2371815913
-                    },
-                    {
-                        "Box Destroyed Particle": 2313208169
-                    },
-                    {
-                        "MaxHp": 10
-                    },
-                    {
-                        "Drop Manager": 2371815913
                     }
                 ],
                 "Script Resource": 4229972138,
@@ -63719,24 +62183,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Box Destroyed Particle": 3869838286
-                    },
-                    {
-                        "MaxHp": 10
-                    },
-                    {
-                        "Drop Manager": 2371815913
-                    },
-                    {
-                        "Box Destroyed Particle": 3869838286
-                    },
-                    {
-                        "MaxHp": 10
-                    },
-                    {
-                        "Drop Manager": 2371815913
-                    },
                     {
                         "Box Destroyed Particle": 3869838286
                     },
@@ -64023,24 +62469,6 @@
                     },
                     {
                         "Drop Manager": 2371815913
-                    },
-                    {
-                        "Box Destroyed Particle": 2492201880
-                    },
-                    {
-                        "MaxHp": 10
-                    },
-                    {
-                        "Drop Manager": 2371815913
-                    },
-                    {
-                        "Box Destroyed Particle": 2492201880
-                    },
-                    {
-                        "MaxHp": 10
-                    },
-                    {
-                        "Drop Manager": 2371815913
                     }
                 ],
                 "Script Resource": 4229972138,
@@ -64311,24 +62739,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Box Destroyed Particle": 830044115
-                    },
-                    {
-                        "MaxHp": 10
-                    },
-                    {
-                        "Drop Manager": 2371815913
-                    },
-                    {
-                        "Box Destroyed Particle": 830044115
-                    },
-                    {
-                        "MaxHp": 10
-                    },
-                    {
-                        "Drop Manager": 2371815913
-                    },
                     {
                         "Box Destroyed Particle": 830044115
                     },
@@ -64615,24 +63025,6 @@
                     },
                     {
                         "Drop Manager": 2371815913
-                    },
-                    {
-                        "Box Destroyed Particle": 815098081
-                    },
-                    {
-                        "MaxHp": 10
-                    },
-                    {
-                        "Drop Manager": 2371815913
-                    },
-                    {
-                        "Box Destroyed Particle": 815098081
-                    },
-                    {
-                        "MaxHp": 10
-                    },
-                    {
-                        "Drop Manager": 2371815913
                     }
                 ],
                 "Script Resource": 4229972138,
@@ -64903,24 +63295,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Box Destroyed Particle": 28185120
-                    },
-                    {
-                        "MaxHp": 10
-                    },
-                    {
-                        "Drop Manager": 2371815913
-                    },
-                    {
-                        "Box Destroyed Particle": 28185120
-                    },
-                    {
-                        "MaxHp": 10
-                    },
-                    {
-                        "Drop Manager": 2371815913
-                    },
                     {
                         "Box Destroyed Particle": 28185120
                     },
@@ -65207,24 +63581,6 @@
                     },
                     {
                         "Drop Manager": 2371815913
-                    },
-                    {
-                        "Box Destroyed Particle": 2664133405
-                    },
-                    {
-                        "MaxHp": 10
-                    },
-                    {
-                        "Drop Manager": 2371815913
-                    },
-                    {
-                        "Box Destroyed Particle": 2664133405
-                    },
-                    {
-                        "MaxHp": 10
-                    },
-                    {
-                        "Drop Manager": 2371815913
                     }
                 ],
                 "Script Resource": 4229972138,
@@ -65495,24 +63851,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Box Destroyed Particle": 4292480952
-                    },
-                    {
-                        "MaxHp": 10
-                    },
-                    {
-                        "Drop Manager": 2371815913
-                    },
-                    {
-                        "Box Destroyed Particle": 4292480952
-                    },
-                    {
-                        "MaxHp": 10
-                    },
-                    {
-                        "Drop Manager": 2371815913
-                    },
                     {
                         "Box Destroyed Particle": 4292480952
                     },
@@ -65799,24 +64137,6 @@
                     },
                     {
                         "Drop Manager": 2371815913
-                    },
-                    {
-                        "Box Destroyed Particle": 3576748387
-                    },
-                    {
-                        "MaxHp": 10
-                    },
-                    {
-                        "Drop Manager": 2371815913
-                    },
-                    {
-                        "Box Destroyed Particle": 3576748387
-                    },
-                    {
-                        "MaxHp": 10
-                    },
-                    {
-                        "Drop Manager": 2371815913
                     }
                 ],
                 "Script Resource": 4229972138,
@@ -66087,24 +64407,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Box Destroyed Particle": 3000573746
-                    },
-                    {
-                        "MaxHp": 10
-                    },
-                    {
-                        "Drop Manager": 2371815913
-                    },
-                    {
-                        "Box Destroyed Particle": 3000573746
-                    },
-                    {
-                        "MaxHp": 10
-                    },
-                    {
-                        "Drop Manager": 2371815913
-                    },
                     {
                         "Box Destroyed Particle": 3000573746
                     },
@@ -66391,24 +64693,6 @@
                     },
                     {
                         "Drop Manager": 2371815913
-                    },
-                    {
-                        "Box Destroyed Particle": 4217552745
-                    },
-                    {
-                        "MaxHp": 10
-                    },
-                    {
-                        "Drop Manager": 2371815913
-                    },
-                    {
-                        "Box Destroyed Particle": 4217552745
-                    },
-                    {
-                        "MaxHp": 10
-                    },
-                    {
-                        "Drop Manager": 2371815913
                     }
                 ],
                 "Script Resource": 4229972138,
@@ -66679,24 +64963,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Box Destroyed Particle": 3757143281
-                    },
-                    {
-                        "MaxHp": 10
-                    },
-                    {
-                        "Drop Manager": 2371815913
-                    },
-                    {
-                        "Box Destroyed Particle": 3757143281
-                    },
-                    {
-                        "MaxHp": 10
-                    },
-                    {
-                        "Drop Manager": 2371815913
-                    },
                     {
                         "Box Destroyed Particle": 3757143281
                     },
@@ -66983,24 +65249,6 @@
                     },
                     {
                         "Drop Manager": 2371815913
-                    },
-                    {
-                        "Box Destroyed Particle": 3035802657
-                    },
-                    {
-                        "MaxHp": 10
-                    },
-                    {
-                        "Drop Manager": 2371815913
-                    },
-                    {
-                        "Box Destroyed Particle": 3035802657
-                    },
-                    {
-                        "MaxHp": 10
-                    },
-                    {
-                        "Drop Manager": 2371815913
                     }
                 ],
                 "Script Resource": 4229972138,
@@ -67279,24 +65527,6 @@
                     },
                     {
                         "Drop Manager": 2371815913
-                    },
-                    {
-                        "Box Destroyed Particle": 990046717
-                    },
-                    {
-                        "MaxHp": 10
-                    },
-                    {
-                        "Drop Manager": 2371815913
-                    },
-                    {
-                        "Box Destroyed Particle": 990046717
-                    },
-                    {
-                        "MaxHp": 10
-                    },
-                    {
-                        "Drop Manager": 2371815913
                     }
                 ],
                 "Script Resource": 4229972138,
@@ -67567,24 +65797,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Box Destroyed Particle": 223910325
-                    },
-                    {
-                        "MaxHp": 10
-                    },
-                    {
-                        "Drop Manager": 2371815913
-                    },
-                    {
-                        "Box Destroyed Particle": 223910325
-                    },
-                    {
-                        "MaxHp": 10
-                    },
-                    {
-                        "Drop Manager": 2371815913
-                    },
                     {
                         "Box Destroyed Particle": 223910325
                     },
@@ -67965,60 +66177,6 @@
                     },
                     {
                         "Has Shield": false
-                    },
-                    {
-                        "Max Health": 100.0
-                    },
-                    {
-                        "Current Helath": 0.0
-                    },
-                    {
-                        "Resistance": 100.0
-                    },
-                    {
-                        "Speed": 5.0
-                    },
-                    {
-                        "Acceleration": 1.399999976158142
-                    },
-                    {
-                        "Current speed": 0.0
-                    },
-                    {
-                        "Enemy Manager": 2371815913
-                    },
-                    {
-                        "Hit particle system": 2579192695
-                    },
-                    {
-                        "Has Shield": false
-                    },
-                    {
-                        "Max Health": 100.0
-                    },
-                    {
-                        "Current Helath": 0.0
-                    },
-                    {
-                        "Resistance": 100.0
-                    },
-                    {
-                        "Speed": 5.0
-                    },
-                    {
-                        "Acceleration": 1.399999976158142
-                    },
-                    {
-                        "Current speed": 0.0
-                    },
-                    {
-                        "Enemy Manager": 2371815913
-                    },
-                    {
-                        "Hit particle system": 2579192695
-                    },
-                    {
-                        "Has Shield": false
                     }
                 ],
                 "Script Resource": 4210965159,
@@ -68027,168 +66185,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Detection distance": 13.0
-                    },
-                    {
-                        "Lossing Enemy distance": 15.0
-                    },
-                    {
-                        "OutsideZone Time": 2.0
-                    },
-                    {
-                        "Time cooldown between shoots": 2.0
-                    },
-                    {
-                        "Attack Time": 1.0
-                    },
-                    {
-                        "Attack Charge": 1.0
-                    },
-                    {
-                        "Attack Cooldown": 1.0
-                    },
-                    {
-                        "Attack Speed": 11.0
-                    },
-                    {
-                        "Charge Speed": 0.0
-                    },
-                    {
-                        "Walk Away Speed": 2.0
-                    },
-                    {
-                        "Probaility to dodge %": 0
-                    },
-                    {
-                        "Vel dash": 0.0
-                    },
-                    {
-                        "Time Dash": 0.0
-                    },
-                    {
-                        "Target": 373022943
-                    },
-                    {
-                        "Action zone": 2472149487
-                    },
-                    {
-                        "Attack zone": 2269328955
-                    },
-                    {
-                        "Point 1": 1294981818
-                    },
-                    {
-                        "Point 2": 2270640642
-                    },
-                    {
-                        "Point 3": 3705840106
-                    },
-                    {
-                        "Animation Player": 3268158412
-                    },
-                    {
-                        "Walk Animation": 3613987091
-                    },
-                    {
-                        "Run Animation": 4206396574
-                    },
-                    {
-                        "Attack Animation": 3432128472
-                    },
-                    {
-                        "Charge Animation": 3274135775
-                    },
-                    {
-                        "Dash Animation": 3797384433
-                    },
-                    {
-                        "Die Animation": 3729272791
-                    },
-                    {
-                        "Hit Animation": 1305257066
-                    },
-                    {
-                        "Detection distance": 13.0
-                    },
-                    {
-                        "Lossing Enemy distance": 15.0
-                    },
-                    {
-                        "OutsideZone Time": 2.0
-                    },
-                    {
-                        "Time cooldown between shoots": 2.0
-                    },
-                    {
-                        "Attack Time": 1.0
-                    },
-                    {
-                        "Attack Charge": 1.0
-                    },
-                    {
-                        "Attack Cooldown": 1.0
-                    },
-                    {
-                        "Attack Speed": 11.0
-                    },
-                    {
-                        "Charge Speed": 0.0
-                    },
-                    {
-                        "Walk Away Speed": 2.0
-                    },
-                    {
-                        "Probaility to dodge %": 0
-                    },
-                    {
-                        "Vel dash": 0.0
-                    },
-                    {
-                        "Time Dash": 0.0
-                    },
-                    {
-                        "Target": 373022943
-                    },
-                    {
-                        "Action zone": 2472149487
-                    },
-                    {
-                        "Attack zone": 2269328955
-                    },
-                    {
-                        "Point 1": 1294981818
-                    },
-                    {
-                        "Point 2": 2270640642
-                    },
-                    {
-                        "Point 3": 3705840106
-                    },
-                    {
-                        "Animation Player": 3268158412
-                    },
-                    {
-                        "Walk Animation": 3613987091
-                    },
-                    {
-                        "Run Animation": 4206396574
-                    },
-                    {
-                        "Attack Animation": 3432128472
-                    },
-                    {
-                        "Charge Animation": 3274135775
-                    },
-                    {
-                        "Dash Animation": 3797384433
-                    },
-                    {
-                        "Die Animation": 3729272791
-                    },
-                    {
-                        "Hit Animation": 1305257066
-                    },
                     {
                         "Detection distance": 13.0
                     },
@@ -71278,12 +69274,6 @@
                 "Inspector Fields": [
                     {
                         "attack": false
-                    },
-                    {
-                        "attack": false
-                    },
-                    {
-                        "attack": false
                     }
                 ],
                 "Script Resource": 4208369783,
@@ -71482,48 +69472,6 @@
                     },
                     {
                         "Has Shield": false
-                    },
-                    {
-                        "Max Health": 100.0
-                    },
-                    {
-                        "Current Helath": 0.0
-                    },
-                    {
-                        "Resistance": 100.0
-                    },
-                    {
-                        "Speed": 5.0
-                    },
-                    {
-                        "Acceleration": 1.399999976158142
-                    },
-                    {
-                        "Current speed": 0.0
-                    },
-                    {
-                        "Has Shield": false
-                    },
-                    {
-                        "Max Health": 100.0
-                    },
-                    {
-                        "Current Helath": 0.0
-                    },
-                    {
-                        "Resistance": 100.0
-                    },
-                    {
-                        "Speed": 5.0
-                    },
-                    {
-                        "Acceleration": 1.399999976158142
-                    },
-                    {
-                        "Current speed": 0.0
-                    },
-                    {
-                        "Has Shield": false
                     }
                 ],
                 "Script Resource": 4210965159,
@@ -71532,168 +69480,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Detection distance": 13.0
-                    },
-                    {
-                        "Lossing Enemy distance": 15.0
-                    },
-                    {
-                        "OutsideZone Time": 2.0
-                    },
-                    {
-                        "Time cooldown between shoots": 2.0
-                    },
-                    {
-                        "Attack Time": 1.0
-                    },
-                    {
-                        "Attack Charge": 1.0
-                    },
-                    {
-                        "Attack Cooldown": 1.0
-                    },
-                    {
-                        "Attack Speed": 11.0
-                    },
-                    {
-                        "Charge Speed": 0.0
-                    },
-                    {
-                        "Walk Away Speed": 2.0
-                    },
-                    {
-                        "Probaility to dodge %": 0
-                    },
-                    {
-                        "Vel dash": 0.0
-                    },
-                    {
-                        "Time Dash": 0.0
-                    },
-                    {
-                        "Target": 373022943
-                    },
-                    {
-                        "Action zone": 2472149487
-                    },
-                    {
-                        "Attack zone": 1986683252
-                    },
-                    {
-                        "Point 1": 351772813
-                    },
-                    {
-                        "Point 2": 871492081
-                    },
-                    {
-                        "Point 3": 3442148005
-                    },
-                    {
-                        "Animation Player": 3780680577
-                    },
-                    {
-                        "Walk Animation": 3613987091
-                    },
-                    {
-                        "Run Animation": 4206396574
-                    },
-                    {
-                        "Attack Animation": 3432128472
-                    },
-                    {
-                        "Charge Animation": 3274135775
-                    },
-                    {
-                        "Dash Animation": 3797384433
-                    },
-                    {
-                        "Die Animation": 3729272791
-                    },
-                    {
-                        "Hit Animation": 1305257066
-                    },
-                    {
-                        "Detection distance": 13.0
-                    },
-                    {
-                        "Lossing Enemy distance": 15.0
-                    },
-                    {
-                        "OutsideZone Time": 2.0
-                    },
-                    {
-                        "Time cooldown between shoots": 2.0
-                    },
-                    {
-                        "Attack Time": 1.0
-                    },
-                    {
-                        "Attack Charge": 1.0
-                    },
-                    {
-                        "Attack Cooldown": 1.0
-                    },
-                    {
-                        "Attack Speed": 11.0
-                    },
-                    {
-                        "Charge Speed": 0.0
-                    },
-                    {
-                        "Walk Away Speed": 2.0
-                    },
-                    {
-                        "Probaility to dodge %": 0
-                    },
-                    {
-                        "Vel dash": 0.0
-                    },
-                    {
-                        "Time Dash": 0.0
-                    },
-                    {
-                        "Target": 373022943
-                    },
-                    {
-                        "Action zone": 2472149487
-                    },
-                    {
-                        "Attack zone": 1986683252
-                    },
-                    {
-                        "Point 1": 351772813
-                    },
-                    {
-                        "Point 2": 871492081
-                    },
-                    {
-                        "Point 3": 3442148005
-                    },
-                    {
-                        "Animation Player": 3780680577
-                    },
-                    {
-                        "Walk Animation": 3613987091
-                    },
-                    {
-                        "Run Animation": 4206396574
-                    },
-                    {
-                        "Attack Animation": 3432128472
-                    },
-                    {
-                        "Charge Animation": 3274135775
-                    },
-                    {
-                        "Dash Animation": 3797384433
-                    },
-                    {
-                        "Die Animation": 3729272791
-                    },
-                    {
-                        "Hit Animation": 1305257066
-                    },
                     {
                         "Detection distance": 13.0
                     },
@@ -74783,12 +72569,6 @@
                 "Inspector Fields": [
                     {
                         "attack": false
-                    },
-                    {
-                        "attack": false
-                    },
-                    {
-                        "attack": false
                     }
                 ],
                 "Script Resource": 4208369783,
@@ -74987,48 +72767,6 @@
                     },
                     {
                         "Has Shield": false
-                    },
-                    {
-                        "Max Health": 100.0
-                    },
-                    {
-                        "Current Helath": 0.0
-                    },
-                    {
-                        "Resistance": 100.0
-                    },
-                    {
-                        "Speed": 5.0
-                    },
-                    {
-                        "Acceleration": 1.399999976158142
-                    },
-                    {
-                        "Current speed": 0.0
-                    },
-                    {
-                        "Has Shield": false
-                    },
-                    {
-                        "Max Health": 100.0
-                    },
-                    {
-                        "Current Helath": 0.0
-                    },
-                    {
-                        "Resistance": 100.0
-                    },
-                    {
-                        "Speed": 5.0
-                    },
-                    {
-                        "Acceleration": 1.399999976158142
-                    },
-                    {
-                        "Current speed": 0.0
-                    },
-                    {
-                        "Has Shield": false
                     }
                 ],
                 "Script Resource": 4210965159,
@@ -75037,168 +72775,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Detection distance": 15.0
-                    },
-                    {
-                        "Lossing Enemy distance": 15.0
-                    },
-                    {
-                        "OutsideZone Time": 2.0
-                    },
-                    {
-                        "Time cooldown between shoots": 2.0
-                    },
-                    {
-                        "Attack Time": 1.0
-                    },
-                    {
-                        "Attack Charge": 1.0
-                    },
-                    {
-                        "Attack Cooldown": 1.0
-                    },
-                    {
-                        "Attack Speed": 11.0
-                    },
-                    {
-                        "Charge Speed": 0.0
-                    },
-                    {
-                        "Walk Away Speed": 2.0
-                    },
-                    {
-                        "Probaility to dodge %": 0
-                    },
-                    {
-                        "Vel dash": 0.0
-                    },
-                    {
-                        "Time Dash": 0.0
-                    },
-                    {
-                        "Target": 373022943
-                    },
-                    {
-                        "Action zone": 3161664704
-                    },
-                    {
-                        "Attack zone": 1871145334
-                    },
-                    {
-                        "Point 1": 2701182054
-                    },
-                    {
-                        "Point 2": 3852726174
-                    },
-                    {
-                        "Point 3": 2701182054
-                    },
-                    {
-                        "Animation Player": 779118558
-                    },
-                    {
-                        "Walk Animation": 3613987091
-                    },
-                    {
-                        "Run Animation": 4206396574
-                    },
-                    {
-                        "Attack Animation": 3432128472
-                    },
-                    {
-                        "Charge Animation": 3274135775
-                    },
-                    {
-                        "Dash Animation": 3797384433
-                    },
-                    {
-                        "Die Animation": 3729272791
-                    },
-                    {
-                        "Hit Animation": 1305257066
-                    },
-                    {
-                        "Detection distance": 15.0
-                    },
-                    {
-                        "Lossing Enemy distance": 15.0
-                    },
-                    {
-                        "OutsideZone Time": 2.0
-                    },
-                    {
-                        "Time cooldown between shoots": 2.0
-                    },
-                    {
-                        "Attack Time": 1.0
-                    },
-                    {
-                        "Attack Charge": 1.0
-                    },
-                    {
-                        "Attack Cooldown": 1.0
-                    },
-                    {
-                        "Attack Speed": 11.0
-                    },
-                    {
-                        "Charge Speed": 0.0
-                    },
-                    {
-                        "Walk Away Speed": 2.0
-                    },
-                    {
-                        "Probaility to dodge %": 0
-                    },
-                    {
-                        "Vel dash": 0.0
-                    },
-                    {
-                        "Time Dash": 0.0
-                    },
-                    {
-                        "Target": 373022943
-                    },
-                    {
-                        "Action zone": 3161664704
-                    },
-                    {
-                        "Attack zone": 1871145334
-                    },
-                    {
-                        "Point 1": 2701182054
-                    },
-                    {
-                        "Point 2": 3852726174
-                    },
-                    {
-                        "Point 3": 2701182054
-                    },
-                    {
-                        "Animation Player": 779118558
-                    },
-                    {
-                        "Walk Animation": 3613987091
-                    },
-                    {
-                        "Run Animation": 4206396574
-                    },
-                    {
-                        "Attack Animation": 3432128472
-                    },
-                    {
-                        "Charge Animation": 3274135775
-                    },
-                    {
-                        "Dash Animation": 3797384433
-                    },
-                    {
-                        "Die Animation": 3729272791
-                    },
-                    {
-                        "Hit Animation": 1305257066
-                    },
                     {
                         "Detection distance": 15.0
                     },
@@ -78288,12 +75864,6 @@
                 "Inspector Fields": [
                     {
                         "attack": false
-                    },
-                    {
-                        "attack": false
-                    },
-                    {
-                        "attack": false
                     }
                 ],
                 "Script Resource": 4208369783,
@@ -78492,48 +76062,6 @@
                     },
                     {
                         "Has Shield": false
-                    },
-                    {
-                        "Max Health": 100.0
-                    },
-                    {
-                        "Current Helath": 0.0
-                    },
-                    {
-                        "Resistance": 100.0
-                    },
-                    {
-                        "Speed": 5.0
-                    },
-                    {
-                        "Acceleration": 1.399999976158142
-                    },
-                    {
-                        "Current speed": 0.0
-                    },
-                    {
-                        "Has Shield": false
-                    },
-                    {
-                        "Max Health": 100.0
-                    },
-                    {
-                        "Current Helath": 0.0
-                    },
-                    {
-                        "Resistance": 100.0
-                    },
-                    {
-                        "Speed": 5.0
-                    },
-                    {
-                        "Acceleration": 1.399999976158142
-                    },
-                    {
-                        "Current speed": 0.0
-                    },
-                    {
-                        "Has Shield": false
                     }
                 ],
                 "Script Resource": 4210965159,
@@ -78542,168 +76070,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Detection distance": 15.0
-                    },
-                    {
-                        "Lossing Enemy distance": 15.0
-                    },
-                    {
-                        "OutsideZone Time": 2.0
-                    },
-                    {
-                        "Time cooldown between shoots": 2.0
-                    },
-                    {
-                        "Attack Time": 1.0
-                    },
-                    {
-                        "Attack Charge": 1.0
-                    },
-                    {
-                        "Attack Cooldown": 1.0
-                    },
-                    {
-                        "Attack Speed": 11.0
-                    },
-                    {
-                        "Charge Speed": 0.0
-                    },
-                    {
-                        "Walk Away Speed": 2.0
-                    },
-                    {
-                        "Probaility to dodge %": 0
-                    },
-                    {
-                        "Vel dash": 0.0
-                    },
-                    {
-                        "Time Dash": 0.0
-                    },
-                    {
-                        "Target": 373022943
-                    },
-                    {
-                        "Action zone": 3161664704
-                    },
-                    {
-                        "Attack zone": 3760233020
-                    },
-                    {
-                        "Point 1": 875383944
-                    },
-                    {
-                        "Point 2": 3814602280
-                    },
-                    {
-                        "Point 3": 875383944
-                    },
-                    {
-                        "Animation Player": 71923660
-                    },
-                    {
-                        "Walk Animation": 3613987091
-                    },
-                    {
-                        "Run Animation": 4206396574
-                    },
-                    {
-                        "Attack Animation": 3432128472
-                    },
-                    {
-                        "Charge Animation": 3274135775
-                    },
-                    {
-                        "Dash Animation": 3797384433
-                    },
-                    {
-                        "Die Animation": 3729272791
-                    },
-                    {
-                        "Hit Animation": 1305257066
-                    },
-                    {
-                        "Detection distance": 15.0
-                    },
-                    {
-                        "Lossing Enemy distance": 15.0
-                    },
-                    {
-                        "OutsideZone Time": 2.0
-                    },
-                    {
-                        "Time cooldown between shoots": 2.0
-                    },
-                    {
-                        "Attack Time": 1.0
-                    },
-                    {
-                        "Attack Charge": 1.0
-                    },
-                    {
-                        "Attack Cooldown": 1.0
-                    },
-                    {
-                        "Attack Speed": 11.0
-                    },
-                    {
-                        "Charge Speed": 0.0
-                    },
-                    {
-                        "Walk Away Speed": 2.0
-                    },
-                    {
-                        "Probaility to dodge %": 0
-                    },
-                    {
-                        "Vel dash": 0.0
-                    },
-                    {
-                        "Time Dash": 0.0
-                    },
-                    {
-                        "Target": 373022943
-                    },
-                    {
-                        "Action zone": 3161664704
-                    },
-                    {
-                        "Attack zone": 3760233020
-                    },
-                    {
-                        "Point 1": 875383944
-                    },
-                    {
-                        "Point 2": 3814602280
-                    },
-                    {
-                        "Point 3": 875383944
-                    },
-                    {
-                        "Animation Player": 71923660
-                    },
-                    {
-                        "Walk Animation": 3613987091
-                    },
-                    {
-                        "Run Animation": 4206396574
-                    },
-                    {
-                        "Attack Animation": 3432128472
-                    },
-                    {
-                        "Charge Animation": 3274135775
-                    },
-                    {
-                        "Dash Animation": 3797384433
-                    },
-                    {
-                        "Die Animation": 3729272791
-                    },
-                    {
-                        "Hit Animation": 1305257066
-                    },
                     {
                         "Detection distance": 15.0
                     },
@@ -81793,12 +79159,6 @@
                 "Inspector Fields": [
                     {
                         "attack": false
-                    },
-                    {
-                        "attack": false
-                    },
-                    {
-                        "attack": false
                     }
                 ],
                 "Script Resource": 4208369783,
@@ -81997,48 +79357,6 @@
                     },
                     {
                         "Has Shield": false
-                    },
-                    {
-                        "Max Health": 100.0
-                    },
-                    {
-                        "Current Helath": 0.0
-                    },
-                    {
-                        "Resistance": 100.0
-                    },
-                    {
-                        "Speed": 5.0
-                    },
-                    {
-                        "Acceleration": 1.399999976158142
-                    },
-                    {
-                        "Current speed": 0.0
-                    },
-                    {
-                        "Has Shield": false
-                    },
-                    {
-                        "Max Health": 100.0
-                    },
-                    {
-                        "Current Helath": 0.0
-                    },
-                    {
-                        "Resistance": 100.0
-                    },
-                    {
-                        "Speed": 5.0
-                    },
-                    {
-                        "Acceleration": 1.399999976158142
-                    },
-                    {
-                        "Current speed": 0.0
-                    },
-                    {
-                        "Has Shield": false
                     }
                 ],
                 "Script Resource": 4210965159,
@@ -82047,168 +79365,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Detection distance": 15.0
-                    },
-                    {
-                        "Lossing Enemy distance": 15.0
-                    },
-                    {
-                        "OutsideZone Time": 2.0
-                    },
-                    {
-                        "Time cooldown between shoots": 2.0
-                    },
-                    {
-                        "Attack Time": 1.0
-                    },
-                    {
-                        "Attack Charge": 1.0
-                    },
-                    {
-                        "Attack Cooldown": 1.0
-                    },
-                    {
-                        "Attack Speed": 11.0
-                    },
-                    {
-                        "Charge Speed": 0.0
-                    },
-                    {
-                        "Walk Away Speed": 2.0
-                    },
-                    {
-                        "Probaility to dodge %": 0
-                    },
-                    {
-                        "Vel dash": 0.0
-                    },
-                    {
-                        "Time Dash": 0.0
-                    },
-                    {
-                        "Target": 373022943
-                    },
-                    {
-                        "Action zone": 3161664704
-                    },
-                    {
-                        "Attack zone": 1895114338
-                    },
-                    {
-                        "Point 1": 1417555015
-                    },
-                    {
-                        "Point 2": 1839171827
-                    },
-                    {
-                        "Point 3": 1417555015
-                    },
-                    {
-                        "Animation Player": 4171242999
-                    },
-                    {
-                        "Walk Animation": 3613987091
-                    },
-                    {
-                        "Run Animation": 4206396574
-                    },
-                    {
-                        "Attack Animation": 3432128472
-                    },
-                    {
-                        "Charge Animation": 3274135775
-                    },
-                    {
-                        "Dash Animation": 3797384433
-                    },
-                    {
-                        "Die Animation": 3729272791
-                    },
-                    {
-                        "Hit Animation": 1305257066
-                    },
-                    {
-                        "Detection distance": 15.0
-                    },
-                    {
-                        "Lossing Enemy distance": 15.0
-                    },
-                    {
-                        "OutsideZone Time": 2.0
-                    },
-                    {
-                        "Time cooldown between shoots": 2.0
-                    },
-                    {
-                        "Attack Time": 1.0
-                    },
-                    {
-                        "Attack Charge": 1.0
-                    },
-                    {
-                        "Attack Cooldown": 1.0
-                    },
-                    {
-                        "Attack Speed": 11.0
-                    },
-                    {
-                        "Charge Speed": 0.0
-                    },
-                    {
-                        "Walk Away Speed": 2.0
-                    },
-                    {
-                        "Probaility to dodge %": 0
-                    },
-                    {
-                        "Vel dash": 0.0
-                    },
-                    {
-                        "Time Dash": 0.0
-                    },
-                    {
-                        "Target": 373022943
-                    },
-                    {
-                        "Action zone": 3161664704
-                    },
-                    {
-                        "Attack zone": 1895114338
-                    },
-                    {
-                        "Point 1": 1417555015
-                    },
-                    {
-                        "Point 2": 1839171827
-                    },
-                    {
-                        "Point 3": 1417555015
-                    },
-                    {
-                        "Animation Player": 4171242999
-                    },
-                    {
-                        "Walk Animation": 3613987091
-                    },
-                    {
-                        "Run Animation": 4206396574
-                    },
-                    {
-                        "Attack Animation": 3432128472
-                    },
-                    {
-                        "Charge Animation": 3274135775
-                    },
-                    {
-                        "Dash Animation": 3797384433
-                    },
-                    {
-                        "Die Animation": 3729272791
-                    },
-                    {
-                        "Hit Animation": 1305257066
-                    },
                     {
                         "Detection distance": 15.0
                     },
@@ -85298,12 +82454,6 @@
                 "Inspector Fields": [
                     {
                         "attack": false
-                    },
-                    {
-                        "attack": false
-                    },
-                    {
-                        "attack": false
                     }
                 ],
                 "Script Resource": 4208369783,
@@ -85502,48 +82652,6 @@
                     },
                     {
                         "Has Shield": false
-                    },
-                    {
-                        "Max Health": 100.0
-                    },
-                    {
-                        "Current Helath": 0.0
-                    },
-                    {
-                        "Resistance": 100.0
-                    },
-                    {
-                        "Speed": 5.0
-                    },
-                    {
-                        "Acceleration": 1.399999976158142
-                    },
-                    {
-                        "Current speed": 0.0
-                    },
-                    {
-                        "Has Shield": false
-                    },
-                    {
-                        "Max Health": 100.0
-                    },
-                    {
-                        "Current Helath": 0.0
-                    },
-                    {
-                        "Resistance": 100.0
-                    },
-                    {
-                        "Speed": 5.0
-                    },
-                    {
-                        "Acceleration": 1.399999976158142
-                    },
-                    {
-                        "Current speed": 0.0
-                    },
-                    {
-                        "Has Shield": false
                     }
                 ],
                 "Script Resource": 4210965159,
@@ -85552,168 +82660,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Detection distance": 15.0
-                    },
-                    {
-                        "Lossing Enemy distance": 15.0
-                    },
-                    {
-                        "OutsideZone Time": 2.0
-                    },
-                    {
-                        "Time cooldown between shoots": 2.0
-                    },
-                    {
-                        "Attack Time": 1.0
-                    },
-                    {
-                        "Attack Charge": 1.0
-                    },
-                    {
-                        "Attack Cooldown": 1.0
-                    },
-                    {
-                        "Attack Speed": 11.0
-                    },
-                    {
-                        "Charge Speed": 0.0
-                    },
-                    {
-                        "Walk Away Speed": 2.0
-                    },
-                    {
-                        "Probaility to dodge %": 0
-                    },
-                    {
-                        "Vel dash": 0.0
-                    },
-                    {
-                        "Time Dash": 0.0
-                    },
-                    {
-                        "Target": 373022943
-                    },
-                    {
-                        "Action zone": 1184437183
-                    },
-                    {
-                        "Attack zone": 3246579040
-                    },
-                    {
-                        "Point 1": 4230215842
-                    },
-                    {
-                        "Point 2": 1654681865
-                    },
-                    {
-                        "Point 3": 4230215842
-                    },
-                    {
-                        "Animation Player": 550759392
-                    },
-                    {
-                        "Walk Animation": 3613987091
-                    },
-                    {
-                        "Run Animation": 4206396574
-                    },
-                    {
-                        "Attack Animation": 3432128472
-                    },
-                    {
-                        "Charge Animation": 3274135775
-                    },
-                    {
-                        "Dash Animation": 3797384433
-                    },
-                    {
-                        "Die Animation": 3729272791
-                    },
-                    {
-                        "Hit Animation": 1305257066
-                    },
-                    {
-                        "Detection distance": 15.0
-                    },
-                    {
-                        "Lossing Enemy distance": 15.0
-                    },
-                    {
-                        "OutsideZone Time": 2.0
-                    },
-                    {
-                        "Time cooldown between shoots": 2.0
-                    },
-                    {
-                        "Attack Time": 1.0
-                    },
-                    {
-                        "Attack Charge": 1.0
-                    },
-                    {
-                        "Attack Cooldown": 1.0
-                    },
-                    {
-                        "Attack Speed": 11.0
-                    },
-                    {
-                        "Charge Speed": 0.0
-                    },
-                    {
-                        "Walk Away Speed": 2.0
-                    },
-                    {
-                        "Probaility to dodge %": 0
-                    },
-                    {
-                        "Vel dash": 0.0
-                    },
-                    {
-                        "Time Dash": 0.0
-                    },
-                    {
-                        "Target": 373022943
-                    },
-                    {
-                        "Action zone": 1184437183
-                    },
-                    {
-                        "Attack zone": 3246579040
-                    },
-                    {
-                        "Point 1": 4230215842
-                    },
-                    {
-                        "Point 2": 1654681865
-                    },
-                    {
-                        "Point 3": 4230215842
-                    },
-                    {
-                        "Animation Player": 550759392
-                    },
-                    {
-                        "Walk Animation": 3613987091
-                    },
-                    {
-                        "Run Animation": 4206396574
-                    },
-                    {
-                        "Attack Animation": 3432128472
-                    },
-                    {
-                        "Charge Animation": 3274135775
-                    },
-                    {
-                        "Dash Animation": 3797384433
-                    },
-                    {
-                        "Die Animation": 3729272791
-                    },
-                    {
-                        "Hit Animation": 1305257066
-                    },
                     {
                         "Detection distance": 15.0
                     },
@@ -88803,12 +85749,6 @@
                 "Inspector Fields": [
                     {
                         "attack": false
-                    },
-                    {
-                        "attack": false
-                    },
-                    {
-                        "attack": false
                     }
                 ],
                 "Script Resource": 4208369783,
@@ -89007,48 +85947,6 @@
                     },
                     {
                         "Has Shield": false
-                    },
-                    {
-                        "Max Health": 100.0
-                    },
-                    {
-                        "Current Helath": 0.0
-                    },
-                    {
-                        "Resistance": 100.0
-                    },
-                    {
-                        "Speed": 5.0
-                    },
-                    {
-                        "Acceleration": 1.399999976158142
-                    },
-                    {
-                        "Current speed": 0.0
-                    },
-                    {
-                        "Has Shield": false
-                    },
-                    {
-                        "Max Health": 100.0
-                    },
-                    {
-                        "Current Helath": 0.0
-                    },
-                    {
-                        "Resistance": 100.0
-                    },
-                    {
-                        "Speed": 5.0
-                    },
-                    {
-                        "Acceleration": 1.399999976158142
-                    },
-                    {
-                        "Current speed": 0.0
-                    },
-                    {
-                        "Has Shield": false
                     }
                 ],
                 "Script Resource": 4210965159,
@@ -89057,168 +85955,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Detection distance": 15.0
-                    },
-                    {
-                        "Lossing Enemy distance": 15.0
-                    },
-                    {
-                        "OutsideZone Time": 2.0
-                    },
-                    {
-                        "Time cooldown between shoots": 2.0
-                    },
-                    {
-                        "Attack Time": 1.0
-                    },
-                    {
-                        "Attack Charge": 1.0
-                    },
-                    {
-                        "Attack Cooldown": 1.0
-                    },
-                    {
-                        "Attack Speed": 11.0
-                    },
-                    {
-                        "Charge Speed": 0.0
-                    },
-                    {
-                        "Walk Away Speed": 2.0
-                    },
-                    {
-                        "Probaility to dodge %": 0
-                    },
-                    {
-                        "Vel dash": 0.0
-                    },
-                    {
-                        "Time Dash": 0.0
-                    },
-                    {
-                        "Target": 373022943
-                    },
-                    {
-                        "Action zone": 1184437183
-                    },
-                    {
-                        "Attack zone": 996869389
-                    },
-                    {
-                        "Point 1": 993309852
-                    },
-                    {
-                        "Point 2": 1956773196
-                    },
-                    {
-                        "Point 3": 993309852
-                    },
-                    {
-                        "Animation Player": 1866157590
-                    },
-                    {
-                        "Walk Animation": 3613987091
-                    },
-                    {
-                        "Run Animation": 4206396574
-                    },
-                    {
-                        "Attack Animation": 3432128472
-                    },
-                    {
-                        "Charge Animation": 3274135775
-                    },
-                    {
-                        "Dash Animation": 3797384433
-                    },
-                    {
-                        "Die Animation": 3729272791
-                    },
-                    {
-                        "Hit Animation": 1305257066
-                    },
-                    {
-                        "Detection distance": 15.0
-                    },
-                    {
-                        "Lossing Enemy distance": 15.0
-                    },
-                    {
-                        "OutsideZone Time": 2.0
-                    },
-                    {
-                        "Time cooldown between shoots": 2.0
-                    },
-                    {
-                        "Attack Time": 1.0
-                    },
-                    {
-                        "Attack Charge": 1.0
-                    },
-                    {
-                        "Attack Cooldown": 1.0
-                    },
-                    {
-                        "Attack Speed": 11.0
-                    },
-                    {
-                        "Charge Speed": 0.0
-                    },
-                    {
-                        "Walk Away Speed": 2.0
-                    },
-                    {
-                        "Probaility to dodge %": 0
-                    },
-                    {
-                        "Vel dash": 0.0
-                    },
-                    {
-                        "Time Dash": 0.0
-                    },
-                    {
-                        "Target": 373022943
-                    },
-                    {
-                        "Action zone": 1184437183
-                    },
-                    {
-                        "Attack zone": 996869389
-                    },
-                    {
-                        "Point 1": 993309852
-                    },
-                    {
-                        "Point 2": 1956773196
-                    },
-                    {
-                        "Point 3": 993309852
-                    },
-                    {
-                        "Animation Player": 1866157590
-                    },
-                    {
-                        "Walk Animation": 3613987091
-                    },
-                    {
-                        "Run Animation": 4206396574
-                    },
-                    {
-                        "Attack Animation": 3432128472
-                    },
-                    {
-                        "Charge Animation": 3274135775
-                    },
-                    {
-                        "Dash Animation": 3797384433
-                    },
-                    {
-                        "Die Animation": 3729272791
-                    },
-                    {
-                        "Hit Animation": 1305257066
-                    },
                     {
                         "Detection distance": 15.0
                     },
@@ -92308,12 +89044,6 @@
                 "Inspector Fields": [
                     {
                         "attack": false
-                    },
-                    {
-                        "attack": false
-                    },
-                    {
-                        "attack": false
                     }
                 ],
                 "Script Resource": 4208369783,
@@ -92512,48 +89242,6 @@
                     },
                     {
                         "Has Shield": false
-                    },
-                    {
-                        "Max Health": 100.0
-                    },
-                    {
-                        "Current Helath": 0.0
-                    },
-                    {
-                        "Resistance": 100.0
-                    },
-                    {
-                        "Speed": 5.0
-                    },
-                    {
-                        "Acceleration": 1.399999976158142
-                    },
-                    {
-                        "Current speed": 0.0
-                    },
-                    {
-                        "Has Shield": false
-                    },
-                    {
-                        "Max Health": 100.0
-                    },
-                    {
-                        "Current Helath": 0.0
-                    },
-                    {
-                        "Resistance": 100.0
-                    },
-                    {
-                        "Speed": 5.0
-                    },
-                    {
-                        "Acceleration": 1.399999976158142
-                    },
-                    {
-                        "Current speed": 0.0
-                    },
-                    {
-                        "Has Shield": false
                     }
                 ],
                 "Script Resource": 4210965159,
@@ -92562,168 +89250,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Detection distance": 15.0
-                    },
-                    {
-                        "Lossing Enemy distance": 15.0
-                    },
-                    {
-                        "OutsideZone Time": 2.0
-                    },
-                    {
-                        "Time cooldown between shoots": 2.0
-                    },
-                    {
-                        "Attack Time": 1.0
-                    },
-                    {
-                        "Attack Charge": 1.0
-                    },
-                    {
-                        "Attack Cooldown": 1.0
-                    },
-                    {
-                        "Attack Speed": 11.0
-                    },
-                    {
-                        "Charge Speed": 0.0
-                    },
-                    {
-                        "Walk Away Speed": 2.0
-                    },
-                    {
-                        "Probaility to dodge %": 0
-                    },
-                    {
-                        "Vel dash": 0.0
-                    },
-                    {
-                        "Time Dash": 0.0
-                    },
-                    {
-                        "Target": 373022943
-                    },
-                    {
-                        "Action zone": 1184437183
-                    },
-                    {
-                        "Attack zone": 149775733
-                    },
-                    {
-                        "Point 1": 3416739215
-                    },
-                    {
-                        "Point 2": 37198554
-                    },
-                    {
-                        "Point 3": 3416739215
-                    },
-                    {
-                        "Animation Player": 283964382
-                    },
-                    {
-                        "Walk Animation": 3613987091
-                    },
-                    {
-                        "Run Animation": 4206396574
-                    },
-                    {
-                        "Attack Animation": 3432128472
-                    },
-                    {
-                        "Charge Animation": 3274135775
-                    },
-                    {
-                        "Dash Animation": 3797384433
-                    },
-                    {
-                        "Die Animation": 3729272791
-                    },
-                    {
-                        "Hit Animation": 1305257066
-                    },
-                    {
-                        "Detection distance": 15.0
-                    },
-                    {
-                        "Lossing Enemy distance": 15.0
-                    },
-                    {
-                        "OutsideZone Time": 2.0
-                    },
-                    {
-                        "Time cooldown between shoots": 2.0
-                    },
-                    {
-                        "Attack Time": 1.0
-                    },
-                    {
-                        "Attack Charge": 1.0
-                    },
-                    {
-                        "Attack Cooldown": 1.0
-                    },
-                    {
-                        "Attack Speed": 11.0
-                    },
-                    {
-                        "Charge Speed": 0.0
-                    },
-                    {
-                        "Walk Away Speed": 2.0
-                    },
-                    {
-                        "Probaility to dodge %": 0
-                    },
-                    {
-                        "Vel dash": 0.0
-                    },
-                    {
-                        "Time Dash": 0.0
-                    },
-                    {
-                        "Target": 373022943
-                    },
-                    {
-                        "Action zone": 1184437183
-                    },
-                    {
-                        "Attack zone": 149775733
-                    },
-                    {
-                        "Point 1": 3416739215
-                    },
-                    {
-                        "Point 2": 37198554
-                    },
-                    {
-                        "Point 3": 3416739215
-                    },
-                    {
-                        "Animation Player": 283964382
-                    },
-                    {
-                        "Walk Animation": 3613987091
-                    },
-                    {
-                        "Run Animation": 4206396574
-                    },
-                    {
-                        "Attack Animation": 3432128472
-                    },
-                    {
-                        "Charge Animation": 3274135775
-                    },
-                    {
-                        "Dash Animation": 3797384433
-                    },
-                    {
-                        "Die Animation": 3729272791
-                    },
-                    {
-                        "Hit Animation": 1305257066
-                    },
                     {
                         "Detection distance": 15.0
                     },
@@ -95813,12 +92339,6 @@
                 "Inspector Fields": [
                     {
                         "attack": false
-                    },
-                    {
-                        "attack": false
-                    },
-                    {
-                        "attack": false
                     }
                 ],
                 "Script Resource": 4208369783,
@@ -96010,18 +92530,6 @@
                     },
                     {
                         "Particles": 4208547441
-                    },
-                    {
-                        "Pull Size": 100
-                    },
-                    {
-                        "Particles": 4208547441
-                    },
-                    {
-                        "Pull Size": 100
-                    },
-                    {
-                        "Particles": 4208547441
                     }
                 ],
                 "Script Resource": 1799189023,
@@ -96146,48 +92654,6 @@
                     },
                     {
                         "Has Shield": false
-                    },
-                    {
-                        "Max Health": 400.0
-                    },
-                    {
-                        "Current Helath": 0.0
-                    },
-                    {
-                        "Resistance": 100.0
-                    },
-                    {
-                        "Speed": 2.0
-                    },
-                    {
-                        "Acceleration": 1.5
-                    },
-                    {
-                        "Current speed": 0.0
-                    },
-                    {
-                        "Has Shield": false
-                    },
-                    {
-                        "Max Health": 400.0
-                    },
-                    {
-                        "Current Helath": 0.0
-                    },
-                    {
-                        "Resistance": 100.0
-                    },
-                    {
-                        "Speed": 2.0
-                    },
-                    {
-                        "Acceleration": 1.5
-                    },
-                    {
-                        "Current speed": 0.0
-                    },
-                    {
-                        "Has Shield": false
                     }
                 ],
                 "Script Resource": 4210965159,
@@ -96196,126 +92662,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "init X": 0.0
-                    },
-                    {
-                        "init Y": 0.0
-                    },
-                    {
-                        "init Z": 0.0
-                    },
-                    {
-                        "Init Pos Range": 0.25
-                    },
-                    {
-                        "Max Shield": 200.0
-                    },
-                    {
-                        "Current Shield": 0.0
-                    },
-                    {
-                        "Recover Shield Time": 60.0
-                    },
-                    {
-                        "Hp/s": 5.0
-                    },
-                    {
-                        "Hp/s Cooldown": 10.0
-                    },
-                    {
-                        "Max Shield": 200.0
-                    },
-                    {
-                        "Detection Distance": 20.0
-                    },
-                    {
-                        "Gun Type(0Semi/1Burst/2Shotgun)": 2
-                    },
-                    {
-                        "Enemy gun": 1202549906
-                    },
-                    {
-                        "Target": 373022943
-                    },
-                    {
-                        "Action Rb zone": 1184437183
-                    },
-                    {
-                        "Attack Range": 10.0
-                    },
-                    {
-                        "Approximate Range": 6.0
-                    },
-                    {
-                        "Separate Range": 4.0
-                    },
-                    {
-                        "Return Distance": 10.0
-                    },
-                    {
-                        "Is Protecting": false
-                    },
-                    {
-                        "init X": 0.0
-                    },
-                    {
-                        "init Y": 0.0
-                    },
-                    {
-                        "init Z": 0.0
-                    },
-                    {
-                        "Init Pos Range": 0.25
-                    },
-                    {
-                        "Max Shield": 200.0
-                    },
-                    {
-                        "Current Shield": 0.0
-                    },
-                    {
-                        "Recover Shield Time": 60.0
-                    },
-                    {
-                        "Hp/s": 5.0
-                    },
-                    {
-                        "Hp/s Cooldown": 10.0
-                    },
-                    {
-                        "Max Shield": 200.0
-                    },
-                    {
-                        "Detection Distance": 20.0
-                    },
-                    {
-                        "Gun Type(0Semi/1Burst/2Shotgun)": 2
-                    },
-                    {
-                        "Enemy gun": 1202549906
-                    },
-                    {
-                        "Target": 373022943
-                    },
-                    {
-                        "Action Rb zone": 1184437183
-                    },
-                    {
-                        "Attack Range": 10.0
-                    },
-                    {
-                        "Approximate Range": 6.0
-                    },
-                    {
-                        "Separate Range": 4.0
-                    },
-                    {
-                        "Return Distance": 10.0
-                    },
-                    {
-                        "Is Protecting": false
-                    },
                     {
                         "init X": 0.0
                     },
@@ -97864,104 +94210,6 @@
                     },
                     {
                         "Audio Event String": "basic_shooting"
-                    },
-                    {
-                        "Self Enemy GO": 3050807255
-                    },
-                    {
-                        "Projectile Pull": 612456740
-                    },
-                    {
-                        "Projectile Speed": 20.0
-                    },
-                    {
-                        "Projectile Damage": 4.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 2.0
-                    },
-                    {
-                        "Projectile Lifetime": 0.6000000238418579
-                    },
-                    {
-                        "Projectile Spawn": 1202549906
-                    },
-                    {
-                        "Projectile MeshIndexInsideModel": 0,
-                        "Projectile MeshModelUID": 1551155716
-                    },
-                    {
-                        "Projectile Material": 3245286453
-                    },
-                    {
-                        "Projectile ScaleX": 0.05000000074505806
-                    },
-                    {
-                        "Projectile ScaleY": 0.05000000074505806
-                    },
-                    {
-                        "Projectile ScaleZ": 0.05000000074505806
-                    },
-                    {
-                        "Projectiles per second": 0.5
-                    },
-                    {
-                        "Pellets per shot": 10
-                    },
-                    {
-                        "Pellets Dispersion": 0.10000000149011612
-                    },
-                    {
-                        "Audio Event String": "basic_shooting"
-                    },
-                    {
-                        "Self Enemy GO": 3050807255
-                    },
-                    {
-                        "Projectile Pull": 612456740
-                    },
-                    {
-                        "Projectile Speed": 20.0
-                    },
-                    {
-                        "Projectile Damage": 4.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 2.0
-                    },
-                    {
-                        "Projectile Lifetime": 0.6000000238418579
-                    },
-                    {
-                        "Projectile Spawn": 1202549906
-                    },
-                    {
-                        "Projectile MeshIndexInsideModel": 0,
-                        "Projectile MeshModelUID": 1551155716
-                    },
-                    {
-                        "Projectile Material": 3245286453
-                    },
-                    {
-                        "Projectile ScaleX": 0.05000000074505806
-                    },
-                    {
-                        "Projectile ScaleY": 0.05000000074505806
-                    },
-                    {
-                        "Projectile ScaleZ": 0.05000000074505806
-                    },
-                    {
-                        "Projectiles per second": 0.5
-                    },
-                    {
-                        "Pellets per shot": 10
-                    },
-                    {
-                        "Pellets Dispersion": 0.10000000149011612
-                    },
-                    {
-                        "Audio Event String": "basic_shooting"
                     }
                 ],
                 "Script Resource": 1487657637,
@@ -98066,12 +94314,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Tank": 3050807255
-                    },
-                    {
-                        "Tank": 3050807255
-                    },
                     {
                         "Tank": 3050807255
                     }
@@ -98198,48 +94440,6 @@
                     },
                     {
                         "Has Shield": false
-                    },
-                    {
-                        "Max Health": 400.0
-                    },
-                    {
-                        "Current Helath": 0.0
-                    },
-                    {
-                        "Resistance": 100.0
-                    },
-                    {
-                        "Speed": 2.0
-                    },
-                    {
-                        "Acceleration": 1.5
-                    },
-                    {
-                        "Current speed": 0.0
-                    },
-                    {
-                        "Has Shield": false
-                    },
-                    {
-                        "Max Health": 400.0
-                    },
-                    {
-                        "Current Helath": 0.0
-                    },
-                    {
-                        "Resistance": 100.0
-                    },
-                    {
-                        "Speed": 2.0
-                    },
-                    {
-                        "Acceleration": 1.5
-                    },
-                    {
-                        "Current speed": 0.0
-                    },
-                    {
-                        "Has Shield": false
                     }
                 ],
                 "Script Resource": 4210965159,
@@ -98248,126 +94448,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "init X": 0.0
-                    },
-                    {
-                        "init Y": 0.0
-                    },
-                    {
-                        "init Z": 0.0
-                    },
-                    {
-                        "Init Pos Range": 0.25
-                    },
-                    {
-                        "Max Shield": 200.0
-                    },
-                    {
-                        "Current Shield": 0.0
-                    },
-                    {
-                        "Recover Shield Time": 60.0
-                    },
-                    {
-                        "Hp/s": 5.0
-                    },
-                    {
-                        "Hp/s Cooldown": 10.0
-                    },
-                    {
-                        "Max Shield": 200.0
-                    },
-                    {
-                        "Detection Distance": 20.0
-                    },
-                    {
-                        "Gun Type(0Semi/1Burst/2Shotgun)": 2
-                    },
-                    {
-                        "Enemy gun": 1202549906
-                    },
-                    {
-                        "Target": 373022943
-                    },
-                    {
-                        "Action Rb zone": 3486102855
-                    },
-                    {
-                        "Attack Range": 20.0
-                    },
-                    {
-                        "Approximate Range": 6.0
-                    },
-                    {
-                        "Separate Range": 4.0
-                    },
-                    {
-                        "Return Distance": 10.0
-                    },
-                    {
-                        "Is Protecting": false
-                    },
-                    {
-                        "init X": 0.0
-                    },
-                    {
-                        "init Y": 0.0
-                    },
-                    {
-                        "init Z": 0.0
-                    },
-                    {
-                        "Init Pos Range": 0.25
-                    },
-                    {
-                        "Max Shield": 200.0
-                    },
-                    {
-                        "Current Shield": 0.0
-                    },
-                    {
-                        "Recover Shield Time": 60.0
-                    },
-                    {
-                        "Hp/s": 5.0
-                    },
-                    {
-                        "Hp/s Cooldown": 10.0
-                    },
-                    {
-                        "Max Shield": 200.0
-                    },
-                    {
-                        "Detection Distance": 20.0
-                    },
-                    {
-                        "Gun Type(0Semi/1Burst/2Shotgun)": 2
-                    },
-                    {
-                        "Enemy gun": 1202549906
-                    },
-                    {
-                        "Target": 373022943
-                    },
-                    {
-                        "Action Rb zone": 3486102855
-                    },
-                    {
-                        "Attack Range": 20.0
-                    },
-                    {
-                        "Approximate Range": 6.0
-                    },
-                    {
-                        "Separate Range": 4.0
-                    },
-                    {
-                        "Return Distance": 10.0
-                    },
-                    {
-                        "Is Protecting": false
-                    },
                     {
                         "init X": 0.0
                     },
@@ -99916,104 +95996,6 @@
                     },
                     {
                         "Audio Event String": "basic_shooting"
-                    },
-                    {
-                        "Self Enemy GO": 4257203418
-                    },
-                    {
-                        "Projectile Pull": 612456740
-                    },
-                    {
-                        "Projectile Speed": 20.0
-                    },
-                    {
-                        "Projectile Damage": 4.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 2.0
-                    },
-                    {
-                        "Projectile Lifetime": 0.6000000238418579
-                    },
-                    {
-                        "Projectile Spawn": 3820551811
-                    },
-                    {
-                        "Projectile MeshIndexInsideModel": 0,
-                        "Projectile MeshModelUID": 1551155716
-                    },
-                    {
-                        "Projectile Material": 3245286453
-                    },
-                    {
-                        "Projectile ScaleX": 0.05000000074505806
-                    },
-                    {
-                        "Projectile ScaleY": 0.05000000074505806
-                    },
-                    {
-                        "Projectile ScaleZ": 0.05000000074505806
-                    },
-                    {
-                        "Projectiles per second": 0.5
-                    },
-                    {
-                        "Pellets per shot": 10
-                    },
-                    {
-                        "Pellets Dispersion": 0.10000000149011612
-                    },
-                    {
-                        "Audio Event String": "basic_shooting"
-                    },
-                    {
-                        "Self Enemy GO": 4257203418
-                    },
-                    {
-                        "Projectile Pull": 612456740
-                    },
-                    {
-                        "Projectile Speed": 20.0
-                    },
-                    {
-                        "Projectile Damage": 4.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 2.0
-                    },
-                    {
-                        "Projectile Lifetime": 0.6000000238418579
-                    },
-                    {
-                        "Projectile Spawn": 3820551811
-                    },
-                    {
-                        "Projectile MeshIndexInsideModel": 0,
-                        "Projectile MeshModelUID": 1551155716
-                    },
-                    {
-                        "Projectile Material": 3245286453
-                    },
-                    {
-                        "Projectile ScaleX": 0.05000000074505806
-                    },
-                    {
-                        "Projectile ScaleY": 0.05000000074505806
-                    },
-                    {
-                        "Projectile ScaleZ": 0.05000000074505806
-                    },
-                    {
-                        "Projectiles per second": 0.5
-                    },
-                    {
-                        "Pellets per shot": 10
-                    },
-                    {
-                        "Pellets Dispersion": 0.10000000149011612
-                    },
-                    {
-                        "Audio Event String": "basic_shooting"
                     }
                 ],
                 "Script Resource": 1487657637,
@@ -100118,12 +96100,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Tank": 3050807255
-                    },
-                    {
-                        "Tank": 3050807255
-                    },
                     {
                         "Tank": 3050807255
                     }
@@ -100250,48 +96226,6 @@
                     },
                     {
                         "Has Shield": false
-                    },
-                    {
-                        "Max Health": 400.0
-                    },
-                    {
-                        "Current Helath": 0.0
-                    },
-                    {
-                        "Resistance": 100.0
-                    },
-                    {
-                        "Speed": 2.0
-                    },
-                    {
-                        "Acceleration": 1.5
-                    },
-                    {
-                        "Current speed": 0.0
-                    },
-                    {
-                        "Has Shield": false
-                    },
-                    {
-                        "Max Health": 400.0
-                    },
-                    {
-                        "Current Helath": 0.0
-                    },
-                    {
-                        "Resistance": 100.0
-                    },
-                    {
-                        "Speed": 2.0
-                    },
-                    {
-                        "Acceleration": 1.5
-                    },
-                    {
-                        "Current speed": 0.0
-                    },
-                    {
-                        "Has Shield": false
                     }
                 ],
                 "Script Resource": 4210965159,
@@ -100300,120 +96234,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "init X": 0.0
-                    },
-                    {
-                        "init Y": 0.0
-                    },
-                    {
-                        "init Z": 0.0
-                    },
-                    {
-                        "Init Pos Range": 0.25
-                    },
-                    {
-                        "Max Shield": 200.0
-                    },
-                    {
-                        "Current Shield": 0.0
-                    },
-                    {
-                        "Recover Shield Time": 60.0
-                    },
-                    {
-                        "Hp/s": 5.0
-                    },
-                    {
-                        "Hp/s Cooldown": 10.0
-                    },
-                    {
-                        "Max Shield": 200.0
-                    },
-                    {
-                        "Detection Distance": 40.0
-                    },
-                    {
-                        "Gun Type(0Semi/1Burst/2Shotgun)": 2
-                    },
-                    {
-                        "Enemy gun": 1202549906
-                    },
-                    {
-                        "Target": 373022943
-                    },
-                    {
-                        "Attack Range": 10.0
-                    },
-                    {
-                        "Approximate Range": 6.0
-                    },
-                    {
-                        "Separate Range": 4.0
-                    },
-                    {
-                        "Return Distance": 10.0
-                    },
-                    {
-                        "Is Protecting": false
-                    },
-                    {
-                        "init X": 0.0
-                    },
-                    {
-                        "init Y": 0.0
-                    },
-                    {
-                        "init Z": 0.0
-                    },
-                    {
-                        "Init Pos Range": 0.25
-                    },
-                    {
-                        "Max Shield": 200.0
-                    },
-                    {
-                        "Current Shield": 0.0
-                    },
-                    {
-                        "Recover Shield Time": 60.0
-                    },
-                    {
-                        "Hp/s": 5.0
-                    },
-                    {
-                        "Hp/s Cooldown": 10.0
-                    },
-                    {
-                        "Max Shield": 200.0
-                    },
-                    {
-                        "Detection Distance": 40.0
-                    },
-                    {
-                        "Gun Type(0Semi/1Burst/2Shotgun)": 2
-                    },
-                    {
-                        "Enemy gun": 1202549906
-                    },
-                    {
-                        "Target": 373022943
-                    },
-                    {
-                        "Attack Range": 10.0
-                    },
-                    {
-                        "Approximate Range": 6.0
-                    },
-                    {
-                        "Separate Range": 4.0
-                    },
-                    {
-                        "Return Distance": 10.0
-                    },
-                    {
-                        "Is Protecting": false
-                    },
                     {
                         "init X": 0.0
                     },
@@ -101959,104 +97779,6 @@
                     },
                     {
                         "Audio Event String": "basic_shooting"
-                    },
-                    {
-                        "Self Enemy GO": 3177328151
-                    },
-                    {
-                        "Projectile Pull": 612456740
-                    },
-                    {
-                        "Projectile Speed": 20.0
-                    },
-                    {
-                        "Projectile Damage": 4.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 2.0
-                    },
-                    {
-                        "Projectile Lifetime": 0.6000000238418579
-                    },
-                    {
-                        "Projectile Spawn": 3479856001
-                    },
-                    {
-                        "Projectile MeshIndexInsideModel": 0,
-                        "Projectile MeshModelUID": 1551155716
-                    },
-                    {
-                        "Projectile Material": 3245286453
-                    },
-                    {
-                        "Projectile ScaleX": 0.05000000074505806
-                    },
-                    {
-                        "Projectile ScaleY": 0.05000000074505806
-                    },
-                    {
-                        "Projectile ScaleZ": 0.05000000074505806
-                    },
-                    {
-                        "Projectiles per second": 0.5
-                    },
-                    {
-                        "Pellets per shot": 10
-                    },
-                    {
-                        "Pellets Dispersion": 0.10000000149011612
-                    },
-                    {
-                        "Audio Event String": "basic_shooting"
-                    },
-                    {
-                        "Self Enemy GO": 3177328151
-                    },
-                    {
-                        "Projectile Pull": 612456740
-                    },
-                    {
-                        "Projectile Speed": 20.0
-                    },
-                    {
-                        "Projectile Damage": 4.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 2.0
-                    },
-                    {
-                        "Projectile Lifetime": 0.6000000238418579
-                    },
-                    {
-                        "Projectile Spawn": 3479856001
-                    },
-                    {
-                        "Projectile MeshIndexInsideModel": 0,
-                        "Projectile MeshModelUID": 1551155716
-                    },
-                    {
-                        "Projectile Material": 3245286453
-                    },
-                    {
-                        "Projectile ScaleX": 0.05000000074505806
-                    },
-                    {
-                        "Projectile ScaleY": 0.05000000074505806
-                    },
-                    {
-                        "Projectile ScaleZ": 0.05000000074505806
-                    },
-                    {
-                        "Projectiles per second": 0.5
-                    },
-                    {
-                        "Pellets per shot": 10
-                    },
-                    {
-                        "Pellets Dispersion": 0.10000000149011612
-                    },
-                    {
-                        "Audio Event String": "basic_shooting"
                     }
                 ],
                 "Script Resource": 1487657637,
@@ -102161,12 +97883,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Tank": 3050807255
-                    },
-                    {
-                        "Tank": 3050807255
-                    },
                     {
                         "Tank": 3050807255
                     }
