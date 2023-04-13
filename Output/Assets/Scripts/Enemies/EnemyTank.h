@@ -11,6 +11,12 @@ class EnemyTank : HelloBehavior
 {
 public:
 
+	enum class AnimStates {
+		IDLE,
+		WALK,
+		DIE
+	};
+
 	enum class States {
 		WANDERING,
 		TARGETING,
@@ -77,9 +83,14 @@ public:
 	float testingFloat5;
 
 	API_GameObject protectedEnemy;
+	API_AnimationPlayer animationPlayer;
 	float alliesDistance;
 
 	bool isProtectingAlly;
+
+	uint idleAnim;
+	uint walkAnim;
+	uint dieAnim;
 
 private:
 	bool isRecoveringShield;
@@ -89,5 +100,7 @@ private:
 	float healthRestoreCounter;
 	float targetDistance;
 	bool isReturning;
+
+	AnimStates animState;
 };
 
