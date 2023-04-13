@@ -7,7 +7,8 @@ HELLO_ENGINE_API_C Chest* CreateChest(ScriptToInspectorInterface* script)
     script->AddDragFloat("Open Chest Time", &classInstance->maxOpenChestTime);
     script->AddCheckBox("Tutorial Special Weapon", &classInstance->tutorialSpecialWeapon);
     script->AddCheckBox("Tutorial Weapon Blueprint", &classInstance->tutorialWeaponBlueprint);
-    script->AddDragInt("tffff", &classInstance->chestIndex);
+    script->AddDragInt("Chest Index", &classInstance->chestIndex);
+    script->AddDragInt("Item Index", &classInstance->itemIndex);
     return classInstance;
 }
 
@@ -88,7 +89,7 @@ void Chest::OnCollisionEnter(API::API_RigidBody other)
 
             if (abs(distanceX) < abs(distanceZ))
             {
-                if (distanceZ >= 0.0f && playerMove->aimAngle <= 45 && playerMove->aimAngle > -45) // chest up
+                if (distanceZ >= 0.0f && playerMove->aimAngle <= 90 && playerMove->aimAngle > -90) // chest up
                 {
                     playerGunManager = (PlayerGunManager*)other.GetGameObject().GetScript("PlayerGunManager");
                     playerStats = (PlayerStats*)other.GetGameObject().GetScript("PlayerStats");
@@ -96,7 +97,7 @@ void Chest::OnCollisionEnter(API::API_RigidBody other)
                     if (playerMove) playerMove->PlayOpenChestAnim();
                     opening = true;
                 }
-                else if (distanceZ < 0.0f && playerMove->aimAngle <= -135 && playerMove->aimAngle > -225) // chest down
+                else if (distanceZ < 0.0f && playerMove->aimAngle <= -90 && playerMove->aimAngle > -270) // chest down
                 {
                     playerGunManager = (PlayerGunManager*)other.GetGameObject().GetScript("PlayerGunManager");
                     playerStats = (PlayerStats*)other.GetGameObject().GetScript("PlayerStats");
@@ -107,7 +108,7 @@ void Chest::OnCollisionEnter(API::API_RigidBody other)
             }
             else
             {
-                if (distanceX < 0.0f && playerMove->aimAngle <= -45 && playerMove->aimAngle > -135) // chest left
+                if (distanceX < 0.0f && playerMove->aimAngle <= 0 && playerMove->aimAngle > -180) // chest left
                 {
                     playerGunManager = (PlayerGunManager*)other.GetGameObject().GetScript("PlayerGunManager");
                     playerStats = (PlayerStats*)other.GetGameObject().GetScript("PlayerStats");
@@ -115,7 +116,7 @@ void Chest::OnCollisionEnter(API::API_RigidBody other)
                     if (playerMove) playerMove->PlayOpenChestAnim();
                     opening = true;
                 }
-                else if (distanceX >= 0.0f && (playerMove->aimAngle <= -225 || (playerMove->aimAngle < 45 && playerMove->aimAngle >= 0))) // chest right
+                else if (distanceX >= 0.0f && (playerMove->aimAngle <= -180 || (playerMove->aimAngle < 90 && playerMove->aimAngle >= 0))) // chest right
                 {
                     playerGunManager = (PlayerGunManager*)other.GetGameObject().GetScript("PlayerGunManager");
                     playerStats = (PlayerStats*)other.GetGameObject().GetScript("PlayerStats");

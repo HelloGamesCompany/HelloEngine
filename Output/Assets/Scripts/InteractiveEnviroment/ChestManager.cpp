@@ -58,7 +58,7 @@ void ChestManager::Update()
 
             chestScript1->OpenChestOnStart();
         }
-        skipChest1 = !chestActive;
+        skipChest1 = chestActive;
     }
 
     Chest* chestScript2 = (Chest*)chest2.GetScript("Chest");
@@ -88,7 +88,7 @@ void ChestManager::Update()
 
             chestScript2->OpenChestOnStart();
         }
-        skipChest2 = !chestActive;
+        skipChest2 = chestActive;
     }
 
     Chest* chestScript3 = (Chest*)chest3.GetScript("Chest");
@@ -118,7 +118,7 @@ void ChestManager::Update()
 
             chestScript3->OpenChestOnStart();
         }
-        skipChest3 = !chestActive;
+        skipChest3 = chestActive;
     }
 
     Chest* chestScript4 = (Chest*)chest4.GetScript("Chest");
@@ -148,7 +148,7 @@ void ChestManager::Update()
 
             chestScript4->OpenChestOnStart();
         }
-        skipChest4 = !chestActive;
+        skipChest4 = chestActive;
     }
 
     // set loot
