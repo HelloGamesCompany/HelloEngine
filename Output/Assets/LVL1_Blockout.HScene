@@ -1716,9 +1716,9 @@
             {
                 "Enabled": true,
                 "Position": [
-                    -20.556955337524414,
-                    1.0590821504592896,
-                    11.939844131469727
+                    -21.02548599243164,
+                    1.9424786567687988,
+                    -6.992649555206299
                 ],
                 "Rotation": [
                     -0.0,
@@ -1751,7 +1751,7 @@
                 "ColScale": [
                     3.0,
                     6.0,
-                    64.0
+                    26.299999237060547
                 ],
                 "CylVerSlices": 16,
                 "CylinderRadiusHeight": [
@@ -1807,9 +1807,9 @@
             {
                 "Enabled": true,
                 "Position": [
-                    -11.328668594360352,
-                    0.0574793815612793,
-                    36.77402877807617
+                    -11.877148628234863,
+                    0.05747731029987335,
+                    36.88298034667969
                 ],
                 "Rotation": [
                     -0.0,
@@ -1835,7 +1835,7 @@
                     0.0
                 ],
                 "ColRotation": [
-                    -23.0,
+                    0.0,
                     0.0,
                     0.0
                 ],
@@ -1898,99 +1898,8 @@
             {
                 "Enabled": true,
                 "Position": [
-                    -19.032907485961914,
-                    5.104520320892334,
-                    36.792850494384766
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "AngularFactor": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "ColPosition": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "ColRotation": [
-                    0.0,
-                    90.0,
-                    0.0
-                ],
-                "ColScale": [
-                    6.0,
-                    3.0,
-                    3.0
-                ],
-                "CylVerSlices": 16,
-                "CylinderRadiusHeight": [
-                    1.0,
-                    1.0
-                ],
-                "Enabled": true,
-                "Gravity": [
-                    0.0,
-                    -9.800000190734863,
-                    0.0
-                ],
-                "HasPhysBody": true,
-                "IsKinematic": false,
-                "IsRenderingCol": true,
-                "IsShapeCreated": [
-                    true,
-                    false,
-                    false
-                ],
-                "IsShapeSelected": [
-                    true,
-                    false,
-                    false
-                ],
-                "IsStatic": true,
-                "IsTrigger": false,
-                "Mass": 0.0,
-                "RenderColColor": [
-                    1.0,
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "ShapeSelected": 0,
-                "SphereHorSlices": 16,
-                "SphereRadius": 1.0,
-                "SphereVerSlices": 16,
-                "Type": 8,
-                "WireframeSize": 3.0
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "Coll21",
-        "ParentUID": 370318709,
-        "PrefabUID": 0,
-        "Tag": "",
-        "UID": 2960099297
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    -20.422771453857422,
-                    4.815334796905518,
+                    -21.590164184570313,
+                    1.4082074165344238,
                     26.766925811767578
                 ],
                 "Rotation": [
@@ -2073,188 +1982,6 @@
         "PrefabUID": 0,
         "Tag": "",
         "UID": 3952359765
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    -16.638778686523438,
-                    4.7717132568359375,
-                    6.430353164672852
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "AngularFactor": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "ColPosition": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "ColRotation": [
-                    0.0,
-                    90.0,
-                    0.0
-                ],
-                "ColScale": [
-                    8.0,
-                    1.5,
-                    3.0
-                ],
-                "CylVerSlices": 16,
-                "CylinderRadiusHeight": [
-                    1.0,
-                    1.0
-                ],
-                "Enabled": true,
-                "Gravity": [
-                    0.0,
-                    -9.800000190734863,
-                    0.0
-                ],
-                "HasPhysBody": true,
-                "IsKinematic": false,
-                "IsRenderingCol": true,
-                "IsShapeCreated": [
-                    true,
-                    false,
-                    false
-                ],
-                "IsShapeSelected": [
-                    true,
-                    false,
-                    false
-                ],
-                "IsStatic": true,
-                "IsTrigger": false,
-                "Mass": 0.0,
-                "RenderColColor": [
-                    1.0,
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "ShapeSelected": 0,
-                "SphereHorSlices": 16,
-                "SphereRadius": 1.0,
-                "SphereVerSlices": 16,
-                "Type": 8,
-                "WireframeSize": 3.0
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "Coll23",
-        "ParentUID": 370318709,
-        "PrefabUID": 0,
-        "Tag": "",
-        "UID": 1569446232
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    -13.128990173339844,
-                    4.783817291259766,
-                    18.895051956176758
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "AngularFactor": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "ColPosition": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "ColRotation": [
-                    0.0,
-                    90.0,
-                    0.0
-                ],
-                "ColScale": [
-                    1.5,
-                    1.5,
-                    24.0
-                ],
-                "CylVerSlices": 16,
-                "CylinderRadiusHeight": [
-                    1.0,
-                    1.0
-                ],
-                "Enabled": true,
-                "Gravity": [
-                    0.0,
-                    -9.800000190734863,
-                    0.0
-                ],
-                "HasPhysBody": true,
-                "IsKinematic": false,
-                "IsRenderingCol": true,
-                "IsShapeCreated": [
-                    true,
-                    false,
-                    false
-                ],
-                "IsShapeSelected": [
-                    true,
-                    false,
-                    false
-                ],
-                "IsStatic": true,
-                "IsTrigger": false,
-                "Mass": 0.0,
-                "RenderColColor": [
-                    1.0,
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "ShapeSelected": 0,
-                "SphereHorSlices": 16,
-                "SphereRadius": 1.0,
-                "SphereVerSlices": 16,
-                "Type": 8,
-                "WireframeSize": 3.0
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "Coll24",
-        "ParentUID": 370318709,
-        "PrefabUID": 0,
-        "Tag": "",
-        "UID": 2448107832
     },
     {
         "Active": true,
@@ -5538,9 +5265,9 @@
             {
                 "Enabled": true,
                 "Position": [
-                    -25.026639938354492,
-                    5.685570240020752,
-                    16.53815460205078
+                    -23.835721969604492,
+                    0.7940222024917603,
+                    13.949483871459961
                 ],
                 "Rotation": [
                     -0.0,
@@ -5571,7 +5298,7 @@
                     0.0
                 ],
                 "ColScale": [
-                    6.099999904632568,
+                    7.099999904632568,
                     3.0,
                     3.0
                 ],
@@ -5630,8 +5357,8 @@
                 "Enabled": true,
                 "Position": [
                     -27.22988510131836,
-                    5.539367198944092,
-                    11.582710266113281
+                    1.9475208520889282,
+                    9.6441068649292
                 ],
                 "Rotation": [
                     -0.0,
@@ -5720,9 +5447,9 @@
             {
                 "Enabled": true,
                 "Position": [
-                    -23.747722625732422,
-                    5.764012813568115,
-                    6.537376880645752
+                    -24.613006591796875,
+                    1.2961106300354004,
+                    5.047761917114258
                 ],
                 "Rotation": [
                     -0.0,
@@ -6575,97 +6302,6 @@
         "PrefabUID": 0,
         "Tag": "",
         "UID": 2560760535
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    -21.11435317993164,
-                    4.200284957885742,
-                    21.6809139251709
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "AngularFactor": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "ColPosition": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "ColRotation": [
-                    0.0,
-                    90.0,
-                    0.0
-                ],
-                "ColScale": [
-                    16.799999237060547,
-                    0.5,
-                    30.0
-                ],
-                "CylVerSlices": 16,
-                "CylinderRadiusHeight": [
-                    1.0,
-                    1.0
-                ],
-                "Enabled": true,
-                "Gravity": [
-                    0.0,
-                    -9.800000190734863,
-                    0.0
-                ],
-                "HasPhysBody": true,
-                "IsKinematic": false,
-                "IsRenderingCol": true,
-                "IsShapeCreated": [
-                    true,
-                    false,
-                    false
-                ],
-                "IsShapeSelected": [
-                    true,
-                    false,
-                    false
-                ],
-                "IsStatic": true,
-                "IsTrigger": false,
-                "Mass": 0.0,
-                "RenderColColor": [
-                    0.0,
-                    1.0,
-                    0.009302139282226563,
-                    1.0
-                ],
-                "ShapeSelected": 0,
-                "SphereHorSlices": 16,
-                "SphereRadius": 1.0,
-                "SphereVerSlices": 16,
-                "Type": 8,
-                "WireframeSize": 3.0
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "Coll4",
-        "ParentUID": 1580447288,
-        "PrefabUID": 0,
-        "Tag": "",
-        "UID": 1949527837
     },
     {
         "Active": true,
@@ -7576,97 +7212,6 @@
         "PrefabUID": 0,
         "Tag": "",
         "UID": 3443029786
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    -7.292484283447266,
-                    1.4172362089157104,
-                    33.16666030883789
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "AngularFactor": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "ColPosition": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "ColRotation": [
-                    -25.0,
-                    0.0,
-                    0.0
-                ],
-                "ColScale": [
-                    5.0,
-                    0.6000000238418579,
-                    13.0
-                ],
-                "CylVerSlices": 16,
-                "CylinderRadiusHeight": [
-                    1.0,
-                    1.0
-                ],
-                "Enabled": true,
-                "Gravity": [
-                    0.0,
-                    -9.800000190734863,
-                    0.0
-                ],
-                "HasPhysBody": true,
-                "IsKinematic": false,
-                "IsRenderingCol": true,
-                "IsShapeCreated": [
-                    true,
-                    false,
-                    false
-                ],
-                "IsShapeSelected": [
-                    true,
-                    false,
-                    false
-                ],
-                "IsStatic": true,
-                "IsTrigger": false,
-                "Mass": 0.0,
-                "RenderColColor": [
-                    0.018604636192321777,
-                    1.0,
-                    0.0,
-                    1.0
-                ],
-                "ShapeSelected": 0,
-                "SphereHorSlices": 16,
-                "SphereRadius": 1.0,
-                "SphereVerSlices": 16,
-                "Type": 8,
-                "WireframeSize": 3.0
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "RampColl",
-        "ParentUID": 1580447288,
-        "PrefabUID": 0,
-        "Tag": "Wall",
-        "UID": 2109244149
     },
     {
         "Active": true,
@@ -12652,7 +12197,7 @@
                 "Enabled": true,
                 "Position": [
                     22.981698989868164,
-                    6.903779983520508,
+                    1.67958664894104,
                     -10.246868133544922
                 ],
                 "Rotation": [
@@ -12681,9 +12226,9 @@
             {
                 "Enabled": true,
                 "Position": [
-                    23.937044143676758,
-                    5.728639125823975,
-                    -11.06709098815918
+                    24.187578201293945,
+                    0.7968546152114868,
+                    -9.1080322265625
                 ],
                 "Rotation": [
                     -0.0,
@@ -14064,7 +13609,7 @@
             {
                 "Active camera": true,
                 "Active culling": false,
-                "Aspect ratio": 1.816745638847351,
+                "Aspect ratio": 1.8782790899276733,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 2000.0,
@@ -14298,96 +13843,6 @@
         "PrefabUID": 289783087,
         "Tag": "Default",
         "UID": 315345718
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 4188699649,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "ResourceUID": 268184707,
-                "Type": 3
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "pCube2",
-        "ParentUID": 1526910715,
-        "PrefabUID": 289783087,
-        "Tag": "Default",
-        "UID": 3106383022
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    -7.748603820800781e-07,
-                    -2.384185791015625e-07,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    1.7075474261218915e-06
-                ],
-                "Scale": [
-                    1.0,
-                    0.9999999403953552,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 1,
-                "ModelUID": 4188699649,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "ResourceUID": 268184707,
-                "Type": 3
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "pCylinder1",
-        "ParentUID": 1526910715,
-        "PrefabUID": 289783087,
-        "Tag": "Default",
-        "UID": 709151877
     },
     {
         "Active": true,
@@ -17431,193 +16886,9 @@
             {
                 "Enabled": true,
                 "Position": [
-                    33.099998474121094,
-                    4.0,
-                    16.5
-                ],
-                "Rotation": [
-                    -0.0,
-                    90.0,
-                    -0.0
-                ],
-                "Scale": [
-                    7.5,
-                    0.6000000238418579,
-                    7.5
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 2439010209,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 2183803060,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "CenterGround",
-        "ParentUID": 784114437,
-        "PrefabUID": 3766244713,
-        "Tag": "Default",
-        "UID": 2112907121
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    25.600000381469727,
-                    4.0,
-                    16.5
-                ],
-                "Rotation": [
-                    -0.0,
-                    180.0,
-                    -0.0
-                ],
-                "Scale": [
-                    7.5,
-                    0.6000000238418579,
-                    7.5
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 2439010209,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 2183803060,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "CenterGround",
-        "ParentUID": 784114437,
-        "PrefabUID": 3766244713,
-        "Tag": "Default",
-        "UID": 76783140
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    18.100000381469727,
-                    4.0,
-                    16.5
-                ],
-                "Rotation": [
-                    -0.0,
-                    -90.0,
-                    -0.0
-                ],
-                "Scale": [
-                    7.5,
-                    0.6000000238418579,
-                    7.5
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 2439010209,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 2183803060,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "CenterGround",
-        "ParentUID": 784114437,
-        "PrefabUID": 3766244713,
-        "Tag": "Default",
-        "UID": 2779673716
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    10.600000381469727,
-                    4.0,
-                    16.5
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    7.5,
-                    0.6000000238418579,
-                    7.5
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 2439010209,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 2183803060,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "CenterGround",
-        "ParentUID": 784114437,
-        "PrefabUID": 3766244713,
-        "Tag": "Default",
-        "UID": 1027358467
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    10.600000381469727,
-                    4.0,
-                    24.0
+                    9.452961921691895,
+                    -0.4636942744255066,
+                    24.825319290161133
                 ],
                 "Rotation": [
                     -0.0,
@@ -31767,19 +31038,19 @@
             {
                 "Enabled": true,
                 "Position": [
-                    35.999755859375,
-                    1.4439409971237183,
-                    5.239976406097412
+                    35.183197021484375,
+                    0.5400174260139465,
+                    1.981715202331543
                 ],
                 "Rotation": [
-                    -24.99998664855957,
-                    0.0,
-                    0.0
+                    -0.0,
+                    3.2000041007995605,
+                    -0.0
                 ],
                 "Scale": [
-                    0.23999999463558197,
-                    1.1160002946853638,
-                    0.2800000011920929
+                    0.2399999499320984,
+                    1.1160000562667847,
+                    0.20000000298023224
                 ],
                 "Type": 1
             },
@@ -31813,14 +31084,14 @@
             {
                 "Enabled": true,
                 "Position": [
-                    36.0,
-                    2.6715919971466064,
-                    7.870701313018799
+                    35.247074127197266,
+                    0.5358061194419861,
+                    4.461693286895752
                 ],
                 "Rotation": [
-                    -24.999990463256836,
+                    -0.0,
                     0.0,
-                    0.0
+                    -0.0
                 ],
                 "Scale": [
                     0.23999999463558197,
@@ -31859,14 +31130,14 @@
             {
                 "Enabled": true,
                 "Position": [
-                    35.99951171875,
-                    3.8951058387756348,
-                    10.47741413116455
+                    35.29605484008789,
+                    0.49980294704437256,
+                    7.363302230834961
                 ],
                 "Rotation": [
-                    -24.999990463256836,
+                    -0.0,
                     0.0,
-                    0.0
+                    -0.0
                 ],
                 "Scale": [
                     0.23999999463558197,
@@ -31905,14 +31176,14 @@
             {
                 "Enabled": true,
                 "Position": [
-                    36.0,
-                    0.7738642692565918,
-                    3.790693521499634
+                    35.08161544799805,
+                    0.5733292698860168,
+                    0.7910449504852295
                 ],
                 "Rotation": [
-                    -24.99999237060547,
+                    -0.0,
                     0.0,
-                    0.0
+                    -0.0
                 ],
                 "Scale": [
                     0.3199999928474426,
@@ -31951,157 +31222,19 @@
             {
                 "Enabled": true,
                 "Position": [
-                    36.0,
-                    4.514061450958252,
-                    11.837960243225098
+                    6.3322014808654785,
+                    0.5731000304222107,
+                    20.21219253540039
                 ],
                 "Rotation": [
-                    -24.999990463256836,
-                    0.0,
-                    0.0
+                    179.99989318847656,
+                    89.98020935058594,
+                    179.99989318847656
                 ],
                 "Scale": [
-                    0.3199999928474426,
+                    0.320000022649765,
                     1.0813428163528442,
                     0.2964550852775574
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 2888243243,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 518938676,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "LimitFencePivot",
-        "ParentUID": 23327642,
-        "PrefabUID": 4116416843,
-        "Tag": "Default",
-        "UID": 3686371789
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    36.0,
-                    5.5,
-                    15.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    0.23999999463558197,
-                    1.1160000562667847,
-                    0.2800000011920929
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 48433420,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 4218742631,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "LimitEntireFence",
-        "ParentUID": 23327642,
-        "PrefabUID": 645187195,
-        "Tag": "Default",
-        "UID": 1525910393
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    36.0,
-                    5.5,
-                    17.899999618530273
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    0.23999999463558197,
-                    1.1160000562667847,
-                    0.2800000011920929
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 48433420,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 4218742631,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "LimitEntireFence",
-        "ParentUID": 23327642,
-        "PrefabUID": 645187195,
-        "Tag": "Default",
-        "UID": 2543647215
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    35.51279067993164,
-                    0.5,
-                    2.4116649627685547
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    0.3199999928474426,
-                    1.0813428163528442,
-                    0.296455055475235
                 ],
                 "Type": 1
             },
@@ -32128,1064 +31261,6 @@
         "PrefabUID": 4116416843,
         "Tag": "Default",
         "UID": 3119549488
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    36.0,
-                    5.5,
-                    13.519792556762695
-                ],
-                "Rotation": [
-                    -179.999755859375,
-                    -6.85807086711317e-15,
-                    -179.999755859375
-                ],
-                "Scale": [
-                    0.3199999928474426,
-                    1.0813428163528442,
-                    0.296455055475235
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 2888243243,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 518938676,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "LimitFencePivot",
-        "ParentUID": 23327642,
-        "PrefabUID": 4116416843,
-        "Tag": "Default",
-        "UID": 637432321
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    36.0,
-                    5.5,
-                    19.300928115844727
-                ],
-                "Rotation": [
-                    -179.999755859375,
-                    -2.5842005368004097e-15,
-                    -179.999755859375
-                ],
-                "Scale": [
-                    0.3199999928474426,
-                    1.0813428163528442,
-                    0.296455055475235
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 2888243243,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 518938676,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "LimitFencePivot",
-        "ParentUID": 23327642,
-        "PrefabUID": 4116416843,
-        "Tag": "Default",
-        "UID": 3073518069
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    34.5,
-                    5.5,
-                    19.369157791137695
-                ],
-                "Rotation": [
-                    179.99989318847656,
-                    89.98020935058594,
-                    179.99989318847656
-                ],
-                "Scale": [
-                    0.24000005424022675,
-                    1.1160000562667847,
-                    0.2800000011920929
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 48433420,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 4218742631,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "LimitEntireFence",
-        "ParentUID": 23327642,
-        "PrefabUID": 645187195,
-        "Tag": "Default",
-        "UID": 1171206842
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    31.600000381469727,
-                    5.5,
-                    19.368999481201172
-                ],
-                "Rotation": [
-                    -0.0,
-                    90.0,
-                    -0.0
-                ],
-                "Scale": [
-                    0.24000002443790436,
-                    1.1160000562667847,
-                    0.2800000309944153
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 48433420,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 4218742631,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "LimitEntireFence",
-        "ParentUID": 23327642,
-        "PrefabUID": 645187195,
-        "Tag": "Default",
-        "UID": 2532697304
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    28.700000762939453,
-                    5.5,
-                    19.368999481201172
-                ],
-                "Rotation": [
-                    -0.0,
-                    90.0,
-                    -0.0
-                ],
-                "Scale": [
-                    0.24000002443790436,
-                    1.1160000562667847,
-                    0.2800000309944153
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 48433420,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 4218742631,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "LimitEntireFence",
-        "ParentUID": 23327642,
-        "PrefabUID": 645187195,
-        "Tag": "Default",
-        "UID": 3331631800
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    25.799999237060547,
-                    5.5,
-                    19.368999481201172
-                ],
-                "Rotation": [
-                    -0.0,
-                    90.0,
-                    -0.0
-                ],
-                "Scale": [
-                    0.24000002443790436,
-                    1.1160000562667847,
-                    0.2800000309944153
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 48433420,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 4218742631,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "LimitEntireFence",
-        "ParentUID": 23327642,
-        "PrefabUID": 645187195,
-        "Tag": "Default",
-        "UID": 1828727319
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    22.899999618530273,
-                    5.5,
-                    19.368999481201172
-                ],
-                "Rotation": [
-                    -0.0,
-                    90.0,
-                    -0.0
-                ],
-                "Scale": [
-                    0.24000002443790436,
-                    1.1160000562667847,
-                    0.2800000309944153
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 48433420,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 4218742631,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "LimitEntireFence",
-        "ParentUID": 23327642,
-        "PrefabUID": 645187195,
-        "Tag": "Default",
-        "UID": 2109120771
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    20.0,
-                    5.5,
-                    19.368999481201172
-                ],
-                "Rotation": [
-                    -0.0,
-                    90.0,
-                    -0.0
-                ],
-                "Scale": [
-                    0.24000002443790436,
-                    1.1160000562667847,
-                    0.2800000309944153
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 48433420,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 4218742631,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "LimitEntireFence",
-        "ParentUID": 23327642,
-        "PrefabUID": 645187195,
-        "Tag": "Default",
-        "UID": 2755282143
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    15.595803260803223,
-                    5.5,
-                    19.368999481201172
-                ],
-                "Rotation": [
-                    -179.999755859375,
-                    90.0,
-                    -179.999755859375
-                ],
-                "Scale": [
-                    0.320000022649765,
-                    1.0813428163528442,
-                    0.2964550852775574
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 2888243243,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 518938676,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "LimitFencePivot",
-        "ParentUID": 23327642,
-        "PrefabUID": 4116416843,
-        "Tag": "Default",
-        "UID": 1835827832
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    17.100000381469727,
-                    5.5,
-                    19.368999481201172
-                ],
-                "Rotation": [
-                    -0.0,
-                    90.0,
-                    -0.0
-                ],
-                "Scale": [
-                    0.24000002443790436,
-                    1.1160000562667847,
-                    0.2800000309944153
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 48433420,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 4218742631,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "LimitEntireFence",
-        "ParentUID": 23327642,
-        "PrefabUID": 645187195,
-        "Tag": "Default",
-        "UID": 3668703851
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    29.596031188964844,
-                    5.5,
-                    13.300000190734863
-                ],
-                "Rotation": [
-                    -179.999755859375,
-                    90.0,
-                    -179.999755859375
-                ],
-                "Scale": [
-                    0.320000022649765,
-                    1.0813428163528442,
-                    0.2964550852775574
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 2888243243,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 518938676,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "LimitFencePivot",
-        "ParentUID": 23327642,
-        "PrefabUID": 4116416843,
-        "Tag": "Default",
-        "UID": 1420684646
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    28.0,
-                    5.5,
-                    13.300000190734863
-                ],
-                "Rotation": [
-                    179.99989318847656,
-                    89.98020935058594,
-                    179.99989318847656
-                ],
-                "Scale": [
-                    0.24000005424022675,
-                    1.1160000562667847,
-                    0.2800000011920929
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 48433420,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 4218742631,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "LimitEntireFence",
-        "ParentUID": 23327642,
-        "PrefabUID": 645187195,
-        "Tag": "Default",
-        "UID": 683879581
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    25.100000381469727,
-                    5.5,
-                    13.300000190734863
-                ],
-                "Rotation": [
-                    -0.0,
-                    90.0,
-                    -0.0
-                ],
-                "Scale": [
-                    0.24000002443790436,
-                    1.1160000562667847,
-                    0.2800000309944153
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 48433420,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 4218742631,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "LimitEntireFence",
-        "ParentUID": 23327642,
-        "PrefabUID": 645187195,
-        "Tag": "Default",
-        "UID": 1315583540
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    22.200000762939453,
-                    5.5,
-                    13.300000190734863
-                ],
-                "Rotation": [
-                    -0.0,
-                    90.0,
-                    -0.0
-                ],
-                "Scale": [
-                    0.24000002443790436,
-                    1.1160000562667847,
-                    0.2800000309944153
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 48433420,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 4218742631,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "LimitEntireFence",
-        "ParentUID": 23327642,
-        "PrefabUID": 645187195,
-        "Tag": "Default",
-        "UID": 2064051140
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    19.299999237060547,
-                    5.5,
-                    13.300000190734863
-                ],
-                "Rotation": [
-                    -0.0,
-                    90.0,
-                    -0.0
-                ],
-                "Scale": [
-                    0.24000002443790436,
-                    1.1160000562667847,
-                    0.2800000309944153
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 48433420,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 4218742631,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "LimitEntireFence",
-        "ParentUID": 23327642,
-        "PrefabUID": 645187195,
-        "Tag": "Default",
-        "UID": 288628371
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    16.399999618530273,
-                    5.5,
-                    13.300000190734863
-                ],
-                "Rotation": [
-                    -0.0,
-                    90.0,
-                    -0.0
-                ],
-                "Scale": [
-                    0.24000002443790436,
-                    1.1160000562667847,
-                    0.2800000309944153
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 48433420,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 4218742631,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "LimitEntireFence",
-        "ParentUID": 23327642,
-        "PrefabUID": 645187195,
-        "Tag": "Default",
-        "UID": 2738806703
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    13.5,
-                    5.5,
-                    13.300000190734863
-                ],
-                "Rotation": [
-                    -0.0,
-                    90.0,
-                    -0.0
-                ],
-                "Scale": [
-                    0.24000002443790436,
-                    1.1160000562667847,
-                    0.2800000309944153
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 48433420,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 4218742631,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "LimitEntireFence",
-        "ParentUID": 23327642,
-        "PrefabUID": 645187195,
-        "Tag": "Default",
-        "UID": 3388363643
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    10.600000381469727,
-                    5.5,
-                    13.300000190734863
-                ],
-                "Rotation": [
-                    -0.0,
-                    90.0,
-                    -0.0
-                ],
-                "Scale": [
-                    0.24000002443790436,
-                    1.1160000562667847,
-                    0.2800000309944153
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 48433420,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 4218742631,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "LimitEntireFence",
-        "ParentUID": 23327642,
-        "PrefabUID": 645187195,
-        "Tag": "Default",
-        "UID": 186456502
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    9.141013145446777,
-                    5.5,
-                    13.300000190734863
-                ],
-                "Rotation": [
-                    179.99989318847656,
-                    89.98020935058594,
-                    -179.99923706054688
-                ],
-                "Scale": [
-                    0.320000022649765,
-                    1.0813428163528442,
-                    0.2964550852775574
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 2888243243,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 518938676,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "LimitFencePivot",
-        "ParentUID": 23327642,
-        "PrefabUID": 4116416843,
-        "Tag": "Default",
-        "UID": 2667832641
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    7.5,
-                    5.5,
-                    14.800000190734863
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    0.23999999463558197,
-                    1.1160000562667847,
-                    0.2800000011920929
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 48433420,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 4218742631,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "LimitEntireFence",
-        "ParentUID": 23327642,
-        "PrefabUID": 645187195,
-        "Tag": "Default",
-        "UID": 1896957230
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    7.5,
-                    5.5,
-                    17.700000762939453
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    0.23999999463558197,
-                    1.1160000562667847,
-                    0.2800000011920929
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 48433420,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 4218742631,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "LimitEntireFence",
-        "ParentUID": 23327642,
-        "PrefabUID": 645187195,
-        "Tag": "Default",
-        "UID": 2920706750
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    7.5,
-                    5.5,
-                    13.381513595581055
-                ],
-                "Rotation": [
-                    -179.999755859375,
-                    -1.048589095734671e-14,
-                    -179.999755859375
-                ],
-                "Scale": [
-                    0.3199999928474426,
-                    1.0813428163528442,
-                    0.296455055475235
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 2888243243,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 518938676,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "LimitFencePivot",
-        "ParentUID": 23327642,
-        "PrefabUID": 4116416843,
-        "Tag": "Default",
-        "UID": 2109925126
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    7.5,
-                    5.5,
-                    19.152143478393555
-                ],
-                "Rotation": [
-                    -179.999755859375,
-                    -1.987846566769546e-15,
-                    -179.999755859375
-                ],
-                "Scale": [
-                    0.3199999928474426,
-                    1.0813428163528442,
-                    0.296455055475235
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 2888243243,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 518938676,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "LimitFencePivot",
-        "ParentUID": 23327642,
-        "PrefabUID": 4116416843,
-        "Tag": "Default",
-        "UID": 209841112
     },
     {
         "Active": true,
@@ -35953,19 +34028,19 @@
             {
                 "Enabled": true,
                 "Position": [
-                    35.29999923706055,
-                    0.5,
-                    9.059687614440918
+                    12.559080123901367,
+                    0.4239715337753296,
+                    20.294944763183594
                 ],
                 "Rotation": [
-                    -179.999755859375,
-                    -8.348955580432093e-15,
-                    -179.999755859375
+                    179.99989318847656,
+                    89.98020935058594,
+                    179.99989318847656
                 ],
                 "Scale": [
-                    0.3199999928474426,
+                    0.320000022649765,
                     1.0813428163528442,
-                    0.296455055475235
+                    0.2964550852775574
                 ],
                 "Type": 1
             },
@@ -36047,7 +34122,7 @@
                 "Position": [
                     35.29999923706055,
                     0.5,
-                    10.319221496582031
+                    10.235708236694336
                 ],
                 "Rotation": [
                     -0.0,
@@ -36406,144 +34481,6 @@
         "PrefabUID": 645187195,
         "Tag": "Default",
         "UID": 1274840839
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    13.399999618530273,
-                    0.5,
-                    20.200000762939453
-                ],
-                "Rotation": [
-                    -0.0,
-                    90.0,
-                    -0.0
-                ],
-                "Scale": [
-                    0.24000002443790436,
-                    1.1160000562667847,
-                    0.2800000309944153
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 48433420,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 4218742631,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "LimitEntireFence",
-        "ParentUID": 23327642,
-        "PrefabUID": 645187195,
-        "Tag": "Default",
-        "UID": 194880178
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    10.5,
-                    0.5,
-                    20.200000762939453
-                ],
-                "Rotation": [
-                    -0.0,
-                    90.0,
-                    -0.0
-                ],
-                "Scale": [
-                    0.24000002443790436,
-                    1.1160000562667847,
-                    0.2800000309944153
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 48433420,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 4218742631,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "LimitEntireFence",
-        "ParentUID": 23327642,
-        "PrefabUID": 645187195,
-        "Tag": "Default",
-        "UID": 4246151770
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    7.599999904632568,
-                    0.5,
-                    20.200000762939453
-                ],
-                "Rotation": [
-                    -0.0,
-                    90.0,
-                    -0.0
-                ],
-                "Scale": [
-                    0.24000002443790436,
-                    1.1160000562667847,
-                    0.2800000309944153
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 48433420,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 4218742631,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "LimitEntireFence",
-        "ParentUID": 23327642,
-        "PrefabUID": 645187195,
-        "Tag": "Default",
-        "UID": 3028362785
     },
     {
         "Active": true,
@@ -77161,8 +75098,8 @@
             {
                 "Enabled": true,
                 "Position": [
-                    10.87408447265625,
-                    4.499714374542236,
+                    9.46833610534668,
+                    0.20518159866333008,
                     24.064653396606445
                 ],
                 "Rotation": [
@@ -77171,9 +75108,9 @@
                     0.0
                 ],
                 "Scale": [
-                    3.0000391006469727,
-                    0.10000183433294296,
-                    2.5000195503234863
+                    3.000180721282959,
+                    0.10000847280025482,
+                    2.5000903606414795
                 ],
                 "Type": 1
             },
@@ -93692,19 +91629,19 @@
             {
                 "Enabled": true,
                 "Position": [
-                    6.547065734863281,
-                    0.6115962862968445,
-                    15.726487159729004
+                    26.41408348083496,
+                    0.6115965247154236,
+                    13.118864059448242
                 ],
                 "Rotation": [
-                    -90.0000228881836,
-                    8.53773599374108e-07,
-                    -3.640993118286133
+                    -89.99987030029297,
+                    0.00016392453107982874,
+                    -144.41770935058594
                 ],
                 "Scale": [
-                    0.30000001192092896,
-                    0.30000001192092896,
-                    0.30000001192092896
+                    0.3000023066997528,
+                    0.3000016212463379,
+                    0.30000144243240356
                 ],
                 "Type": 1
             }
@@ -93752,14 +91689,14 @@
             {
                 "Enabled": true,
                 "Position": [
-                    0.0,
-                    0.0,
-                    0.0
+                    -0.015985488891601563,
+                    1.0521605014801025,
+                    0.0008015632629394531
                 ],
                 "Rotation": [
-                    -0.0,
+                    -8.14221953748806e-13,
                     0.0,
-                    -0.0
+                    0.0
                 ],
                 "Scale": [
                     1.0,
@@ -94396,18 +92333,18 @@
             {
                 "Enabled": true,
                 "Position": [
-                    -27.181640625,
-                    0.6269726753234863,
-                    0.00494384765625
+                    -27.181713104248047,
+                    0.6268730163574219,
+                    0.0049436092376708984
                 ],
                 "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
+                    4.1768238588701934e-05,
+                    -7.426890806527808e-05,
+                    23.772836685180664
                 ],
                 "Scale": [
-                    1.0,
-                    1.0,
+                    1.000000238418579,
+                    0.9999997615814209,
                     1.0
                 ],
                 "Type": 1
@@ -94425,11 +92362,11 @@
                 ],
                 "ColRotation": [
                     0.0,
-                    0.0,
+                    44.599998474121094,
                     0.0
                 ],
                 "ColScale": [
-                    4.099999904632568,
+                    4.300000190734863,
                     1.2000000476837158,
                     1.2999999523162842
                 ],
@@ -94487,18 +92424,18 @@
             {
                 "Enabled": true,
                 "Position": [
-                    -11.094797134399414,
-                    -5.073328495025635,
-                    9.5367431640625e-07
+                    -11.704490661621094,
+                    -4.2712249755859375,
+                    4.5299530029296875e-06
                 ],
                 "Rotation": [
-                    -7.172805682742478e-10,
-                    -9.993475913461225e-08,
-                    -0.8383374214172363
+                    -7.095826148884044e-10,
+                    -1.0010712969688029e-07,
+                    -0.8383349776268005
                 ],
                 "Scale": [
                     1.0,
-                    0.9999997019767761,
+                    0.9999998807907104,
                     1.0
                 ],
                 "Type": 1
@@ -94516,7 +92453,7 @@
                 ],
                 "ColRotation": [
                     0.0,
-                    -39.5,
+                    0.5,
                     0.0
                 ],
                 "ColScale": [
@@ -94578,13 +92515,13 @@
             {
                 "Enabled": true,
                 "Position": [
-                    7.559326171875,
-                    -4.945112228393555,
-                    0.0024399757385253906
+                    6.845314025878906,
+                    -4.602550506591797,
+                    0.0024423599243164063
                 ],
                 "Rotation": [
-                    3.4167399576290336e-08,
-                    2.3253185190696968e-06,
+                    3.4184047592589195e-08,
+                    2.325288278370863e-06,
                     -4.876768589019775
                 ],
                 "Scale": [
@@ -94607,7 +92544,7 @@
                 ],
                 "ColRotation": [
                     0.0,
-                    29.399999618530273,
+                    73.69999694824219,
                     0.0
                 ],
                 "ColScale": [
@@ -94669,14 +92606,14 @@
             {
                 "Enabled": true,
                 "Position": [
-                    25.199880599975586,
-                    0.9005124568939209,
-                    0.0
+                    25.418838500976563,
+                    0.8031044006347656,
+                    -7.152557373046875e-07
                 ],
                 "Rotation": [
-                    -8.14221953748806e-13,
-                    0.0,
-                    0.0
+                    -3.256887814995224e-12,
+                    1.3027551259980896e-11,
+                    3.7026527650087065e-25
                 ],
                 "Scale": [
                     1.0,
@@ -94698,7 +92635,7 @@
                 ],
                 "ColRotation": [
                     0.0,
-                    0.0,
+                    29.100000381469727,
                     0.0
                 ],
                 "ColScale": [
@@ -98728,10 +96665,10 @@
                         "Dash Time": 0.5
                     },
                     {
-                        "Dash Distance": 6.0
+                        "Dash Distance": 9.0
                     },
                     {
-                        "Upgrade Dash Distance": 8.0
+                        "Upgrade Dash Distance": 11.0
                     },
                     {
                         "Dash Cooldown": 2.0
@@ -107681,7 +105618,7 @@
                 "Enabled": true,
                 "Position": [
                     71.90338134765625,
-                    0.0,
+                    -0.10000000149011612,
                     -29.780569076538086
                 ],
                 "Rotation": [
@@ -135087,5 +133024,51 @@
         "PrefabUID": 0,
         "Tag": "Default",
         "UID": 1011737315
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    13.830443382263184,
+                    0.4999525547027588,
+                    20.19578742980957
+                ],
+                "Rotation": [
+                    179.99989318847656,
+                    89.98020935058594,
+                    179.99989318847656
+                ],
+                "Scale": [
+                    0.24000005424022675,
+                    1.1160000562667847,
+                    0.20000000298023224
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 48433420,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 4218742631,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LimitEntireFence",
+        "ParentUID": 2462894403,
+        "PrefabUID": 645187195,
+        "Tag": "Default",
+        "UID": 1229030202
     }
 ]
