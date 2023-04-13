@@ -53,6 +53,7 @@ void ArmoryWeaponSelect::Update()
     if (Input::GetGamePadButton(GamePadButton::BUTTON_B) == KeyState::KEY_DOWN && SelectWeaponList.IsEnabled())
     {
         if (!interruptor) return;
+        Input::HandleGamePadButton(GamePadButton::BUTTON_B);
         // IT'S CORRECT DON'T REMOVE NOTHING
         interruptor->menuPanel.SetActive(true); // can set false if is not true
         interruptor->menuPanel.SetActive(false);
