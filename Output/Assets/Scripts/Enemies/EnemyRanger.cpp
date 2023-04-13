@@ -104,7 +104,7 @@ void EnemyRanger::Update()
             targStats->detected = true;
         }
 
-        if ((dis < detectionDis) && (dis > disShoot) && enemState != States::TARGETING && !enemy->isOut && enemy->isTargIn || enemy->isHit || targStats->detected)
+        if ((dis < detectionDis) && (dis > disShoot) && enemState != States::TARGETING && !enemy->isOut && enemy->isTargIn || enemy->isHit || targStats->detected && enemy->isTargIn)
         {
             _movCooldown = 0;
             //_outCooldown = 0;
