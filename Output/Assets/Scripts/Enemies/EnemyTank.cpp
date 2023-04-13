@@ -35,6 +35,12 @@ HELLO_ENGINE_API_C EnemyTank* CreateEnemyTank(ScriptToInspectorInterface* script
 	//script->AddCheckBox("Test", &classInstance->test);
 	//script->AddDragBoxGameObject("Enemy To Protect", &classInstance->enemyToProtect);
 	script->AddCheckBox("Is Protecting", &classInstance->isProtectingAlly);
+
+	script->AddDragBoxAnimationResource("Idle Animation", &classInstance->idleAnim);
+	script->AddDragBoxAnimationResource("Walk Animation", &classInstance->walkAnim);
+	script->AddDragBoxAnimationResource("Die Animation", &classInstance->dieAnim);
+
+	script->AddDragBoxAnimationPlayer("Animation", &classInstance->animationPlayer);
 	//script->AddDragFloat("Testing1", &classInstance->testingFloat1);
 	/*script->AddDragFloat("Testing2", &classInstance->testingFloat2);
 	script->AddDragFloat("Testing3", &classInstance->testingFloat3);
@@ -45,6 +51,7 @@ HELLO_ENGINE_API_C EnemyTank* CreateEnemyTank(ScriptToInspectorInterface* script
 
 void EnemyTank::Start()
 {
+	
 	isReturning = false;
 	currentShield = maxShield;
 	isRecoveringShield = false;
@@ -52,6 +59,12 @@ void EnemyTank::Start()
 	shieldRecoverCounter = 0;
 	//alliesDistance = 
 	isProtectingAlly = false;
+	//animationPlayer = gameObject.GetAnimationPlayer();
+	animationPlayer.ChangeAnimation(idleAnim);
+	animationPlayer.Play();
+	animationPlayer.GetGameObject().GetTransform().SetScale(1.5, 1.5, 1.5);
+	animState = AnimStates::IDLE;
+	//animationPlayer.GetGameObject().GetTransform().SetPosition(0,-1.8,0);
 
 	enemyScript = (Enemy*)gameObject.GetScript("Enemy");
 	if (enemyScript->hasShield == false) {
@@ -186,10 +199,22 @@ void EnemyTank::Wander() {
 		enemyScript->currentSpeed = enemyScript->speed * enemyScript->stunVel * enemyScript->slowVel;
 		MoveToDirection(initialPosition.x, initialPosition.z, enemyScript->currentSpeed);
 		//test = true;
+		if (animState != AnimStates::WALK)
+		{
+			animationPlayer.ChangeAnimation(walkAnim);
+			animationPlayer.Play();
+			animState = AnimStates::WALK;
+		}
 	}
 	else {
 		
 		enemyScript->enemyRb.SetVelocity(gameObject.GetTransform().GetForward() * 0);
+		if (animState != AnimStates::IDLE)
+		{
+			animationPlayer.ChangeAnimation(idleAnim);
+			animationPlayer.Play();
+			animState = AnimStates::IDLE;
+		}
 	}
 }
 
@@ -417,7 +442,30 @@ void EnemyTank::Seek()
 			}
 			else
 			{
-				MoveToDirection(dirToPlayerNorm[0], dirToPlayerNorm[1], enemyScript->currentSpeed);
+				//B is player
+				//C is tank
+
+				float B[2];
+				B[0] = target.GetTransform().GetGlobalPosition().x;
+				B[1] = target.GetTransform().GetGlobalPosition().z;
+
+				float C[2];
+				C[0] = gameObject.GetTransform().GetGlobalPosition().x;
+				C[1] = gameObject.GetTransform().GetGlobalPosition().z;
+
+				//Tank to player
+				float CB[2] = { 0,0 };
+				CB[0] = B[0] - C[0];
+				CB[1] = B[1] - C[1];
+
+				MoveToDirection(B[0], B[1], enemyScript->currentSpeed);
+
+				if (animState != AnimStates::WALK)
+				{
+					animationPlayer.ChangeAnimation(walkAnim);
+					animationPlayer.Play();
+					animState = AnimStates::WALK;
+				}
 			}
 
 			//
@@ -539,6 +587,13 @@ void EnemyTank::ProtectEnemy()
 		////gameObject.GetTransform().SetRotation(0, +_angle, 0);
 	}
 
+	if (animState!= AnimStates::WALK) 
+	{
+		animationPlayer.ChangeAnimation(walkAnim);
+		animationPlayer.Play();
+		animState = AnimStates::WALK;
+	}
+	
 	
 }
 

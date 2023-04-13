@@ -281,6 +281,8 @@ void PlayerStats::Heal(float amount)
     currentHp += amount;
     aidKitParticles.Play();
 
+    Audio::Event("heal");
+
     if (currentHp > currentMaxHp) currentHp = currentMaxHp;
 }
 
@@ -368,7 +370,7 @@ void PlayerStats::UpgradeTreeLvl(int tree)
 
 void PlayerStats::GetPowerUp(int index)
 {
-    if (hudPowerUp == nullptr)return;
+    if (hudPowerUp == nullptr) return;
 
     switch (index)
     {
@@ -398,6 +400,8 @@ void PlayerStats::GetPowerUp(int index)
         Console::Log("Invalid powe up index, can only be 0, 1, 2 or 3.");
         break;
     }
+
+    Audio::Event("power_up");
 }
 
 void PlayerStats::SaveInStorage(int index)

@@ -65,6 +65,7 @@ void Chest::Update()
                 break;
             }
             
+            Audio::Event("open_chest");
             playerMove->StopOpenChestAnim();
             chestAnimatorPlayer.Play();
             gameObject.SetActive(false);
