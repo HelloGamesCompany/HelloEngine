@@ -42,7 +42,6 @@ void HpBar::Update()
 
         HpPlayerbar(playerStats->currentHp / playerStats->currentMaxHp, hp_regen);
         ShieldPlayerbar(playerStats->shield/50);
-        Console::Log("POL RIUS" + std::to_string(playerStats->shield));
     }
 
  
