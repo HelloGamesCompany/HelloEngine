@@ -10514,7 +10514,7 @@
             {
                 "Active camera": true,
                 "Active culling": true,
-                "Aspect ratio": 1.8648383617401123,
+                "Aspect ratio": 1.9392917156219482,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -22783,7 +22783,7 @@
                 "Scale": [
                     1.0,
                     1.0,
-                    0.0
+                    1.0
                 ],
                 "Type": 1
             },
@@ -22855,7 +22855,7 @@
                 "Position": [
                     0.0,
                     0.0,
-                    0.0
+                    0.10000000149011612
                 ],
                 "Rotation": [
                     0.0,
