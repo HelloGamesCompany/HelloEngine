@@ -5,6 +5,7 @@ HELLO_ENGINE_API_C GetDiviner* CreateGetDiviner(ScriptToInspectorInterface* scri
     GetDiviner* classInstance = new GetDiviner();
     //Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
     script->AddDragBoxGameObject("Player Storage GO", &classInstance->playerStorageGO);
+    script->AddDragBoxGameObject("Final Text Panel", &classInstance->finalText);
     return classInstance;
 }
 
@@ -32,7 +33,7 @@ void GetDiviner::OnCollisionEnter(API_RigidBody other)
                 playerStorage->SaveData();
             }
             API_QuickSave::SetBool("level1_completed", true);
-            Scene::LoadScene("ToLevel2.HScene");
+            finalText.SetActive(true);
         }
         
     }

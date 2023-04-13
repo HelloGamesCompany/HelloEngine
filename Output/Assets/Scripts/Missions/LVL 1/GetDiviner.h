@@ -17,5 +17,6 @@ public:
 
     API_GameObject playerStorageGO;
     PlayerStorage* playerStorage;
+    API_GameObject finalText;
 };
 
