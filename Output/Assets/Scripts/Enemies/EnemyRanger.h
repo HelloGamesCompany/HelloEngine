@@ -36,6 +36,7 @@ public:
     API_Vector3 NormalizeVec3(float x, float y, float z);
 
     float Lerp(float a, float b, float time);
+    void HitAnimation();
 
     bool wander = false;
     bool targeting = false;
@@ -67,6 +68,10 @@ public:
     API_AnimationPlayer animationPlayer;
     uint idleAnim;
     uint walkAnim;
+    uint runAnim;
+    uint aimAnim;
+    uint hitAnim;
+    uint dieAnim;
 
     EnemyGun* enemyGun = nullptr;
     API_GameObject gunObj;

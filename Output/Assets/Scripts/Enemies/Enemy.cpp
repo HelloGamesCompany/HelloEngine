@@ -3,6 +3,7 @@
 #include "../Shooting/Projectile.h"
 #include "EnemyTank.h"
 #include "EnemyMeleeMovement.h"
+#include "EnemyRanger.h"
 HELLO_ENGINE_API_C Enemy* CreateEnemy(ScriptToInspectorInterface* script)
 {
     Enemy* classInstance = new Enemy();
@@ -69,6 +70,9 @@ void Enemy::TakeDamage(float damage, float resistanceDamage)
     if (currentHp <= 0)
     {
         currentHp = 0;
+        hitParticles.Stop();
+        hitParticles.StopEmitting();
+        hitParticles.Pause();
         Die();
     }
 
@@ -85,6 +89,13 @@ void Enemy::TakeDamage(float damage, float resistanceDamage)
     {
         meleeScript->HitAnim();
     }
+    EnemyRanger* rangeScript = (EnemyRanger*)gameObject.GetScript("EnemyRanger");
+    if (rangeScript)
+    {
+        rangeScript->HitAnimation();
+    }
+
+
     hitParticles.Play();
 }
 
@@ -93,6 +104,9 @@ void Enemy::Die()
     // some animation
     //enemyDropManager->SpinDropRate(gameObject.GetTransform().GetGlobalPosition());
     hitParticles.Stop();
+    hitParticles.StopEmitting();
+    hitParticles.Pause();
+
     gameObject.SetActive(false);
 }
 

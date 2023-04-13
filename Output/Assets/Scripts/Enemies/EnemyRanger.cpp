@@ -23,6 +23,10 @@ HELLO_ENGINE_API_C EnemyRanger* CreateEnemyRanger(ScriptToInspectorInterface* sc
     script->AddDragBoxAnimationPlayer("Animation Player", &classInstance->animationPlayer);
     script->AddDragBoxAnimationResource("Idle Animation", &classInstance->idleAnim);
     script->AddDragBoxAnimationResource("Walk Animation", &classInstance->walkAnim);
+    script->AddDragBoxAnimationResource("Run Animation", &classInstance->runAnim);
+    script->AddDragBoxAnimationResource("Aim Animation", &classInstance->aimAnim);
+    script->AddDragBoxAnimationResource("Hited Animation", &classInstance->hitAnim);
+    script->AddDragBoxAnimationResource("Die Animation", &classInstance->dieAnim);
 
     return classInstance;
 }
@@ -61,53 +65,59 @@ void EnemyRanger::Update()
 
     if (enemy != nullptr /*&& targStats != nullptr*/)
     {
-         float dis = gameObject.GetTransform().GetGlobalPosition().Distance(target.GetTransform().GetGlobalPosition());
-        float disZone = gameObject.GetTransform().GetGlobalPosition().Distance(actionZone.GetTransform().GetGlobalPosition());
-       // float dis = gameObject.GetTransform().GetLocalPosition().Distance(target.GetTransform().GetGlobalPosition());
-        //float disZone = gameObject.GetTransform().GetLocalPosition().Distance(actionZone.GetTransform().GetGlobalPosition());
-        //float targDisZone = target.GetTransform().GetGlobalPosition().Distance(actionZone.GetTransform().GetGlobalPosition());
+        // float dis = gameObject.GetTransform().GetGlobalPosition().Distance(target.GetTransform().GetGlobalPosition());
+       //float disZone = gameObject.GetTransform().GetGlobalPosition().Distance(actionZone.GetTransform().GetGlobalPosition());
+        float dis = gameObject.GetTransform().GetLocalPosition().Distance(target.GetTransform().GetGlobalPosition());
+        float disZone = gameObject.GetTransform().GetLocalPosition().Distance(actionZone.GetTransform().GetGlobalPosition());
+        float targDisZone = target.GetTransform().GetGlobalPosition().Distance(actionZone.GetTransform().GetGlobalPosition());
 
 
-        //float zoneRad = zoneRb.GetRadius() / 2;
+        float zoneRad = zoneRb.GetRadius() / 2;
 
 
-        //disZone > (zoneRad) ? enemy->isOut = true : enemy->isOut = false;
-        //targDisZone < (zoneRad) ? enemy->isTargIn = true : enemy->isTargIn = false;
-        //disZone > zoneRad ? _outCooldown += dt : _outCooldown = 0;
-        //enemy->isHit ? _hitOutCooldown += dt : _hitOutCooldown = 0;
+        disZone > (zoneRad) ? enemy->isOut = true : enemy->isOut = false;
+        targDisZone < (zoneRad) ? enemy->isTargIn = true : enemy->isTargIn = false;
+        disZone > zoneRad ? _outCooldown += dt : _outCooldown = 0;
+        enemy->isHit ? _hitOutCooldown += dt : _hitOutCooldown = 0;
 
-        //if (_hitOutCooldown >= hitOutTime) enemy->isHit = false;
+        if (_hitOutCooldown >= hitOutTime) enemy->isHit = false,enemy->hitParticles.Stop();
 
-        //if (enemy->isTargIn)
-        //{
-        //    if (zoneRb.GetGameObject().GetTransform().GetGlobalPosition() != targStats->actualZone.GetGameObject().GetTransform().GetGlobalPosition())
-        //    {
-        //        targStats->actualZone = zoneRb;
-        //        targStats->detected = false;
-        //    }
-        //}
-        //if (!enemy->isTargIn)
-        //{
-        //    if (zoneRb.GetGameObject().GetTransform().GetGlobalPosition() == targStats->actualZone.GetGameObject().GetTransform().GetGlobalPosition())
-        //    {
-        //        //targStats->actualZone = zoneRb;
-        //        targStats->detected = false;
-        //    }
-        //}
+        if (enemy->isTargIn)
+        {
+            if (zoneRb.GetGameObject().GetTransform().GetGlobalPosition() != targStats->actualZone.GetGameObject().GetTransform().GetGlobalPosition())
+            {
+                targStats->actualZone = zoneRb;
+                targStats->detected = false;
+            }
+        }
+        if (!enemy->isTargIn)
+        {
+            if (zoneRb.GetGameObject().GetTransform().GetGlobalPosition() == targStats->actualZone.GetGameObject().GetTransform().GetGlobalPosition())
+            {
+                //targStats->actualZone = zoneRb;
+                targStats->detected = false;
+            }
+        }
 
-        if ((dis < detectionDis) && (dis > disShoot) && enemState != States::TARGETING /*&& !enemy->isOut && enemy->isTargIn || enemy->isHit || targStats->detected*/)
+        if ((enemState == States::ATTACKIG || enemState == States::TARGETING || enemy->isHit) && enemy->isTargIn)
+        {
+            targStats->detected = true;
+        }
+
+        if ((dis < detectionDis) && (dis > disShoot) && enemState != States::TARGETING && !enemy->isOut && enemy->isTargIn || enemy->isHit || targStats->detected)
         {
             _movCooldown = 0;
             //_outCooldown = 0;
             enemState = States::TARGETING;
         }
-        else if ((dis < disShoot) && enemState == States::TARGETING )
-        {
-            enemState = States::ATTACKIG;
-        }
-        else if ((dis > lossingDis) /*|| enemy->isOut && !enemy->isTargIn && _outCooldown >= outTime*/)
+        else if (dis > lossingDis || enemy->isOut && !enemy->isTargIn && _outCooldown >= outTime)
         {
             enemState = States::WANDERING;
+        }
+
+        if ((dis < disShoot) && enemState == States::TARGETING )
+        {
+            enemState = States::ATTACKIG;
         }
 
         if ((disZone > zoneRb.GetRadius() / 2))_outCooldown += dt;
@@ -143,7 +153,7 @@ void EnemyRanger::Update()
                     animState = AnimationState::WALK;
                     animationPlayer.ChangeAnimation(walkAnim);
                     animationPlayer.Play();
-                    Console::Log("Walk");
+                    //Console::Log("Walk");
                 }
             
             break;
@@ -155,12 +165,12 @@ void EnemyRanger::Update()
 
                 Seek(enemy->currentSpeed, target.GetTransform().GetGlobalPosition(), enemy->enemyRb);
 
-                if (animState != AnimationState::WALK)
+                if (animState != AnimationState::RUN)
                 {
-                    animState = AnimationState::WALK;
-                    animationPlayer.ChangeAnimation(walkAnim);
+                    animState = AnimationState::RUN;
+                    animationPlayer.ChangeAnimation(runAnim);
                     animationPlayer.Play();
-                    Console::Log("Walk");
+                    //Console::Log("Walk");
                 }
             
             break;
@@ -168,22 +178,35 @@ void EnemyRanger::Update()
         case States::ATTACKIG:
 
             enemy->currentSpeed = enemy->speed * enemy->acceleration * enemy->stunVel * enemy->slowVel /** dt*/;
-            
-                if (dis >= disPlayer)
-                {
-                    Seek(enemy->currentSpeed, target.GetTransform().GetGlobalPosition(), enemy->enemyRb);
+                
+            if (dis > disPlayer)
+            {
+                Seek(enemy->currentSpeed, target.GetTransform().GetGlobalPosition(), enemy->enemyRb);
 
-                }
-                else
-                {
-                    enemy->enemyRb.SetVelocity(gameObject.GetTransform().GetBackward() * enemy->currentSpeed);
+            }
+            else if (dis < disPlayer - 5)
+            {
+                enemy->enemyRb.SetVelocity(gameObject.GetTransform().GetBackward() * enemy->currentSpeed * 0.7);
 
-                }
+            }
+            else
+            {
+                Seek(enemy->currentSpeed * 0, target.GetTransform().GetGlobalPosition(), enemy->enemyRb);
+            }
+                
+
+                
 
                 //gameObject.GetTransform().Translate(gameObject.GetTransform().GetBackward() * enemy->currentSpeed);
 
                 Attacking(enemy->currentSpeed * 0.5f, target.GetTransform().GetGlobalPosition(), enemy->enemyRb);
-            
+                if (animState != AnimationState::SHOOT)
+                {
+                    animState = AnimationState::SHOOT;
+                    animationPlayer.ChangeAnimation(aimAnim);
+                    animationPlayer.Play();
+                    //Console::Log("Walk");
+                }
 
             break;
         default:
@@ -285,4 +308,15 @@ API_Vector3 EnemyRanger::NormalizeVec3(float x, float y, float z)
 float EnemyRanger::Lerp(float a, float b, float time)
 {
     return a + time * (b - a);
+}
+
+void EnemyRanger::HitAnimation()
+{
+    if (animState != AnimationState::HITTED)
+    {
+        animState = AnimationState::HITTED;
+        animationPlayer.ChangeAnimation(hitAnim);
+        animationPlayer.Play();
+    }
+
 }
