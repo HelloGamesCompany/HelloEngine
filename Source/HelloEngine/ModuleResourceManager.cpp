@@ -68,6 +68,7 @@ bool ModuleResourceManager::Start()
 	_fileTree = new FileTree();
 
 	ModuleFiles::S_UpdateFileTree(_fileTree);
+
 	return true;
 }
 

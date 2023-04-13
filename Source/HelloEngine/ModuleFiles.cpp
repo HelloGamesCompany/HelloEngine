@@ -804,6 +804,9 @@ bool ModuleFiles::S_CheckFileNameInDLL(const std::string& fileNameWithoutExtensi
 
 void ModuleFiles::S_CompileDLLProject()
 {
+#ifndef STANDALONE
+    return;
+#endif
     int res = 0;
 #ifdef  _DEBUG
     if (_automaticCompilation && _enabledAutomaticCompilation) // If automatic compilation is available / enabled, compile using MSBuild.
