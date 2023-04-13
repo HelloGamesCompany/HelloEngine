@@ -1,13 +1,15 @@
 <?xml version="1.0"?>
 <QuickSave>
-	<Bool />
-	<String />
+	<Bool>
+		<default value="0" />
+	</Bool>
+	<String>
+		<default value="nothing" />
+	</String>
 	<Int>
-		<equipedNormalGun value="2" />
+		<default value="0" />
 	</Int>
 	<Float>
-		<PlayerPosX value="110.500000f" />
-		<PlayerPosY value="0.000000f" />
-		<PlayerPosZ value="-29.200001f" />
+		<default value="0.0" />
 	</Float>
 </QuickSave>
