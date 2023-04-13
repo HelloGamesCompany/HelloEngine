@@ -131,7 +131,7 @@ void EnemyMeleeMovement::Update()
              {
                  enemState = States::ATTACKIG;
              }
-             else if (dis < detectionDis && enemState != States::TARGETING && !enemy->isOut && enemy->isTargIn || enemy->isHit || targStats->detected)
+             else if (dis < detectionDis && enemState != States::TARGETING && !enemy->isOut && enemy->isTargIn || enemy->isHit || targStats->detected && enemy->isTargIn)
              {
                  attackZone->attack = false;
                  enemState = States::TARGETING;
