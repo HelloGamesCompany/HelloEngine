@@ -1,158 +1,326 @@
 #include "SwapWeapon.h"
+#include "../Shooting/PlayerGunManager.h"
 HELLO_ENGINE_API_C SwapWeapon* CreateSwapWeapon(ScriptToInspectorInterface* script)
 {
-	SwapWeapon* classInstance = new SwapWeapon();
-	//Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
-	//weapon 1
-	script->AddDragBoxTextureResource("Text_Weapon_1_on", &classInstance->Texture_Weapon_1_on);
-	script->AddDragBoxTextureResource("Text_Weapon_1_off", &classInstance->Texture_Weapon_1_off);
+    SwapWeapon* classInstance = new SwapWeapon();
+    //Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
 
-	script->AddDragBoxMaterialComponent("Material Weapon 1", &classInstance->Material_Weapon_1);
-	script->AddDragBoxGameObject("Game Bar Weapon 1", &classInstance->Active_Bar_1);
+    //infinitWeapons 
+    //on
+    script->AddDragBoxTextureResource("HandgunsWeapons_On", &classInstance->infinitWeaponsOn[0]);
+    //off                              
+    script->AddDragBoxTextureResource("HandgunsWeapons_Off", &classInstance->infinitWeaponsOff[0]);
 
-	//weapon 2
-	script->AddDragBoxTextureResource("Text_Weapon_2_on", &classInstance->Texture_Weapon_2_on);
-	script->AddDragBoxTextureResource("Text_Weapon_2_off", &classInstance->Texture_Weapon_2_off);
 
-	script->AddDragBoxMaterialComponent("Material Weapon 2", &classInstance->Material_Weapon_2);
-	script->AddDragBoxGameObject("Game Bar Weapon 2", &classInstance->Active_Bar_2);
+    //NormalWeapons 
+    //on
+    script->AddDragBoxTextureResource("Auto_On", &classInstance->normalWeaponsOn[1]);
+    script->AddDragBoxTextureResource("Burst_On", &classInstance->normalWeaponsOn[2]);
+    script->AddDragBoxTextureResource("Semi_On", &classInstance->normalWeaponsOn[3]);
+    script->AddDragBoxTextureResource("Shotgun_On", &classInstance->normalWeaponsOn[4]);
+    script->AddDragBoxTextureResource("Handgun_On", &classInstance->normalWeaponsOn[5]);
+    //off
+    script->AddDragBoxTextureResource("Auto_Off", &classInstance->normalWeaponsOff[1]);
+    script->AddDragBoxTextureResource("Burst_Off", &classInstance->normalWeaponsOff[2]);
+    script->AddDragBoxTextureResource("Semi_Off", &classInstance->normalWeaponsOff[3]);
+    script->AddDragBoxTextureResource("Shotgun_Off", &classInstance->normalWeaponsOff[4]);
+    script->AddDragBoxTextureResource("Handgun_Off", &classInstance->normalWeaponsOff[5]);
 
-	//weapon 3
-	script->AddDragBoxTextureResource("Text_Weapon_3_on", &classInstance->Texture_Weapon_3_on);
-	script->AddDragBoxTextureResource("Text_Weapon_3_off", &classInstance->Texture_Weapon_3_off);
 
-	script->AddDragBoxMaterialComponent("Material Weapon 3", &classInstance->Material_Weapon_3);
-	script->AddDragBoxGameObject("Game Bar Weapon 3", &classInstance->Active_Bar_3);
-	
-	////dash
-	//script->AddDragBoxTextureResource("Text_Dash_on", &classInstance->Texture_Dash_on);
-	//script->AddDragBoxTextureResource("Text_Dash_off", &classInstance->Texture_Dash_off);
+    //EspecialesWeapons 
+    //on
+    script->AddDragBoxTextureResource("FlameThrower_On 1", &classInstance->specialsWeaponsOn[1]);
+    script->AddDragBoxTextureResource("Ricochet_On 2", &classInstance->specialsWeaponsOn[2]);
+    //off                              
+    script->AddDragBoxTextureResource("FlameThrower_Off 1", &classInstance->specialsWeaponsOff[1]);
+    script->AddDragBoxTextureResource("Ricochet_Off 2", &classInstance->specialsWeaponsOff[2]);
 
-	script->AddDragBoxMaterialComponent("Material_Dash", &classInstance->Material_Dash);
 
-	return classInstance;
+    //weapon 1
+    script->AddDragBoxMaterialComponent("Material Weapon 1 on", &classInstance->material_Infinite_Weapon_on);
+    script->AddDragBoxMaterialComponent("Material Weapon 1 off", &classInstance->material_Infinite_Weapon_off);
+    script->AddDragBoxGameObject("Game Bar Weapon 1", &classInstance->active_Bar_1);
+
+    //weapon 2
+    script->AddDragBoxMaterialComponent("Material Weapon 2 on", &classInstance->material_Normal_Weapon_on);
+    script->AddDragBoxMaterialComponent("Material Weapon 2 off", &classInstance->material_Normal_Weapon_off);
+    script->AddDragBoxGameObject("Game Bar Weapon 2", &classInstance->active_Bar_2);
+
+    //weapon 3
+    script->AddDragBoxMaterialComponent("Material Weapon 3 on", &classInstance->material_Special_Weapon_on);
+    script->AddDragBoxMaterialComponent("Material Weapon 3 off", &classInstance->material_Special_Weapon_off);
+    script->AddDragBoxGameObject("Game Bar Weapon 3", &classInstance->active_Bar_3);
+
+    ////dash
+    script->AddDragBoxTextureResource("Text_Dash_on", &classInstance->texture_Dash_on);
+    script->AddDragBoxTextureResource("Text_Dash_off", &classInstance->texture_Dash_off);
+
+    script->AddDragBoxMaterialComponent("Material_Dash", &classInstance->material_Dash);
+
+    script->AddDragBoxGameObject("Player Move GO", &classInstance->playerGO);
+
+    return classInstance;
 }
 
 void SwapWeapon::Start()
 {
-	//weapon 1
-	Material_Weapon_1.ChangeAlbedoTexture(Texture_Weapon_1_on);
-	Active_Bar_1.SetActive(true);
+    //weapon 1
+    material_Infinite_Weapon_on.ChangeAlbedoTexture(infinitWeaponsOn[0]);
+    material_Infinite_Weapon_off.ChangeAlbedoTexture(infinitWeaponsOff[0]);
+    material_Infinite_Weapon_off.GetGameObject().SetActive(false);
+    active_Bar_1.SetActive(true);
 
-	Material_Weapon_1.GetGameObject().GetTransform().SetScale({ 0.12,0.12,0.5 });
-	Material_Weapon_2.GetGameObject().GetTransform().SetScale({ 0.15,0.15,0.5 });
-	Material_Weapon_3.GetGameObject().GetTransform().SetScale({ 0.125,0.125,0.5 });
-	
-	//weapon 2
-	Material_Weapon_2.ChangeAlbedoTexture(Texture_Weapon_2_off);
-	Active_Bar_2.SetActive(false);
-	//weapon 3
-	Material_Weapon_3.ChangeAlbedoTexture(Texture_Weapon_3_off);
-	Active_Bar_3.SetActive(false);
+    //weapon 2
+    material_Normal_Weapon_on.ChangeAlbedoTexture(normalWeaponsOn[0]);
+    material_Normal_Weapon_off.ChangeAlbedoTexture(normalWeaponsOff[0]);
+    material_Normal_Weapon_on.GetGameObject().SetActive(false);
+    material_Normal_Weapon_off.GetGameObject().SetActive(true);
+    active_Bar_2.SetActive(false);
+    //weapon 3
+    material_Special_Weapon_on.ChangeAlbedoTexture(specialsWeaponsOn[0]);
+    material_Special_Weapon_off.ChangeAlbedoTexture(specialsWeaponsOff[0]);
+    material_Special_Weapon_on.GetGameObject().SetActive(false);
+    material_Special_Weapon_off.GetGameObject().SetActive(true);
+    active_Bar_3.SetActive(false);
 
-	//Dash
-	//Material_Dash.ChangeAlbedoTexture(Texture_Dash_on);
+    //Dash
+    dashingReady = true;
+    material_Dash.ChangeAlbedoTexture(texture_Dash_on);
+
+    playerMove = (PlayerMove*)playerGO.GetScript("PlayerMove");
+    if (playerMove == nullptr) Console::Log("PlayerMove missing in SwapWeapon Script.");
+
+    playerGunManager = (PlayerGunManager*)playerGO.GetScript("PlayerGunManager");
+    if (playerGunManager == nullptr) Console::Log("PlayerGunManager missing in SwapWeapon Script.");
 }
-void SwapWeapon::Update() 
+void SwapWeapon::Update()
 {
+    int equipedIndex = 0;
 
-	/*
-	if (Input::GetKey(KeyCode::KEY_B) == KeyState::KEY_DOWN)
-	{
-		SwapWeapon1();
-	}
-	
-	if (Input::GetKey(KeyCode::KEY_N) == KeyState::KEY_DOWN)
-	{
-		SwapWeapon2();
-	}
-	
-	if (Input::GetKey(KeyCode::KEY_M) == KeyState::KEY_DOWN)
-	{
-		SwapWeapon3();
-	}*/
+    if (playerGunManager)
+    {
+        switch (playerGunManager->equipedIndex)
+        {
+        case 0:
+            equipedIndex = 0;
+            break;
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+            equipedIndex = 1;
+            break;
+        case 6:
+        case 7:
+            equipedIndex = 2;
+            break;
+        default:
+            break;
+        }
+    }
 
-	/*if (Input::GetKey(KeyCode::KEY_B) == KeyState::KEY_DOWN)
-	{
-		if (activeDash == true)
-		{
-			activeDash = false;
-			Dash();
-		}
-		
-		else if (activeDash == false)
-		{
-			activeDash = true;
-			Dash();
-		}
-	}*/
+    if (equipedIndex == 0)
+    {
+        //weapons on
+        material_Infinite_Weapon_on.GetGameObject().SetActive(true);
+        material_Normal_Weapon_on.GetGameObject().SetActive(false);
+        material_Special_Weapon_on.GetGameObject().SetActive(false);
+
+        //weapons off
+        material_Infinite_Weapon_off.GetGameObject().SetActive(false);
+        material_Normal_Weapon_off.GetGameObject().SetActive(true);
+        material_Special_Weapon_off.GetGameObject().SetActive(true);
+
+        //bars
+        active_Bar_1.SetActive(true);
+        active_Bar_2.SetActive(false);
+        active_Bar_3.SetActive(false);
+    }
+    else if (equipedIndex == 1)
+    {
+        //weapons on
+        material_Infinite_Weapon_on.GetGameObject().SetActive(false);
+        material_Normal_Weapon_on.GetGameObject().SetActive(true);
+        material_Special_Weapon_on.GetGameObject().SetActive(false);
+
+        //weapons off
+        material_Infinite_Weapon_off.GetGameObject().SetActive(true);
+        material_Normal_Weapon_off.GetGameObject().SetActive(false);
+        material_Special_Weapon_off.GetGameObject().SetActive(true);
+
+        //bars
+        active_Bar_1.SetActive(false);
+        active_Bar_2.SetActive(true);
+        active_Bar_3.SetActive(false);
+    }
+    else
+    {
+        //weapons on
+        material_Infinite_Weapon_on.GetGameObject().SetActive(false);
+        material_Normal_Weapon_on.GetGameObject().SetActive(false);
+        material_Special_Weapon_on.GetGameObject().SetActive(true);
+
+        //weapons off
+        material_Infinite_Weapon_off.GetGameObject().SetActive(true);
+        material_Normal_Weapon_off.GetGameObject().SetActive(true);
+        material_Special_Weapon_off.GetGameObject().SetActive(false);
+
+        //bars
+        active_Bar_1.SetActive(false);
+        active_Bar_2.SetActive(true);
+        active_Bar_3.SetActive(true);
+    }
+
+    active_None_Weapon();
+
+    /*if (Input::GetKey(KeyCode::KEY_C) == KeyState::KEY_DOWN) {
+        arma_Princial = true;
+        arma_Secundaria = false;
+        arma_Especial = false;
+        SwapWeapon1(infinitWeapon_Type::HANDGUNS, arma_Princial);
+        Console::Log("si: ");
+    }
+
+    if (Input::GetKey(KeyCode::KEY_X) == KeyState::KEY_DOWN) {
+        arma_Princial = false;
+        arma_Secundaria = false;
+        arma_Especial = false;
+        SwapWeapon2(normalWeapon_Type::SEMI, arma_Secundaria);
+        Console::Log("no: ");
+    }
+
+    /*if (Input::GetKey(KeyCode::KEY_Z) == KeyState::KEY_DOWN) {
+        arma_Princial = false;
+        arma_Secundaria = false;
+        arma_Especial = true;
+        SwapWeapon3(specialWeapon_Type::RICOCHET, arma_Especial);
+        Console::Log("ss: ");
+    }*/
+
+
+
+    if (playerMove && playerMove->dashesAvailable > 0 && !dashingReady)
+    {
+        Dash();
+    }
+    else if (playerMove && playerMove->dashesAvailable == 0 && dashingReady)
+    {
+        Dash();
+    }
 }
 
-void SwapWeapon::SwapWeapon1()
+void SwapWeapon::SwapWeapon1(infinitWeapon_Type infinitWeapon)
 {
-	//texture
-	Material_Weapon_1.ChangeAlbedoTexture(Texture_Weapon_1_on);
-	Material_Weapon_2.ChangeAlbedoTexture(Texture_Weapon_2_off);
-	Material_Weapon_3.ChangeAlbedoTexture(Texture_Weapon_3_off);
-
-
-
-	//game object
-	//Scale
-	Material_Weapon_1.GetGameObject().GetTransform().SetScale({0.12,0.12,0.5});
-	Material_Weapon_2.GetGameObject().GetTransform().SetScale({0.15,0.15,0.5});
-	Material_Weapon_3.GetGameObject().GetTransform().SetScale({0.125,0.125,0.5});
-
-	Active_Bar_1.SetActive(true);
-	Active_Bar_2.SetActive(false);
-	Active_Bar_3.SetActive(false);
+    switch (infinitWeapon)
+    {
+    case infinitWeapon_Type::HANDGUNS:
+        material_Infinite_Weapon_on.ChangeAlbedoTexture(infinitWeaponsOn[0]);
+        material_Infinite_Weapon_off.ChangeAlbedoTexture(infinitWeaponsOff[0]);
+        break;
+    default:
+        break;
+    }
 }
 
-void SwapWeapon::SwapWeapon2()
+void SwapWeapon::SwapWeapon2(normalWeapon_Type normalWeapon)
 {
-	//texture
-	Material_Weapon_1.ChangeAlbedoTexture(Texture_Weapon_1_off);
-	Material_Weapon_2.ChangeAlbedoTexture(Texture_Weapon_2_on);
-	Material_Weapon_3.ChangeAlbedoTexture(Texture_Weapon_3_off);
-
-	//game objects
-	Material_Weapon_1.GetGameObject().GetTransform().SetScale({ 0.07,0.07,0.5 });
-	Material_Weapon_2.GetGameObject().GetTransform().SetScale({ 0.2,0.2,0.5 });
-	Material_Weapon_3.GetGameObject().GetTransform().SetScale({ 0.125,0.125,0.5 });
-
-	Active_Bar_1.SetActive(false);
-	Active_Bar_2.SetActive(true);
-	Active_Bar_3.SetActive(false);
+    switch (normalWeapon)
+    {
+    case normalWeapon_Type::NONE:
+        material_Normal_Weapon_on.ChangeAlbedoTexture(normalWeaponsOn[0]);
+        material_Normal_Weapon_off.ChangeAlbedoTexture(normalWeaponsOff[0]);
+        normal_NONE = true;
+        break;
+    case normalWeapon_Type::AUTO:
+        material_Normal_Weapon_on.ChangeAlbedoTexture(normalWeaponsOn[1]);
+        material_Normal_Weapon_off.ChangeAlbedoTexture(normalWeaponsOff[1]);
+        normal_NONE = false;
+        break;
+    case normalWeapon_Type::BURST:
+        material_Normal_Weapon_on.ChangeAlbedoTexture(normalWeaponsOn[2]);
+        material_Normal_Weapon_off.ChangeAlbedoTexture(normalWeaponsOff[2]);
+        normal_NONE = false;
+        break;
+    case normalWeapon_Type::SEMI:
+        material_Normal_Weapon_on.ChangeAlbedoTexture(normalWeaponsOn[3]);
+        material_Normal_Weapon_off.ChangeAlbedoTexture(normalWeaponsOff[3]);
+        normal_NONE = false;
+        break;
+    case normalWeapon_Type::SHOTGUN:
+        material_Normal_Weapon_on.ChangeAlbedoTexture(normalWeaponsOn[4]);
+        material_Normal_Weapon_off.ChangeAlbedoTexture(normalWeaponsOff[4]);
+        normal_NONE = false;
+        break;
+    case normalWeapon_Type::REVOLVER:
+        material_Normal_Weapon_on.ChangeAlbedoTexture(normalWeaponsOn[5]);
+        material_Normal_Weapon_off.ChangeAlbedoTexture(normalWeaponsOff[5]);
+        normal_NONE = false;
+        break;
+    default:
+        break;
+    }
 }
 
-void SwapWeapon::SwapWeapon3()
+void SwapWeapon::SwapWeapon3(specialWeapon_Type specialWeapon)
 {
-	//texture
-	Material_Weapon_1.ChangeAlbedoTexture(Texture_Weapon_1_off);
-	Material_Weapon_2.ChangeAlbedoTexture(Texture_Weapon_2_off);
-	Material_Weapon_3.ChangeAlbedoTexture(Texture_Weapon_3_on);
+    switch (specialWeapon)
+    {
+    case specialWeapon_Type::NONE:
+        material_Special_Weapon_on.ChangeAlbedoTexture(specialsWeaponsOn[0]);
+        material_Special_Weapon_off.ChangeAlbedoTexture(specialsWeaponsOff[0]);
+        special_NONE = true;
+        break;
+    case specialWeapon_Type::FLAMETHROWER:
+        material_Special_Weapon_on.ChangeAlbedoTexture(specialsWeaponsOn[1]);
+        material_Special_Weapon_off.ChangeAlbedoTexture(specialsWeaponsOff[1]);
+        special_NONE = false;
+        break;
+    case specialWeapon_Type::RICOCHET:
+        material_Special_Weapon_on.ChangeAlbedoTexture(specialsWeaponsOn[2]);
+        material_Special_Weapon_off.ChangeAlbedoTexture(specialsWeaponsOff[2]);
+        special_NONE = false;
+        break;
+    default:
+        break;
+    }
+}
 
-	//game objects
-	Material_Weapon_1.GetGameObject().GetTransform().SetScale({ 0.07,0.07,0.5 });
-	Material_Weapon_2.GetGameObject().GetTransform().SetScale({ 0.15,0.15,0.5 });
-	Material_Weapon_3.GetGameObject().GetTransform().SetScale({ 0.14,0.14,0.5 });
+void SwapWeapon::active_None_Weapon()
+{
+    if (normal_NONE == true)
+    {
+        material_Normal_Weapon_on.GetGameObject().GetMeshRenderer().SetActive(false);
+        material_Normal_Weapon_off.GetGameObject().GetMeshRenderer().SetActive(false);
+    }
+    else
+    {
+        material_Normal_Weapon_on.GetGameObject().GetMeshRenderer().SetActive(true);
+        material_Normal_Weapon_off.GetGameObject().GetMeshRenderer().SetActive(true);
+    }
 
-	Active_Bar_1.SetActive(false);
-	Active_Bar_2.SetActive(false);
-	Active_Bar_3.SetActive(true);
+    if (special_NONE == true)
+    {
+        material_Special_Weapon_on.GetGameObject().GetMeshRenderer().SetActive(false);
+        material_Special_Weapon_off.GetGameObject().GetMeshRenderer().SetActive(false);
+    }
+    else
+    {
+        material_Special_Weapon_on.GetGameObject().GetMeshRenderer().SetActive(true);
+        material_Special_Weapon_off.GetGameObject().GetMeshRenderer().SetActive(true);
+    }
 }
 
 void SwapWeapon::Dash()
 {
-	activeDash = !activeDash;
-	if (activeDash == false)
-	{
-		Material_Dash.ChangeAlbedoTexture(Texture_Dash_off);
-	}
-
-	if (activeDash == true)
-	{
-		Material_Dash.ChangeAlbedoTexture(Texture_Dash_on);
-	}
+    dashingReady = !dashingReady;
+    if (!dashingReady)
+    {
+        material_Dash.ChangeAlbedoTexture(texture_Dash_off);
+    }
+    else
+    {
+        material_Dash.ChangeAlbedoTexture(texture_Dash_on);
+    }
 }
 

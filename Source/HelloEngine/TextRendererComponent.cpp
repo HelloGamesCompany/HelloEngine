@@ -1,9 +1,10 @@
 #include "Headers.h"
 #include "TextRendererComponent.h"
+#include "GameObject.h"
 #include "ModuleRenderer3D.h"
 #include "RenderManager.h"
 
-TextRendererComponent::TextRendererComponent(GameObject* go) : Component(go)
+TextRendererComponent::TextRendererComponent(GameObject* go) : ComponentUI(go)
 {
 	_type = Component::Type::UI_TEXT;
 	_needsTransformCallback = true;
@@ -102,6 +103,11 @@ void TextRendererComponent::DeSerialization(json& j)
 	scale = textObject.scale;
 	color = textObject.color;
 	_gameObject->transform->SetPosition({ textObject.position.x, textObject.position.y, 0 });
+
+	if (MeshRenderComponent* mesh = _gameObject->GetComponent<MeshRenderComponent>())
+	{
+		mesh->Disable();
+	}
 }
 
 void TextRendererComponent::ChangeColor(float4 newColor)

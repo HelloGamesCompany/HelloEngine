@@ -1,9 +1,10 @@
 #include "EnemyAutomatic.h"
 HELLO_ENGINE_API_C EnemyAutomatic* CreateEnemyAutomatic(ScriptToInspectorInterface* script)
 {
-	EnemyAutomatic* classInstance = new EnemyAutomatic();
-	//Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
-  /*  script->AddDragBoxGameObject("Projectile Pull", &classInstance->projectilePull);
+    EnemyAutomatic* classInstance = new EnemyAutomatic();
+    //Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
+    script->AddDragBoxGameObject("Self Enemy GO", &classInstance->enemyGO);
+    script->AddDragBoxGameObject("Projectile Pull", &classInstance->projectilePull);
     script->AddDragFloat("Projectile Speed", &classInstance->projectileSpeed);
     script->AddDragFloat("Projectile Damage", &classInstance->projectileDamage);
     script->AddDragFloat("Projectile Resistance Damage", &classInstance->projectileResistanceDamage);
@@ -16,17 +17,13 @@ HELLO_ENGINE_API_C EnemyAutomatic* CreateEnemyAutomatic(ScriptToInspectorInterfa
     script->AddDragFloat("Projectile ScaleZ", &classInstance->projectileScale.z);
     script->AddDragFloat("Projectiles per second", &classInstance->cadence);
     script->AddInputBox("Audio Event String", &classInstance->audioEventString);
-    */
     return classInstance;
 }
 
 void EnemyAutomatic::Start()
 {
-
-	
-
-	//if (cadence != 0) fullShotCooldown = 1 / cadence;
-	//else fullShotCooldown = 0;
+    if (cadence != 0) fullShotCooldown = 1 / cadence;
+    else fullShotCooldown = 0;
 
 }
 void EnemyAutomatic::Update()
@@ -42,18 +39,15 @@ void EnemyAutomatic::Update()
     {
         shotCooldown -= Time::GetDeltaTime();
     }
-
 }
 
-//void EnemyAutomatic::Shoot()
-//{
-//    if (canShoot)
-//    {
-//        LauchProjectile(shootingSpawn);
-//        PlayShotSound(audioEventString);
-//        canShoot = false;
-//        shotCooldown = fullShotCooldown;
-//       
-//    }
-//}
-
+void EnemyAutomatic::Shoot()
+{
+    if (canShoot)
+    {
+        LauchProjectile(shootingSpawn);
+        PlayShotSound(audioEventString);
+        canShoot = false;
+        shotCooldown = fullShotCooldown;
+    }
+}

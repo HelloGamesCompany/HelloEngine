@@ -26,7 +26,7 @@ ImWindowHierarchy::ImWindowHierarchy()
 
     LayerEditor::draggedGameObject = nullptr;
 
-    _base_flags = ImGuiTreeNodeFlags_DefaultOpen | ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_OpenOnDoubleClick | ImGuiTreeNodeFlags_SpanAvailWidth | ImGuiTreeNodeFlags_AllowItemOverlap;
+    _base_flags = ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_OpenOnDoubleClick | ImGuiTreeNodeFlags_SpanAvailWidth | ImGuiTreeNodeFlags_AllowItemOverlap;
 }
 
 ImWindowHierarchy::~ImWindowHierarchy()
@@ -37,6 +37,9 @@ void ImWindowHierarchy::Update()
 {
 	if (ImGui::Begin(windowName.c_str(), &isEnabled, ImGuiWindowFlags_NoResize))
     {
+        if (ImGui::IsWindowFocused())
+            LayerEditor::detectInput = true;
+
         _hasSelectedAGameObject = false;
         
         DrawGameObjectChildren(ModuleLayers::rootGameObject);
@@ -139,8 +142,18 @@ void ImWindowHierarchy::ProcessGameObject(GameObject* gameObject, int iteration)
     {
         isLeaf = true;
         node_flags |= ImGuiTreeNodeFlags_Leaf;
-        ImGui::TreeNodeEx((void*)(intptr_t)iteration, node_flags, gameObject->name.c_str(), iteration);
+        if (gameObject->isSelected)
+        {
+            ImGui::PushStyleColor(ImGuiCol_Text, { 1,0,0,1 });
+            ImGui::TreeNodeEx((void*)(intptr_t)iteration, node_flags, gameObject->name.c_str(), iteration);
+            ImGui::PopStyleColor();
+        }
+        else
+        {
+            ImGui::TreeNodeEx((void*)(intptr_t)iteration, node_flags, gameObject->name.c_str(), iteration);
+        }
         node_open = false;
+
     }
     else
         node_open = ImGui::TreeNodeEx((void*)(intptr_t)iteration, node_flags, gameObject->name.c_str(), iteration);

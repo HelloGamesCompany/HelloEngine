@@ -2,8 +2,9 @@
 #include "API/HelloBehavior.h"
 #include "ScriptToInspectorInterface.h"
 #include "Macro.h"
-//#include "EnemyGun.h"
+#include "EnemyGun.h"
 #include "API/API.h"
+#include "Enemy.h"
 
 class EnemyRanger : HelloBehavior
 {
@@ -11,7 +12,11 @@ class EnemyRanger : HelloBehavior
     {
         NONE,
         IDLE,
-        WALK
+        WALK,
+        RUN,
+        SHOOT,
+        HITTED,
+        DIE,
     };
 
 public:
@@ -24,13 +29,14 @@ public:
     void Start() override;
     void Update() override;
 
-    void Seek(float vel, API_Vector3 tarPos);
-    void Wander(float vel, API_Vector3 point);
-    void Attacking(float vel, API_Vector3 tarPos);
+    void Seek(float vel, API_Vector3 tarPos, API_RigidBody rb);
+    void Wander(float vel, API_Vector3 point, API_RigidBody rb);
+    void Attacking(float vel, API_Vector3 tarPos, API_RigidBody rb);
 
     API_Vector3 NormalizeVec3(float x, float y, float z);
 
     float Lerp(float a, float b, float time);
+    void HitAnimation();
 
     bool wander = false;
     bool targeting = false;
@@ -43,6 +49,7 @@ public:
 
     float cooldownPoint = 3.0f;
     float outTime = 3.0f;
+    float hitOutTime = 2.0f;
 
     API_GameObject target;
     API_GameObject actionZone;
@@ -61,13 +68,23 @@ public:
     API_AnimationPlayer animationPlayer;
     uint idleAnim;
     uint walkAnim;
+    uint runAnim;
+    uint aimAnim;
+    uint hitAnim;
+    uint dieAnim;
 
-    //EnemyGun* enemyGun = nullptr;
-    //API_GameObject gunObj;
+    EnemyGun* enemyGun = nullptr;
+    API_GameObject gunObj;
+
+    Enemy* enemy = nullptr;
+    PlayerStats* targStats = nullptr;
+
+    int gunType;
 private:
     int _avalPoints = 0;
     float _movCooldown;//max time that can be outside the zone
     float _outCooldown;//max time that can be outside the zone
+    float _hitOutCooldown;//
     bool _canWalk = false;
 
 };

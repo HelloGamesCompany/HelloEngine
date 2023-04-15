@@ -25,6 +25,11 @@ void ComponentUIImage::InputUpdate()
 
 }
 
+void ComponentUIImage::SetFill(float fill)
+{
+	_meshRenderer->GetMesh().opacityLimit = fill;
+}
+
 void ComponentUIImage::Serialization(json& j)
 {
 	json _j;
@@ -32,7 +37,9 @@ void ComponentUIImage::Serialization(json& j)
 	_j["Type"] = _type;
 	_j["MaterialResource"] = _material->GetResourceUID();
 	_j["Enabled"] = _isEnabled;
-	_j["FillImage"] = _fillImage;
+	_j["FillImage"] = _meshRenderer->GetMesh().opacityLimit;
+	_j["OpacityDirection"] = (uint)_meshRenderer->GetMesh().opacityDir;
+	SaveMeshState(_j);
 	j["Components"].push_back(_j);
 }
 
@@ -40,20 +47,25 @@ void ComponentUIImage::DeSerialization(json& j)
 {
 	_material->ChangeTexture((ResourceTexture*)ModuleResourceManager::S_LoadResource(j["MaterialResource"]));
 
+	_meshRenderer->GetMesh().opacityLimit = j["FillImage"];
+
+	if (j.contains("OpacityDirection"))
+	{
+		_meshRenderer->GetMesh().opacityDir = (OpacityDirection)(int)j["OpacityDirection"];
+	}
+
+	LoadMeshState(j);
+
+	_gameObject->transform->ForceUpdate();
+	
 	bool enabled = j["Enabled"];
 	if (!enabled)
 		Disable();
-
-	_fillImage = j["FillImage"];
-
-	_gameObject->transform->ForceUpdate();
-
 }
 
 #ifdef STANDALONE
 void ComponentUIImage::OnEditor()
 {
-
 	bool created = true;
 	if (!ImGui::CollapsingHeader("Image", &created, ImGuiTreeNodeFlags_DefaultOpen)) return;
 	if (!created)
@@ -62,17 +74,23 @@ void ComponentUIImage::OnEditor()
 		return;
 	}
 
-	ImGui::Text("Fill Image");
-	ImGui::SameLine();
+	ImGui::SliderFloat("Fill", &_meshRenderer->GetMesh().opacityLimit, 0.0f, 1.0f);
 
-	//fill image
-	float aux1 = _fillImage;
-	if (ImGui::DragFloat("##fill", &_fillImage, 0.001f, 0, _maxScale))
+	uint currentOpacityDir = (uint)_meshRenderer->GetMesh().opacityDir;
+
+	if (ImGui::BeginCombo("Opacity Direction", comboNames[currentOpacityDir].c_str()))
 	{
-		this->_gameObject->transform->SetScale({ _fillImage, this->_gameObject->transform->GetLocalScale().y, this->_gameObject->transform->GetLocalScale().z });
-		this->_gameObject->transform->SetPosition({ this->_gameObject->transform->GetGlobalPosition().x + (_fillImage - aux1),
-													this->_gameObject->transform->GetLocalPosition().y, this->_gameObject->transform->GetLocalPosition().z });
+		for (int i = 0; i < 4; ++i)
+		{
+			bool selected = i == currentOpacityDir;
+			if (ImGui::Selectable(comboNames[i].c_str(), &selected))
+			{
+				_meshRenderer->GetMesh().opacityDir = (OpacityDirection)i;
+			}
+		}
+		ImGui::EndCombo();
 	}
+
 
 	ImGui::InputFloat("Max Scale", &_maxScale);
 	

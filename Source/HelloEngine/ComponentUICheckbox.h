@@ -20,20 +20,25 @@ class ComponentUICheckbox : public ComponentUI
 	void InputUpdate() override;
 	void Serialization(json& j) override;
 	void DeSerialization(json& j) override;
+
+	void UpdateGamePadInput(bool selected) override;
+
 	CheckboxState ChangeState(CheckboxState State);
 
+	bool checkActive = false;
 	CheckboxState State;
 private:
-	bool checkActive = false;
 	float colors[4] = { 0,0,0,0 };
 
 	int textureIDIdleCB = -1;
 	int textureIDHoverCB = -1;
 	int textureIDPressCB = -1;
+	int textureIDActiveCB = -1;
 
 	ResourceTexture* idleCB = nullptr;
 	ResourceTexture* hoverCB = nullptr;
 	ResourceTexture* pressCB = nullptr;
+	ResourceTexture* activeCB = nullptr;
 
 #ifdef STANDALONE
 	void OnEditor() override;

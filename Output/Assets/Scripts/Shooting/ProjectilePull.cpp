@@ -1,5 +1,4 @@
 #include "ProjectilePull.h"
-#include "../PlayerGamepadMovement.h"
 #include <time.h>
 HELLO_ENGINE_API_C ProjectilePull* CreateProjectilePull(ScriptToInspectorInterface* script)
 {
@@ -20,7 +19,8 @@ void ProjectilePull::Start()
         API_GameObject newProjectile = Game::CreateGameObject("Projectile", "Projectile");
         newProjectile.AddMeshRenderer();
         newProjectile.AddMaterial();
-        newProjectile.CreateRigidBodyBox((0, 0, 0), (0, 0, 0), (0.3f, 0.3f, 0.3f), false);
+        API_RigidBody rb = newProjectile.CreateRigidBodyBox((0, 0, 0), (0, 0, 0), (0.3f, 0.3f, 0.3f), false);
+        rb.SetTrigger(true);
         newProjectile.AddParticleSystem(particleTest);
         newProjectile.AddScript("Projectile");
         newProjectile.SetActive(false);
@@ -33,7 +33,7 @@ void ProjectilePull::Update()
     
 }
 
-API_GameObject ProjectilePull::GetFirstActiveProjectile()
+API_GameObject ProjectilePull::GetFirstInactiveProjectile()
 {
     for (size_t i = 0; i < pullSize; i++)
     {
@@ -43,12 +43,12 @@ API_GameObject ProjectilePull::GetFirstActiveProjectile()
     return pull[0];
 }
 
-void ProjectilePull::LauchProjectile(float projectileSpeed, float projectileDamage, float projectileResistanceDamage, float projectileLifetime, API_Transform shootingSpawn, uint projectileMesh, uint projectileMaterial, API_Vector3 projectileScale, PROJECTILE_ACTION projectileAction, bool randomDirection)
+void ProjectilePull::LauchProjectile(float projectileSpeed, float projectileDamage, float projectileResistanceDamage, float projectileLifetime, API_Transform shootingSpawn, uint projectileMesh, uint projectileMaterial, API_Vector3 projectileScale, PROJECTILE_ACTION projectileAction, float randomDirectionRange)
 {
-    API_GameObject go = GetFirstActiveProjectile();
+    API_GameObject go = GetFirstInactiveProjectile();
     go.SetActive(true);
     go.GetTransform().SetPosition(shootingSpawn.GetGlobalPosition());
-    go.GetTransform().SetRotation(playerGO.GetTransform().GetLocalRotation());
+    go.GetTransform().SetRotation(playerGO.GetTransform().GetGlobalRotation());
     go.GetTransform().SetScale(projectileScale);
     if (projectileAction == PROJECTILE_ACTION::FLAMETROWER)
     {
@@ -61,10 +61,10 @@ void ProjectilePull::LauchProjectile(float projectileSpeed, float projectileDama
         go.GetParticleSystem().Play();
     }
 
-    if (randomDirection)
+    if (randomDirectionRange > 0.0f)
     {
-        float offsetX = (-49 + rand() % (100)) / 5.0f; // values between -25 and 25
-        float offsetY = (-49 + rand() % (100)) / 5.0f;
+        float offsetX = (-49 + rand() % (100)) * randomDirectionRange;
+        float offsetY = (-49 + rand() % (100)) * randomDirectionRange;
         go.GetTransform().Rotate(offsetX, offsetY, 0);
     }
 

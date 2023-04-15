@@ -10,14 +10,16 @@
 class PlayerRicochet : public PlayerGun
 {
 public:
-	void Start() override; 
-	void Update() override;
+    void Start() override;
+    void Update() override;
 
     void Shoot() override;
     void EnableGuns(bool enable) override;
+    void SetGunStatsPerLevel(int level) override;
 
     float fullShotCooldown;
     float shotCooldown;
+    float fullShotCooldownWithPowerUp;
     bool canShoot = true;
     float shotBufferCooldown = SHOT_BUFFER;
     bool shotBuffer = false;;

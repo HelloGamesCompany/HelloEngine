@@ -2,16 +2,14 @@
 <QuickSave>
 	<Bool>
 		<default value="0" />
-		<test value="true" />
 	</Bool>
 	<String>
-		<default value="default" />
+		<default value="nothing" />
 	</String>
 	<Int>
 		<default value="0" />
 	</Int>
 	<Float>
-		<default value="1.0f" />
-		<hi value="20.500000f" />
+		<default value="0.0" />
 	</Float>
 </QuickSave>

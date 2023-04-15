@@ -4,8 +4,17 @@
 #include "Console.h"
 #include "LayerGame.h"
 
-void API::Game::FindGameObject(const char* name)
+API::API_GameObject API::Game::FindGameObject(const char* name)
 {
+	for (auto& gameObject : ModuleLayers::gameObjects)
+	{
+		if (gameObject.second->name == name)
+		{
+			API_GameObject apiGO;
+			apiGO.SetGameObject(gameObject.second);
+			return apiGO;
+		}
+	}
 }
 
 API::API_GameObject API::Game::CreateGameObject(const char* name, const char* tag, API_GameObject* parent)
@@ -32,6 +41,29 @@ API::API_GameObject API::Game::CreateGameObject(const char* name, const char* ta
 	return newAPIGameObject;
 }
 
+TO_API API::API_GameObject API::Game::InstancePrefab(uint uid, API_GameObject parent)
+{
+	ResourcePrefab* prefabResource = (ResourcePrefab*)ModuleResourceManager::S_LoadResource(uid);
+
+	// Get prefab
+	if (prefabResource != nullptr)
+	{
+		// Find path of prefab. Resource path refrences an Assets path.
+		std::string prefabPath = prefabResource->resourcePath;
+		GameObject* parentGO = ModuleLayers::rootGameObject;
+		// Set parent if given game object is valid
+		if (parent.IsAlive())
+			parentGO = parent.GetGameObject();
+
+		GameObject* newGameObject = ModuleResourceManager::S_DeserializeFromPrefab(prefabPath, parentGO);
+
+		API_GameObject newAPIGameObject;
+		newAPIGameObject.SetGameObject(newGameObject);
+		return newAPIGameObject;
+	}
+	return API_GameObject();
+}
+
 TO_API void API::Game::ExitApplication()
 {
 #ifdef STANDALONE
@@ -40,4 +72,22 @@ TO_API void API::Game::ExitApplication()
 	Application::Instance()->Exit();
 #endif // STANDALONE
 
+}
+
+TO_API void API::Game::FindGameObjectsWithTag(const char* tag, API_GameObject* buffer, uint count)
+{
+	uint currentCount = 0;
+	for (auto& gameObject : ModuleLayers::gameObjects)
+	{
+		if (gameObject.second->tag == tag)
+		{
+			API_GameObject apiGO;
+			apiGO.SetGameObject(gameObject.second);
+			*buffer = apiGO;
+			++buffer;
+			++currentCount;
+			if (currentCount == count)
+				return;
+		}
+	}
 }

@@ -10,7 +10,7 @@ public:
 	void Serialization(json& j) override;
 	void DeSerialization(json& j) override;
 
-	void CreateMesh(uint resourceUID, int materialUID = -1, MeshRenderType type = MeshRenderType::INSTANCED) override;
+	void CreateMesh(uint resourceUID, uint materialUID = 0, MeshRenderType type = MeshRenderType::INSTANCED) override;
 
 #ifdef STANDALONE
 	void OnEditor() override;
@@ -18,6 +18,8 @@ public:
 	void RootBoneDropArea();
 
 	void UpdateBones(Animation3D* animation = nullptr, float animationTime = 0);
+
+	void SetRootBone(GameObject* nextRootBone);
 
 private:
 	void LinkBones(GameObject* goBone, std::map<std::string, BoneData>& boneDataMap, Animation3D* animation = nullptr, float4x4 parentTransform = float3x4::identity, float animationTime = 0);

@@ -55,6 +55,7 @@ namespace API
         TO_API KeyState GetKey(KeyCode key);
         TO_API KeyState GetMouseButton(MouseButton mouseButton);
         TO_API KeyState GetGamePadButton(GamePadButton gamePadButton);
+        TO_API void HandleGamePadButton(GamePadButton gamePadButton);
         TO_API int GetGamePadAxis(GamePadAxis gamePadAxis);
         TO_API int GetMouseX();
         TO_API int GetMouseY();

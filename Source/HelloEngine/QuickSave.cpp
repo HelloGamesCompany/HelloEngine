@@ -13,7 +13,8 @@ void QuickSave::Init()
     LOG("Init QuickSave");
 
     // Create The XML file while is not exist
-    if (!ModuleFiles::S_Exists(QUICKSAVE_PATH)) CreateQuickSaveDefaultFile();
+    if (!ModuleFiles::S_Exists(QUICKSAVE_PATH)) 
+        CreateQuickSaveDefaultFile();
 
     XMLNode node = Application::Instance()->xml->OpenXML(QUICKSAVE_PATH);
 
@@ -49,7 +50,6 @@ void QuickSave::SetInt(std::string name, int value)
 bool QuickSave::GetBool(std::string name, bool defaultValue)
 {
     std::string value = GetValue(name, std::to_string(defaultValue), nBool);
-
     return (value == "true");
 }
 
@@ -66,6 +66,55 @@ float QuickSave::GetFloat(std::string name, float defaultValue)
 }
 
 int QuickSave::GetInt(std::string name, int defaultValue)
+{
+    std::string value = GetValue(name, std::to_string(defaultValue), nInt);
+    return std::stoi(value);
+}
+
+void QuickSave::SetBool(const char* name, bool value)
+{
+    SetValue(name, (value ? "true" : "false"), nBool);
+}
+
+void QuickSave::SetString(const char* name, const char* value)
+{
+    SetValue(name, value, nString);
+}
+
+void QuickSave::SetFloat(const char* name, float value)
+{
+    SetValue(name, std::to_string(value) + "f", nFloat);
+}
+
+void QuickSave::SetInt(const char* name, int value)
+{
+    SetValue(name, std::to_string(value), nInt);
+}
+
+bool QuickSave::GetBool(const char* name, bool defaultValue)
+{
+    std::string value = GetValue(name, (defaultValue ? "true" : "false"), nBool);
+
+    return (value == "true");
+}
+
+const char* QuickSave::GetString(const char* name, const char* defaultValue)
+{
+    std::string value = GetValue(name, defaultValue, nString);
+    size_t length = value.length() + 1;
+    char* str = new char[length];
+    strcpy_s(str, length, value.c_str());
+
+    return str;
+}
+
+float QuickSave::GetFloat(const char* name, float defaultValue)
+{
+    std::string value = GetValue(name, std::to_string(defaultValue), nFloat);
+    return std::stof(value);
+}
+
+int QuickSave::GetInt(const char* name, int defaultValue)
 {
     std::string value = GetValue(name, std::to_string(defaultValue), nInt);
     return std::stoi(value);
@@ -91,8 +140,58 @@ XMLNode QuickSave::GetRootNodeInt()
     return nInt;
 }
 
+void QuickSave::ResetAllNodes()
+{
+    ResetBoolNode();
+    ResetFloatNode();
+    ResetIntNode();
+    ResetStringNode();
+}
+
+void QuickSave::ResetBoolNode()
+{
+    while (nBool.node.first_child()) 
+    {
+        nBool.node.remove_child(nBool.node.first_child());
+    }
+
+    nBool.Save();
+}
+
+void QuickSave::ResetFloatNode()
+{
+    while (nFloat.node.first_child())
+    {
+        nFloat.node.remove_child(nFloat.node.first_child());
+    }
+
+    nFloat.Save();
+}
+
+void QuickSave::ResetIntNode()
+{
+    while (nInt.node.first_child())
+    {
+        nInt.node.remove_child(nInt.node.first_child());
+    }
+
+    nInt.Save();
+}
+
+void QuickSave::ResetStringNode()
+{
+    while (nString.node.first_child())
+    {
+        nString.node.remove_child(nString.node.first_child());
+    }
+
+    nString.Save();
+}
+
 void QuickSave::SetValue(std::string name, std::string value, XMLNode& node)
 {
+    name.erase(std::remove(name.begin(), name.end(), ' '), name.end());
+
     XMLNode n = node.FindChildBreadth(name);
 
     // If there wasn't any node with the given name, create one.
@@ -110,11 +209,14 @@ void QuickSave::SetValue(std::string name, std::string value, XMLNode& node)
 
 std::string QuickSave::GetValue(std::string name, std::string value, XMLNode& node)
 {
+    name.erase(std::remove(name.begin(), name.end(), ' '), name.end());
+
      XMLNode n = node.FindChildBreadth(name);
      std::string ret = value;
 
     // If there wasnt any node with the given name, return default value.
-    if (n != node) ret = n.node.attribute("value").as_string();
+    if (n != node) 
+        ret = n.node.attribute("value").as_string();
     
     return ret;
 }

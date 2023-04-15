@@ -9,10 +9,14 @@
 #include "API/API_RigidBody.h"
 #include "API/API_Material.h"
 #include "API/API_ParticleSystem.h"
+#include "API/API_AnimationPlayer.h"
 #include "PhysicsComponent.h"
 #include "TextureComponent.h"
 #include "ParticleSystemComponent.h"
 #include "MeshRenderComponent.h"
+#include "API/API_SkinnedMeshRenderer.h"
+#include "SkinnedMeshRenderComponent.h"
+#include "AnimationComponent.h"
 
 API::API_GameObject::API_GameObject()
 {
@@ -45,6 +49,48 @@ const char* API::API_GameObject::GetTag()
         return "NULL";
     }
     return _gameObject->tag.c_str();
+}
+
+void API::API_GameObject::SetTag(const char* tag)
+{
+    if (_gameObject == nullptr)
+    {
+        Console::S_Log("Trying to acces a NULLPTR GameObject! GetTag()");
+        return;
+    }
+    _gameObject->tag = tag;
+}
+
+void API::API_GameObject::SetName(const char name)
+{
+    if (_gameObject == nullptr)
+    {
+        Console::S_Log("Trying to acces a NULLPTR GameObject! GetTag()");
+        return;
+    }
+    _gameObject->name = name;
+}
+
+void API::API_GameObject::GetChildren(API_GameObject* buffer, int count)
+{
+    if (_gameObject == nullptr)
+    {
+        Console::S_Log("Trying to acces a NULLPTR GameObject! AddScript()");
+        return;
+    }
+    std::vector<GameObject*>* children = _gameObject->GetChildren();
+    int currentCount = 0;
+
+    for (int i = 0; i < children->size(); ++i)
+    {
+        API_GameObject child;
+        child.SetGameObject(children->at(i));
+        *buffer = child;
+        ++buffer;
+        ++currentCount;
+        if (currentCount == count)
+            return;
+    }
 }
 
 HelloBehavior* API::API_GameObject::AddScript(const char* className)
@@ -225,6 +271,42 @@ API::API_ParticleSystem API::API_GameObject::GetParticleSystem()
     }
     API_ParticleSystem ret;
     ret.SetComponent(_gameObject->GetComponent<ParticleSystemComponent>());
+    return ret;
+}
+
+API::API_RigidBody API::API_GameObject::GetRigidBody()
+{
+    if (_gameObject == nullptr)
+    {
+        Console::S_Log("Trying to acces a NULLPTR GameObject! CreateRigidBody()");
+        return API_RigidBody();
+    }
+    API_RigidBody ret;
+    ret.SetComponent(_gameObject->GetComponent<PhysicsComponent>());
+    return ret;
+}
+
+API::API_AnimationPlayer API::API_GameObject::GetAnimationPlayer()
+{
+    if (_gameObject == nullptr)
+    {
+        Console::S_Log("Trying to acces a NULLPTR GameObject! CreateRigidBody()");
+        return API_AnimationPlayer();
+    }
+    API_AnimationPlayer ret;
+    ret.SetComponent(_gameObject->GetComponent<AnimationComponent>());
+    return ret;
+}
+
+API::API_SkinnedMeshRenderer API::API_GameObject::GetSkinnedMeshRender()
+{
+    if (_gameObject == nullptr)
+    {
+        Console::S_Log("Trying to acces a NULLPTR GameObject! CreateRigidBody()");
+        return API_SkinnedMeshRenderer();
+    }
+    API_SkinnedMeshRenderer ret;
+    ret.SetComponent(_gameObject->GetComponent<SkinnedMeshRenderComponent>());
     return ret;
 }
 

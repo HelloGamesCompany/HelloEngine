@@ -19,6 +19,9 @@ namespace API
     class API_Material;
 	class API_UIButton;
 	class API_UIImage;
+	class API_UIInput;
+	class API_UIText;
+    class API_SkinnedMeshRenderer;
     class TO_API API_GameObject
     {
     public:
@@ -30,21 +33,33 @@ namespace API
         const char* GetName();
         const char* GetTag();
 
+        void SetTag(const char* tag);
+        void SetName(const char name);
+
+        /// WARNING: Do not call this function with an array too small!
+        /// <param name="buffer">An API_GameObject array to fill with this gameobject's children</param>
+        /// <param name="count">Number of children to get. -1 = All children.</param>
+        void GetChildren(API_GameObject* buffer, int count = -1);
+
         HelloBehavior* AddScript(const char* className);
         HelloBehavior* GetScript(const char* className);
 
         API_MeshRenderer AddMeshRenderer();
         API_MeshRenderer AddMeshRenderer(API_MeshRenderer& copy);
+        API_MeshRenderer GetMeshRenderer();
 
         API_ParticleSystem AddParticleSystem();
         API_ParticleSystem AddParticleSystem(API_ParticleSystem& copy);
+        API_ParticleSystem GetParticleSystem();
 
         API_Material AddMaterial();
-
-        API_MeshRenderer GetMeshRenderer();
         API_Material GetMaterialCompoennt();
 
-        API_ParticleSystem GetParticleSystem();
+        API_RigidBody GetRigidBody();
+
+        API_AnimationPlayer GetAnimationPlayer();
+
+        API_SkinnedMeshRenderer GetSkinnedMeshRender();
 
         void SetActive(bool active);
         bool IsActive();
@@ -78,5 +93,8 @@ namespace API
         friend class API_ParticleSystem;
         friend class API_UIButton;
 		friend class API_UIImage;
+		friend class API_UIInput;
+		friend class API_UIText;
+        friend class API_SkinnedMeshRenderer;
     };
 }

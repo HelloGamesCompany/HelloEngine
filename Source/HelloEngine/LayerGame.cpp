@@ -108,7 +108,7 @@ void LayerGame::Update()
 			behaviorScript.second.lateStart = false;
 		}
 
-		if (behaviorScript.second.active)
+		if (behaviorScript.second.active && behaviorScript.second.script)
 			behaviorScript.second.script->Update();
 	}
 	API::Engine::EnginePropertiesUpdate();
@@ -207,6 +207,12 @@ void LayerGame::StartAllScripts()
 	}
 }
 
+void LayerGame::RemoveAllScripts()
+{
+	_behaviorScripts.clear();
+	_scriptComponents.clear();
+}
+
 void LayerGame::S_AddScriptComponent(ScriptComponent* component)
 {
 	_scriptComponents.push_back(component);
@@ -294,9 +300,9 @@ bool LayerGame::S_IsCreatingBehaviorsEnabled()
 
 void LayerGame::CleanUp()
 {
-	for (auto& script : _behaviorScripts)
+	for (int i = 0; i < _scriptComponents.size(); ++i)
 	{
-		RELEASE(script.second.script);
+		S_DestroyBehaviorScript(_scriptComponents[i]);
 	}
 	FreeLibrary(_dllFile);
 }

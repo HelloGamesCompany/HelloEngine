@@ -43,6 +43,9 @@ public:
 	void AddDragBoxParticleSystem(const char* name, API::API_ParticleSystem* value);
 	void AddDragBoxUIButton(const char* name, API::API_UIButton* value) override;
 	void AddDragBoxUIImage(const char* name, API::API_UIImage* value) override;
+	void AddDragBoxUIInput(const char* name, API::API_UIInput* value) override;
+	void AddDragBoxUIText(const char* name, API::API_UIText* value) override;
+	void AddDragBoxPrefabResource(const char* name, uint* value) override;
 
 	uint GetResourceUID();
 	void DestroyedResource();

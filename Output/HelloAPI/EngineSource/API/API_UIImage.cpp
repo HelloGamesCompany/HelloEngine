@@ -15,7 +15,7 @@ API::API_GameObject API::API_UIImage::GetGameObject()
 {
 	if (!_UIImage)
 	{
-		Engine::Console::S_Log("Trying to acces a NULLPTR UIButton");
+		Engine::Console::S_Log("Trying to acces a NULLPTR UI Image");
 		return *ModuleLayers::emptyAPIGameObject;
 	}
 	API_GameObject returnGO;
@@ -23,20 +23,20 @@ API::API_GameObject API::API_UIImage::GetGameObject()
 	return returnGO;
 }
 
-float API::API_UIImage::FillImage(float _GetFillImage)
+void API::API_UIImage::FillImage(float fill)
 {
 	if (!_UIImage)
 	{
-		Engine::Console::S_Log("Trying to acces a NULLPTR UI Button");
-		return false;
+		Engine::Console::S_Log("Trying to acces a NULLPTR UI Image. FillImage()");
+		return;
 	}
 
-	if (_GetFillImage>1)
-	{
-		_GetFillImage = 1;
-	}
+	if (fill > 1.0f)
+		fill = 1.0f;
+	if (fill < 0.0f)
+		fill = 0.0f;
 
-	return _UIImage->_fillImage = _GetFillImage;
+	_UIImage->SetFill(fill);
 }
 
 ComponentUIImage* API::API_UIImage::GetComponent()

@@ -8,7 +8,6 @@
 class PhysicsComponent : public Component
 {
 public:
-
 	PhysicsComponent(GameObject* gameObject);
 
 	~PhysicsComponent();
@@ -22,6 +21,8 @@ public:
 
 	float GetRadius();
 
+	void SetAngularFactor(float3 angle);
+
 private:
 #ifdef STANDALONE
 	void OnEditor() override;
@@ -33,15 +34,14 @@ private:
 	//Physics
 	void CheckShapes();
 
+	void CallUpdateMass();
+
 	void CallUpdatePos();
 	void CallUpdateRotation();
 	void CallUpdateScale();
-	void CallUpdateMass();
-
-	void CallUpdateStatic();
-	void CallUpdateTrigger();
-	void CallUpdateKinematic();
 	void CallUpdateColliderType();
+	void CallUpdateTrigger();
+	void CallUpdateAllPram();
 
 	void CreateCollider();
 
@@ -53,7 +53,6 @@ private:
 	void OnDisable();
 
 private:
-
 	PhysBody3D* _physBody = nullptr;
 
 	ColliderShape _shapeSelected;
@@ -62,13 +61,12 @@ private:
 	bool _isShapeCreated[3];
 	bool _isStatic = false;
 	float _gravity[3];
+	float _angularFactor[3] = { 1.0f, 1.0f, 1.0f };
 	
 	friend class API::API_GameObject;
+	friend class API::API_RigidBody;
 
 public:
-	float localGlobalGravity[3];
-	float globalGravity[3];
-
 	float sphereRadius = 0;
 	float2 cylRadiusHeight;
 	float renderColColor[4];

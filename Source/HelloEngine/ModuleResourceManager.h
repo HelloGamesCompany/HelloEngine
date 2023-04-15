@@ -182,17 +182,26 @@ public:
     void Recompile(std::string text)
     {
         ModuleFiles::S_Save(resourcePath, text.data(), text.length(), false);
+        ModuleFiles::S_Save(assetsPath, text.data(), text.length(), false);
 
         shader.Recompile(resourcePath);
 
         version = HelloUUID::GenerateUUID();
     }
 
+    void UnLoad() override
+    {
+        shader.Clear();
+    }
+
+    void ReImport(const std::string& filePath) override;
+
     Shader shader;
 
     int version;
 
     bool _onEditor = false;
+    std::string assetsPath = "";
 };
 
 class ResourceMaterial : public Resource
@@ -203,16 +212,17 @@ public:
 
     void UnLoad() override
     {
-        json j;
-        material.Save(j);
-
-        std::string buffer = j.dump(4);
-        ModuleFiles::S_Save(resourcePath, buffer.data(), buffer.length(), false);
-
+        // TODO: Comentar si esto deberiamos seguir haciendolo al descargar el material?
+        //Save();
         material.Clear();
     }
 
+    void ReImport(const std::string& filePath) override;
+
+    void Save();
+
     Material material;
+    std::string assetsPath = "";
 };
 
 class ResourceScript : public Resource
@@ -241,6 +251,8 @@ public:
     ~ModuleResourceManager();
 
     bool Init() override;
+
+    bool Start() override;
 
     /// <summary>
     /// Import a file from assets to our desired file format.

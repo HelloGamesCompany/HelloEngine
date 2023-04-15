@@ -2,7 +2,7 @@
 #include "Globals.h"
 #include "API_GameObject.h"
 
-class MaterialComponent;
+class TextureComponent;
 class DragBoxMaterial;
 
 namespace API
@@ -18,10 +18,10 @@ namespace API
 		void ChangeAlbedoTexture(uint textureUID);
 
 	private:
-		MaterialComponent* GetComponent();
-		void SetComponent(MaterialComponent* component);
+		TextureComponent* GetComponent();
+		void SetComponent(TextureComponent* component);
 	private:
-		MaterialComponent* _material = nullptr;
+		TextureComponent* _material = nullptr;
 
 		friend class API_GameObject;
 		friend class DragBoxMaterialComponent;

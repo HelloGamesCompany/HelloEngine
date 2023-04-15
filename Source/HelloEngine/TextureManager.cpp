@@ -46,5 +46,10 @@ void TextureManager::UnBindTextures()
 	for (int i = 0; i < 32; i++)
 	{
 		glBindTexture(GL_TEXTURE0 + i, 0); // Unbind every texture
+
+		/*
+		glActiveTexture(GL_TEXTURE0 + i);
+		glBindTexture(GL_TEXTURE_2D, 0); // Unbind every texture
+		*/
 	}
 }

@@ -251,7 +251,7 @@ void ModuleInput::UpdateControllerInput()
 		}
 		else
 		{
-			if (gamePadButtons[i] == KEY_REPEAT || gamePadButtons[i] == KEY_DOWN)
+			if (gamePadButtons[i] == KEY_REPEAT || gamePadButtons[i] == KEY_DOWN || gamePadButtons[i] == KEY_HANDLED)
 				gamePadButtons[i] = KEY_UP; // KEY_UP if pressed on previous frame
 			else
 				gamePadButtons[i] = KEY_IDLE; // KEY_IDLE if not pressed on previous frame

@@ -12,6 +12,7 @@ using json = nlohmann::json;
 
 bool ModuleFiles::_automaticCompilation = false;
 bool ModuleFiles::_enabledAutomaticCompilation = false;
+std::vector<std::pair<std::string, Directory*>> ModuleFiles::lateResources;
 
 ModuleFiles::ModuleFiles() :Module()
 {
@@ -218,6 +219,15 @@ MetaFile ModuleFiles::S_LoadMeta(const std::string& filePath)
 
     ret.name = file["Name"];
 
+    bool temp = file.contains("Assets path");
+
+    if (temp)
+    {
+        ret.assetsPath = file["Assets path"];
+    }
+
+   
+
     RELEASE(data);
 
     return ret;
@@ -408,6 +418,17 @@ void ModuleFiles::S_UpdateFileTree(FileTree*& fileTree)
 
     bool hasLastDir = UpdateFileNodeRecursive(root, LastDir);
 
+    // Create late resources (Material Resources)
+    for (int i = 0; i < lateResources.size(); ++i)
+    {
+        ModuleResourceManager::S_CreateResource(S_LoadMeta(lateResources[i].first));
+        std::string assetFile = S_GetFileName(lateResources[i].first, false);
+        std::string path = S_GetFilePath(lateResources[i].first);
+        path += assetFile;
+        lateResources[i].second->files.emplace_back(path, S_GetFileName(path), lateResources[i].second);
+    }
+    lateResources.clear();
+
     if (!hasLastDir)
         fileTree->_currentDir = root;
     else
@@ -439,14 +460,22 @@ bool ModuleFiles::UpdateFileNodeRecursive(Directory*& dir, Directory*& lastDir) 
 
                 if (!S_Exists(fileDir))
                     ModuleResourceManager::S_DeleteMetaFile(dirCheck);
-                else
-                    ModuleResourceManager::S_CreateResource(S_LoadMeta(dirCheck));
-
+                else 
+                {
+                    MetaFile meta = S_LoadMeta(dirCheck);
+                    if (meta.type != ResourceType::MATERIAL) // If we are loading a Material, we need this to be loaded AFTER Shader resources
+                        ModuleResourceManager::S_CreateResource(S_LoadMeta(dirCheck));
+                    else
+                        lateResources.push_back(std::make_pair(dirCheck, dir)); // Add Material resources to LateResources, so they always get created after shader resources.
+                }
                 continue;
             }
 
             // Change directory construcotr to create meta data if necessary
-            dir->files.emplace_back(dirCheck, S_GetFileName(dirCheck), dir);
+            if (S_GetFileExtension(dirCheck) != "material")
+                dir->files.emplace_back(dirCheck, S_GetFileName(dirCheck), dir);
+            else
+                continue;
 
             continue;
         }
@@ -646,6 +675,8 @@ bool ModuleFiles::S_CreateMetaData(const std::string& file, const std::string& r
 
     j["Name"] = assetName;
 
+    j["Assets path"] = file;
+
 	// write to string
 	std::string meta = j.dump(4);
 
@@ -773,6 +804,9 @@ bool ModuleFiles::S_CheckFileNameInDLL(const std::string& fileNameWithoutExtensi
 
 void ModuleFiles::S_CompileDLLProject()
 {
+#ifndef STANDALONE
+    return;
+#endif
     int res = 0;
 #ifdef  _DEBUG
     if (_automaticCompilation && _enabledAutomaticCompilation) // If automatic compilation is available / enabled, compile using MSBuild.

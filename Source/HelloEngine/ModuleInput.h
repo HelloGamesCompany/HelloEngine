@@ -14,6 +14,7 @@ enum KEY_STATE
 	KEY_DOWN,
 	KEY_REPEAT,
 	KEY_UP,
+	KEY_HANDLED,
 	KEY_ERROR
 };
 
@@ -69,6 +70,11 @@ public:
 	static void S_HandleMouseButton(int id)
 	{
 		_mouse_buttons[id] = KEY_STATE::KEY_IDLE;
+	}
+
+	static void S_HandleGamePadButton(GamePad id)
+	{
+		gamePadButtons[id] = KEY_STATE::KEY_HANDLED;
 	}
 
 	static int S_GetMouseX()
@@ -133,9 +139,9 @@ private:
 	static std::function<void(std::string)> _dropEvent;
 
 	// Joysticks Controller variables
+	static KEY_STATE gamePadButtons[MAX_CONTROLLER_BUTTONS];
 	static int maxGamePads;
 	static int gamePadIndex;
-	static KEY_STATE gamePadButtons[MAX_CONTROLLER_BUTTONS];
 
 	static SDL_GameControllerButton sdlGamePadButtons[MAX_CONTROLLER_BUTTONS];
 

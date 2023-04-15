@@ -3,6 +3,7 @@
 #include "GameObject.h"
 #include "TransformComponent.h"
 #include "MeshRenderComponent.h"
+#include "LayerEditor.h"
 
 ImWindowInspector::ImWindowInspector()
 {
@@ -19,13 +20,17 @@ void ImWindowInspector::Update()
 {
 	if (ImGui::Begin(windowName.c_str(), &isEnabled))
 	{
+		if (ImGui::IsWindowFocused())
+			LayerEditor::detectInput = false;
+
 		if (selectGameobject && selectGameobject->_parent)
 		{
 			if (ImGui::SmallButton(selectGameobject->IsActive() ? "X" : " "))
 				selectGameobject->SetActive(!selectGameobject->IsActive());
 			ImGui::SameLine(); 
 
-			ImGui::InputText("Name", &selectGameobject->name, 0);
+			ImGui::InputText("Name", &selectGameobject->name);
+			ImGui::InputText("Tag", &selectGameobject->tag);
 			
 #ifdef STANDALONE
 			selectGameobject->OnEditor();

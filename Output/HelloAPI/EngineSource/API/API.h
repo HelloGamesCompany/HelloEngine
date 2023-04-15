@@ -12,6 +12,7 @@
 // Tools
 #include "API_Vector2.h"
 #include "API_Vector3.h"
+#include "API_QuickSave.h"
 
 // Entity & Components---------------
 #include "API_GameObject.h"
@@ -23,5 +24,7 @@
 #include "API_ParticleSystem.h"
 #include "API_RigidBody.h"
 #include "API_Material.h"
+#include "API_SkinnedMeshRenderer.h"
+#include "API_UIInput.h"
 
 using namespace API;

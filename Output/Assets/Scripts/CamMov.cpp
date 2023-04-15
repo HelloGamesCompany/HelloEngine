@@ -7,10 +7,11 @@ HELLO_ENGINE_API_C CamMov* CreateCamMov(ScriptToInspectorInterface* script)
 	script->AddDragFloat("Offset_X", &classInstance->camPos.x);
 	script->AddDragFloat("Offset_Y", &classInstance->camPos.y);
 	script->AddDragFloat("Offset_Z", &classInstance->camPos.z);
-	script->AddDragFloat("Rot_Offset_X", &classInstance->camRot.x);
-	script->AddDragFloat("Rot_Offset_Y", &classInstance->camRot.y);
-	script->AddDragFloat("Rot_Offset_Z", &classInstance->camRot.z);
+	script->AddDragFloat("Rot_X", &classInstance->camRot.x);
+	script->AddDragFloat("Rot_Y", &classInstance->camRot.y);
+	script->AddDragFloat("Rot_Z", &classInstance->camRot.z);
 	//Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
+	script->AddDragFloat("SafeZone_Distance", &classInstance->safeZoneDistance);
 	script->AddCheckBox("Use safe zone: ", &classInstance->safeZone);
 	return classInstance;
 }
@@ -27,33 +28,29 @@ void CamMov::Start()
 
 	gameObject.GetTransform().SetPosition(target.GetTransform().GetGlobalPosition() + camPos);
 	gameObject.GetTransform().SetRotation(camRot);
-
+	tempDelay = delay;
 }
 
 void CamMov::Update()
 {
+	gameObject.GetTransform().SetRotation(camRot);
+	desiredPosition = target.GetTransform().GetGlobalPosition() + camPos;
+	
 	if (safeZone)
 	{
-		if (target.GetTransform().GetGlobalPosition().x > gameObject.GetTransform().GetGlobalPosition().x + 13
-			|| target.GetTransform().GetGlobalPosition().x < gameObject.GetTransform().GetGlobalPosition().x - 13
-			|| target.GetTransform().GetGlobalPosition().z < gameObject.GetTransform().GetGlobalPosition().z + 11
-			|| target.GetTransform().GetGlobalPosition().z > gameObject.GetTransform().GetGlobalPosition().z + 40
-			) {
-			delay += 0.001;
+		if (desiredPosition.Distance(gameObject.GetTransform().GetGlobalPosition()) > safeZoneDistance) {
+			tempDelay += 0.01;
 		}
 		else {
-			delay = 0.02;
+			if (tempDelay > delay) {
+				tempDelay -= 0.01;
+			}
 		}
 	}
 
-	
-	gameObject.GetTransform().SetRotation(camRot);
-
-	desiredPosition = target.GetTransform().GetGlobalPosition() + camPos;
-
-	smoothedPosition.x = Lerp(gameObject.GetTransform().GetGlobalPosition().x, desiredPosition.x, delay);
-	smoothedPosition.y = Lerp(gameObject.GetTransform().GetGlobalPosition().y, desiredPosition.y, delay);
-	smoothedPosition.z = Lerp(gameObject.GetTransform().GetGlobalPosition().z, desiredPosition.z, delay);
+	smoothedPosition.x = Lerp(gameObject.GetTransform().GetGlobalPosition().x, desiredPosition.x, tempDelay);
+	smoothedPosition.y = Lerp(gameObject.GetTransform().GetGlobalPosition().y, desiredPosition.y, tempDelay);
+	smoothedPosition.z = Lerp(gameObject.GetTransform().GetGlobalPosition().z, desiredPosition.z, tempDelay);
 
 	gameObject.GetTransform().SetPosition(smoothedPosition.x, smoothedPosition.y, smoothedPosition.z);
 }

@@ -10,6 +10,8 @@ class ComponentUIImage : public ComponentUI
 
 	void InputUpdate() override;
 
+	void SetFill(float fill);
+
 	void Serialization(json& j) override;
 	void DeSerialization(json& j) override;
 	float _fillImage;
@@ -18,6 +20,8 @@ class ComponentUIImage : public ComponentUI
 private: 
 	float _auxFillImage;
 	ImWindowGame* _gameWindow = nullptr;
+
+	std::string comboNames[4] = { "Left To Right", "Right To Left", "Up To Down", "Down To Up" };
 
 #ifdef STANDALONE
 	void OnEditor() override;

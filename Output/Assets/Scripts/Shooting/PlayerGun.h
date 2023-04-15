@@ -20,9 +20,10 @@ public:
 
     virtual void Shoot();
     virtual void EnableGuns(bool enable);
+    virtual void SetGunStatsPerLevel(int level);
 
 protected:
-    void LauchProjectile(API_Transform projectileSpawn, PROJECTILE_ACTION projectileAction = PROJECTILE_ACTION::NONE, bool randomDirection = false);
+    void LauchProjectile(API_Transform projectileSpawn, PROJECTILE_ACTION projectileAction = PROJECTILE_ACTION::NONE, float randomDirectionRange = 0.0f);
     void PlayShotSound(std::string eventString);
 
 public:
@@ -41,11 +42,9 @@ public:
     API_Vector3 projectileScale;
 
     float cadence;
+    float upgradeFireratePercentage = 15.0f;
 
     int ammoType;
     std::string audioEventString;
-
-    API_AnimationPlayer playerAnimator;
-    uint shootAnim = 0;
 };
 

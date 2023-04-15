@@ -35,6 +35,19 @@ void API::API_MeshRenderer::ChangeMesh(uint meshResourceUID)
 	_meshRenderer->CreateMesh(meshResourceUID);
 }
 
+void API::API_MeshRenderer::SetActive(bool active)
+{
+	if (!_meshRenderer)
+	{
+		Engine::Console::S_Log("Trying to acces a NULLPTR MeshRenderer. SetActive()");
+		return;
+	}
+	if (active)
+		_meshRenderer->Enable();
+	else
+		_meshRenderer->Disable();
+}
+
 MeshRenderComponent* API::API_MeshRenderer::GetComponent()
 {
 	return _meshRenderer;

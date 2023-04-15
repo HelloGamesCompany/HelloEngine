@@ -6,6 +6,7 @@
 #include <cmath>
 
 #include "TextEditor.h"
+#include "LayerEditor.h"
 
 #define IMGUI_DEFINE_MATH_OPERATORS
 #include "imgui.h" // for imGui::GetCurrentWindow()
@@ -971,7 +972,7 @@ void TextEditor::Render()
 			if (mState.mCursorPosition.mLine == lineNo)
 			{
 				auto focused = ImGui::IsWindowFocused();
-
+				LayerEditor::detectInput = !focused;
 				// Highlight the current line (where the cursor is)
 				if (!HasSelection())
 				{
