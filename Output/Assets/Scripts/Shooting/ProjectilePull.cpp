@@ -58,7 +58,7 @@ void ProjectilePull::LauchProjectile(float projectileSpeed, float projectileDama
     {
         go.GetMeshRenderer().ChangeMesh(projectileMesh);
         go.GetMaterialCompoennt().ChangeAlbedoTexture(projectileMaterial);
-        /*go.GetParticleSystem().Play();*/
+        go.GetParticleSystem().Play();
     }
 
     if (randomDirectionRange > 0.0f)

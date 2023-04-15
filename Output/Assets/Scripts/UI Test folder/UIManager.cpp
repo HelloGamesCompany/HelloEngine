@@ -48,10 +48,6 @@ void UIManager::Update()
 	{
 		initialText.SetActive(false);
 	}
-	if (finalTextConinue.OnPress())
-	{
-		Scene::LoadScene("ToLevel2.HScene");
-	}
 
 }
 

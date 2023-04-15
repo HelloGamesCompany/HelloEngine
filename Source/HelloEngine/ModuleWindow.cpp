@@ -92,7 +92,7 @@ bool ModuleWindow::Init()
 		}
 	}
 #ifndef STANDALONE
-	S_SetTitle("Project Wastelanders - Vertical Slice 2");
+	S_SetTitle("Project Wastelanders - Alpha 1");
 	SDL_SetWindowFullscreen(window, SDL_WINDOW_FULLSCREEN_DESKTOP);
 #else 
 	S_SetTitle("Hello Engine");

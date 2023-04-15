@@ -308,9 +308,12 @@ void LayerEditor::S_SetSelectGameObject(GameObject* g)
 	if (selectedGameObject)
 		selectedGameObject->isSelected = true;
 
+#ifdef STANDALONE
+
 	ImWindowInspector* inspector = (ImWindowInspector*)_imWindows[(uint)ImWindowID::INSPECTOR];
 
 	inspector->SelectGameObject(g);
+#endif
 }
 
 void LayerEditor::S_AddPopUpMessage(std::string message)
