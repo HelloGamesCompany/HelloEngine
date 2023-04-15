@@ -73,7 +73,7 @@ void PlayerFlamethrower::Shoot()
 {
     if (canShoot)
     {
-        LauchProjectile(shootingSpawn, PROJECTILE_ACTION::FLAMETROWER);
+        LauchProjectile(shootingSpawn, PROJECTILE_TYPE::FLAMETHROWER);
         PlayShotSound(audioEventString);
         canShoot = false;
         if (playerStats->fireratePowerUp) shotCooldown = fullShotCooldownWithPowerUp;

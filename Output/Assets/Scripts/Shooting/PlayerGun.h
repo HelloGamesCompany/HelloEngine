@@ -23,7 +23,7 @@ public:
     virtual void SetGunStatsPerLevel(int level);
 
 protected:
-    void LauchProjectile(API_Transform projectileSpawn, PROJECTILE_ACTION projectileAction = PROJECTILE_ACTION::NONE, float randomDirectionRange = 0.0f);
+    void LauchProjectile(API_Transform projectileSpawn, PROJECTILE_TYPE type, PROJECTILE_ACTION projectileAction = PROJECTILE_ACTION::NONE, float randomDirectionRange = 0.0f);
     void PlayShotSound(std::string eventString);
 
 public:
@@ -37,8 +37,6 @@ public:
     float projectileResistanceDamage;
     float projectileLifetime;
     API_Transform shootingSpawn;
-    uint projectileMesh;
-    uint projectileMaterial;
     API_Vector3 projectileScale;
 
     float cadence;

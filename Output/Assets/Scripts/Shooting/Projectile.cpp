@@ -1,6 +1,6 @@
 #include "Projectile.h"
+#include "ProjectilePull.h"
 #include "../Enemies/Enemy.h"
-#include <iostream>
 HELLO_ENGINE_API_C Projectile* CreateProjectile(ScriptToInspectorInterface* script)
 {
     Projectile* classInstance = new Projectile();
@@ -16,7 +16,6 @@ void Projectile::Start()
 void Projectile::Update()
 {
     lifeTime -= Time::GetDeltaTime();
-    wallCd -= Time::GetDeltaTime();
 
     if (lifeTime <= 0)
     {
@@ -30,7 +29,6 @@ void Projectile::Update()
 void Projectile::Destroy()
 {
     gameObject.GetParticleSystem().Stop();
-    gameObject.GetTransform().SetPosition(0, 9999, 0);
     gameObject.SetActive(false);
 }
 
@@ -38,70 +36,73 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
 {
     std::string detectionTag = other.GetGameObject().GetTag();
     
-    switch (action)
+    switch (type)
     {
-    case PROJECTILE_ACTION::NONE:
+    case PROJECTILE_TYPE::NONE:
         if (detectionTag == "Wall" || detectionTag == "Enemy")
         {
             Destroy();
         }
         break;
-    case PROJECTILE_ACTION::SLOW:
+    case PROJECTILE_TYPE::SEMI:
+        if (detectionTag == "Wall")
+        {
+            Destroy();
+        }
+        else if (detectionTag == "Enemy") // EXIT
+        {
+            pull->LauchProjectileSECONDARY_SEMI(speed, damage / 3.0f, resistanceDamage / 3.0f, 1.0f, gameObject.GetTransform(), { 0.1f, 0.1f, 0.1f }, PROJECTILE_ACTION::NONE, 30.0f);
+            pull->LauchProjectileSECONDARY_SEMI(speed, damage / 3.0f, resistanceDamage / 3.0f, 1.0f, gameObject.GetTransform(), { 0.1f, 0.1f, 0.1f }, PROJECTILE_ACTION::NONE, -30.0f);
+            Destroy();
+        }
+        break;
+    case PROJECTILE_TYPE::SECONDARY_SEMI:
+        if (detectionTag == "Wall" || detectionTag == "Enemy")
+        {
+            Destroy();
+        }
+        break;
+    case PROJECTILE_TYPE::AUTO:
+        if (detectionTag == "Wall" || detectionTag == "Enemy")
+        {
+            Destroy();
+        }
+        break;
+    case PROJECTILE_TYPE::BURST:
+        if (detectionTag == "Wall" || detectionTag == "Enemy")
+        {
+            // enganchar mina
+            Destroy();
+        }
+        break;
+    case PROJECTILE_TYPE::SHOTGUN:
+        if (detectionTag == "Wall")
+        {
+            Destroy();
+        }
+        else if (detectionTag == "Enemy") // EXIT
+        {
+            pull->LauchProjectileSHOTGUN_BOMB(1.0f, gameObject.GetTransform(), { 0.3f, 0.3f, 0.3f }, PROJECTILE_ACTION::NONE);
+            pull->LauchProjectileSHOTGUN_BOMB(1.0f, gameObject.GetTransform(), { 0.3f, 0.3f, 0.3f }, PROJECTILE_ACTION::NONE);
+            Destroy();
+        }
+        break;
+    case PROJECTILE_TYPE::HANDGUN:
         if (detectionTag == "Wall")
         {
             Destroy();
         }
         else if (detectionTag == "Enemy")
         {
-            // apply slow to enemy
-            Enemy* enemy = (Enemy*)other.GetGameObject().GetScript("Enemy");
-            if (enemy)
-            {
-                enemy->ActiveSlow(0.5,2);
-            }
+            pull->LauchProjectileELECTRICITY_CHAIN(ELECTRICITY_DELAY, 5.0f, 2.0f, other.GetGameObject());
             Destroy();
         }
         break;
-    case PROJECTILE_ACTION::FREEZE:
-        if (detectionTag == "Wall")
-        {
-            Destroy();
-        }
-        else if (detectionTag == "Enemy")
-        {
-            // apply freeze to enemy
-            Enemy* enemy = (Enemy*)other.GetGameObject().GetScript("Enemy");
-            if (enemy)
-            {
-                enemy->ActiveStun( 2);
-            }
-            Destroy();
-        }
+    case PROJECTILE_TYPE::FLAMETHROWER:
         break;
-    case PROJECTILE_ACTION::FLAMETROWER:
+    case PROJECTILE_TYPE::RICOCHET:
         break;
-    case PROJECTILE_ACTION::RICOCHET:
-        if (detectionTag == "Wall" && wallCd <= 0)
-        {
-            gameObject.GetTransform().Rotate(0, 180, 0);
-            wallCd = 1;
-        }
-        break;
-    case PROJECTILE_ACTION::FLINCH:
-        if (detectionTag == "Wall")
-        {
-            Destroy();
-        }
-        else if (detectionTag == "Enemy")
-        {
-            // apply flinch to enemy
-            Enemy* enemy = (Enemy*)other.GetGameObject().GetScript("Enemy");
-            if (enemy)
-            {
-                enemy->EnemyRecoil(1);
-            }
-            Destroy();
-        }
+    case PROJECTILE_TYPE::PULSE:
         break;
     default:
         break;

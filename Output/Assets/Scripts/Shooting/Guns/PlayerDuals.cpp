@@ -10,8 +10,6 @@ HELLO_ENGINE_API_C PlayerDuals* CreatePlayerDuals(ScriptToInspectorInterface* sc
     script->AddDragFloat("Projectile Lifetime", &classInstance->projectileLifetime);
     script->AddDragBoxTransform("Projectile Spawn", &classInstance->shootingSpawn);
     script->AddDragBoxTransform("Second Projectile Spawn", &classInstance->secondShootingSpawn);
-    script->AddDragBoxMeshResource("Projectile Mesh", &classInstance->projectileMesh);
-    script->AddDragBoxTextureResource("Projectile Material", &classInstance->projectileMaterial);
     script->AddDragFloat("Projectile ScaleX", &classInstance->projectileScale.x);
     script->AddDragFloat("Projectile ScaleY", &classInstance->projectileScale.y);
     script->AddDragFloat("Projectile ScaleZ", &classInstance->projectileScale.z);
@@ -171,19 +169,19 @@ void PlayerDuals::SetGunStatsPerLevel(int level)
 
 void PlayerDuals::CalculateShoot(API_Transform projectileSpawn)
 {
-    if (playerStats->specialTreeLvl == 0) LauchProjectile(projectileSpawn);
+    if (playerStats->specialTreeLvl == 0) LauchProjectile(projectileSpawn, PROJECTILE_TYPE::NONE);
     else if (playerStats->specialTreeLvl == 1)
     {
         float n = rand() % 100;
-        if (n < slowProbability) LauchProjectile(projectileSpawn, PROJECTILE_ACTION::SLOW);
-        else LauchProjectile(projectileSpawn);
+        if (n < slowProbability) LauchProjectile(projectileSpawn, PROJECTILE_TYPE::NONE, PROJECTILE_ACTION::SLOW);
+        else LauchProjectile(projectileSpawn, PROJECTILE_TYPE::NONE);
     }
     else if (playerStats->specialTreeLvl == 2)
     {
         float m = rand() % 100;
         float n = rand() % 100;
-        if (m < freezeProbability) LauchProjectile(projectileSpawn, PROJECTILE_ACTION::FREEZE);
-        else if (n < slowProbability) LauchProjectile(projectileSpawn, PROJECTILE_ACTION::SLOW);
-        else LauchProjectile(projectileSpawn);
+        if (m < freezeProbability) LauchProjectile(projectileSpawn, PROJECTILE_TYPE::NONE, PROJECTILE_ACTION::FREEZE);
+        else if (n < slowProbability) LauchProjectile(projectileSpawn, PROJECTILE_TYPE::NONE, PROJECTILE_ACTION::SLOW);
+        else LauchProjectile(projectileSpawn, PROJECTILE_TYPE::NONE);
     }
 }

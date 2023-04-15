@@ -231,6 +231,10 @@
 		<ClCompile Include="../../Assets/Scripts/UI Test folder/ChangeSceneButton.cpp" />
 		<ClCompile Include="../../Assets/Scripts/UI Test folder/InitialText.cpp" />
 		<ClCompile Include="../../Assets/Scripts/UI Test folder/HUBTextManager.cpp" />
+		<ClCompile Include="../../Assets/Scripts/Shooting/ShotgunBomb.cpp" />
+		<ClCompile Include="../../Assets/Scripts/Shooting/ShotgunBombExplosion.cpp" />
+		<ClCompile Include="../../Assets/Scripts/Shooting/ElectricityChain.cpp" />
+		<ClCompile Include="../../Assets/Scripts/InteractiveEnviroment/DamageTraker.cpp" />
 	</ItemGroup>
 	<ItemGroup>
 		<ClInclude Include="..\..\Assets\Scripts\EbonyMaw\BossAttacks.h" />
@@ -329,6 +333,10 @@
 		<ClInclude Include="../../Assets/Scripts/UI Test folder/ChangeSceneButton.h" />
 		<ClInclude Include="../../Assets/Scripts/UI Test folder/InitialText.h" />
 		<ClInclude Include="../../Assets/Scripts/UI Test folder/HUBTextManager.h" />
+		<ClInclude Include="../../Assets/Scripts/Shooting/ShotgunBomb.h" />
+		<ClInclude Include="../../Assets/Scripts/Shooting/ShotgunBombExplosion.h" />
+		<ClInclude Include="../../Assets/Scripts/Shooting/ElectricityChain.h" />
+		<ClInclude Include="../../Assets/Scripts/InteractiveEnviroment/DamageTraker.h" />
 	</ItemGroup>
 	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 	<ImportGroup Label="ExtensionTargets" />

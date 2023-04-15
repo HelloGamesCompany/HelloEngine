@@ -9,8 +9,6 @@ HELLO_ENGINE_API_C PlayerShotgun* CreatePlayerShotgun(ScriptToInspectorInterface
     script->AddDragFloat("Projectile Resistance Damage", &classInstance->projectileResistanceDamage);
     script->AddDragFloat("Projectile Lifetime", &classInstance->projectileLifetime);
     script->AddDragBoxTransform("Projectile Spawn", &classInstance->shootingSpawn);
-    script->AddDragBoxMeshResource("Projectile Mesh", &classInstance->projectileMesh);
-    script->AddDragBoxTextureResource("Projectile Material", &classInstance->projectileMaterial);
     script->AddDragFloat("Projectile ScaleX", &classInstance->projectileScale.x);
     script->AddDragFloat("Projectile ScaleY", &classInstance->projectileScale.y);
     script->AddDragFloat("Projectile ScaleZ", &classInstance->projectileScale.z);
@@ -88,7 +86,7 @@ void PlayerShotgun::Shoot()
     {
         for (size_t i = 0; i < pellets; i++)
         {
-            LauchProjectile(shootingSpawn, PROJECTILE_ACTION::FLINCH, pelletsDisersion);
+            LauchProjectile(shootingSpawn, PROJECTILE_TYPE::SHOTGUN, PROJECTILE_ACTION::FLINCH, pelletsDisersion);
         }
         PlayShotSound(audioEventString);
         canShoot = false;

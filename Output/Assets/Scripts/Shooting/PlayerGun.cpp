@@ -9,8 +9,6 @@ HELLO_ENGINE_API_C PlayerGun* CreatePlayerGun(ScriptToInspectorInterface* script
     script->AddDragFloat("Projectile Resistance Damage", &classInstance->projectileResistanceDamage);
     script->AddDragFloat("Projectile Lifetime", &classInstance->projectileLifetime);
     script->AddDragBoxTransform("Projectile Spawn", &classInstance->shootingSpawn);
-    script->AddDragBoxMeshResource("Projectile Mesh", &classInstance->projectileMesh);
-    script->AddDragBoxTextureResource("Projectile Material", &classInstance->projectileMaterial);
     script->AddDragFloat("Projectile ScaleX", &classInstance->projectileScale.x);
     script->AddDragFloat("Projectile ScaleY", &classInstance->projectileScale.y);
     script->AddDragFloat("Projectile ScaleZ", &classInstance->projectileScale.z);
@@ -47,7 +45,7 @@ void PlayerGun::SetGunStatsPerLevel(int level)
 
 }
 
-void PlayerGun::LauchProjectile(API_Transform projectileSpawn, PROJECTILE_ACTION projectileAction, float randomDirectionRange)
+void PlayerGun::LauchProjectile(API_Transform projectileSpawn, PROJECTILE_TYPE type, PROJECTILE_ACTION projectileAction, float randomDirectionRange)
 {
     ProjectilePull* pull = (ProjectilePull*)projectilePull.GetScript("ProjectilePull");
     if (pull == nullptr)
@@ -55,7 +53,36 @@ void PlayerGun::LauchProjectile(API_Transform projectileSpawn, PROJECTILE_ACTION
         Console::Log("ProjectilePull not asigned");
         return;
     }
-    pull->LauchProjectile(projectileSpeed, projectileDamage, projectileResistanceDamage, projectileLifetime, projectileSpawn, projectileMesh, projectileMaterial, projectileScale, projectileAction, randomDirectionRange);
+
+    switch (type)
+    {
+    case PROJECTILE_TYPE::NONE:
+        pull->LauchProjectileNORMAL(projectileSpeed, projectileDamage, projectileResistanceDamage, projectileLifetime, projectileSpawn, projectileScale, projectileAction);
+        break;
+    case PROJECTILE_TYPE::SEMI:
+        pull->LauchProjectileSEMI(projectileSpeed, projectileDamage, projectileResistanceDamage, projectileLifetime, projectileSpawn, projectileScale, projectileAction);
+        break;
+    case PROJECTILE_TYPE::AUTO:
+        pull->LauchProjectileAUTO(projectileSpeed, projectileDamage, projectileResistanceDamage, projectileLifetime, projectileSpawn, projectileScale, projectileAction);
+        break;
+    case PROJECTILE_TYPE::BURST:
+        pull->LauchProjectileBURST(projectileSpeed, projectileDamage, projectileResistanceDamage, projectileLifetime, projectileSpawn, projectileScale, projectileAction);
+        break;
+    case PROJECTILE_TYPE::SHOTGUN:
+        pull->LauchProjectileSHOTGUN(projectileSpeed, projectileDamage, projectileResistanceDamage, projectileLifetime, projectileSpawn, projectileScale, projectileAction, randomDirectionRange);
+        break;
+    case PROJECTILE_TYPE::HANDGUN:
+        pull->LauchProjectileHANDGUN(projectileSpeed, projectileDamage, projectileResistanceDamage, projectileLifetime, projectileSpawn, projectileScale, projectileAction);
+        break;
+    case PROJECTILE_TYPE::FLAMETHROWER:
+        break;
+    case PROJECTILE_TYPE::RICOCHET:
+        break;
+    case PROJECTILE_TYPE::PULSE:
+        break;
+    default:
+        break;
+    }
 }
 
 void PlayerGun::PlayShotSound(std::string eventString)
