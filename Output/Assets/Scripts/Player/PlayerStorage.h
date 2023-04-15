@@ -5,6 +5,8 @@
 
 #include "API/API.h"
 
+class PlayerIndicator;
+
 class PlayerStorage : HelloBehavior
 {
 public:
@@ -24,5 +26,9 @@ public:
     bool casette1Picked;
     bool casette2Picked;
     bool casette3Picked;
+
+    // map indicator
+    API_GameObject playerIndicatorGO;
+    PlayerIndicator* playerIndicator;
 };
 

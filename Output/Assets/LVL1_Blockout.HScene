@@ -8946,7 +8946,7 @@
         "UID": 1675496843
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -8985,7 +8985,7 @@
         "UID": 690857073
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -9026,7 +9026,7 @@
         "UID": 599873896
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -9054,7 +9054,7 @@
                     0.0,
                     1.0
                 ],
-                "Enabled": true,
+                "Enabled": false,
                 "PositionX": -0.75,
                 "PositionY": 0.3499999940395355,
                 "Scale": 0.20000000298023224,
@@ -9070,7 +9070,7 @@
         "UID": 3191326186
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -9098,7 +9098,7 @@
                     0.0,
                     1.0
                 ],
-                "Enabled": true,
+                "Enabled": false,
                 "PositionX": -0.949999988079071,
                 "PositionY": 0.25,
                 "Scale": 0.20000000298023224,
@@ -9114,7 +9114,7 @@
         "UID": 2405573459
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -9142,7 +9142,7 @@
                     0.0,
                     1.0
                 ],
-                "Enabled": true,
+                "Enabled": false,
                 "PositionX": -0.8500000238418579,
                 "PositionY": 0.15000000596046448,
                 "Scale": 0.20000000298023224,
@@ -9158,7 +9158,7 @@
         "UID": 2125300294
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -12035,13 +12035,19 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
+                        "Map GO": 2261881879
+                    },
+                    {
+                        "Level Index": 1
+                    },
+                    {
                         "Player": 373022943
                     },
                     {
-                        "Movemnet Reduction X": 1000.0
+                        "Movement Reduction X": 1000.0
                     },
                     {
-                        "Movemnet Reduction Y": 1000.0
+                        "Movement Reduction Y": 1000.0
                     }
                 ],
                 "Script Resource": 1499327873,
@@ -12049,7 +12055,7 @@
             }
         ],
         "FirstOnPrefab": true,
-        "Name": "Image",
+        "Name": "Indicator",
         "ParentUID": 2261881879,
         "PrefabUID": 0,
         "Tag": "UI",
@@ -96774,6 +96780,9 @@
                 "Inspector Fields": [
                     {
                         "Level Index": 1
+                    },
+                    {
+                        "Map Indicator": 3778786942
                     }
                 ],
                 "Script Resource": 1045846276,

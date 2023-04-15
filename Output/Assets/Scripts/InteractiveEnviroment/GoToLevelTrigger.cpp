@@ -59,16 +59,22 @@ void GoToLevelTrigger::OnCollisionEnter(API_RigidBody other)
                 API_QuickSave::SetFloat("PlayerPosX", 110.5f);
                 API_QuickSave::SetFloat("PlayerPosY", 0.0f);
                 API_QuickSave::SetFloat("PlayerPosZ", -29.2f);
+                API_QuickSave::SetFloat("PlayerIndicatorPosX", -0.7f);
+                API_QuickSave::SetFloat("PlayerIndicatorPosY", -0.39f);
                 break;
             case 2:
                 API_QuickSave::SetFloat("PlayerPosX", 147.6f);
                 API_QuickSave::SetFloat("PlayerPosY", 2.115f);
                 API_QuickSave::SetFloat("PlayerPosZ", 14.54f);
+                API_QuickSave::SetFloat("PlayerIndicatorPosX", 0);
+                API_QuickSave::SetFloat("PlayerIndicatorPosY", 0);
                 break;
             case 3:
                 API_QuickSave::SetFloat("PlayerPosX", -61.7f);
                 API_QuickSave::SetFloat("PlayerPosY", 92.5f);
                 API_QuickSave::SetFloat("PlayerPosZ", 47.3f);
+                API_QuickSave::SetFloat("PlayerIndicatorPosX", 0);
+                API_QuickSave::SetFloat("PlayerIndicatorPosY", 0);
                 break;
             default:
                 break;

@@ -11,9 +11,15 @@ public:
     void Start() override;
     void Update() override;
 
+    void SavePosition();
+
+    API_GameObject map;
+
     API_GameObject player;
     API_Vector2 originIndicatorPos;
     API_Vector2 originPlayerPos;
+
+    int levelIndex;
 
     float movementReductionX = 1000.0f;
     float movementReductionY = 1000.0f;
