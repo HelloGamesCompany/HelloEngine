@@ -58669,7 +58669,7 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Level Index": 0
+                        "Level Index": 2
                     }
                 ],
                 "Script Resource": 1045846276,
@@ -63930,13 +63930,6 @@
                         "Second Projectile Spawn": 701275422
                     },
                     {
-                        "Projectile MeshIndexInsideModel": 0,
-                        "Projectile MeshModelUID": 1551155716
-                    },
-                    {
-                        "Projectile Material": 1412513036
-                    },
-                    {
                         "Projectile ScaleX": 0.10000000149011612
                     },
                     {
@@ -64038,13 +64031,6 @@
                         "Projectile Spawn": 4012886439
                     },
                     {
-                        "Projectile MeshIndexInsideModel": 0,
-                        "Projectile MeshModelUID": 1551155716
-                    },
-                    {
-                        "Projectile Material": 1412513036
-                    },
-                    {
                         "Projectile ScaleX": 0.20000000298023224
                     },
                     {
@@ -64134,13 +64120,6 @@
                         "Projectile Spawn": 2134099410
                     },
                     {
-                        "Projectile MeshIndexInsideModel": 0,
-                        "Projectile MeshModelUID": 1551155716
-                    },
-                    {
-                        "Projectile Material": 1412513036
-                    },
-                    {
                         "Projectile ScaleX": 0.10000000149011612
                     },
                     {
@@ -64228,13 +64207,6 @@
                     },
                     {
                         "Projectile Spawn": 2331353082
-                    },
-                    {
-                        "Projectile MeshIndexInsideModel": 0,
-                        "Projectile MeshModelUID": 1551155716
-                    },
-                    {
-                        "Projectile Material": 1412513036
                     },
                     {
                         "Projectile ScaleX": 0.10000000149011612
@@ -64332,13 +64304,6 @@
                         "Projectile Spawn": 23838785
                     },
                     {
-                        "Projectile MeshIndexInsideModel": 0,
-                        "Projectile MeshModelUID": 1551155716
-                    },
-                    {
-                        "Projectile Material": 1412513036
-                    },
-                    {
                         "Projectile ScaleX": 0.05000000074505806
                     },
                     {
@@ -64432,13 +64397,6 @@
                     },
                     {
                         "Projectile Spawn": 1822674229
-                    },
-                    {
-                        "Projectile MeshIndexInsideModel": 0,
-                        "Projectile MeshModelUID": 1551155716
-                    },
-                    {
-                        "Projectile Material": 1412513036
                     },
                     {
                         "Projectile ScaleX": 0.10000000149011612
@@ -65811,13 +65769,19 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Pull Size": 20
-                    },
-                    {
                         "Player": 373022943
                     },
                     {
-                        "Particles": 3433217862
+                        "Pull Size": 20
+                    },
+                    {
+                        "Projectile Prefab": 2214551003
+                    },
+                    {
+                        "Shotgun Bomb Pull Size": 0
+                    },
+                    {
+                        "Electricity Chain Pull Size": 0
                     }
                 ],
                 "Script Resource": 1341579112,
