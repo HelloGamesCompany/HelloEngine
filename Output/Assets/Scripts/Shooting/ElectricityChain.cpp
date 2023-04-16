@@ -1,5 +1,6 @@
 #include "ElectricityChain.h"
 #include "ProjectilePull.h"
+#include "../Enemies/Enemy.h"
 HELLO_ENGINE_API_C ElectricityChain* CreateElectricityChain(ScriptToInspectorInterface* script)
 {
     ElectricityChain* classInstance = new ElectricityChain();
@@ -17,6 +18,8 @@ void ElectricityChain::Update()
     if (destroy)
     {
         pull->electricityChainExeptionsAmountActive[exeptionsVectorIndex]--;
+        Enemy* enemy = (Enemy*)atachedToGO.GetScript("Enemy");
+        if (enemy) enemy->TakeDamage(damage, resistanceDamage);
         gameObject.SetActive(false);
     }
 
@@ -34,11 +37,10 @@ void ElectricityChain::OnCollisionEnter(API::API_RigidBody other)
 
     if (detectionTag == "Enemy")
     {
-        std::vector<API_GameObject> exeptions = pull->electricityChainExeptions[exeptionsVectorIndex];
-        //if (std::find(exeptions.begin(), exeptions.end(), other.GetGameObject()) != exeptions.end()) // if current enemy is not on vector
+        std::vector<uint> exeptions = pull->electricityChainExeptions[exeptionsVectorIndex];
+        if (std::find(exeptions.begin(), exeptions.end(), other.GetGameObject().GetUID()) == exeptions.end()) // if current enemy is not on vector
         {
-            // do damage
-            exeptions.push_back(other.GetGameObject());
+            pull->electricityChainExeptions[exeptionsVectorIndex].push_back(other.GetGameObject().GetUID());
             pull->electricityChainExeptionsAmountActive[exeptionsVectorIndex]++;
             pull->LauchELECTRICITY_CHAIN(ELECTRICITY_DELAY, damage, resistanceDamage, other.GetGameObject(), exeptionsVectorIndex);
             chainCount++;

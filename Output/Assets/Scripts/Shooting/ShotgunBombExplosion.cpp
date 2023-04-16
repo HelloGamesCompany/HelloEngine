@@ -1,4 +1,5 @@
 #include "ShotgunBombExplosion.h"
+#include "../Enemies/Enemy.h"
 HELLO_ENGINE_API_C ShotgunBombExplosion* CreateShotgunBombExplosion(ScriptToInspectorInterface* script)
 {
     ShotgunBombExplosion* classInstance = new ShotgunBombExplosion();
@@ -13,7 +14,11 @@ void ShotgunBombExplosion::Start()
 
 void ShotgunBombExplosion::Update()
 {
-
+    if (destroy)
+    {
+        shotgunBomb.SetActive(false);
+        destroy = false;
+    }
 }
 
 void ShotgunBombExplosion::OnCollisionEnter(API::API_RigidBody other)
@@ -24,9 +29,10 @@ void ShotgunBombExplosion::OnCollisionEnter(API::API_RigidBody other)
 
     if (detectionTag == "Enemy")
     {
-        // do damage
+        Enemy* enemy = (Enemy*)other.GetGameObject().GetScript("Enemy");
+        if (enemy) enemy->TakeDamage(damage, resistanceDamage);
     }
 
     triggerActive = false;
-    shotgunBomb.SetActive(false);
+    destroy = true;
 }

@@ -46,7 +46,7 @@ public:
     // handgun
     int electricityChainPullSize;
     std::vector<API_GameObject> electricityChainPull;
-    std::vector<std::vector<API_GameObject>> electricityChainExeptions;
+    std::vector<std::vector<uint>> electricityChainExeptions;
     std::vector<int> electricityChainExeptionsAmountActive;
     // ricochet
     API_GameObject ricochetDetector;

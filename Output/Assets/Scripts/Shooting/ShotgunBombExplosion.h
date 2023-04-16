@@ -15,5 +15,9 @@ public:
 
     bool triggerActive;
     API_GameObject shotgunBomb; // parent
+    bool destroy = false;
+
+    float damage = 1.0f;
+    float resistanceDamage = 1.0f;
 };
 

@@ -29,6 +29,7 @@ void Projectile::Update()
 void Projectile::Destroy()
 {
     gameObject.GetParticleSystem().Stop();
+    gameObject.GetTransform().SetPosition(0, 9999, 0);
     gameObject.SetActive(false);
 }
 
@@ -111,7 +112,7 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
         else if (detectionTag == "Enemy")
         {
             uint exceptionIndex = pull->GetFirstEmptyElectricityChainExeption();
-            pull->electricityChainExeptions[exceptionIndex].push_back(other.GetGameObject());
+            pull->electricityChainExeptions[exceptionIndex].push_back(other.GetGameObject().GetUID());
             pull->electricityChainExeptionsAmountActive[exceptionIndex]++;
             pull->LauchELECTRICITY_CHAIN(ELECTRICITY_DELAY, 5.0f, 2.0f, other.GetGameObject(), exceptionIndex);
             Destroy();

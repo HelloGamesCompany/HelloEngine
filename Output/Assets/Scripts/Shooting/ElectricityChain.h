@@ -14,6 +14,7 @@ public:
     void Update() override;
 
     void OnCollisionEnter(API::API_RigidBody other);
+
     bool destroy = false;
 
     ProjectilePull* pull;

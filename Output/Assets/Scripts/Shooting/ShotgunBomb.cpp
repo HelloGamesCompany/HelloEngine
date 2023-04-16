@@ -42,3 +42,8 @@ void ShotgunBomb::OnCollisionEnter(API::API_RigidBody other)
         Destroy();
     }
 }
+
+void ShotgunBomb::ResetExposion()
+{
+    explosion->triggerActive = false;
+}

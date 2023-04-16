@@ -15,7 +15,7 @@ HELLO_ENGINE_API_C ProjectilePull* CreateProjectilePull(ScriptToInspectorInterfa
     script->AddDragBoxPrefabResource("Shotgun Bomb Prefab", &classInstance->shotgunBombPrefab);
     script->AddDragInt("Electricity Chain Pull Size", &classInstance->electricityChainPullSize);
     script->AddDragBoxPrefabResource("Electricity Chain Prefab", &classInstance->electricityChainPrefab);
-    script->AddDragBoxPrefabResource("Electricity Chain Prefab", &classInstance->checkRicochetTargetsPrefab);
+    script->AddDragBoxPrefabResource("Check Ricochet Traget Prefab", &classInstance->checkRicochetTargetsPrefab);
     return classInstance;
 }
 
@@ -54,7 +54,7 @@ void ProjectilePull::Start()
         ElectricityChain* electricityChain = (ElectricityChain*)newChain.GetScript("ElectricityChain");
         electricityChain->pull = this;
         electricityChainPull.push_back(newChain);
-        std::vector<API_GameObject> vector;
+        std::vector<uint> vector;
         electricityChainExeptions.push_back(vector);
         electricityChainExeptionsAmountActive.push_back(0);
     }
@@ -113,7 +113,7 @@ uint ProjectilePull::GetFirstEmptyElectricityChainExeption()
     {
         if (electricityChainExeptionsAmountActive[i] == 0)
         {
-            electricityChainExeptions.clear();
+            electricityChainExeptions[i].clear();
             return i;
         }
     }
@@ -191,8 +191,6 @@ void ProjectilePull::LauchProjectileAUTO(float projectileSpeed, float projectile
     projectile->type = PROJECTILE_TYPE::AUTO;
 
     if (autoForce <= 6.0f) autoForce += 0.3f;
-
-    Console::Log(std::to_string(projectile->damage));
 }
 
 void ProjectilePull::LauchProjectileBURST(float projectileSpeed, float projectileDamage, float projectileResistanceDamage, float projectileLifetime, API_Transform shootingSpawn, API_Vector3 projectileScale)
@@ -252,7 +250,7 @@ void ProjectilePull::LauchProjectileSHOTGUN_BOMB(float projectileLifetime, API_T
 
     ShotgunBomb* bomb = (ShotgunBomb*)go.GetScript("ShotgunBomb");
     bomb->lifeTime = projectileLifetime;
-    bomb->shotgunBombTimer = 0.5f;
+    bomb->ResetExposion();
 }
 
 void ProjectilePull::LauchProjectileHANDGUN(float projectileSpeed, float projectileDamage, float projectileResistanceDamage, float projectileLifetime, API_Transform shootingSpawn, API_Vector3 projectileScale)
@@ -276,7 +274,7 @@ void ProjectilePull::LauchELECTRICITY_CHAIN(float delay, float damage, float res
 {
     API_GameObject go = GetFirstInactiveElectricityChain();
     go.SetActive(true);
-    go.GetParticleSystem().Play();
+    //go.GetParticleSystem().Play();
 
     ElectricityChain* electricityChain = (ElectricityChain*)go.GetScript("ElectricityChain");
     electricityChain->delay = delay;

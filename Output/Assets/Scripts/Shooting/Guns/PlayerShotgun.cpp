@@ -117,7 +117,7 @@ void PlayerShotgun::SetGunStatsPerLevel(int level)
         projectileResistanceDamage = 0.0f;
         projectileLifetime = 0.2f;
         cadence = 1.3f;
-        pellets = 10;
+        pellets = 3;
         pelletsDisersion = 0.2f;
         break;
     case 1:
