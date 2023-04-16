@@ -94,7 +94,10 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
         }
         else if (detectionTag == "Enemy")
         {
-            pull->LauchProjectileELECTRICITY_CHAIN(ELECTRICITY_DELAY, 5.0f, 2.0f, other.GetGameObject());
+            uint exceptionIndex = pull->GetFirstEmptyElectricityChainExeption();
+            pull->electricityChainExeptions[exceptionIndex].push_back(other.GetGameObject());
+            pull->electricityChainExeptionsAmountActive[exceptionIndex]++;
+            pull->LauchELECTRICITY_CHAIN(ELECTRICITY_DELAY, 5.0f, 2.0f, other.GetGameObject(), exceptionIndex);
             Destroy();
         }
         break;

@@ -14,6 +14,7 @@ public:
     void Update() override;
 
     void OnCollisionEnter(API::API_RigidBody other);
+    bool destroy = false;
 
     ProjectilePull* pull;
 
@@ -23,5 +24,6 @@ public:
     float delay;
     bool triggerActive;
     API_GameObject atachedToGO;
+    uint exeptionsVectorIndex;
 };
 

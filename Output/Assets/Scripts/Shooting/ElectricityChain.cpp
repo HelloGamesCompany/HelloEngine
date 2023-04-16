@@ -14,6 +14,12 @@ void ElectricityChain::Start()
 
 void ElectricityChain::Update()
 {
+    if (destroy)
+    {
+        pull->electricityChainExeptionsAmountActive[exeptionsVectorIndex]--;
+        gameObject.SetActive(false);
+    }
+
     delay -= Time::GetDeltaTime();
     if (delay <= 0.0f) triggerActive = true;
 
@@ -28,10 +34,16 @@ void ElectricityChain::OnCollisionEnter(API::API_RigidBody other)
 
     if (detectionTag == "Enemy")
     {
-        // do damage
-        pull->LauchProjectileELECTRICITY_CHAIN(ELECTRICITY_DELAY, damage, resistanceDamage, other.GetGameObject());
-        chainCount++;
+        std::vector<API_GameObject> exeptions = pull->electricityChainExeptions[exeptionsVectorIndex];
+        if (std::find(exeptions.begin(), exeptions.end(), other.GetGameObject()) != exeptions.end()) // if current enemy is not on vector
+        {
+            // do damage
+            exeptions.push_back(other.GetGameObject());
+            pull->electricityChainExeptionsAmountActive[exeptionsVectorIndex]++;
+            pull->LauchELECTRICITY_CHAIN(ELECTRICITY_DELAY, damage, resistanceDamage, other.GetGameObject(), exeptionsVectorIndex);
+            chainCount++;
+        }
     }
-
-    gameObject.SetActive(false);
+    
+    destroy = true;
 }

@@ -23,6 +23,7 @@ public:
     API_GameObject GetFirstInactiveProjectile();
     API_GameObject GetFirstInactiveShotgunBomb();
     API_GameObject GetFirstInactiveElectricityChain();
+    uint GetFirstEmptyElectricityChainExeption();
     void LauchProjectileNORMAL(float projectileSpeed, float projectileDamage, float projectileResistanceDamage, float projectileLifetime, API_Transform shootingSpawn, API_Vector3 projectileScale, PROJECTILE_ACTION projectileAction);
     void LauchProjectileSEMI(float projectileSpeed, float projectileDamage, float projectileResistanceDamage, float projectileLifetime, API_Transform shootingSpawn, API_Vector3 projectileScale, PROJECTILE_ACTION projectileAction);
     void LauchProjectileSECONDARY_SEMI(float projectileSpeed, float projectileDamage, float projectileResistanceDamage, float projectileLifetime, API_Transform shootingSpawn, API_Vector3 projectileScale, PROJECTILE_ACTION projectileAction, float rotateY);
@@ -31,7 +32,7 @@ public:
     void LauchProjectileSHOTGUN(float projectileSpeed, float projectileDamage, float projectileResistanceDamage, float projectileLifetime, API_Transform shootingSpawn, API_Vector3 projectileScale, PROJECTILE_ACTION projectileAction, float randomDirectionRange);
     void LauchProjectileSHOTGUN_BOMB(float projectileLifetime, API_Transform shootingSpawn, API_Vector3 projectileScale, PROJECTILE_ACTION projectileAction);
     void LauchProjectileHANDGUN(float projectileSpeed, float projectileDamage, float projectileResistanceDamage, float projectileLifetime, API_Transform shootingSpawn, API_Vector3 projectileScale, PROJECTILE_ACTION projectileAction);
-    void LauchProjectileELECTRICITY_CHAIN(float delay, float damage, float resistanceDamage, API_GameObject attachedToGO);
+    void LauchELECTRICITY_CHAIN(float delay, float damage, float resistanceDamage, API_GameObject attachedToGO, uint exceptionsVectorIndex);
 
     int pullSize;
     std::vector<API_GameObject> pull;
@@ -39,6 +40,8 @@ public:
     std::vector<API_GameObject> shotgunBombPull;
     int electricityChainPullSize;
     std::vector<API_GameObject> electricityChainPull;
+    std::vector<std::vector<API_GameObject>> electricityChainExeptions;
+    std::vector<int> electricityChainExeptionsAmountActive;
     API_GameObject playerGO;
     PlayerStats* playerStats;
     uint projectilePrefab;

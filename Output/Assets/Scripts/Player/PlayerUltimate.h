@@ -23,5 +23,6 @@ public:
     float bufferRJ;
     float bufferLJ;
     bool triggerUlt;
+    bool endUlt = false;
 };
 

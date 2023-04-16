@@ -52,6 +52,9 @@ void ProjectilePull::Start()
         ElectricityChain* electricityChain = (ElectricityChain*)newChain.GetScript("ElectricityChain");
         electricityChain->pull = this;
         electricityChainPull.push_back(newChain);
+        std::vector<API_GameObject> vector;
+        electricityChainExeptions.push_back(vector);
+        electricityChainExeptionsAmountActive.push_back(0);
     }
 }
 
@@ -96,6 +99,20 @@ API_GameObject ProjectilePull::GetFirstInactiveElectricityChain()
     }
 
     return electricityChainPull[0];
+}
+
+uint ProjectilePull::GetFirstEmptyElectricityChainExeption()
+{
+    for (size_t i = 0; i < electricityChainExeptions.size(); i++)
+    {
+        if (electricityChainExeptionsAmountActive[i] == 0)
+        {
+            electricityChainExeptions.clear();
+            return i;
+        }
+    }
+
+    return 0;
 }
 
 void ProjectilePull::LauchProjectileNORMAL(float projectileSpeed, float projectileDamage, float projectileResistanceDamage, float projectileLifetime, API_Transform shootingSpawn, API_Vector3 projectileScale, PROJECTILE_ACTION projectileAction)
@@ -255,7 +272,7 @@ void ProjectilePull::LauchProjectileHANDGUN(float projectileSpeed, float project
     projectile->type = PROJECTILE_TYPE::HANDGUN;
 }
 
-void ProjectilePull::LauchProjectileELECTRICITY_CHAIN(float delay, float damage, float resistanceDamage, API_GameObject attachedToGO)
+void ProjectilePull::LauchELECTRICITY_CHAIN(float delay, float damage, float resistanceDamage, API_GameObject attachedToGO, uint exceptionsVectorIndex)
 {
     API_GameObject go = GetFirstInactiveElectricityChain();
     go.SetActive(true);
@@ -266,6 +283,8 @@ void ProjectilePull::LauchProjectileELECTRICITY_CHAIN(float delay, float damage,
     electricityChain->damage = damage;
     electricityChain->resistanceDamage = resistanceDamage;
     electricityChain->atachedToGO = attachedToGO;
+    electricityChain->exeptionsVectorIndex = exceptionsVectorIndex;
     electricityChain->triggerActive = false;
     electricityChain->chainCount = 0;
+    electricityChain->destroy = false;
 }
