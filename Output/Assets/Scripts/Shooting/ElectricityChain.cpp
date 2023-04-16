@@ -35,7 +35,7 @@ void ElectricityChain::OnCollisionEnter(API::API_RigidBody other)
     if (detectionTag == "Enemy")
     {
         std::vector<API_GameObject> exeptions = pull->electricityChainExeptions[exeptionsVectorIndex];
-        if (std::find(exeptions.begin(), exeptions.end(), other.GetGameObject()) != exeptions.end()) // if current enemy is not on vector
+        //if (std::find(exeptions.begin(), exeptions.end(), other.GetGameObject()) != exeptions.end()) // if current enemy is not on vector
         {
             // do damage
             exeptions.push_back(other.GetGameObject());

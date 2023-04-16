@@ -47,4 +47,7 @@ public:
     float resistanceDamage = 0.0f;
     PROJECTILE_ACTION action = PROJECTILE_ACTION::NONE;
     PROJECTILE_TYPE type = PROJECTILE_TYPE::NONE;
+
+    // ricochet
+    int targetsHitted = 0;
 };
