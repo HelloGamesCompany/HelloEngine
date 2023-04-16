@@ -39,8 +39,24 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
     switch (type)
     {
     case PROJECTILE_TYPE::NONE:
-        if (detectionTag == "Wall" || detectionTag == "Enemy")
+        if (detectionTag == "Wall")
         {
+            Destroy();
+        }
+        else if (detectionTag == "Enemy")
+        {
+            Enemy* enemy = (Enemy*)other.GetGameObject().GetScript("Enemy");
+            switch (action)
+            {
+            case PROJECTILE_ACTION::SLOW:
+                if (enemy) enemy->ActiveSlow(0.5f, 2);
+                break;
+            case PROJECTILE_ACTION::FREEZE:
+                if (enemy) enemy->ActiveStun(2);
+                break;
+            default:
+                break;
+            }
             Destroy();
         }
         break;
@@ -51,8 +67,8 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
         }
         else if (detectionTag == "Enemy") // EXIT
         {
-            pull->LauchProjectileSECONDARY_SEMI(speed, damage / 3.0f, resistanceDamage / 3.0f, 1.0f, gameObject.GetTransform(), { 0.1f, 0.1f, 0.1f }, PROJECTILE_ACTION::NONE, 30.0f);
-            pull->LauchProjectileSECONDARY_SEMI(speed, damage / 3.0f, resistanceDamage / 3.0f, 1.0f, gameObject.GetTransform(), { 0.1f, 0.1f, 0.1f }, PROJECTILE_ACTION::NONE, -30.0f);
+            pull->LauchProjectileSECONDARY_SEMI(speed, damage / 3.0f, resistanceDamage / 3.0f, 1.0f, gameObject.GetTransform(), { 0.1f, 0.1f, 0.1f }, 30.0f);
+            pull->LauchProjectileSECONDARY_SEMI(speed, damage / 3.0f, resistanceDamage / 3.0f, 1.0f, gameObject.GetTransform(), { 0.1f, 0.1f, 0.1f }, -30.0f);
             Destroy();
         }
         break;
@@ -82,8 +98,8 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
         }
         else if (detectionTag == "Enemy") // EXIT
         {
-            pull->LauchProjectileSHOTGUN_BOMB(1.0f, gameObject.GetTransform(), { 0.3f, 0.3f, 0.3f }, PROJECTILE_ACTION::NONE);
-            pull->LauchProjectileSHOTGUN_BOMB(1.0f, gameObject.GetTransform(), { 0.3f, 0.3f, 0.3f }, PROJECTILE_ACTION::NONE);
+            pull->LauchProjectileSHOTGUN_BOMB(1.0f, gameObject.GetTransform(), { 0.3f, 0.3f, 0.3f });
+            pull->LauchProjectileSHOTGUN_BOMB(1.0f, gameObject.GetTransform(), { 0.3f, 0.3f, 0.3f });
             Destroy();
         }
         break;
@@ -102,8 +118,36 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
         }
         break;
     case PROJECTILE_TYPE::FLAMETHROWER:
+        if (detectionTag == "Wall")
+        {
+            Destroy();
+        }
         break;
     case PROJECTILE_TYPE::RICOCHET:
+        if (detectionTag == "Wall")
+        {
+            Destroy();
+        }
+        else if (detectionTag == "Enemy")
+        {
+            targetsHitted++;
+            if (targetsHitted > 4)
+            {
+                Destroy();
+            }
+            else
+            {
+                API_Vector3 rotation = pull->CheckTargetDirectionRICOCHET(gameObject.GetTransform().GetGlobalPosition());
+                if (rotation.x == 0 && rotation.z == 0) // means enemy in range
+                {
+                    gameObject.GetTransform().SetRotation(rotation);
+                }
+                else
+                {
+                    Destroy();
+                }
+            }
+        }
         break;
     case PROJECTILE_TYPE::PULSE:
         break;

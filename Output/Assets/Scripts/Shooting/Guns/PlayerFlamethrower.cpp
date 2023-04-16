@@ -81,7 +81,7 @@ void PlayerFlamethrower::Shoot()
         playerStats->UseAmmo(ammoType);
 
 
-        if (playingParticlesCd <= 0) fireParticles.Play();
+        if (playingParticlesCd <= 0.0f) fireParticles.Play();
         playingParticlesCd = 0.2f;
     }
 }
