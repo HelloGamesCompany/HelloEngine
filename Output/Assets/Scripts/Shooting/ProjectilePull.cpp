@@ -289,7 +289,7 @@ void ProjectilePull::LauchELECTRICITY_CHAIN(float delay, float damage, float res
     electricityChain->destroy = false;
 }
 
-void ProjectilePull::LauchProjectileFLAMETHROWER(float projectileSpeed, float projectileDamage, float projectileResistanceDamage, float projectileLifetime, API_Transform shootingSpawn, API_Vector3 projectileScale)
+void ProjectilePull::LauchProjectileFLAMETHROWER(float projectileSpeed, float projectileDamage, float projectileResistanceDamage, float projectileLifetime, API_Transform shootingSpawn)
 {
     API_GameObject go = GetFirstInactiveProjectile();
     go.SetActive(true);

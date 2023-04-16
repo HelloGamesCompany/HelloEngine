@@ -60,23 +60,25 @@ void PlayerGun::LauchProjectile(API_Transform projectileSpawn, PROJECTILE_TYPE t
         pull->LauchProjectileNORMAL(projectileSpeed, projectileDamage, projectileResistanceDamage, projectileLifetime, projectileSpawn, projectileScale, projectileAction);
         break;
     case PROJECTILE_TYPE::SEMI:
-        pull->LauchProjectileSEMI(projectileSpeed, projectileDamage, projectileResistanceDamage, projectileLifetime, projectileSpawn, projectileScale, projectileAction);
+        pull->LauchProjectileSEMI(projectileSpeed, projectileDamage, projectileResistanceDamage, projectileLifetime, projectileSpawn, projectileScale);
         break;
     case PROJECTILE_TYPE::AUTO:
-        pull->LauchProjectileAUTO(projectileSpeed, projectileDamage, projectileResistanceDamage, projectileLifetime, projectileSpawn, projectileScale, projectileAction);
+        pull->LauchProjectileAUTO(projectileSpeed, projectileDamage, projectileResistanceDamage, projectileLifetime, projectileSpawn, projectileScale);
         break;
     case PROJECTILE_TYPE::BURST:
-        pull->LauchProjectileBURST(projectileSpeed, projectileDamage, projectileResistanceDamage, projectileLifetime, projectileSpawn, projectileScale, projectileAction);
+        pull->LauchProjectileBURST(projectileSpeed, projectileDamage, projectileResistanceDamage, projectileLifetime, projectileSpawn, projectileScale);
         break;
     case PROJECTILE_TYPE::SHOTGUN:
-        pull->LauchProjectileSHOTGUN(projectileSpeed, projectileDamage, projectileResistanceDamage, projectileLifetime, projectileSpawn, projectileScale, projectileAction, randomDirectionRange);
+        pull->LauchProjectileSHOTGUN(projectileSpeed, projectileDamage, projectileResistanceDamage, projectileLifetime, projectileSpawn, projectileScale, randomDirectionRange);
         break;
     case PROJECTILE_TYPE::HANDGUN:
-        pull->LauchProjectileHANDGUN(projectileSpeed, projectileDamage, projectileResistanceDamage, projectileLifetime, projectileSpawn, projectileScale, projectileAction);
+        pull->LauchProjectileHANDGUN(projectileSpeed, projectileDamage, projectileResistanceDamage, projectileLifetime, projectileSpawn, projectileScale);
         break;
     case PROJECTILE_TYPE::FLAMETHROWER:
+        pull->LauchProjectileFLAMETHROWER(projectileSpeed, projectileDamage, projectileResistanceDamage, projectileLifetime, projectileSpawn);
         break;
     case PROJECTILE_TYPE::RICOCHET:
+        pull->LauchProjectileRICOCHET(projectileSpeed, projectileDamage, projectileResistanceDamage, projectileLifetime, projectileSpawn, projectileScale);
         break;
     case PROJECTILE_TYPE::PULSE:
         break;
