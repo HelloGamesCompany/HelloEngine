@@ -665,6 +665,17 @@ void PhysicsComponent::OnDisable()
 
 void PhysicsComponent::CheckShapes()
 {
+	for (int h = 0; h < static_cast<int>(ColliderShape::Count); h++) {
+
+		if (_isShapeSelected[h] == true) {
+			if (_isShapeCreated[h] == false)
+			{
+				_shapeSelected = static_cast<ColliderShape>(h);
+				_isShapeCreated[h] = true;
+			}
+		}
+	}
+
 	bool hasCount = false;
 	for (int i = 0; i < static_cast<int>(ColliderShape::Count); i++)
 	{
@@ -675,7 +686,7 @@ void PhysicsComponent::CheckShapes()
 		}
 	}
 
-	if (hasCount)
+	if (!hasCount)
 	{
 		_shapeSelected = ColliderShape::NONE;
 		for (int i = 0; i < static_cast<int>(ColliderShape::Count); i++)
