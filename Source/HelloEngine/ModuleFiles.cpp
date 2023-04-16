@@ -671,7 +671,7 @@ bool ModuleFiles::S_CreateMetaData(const std::string& file, const std::string& r
 
     j["Resource type"] = ModuleFiles::S_GetResourceType(file);
 
-    j["UID"] = UID == 0 ? HelloUUID::GenerateUUID() : UID;
+    j["UID"] = UID == 0 ? HelloUUID::GenerateGUID(file) : UID;
 
     j["Name"] = assetName;
 

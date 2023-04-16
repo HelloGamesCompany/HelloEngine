@@ -36,8 +36,6 @@ int main(int argc, char** argv)
 
 	//SHA256 hash;
 	//std::string test = hash("Assets/Test.txt");
-	
-	std::string GUID = HelloUUID::GenerateGUID("Assets/Test.txt");
 
 	//_CrtSetBreakAlloc(152277);
 

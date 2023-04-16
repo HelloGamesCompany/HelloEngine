@@ -10,7 +10,7 @@ public:
 	static uint GenerateUUID();
 
 	/// A GUID is based in an input, and will always return the same using the same input.
-	static std::string GenerateGUID(std::string input);
+	static uint GenerateGUID(std::string input);
 
 private:
 	static LCG lcg;

@@ -18,8 +18,14 @@ uint HelloUUID::GenerateUUID()
     return id;
 }
 
-std::string HelloUUID::GenerateGUID(std::string input)
+uint HelloUUID::GenerateGUID(std::string input)
 {
-    return hash(input);
+    std::string key = hash(input);
+    uint hashValue = 0;
+    for (int i = 0; i < key.size(); ++i) {
+        hashValue = (hashValue << 8) | key[i];
+    }
+
+    return hashValue;
 }
 
