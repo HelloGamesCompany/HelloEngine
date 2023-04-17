@@ -18,6 +18,13 @@ HELLO_ENGINE_API_C Enemy* CreateEnemy(ScriptToInspectorInterface* script)
     //script->AddDragBoxRigidBody("Enemy RigidBody", &classInstance->enemyRb);
     script->AddDragBoxParticleSystem("Hit particle system", &classInstance->hitParticles);
     script->AddCheckBox("Has Shield", &classInstance->hasShield);
+    script->AddDragBoxGameObject("Bomb", &classInstance->bomb);
+    script->AddDragBoxTextureResource("Texture Bomb 1", &classInstance->textureBomb[0]);
+    script->AddDragBoxTextureResource("Texture Bomb 2", &classInstance->textureBomb[1]);
+    script->AddDragBoxTextureResource("Texture Bomb 3", &classInstance->textureBomb[2]);
+    script->AddDragBoxTextureResource("Texture Bomb 4", &classInstance->textureBomb[3]);
+    script->AddDragBoxTextureResource("Texture Bomb 5", &classInstance->textureBomb[4]);
+    script->AddDragBoxTextureResource("Texture Bomb 6", &classInstance->textureBomb[5]);
     return classInstance;
 }
 
@@ -38,7 +45,6 @@ void Enemy::Start()
 
 void Enemy::Update()
 {
-   
 
     if (actSlow)EnemySlow(_qSlow, _tSlow);
 
@@ -112,13 +118,7 @@ void Enemy::Die()
 void Enemy::OnCollisionEnter(API::API_RigidBody other)
 {
     std::string detectionTag = other.GetGameObject().GetTag();
-    if (detectionTag == "Projectile")
-    {
-        Projectile* projectile = (Projectile*)other.GetGameObject().GetScript("Projectile");
-        TakeDamage(projectile->damage, projectile->resistanceDamage);
-        isHit = true;
-    }
-    else if(detectionTag == "Player")
+    if(detectionTag == "Player")
     {
         PlayerStats* pStats = (PlayerStats*)other.GetGameObject().GetScript("PlayerStats");
         pStats->TakeDamage(10, 0);
@@ -181,5 +181,23 @@ void Enemy::EnemyStun(float timeStun)
     else
     {
         stunVel = 0;
+    }
+}
+
+void Enemy::AddBomb()
+{
+    currentBombNum++;
+    if (currentBombNum > maxBombNum) currentBombNum = maxBombNum;
+    else if (currentBombNum == 1) bomb.SetActive(true);
+    bomb.GetMaterialCompoennt().ChangeAlbedoTexture(textureBomb[currentBombNum - 1]);
+}
+
+void Enemy::CheckBombs()
+{
+    if (currentBombNum > 0)
+    {
+        currentBombNum = 0;
+        TakeDamage(5.0f * currentBombNum, 1.0f * currentBombNum);
+        bomb.SetActive(false);
     }
 }

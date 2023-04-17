@@ -58,6 +58,11 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
             default:
                 break;
             }
+            if (enemy)
+            {
+                enemy->TakeDamage(damage, resistanceDamage);
+                enemy->CheckBombs();
+            }
             Destroy();
         }
         break;
@@ -68,6 +73,8 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
         }
         else if (detectionTag == "Enemy") // EXIT
         {
+            Enemy* enemy = (Enemy*)other.GetGameObject().GetScript("Enemy");
+            if (enemy) enemy->TakeDamage(damage, resistanceDamage);
             pull->LauchProjectileSECONDARY_SEMI(speed, damage / 3.0f, resistanceDamage / 3.0f, 1.0f, gameObject.GetTransform(), { 0.1f, 0.1f, 0.1f }, 30.0f, other.GetGameObject().GetUID());
             pull->LauchProjectileSECONDARY_SEMI(speed, damage / 3.0f, resistanceDamage / 3.0f, 1.0f, gameObject.GetTransform(), { 0.1f, 0.1f, 0.1f }, 0.0f, other.GetGameObject().GetUID());
             pull->LauchProjectileSECONDARY_SEMI(speed, damage / 3.0f, resistanceDamage / 3.0f, 1.0f, gameObject.GetTransform(), { 0.1f, 0.1f, 0.1f }, -30.0f, other.GetGameObject().GetUID());
@@ -75,21 +82,43 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
         }
         break;
     case PROJECTILE_TYPE::SECONDARY_SEMI:
-        if (detectionTag == "Wall" || (detectionTag == "Enemy" && other.GetGameObject().GetUID() != ignoreGO))
+        if (detectionTag == "Wall")
         {
+            Destroy();
+        }
+        else if (detectionTag == "Enemy" && other.GetGameObject().GetUID() != ignoreGO)
+        {
+            Enemy* enemy = (Enemy*)other.GetGameObject().GetScript("Enemy");
+            if (enemy) enemy->TakeDamage(damage, resistanceDamage);
             Destroy();
         }
         break;
     case PROJECTILE_TYPE::AUTO:
-        if (detectionTag == "Wall" || detectionTag == "Enemy")
+        if (detectionTag == "Wall")
         {
+            Destroy();
+        }
+        if (detectionTag == "Enemy")
+        {
+            Enemy* enemy = (Enemy*)other.GetGameObject().GetScript("Enemy");
+            if (enemy) enemy->TakeDamage(damage, resistanceDamage);
             Destroy();
         }
         break;
     case PROJECTILE_TYPE::BURST:
-        if (detectionTag == "Wall" || detectionTag == "Enemy")
+        if (detectionTag == "Wall")
         {
-            // enganchar mina
+            Destroy();
+        }
+        else if (detectionTag == "Enemy")
+        {
+            Enemy* enemy = (Enemy*)other.GetGameObject().GetScript("Enemy");
+            if (enemy)
+            {
+
+                enemy->TakeDamage(damage, resistanceDamage);
+                enemy->AddBomb();
+            }
             Destroy();
         }
         break;
@@ -100,6 +129,8 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
         }
         else if (detectionTag == "Enemy") // EXIT
         {
+            Enemy* enemy = (Enemy*)other.GetGameObject().GetScript("Enemy");
+            if (enemy) enemy->TakeDamage(damage, resistanceDamage);
             pull->LauchProjectileSHOTGUN_BOMB(1.0f, gameObject.GetTransform(), { 0.3f, 0.3f, 0.3f }, other.GetGameObject().GetUID());
             pull->LauchProjectileSHOTGUN_BOMB(1.0f, gameObject.GetTransform(), { 0.3f, 0.3f, 0.3f }, other.GetGameObject().GetUID());
             Destroy();
@@ -112,6 +143,8 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
         }
         else if (detectionTag == "Enemy")
         {
+            Enemy* enemy = (Enemy*)other.GetGameObject().GetScript("Enemy");
+            if (enemy) enemy->TakeDamage(damage, resistanceDamage);
             uint exceptionIndex = pull->GetFirstEmptyElectricityChainExeption();
             pull->electricityChainExeptions[exceptionIndex].push_back(other.GetGameObject().GetUID());
             pull->electricityChainExeptionsAmountActive[exceptionIndex]++;
@@ -124,6 +157,16 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
         {
             Destroy();
         }
+        else if (detectionTag == "Enemy")
+        {
+            Enemy* enemy = (Enemy*)other.GetGameObject().GetScript("Enemy");
+            if (enemy)
+            {
+                enemy->TakeDamage(damage, resistanceDamage);
+                enemy->CheckBombs();
+            }
+            Destroy();
+        }
         break;
     case PROJECTILE_TYPE::RICOCHET:
         if (detectionTag == "Wall")
@@ -134,7 +177,6 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
         {
             if (targetsHitted == 0)
             {
-                // do damage
                 API_Vector3 rotation = pull->CheckTargetDirectionRICOCHET(gameObject.GetTransform().GetGlobalPosition(), ricochetTarget, other.GetGameObject().GetUID());
                 if (rotation.x == 0 && rotation.z == 0) // means enemy in range
                 {
@@ -154,7 +196,6 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
                 }
                 else
                 {
-                    // do damage
                     API_Vector3 rotation = pull->CheckTargetDirectionRICOCHET(gameObject.GetTransform().GetGlobalPosition(), ricochetTarget, other.GetGameObject().GetUID());
                     if (rotation.x == 0 && rotation.z == 0) // means enemy in range
                     {
@@ -167,9 +208,11 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
                     }
                 }
             }
-            else
+            Enemy* enemy = (Enemy*)other.GetGameObject().GetScript("Enemy");
+            if (enemy)
             {
-                // do damage
+                enemy->TakeDamage(damage, resistanceDamage);
+                enemy->CheckBombs();
             }
         }
         break;
