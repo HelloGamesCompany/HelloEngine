@@ -68,13 +68,14 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
         }
         else if (detectionTag == "Enemy") // EXIT
         {
-            pull->LauchProjectileSECONDARY_SEMI(speed, damage / 3.0f, resistanceDamage / 3.0f, 1.0f, gameObject.GetTransform(), { 0.1f, 0.1f, 0.1f }, 30.0f);
-            pull->LauchProjectileSECONDARY_SEMI(speed, damage / 3.0f, resistanceDamage / 3.0f, 1.0f, gameObject.GetTransform(), { 0.1f, 0.1f, 0.1f }, -30.0f);
+            pull->LauchProjectileSECONDARY_SEMI(speed, damage / 3.0f, resistanceDamage / 3.0f, 1.0f, gameObject.GetTransform(), { 0.1f, 0.1f, 0.1f }, 30.0f, other.GetGameObject().GetUID());
+            pull->LauchProjectileSECONDARY_SEMI(speed, damage / 3.0f, resistanceDamage / 3.0f, 1.0f, gameObject.GetTransform(), { 0.1f, 0.1f, 0.1f }, 0.0f, other.GetGameObject().GetUID());
+            pull->LauchProjectileSECONDARY_SEMI(speed, damage / 3.0f, resistanceDamage / 3.0f, 1.0f, gameObject.GetTransform(), { 0.1f, 0.1f, 0.1f }, -30.0f, other.GetGameObject().GetUID());
             Destroy();
         }
         break;
     case PROJECTILE_TYPE::SECONDARY_SEMI:
-        if (detectionTag == "Wall" || detectionTag == "Enemy")
+        if (detectionTag == "Wall" || (detectionTag == "Enemy" && other.GetGameObject().GetUID() != ignoreGO))
         {
             Destroy();
         }
@@ -99,8 +100,8 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
         }
         else if (detectionTag == "Enemy") // EXIT
         {
-            pull->LauchProjectileSHOTGUN_BOMB(1.0f, gameObject.GetTransform(), { 0.3f, 0.3f, 0.3f });
-            pull->LauchProjectileSHOTGUN_BOMB(1.0f, gameObject.GetTransform(), { 0.3f, 0.3f, 0.3f });
+            pull->LauchProjectileSHOTGUN_BOMB(1.0f, gameObject.GetTransform(), { 0.3f, 0.3f, 0.3f }, other.GetGameObject().GetUID());
+            pull->LauchProjectileSHOTGUN_BOMB(1.0f, gameObject.GetTransform(), { 0.3f, 0.3f, 0.3f }, other.GetGameObject().GetUID());
             Destroy();
         }
         break;
@@ -131,22 +132,44 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
         }
         else if (detectionTag == "Enemy")
         {
-            targetsHitted++;
-            if (targetsHitted > 4)
+            if (targetsHitted == 0)
             {
-                Destroy();
-            }
-            else
-            {
-                API_Vector3 rotation = pull->CheckTargetDirectionRICOCHET(gameObject.GetTransform().GetGlobalPosition());
+                // do damage
+                API_Vector3 rotation = pull->CheckTargetDirectionRICOCHET(gameObject.GetTransform().GetGlobalPosition(), ricochetTarget, other.GetGameObject().GetUID());
                 if (rotation.x == 0 && rotation.z == 0) // means enemy in range
                 {
                     gameObject.GetTransform().SetRotation(rotation);
+                    targetsHitted++;
                 }
                 else
                 {
                     Destroy();
                 }
+            }
+            else if (other.GetGameObject().GetUID() == ricochetTarget)
+            {
+                if (targetsHitted > 3)
+                {
+                    Destroy();
+                }
+                else
+                {
+                    // do damage
+                    API_Vector3 rotation = pull->CheckTargetDirectionRICOCHET(gameObject.GetTransform().GetGlobalPosition(), ricochetTarget, other.GetGameObject().GetUID());
+                    if (rotation.x == 0 && rotation.z == 0) // means enemy in range
+                    {
+                        gameObject.GetTransform().SetRotation(rotation);
+                        targetsHitted++;
+                    }
+                    else
+                    {
+                        Destroy();
+                    }
+                }
+            }
+            else
+            {
+                // do damage
             }
         }
         break;

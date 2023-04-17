@@ -104,7 +104,7 @@ void PlayerRicochet::SetGunStatsPerLevel(int level)
         projectileSpeed = 30.0f;
         projectileDamage = 5.0f;
         projectileResistanceDamage = 0.0f;
-        projectileLifetime = 1.0f;
+        projectileLifetime = 10.0f;
         cadence = 2.0f;
         break;
     case 1:

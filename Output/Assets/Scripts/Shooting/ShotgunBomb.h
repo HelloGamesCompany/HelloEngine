@@ -22,5 +22,6 @@ public:
     float lifeTime = 5.0f;
 
     ShotgunBombExplosion* explosion;
+    uint ignoreGO = 0;
 };
 

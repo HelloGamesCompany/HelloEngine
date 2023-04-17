@@ -52,7 +52,7 @@ void PlayerFlamethrower::Update()
         playingParticlesCd -= dt;
         if (playingParticlesCd <= 0)
         {
-            fireParticles.Stop();
+            fireParticles.StopEmitting();
             playingParticlesCd = 0.0f;
         }
     }
@@ -100,7 +100,7 @@ void PlayerFlamethrower::SetGunStatsPerLevel(int level)
         projectileDamage = 5.0f;
         projectileResistanceDamage = 0.0f;
         projectileLifetime = 1.0f;
-        cadence = 2.0f;
+        cadence = 20.0f;
         break;
     case 1:
         projectileSpeed = 30.0f;
