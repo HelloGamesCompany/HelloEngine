@@ -26,6 +26,14 @@ HELLO_ENGINE_API_C BossLoop* CreateBossLoop(ScriptToInspectorInterface* script)
     script->AddDragBoxGameObject("Cover10", &classInstance->cover10);
     script->AddDragBoxGameObject("Cover11", &classInstance->cover11);
     script->AddDragBoxGameObject("Cover12", &classInstance->cover12);
+    script->AddDragBoxGameObject("Bomb", &classInstance->bomb);
+    script->AddDragBoxGameObject("Bomb Shield", &classInstance->bombShield);
+    script->AddDragBoxTextureResource("Texture Bomb 1", &classInstance->textureBomb[0]);
+    script->AddDragBoxTextureResource("Texture Bomb 2", &classInstance->textureBomb[1]);
+    script->AddDragBoxTextureResource("Texture Bomb 3", &classInstance->textureBomb[2]);
+    script->AddDragBoxTextureResource("Texture Bomb 4", &classInstance->textureBomb[3]);
+    script->AddDragBoxTextureResource("Texture Bomb 5", &classInstance->textureBomb[4]);
+    script->AddDragBoxTextureResource("Texture Bomb 6", &classInstance->textureBomb[5]);
 
     //TEMPORAL FOR ALPHA 1
     script->AddDragBoxGameObject("TEMPORAL- finalTextPanel", &classInstance->finalTextPanel);
@@ -93,32 +101,62 @@ void BossLoop::OnCollisionEnter(API::API_RigidBody other)
     std::string detectionName = other.GetGameObject().GetName();
 
     if (hp > 0) {
-        if (detectionName == "Projectile")
-    {
-        other.GetGameObject().GetTransform().SetPosition(other.GetGameObject().GetTransform().GetLocalPosition().x, 1000000, other.GetGameObject().GetTransform().GetLocalPosition().z);
-        Projectile* projectile = (Projectile*)other.GetGameObject().GetScript("Projectile");
-
-        if (canTakeDamage == true) {
-
-            hp -= projectile->damage;
-            if (hp <= maxHpLoss[phase - 1]) {
-                exploting = true;
-            }
-
-        }
-        else {
-            shield[phase] -= projectile->damage;
-        }
-
-        if (shield[phase] <= 0) {
-            phase++;
-            canTakeDamage = true;
+        if (detectionName == "Player")
+        {
+            PlayerStats* pStats = (PlayerStats*)other.GetGameObject().GetScript("PlayerStats");
+            pStats->TakeDamage(meleeDmg, 0);
         }
     }
-    else if (detectionName == "Player")
-    {
-        PlayerStats* pStats = (PlayerStats*)other.GetGameObject().GetScript("PlayerStats");
-        pStats->TakeDamage(meleeDmg, 0);
+}
+
+void BossLoop::TakeDamage(float damage)
+{
+    if (hp <= 0) return;
+
+    if (canTakeDamage == true) {
+
+        hp -= damage;
+        if (hp <= maxHpLoss[phase - 1]) {
+            exploting = true;
+        }
+
     }
+    else {
+        shield[phase] -= damage;
+    }
+
+    if (shield[phase] <= 0) {
+        phase++;
+        canTakeDamage = true;
+    }
+}
+
+void BossLoop::AddBomb()
+{
+    currentBombNum++;
+    if (currentBombNum > maxBombNum) currentBombNum = maxBombNum;
+    else if (currentBombNum == 1)
+    {
+        if (canTakeDamage)
+        {
+            bomb.SetActive(true);
+            bomb.GetMaterialCompoennt().ChangeAlbedoTexture(textureBomb[currentBombNum - 1]);
+        }
+        else
+        {
+            bombShield.SetActive(true);
+            bombShield.GetMaterialCompoennt().ChangeAlbedoTexture(textureBomb[currentBombNum - 1]);
+        }
+    }
+}
+
+void BossLoop::CheckBombs()
+{
+    if (currentBombNum > 0)
+    {
+        currentBombNum = 0;
+        TakeDamage(5.0f * currentBombNum);
+        bomb.SetActive(false);
+        bombShield.SetActive(false);
     }
 }

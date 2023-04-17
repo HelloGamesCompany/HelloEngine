@@ -13,6 +13,8 @@ public:
 
     void OnCollisionEnter(API::API_RigidBody other);
 
+    void TakeDamage(float damage);
+
     API_GameObject player;
     API_GameObject boss;
     API_GameObject rockShield;
@@ -58,4 +60,13 @@ public:
     float speed = 75.0f;
     float acceleration = 1.2f;
     float currentSpeed = 0.0f;
+
+    // bomb mechanic
+    void AddBomb();
+    void CheckBombs();
+    int maxBombNum = 6;
+    int currentBombNum = 0;
+    API_GameObject bomb;
+    API_GameObject bombShield;
+    uint textureBomb[6];
 };
