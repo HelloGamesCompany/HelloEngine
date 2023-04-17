@@ -58,6 +58,15 @@ public:
     bool isHit;
     bool isTargIn;
 
+    // bomb mechanic
+    void AddBomb();
+    void CheckBombs();
+    int maxBombNum = 6;
+    int currentBombNum = 0;
+    API_GameObject bomb;
+    uint textureBomb[6];
+
+
 private:
     float _coldStun;
     float _coldSlow;
