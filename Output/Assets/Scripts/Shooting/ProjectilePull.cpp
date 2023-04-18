@@ -249,10 +249,8 @@ void ProjectilePull::LauchProjectileSHOTGUN_BOMB(float projectileLifetime, API_T
     go.GetTransform().SetScale(projectileScale);
     go.GetParticleSystem().Play();
 
-    float offsetX = rand() % 360;
     float offsetY = rand() % 360;
-    float offsetZ = rand() % 360;
-    go.GetTransform().Rotate(offsetX, offsetY, offsetZ);
+    go.GetTransform().Rotate(0, offsetY, 0);
 
     ShotgunBomb* bomb = (ShotgunBomb*)go.GetScript("ShotgunBomb");
     bomb->lifeTime = projectileLifetime;
@@ -343,7 +341,7 @@ API_Vector3 ProjectilePull::CheckTargetDirectionRICOCHET(API_Vector3 ricochetPos
         go = ricochetTargets->GetRandomTarget();
     } while (ignoreGO == go.GetUID());
     std::string compareTag = go.GetTag();
-    if (compareTag != "Enemy") return { 1, 0, 1 };
+    if (compareTag != "Enemy" && compareTag != "Boss") return { 1, 0, 1 };
     
     float angleY = atan2((double)ricochetPos.z - (double)go.GetTransform().GetGlobalPosition().z, -(double)ricochetPos.x + (double)go.GetTransform().GetGlobalPosition().x);
     targetUID = go.GetUID();

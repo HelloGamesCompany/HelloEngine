@@ -32,6 +32,11 @@ void ShotgunBombExplosion::OnCollisionEnter(API::API_RigidBody other)
         Enemy* enemy = (Enemy*)other.GetGameObject().GetScript("Enemy");
         if (enemy) enemy->TakeDamage(damage, resistanceDamage);
     }
+    else if (detectionTag == "Boss")
+    {
+        Enemy* enemy = (Enemy*)other.GetGameObject().GetScript("Enemy");
+        if (enemy) enemy->TakeDamage(damage, resistanceDamage);
+    }
 
     triggerActive = false;
     destroy = true;

@@ -18,8 +18,16 @@ void ElectricityChain::Update()
     if (destroy)
     {
         pull->electricityChainExeptionsAmountActive[exeptionsVectorIndex]--;
-        Enemy* enemy = (Enemy*)atachedToGO.GetScript("Enemy");
-        if (enemy) enemy->TakeDamage(damage, resistanceDamage);
+        std::string compareTag = atachedToGO.GetTag();
+        if (compareTag == "Enemy")
+        {
+            Enemy* enemy = (Enemy*)atachedToGO.GetScript("Enemy");
+            if (enemy) enemy->TakeDamage(damage, resistanceDamage);
+        }
+        else if (compareTag == "Boss")
+        {
+
+        }
         gameObject.SetActive(false);
     }
 
@@ -35,7 +43,7 @@ void ElectricityChain::OnCollisionEnter(API::API_RigidBody other)
 
     std::string detectionTag = other.GetGameObject().GetTag();
 
-    if (detectionTag == "Enemy")
+    if (detectionTag == "Enemy" || detectionTag == "Boss")
     {
         std::vector<uint> exeptions = pull->electricityChainExeptions[exeptionsVectorIndex];
         if (std::find(exeptions.begin(), exeptions.end(), other.GetGameObject().GetUID()) == exeptions.end()) // if current enemy is not on vector

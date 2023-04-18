@@ -71780,6 +71780,9 @@
                         "Bomb": 1005562911
                     },
                     {
+                        "Bomb Shield": 1005562911
+                    },
+                    {
                         "Texture Bomb 1": 2841828716
                     },
                     {
@@ -78341,10 +78344,10 @@
                         "Base Gun": 0
                     },
                     {
-                        "Normal Gun": 0
+                        "Normal Gun": 2
                     },
                     {
-                        "Special Gun": -1
+                        "Special Gun": 3
                     },
                     {
                         "Duals": 851574187
@@ -85490,10 +85493,19 @@
                         "Projectile Prefab": 2214551003
                     },
                     {
-                        "Shotgun Bomb Pull Size": 0
+                        "Shotgun Bomb Pull Size": 10
                     },
                     {
-                        "Electricity Chain Pull Size": 0
+                        "Shotgun Bomb Prefab": 3812226687
+                    },
+                    {
+                        "Electricity Chain Pull Size": 10
+                    },
+                    {
+                        "Electricity Chain Prefab": 2499107515
+                    },
+                    {
+                        "Check Ricochet Traget Prefab": 1586458953
                     }
                 ],
                 "Script Resource": 1341579112,

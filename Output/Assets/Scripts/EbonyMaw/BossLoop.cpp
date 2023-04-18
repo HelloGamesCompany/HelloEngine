@@ -137,25 +137,19 @@ void BossLoop::AddBomb()
     if (currentBombNum > maxBombNum) currentBombNum = maxBombNum;
     else if (currentBombNum == 1)
     {
-        if (canTakeDamage)
-        {
-            bomb.SetActive(true);
-            bomb.GetMaterialCompoennt().ChangeAlbedoTexture(textureBomb[currentBombNum - 1]);
-        }
-        else
-        {
-            bombShield.SetActive(true);
-            bombShield.GetMaterialCompoennt().ChangeAlbedoTexture(textureBomb[currentBombNum - 1]);
-        }
+        if (canTakeDamage) bomb.SetActive(true);
+        else bombShield.SetActive(true);
     }
+    if (canTakeDamage)bomb.GetMaterialCompoennt().ChangeAlbedoTexture(textureBomb[currentBombNum - 1]);
+    else bombShield.GetMaterialCompoennt().ChangeAlbedoTexture(textureBomb[currentBombNum - 1]);
 }
 
 void BossLoop::CheckBombs()
 {
     if (currentBombNum > 0)
     {
-        currentBombNum = 0;
         TakeDamage(5.0f * currentBombNum);
+        currentBombNum = 0;
         bomb.SetActive(false);
         bombShield.SetActive(false);
     }

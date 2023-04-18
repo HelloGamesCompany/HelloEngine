@@ -22,7 +22,7 @@ void CheckRicochetTargets::OnCollisionEnter(API::API_RigidBody other)
 {
     std::string detectionTag = other.GetGameObject().GetTag();
 
-    if (detectionTag == "Enemy")
+    if (detectionTag == "Enemy" || detectionTag == "Boss")
     {
         targets.push_back(other.GetGameObject());
     }

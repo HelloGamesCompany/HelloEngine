@@ -1,6 +1,7 @@
 #include "Projectile.h"
 #include "ProjectilePull.h"
 #include "../Enemies/Enemy.h"
+#include "../EbonyMaw/BossLoop.h"
 HELLO_ENGINE_API_C Projectile* CreateProjectile(ScriptToInspectorInterface* script)
 {
     Projectile* classInstance = new Projectile();
@@ -65,6 +66,16 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
             }
             Destroy();
         }
+        else if (detectionTag == "Boss")
+        {
+            BossLoop* miniBoss = (BossLoop*)other.GetGameObject().GetScript("BossLoop");
+            if (miniBoss)
+            {
+                miniBoss->TakeDamage(damage);
+                miniBoss->CheckBombs();
+            }
+            Destroy();
+        }
         break;
     case PROJECTILE_TYPE::SEMI:
         if (detectionTag == "Wall")
@@ -80,6 +91,15 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
             pull->LauchProjectileSECONDARY_SEMI(speed, damage / 3.0f, resistanceDamage / 3.0f, 1.0f, gameObject.GetTransform(), { 0.1f, 0.1f, 0.1f }, -30.0f, other.GetGameObject().GetUID());
             Destroy();
         }
+        else if (detectionTag == "Boss") // EXIT
+        {
+            BossLoop* miniBoss = (BossLoop*)other.GetGameObject().GetScript("BossLoop");
+            if (miniBoss) miniBoss->TakeDamage(damage);
+            pull->LauchProjectileSECONDARY_SEMI(speed, damage / 3.0f, resistanceDamage / 3.0f, 0.5f, gameObject.GetTransform(), { 0.1f, 0.1f, 0.1f }, 30.0f, other.GetGameObject().GetUID());
+            pull->LauchProjectileSECONDARY_SEMI(speed, damage / 3.0f, resistanceDamage / 3.0f, 0.5f, gameObject.GetTransform(), { 0.1f, 0.1f, 0.1f }, 0.0f, other.GetGameObject().GetUID());
+            pull->LauchProjectileSECONDARY_SEMI(speed, damage / 3.0f, resistanceDamage / 3.0f, 0.5f, gameObject.GetTransform(), { 0.1f, 0.1f, 0.1f }, -30.0f, other.GetGameObject().GetUID());
+            Destroy();
+        }
         break;
     case PROJECTILE_TYPE::SECONDARY_SEMI:
         if (detectionTag == "Wall")
@@ -90,6 +110,12 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
         {
             Enemy* enemy = (Enemy*)other.GetGameObject().GetScript("Enemy");
             if (enemy) enemy->TakeDamage(damage, resistanceDamage);
+            Destroy();
+        }
+        else if (detectionTag == "Boss" && other.GetGameObject().GetUID() != ignoreGO)
+        {
+            BossLoop* miniBoss = (BossLoop*)other.GetGameObject().GetScript("BossLoop");
+            if (miniBoss) miniBoss->TakeDamage(damage);
             Destroy();
         }
         break;
@@ -104,6 +130,12 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
             if (enemy) enemy->TakeDamage(damage, resistanceDamage);
             Destroy();
         }
+        if (detectionTag == "Boss")
+        {
+            BossLoop* miniBoss = (BossLoop*)other.GetGameObject().GetScript("BossLoop");
+            if (miniBoss) miniBoss->TakeDamage(damage);
+            Destroy();
+        }
         break;
     case PROJECTILE_TYPE::BURST:
         if (detectionTag == "Wall")
@@ -113,12 +145,13 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
         else if (detectionTag == "Enemy")
         {
             Enemy* enemy = (Enemy*)other.GetGameObject().GetScript("Enemy");
-            if (enemy)
-            {
-
-                enemy->TakeDamage(damage, resistanceDamage);
-                enemy->AddBomb();
-            }
+            if (enemy) enemy->AddBomb();
+            Destroy();
+        }
+        else if (detectionTag == "Boss")
+        {
+            BossLoop* miniBoss = (BossLoop*)other.GetGameObject().GetScript("BossLoop");
+            if (miniBoss) miniBoss->AddBomb();
             Destroy();
         }
         break;
@@ -135,6 +168,14 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
             pull->LauchProjectileSHOTGUN_BOMB(1.0f, gameObject.GetTransform(), { 0.3f, 0.3f, 0.3f }, other.GetGameObject().GetUID());
             Destroy();
         }
+        else if (detectionTag == "Boss") // EXIT
+        {
+            BossLoop* miniBoss = (BossLoop*)other.GetGameObject().GetScript("BossLoop");
+            if (miniBoss) miniBoss->TakeDamage(damage);
+            pull->LauchProjectileSHOTGUN_BOMB(1.0f, gameObject.GetTransform(), { 0.3f, 0.3f, 0.3f }, other.GetGameObject().GetUID());
+            pull->LauchProjectileSHOTGUN_BOMB(1.0f, gameObject.GetTransform(), { 0.3f, 0.3f, 0.3f }, other.GetGameObject().GetUID());
+            Destroy();
+        }
         break;
     case PROJECTILE_TYPE::HANDGUN:
         if (detectionTag == "Wall")
@@ -145,6 +186,16 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
         {
             Enemy* enemy = (Enemy*)other.GetGameObject().GetScript("Enemy");
             if (enemy) enemy->TakeDamage(damage, resistanceDamage);
+            uint exceptionIndex = pull->GetFirstEmptyElectricityChainExeption();
+            pull->electricityChainExeptions[exceptionIndex].push_back(other.GetGameObject().GetUID());
+            pull->electricityChainExeptionsAmountActive[exceptionIndex]++;
+            pull->LauchELECTRICITY_CHAIN(ELECTRICITY_DELAY, 5.0f, 2.0f, other.GetGameObject(), exceptionIndex);
+            Destroy();
+        }
+        else if (detectionTag == "Boss")
+        {
+            BossLoop* miniBoss = (BossLoop*)other.GetGameObject().GetScript("BossLoop");
+            if (miniBoss) miniBoss->TakeDamage(damage);
             uint exceptionIndex = pull->GetFirstEmptyElectricityChainExeption();
             pull->electricityChainExeptions[exceptionIndex].push_back(other.GetGameObject().GetUID());
             pull->electricityChainExeptionsAmountActive[exceptionIndex]++;
@@ -167,13 +218,23 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
             }
             Destroy();
         }
+        else if (detectionTag == "Boss")
+        {
+            BossLoop* miniBoss = (BossLoop*)other.GetGameObject().GetScript("BossLoop");
+            if (miniBoss)
+            {
+                miniBoss->TakeDamage(damage);
+                miniBoss->CheckBombs();
+            }
+            Destroy();
+        }
         break;
     case PROJECTILE_TYPE::RICOCHET:
         if (detectionTag == "Wall")
         {
             Destroy();
         }
-        else if (detectionTag == "Enemy")
+        else if (detectionTag == "Enemy" || detectionTag == "Boss")
         {
             if (targetsHitted == 0)
             {
@@ -208,11 +269,23 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
                     }
                 }
             }
-            Enemy* enemy = (Enemy*)other.GetGameObject().GetScript("Enemy");
-            if (enemy)
+            if (detectionTag == "Enemy")
             {
-                enemy->TakeDamage(damage, resistanceDamage);
-                enemy->CheckBombs();
+                Enemy* enemy = (Enemy*)other.GetGameObject().GetScript("Enemy");
+                if (enemy)
+                {
+                    enemy->TakeDamage(damage, resistanceDamage);
+                    enemy->CheckBombs();
+                }
+            }
+            else if (detectionTag == "Boss")
+            {
+                BossLoop* miniBoss = (BossLoop*)other.GetGameObject().GetScript("BossLoop");
+                if (miniBoss)
+                {
+                    miniBoss->TakeDamage(damage);
+                    miniBoss->CheckBombs();
+                }
             }
         }
         break;
