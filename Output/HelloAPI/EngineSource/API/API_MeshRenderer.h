@@ -7,25 +7,25 @@ class DragBoxMeshRenderer;
 
 namespace API
 {
-	class TO_API API_MeshRenderer
-	{
-	public:
-		API_MeshRenderer();
-		~API_MeshRenderer();
+    class TO_API API_MeshRenderer
+    {
+    public:
+        API_MeshRenderer();
+        ~API_MeshRenderer();
 
-		API_GameObject GetGameObject();
+        API_GameObject GetGameObject();
 
-		void ChangeMesh(uint meshResourceUID);
+        void ChangeMesh(uint meshResourceUID);
 
-		void SetActive(bool active);
+        void SetActive(bool active);
 
-	private:
-		MeshRenderComponent* GetComponent();
-		void SetComponent(MeshRenderComponent* component);
-	private:
-		MeshRenderComponent* _meshRenderer = nullptr;
+    private:
+        MeshRenderComponent* GetComponent();
+        void SetComponent(MeshRenderComponent* component);
+    private:
+        MeshRenderComponent* _meshRenderer = nullptr;
 
-		friend class API_GameObject;
-		friend class DragBoxMeshRenderer;
-	};
+        friend class API_GameObject;
+        friend class DragBoxMeshRenderer;
+    };
 }
