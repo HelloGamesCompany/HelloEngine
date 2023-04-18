@@ -1,5 +1,6 @@
 #include "ChestManager.h"
 #include "Chest.h"
+#include "../Player/PlayerStorage.h"
 HELLO_ENGINE_API_C ChestManager* CreateChestManager(ScriptToInspectorInterface* script)
 {
     ChestManager* classInstance = new ChestManager();
@@ -266,12 +267,12 @@ int ChestManager::GetRandomLoot()
         if (!specialGunAsigned) return 0;
         else return GetRandomLoot();
     }
-    else if (random == 1)
+    else if (random == 1 && playerStorage->levelIndex != 3) // level 3 dont have gun blueprint
     {
         if (!gunBlueprintAsigned) return 1;
         else return GetRandomLoot();
     }
-    else if (random > 1)
+    else if (random > 1 || (random == 1 && playerStorage->levelIndex == 3))
     {
         if (remainingUpgradeBlueprints > 0) return 2;
         else return GetRandomLoot();
