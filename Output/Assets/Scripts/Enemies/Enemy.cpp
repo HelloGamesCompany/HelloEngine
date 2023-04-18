@@ -196,8 +196,8 @@ void Enemy::CheckBombs()
 {
     if (currentBombNum > 0)
     {
-        currentBombNum = 0;
         TakeDamage(5.0f * currentBombNum, 1.0f * currentBombNum);
+        currentBombNum = 0;
         bomb.SetActive(false);
     }
 }
