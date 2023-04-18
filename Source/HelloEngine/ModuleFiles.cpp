@@ -7,12 +7,15 @@
 #include <sys/stat.h>
 #include "LayerGame.h"
 #include "LayerEditor.h"
+#include "ModuleLayers.h"
 
 using json = nlohmann::json;
 
 bool ModuleFiles::_automaticCompilation = false;
 bool ModuleFiles::_enabledAutomaticCompilation = false;
 std::vector<std::pair<std::string, Directory*>> ModuleFiles::lateResources;
+std::vector<uint> ModuleFiles::oldResources;
+std::vector<std::pair<ResourceMaterial*, uint>> ModuleFiles::materialResources;
 
 ModuleFiles::ModuleFiles() :Module()
 {
@@ -862,6 +865,43 @@ void ModuleFiles::S_RemoveScriptFromDLLSolution(const std::string& fileName, boo
     project.Save(".vcxproj");
 }
 
+void ModuleFiles::S_RegenerateMetasUIDs()
+{
+    // Get all .HScene files and save in a json file.
+    Directory* rootDir;
+
+    ModuleResourceManager::_fileTree->GetRootDir(rootDir);
+    std::vector<std::string> scenes;
+
+    // Iterate every .meta file. 
+    // Change UID to GUID
+     // Access every resource and change its UID to a GUID
+    RegenerateMetasRecursive(rootDir->path, scenes);
+
+    for (int i = 0; i < materialResources.size(); ++i)
+    {
+        materialResources[i].first->Save();
+        ModuleResourceManager::resources[materialResources[i].second] = materialResources[i].first;
+    }
+    materialResources.clear();
+
+    ModuleLayers::RequestReimportAllScenes(scenes);
+
+    // Serialize every scene with the changed UID. 
+    //  // This could be a problem if something is saved and is not using directly the UID from the Resource.
+    //  // Would need to check the code and find anything that does this.
+}
+
+void ModuleFiles::S_EraseOldResources()
+{
+    for (int i = 0; i < oldResources.size(); ++i)
+    {
+        ModuleResourceManager::resources.erase(oldResources[i]); // Erase and not Delete because this resources are still the same as before,
+                                                                   //we just dont want them to be on the old map location. 
+    }
+    oldResources.clear();
+}
+
 void ModuleFiles::DeleteDirectoryRecursive(std::string directory)
 {
     if (directory[directory.size() - 1] != '/')
@@ -937,5 +977,80 @@ void ModuleFiles::AddScriptToDLLSolution(const std::string& filePath, bool isSou
     itemGroupProj.append_child(itemName.c_str()).append_attribute("Include").set_value(filePath.c_str());
 
     project.Save(".vcxproj");
+}
+
+void ModuleFiles::RegenerateMetasRecursive(std::string& path, std::vector<std::string>& scenes)
+{
+    // Get all files
+    char** fileList = PHYSFS_enumerateFiles(path.c_str());
+
+    for (int i = 0; fileList[i] != nullptr; i++)
+    {
+        std::string dirCheck = path + fileList[i];
+
+        // File case
+        if (!S_IsDirectory(dirCheck))
+        {
+            if (S_GetFileExtension(S_GetFileName(dirCheck)) == "hscene") // Save JSON in a buffer
+            {
+                scenes.push_back(dirCheck);
+            }
+            else if (S_GetFileExtension(S_GetFileName(dirCheck)) == "hellometa") // Remake meta file, but with GUID instead of UID
+            {
+                MetaFile oldMeta = S_LoadMeta(dirCheck);
+                std::string filePath = S_RemoveExtension(dirCheck);
+
+                uint GUID = HelloUUID::GenerateGUID(filePath);
+                // Find the resource attached to this meta and change its UID to the meta GUID
+                if (ModuleResourceManager::resources.count(oldMeta.UID) != 0)
+                {
+                    Resource* res = ModuleResourceManager::resources[oldMeta.UID];
+                    res->UID = GUID; // CHange resource GUID
+                    if (res->type == ResourceType::MODEL)
+                    {
+                        ResourceModel* model = (ResourceModel*)res;
+                        for (int i = 0; i < model->modelMeshes.size(); ++i)
+                        {
+                            ResourceMesh* mesh = (ResourceMesh*)model->modelMeshes[i];
+                            mesh->modelUID = GUID;
+                        }
+                    }
+                    if (res->type == ResourceType::MATERIAL) // We need to update materials AFTER shaders, so we save them and do them all later.
+                    {
+                        materialResources.push_back(std::make_pair((ResourceMaterial*)res, GUID));
+                    }
+                    else
+                    {
+                        oldResources.push_back(oldMeta.UID);
+                        //ModuleResourceManager::resources.erase(oldMeta.UID); // ERASE old resource location
+                        ModuleResourceManager::resources[GUID] = res; // Add resource on correct location
+                    }
+  
+                }
+
+                json newMeta;
+
+                newMeta["Last modify"] = oldMeta.lastModified;
+
+                newMeta["Resource path"] = oldMeta.resourcePath;
+
+                newMeta["Resource type"] = oldMeta.type;
+
+                newMeta["UID"] = HelloUUID::GenerateGUID(filePath);
+
+                newMeta["Name"] = oldMeta.name;
+
+                newMeta["Assets path"] = oldMeta.assetsPath;
+
+                std::string buffer = newMeta.dump(4);
+                S_Save(dirCheck, &buffer[0], buffer.size(), false);
+            }
+        }
+        else
+        {
+            std::string dir = dirCheck + "/";
+            RegenerateMetasRecursive(dir, scenes);
+        }
+    }
 }
 

@@ -2,9 +2,13 @@
 #define __MODULE_PHYSFS_H__
 
 #include "Module.h"
+#include "json.hpp"
 
 class FileTree;
 class Directory;
+class ResourceMaterial;
+
+using json = nlohmann::json;
 
 #define ASSETS_PATH "Assets/"
 #define ASSETS_NAME "Assets"
@@ -167,6 +171,10 @@ public:
 
     static void S_RemoveScriptFromDLLSolution(const std::string& fileName, bool isSource);
 
+    static void S_RegenerateMetasUIDs();
+
+    static void S_EraseOldResources();
+
 private:
 
     /// <summary>
@@ -181,10 +189,14 @@ private:
 
     static void AddScriptToDLLSolution(const std::string& filePath, bool isSource);
 
+    static void RegenerateMetasRecursive(std::string& path, std::vector<std::string>& scenes);
+
 private:
     static bool _automaticCompilation;
     static bool _enabledAutomaticCompilation;
     static std::vector<std::pair<std::string, Directory*>> lateResources;
+    static std::vector<uint> oldResources;
+    static std::vector<std::pair<ResourceMaterial*, uint>> materialResources;
 };
 
 #endif // !__MODULE_PHYSFS_H__
