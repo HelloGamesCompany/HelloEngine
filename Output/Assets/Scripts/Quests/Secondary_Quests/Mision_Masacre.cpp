@@ -14,7 +14,7 @@ void Mision_Masacre::Start()
 
 	enemies.resize(enemiessize);
 
-	Game::FindGameObjectsWithTag("Enemy", &enemies[0], enemiessize);
+	Game::FindGameObjectsWithTag("Enemy", &enemies[0], enemiessize); 
 
 }
 void Mision_Masacre::Update()
@@ -32,11 +32,14 @@ void Mision_Masacre::Update()
 			if (enemies[i].IsActive() == false)
 			{
 				numOfDeadEnemies++;
+				if (numOfDeadEnemies == enemiessize)
+				{
+					misionCompleted = true;
+				}
 			}
 		}
-	}
-	
-	Console::Log("ENEMIES IN VECTOR = " + std::to_string((sizeof(enemies) / sizeof(API::API_GameObject))), Console::MessageType::INFO);
 
-	Console::Log("NumofDeadEnemies = " + std::to_string(numOfDeadEnemies), Console::MessageType::INFO);
+		numOfDeadEnemies = 0;
+	
+	}
 }

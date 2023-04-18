@@ -236,6 +236,7 @@
 		<ClCompile Include="../../Assets/Scripts/Shooting/ElectricityChain.cpp" />
 		<ClCompile Include="../../Assets/Scripts/InteractiveEnviroment/DamageTraker.cpp" />
 		<ClCompile Include="../../Assets/Scripts/Shooting/CheckRicochetTargets.cpp" />
+		<ClCompile Include="../../Assets/Scripts/Quests/Secondary_Quests/Mision_SomethingPersonal.cpp" />
 	</ItemGroup>
 	<ItemGroup>
 		<ClInclude Include="..\..\Assets\Scripts\EbonyMaw\BossAttacks.h" />
@@ -339,6 +340,7 @@
 		<ClInclude Include="../../Assets/Scripts/Shooting/ElectricityChain.h" />
 		<ClInclude Include="../../Assets/Scripts/InteractiveEnviroment/DamageTraker.h" />
 		<ClInclude Include="../../Assets/Scripts/Shooting/CheckRicochetTargets.h" />
+		<ClInclude Include="../../Assets/Scripts/Quests/Secondary_Quests/Mision_SomethingPersonal.h" />
 	</ItemGroup>
 	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 	<ImportGroup Label="ExtensionTargets" />
