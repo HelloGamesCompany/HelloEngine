@@ -61,6 +61,8 @@ namespace API
 
         API_SkinnedMeshRenderer GetSkinnedMeshRender();
 
+        uint GetUID();
+
         void SetActive(bool active);
         bool IsActive();
 
