@@ -167,6 +167,8 @@
     <ClCompile Include="API\API_UIText.cpp" />
     <ClCompile Include="API\API_QuickSave.cpp" />
     <ClCompile Include="API\API_SkinnedMeshRenderer.cpp" />
+    <ClCompile Include="LightComponent.cpp" />
+    <ClCompile Include="DirectionalLightComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\External\ImGuiColorTextEdit\TextEditor.h" />
@@ -373,6 +375,8 @@
     <ClInclude Include="API\API_UIText.h" />
     <ClInclude Include="API\API_QuickSave.h" />
     <ClInclude Include="API\API_SkinnedMeshRenderer.h" />
+    <ClInclude Include="LightComponent.h" />
+    <ClInclude Include="DirectionalLightComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="HelloEngine.rc" />

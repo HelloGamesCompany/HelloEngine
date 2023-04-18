@@ -281,6 +281,15 @@ void RenderManager::Draw2D()
 	DrawTextObjects();
 }
 
+uint RenderManager::AddLight(LightComponent::Light& lightData)
+{
+	uint _lightID = _lightMap.size();
+
+	_lightMap[_lightID] = &lightData;
+
+	return _lightID;
+}
+
 uint RenderManager::AddMesh(ResourceMesh* resource, uint resMat,  MeshRenderType type)
 {
 	switch (type)

@@ -336,6 +336,7 @@
     <ClCompile Include="ComponentUIInput.cpp" />
     <ClCompile Include="ComponentUISlider.cpp" />
     <ClCompile Include="Console.cpp" />
+    <ClCompile Include="DirectionalLightComponent.cpp" />
     <ClCompile Include="Emitter.cpp" />
     <ClCompile Include="FontManager.cpp" />
     <ClCompile Include="FrameBuffer.cpp" />
@@ -367,6 +368,7 @@
     <ClCompile Include="Layer.cpp" />
     <ClCompile Include="LayerGame.cpp" />
     <ClCompile Include="LayerUI.cpp" />
+    <ClCompile Include="LightComponent.cpp" />
     <ClCompile Include="Lighting.cpp" />
     <ClCompile Include="Log.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -542,6 +544,7 @@
     <ClInclude Include="ComponentUISlider.h" />
     <ClInclude Include="Console.h" />
     <ClInclude Include="CycleArray.hpp" />
+    <ClInclude Include="DirectionalLightComponent.h" />
     <ClInclude Include="Emitter.h" />
     <ClInclude Include="FileTree.hpp" />
     <ClInclude Include="File_Model.h" />
@@ -570,6 +573,7 @@
     <ClInclude Include="Layer.h" />
     <ClInclude Include="LayerGame.h" />
     <ClInclude Include="LayerUI.h" />
+    <ClInclude Include="LightComponent.h" />
     <ClInclude Include="Lighting.h" />
     <ClInclude Include="Material.h" />
     <ClInclude Include="MaterialComponent.h" />
