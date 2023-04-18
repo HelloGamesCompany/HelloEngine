@@ -43,45 +43,45 @@ void PlayerGunManager::Start()
     guns.push_back(ricochet);
 
     // get start guns
-    /*GetGun(1, 0);
+    //GetGun(1, 0);
     int equipedNormalGun = API_QuickSave::GetInt("equipedNormalGun");
     if (equipedNormalGun < -1 || equipedNormalGun > 5) equipedNormalGun = -1;
-    GetGun(2, equipedNormalGun);
-    GetGun(3, -1);*/
+    //GetGun(2, equipedNormalGun);
+    //GetGun(3, -1);
     GetGun(1, gunOnHandIndex1);
     GetGun(2, gunOnHandIndex2);
     GetGun(3, gunOnHandIndex3);
 
-    //switch (equipedNormalGun)
-    //{
-    //case 1: // semiautomatic
-    //    playerStats->maxLaserAmmo = 200;
-    //    playerStats->laserAmmo = 200;
-    //    if (swapWeapon) swapWeapon->SwapWeapon2(normalWeapon_Type::SEMI);
-    //    break;
-    //case 2: // automatic
-    //    playerStats->maxLaserAmmo = 200;
-    //    playerStats->laserAmmo = 200;
-    //    if (swapWeapon) swapWeapon->SwapWeapon2(normalWeapon_Type::AUTO);
-    //    break;
-    //case 3: // burst
-    //    playerStats->maxLaserAmmo = 200;
-    //    playerStats->laserAmmo = 200;
-    //    if (swapWeapon) swapWeapon->SwapWeapon2(normalWeapon_Type::BURST);
-    //    break;
-    //case 4: // shotgun
-    //    playerStats->maxLaserAmmo = 200;
-    //    playerStats->laserAmmo = 200;
-    //    if (swapWeapon) swapWeapon->SwapWeapon2(normalWeapon_Type::SHOTGUN);
-    //    break;
-    //case 5: // handgun
-    //    playerStats->maxLaserAmmo = 200;
-    //    playerStats->laserAmmo = 200;
-    //    if (swapWeapon) swapWeapon->SwapWeapon2(normalWeapon_Type::REVOLVER);
-    //    break;
-    //default:
-    //    break;
-    //}
+    switch (equipedNormalGun)
+    {
+    case 1: // semiautomatic
+        playerStats->maxLaserAmmo = 200;
+        playerStats->laserAmmo = 200;
+        if (swapWeapon) swapWeapon->SwapWeapon2(normalWeapon_Type::SEMI);
+        break;
+    case 2: // automatic
+        playerStats->maxLaserAmmo = 200;
+        playerStats->laserAmmo = 200;
+        if (swapWeapon) swapWeapon->SwapWeapon2(normalWeapon_Type::AUTO);
+        break;
+    case 3: // burst
+        playerStats->maxLaserAmmo = 200;
+        playerStats->laserAmmo = 200;
+        if (swapWeapon) swapWeapon->SwapWeapon2(normalWeapon_Type::BURST);
+        break;
+    case 4: // shotgun
+        playerStats->maxLaserAmmo = 200;
+        playerStats->laserAmmo = 200;
+        if (swapWeapon) swapWeapon->SwapWeapon2(normalWeapon_Type::SHOTGUN);
+        break;
+    case 5: // handgun
+        playerStats->maxLaserAmmo = 200;
+        playerStats->laserAmmo = 200;
+        if (swapWeapon) swapWeapon->SwapWeapon2(normalWeapon_Type::REVOLVER);
+        break;
+    default:
+        break;
+    }
     
     UnequipGun(0); // start with base gun selected
 }

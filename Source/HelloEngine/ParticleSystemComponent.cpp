@@ -12,144 +12,144 @@
 
 ParticleSystemComponent::ParticleSystemComponent(GameObject* gameObject) : Component(gameObject)
 {
-	_type = Type::PARTICLE_SYSTEM;
-	_resource = nullptr;
-	app = Application::Instance();
+    _type = Type::PARTICLE_SYSTEM;
+    _resource = nullptr;
+    app = Application::Instance();
 
-	ParticleEmitter.component = this;
+    ParticleEmitter.component = this;
 
-	//Initialize Particle System Modules
-	P_Module* mainModule = (P_Module*)new P_MainModule();
-	mainModule->component = this;
-	ParticleModules.push_back(mainModule);
+    //Initialize Particle System Modules
+    P_Module* mainModule = (P_Module*)new P_MainModule();
+    mainModule->component = this;
+    ParticleModules.push_back(mainModule);
 
-	P_Module* emissionModule = (P_Module*)new P_EmissionModule();
-	emissionModule->component = this;
-	ParticleModules.push_back(emissionModule);
+    P_Module* emissionModule = (P_Module*)new P_EmissionModule();
+    emissionModule->component = this;
+    ParticleModules.push_back(emissionModule);
 
-	_gameObject->AddComponentOfType(Type::BILLBOARD);
+    _gameObject->AddComponentOfType(Type::BILLBOARD);
 
-	//Default Particle
-	particleProps.position = _gameObject->transform->GetGlobalPosition();
-	//particleProps.rot = float3::zero;
-	particleProps.startsize = float3::one;
-	particleProps.endsize = float3::zero;
-	particleProps.speed = float3(0.0f, 1.0f, 0.0f);
-	particleProps.acceleration = float3(1.0f, 1.0f, 1.0f);
-	particleProps.speedVariation = float3(1.0f, 1.0f, 1.0f);
-	particleProps.startColor = float4(255.0f, 255.0f, 255.0f, 1.0f); //r g b a
-	particleProps.endColor = float4(255.0f, 255.0f, 255.0f, 1.0f); //r g b a
+    //Default Particle
+    particleProps.position = _gameObject->transform->GetGlobalPosition();
+    //particleProps.rot = float3::zero;
+    particleProps.startsize = float3::one;
+    particleProps.endsize = float3::zero;
+    particleProps.speed = float3(0.0f, 1.0f, 0.0f);
+    particleProps.acceleration = float3(1.0f, 1.0f, 1.0f);
+    particleProps.speedVariation = float3(1.0f, 1.0f, 1.0f);
+    particleProps.startColor = float4(255.0f, 255.0f, 255.0f, 1.0f); //r g b a
+    particleProps.endColor = float4(255.0f, 255.0f, 255.0f, 1.0f); //r g b a
 
-	particleProps.Lifetime = 5.0f;
+    particleProps.Lifetime = 5.0f;
 }
 
 ParticleSystemComponent::ParticleSystemComponent(GameObject* gameObject, ParticleSystemComponent& copy) : Component(gameObject)
 {
-	_type = Type::PARTICLE_SYSTEM;
-	_resource = nullptr;
-	app = Application::Instance();
+    _type = Type::PARTICLE_SYSTEM;
+    _resource = nullptr;
+    app = Application::Instance();
 
-	ParticleEmitter.component = this;
+    ParticleEmitter.component = this;
 
-	//Initialize Particle System Modules
-	P_Module* mainModule = (P_Module*)new P_MainModule();
-	mainModule->component = this;
-	ParticleModules.push_back(mainModule);
+    //Initialize Particle System Modules
+    P_Module* mainModule = (P_Module*)new P_MainModule();
+    mainModule->component = this;
+    ParticleModules.push_back(mainModule);
 
-	P_Module* emissionModule = (P_Module*)new P_EmissionModule();
-	emissionModule->component = this;
-	ParticleModules.push_back(emissionModule);
+    P_Module* emissionModule = (P_Module*)new P_EmissionModule();
+    emissionModule->component = this;
+    ParticleModules.push_back(emissionModule);
 
-	BillBoardComponent* billboard = (BillBoardComponent*)_gameObject->AddComponentOfType(Type::BILLBOARD);
-	BillBoardComponent* copyBB = copy._gameObject->GetComponent<BillBoardComponent>();
-	if (copyBB != nullptr)
-		billboard->typeofBBoard = copyBB->typeofBBoard;
+    BillBoardComponent* billboard = (BillBoardComponent*)_gameObject->AddComponentOfType(Type::BILLBOARD);
+    BillBoardComponent* copyBB = copy._gameObject->GetComponent<BillBoardComponent>();
+    if (copyBB != nullptr)
+        billboard->typeofBBoard = copyBB->typeofBBoard;
 
-	//Default Particle
-	particleProps.position = _gameObject->transform->GetGlobalPosition();
-	//particleProps.rot = float3::zero;
-	particleProps.startsize = copy.particleProps.startsize;
-	particleProps.endsize = copy.particleProps.endsize;
-	particleProps.speed = copy.particleProps.speed;
-	particleProps.acceleration = copy.particleProps.acceleration;
-	particleProps.speedVariation = copy.particleProps.speedVariation;
-	particleProps.startColor = copy.particleProps.startColor; //r g b a
-	particleProps.endColor = copy.particleProps.endColor; //r g b a
+    //Default Particle
+    particleProps.position = _gameObject->transform->GetGlobalPosition();
+    //particleProps.rot = float3::zero;
+    particleProps.startsize = copy.particleProps.startsize;
+    particleProps.endsize = copy.particleProps.endsize;
+    particleProps.speed = copy.particleProps.speed;
+    particleProps.acceleration = copy.particleProps.acceleration;
+    particleProps.speedVariation = copy.particleProps.speedVariation;
+    particleProps.startColor = copy.particleProps.startColor; //r g b a
+    particleProps.endColor = copy.particleProps.endColor; //r g b a
 
-	particleProps.Lifetime = copy.particleProps.Lifetime;
+    particleProps.Lifetime = copy.particleProps.Lifetime;
 
-	ParticleEmitter.loop = copy.ParticleEmitter.loop;
-	ParticleEmitter.stop = copy.ParticleEmitter.stop;
-	ParticleEmitter.playOnAwake = copy.ParticleEmitter.playOnAwake;
-	ParticleEmitter.StartDelay = copy.ParticleEmitter.StartDelay;
-	ParticleEmitter.Duration = copy.ParticleEmitter.Duration;
-	ParticleEmitter.enableEmissionModule = copy.ParticleEmitter.enableEmissionModule;
-	ParticleEmitter.ParticlesPerSecond = copy.ParticleEmitter.ParticlesPerSecond;
+    ParticleEmitter.loop = copy.ParticleEmitter.loop;
+    ParticleEmitter.stop = copy.ParticleEmitter.stop;
+    ParticleEmitter.playOnAwake = copy.ParticleEmitter.playOnAwake;
+    ParticleEmitter.StartDelay = copy.ParticleEmitter.StartDelay;
+    ParticleEmitter.Duration = copy.ParticleEmitter.Duration;
+    ParticleEmitter.enableEmissionModule = copy.ParticleEmitter.enableEmissionModule;
+    ParticleEmitter.ParticlesPerSecond = copy.ParticleEmitter.ParticlesPerSecond;
 
-	CreateEmitterMesh(copy._resource->UID);
-	if (copy._resourceText != nullptr)
-		ChangeEmitterMeshTexture((ResourceTexture*)ModuleResourceManager::S_LoadResource(copy._resourceText->UID));
+    CreateEmitterMesh(copy._resource->UID);
+    if (copy._resourceText != nullptr)
+        ChangeEmitterMeshTexture((ResourceTexture*)ModuleResourceManager::S_LoadResource(copy._resourceText->UID));
 }
 
 ParticleSystemComponent::~ParticleSystemComponent()
 {
-	for (int i = 0; i < ParticleModules.size(); i++)
-	{
-		RELEASE(ParticleModules[i]);
-	}
-	ParticleModules.clear();
+    for (int i = 0; i < ParticleModules.size(); i++)
+    {
+        RELEASE(ParticleModules[i]);
+    }
+    ParticleModules.clear();
 
-	if (_resourceText != nullptr)
-		_resourceText->Dereference();
+    if (_resourceText != nullptr)
+        _resourceText->Dereference();
 }
 
 void ParticleSystemComponent::CreateEmitterMesh(uint resourceUID)
 {
 
-	if (_resource != nullptr)
-	{
-		DestroyEmitterMesh();
+    if (_resource != nullptr)
+    {
+        DestroyEmitterMesh();
 
-		_resource->Dereference();
-		_resourceUID = _resource->UID;
-		_resource = nullptr;
-	}
+        _resource->Dereference();
+        _resourceUID = _resource->UID;
+        _resource = nullptr;
+    }
 
-	_resource = (ResourceMesh*)ModuleResourceManager::S_LoadResource(resourceUID);
+    _resource = (ResourceMesh*)ModuleResourceManager::S_LoadResource(resourceUID);
 
-	if (_resource == nullptr)
-	{
-		ParticleEmitter._meshID = -1;
-		return;
-	}
+    if (_resource == nullptr)
+    {
+        ParticleEmitter._meshID = -1;
+        return;
+    }
 
-	ParticleEmitter._meshID = resourceUID;
-	ParticleEmitter.manager = app->renderer3D->renderManager.GetRenderManager(resourceUID,0);
+    ParticleEmitter._meshID = resourceUID;
+    ParticleEmitter.manager = app->renderer3D->renderManager.GetRenderManager(resourceUID, 0);
 
-	for (Particle& var : ParticleEmitter.ParticleList)
-	{
-		var._instanceID = Application::Instance()->renderer3D->renderManager.AddMesh(_resource, 0, MeshRenderType::INSTANCED);
-		//This line is needed because when you add mesh into the rendermanager it will be drawn,
-		//when we are at this point we don't want to draw the mesh of the particle till the engine is playing
-		Application::Instance()->renderer3D->renderManager.GetRenderManager(resourceUID, 0)->GetMap()[var._instanceID].mesh.draw = false;
-	}
+    for (Particle& var : ParticleEmitter.ParticleList)
+    {
+        var._instanceID = Application::Instance()->renderer3D->renderManager.AddMesh(_resource, 0, MeshRenderType::INSTANCED);
+        //This line is needed because when you add mesh into the rendermanager it will be drawn,
+        //when we are at this point we don't want to draw the mesh of the particle till the engine is playing
+        Application::Instance()->renderer3D->renderManager.GetRenderManager(resourceUID, 0)->GetMap()[var._instanceID].mesh.draw = false;
+    }
 
 }
 
 Mesh& ParticleSystemComponent::GetEmitterMesh()
 {
-	for (int i = 0; i < ParticleEmitter.ParticleList.size(); i++)
-	{
-		if (ParticleEmitter._meshID != -1)
-		{
-			Mesh& temp = ParticleEmitter.manager->GetMap()[ParticleEmitter.ParticleList[i]._instanceID].mesh;
+    for (int i = 0; i < ParticleEmitter.ParticleList.size(); i++)
+    {
+        if (ParticleEmitter._meshID != -1)
+        {
+            Mesh& temp = ParticleEmitter.manager->GetMap()[ParticleEmitter.ParticleList[i]._instanceID].mesh;
 
-			//Fa falta guardar la posici� de cada mesh ?
+            //Fa falta guardar la posici� de cada mesh ?
 
-			return temp;
-		}
-	}
-	// TODO: insert return statement here
+            return temp;
+        }
+    }
+    // TODO: insert return statement here
 }
 
 void ParticleSystemComponent::OnEnable()
@@ -162,43 +162,43 @@ void ParticleSystemComponent::OnDisable()
 
 void ParticleSystemComponent::DestroyEmitterMesh()
 {
-	if (ParticleEmitter._meshID == -1)
-		return;
+    if (ParticleEmitter._meshID == -1)
+        return;
 
 
-	InstanceRenderer* manager = Application::Instance()->renderer3D->renderManager.GetRenderManager(ParticleEmitter._meshID, false);
-	if (manager != nullptr)
-	{
+    InstanceRenderer* manager = Application::Instance()->renderer3D->renderManager.GetRenderManager(ParticleEmitter._meshID, false);
+    if (manager != nullptr)
+    {
 
-		for (Particle& var : ParticleEmitter.ParticleList)
-		{
-			manager->GetMap().erase(var._instanceID);
-		}
+        for (Particle& var : ParticleEmitter.ParticleList)
+        {
+            manager->GetMap().erase(var._instanceID);
+        }
 
-	}
+    }
 
-	ParticleEmitter._meshID = -1;
+    ParticleEmitter._meshID = -1;
 }
 
 void ParticleSystemComponent::ChangeEmitterMeshTexture(ResourceTexture* resource)
 {
-	if (resource == nullptr)
-	{
-		ParticleEmitter._textureID = -1.0f;
-		_resourceText = nullptr;
+    if (resource == nullptr)
+    {
+        ParticleEmitter._textureID = -1.0f;
+        _resourceText = nullptr;
 
-		return;
-	}
+        return;
+    }
 
-	ParticleEmitter._textureID = resource->OpenGLID;
+    ParticleEmitter._textureID = resource->OpenGLID;
 
-	if (_resourceText != nullptr)
-		_resourceText->Dereference();
+    if (_resourceText != nullptr)
+        _resourceText->Dereference();
 
-	_resourceText = resource;
+    _resourceText = resource;
 
-	//if (resource->isTransparent && !isUI)
-	//	meshRenderer->ChangeMeshRenderType(MeshRenderType::TRANSPARENCY);
+    //if (resource->isTransparent && !isUI)
+    //	meshRenderer->ChangeMeshRenderType(MeshRenderType::TRANSPARENCY);
 
 }
 
@@ -207,335 +207,335 @@ void ParticleSystemComponent::ChangeEmitterMeshTexture(ResourceTexture* resource
 void ParticleSystemComponent::OnEditor()
 {
 
-	bool created = true;
-	if (ImGui::CollapsingHeader("Particle System", &created, ImGuiTreeNodeFlags_DefaultOpen))
-	{
-		if (ImGui::Button("Play"))
-		{
-			if (!pauseOnScene)
-			{
-				ResetEmitterTimers();
-			}
-			if (ParticleEmitter.Duration > 0 || ParticleEmitter.loop)
-			{
-				StopEmittingOnGame = false;
-				SetPlayOnScene(true);
-				SetPauseOnScene(false);
-				
-			}
-		}
-		ImGui::SameLine();
-		if (ImGui::Button("Pause"))
-		{
-			if (ParticleEmitter.Duration > 0 || ParticleEmitter.loop)
-			{
-				SetPauseOnScene(true);
-				SetPlayOnScene(false);
-			}
-		}
-		ImGui::SameLine();
-		if (ImGui::Button("Stop Emitting"))
-		{
-			ResetEmitterTimers();
-			StopEmittingOnGame = true;
-		}
-		ImGui::SameLine();
-		if (ImGui::Button("Stop"))
-		{
-			StopEmitter();
-		}
+    bool created = true;
+    if (ImGui::CollapsingHeader("Particle System", &created, ImGuiTreeNodeFlags_DefaultOpen))
+    {
+        if (ImGui::Button("Play"))
+        {
+            if (!pauseOnScene)
+            {
+                ResetEmitterTimers();
+            }
+            if (ParticleEmitter.Duration > 0 || ParticleEmitter.loop)
+            {
+                StopEmittingOnGame = false;
+                SetPlayOnScene(true);
+                SetPauseOnScene(false);
 
-		if (ParticleEmitter._meshID == -1)
-		{
-			ImGui::TextWrapped("No mesh loaded! Drag an .hmesh file below to load a mesh ");
+            }
+        }
+        ImGui::SameLine();
+        if (ImGui::Button("Pause"))
+        {
+            if (ParticleEmitter.Duration > 0 || ParticleEmitter.loop)
+            {
+                SetPauseOnScene(true);
+                SetPlayOnScene(false);
+            }
+        }
+        ImGui::SameLine();
+        if (ImGui::Button("Stop Emitting"))
+        {
+            ResetEmitterTimers();
+            StopEmittingOnGame = true;
+        }
+        ImGui::SameLine();
+        if (ImGui::Button("Stop"))
+        {
+            StopEmitter();
+        }
 
-			ImGui::TextColored(ImVec4(1, 1, 0, 1), "Drag .hmesh here"); ImGui::SameLine();
+        if (ParticleEmitter._meshID == -1)
+        {
+            ImGui::TextWrapped("No mesh loaded! Drag an .hmesh file below to load a mesh ");
 
-			// Create Droped mesh
-			if (ImGui::BeginDragDropTarget())
-			{
-				if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("Mesh"))
-				{
-					const uint* drop = (uint*)payload->Data;
+            ImGui::TextColored(ImVec4(1, 1, 0, 1), "Drag .hmesh here"); ImGui::SameLine();
 
-					CreateEmitterMesh(*drop);
+            // Create Droped mesh
+            if (ImGui::BeginDragDropTarget())
+            {
+                if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("Mesh"))
+                {
+                    const uint* drop = (uint*)payload->Data;
 
-					std::string popUpmessage = "Loaded Mesh: ";
-					LayerEditor::S_AddPopUpMessage(popUpmessage);
+                    CreateEmitterMesh(*drop);
 
-				}
-				ImGui::EndDragDropTarget();
-			}
-			ImGui::HelpMarker("You can find .hmesh files by clicking on any model file (FBX or DAE). They will appear below the file icon in the Project window.");
+                    std::string popUpmessage = "Loaded Mesh: ";
+                    LayerEditor::S_AddPopUpMessage(popUpmessage);
 
-			if (ImGui::Button("Set Plane as Emitter Mesh"))
-			{
-				CreateEmitterMesh(app->renderer3D->renderManager.planeUID);
-			}
+                }
+                ImGui::EndDragDropTarget();
+            }
+            ImGui::HelpMarker("You can find .hmesh files by clicking on any model file (FBX or DAE). They will appear below the file icon in the Project window.");
 
-			return;
-		}
-		else
-		{
-			if (ImGui::Button("Delete Emitter Mesh"))
-			{
+            if (ImGui::Button("Set Plane as Emitter Mesh"))
+            {
+                CreateEmitterMesh(app->renderer3D->renderManager.planeUID);
+            }
+
+            return;
+        }
+        else
+        {
+            if (ImGui::Button("Delete Emitter Mesh"))
+            {
 
 
-				StopEmitter();
+                StopEmitter();
 
-				DestroyEmitterMesh();
+                DestroyEmitterMesh();
 
-				DestroyEmitterMeshTexture();
+                DestroyEmitterMeshTexture();
 
-				std::string popUpmessage = "Mesh in the emitter Destroyed ";
-				LayerEditor::S_AddPopUpMessage(popUpmessage);
+                std::string popUpmessage = "Mesh in the emitter Destroyed ";
+                LayerEditor::S_AddPopUpMessage(popUpmessage);
 
-			}
-		}
+            }
+        }
 
-		std::string imageName;
-		int width = 0;
-		int height = 0;
-		if (ParticleEmitter._textureID != -1.0f && _resourceText != nullptr)
-		{
-			ImGui::Image((ImTextureID)(uint)ParticleEmitter._textureID, ImVec2(64, 64), ImVec2(0, 1), ImVec2(1, 0));
+        std::string imageName;
+        int width = 0;
+        int height = 0;
+        if (ParticleEmitter._textureID != -1.0f && _resourceText != nullptr)
+        {
+            ImGui::Image((ImTextureID)(uint)ParticleEmitter._textureID, ImVec2(64, 64), ImVec2(0, 1), ImVec2(1, 0));
 
-			imageName = _resourceText->debugName;
-			width = _resourceText->width;
-			height = _resourceText->height;
-		}
-		else
-		{
-			ImGui::Image((ImTextureID)0, ImVec2(64, 64), ImVec2(0, 1), ImVec2(1, 0));
-			imageName = "None";
-		}
+            imageName = _resourceText->debugName;
+            width = _resourceText->width;
+            height = _resourceText->height;
+        }
+        else
+        {
+            ImGui::Image((ImTextureID)0, ImVec2(64, 64), ImVec2(0, 1), ImVec2(1, 0));
+            imageName = "None";
+        }
 
-		if (ParticleEmitter._textureID == -1)
-		{
-			ImGui::TextWrapped("No texture loaded! Drag an .htext file below to load a texture ");
+        if (ParticleEmitter._textureID == -1)
+        {
+            ImGui::TextWrapped("No texture loaded! Drag an .htext file below to load a texture ");
 
-			ImGui::TextColored(ImVec4(1, 1, 0, 1), "Drag .htext here"); ImGui::SameLine();
+            ImGui::TextColored(ImVec4(1, 1, 0, 1), "Drag .htext here"); ImGui::SameLine();
 
-			if (ImGui::BeginDragDropTarget())
-			{
-				if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("Texture"))
-				{
-					//Drop asset from Asset window to scene window
-					const uint* drop = (uint*)payload->Data;
+            if (ImGui::BeginDragDropTarget())
+            {
+                if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("Texture"))
+                {
+                    //Drop asset from Asset window to scene window
+                    const uint* drop = (uint*)payload->Data;
 
-					ResourceTexture* resource = (ResourceTexture*)ModuleResourceManager::S_LoadResource(*drop);
+                    ResourceTexture* resource = (ResourceTexture*)ModuleResourceManager::S_LoadResource(*drop);
 
-					ChangeEmitterMeshTexture(resource);
+                    ChangeEmitterMeshTexture(resource);
 
-					std::string popUpmessage = "Loaded Texture: ";
-					LayerEditor::S_AddPopUpMessage(popUpmessage);
-				}
-				ImGui::EndDragDropTarget();
-			}
+                    std::string popUpmessage = "Loaded Texture: ";
+                    LayerEditor::S_AddPopUpMessage(popUpmessage);
+                }
+                ImGui::EndDragDropTarget();
+            }
 
-		}
-		else
-		{
-			if (ImGui::Button("Delete Emitter Texture"))
-			{
+        }
+        else
+        {
+            if (ImGui::Button("Delete Emitter Texture"))
+            {
 
-				DestroyEmitterMeshTexture();
+                DestroyEmitterMeshTexture();
 
-				std::string popUpmessage = "Texture in the emitter Destroyed ";
-				LayerEditor::S_AddPopUpMessage(popUpmessage);
+                std::string popUpmessage = "Texture in the emitter Destroyed ";
+                LayerEditor::S_AddPopUpMessage(popUpmessage);
 
-			}
-		}
-		ImGui::NewLine();
-		for (int i = 0; i < ParticleModules.size(); i++)
-		{
-			ParticleModules[i]->OnEditor();
-		}
-		
-		
-	}
+            }
+        }
+        ImGui::NewLine();
+        for (int i = 0; i < ParticleModules.size(); i++)
+        {
+            ParticleModules[i]->OnEditor();
+        }
+
+
+    }
 }
 
 void ParticleSystemComponent::MarkAsDead()
 {
-	if (ParticleEmitter._meshID != -1)
-	{
-		DestroyEmitterMesh();
+    if (ParticleEmitter._meshID != -1)
+    {
+        DestroyEmitterMesh();
 
-		if (_resource != nullptr)
-		{
-			_resource->Dereference();
-			_resourceUID = _resource->UID;
-			_resource = nullptr;
-		}
+        if (_resource != nullptr)
+        {
+            _resource->Dereference();
+            _resourceUID = _resource->UID;
+            _resource = nullptr;
+        }
 
-		app->renderer3D->particleManager.RemoveEmitterInList(&ParticleEmitter);
-	}
+        app->renderer3D->particleManager.RemoveEmitterInList(&ParticleEmitter);
+    }
 
-	if (_resourceText != nullptr)
-	{
-		_resourceText->Dereference();
-		_resourceTextUID = _resourceText->UID;
-		_resourceText = nullptr;
-	}
+    if (_resourceText != nullptr)
+    {
+        _resourceText->Dereference();
+        _resourceTextUID = _resourceText->UID;
+        _resourceText = nullptr;
+    }
 }
 
 void ParticleSystemComponent::MarkAsAlive()
 {
-	CreateEmitterMesh(_resourceUID);
+    CreateEmitterMesh(_resourceUID);
 
-	ChangeEmitterMeshTexture((ResourceTexture*)ModuleResourceManager::S_LoadResource(_resourceTextUID));
+    ChangeEmitterMeshTexture((ResourceTexture*)ModuleResourceManager::S_LoadResource(_resourceTextUID));
 }
 #endif
 
 void ParticleSystemComponent::ResetEmitterTimers()
 {
-	ParticleEmitter.StartDelay = ParticleEmitter.StartDelayCpy;
-	ParticleEmitter.Duration = ParticleEmitter.DurationCpy;
+    ParticleEmitter.StartDelay = ParticleEmitter.StartDelayCpy;
+    ParticleEmitter.Duration = ParticleEmitter.DurationCpy;
 }
 
 void ParticleSystemComponent::DestroyEmitterMeshTexture()
 {
-	if (_resourceText != nullptr)
-	{
-		ParticleEmitter._textureID = -1.0f;
-		_resourceText = nullptr;
+    if (_resourceText != nullptr)
+    {
+        ParticleEmitter._textureID = -1.0f;
+        _resourceText = nullptr;
 
-	}
+    }
 }
 
 void ParticleSystemComponent::StopEmitter()
 {
-	if (GetPlayOnScene())
-	{
-		SetPlayOnScene(false);
-		SetPauseOnScene(false);
-		if (!LayerGame::S_IsPlaying()) {
-			if (ParticleEmitter.StartDelay <= 0)
-			{
-				ParticleEmitter.ResetEmitter();
-			}
-			else
-			{
-				ParticleEmitter.StartDelay = ParticleEmitter.StartDelayCpy;
-			}
-		}
-	}
+    if (GetPlayOnScene())
+    {
+        SetPlayOnScene(false);
+        SetPauseOnScene(false);
+        if (!LayerGame::S_IsPlaying()) {
+            if (ParticleEmitter.StartDelay <= 0)
+            {
+                ParticleEmitter.ResetEmitter();
+            }
+            else
+            {
+                ParticleEmitter.StartDelay = ParticleEmitter.StartDelayCpy;
+            }
+        }
+    }
 }
 
 void ParticleSystemComponent::Serialization(json& j)
 {
-	json _j;
+    json _j;
 
-	_j["Type"] = _type;
+    _j["Type"] = _type;
 
-	if (_resource != nullptr)
-	{
-		_j["ModelUID"] = _resource->modelUID;
-		_j["Index inside model"] = _resource->indexInsideModel;
-	}
-	else
-	{
-		_j["ModelUID"] = 0;
-		_j["Index inside model"] = 0;
-	}
+    if (_resource != nullptr)
+    {
+        _j["ModelUID"] = _resource->modelUID;
+        _j["Index inside model"] = _resource->indexInsideModel;
+    }
+    else
+    {
+        _j["ModelUID"] = 0;
+        _j["Index inside model"] = 0;
+    }
 
-	if (_resourceText != nullptr)
-	{
-		_j["ResourceTextUID"] = _resourceText->UID;
-	}
-	else
-	{
-		_j["ResourceTextUID"] = 0;
-	}
+    if (_resourceText != nullptr)
+    {
+        _j["ResourceTextUID"] = _resourceText->UID;
+    }
+    else
+    {
+        _j["ResourceTextUID"] = 0;
+    }
 
-	if (ParticleModules.empty() == false)
-	{
-		_j["ParticleModules"]["ModuleMain"]["BeginScale"] = { particleProps.startsize.x, particleProps.startsize.y, particleProps.startsize.z };
-		_j["ParticleModules"]["ModuleMain"]["EndScale"] = { particleProps.endsize.x, particleProps.endsize.y, particleProps.endsize.z };
-		_j["ParticleModules"]["ModuleMain"]["Speed"] = { particleProps.speed.x, particleProps.speed.y, particleProps.speed.z };
-		_j["ParticleModules"]["ModuleMain"]["SpeedVariation"] = { particleProps.speedVariation.x, particleProps.speedVariation.y, particleProps.speedVariation.z };
-		_j["ParticleModules"]["ModuleMain"]["acceleration"] = { particleProps.acceleration.x, particleProps.acceleration.y, particleProps.acceleration.z };
-		_j["ParticleModules"]["ModuleMain"]["LifeTime"] = particleProps.Lifetime;
-		_j["ParticleModules"]["ModuleMain"]["Duration"] = ParticleEmitter.Duration;
-		_j["ParticleModules"]["ModuleMain"]["Delay"] = ParticleEmitter.StartDelay;
-		_j["ParticleModules"]["ModuleMain"]["Looping"] = ParticleEmitter.loop;
-		_j["ParticleModules"]["ModuleEmission"]["ParticlesPerSecond"] = ParticleEmitter.ParticlesPerSecond;
-		_j["ParticleModules"]["ModuleMain"]["PlayOnAwake"] = ParticleEmitter.playOnAwake;
-	}
+    if (ParticleModules.empty() == false)
+    {
+        _j["ParticleModules"]["ModuleMain"]["BeginScale"] = { particleProps.startsize.x, particleProps.startsize.y, particleProps.startsize.z };
+        _j["ParticleModules"]["ModuleMain"]["EndScale"] = { particleProps.endsize.x, particleProps.endsize.y, particleProps.endsize.z };
+        _j["ParticleModules"]["ModuleMain"]["Speed"] = { particleProps.speed.x, particleProps.speed.y, particleProps.speed.z };
+        _j["ParticleModules"]["ModuleMain"]["SpeedVariation"] = { particleProps.speedVariation.x, particleProps.speedVariation.y, particleProps.speedVariation.z };
+        _j["ParticleModules"]["ModuleMain"]["acceleration"] = { particleProps.acceleration.x, particleProps.acceleration.y, particleProps.acceleration.z };
+        _j["ParticleModules"]["ModuleMain"]["LifeTime"] = particleProps.Lifetime;
+        _j["ParticleModules"]["ModuleMain"]["Duration"] = ParticleEmitter.Duration;
+        _j["ParticleModules"]["ModuleMain"]["Delay"] = ParticleEmitter.StartDelay;
+        _j["ParticleModules"]["ModuleMain"]["Looping"] = ParticleEmitter.loop;
+        _j["ParticleModules"]["ModuleEmission"]["ParticlesPerSecond"] = ParticleEmitter.ParticlesPerSecond;
+        _j["ParticleModules"]["ModuleMain"]["PlayOnAwake"] = ParticleEmitter.playOnAwake;
+    }
 
-	_j["Enabled"] = _isEnabled;
+    _j["Enabled"] = _isEnabled;
 
-	j["Components"].push_back(_j);
+    j["Components"].push_back(_j);
 }
 
 void ParticleSystemComponent::DeSerialization(json& j)
 {
-	ResourceModel* model = nullptr;
-	if (ModuleResourceManager::resources.count(j["ModelUID"]) != 0)
-		model = (ResourceModel*)ModuleResourceManager::resources[j["ModelUID"]];
+    ResourceModel* model = nullptr;
+    if (ModuleResourceManager::resources.count(j["ModelUID"]) != 0)
+        model = (ResourceModel*)ModuleResourceManager::resources[j["ModelUID"]];
 
-	uint savedUID = j["ResourceTextUID"];
+    uint savedUID = j["ResourceTextUID"];
 
-	ResourceTexture* resourcetext = savedUID == 0 ? nullptr : (ResourceTexture*)ModuleResourceManager::S_LoadResource(j["ResourceTextUID"]);
+    ResourceTexture* resourcetext = savedUID == 0 ? nullptr : (ResourceTexture*)ModuleResourceManager::S_LoadResource(j["ResourceTextUID"]);
 
-	if (model == nullptr)
-	{
-		Console::S_Log("A scene mesh render data was not found.");
-		return;
-	}
+    if (model == nullptr)
+    {
+        Console::S_Log("A scene mesh render data was not found.");
+        return;
+    }
 
-	uint index = j["Index inside model"];
-	if (index < model->modelMeshes.size())
-	{
-		ResourceMesh* resourceMesh = model->modelMeshes[index];
+    uint index = j["Index inside model"];
+    if (index < model->modelMeshes.size())
+    {
+        ResourceMesh* resourceMesh = model->modelMeshes[index];
 
-		CreateEmitterMesh(resourceMesh->UID);
+        CreateEmitterMesh(resourceMesh->UID);
 
-	}
+    }
 
-	if (resourcetext != nullptr)
-	{
-		ChangeEmitterMeshTexture(resourcetext);
-	}
+    if (resourcetext != nullptr)
+    {
+        ChangeEmitterMeshTexture(resourcetext);
+    }
 
-	std::vector<float> tempstartsize = j["ParticleModules"]["ModuleMain"]["BeginScale"];
-	particleProps.startsize = { tempstartsize[0],tempstartsize[1],tempstartsize[2] };
-	std::vector<float> tempendsize = j["ParticleModules"]["ModuleMain"]["EndScale"];
-	particleProps.endsize = { tempendsize[0],tempendsize[1],tempendsize[2] };
-	std::vector<float> tempspeed = j["ParticleModules"]["ModuleMain"]["Speed"];
-	particleProps.speed = { tempspeed[0],tempspeed[1],tempspeed[2] };
-	std::vector<float> tempspeedVariation = j["ParticleModules"]["ModuleMain"]["SpeedVariation"];
-	particleProps.speedVariation = { tempspeedVariation[0],tempspeedVariation[1],tempspeedVariation[2] };
-	std::vector<float> tempacceleration = j["ParticleModules"]["ModuleMain"]["acceleration"];
-	particleProps.acceleration = { tempacceleration[0],tempacceleration[1],tempacceleration[2] };
-	particleProps.Lifetime = j["ParticleModules"]["ModuleMain"]["LifeTime"];
-	ParticleEmitter.Duration = j["ParticleModules"]["ModuleMain"]["Duration"];
-	ParticleEmitter.DurationCpy = ParticleEmitter.Duration;
-	ParticleEmitter.ParticlesPerSecond = j["ParticleModules"]["ModuleEmission"]["ParticlesPerSecond"];
-	ParticleEmitter.StartDelay = j["ParticleModules"]["ModuleMain"]["Delay"];
-	ParticleEmitter.playOnAwake = j["ParticleModules"]["ModuleMain"]["PlayOnAwake"];
-	ParticleEmitter.loop = j["ParticleModules"]["ModuleMain"]["Looping"];
-	bool enabled = j["Enabled"];
+    std::vector<float> tempstartsize = j["ParticleModules"]["ModuleMain"]["BeginScale"];
+    particleProps.startsize = { tempstartsize[0],tempstartsize[1],tempstartsize[2] };
+    std::vector<float> tempendsize = j["ParticleModules"]["ModuleMain"]["EndScale"];
+    particleProps.endsize = { tempendsize[0],tempendsize[1],tempendsize[2] };
+    std::vector<float> tempspeed = j["ParticleModules"]["ModuleMain"]["Speed"];
+    particleProps.speed = { tempspeed[0],tempspeed[1],tempspeed[2] };
+    std::vector<float> tempspeedVariation = j["ParticleModules"]["ModuleMain"]["SpeedVariation"];
+    particleProps.speedVariation = { tempspeedVariation[0],tempspeedVariation[1],tempspeedVariation[2] };
+    std::vector<float> tempacceleration = j["ParticleModules"]["ModuleMain"]["acceleration"];
+    particleProps.acceleration = { tempacceleration[0],tempacceleration[1],tempacceleration[2] };
+    particleProps.Lifetime = j["ParticleModules"]["ModuleMain"]["LifeTime"];
+    ParticleEmitter.Duration = j["ParticleModules"]["ModuleMain"]["Duration"];
+    ParticleEmitter.DurationCpy = ParticleEmitter.Duration;
+    ParticleEmitter.ParticlesPerSecond = j["ParticleModules"]["ModuleEmission"]["ParticlesPerSecond"];
+    ParticleEmitter.StartDelay = j["ParticleModules"]["ModuleMain"]["Delay"];
+    ParticleEmitter.playOnAwake = j["ParticleModules"]["ModuleMain"]["PlayOnAwake"];
+    ParticleEmitter.loop = j["ParticleModules"]["ModuleMain"]["Looping"];
+    bool enabled = j["Enabled"];
 
 }
 
 void ParticleSystemComponent::SetPlayOnGame(bool playongame)
 {
-	this->playOnGame = playongame;
+    this->playOnGame = playongame;
 }
 
 void ParticleSystemComponent::SetStopEmitting(bool stopemitting)
 {
-	this->StopEmittingOnGame = stopemitting;
+    this->StopEmittingOnGame = stopemitting;
 }
 
 void ParticleSystemComponent::SetPlayOnScene(bool playonscene)
 {
-	this->playOnScene = playonscene;
+    this->playOnScene = playonscene;
 }
 
 void ParticleSystemComponent::SetPauseOnScene(bool pauseonscene)
 {
-	this->pauseOnScene = pauseonscene;
+    this->pauseOnScene = pauseonscene;
 }

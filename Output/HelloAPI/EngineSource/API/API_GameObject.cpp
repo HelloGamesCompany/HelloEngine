@@ -31,6 +31,16 @@ API::API_GameObject::~API_GameObject()
     }
 }
 
+uint API::API_GameObject::GetUID()
+{
+    if (_gameObject == nullptr)
+    {
+        Console::S_Log("Trying to acces a NULLPTR GameObject. GetUID()");
+        return false;
+    }
+    return _gameObject->GetID();
+}
+
 const char* API::API_GameObject::GetName()
 {
     if (_gameObject == nullptr)

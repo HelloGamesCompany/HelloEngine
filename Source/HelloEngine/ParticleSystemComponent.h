@@ -57,6 +57,8 @@ public:
 
     void SetStopEmitting(bool stopemitting);
 
+    ParticleProperties particleProps;
+
 private:
 
     void SetPlayOnScene(bool playonscene);
@@ -76,8 +78,7 @@ private:
     uint _resourceUID;
     uint _resourceTextUID;
     Application* app;
-    Emitter ParticleEmitter;
-    ParticleProperties particleProps;   
+    Emitter ParticleEmitter;  
 
     //Particle System Modules
     std::vector<P_Module*> ParticleModules;
