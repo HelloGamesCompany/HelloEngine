@@ -47,6 +47,8 @@ void PlayerFlamethrower::Update()
     if (playerStats->slowTimePowerUp > 0.0f /*&& !paused*/) dt = Time::GetRealTimeDeltaTime();
     else dt = Time::GetDeltaTime();
 
+    fireParticles.SetInitialSpeed(player.GetTransform().GetForward() * 2.0f);
+
     if (playingParticlesCd > 0)
     {
         playingParticlesCd -= dt;
