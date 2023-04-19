@@ -4,6 +4,7 @@
 #include "EnemyTank.h"
 #include "EnemyMeleeMovement.h"
 #include "EnemyRanger.h"
+#include "../Shooting/StickBomb.h"
 HELLO_ENGINE_API_C Enemy* CreateEnemy(ScriptToInspectorInterface* script)
 {
     Enemy* classInstance = new Enemy();
@@ -50,7 +51,20 @@ void Enemy::Update()
 
     if (actStun)EnemyStun(_tStun);
 
-
+    //burn
+    if (burnTime > 3.0f)
+    {
+        if (resetBurn >= 0.0f)
+        {
+            resetBurn -= Time::GetDeltaTime();
+            if (resetBurn <= 0.0f)
+            {
+                resetBurn = 0.0f;
+                burnTime -= Time::GetDeltaTime();
+            }
+        }
+        TakeDamage(0.5f, 0.0f);
+    }
 
 }
 
@@ -122,6 +136,11 @@ void Enemy::OnCollisionEnter(API::API_RigidBody other)
     {
         PlayerStats* pStats = (PlayerStats*)other.GetGameObject().GetScript("PlayerStats");
         pStats->TakeDamage(10, 0);
+    }
+    if (detectionTag == "Projectile")
+    {
+        isHit = true;
+        
     }
 }
 
@@ -197,7 +216,16 @@ void Enemy::CheckBombs()
     if (currentBombNum > 0)
     {
         TakeDamage(5.0f * currentBombNum, 1.0f * currentBombNum);
+        StickBomb* stickBomb = (StickBomb*)bomb.GetScript("StickBomb");
+        if (stickBomb == nullptr) Console::Log("StickyBomb missing in Bomb from enemy.");
+        stickBomb->triggerActive = true;
         currentBombNum = 0;
         bomb.SetActive(false);
     }
+}
+
+void Enemy::AddBurn()
+{
+    burnTime += Time::GetDeltaTime();
+    resetBurn = 0.2f;
 }
