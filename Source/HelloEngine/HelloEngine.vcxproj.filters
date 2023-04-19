@@ -169,6 +169,7 @@
     <ClCompile Include="API\API_SkinnedMeshRenderer.cpp" />
     <ClCompile Include="LightComponent.cpp" />
     <ClCompile Include="DirectionalLightComponent.cpp" />
+    <ClCompile Include="PointLightComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\External\ImGuiColorTextEdit\TextEditor.h" />
@@ -377,6 +378,7 @@
     <ClInclude Include="API\API_SkinnedMeshRenderer.h" />
     <ClInclude Include="LightComponent.h" />
     <ClInclude Include="DirectionalLightComponent.h" />
+    <ClInclude Include="PointLightComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="HelloEngine.rc" />

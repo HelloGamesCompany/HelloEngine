@@ -9,8 +9,8 @@ public:
 	DirectionalLightComponent(GameObject* gameObject);
 	~DirectionalLightComponent();
 
-	void Serialization(json& j) override;
-	void DeSerialization(json& j) override;
+	void SerializationUnique(json& j) override;
+	void DeSerializationUnique(json& j) override;
 
 #ifdef STANDALONE
 	void OnEditorUnique() override;

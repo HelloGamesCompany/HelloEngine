@@ -2,6 +2,9 @@
 #include "LightComponent.h"
 #include "GameObject.h"
 
+#include "ModuleRenderer3D.h"
+#include "RenderManager.h"
+
 LightComponent::LightComponent(GameObject* gameObject) : Component(gameObject)
 {
 	_type = Type::LIGHT;
@@ -13,12 +16,43 @@ LightComponent::~LightComponent()
 
 }
 
-void LightComponent::Serialization(json& j)
+void LightComponent::Serialization(json& _j)
 {
+	json j;
 
+	j["Type"] = _type;
+
+	j["Color"] = { data.color.x, data.color.y, data.color.z };
+
+	j["Ambient Intensity"] = data.ambientIntensity;
+	j["Diffuse Intensity"] = data.diffuseIntensity;
+
+	SerializationUnique(j);
+
+	j["Enabled"] = _isEnabled;
+
+	_j["Components"].push_back(j);
 }
 
-void LightComponent::DeSerialization(json& j)
+void LightComponent::SerializationUnique(json& j)
+{
+}
+
+void LightComponent::DeSerialization(json& _j)
+{
+	DeSerializationUnique(_j);
+
+	std::vector<float> temp = _j["Color"];
+	data.color = { temp[0], temp[1], temp[2] };
+
+	data.ambientIntensity = _j["Ambient Intensity"];
+	data.diffuseIntensity = _j["Diffuse Intensity"];
+
+	bool enabled = _j["Enabled"];
+	if (!enabled)Disable();
+}
+
+void LightComponent::DeSerializationUnique(json& j)
 {
 
 }
@@ -73,6 +107,8 @@ void LightComponent::OnEditor()
 
 		ImGui::NewLine();
 	}
+
+	Application::Instance()->renderer3D->renderManager._lightMap[_lightID] = data;
 
 	if (!created)
 		this->_gameObject->DestroyComponent(this);

@@ -285,7 +285,7 @@ uint RenderManager::AddLight(LightComponent::Light& lightData)
 {
 	uint _lightID = _lightMap.size();
 
-	_lightMap[_lightID] = &lightData;
+	_lightMap[_lightID] = lightData;
 
 	return _lightID;
 }

@@ -102,13 +102,13 @@ public:
 	void DrawTransparentMeshes();
 	void DrawIndependentMeshes();
 	void DrawTextObjects();
-
+	std::map<uint, LightComponent::Light> _lightMap;
 private:
 	std::map<uint, InstanceRenderer> _renderMap; // Render managers that use instance rendering to draw opaque meshes.
 	std::map<uint, RenderEntry> _transparencyMeshes; // Meshes with transparency that must be drawn with a draw call per mesh.
 	std::multimap<float, RenderEntry*> _orderedMeshes; // Meshes with transparency ordered from furthest to closest to the camera.
 	
-	std::map<uint, LightComponent::Light*> _lightMap;
+	
 
 	std::map<uint, RenderEntry> _independentMeshes; // Opaque meshes that need to be drawn in an independent draw call.
 

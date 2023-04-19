@@ -10,8 +10,10 @@ public:
 	LightComponent(GameObject* gameObject);
 	~LightComponent();
 
-	virtual void Serialization(json& j) override;
-	virtual void DeSerialization(json& j) override;
+	void Serialization(json& _j) override;
+	virtual void SerializationUnique(json& j);
+	void DeSerialization(json& _j) override;
+	virtual void DeSerializationUnique(json& _j);
 
 #ifdef STANDALONE
 	void OnEditor() override;

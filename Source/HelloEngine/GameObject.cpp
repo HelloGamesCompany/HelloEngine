@@ -23,6 +23,8 @@
 #include "ComponentUIInput.h"
 #include "TextRendererComponent.h"
 #include "DirectionalLightComponent.h"
+#include "PointLightComponent.h"
+
 
 GameObject::GameObject(GameObject* parent, std::string name, std::string tag, uint ID) : name(name), tag(tag)
 {
@@ -210,6 +212,9 @@ void GameObject::OnEditor()
                 case 9:
                     if (!HasComponent<DirectionalLightComponent>())
                         AddComponent<DirectionalLightComponent>();
+                case 10:
+                    if (!HasComponent<PointLightComponent>())
+                        AddComponent<PointLightComponent>();
                 }   
             }
         }
@@ -461,6 +466,10 @@ Component* GameObject::AddComponentOfType(Component::Type type)
         newComponent = new DirectionalLightComponent(this);
         _components.push_back(newComponent);
         break;
+    case Component::Type::POINT_LIGHT:
+        newComponent = new PointLightComponent(this);
+        _components.push_back(newComponent);
+        break;
 	}
 
 	return newComponent;
@@ -511,6 +520,10 @@ Component* GameObject::AddComponentOfType(Component::Type type, const Component&
         break;
     case Component::Type::DIRECTIONAL_LIGHT:
         newComponent = new DirectionalLightComponent(this);
+        _components.push_back(newComponent);
+        break;
+    case Component::Type::POINT_LIGHT:
+        newComponent = new PointLightComponent(this);
         _components.push_back(newComponent);
         break;
 	}

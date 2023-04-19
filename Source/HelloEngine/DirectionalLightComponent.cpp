@@ -11,7 +11,7 @@ DirectionalLightComponent::DirectionalLightComponent(GameObject* gameObject) : L
 
 	data = DirectionalLight();
 
-	Application::Instance()->renderer3D->renderManager.AddLight(data);
+	_lightID = Application::Instance()->renderer3D->renderManager.AddLight(data);
 }
 
 DirectionalLightComponent::~DirectionalLightComponent()
@@ -19,14 +19,15 @@ DirectionalLightComponent::~DirectionalLightComponent()
 
 }
 
-void DirectionalLightComponent::Serialization(json& j)
+void DirectionalLightComponent::SerializationUnique(json& j)
 {
-
+	j["Direction"] = { data.direction.x, data.direction.y, data.direction.z };
 }
 
-void DirectionalLightComponent::DeSerialization(json& j)
+void DirectionalLightComponent::DeSerializationUnique(json& j)
 {
-
+	std::vector<float> temp = j["Direction"];
+	data.direction = { temp[0], temp[1], temp[2] };
 }
 
 #ifdef STANDALONE
