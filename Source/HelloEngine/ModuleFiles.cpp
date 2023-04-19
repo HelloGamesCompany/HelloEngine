@@ -888,8 +888,9 @@ void ModuleFiles::S_RegenerateMetasUIDs()
     for (int i = 0; i < prefabResources.size(); ++i)
     {
         GameObject* temporalGameObject = ModuleResourceManager::S_DeserializeFromPrefab(prefabResources[i].first->resourcePath, ModuleLayers::rootGameObject);
-        if (temporalGameObject == nulltpr)
+        if (temporalGameObject == nullptr)
             continue;
+
         ModuleResourceManager::S_OverridePrefab(temporalGameObject, prefabResources[i].first->resourcePath, prefabResources[i].second);
         ModuleResourceManager::resources[prefabResources[i].second] = prefabResources[i].first;
         temporalGameObject->Destroy();
