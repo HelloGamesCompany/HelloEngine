@@ -21,6 +21,7 @@ uint HelloUUID::GenerateUUID()
 uint HelloUUID::GenerateGUID(std::string input)
 {
     std::string key = hash(input);
+    key = hash(key);
     uint hashValue = 0;
     for (int i = 0; i < key.size(); ++i) {
         hashValue = (hashValue << 8) | key[i];
