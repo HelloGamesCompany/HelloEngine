@@ -604,6 +604,11 @@ void DragBoxAnimationResource::OnSerialize(json& j)
 
 	uint* animationUID = (uint*)value;
 
+	if (ModuleResourceManager::resources.count(*animationUID) != 0)
+	{
+		*animationUID = ModuleResourceManager::resources[*animationUID]->UID; // Only for when reimporting METAS.
+	}
+
 	if (*animationUID != 0)
 	{
 		_j[valueName.c_str()] = *animationUID;
@@ -755,6 +760,11 @@ void DragBoxTextureResource::OnSerialize(json& j)
 	json _j;
 
 	uint* textureUID = (uint*)value;
+
+	if (ModuleResourceManager::resources.count(*textureUID) != 0)
+	{
+		*textureUID = ModuleResourceManager::resources[*textureUID]->UID; // Only for when reimporting METAS.
+	}
 
 	if (*textureUID != 0)
 	{
@@ -1265,6 +1275,11 @@ void DragBoxPrefabResource::OnSerialize(json& j)
 	json _j;
 
 	uint* prefabUID = (uint*)value;
+
+	if (ModuleResourceManager::resources.count(*prefabUID) != 0)
+	{
+		*prefabUID = ModuleResourceManager::resources[*prefabUID]->UID; // Only for when reimporting METAS.
+	}
 
 	if (*prefabUID != 0)
 	{
