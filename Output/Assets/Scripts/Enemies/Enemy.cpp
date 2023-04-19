@@ -123,6 +123,11 @@ void Enemy::OnCollisionEnter(API::API_RigidBody other)
         PlayerStats* pStats = (PlayerStats*)other.GetGameObject().GetScript("PlayerStats");
         pStats->TakeDamage(10, 0);
     }
+    if (detectionTag == "Projectile")
+    {
+        isHit = true;
+        
+    }
 }
 
 void Enemy::ActiveSlow(float q, float time)
