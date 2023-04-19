@@ -23,7 +23,8 @@ public:
     enum class States {
         TARGETING,
         WANDERING,
-        ATTACKIG
+        ATTACKIG,
+        DYING
 
     };
     void Start() override;
