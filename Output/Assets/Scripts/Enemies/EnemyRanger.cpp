@@ -70,7 +70,7 @@ void EnemyRanger::Update()
             float dis = gameObject.GetTransform().GetLocalPosition().Distance(target.GetTransform().GetGlobalPosition());
             float disZone = gameObject.GetTransform().GetLocalPosition().Distance(actionZone.GetTransform().GetGlobalPosition());
             float targDisZone = target.GetTransform().GetGlobalPosition().Distance(actionZone.GetTransform().GetGlobalPosition());
-        //if (enemy->dying)enemState = States::DYING;
+        if (enemy->dying)enemState = States::DYING;
         if (!enemy->dying)
         {
 
@@ -152,7 +152,7 @@ void EnemyRanger::Update()
 
                 if (_canWalk)Wander(enemy->currentSpeed, actualPoint, enemy->enemyRb);
 
-                if (animState != AnimationState::WALK)
+                if (animState != AnimationState::WALK && !enemy->takingDmg)
                 {
                     animState = AnimationState::WALK;
                     animationPlayer.ChangeAnimation(walkAnim);
@@ -169,7 +169,7 @@ void EnemyRanger::Update()
 
                 Seek(enemy->currentSpeed, target.GetTransform().GetGlobalPosition(), enemy->enemyRb);
 
-                if (animState != AnimationState::RUN)
+                if (animState != AnimationState::RUN && !enemy->takingDmg)
                 {
                     animState = AnimationState::RUN;
                     animationPlayer.ChangeAnimation(runAnim);
@@ -204,7 +204,7 @@ void EnemyRanger::Update()
                 //gameObject.GetTransform().Translate(gameObject.GetTransform().GetBackward() * enemy->currentSpeed);
 
                 Attacking(enemy->currentSpeed * 0.5f, target.GetTransform().GetGlobalPosition(), enemy->enemyRb);
-                if (animState != AnimationState::SHOOT)
+                if (animState != AnimationState::SHOOT && !enemy->takingDmg)
                 {
                     animState = AnimationState::SHOOT;
                     animationPlayer.ChangeAnimation(aimAnim);
@@ -215,7 +215,7 @@ void EnemyRanger::Update()
             break;
         case States::DYING:
             enemy->_coldAnimDie += dt;
-            //enemy->dying = true;
+            // enemy->dying = true;
             enemy->enemyRb.SetVelocity(0);
             if (enemy->_coldAnimDie < enemy->_tAnimDie)
             {
@@ -226,7 +226,7 @@ void EnemyRanger::Update()
                     animationPlayer.Play();
                 }
             }
-            else if (enemy->_coldAnimDie >= enemy->_tAnimDie)
+            else
             {
                 gameObject.SetActive(false);
             }

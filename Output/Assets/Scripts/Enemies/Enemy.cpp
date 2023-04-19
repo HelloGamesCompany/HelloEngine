@@ -33,6 +33,10 @@ void Enemy::Start()
 {
     enemyDropManager = (EnemyDropManager*)enemyDropManagerGO.GetScript("EnemyDropManager");
 
+    EnemyMeleeMovement* meleeScript = (EnemyMeleeMovement*)gameObject.GetScript("EnemyMeleeMovement");
+    EnemyRanger* rangeScript = (EnemyRanger*)gameObject.GetScript("EnemyRanger");
+    EnemyTank* tankScript = (EnemyTank*)gameObject.GetScript("EnemyTank");
+
     currentHp = maxHp;
     currentResistance = maxResistance;
     actSlow = actStun = false;
@@ -43,8 +47,24 @@ void Enemy::Start()
 
     _coldSlow = _coldStun = _coldAnimDie = _coldAnimHit = 0;
     takingDmg =dying = false;
-    _tAnimHit = 0.5f;
-    _tAnimDie = 2.0f;
+
+    if (meleeScript)
+    {
+        _tAnimHit = 1.06f;
+        _tAnimDie = 1.7f;
+    }
+    else if (rangeScript)
+    {
+        _tAnimHit = 0.83f;
+        _tAnimDie = 1.0f;
+    }
+    else if (tankScript)
+    {
+        
+        _tAnimDie = 1.43f;
+    }
+
+    
 }
 
 void Enemy::Update()
@@ -85,8 +105,21 @@ void Enemy::Update()
                 rangeScript->HitAnimation();
             }
         }
-        else if (_coldAnimHit >= _tAnimHit) takingDmg = false, _coldAnimHit = 0;;
+        else  takingDmg = false, _coldAnimHit = 0;;
     }
+
+    if (Input::GetKey(KeyCode::KEY_J) == KeyState::KEY_DOWN)
+    {
+        EnemyRanger* rangeScript = (EnemyRanger*)gameObject.GetScript("EnemyRanger");
+        EnemyMeleeMovement* meleeScript = (EnemyMeleeMovement*)gameObject.GetScript("EnemyMeleeMovement");
+        if (meleeScript ||rangeScript)
+        {
+
+
+        currentHp = 0;
+        Die();
+    }
+        }
 
 }
 
@@ -160,19 +193,22 @@ void Enemy::TakeDamage(float damage, float resistanceDamage)
 
 void Enemy::Die()
 {
-   /* EnemyMeleeMovement* meleeScript = (EnemyMeleeMovement*)gameObject.GetScript("EnemyMeleeMovement");
+    EnemyMeleeMovement* meleeScript = (EnemyMeleeMovement*)gameObject.GetScript("EnemyMeleeMovement");
     EnemyRanger* rangeScript = (EnemyRanger*)gameObject.GetScript("EnemyRanger");
-    EnemyTank* tankScript = (EnemyTank*)gameObject.GetScript("EnemyTank");*/
+    EnemyTank* tankScript = (EnemyTank*)gameObject.GetScript("EnemyTank");
     // some animation
     if(enemyDropManager != nullptr)enemyDropManager->SpinDropRate(gameObject.GetTransform().GetGlobalPosition());
 
     hitParticles.StopEmitting();
-    /*if (!meleeScript && !rangeScript && !tankScript)
+    if (!meleeScript && !rangeScript && !tankScript)
     {
-
         gameObject.SetActive(false);
-    }*/
-    gameObject.SetActive(false);
+    }
+    else
+    {
+        dying = true;
+    }
+    //gameObject.SetActive(false);
 }
 
 void Enemy::OnCollisionEnter(API::API_RigidBody other)

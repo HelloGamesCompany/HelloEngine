@@ -39,7 +39,7 @@ HELLO_ENGINE_API_C EnemyMeleeMovement* CreateEnemyMeleeMovement(ScriptToInspecto
     script->AddDragBoxAnimationResource("Dash Animation", &classInstance->dashAnim);
     script->AddDragBoxAnimationResource("Die Animation", &classInstance->dieAnim);
     script->AddDragBoxAnimationResource("Hit Animation", &classInstance->hitAnim);
-  //  script->AddCheckBox("Dashiing", &classInstance->dashing);
+    //script->AddCheckBox("Dashiing", &classInstance->dashing);
     return classInstance;
 }
 
@@ -70,7 +70,7 @@ void EnemyMeleeMovement::Update()
 
     if (enemy != nullptr && attackZone != nullptr && targStats != nullptr)
     {
-       // if(enemy->dying)enemState = States::DYING;
+        if(enemy->dying)enemState = States::DYING;
 
         if (!enemy->dying)
         {
@@ -167,7 +167,7 @@ void EnemyMeleeMovement::Update()
             actualPoint = listPoints[numPoint].GetTransform().GetGlobalPosition();
             Wander(enemy->currentSpeed, actualPoint, enemy->enemyRb);
 
-            if (animState != AnimationState::WALK)
+            if (animState != AnimationState::WALK && !enemy->takingDmg)
             {
                 animState = AnimationState::WALK;
                 animationPlayer.ChangeAnimation(walkAnim);
@@ -183,7 +183,7 @@ void EnemyMeleeMovement::Update()
             
             Seek(enemy->currentSpeed, target.GetTransform().GetGlobalPosition(), enemy->enemyRb);
 
-            if (animState != AnimationState::RUN)
+            if (animState != AnimationState::RUN && !enemy->takingDmg)
             {
                 animState = AnimationState::RUN;
                 animationPlayer.ChangeAnimation(runAnim);
@@ -197,7 +197,7 @@ void EnemyMeleeMovement::Update()
             if (timer < attackCharge)
             {
                 ChargeAttack();
-                if (animState != AnimationState::CHARGE)
+                if (animState != AnimationState::CHARGE && !enemy->takingDmg)
                 {
                     animState = AnimationState::CHARGE;
                     animationPlayer.ChangeAnimation(chargeAnim);
@@ -292,7 +292,7 @@ void EnemyMeleeMovement::Update()
                         animationPlayer.Play();
                     }
                 }
-                else if (enemy->_coldAnimDie >= enemy->_tAnimDie)
+                else 
                 {
                     gameObject.SetActive(false);
                 }
