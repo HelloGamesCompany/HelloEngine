@@ -4,6 +4,7 @@
 #include "EnemyTank.h"
 #include "EnemyMeleeMovement.h"
 #include "EnemyRanger.h"
+#include "../Shooting/StickBomb.h"
 HELLO_ENGINE_API_C Enemy* CreateEnemy(ScriptToInspectorInterface* script)
 {
     Enemy* classInstance = new Enemy();
@@ -50,7 +51,20 @@ void Enemy::Update()
 
     if (actStun)EnemyStun(_tStun);
 
-
+    //burn
+    if (burnTime > 3.0f)
+    {
+        if (resetBurn >= 0.0f)
+        {
+            resetBurn -= Time::GetDeltaTime();
+            if (resetBurn <= 0.0f)
+            {
+                resetBurn = 0.0f;
+                burnTime -= Time::GetDeltaTime();
+            }
+        }
+        TakeDamage(0.5f, 0.0f);
+    }
 
 }
 
@@ -61,7 +75,31 @@ void Enemy::TakeDamage(float damage, float resistanceDamage)
     if (hasShield == false) {
 
         // Health damage
-        currentHp -= damage;
+        EnemyMeleeMovement* meleeScript = (EnemyMeleeMovement*)gameObject.GetScript("EnemyMeleeMovement");
+        if (meleeScript)
+        {
+            if (!meleeScript->dashing)
+            {
+                currentHp -= damage;
+                EnemyMeleeMovement* meleeScript = (EnemyMeleeMovement*)gameObject.GetScript("EnemyMeleeMovement");
+                if (meleeScript)
+                {
+                    meleeScript->HitAnim();
+                }
+
+            }
+        }
+        else
+        {
+           currentHp -= damage;
+
+           EnemyRanger* rangeScript = (EnemyRanger*)gameObject.GetScript("EnemyRanger");
+           if (rangeScript)
+           {
+               rangeScript->HitAnimation();
+           }
+        }
+        
     }
     else {
         EnemyTank* tankScript = (EnemyTank*)gameObject.GetScript("EnemyTank");
@@ -90,16 +128,8 @@ void Enemy::TakeDamage(float damage, float resistanceDamage)
         // reaction
     }
 
-    EnemyMeleeMovement* meleeScript = (EnemyMeleeMovement*)gameObject.GetScript("EnemyMeleeMovement");
-    if (meleeScript)
-    {
-        meleeScript->HitAnim();
-    }
-    EnemyRanger* rangeScript = (EnemyRanger*)gameObject.GetScript("EnemyRanger");
-    if (rangeScript)
-    {
-        rangeScript->HitAnimation();
-    }
+   
+    
 
 
     hitParticles.Play();
@@ -201,8 +231,20 @@ void Enemy::CheckBombs()
 {
     if (currentBombNum > 0)
     {
-        TakeDamage(5.0f * currentBombNum, 1.0f * currentBombNum);
+        StickBomb* stickBomb = (StickBomb*)bomb.GetScript("StickBomb");
+        if (stickBomb == nullptr) Console::Log("StickyBomb missing in Bomb from enemy.");
+        else
+        {
+            stickBomb->triggerActive = true;
+            stickBomb->damage = 5.0f * currentBombNum;
+        }
         currentBombNum = 0;
         bomb.SetActive(false);
     }
+}
+
+void Enemy::AddBurn()
+{
+    burnTime += Time::GetDeltaTime();
+    resetBurn = 0.2f;
 }

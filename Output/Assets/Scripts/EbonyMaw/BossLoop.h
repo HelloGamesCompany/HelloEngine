@@ -69,4 +69,9 @@ public:
     API_GameObject bomb;
     API_GameObject bombShield;
     uint textureBomb[6];
+
+    // burn
+    void AddBurn();
+    float burnTime = 0.0f;
+    float resetBurn;
 };

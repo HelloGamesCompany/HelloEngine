@@ -86,10 +86,10 @@ void PlayerAutomatic::SetGunStatsPerLevel(int level)
     {
     case 0:
         projectileSpeed = 40.0f;
-        projectileDamage = 25.0f;
-        projectileResistanceDamage = 0.0f;
+        projectileDamage = 1.0f;
+        projectileResistanceDamage = 1.0f;
         projectileLifetime = 1.0f;
-        cadence = 3.0f;
+        cadence = 10.0f;
         break;
     case 1:
         projectileSpeed = 40.0f;

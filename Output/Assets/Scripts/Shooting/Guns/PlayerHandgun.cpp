@@ -109,7 +109,7 @@ void PlayerHandgun::SetGunStatsPerLevel(int level)
     case 0:
         projectileSpeed = 30.0f;
         projectileDamage = 30.0f;
-        projectileResistanceDamage = 0.0f;
+        projectileResistanceDamage = 30.0f;
         projectileLifetime = 1.0f;
         cadence = 1.0f;
         break;

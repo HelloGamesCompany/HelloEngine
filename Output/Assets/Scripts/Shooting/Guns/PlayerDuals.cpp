@@ -132,7 +132,7 @@ void PlayerDuals::SetGunStatsPerLevel(int level)
     case 0:
         projectileSpeed = 30.0f;
         projectileDamage = 5.0f;
-        projectileResistanceDamage = 0.0f;
+        projectileResistanceDamage = 5.0f;
         projectileLifetime = 1.0f;
         cadence = 1.2f;
         fullBurstDelay = 0.1f;

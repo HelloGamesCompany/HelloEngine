@@ -133,7 +133,7 @@ void PlayerBurst::SetGunStatsPerLevel(int level)
     case 0:
         projectileSpeed = 35.0f;
         projectileDamage = 20.0f;
-        projectileResistanceDamage = 0.0f;
+        projectileResistanceDamage = 20.0f;
         projectileLifetime = 1.0f;
         cadence = 1.0f;
         burstLenght = 3;
