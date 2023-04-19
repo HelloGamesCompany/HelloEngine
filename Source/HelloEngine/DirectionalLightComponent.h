@@ -12,11 +12,13 @@ public:
 	void SerializationUnique(json& j) override;
 	void DeSerializationUnique(json& j) override;
 
+	void OnTransformCallback(float4x4 worldMatrix) override;
+
 #ifdef STANDALONE
 	void OnEditorUnique() override;
 #endif
 
-protected:
+public:
 	struct DirectionalLight : Light
 	{
 		DirectionalLight() : Light(Component::Type::DIRECTIONAL_LIGHT) {}

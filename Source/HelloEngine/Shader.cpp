@@ -229,10 +229,6 @@ void Shader::UniformParser(std::vector<Uniform*>& vec)
 			case GL_FLOAT_MAT4: vec.push_back((Uniform*) new UniFloat4x4(uni)); break;
 		}
 	}
-
-	std::string aux = "A total of '" + std::to_string(vec.size()) + "' uniform variables have been parsed in the shader'" + data.name + "'.";
-	Console::S_Log(aux, LogType::INFO);
-
 }
 
 void Shader::Bind()

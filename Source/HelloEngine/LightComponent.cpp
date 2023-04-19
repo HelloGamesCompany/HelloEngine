@@ -100,11 +100,6 @@ void LightComponent::OnEditor()
 		ImGui::Separator();
 		OnEditorUnique();
 
-		if (GetData().GetType() == Component::Type::DIRECTIONAL_LIGHT)
-		{
-			ImGui::Text("Im a Directional Light :D!");
-		}
-
 		ImGui::NewLine();
 	}
 

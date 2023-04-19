@@ -1,11 +1,13 @@
 #pragma once
 #include "LightComponent.h"
 
-class PointLightComponent : public LightComponent
+struct SpotLight;
+
+class SpotLightComponent : public LightComponent
 {
 public:
-	PointLightComponent(GameObject* gameObject);
-	~PointLightComponent();
+	SpotLightComponent(GameObject* gameObject);
+	~SpotLightComponent();
 
 	void SerializationUnique(json& j) override;
 	void DeSerializationUnique(json& j) override;
@@ -16,20 +18,20 @@ public:
 	void OnEditorUnique() override;
 #endif
 
-	struct PointLight : Light
+	struct SpotLight : Light
 	{
-		PointLight() : Light(Component::Type::POINT_LIGHT) {}
+		SpotLight() : Light(Component::Type::SPOT_LIGHT) {}
 
 		float constant = 1.0f;
 		float linear = 1.0f;
 		float exp = 1.0f;
 
 		float3 position;
-
+		float3 direction;
+		float cutoff;
 	} data;
 
-	PointLight& GetData() override { return data; }
-	void SetData(PointLight& data) { this->data = data; }
+	SpotLight& GetData() override { return data; }
+	void SetData(SpotLight& data) { this->data = data; }
 };
-	
 

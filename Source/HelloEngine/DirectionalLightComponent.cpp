@@ -19,15 +19,22 @@ DirectionalLightComponent::~DirectionalLightComponent()
 
 }
 
+void DirectionalLightComponent::OnTransformCallback(float4x4 worldMatrix)
+{
+	data.direction = worldMatrix.ToEulerXYZ();
+
+	Application::Instance()->renderer3D->renderManager._lightMap[_lightID] = data;
+}
+
 void DirectionalLightComponent::SerializationUnique(json& j)
 {
-	j["Direction"] = { data.direction.x, data.direction.y, data.direction.z };
+	//j["Direction"] = { data.direction.x, data.direction.y, data.direction.z };
 }
 
 void DirectionalLightComponent::DeSerializationUnique(json& j)
 {
-	std::vector<float> temp = j["Direction"];
-	data.direction = { temp[0], temp[1], temp[2] };
+	/*std::vector<float> temp = j["Direction"];
+	data.direction = { temp[0], temp[1], temp[2] };*/
 }
 
 #ifdef STANDALONE

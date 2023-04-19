@@ -170,6 +170,7 @@
     <ClCompile Include="LightComponent.cpp" />
     <ClCompile Include="DirectionalLightComponent.cpp" />
     <ClCompile Include="PointLightComponent.cpp" />
+    <ClCompile Include="SpotLightComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\External\ImGuiColorTextEdit\TextEditor.h" />
@@ -379,6 +380,7 @@
     <ClInclude Include="LightComponent.h" />
     <ClInclude Include="DirectionalLightComponent.h" />
     <ClInclude Include="PointLightComponent.h" />
+    <ClInclude Include="SpotLightComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="HelloEngine.rc" />

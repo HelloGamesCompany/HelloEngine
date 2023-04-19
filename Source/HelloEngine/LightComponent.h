@@ -39,8 +39,8 @@ public:
 		float ambientIntensity = 1.0f;
 		float diffuseIntensity = 1.0f;
 
-	private:
-		Component::Type _type = Component::Type::LIGHT;
+		private:
+			Component::Type _type = Component::Type::LIGHT;
 	}  data;
 
 	std::string _name;

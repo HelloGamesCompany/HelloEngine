@@ -375,6 +375,7 @@
     <ClCompile Include="Material.cpp" />
     <ClCompile Include="MaterialComponent.cpp" />
     <ClCompile Include="PointLightComponent.cpp" />
+    <ClCompile Include="SpotLightComponent.cpp" />
     <ClCompile Include="TextureComponent.cpp" />
     <ClCompile Include="MeshImporter.cpp" />
     <ClCompile Include="MeshRenderComponent.cpp" />
@@ -579,6 +580,7 @@
     <ClInclude Include="Material.h" />
     <ClInclude Include="MaterialComponent.h" />
     <ClInclude Include="PointLightComponent.h" />
+    <ClInclude Include="SpotLightComponent.h" />
     <ClInclude Include="TextureComponent.h" />
     <ClInclude Include="MemLeaks.h" />
     <ClInclude Include="MeshImporter.h" />

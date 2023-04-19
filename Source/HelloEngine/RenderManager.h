@@ -5,6 +5,9 @@
 #include "GameObject.h"
 #include "MeshRenderComponent.h"
 #include "LightComponent.h"
+#include "DirectionalLightComponent.h"
+#include "PointLightComponent.h"
+#include "SpotLightComponent.h"
 #include "PhysBody3D.h"
 #include "FontManager.h"
 
@@ -46,6 +49,13 @@ struct RenderEntry
 	Mesh mesh;
 };
 
+struct LightMap
+{
+	DirectionalLightComponent::DirectionalLight directionalLight;
+	std::map<uint, PointLightComponent::PointLight> pointLight;
+	std::map<uint, SpotLightComponent::SpotLight> spotLight;
+};
+
 /// <summary>
 /// This class contains a colletion of RenderManagers. It dynamically creates and destroys Render Managers tu fullfill the task of having one per Unique mesh.
 /// Every Render Manager updates and draws their corresponding Models.
@@ -67,7 +77,7 @@ public:
 	void DrawDebug();
 	void Draw2D();
 
-	uint AddLight(LightComponent::Light& lightData);
+	uint AddLight(LightComponent::Light lightData);
 	uint AddMesh(ResourceMesh* resource, uint resMat, MeshRenderType type);
 
 	uint AddTransparentMesh(ResourceMesh* resource, uint resMat);
@@ -102,7 +112,7 @@ public:
 	void DrawTransparentMeshes();
 	void DrawIndependentMeshes();
 	void DrawTextObjects();
-	std::map<uint, LightComponent::Light> _lightMap;
+	LightMap _lightMap;
 private:
 	std::map<uint, InstanceRenderer> _renderMap; // Render managers that use instance rendering to draw opaque meshes.
 	std::map<uint, RenderEntry> _transparencyMeshes; // Meshes with transparency that must be drawn with a draw call per mesh.
