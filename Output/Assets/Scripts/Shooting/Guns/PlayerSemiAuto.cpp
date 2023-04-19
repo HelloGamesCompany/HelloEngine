@@ -111,7 +111,7 @@ void PlayerSemiAuto::SetGunStatsPerLevel(int level)
     case 0:
         projectileSpeed = 80.0f;
         projectileDamageWithoutCrit = 60.0f;
-        projectileResistanceDamage = 0.0f;
+        projectileResistanceDamage = 60.0f;
         projectileLifetime = 0.5f;
         cadence = 1.0f;
         canCrit = false;
