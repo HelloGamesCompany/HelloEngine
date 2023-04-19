@@ -29,8 +29,7 @@ public:
         TARGETING,
         WANDERING,
         ATTACKIG,
-        DASHING,
-        DYING
+        DASHING
 
     };
 

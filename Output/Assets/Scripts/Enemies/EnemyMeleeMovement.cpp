@@ -70,86 +70,81 @@ void EnemyMeleeMovement::Update()
 
     if (enemy != nullptr && attackZone != nullptr && targStats != nullptr)
     {
-       // if(enemy->dying)enemState = States::DYING;
+       
+       float dis = gameObject.GetTransform().GetGlobalPosition().Distance(target.GetTransform().GetGlobalPosition());
+       float disZone = gameObject.GetTransform().GetGlobalPosition().Distance(actionZone.GetTransform().GetGlobalPosition());
+       float targDisZone = target.GetTransform().GetGlobalPosition().Distance(actionZone.GetTransform().GetGlobalPosition());
+      
+        
+       float zoneRad = zoneRb.GetRadius() / 2;
+        
 
-        if (!enemy->dying)
-        {
+        disZone > (zoneRad) ? enemy->isOut = true : enemy->isOut = false;
+        targDisZone < (zoneRad) ? enemy->isTargIn = true : enemy->isTargIn = false;
+        disZone > zoneRad ? _outCooldown += dt:_outCooldown = 0;
+        enemy->isHit? _hitOutCooldown += dt : _hitOutCooldown = 0;
 
-            float dis = gameObject.GetTransform().GetGlobalPosition().Distance(target.GetTransform().GetGlobalPosition());
-            float disZone = gameObject.GetTransform().GetGlobalPosition().Distance(actionZone.GetTransform().GetGlobalPosition());
-            float targDisZone = target.GetTransform().GetGlobalPosition().Distance(actionZone.GetTransform().GetGlobalPosition());
-
-
-            float zoneRad = zoneRb.GetRadius() / 2;
-
-
-            disZone > (zoneRad) ? enemy->isOut = true : enemy->isOut = false;
-            targDisZone < (zoneRad) ? enemy->isTargIn = true : enemy->isTargIn = false;
-            disZone > zoneRad ? _outCooldown += dt : _outCooldown = 0;
-            enemy->isHit ? _hitOutCooldown += dt : _hitOutCooldown = 0;
-
-            if (_hitOutCooldown >= hitOutTime) enemy->isHit = false, enemy->hitParticles.Stop();
-
-            if (enemy->isTargIn)
+        if (_hitOutCooldown >= hitOutTime) enemy->isHit = false, enemy->hitParticles.Stop();
+        
+         if (enemy->isTargIn)
+         {
+            if (zoneRb.GetGameObject().GetTransform().GetGlobalPosition() != targStats->actualZone.GetGameObject().GetTransform().GetGlobalPosition()) 
             {
-                if (zoneRb.GetGameObject().GetTransform().GetGlobalPosition() != targStats->actualZone.GetGameObject().GetTransform().GetGlobalPosition())
-                {
-                    targStats->actualZone = zoneRb;
-                    targStats->detected = false;
-                }
+                targStats->actualZone = zoneRb;
+                targStats->detected = false;
             }
-            if (!enemy->isTargIn)
+         }
+          if (!enemy->isTargIn)
+         {
+            if (zoneRb.GetGameObject().GetTransform().GetGlobalPosition() == targStats->actualZone.GetGameObject().GetTransform().GetGlobalPosition()) 
             {
-                if (zoneRb.GetGameObject().GetTransform().GetGlobalPosition() == targStats->actualZone.GetGameObject().GetTransform().GetGlobalPosition())
-                {
-                    //targStats->actualZone = zoneRb;
-                    targStats->detected = false;
-                }
+                //targStats->actualZone = zoneRb;
+                targStats->detected = false;
             }
+         }
 
-            if (enemState != States::ATTACKIG && attackZone->shooted && (rand() % 100) <= probDash && !dashing)
-            {
-                dashing = true;
-                // sideDash = rand() % 1;
-                sideDash = 0;
-                _dashCooldown = 0;
-                enemState = States::DASHING;
+        // if (enemState != States::ATTACKIG && attackZone->shooted && (rand() % 100) <= probDash && !dashing )
+        //{
+        //     dashing = true;
+        //    // sideDash = rand() % 1;
+        //     sideDash = 0;
+        //     _dashCooldown = 0;
+        //     enemState = States::DASHING;
 
-                /* timer = 0.0f;
-                 attackCharge = attackChargeCpy;
-                 attackTime = attackCharge + attackTimeCpy;
-                 attackCD = attackTime + attackCDCpy;
-                 attackZone->attack = false;*/
-            }
+        //     timer = 0.0f;
+        //     attackCharge = attackChargeCpy;
+        //     attackTime = attackCharge + attackTimeCpy;
+        //     attackCD = attackTime + attackCDCpy;
+        //     attackZone->attack = false;
+        //}
+        
 
+         if (!dashing)
+         {
+             if ((enemState == States::ATTACKIG || enemState == States::TARGETING || enemy->isHit) && enemy->isTargIn)
+             {
+                 targStats->detected = true;
+             }
+             /* else if((enemState != States::ATTACKIG || enemState != States::TARGETING || !enemy->isHit) && !enemy->isTargIn && targStats->detected) {
+                  targStats->detected = false;
+              }*/
+             if (attackZone->attack && enemy->isTargIn || attackZone->attack && enemy->isHit)
+             {
+                 enemState = States::ATTACKIG;
+             }
+             else if (dis < detectionDis && enemState != States::TARGETING && !enemy->isOut && enemy->isTargIn || enemy->isHit || targStats->detected && enemy->isTargIn)
+             {
+                 attackZone->attack = false;
+                 enemState = States::TARGETING;
 
-            if (!dashing)
-            {
-                if ((enemState == States::ATTACKIG || enemState == States::TARGETING || enemy->isHit) && enemy->isTargIn)
-                {
-                    targStats->detected = true;
-                }
-                /* else if((enemState != States::ATTACKIG || enemState != States::TARGETING || !enemy->isHit) && !enemy->isTargIn && targStats->detected) {
-                     targStats->detected = false;
-                 }*/
-                if (attackZone->attack && enemy->isTargIn || attackZone->attack && enemy->isHit)
-                {
-                    enemState = States::ATTACKIG;
-                }
-                else if (dis < detectionDis && enemState != States::TARGETING && !enemy->isOut && enemy->isTargIn || enemy->isHit || targStats->detected && enemy->isTargIn)
-                {
-                    attackZone->attack = false;
-                    enemState = States::TARGETING;
-
-                }
-                else if (dis > lossingDis || enemy->isOut && !enemy->isTargIn && _outCooldown >= outTime)
-                {
-                    attackZone->attack = false;
-                    enemState = States::WANDERING;
-                }
-            }
-
-        }
+             }
+             else if (dis > lossingDis || enemy->isOut && !enemy->isTargIn && _outCooldown >= outTime)
+             {
+                 attackZone->attack = false;
+                 enemState = States::WANDERING;
+             }
+         }
+        
         switch (enemState)
         {
         case States::WANDERING:
@@ -270,35 +265,14 @@ void EnemyMeleeMovement::Update()
                         animationPlayer.Play();
                     }
                 }
-                else if(_dashCooldown >= tDash)
+                else
                 {
-                    enemy->enemyRb.SetVelocity(0);
                     Console::Log("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
                     dashing = false;
                     attackZone->shooted = false;
                 }
                 
                 break;
-            case States::DYING:
-                enemy->_coldAnimDie += dt;
-               // enemy->dying = true;
-                enemy->enemyRb.SetVelocity(0);
-                if (enemy->_coldAnimDie < enemy->_tAnimDie)
-                {
-                    if (animState != AnimationState::DIE)
-                    {
-                        animState = AnimationState::DIE;
-                        animationPlayer.ChangeAnimation(dieAnim);
-                        animationPlayer.Play();
-                    }
-                }
-                else if (enemy->_coldAnimDie >= enemy->_tAnimDie)
-                {
-                    gameObject.SetActive(false);
-                }
-                
-                break;
-
         default:
             break;
         }

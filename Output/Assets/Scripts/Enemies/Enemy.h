@@ -57,9 +57,6 @@ public:
     bool isOut;
     bool isHit;
     bool isTargIn;
-    bool takingDmg;
-    bool dying;
-    bool died;
 
     // bomb mechanic
     void AddBomb();
@@ -75,8 +72,6 @@ public:
     float resetBurn;
 
 
-    float _tAnimDie;
-    float _coldAnimDie;
 private:
     float _coldStun;
     float _coldSlow;
@@ -84,9 +79,5 @@ private:
     float _tSlow;
     float _qSlow;
     float _tStun;
-
-    float _tAnimHit;
-    float _coldAnimHit;
-    
 };
 
