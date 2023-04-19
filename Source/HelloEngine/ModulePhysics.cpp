@@ -126,6 +126,8 @@ UpdateStatus ModulePhysics::PreUpdate()
 		int numContacts = contactManifold->getNumContacts();
 		if (numContacts > 0)
 		{
+			//Console::S_Log("CONTACT");
+
 			PhysBody3D* pBodyA = (PhysBody3D*)obA->getUserPointer();
 			PhysBody3D* pBodyB = (PhysBody3D*)obB->getUserPointer();
 

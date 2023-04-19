@@ -257,7 +257,7 @@ void PlayerMove::DashSetup()
         playerAnimator.Play();
         currentAnim = PlayerAnims::DASH;
     }
-
+    playerStats->inmunityTime = dashTime;
     Audio::Event("starlord_dash");
 }
 

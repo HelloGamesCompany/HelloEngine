@@ -113,8 +113,8 @@ void PlayerShotgun::SetGunStatsPerLevel(int level)
     {
     case 0:
         projectileSpeed = 40.0f;
-        projectileDamage = 3.0f;
-        projectileResistanceDamage = 0.0f;
+        projectileDamage = 5.0f;
+        projectileResistanceDamage = 5.0f;
         projectileLifetime = 0.2f;
         cadence = 1.3f;
         pellets = 3;

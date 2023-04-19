@@ -60,4 +60,5 @@ public:
     uint checkRicochetTargetsPrefab;
 
     float autoForce = 0.0f;
+    float resetAuto;
 };
