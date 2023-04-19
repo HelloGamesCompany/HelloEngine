@@ -1013,7 +1013,6 @@ void ModuleFiles::RegenerateMetasRecursive(std::string& path, std::vector<std::s
                         {
                             ResourceMesh* mesh = (ResourceMesh*)model->modelMeshes[i];
                             mesh->modelUID = GUID;
-                            oldResources.push_back(mesh->UID);
                         }
                     }
                     if (res->type == ResourceType::MATERIAL) // We need to update materials AFTER shaders, so we save them and do them all later.
