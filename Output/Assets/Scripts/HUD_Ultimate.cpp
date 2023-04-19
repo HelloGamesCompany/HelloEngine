@@ -3,8 +3,8 @@ HELLO_ENGINE_API_C HUD_Ultimate* CreateHUD_Ultimate(ScriptToInspectorInterface* 
 {
     HUD_Ultimate* classInstance = new HUD_Ultimate();
     //Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
-    script->AddDragBoxGameObject("Disable_HUD", &classInstance->HudActive);
-    script->AddDragBoxGameObject("Active_HUD", &classInstance->HudDisactive);
+    script->AddDragBoxGameObject("Disable_Ultimate_HUD", &classInstance->HudActive);
+    script->AddDragBoxGameObject("Active_Ultimate_HUD", &classInstance->HudDisactive);
     //
     return classInstance;
 }

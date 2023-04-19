@@ -70,10 +70,15 @@ void ProjectilePull::Update()
     if (playerStats && playerStats->slowTimePowerUp > 0.0f /*&& !paused*/) dt = Time::GetRealTimeDeltaTime();
     else dt = Time::GetDeltaTime();
 
-    if (autoForce > 0.0f)
+    Console::Log(std::to_string(1 + (autoForce * 4.8f)));
+    if (resetAuto >= 0.0f && autoForce >= 0.0f)
     {
-        autoForce -= dt * 0.1f;
-        if (autoForce <= 0.0f) autoForce = 0.0f;
+        resetAuto -= dt;
+        if (resetAuto <= 0.0f)
+        {
+            resetAuto = 0.0f;
+            autoForce -= dt * 1.0f;
+        }
     }
 }
 
@@ -192,13 +197,14 @@ void ProjectilePull::LauchProjectileAUTO(float projectileSpeed, float projectile
 
     Projectile* projectile = (Projectile*)go.GetScript("Projectile");
     projectile->speed = projectileSpeed;
-    projectile->damage = projectileDamage + (autoForce * 15.8f);
+    projectile->damage = projectileDamage + (autoForce * 4.8f);
     projectile->resistanceDamage = projectileResistanceDamage;
     projectile->lifeTime = projectileLifetime;
     projectile->type = PROJECTILE_TYPE::AUTO;
     projectile->ignoreGO = 0;
 
-    if (autoForce <= 6.0f) autoForce += 0.3f;
+    if (autoForce <= 6.0f) autoForce += 0.1f;
+    resetAuto = 0.2f;
 }
 
 void ProjectilePull::LauchProjectileBURST(float projectileSpeed, float projectileDamage, float projectileResistanceDamage, float projectileLifetime, API_Transform shootingSpawn, API_Vector3 projectileScale)

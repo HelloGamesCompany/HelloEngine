@@ -21,17 +21,15 @@ public:
 
 #endif // STANDALONE
 
-
 	int GetResourceUID();
 
+	ResourceMaterial* _resource = nullptr;
 private:
 	void MaterialDragNDrop();
 	void ShaderSelectCombo();
 
 	MeshRenderComponent* GetOwnerMeshComponent();
-
-private:
-	ResourceMaterial* _resource = nullptr;
+	
 private:
 
 	uint _resourceUID = 0;

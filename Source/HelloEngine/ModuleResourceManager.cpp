@@ -952,6 +952,8 @@ std::vector<Resource*> ModuleResourceManager::S_GetResourcePool(ResourceType typ
 	std::vector<Resource*> toReturn;
 	for (const auto& r : resources)
 	{
+		if (r.second == nullptr)
+			continue;
 		if (r.second->type == type) toReturn.push_back(r.second);
 	}
 
