@@ -112,14 +112,13 @@ void Enemy::Update()
     {
         EnemyRanger* rangeScript = (EnemyRanger*)gameObject.GetScript("EnemyRanger");
         EnemyMeleeMovement* meleeScript = (EnemyMeleeMovement*)gameObject.GetScript("EnemyMeleeMovement");
-        if (meleeScript ||rangeScript)
+        EnemyTank* tankScript = (EnemyTank*)gameObject.GetScript("EnemyTank");
+        if (meleeScript ||rangeScript || tankScript)
         {
-
-
-        currentHp = 0;
-        Die();
-    }
+         currentHp = 0;
+         Die();
         }
+    }
 
 }
 
@@ -136,7 +135,7 @@ void Enemy::TakeDamage(float damage, float resistanceDamage)
             if (!meleeScript->dashing)
             {
                 currentHp -= damage;
-                takingDmg = true;
+                //takingDmg = true;
                 /*EnemyMeleeMovement* meleeScript = (EnemyMeleeMovement*)gameObject.GetScript("EnemyMeleeMovement");
                 if (meleeScript)
                 {
@@ -148,7 +147,7 @@ void Enemy::TakeDamage(float damage, float resistanceDamage)
         else
         {
            currentHp -= damage;
-           takingDmg = true;
+           //takingDmg = true;
            /*EnemyRanger* rangeScript = (EnemyRanger*)gameObject.GetScript("EnemyRanger");
            if (rangeScript)
            {
@@ -181,6 +180,7 @@ void Enemy::TakeDamage(float damage, float resistanceDamage)
     if (currentResistance <= 0)
     {
         currentResistance = maxResistance;
+        takingDmg = true;
         // reaction
     }
 

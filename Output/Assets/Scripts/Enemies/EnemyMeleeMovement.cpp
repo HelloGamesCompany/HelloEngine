@@ -62,12 +62,15 @@ void EnemyMeleeMovement::Start()
     enemy = (Enemy*)gameObject.GetScript("Enemy");
     attackZone = (EnemyMeleeAttackZone*)attackZoneGO.GetScript("EnemyMeleeAttackZone");
     targStats = (PlayerStats*)target.GetScript("PlayerStats");
+    probDash = 50;
+    tDash = 0.5;
+    velDash = 10;
 }
 void EnemyMeleeMovement::Update()
 {
     
     float dt = Time::GetDeltaTime();
-
+    
     if (enemy != nullptr && attackZone != nullptr && targStats != nullptr)
     {
         if(enemy->dying)enemState = States::DYING;

@@ -94,26 +94,32 @@ void EnemyTank::Start()
 }
 void EnemyTank::Update()
 {
-	Recovering();
-
-	CheckDistance();
-
-	if (isReturning == false) {
-		switch (state)
+	if (enemyScript)
+	{
+		if (enemyScript->dying)DieTank();
+		if (!enemyScript->dying)
 		{
-		case States::WANDERING:
-			Wander();
-			break;
-		case States::TARGETING:
-			Seek();
-			break;
-		case States::ATTACKING:
-			//Attack();
-			break;
+
+			Recovering();
+
+			CheckDistance();
+
+			if (isReturning == false) {
+				switch (state)
+				{
+				case States::WANDERING:
+					Wander();
+					break;
+				case States::TARGETING:
+					Seek();
+					break;
+				
+				}
+			}
+			else {
+				ReturnToZone();
+			}
 		}
-	}
-	else {
-		ReturnToZone();
 	}
 	
 	//A is protrected enemy
