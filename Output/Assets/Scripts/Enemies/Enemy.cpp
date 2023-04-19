@@ -41,7 +41,10 @@ void Enemy::Start()
     
     enemyRb = gameObject.GetRigidBody();
 
-    _coldSlow = _coldStun = 0;
+    _coldSlow = _coldStun = _coldAnimDie = _coldAnimHit = 0;
+    takingDmg =dying = false;
+    _tAnimHit = 0.5f;
+    _tAnimDie = 2.0f;
 }
 
 void Enemy::Update()
@@ -66,6 +69,25 @@ void Enemy::Update()
         TakeDamage(0.5f, 0.0f);
     }
 
+    if (takingDmg)
+    {
+        _coldAnimHit += Time::GetDeltaTime();
+        if (_coldAnimHit < _tAnimHit)
+        {
+            EnemyMeleeMovement* meleeScript = (EnemyMeleeMovement*)gameObject.GetScript("EnemyMeleeMovement");
+            EnemyRanger* rangeScript = (EnemyRanger*)gameObject.GetScript("EnemyRanger");
+            if (meleeScript)
+            {
+                meleeScript->HitAnim();
+            }
+            else if (rangeScript)
+            {
+                rangeScript->HitAnimation();
+            }
+        }
+        else if (_coldAnimHit >= _tAnimHit) takingDmg = false, _coldAnimHit = 0;;
+    }
+
 }
 
 void Enemy::TakeDamage(float damage, float resistanceDamage)
@@ -81,23 +103,24 @@ void Enemy::TakeDamage(float damage, float resistanceDamage)
             if (!meleeScript->dashing)
             {
                 currentHp -= damage;
-                EnemyMeleeMovement* meleeScript = (EnemyMeleeMovement*)gameObject.GetScript("EnemyMeleeMovement");
+                takingDmg = true;
+                /*EnemyMeleeMovement* meleeScript = (EnemyMeleeMovement*)gameObject.GetScript("EnemyMeleeMovement");
                 if (meleeScript)
                 {
                     meleeScript->HitAnim();
-                }
+                }*/
 
             }
         }
         else
         {
            currentHp -= damage;
-
-           EnemyRanger* rangeScript = (EnemyRanger*)gameObject.GetScript("EnemyRanger");
+           takingDmg = true;
+           /*EnemyRanger* rangeScript = (EnemyRanger*)gameObject.GetScript("EnemyRanger");
            if (rangeScript)
            {
                rangeScript->HitAnimation();
-           }
+           }*/
         }
         
     }
@@ -137,11 +160,18 @@ void Enemy::TakeDamage(float damage, float resistanceDamage)
 
 void Enemy::Die()
 {
+   /* EnemyMeleeMovement* meleeScript = (EnemyMeleeMovement*)gameObject.GetScript("EnemyMeleeMovement");
+    EnemyRanger* rangeScript = (EnemyRanger*)gameObject.GetScript("EnemyRanger");
+    EnemyTank* tankScript = (EnemyTank*)gameObject.GetScript("EnemyTank");*/
     // some animation
     if(enemyDropManager != nullptr)enemyDropManager->SpinDropRate(gameObject.GetTransform().GetGlobalPosition());
 
     hitParticles.StopEmitting();
+    /*if (!meleeScript && !rangeScript && !tankScript)
+    {
 
+        gameObject.SetActive(false);
+    }*/
     gameObject.SetActive(false);
 }
 
