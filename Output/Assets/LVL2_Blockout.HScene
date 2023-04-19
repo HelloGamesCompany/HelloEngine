@@ -54,7 +54,7 @@
             {
                 "Active camera": true,
                 "Active culling": false,
-                "Aspect ratio": 1.879289984703064,
+                "Aspect ratio": 1.9974778890609741,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -99982,6 +99982,9 @@
                 "Inspector Fields": [
                     {
                         "NumberOfEnemiesInLevel": 9
+                    },
+                    {
+                        "Player Storage": 373022943
                     }
                 ],
                 "Script Resource": 3678518277,
@@ -99991,7 +99994,7 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Player": 373022943
+                        "Player Storage": 373022943
                     }
                 ],
                 "Script Resource": 502196520,

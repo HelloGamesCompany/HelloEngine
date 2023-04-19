@@ -6,6 +6,8 @@ HELLO_ENGINE_API_C Mision_SomethingPersonal* CreateMision_SomethingPersonal(Scri
 	Mision_SomethingPersonal* classInstance = new Mision_SomethingPersonal();
 	//Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
 	script->AddDragBoxGameObject("hiddentank", &classInstance->hiddenTank);
+	script->AddDragBoxGameObject("Player Storage", &classInstance->playerStorageGO);
+
 	return classInstance;
 }
 
@@ -34,7 +36,7 @@ void Mision_SomethingPersonal::Update()
 			misionCompleted = true;
 
 			playerStorage->skillPoints += 1;
-			//playerStorage->SaveData();
+			playerStorage->SaveData();
 
 		}
 
