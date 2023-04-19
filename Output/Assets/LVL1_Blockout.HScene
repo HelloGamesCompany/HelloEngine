@@ -98583,12 +98583,6 @@
                         "Upgraded Aid Kit Heal Amount": 60.0
                     },
                     {
-                        "Laser Ammo": 500
-                    },
-                    {
-                        "Fire Ammo": 0
-                    },
-                    {
                         "Hit Particles": 4287485572
                     },
                     {
@@ -98634,12 +98628,6 @@
                         "Upgraded Aid Kit Heal Amount": 60.0
                     },
                     {
-                        "Laser Ammo": 500
-                    },
-                    {
-                        "Fire Ammo": 0
-                    },
-                    {
                         "Hit Particles": 4287485572
                     },
                     {
@@ -98683,12 +98671,6 @@
                     },
                     {
                         "Upgraded Aid Kit Heal Amount": 60.0
-                    },
-                    {
-                        "Laser Ammo": 500
-                    },
-                    {
-                        "Fire Ammo": 0
                     },
                     {
                         "Hit Particles": 4287485572
@@ -109023,60 +109005,6 @@
                         "Texture Bomb 6": 3511744047
                     },
                     {
-                        "Check": true
-                    },
-                    {
-                        "Max Health": 100.0
-                    },
-                    {
-                        "Current Helath": 0.0
-                    },
-                    {
-                        "Resistance": 100.0
-                    },
-                    {
-                        "Speed": 5.0
-                    },
-                    {
-                        "Acceleration": 1.399999976158142
-                    },
-                    {
-                        "Current speed": 0.0
-                    },
-                    {
-                        "Enemy Manager": 4209282209
-                    },
-                    {
-                        "Hit particle system": 3865749439
-                    },
-                    {
-                        "Has Shield": false
-                    },
-                    {
-                        "Bomb": 2731643300
-                    },
-                    {
-                        "Texture Bomb 1": 2841828716
-                    },
-                    {
-                        "Texture Bomb 2": 2355726889
-                    },
-                    {
-                        "Texture Bomb 3": 1382913145
-                    },
-                    {
-                        "Texture Bomb 4": 1986747850
-                    },
-                    {
-                        "Texture Bomb 5": 2209918018
-                    },
-                    {
-                        "Texture Bomb 6": 3511744047
-                    },
-                    {
-                        "Check": true
-                    },
-                    {
                         "Max Health": 100.0
                     },
                     {
@@ -109179,87 +109107,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Detection distance": 13.0
-                    },
-                    {
-                        "Lossing Enemy distance": 15.0
-                    },
-                    {
-                        "OutsideZone Time": 2.0
-                    },
-                    {
-                        "Time cooldown between shoots": 2.0
-                    },
-                    {
-                        "Attack Time": 1.0
-                    },
-                    {
-                        "Attack Charge": 1.0
-                    },
-                    {
-                        "Attack Cooldown": 1.0
-                    },
-                    {
-                        "Attack Speed": 11.0
-                    },
-                    {
-                        "Charge Speed": 0.0
-                    },
-                    {
-                        "Walk Away Speed": 2.0
-                    },
-                    {
-                        "Probaility to dodge %": 0
-                    },
-                    {
-                        "Vel dash": 0.0
-                    },
-                    {
-                        "Time Dash": 0.0
-                    },
-                    {
-                        "Target": 373022943
-                    },
-                    {
-                        "Action zone": 3487559166
-                    },
-                    {
-                        "Attack zone": 3036286051
-                    },
-                    {
-                        "Point 1": 4265518614
-                    },
-                    {
-                        "Point 2": 2747677965
-                    },
-                    {
-                        "Point 3": 2539204720
-                    },
-                    {
-                        "Animation Player": 759147511
-                    },
-                    {
-                        "Walk Animation": 3613987091
-                    },
-                    {
-                        "Run Animation": 4206396574
-                    },
-                    {
-                        "Attack Animation": 3432128472
-                    },
-                    {
-                        "Charge Animation": 3274135775
-                    },
-                    {
-                        "Dash Animation": 3797384433
-                    },
-                    {
-                        "Die Animation": 3729272791
-                    },
-                    {
-                        "Hit Animation": 1305257066
-                    },
                     {
                         "Detection distance": 13.0
                     },
@@ -112512,9 +112359,6 @@
                     },
                     {
                         "attack": false
-                    },
-                    {
-                        "attack": false
                     }
                 ],
                 "Script Resource": 4208369783,
@@ -112638,12 +112482,79 @@
                 "Enabled": true,
                 "ResourceUID": 2355726889,
                 "Type": 3
+            },
+            {
+                "AngularFactor": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "ColPosition": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "Gravity": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    false,
+                    true,
+                    false
+                ],
+                "IsShapeSelected": [
+                    false,
+                    true,
+                    false
+                ],
+                "IsStatic": false,
+                "IsTrigger": true,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    0.11080057173967361,
+                    0.6837209463119507,
+                    0.0031801152508705854,
+                    1.0
+                ],
+                "ShapeSelected": 1,
+                "SphereHorSlices": 16,
+                "SphereRadius": 5.0,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": null,
+                "Script Resource": 1094532674,
+                "Type": 5
             }
         ],
-        "FirstOnPrefab": true,
-        "Name": "Bomb",
+        "FirstOnPrefab": false,
+        "Name": "StickyBomb",
         "ParentUID": 2611403567,
-        "PrefabUID": 0,
+        "PrefabUID": 1866163220,
         "Tag": "Primitive",
         "UID": 2731643300
     },
@@ -112957,9 +112868,6 @@
                         "Has Shield": false
                     },
                     {
-                        "Check": false
-                    },
-                    {
                         "Max Health": 100.0
                     },
                     {
@@ -112985,9 +112893,6 @@
                     },
                     {
                         "Has Shield": false
-                    },
-                    {
-                        "Check": false
                     },
                     {
                         "Max Health": 100.0
@@ -115599,9 +115504,6 @@
                         "Has Shield": false
                     },
                     {
-                        "Check": false
-                    },
-                    {
                         "Max Health": 100.0
                     },
                     {
@@ -115627,9 +115529,6 @@
                     },
                     {
                         "Has Shield": false
-                    },
-                    {
-                        "Check": false
                     },
                     {
                         "Max Health": 100.0
@@ -118223,9 +118122,6 @@
                         "Has Shield": false
                     },
                     {
-                        "Check": false
-                    },
-                    {
                         "Max Health": 100.0
                     },
                     {
@@ -118251,9 +118147,6 @@
                     },
                     {
                         "Has Shield": false
-                    },
-                    {
-                        "Check": false
                     },
                     {
                         "Max Health": 100.0
@@ -120847,9 +120740,6 @@
                         "Has Shield": false
                     },
                     {
-                        "Check": false
-                    },
-                    {
                         "Max Health": 100.0
                     },
                     {
@@ -120875,9 +120765,6 @@
                     },
                     {
                         "Has Shield": false
-                    },
-                    {
-                        "Check": false
                     },
                     {
                         "Max Health": 100.0
@@ -123489,9 +123376,6 @@
                         "Has Shield": false
                     },
                     {
-                        "Check": false
-                    },
-                    {
                         "Max Health": 100.0
                     },
                     {
@@ -123517,9 +123401,6 @@
                     },
                     {
                         "Has Shield": false
-                    },
-                    {
-                        "Check": false
                     },
                     {
                         "Max Health": 100.0
@@ -126131,9 +126012,6 @@
                         "Has Shield": false
                     },
                     {
-                        "Check": false
-                    },
-                    {
                         "Max Health": 100.0
                     },
                     {
@@ -126159,9 +126037,6 @@
                     },
                     {
                         "Has Shield": false
-                    },
-                    {
-                        "Check": false
                     },
                     {
                         "Max Health": 100.0
@@ -128773,9 +128648,6 @@
                         "Has Shield": false
                     },
                     {
-                        "Check": false
-                    },
-                    {
                         "Max Health": 100.0
                     },
                     {
@@ -128801,9 +128673,6 @@
                     },
                     {
                         "Has Shield": false
-                    },
-                    {
-                        "Check": false
                     },
                     {
                         "Max Health": 100.0
@@ -131415,9 +131284,6 @@
                         "Has Shield": false
                     },
                     {
-                        "Check": false
-                    },
-                    {
                         "Max Health": 100.0
                     },
                     {
@@ -131443,9 +131309,6 @@
                     },
                     {
                         "Has Shield": false
-                    },
-                    {
-                        "Check": false
                     },
                     {
                         "Max Health": 100.0
@@ -134039,9 +133902,6 @@
                         "Has Shield": false
                     },
                     {
-                        "Check": false
-                    },
-                    {
                         "Max Health": 100.0
                     },
                     {
@@ -134067,9 +133927,6 @@
                     },
                     {
                         "Has Shield": false
-                    },
-                    {
-                        "Check": false
                     },
                     {
                         "Max Health": 100.0
@@ -136663,9 +136520,6 @@
                         "Has Shield": false
                     },
                     {
-                        "Check": false
-                    },
-                    {
                         "Max Health": 100.0
                     },
                     {
@@ -136691,9 +136545,6 @@
                     },
                     {
                         "Has Shield": false
-                    },
-                    {
-                        "Check": false
                     },
                     {
                         "Max Health": 100.0

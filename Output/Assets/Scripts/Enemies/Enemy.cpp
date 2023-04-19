@@ -231,10 +231,13 @@ void Enemy::CheckBombs()
 {
     if (currentBombNum > 0)
     {
-        TakeDamage(5.0f * currentBombNum, 1.0f * currentBombNum);
         StickBomb* stickBomb = (StickBomb*)bomb.GetScript("StickBomb");
         if (stickBomb == nullptr) Console::Log("StickyBomb missing in Bomb from enemy.");
-        stickBomb->triggerActive = true;
+        else
+        {
+            stickBomb->triggerActive = true;
+            stickBomb->damage = 5.0f * currentBombNum;
+        }
         currentBombNum = 0;
         bomb.SetActive(false);
     }
