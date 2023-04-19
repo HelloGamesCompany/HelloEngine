@@ -276,5 +276,6 @@ void Enemy::CheckBombs()
 void Enemy::AddBurn()
 {
     burnTime += Time::GetDeltaTime();
+    if (burnTime > 6.0f) burnTime = 6.0f;
     resetBurn = 0.2f;
 }
