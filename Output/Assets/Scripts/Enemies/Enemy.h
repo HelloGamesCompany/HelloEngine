@@ -66,6 +66,11 @@ public:
     API_GameObject bomb;
     uint textureBomb[6];
 
+    // burn
+    void AddBurn();
+    float burnTime = 0.0f;
+    float resetBurn;
+
 
 private:
     float _coldStun;
