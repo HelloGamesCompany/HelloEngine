@@ -18,6 +18,11 @@ HELLO_ENGINE_API_C AbilityTreeUpgrades* CreateAbilityTreeUpgrades(ScriptToInspec
     script->AddDragBoxUIInput("Current Panel", &classInstance->currentPanel);
     script->AddDragInt("Tree Index", &classInstance->treeIndex);
     script->AddDragBoxGameObject("Player", &classInstance->playerStorageGO);
+    script->AddDragBoxGameObject("Description 1", &classInstance->description1);
+    script->AddDragBoxGameObject("Description 2", &classInstance->description2);
+    script->AddDragBoxGameObject("Description 3", &classInstance->description3);
+    script->AddDragBoxGameObject("Description 4", &classInstance->description4);
+    script->AddDragBoxGameObject("Description 5", &classInstance->description5);
     return classInstance;
 }
 
@@ -34,6 +39,10 @@ void AbilityTreeUpgrades::Start()
     if (skillLevel != 2) Upgrate3.SetBlocked(true);
     if (skillLevel != 3 && upgradeNum > 3) Upgrate4.SetBlocked(true);
     if (skillLevel != 4 && upgradeNum > 4) Upgrate5.SetBlocked(true);
+    description2.SetActive(false);
+    description3.SetActive(false);
+    description4.SetActive(false);
+    description5.SetActive(false);
 }
 
 void AbilityTreeUpgrades::Update()
@@ -65,17 +74,25 @@ void AbilityTreeUpgrades::Update()
                 UpgradeSkill();
                 Upgrate1.SetBlocked(true);
                 Upgrate2.SetBlocked(false);
+                description1.SetActive(true);
+                description2.SetActive(false);
             }
             else if (upgradingLevel == 2)
             {
                 UpgradeSkill();
                 Upgrate2.SetBlocked(true);
                 Upgrate3.SetBlocked(false);
+                description1.SetActive(false);
+                description2.SetActive(true);
+                description3.SetActive(false);
             }
             else if (upgradingLevel == 3)
             {
                 UpgradeSkill();
                 Upgrate3.SetBlocked(true);
+                description2.SetActive(false);
+                description3.SetActive(true);
+                description4.SetActive(false);
                 if (upgradeNum > 3) Upgrate4.SetBlocked(false);
             }
             else if (upgradingLevel == 4)
@@ -83,11 +100,16 @@ void AbilityTreeUpgrades::Update()
                 UpgradeSkill();
                 Upgrate4.SetBlocked(true);
                 if (upgradeNum > 4) Upgrate5.SetBlocked(false);
+                description3.SetActive(false);
+                description4.SetActive(true);
+                description5.SetActive(false);
             }
             else if (upgradingLevel == 5)
             {
                 UpgradeSkill();
                 Upgrate5.SetBlocked(true);
+                description4.SetActive(false);
+                description5.SetActive(true);
             }
         }
     }
