@@ -1,0 +1,4873 @@
+[
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Root",
+        "ParentUID": 0,
+        "PrefabUID": 0,
+        "Tag": "None",
+        "UID": 564400119
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Thanos",
+        "ParentUID": 564400119,
+        "PrefabUID": 0,
+        "Tag": "Boss",
+        "UID": 1648987470
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    -13.82458209991455,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "pSphere5_$AssimpFbx$_Translation",
+        "ParentUID": 1648987470,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3975794086
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -1.2933536197579087e-07,
+                    15.403432846069336,
+                    0.02201676368713379
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "pSphere5_$AssimpFbx$_RotationPivot",
+        "ParentUID": 3975794086,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1002736093
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    1.2933536197579087e-07,
+                    -15.403432846069336,
+                    -0.02201676368713379
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "pSphere5_$AssimpFbx$_RotationPivotInverse",
+        "ParentUID": 1002736093,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1091101569
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -1.2933536197579087e-07,
+                    15.403432846069336,
+                    0.02201676368713379
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "pSphere5_$AssimpFbx$_ScalingPivot",
+        "ParentUID": 1091101569,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2790738293
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    0.10102398693561554,
+                    0.10102398693561554,
+                    0.10102398693561554
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "pSphere5_$AssimpFbx$_Scaling",
+        "ParentUID": 2790738293,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2555127800
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    1.2933536197579087e-07,
+                    -15.403432846069336,
+                    -0.02201676368713379
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "pSphere5_$AssimpFbx$_ScalingPivotInverse",
+        "ParentUID": 2555127800,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1597098071
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 1642410711,
+                "RootBoneUuid": -1,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 9
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "pSphere5",
+        "ParentUID": 1597098071,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3451442243
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.002923712832853198,
+                    1.353754997253418,
+                    0.23053954541683197
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cadera_$AssimpFbx$_Translation",
+        "ParentUID": 1648987470,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2109547445
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    -3.9275341033935547
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cadera_$AssimpFbx$_PreRotation",
+        "ParentUID": 2109547445,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2395981625
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cadera",
+        "ParentUID": 2395981625,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2696872077
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.20698338747024536,
+                    2.220446049250313e-16,
+                    6.162975822039155e-33
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CamaE_$AssimpFbx$_Translation",
+        "ParentUID": 2696872077,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 140560880
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    -84.97084045410156
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CamaE_$AssimpFbx$_PreRotation",
+        "ParentUID": 140560880,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2053526192
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -11.803304672241211,
+                    -1.4500428438186646,
+                    3.2120513916015625
+                ],
+                "Scale": [
+                    1.0,
+                    0.9999999403953552,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CamaE_$AssimpFbx$_Rotation",
+        "ParentUID": 2053526192,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1970631279
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CamaE",
+        "ParentUID": 1970631279,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3179939131
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.6226192712783813,
+                    -0.018597794696688652,
+                    0.013603094033896923
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "GenollE_$AssimpFbx$_Translation",
+        "ParentUID": 3179939131,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2157999734
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -95.16188049316406,
+                    1.0971554517745972,
+                    9.097732543945313
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "GenollE_$AssimpFbx$_PreRotation",
+        "ParentUID": 2157999734,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 4143466734
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.24321728944778442,
+                    -0.9780095219612122,
+                    14.066265106201172
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "GenollE_$AssimpFbx$_Rotation",
+        "ParentUID": 4143466734,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 819051973
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "GenollE",
+        "ParentUID": 819051973,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3231590537
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.7843719124794006,
+                    0.006220216862857342,
+                    0.0005439925589598715
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "TalóPeu_$AssimpFbx$_Translation",
+        "ParentUID": 3231590537,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3292910109
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -174.90223693847656,
+                    0.8061604499816895,
+                    98.96273803710938
+                ],
+                "Scale": [
+                    0.9999999403953552,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "TalóPeu_$AssimpFbx$_PreRotation",
+        "ParentUID": 3292910109,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3225340096
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "TalóPeu",
+        "ParentUID": 3225340096,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1922654143
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.26135489344596863,
+                    -0.01914926990866661,
+                    0.0007407853263430297
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "PuntaPeu_$AssimpFbx$_Translation",
+        "ParentUID": 1922654143,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 153342666
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    7.9441986083984375,
+                    -0.0
+                ],
+                "Scale": [
+                    0.9999999403953552,
+                    1.0,
+                    0.9999999403953552
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "PuntaPeu_$AssimpFbx$_PreRotation",
+        "ParentUID": 153342666,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2876019026
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "PuntaPeu",
+        "ParentUID": 2876019026,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 4240236922
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.20035967230796814,
+                    -0.027888253331184387,
+                    6.162975822039155e-33
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CamaD_$AssimpFbx$_Translation",
+        "ParentUID": 2696872077,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3547590593
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -180.0,
+                    4.999943030270515e-06,
+                    86.56227111816406
+                ],
+                "Scale": [
+                    0.9999999403953552,
+                    0.9999999403953552,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CamaD_$AssimpFbx$_PreRotation",
+        "ParentUID": 3547590593,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 415351476
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.485385924577713,
+                    33.881282806396484,
+                    4.42960786819458
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    0.9999999403953552
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CamaD_$AssimpFbx$_Rotation",
+        "ParentUID": 415351476,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3465273924
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CamaD",
+        "ParentUID": 3465273924,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3227879187
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.6244744062423706,
+                    -3.190140749272265e-16,
+                    -5.387793936005353e-17
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "GenollD_$AssimpFbx$_Translation",
+        "ParentUID": 3227879187,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2603049518
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    98.93988800048828,
+                    -0.48385804891586304,
+                    9.612183570861816
+                ],
+                "Scale": [
+                    0.9999999403953552,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "GenollD_$AssimpFbx$_PreRotation",
+        "ParentUID": 2603049518,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 765437957
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    1.0406370162963867,
+                    -1.4606972932815552,
+                    35.472930908203125
+                ],
+                "Scale": [
+                    0.9999999403953552,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "GenollD_$AssimpFbx$_Rotation",
+        "ParentUID": 765437957,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2896762825
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "GenollD",
+        "ParentUID": 2896762825,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1040288348
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.7893226742744446,
+                    -1.3877787807814457e-16,
+                    5.48172618408671e-16
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "TalóPeuD_$AssimpFbx$_Translation",
+        "ParentUID": 1040288348,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 4176530956
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    171.18199157714844,
+                    -1.4751622676849365,
+                    99.42231750488281
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "TalóPeuD_$AssimpFbx$_PreRotation",
+        "ParentUID": 4176530956,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 680781179
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "TalóPeuD",
+        "ParentUID": 680781179,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1702351799
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.26619812846183777,
+                    7.83336069620777e-17,
+                    6.245004513516506e-17
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "PuntaPeuD_$AssimpFbx$_Translation",
+        "ParentUID": 1702351799,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 4107032355
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.6118150949478149,
+                    -7.944215774536133,
+                    -1.0102108483067695e-08
+                ],
+                "Scale": [
+                    0.9999999403953552,
+                    0.9999999403953552,
+                    0.9999999403953552
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "PuntaPeuD_$AssimpFbx$_PreRotation",
+        "ParentUID": 4107032355,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2546823550
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "PuntaPeuD",
+        "ParentUID": 2546823550,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3267493782
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.016127079725265503,
+                    0.22395406663417816,
+                    -0.00062775076366961
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cintura_$AssimpFbx$_Translation",
+        "ParentUID": 2696872077,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3241763981
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    180.0,
+                    -4.994310074835084e-06,
+                    -94.382568359375
+                ],
+                "Scale": [
+                    0.9999999403953552,
+                    0.9999999403953552,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cintura_$AssimpFbx$_PreRotation",
+        "ParentUID": 3241763981,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2908650992
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    9.066808700561523,
+                    0.0717102438211441,
+                    -0.005685789044946432
+                ],
+                "Scale": [
+                    1.0,
+                    0.9999999403953552,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cintura_$AssimpFbx$_Rotation",
+        "ParentUID": 2908650992,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 4072642224
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cintura",
+        "ParentUID": 4072642224,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 568297071
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.5577645897865295,
+                    4.163336342344337e-17,
+                    -1.3877787807814457e-16
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Pit_$AssimpFbx$_Translation",
+        "ParentUID": 568297071,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 171649338
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    0.35347676277160645
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Pit_$AssimpFbx$_PreRotation",
+        "ParentUID": 171649338,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1799543426
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Pit",
+        "ParentUID": 1799543426,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1816837226
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.24414053559303284,
+                    1.280671284575874e-07,
+                    -1.5040384823805653e-05
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Coll_$AssimpFbx$_Translation",
+        "ParentUID": 1816837226,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3237644146
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -108.1089859008789,
+                    -0.09653740376234055,
+                    -1.4436355829238892
+                ],
+                "Scale": [
+                    0.9999999403953552,
+                    0.9999999403953552,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Coll_$AssimpFbx$_PreRotation",
+        "ParentUID": 3237644146,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3844427290
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.9799981713294983,
+                    0.024156102910637856,
+                    -0.00020755654259119183
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Coll_$AssimpFbx$_Rotation",
+        "ParentUID": 3844427290,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3395372257
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Coll",
+        "ParentUID": 3395372257,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2801867348
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.21184271574020386,
+                    6.938893903907228e-17,
+                    1.470178145890344e-16
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cap_$AssimpFbx$_Translation",
+        "ParentUID": 2801867348,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 4276952676
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -165.2533416748047,
+                    -0.35951316356658936,
+                    -96.81158447265625
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cap_$AssimpFbx$_PreRotation",
+        "ParentUID": 4276952676,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 4229558707
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cap",
+        "ParentUID": 4229558707,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3148926286
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.06798537075519562,
+                    -0.363142192363739,
+                    0.11631790548563004
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "BraçD_$AssimpFbx$_Translation",
+        "ParentUID": 1816837226,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3381267878
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    1.0299241542816162,
+                    0.0018255814211443067,
+                    -92.60417938232422
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "BraçD_$AssimpFbx$_PreRotation",
+        "ParentUID": 3381267878,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 93440477
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -21.81257438659668,
+                    64.49766540527344,
+                    -72.79761505126953
+                ],
+                "Scale": [
+                    0.9999999403953552,
+                    1.0,
+                    0.9999999403953552
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "BraçD_$AssimpFbx$_Rotation",
+        "ParentUID": 93440477,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2838963073
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "BraçD",
+        "ParentUID": 2838963073,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1348110708
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.30339372158050537,
+                    0.014059484004974365,
+                    0.007999458350241184
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "ColzeD_$AssimpFbx$_Translation",
+        "ParentUID": 1348110708,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3190249476
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.32358425855636597,
+                    6.814690589904785,
+                    6.6399993896484375
+                ],
+                "Scale": [
+                    1.0,
+                    0.9999999403953552,
+                    0.9999999403953552
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "ColzeD_$AssimpFbx$_PreRotation",
+        "ParentUID": 3190249476,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2714990547
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    165.65444946289063,
+                    78.38497161865234,
+                    -120.47441864013672
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "ColzeD_$AssimpFbx$_Rotation",
+        "ParentUID": 2714990547,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3141143023
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "ColzeD",
+        "ParentUID": 3141143023,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2668593850
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.4734064042568207,
+                    0.0016374870901927352,
+                    -0.0026364268269389868
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CanellD_$AssimpFbx$_Translation",
+        "ParentUID": 2668593850,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2772107778
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    1.8653967380523682,
+                    25.437990188598633,
+                    -2.399031400680542
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CanellD_$AssimpFbx$_PreRotation",
+        "ParentUID": 2772107778,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2560166377
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -2.8627078533172607,
+                    3.82511568069458,
+                    -25.690914154052734
+                ],
+                "Scale": [
+                    0.9999999403953552,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CanellD_$AssimpFbx$_Rotation",
+        "ParentUID": 2560166377,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 200549116
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CanellD",
+        "ParentUID": 200549116,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3786293036
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.17779740691184998,
+                    -6.661338147750939e-16,
+                    2.220446049250313e-16
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "BasePolzeD_$AssimpFbx$_Translation",
+        "ParentUID": 3786293036,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1889667355
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.2320450246334076,
+                    6.828514575958252,
+                    -29.685110092163086
+                ],
+                "Scale": [
+                    0.9999999403953552,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "BasePolzeD_$AssimpFbx$_PreRotation",
+        "ParentUID": 1889667355,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1387678678
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "BasePolzeD",
+        "ParentUID": 1387678678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 582884813
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0948454812169075,
+                    3.3306690738754696e-16,
+                    -1.1102230246251565e-16
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "PuntaPolzeD_$AssimpFbx$_Translation",
+        "ParentUID": 582884813,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2172553265
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -158.5411834716797,
+                    34.83010482788086,
+                    145.46299743652344
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "PuntaPolzeD_$AssimpFbx$_PreRotation",
+        "ParentUID": 2172553265,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3762566629
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "PuntaPolzeD",
+        "ParentUID": 3762566629,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3595894568
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.19916823506355286,
+                    -0.0007227766909636557,
+                    0.05358269065618515
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "BaseÍndexD_$AssimpFbx$_Translation",
+        "ParentUID": 3786293036,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 427002183
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.5871041417121887,
+                    -16.855331420898438,
+                    -2.024031162261963
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "BaseÍndexD_$AssimpFbx$_PreRotation",
+        "ParentUID": 427002183,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2850327027
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "BaseÍndexD",
+        "ParentUID": 2850327027,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2243969678
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0811692401766777,
+                    1.2212453270876722e-15,
+                    2.220446049250313e-16
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CentreÍndexD_$AssimpFbx$_Translation",
+        "ParentUID": 2243969678,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2272527334
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    7.325069427490234,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CentreÍndexD_$AssimpFbx$_PreRotation",
+        "ParentUID": 2272527334,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1915237661
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CentreÍndexD",
+        "ParentUID": 1915237661,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3501492161
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.12182628363370895,
+                    -8.881784197001252e-16,
+                    -6.661338147750939e-16
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "PuntaÍndexD_$AssimpFbx$_Translation",
+        "ParentUID": 3501492161,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3631954613
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -180.0,
+                    23.813831329345703,
+                    -180.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "PuntaÍndexD_$AssimpFbx$_PreRotation",
+        "ParentUID": 3631954613,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2702494264
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "PuntaÍndexD",
+        "ParentUID": 2702494264,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 720818071
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.18018585443496704,
+                    -8.077898382907733e-05,
+                    0.08357030898332596
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "BaseCorD_$AssimpFbx$_Translation",
+        "ParentUID": 3786293036,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1677034627
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -1.2559001445770264,
+                    -32.94565200805664,
+                    -2.3084254264831543
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "BaseCorD_$AssimpFbx$_PreRotation",
+        "ParentUID": 1677034627,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2436791903
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "BaseCorD",
+        "ParentUID": 2436791903,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 680886762
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.09215423464775085,
+                    5.551115123125783e-17,
+                    -2.220446049250313e-16
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CentreCorD_$AssimpFbx$_Translation",
+        "ParentUID": 680886762,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 463211249
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    6.166036128997803,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CentreCorD_$AssimpFbx$_PreRotation",
+        "ParentUID": 463211249,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2615908261
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CentreCorD",
+        "ParentUID": 2615908261,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2650786793
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.11657446622848511,
+                    3.7192471324942744e-15,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "PuntaCorD_$AssimpFbx$_Translation",
+        "ParentUID": 2650786793,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 4272540925
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -180.0,
+                    6.553164958953857,
+                    -180.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "PuntaCorD_$AssimpFbx$_PreRotation",
+        "ParentUID": 4272540925,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2021720352
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "PuntaCorD",
+        "ParentUID": 2021720352,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3819369376
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.16242070496082306,
+                    0.0005200507584959269,
+                    0.1151050329208374
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "BaseAnellD_$AssimpFbx$_Translation",
+        "ParentUID": 3786293036,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2595063839
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -1.6283063888549805,
+                    -40.03631591796875,
+                    -2.5303187370300293
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "BaseAnellD_$AssimpFbx$_PreRotation",
+        "ParentUID": 2595063839,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3140228779
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "BaseAnellD",
+        "ParentUID": 3140228779,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3442521767
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.09592238813638687,
+                    1.3322676295501878e-15,
+                    1.1102230246251565e-16
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CentreAnellD_$AssimpFbx$_Translation",
+        "ParentUID": 3442521767,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 4042888915
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    -1.040199637413025,
+                    0.0
+                ],
+                "Scale": [
+                    0.9999999403953552,
+                    1.0,
+                    0.9999999403953552
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CentreAnellD_$AssimpFbx$_PreRotation",
+        "ParentUID": 4042888915,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3582375150
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CentreAnellD",
+        "ParentUID": 3582375150,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 4084406726
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.10619780421257019,
+                    3.4416913763379853e-15,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "PuntaAnellD_$AssimpFbx$_Translation",
+        "ParentUID": 4084406726,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3580904573
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -180.0,
+                    -7.75002908706665,
+                    -180.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "PuntaAnellD_$AssimpFbx$_PreRotation",
+        "ParentUID": 3580904573,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 485613216
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "PuntaAnellD",
+        "ParentUID": 485613216,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3190124320
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.14245136082172394,
+                    0.0011954278452321887,
+                    0.15338779985904694
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "PetitBaseD_$AssimpFbx$_Translation",
+        "ParentUID": 3786293036,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2591439263
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -2.302008628845215,
+                    -49.90242004394531,
+                    -3.008216619491577
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "PetitBaseD_$AssimpFbx$_PreRotation",
+        "ParentUID": 2591439263,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 4196693547
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "PetitBaseD",
+        "ParentUID": 4196693547,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 4261190695
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.06107046455144882,
+                    -5.551115123125783e-17,
+                    3.3306690738754696e-16
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "PetitCentreD_$AssimpFbx$_Translation",
+        "ParentUID": 4261190695,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2081339986
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    -5.126596450805664,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "PetitCentreD_$AssimpFbx$_PreRotation",
+        "ParentUID": 2081339986,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1364532857
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "PetitCentreD",
+        "ParentUID": 1364532857,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 4055384269
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0757332295179367,
+                    2.7755575615628914e-15,
+                    3.3306690738754696e-16
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "PetitPuntaD_$AssimpFbx$_Translation",
+        "ParentUID": 4055384269,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1643054896
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -180.0,
+                    -21.71392822265625,
+                    -180.0
+                ],
+                "Scale": [
+                    0.9999999403953552,
+                    1.0,
+                    0.9999999403953552
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "PetitPuntaD_$AssimpFbx$_PreRotation",
+        "ParentUID": 1643054896,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3260920048
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "PetitPuntaD",
+        "ParentUID": 3260920048,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 838362543
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.21953162550926208,
+                    0.3803057074546814,
+                    0.04415499418973923
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "BraçE_$AssimpFbx$_Translation",
+        "ParentUID": 1816837226,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3328020859
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    178.97007751464844,
+                    0.0018337989458814263,
+                    -92.80706787109375
+                ],
+                "Scale": [
+                    0.9999999403953552,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "BraçE_$AssimpFbx$_PreRotation",
+        "ParentUID": 3328020859,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3834474423
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    7.009155750274658,
+                    -68.83102416992188,
+                    4.805234909057617
+                ],
+                "Scale": [
+                    0.9999999403953552,
+                    1.0,
+                    0.9999999403953552
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "BraçE_$AssimpFbx$_Rotation",
+        "ParentUID": 3834474423,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1956553506
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "BraçE",
+        "ParentUID": 1956553506,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2323848586
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.42811232805252075,
+                    -0.1685299128293991,
+                    0.014081421308219433
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "ColzeE_$AssimpFbx$_Translation",
+        "ParentUID": 2323848586,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1539332881
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.32356172800064087,
+                    -6.814711093902588,
+                    6.640006065368652
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    0.9999999403953552
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "ColzeE_$AssimpFbx$_PreRotation",
+        "ParentUID": 1539332881,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1870538309
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -59.351348876953125,
+                    5.939668655395508,
+                    -4.736419677734375
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "ColzeE_$AssimpFbx$_Rotation",
+        "ParentUID": 1870538309,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1044228872
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "ColzeE",
+        "ParentUID": 1044228872,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3641845416
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.47151926159858704,
+                    -0.0023314175195991993,
+                    -0.025493836030364037
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CanellE_$AssimpFbx$_Translation",
+        "ParentUID": 3641845416,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 4115322568
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -1.8654634952545166,
+                    -25.4376163482666,
+                    -2.3992061614990234
+                ],
+                "Scale": [
+                    0.9999999403953552,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CanellE_$AssimpFbx$_PreRotation",
+        "ParentUID": 4115322568,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 4194125160
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -91.48362731933594,
+                    -18.852672576904297,
+                    22.921833038330078
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    0.9999999403953552
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CanellE_$AssimpFbx$_Rotation",
+        "ParentUID": 4194125160,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1541178503
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CanellE",
+        "ParentUID": 1541178503,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1515568690
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.1777997612953186,
+                    -1.5543122344752192e-15,
+                    1.609823385706477e-15
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "BasePolzeE_$AssimpFbx$_Translation",
+        "ParentUID": 1515568690,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 946205657
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.39658382534980774,
+                    -11.566023826599121,
+                    -30.193891525268555
+                ],
+                "Scale": [
+                    0.9999999403953552,
+                    0.9999999403953552,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "BasePolzeE_$AssimpFbx$_PreRotation",
+        "ParentUID": 946205657,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3870627245
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "BasePolzeE",
+        "ParentUID": 3870627245,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2101338512
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0933573991060257,
+                    -1.3877787807814457e-16,
+                    1.1657341758564144e-15
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "PuntaPolzeE_$AssimpFbx$_Translation",
+        "ParentUID": 2101338512,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2112507600
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    154.75173950195313,
+                    -38.48264694213867,
+                    -37.15668487548828
+                ],
+                "Scale": [
+                    1.0,
+                    0.9999999403953552,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "PuntaPolzeE_$AssimpFbx$_PreRotation",
+        "ParentUID": 2112507600,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2326502672
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "PuntaPolzeE",
+        "ParentUID": 2326502672,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1635860559
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.1991695910692215,
+                    -0.0007227571913972497,
+                    -0.053582120686769485
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "BaseÍndexE_$AssimpFbx$_Translation",
+        "ParentUID": 1515568690,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 600190106
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.5871002674102783,
+                    16.854900360107422,
+                    -2.0240683555603027
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    0.9999999403953552
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "BaseÍndexE_$AssimpFbx$_PreRotation",
+        "ParentUID": 600190106,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 98547041
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "BaseÍndexE",
+        "ParentUID": 98547041,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1880769749
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.081168033182621,
+                    -3.3306690738754696e-16,
+                    7.771561172376096e-16
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CentreÍndexE_$AssimpFbx$_Translation",
+        "ParentUID": 1880769749,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 402741976
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    -7.32419490814209,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CentreÍndexE_$AssimpFbx$_PreRotation",
+        "ParentUID": 402741976,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1752602808
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CentreÍndexE",
+        "ParentUID": 1752602808,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2234183704
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.12183180451393127,
+                    -3.1086244689504383e-15,
+                    8.881784197001252e-16
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "PuntaÍndexE_$AssimpFbx$_Translation",
+        "ParentUID": 2234183704,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3863031544
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    179.99998474121094,
+                    -23.81302833557129,
+                    -2.2105737116362434e-06
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "PuntaÍndexE_$AssimpFbx$_PreRotation",
+        "ParentUID": 3863031544,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1562016599
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "PuntaÍndexE",
+        "ParentUID": 1562016599,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 585704258
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.18018518388271332,
+                    -8.067810267675668e-05,
+                    -0.08356837928295135
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "BaseCorE_$AssimpFbx$_Translation",
+        "ParentUID": 1515568690,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 896637994
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    1.25590980052948,
+                    32.945316314697266,
+                    -2.3084640502929688
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "BaseCorE_$AssimpFbx$_PreRotation",
+        "ParentUID": 896637994,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1779100210
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "BaseCorE",
+        "ParentUID": 1779100210,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 173871065
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.09215210378170013,
+                    -1.1102230246251565e-16,
+                    4.440892098500626e-16
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CentreCorE_$AssimpFbx$_Translation",
+        "ParentUID": 173871065,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1859576237
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    -8.774688720703125,
+                    0.0
+                ],
+                "Scale": [
+                    0.9999999403953552,
+                    1.0,
+                    0.9999999403953552
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CentreCorE_$AssimpFbx$_PreRotation",
+        "ParentUID": 1859576237,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2357992849
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CentreCorE",
+        "ParentUID": 2357992849,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3580152517
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.11731664836406708,
+                    -1.9984014443252818e-15,
+                    7.771561172376096e-16
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "PuntaCorE_$AssimpFbx$_Translation",
+        "ParentUID": 3580152517,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3961297289
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -179.99998474121094,
+                    -9.161794662475586,
+                    8.078466748884239e-07
+                ],
+                "Scale": [
+                    0.9999999403953552,
+                    1.0,
+                    0.9999999403953552
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "PuntaCorE_$AssimpFbx$_PreRotation",
+        "ParentUID": 3961297289,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1038546716
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "PuntaCorE",
+        "ParentUID": 1038546716,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3181453772
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.16241972148418427,
+                    0.0005201748572289944,
+                    -0.11510290950536728
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "BaseAnellE_$AssimpFbx$_Translation",
+        "ParentUID": 1515568690,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 234638395
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    1.6283009052276611,
+                    40.03563690185547,
+                    -2.530345916748047
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "BaseAnellE_$AssimpFbx$_PreRotation",
+        "ParentUID": 234638395,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1999071607
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "BaseAnellE",
+        "ParentUID": 1999071607,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3244091363
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.09592697769403458,
+                    6.661338147750939e-16,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CentreAnellE_$AssimpFbx$_Translation",
+        "ParentUID": 3244091363,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1734555966
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    1.0403673648834229,
+                    -0.0
+                ],
+                "Scale": [
+                    0.9999999403953552,
+                    1.0,
+                    0.9999999403953552
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CentreAnellE_$AssimpFbx$_PreRotation",
+        "ParentUID": 1734555966,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 4220414550
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "CentreAnellE",
+        "ParentUID": 4220414550,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2178731597
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.10620000958442688,
+                    -7.549516567451064e-15,
+                    8.881784197001252e-16
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "PuntaAnellE_$AssimpFbx$_Translation",
+        "ParentUID": 2178731597,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 112521904
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    179.99998474121094,
+                    7.749873638153076,
+                    6.816777613494196e-07
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "PuntaAnellE_$AssimpFbx$_PreRotation",
+        "ParentUID": 112521904,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 4162097776
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "PuntaAnellE",
+        "ParentUID": 4162097776,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 850703663
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.14245183765888214,
+                    0.0011955165537074208,
+                    -0.15338657796382904
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "PetitBaseE_$AssimpFbx$_Translation",
+        "ParentUID": 1515568690,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3535677179
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    2.3020081520080566,
+                    49.901832580566406,
+                    -3.008242130279541
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "PetitBaseE_$AssimpFbx$_PreRotation",
+        "ParentUID": 3535677179,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 4215210807
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "PetitBaseE",
+        "ParentUID": 4215210807,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 666193058
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.06107136979699135,
+                    4.440892098500626e-16,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "PetitCentreE_$AssimpFbx$_Translation",
+        "ParentUID": 666193058,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3970028810
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    5.12664794921875,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "PetitCentreE_$AssimpFbx$_PreRotation",
+        "ParentUID": 3970028810,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3345381521
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "PetitCentreE",
+        "ParentUID": 3345381521,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1320346052
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.07573378086090088,
+                    1.1102230246251565e-15,
+                    9.992007221626409e-16
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "PetitPuntaE_$AssimpFbx$_Translation",
+        "ParentUID": 1320346052,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2922417300
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -179.99998474121094,
+                    21.713743209838867,
+                    -1.9946980955865e-06
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "PetitPuntaE_$AssimpFbx$_PreRotation",
+        "ParentUID": 2922417300,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 424097187
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "PetitPuntaE",
+        "ParentUID": 424097187,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2465063423
+    }
+]
