@@ -16,7 +16,7 @@ bool ModuleFiles::_enabledAutomaticCompilation = false;
 std::vector<std::pair<std::string, Directory*>> ModuleFiles::lateResources;
 std::vector<uint> ModuleFiles::oldResources;
 std::vector<std::pair<ResourceMaterial*, uint>> ModuleFiles::materialResources;
-
+std::vector<std::pair<ResourcePrefab*, uint>> ModuleFiles::prefabResources;
 ModuleFiles::ModuleFiles() :Module()
 {
     Console::S_Init();
@@ -885,6 +885,15 @@ void ModuleFiles::S_RegenerateMetasUIDs()
     }
     materialResources.clear();
 
+    for (int i = 0; i < prefabResources.size(); ++i)
+    {
+        GameObject* temporalGameObject = ModuleResourceManager::S_DeserializeFromPrefab(prefabResources[i].first->resourcePath, ModuleLayers::rootGameObject);
+        ModuleResourceManager::S_OverridePrefab(temporalGameObject, prefabResources[i].first->resourcePath, prefabResources[i].second);
+        ModuleResourceManager::resources[prefabResources[i].second] = prefabResources[i].first;
+        temporalGameObject->Destroy();
+    }
+    materialResources.clear();
+
     ModuleLayers::RequestReimportAllScenes(scenes);
 
     // Serialize every scene with the changed UID. 
@@ -1018,6 +1027,11 @@ void ModuleFiles::RegenerateMetasRecursive(std::string& path, std::vector<std::s
                     if (res->type == ResourceType::MATERIAL) // We need to update materials AFTER shaders, so we save them and do them all later.
                     {
                         materialResources.push_back(std::make_pair((ResourceMaterial*)res, GUID));
+                    }
+                    else if (res->type == ResourceType::PREFAB)
+                    {
+                        prefabResources.push_back(std::make_pair((ResourcePrefab*)res, GUID));
+                        oldResources.push_back(oldMeta.UID);
                     }
                     else
                     {

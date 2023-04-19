@@ -7,6 +7,7 @@
 class FileTree;
 class Directory;
 class ResourceMaterial;
+class ResourcePrefab;
 
 using json = nlohmann::json;
 
@@ -197,6 +198,7 @@ private:
     static std::vector<std::pair<std::string, Directory*>> lateResources;
     static std::vector<uint> oldResources;
     static std::vector<std::pair<ResourceMaterial*, uint>> materialResources;
+    static std::vector<std::pair<ResourcePrefab*, uint>> prefabResources;
 };
 
 #endif // !__MODULE_PHYSFS_H__
