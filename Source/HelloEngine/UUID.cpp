@@ -22,9 +22,13 @@ uint HelloUUID::GenerateGUID(std::string input)
 {
     std::string key = hash(input);
     key = hash(key);
-    uint hashValue = 0;
+    uint32_t hashValue = 0x811c9dc5;
+    uint32_t prime = 0x1000193;
+
     for (int i = 0; i < key.size(); ++i) {
-        hashValue = (hashValue << 8) | key[i];
+        uint8_t value = key[i];
+        hashValue = hashValue ^ value;
+        hashValue *= prime;
     }
 
     return hashValue;
