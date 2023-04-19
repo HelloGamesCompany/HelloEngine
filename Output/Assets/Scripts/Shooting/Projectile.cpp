@@ -164,16 +164,16 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
         {
             Enemy* enemy = (Enemy*)other.GetGameObject().GetScript("Enemy");
             if (enemy) enemy->TakeDamage(damage, resistanceDamage);
-            pull->LauchProjectileSHOTGUN_BOMB(1.0f, gameObject.GetTransform(), { 0.3f, 0.3f, 0.3f }, other.GetGameObject().GetUID());
-            pull->LauchProjectileSHOTGUN_BOMB(1.0f, gameObject.GetTransform(), { 0.3f, 0.3f, 0.3f }, other.GetGameObject().GetUID());
+            pull->LauchProjectileSHOTGUN_BOMB(0.5f, gameObject.GetTransform(), { 0.3f, 0.3f, 0.3f }, other.GetGameObject().GetUID());
+            pull->LauchProjectileSHOTGUN_BOMB(0.5f, gameObject.GetTransform(), { 0.3f, 0.3f, 0.3f }, other.GetGameObject().GetUID());
             Destroy();
         }
         else if (detectionTag == "Boss") // EXIT
         {
             BossLoop* miniBoss = (BossLoop*)other.GetGameObject().GetScript("BossLoop");
             if (miniBoss) miniBoss->TakeDamage(damage);
-            pull->LauchProjectileSHOTGUN_BOMB(1.0f, gameObject.GetTransform(), { 0.3f, 0.3f, 0.3f }, other.GetGameObject().GetUID());
-            pull->LauchProjectileSHOTGUN_BOMB(1.0f, gameObject.GetTransform(), { 0.3f, 0.3f, 0.3f }, other.GetGameObject().GetUID());
+            pull->LauchProjectileSHOTGUN_BOMB(0.5f, gameObject.GetTransform(), { 0.3f, 0.3f, 0.3f }, other.GetGameObject().GetUID());
+            pull->LauchProjectileSHOTGUN_BOMB(0.5f, gameObject.GetTransform(), { 0.3f, 0.3f, 0.3f }, other.GetGameObject().GetUID());
             Destroy();
         }
         break;
@@ -225,6 +225,7 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
             {
                 miniBoss->TakeDamage(damage);
                 miniBoss->CheckBombs();
+                miniBoss->AddBurn();
             }
             Destroy();
         }

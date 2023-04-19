@@ -1,19 +1,19 @@
-#include "ShotgunBombExplosion.h"
+#include "StickBomb.h"
 #include "../Enemies/Enemy.h"
 #include "../EbonyMaw/BossLoop.h"
-HELLO_ENGINE_API_C ShotgunBombExplosion* CreateShotgunBombExplosion(ScriptToInspectorInterface* script)
+HELLO_ENGINE_API_C StickBomb* CreateStickBomb(ScriptToInspectorInterface* script)
 {
-    ShotgunBombExplosion* classInstance = new ShotgunBombExplosion();
-    //Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
-    return classInstance;
+	StickBomb* classInstance = new StickBomb();
+	//Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
+	return classInstance;
 }
 
-void ShotgunBombExplosion::Start()
+void StickBomb::Start()
 {
-
+	
 }
 
-void ShotgunBombExplosion::Update()
+void StickBomb::Update()
 {
     if (destroy)
     {
@@ -22,7 +22,7 @@ void ShotgunBombExplosion::Update()
     }
 }
 
-void ShotgunBombExplosion::OnCollisionEnter(API::API_RigidBody other)
+void StickBomb::OnCollisionEnter(API::API_RigidBody other)
 {
     if (!triggerActive) return;
 

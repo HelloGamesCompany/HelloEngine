@@ -1,6 +1,7 @@
 #include "BossLoop.h"
 #include "../Player/PlayerStats.h"
 #include "../Shooting/Projectile.h"
+#include "../Shooting/StickBomb.h"
 //Pau Olmos
 
 HELLO_ENGINE_API_C BossLoop* CreateBossLoop(ScriptToInspectorInterface* script)
@@ -94,6 +95,20 @@ void BossLoop::Update()
         }
     }
 
+    //burn
+    if (burnTime > 3.0f)
+    {
+        if (resetBurn >= 0.0f)
+        {
+            resetBurn -= Time::GetDeltaTime();
+            if (resetBurn <= 0.0f)
+            {
+                resetBurn = 0.0f;
+                burnTime -= Time::GetDeltaTime();
+            }
+        }
+        TakeDamage(0.5f);
+    }
 }
 
 void BossLoop::OnCollisionEnter(API::API_RigidBody other)
@@ -148,9 +163,21 @@ void BossLoop::CheckBombs()
 {
     if (currentBombNum > 0)
     {
-        TakeDamage(5.0f * currentBombNum);
+        StickBomb* stickBomb = (StickBomb*)bomb.GetScript("StickBomb");
+        if (stickBomb == nullptr) Console::Log("StickyBomb missing in Bomb from enemy.");
+        else
+        {
+            stickBomb->triggerActive = true;
+            stickBomb->damage = 5.0f * currentBombNum;
+        }
         currentBombNum = 0;
         bomb.SetActive(false);
         bombShield.SetActive(false);
     }
+}
+
+void BossLoop::AddBurn()
+{
+    burnTime += Time::GetDeltaTime();
+    resetBurn = 0.2f;
 }
