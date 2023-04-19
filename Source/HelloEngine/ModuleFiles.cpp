@@ -880,7 +880,7 @@ void ModuleFiles::S_RegenerateMetasUIDs()
 
     for (int i = 0; i < materialResources.size(); ++i)
     {
-        materialResources[i].first->Save();
+        materialResources[i].first->ReImport("a"); // String is not used :/
         ModuleResourceManager::resources[materialResources[i].second] = materialResources[i].first;
     }
     materialResources.clear();
