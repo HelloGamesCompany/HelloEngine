@@ -103,10 +103,11 @@ void EnemyMeleeMovement::Update()
             }
          }
 
-        // if (/*enemState != States::ATTACKIG ||*/ attackZone->shooted && (rand() % 100) <= probDash && !dashing )
+        // if (enemState != States::ATTACKIG && attackZone->shooted && (rand() % 100) <= probDash && !dashing )
         //{
         //     dashing = true;
-        //     sideDash = rand() % 1;
+        //    // sideDash = rand() % 1;
+        //     sideDash = 0;
         //     _dashCooldown = 0;
         //     enemState = States::DASHING;
 
