@@ -75,7 +75,31 @@ void Enemy::TakeDamage(float damage, float resistanceDamage)
     if (hasShield == false) {
 
         // Health damage
-        currentHp -= damage;
+        EnemyMeleeMovement* meleeScript = (EnemyMeleeMovement*)gameObject.GetScript("EnemyMeleeMovement");
+        if (meleeScript)
+        {
+            if (!meleeScript->dashing)
+            {
+                currentHp -= damage;
+                EnemyMeleeMovement* meleeScript = (EnemyMeleeMovement*)gameObject.GetScript("EnemyMeleeMovement");
+                if (meleeScript)
+                {
+                    meleeScript->HitAnim();
+                }
+
+            }
+        }
+        else
+        {
+           currentHp -= damage;
+
+           EnemyRanger* rangeScript = (EnemyRanger*)gameObject.GetScript("EnemyRanger");
+           if (rangeScript)
+           {
+               rangeScript->HitAnimation();
+           }
+        }
+        
     }
     else {
         EnemyTank* tankScript = (EnemyTank*)gameObject.GetScript("EnemyTank");
@@ -104,16 +128,8 @@ void Enemy::TakeDamage(float damage, float resistanceDamage)
         // reaction
     }
 
-    EnemyMeleeMovement* meleeScript = (EnemyMeleeMovement*)gameObject.GetScript("EnemyMeleeMovement");
-    if (meleeScript)
-    {
-        meleeScript->HitAnim();
-    }
-    EnemyRanger* rangeScript = (EnemyRanger*)gameObject.GetScript("EnemyRanger");
-    if (rangeScript)
-    {
-        rangeScript->HitAnimation();
-    }
+   
+    
 
 
     hitParticles.Play();
