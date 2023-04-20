@@ -117,6 +117,38 @@ void ModuleResourceManager::S_ImportFile(const std::string& filePath)
 
 		break;
 	}
+	case ResourceType::MATERIAL:
+	{
+		uint UUID = HelloUUID::GenerateUUID();
+		std::string resourcePath = "Resources/Materials/" + std::to_string(UUID) + ".material";
+
+		char* buffer = nullptr;
+		uint size = ModuleFiles::S_Load(filePath, &buffer);
+
+		//Resources
+		ModuleFiles::S_Save(resourcePath, &buffer[0], size, false);
+
+		//Create Metadata
+		ModuleFiles::S_CreateMetaData(filePath, resourcePath, UUID);
+		RELEASE(buffer);
+		break;
+	}
+	case ResourceType::SHADER:
+	{
+		uint UUID = HelloUUID::GenerateUUID();
+		std::string resourcePath = "Resources/Shaders/" + std::to_string(UUID) + ".shader";
+
+		char* buffer = nullptr;
+		uint size = ModuleFiles::S_Load(filePath, &buffer);
+
+		//Resources
+		ModuleFiles::S_Save(resourcePath, &buffer[0], size, false);
+
+		//Create Metadata
+		ModuleFiles::S_CreateMetaData(filePath, resourcePath, UUID);
+		RELEASE(buffer);
+		break;
+	}
 	default:
 		break;
 	}
