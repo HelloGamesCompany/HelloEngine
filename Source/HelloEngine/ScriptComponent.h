@@ -54,6 +54,8 @@ public:
 	void OnDisable() override;
 
 	void OnCollisionEnter(PhysBody3D* other);
+	void OnCollisionStay(PhysBody3D* other);
+	void OnCollisionExit(PhysBody3D* other);
 
 private:
 	void ImGuiDragScript();

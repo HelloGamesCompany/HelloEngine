@@ -71,7 +71,7 @@ void AbilityTreeUpgrades::Update()
             {
                 UpgradeSkill();
                 Upgrate2.SetBlocked(true);
-                Upgrate3.SetBlocked(false);s
+                Upgrate3.SetBlocked(false);
             }
             else if (upgradingLevel == 3)
             {

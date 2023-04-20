@@ -80,6 +80,32 @@ void ScriptComponent::OnCollisionEnter(PhysBody3D* other)
 	}
 }
 
+void ScriptComponent::OnCollisionStay(PhysBody3D* other)
+{
+	HelloBehavior* script = GetScript();
+	if (script != nullptr)
+	{
+		GameObject* otherGO = ModuleLayers::gameObjects[other->gameObjectUID];
+		PhysicsComponent* otherComponent = otherGO->GetComponent<PhysicsComponent>();
+		API::API_RigidBody apiRB;
+		apiRB.SetComponent(otherComponent);
+		script->OnCollisionStay(apiRB);
+	}
+}
+
+void ScriptComponent::OnCollisionExit(PhysBody3D* other)
+{
+	HelloBehavior* script = GetScript();
+	if (script != nullptr)
+	{
+		GameObject* otherGO = ModuleLayers::gameObjects[other->gameObjectUID];
+		PhysicsComponent* otherComponent = otherGO->GetComponent<PhysicsComponent>();
+		API::API_RigidBody apiRB;
+		apiRB.SetComponent(otherComponent);
+		script->OnCollisionExit(apiRB);
+	}
+}
+
 void ScriptComponent::Serialization(json& j)
 {
 	json _j;

@@ -107,7 +107,7 @@
                     false
                 ],
                 "IsStatic": false,
-                "IsTrigger": true,
+                "IsTrigger": false,
                 "Mass": 0.0,
                 "RenderColColor": [
                     0.5,
@@ -126,6 +126,12 @@
                 "Enabled": true,
                 "ResourceUID": 240240,
                 "Type": 3
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": null,
+                "Script Resource": 86361544,
+                "Type": 5
             }
         ],
         "FirstOnPrefab": true,
@@ -142,7 +148,7 @@
                 "Enabled": true,
                 "Position": [
                     0.0,
-                    13.795724868774414,
+                    8.993778228759766,
                     0.0
                 ],
                 "Rotation": [
@@ -227,6 +233,12 @@
                 "SphereVerSlices": 16,
                 "Type": 8,
                 "WireframeSize": 3.0
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": null,
+                "Script Resource": 86361544,
+                "Type": 5
             }
         ],
         "FirstOnPrefab": true,
