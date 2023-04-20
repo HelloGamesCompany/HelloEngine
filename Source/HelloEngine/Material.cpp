@@ -35,14 +35,18 @@ void Material::UpdateLights()
 	LightMap& lightMap = Lighting::GetLightMap();
 
 	//Directional Light
-	shader->shader.SetFloat3v("Light_Directional.Base.Color", &lightMap.directionalLight.color.At(0));
-	shader->shader.SetFloat("Light_Directional.Base.AmbientIntensity", lightMap.directionalLight.ambientIntensity);
-	shader->shader.SetFloat("Light_Directional.Base.DiffuseIntensity", lightMap.directionalLight.diffuseIntensity);
-	shader->shader.SetFloat3v("Light_Directional.Direction", &lightMap.directionalLight.direction.At(0));
-
+	if (lightMap.directionalLight.isEnabled)
+	{
+		shader->shader.SetFloat3v("Light_Directional.Base.Color", &lightMap.directionalLight.color.At(0));
+		shader->shader.SetFloat("Light_Directional.Base.AmbientIntensity", lightMap.directionalLight.ambientIntensity);
+		shader->shader.SetFloat("Light_Directional.Base.DiffuseIntensity", lightMap.directionalLight.diffuseIntensity);
+		shader->shader.SetFloat3v("Light_Directional.Direction", &lightMap.directionalLight.direction.At(0));
+	}
+	
 	//Point Light
 	for (int i = 0; (i < lightMap.pointLight.size()) && (i < shader->shader.data._maxPointLights); ++i)
 	{
+		if (!lightMap.pointLight[i].isEnabled) continue;
 		shader->shader.SetFloat3v("Light_Point[" + std::to_string(i) + "].Base.Color", &lightMap.pointLight[i].color.At(0));
 		shader->shader.SetFloat("Light_Point[" + std::to_string(i) + "].Base.AmbientIntensity", lightMap.pointLight[i].ambientIntensity);
 		shader->shader.SetFloat("Light_Point[" + std::to_string(i) + "].Base.DiffuseIntensity", lightMap.pointLight[i].diffuseIntensity);
@@ -56,6 +60,7 @@ void Material::UpdateLights()
 	//Spot Light
 	for (int i = 0; (i < lightMap.spotLight.size()) && i < (shader->shader.data._maxSpotLights); ++i)
 	{
+		if (!lightMap.spotLight[i].isEnabled) continue;
 		shader->shader.SetFloat3v("Light_Spot[" + std::to_string(i) + "].Base.Color", &lightMap.spotLight[i].color.At(0));
 		shader->shader.SetFloat("Light_Spot[" + std::to_string(i) + "].Base.AmbientIntensity", lightMap.spotLight[i].ambientIntensity);
 		shader->shader.SetFloat("Light_Spot[" + std::to_string(i) + "].Base.DiffuseIntensity", lightMap.spotLight[i].diffuseIntensity);
@@ -67,6 +72,9 @@ void Material::UpdateLights()
 		shader->shader.SetFloat3v("Light_Spot[" + std::to_string(i) + "].Position", &lightMap.spotLight[i].position.At(0));
 		shader->shader.SetFloat3v("Light_Spot[" + std::to_string(i) + "].Direction", &lightMap.spotLight[i].direction.At(0));
 	}
+
+	shader->shader.SetInt("Actual_Spot", lightMap.spotLight.size());
+	shader->shader.SetInt("Actual_Point", lightMap.pointLight.size());
 }
 
 void Material::Update(const float* view, const float* projection, const float* model)
@@ -191,6 +199,11 @@ bool Material::HandleKeyUniforms(Uniform* uni)
 				
 				toReturn = true;
 			}
+			else if (uni->data.name == "Actual_Spot" || uni->data.name == "Actual_Point")
+			{
+				toReturn = true;
+			}
+
 			break;
 		case GL_FLOAT_MAT4:
 			if (uni->data.name == "finalBonesMatrices")

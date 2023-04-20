@@ -71,7 +71,9 @@ void MaterialComponent::OnEditor()
 					_resource->material.uniforms[i]->data.name == "LightStrength" ||
 					_resource->material.uniforms[i]->data.name == "LightPosition" ||
 					_resource->material.uniforms[i]->data.name == "ViewPoint" ||
-					_resource->material.uniforms[i]->data.name == "finalBonesMatrices[0]")
+					_resource->material.uniforms[i]->data.name == "finalBonesMatrices[0]" ||
+					_resource->material.uniforms[i]->data.name == "Actual_Spot" ||
+					_resource->material.uniforms[i]->data.name == "Actual_Point")
 				{
 					continue;
 				}

@@ -10,7 +10,7 @@ SpotLightComponent::SpotLightComponent(GameObject* gameObject) : LightComponent(
 
 	data = SpotLight();
 
-	_lightID = Lighting::AddSpotLight(data);
+	_lightID = Lighting::AddSpotLight(this->data);
 }
 
 SpotLightComponent::~SpotLightComponent()
@@ -23,7 +23,8 @@ void SpotLightComponent::OnTransformCallback(float4x4 worldMatrix)
 	data.position = worldMatrix.TranslatePart();
 	data.direction = worldMatrix.ToEulerXYZ();
 
-	Lighting::GetLightMap().spotLight[_lightID] = data;
+	UpdateData(this->data);
+	Lighting::GetLightMap().spotLight[_lightID] = this->data;
 }
 
 void SpotLightComponent::SerializationUnique(json& j)
@@ -37,11 +38,15 @@ void SpotLightComponent::SerializationUnique(json& j)
 
 void SpotLightComponent::DeSerializationUnique(json& j)
 {
+	UpdateData(this->data);
+
 	data.cutoff = j["Cutoff"];
 
 	data.constant = j["Constant"];
 	data.linear = j["Linear"];
 	data.exp = j["Exp"];
+
+	Lighting::GetLightMap().spotLight[_lightID] = this->data;
 }
 
 #ifdef STANDALONE
@@ -53,5 +58,8 @@ void SpotLightComponent::OnEditorUnique()
 	ImGui::DragFloat("Constant", &data.constant);
 	ImGui::DragFloat("Linear", &data.linear);
 	ImGui::DragFloat("Exponential", &data.exp);
+
+	UpdateData(this->data);
+	Lighting::GetLightMap().spotLight[_lightID] = this->data;
 }
 #endif

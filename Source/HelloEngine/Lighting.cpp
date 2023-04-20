@@ -62,6 +62,22 @@ uint Lighting::AddSpotLight(SpotLight lightData)
 	return _lightID;
 }
 
+void Lighting::RemoveLight(Component::Type type, uint _lightID)
+{
+	switch (type)
+	{
+		case Component::Type::DIRECTIONAL_LIGHT:
+			//_lightMap.directionalLight = (DirectionalLight) lightData;
+			break;
+		case Component::Type::POINT_LIGHT:
+			_lightMap.pointLight.erase(_lightID);
+			break;
+		case Component::Type::SPOT_LIGHT:
+			_lightMap.spotLight.erase(_lightID);
+			break;
+	}
+}
+
 void Lighting::Update()
 {
 	if (!_active) return;

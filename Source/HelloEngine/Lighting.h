@@ -33,6 +33,8 @@ public:
 	static uint AddPointLight(PointLight lightData);
 	static void SetDirectionalLight(DirectionalLight lightData);
 	
+	static void RemoveLight(Component::Type type, uint _lightID);
+
 	static LightMap& GetLightMap() { return _lightMap; }
 
 private:

@@ -2,18 +2,29 @@
 #include "LightComponent.h"
 #include "GameObject.h"
 
-#include "ModuleRenderer3D.h"
-#include "RenderManager.h"
+#include "Lighting.h"
 
 LightComponent::LightComponent(GameObject* gameObject) : Component(gameObject)
 {
 	_type = Type::LIGHT;
 	_name = "Light";
+
+	_needsTransformCallback = true;
 }
 
 LightComponent::~LightComponent()
 {
+	Lighting::RemoveLight(_type, _lightID);
+}
 
+void LightComponent::OnEnable()
+{
+	data.isEnabled = true;
+}
+
+void LightComponent::OnDisable()
+{
+	data.isEnabled = false;
 }
 
 void LightComponent::Serialization(json& _j)
@@ -40,8 +51,6 @@ void LightComponent::SerializationUnique(json& j)
 
 void LightComponent::DeSerialization(json& _j)
 {
-	DeSerializationUnique(_j);
-
 	std::vector<float> temp = _j["Color"];
 	data.color = { temp[0], temp[1], temp[2] };
 
@@ -50,11 +59,21 @@ void LightComponent::DeSerialization(json& _j)
 
 	bool enabled = _j["Enabled"];
 	if (!enabled)Disable();
+
+	DeSerializationUnique(_j);
 }
 
 void LightComponent::DeSerializationUnique(json& j)
 {
 
+}
+
+// I know this is a crime against humanity but it was the best temporal solution I could think of :<
+void LightComponent::UpdateData(Light& data)
+{
+	data.ambientIntensity = this->data.ambientIntensity;
+	data.color = this->data.color;
+	data.diffuseIntensity = this->data.diffuseIntensity;
 }
 
 #ifdef STANDALONE

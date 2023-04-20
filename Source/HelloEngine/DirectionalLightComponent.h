@@ -17,6 +17,9 @@ public:
 	void SerializationUnique(json& j) override;
 	void DeSerializationUnique(json& j) override;
 
+	void OnEnable() override { data.isEnabled = true; }
+	void OnDisable() override { data.isEnabled = false; }
+
 	void OnTransformCallback(float4x4 worldMatrix) override;
 
 #ifdef STANDALONE
