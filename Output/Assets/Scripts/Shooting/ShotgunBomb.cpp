@@ -37,7 +37,7 @@ void ShotgunBomb::OnCollisionEnter(API::API_RigidBody other)
 {
     std::string detectionTag = other.GetGameObject().GetTag();
 
-    if (detectionTag == "Wall" || detectionTag == "Enemy")
+    if (detectionTag == "Wall" || (detectionTag == "Enemy" && other.GetGameObject().GetUID() != ignoreGO) || (detectionTag == "Boss" && other.GetGameObject().GetUID() != ignoreGO))
     {
         Destroy();
     }

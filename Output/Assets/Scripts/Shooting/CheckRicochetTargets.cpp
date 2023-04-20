@@ -13,6 +13,7 @@ void CheckRicochetTargets::Start()
 void CheckRicochetTargets::Update()
 {
     gameObject.GetTransform().SetPosition(atachedToGO.GetTransform().GetGlobalPosition());
+    targets.clear();
 
     if (!atachedToGO.IsActive()) gameObject.SetActive(false);
 }
@@ -21,9 +22,7 @@ void CheckRicochetTargets::OnCollisionEnter(API::API_RigidBody other)
 {
     std::string detectionTag = other.GetGameObject().GetTag();
 
-    targets.clear();
-
-    if (detectionTag == "Enemy")
+    if (detectionTag == "Enemy" || detectionTag == "Boss")
     {
         targets.push_back(other.GetGameObject());
     }
@@ -31,7 +30,10 @@ void CheckRicochetTargets::OnCollisionEnter(API::API_RigidBody other)
 
 API_GameObject CheckRicochetTargets::GetRandomTarget()
 {
-    int random = rand() % targets.size();
-    if (targets.size() > 0) return targets[random];
+    if (targets.size() > 1)
+    {
+        int random = rand() % targets.size();
+        return targets[random];
+    }
     else return gameObject;
 }

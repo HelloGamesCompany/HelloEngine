@@ -52,11 +52,13 @@ void Chest::Update()
                 break;
             case 6: // Get Flamethrower
                 playerGunManager->GetGun(3, 6);
+                playerStats->specialAmmo = 200;
                 playerStats->GetAmmo(2, 200);
                 playerStats->SaveChestData(6, chestIndex); // save game
                 break;
             case 7: // Get Ricochet
                 playerGunManager->GetGun(3, 7);
+                playerStats->specialAmmo = 15;
                 playerStats->GetAmmo(3, 15);
                 playerStats->SaveChestData(7, chestIndex); // save game
                 break;

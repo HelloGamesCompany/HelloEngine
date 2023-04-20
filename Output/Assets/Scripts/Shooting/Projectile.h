@@ -48,6 +48,9 @@ public:
     PROJECTILE_ACTION action = PROJECTILE_ACTION::NONE;
     PROJECTILE_TYPE type = PROJECTILE_TYPE::NONE;
 
+    uint ignoreGO = 0;
+
     // ricochet
     int targetsHitted = 0;
+    uint ricochetTarget;
 };

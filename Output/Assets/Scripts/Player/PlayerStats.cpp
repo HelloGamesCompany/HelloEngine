@@ -18,8 +18,6 @@ HELLO_ENGINE_API_C PlayerStats* CreatePlayerStats(ScriptToInspectorInterface* sc
     script->AddDragFloat("Upgraded Deadline Heal Amount", &classInstance->upgradedDeadlineHeal);
     script->AddDragFloat("Aid Kit Heal Amount", &classInstance->aidKitHeal);
     script->AddDragFloat("Upgraded Aid Kit Heal Amount", &classInstance->upgradedAidKitHeal);
-    script->AddDragInt("Laser Ammo", &classInstance->laserAmmo);
-    script->AddDragInt("Fire Ammo", &classInstance->specialAmmo);
     script->AddDragBoxParticleSystem("Hit Particles", &classInstance->hitParticles);
     script->AddDragBoxParticleSystem("Passive Heal Particles", &classInstance->healParticles);
     script->AddDragBoxParticleSystem("Kid Heal Particles", &classInstance->aidKitParticles);
@@ -70,11 +68,6 @@ void PlayerStats::Update()
     float dt;
     if (slowTimePowerUp > 0.0f /*&& !paused*/) dt = Time::GetRealTimeDeltaTime();
     else dt = Time::GetDeltaTime();
-
-    if (Input::GetKey(KeyCode::KEY_G) == KeyState::KEY_DOWN) // remove it before build
-    {
-        TakeDamage(50, 1);
-    }
 
     // deadline healing
     float deathlineHp;

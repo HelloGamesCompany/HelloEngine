@@ -20,7 +20,8 @@ public:
 	enum class States {
 		WANDERING,
 		TARGETING,
-		ATTACKING
+		ATTACKING,
+		DYING
 	};
 
 	void Recovering();
@@ -29,6 +30,7 @@ public:
 	void Update() override;
 
 	float TakeDamageTank(float life, float damage);
+	void DieTank();
 	void CheckDistance();
 	void ReturnToZone();
 	void MoveToDirection(float pointX, float pointY, float velocity);

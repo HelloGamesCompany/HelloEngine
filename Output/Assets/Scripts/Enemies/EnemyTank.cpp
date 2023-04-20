@@ -94,26 +94,32 @@ void EnemyTank::Start()
 }
 void EnemyTank::Update()
 {
-	Recovering();
-
-	CheckDistance();
-
-	if (isReturning == false) {
-		switch (state)
+	if (enemyScript)
+	{
+		if (enemyScript->dying)DieTank();
+		if (!enemyScript->dying)
 		{
-		case States::WANDERING:
-			Wander();
-			break;
-		case States::TARGETING:
-			Seek();
-			break;
-		case States::ATTACKING:
-			//Attack();
-			break;
+
+			Recovering();
+
+			CheckDistance();
+
+			if (isReturning == false) {
+				switch (state)
+				{
+				case States::WANDERING:
+					Wander();
+					break;
+				case States::TARGETING:
+					Seek();
+					break;
+				
+				}
+			}
+			else {
+				ReturnToZone();
+			}
 		}
-	}
-	else {
-		ReturnToZone();
 	}
 	
 	//A is protrected enemy
@@ -728,4 +734,24 @@ float EnemyTank::TakeDamageTank(float life, float damage)
 
 
 	return life;
+}
+
+void EnemyTank::DieTank()
+{
+	enemyScript->_coldAnimDie += Time::GetDeltaTime();
+	// enemy->dying = true;
+	enemyScript->enemyRb.SetVelocity(0);
+	if (enemyScript->_coldAnimDie < enemyScript->_tAnimDie)
+	{
+		if (animState != AnimStates::DIE)
+		{
+			animState = AnimStates::DIE;
+			animationPlayer.ChangeAnimation(dieAnim);
+			animationPlayer.Play();
+		}
+	}
+	else if (enemyScript->_coldAnimDie >= enemyScript->_tAnimDie)
+	{
+		gameObject.SetActive(false);
+	}
 }

@@ -23,5 +23,6 @@ public:
     int numberOfAsignedMenus;
     API_GameObject menu[10];
     API_GameObject menuPanel;
+    API_GameObject buttonGuide;
 };
 

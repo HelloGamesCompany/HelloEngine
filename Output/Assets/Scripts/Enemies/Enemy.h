@@ -57,7 +57,26 @@ public:
     bool isOut;
     bool isHit;
     bool isTargIn;
+    bool takingDmg;
+    bool dying;
+    bool died;
 
+    // bomb mechanic
+    void AddBomb();
+    void CheckBombs();
+    int maxBombNum = 6;
+    int currentBombNum = 0;
+    API_GameObject bomb;
+    uint textureBomb[6];
+
+    // burn
+    void AddBurn();
+    float burnTime = 0.0f;
+    float resetBurn;
+
+
+    float _tAnimDie;
+    float _coldAnimDie;
 private:
     float _coldStun;
     float _coldSlow;
@@ -65,5 +84,9 @@ private:
     float _tSlow;
     float _qSlow;
     float _tStun;
+
+    float _tAnimHit;
+    float _coldAnimHit;
+    
 };
 

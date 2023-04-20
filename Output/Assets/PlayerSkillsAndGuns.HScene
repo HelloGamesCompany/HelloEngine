@@ -87,9 +87,9 @@
                     0.0
                 ],
                 "Scale": [
-                    1.0000009536743164,
+                    1.000001072883606,
                     1.0,
-                    1.0000009536743164
+                    1.000001072883606
                 ],
                 "Type": 1
             },
@@ -378,7 +378,7 @@
                         "Laser Ammo": 99999
                     },
                     {
-                        "Fire Ammo": 0
+                        "Fire Ammo": 99999
                     },
                     {
                         "Hit Particles": 3804327567
@@ -426,7 +426,7 @@
                         "Laser Ammo": 99999
                     },
                     {
-                        "Fire Ammo": 0
+                        "Fire Ammo": 99999
                     },
                     {
                         "Hit Particles": 3804327567
@@ -454,10 +454,10 @@
                         "Base Gun": 0
                     },
                     {
-                        "Normal Gun": 4
+                        "Normal Gun": 6
                     },
                     {
-                        "Special Gun": 5
+                        "Special Gun": 7
                     },
                     {
                         "Duals": 1764362837
@@ -476,6 +476,12 @@
                     },
                     {
                         "Handgun": 855340649
+                    },
+                    {
+                        "Flamethrower": 3579561625
+                    },
+                    {
+                        "Ricochet": 2767080449
                     },
                     {
                         "Swap Delay": 1.0
@@ -490,10 +496,10 @@
                         "Base Gun": 0
                     },
                     {
-                        "Normal Gun": 4
+                        "Normal Gun": 6
                     },
                     {
-                        "Special Gun": 5
+                        "Special Gun": 7
                     },
                     {
                         "Duals": 1764362837
@@ -512,6 +518,12 @@
                     },
                     {
                         "Handgun": 855340649
+                    },
+                    {
+                        "Flamethrower": 3579561625
+                    },
+                    {
+                        "Ricochet": 2767080449
                     },
                     {
                         "Swap Delay": 1.0
@@ -7060,6 +7072,9 @@
                         "Electricity Chain Prefab": 2499107515
                     },
                     {
+                        "Check Ricochet Traget Prefab": 1586458953
+                    },
+                    {
                         "Player": 1475165862
                     },
                     {
@@ -7079,6 +7094,9 @@
                     },
                     {
                         "Electricity Chain Prefab": 2499107515
+                    },
+                    {
+                        "Check Ricochet Traget Prefab": 1586458953
                     }
                 ],
                 "Script Resource": 1341579112,
@@ -8083,6 +8101,324 @@
             {
                 "Enabled": true,
                 "Position": [
+                    0.0,
+                    1.5,
+                    0.699999988079071
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 13,
+                "ParticleModules": {
+                    "ModuleEmission": {
+                        "ParticlesPerSecond": 10
+                    },
+                    "ModuleMain": {
+                        "BeginScale": [
+                            0.10000000149011612,
+                            0.10000000149011612,
+                            0.10000000149011612
+                        ],
+                        "Delay": 0.0,
+                        "Duration": 0.0,
+                        "EndScale": [
+                            2.0,
+                            2.0,
+                            2.0
+                        ],
+                        "LifeTime": 3.0,
+                        "Looping": true,
+                        "PlayOnAwake": false,
+                        "Speed": [
+                            0.0,
+                            0.0,
+                            2.0
+                        ],
+                        "SpeedVariation": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ],
+                        "acceleration": [
+                            0.0,
+                            0.0,
+                            0.0
+                        ]
+                    }
+                },
+                "ResourceTextUID": 1986747850,
+                "Type": 6
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Gun Type": 6
+                    },
+                    {
+                        "Gun Type": 6
+                    }
+                ],
+                "Script Resource": 1421097082,
+                "Type": 5
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Projectile Pull": 3715485205
+                    },
+                    {
+                        "Projectile Speed": 0.0
+                    },
+                    {
+                        "Projectile Damage": 0.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 0.0
+                    },
+                    {
+                        "Projectile Lifetime": 0.0
+                    },
+                    {
+                        "Projectile Spawn": 3579561625
+                    },
+                    {
+                        "Fire Particles": 3579561625
+                    },
+                    {
+                        "Projectile ScaleX": 0.0
+                    },
+                    {
+                        "Projectile ScaleY": 0.0
+                    },
+                    {
+                        "Projectile ScaleZ": 0.0
+                    },
+                    {
+                        "Ticks per second": 0.0
+                    },
+                    {
+                        "Extra % firerate": 15.0
+                    },
+                    {
+                        "Player Stats GO": 1475165862
+                    },
+                    {
+                        "Ammo Type": 2
+                    },
+                    {
+                        "Audio Event String": "w_basic"
+                    },
+                    {
+                        "Projectile Pull": 3715485205
+                    },
+                    {
+                        "Projectile Speed": 0.0
+                    },
+                    {
+                        "Projectile Damage": 0.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 0.0
+                    },
+                    {
+                        "Projectile Lifetime": 0.0
+                    },
+                    {
+                        "Projectile Spawn": 3579561625
+                    },
+                    {
+                        "Fire Particles": 3579561625
+                    },
+                    {
+                        "Projectile ScaleX": 0.0
+                    },
+                    {
+                        "Projectile ScaleY": 0.0
+                    },
+                    {
+                        "Projectile ScaleZ": 0.0
+                    },
+                    {
+                        "Ticks per second": 0.0
+                    },
+                    {
+                        "Extra % firerate": 15.0
+                    },
+                    {
+                        "Player Stats GO": 1475165862
+                    },
+                    {
+                        "Ammo Type": 2
+                    },
+                    {
+                        "Audio Event String": "w_basic"
+                    }
+                ],
+                "Script Resource": 607248765,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Flamethrower",
+        "ParentUID": 1475165862,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3579561625
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    1.5,
+                    0.699999988079071
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Gun Type": 7
+                    },
+                    {
+                        "Gun Type": 7
+                    }
+                ],
+                "Script Resource": 1421097082,
+                "Type": 5
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Projectile Pull": 3715485205
+                    },
+                    {
+                        "Projectile Speed": 0.0
+                    },
+                    {
+                        "Projectile Damage": 0.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 0.0
+                    },
+                    {
+                        "Projectile Lifetime": 0.0
+                    },
+                    {
+                        "Projectile Spawn": 2767080449
+                    },
+                    {
+                        "Projectile ScaleX": 0.4000000059604645
+                    },
+                    {
+                        "Projectile ScaleY": 0.05000000074505806
+                    },
+                    {
+                        "Projectile ScaleZ": 0.4000000059604645
+                    },
+                    {
+                        "Projectiles per second": 0.0
+                    },
+                    {
+                        "Extra % firerate": 15.0
+                    },
+                    {
+                        "Player Stats GO": 1475165862
+                    },
+                    {
+                        "Ammo Type": 2
+                    },
+                    {
+                        "Audio Event String": "w_basic"
+                    },
+                    {
+                        "Projectile Pull": 3715485205
+                    },
+                    {
+                        "Projectile Speed": 0.0
+                    },
+                    {
+                        "Projectile Damage": 0.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 0.0
+                    },
+                    {
+                        "Projectile Lifetime": 0.0
+                    },
+                    {
+                        "Projectile Spawn": 2767080449
+                    },
+                    {
+                        "Projectile ScaleX": 0.4000000059604645
+                    },
+                    {
+                        "Projectile ScaleY": 0.05000000074505806
+                    },
+                    {
+                        "Projectile ScaleZ": 0.4000000059604645
+                    },
+                    {
+                        "Projectiles per second": 0.0
+                    },
+                    {
+                        "Extra % firerate": 15.0
+                    },
+                    {
+                        "Player Stats GO": 1475165862
+                    },
+                    {
+                        "Ammo Type": 2
+                    },
+                    {
+                        "Audio Event String": "w_basic"
+                    }
+                ],
+                "Script Resource": 2195712611,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Ricochet",
+        "ParentUID": 1475165862,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2767080449
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
                     -11.141141891479492,
                     1.1375665664672852,
                     1.3977842330932617
@@ -8394,5 +8730,323 @@
         "PrefabUID": 0,
         "Tag": "Enemy",
         "UID": 489060009
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -18.454444885253906,
+                    0.8726816177368164,
+                    -10.80437183380127
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 10,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 240240,
+                "Type": 3
+            },
+            {
+                "AngularFactor": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "ColPosition": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    2.0,
+                    2.0,
+                    2.0
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "Gravity": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsShapeSelected": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsStatic": false,
+                "IsTrigger": false,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    0.5,
+                    0.0,
+                    0.5,
+                    1.0
+                ],
+                "ShapeSelected": 0,
+                "SphereHorSlices": 16,
+                "SphereRadius": 1.0,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube",
+        "ParentUID": 2066812041,
+        "PrefabUID": 0,
+        "Tag": "Enemy",
+        "UID": 3566517877
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -25.149717330932617,
+                    1.0567069053649902,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 10,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 240240,
+                "Type": 3
+            },
+            {
+                "AngularFactor": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "ColPosition": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    2.0,
+                    2.0,
+                    2.0
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "Gravity": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsShapeSelected": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsStatic": false,
+                "IsTrigger": false,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    0.5,
+                    0.0,
+                    0.5,
+                    1.0
+                ],
+                "ShapeSelected": 0,
+                "SphereHorSlices": 16,
+                "SphereRadius": 1.0,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube",
+        "ParentUID": 2066812041,
+        "PrefabUID": 0,
+        "Tag": "Enemy",
+        "UID": 3891798265
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -2.6661527156829834,
+                    1.823859691619873,
+                    11.69653606414795
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 10,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "ResourceUID": 240240,
+                "Type": 3
+            },
+            {
+                "AngularFactor": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "ColPosition": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    2.0,
+                    2.0,
+                    2.0
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "Gravity": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsShapeSelected": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsStatic": false,
+                "IsTrigger": false,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    0.5,
+                    0.0,
+                    0.5,
+                    1.0
+                ],
+                "ShapeSelected": 0,
+                "SphereHorSlices": 16,
+                "SphereRadius": 1.0,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Cube",
+        "ParentUID": 2066812041,
+        "PrefabUID": 0,
+        "Tag": "Enemy",
+        "UID": 2875139404
     }
 ]

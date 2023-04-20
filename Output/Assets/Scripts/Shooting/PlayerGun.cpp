@@ -22,7 +22,7 @@ HELLO_ENGINE_API_C PlayerGun* CreatePlayerGun(ScriptToInspectorInterface* script
 
 void PlayerGun::Start()
 {
-    playerStats = (PlayerStats*)player.GetScript("PlayerStats");
+
 }
 
 void PlayerGun::Update()

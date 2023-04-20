@@ -70,10 +70,15 @@ void ProjectilePull::Update()
     if (playerStats && playerStats->slowTimePowerUp > 0.0f /*&& !paused*/) dt = Time::GetRealTimeDeltaTime();
     else dt = Time::GetDeltaTime();
 
-    if (autoForce > 0.0f)
+    Console::Log(std::to_string(1 + (autoForce * 4.8f)));
+    if (resetAuto >= 0.0f && autoForce >= 0.0f)
     {
-        autoForce -= dt * 0.1f;
-        if (autoForce <= 0.0f) autoForce = 0.0f;
+        resetAuto -= dt;
+        if (resetAuto <= 0.0f)
+        {
+            resetAuto = 0.0f;
+            autoForce -= dt * 1.0f;
+        }
     }
 }
 
@@ -129,6 +134,7 @@ void ProjectilePull::LauchProjectileNORMAL(float projectileSpeed, float projecti
     go.GetTransform().SetRotation(playerGO.GetTransform().GetGlobalRotation());
     go.GetTransform().SetScale(projectileScale);
     go.GetParticleSystem().Play();
+    go.GetMeshRenderer().SetActive(true);
 
     Projectile* projectile = (Projectile*)go.GetScript("Projectile");
     projectile->speed = projectileSpeed;
@@ -137,6 +143,7 @@ void ProjectilePull::LauchProjectileNORMAL(float projectileSpeed, float projecti
     projectile->lifeTime = projectileLifetime;
     projectile->action = projectileAction;
     projectile->type = PROJECTILE_TYPE::NONE;
+    projectile->ignoreGO = 0;
 }
 
 void ProjectilePull::LauchProjectileSEMI(float projectileSpeed, float projectileDamage, float projectileResistanceDamage, float projectileLifetime, API_Transform shootingSpawn, API_Vector3 projectileScale)
@@ -147,6 +154,7 @@ void ProjectilePull::LauchProjectileSEMI(float projectileSpeed, float projectile
     go.GetTransform().SetRotation(playerGO.GetTransform().GetGlobalRotation());
     go.GetTransform().SetScale(projectileScale);
     go.GetParticleSystem().Play();
+    go.GetMeshRenderer().SetActive(true);
 
     Projectile* projectile = (Projectile*)go.GetScript("Projectile");
     projectile->speed = projectileSpeed;
@@ -154,9 +162,10 @@ void ProjectilePull::LauchProjectileSEMI(float projectileSpeed, float projectile
     projectile->resistanceDamage = projectileResistanceDamage;
     projectile->lifeTime = projectileLifetime;
     projectile->type = PROJECTILE_TYPE::SEMI;
+    projectile->ignoreGO = 0;
 }
 
-void ProjectilePull::LauchProjectileSECONDARY_SEMI(float projectileSpeed, float projectileDamage, float projectileResistanceDamage, float projectileLifetime, API_Transform shootingSpawn, API_Vector3 projectileScale, float rotateY)
+void ProjectilePull::LauchProjectileSECONDARY_SEMI(float projectileSpeed, float projectileDamage, float projectileResistanceDamage, float projectileLifetime, API_Transform shootingSpawn, API_Vector3 projectileScale, float rotateY, uint ignoreGO)
 {
     API_GameObject go = GetFirstInactiveProjectile();
     go.SetActive(true);
@@ -165,6 +174,7 @@ void ProjectilePull::LauchProjectileSECONDARY_SEMI(float projectileSpeed, float 
     go.GetTransform().Rotate(0, rotateY, 0);
     go.GetTransform().SetScale(projectileScale);
     go.GetParticleSystem().Play();
+    go.GetMeshRenderer().SetActive(true);
 
     Projectile* projectile = (Projectile*)go.GetScript("Projectile");
     projectile->speed = projectileSpeed;
@@ -172,6 +182,7 @@ void ProjectilePull::LauchProjectileSECONDARY_SEMI(float projectileSpeed, float 
     projectile->resistanceDamage = projectileResistanceDamage;
     projectile->lifeTime = projectileLifetime;
     projectile->type = PROJECTILE_TYPE::SECONDARY_SEMI;
+    projectile->ignoreGO = ignoreGO;
 }
 
 void ProjectilePull::LauchProjectileAUTO(float projectileSpeed, float projectileDamage, float projectileResistanceDamage, float projectileLifetime, API_Transform shootingSpawn, API_Vector3 projectileScale)
@@ -182,15 +193,18 @@ void ProjectilePull::LauchProjectileAUTO(float projectileSpeed, float projectile
     go.GetTransform().SetRotation(playerGO.GetTransform().GetGlobalRotation());
     go.GetTransform().SetScale(projectileScale);
     go.GetParticleSystem().Play();
+    go.GetMeshRenderer().SetActive(true);
 
     Projectile* projectile = (Projectile*)go.GetScript("Projectile");
     projectile->speed = projectileSpeed;
-    projectile->damage = projectileDamage + (autoForce * 15.8f);
+    projectile->damage = projectileDamage + (autoForce * 4.8f);
     projectile->resistanceDamage = projectileResistanceDamage;
     projectile->lifeTime = projectileLifetime;
     projectile->type = PROJECTILE_TYPE::AUTO;
+    projectile->ignoreGO = 0;
 
-    if (autoForce <= 6.0f) autoForce += 0.3f;
+    if (autoForce <= 6.0f) autoForce += 0.1f;
+    resetAuto = 0.2f;
 }
 
 void ProjectilePull::LauchProjectileBURST(float projectileSpeed, float projectileDamage, float projectileResistanceDamage, float projectileLifetime, API_Transform shootingSpawn, API_Vector3 projectileScale)
@@ -201,6 +215,7 @@ void ProjectilePull::LauchProjectileBURST(float projectileSpeed, float projectil
     go.GetTransform().SetRotation(playerGO.GetTransform().GetGlobalRotation());
     go.GetTransform().SetScale(projectileScale);
     go.GetParticleSystem().Play();
+    go.GetMeshRenderer().SetActive(true);
 
     Projectile* projectile = (Projectile*)go.GetScript("Projectile");
     projectile->speed = projectileSpeed;
@@ -208,6 +223,7 @@ void ProjectilePull::LauchProjectileBURST(float projectileSpeed, float projectil
     projectile->resistanceDamage = projectileResistanceDamage;
     projectile->lifeTime = projectileLifetime;
     projectile->type = PROJECTILE_TYPE::BURST;
+    projectile->ignoreGO = 0;
 }
 
 void ProjectilePull::LauchProjectileSHOTGUN(float projectileSpeed, float projectileDamage, float projectileResistanceDamage, float projectileLifetime, API_Transform shootingSpawn, API_Vector3 projectileScale, float randomDirectionRange)
@@ -218,6 +234,7 @@ void ProjectilePull::LauchProjectileSHOTGUN(float projectileSpeed, float project
     go.GetTransform().SetRotation(playerGO.GetTransform().GetGlobalRotation());
     go.GetTransform().SetScale(projectileScale);
     go.GetParticleSystem().Play();
+    go.GetMeshRenderer().SetActive(true);
 
     if (randomDirectionRange > 0.0f)
     {
@@ -232,9 +249,10 @@ void ProjectilePull::LauchProjectileSHOTGUN(float projectileSpeed, float project
     projectile->resistanceDamage = projectileResistanceDamage;
     projectile->lifeTime = projectileLifetime;
     projectile->type = PROJECTILE_TYPE::SHOTGUN;
+    projectile->ignoreGO = 0;
 }
 
-void ProjectilePull::LauchProjectileSHOTGUN_BOMB(float projectileLifetime, API_Transform shootingSpawn, API_Vector3 projectileScale)
+void ProjectilePull::LauchProjectileSHOTGUN_BOMB(float projectileLifetime, API_Transform shootingSpawn, API_Vector3 projectileScale, uint ignoreGO)
 {
     API_GameObject go = GetFirstInactiveShotgunBomb();
     go.SetActive(true);
@@ -242,15 +260,15 @@ void ProjectilePull::LauchProjectileSHOTGUN_BOMB(float projectileLifetime, API_T
     go.GetTransform().SetRotation(playerGO.GetTransform().GetGlobalRotation());
     go.GetTransform().SetScale(projectileScale);
     go.GetParticleSystem().Play();
+    go.GetMeshRenderer().SetActive(true);
 
-    float offsetX = rand() % 360;
     float offsetY = rand() % 360;
-    float offsetZ = rand() % 360;
-    go.GetTransform().Rotate(offsetX, offsetY, offsetZ);
+    go.GetTransform().Rotate(0, offsetY, 0);
 
     ShotgunBomb* bomb = (ShotgunBomb*)go.GetScript("ShotgunBomb");
     bomb->lifeTime = projectileLifetime;
     bomb->ResetExposion();
+    bomb->ignoreGO = ignoreGO;
 }
 
 void ProjectilePull::LauchProjectileHANDGUN(float projectileSpeed, float projectileDamage, float projectileResistanceDamage, float projectileLifetime, API_Transform shootingSpawn, API_Vector3 projectileScale)
@@ -261,6 +279,7 @@ void ProjectilePull::LauchProjectileHANDGUN(float projectileSpeed, float project
     go.GetTransform().SetRotation(playerGO.GetTransform().GetGlobalRotation());
     go.GetTransform().SetScale(projectileScale);
     go.GetParticleSystem().Play();
+    go.GetMeshRenderer().SetActive(true);
 
     Projectile* projectile = (Projectile*)go.GetScript("Projectile");
     projectile->speed = projectileSpeed;
@@ -268,6 +287,7 @@ void ProjectilePull::LauchProjectileHANDGUN(float projectileSpeed, float project
     projectile->resistanceDamage = projectileResistanceDamage;
     projectile->lifeTime = projectileLifetime;
     projectile->type = PROJECTILE_TYPE::HANDGUN;
+    projectile->ignoreGO = 0;
 }
 
 void ProjectilePull::LauchELECTRICITY_CHAIN(float delay, float damage, float resistanceDamage, API_GameObject attachedToGO, uint exceptionsVectorIndex)
@@ -293,7 +313,7 @@ void ProjectilePull::LauchProjectileFLAMETHROWER(float projectileSpeed, float pr
     go.SetActive(true);
     go.GetTransform().SetPosition(shootingSpawn.GetGlobalPosition());
     go.GetTransform().SetRotation(playerGO.GetTransform().GetGlobalRotation());
-    // hide mesh render
+    //go.GetMeshRenderer().SetActive(false);
 
     Projectile* projectile = (Projectile*)go.GetScript("Projectile");
     projectile->speed = projectileSpeed;
@@ -301,6 +321,7 @@ void ProjectilePull::LauchProjectileFLAMETHROWER(float projectileSpeed, float pr
     projectile->resistanceDamage = projectileResistanceDamage;
     projectile->lifeTime = projectileLifetime;
     projectile->type = PROJECTILE_TYPE::FLAMETHROWER;
+    projectile->ignoreGO = 0;
 }
 
 void ProjectilePull::LauchProjectileRICOCHET(float projectileSpeed, float projectileDamage, float projectileResistanceDamage, float projectileLifetime, API_Transform shootingSpawn, API_Vector3 projectileScale)
@@ -311,6 +332,7 @@ void ProjectilePull::LauchProjectileRICOCHET(float projectileSpeed, float projec
     go.GetTransform().SetRotation(playerGO.GetTransform().GetGlobalRotation());
     go.GetTransform().SetScale(projectileScale);
     go.GetParticleSystem().Play();
+    go.GetMeshRenderer().SetActive(true);
 
     Projectile* projectile = (Projectile*)go.GetScript("Projectile");
     projectile->speed = projectileSpeed;
@@ -319,17 +341,24 @@ void ProjectilePull::LauchProjectileRICOCHET(float projectileSpeed, float projec
     projectile->lifeTime = projectileLifetime;
     projectile->targetsHitted = 0;
     projectile->type = PROJECTILE_TYPE::RICOCHET;
+    projectile->ignoreGO = 0;
 
     ricochetDetector.SetActive(true);
     ricochetTargets->atachedToGO = go;
 }
 
-API_Vector3 ProjectilePull::CheckTargetDirectionRICOCHET(API_Vector3 ricochetPos)
+API_Vector3 ProjectilePull::CheckTargetDirectionRICOCHET(API_Vector3 ricochetPos, uint& targetUID, uint ignoreGO)
 {
-    if (!ricochetTargets) return { 1, 0, 1 };
-    API_GameObject go = ricochetTargets->GetRandomTarget();
-    if (go.GetTag() != "Enemy") return { 1, 0, 1 };
-
-    float angleY = (go.GetTransform().GetGlobalPosition().z - ricochetPos.z) / (go.GetTransform().GetGlobalPosition().x - ricochetPos.x);
-    return { 0, angleY, 0 };
+    if (!ricochetTargets) return {1, 0, 1};
+    API_GameObject go;
+    do
+    {
+        go = ricochetTargets->GetRandomTarget();
+    } while (ignoreGO == go.GetUID());
+    std::string compareTag = go.GetTag();
+    if (compareTag != "Enemy" && compareTag != "Boss") return { 1, 0, 1 };
+    
+    float angleY = atan2((double)ricochetPos.z - (double)go.GetTransform().GetGlobalPosition().z, -(double)ricochetPos.x + (double)go.GetTransform().GetGlobalPosition().x);
+    targetUID = go.GetUID();
+    return { 0, angleY * (180.0f / 3.141592653589793238463f) + 90, 0 };
 }
