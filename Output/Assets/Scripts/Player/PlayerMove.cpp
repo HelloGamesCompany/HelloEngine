@@ -94,8 +94,6 @@ void PlayerMove::Update()
 
     if (openingChest || (playerStats && playerStats->hittedTime > 0.0f)) return; // can't do other actions while is opening a chest or been hitted
 
-    Aim();
-
     if (Input::GetGamePadAxis(GamePadAxis::AXIS_TRIGGERRIGHT) < 5000 || isSwapingGun)
     {
         isShooting = false;
@@ -138,6 +136,8 @@ void PlayerMove::Update()
         Dash();
         return; //NO MORE MOVEMENT
     }
+
+    Aim();
 
     API_Vector2 input = GetMoveInput();
     //currentInput = input.Distance(API_Vector2::S_Zero());   //TEST
@@ -250,6 +250,7 @@ void PlayerMove::DashSetup()
 
     //Set dash vel
     rigidBody.SetVelocity((movDir * dist) / dashTime);
+    transform.SetRotation(0.0f, atan2(movDir.x, movDir.z) * RADTODEG, 0.0f);
 
     if (currentAnim != PlayerAnims::DASH)
     {
