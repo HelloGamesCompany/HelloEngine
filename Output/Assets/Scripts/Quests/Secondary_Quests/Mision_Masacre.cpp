@@ -42,7 +42,7 @@ void Mision_Masacre::Update()
 				{
 					misionCompleted = true;
 
-					playerStorage->skillPoints += 1;
+					playerStorage->skillPoints += 2;
 					playerStorage->SaveData();
 
 				}

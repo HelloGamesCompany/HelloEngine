@@ -35,7 +35,7 @@ void Mision_SomethingPersonal::Update()
 
 			misionCompleted = true;
 
-			playerStorage->skillPoints += 1;
+			playerStorage->skillPoints += 2;
 			playerStorage->SaveData();
 
 		}
