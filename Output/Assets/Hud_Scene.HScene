@@ -166,40 +166,19 @@
                         "SHIELD BOSS UI IMAGE": 2234780185
                     },
                     {
-                        "HP BOSS 1 TEXTURE": 3220306408
+                        "HP BOSS 1 TEXTURE": 2911723293
                     },
                     {
-                        "SHIELD BOSS 1 TEXTURE": 3346703336
+                        "SHIELD BOSS 1 TEXTURE": 983380074
                     },
                     {
-                        "SHIELD BOSS 2 TEXTURE": 2041014450
+                        "SHIELD BOSS 2 TEXTURE": 887326709
                     },
                     {
-                        "SHIELD BOSS 3 TEXTURE": 1121958945
-                    },
-                    {
-                        "All GO HUD BOSS": 533326204
-                    },
-                    {
-                        "HP BOSS UI IMAGE": 825774155
-                    },
-                    {
-                        "SHIELD BOSS UI IMAGE": 2234780185
-                    },
-                    {
-                        "HP BOSS 1 TEXTURE": 3220306408
-                    },
-                    {
-                        "SHIELD BOSS 1 TEXTURE": 3346703336
-                    },
-                    {
-                        "SHIELD BOSS 2 TEXTURE": 2041014450
-                    },
-                    {
-                        "SHIELD BOSS 3 TEXTURE": 1121958945
+                        "SHIELD BOSS 3 TEXTURE": 2383669952
                     }
                 ],
-                "Script Resource": 2046259589,
+                "Script Resource": 2970796296,
                 "Type": 5
             }
         ],
@@ -235,7 +214,7 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 3409411885,
+                "MaterialResource": 280758888,
                 "MeshEnabled": true,
                 "OpacityDirection": 0,
                 "Type": 15
@@ -311,7 +290,7 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 3220306408,
+                "MaterialResource": 2911723293,
                 "MeshEnabled": true,
                 "OpacityDirection": 1,
                 "Type": 15
@@ -349,7 +328,7 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 3577591980,
+                "MaterialResource": 1228038124,
                 "MeshEnabled": true,
                 "OpacityDirection": 0,
                 "Type": 15
@@ -387,7 +366,7 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 964082006,
+                "MaterialResource": 2452248869,
                 "MeshEnabled": true,
                 "OpacityDirection": 0,
                 "Type": 15
@@ -464,40 +443,16 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Texture_SPEED_INCREASE": 898734028
+                        "Texture_SPEED_INCREASE": 572968604
                     },
                     {
-                        "Texture_FIRERATE_INCREASE": 1345496260
+                        "Texture_FIRERATE_INCREASE": 904723382
                     },
                     {
-                        "Texture_SHIELD": 499632542
+                        "Texture_SHIELD": 874482960
                     },
                     {
-                        "Texture_SLOW_TIME": 1755384749
-                    },
-                    {
-                        "GamesObjects_1": 1272486707
-                    },
-                    {
-                        "GamesObjects_2": 3264243153
-                    },
-                    {
-                        "GamesObjects_3": 268021764
-                    },
-                    {
-                        "GamesObjects_4": 2605297620
-                    },
-                    {
-                        "Texture_SPEED_INCREASE": 898734028
-                    },
-                    {
-                        "Texture_FIRERATE_INCREASE": 1345496260
-                    },
-                    {
-                        "Texture_SHIELD": 499632542
-                    },
-                    {
-                        "Texture_SLOW_TIME": 1755384749
+                        "Texture_SLOW_TIME": 3865343995
                     },
                     {
                         "GamesObjects_1": 1272486707
@@ -512,7 +467,7 @@
                         "GamesObjects_4": 2605297620
                     }
                 ],
-                "Script Resource": 2660363889,
+                "Script Resource": 3847216677,
                 "Type": 5
             }
         ],
@@ -662,7 +617,7 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 3784778997,
+                "MaterialResource": 1772813058,
                 "MeshEnabled": true,
                 "OpacityDirection": 0,
                 "Type": 15
@@ -700,7 +655,7 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 1345496260,
+                "MaterialResource": 904723382,
                 "MeshEnabled": true,
                 "OpacityDirection": 0,
                 "Type": 15
@@ -770,12 +725,9 @@
                 "Inspector Fields": [
                     {
                         "hp": false
-                    },
-                    {
-                        "hp": false
                     }
                 ],
-                "Script Resource": 1164455694,
+                "Script Resource": 3127299926,
                 "Type": 5
             },
             {
@@ -788,25 +740,13 @@
                         "SHIELD_BAR": 1706043033
                     },
                     {
-                        "HP Texture": 1905881056
+                        "HP Texture": 2859695454
                     },
                     {
-                        "HP Regen Texture": 980036510
-                    },
-                    {
-                        "HP_BAR": 1144516396
-                    },
-                    {
-                        "SHIELD_BAR": 1706043033
-                    },
-                    {
-                        "HP Texture": 1905881056
-                    },
-                    {
-                        "HP Regen Texture": 980036510
+                        "HP Regen Texture": 4119276236
                     }
                 ],
-                "Script Resource": 3828527852,
+                "Script Resource": 3952342186,
                 "Type": 5
             }
         ],
@@ -842,7 +782,7 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 2442532908,
+                "MaterialResource": 2489192366,
                 "MeshEnabled": true,
                 "OpacityDirection": 0,
                 "Type": 15
@@ -880,7 +820,7 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 973302505,
+                "MaterialResource": 3461596003,
                 "MeshEnabled": true,
                 "OpacityDirection": 1,
                 "Type": 15
@@ -918,7 +858,7 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 137807845,
+                "MaterialResource": 8861396,
                 "MeshEnabled": true,
                 "OpacityDirection": 0,
                 "Type": 15
@@ -957,136 +897,52 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "HandgunsWeapons_On": 1828660828
+                        "HandgunsWeapons_On": 3076489896
                     },
                     {
-                        "HandgunsWeapons_Off": 1261649561
+                        "HandgunsWeapons_Off": 3986648714
                     },
                     {
-                        "Auto_On": 977509463
+                        "Auto_On": 2067694486
                     },
                     {
-                        "Burst_On": 1465322406
+                        "Burst_On": 1186397666
                     },
                     {
-                        "Semi_On": 1518552351
+                        "Semi_On": 953282997
                     },
                     {
-                        "Shotgun_On": 4259070326
+                        "Shotgun_On": 3011687056
                     },
                     {
-                        "Handgun_On": 3102974161
+                        "Handgun_On": 2485249494
                     },
                     {
-                        "Auto_Off": 1072796038
+                        "Auto_Off": 554082642
                     },
                     {
-                        "Burst_Off": 335904823
+                        "Burst_Off": 2098528651
                     },
                     {
-                        "Semi_Off": 3583084629
+                        "Semi_Off": 3008937367
                     },
                     {
-                        "Shotgun_Off": 4170447358
+                        "Shotgun_Off": 1390408833
                     },
                     {
-                        "Handgun_Off": 1214175512
+                        "Handgun_Off": 732632770
                     },
                     {
-                        "FlameThrower_On 1": 12569475
+                        "FlameThrower_On 1": 2806950331
                     },
                     {
-                        "Ricochet_On 2": 143724778
+                        "Ricochet_On 2": 4165763925
                     },
                     {
-                        "FlameThrower_Off 1": 103443597
+                        "FlameThrower_Off 1": 2148606541
                     },
                     {
-                        "Ricochet_Off 2": 1840082596
-                    },
-                    {
-                        "Material Weapon 1 on": 1701820068
-                    },
-                    {
-                        "Material Weapon 1 off": 1447126771
-                    },
-                    {
-                        "Game Bar Weapon 1": 42656509
-                    },
-                    {
-                        "Material Weapon 2 on": 1762482833
-                    },
-                    {
-                        "Material Weapon 2 off": 2896636869
-                    },
-                    {
-                        "Game Bar Weapon 2": 1366919386
-                    },
-                    {
-                        "Material Weapon 3 on": 4256981011
-                    },
-                    {
-                        "Material Weapon 3 off": 1056706350
-                    },
-                    {
-                        "Game Bar Weapon 3": 1625669672
-                    },
-                    {
-                        "Text_Dash_on": 1033923317
-                    },
-                    {
-                        "Text_Dash_off": 2440110374
-                    },
-                    {
-                        "Material_Dash": 3494829257
-                    },
-                    {
-                        "HandgunsWeapons_On": 1828660828
-                    },
-                    {
-                        "HandgunsWeapons_Off": 1261649561
-                    },
-                    {
-                        "Auto_On": 977509463
-                    },
-                    {
-                        "Burst_On": 1465322406
-                    },
-                    {
-                        "Semi_On": 1518552351
-                    },
-                    {
-                        "Shotgun_On": 4259070326
-                    },
-                    {
-                        "Handgun_On": 3102974161
-                    },
-                    {
-                        "Auto_Off": 1072796038
-                    },
-                    {
-                        "Burst_Off": 335904823
-                    },
-                    {
-                        "Semi_Off": 3583084629
-                    },
-                    {
-                        "Shotgun_Off": 4170447358
-                    },
-                    {
-                        "Handgun_Off": 1214175512
-                    },
-                    {
-                        "FlameThrower_On 1": 12569475
-                    },
-                    {
-                        "Ricochet_On 2": 143724778
-                    },
-                    {
-                        "FlameThrower_Off 1": 103443597
-                    },
-                    {
-                        "Ricochet_Off 2": 1840082596
+                        "Ricochet_Off 2": 852787717
                     },
                     {
                         "Material Weapon 1 on": 1701820068
@@ -1116,16 +972,16 @@
                         "Game Bar Weapon 3": 1625669672
                     },
                     {
-                        "Text_Dash_on": 1033923317
+                        "Text_Dash_on": 486085637
                     },
                     {
-                        "Text_Dash_off": 2440110374
+                        "Text_Dash_off": 3635487892
                     },
                     {
                         "Material_Dash": 3494829257
                     }
                 ],
-                "Script Resource": 2488935610,
+                "Script Resource": 457259898,
                 "Type": 5
             }
         ],
@@ -1191,7 +1047,7 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 2891199984,
+                "MaterialResource": 1252712485,
                 "MeshEnabled": true,
                 "OpacityDirection": 0,
                 "Type": 15
@@ -1229,7 +1085,7 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 4055084493,
+                "MaterialResource": 2320176658,
                 "MeshEnabled": true,
                 "OpacityDirection": 0,
                 "Type": 15
@@ -1297,7 +1153,7 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 1828660828,
+                "MaterialResource": 3076489896,
                 "MeshEnabled": true,
                 "OpacityDirection": 0,
                 "Type": 15
@@ -1403,7 +1259,7 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 2891199984,
+                "MaterialResource": 1252712485,
                 "MeshEnabled": true,
                 "OpacityDirection": 0,
                 "Type": 15
@@ -1441,7 +1297,7 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 4055084493,
+                "MaterialResource": 2320176658,
                 "MeshEnabled": true,
                 "OpacityDirection": 0,
                 "Type": 15
@@ -1509,7 +1365,7 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 1518552351,
+                "MaterialResource": 953282997,
                 "MeshEnabled": true,
                 "OpacityDirection": 0,
                 "Type": 15
@@ -1547,7 +1403,7 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 3583084629,
+                "MaterialResource": 3008937367,
                 "MeshEnabled": true,
                 "OpacityDirection": 0,
                 "Type": 15
@@ -1615,7 +1471,7 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 1340084174,
+                "MaterialResource": 2492411781,
                 "MeshEnabled": true,
                 "OpacityDirection": 0,
                 "Type": 15
@@ -1653,7 +1509,7 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 944959623,
+                "MaterialResource": 1308191029,
                 "MeshEnabled": true,
                 "OpacityDirection": 0,
                 "Type": 15
@@ -1827,7 +1683,7 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 1033923317,
+                "MaterialResource": 486085637,
                 "MeshEnabled": true,
                 "OpacityDirection": 0,
                 "Type": 15
@@ -1870,15 +1726,9 @@
                     },
                     {
                         "Active_Ultimate_HUD": 789399284
-                    },
-                    {
-                        "Disable_Ultimate_HUD": 4117494529
-                    },
-                    {
-                        "Active_Ultimate_HUD": 789399284
                     }
                 ],
-                "Script Resource": 105735810,
+                "Script Resource": 1642016886,
                 "Type": 5
             }
         ],
@@ -1914,7 +1764,7 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 116120790,
+                "MaterialResource": 1681979898,
                 "MeshEnabled": true,
                 "OpacityDirection": 0,
                 "Type": 15
@@ -1982,7 +1832,7 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 3864763197,
+                "MaterialResource": 2910240867,
                 "MeshEnabled": true,
                 "OpacityDirection": 0,
                 "Type": 15
@@ -2020,7 +1870,7 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 2598528301,
+                "MaterialResource": 4005557286,
                 "MeshEnabled": true,
                 "OpacityDirection": 0,
                 "Type": 15
@@ -2058,7 +1908,7 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 618267172,
+                "MaterialResource": 2079833659,
                 "MeshEnabled": true,
                 "OpacityDirection": 0,
                 "Type": 15
@@ -2126,7 +1976,7 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 2531036958,
+                "MaterialResource": 1315076320,
                 "MeshEnabled": true,
                 "OpacityDirection": 1,
                 "Type": 15
@@ -2181,27 +2031,9 @@
                     },
                     {
                         "Special munition off": 1292481097
-                    },
-                    {
-                        "Infinit munition on": 1124720208
-                    },
-                    {
-                        "Infinit munition off": 2596827792
-                    },
-                    {
-                        "Normal munition on": 1394349007
-                    },
-                    {
-                        "Normal munition off": 1121392154
-                    },
-                    {
-                        "Special munition on": 2822614242
-                    },
-                    {
-                        "Special munition off": 1292481097
                     }
                 ],
-                "Script Resource": 3359258741,
+                "Script Resource": 392201209,
                 "Type": 5
             }
         ],
@@ -2237,7 +2069,7 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 1724944906,
+                "MaterialResource": 2779766993,
                 "MeshEnabled": true,
                 "OpacityDirection": 0,
                 "Type": 15
@@ -2275,7 +2107,7 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 61591832,
+                "MaterialResource": 1115807026,
                 "MeshEnabled": true,
                 "OpacityDirection": 0,
                 "Type": 15
@@ -2631,7 +2463,7 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 630404233,
+                "MaterialResource": 1909488878,
                 "MeshEnabled": true,
                 "OpacityDirection": 0,
                 "Type": 15
@@ -2781,7 +2613,7 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 630404233,
+                "MaterialResource": 1909488878,
                 "MeshEnabled": true,
                 "OpacityDirection": 0,
                 "Type": 15
@@ -2931,7 +2763,7 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 630404233,
+                "MaterialResource": 1909488878,
                 "MeshEnabled": true,
                 "OpacityDirection": 0,
                 "Type": 15
