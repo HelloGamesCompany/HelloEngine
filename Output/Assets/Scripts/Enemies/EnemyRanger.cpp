@@ -101,28 +101,31 @@ void EnemyRanger::Update()
                     targStats->detected = false;
                 }
             }
-
-            if ((enemState == States::ATTACKIG || enemState == States::TARGETING || enemy->isHit) && enemy->isTargIn)
+            if ( !enemy->takingDmg && !enemy->actStun)
             {
-                targStats->detected = true;
-            }
 
-            if ((dis < detectionDis) && (dis > disShoot) && enemState != States::TARGETING && !enemy->isOut && enemy->isTargIn || enemy->isHit || targStats->detected && enemy->isTargIn)
-            {
-                _movCooldown = 0;
-                //_outCooldown = 0;
-                enemState = States::TARGETING;
-            }
-            else if (dis > lossingDis || enemy->isOut && !enemy->isTargIn && _outCooldown >= outTime)
-            {
-                enemState = States::WANDERING;
-            }
+                if ((enemState == States::ATTACKIG || enemState == States::TARGETING || enemy->isHit) && enemy->isTargIn)
+                {
+                    targStats->detected = true;
+                }
 
-            if ((dis < disShoot) && enemState == States::TARGETING)
-            {
-                enemState = States::ATTACKIG;
-            }
+                if ((dis < detectionDis) && (dis > disShoot) && enemState != States::TARGETING && !enemy->isOut && enemy->isTargIn || enemy->isHit || targStats->detected && enemy->isTargIn)
+                {
+                    _movCooldown = 0;
+                    //_outCooldown = 0;
+                    enemState = States::TARGETING;
+                }
+                else if (dis > lossingDis || enemy->isOut && !enemy->isTargIn && _outCooldown >= outTime)
+                {
+                    enemState = States::WANDERING;
+                }
 
+                if ((dis < disShoot) && enemState == States::TARGETING)
+                {
+                    enemState = States::ATTACKIG;
+                }
+
+            }
             if ((disZone > zoneRb.GetRadius() / 2))_outCooldown += dt;
             else _outCooldown = 0;
 
@@ -182,24 +185,26 @@ void EnemyRanger::Update()
         case States::ATTACKIG:
 
             enemy->currentSpeed = enemy->speed * enemy->acceleration * enemy->stunVel * enemy->slowVel /** dt*/;
-                
-            if (dis > disPlayer)
+            if ( !enemy->takingDmg &&!enemy->actStun)
             {
-                Seek(enemy->currentSpeed, target.GetTransform().GetGlobalPosition(), enemy->enemyRb);
 
-            }
-            else if (dis < disPlayer - 5)
-            {
-                enemy->enemyRb.SetVelocity(gameObject.GetTransform().GetBackward() * enemy->currentSpeed * 0.7);
+                if (dis > disPlayer)
+                {
+                    Seek(enemy->currentSpeed, target.GetTransform().GetGlobalPosition(), enemy->enemyRb);
 
-            }
-            else
-            {
-                Seek(enemy->currentSpeed * 0, target.GetTransform().GetGlobalPosition(), enemy->enemyRb);
-            }
-                
+                }
+                else if (dis < disPlayer - 5)
+                {
+                    enemy->enemyRb.SetVelocity(gameObject.GetTransform().GetBackward() * enemy->currentSpeed * 0.7);
 
-                
+                }
+                else
+                {
+                    Seek(enemy->currentSpeed * 0, target.GetTransform().GetGlobalPosition(), enemy->enemyRb);
+                }
+
+
+
 
                 //gameObject.GetTransform().Translate(gameObject.GetTransform().GetBackward() * enemy->currentSpeed);
 
@@ -212,6 +217,7 @@ void EnemyRanger::Update()
                     //Console::Log("Walk");
                 }
 
+            }
             break;
         case States::DYING:
             enemy->_coldAnimDie += dt;

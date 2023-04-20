@@ -26,6 +26,7 @@ HELLO_ENGINE_API_C Enemy* CreateEnemy(ScriptToInspectorInterface* script)
     script->AddDragBoxTextureResource("Texture Bomb 4", &classInstance->textureBomb[3]);
     script->AddDragBoxTextureResource("Texture Bomb 5", &classInstance->textureBomb[4]);
     script->AddDragBoxTextureResource("Texture Bomb 6", &classInstance->textureBomb[5]);
+    //script->AddCheckBox("damagessssss", &classInstance->takingDmg);
     return classInstance;
 }
 
@@ -89,23 +90,9 @@ void Enemy::Update()
         TakeDamage(0.5f, 0.0f);
     }
 
-    if (takingDmg)
+    if (takingDmg && !dying)
     {
-        _coldAnimHit += Time::GetDeltaTime();
-        if (_coldAnimHit < _tAnimHit)
-        {
-            EnemyMeleeMovement* meleeScript = (EnemyMeleeMovement*)gameObject.GetScript("EnemyMeleeMovement");
-            EnemyRanger* rangeScript = (EnemyRanger*)gameObject.GetScript("EnemyRanger");
-            if (meleeScript)
-            {
-                meleeScript->HitAnim();
-            }
-            else if (rangeScript)
-            {
-                rangeScript->HitAnimation();
-            }
-        }
-        else  takingDmg = false, _coldAnimHit = 0;;
+        TakingDmgState();
     }
 
     if (Input::GetKey(KeyCode::KEY_J) == KeyState::KEY_DOWN)
@@ -120,6 +107,27 @@ void Enemy::Update()
         }
     }
 
+}
+
+void Enemy::TakingDmgState()
+{
+    _coldAnimHit += Time::GetDeltaTime();
+    if (_coldAnimHit < _tAnimHit)
+    {
+        EnemyMeleeMovement* meleeScript = (EnemyMeleeMovement*)gameObject.GetScript("EnemyMeleeMovement");
+        EnemyRanger* rangeScript = (EnemyRanger*)gameObject.GetScript("EnemyRanger");
+        if (meleeScript)
+        {
+            meleeScript->HitAnim();
+        }
+        else if (rangeScript)
+        {
+            rangeScript->HitAnimation();
+        }
+        enemyRb.SetVelocity(0);
+
+    }
+    else  takingDmg = false, _coldAnimHit = 0.0f;
 }
 
 void Enemy::TakeDamage(float damage, float resistanceDamage)
@@ -180,7 +188,10 @@ void Enemy::TakeDamage(float damage, float resistanceDamage)
     if (currentResistance <= 0)
     {
         currentResistance = maxResistance;
-        takingDmg = true;
+        EnemyMeleeMovement* meleeScript = (EnemyMeleeMovement*)gameObject.GetScript("EnemyMeleeMovement");
+        EnemyRanger* rangeScript = (EnemyRanger*)gameObject.GetScript("EnemyRanger");
+        
+        meleeScript||rangeScript? takingDmg = true: takingDmg = false;
         // reaction
     }
 
@@ -277,7 +288,7 @@ void Enemy::EnemyStun(float timeStun)
         _coldStun = 0;
         stunVel = 1;
         actStun = false;
-        Console::Log("slowingggggggggggg");
+        //Console::Log("slowingggggggggggg");
     }
     else
     {

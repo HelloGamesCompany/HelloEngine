@@ -126,7 +126,7 @@ void EnemyMeleeMovement::Update()
             }
 
 
-            if (!dashing)
+            if (!dashing&&!enemy->actStun && !enemy->takingDmg)
             {
                 if ((enemState == States::ATTACKIG || enemState == States::TARGETING || enemy->isHit) && enemy->isTargIn)
                 {

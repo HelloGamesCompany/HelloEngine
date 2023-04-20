@@ -13,6 +13,8 @@ public:
     void Start() override;
     void Update() override;
 
+    void TakingDmgState();
+
     void TakeDamage(float damage, float resistanceDamage);
     void Die();
 
