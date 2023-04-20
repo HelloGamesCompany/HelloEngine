@@ -317,6 +317,8 @@ void ModulePhysics::S_RemovePhysBody(PhysBody3D* physBody)
 
 void ModulePhysics::UpdatePhysBodyPos(PhysBody3D* physBody)
 {
+	if (ModuleLayers::gameObjects.count(physBody->gameObjectUID) == 0)
+		return;
 	float3 currentTransformPos = ModuleLayers::gameObjects[physBody->gameObjectUID]->transform->GetGlobalPosition();
 	physBody->SetPos(physBody->colPos.x + currentTransformPos.x, physBody->colPos.y + currentTransformPos.y, physBody->colPos.z + currentTransformPos.z);
 }
