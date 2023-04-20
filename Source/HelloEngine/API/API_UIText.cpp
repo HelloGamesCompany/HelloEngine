@@ -36,5 +36,10 @@ void API::API_UIText::SetComponent(TextRendererComponent* component)
 
 void API::API_UIText::SetText(const char* text)
 {
+	if (!_UIText)
+	{
+		Engine::Console::S_Log("Trying to acces a NULLPTR UIText");
+		return;
+	}
 	_UIText->ChangeText(text);
 }

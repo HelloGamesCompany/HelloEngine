@@ -29,6 +29,10 @@ std::map<uint, API::API_GameObject*> ModuleLayers::apiGameObjects;
 API::API_Transform* ModuleLayers::emptyAPITransform = nullptr;
 API::API_GameObject* ModuleLayers::emptyAPIGameObject = nullptr;
 
+
+std::vector<std::string> ModuleLayers::allScenesInAssets;
+bool ModuleLayers::reimportAllScenes = false;
+
 ModuleLayers::ModuleLayers()
 {
 }
@@ -98,6 +102,21 @@ UpdateStatus ModuleLayers::PreUpdate()
             _requestScenePath = "null";
 
         _requestScene = false;
+    }
+
+    if (reimportAllScenes)
+    {
+        ModuleResourceManager::S_SerializeScene(rootGameObject);
+
+        if (allScenesInAssets.empty())
+        {
+            reimportAllScenes = false;
+            ModuleFiles::S_EraseOldResources();
+            return UpdateStatus::UPDATE_CONTINUE;
+        }
+
+        S_RequestLoadScene(allScenesInAssets[0]);
+        allScenesInAssets.erase(allScenesInAssets.begin());
     }
 
     for (int i = 0; i < _deletedGameObjects.size(); i++)
@@ -219,4 +238,10 @@ void ModuleLayers::DestroyMeshes()
         if (mesh != nullptr)
             mesh->DestroyMesh();  
     }
+}
+
+void ModuleLayers::RequestReimportAllScenes(std::vector<std::string>& scenes)
+{
+    allScenesInAssets = scenes;
+    reimportAllScenes = true;
 }
