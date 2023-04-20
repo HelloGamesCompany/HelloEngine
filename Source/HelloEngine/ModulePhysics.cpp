@@ -325,6 +325,9 @@ void ModulePhysics::UpdatePhysBodyPos(PhysBody3D* physBody)
 
 void ModulePhysics::UpdatePhysBodyRotation(PhysBody3D* physBody)
 {
+	if (ModuleLayers::gameObjects.count(physBody->gameObjectUID) == 0)
+		return;
+
 	physBody->SetRotation(physBody->colRot.x, physBody->colRot.y, physBody->colRot.z);
 }
 
