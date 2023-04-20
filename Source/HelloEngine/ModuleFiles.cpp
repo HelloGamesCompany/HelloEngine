@@ -475,10 +475,8 @@ bool ModuleFiles::UpdateFileNodeRecursive(Directory*& dir, Directory*& lastDir) 
             }
 
             // Change directory construcotr to create meta data if necessary
-            if (S_GetFileExtension(dirCheck) != "material")
-                dir->files.emplace_back(dirCheck, S_GetFileName(dirCheck), dir);
-            else
-                continue;
+            /*if (S_GetFileExtension(dirCheck) != "material")*/
+            dir->files.emplace_back(dirCheck, S_GetFileName(dirCheck), dir);
 
             continue;
         }

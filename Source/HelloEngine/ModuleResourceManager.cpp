@@ -119,7 +119,7 @@ void ModuleResourceManager::S_ImportFile(const std::string& filePath)
 	}
 	case ResourceType::MATERIAL:
 	{
-		uint UUID = HelloUUID::GenerateUUID();
+		uint UUID = HelloUUID::GenerateGUID(filePath);
 		std::string resourcePath = "Resources/Materials/" + std::to_string(UUID) + ".material";
 
 		char* buffer = nullptr;
@@ -135,7 +135,7 @@ void ModuleResourceManager::S_ImportFile(const std::string& filePath)
 	}
 	case ResourceType::SHADER:
 	{
-		uint UUID = HelloUUID::GenerateUUID();
+		uint UUID = HelloUUID::GenerateGUID(filePath);
 		std::string resourcePath = "Resources/Shaders/" + std::to_string(UUID) + ".shader";
 
 		char* buffer = nullptr;
