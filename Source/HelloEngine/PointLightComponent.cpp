@@ -1,8 +1,7 @@
 #include "Headers.h"
 #include "PointLightComponent.h"
 
-#include "ModuleRenderer3D.h"
-#include "RenderManager.h"
+#include "Lighting.h"
 
 PointLightComponent::PointLightComponent(GameObject* gameObject) : LightComponent(gameObject)
 {
@@ -11,7 +10,7 @@ PointLightComponent::PointLightComponent(GameObject* gameObject) : LightComponen
 
 	data = PointLight();
 
-	_lightID = Application::Instance()->renderer3D->renderManager.AddLight(data);
+	_lightID = Lighting::AddPointLight(data);
 }
 
 PointLightComponent::~PointLightComponent()
@@ -24,7 +23,7 @@ void PointLightComponent::OnTransformCallback(float4x4 worldMatrix)
 	data.position = worldMatrix.TranslatePart();
 
 	//update position
-	Application::Instance()->renderer3D->renderManager._lightMap[_lightID] = data;
+	Lighting::GetLightMap().pointLight[_lightID] = data;
 }
 
 void PointLightComponent::SerializationUnique(json& j)

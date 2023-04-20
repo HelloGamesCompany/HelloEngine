@@ -1,8 +1,7 @@
 #include "Headers.h"
 #include "DirectionalLightComponent.h"
 
-#include "ModuleRenderer3D.h"
-#include "RenderManager.h"
+#include "Lighting.h"
 
 DirectionalLightComponent::DirectionalLightComponent(GameObject* gameObject) : LightComponent(gameObject)
 {
@@ -11,7 +10,7 @@ DirectionalLightComponent::DirectionalLightComponent(GameObject* gameObject) : L
 
 	data = DirectionalLight();
 
-	_lightID = Application::Instance()->renderer3D->renderManager.AddLight(data);
+	Lighting::SetDirectionalLight(data);
 }
 
 DirectionalLightComponent::~DirectionalLightComponent()
@@ -23,7 +22,7 @@ void DirectionalLightComponent::OnTransformCallback(float4x4 worldMatrix)
 {
 	data.direction = worldMatrix.ToEulerXYZ();
 
-	Application::Instance()->renderer3D->renderManager._lightMap[_lightID] = data;
+	Lighting::SetDirectionalLight(data);
 }
 
 void DirectionalLightComponent::SerializationUnique(json& j)

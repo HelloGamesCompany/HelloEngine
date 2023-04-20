@@ -1,7 +1,12 @@
 #pragma once
 #include "LightComponent.h"
 
-struct DirectionalLight;
+struct DirectionalLight : public Light
+{
+	DirectionalLight() : Light(Component::Type::DIRECTIONAL_LIGHT) {}
+
+	float3 direction;
+};
 
 class DirectionalLightComponent : public LightComponent
 {
@@ -19,12 +24,7 @@ public:
 #endif
 
 public:
-	struct DirectionalLight : Light
-	{
-		DirectionalLight() : Light(Component::Type::DIRECTIONAL_LIGHT) {}
-
-		float3 direction;
-	} data;
+	DirectionalLight data;
 
 public:
 	DirectionalLight& GetData() override { return data; }

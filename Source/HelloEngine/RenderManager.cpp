@@ -281,28 +281,6 @@ void RenderManager::Draw2D()
 	DrawTextObjects();
 }
 
-uint RenderManager::AddLight(LightComponent::Light lightData)
-{
-	uint _lightID = 0;
-
-	switch (lightData.GetType())
-	{
-		case Component::Type::DIRECTIONAL_LIGHT:
-			_lightMap.directionalLight = (DirectionalLightComponent::DirectionalLight) lightData;
-			break;
-		case Component::Type::POINT_LIGHT:
-			_lightID = _lightMap.pointLight.size();
-			_lightMap.pointLight[_lightID] = (PointLightComponent::PointLight) lightData;
-			break;
-		case Component::Type::SPOT_LIGHT:
-			_lightID = _lightMap.spotLight.size();
-			_lightMap.spotLight[_lightID] = (SpotLightComponent::SpotLight) lightData;
-			break;
-	}
-
-	return _lightID;
-}
-
 uint RenderManager::AddMesh(ResourceMesh* resource, uint resMat,  MeshRenderType type)
 {
 	switch (type)

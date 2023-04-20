@@ -103,7 +103,7 @@ void LightComponent::OnEditor()
 		ImGui::NewLine();
 	}
 
-	Application::Instance()->renderer3D->renderManager._lightMap[_lightID] = data;
+	//Application::Instance()->renderer3D->renderManager._lightMap[_lightID] = data;
 
 	if (!created)
 		this->_gameObject->DestroyComponent(this);

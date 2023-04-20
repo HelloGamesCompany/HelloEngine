@@ -9,8 +9,6 @@
 
 #include "Lighting.h"
 
-#include "RenderManager.h"
-
 Material::Material()
 {
 }
@@ -32,8 +30,10 @@ void Material::UpdateBones(std::vector<float4x4>& bones)
 	}
 }
 
-void Material::UpdateLights(LightMap& lightMap)
+void Material::UpdateLights()
 {
+	LightMap& lightMap = Lighting::GetLightMap();
+
 	//Directional Light
 	shader->shader.SetFloat3v("Light_Directional.Base.Color", &lightMap.directionalLight.color.At(0));
 	shader->shader.SetFloat("Light_Directional.Base.AmbientIntensity", lightMap.directionalLight.ambientIntensity);
@@ -41,7 +41,7 @@ void Material::UpdateLights(LightMap& lightMap)
 	shader->shader.SetFloat3v("Light_Directional.Direction", &lightMap.directionalLight.direction.At(0));
 
 	//Point Light
-	for (int i = 0; i < lightMap.pointLight.size() || i < 32; ++i)
+	for (int i = 0; (i < lightMap.pointLight.size()) && (i < shader->shader.data._maxPointLights); ++i)
 	{
 		shader->shader.SetFloat3v("Light_Point[" + std::to_string(i) + "].Base.Color", &lightMap.pointLight[i].color.At(0));
 		shader->shader.SetFloat("Light_Point[" + std::to_string(i) + "].Base.AmbientIntensity", lightMap.pointLight[i].ambientIntensity);
@@ -54,7 +54,7 @@ void Material::UpdateLights(LightMap& lightMap)
 	}
 
 	//Spot Light
-	for (int i = 0; i < lightMap.spotLight.size() || i < 32; ++i)
+	for (int i = 0; (i < lightMap.spotLight.size()) && i < (shader->shader.data._maxSpotLights); ++i)
 	{
 		shader->shader.SetFloat3v("Light_Spot[" + std::to_string(i) + "].Base.Color", &lightMap.spotLight[i].color.At(0));
 		shader->shader.SetFloat("Light_Spot[" + std::to_string(i) + "].Base.AmbientIntensity", lightMap.spotLight[i].ambientIntensity);
@@ -84,6 +84,9 @@ void Material::Update(const float* view, const float* projection, const float* m
 
 		uniforms[i]->Update(shader->shader);
 	}
+
+	//Update Engine lights if the shader uses them
+	if (shader->shader.data.hasEngineLight) UpdateLights();
 }
 
 void Material::UpdateInstanced(const float* view, const float* projection)
@@ -155,6 +158,8 @@ void Material::CleanUniforms()
 bool Material::HandleKeyUniforms(Uniform* uni)
 {
 	bool toReturn = false;
+
+	//By Type and name
 	switch (uni->data.type)
 	{
 		case GL_FLOAT_VEC3:

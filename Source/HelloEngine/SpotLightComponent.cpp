@@ -1,8 +1,7 @@
 #include "Headers.h"
 #include "SpotLightComponent.h"
 
-#include "ModuleRenderer3D.h"
-#include "RenderManager.h"
+#include "Lighting.h"
 
 SpotLightComponent::SpotLightComponent(GameObject* gameObject) : LightComponent(gameObject)
 {
@@ -11,7 +10,7 @@ SpotLightComponent::SpotLightComponent(GameObject* gameObject) : LightComponent(
 
 	data = SpotLight();
 
-	_lightID = Application::Instance()->renderer3D->renderManager.AddLight(data);
+	_lightID = Lighting::AddSpotLight(data);
 }
 
 SpotLightComponent::~SpotLightComponent()
@@ -24,7 +23,7 @@ void SpotLightComponent::OnTransformCallback(float4x4 worldMatrix)
 	data.position = worldMatrix.TranslatePart();
 	data.direction = worldMatrix.ToEulerXYZ();
 
-	Application::Instance()->renderer3D->renderManager._lightMap[_lightID] = data;
+	Lighting::GetLightMap().spotLight[_lightID] = data;
 }
 
 void SpotLightComponent::SerializationUnique(json& j)

@@ -2,7 +2,23 @@
 #include "Component.h"
 
 
-//struct Light;
+struct Light
+{
+	Light() {};
+	Light(Component::Type type)
+	{
+		_type = type;
+	}
+
+	Component::Type GetType() { return _type; }
+
+	float3 color = float3(1.0f, 1.0f, 1.0f);
+	float ambientIntensity = 1.0f;
+	float diffuseIntensity = 1.0f;
+
+protected:
+	Component::Type _type = Component::Type::LIGHT;
+};
 
 class LightComponent : public Component
 {
@@ -25,23 +41,7 @@ public:
 #endif
 
 public:
-	struct Light
-	{
-		Light() {};
-		Light(Component::Type type)
-		{
-			_type = type;
-		}
-
-		Component::Type GetType() { return _type; }
-
-		float3 color = float3(1.0f, 1.0f, 1.0f);
-		float ambientIntensity = 1.0f;
-		float diffuseIntensity = 1.0f;
-
-		private:
-			Component::Type _type = Component::Type::LIGHT;
-	}  data;
+	Light data;
 
 	std::string _name;
 	uint _lightID;

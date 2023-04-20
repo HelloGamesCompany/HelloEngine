@@ -1,7 +1,18 @@
 #pragma once
 #include "LightComponent.h"
 
-struct SpotLight;
+struct SpotLight : public Light
+{
+	SpotLight() : Light(Component::Type::SPOT_LIGHT) {}
+
+	float constant = 1.0f;
+	float linear = 1.0f;
+	float exp = 1.0f;
+
+	float3 position;
+	float3 direction;
+	float cutoff;
+};
 
 class SpotLightComponent : public LightComponent
 {
@@ -18,18 +29,7 @@ public:
 	void OnEditorUnique() override;
 #endif
 
-	struct SpotLight : Light
-	{
-		SpotLight() : Light(Component::Type::SPOT_LIGHT) {}
-
-		float constant = 1.0f;
-		float linear = 1.0f;
-		float exp = 1.0f;
-
-		float3 position;
-		float3 direction;
-		float cutoff;
-	} data;
+	SpotLight data;
 
 	SpotLight& GetData() override { return data; }
 	void SetData(SpotLight& data) { this->data = data; }
