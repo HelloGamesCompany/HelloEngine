@@ -35,7 +35,7 @@ void ThanosAttacks::Update()
 
 			break;
 		case THANOS_STATE::THROWINGATTACK:
-		
+			isAttacking = true;
 			if (swordThrown == false) {
 				aimPosition = player.GetTransform().GetGlobalPosition();
 				swordThrown = true;
@@ -80,6 +80,7 @@ void ThanosAttacks::Seek(API_GameObject* seeker, API_Vector3 target, float speed
 		if (thanosState == THANOS_STATE::THROWINGATTACK) {
 			if (aimPosition == boss.GetTransform().GetGlobalPosition()) {
 				swordThrown = false;
+				isAttacking = false;
 				thanosState = THANOS_STATE::SEEKING;
 			}
 			aimPosition = boss.GetTransform().GetGlobalPosition();
