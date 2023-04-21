@@ -102,7 +102,7 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
         {
             Destroy();
         }
-        else if (detectionTag == "Enemy") // EXIT
+        else if (detectionTag == "Enemy")
         {
             Enemy* enemy = (Enemy*)other.GetGameObject().GetScript("Enemy");
             if (enemy) enemy->TakeDamage(damage, resistanceDamage);
@@ -168,7 +168,7 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
         {
             Destroy();
         }
-        if (detectionTag == "Enemy")
+        else if (detectionTag == "Enemy")
         {
             Enemy* enemy = (Enemy*)other.GetGameObject().GetScript("Enemy");
             if (enemy) enemy->TakeDamage(damage, resistanceDamage);
@@ -225,7 +225,7 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
         {
             Destroy();
         }
-        else if (detectionTag == "Enemy") // EXIT
+        else if (detectionTag == "Enemy")
         {
             Enemy* enemy = (Enemy*)other.GetGameObject().GetScript("Enemy");
             if (enemy) enemy->TakeDamage(damage, resistanceDamage);
