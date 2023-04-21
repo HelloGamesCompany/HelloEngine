@@ -71,16 +71,11 @@ void PlayerGun::LauchProjectile(API_Transform projectileSpawn, PROJECTILE_TYPE t
     case PROJECTILE_TYPE::SHOTGUN:
         pull->LauchProjectileSHOTGUN(projectileSpeed, projectileDamage, projectileResistanceDamage, projectileLifetime, projectileSpawn, projectileScale, randomDirectionRange);
         break;
-    case PROJECTILE_TYPE::HANDGUN:
-        pull->LauchProjectileHANDGUN(projectileSpeed, projectileDamage, projectileResistanceDamage, projectileLifetime, projectileSpawn, projectileScale);
-        break;
     case PROJECTILE_TYPE::FLAMETHROWER:
         pull->LauchProjectileFLAMETHROWER(projectileSpeed, projectileDamage, projectileResistanceDamage, projectileLifetime, projectileSpawn);
         break;
     case PROJECTILE_TYPE::RICOCHET:
         pull->LauchProjectileRICOCHET(projectileSpeed, projectileDamage, projectileResistanceDamage, projectileLifetime, projectileSpawn, projectileScale);
-        break;
-    case PROJECTILE_TYPE::PULSE:
         break;
     default:
         break;

@@ -168,7 +168,7 @@ void BossLoop::CheckBombs()
         else
         {
             stickBomb->triggerActive = true;
-            stickBomb->damage = 5.0f * currentBombNum;
+            TakeDamage(5.0f * currentBombNum);
         }
         currentBombNum = 0;
         bomb.SetActive(false);
