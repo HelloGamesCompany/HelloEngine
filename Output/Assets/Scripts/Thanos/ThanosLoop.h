@@ -9,16 +9,29 @@
 class ThanosLoop : HelloBehavior
 {
 public:
-	void Start() override; 
-	void Update() override;
+    void Start() override;
+    void Update() override;
 
-	void OnCollisionEnter(API::API_RigidBody other);
+    void OnCollisionEnter(API::API_RigidBody other);
 
-	void TakeDamage(float damage);
+    void TakeDamage(float damage);
 
-	float hp;
+    float hp;
 
-	float meleeDmg = 20.0f;
+    float meleeDmg = 20.0f;
+
+    // bomb mechanic
+    void AddBomb();
+    void CheckBombs();
+    int maxBombNum = 6;
+    int currentBombNum = 0;
+    API_GameObject bomb;
+    uint textureBomb[6];
+
+    // burn
+    void AddBurn();
+    float burnTime = 0.0f;
+    float resetBurn;
 
 };
 

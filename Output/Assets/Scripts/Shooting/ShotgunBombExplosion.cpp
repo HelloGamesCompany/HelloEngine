@@ -22,7 +22,7 @@ void ShotgunBombExplosion::Update()
     }
 }
 
-void ShotgunBombExplosion::OnCollisionEnter(API::API_RigidBody other)
+void ShotgunBombExplosion::OnCollisionStay(API::API_RigidBody other)
 {
     if (!triggerActive) return;
 

@@ -1,7 +1,6 @@
 #include "ProjectilePull.h"
 #include "../Player/PlayerStats.h"
 #include "ShotgunBombExplosion.h"
-#include "ElectricityChain.h"
 #include "CheckRicochetTargets.h"
 #include <time.h>
 HELLO_ENGINE_API_C ProjectilePull* CreateProjectilePull(ScriptToInspectorInterface* script)
@@ -13,8 +12,6 @@ HELLO_ENGINE_API_C ProjectilePull* CreateProjectilePull(ScriptToInspectorInterfa
     script->AddDragBoxPrefabResource("Projectile Prefab", &classInstance->projectilePrefab);
     script->AddDragInt("Shotgun Bomb Pull Size", &classInstance->shotgunBombPullSize);
     script->AddDragBoxPrefabResource("Shotgun Bomb Prefab", &classInstance->shotgunBombPrefab);
-    script->AddDragInt("Electricity Chain Pull Size", &classInstance->electricityChainPullSize);
-    script->AddDragBoxPrefabResource("Electricity Chain Prefab", &classInstance->electricityChainPrefab);
     script->AddDragBoxPrefabResource("Check Ricochet Traget Prefab", &classInstance->checkRicochetTargetsPrefab);
     return classInstance;
 }
@@ -47,18 +44,6 @@ void ProjectilePull::Start()
         shotgunBombPull.push_back(newBomb);
     }
 
-    for (size_t i = 0; i < electricityChainPullSize; i++)
-    {
-        API_GameObject newChain = Game::InstancePrefab(electricityChainPrefab, API_GameObject());
-        //all start
-        ElectricityChain* electricityChain = (ElectricityChain*)newChain.GetScript("ElectricityChain");
-        electricityChain->pull = this;
-        electricityChainPull.push_back(newChain);
-        std::vector<uint> vector;
-        electricityChainExeptions.push_back(vector);
-        electricityChainExeptionsAmountActive.push_back(0);
-    }
-
     ricochetDetector = Game::InstancePrefab(checkRicochetTargetsPrefab, API_GameObject());
     ricochetTargets = (CheckRicochetTargets*)ricochetDetector.GetScript("CheckRicochetTargets");
     if (ricochetTargets == nullptr) Console::Log("Missing CheckRicochetTargets on ProjectilePull Script.");
@@ -70,7 +55,6 @@ void ProjectilePull::Update()
     if (playerStats && playerStats->slowTimePowerUp > 0.0f /*&& !paused*/) dt = Time::GetRealTimeDeltaTime();
     else dt = Time::GetDeltaTime();
 
-    Console::Log(std::to_string(1 + (autoForce * 4.8f)));
     if (resetAuto >= 0.0f && autoForce >= 0.0f)
     {
         resetAuto -= dt;
@@ -100,30 +84,6 @@ API_GameObject ProjectilePull::GetFirstInactiveShotgunBomb()
     }
 
     return shotgunBombPull[0];
-}
-
-API_GameObject ProjectilePull::GetFirstInactiveElectricityChain()
-{
-    for (size_t i = 0; i < electricityChainPullSize; i++)
-    {
-        if (!electricityChainPull[i].IsActive()) return electricityChainPull[i];
-    }
-
-    return electricityChainPull[0];
-}
-
-uint ProjectilePull::GetFirstEmptyElectricityChainExeption()
-{
-    for (size_t i = 0; i < electricityChainExeptions.size(); i++)
-    {
-        if (electricityChainExeptionsAmountActive[i] == 0)
-        {
-            electricityChainExeptions[i].clear();
-            return i;
-        }
-    }
-
-    return 0;
 }
 
 void ProjectilePull::LauchProjectileNORMAL(float projectileSpeed, float projectileDamage, float projectileResistanceDamage, float projectileLifetime, API_Transform shootingSpawn, API_Vector3 projectileScale, PROJECTILE_ACTION projectileAction)
@@ -271,42 +231,6 @@ void ProjectilePull::LauchProjectileSHOTGUN_BOMB(float projectileLifetime, API_T
     bomb->ignoreGO = ignoreGO;
 }
 
-void ProjectilePull::LauchProjectileHANDGUN(float projectileSpeed, float projectileDamage, float projectileResistanceDamage, float projectileLifetime, API_Transform shootingSpawn, API_Vector3 projectileScale)
-{
-    API_GameObject go = GetFirstInactiveProjectile();
-    go.SetActive(true);
-    go.GetTransform().SetPosition(shootingSpawn.GetGlobalPosition());
-    go.GetTransform().SetRotation(playerGO.GetTransform().GetGlobalRotation());
-    go.GetTransform().SetScale(projectileScale);
-    go.GetParticleSystem().Play();
-    go.GetMeshRenderer().SetActive(true);
-
-    Projectile* projectile = (Projectile*)go.GetScript("Projectile");
-    projectile->speed = projectileSpeed;
-    projectile->damage = projectileDamage;
-    projectile->resistanceDamage = projectileResistanceDamage;
-    projectile->lifeTime = projectileLifetime;
-    projectile->type = PROJECTILE_TYPE::HANDGUN;
-    projectile->ignoreGO = 0;
-}
-
-void ProjectilePull::LauchELECTRICITY_CHAIN(float delay, float damage, float resistanceDamage, API_GameObject attachedToGO, uint exceptionsVectorIndex)
-{
-    API_GameObject go = GetFirstInactiveElectricityChain();
-    go.SetActive(true);
-    //go.GetParticleSystem().Play();
-
-    ElectricityChain* electricityChain = (ElectricityChain*)go.GetScript("ElectricityChain");
-    electricityChain->delay = delay;
-    electricityChain->damage = damage;
-    electricityChain->resistanceDamage = resistanceDamage;
-    electricityChain->atachedToGO = attachedToGO;
-    electricityChain->exeptionsVectorIndex = exceptionsVectorIndex;
-    electricityChain->triggerActive = false;
-    electricityChain->chainCount = 0;
-    electricityChain->destroy = false;
-}
-
 void ProjectilePull::LauchProjectileFLAMETHROWER(float projectileSpeed, float projectileDamage, float projectileResistanceDamage, float projectileLifetime, API_Transform shootingSpawn)
 {
     API_GameObject go = GetFirstInactiveProjectile();
@@ -356,7 +280,7 @@ API_Vector3 ProjectilePull::CheckTargetDirectionRICOCHET(API_Vector3 ricochetPos
         go = ricochetTargets->GetRandomTarget();
     } while (ignoreGO == go.GetUID());
     std::string compareTag = go.GetTag();
-    if (compareTag != "Enemy" && compareTag != "Boss") return { 1, 0, 1 };
+    if (compareTag != "Enemy" && compareTag != "Boss" && compareTag != "Thanos") return { 1, 0, 1 };
     
     float angleY = atan2((double)ricochetPos.z - (double)go.GetTransform().GetGlobalPosition().z, -(double)ricochetPos.x + (double)go.GetTransform().GetGlobalPosition().x);
     targetUID = go.GetUID();

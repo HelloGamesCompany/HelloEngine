@@ -23,10 +23,8 @@ enum class PROJECTILE_TYPE
     AUTO,
     BURST,
     SHOTGUN,
-    HANDGUN,
     FLAMETHROWER,
-    RICOCHET,
-    PULSE
+    RICOCHET
 };
 
 class Projectile : HelloBehavior
@@ -49,6 +47,8 @@ public:
     PROJECTILE_TYPE type = PROJECTILE_TYPE::NONE;
 
     uint ignoreGO = 0;
+
+    bool reflected = false;
 
     // ricochet
     int targetsHitted = 0;
