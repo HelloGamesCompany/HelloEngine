@@ -25,7 +25,8 @@ enum class PROJECTILE_TYPE
     SHOTGUN,
     HANDGUN,
     FLAMETHROWER,
-    RICOCHET
+    RICOCHET,
+    PULSE
 };
 
 class Projectile : HelloBehavior

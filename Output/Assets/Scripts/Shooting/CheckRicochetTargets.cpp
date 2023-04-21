@@ -18,11 +18,11 @@ void CheckRicochetTargets::Update()
     if (!atachedToGO.IsActive()) gameObject.SetActive(false);
 }
 
-void CheckRicochetTargets::OnCollisionStay(API::API_RigidBody other)
+void CheckRicochetTargets::OnCollisionEnter(API::API_RigidBody other)
 {
     std::string detectionTag = other.GetGameObject().GetTag();
 
-    if (detectionTag == "Enemy" || detectionTag == "Boss" || detectionTag == "Thanos")
+    if (detectionTag == "Enemy" || detectionTag == "Boss")
     {
         targets.push_back(other.GetGameObject());
     }

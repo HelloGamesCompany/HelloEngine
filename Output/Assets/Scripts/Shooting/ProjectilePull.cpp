@@ -70,6 +70,7 @@ void ProjectilePull::Update()
     if (playerStats && playerStats->slowTimePowerUp > 0.0f /*&& !paused*/) dt = Time::GetRealTimeDeltaTime();
     else dt = Time::GetDeltaTime();
 
+    Console::Log(std::to_string(1 + (autoForce * 4.8f)));
     if (resetAuto >= 0.0f && autoForce >= 0.0f)
     {
         resetAuto -= dt;
@@ -355,7 +356,7 @@ API_Vector3 ProjectilePull::CheckTargetDirectionRICOCHET(API_Vector3 ricochetPos
         go = ricochetTargets->GetRandomTarget();
     } while (ignoreGO == go.GetUID());
     std::string compareTag = go.GetTag();
-    if (compareTag != "Enemy" && compareTag != "Boss" && compareTag != "Thanos") return { 1, 0, 1 };
+    if (compareTag != "Enemy" && compareTag != "Boss") return { 1, 0, 1 };
     
     float angleY = atan2((double)ricochetPos.z - (double)go.GetTransform().GetGlobalPosition().z, -(double)ricochetPos.x + (double)go.GetTransform().GetGlobalPosition().x);
     targetUID = go.GetUID();
