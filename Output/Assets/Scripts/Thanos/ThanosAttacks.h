@@ -17,8 +17,6 @@ public:
 
 	void Seek(API_GameObject* seeker, API_Vector3 target, float speed);
 
-	void SeekSword(API_GameObject* seeker, API_Vector3 target, float speed);
-
 	ThanosMovement* Tmovement;
 	bool isAttacking = false;
 
@@ -28,17 +26,11 @@ public:
 	API_GameObject melee1;
 	float meleeAttackTime = 0.0f;
 
-	API_GameObject sword;
-	bool swordThrown = false;
-	float swordSpeed = 2.0f;
-	API_Vector3 aimPosition;
-
 	enum class THANOS_STATE {
 		IDLE,
 		SEEKING,
 		MELEEATTACK,
 		DASHATTACK,
-		THROWINGATTACK,
 		HOLDING,
 		SPECIALATTACK,
 	};

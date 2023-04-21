@@ -6,7 +6,6 @@ HELLO_ENGINE_API_C ThanosAttacks* CreateThanosAttacks(ScriptToInspectorInterface
 	script->AddDragBoxGameObject("Player", &classInstance->player);
 
 	script->AddDragBoxGameObject("Melee Attack 1", &classInstance->melee1);
-	script->AddDragBoxGameObject("SWORD", &classInstance->sword);
 
 	
 
@@ -45,16 +44,6 @@ void ThanosAttacks::Update()
 			DashAttack();
 
 			break;
-		case THANOS_STATE::THROWINGATTACK:
-			isAttacking = true;
-			if (swordThrown == false) {
-				aimPosition = player.GetTransform().GetGlobalPosition();
-				swordThrown = true;
-			}
-
-			Seek(&sword, aimPosition, swordSpeed);
-			
-			break;
 		default:
 			break;
 		}
@@ -69,7 +58,6 @@ void ThanosAttacks::MeleeAttack() {
 		melee1.SetActive(false);
 		meleeAttackTime = 0.0f;
 		isAttacking = false;
-		thanosState = THANOS_STATE::SEEKING;
 	}
 	else if (meleeAttackTime > 0.05f) {
 		melee1.SetActive(true);
@@ -87,16 +75,6 @@ void ThanosAttacks::Seek(API_GameObject* seeker, API_Vector3 target, float speed
 	seeker->GetTransform().Translate(direction * speed / 100);
 
 	if (direction.x < 0.03 && direction.x > -0.03 && direction.y < 0.03 && direction.y && direction.z < 0.03 && direction.z) {
-
-		if (thanosState == THANOS_STATE::THROWINGATTACK) {
-			if (aimPosition == boss.GetTransform().GetGlobalPosition()) {
-				swordThrown = false;
-				isAttacking = false;
-				thanosState = THANOS_STATE::SEEKING;
-			}
-			aimPosition = boss.GetTransform().GetGlobalPosition();
-		}
-		else thanosState = THANOS_STATE::MELEEATTACK;
-		
+		thanosState = THANOS_STATE::MELEEATTACK;
 	}
 }
