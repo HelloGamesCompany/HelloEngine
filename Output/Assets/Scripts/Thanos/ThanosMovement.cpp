@@ -50,8 +50,9 @@ void ThanosMovement::Seek(API_GameObject* seeker, API_Vector3 target, float spee
 
     if (direction.x < 8 && direction.x > -8 && direction.y < 8 && direction.y && direction.z < 8 && direction.z && dashCooldown > 5.0f) {
         if (Tattack) {
+
             Tattack->isAttacking = true;
-            Tattack->thanosState = ThanosAttacks::THANOS_STATE::DASHATTACK;
+            Tattack->thanosState = ThanosAttacks::THANOS_STATE::IDLE;
             Tattack->playerPosition = player.GetTransform().GetGlobalPosition();
         }
 

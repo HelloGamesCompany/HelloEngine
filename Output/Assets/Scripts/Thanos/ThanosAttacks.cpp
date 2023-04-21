@@ -16,6 +16,7 @@ HELLO_ENGINE_API_C ThanosAttacks* CreateThanosAttacks(ScriptToInspectorInterface
 
 void ThanosAttacks::Start()
 {
+	srand(time(NULL));
 	Tmovement = (ThanosMovement*)boss.GetScript("ThanosMovement");
 }
 void ThanosAttacks::Update()
@@ -23,6 +24,16 @@ void ThanosAttacks::Update()
 	if (isAttacking) {
 		switch (thanosState)
 		{
+		case THANOS_STATE::IDLE:
+			
+			float selectAttack = rand() % 10 + 1;
+			
+			if (selectAttack < 6) {
+				thanosState = THANOS_STATE::THROWINGATTACK;
+			}
+			else THANOS_STATE::DASHATTACK;
+
+			break;
 		case THANOS_STATE::MELEEATTACK:
 
 			MeleeAttack();
