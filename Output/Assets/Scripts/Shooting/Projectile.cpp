@@ -66,7 +66,7 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
             }
             Destroy();
         }
-        else if (detectionTag == "Boss")
+        else if (detectionTag == "Boss" && !reflected)
         {
             BossLoop* miniBoss = (BossLoop*)other.GetGameObject().GetScript("BossLoop");
             if (miniBoss)
@@ -76,13 +76,22 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
             }
             Destroy();
         }
+        else if (detectionTag == "Player" && reflected)
+        {
+            PlayerStats* stats = (PlayerStats*)other.GetGameObject().GetScript("PlayerStats");
+            if (stats)
+            {
+                stats->TakeDamage(10, 10);
+            }
+            Destroy();
+        }
         break;
     case PROJECTILE_TYPE::SEMI:
         if (detectionTag == "Wall")
         {
             Destroy();
         }
-        else if (detectionTag == "Enemy") // EXIT
+        else if (detectionTag == "Enemy")
         {
             Enemy* enemy = (Enemy*)other.GetGameObject().GetScript("Enemy");
             if (enemy) enemy->TakeDamage(damage, resistanceDamage);
@@ -91,13 +100,22 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
             pull->LauchProjectileSECONDARY_SEMI(speed, damage / 3.0f, resistanceDamage / 3.0f, 1.0f, gameObject.GetTransform(), { 0.1f, 0.1f, 0.1f }, -30.0f, other.GetGameObject().GetUID());
             Destroy();
         }
-        else if (detectionTag == "Boss") // EXIT
+        else if (detectionTag == "Boss" && !reflected)
         {
             BossLoop* miniBoss = (BossLoop*)other.GetGameObject().GetScript("BossLoop");
             if (miniBoss) miniBoss->TakeDamage(damage);
             pull->LauchProjectileSECONDARY_SEMI(speed, damage / 3.0f, resistanceDamage / 3.0f, 0.5f, gameObject.GetTransform(), { 0.1f, 0.1f, 0.1f }, 30.0f, other.GetGameObject().GetUID());
             pull->LauchProjectileSECONDARY_SEMI(speed, damage / 3.0f, resistanceDamage / 3.0f, 0.5f, gameObject.GetTransform(), { 0.1f, 0.1f, 0.1f }, 0.0f, other.GetGameObject().GetUID());
             pull->LauchProjectileSECONDARY_SEMI(speed, damage / 3.0f, resistanceDamage / 3.0f, 0.5f, gameObject.GetTransform(), { 0.1f, 0.1f, 0.1f }, -30.0f, other.GetGameObject().GetUID());
+            Destroy();
+        }
+        else if (detectionTag == "Player" && reflected)
+        {
+            PlayerStats* stats = (PlayerStats*)other.GetGameObject().GetScript("PlayerStats");
+            if (stats)
+            {
+                stats->TakeDamage(10, 10);
+            }
             Destroy();
         }
         break;
@@ -124,16 +142,25 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
         {
             Destroy();
         }
-        if (detectionTag == "Enemy")
+        else if (detectionTag == "Enemy")
         {
             Enemy* enemy = (Enemy*)other.GetGameObject().GetScript("Enemy");
             if (enemy) enemy->TakeDamage(damage, resistanceDamage);
             Destroy();
         }
-        if (detectionTag == "Boss")
+        else if (detectionTag == "Boss" && !reflected)
         {
             BossLoop* miniBoss = (BossLoop*)other.GetGameObject().GetScript("BossLoop");
             if (miniBoss) miniBoss->TakeDamage(damage);
+            Destroy();
+        }
+        else if (detectionTag == "Player" && reflected)
+        {
+            PlayerStats* stats = (PlayerStats*)other.GetGameObject().GetScript("PlayerStats");
+            if (stats)
+            {
+                stats->TakeDamage(10, 10);
+            }
             Destroy();
         }
         break;
@@ -160,7 +187,7 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
         {
             Destroy();
         }
-        else if (detectionTag == "Enemy") // EXIT
+        else if (detectionTag == "Enemy")
         {
             Enemy* enemy = (Enemy*)other.GetGameObject().GetScript("Enemy");
             if (enemy) enemy->TakeDamage(damage, resistanceDamage);
@@ -168,12 +195,21 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
             pull->LauchProjectileSHOTGUN_BOMB(0.5f, gameObject.GetTransform(), { 0.3f, 0.3f, 0.3f }, other.GetGameObject().GetUID());
             Destroy();
         }
-        else if (detectionTag == "Boss") // EXIT
+        else if (detectionTag == "Boss" && !reflected)
         {
             BossLoop* miniBoss = (BossLoop*)other.GetGameObject().GetScript("BossLoop");
             if (miniBoss) miniBoss->TakeDamage(damage);
             pull->LauchProjectileSHOTGUN_BOMB(0.5f, gameObject.GetTransform(), { 0.3f, 0.3f, 0.3f }, other.GetGameObject().GetUID());
             pull->LauchProjectileSHOTGUN_BOMB(0.5f, gameObject.GetTransform(), { 0.3f, 0.3f, 0.3f }, other.GetGameObject().GetUID());
+            Destroy();
+        }
+        else if (detectionTag == "Player" && reflected)
+        {
+            PlayerStats* stats = (PlayerStats*)other.GetGameObject().GetScript("PlayerStats");
+            if (stats)
+            {
+                stats->TakeDamage(10, 10);
+            }
             Destroy();
         }
         break;
@@ -192,7 +228,7 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
             pull->LauchELECTRICITY_CHAIN(ELECTRICITY_DELAY, 5.0f, 2.0f, other.GetGameObject(), exceptionIndex);
             Destroy();
         }
-        else if (detectionTag == "Boss")
+        else if (detectionTag == "Boss" && !reflected)
         {
             BossLoop* miniBoss = (BossLoop*)other.GetGameObject().GetScript("BossLoop");
             if (miniBoss) miniBoss->TakeDamage(damage);
@@ -200,6 +236,15 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
             pull->electricityChainExeptions[exceptionIndex].push_back(other.GetGameObject().GetUID());
             pull->electricityChainExeptionsAmountActive[exceptionIndex]++;
             pull->LauchELECTRICITY_CHAIN(ELECTRICITY_DELAY, 5.0f, 2.0f, other.GetGameObject(), exceptionIndex);
+            Destroy();
+        }
+        else if (detectionTag == "Player" && reflected)
+        {
+            PlayerStats* stats = (PlayerStats*)other.GetGameObject().GetScript("PlayerStats");
+            if (stats)
+            {
+                stats->TakeDamage(10, 10);
+            }
             Destroy();
         }
         break;
