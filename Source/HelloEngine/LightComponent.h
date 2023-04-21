@@ -42,7 +42,6 @@ public:
 	virtual void OnEditorUnique();
 
 	void MarkAsDead() override;
-	void MarkAsAlive() override;
 #endif
 
 public:
@@ -57,5 +56,6 @@ public:
 
 protected:
 	void UpdateData(Light& data);
+	virtual void UpdateToLightMap();
 };
 

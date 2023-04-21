@@ -21,13 +21,14 @@ public:
 	void SerializationUnique(json& j) override;
 	void DeSerializationUnique(json& j) override;
 
-	void OnEnable() override { data.isEnabled = true; }
-	void OnDisable() override { data.isEnabled = false; }
-
 	void OnTransformCallback(float4x4 worldMatrix) override;
+
+	void UpdateToLightMap() override;
 
 #ifdef STANDALONE
 	void OnEditorUnique() override;
+
+	void MarkAsAlive() override;
 #endif
 
 	PointLight data;

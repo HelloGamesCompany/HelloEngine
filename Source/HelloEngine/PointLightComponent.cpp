@@ -23,7 +23,11 @@ void PointLightComponent::OnTransformCallback(float4x4 worldMatrix)
 {
 	data.position = worldMatrix.TranslatePart();
 
-	//update position
+	UpdateToLightMap();
+}
+
+void PointLightComponent::UpdateToLightMap()
+{
 	UpdateData(this->data);
 	Lighting::GetLightMap().pointLight[_lightID] = this->data;
 }
@@ -41,19 +45,23 @@ void PointLightComponent::DeSerializationUnique(json& j)
 	data.linear = j["Linear"];
 	data.exp = j["Exp"];
 
-	UpdateData(this->data);
-	Lighting::GetLightMap().pointLight[_lightID] = this->data;
+	UpdateToLightMap();
 }
 
 #ifdef STANDALONE
 void PointLightComponent::OnEditorUnique()
 {
-	UpdateData(this->data);
+	//UpdateData(this->data);
 	ImGui::TextColored(ImVec4(1.0f, 0.0f, 0.0f, 1.0f), "Attenuation");
 	ImGui::DragFloat("Constant", &data.constant);
 	ImGui::DragFloat("Linear", &data.linear);
 	ImGui::DragFloat("Exponential", &data.exp);
 
-	Lighting::GetLightMap().pointLight[_lightID] = this->data;
+	UpdateToLightMap();
+}
+
+void PointLightComponent::MarkAsAlive()
+{
+	UpdateToLightMap();
 }
 #endif

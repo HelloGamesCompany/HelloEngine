@@ -22,6 +22,11 @@ void DirectionalLightComponent::OnTransformCallback(float4x4 worldMatrix)
 {
 	data.direction = worldMatrix.ToEulerXYZ();
 
+	UpdateToLightMap();
+}
+
+void DirectionalLightComponent::UpdateToLightMap()
+{
 	UpdateData(this->data);
 	Lighting::SetDirectionalLight(this->data);
 }
@@ -36,15 +41,18 @@ void DirectionalLightComponent::DeSerializationUnique(json& j)
 	/*std::vector<float> temp = j["Direction"];
 	data.direction = { temp[0], temp[1], temp[2] };*/
 
-	UpdateData(this->data);
-	Lighting::GetLightMap().directionalLight = this->data;
+	UpdateToLightMap();
 }
 
 #ifdef STANDALONE
 void DirectionalLightComponent::OnEditorUnique()
 {
-	UpdateData(this->data);
-	Lighting::GetLightMap().directionalLight = this->data;
+	UpdateToLightMap();
 	//ImGui::DragFloat3("Direction", &data.direction.At(0), 0.05f, -1.0f, 1.0f);
+}
+
+void DirectionalLightComponent::MarkAsAlive()
+{
+	UpdateToLightMap();
 }
 #endif

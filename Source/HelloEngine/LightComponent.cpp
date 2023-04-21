@@ -20,11 +20,13 @@ LightComponent::~LightComponent()
 void LightComponent::OnEnable()
 {
 	data.isEnabled = true;
+	UpdateToLightMap();
 }
 
 void LightComponent::OnDisable()
 {
 	data.isEnabled = false;
+	UpdateToLightMap();
 }
 
 void LightComponent::Serialization(json& _j)
@@ -74,6 +76,12 @@ void LightComponent::UpdateData(Light& data)
 	data.ambientIntensity = this->data.ambientIntensity;
 	data.color = this->data.color;
 	data.diffuseIntensity = this->data.diffuseIntensity;
+	data.isEnabled = this->data.isEnabled;
+}
+
+void LightComponent::UpdateToLightMap()
+{
+
 }
 
 #ifdef STANDALONE
@@ -135,11 +143,8 @@ void LightComponent::OnEditorUnique()
 
 void LightComponent::MarkAsDead()
 {
-
+	Lighting::RemoveLight(_type, _lightID);
 }
 
-void LightComponent::MarkAsAlive()
-{
 
-}
 #endif

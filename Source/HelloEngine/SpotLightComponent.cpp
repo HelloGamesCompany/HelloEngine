@@ -23,6 +23,11 @@ void SpotLightComponent::OnTransformCallback(float4x4 worldMatrix)
 	data.position = worldMatrix.TranslatePart();
 	data.direction = worldMatrix.ToEulerXYZ();
 
+	UpdateToLightMap();
+}
+
+void SpotLightComponent::UpdateToLightMap()
+{
 	UpdateData(this->data);
 	Lighting::GetLightMap().spotLight[_lightID] = this->data;
 }
@@ -38,15 +43,15 @@ void SpotLightComponent::SerializationUnique(json& j)
 
 void SpotLightComponent::DeSerializationUnique(json& j)
 {
-	UpdateData(this->data);
+	//UpdateData(this->data);
 
 	data.cutoff = j["Cutoff"];
 
 	data.constant = j["Constant"];
 	data.linear = j["Linear"];
 	data.exp = j["Exp"];
-
-	Lighting::GetLightMap().spotLight[_lightID] = this->data;
+	
+	UpdateToLightMap();
 }
 
 #ifdef STANDALONE
@@ -59,7 +64,11 @@ void SpotLightComponent::OnEditorUnique()
 	ImGui::DragFloat("Linear", &data.linear);
 	ImGui::DragFloat("Exponential", &data.exp);
 
-	UpdateData(this->data);
-	Lighting::GetLightMap().spotLight[_lightID] = this->data;
+	UpdateToLightMap();
+}
+
+void SpotLightComponent::MarkAsAlive()
+{
+	UpdateToLightMap();
 }
 #endif
