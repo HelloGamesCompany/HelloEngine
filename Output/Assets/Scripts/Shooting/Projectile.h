@@ -52,7 +52,4 @@ public:
     // ricochet
     int targetsHitted = 0;
     uint ricochetTarget;
-
-    // thanos mechanic
-    bool reflected = false;
 };
