@@ -80,8 +80,6 @@ void PlayerGun::LauchProjectile(API_Transform projectileSpawn, PROJECTILE_TYPE t
     case PROJECTILE_TYPE::RICOCHET:
         pull->LauchProjectileRICOCHET(projectileSpeed, projectileDamage, projectileResistanceDamage, projectileLifetime, projectileSpawn, projectileScale);
         break;
-    case PROJECTILE_TYPE::PULSE:
-        break;
     default:
         break;
     }
