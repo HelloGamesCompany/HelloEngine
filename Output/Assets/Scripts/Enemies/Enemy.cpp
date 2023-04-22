@@ -11,6 +11,7 @@ HELLO_ENGINE_API_C Enemy* CreateEnemy(ScriptToInspectorInterface* script)
     //Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
     script->AddDragFloat("Max Health", &classInstance->maxHp);
     script->AddDragFloat("Current Helath", &classInstance->currentHp);
+    script->AddDragFloat("Start Resistance", &classInstance->minResistence);
     script->AddDragFloat("Resistance", &classInstance->maxResistance);
     script->AddDragFloat("Speed", &classInstance->speed);
     script->AddDragFloat("Acceleration", &classInstance->acceleration);
@@ -39,7 +40,7 @@ void Enemy::Start()
     EnemyTank* tankScript = (EnemyTank*)gameObject.GetScript("EnemyTank");
 
     currentHp = maxHp;
-    currentResistance = maxResistance;
+    currentResistance = minResistence;
     actSlow = actStun = false;
     baseRot = gameObject.GetTransform().GetGlobalRotation();
     slowVel = stunVel = 1;
