@@ -123,10 +123,7 @@ UpdateStatus ModuleRenderer3D::PostUpdate()
 		ModuleLayers::S_DrawLayers();
 		particleManager.Draw();
 		renderManager.Draw();
-		if (isRenderingColliders) 
-		{
-			renderManager.DrawDebug();
-		}
+		renderManager.DrawDebug();
 		_cameras->DrawCameraFrustums();
 	}
 

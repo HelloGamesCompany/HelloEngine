@@ -14,6 +14,8 @@
 #include "ComponentUIImage.h"
 #include "TextRendererComponent.h"
 #include "Math/float4x4.h"
+#include "LayerEditor.h"
+#include "PhysicsComponent.h"
 
 #include "ModuleRenderer3D.h"
 
@@ -163,6 +165,7 @@ void RenderManager::Init()
 	glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 4 * sizeof(float), 0);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);
+
 }
 
 void RenderManager::OnEditor()
@@ -266,10 +269,36 @@ void RenderManager::Draw()
 
 void RenderManager::DrawDebug()
 {
-	for (int i = 0; i < ModulePhysics::physBodies.size(); i++)
+	if (Application::Instance()->renderer3D->isRenderingColliders) 
 	{
-		ModulePhysics::physBodies[i]->RenderCollider();
+		for (int i = 0; i < ModulePhysics::physBodies.size(); i++)
+		{
+			ModulePhysics::physBodies[i]->RenderCollider();
+		}
 	}
+	else 
+	{
+		if (LayerEditor::selectedGameObject != nullptr)
+		{
+			PhysicsComponent* physComp = LayerEditor::selectedGameObject->GetComponent<PhysicsComponent>();
+			if (physComp) 
+			{
+				for (int i = 0; i < ModulePhysics::physBodies.size(); i++)
+				{
+					if (ModuleLayers::gameObjects.count(ModulePhysics::physBodies[i]->gameObjectUID) != 0)
+					{
+						GameObject* go = ModuleLayers::gameObjects[ModulePhysics::physBodies[i]->gameObjectUID];
+						if (go == LayerEditor::selectedGameObject) 
+						{
+							ModulePhysics::physBodies[i]->RenderCollider();
+						}
+					}
+				}
+			}
+			
+		}
+	}
+	
 }
 
 void RenderManager::Draw2D()
