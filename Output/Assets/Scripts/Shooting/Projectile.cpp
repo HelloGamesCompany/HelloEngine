@@ -82,8 +82,8 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
             ThanosLoop* boss = (ThanosLoop*)other.GetGameObject().GetScript("ThanosLoop");
             if (boss)
             {
-               /* boss->TakeDamage(damage);
-                boss->CheckBombs();*/
+                boss->TakeDamage(damage);
+                boss->CheckBombs();
             }
             Destroy();
         }
@@ -123,7 +123,7 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
         else if (detectionTag == "Thanos" && !reflected)
         {
             ThanosLoop* boss = (ThanosLoop*)other.GetGameObject().GetScript("ThanosLoop");
-            //if (boss) boss->TakeDamage(damage);
+            if (boss) boss->TakeDamage(damage);
             pull->LauchProjectileSECONDARY_SEMI(speed, damage / 3.0f, resistanceDamage / 3.0f, 0.5f, gameObject.GetTransform(), { 0.1f, 0.1f, 0.1f }, 30.0f, other.GetGameObject().GetUID());
             pull->LauchProjectileSECONDARY_SEMI(speed, damage / 3.0f, resistanceDamage / 3.0f, 0.5f, gameObject.GetTransform(), { 0.1f, 0.1f, 0.1f }, 0.0f, other.GetGameObject().GetUID());
             pull->LauchProjectileSECONDARY_SEMI(speed, damage / 3.0f, resistanceDamage / 3.0f, 0.5f, gameObject.GetTransform(), { 0.1f, 0.1f, 0.1f }, -30.0f, other.GetGameObject().GetUID());
@@ -153,13 +153,13 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
         else if (detectionTag == "Boss" && other.GetGameObject().GetUID() != ignoreGO)
         {
             BossLoop* miniBoss = (BossLoop*)other.GetGameObject().GetScript("BossLoop");
-            //if (miniBoss) miniBoss->TakeDamage(damage);
+            if (miniBoss) miniBoss->TakeDamage(damage);
             Destroy();
         }
         else if (detectionTag == "Thanos" && other.GetGameObject().GetUID() != ignoreGO)
         {
             ThanosLoop* boss = (ThanosLoop*)other.GetGameObject().GetScript("ThanosLoop");
-            //if (boss) boss->TakeDamage(damage);
+            if (boss) boss->TakeDamage(damage);
             Destroy();
         }
         break;
@@ -183,7 +183,7 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
         else if (detectionTag == "Thanos" && !reflected)
         {
             ThanosLoop* boss = (ThanosLoop*)other.GetGameObject().GetScript("ThanosLoop");
-            //if (boss) boss->TakeDamage(damage);
+            if (boss) boss->TakeDamage(damage);
             Destroy();
         }
         else if (detectionTag == "Player" && reflected)
@@ -216,7 +216,7 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
         else if (detectionTag == "Thanos")
         {
             ThanosLoop* boss = (ThanosLoop*)other.GetGameObject().GetScript("ThanosLoop");
-            //if (boss) boss->TakeDamage(damage);
+            if (boss) boss->TakeDamage(damage);
             Destroy();
         }
         break;
@@ -244,7 +244,7 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
         else if (detectionTag == "Thanos" && !reflected)
         {
             ThanosLoop* boss = (ThanosLoop*)other.GetGameObject().GetScript("ThanosLoop");
-            //if (boss) boss->TakeDamage(damage);
+            if (boss) boss->TakeDamage(damage);
             Destroy();
         }
         else if (detectionTag == "Player" && reflected)
@@ -277,9 +277,9 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
             BossLoop* miniBoss = (BossLoop*)other.GetGameObject().GetScript("BossLoop");
             if (miniBoss)
             {
-               /* miniBoss->TakeDamage(damage);
+                miniBoss->TakeDamage(damage);
                 miniBoss->CheckBombs();
-                miniBoss->AddBurn();*/
+                miniBoss->AddBurn();
             }
             Destroy();
         }
@@ -288,9 +288,9 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
             ThanosLoop* boss = (ThanosLoop*)other.GetGameObject().GetScript("ThanosLoop");
             if (boss)
             {
-              /*  boss->TakeDamage(damage);
+                boss->TakeDamage(damage);
                 boss->CheckBombs();
-                boss->AddBurn();*/
+                boss->AddBurn();
             }
             Destroy();
         }
@@ -349,8 +349,8 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
                 BossLoop* miniBoss = (BossLoop*)other.GetGameObject().GetScript("BossLoop");
                 if (miniBoss)
                 {
-                 /*   miniBoss->TakeDamage(damage);
-                    miniBoss->CheckBombs();*/
+                    miniBoss->TakeDamage(damage);
+                    miniBoss->CheckBombs();
                 }
             }
             else if (detectionTag == "Thanos")
@@ -358,8 +358,8 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
                 ThanosLoop* boss = (ThanosLoop*)other.GetGameObject().GetScript("ThanosLoop");
                 if (boss)
                 {
-                   /* boss->TakeDamage(damage);
-                    boss->CheckBombs();*/
+                    boss->TakeDamage(damage);
+                    boss->CheckBombs();
                 }
                 Destroy();
             }
