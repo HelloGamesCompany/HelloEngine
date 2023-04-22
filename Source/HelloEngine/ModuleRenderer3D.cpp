@@ -78,6 +78,8 @@ bool ModuleRenderer3D::Init()
 
 	OnResize(ModuleWindow::width, ModuleWindow::height);
 
+	isRenderingColliders = true;
+
 	return ret;
 }
 
@@ -121,7 +123,10 @@ UpdateStatus ModuleRenderer3D::PostUpdate()
 		ModuleLayers::S_DrawLayers();
 		particleManager.Draw();
 		renderManager.Draw();
-		renderManager.DrawDebug();
+		if (isRenderingColliders) 
+		{
+			renderManager.DrawDebug();
+		}
 		_cameras->DrawCameraFrustums();
 	}
 
