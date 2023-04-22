@@ -241,6 +241,7 @@
     <ClCompile Include="../../Assets/Scripts/Quests/Secondary_Quests/Mision_SomethingPersonal.cpp" />
     <ClCompile Include="../../Assets/Scripts/AbilityDescription.cpp" />
     <ClCompile Include="../../Assets/Scripts/OnCollisionTest.cpp" />
+    <ClCompile Include="../../Assets/Scripts/Enemies/EnemySniper.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Assets\Scripts\EbonyMaw\BossAttacks.h" />
@@ -349,6 +350,7 @@
     <ClInclude Include="../../Assets/Scripts/Quests/Secondary_Quests/Mision_SomethingPersonal.h" />
     <ClInclude Include="../../Assets/Scripts/AbilityDescription.h" />
     <ClInclude Include="../../Assets/Scripts/OnCollisionTest.h" />
+    <ClInclude Include="../../Assets/Scripts/Enemies/EnemySniper.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />
