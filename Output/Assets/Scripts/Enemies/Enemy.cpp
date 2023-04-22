@@ -5,6 +5,8 @@
 #include "EnemyMeleeMovement.h"
 #include "EnemyRanger.h"
 #include "../Shooting/StickBomb.h"
+#include "../Quests/Secondary_Quests/EnemyDieEvent.h"
+
 HELLO_ENGINE_API_C Enemy* CreateEnemy(ScriptToInspectorInterface* script)
 {
     Enemy* classInstance = new Enemy();
@@ -220,6 +222,9 @@ void Enemy::Die()
     {
         dying = true;
     }
+
+    EnemyDieEvent::enemyDead();
+
     //gameObject.SetActive(false);
 }
 
