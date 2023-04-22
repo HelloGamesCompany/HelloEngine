@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include "API/API_GameObject.h"
+#include "API/API_String.h"
 
 #ifndef HELLO_ENGINE_EXPORTS
 #include "json.hpp"
@@ -211,7 +212,7 @@ public:
 	virtual void AddDragFloat(const char* name, float* value) = 0;
 	virtual void AddDragInt(const char* name, int* value) = 0;
 	virtual void AddCheckBox(const char* name, bool* value) = 0;
-	virtual void AddInputBox(const char* name, std::string* value) = 0;
+	virtual void AddInputBox(const char* name, API::API_String* value) = 0;
 	virtual void AddDragBoxGameObject(const char* name, API::API_GameObject* value) = 0;
 	virtual void AddDragBoxTransform(const char* name, API::API_Transform* value) = 0;
 	virtual void AddDragBoxMeshRenderer(const char* name, API::API_MeshRenderer* value) = 0;

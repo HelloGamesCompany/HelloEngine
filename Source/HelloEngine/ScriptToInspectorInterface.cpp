@@ -96,13 +96,38 @@ void CheckBoxField::OnDeserialize(json& j)
 
 void InputBoxField::OnEditor()
 {
-	ImGui::InputText((valueName + "##" + className).c_str(), (std::string*)value);
+	API::API_String* APIstring = (API::API_String*)value; // Get API_String
+	std::string string;
+	string.resize(APIstring->length());
+	// Fill std string with API string data
+	const char* buffer = APIstring->c_str();
+	for (int i = 0; i < APIstring->length(); ++i)
+	{
+		string[i] = *buffer;
+		++buffer;
+	}
+	// Give it to ImGui (can't do this with a simple const char* if we want dynamic length of the string).
+	if (ImGui::InputText((valueName + "##" + className).c_str(), &string))
+	{
+		*APIstring = string;
+	}
 }
 
 void InputBoxField::OnSerialize(json& j)
 {
 	json _j;
-	_j[valueName.c_str()] = *(std::string*)value;
+	API::API_String* APIstring = (API::API_String*)value;
+	std::string string;
+	string.resize(APIstring->length());
+	// Fill std string with API string data
+	const char* buffer = APIstring->c_str();
+	for (int i = 0; i < APIstring->length(); ++i)
+	{
+		string[i] = *buffer;
+		++buffer;
+	}
+
+	_j[valueName.c_str()] = string;
 	j.push_back(_j);
 }
 
@@ -112,7 +137,8 @@ void InputBoxField::OnDeserialize(json& j)
 	{
 		if (j[i].find(valueName) != j[i].end())
 		{
-			*(std::string*)value = j[i][valueName.c_str()];
+			std::string stringValue = j[i][valueName.c_str()];
+			*(API::API_String*)value = stringValue; // Assign directly because there is an =operator made for this.
 		}
 	}
 }

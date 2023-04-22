@@ -45,7 +45,7 @@ void EnemyGun::LauchProjectile(API_Transform projectileSpawn, float randomDirect
     pull->LauchProjectile(projectileSpeed, projectileDamage, projectileResistanceDamage, projectileLifetime, projectileSpawn, projectileMesh, projectileMaterial, enemyGO.GetTransform().GetLocalRotation(), projectileScale, randomDirectionRange);
 }
 
-void EnemyGun::PlayShotSound(std::string eventString)
+void EnemyGun::PlayShotSound(API_String eventString)
 {
     Audio::Event(eventString.c_str());
 }

@@ -18,7 +18,7 @@ public:
 
 protected:
     void LauchProjectile(API_Transform projectileSpawn, float randomDirectionRange = 0.0f);
-    void PlayShotSound(std::string eventString);
+    void PlayShotSound(API_String eventString);
 
 public:
     API_GameObject enemyGO;
@@ -35,6 +35,6 @@ public:
 
     float cadence;
 
-    std::string audioEventString;
+    API_String audioEventString;
 };
 
