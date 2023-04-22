@@ -79,6 +79,9 @@
     <ClCompile Include="../../Assets/Scripts/InteractiveEnviroment/CasetteManager.cpp" />
     <ClCompile Include="../../Assets/Scripts/InteractiveEnviroment/ChestManager.cpp" />
     <ClCompile Include="..\..\Assets\Scripts\Enemies\AllyEnemiesDetection.cpp" />
+    <ClCompile Include="..\..\Assets\Scripts\Thanos\ThanosLoop.cpp" />
+    <ClCompile Include="..\..\Assets\Scripts\Thanos\ThanosMeleeDmg.cpp" />
+    <ClCompile Include="..\..\Assets\Scripts\Thanos\ThanosMovement.cpp" />
     <ClCompile Include="..\..\Assets\Scripts\UI Test folder\Armory\DisplayUpgradeBpAmount.cpp" />
     <ClCompile Include="../../Assets/Scripts/AbilitySelect.cpp" />
     <ClCompile Include="../../Assets/Scripts/Enemies/EnemyMeleeAttackZone.cpp" />
@@ -106,9 +109,8 @@
     <ClCompile Include="../../Assets/Scripts/Quests/Secondary_Quests/Mision_LikeThe80s.cpp" />
     <ClCompile Include="../../Assets/Scripts/Quests/Secondary_Quests/Mision_TheRuleOfFive.cpp" />
     <ClCompile Include="..\..\Assets\Scripts\Thanos\ThanosAttacks.cpp" />
-    <ClCompile Include="..\..\Assets\Scripts\Thanos\ThanosLoop.cpp" />
-    <ClCompile Include="..\..\Assets\Scripts\Thanos\ThanosMeleeDmg.cpp" />
-    <ClCompile Include="..\..\Assets\Scripts\Thanos\ThanosMovement.cpp" />
+    
+    <ClCompile Include="..\..\Assets\Scripts\Shooting\StickBomb.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Assets\Scripts\EbonyMaw\BossAttacks.h" />
@@ -220,5 +222,6 @@
     <ClInclude Include="..\..\Assets\Scripts\Thanos\ThanosLoop.h" />
     <ClInclude Include="..\..\Assets\Scripts\Thanos\ThanosMeleeDmg.h" />
     <ClInclude Include="..\..\Assets\Scripts\Thanos\ThanosMovement.h" />
+    <ClInclude Include="..\..\Assets\Scripts\Shooting\StickBomb.h" />
   </ItemGroup>
 </Project>
