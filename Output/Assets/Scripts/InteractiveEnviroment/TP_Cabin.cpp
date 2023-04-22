@@ -19,7 +19,7 @@ void TP_Cabin::Update()
 {
 }
 
-void TP_Cabin::OnCollisionEnter(API_RigidBody other)
+void TP_Cabin::OnCollisionStay(API_RigidBody other)
 {
 
 	std::string detectionTag = other.GetGameObject().GetTag();
@@ -41,13 +41,13 @@ void TP_Cabin::OnCollisionEnter(API_RigidBody other)
 			destinationSmoke.StopEmitting();
 		}
 
-		if (1.4f > timeHoldButton && timeHoldButton > 1.0f)
+		if (1.1f > timeHoldButton && timeHoldButton > 0.8f)
 		{
 			smoke.Play();
 			destinationSmoke.Play();
 			Audio::Event("teleport_1");
 		}
-		else if (timeHoldButton > 1.5f)
+		else if (timeHoldButton > 1.2f)
 		{
 			other.GetGameObject().GetTransform().SetPosition(destination.GetGlobalPosition());
 			timeHoldButton = 0.0f;
