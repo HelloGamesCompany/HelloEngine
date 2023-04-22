@@ -168,7 +168,14 @@ void PhysBody3D::RenderCollider()
 			if (ModuleLayers::gameObjects.count(gameObjectUID) != 0)
 			{
 				GameObject* go = ModuleLayers::gameObjects[gameObjectUID];
-				Application::Instance()->renderer3D->renderManager.DrawColliderBox(this, float4(go->GetComponent<PhysicsComponent>()->renderColColor), go->GetComponent<PhysicsComponent>()->wireframeSize);
+				if (go->IsActive() && !go->IsPendingToDelete())
+				{
+					PhysicsComponent* physComp = go->GetComponent<PhysicsComponent>();
+					if (physComp != nullptr)
+					{
+						Application::Instance()->renderer3D->renderManager.DrawColliderBox(this, float4(physComp->renderColColor), physComp->wireframeSize);
+					}
+				}
 			}
 			
 			break;
@@ -177,16 +184,29 @@ void PhysBody3D::RenderCollider()
 			if (ModuleLayers::gameObjects.count(gameObjectUID) != 0)
 			{
 				GameObject* go = ModuleLayers::gameObjects[gameObjectUID];
-				Application::Instance()->renderer3D->renderManager.DrawColliderSphere(this, go->GetComponent<PhysicsComponent>()->sphereRadius, float4(go->GetComponent<PhysicsComponent>()->renderColColor), go->GetComponent<PhysicsComponent>()->wireframeSize, go->GetComponent<PhysicsComponent>()->sphereVerSlices, go->GetComponent<PhysicsComponent>()->sphereHorSlices);
+				if (go->IsActive() && !go->IsPendingToDelete())
+				{
+					PhysicsComponent* physComp = go->GetComponent<PhysicsComponent>();
+					if (physComp != nullptr) 
+					{
+						Application::Instance()->renderer3D->renderManager.DrawColliderSphere(this, physComp->sphereRadius, float4(physComp->renderColColor), physComp->wireframeSize, physComp->sphereVerSlices, physComp->sphereHorSlices);
+					}
+				}
 			}
-			
 			break;
 		case ColliderShape::CYLINDER:
 			// TODO: This check will not be necessary once we stop creating PhysBodies without game objects!!!
 			if (ModuleLayers::gameObjects.count(gameObjectUID) != 0)
 			{
 				GameObject* go = ModuleLayers::gameObjects[gameObjectUID];
-				Application::Instance()->renderer3D->renderManager.DrawColliderCylinder(this, go->GetComponent<PhysicsComponent>()->cylRadiusHeight, float4(go->GetComponent<PhysicsComponent>()->renderColColor), go->GetComponent<PhysicsComponent>()->wireframeSize, go->GetComponent<PhysicsComponent>()->cylinderVerSlices);
+				if (go->IsActive() && !go->IsPendingToDelete())
+				{
+					PhysicsComponent* physComp = go->GetComponent<PhysicsComponent>();
+					if (physComp != nullptr)
+					{
+						Application::Instance()->renderer3D->renderManager.DrawColliderCylinder(this, physComp->cylRadiusHeight, float4(physComp->renderColColor), physComp->wireframeSize, physComp->cylinderVerSlices);
+					}
+				}
 			}
 			
 			break;
