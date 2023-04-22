@@ -181,6 +181,7 @@
     <ClCompile Include="..\..\Assets\Scripts\Shooting\Guns\PlayerRicochet.cpp" />
     <ClCompile Include="..\..\Assets\Scripts\Shooting\Guns\PlayerSemiAuto.cpp" />
     <ClCompile Include="..\..\Assets\Scripts\Shooting\Guns\PlayerShotgun.cpp" />
+    <ClCompile Include="..\..\Assets\Scripts\Shooting\StickBomb.cpp" />
     <ClCompile Include="..\..\Assets\Scripts\Thanos\ThanosLoop.cpp" />
     <ClCompile Include="..\..\Assets\Scripts\Thanos\ThanosMeleeDmg.cpp" />
     <ClCompile Include="..\..\Assets\Scripts\Thanos\ThanosMovement.cpp" />
@@ -268,6 +269,7 @@
     <ClInclude Include="..\..\Assets\Scripts\Shooting\Guns\PlayerRicochet.h" />
     <ClInclude Include="..\..\Assets\Scripts\Shooting\Guns\PlayerSemiAuto.h" />
     <ClInclude Include="..\..\Assets\Scripts\Shooting\Guns\PlayerShotgun.h" />
+    <ClInclude Include="..\..\Assets\Scripts\Shooting\StickBomb.h" />
     <ClInclude Include="..\..\Assets\Scripts\Thanos\ThanosLoop.h" />
     <ClInclude Include="..\..\Assets\Scripts\Thanos\ThanosMeleeDmg.h" />
     <ClInclude Include="..\..\Assets\Scripts\Thanos\ThanosMovement.h" />
