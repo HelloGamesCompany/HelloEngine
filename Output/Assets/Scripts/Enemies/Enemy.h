@@ -35,6 +35,7 @@ public:
 
     float maxHp = 100.0f;
     float currentHp;
+    float minResistence = 10.0f;
     float maxResistance = 100.0f;
     float currentResistance;
     float speed = 75.0f;
