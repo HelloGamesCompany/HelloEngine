@@ -82,7 +82,7 @@ void PlayerHandgun::Shoot()
 {
     if (canShoot)
     {
-        LauchProjectile(shootingSpawn, PROJECTILE_TYPE::HANDGUN, PROJECTILE_ACTION::FLINCH);
+        /*LauchProjectile(shootingSpawn, PROJECTILE_TYPE::HANDGUN, PROJECTILE_ACTION::FLINCH);*/
         PlayShotSound(audioEventString);
         canShoot = false;
         if (playerStats->fireratePowerUp) shotCooldown = fullShotCooldownWithPowerUp;

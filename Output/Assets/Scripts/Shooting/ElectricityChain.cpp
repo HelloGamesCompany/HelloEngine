@@ -17,7 +17,7 @@ void ElectricityChain::Update()
 {
     if (destroy)
     {
-        pull->electricityChainExeptionsAmountActive[exeptionsVectorIndex]--;
+        //pull->electricityChainExeptionsAmountActive[exeptionsVectorIndex]--;
         std::string compareTag = atachedToGO.GetTag();
         if (compareTag == "Enemy")
         {
@@ -45,14 +45,14 @@ void ElectricityChain::OnCollisionEnter(API::API_RigidBody other)
 
     if (detectionTag == "Enemy" || detectionTag == "Boss")
     {
-        std::vector<uint> exeptions = pull->electricityChainExeptions[exeptionsVectorIndex];
-        if (std::find(exeptions.begin(), exeptions.end(), other.GetGameObject().GetUID()) == exeptions.end()) // if current enemy is not on vector
-        {
-            pull->electricityChainExeptions[exeptionsVectorIndex].push_back(other.GetGameObject().GetUID());
-            pull->electricityChainExeptionsAmountActive[exeptionsVectorIndex]++;
-            pull->LauchELECTRICITY_CHAIN(ELECTRICITY_DELAY, damage, resistanceDamage, other.GetGameObject(), exeptionsVectorIndex);
-            chainCount++;
-        }
+        //std::vector<uint> exeptions = pull->electricityChainExeptions[exeptionsVectorIndex];
+        //if (std::find(exeptions.begin(), exeptions.end(), other.GetGameObject().GetUID()) == exeptions.end()) // if current enemy is not on vector
+        //{
+        //    pull->electricityChainExeptions[exeptionsVectorIndex].push_back(other.GetGameObject().GetUID());
+        //    pull->electricityChainExeptionsAmountActive[exeptionsVectorIndex]++;
+        //    pull->LauchELECTRICITY_CHAIN(ELECTRICITY_DELAY, damage, resistanceDamage, other.GetGameObject(), exeptionsVectorIndex);
+        //    chainCount++;
+        //}
     }
     
     destroy = true;
