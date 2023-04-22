@@ -12,6 +12,6 @@ public:
 	void Update() override;
 
 	API_UIButton button;
-	std::string sceneName;
+	API_String sceneName;
 };
 
