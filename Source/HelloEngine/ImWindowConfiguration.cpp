@@ -236,6 +236,8 @@ void ImWindowConfiguration::Update()
 			}
 		}
 
+		ImGui::Checkbox("Show Colliders", &app->renderer3D->isRenderingColliders);
+
 		if (ImGui::CollapsingHeader("Hardware", ImGuiTreeNodeFlags_DefaultOpen))
 		{
 			ImGui::TextWrapped("CPU Count: "); ImGui::SameLine();

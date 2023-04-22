@@ -15,27 +15,27 @@ void GoToLevelTrigger::Start()
     {
         if (API_QuickSave::GetBool("level4_completed"))
         {
-            scene = "LVL5_Blockout";
+            scene = std::string("LVL5_Blockout");
             nextLevel = 5;
         }
         else if (API_QuickSave::GetBool("level3_completed"))
         {
-            scene = "LVL4_Blockout.HScene";
+            scene = std::string("LVL4_Blockout.HScene");
             nextLevel = 4;
         }
         else if (API_QuickSave::GetBool("level2_completed"))
         {
-            scene = "LVL3_Blockout.HScene";
+            scene = std::string("LVL3_Blockout.HScene");
             nextLevel = 3;
         }
         else if (API_QuickSave::GetBool("level1_completed"))
         {
-            scene = "LVL2_Blockout.HScene";
+            scene = std::string("LVL2_Blockout.HScene");
             nextLevel = 2;
         }
         else
         {
-            scene = "LVL1_Blockout.HScene";
+            scene = std::string("LVL1_Blockout.HScene");
             nextLevel = 1;
         }
     }

@@ -54,7 +54,7 @@
             {
                 "Active camera": true,
                 "Active culling": false,
-                "Aspect ratio": 1.0143626928329468,
+                "Aspect ratio": 2.064631938934326,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -310,10 +310,10 @@
                         "Base Gun": 0
                     },
                     {
-                        "Normal Gun": 6
+                        "Normal Gun": 5
                     },
                     {
-                        "Special Gun": 7
+                        "Special Gun": 6
                     },
                     {
                         "Duals": 1764362837
@@ -329,9 +329,6 @@
                     },
                     {
                         "Shotgun": 3172887682
-                    },
-                    {
-                        "Handgun": 855340649
                     },
                     {
                         "Flamethrower": 3579561625
@@ -6877,12 +6874,6 @@
                         "Shotgun Bomb Prefab": 884876432
                     },
                     {
-                        "Electricity Chain Pull Size": 10
-                    },
-                    {
-                        "Electricity Chain Prefab": 4219605086
-                    },
-                    {
                         "Check Ricochet Traget Prefab": 3306111952
                     }
                 ],
@@ -7530,51 +7521,8 @@
             },
             {
                 "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Projectile Pull": 3715485205
-                    },
-                    {
-                        "Projectile Speed": 0.0
-                    },
-                    {
-                        "Projectile Damage": 0.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 0.0
-                    },
-                    {
-                        "Projectile Spawn": 855340649
-                    },
-                    {
-                        "Projectile ScaleX": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleY": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleZ": 0.10000000149011612
-                    },
-                    {
-                        "Projectiles per second": 0.0
-                    },
-                    {
-                        "Extra % firerate": 15.0
-                    },
-                    {
-                        "Player Stats GO": 1475165862
-                    },
-                    {
-                        "Ammo Type": 1
-                    },
-                    {
-                        "Audio Event String": "w_handgun"
-                    }
-                ],
-                "Script Resource": 4264749539,
+                "Inspector Fields": null,
+                "Script Resource": 0,
                 "Type": 5
             }
         ],
@@ -7655,7 +7603,7 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Gun Type": 6
+                        "Gun Type": 5
                     }
                 ],
                 "Script Resource": 1068662416,
@@ -7747,7 +7695,7 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Gun Type": 7
+                        "Gun Type": 6
                     }
                 ],
                 "Script Resource": 1068662416,

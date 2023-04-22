@@ -24,7 +24,7 @@ public:
 
 protected:
     void LauchProjectile(API_Transform projectileSpawn, PROJECTILE_TYPE type, PROJECTILE_ACTION projectileAction = PROJECTILE_ACTION::NONE, float randomDirectionRange = 0.0f);
-    void PlayShotSound(std::string eventString);
+    void PlayShotSound(API_String eventString);
 
 public:
     API_GameObject player;
@@ -43,6 +43,6 @@ public:
     float upgradeFireratePercentage = 15.0f;
 
     int ammoType;
-    std::string audioEventString;
+    API::API_String audioEventString;
 };
 
