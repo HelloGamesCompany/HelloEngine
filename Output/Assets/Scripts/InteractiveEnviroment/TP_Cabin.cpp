@@ -22,10 +22,10 @@ void TP_Cabin::Update()
 void TP_Cabin::OnCollisionEnter(API_RigidBody other)
 {
 
-	std::string detectionName = other.GetGameObject().GetName();
+	std::string detectionTag = other.GetGameObject().GetTag();
 
 
-	if (detectionName == "Player")
+	if (detectionTag == "Player")
 	{
 
 		//INSERT UI

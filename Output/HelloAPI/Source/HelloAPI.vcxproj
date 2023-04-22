@@ -181,6 +181,7 @@
     <ClCompile Include="..\..\Assets\Scripts\Shooting\Guns\PlayerRicochet.cpp" />
     <ClCompile Include="..\..\Assets\Scripts\Shooting\Guns\PlayerSemiAuto.cpp" />
     <ClCompile Include="..\..\Assets\Scripts\Shooting\Guns\PlayerShotgun.cpp" />
+    <ClCompile Include="..\..\Assets\Scripts\Thanos\ThanosAttacks.cpp" />
     <ClCompile Include="..\..\Assets\Scripts\Shooting\StickBomb.cpp" />
     <ClCompile Include="..\..\Assets\Scripts\Thanos\ThanosLoop.cpp" />
     <ClCompile Include="..\..\Assets\Scripts\Thanos\ThanosMeleeDmg.cpp" />
@@ -241,6 +242,9 @@
     <ClCompile Include="../../Assets/Scripts/Quests/Secondary_Quests/Mision_SomethingPersonal.cpp" />
     <ClCompile Include="../../Assets/Scripts/AbilityDescription.cpp" />
     <ClCompile Include="../../Assets/Scripts/OnCollisionTest.cpp" />
+    <ClCompile Include="../../Assets/Scripts/Quests/Secondary_Quests/EnemyDieEvent.cpp" />
+    <ClCompile Include="../../Assets/Scripts/Quests/Secondary_Quests/Mision_LikeThe80s.cpp" />
+    <ClCompile Include="../../Assets/Scripts/Quests/Secondary_Quests/Mision_TheRuleOfFive.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Assets\Scripts\EbonyMaw\BossAttacks.h" />
@@ -269,6 +273,7 @@
     <ClInclude Include="..\..\Assets\Scripts\Shooting\Guns\PlayerRicochet.h" />
     <ClInclude Include="..\..\Assets\Scripts\Shooting\Guns\PlayerSemiAuto.h" />
     <ClInclude Include="..\..\Assets\Scripts\Shooting\Guns\PlayerShotgun.h" />
+    <ClInclude Include="..\..\Assets\Scripts\Thanos\ThanosAttacks.h" />
     <ClInclude Include="..\..\Assets\Scripts\Shooting\StickBomb.h" />
     <ClInclude Include="..\..\Assets\Scripts\Thanos\ThanosLoop.h" />
     <ClInclude Include="..\..\Assets\Scripts\Thanos\ThanosMeleeDmg.h" />
@@ -349,6 +354,9 @@
     <ClInclude Include="../../Assets/Scripts/Quests/Secondary_Quests/Mision_SomethingPersonal.h" />
     <ClInclude Include="../../Assets/Scripts/AbilityDescription.h" />
     <ClInclude Include="../../Assets/Scripts/OnCollisionTest.h" />
+    <ClInclude Include="../../Assets/Scripts/Quests/Secondary_Quests/EnemyDieEvent.h" />
+    <ClInclude Include="../../Assets/Scripts/Quests/Secondary_Quests/Mision_LikeThe80s.h" />
+    <ClInclude Include="../../Assets/Scripts/Quests/Secondary_Quests/Mision_TheRuleOfFive.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />

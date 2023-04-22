@@ -33,6 +33,7 @@ public:
 		DASHATTACK,
 		HOLDING,
 		SPECIALATTACK,
+		THROWINGATTACK,
 	};
 
 	THANOS_STATE thanosState;

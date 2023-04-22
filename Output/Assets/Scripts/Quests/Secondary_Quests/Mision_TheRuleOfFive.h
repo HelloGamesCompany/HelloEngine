@@ -6,6 +6,7 @@
 #include "API/API.h"
 
 class PlayerStorage;
+class EnemyDieEvent;
 
 class Mision_TheRuleOfFive : HelloBehavior
 {
@@ -15,12 +16,15 @@ public:
 
 	API_GameObject playerStorageGO;
 	PlayerStorage* playerStorage;
+	EnemyDieEvent* enemyDieEventRef;
 
-	int enemiessize = 0;
+	//int enemiessize = 0;
 
-	std::vector <API_GameObject> enemies;
+	//std::vector <API_GameObject> enemies;
 
 	float ruleOfFiveTimer = 0.0f;
+
+	bool misionCompleted = false;
 
 };
 
