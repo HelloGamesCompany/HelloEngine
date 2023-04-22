@@ -34,7 +34,7 @@ void HpBar::Update()
             hp_regen = true;
            
         }
-        else if (playerStats->currentHp > deathlineHp)
+        else if (playerStats->currentHp >= deathlineHp)
         {
             hp_regen = false;
           
