@@ -24,15 +24,16 @@ void ThanosAttacks::Update()
 		switch (thanosState)
 		{
 		case THANOS_STATE::IDLE:
-			
+		{
 			float selectAttack = rand() % 10 + 1;
-			
+
 			if (selectAttack < 6) {
 				thanosState = THANOS_STATE::THROWINGATTACK;
 			}
 			else THANOS_STATE::DASHATTACK;
 
-			break;
+			
+		}break;		
 		case THANOS_STATE::MELEEATTACK:
 
 			MeleeAttack();

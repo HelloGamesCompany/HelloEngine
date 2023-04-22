@@ -80,7 +80,9 @@ public:
 
     float _tAnimDie;
     float _coldAnimDie;
+
 private:
+
     float _coldStun;
     float _coldSlow;
 

@@ -310,10 +310,10 @@
                         "Base Gun": 0
                     },
                     {
-                        "Normal Gun": 6
+                        "Normal Gun": 5
                     },
                     {
-                        "Special Gun": 7
+                        "Special Gun": 6
                     },
                     {
                         "Duals": 1764362837
@@ -7603,7 +7603,7 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Gun Type": 6
+                        "Gun Type": 5
                     }
                 ],
                 "Script Resource": 1068662416,
@@ -7695,7 +7695,7 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Gun Type": 7
+                        "Gun Type": 6
                     }
                 ],
                 "Script Resource": 1068662416,

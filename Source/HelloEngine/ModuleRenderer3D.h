@@ -33,6 +33,7 @@ public:
 	ParticleManager particleManager;
 	SDL_GLContext context;
 	bool isVSync = false;
+	bool isRenderingColliders;
 
 private:
 	ModuleCamera3D* _cameras = nullptr;
