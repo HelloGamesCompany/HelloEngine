@@ -75,7 +75,7 @@ void Chest::Update()
     }
 }
 
-void Chest::OnCollisionEnter(API::API_RigidBody other)
+void Chest::OnCollisionStay(API::API_RigidBody other)
 {
     std::string detectionTag = other.GetGameObject().GetTag();
     if (detectionTag == "Player")

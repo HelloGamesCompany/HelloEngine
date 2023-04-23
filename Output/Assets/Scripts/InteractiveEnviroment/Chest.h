@@ -15,7 +15,7 @@ public:
     void Start() override;
     void Update() override;
 
-    void OnCollisionEnter(API::API_RigidBody other) override;
+    void OnCollisionStay(API::API_RigidBody other) override;
 
     void OpenChestOnStart();
 
