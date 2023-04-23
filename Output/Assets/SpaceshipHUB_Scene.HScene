@@ -10523,7 +10523,7 @@
             {
                 "Active camera": true,
                 "Active culling": true,
-                "Aspect ratio": 1.9174312353134155,
+                "Aspect ratio": 2.0,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -10551,6 +10551,9 @@
                         "Offset_Z": -7.0
                     },
                     {
+                        "Orbital Offset Multiplier": 2.0
+                    },
+                    {
                         "Rot_X": 50.0
                     },
                     {
@@ -10564,6 +10567,9 @@
                     },
                     {
                         "Use safe zone: ": false
+                    },
+                    {
+                        "Orbital": false
                     },
                     {
                         "Target": 1862169540
@@ -10581,6 +10587,9 @@
                         "Offset_Z": -7.0
                     },
                     {
+                        "Orbital Offset Multiplier": 2.0
+                    },
+                    {
                         "Rot_X": 50.0
                     },
                     {
@@ -10594,6 +10603,9 @@
                     },
                     {
                         "Use safe zone: ": false
+                    },
+                    {
+                        "Orbital": false
                     }
                 ],
                 "Script Resource": 577361718,
@@ -13293,7 +13305,7 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 1114890029,
+                "blockImage": 0,
                 "hoverImage": 155913452,
                 "idleImage": 2149305872,
                 "pressImage": 2678424219
@@ -13334,7 +13346,7 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 3203515059,
+                "blockImage": 0,
                 "hoverImage": 3028963037,
                 "idleImage": 1500276118,
                 "pressImage": 2956277822
@@ -13375,7 +13387,7 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 1645096517,
+                "blockImage": 0,
                 "hoverImage": 1507458867,
                 "idleImage": 4018647135,
                 "pressImage": 2151725819
@@ -13524,7 +13536,7 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 3021994239,
+                "blockImage": 0,
                 "hoverImage": 3987571885,
                 "idleImage": 1449475796,
                 "pressImage": 2961548424
@@ -13693,7 +13705,7 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 117027243,
+                "blockImage": 0,
                 "hoverImage": 774695756,
                 "idleImage": 1166228711,
                 "pressImage": 2911103099
@@ -13734,7 +13746,7 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 4291909931,
+                "blockImage": 0,
                 "hoverImage": 1764344122,
                 "idleImage": 1010678855,
                 "pressImage": 979497022
@@ -13775,7 +13787,7 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 2188747304,
+                "blockImage": 0,
                 "hoverImage": 540665624,
                 "idleImage": 3991879842,
                 "pressImage": 3039633898
@@ -13924,7 +13936,7 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 3021994239,
+                "blockImage": 0,
                 "hoverImage": 3987571885,
                 "idleImage": 1449475796,
                 "pressImage": 2961548424
@@ -14093,7 +14105,7 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 1271969995,
+                "blockImage": 0,
                 "hoverImage": 439256936,
                 "idleImage": 2913812819,
                 "pressImage": 786732544
@@ -14134,7 +14146,7 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 1173882226,
+                "blockImage": 0,
                 "hoverImage": 481541573,
                 "idleImage": 3445119563,
                 "pressImage": 3705268701
@@ -14175,7 +14187,7 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 3373326121,
+                "blockImage": 0,
                 "hoverImage": 1977164779,
                 "idleImage": 3557925662,
                 "pressImage": 4283548949
@@ -14324,7 +14336,7 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 3021994239,
+                "blockImage": 0,
                 "hoverImage": 3987571885,
                 "idleImage": 1449475796,
                 "pressImage": 2961548424
@@ -14493,7 +14505,7 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 3474830610,
+                "blockImage": 0,
                 "hoverImage": 3352448533,
                 "idleImage": 3892636527,
                 "pressImage": 2455332123
@@ -14534,7 +14546,7 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 3162713692,
+                "blockImage": 0,
                 "hoverImage": 3012560447,
                 "idleImage": 3883930136,
                 "pressImage": 1950173065
@@ -14575,7 +14587,7 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 736185371,
+                "blockImage": 0,
                 "hoverImage": 3750942508,
                 "idleImage": 3793480577,
                 "pressImage": 2076496312
@@ -14724,7 +14736,7 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 3021994239,
+                "blockImage": 0,
                 "hoverImage": 3987571885,
                 "idleImage": 1449475796,
                 "pressImage": 2961548424
@@ -14893,7 +14905,7 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 2340429309,
+                "blockImage": 0,
                 "hoverImage": 2080007791,
                 "idleImage": 1912700799,
                 "pressImage": 2121955852
@@ -14934,7 +14946,7 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 3683239595,
+                "blockImage": 0,
                 "hoverImage": 3248838484,
                 "idleImage": 317947480,
                 "pressImage": 3213623159
@@ -14975,7 +14987,7 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 1714793349,
+                "blockImage": 0,
                 "hoverImage": 3153219901,
                 "idleImage": 3878999702,
                 "pressImage": 1473558259
@@ -15124,7 +15136,7 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 3021994239,
+                "blockImage": 0,
                 "hoverImage": 3987571885,
                 "idleImage": 1449475796,
                 "pressImage": 2961548424
@@ -15293,7 +15305,7 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 2619713122,
+                "blockImage": 0,
                 "hoverImage": 3631596909,
                 "idleImage": 3534649351,
                 "pressImage": 2770058791
@@ -15334,7 +15346,7 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 3825299766,
+                "blockImage": 0,
                 "hoverImage": 2525416066,
                 "idleImage": 2561209527,
                 "pressImage": 3645214413
@@ -15375,7 +15387,7 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 2301888740,
+                "blockImage": 0,
                 "hoverImage": 2525416066,
                 "idleImage": 2561209527,
                 "pressImage": 3196897115
@@ -15864,9 +15876,6 @@
                         "Upgraded Aid Kit Heal Amount": 60.0
                     },
                     {
-                        "Hit Particles": 2549045124
-                    },
-                    {
                         "Passive Heal Particles": 913497443
                     },
                     {
@@ -15904,9 +15913,6 @@
                     },
                     {
                         "Upgraded Aid Kit Heal Amount": 60.0
-                    },
-                    {
-                        "Hit Particles": 2549045124
                     },
                     {
                         "Passive Heal Particles": 913497443
@@ -15952,9 +15958,6 @@
                         "Shotgun": 2049488206
                     },
                     {
-                        "Handgun": 14882213
-                    },
-                    {
                         "Swap Delay": 1.0
                     },
                     {
@@ -15986,9 +15989,6 @@
                     },
                     {
                         "Shotgun": 2049488206
-                    },
-                    {
-                        "Handgun": 14882213
                     },
                     {
                         "Swap Delay": 1.0
@@ -21212,7 +21212,7 @@
         "UID": 3978976901
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -21376,7 +21376,7 @@
         "UID": 3550167112
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -21510,7 +21510,7 @@
         "UID": 3701521640
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -21644,7 +21644,7 @@
         "UID": 1305371143
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -21790,7 +21790,7 @@
         "UID": 4031330739
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -21936,7 +21936,7 @@
         "UID": 2049488206
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -21972,93 +21972,8 @@
             },
             {
                 "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Projectile Pull": 3024727231
-                    },
-                    {
-                        "Projectile Speed": 0.0
-                    },
-                    {
-                        "Projectile Damage": 0.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 0.0
-                    },
-                    {
-                        "Projectile Spawn": 14882213
-                    },
-                    {
-                        "Projectile ScaleX": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleY": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleZ": 0.10000000149011612
-                    },
-                    {
-                        "Projectiles per second": 0.0
-                    },
-                    {
-                        "Extra % firerate": 15.0
-                    },
-                    {
-                        "Player Stats GO": 1862169540
-                    },
-                    {
-                        "Ammo Type": 1
-                    },
-                    {
-                        "Audio Event String": "w_handgun"
-                    },
-                    {
-                        "Projectile Pull": 3024727231
-                    },
-                    {
-                        "Projectile Speed": 0.0
-                    },
-                    {
-                        "Projectile Damage": 0.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 0.0
-                    },
-                    {
-                        "Projectile Spawn": 14882213
-                    },
-                    {
-                        "Projectile ScaleX": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleY": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleZ": 0.10000000149011612
-                    },
-                    {
-                        "Projectiles per second": 0.0
-                    },
-                    {
-                        "Extra % firerate": 15.0
-                    },
-                    {
-                        "Player Stats GO": 1862169540
-                    },
-                    {
-                        "Ammo Type": 1
-                    },
-                    {
-                        "Audio Event String": "w_handgun"
-                    }
-                ],
-                "Script Resource": 4264749539,
+                "Inspector Fields": null,
+                "Script Resource": 0,
                 "Type": 5
             }
         ],
@@ -23416,9 +23331,6 @@
                         "Shotgun Bomb Pull Size": 0
                     },
                     {
-                        "Electricity Chain Pull Size": 0
-                    },
-                    {
                         "Player": 1862169540
                     },
                     {
@@ -23429,9 +23341,6 @@
                     },
                     {
                         "Shotgun Bomb Pull Size": 0
-                    },
-                    {
-                        "Electricity Chain Pull Size": 0
                     }
                 ],
                 "Script Resource": 211675320,
@@ -23446,7 +23355,7 @@
         "UID": 3024727231
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -24419,7 +24328,7 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 3466576953,
+                "blockImage": 0,
                 "hoverImage": 3906363488,
                 "idleImage": 75339859,
                 "pressImage": 2599615273
@@ -24485,7 +24394,7 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 4254496951,
+                "blockImage": 0,
                 "hoverImage": 2063043809,
                 "idleImage": 1654806533,
                 "pressImage": 398460794
@@ -24557,7 +24466,7 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 530420254,
+                "blockImage": 0,
                 "hoverImage": 1077388208,
                 "idleImage": 3754038098,
                 "pressImage": 116788097
@@ -24629,7 +24538,7 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 3265449754,
+                "blockImage": 0,
                 "hoverImage": 972143631,
                 "idleImage": 37551856,
                 "pressImage": 3844307165
@@ -24701,7 +24610,7 @@
         "FirstOnPrefab": false,
         "Name": "Image_1",
         "ParentUID": 726755960,
-        "PrefabUID": 1511050084,
+        "PrefabUID": 3568942337,
         "Tag": "UI",
         "UID": 6080464
     },
@@ -24768,7 +24677,7 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 2273897285,
+                "MaterialResource": 3954282524,
                 "MeshEnabled": true,
                 "OpacityDirection": 0,
                 "Type": 15
@@ -24806,7 +24715,7 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 2273897285,
+                "MaterialResource": 3349744550,
                 "MeshEnabled": true,
                 "OpacityDirection": 0,
                 "Type": 15
@@ -24980,7 +24889,7 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 3625591785,
+                "blockImage": 0,
                 "hoverImage": 4172910120,
                 "idleImage": 1651947909,
                 "pressImage": 204539219
@@ -25021,7 +24930,7 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 3041891450,
+                "blockImage": 0,
                 "hoverImage": 3450303370,
                 "idleImage": 3794375888,
                 "pressImage": 3217302591
@@ -25062,7 +24971,7 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 3343364781,
+                "blockImage": 0,
                 "hoverImage": 1565970794,
                 "idleImage": 125103827,
                 "pressImage": 1176255252
@@ -25103,7 +25012,7 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 986295648,
+                "blockImage": 0,
                 "hoverImage": 3684446967,
                 "idleImage": 2208756202,
                 "pressImage": 914503855
@@ -25115,6 +25024,158 @@
         "PrefabUID": 3943484743,
         "Tag": "UI",
         "UID": 2480871420
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.3700000047683716,
+                    0.3799999952316284,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.30000001192092896,
+                    0.17000000178813934,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 2252456834,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Image_1",
+        "ParentUID": 3616324842,
+        "PrefabUID": 3568942337,
+        "Tag": "UI",
+        "UID": 886436084
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.3700000047683716,
+                    0.05999999865889549,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.30000001192092896,
+                    0.17000000178813934,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 2838532628,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Image_2",
+        "ParentUID": 3616324842,
+        "PrefabUID": 3568942337,
+        "Tag": "UI",
+        "UID": 2362856287
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.3700000047683716,
+                    -0.2800000011920929,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.30000001192092896,
+                    0.17000000178813934,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 2386175289,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Image_3",
+        "ParentUID": 3616324842,
+        "PrefabUID": 3568942337,
+        "Tag": "UI",
+        "UID": 4085303271
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.3700000047683716,
+                    -0.6200000047683716,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.30000001192092896,
+                    0.17000000178813934,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 3388626774,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Image_4",
+        "ParentUID": 3616324842,
+        "PrefabUID": 3568942337,
+        "Tag": "UI",
+        "UID": 2653277242
     },
     {
         "Active": false,
@@ -25284,7 +25345,7 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 1487730403,
+                "blockImage": 0,
                 "hoverImage": 2942853897,
                 "idleImage": 962993018,
                 "pressImage": 1652741118
@@ -25325,7 +25386,7 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 1658656476,
+                "blockImage": 0,
                 "hoverImage": 1816090980,
                 "idleImage": 18640436,
                 "pressImage": 1948854205
@@ -25366,7 +25427,7 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 2095876669,
+                "blockImage": 0,
                 "hoverImage": 3595214095,
                 "idleImage": 645164375,
                 "pressImage": 250540909
@@ -25407,7 +25468,7 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 163643360,
+                "blockImage": 0,
                 "hoverImage": 1591933439,
                 "idleImage": 707616108,
                 "pressImage": 2483720286
@@ -25427,7 +25488,7 @@
                 "Enabled": true,
                 "Position": [
                     -0.10000000149011612,
-                    -0.6800000071525574,
+                    -0.6399999856948853,
                     -0.0010000000474974513
                 ],
                 "Rotation": [
@@ -25448,7 +25509,7 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 1750194025,
+                "blockImage": 0,
                 "hoverImage": 4171383660,
                 "idleImage": 393356939,
                 "pressImage": 2623192227
@@ -25460,6 +25521,196 @@
         "PrefabUID": 3943484743,
         "Tag": "UI",
         "UID": 963583409
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.3700000047683716,
+                    0.4399999976158142,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.30000001192092896,
+                    0.17000000178813934,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 3489440989,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Image_1",
+        "ParentUID": 2934290476,
+        "PrefabUID": 3568942337,
+        "Tag": "UI",
+        "UID": 3020994421
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.3700000047683716,
+                    0.1899999976158142,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.30000001192092896,
+                    0.17000000178813934,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 3618652193,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Image_2",
+        "ParentUID": 2934290476,
+        "PrefabUID": 3568942337,
+        "Tag": "UI",
+        "UID": 1888929368
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.3700000047683716,
+                    -0.10000000149011612,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.30000001192092896,
+                    0.17000000178813934,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 2788796334,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Image_3",
+        "ParentUID": 2934290476,
+        "PrefabUID": 3568942337,
+        "Tag": "UI",
+        "UID": 855224226
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.3700000047683716,
+                    -0.4000000059604645,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.30000001192092896,
+                    0.17000000178813934,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 3985176159,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Image_4",
+        "ParentUID": 2934290476,
+        "PrefabUID": 3568942337,
+        "Tag": "UI",
+        "UID": 2425893789
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.3700000047683716,
+                    -0.6499999761581421,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.30000001192092896,
+                    0.17000000178813934,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 1810078887,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Image_5",
+        "ParentUID": 2934290476,
+        "PrefabUID": 3568942337,
+        "Tag": "UI",
+        "UID": 3732501824
     },
     {
         "Active": false,
@@ -25615,7 +25866,7 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 70539861,
+                "blockImage": 0,
                 "hoverImage": 1481163469,
                 "idleImage": 941191803,
                 "pressImage": 1240771976
@@ -25656,7 +25907,7 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 909971764,
+                "blockImage": 0,
                 "hoverImage": 2463679771,
                 "idleImage": 119784811,
                 "pressImage": 4004864065
@@ -25697,7 +25948,7 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 1016881062,
+                "blockImage": 0,
                 "hoverImage": 16280546,
                 "idleImage": 2184501696,
                 "pressImage": 154268735
@@ -25709,6 +25960,120 @@
         "PrefabUID": 3943484743,
         "Tag": "UI",
         "UID": 486754283
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.3700000047683716,
+                    0.30000001192092896,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.30000001192092896,
+                    0.17000000178813934,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 1148531627,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Image_1",
+        "ParentUID": 2546321765,
+        "PrefabUID": 3568942337,
+        "Tag": "UI",
+        "UID": 1387223882
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.3700000047683716,
+                    -0.14000000059604645,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.30000001192092896,
+                    0.17000000178813934,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 460361881,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Image_2",
+        "ParentUID": 2546321765,
+        "PrefabUID": 3568942337,
+        "Tag": "UI",
+        "UID": 2835375609
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.3700000047683716,
+                    -0.5699999928474426,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.30000001192092896,
+                    0.17000000178813934,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 3465753681,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Image_3",
+        "ParentUID": 2546321765,
+        "PrefabUID": 3568942337,
+        "Tag": "UI",
+        "UID": 2861744828
     },
     {
         "Active": true,
