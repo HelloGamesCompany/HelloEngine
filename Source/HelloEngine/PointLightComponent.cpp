@@ -1,6 +1,7 @@
 #include "Headers.h"
 #include "PointLightComponent.h"
 
+#include "GameObject.h"
 #include "Lighting.h"
 
 PointLightComponent::PointLightComponent(GameObject* gameObject) : LightComponent(gameObject)
@@ -37,6 +38,8 @@ void PointLightComponent::SerializationUnique(json& j)
 	j["Constant"] = data.constant;
 	j["Linear"] = data.linear;
 	j["Exp"] = data.exp;
+
+	j["Distance"] = data.distance;
 }
 
 void PointLightComponent::DeSerializationUnique(json& j)
@@ -45,18 +48,24 @@ void PointLightComponent::DeSerializationUnique(json& j)
 	data.linear = j["Linear"];
 	data.exp = j["Exp"];
 
+	data.distance = j["Distance"];
+
+	data.position = _gameObject->GetComponent<TransformComponent>()->GetGlobalMatrix().TranslatePart();
+
 	UpdateToLightMap();
 }
 
 #ifdef STANDALONE
 void PointLightComponent::OnEditorUnique()
 {
+	ImGui::DragFloat("Distance", &data.distance);
+
 	//UpdateData(this->data);
 	ImGui::TextColored(ImVec4(1.0f, 0.0f, 0.0f, 1.0f), "Attenuation");
 	ImGui::DragFloat("Constant", &data.constant);
 	ImGui::DragFloat("Linear", &data.linear);
-	ImGui::DragFloat("Exponential", &data.exp);
-
+	ImGui::DragFloat("Quadratic", &data.exp);
+	
 	UpdateToLightMap();
 }
 

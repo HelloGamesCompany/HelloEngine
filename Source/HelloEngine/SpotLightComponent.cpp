@@ -1,6 +1,7 @@
 #include "Headers.h"
 #include "SpotLightComponent.h"
 
+#include "GameObject.h"
 #include "Lighting.h"
 
 SpotLightComponent::SpotLightComponent(GameObject* gameObject) : LightComponent(gameObject)
@@ -35,6 +36,8 @@ void SpotLightComponent::UpdateToLightMap()
 void SpotLightComponent::SerializationUnique(json& j)
 {
 	j["Cutoff"] = data.cutoff;
+	j["Distance"] = data.distance;
+
 
 	j["Constant"] = data.constant;
 	j["Linear"] = data.linear;
@@ -46,11 +49,16 @@ void SpotLightComponent::DeSerializationUnique(json& j)
 	//UpdateData(this->data);
 
 	data.cutoff = j["Cutoff"];
+	data.distance = j["Distance"];
 
 	data.constant = j["Constant"];
 	data.linear = j["Linear"];
 	data.exp = j["Exp"];
 	
+	float4x4 transform = _gameObject->GetComponent<TransformComponent>()->GetGlobalMatrix();
+	data.position = transform.TranslatePart();
+	data.direction = transform.ToEulerXYZ();
+
 	UpdateToLightMap();
 }
 
@@ -58,6 +66,7 @@ void SpotLightComponent::DeSerializationUnique(json& j)
 void SpotLightComponent::OnEditorUnique()
 {
 	ImGui::DragFloat("Cutoff", &data.cutoff);
+	ImGui::DragFloat("Distance", &data.distance);
 
 	ImGui::TextColored(ImVec4(1.0f, 0.0f, 0.0f, 1.0f), "Attenuation");
 	ImGui::DragFloat("Constant", &data.constant);

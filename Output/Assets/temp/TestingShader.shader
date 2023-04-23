@@ -20,11 +20,12 @@
 		vec4 aPos4 = vec4(aPos, 1.0);
 		
 		//OUT
-		FragPos = normalize(vec3(model * aPos4));
+		FragPos = vec3(model * aPos4);
 		TextureCoords = textCoords;
 
-		Normal = normalize(texture(normal_texture, TextureCoords).rgb * 2.0 - 1.0);
-		Normal = normalize (vec3(model * vec4(normals, 0.0)));
+		//Normal = normalize(texture(normal_texture, TextureCoords).rgb * 2.0 - 1.0);
+		//Normal = normalize (vec3(model * vec4(normals, 0.0)));
+		Normal = normalize(mat3(transpose(inverse(model))) * normals);
 		
 		gl_Position = projection * view * model * aPos4;
 	}
@@ -55,6 +56,8 @@
 		float Exp;
 		
 		vec3 Position;
+		
+		float Distance;
 	};
 	
 	struct SpotLight
@@ -68,7 +71,7 @@
 		
 		vec3 Position;
 		vec3 Direction;
-		
+		float Distance;
 	};
 	
 	uniform DirectionalLight Light_Directional;
@@ -89,7 +92,7 @@
 	//uniform float shininess = 32.0f;
 	//uniform float specularIntensity = 1.0f;
 	
-	int steps = 3;
+	int steps = 2;
 	float scaleFactor = 1.0f/steps;
 	
 	in vec2 TextureCoords;
@@ -107,22 +110,19 @@
 		float diff = max(dot(normal, direction), 0.0);
 		//float diff = dot(normal, -direction);
 		
-		diff = floor(diff * steps) * scaleFactor;
+		//diff = floor(diff * steps) * scaleFactor;
+		diff = ceil(diff * steps) * scaleFactor;
 			
 		vec4 Diffuse = vec4(light.Color, 1.0f) * light.DiffuseIntensity * diff;
-		Diffuse.xyz = clamp(Diffuse.xyz, 0.25, 1.0);
+		//vec4 Diffuse = awawasasdvec4(light.Color, 1.0f) * light.DiffuseIntensity * (diff + 0.1);
+		Diffuse.xyz = clamp(Diffuse.xyz, 0.00, 1.0);
+		if (Diffuse.xyz == vec3(0.0f))
+		{
+			Diffuse.xyz = vec3(0.1f);
+		}
 		Diffuse.w = 1.0f;
 	
-		vec3 viewDir = normalize(ViewPoint - FragPos);
-		//Specular
-		//vec3 reflectDir = reflect(direction, normal);
-		//float SpecularStrength = texture(metallic_texture, TextureCoords).r;
 		
-		//float spec = pow(max(dot(viewDir, reflectDir), 0.0), shininess);
-		
-		//vec4 Specular = vec4((SpecularStrength * specularIntensity) * spec * specularLightColor, 1.0f);
-		
-		//return (Ambient * (Diffuse + Specular));
 		return (Ambient * (Diffuse));
 	}
 	
@@ -135,35 +135,52 @@
 	
 	vec4 CalculatePointLight(PointLight light, vec3 normal)
 	{
-		vec3 lightPos = FragPos - light.Position;
-		float dist = length(lightPos);
-		lightPos = normalize(lightPos) * -1;
+		vec3 lightDir = normalize(light.Position - FragPos);
+		float dist = length(light.Position - FragPos);
+		//lightPos = normalize(lightPos);
 		
-		vec4 color = CalculateLight(light.Base, normalize(lightPos), normal);
+		vec4 color = vec4(0.1f);
 		
-		float attenuation = light.Constant + (light.Linear * dist) * (light.Exp * dist) * dist;
+		if (light.Distance > dist)
+		{
+			color = CalculateLight(light.Base, lightDir, normal);
+		}
+		
+		float attenuation = light.Constant + (light.Linear * dist) * (light.Exp * dist) * (dist * dist);
+		//float attenuation = 1.0 / (light.Constant + light.Linear * dist + light.Exp * (dist * dist));
 		
 		return (color / attenuation);
 	}
 	
 	vec4 CalculateSpotLight(SpotLight light, vec3 normal)
 	{
-		vec3 lightToPixel = normalize(FragPos - light.Position);
-		float spotFactor = dot(lightToPixel, light.Direction);
+		vec3 lightToPixel = normalize(FragPos - light.Position) * -1.0f;
+		vec3 lightDir = normalize(light.Position - FragPos);
+		float theta = dot(lightDir, normalize(-light.Direction));
 		
-		if (spotFactor > light.Cutoff)
+		if (theta > light.Cutoff)
 		{
-			vec3 lightPos = FragPos - light.Position;
-			float dist = length(lightPos);
-			lightPos = normalize(lightPos) * -1;
-		
-			vec4 color = CalculateLight(light.Base, normalize(lightPos), normal);
-		
-			float attenuation = light.Constant + (light.Linear * dist) * (light.Exp * dist) * dist;
-			float spotLightIntensity = (1.0 - (1.0 - spotFactor) / (1.0 - light.Cutoff));
+			//vec3 lightDir = normalize(light.Position - FragPos);
+			float dist = length(light.Position - FragPos);
 			
-			return (color / attenuation) * spotLightIntensity;
+			vec4 color = vec4(0.0f);
+		
+			if (light.Distance > dist)
+			{
+				color = CalculateLight(light.Base, lightDir, normal);
+			}
+			
+			//float epsilon = light.Cutoff - 
+			
+			float attenuation = light.Constant + (light.Linear * dist) * (light.Exp * dist) * (dist * dist);
+			float spotLightIntensity = (1.0 - (1.0 - theta) / (1.0 - light.Cutoff));
+			
+			vec4 result = (color / attenuation) * spotLightIntensity;
+			result.w = 1.0f;
+			return result;
 		}
+		
+		//return vec4(light.Base.AmbientIntensity);
 	}
 	
 	uniform vec3 ColourTest;
@@ -196,12 +213,24 @@
 		}
 		else
 		{
+		//FragColor = vec4(normalize(Light_Point[0].Position - FragPos) , 1.0);
+		//FragColor = vec4(FragPos, 1.0f);
 		FragColor = result * vec4(ColourTest, 1.0f);
 		}
 		
 	}
 	
 #endif
+
+
+
+
+
+
+
+
+
+
 
 
 

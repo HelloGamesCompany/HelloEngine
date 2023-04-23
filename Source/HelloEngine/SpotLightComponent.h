@@ -12,6 +12,7 @@ struct SpotLight : public Light
 	float3 position;
 	float3 direction;
 	float cutoff;
+	float distance = 16.0f;
 };
 
 class SpotLightComponent : public LightComponent

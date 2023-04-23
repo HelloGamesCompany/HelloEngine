@@ -10,6 +10,7 @@ struct PointLight : public Light
 	float exp = 1.0f;
 
 	float3 position;
+	float distance = 16.0f;
 };
 
 class PointLightComponent : public LightComponent

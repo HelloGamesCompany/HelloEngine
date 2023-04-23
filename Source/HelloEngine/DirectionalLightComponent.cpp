@@ -1,6 +1,7 @@
 #include "Headers.h"
 #include "DirectionalLightComponent.h"
 
+#include "GameObject.h"
 #include "Lighting.h"
 
 DirectionalLightComponent::DirectionalLightComponent(GameObject* gameObject) : LightComponent(gameObject)
@@ -40,6 +41,8 @@ void DirectionalLightComponent::DeSerializationUnique(json& j)
 {
 	/*std::vector<float> temp = j["Direction"];
 	data.direction = { temp[0], temp[1], temp[2] };*/
+
+	data.direction = _gameObject->GetComponent<TransformComponent>()->GetGlobalMatrix().ToEulerXYZ();
 
 	UpdateToLightMap();
 }
