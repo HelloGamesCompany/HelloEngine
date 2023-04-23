@@ -169,15 +169,6 @@
                         "HP BOSS 1 TEXTURE": 2911723293
                     },
                     {
-                        "SHIELD BOSS 1 TEXTURE": 3349762469
-                    },
-                    {
-                        "SHIELD BOSS 2 TEXTURE": 887326709
-                    },
-                    {
-                        "SHIELD BOSS 3 TEXTURE": 2383669952
-                    },
-                    {
                         "All GO HUD BOSS": 533326204
                     },
                     {
@@ -188,15 +179,6 @@
                     },
                     {
                         "HP BOSS 1 TEXTURE": 2911723293
-                    },
-                    {
-                        "SHIELD BOSS 1 TEXTURE": 3349762469
-                    },
-                    {
-                        "SHIELD BOSS 2 TEXTURE": 887326709
-                    },
-                    {
-                        "SHIELD BOSS 3 TEXTURE": 2383669952
                     }
                 ],
                 "Script Resource": 2970796296,
@@ -2514,7 +2496,104 @@
             },
             {
                 "Enabled": true,
-                "Inspector Fields": null,
+                "Inspector Fields": [
+                    {
+                        "Material_Upgrade": 2094448581
+                    },
+                    {
+                        "Material_New_Weapon": 2749613084
+                    },
+                    {
+                        "Material_Special_Weapon": 177811771
+                    },
+                    {
+                        "Text_Upgrade": 171349848
+                    },
+                    {
+                        "Text_New_Weapon": 2978910595
+                    },
+                    {
+                        "Text_Special_Weapon": 1858958322
+                    },
+                    {
+                        "Texture_Amo": 91370282
+                    },
+                    {
+                        "Texture_MediKit": 3455052805
+                    },
+                    {
+                        "Texture_Upgrade": 2475704686
+                    },
+                    {
+                        "Texture_blueprint_gun1": 2428139902
+                    },
+                    {
+                        "Texture_blueprint_gun2": 3602987732
+                    },
+                    {
+                        "Texture_blueprint_gun3": 306708349
+                    },
+                    {
+                        "Texture_blueprint_gun4": 4084920684
+                    },
+                    {
+                        "Texture_blueprint_gun5": 319128658
+                    },
+                    {
+                        "Texture_gun1": 3833364725
+                    },
+                    {
+                        "Texture_gun2": 2257560532
+                    },
+                    {
+                        "Material_Upgrade": 2094448581
+                    },
+                    {
+                        "Material_New_Weapon": 2749613084
+                    },
+                    {
+                        "Material_Special_Weapon": 177811771
+                    },
+                    {
+                        "Text_Upgrade": 171349848
+                    },
+                    {
+                        "Text_New_Weapon": 2978910595
+                    },
+                    {
+                        "Text_Special_Weapon": 1858958322
+                    },
+                    {
+                        "Texture_Amo": 91370282
+                    },
+                    {
+                        "Texture_MediKit": 3455052805
+                    },
+                    {
+                        "Texture_Upgrade": 2475704686
+                    },
+                    {
+                        "Texture_blueprint_gun1": 2428139902
+                    },
+                    {
+                        "Texture_blueprint_gun2": 3602987732
+                    },
+                    {
+                        "Texture_blueprint_gun3": 306708349
+                    },
+                    {
+                        "Texture_blueprint_gun4": 4084920684
+                    },
+                    {
+                        "Texture_blueprint_gun5": 319128658
+                    },
+                    {
+                        "Texture_gun1": 3833364725
+                    },
+                    {
+                        "Texture_gun2": 2257560532
+                    }
+                ],
                 "Script Resource": 291064225,
                 "Type": 5
             }
