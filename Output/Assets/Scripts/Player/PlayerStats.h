@@ -5,6 +5,7 @@
 
 #include "API/API.h"
 
+
 #include "PlayerStorage.h"
 
 class PlayerMove;
@@ -34,7 +35,8 @@ public:
     float lastHitTime;
     float deathTime = 0.0f;
     void Heal(float amount);
-    API_ParticleSystem hitParticles;
+    API_ShaderComponent material;
+    float blinkTime = 0.0f;
     API_ParticleSystem healParticles;
     bool playingHealParticles;
     API_ParticleSystem aidKitParticles;

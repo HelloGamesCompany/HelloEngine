@@ -18,7 +18,7 @@ HELLO_ENGINE_API_C PlayerStats* CreatePlayerStats(ScriptToInspectorInterface* sc
     script->AddDragFloat("Upgraded Deadline Heal Amount", &classInstance->upgradedDeadlineHeal);
     script->AddDragFloat("Aid Kit Heal Amount", &classInstance->aidKitHeal);
     script->AddDragFloat("Upgraded Aid Kit Heal Amount", &classInstance->upgradedAidKitHeal);
-    script->AddDragBoxParticleSystem("Hit Particles", &classInstance->hitParticles);
+    script->AddDragBoxShaderComponent("Material Component", &classInstance->material);
     script->AddDragBoxParticleSystem("Passive Heal Particles", &classInstance->healParticles);
     script->AddDragBoxParticleSystem("Kid Heal Particles", &classInstance->aidKitParticles);
     script->AddDragBoxGameObject("Player GO", &classInstance->playerGO);
@@ -69,6 +69,11 @@ void PlayerStats::Update()
     if (slowTimePowerUp > 0.0f /*&& !paused*/) dt = Time::GetRealTimeDeltaTime();
     else dt = Time::GetDeltaTime();
 
+    if (Input::GetKey(KeyCode::KEY_K) == KeyState::KEY_DOWN)
+    {
+        TakeDamage(0, 0);
+    }
+
     // deadline healing
     float deathlineHp;
     if (healthTreeLvl > 1) deathlineHp = currentMaxHp * (upgradedDeadlinePart / 100.0f);
@@ -116,7 +121,24 @@ void PlayerStats::Update()
     {
         inmunityTime -= dt;
     }
-
+    if (blinkTime > 0.0f)
+    {
+        blinkTime -= dt;
+        if (blinkTime <= 0.0f)
+        {
+            material.SetColor(255, 255, 255, 255);
+            blinkTime = 0.0f;
+        }
+        else if (blinkTime < 0.33f)
+        {
+            material.SetColor(255, 0, 0, 255);
+        }
+        else if (blinkTime < 0.66f)
+        {
+            material.SetColor(255, 255, 255, 255);
+        }
+    }
+    
     // power ups
     if (speedPowerUp > 0.0f)
     {
@@ -233,7 +255,6 @@ void PlayerStats::TakeDamage(float amount, float resistanceDamage)
         {
             secondLife = false;
             currentHp = 1;
-            inmunityTime = 1.0f;
             Audio::Event("starlord_damaged"); // second life audio
         }
         else
@@ -247,9 +268,9 @@ void PlayerStats::TakeDamage(float amount, float resistanceDamage)
     }
     else
     {
-        inmunityTime = 1.0f;
         Audio::Event("starlord_damaged");
-        hitParticles.Play();
+        blinkTime = 1.0f;
+        material.SetColor(255, 0, 0, 255);
     }
 
     // Resistance damage
