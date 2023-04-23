@@ -29,7 +29,7 @@ HELLO_ENGINE_API_C HUD_BluePrints* CreateHUD_BluePrints(ScriptToInspectorInterfa
 	script->AddDragBoxTextureResource("Texture_gun2", &classInstance->special_weapon_textures[1]);
 
 
-
+	//
 
 	return classInstance;
 }

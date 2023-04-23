@@ -109,8 +109,9 @@
     <ClCompile Include="../../Assets/Scripts/Quests/Secondary_Quests/Mision_LikeThe80s.cpp" />
     <ClCompile Include="../../Assets/Scripts/Quests/Secondary_Quests/Mision_TheRuleOfFive.cpp" />
     <ClCompile Include="..\..\Assets\Scripts\Thanos\ThanosAttacks.cpp" />
-    
     <ClCompile Include="..\..\Assets\Scripts\Shooting\StickBomb.cpp" />
+    <ClCompile Include="../../Assets/Scripts/Enemies/EnemySniper.cpp" />
+    <ClCompile Include="..\..\Assets\Scripts\UI Test folder\HUD_BluePrints.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Assets\Scripts\EbonyMaw\BossAttacks.h" />
@@ -223,5 +224,7 @@
     <ClInclude Include="..\..\Assets\Scripts\Thanos\ThanosMeleeDmg.h" />
     <ClInclude Include="..\..\Assets\Scripts\Thanos\ThanosMovement.h" />
     <ClInclude Include="..\..\Assets\Scripts\Shooting\StickBomb.h" />
+    <ClInclude Include="../../Assets/Scripts/Enemies/EnemySniper.h" />
+    <ClInclude Include="..\..\Assets\Scripts\UI Test folder\HUD_BluePrints.h" />
   </ItemGroup>
 </Project>
