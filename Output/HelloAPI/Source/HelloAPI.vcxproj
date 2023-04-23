@@ -186,6 +186,7 @@
     <ClCompile Include="..\..\Assets\Scripts\Thanos\ThanosLoop.cpp" />
     <ClCompile Include="..\..\Assets\Scripts\Thanos\ThanosMeleeDmg.cpp" />
     <ClCompile Include="..\..\Assets\Scripts\Thanos\ThanosMovement.cpp" />
+    <ClCompile Include="..\..\Assets\Scripts\UI Test folder\Animation\AnimationMove.cpp" />
     <ClCompile Include="..\..\Assets\Scripts\UI Test folder\Armory\DisplayUpgradeBpAmount.cpp" />
     <ClCompile Include="..\..\Assets\Scripts\UI Test folder\DashUI.cpp" />
     <ClCompile Include="..\..\Assets\Scripts\UI Test folder\HpBar.cpp" />
@@ -280,6 +281,7 @@
     <ClInclude Include="..\..\Assets\Scripts\Thanos\ThanosLoop.h" />
     <ClInclude Include="..\..\Assets\Scripts\Thanos\ThanosMeleeDmg.h" />
     <ClInclude Include="..\..\Assets\Scripts\Thanos\ThanosMovement.h" />
+    <ClInclude Include="..\..\Assets\Scripts\UI Test folder\Animation\AnimationMove.h" />
     <ClInclude Include="..\..\Assets\Scripts\UI Test folder\Armory\DisplayUpgradeBpAmount.h" />
     <ClInclude Include="..\..\Assets\Scripts\UI Test folder\DashUI.h" />
     <ClInclude Include="..\..\Assets\Scripts\UI Test folder\HpBar.h" />
