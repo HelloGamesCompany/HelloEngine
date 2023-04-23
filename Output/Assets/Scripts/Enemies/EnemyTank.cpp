@@ -97,6 +97,16 @@ void EnemyTank::Update()
 	if (enemyScript)
 	{
 		if (enemyScript->dying)DieTank();
+
+		if (state == States::TARGETING)
+		{
+			enemyScript->targeting = true;
+		}
+		else
+		{
+			enemyScript->targeting = false;
+		}
+
 		if (!enemyScript->dying)
 		{
 

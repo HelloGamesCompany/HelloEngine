@@ -14109,7 +14109,7 @@
             {
                 "Active camera": true,
                 "Active culling": false,
-                "Aspect ratio": 1.8970917463302612,
+                "Aspect ratio": 1.8648383617401123,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 2000.0,
@@ -95318,9 +95318,6 @@
                         "Upgraded Aid Kit Heal Amount": 60.0
                     },
                     {
-                        "Hit Particles": 4287485572
-                    },
-                    {
                         "Passive Heal Particles": 1471927406
                     },
                     {
@@ -95363,9 +95360,6 @@
                         "Upgraded Aid Kit Heal Amount": 60.0
                     },
                     {
-                        "Hit Particles": 4287485572
-                    },
-                    {
                         "Passive Heal Particles": 1471927406
                     },
                     {
@@ -95406,9 +95400,6 @@
                     },
                     {
                         "Upgraded Aid Kit Heal Amount": 60.0
-                    },
-                    {
-                        "Hit Particles": 4287485572
                     },
                     {
                         "Passive Heal Particles": 1471927406
@@ -95564,6 +95555,22 @@
                     }
                 ],
                 "Script Resource": 775870401,
+                "Type": 5
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Num of Enemies": 10
+                    },
+                    {
+                        "Num of Enemies": 10
+                    },
+                    {
+                        "Num of Enemies": 10
+                    }
+                ],
+                "Script Resource": 1862732573,
                 "Type": 5
             }
         ],

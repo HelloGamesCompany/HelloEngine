@@ -24,12 +24,22 @@ void EnemySniper::Start()
 }
 void EnemySniper::Update()
 {
-    float dt = Time::GetDeltaTime();
+    float dt = Time::GetDeltaTime(); 
 
     if (enemy != nullptr)
     {
         float dis = gameObject.GetTransform().GetGlobalPosition().Distance(target.GetTransform().GetGlobalPosition());
         if (enemy->dying)enemState = States::DYING;
+
+        if (enemState == States::TARGETING || enemState == States::ATTACKIG)
+        {
+            enemy->targeting = true;
+        }
+        else
+        {
+            enemy->targeting = false;
+        }
+
         if (!enemy->dying)
         {
             LookAt(target.GetTransform().GetGlobalPosition());

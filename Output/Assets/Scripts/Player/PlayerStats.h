@@ -50,8 +50,9 @@ public:
     int specialAmmo;
     int maxFireAmmo; // index 2
     int maxRicochetAmmo; // index 3
-
+     
     bool detected; //if the player is being detected somehow
+    bool inCombat = false;
     API_RigidBody actualZone;//the zone where the player is
 
     // skills values

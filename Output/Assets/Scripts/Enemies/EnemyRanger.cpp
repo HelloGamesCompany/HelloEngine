@@ -71,9 +71,18 @@ void EnemyRanger::Update()
             float disZone = gameObject.GetTransform().GetLocalPosition().Distance(actionZone.GetTransform().GetGlobalPosition());
             float targDisZone = target.GetTransform().GetGlobalPosition().Distance(actionZone.GetTransform().GetGlobalPosition());
         if (enemy->dying)enemState = States::DYING;
+
+        if (enemState == States::TARGETING || enemState == States::ATTACKIG)
+        {
+            enemy->targeting = true;
+        }
+        else
+        {
+            enemy->targeting = false;
+        }
+
         if (!enemy->dying)
         {
-
 
             float zoneRad = zoneRb.GetRadius() / 2;
 

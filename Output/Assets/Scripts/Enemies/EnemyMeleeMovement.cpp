@@ -75,6 +75,15 @@ void EnemyMeleeMovement::Update()
     {
         if(enemy->dying)enemState = States::DYING;
 
+        if (enemState == States::TARGETING || enemState == States::ATTACKIG)
+        {
+            enemy->targeting = true;
+        }
+        else
+        {
+            enemy->targeting = false;
+        }
+
         if (!enemy->dying)
         {
 
