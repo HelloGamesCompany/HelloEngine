@@ -13533,7 +13533,7 @@
             {
                 "Active camera": true,
                 "Active culling": false,
-                "Aspect ratio": 2.064631938934326,
+                "Aspect ratio": 1.8970917463302612,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 2000.0,
@@ -13561,6 +13561,9 @@
                         "Offset_Z": -10.0
                     },
                     {
+                        "Orbital Offset Multiplier": 2.0
+                    },
+                    {
                         "Rot_X": 56.0
                     },
                     {
@@ -13574,6 +13577,9 @@
                     },
                     {
                         "Use safe zone: ": true
+                    },
+                    {
+                        "Orbital": false
                     }
                 ],
                 "Script Resource": 3628776915,
@@ -66905,7 +66911,7 @@
                 ],
                 "Rotation": [
                     -179.99989318847656,
-                    79.99998474121094,
+                    79.99996948242188,
                     179.99989318847656
                 ],
                 "Scale": [
@@ -81605,1438 +81611,6 @@
             {
                 "Enabled": true,
                 "Position": [
-                    -217.98036193847656,
-                    62.83262252807617,
-                    12.711430549621582
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "AngularFactor": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "ColPosition": [
-                    -5.800000190734863,
-                    -0.8999999761581421,
-                    1.2000000476837158
-                ],
-                "ColRotation": [
-                    0.0,
-                    11.300000190734863,
-                    0.0
-                ],
-                "ColScale": [
-                    7.800000190734863,
-                    4.800000190734863,
-                    2.799999952316284
-                ],
-                "CylVerSlices": 16,
-                "CylinderRadiusHeight": [
-                    1.0,
-                    1.0
-                ],
-                "Enabled": true,
-                "Gravity": [
-                    0.0,
-                    -9.800000190734863,
-                    0.0
-                ],
-                "HasPhysBody": true,
-                "IsKinematic": false,
-                "IsRenderingCol": true,
-                "IsShapeCreated": [
-                    true,
-                    false,
-                    false
-                ],
-                "IsShapeSelected": [
-                    true,
-                    false,
-                    false
-                ],
-                "IsStatic": false,
-                "IsTrigger": false,
-                "Mass": 0.0,
-                "RenderColColor": [
-                    1.0,
-                    0.0,
-                    0.0,
-                    1.0
-                ],
-                "ShapeSelected": 0,
-                "SphereHorSlices": 16,
-                "SphereRadius": 1.0,
-                "SphereVerSlices": 16,
-                "Type": 8,
-                "WireframeSize": 3.0
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Enemy Prefab": 27506641
-                    },
-                    {
-                        "Spawn Destroyed": 2326713736
-                    },
-                    {
-                        "Spawn Entire": 1594368423
-                    },
-                    {
-                        " Parent of the Spawn": 1253701035
-                    },
-                    {
-                        " Parent of the Pool": 3555037603
-                    },
-                    {
-                        "Enemy Pool Size": 2
-                    },
-                    {
-                        "Target": 373022943
-                    },
-                    {
-                        "Action zone": 3487559166
-                    },
-                    {
-                        "Action Rb zone": 3487559166
-                    },
-                    {
-                        "Point 1": 4265518614
-                    },
-                    {
-                        "Point 2": 2747677965
-                    },
-                    {
-                        "Point 3": 2539204720
-                    }
-                ],
-                "Script Resource": 4145735438,
-                "Type": 5
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "SpawnPoint Spawner 2",
-        "ParentUID": 346094910,
-        "PrefabUID": 2489523061,
-        "Tag": "Default",
-        "UID": 1253701035
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    -3.418731689453125,
-                    -0.7982749938964844,
-                    0.719975471496582
-                ],
-                "Rotation": [
-                    179.99989318847656,
-                    76.78646850585938,
-                    179.99989318847656
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "Spawner",
-        "ParentUID": 1253701035,
-        "PrefabUID": 2489523061,
-        "Tag": "Default",
-        "UID": 1594368423
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 651746412,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 3981013709,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "piece1",
-        "ParentUID": 1594368423,
-        "PrefabUID": 2489523061,
-        "Tag": "Default",
-        "UID": 2389179859
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 1,
-                "ModelUID": 651746412,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 3981013709,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "piece2",
-        "ParentUID": 1594368423,
-        "PrefabUID": 2489523061,
-        "Tag": "Default",
-        "UID": 1597523950
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 2,
-                "ModelUID": 651746412,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 3981013709,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "piece3",
-        "ParentUID": 1594368423,
-        "PrefabUID": 2489523061,
-        "Tag": "Default",
-        "UID": 3036793030
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 3,
-                "ModelUID": 651746412,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 3981013709,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "piece4",
-        "ParentUID": 1594368423,
-        "PrefabUID": 2489523061,
-        "Tag": "Default",
-        "UID": 507428733
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 4,
-                "ModelUID": 651746412,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 3981013709,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "piece5",
-        "ParentUID": 1594368423,
-        "PrefabUID": 2489523061,
-        "Tag": "Default",
-        "UID": 1589810593
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 5,
-                "ModelUID": 651746412,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 3981013709,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "piece6",
-        "ParentUID": 1594368423,
-        "PrefabUID": 2489523061,
-        "Tag": "Default",
-        "UID": 2896077333
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 6,
-                "ModelUID": 651746412,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 3981013709,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "piece7",
-        "ParentUID": 1594368423,
-        "PrefabUID": 2489523061,
-        "Tag": "Default",
-        "UID": 560290072
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 7,
-                "ModelUID": 651746412,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 3981013709,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "piece8",
-        "ParentUID": 1594368423,
-        "PrefabUID": 2489523061,
-        "Tag": "Default",
-        "UID": 1062120440
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 8,
-                "ModelUID": 651746412,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 3981013709,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "piece9",
-        "ParentUID": 1594368423,
-        "PrefabUID": 2489523061,
-        "Tag": "Default",
-        "UID": 3730185304
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 9,
-                "ModelUID": 651746412,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 3981013709,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "piece10",
-        "ParentUID": 1594368423,
-        "PrefabUID": 2489523061,
-        "Tag": "Default",
-        "UID": 4033497144
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 10,
-                "ModelUID": 651746412,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 3981013709,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "piece11",
-        "ParentUID": 1594368423,
-        "PrefabUID": 2489523061,
-        "Tag": "Default",
-        "UID": 2552915351
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 11,
-                "ModelUID": 651746412,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 3981013709,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "piece12",
-        "ParentUID": 1594368423,
-        "PrefabUID": 2489523061,
-        "Tag": "Default",
-        "UID": 2183008898
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    -216.85386657714844,
-                    62.848575592041016,
-                    19.91901206970215
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "AngularFactor": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "ColPosition": [
-                    -5.800000190734863,
-                    -0.8999999761581421,
-                    1.2000000476837158
-                ],
-                "ColRotation": [
-                    0.0,
-                    11.300000190734863,
-                    0.0
-                ],
-                "ColScale": [
-                    7.800000190734863,
-                    4.800000190734863,
-                    2.799999952316284
-                ],
-                "CylVerSlices": 16,
-                "CylinderRadiusHeight": [
-                    1.0,
-                    1.0
-                ],
-                "Enabled": true,
-                "Gravity": [
-                    0.0,
-                    -9.800000190734863,
-                    0.0
-                ],
-                "HasPhysBody": true,
-                "IsKinematic": false,
-                "IsRenderingCol": true,
-                "IsShapeCreated": [
-                    true,
-                    false,
-                    false
-                ],
-                "IsShapeSelected": [
-                    true,
-                    false,
-                    false
-                ],
-                "IsStatic": false,
-                "IsTrigger": false,
-                "Mass": 0.0,
-                "RenderColColor": [
-                    1.0,
-                    0.0,
-                    0.0,
-                    1.0
-                ],
-                "ShapeSelected": 0,
-                "SphereHorSlices": 16,
-                "SphereRadius": 1.0,
-                "SphereVerSlices": 16,
-                "Type": 8,
-                "WireframeSize": 3.0
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Enemy Prefab": 27506641
-                    },
-                    {
-                        "Spawn Destroyed": 2326713736
-                    },
-                    {
-                        "Spawn Entire": 3525837157
-                    },
-                    {
-                        " Parent of the Spawn": 1358788017
-                    },
-                    {
-                        " Parent of the Pool": 3555037603
-                    },
-                    {
-                        "Enemy Pool Size": 2
-                    },
-                    {
-                        "Target": 373022943
-                    },
-                    {
-                        "Action zone": 3487559166
-                    },
-                    {
-                        "Action Rb zone": 3487559166
-                    },
-                    {
-                        "Point 1": 4265518614
-                    },
-                    {
-                        "Point 2": 2747677965
-                    },
-                    {
-                        "Point 3": 2539204720
-                    }
-                ],
-                "Script Resource": 4145735438,
-                "Type": 5
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "SpawnPoint Spawner 1",
-        "ParentUID": 346094910,
-        "PrefabUID": 2489523061,
-        "Tag": "Default",
-        "UID": 1358788017
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    -3.0664520263671875,
-                    -0.8131561279296875,
-                    0.7199764251708984
-                ],
-                "Rotation": [
-                    179.99989318847656,
-                    76.78646850585938,
-                    179.99989318847656
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "Spawner",
-        "ParentUID": 1358788017,
-        "PrefabUID": 2489523061,
-        "Tag": "Default",
-        "UID": 3525837157
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 651746412,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 3981013709,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "piece1",
-        "ParentUID": 3525837157,
-        "PrefabUID": 2489523061,
-        "Tag": "Default",
-        "UID": 2042839208
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 1,
-                "ModelUID": 651746412,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 3981013709,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "piece2",
-        "ParentUID": 3525837157,
-        "PrefabUID": 2489523061,
-        "Tag": "Default",
-        "UID": 961460423
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 2,
-                "ModelUID": 651746412,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 3981013709,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "piece3",
-        "ParentUID": 3525837157,
-        "PrefabUID": 2489523061,
-        "Tag": "Default",
-        "UID": 770801522
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 3,
-                "ModelUID": 651746412,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 3981013709,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "piece4",
-        "ParentUID": 3525837157,
-        "PrefabUID": 2489523061,
-        "Tag": "Default",
-        "UID": 2651366938
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 4,
-                "ModelUID": 651746412,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 3981013709,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "piece5",
-        "ParentUID": 3525837157,
-        "PrefabUID": 2489523061,
-        "Tag": "Default",
-        "UID": 1713143009
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 5,
-                "ModelUID": 651746412,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 3981013709,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "piece6",
-        "ParentUID": 3525837157,
-        "PrefabUID": 2489523061,
-        "Tag": "Default",
-        "UID": 3782586965
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 6,
-                "ModelUID": 651746412,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 3981013709,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "piece7",
-        "ParentUID": 3525837157,
-        "PrefabUID": 2489523061,
-        "Tag": "Default",
-        "UID": 1567336024
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 7,
-                "ModelUID": 651746412,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 3981013709,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "piece8",
-        "ParentUID": 3525837157,
-        "PrefabUID": 2489523061,
-        "Tag": "Default",
-        "UID": 1562204727
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 8,
-                "ModelUID": 651746412,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 3981013709,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "piece9",
-        "ParentUID": 3525837157,
-        "PrefabUID": 2489523061,
-        "Tag": "Default",
-        "UID": 798461858
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 9,
-                "ModelUID": 651746412,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 3981013709,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "piece10",
-        "ParentUID": 3525837157,
-        "PrefabUID": 2489523061,
-        "Tag": "Default",
-        "UID": 4246270986
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 10,
-                "ModelUID": 651746412,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 3981013709,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "piece11",
-        "ParentUID": 3525837157,
-        "PrefabUID": 2489523061,
-        "Tag": "Default",
-        "UID": 2738365329
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 11,
-                "ModelUID": 651746412,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 3981013709,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "piece12",
-        "ParentUID": 3525837157,
-        "PrefabUID": 2489523061,
-        "Tag": "Default",
-        "UID": 2724235460
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
                     0.0,
                     0.0,
                     0.0
@@ -92624,1676 +91198,6 @@
             {
                 "Enabled": true,
                 "Position": [
-                    28.239349365234375,
-                    -0.04021764174103737,
-                    19.103046417236328
-                ],
-                "Rotation": [
-                    179.99989318847656,
-                    89.98020935058594,
-                    179.99989318847656
-                ],
-                "Scale": [
-                    0.20000015199184418,
-                    0.20000000298023224,
-                    0.20000015199184418
-                ],
-                "Type": 1
-            },
-            {
-                "AngularFactor": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "ColPosition": [
-                    0.0,
-                    1.7000000476837158,
-                    0.0
-                ],
-                "ColRotation": [
-                    0.0,
-                    90.0,
-                    0.0
-                ],
-                "ColScale": [
-                    1.2000000476837158,
-                    4.199999809265137,
-                    2.799999952316284
-                ],
-                "CylVerSlices": 16,
-                "CylinderRadiusHeight": [
-                    1.0,
-                    1.0
-                ],
-                "Enabled": true,
-                "Gravity": [
-                    0.0,
-                    -9.800000190734863,
-                    0.0
-                ],
-                "HasPhysBody": true,
-                "IsKinematic": false,
-                "IsRenderingCol": true,
-                "IsShapeCreated": [
-                    true,
-                    false,
-                    false
-                ],
-                "IsShapeSelected": [
-                    true,
-                    false,
-                    false
-                ],
-                "IsStatic": true,
-                "IsTrigger": false,
-                "Mass": 0.0,
-                "RenderColColor": [
-                    0.5,
-                    0.0,
-                    0.5,
-                    1.0
-                ],
-                "ShapeSelected": 0,
-                "SphereHorSlices": 16,
-                "SphereRadius": 1.0,
-                "SphereVerSlices": 16,
-                "Type": 8,
-                "WireframeSize": 3.0
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "Shelf",
-        "ParentUID": 2395039143,
-        "PrefabUID": 2411146456,
-        "Tag": "Default",
-        "UID": 3302962570
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "default",
-        "ParentUID": 3302962570,
-        "PrefabUID": 2411146456,
-        "Tag": "Default",
-        "UID": 3008058129
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    -5.960464477539063e-07,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 2705896702,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 3015098597,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "pCube1",
-        "ParentUID": 3302962570,
-        "PrefabUID": 2411146456,
-        "Tag": "Default",
-        "UID": 1409646148
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    31.741310119628906,
-                    -0.04021764174103737,
-                    19.103046417236328
-                ],
-                "Rotation": [
-                    179.99989318847656,
-                    89.98020935058594,
-                    179.99989318847656
-                ],
-                "Scale": [
-                    0.20000015199184418,
-                    0.20000000298023224,
-                    0.20000015199184418
-                ],
-                "Type": 1
-            },
-            {
-                "AngularFactor": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "ColPosition": [
-                    0.0,
-                    1.7000000476837158,
-                    0.0
-                ],
-                "ColRotation": [
-                    0.0,
-                    90.0,
-                    0.0
-                ],
-                "ColScale": [
-                    1.2000000476837158,
-                    4.199999809265137,
-                    2.799999952316284
-                ],
-                "CylVerSlices": 16,
-                "CylinderRadiusHeight": [
-                    1.0,
-                    1.0
-                ],
-                "Enabled": true,
-                "Gravity": [
-                    0.0,
-                    -9.800000190734863,
-                    0.0
-                ],
-                "HasPhysBody": true,
-                "IsKinematic": false,
-                "IsRenderingCol": true,
-                "IsShapeCreated": [
-                    true,
-                    false,
-                    false
-                ],
-                "IsShapeSelected": [
-                    true,
-                    false,
-                    false
-                ],
-                "IsStatic": true,
-                "IsTrigger": false,
-                "Mass": 0.0,
-                "RenderColColor": [
-                    0.5,
-                    0.0,
-                    0.5,
-                    1.0
-                ],
-                "ShapeSelected": 0,
-                "SphereHorSlices": 16,
-                "SphereRadius": 1.0,
-                "SphereVerSlices": 16,
-                "Type": 8,
-                "WireframeSize": 3.0
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "Shelf",
-        "ParentUID": 2395039143,
-        "PrefabUID": 2411146456,
-        "Tag": "Default",
-        "UID": 3297891693
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "default",
-        "ParentUID": 3297891693,
-        "PrefabUID": 2411146456,
-        "Tag": "Default",
-        "UID": 2155848784
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    -5.960464477539063e-07,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 2705896702,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 3015098597,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "pCube1",
-        "ParentUID": 3297891693,
-        "PrefabUID": 2411146456,
-        "Tag": "Default",
-        "UID": 421064847
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    24.966154098510742,
-                    -0.04021764174103737,
-                    19.103046417236328
-                ],
-                "Rotation": [
-                    179.99989318847656,
-                    89.98020935058594,
-                    179.99989318847656
-                ],
-                "Scale": [
-                    0.20000015199184418,
-                    0.20000000298023224,
-                    0.20000015199184418
-                ],
-                "Type": 1
-            },
-            {
-                "AngularFactor": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "ColPosition": [
-                    0.0,
-                    1.7000000476837158,
-                    0.0
-                ],
-                "ColRotation": [
-                    0.0,
-                    90.0,
-                    0.0
-                ],
-                "ColScale": [
-                    1.2000000476837158,
-                    4.199999809265137,
-                    2.799999952316284
-                ],
-                "CylVerSlices": 16,
-                "CylinderRadiusHeight": [
-                    1.0,
-                    1.0
-                ],
-                "Enabled": true,
-                "Gravity": [
-                    0.0,
-                    -9.800000190734863,
-                    0.0
-                ],
-                "HasPhysBody": true,
-                "IsKinematic": false,
-                "IsRenderingCol": true,
-                "IsShapeCreated": [
-                    true,
-                    false,
-                    false
-                ],
-                "IsShapeSelected": [
-                    true,
-                    false,
-                    false
-                ],
-                "IsStatic": true,
-                "IsTrigger": false,
-                "Mass": 0.0,
-                "RenderColColor": [
-                    0.5,
-                    0.0,
-                    0.5,
-                    1.0
-                ],
-                "ShapeSelected": 0,
-                "SphereHorSlices": 16,
-                "SphereRadius": 1.0,
-                "SphereVerSlices": 16,
-                "Type": 8,
-                "WireframeSize": 3.0
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "Shelf",
-        "ParentUID": 2395039143,
-        "PrefabUID": 2411146456,
-        "Tag": "Default",
-        "UID": 1803917787
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "default",
-        "ParentUID": 1803917787,
-        "PrefabUID": 2411146456,
-        "Tag": "Default",
-        "UID": 1421546390
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    -5.960464477539063e-07,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 2705896702,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 3015098597,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "pCube1",
-        "ParentUID": 1803917787,
-        "PrefabUID": 2411146456,
-        "Tag": "Default",
-        "UID": 549816461
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    53.26636505126953,
-                    -0.04049462825059891,
-                    -37.40129470825195
-                ],
-                "Rotation": [
-                    179.99989318847656,
-                    2.236327387615739e-16,
-                    179.99989318847656
-                ],
-                "Scale": [
-                    0.20000015199184418,
-                    0.20000000298023224,
-                    0.20000015199184418
-                ],
-                "Type": 1
-            },
-            {
-                "AngularFactor": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "ColPosition": [
-                    0.0,
-                    1.7000000476837158,
-                    0.0
-                ],
-                "ColRotation": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "ColScale": [
-                    1.2000000476837158,
-                    4.199999809265137,
-                    2.799999952316284
-                ],
-                "CylVerSlices": 16,
-                "CylinderRadiusHeight": [
-                    1.0,
-                    1.0
-                ],
-                "Enabled": true,
-                "Gravity": [
-                    0.0,
-                    -9.800000190734863,
-                    0.0
-                ],
-                "HasPhysBody": true,
-                "IsKinematic": false,
-                "IsRenderingCol": true,
-                "IsShapeCreated": [
-                    true,
-                    false,
-                    false
-                ],
-                "IsShapeSelected": [
-                    true,
-                    false,
-                    false
-                ],
-                "IsStatic": true,
-                "IsTrigger": false,
-                "Mass": 0.0,
-                "RenderColColor": [
-                    0.5,
-                    0.0,
-                    0.5,
-                    1.0
-                ],
-                "ShapeSelected": 0,
-                "SphereHorSlices": 16,
-                "SphereRadius": 1.0,
-                "SphereVerSlices": 16,
-                "Type": 8,
-                "WireframeSize": 3.0
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "Shelf",
-        "ParentUID": 2395039143,
-        "PrefabUID": 2411146456,
-        "Tag": "Default",
-        "UID": 2023289329
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "default",
-        "ParentUID": 2023289329,
-        "PrefabUID": 2411146456,
-        "Tag": "Default",
-        "UID": 1383967396
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    -5.960464477539063e-07,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 2705896702,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 3015098597,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "pCube1",
-        "ParentUID": 2023289329,
-        "PrefabUID": 2411146456,
-        "Tag": "Default",
-        "UID": 4192725748
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    49.05256652832031,
-                    -0.04030779004096985,
-                    -31.533100128173828
-                ],
-                "Rotation": [
-                    179.99989318847656,
-                    89.98020935058594,
-                    179.99989318847656
-                ],
-                "Scale": [
-                    0.20000015199184418,
-                    0.20000000298023224,
-                    0.20000015199184418
-                ],
-                "Type": 1
-            },
-            {
-                "AngularFactor": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "ColPosition": [
-                    0.0,
-                    1.7000000476837158,
-                    0.0
-                ],
-                "ColRotation": [
-                    0.0,
-                    90.0,
-                    0.0
-                ],
-                "ColScale": [
-                    1.2000000476837158,
-                    4.199999809265137,
-                    2.799999952316284
-                ],
-                "CylVerSlices": 16,
-                "CylinderRadiusHeight": [
-                    1.0,
-                    1.0
-                ],
-                "Enabled": true,
-                "Gravity": [
-                    0.0,
-                    -9.800000190734863,
-                    0.0
-                ],
-                "HasPhysBody": true,
-                "IsKinematic": false,
-                "IsRenderingCol": true,
-                "IsShapeCreated": [
-                    true,
-                    false,
-                    false
-                ],
-                "IsShapeSelected": [
-                    true,
-                    false,
-                    false
-                ],
-                "IsStatic": true,
-                "IsTrigger": false,
-                "Mass": 0.0,
-                "RenderColColor": [
-                    0.5,
-                    0.0,
-                    0.5,
-                    1.0
-                ],
-                "ShapeSelected": 0,
-                "SphereHorSlices": 16,
-                "SphereRadius": 1.0,
-                "SphereVerSlices": 16,
-                "Type": 8,
-                "WireframeSize": 3.0
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "Shelf",
-        "ParentUID": 2395039143,
-        "PrefabUID": 2411146456,
-        "Tag": "Default",
-        "UID": 2896963459
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "default",
-        "ParentUID": 2896963459,
-        "PrefabUID": 2411146456,
-        "Tag": "Default",
-        "UID": 2123726174
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    -5.960464477539063e-07,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 2705896702,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 3015098597,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "pCube1",
-        "ParentUID": 2896963459,
-        "PrefabUID": 2411146456,
-        "Tag": "Default",
-        "UID": 1690795253
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    22.70220184326172,
-                    25.67597198486328,
-                    38.00818634033203
-                ],
-                "Rotation": [
-                    179.99989318847656,
-                    9.31803051703445e-16,
-                    179.99989318847656
-                ],
-                "Scale": [
-                    0.20000015199184418,
-                    0.20000000298023224,
-                    0.20000015199184418
-                ],
-                "Type": 1
-            },
-            {
-                "AngularFactor": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "ColPosition": [
-                    0.0,
-                    1.7000000476837158,
-                    0.0
-                ],
-                "ColRotation": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "ColScale": [
-                    1.2000000476837158,
-                    4.199999809265137,
-                    2.799999952316284
-                ],
-                "CylVerSlices": 16,
-                "CylinderRadiusHeight": [
-                    1.0,
-                    1.0
-                ],
-                "Enabled": true,
-                "Gravity": [
-                    0.0,
-                    -9.800000190734863,
-                    0.0
-                ],
-                "HasPhysBody": true,
-                "IsKinematic": false,
-                "IsRenderingCol": true,
-                "IsShapeCreated": [
-                    true,
-                    false,
-                    false
-                ],
-                "IsShapeSelected": [
-                    true,
-                    false,
-                    false
-                ],
-                "IsStatic": true,
-                "IsTrigger": false,
-                "Mass": 0.0,
-                "RenderColColor": [
-                    0.5,
-                    0.0,
-                    0.5,
-                    1.0
-                ],
-                "ShapeSelected": 0,
-                "SphereHorSlices": 16,
-                "SphereRadius": 1.0,
-                "SphereVerSlices": 16,
-                "Type": 8,
-                "WireframeSize": 3.0
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "Shelf",
-        "ParentUID": 2395039143,
-        "PrefabUID": 2411146456,
-        "Tag": "Default",
-        "UID": 2687627641
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "default",
-        "ParentUID": 2687627641,
-        "PrefabUID": 2411146456,
-        "Tag": "Default",
-        "UID": 778776524
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    -0.02830687165260315,
-                    0.0001068115234375,
-                    -7.62939453125e-06
-                ],
-                "Rotation": [
-                    6.361109860695494e-15,
-                    -8.337630585941724e-10,
-                    4.628315339963301e-26
-                ],
-                "Scale": [
-                    1.000000238418579,
-                    1.0,
-                    0.9999998211860657
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 2705896702,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 3015098597,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "pCube1",
-        "ParentUID": 2687627641,
-        "PrefabUID": 2411146456,
-        "Tag": "Default",
-        "UID": 3828199996
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    22.665817260742188,
-                    25.713321685791016,
-                    32.13310241699219
-                ],
-                "Rotation": [
-                    179.99989318847656,
-                    1.4163407317628607e-15,
-                    179.99989318847656
-                ],
-                "Scale": [
-                    0.20000015199184418,
-                    0.20000000298023224,
-                    0.20000015199184418
-                ],
-                "Type": 1
-            },
-            {
-                "AngularFactor": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "ColPosition": [
-                    0.0,
-                    1.7000000476837158,
-                    0.0
-                ],
-                "ColRotation": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "ColScale": [
-                    1.2000000476837158,
-                    4.199999809265137,
-                    2.799999952316284
-                ],
-                "CylVerSlices": 16,
-                "CylinderRadiusHeight": [
-                    1.0,
-                    1.0
-                ],
-                "Enabled": true,
-                "Gravity": [
-                    0.0,
-                    -9.800000190734863,
-                    0.0
-                ],
-                "HasPhysBody": true,
-                "IsKinematic": false,
-                "IsRenderingCol": true,
-                "IsShapeCreated": [
-                    true,
-                    false,
-                    false
-                ],
-                "IsShapeSelected": [
-                    true,
-                    false,
-                    false
-                ],
-                "IsStatic": true,
-                "IsTrigger": false,
-                "Mass": 0.0,
-                "RenderColColor": [
-                    0.5,
-                    0.0,
-                    0.5,
-                    1.0
-                ],
-                "ShapeSelected": 0,
-                "SphereHorSlices": 16,
-                "SphereRadius": 1.0,
-                "SphereVerSlices": 16,
-                "Type": 8,
-                "WireframeSize": 3.0
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "Shelf",
-        "ParentUID": 2395039143,
-        "PrefabUID": 2411146456,
-        "Tag": "Default",
-        "UID": 3211335531
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "default",
-        "ParentUID": 3211335531,
-        "PrefabUID": 2411146456,
-        "Tag": "Default",
-        "UID": 1868410470
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    -5.960464477539063e-07,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 2705896702,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 3015098597,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "pCube1",
-        "ParentUID": 3211335531,
-        "PrefabUID": 2411146456,
-        "Tag": "Default",
-        "UID": 3225805214
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    22.73213005065918,
-                    25.668718338012695,
-                    35.08628463745117
-                ],
-                "Rotation": [
-                    179.99989318847656,
-                    3.9135727959786456e-16,
-                    179.99989318847656
-                ],
-                "Scale": [
-                    0.20000015199184418,
-                    0.20000000298023224,
-                    0.20000015199184418
-                ],
-                "Type": 1
-            },
-            {
-                "AngularFactor": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "ColPosition": [
-                    0.0,
-                    1.7000000476837158,
-                    0.0
-                ],
-                "ColRotation": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "ColScale": [
-                    1.2000000476837158,
-                    4.199999809265137,
-                    2.799999952316284
-                ],
-                "CylVerSlices": 16,
-                "CylinderRadiusHeight": [
-                    1.0,
-                    1.0
-                ],
-                "Enabled": true,
-                "Gravity": [
-                    0.0,
-                    -9.800000190734863,
-                    0.0
-                ],
-                "HasPhysBody": true,
-                "IsKinematic": false,
-                "IsRenderingCol": true,
-                "IsShapeCreated": [
-                    true,
-                    false,
-                    false
-                ],
-                "IsShapeSelected": [
-                    true,
-                    false,
-                    false
-                ],
-                "IsStatic": true,
-                "IsTrigger": false,
-                "Mass": 0.0,
-                "RenderColColor": [
-                    0.5,
-                    0.0,
-                    0.5,
-                    1.0
-                ],
-                "ShapeSelected": 0,
-                "SphereHorSlices": 16,
-                "SphereRadius": 1.0,
-                "SphereVerSlices": 16,
-                "Type": 8,
-                "WireframeSize": 3.0
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "Shelf",
-        "ParentUID": 2395039143,
-        "PrefabUID": 2411146456,
-        "Tag": "Default",
-        "UID": 4239863350
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "default",
-        "ParentUID": 4239863350,
-        "PrefabUID": 2411146456,
-        "Tag": "Default",
-        "UID": 3308938157
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    -5.960464477539063e-07,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 2705896702,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 3015098597,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "pCube1",
-        "ParentUID": 4239863350,
-        "PrefabUID": 2411146456,
-        "Tag": "Default",
-        "UID": 2422572944
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    -60.81746292114258,
-                    -0.04016672074794769,
-                    54.798458099365234
-                ],
-                "Rotation": [
-                    -179.9998779296875,
-                    54.71022033691406,
-                    179.99974060058594
-                ],
-                "Scale": [
-                    0.20000046491622925,
-                    0.20000000298023224,
-                    0.20000046491622925
-                ],
-                "Type": 1
-            },
-            {
-                "AngularFactor": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "ColPosition": [
-                    0.0,
-                    1.7000000476837158,
-                    0.0
-                ],
-                "ColRotation": [
-                    0.0,
-                    125.9000015258789,
-                    0.0
-                ],
-                "ColScale": [
-                    1.2000000476837158,
-                    4.199999809265137,
-                    2.799999952316284
-                ],
-                "CylVerSlices": 16,
-                "CylinderRadiusHeight": [
-                    1.0,
-                    1.0
-                ],
-                "Enabled": true,
-                "Gravity": [
-                    0.0,
-                    -9.800000190734863,
-                    0.0
-                ],
-                "HasPhysBody": true,
-                "IsKinematic": false,
-                "IsRenderingCol": true,
-                "IsShapeCreated": [
-                    true,
-                    false,
-                    false
-                ],
-                "IsShapeSelected": [
-                    true,
-                    false,
-                    false
-                ],
-                "IsStatic": true,
-                "IsTrigger": false,
-                "Mass": 0.0,
-                "RenderColColor": [
-                    0.5,
-                    0.0,
-                    0.5,
-                    1.0
-                ],
-                "ShapeSelected": 0,
-                "SphereHorSlices": 16,
-                "SphereRadius": 1.0,
-                "SphereVerSlices": 16,
-                "Type": 8,
-                "WireframeSize": 3.0
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "Shelf",
-        "ParentUID": 2395039143,
-        "PrefabUID": 2411146456,
-        "Tag": "Default",
-        "UID": 2880187600
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "default",
-        "ParentUID": 2880187600,
-        "PrefabUID": 2411146456,
-        "Tag": "Default",
-        "UID": 2402751247
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    -5.960464477539063e-07,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 2705896702,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 3015098597,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "pCube1",
-        "ParentUID": 2880187600,
-        "PrefabUID": 2411146456,
-        "Tag": "Default",
-        "UID": 1558322778
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    -69.28298950195313,
-                    -0.040742337703704834,
-                    54.7992057800293
-                ],
-                "Rotation": [
-                    -179.9998779296875,
-                    -19.99997329711914,
-                    179.99974060058594
-                ],
-                "Scale": [
-                    0.20000049471855164,
-                    0.20000000298023224,
-                    0.20000049471855164
-                ],
-                "Type": 1
-            },
-            {
-                "AngularFactor": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "ColPosition": [
-                    0.0,
-                    1.7000000476837158,
-                    0.0
-                ],
-                "ColRotation": [
-                    0.0,
-                    20.0,
-                    0.0
-                ],
-                "ColScale": [
-                    1.2000000476837158,
-                    4.199999809265137,
-                    2.799999952316284
-                ],
-                "CylVerSlices": 16,
-                "CylinderRadiusHeight": [
-                    1.0,
-                    1.0
-                ],
-                "Enabled": true,
-                "Gravity": [
-                    0.0,
-                    -9.800000190734863,
-                    0.0
-                ],
-                "HasPhysBody": true,
-                "IsKinematic": false,
-                "IsRenderingCol": true,
-                "IsShapeCreated": [
-                    true,
-                    false,
-                    false
-                ],
-                "IsShapeSelected": [
-                    true,
-                    false,
-                    false
-                ],
-                "IsStatic": true,
-                "IsTrigger": false,
-                "Mass": 0.0,
-                "RenderColColor": [
-                    0.5,
-                    0.0,
-                    0.5,
-                    1.0
-                ],
-                "ShapeSelected": 0,
-                "SphereHorSlices": 16,
-                "SphereRadius": 1.0,
-                "SphereVerSlices": 16,
-                "Type": 8,
-                "WireframeSize": 3.0
-            }
-        ],
-        "FirstOnPrefab": true,
-        "Name": "Shelf",
-        "ParentUID": 2395039143,
-        "PrefabUID": 2411146456,
-        "Tag": "Default",
-        "UID": 1116230177
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    0.0,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "default",
-        "ParentUID": 1116230177,
-        "PrefabUID": 2411146456,
-        "Tag": "Default",
-        "UID": 4217866389
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
-                    0.0,
-                    -5.960464477539063e-07,
-                    0.0
-                ],
-                "Rotation": [
-                    -0.0,
-                    0.0,
-                    -0.0
-                ],
-                "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
-                ],
-                "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Index inside model": 0,
-                "ModelUID": 2705896702,
-                "ShowAABB": false,
-                "ShowFaceNormals": false,
-                "ShowOBB": false,
-                "ShowVertexNormals": false,
-                "Type": 2
-            },
-            {
-                "Enabled": true,
-                "IsInstanced": true,
-                "MaterialUID": 3015098597,
-                "Type": 18
-            }
-        ],
-        "FirstOnPrefab": false,
-        "Name": "pCube1",
-        "ParentUID": 1116230177,
-        "PrefabUID": 2411146456,
-        "Tag": "Default",
-        "UID": 866873752
-    },
-    {
-        "Active": true,
-        "Components": [
-            {
-                "Enabled": true,
-                "Position": [
                     49.138519287109375,
                     0.6000012159347534,
                     -35.988792419433594
@@ -95964,12 +92868,6 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Spawner 1": 1358788017
-                    },
-                    {
-                        "Spawner 2": 1253701035
-                    },
-                    {
                         "Lamp 1": 3125495831
                     },
                     {
@@ -96745,9 +93643,6 @@
                     },
                     {
                         "Shotgun": 23838785
-                    },
-                    {
-                        "Handgun": 1822674229
                     },
                     {
                         "Swap Delay": 1.0
@@ -102479,51 +99374,8 @@
             },
             {
                 "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Projectile Pull": 3433217862
-                    },
-                    {
-                        "Projectile Speed": 0.0
-                    },
-                    {
-                        "Projectile Damage": 0.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 0.0
-                    },
-                    {
-                        "Projectile Spawn": 1822674229
-                    },
-                    {
-                        "Projectile ScaleX": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleY": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleZ": 0.10000000149011612
-                    },
-                    {
-                        "Projectiles per second": 0.0
-                    },
-                    {
-                        "Extra % firerate": 15.0
-                    },
-                    {
-                        "Player Stats GO": 373022943
-                    },
-                    {
-                        "Ammo Type": 1
-                    },
-                    {
-                        "Audio Event String": "w_handgun"
-                    }
-                ],
-                "Script Resource": 4264749539,
+                "Inspector Fields": null,
+                "Script Resource": 0,
                 "Type": 5
             }
         ],
@@ -103879,9 +100731,6 @@
                     },
                     {
                         "Shotgun Bomb Pull Size": 0
-                    },
-                    {
-                        "Electricity Chain Pull Size": 0
                     }
                 ],
                 "Script Resource": 211675320,
@@ -106100,6 +102949,9 @@
                     },
                     {
                         "Current Helath": 0.0
+                    },
+                    {
+                        "Start Resistance": 10.0
                     },
                     {
                         "Resistance": 100.0
@@ -109596,6 +106448,9 @@
                         "Current Helath": 0.0
                     },
                     {
+                        "Start Resistance": 10.0
+                    },
+                    {
                         "Resistance": 100.0
                     },
                     {
@@ -111954,6 +108809,9 @@
                         "Current Helath": 0.0
                     },
                     {
+                        "Start Resistance": 10.0
+                    },
+                    {
                         "Resistance": 100.0
                     },
                     {
@@ -114306,6 +111164,9 @@
                         "Current Helath": 0.0
                     },
                     {
+                        "Start Resistance": 10.0
+                    },
+                    {
                         "Resistance": 100.0
                     },
                     {
@@ -116656,6 +113517,9 @@
                     },
                     {
                         "Current Helath": 0.0
+                    },
+                    {
+                        "Start Resistance": 10.0
                     },
                     {
                         "Resistance": 100.0
@@ -119016,6 +115880,9 @@
                         "Current Helath": 0.0
                     },
                     {
+                        "Start Resistance": 10.0
+                    },
+                    {
                         "Resistance": 100.0
                     },
                     {
@@ -121372,6 +118239,9 @@
                     },
                     {
                         "Current Helath": 0.0
+                    },
+                    {
+                        "Start Resistance": 10.0
                     },
                     {
                         "Resistance": 100.0
@@ -123732,6 +120602,9 @@
                         "Current Helath": 0.0
                     },
                     {
+                        "Start Resistance": 10.0
+                    },
+                    {
                         "Resistance": 100.0
                     },
                     {
@@ -126090,6 +122963,9 @@
                         "Current Helath": 0.0
                     },
                     {
+                        "Start Resistance": 10.0
+                    },
+                    {
                         "Resistance": 100.0
                     },
                     {
@@ -128440,6 +125316,9 @@
                     },
                     {
                         "Current Helath": 0.0
+                    },
+                    {
+                        "Start Resistance": 10.0
                     },
                     {
                         "Resistance": 100.0
@@ -130794,6 +127673,9 @@
                         "Current Helath": 0.0
                     },
                     {
+                        "Start Resistance": 10.0
+                    },
+                    {
                         "Resistance": 100.0
                     },
                     {
@@ -133071,5 +129953,203 @@
         "PrefabUID": 645187195,
         "Tag": "Default",
         "UID": 1229030202
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -222.37979125976563,
+                    60.20294952392578,
+                    21.663169860839844
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Pedestal",
+        "ParentUID": 2462894403,
+        "PrefabUID": 3898165087,
+        "Tag": "Default",
+        "UID": 1624778984
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "group1",
+        "ParentUID": 1624778984,
+        "PrefabUID": 3898165087,
+        "Tag": "Default",
+        "UID": 2183970312
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -1.551419734954834,
+                    8.881784197001252e-16,
+                    -0.10747013241052628
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.2734042406082153,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 1993320690,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 3181567656,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "pDisc1",
+        "ParentUID": 2183970312,
+        "PrefabUID": 3898165087,
+        "Tag": "Default",
+        "UID": 4059846056
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -1.551419734954834,
+                    1.1717870235443115,
+                    -0.10747013241052628
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    0.4274950921535492,
+                    1.0,
+                    0.4274950921535492
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 1,
+                "ModelUID": 1993320690,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 3181567656,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "pDisc2",
+        "ParentUID": 2183970312,
+        "PrefabUID": 3898165087,
+        "Tag": "Default",
+        "UID": 3039482311
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -1.5452117919921875,
+                    1.1403770446777344,
+                    -0.102874755859375
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    0.15000000596046448,
+                    0.15000000596046448,
+                    0.15000000596046448
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 11,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 4257562807,
+                "Type": 18
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Sphere",
+        "ParentUID": 1624778984,
+        "PrefabUID": 0,
+        "Tag": "Primitive",
+        "UID": 13139579
     }
 ]
