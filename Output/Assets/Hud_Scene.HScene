@@ -54,7 +54,7 @@
             {
                 "Active camera": true,
                 "Active culling": true,
-                "Aspect ratio": 2.0394973754882813,
+                "Aspect ratio": 1.6912028789520264,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -2342,6 +2342,9 @@
                         "Material_Special_Weapon": 177811771
                     },
                     {
+                        "Material_Background_Upgrade": 1138365017
+                    },
+                    {
                         "Text_Upgrade": 171349848
                     },
                     {
@@ -2349,6 +2352,36 @@
                     },
                     {
                         "Text_Special_Weapon": 1858958322
+                    },
+                    {
+                        "Texture_Amo": 1054723984
+                    },
+                    {
+                        "Texture_MediKit": 1990536294
+                    },
+                    {
+                        "Texture_Upgrade": 1486232972
+                    },
+                    {
+                        "Texture_blueprint_Semiautomatic": 3149460017
+                    },
+                    {
+                        "Texture_blueprint_Automatic": 1832907480
+                    },
+                    {
+                        "Texture_blueprint_Burst": 4043280563
+                    },
+                    {
+                        "Texture_blueprint_Shotgun": 2823435623
+                    },
+                    {
+                        "Texture_blueprint_Hand_Gun": 1485247823
+                    },
+                    {
+                        "Texture_gun1": 1352913199
+                    },
+                    {
+                        "Texture_gun2": 2271832197
                     }
                 ],
                 "Script Resource": 291064225,
@@ -2475,12 +2508,12 @@
         "UID": 171349848
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
                 "Position": [
-                    0.8999999761581421,
+                    1.1299999952316284,
                     0.20000000298023224,
                     0.0
                 ],
@@ -2490,7 +2523,7 @@
                     0.0
                 ],
                 "Scale": [
-                    0.05000000074505806,
+                    0.10999999940395355,
                     0.05000000074505806,
                     0.5
                 ],
@@ -2558,7 +2591,7 @@
                     0.0
                 ],
                 "Scale": [
-                    0.05000000074505806,
+                    0.004999999888241291,
                     0.05000000074505806,
                     0.5
                 ],
@@ -2625,12 +2658,12 @@
         "UID": 2978910595
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
                 "Position": [
-                    0.8999999761581421,
+                    1.1299999952316284,
                     0.05000000074505806,
                     0.0
                 ],
@@ -2640,7 +2673,7 @@
                     0.0
                 ],
                 "Scale": [
-                    0.05000000074505806,
+                    0.10999999940395355,
                     0.05000000074505806,
                     0.5
                 ],
@@ -2775,12 +2808,12 @@
         "UID": 1858958322
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
                 "Position": [
-                    0.8999999761581421,
+                    1.1299999952316284,
                     -0.10000000149011612,
                     0.0
                 ],
@@ -2790,7 +2823,7 @@
                     0.0
                 ],
                 "Scale": [
-                    0.05000000074505806,
+                    0.10999999940395355,
                     0.05000000074505806,
                     0.5
                 ],
