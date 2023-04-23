@@ -1,0 +1,44 @@
+{
+  "buildSetting": {
+    "agentHeight": 1.0,
+    "agentMaxClimb": 45.0,
+    "agentMaxSlope": 45.0,
+    "agentRadius": 1.0,
+    "cellHeight": -1.5816464369601856e+38,
+    "cellSize": 1.0,
+    "detailSampleDist": 0.0,
+    "detailSampleMaxError": 10.0,
+    "edgeMaxError": 1.0,
+    "edgeMaxLen": 100.0,
+    "navMeshBMax": [
+      -1.5816464369601856e+38,
+      -1.5816464369601856e+38,
+      -1.5816464369601856e+38
+    ],
+    "navMeshBMin": [
+      -1.5816464369601856e+38,
+      -1.5816464369601856e+38,
+      -1.5816464369601856e+38
+    ],
+    "partitionType": -17958194,
+    "regionMergeSize": 0.0,
+    "regionMinSize": 0.0,
+    "tileSize": 1.0,
+    "vertsPerPoly": -1.5816464369601856e+38
+  },
+  "navMeshSetHeader": {
+    "numTiles": 0,
+    "params": {
+      "maxPolys": 256,
+      "maxTiles": 16384,
+      "orig": [
+        -65.76325225830078,
+        -93.49479675292969,
+        -233.41600036621094
+      ],
+      "tileHeight": 1.0,
+      "tileWidth": 1.0
+    }
+  },
+  "tiles": []
+}

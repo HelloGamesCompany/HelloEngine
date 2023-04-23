@@ -112,7 +112,7 @@ void InputBoxField::OnDeserialize(json& j)
 	{
 		if (j[i].find(valueName) != j[i].end())
 		{
-			*(std::string*)value = j[i][valueName.c_str()];
+			//*(std::string*)value = j[i][valueName.c_str()];
 		}
 	}
 }

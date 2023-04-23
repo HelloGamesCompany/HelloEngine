@@ -74,7 +74,13 @@ public:
 
     bool IsStatic() { return _isStatic; }
 
+    void SetIsStatic(bool _isStatic);
+
+    void SetChildrenStatic(bool childStatic);
+
     std::vector<GameObject*>* GetChildren() { return &_children; }
+
+    std::vector<GameObject*>* GetAllChildren();
 
     uint GetID() { return _ID; }
 

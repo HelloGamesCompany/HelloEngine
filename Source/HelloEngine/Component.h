@@ -1,8 +1,8 @@
 #pragma once
 
-class GameObject;
-
 #include "json.hpp"
+
+class GameObject;
 using json = nlohmann::json;
 
 class Component
@@ -29,6 +29,7 @@ public:
 		UI_INPUT,
 		UI_TEXT,
 		MATERIAL,
+		AGENT,
 		MAX
 	};
 

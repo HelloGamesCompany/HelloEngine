@@ -1382,6 +1382,11 @@ void ResourceMesh::CalculateNormalsAndAABB()
 
 }
 
+MeshInfo ResourceMesh::GetMeshInfo()
+{
+	return meshInfo;
+}
+
 void ResourceMesh::Destroy()
 {
 	for (auto& gameObject : ModuleLayers::gameObjects)
