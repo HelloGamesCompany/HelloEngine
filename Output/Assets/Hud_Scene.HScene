@@ -54,7 +54,7 @@
             {
                 "Active camera": true,
                 "Active culling": true,
-                "Aspect ratio": 1.9408766031265259,
+                "Aspect ratio": 2.0394973754882813,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -167,18 +167,6 @@
                     },
                     {
                         "HP BOSS 1 TEXTURE": 2911723293
-                    },
-                    {
-                        "All GO HUD BOSS": 533326204
-                    },
-                    {
-                        "HP BOSS UI IMAGE": 825774155
-                    },
-                    {
-                        "SHIELD BOSS UI IMAGE": 2234780185
-                    },
-                    {
-                        "HP BOSS 1 TEXTURE": 2911723293
                     }
                 ],
                 "Script Resource": 2970796296,
@@ -187,9 +175,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Bar": 533326204
-                    },
                     {
                         "Bar": 533326204
                     }
@@ -458,30 +443,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Texture_SPEED_INCREASE": 572968604
-                    },
-                    {
-                        "Texture_FIRERATE_INCREASE": 904723382
-                    },
-                    {
-                        "Texture_SHIELD": 874482960
-                    },
-                    {
-                        "Texture_SLOW_TIME": 3865343995
-                    },
-                    {
-                        "GamesObjects_1": 1272486707
-                    },
-                    {
-                        "GamesObjects_2": 3264243153
-                    },
-                    {
-                        "GamesObjects_3": 268021764
-                    },
-                    {
-                        "GamesObjects_4": 2605297620
-                    },
                     {
                         "Texture_SPEED_INCREASE": 572968604
                     },
@@ -774,18 +735,6 @@
                     },
                     {
                         "HP Regen Texture": 4119276236
-                    },
-                    {
-                        "HP_BAR": 1144516396
-                    },
-                    {
-                        "SHIELD_BAR": 1706043033
-                    },
-                    {
-                        "HP Texture": 2859695454
-                    },
-                    {
-                        "HP Regen Texture": 4119276236
                     }
                 ],
                 "Script Resource": 3952342186,
@@ -794,9 +743,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Bar": 1144516396
-                    },
                     {
                         "Bar": 1144516396
                     }
@@ -951,90 +897,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "HandgunsWeapons_On": 3076489896
-                    },
-                    {
-                        "HandgunsWeapons_Off": 3986648714
-                    },
-                    {
-                        "Auto_On": 2067694486
-                    },
-                    {
-                        "Burst_On": 1186397666
-                    },
-                    {
-                        "Semi_On": 953282997
-                    },
-                    {
-                        "Shotgun_On": 3011687056
-                    },
-                    {
-                        "Handgun_On": 2485249494
-                    },
-                    {
-                        "Auto_Off": 554082642
-                    },
-                    {
-                        "Burst_Off": 2098528651
-                    },
-                    {
-                        "Semi_Off": 3008937367
-                    },
-                    {
-                        "Shotgun_Off": 1390408833
-                    },
-                    {
-                        "Handgun_Off": 732632770
-                    },
-                    {
-                        "FlameThrower_On 1": 2806950331
-                    },
-                    {
-                        "Ricochet_On 2": 4165763925
-                    },
-                    {
-                        "FlameThrower_Off 1": 2148606541
-                    },
-                    {
-                        "Ricochet_Off 2": 852787717
-                    },
-                    {
-                        "Material Weapon 1 on": 1701820068
-                    },
-                    {
-                        "Material Weapon 1 off": 1447126771
-                    },
-                    {
-                        "Game Bar Weapon 1": 42656509
-                    },
-                    {
-                        "Material Weapon 2 on": 1762482833
-                    },
-                    {
-                        "Material Weapon 2 off": 2896636869
-                    },
-                    {
-                        "Game Bar Weapon 2": 1366919386
-                    },
-                    {
-                        "Material Weapon 3 on": 4256981011
-                    },
-                    {
-                        "Material Weapon 3 off": 1056706350
-                    },
-                    {
-                        "Game Bar Weapon 3": 1625669672
-                    },
-                    {
-                        "Text_Dash_on": 486085637
-                    },
-                    {
-                        "Text_Dash_off": 3635487892
-                    },
-                    {
-                        "Material_Dash": 3494829257
-                    },
                     {
                         "HandgunsWeapons_On": 3076489896
                     },
@@ -1865,12 +1727,6 @@
                     },
                     {
                         "Active_Ultimate_HUD": 789399284
-                    },
-                    {
-                        "Disable_Ultimate_HUD": 4117494529
-                    },
-                    {
-                        "Active_Ultimate_HUD": 789399284
                     }
                 ],
                 "Script Resource": 1642016886,
@@ -2093,9 +1949,6 @@
                 "Inspector Fields": [
                     {
                         "Bar": 1706043033
-                    },
-                    {
-                        "Bar": 1706043033
                     }
                 ],
                 "Script Resource": 2563255136,
@@ -2172,24 +2025,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Infinit munition on": 1124720208
-                    },
-                    {
-                        "Infinit munition off": 2596827792
-                    },
-                    {
-                        "Normal munition on": 1394349007
-                    },
-                    {
-                        "Normal munition off": 1121392154
-                    },
-                    {
-                        "Special munition on": 2822614242
-                    },
-                    {
-                        "Special munition off": 1292481097
-                    },
                     {
                         "Infinit munition on": 1124720208
                     },
@@ -2514,84 +2349,6 @@
                     },
                     {
                         "Text_Special_Weapon": 1858958322
-                    },
-                    {
-                        "Texture_Amo": 91370282
-                    },
-                    {
-                        "Texture_MediKit": 3455052805
-                    },
-                    {
-                        "Texture_Upgrade": 2475704686
-                    },
-                    {
-                        "Texture_blueprint_gun1": 2428139902
-                    },
-                    {
-                        "Texture_blueprint_gun2": 3602987732
-                    },
-                    {
-                        "Texture_blueprint_gun3": 306708349
-                    },
-                    {
-                        "Texture_blueprint_gun4": 4084920684
-                    },
-                    {
-                        "Texture_blueprint_gun5": 319128658
-                    },
-                    {
-                        "Texture_gun1": 3833364725
-                    },
-                    {
-                        "Texture_gun2": 2257560532
-                    },
-                    {
-                        "Material_Upgrade": 2094448581
-                    },
-                    {
-                        "Material_New_Weapon": 2749613084
-                    },
-                    {
-                        "Material_Special_Weapon": 177811771
-                    },
-                    {
-                        "Text_Upgrade": 171349848
-                    },
-                    {
-                        "Text_New_Weapon": 2978910595
-                    },
-                    {
-                        "Text_Special_Weapon": 1858958322
-                    },
-                    {
-                        "Texture_Amo": 91370282
-                    },
-                    {
-                        "Texture_MediKit": 3455052805
-                    },
-                    {
-                        "Texture_Upgrade": 2475704686
-                    },
-                    {
-                        "Texture_blueprint_gun1": 2428139902
-                    },
-                    {
-                        "Texture_blueprint_gun2": 3602987732
-                    },
-                    {
-                        "Texture_blueprint_gun3": 306708349
-                    },
-                    {
-                        "Texture_blueprint_gun4": 4084920684
-                    },
-                    {
-                        "Texture_blueprint_gun5": 319128658
-                    },
-                    {
-                        "Texture_gun1": 3833364725
-                    },
-                    {
-                        "Texture_gun2": 2257560532
                     }
                 ],
                 "Script Resource": 291064225,

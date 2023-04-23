@@ -3,9 +3,9 @@
 #include "ScriptToInspectorInterface.h"
 #include "Macro.h"
 #include "API/API_UIText.h"
-
 #include "API/API.h"
 
+#include "../InteractiveEnviroment/ChestManager.h"
 class HUD_BluePrints : HelloBehavior
 {
 public:
@@ -13,8 +13,8 @@ public:
 	void Update() override;
 
 	void UpgradeAlert();
-	void New_WeaponAlert();
-	void Special_WeaponAlert();
+	void New_WeaponAlert(int GetNewWeapon);
+	void Special_WeaponAlert(int GetSpwcialWeapon);
 
 	API_Vector3 upgrade_movmentX;
 	API_Vector3 new_weapon_movmentX;
@@ -43,5 +43,6 @@ public:
 	API_Vector3 text_new_weapon_position_save;
 	API_Vector3 text_special_weapon_position_save;
 
+	ChestManager* chest_items;
 };
 
