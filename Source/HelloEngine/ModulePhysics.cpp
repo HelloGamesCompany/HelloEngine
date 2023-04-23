@@ -78,14 +78,14 @@ UpdateStatus ModulePhysics::PreUpdate()
 {
 	if (hasToSetRenderBuffers == true) 
 	{
-		for (int i = 0; i < physBodies.size(); i++) 
+		/*for (int i = 0; i < physBodies.size(); i++) 
 		{
 			if (ModuleLayers::gameObjects.count(physBodies[i]->gameObjectUID) != 0)
 			{
 				GameObject* go = ModuleLayers::gameObjects[physBodies[i]->gameObjectUID];
 				go->GetComponent<PhysicsComponent>()->CheckRenderBuffers();
 			}
-		}
+		}*/
 		hasToSetRenderBuffers = false;
 	}
 	//world->stepSimulation(Application::Instance()->GetDeltaTime(), 15);

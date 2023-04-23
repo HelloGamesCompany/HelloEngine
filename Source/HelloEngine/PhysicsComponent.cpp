@@ -346,7 +346,7 @@ void PhysicsComponent::OnEditor()
 						if (sphereHorSlices > MAX_HORIZONTAL_SLICES_SPHERE) {
 							sphereHorSlices = MAX_HORIZONTAL_SLICES_SPHERE;
 						}
-						Application::Instance()->renderer3D->renderManager.CalculateSphereBuffer(sphereVerSlices, sphereHorSlices);
+						//Application::Instance()->renderer3D->renderManager.CalculateSphereBuffer(sphereVerSlices, sphereHorSlices);
 					}
 					break;
 					case ColliderShape::CYLINDER:
@@ -379,11 +379,11 @@ void PhysicsComponent::OnEditor()
 				{
 					if (ImGui::DragInt("Ver. Slices: ", &sphereVerSlices, 1, 3, MAX_VERTICAL_SLICES_SPHERE))
 					{
-						Application::Instance()->renderer3D->renderManager.CalculateSphereBuffer(sphereVerSlices, sphereHorSlices);
+						//Application::Instance()->renderer3D->renderManager.CalculateSphereBuffer(sphereVerSlices, sphereHorSlices);
 					}
 					if (ImGui::DragInt("Hor. Slices: ", &sphereHorSlices, 1, 1, MAX_HORIZONTAL_SLICES_SPHERE))
 					{
-						Application::Instance()->renderer3D->renderManager.CalculateSphereBuffer(sphereVerSlices, sphereHorSlices);
+						//Application::Instance()->renderer3D->renderManager.CalculateSphereBuffer(sphereVerSlices, sphereHorSlices);
 					}
 				}
 				break;

@@ -758,6 +758,7 @@ void RenderManager::DrawColliderBox(PhysBody3D* physBody, float4 color, float wi
 
 void RenderManager::DrawColliderSphere(PhysBody3D* physBody, float radius, float4 color, float wireSize, uint verSlices, uint horSlices)
 {
+	CalculateSphereBuffer(verSlices, horSlices);
 	const float newRadius = radius / 2.f;
 
 	const float3 origin = (float3)physBody->body->getCenterOfMassTransform().getOrigin();
