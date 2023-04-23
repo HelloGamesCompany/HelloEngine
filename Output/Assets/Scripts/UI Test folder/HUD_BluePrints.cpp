@@ -77,11 +77,11 @@ void HUD_BluePrints::UpgradeAlert()
 		timer_upgrade = 1.3f;
 	}
 
-	switch (switch_on)
+	/*switch (switch_on)
 	{
 	default:
 		break;
-	}
+	}*/
 }
 
 void HUD_BluePrints::New_WeaponAlert(int ChestManager)
