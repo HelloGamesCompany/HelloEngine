@@ -27,5 +27,6 @@
 #include "API_Material.h"
 #include "API_SkinnedMeshRenderer.h"
 #include "API_UIInput.h"
+#include "API_ShaderComponent.h"
 
 using namespace API;

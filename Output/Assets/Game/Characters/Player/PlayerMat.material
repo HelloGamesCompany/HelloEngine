@@ -1,5 +1,5 @@
 {
-    "Shader resource UID": 1280200565,
+    "Shader resource UID": 1090855872,
     "Uniforms": [
         {
             "Index": 0,
@@ -12,7 +12,7 @@
                 1.0,
                 1.0,
                 1.0,
-                -6.260125527835673e+18
+                1.0
             ]
         },
         {
@@ -67,6 +67,32 @@
         },
         {
             "Index": 5,
+            "Name": "finalBonesMatrices[0]",
+            "Read": 21,
+            "Size": 100,
+            "String Type": "mat4",
+            "Type": 35676,
+            "Value": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ]
+        },
+        {
+            "Index": 6,
             "Layer": 1,
             "Name": "metallic_texture",
             "Read": 16,
@@ -76,7 +102,7 @@
             "Value": -1
         },
         {
-            "Index": 8,
+            "Index": 9,
             "Name": "shininess",
             "Read": 9,
             "Size": 1,
@@ -85,7 +111,7 @@
             "Value": 0.0
         },
         {
-            "Index": 9,
+            "Index": 10,
             "Name": "specularIntensity",
             "Read": 17,
             "Size": 1,
@@ -94,7 +120,7 @@
             "Value": 0.0
         },
         {
-            "Index": 10,
+            "Index": 11,
             "Name": "specularLightColor",
             "Read": 18,
             "Size": 1,

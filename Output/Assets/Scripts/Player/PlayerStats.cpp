@@ -126,16 +126,16 @@ void PlayerStats::Update()
         blinkTime -= dt;
         if (blinkTime <= 0.0f)
         {
-            material.SetColor(255, 255, 255, 255);
+            material.SetColor(1, 1, 1, 1);
             blinkTime = 0.0f;
         }
-        else if (blinkTime < 0.33f)
+        else if (blinkTime < 0.15f)
         {
-            material.SetColor(255, 0, 0, 255);
+            material.SetColor(1, 0, 0, 1);
         }
-        else if (blinkTime < 0.66f)
+        else if (blinkTime < 0.3f)
         {
-            material.SetColor(255, 255, 255, 255);
+            material.SetColor(1, 1, 1, 1);
         }
     }
     
@@ -269,8 +269,8 @@ void PlayerStats::TakeDamage(float amount, float resistanceDamage)
     else
     {
         Audio::Event("starlord_damaged");
-        blinkTime = 1.0f;
-        material.SetColor(255, 0, 0, 255);
+        blinkTime = 0.5f;
+        material.SetColor(1, 0, 0, 1);
     }
 
     // Resistance damage
