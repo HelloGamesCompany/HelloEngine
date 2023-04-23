@@ -22,5 +22,6 @@ void AbilityDescription::Update()
 		previousDescription.SetActive(false);
 		currentDescription.SetActive(true);
 		nextDescription.SetActive(false);
+		Console::Log("1");
 	}
 }
