@@ -93,7 +93,7 @@
 	
 	}
 	
-	uniform vec3 ColourTest;
+	uniform vec4 ColourTest;
 	
 	void main()
 	{
@@ -102,9 +102,10 @@
 		vec4 result = DirectionalLight(Normal, GlobalLightPos.xyz);
 		
 		
-		FragColor = texture(albedo_texture, TextureCoords) * result * vec4(ColourTest, 1.0f);
+		FragColor = texture(albedo_texture, TextureCoords) * result * ColourTest;
 	}
 	
 #endif
+
 
 

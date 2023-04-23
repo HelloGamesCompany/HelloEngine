@@ -12,6 +12,7 @@
 #include "API/API_UIText.h"
 #include "API/API_ParticleSystem.h"
 #include "API/API_Material.h"
+#include "API/API_ShaderComponent.h"
 
 #include "PhysicsComponent.h"
 #include "MeshRenderComponent.h"
@@ -24,6 +25,7 @@
 #include "ParticleSystemComponent.h"
 #include "TextureComponent.h"
 #include "MeshRenderComponent.h"
+#include "MaterialComponent.h"
 
 void DragFieldFloat::OnEditor()
 {
@@ -1321,6 +1323,81 @@ void DragBoxPrefabResource::OnDeserialize(json& j)
 		if (j[i].find(valueName) != j[i].end())
 		{
 			*(uint*)value = j[i][valueName.c_str()];
+		}
+	}
+}
+
+void DragBoxShaderComponent::OnEditor()
+{
+	API::API_ShaderComponent* shader = (API::API_ShaderComponent*)value;
+
+	std::string TextName = "X##" + std::to_string(UID);
+	if (ImGui::Button(TextName.c_str()))
+	{
+		shader->SetComponent(nullptr);
+	}
+	ImGui::SameLine();
+
+	ImGui::TextWrapped((valueName + ": ").c_str()); ImGui::SameLine();
+
+	if (shader->_materialComponent == nullptr)
+	{
+		ImGui::TextColored(ImVec4(1, 1, 0, 1), "NULL (Drag a Material Component Here)");
+	}
+	else
+	{
+		std::string gameObjectName(shader->GetGameObject().GetName());
+		std::string text = "(" + gameObjectName + ")" + ": Material Component";
+		ImGui::TextColored(ImVec4(1, 1, 0, 1), text.c_str());
+	}
+
+	if (ImGui::BeginDragDropTarget())
+	{
+		if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("GameObject"))
+		{
+			const uint* drop = (uint*)payload->Data;
+
+			GameObject* droppedGO = ModuleLayers::S_GetGameObject(*drop);
+			MaterialComponent* component = nullptr;
+
+			if (droppedGO != nullptr)
+				component = droppedGO->GetComponent<MaterialComponent>();
+
+			shader->SetComponent(component);
+		}
+		ImGui::EndDragDropTarget();
+	}
+}
+
+void DragBoxShaderComponent::OnSerialize(json& j)
+{
+	json _j;
+
+	API::API_ShaderComponent* shader = (API::API_ShaderComponent*)value;
+
+	if (shader->_materialComponent != nullptr)
+	{
+		_j[valueName.c_str()] = shader->_materialComponent->GetGameObject()->GetID();
+		j.push_back(_j);
+	}
+}
+
+void DragBoxShaderComponent::OnDeserialize(json& j)
+{
+	for (int i = 0; i < j.size(); i++)
+	{
+		if (j[i].find(valueName) != j[i].end())
+		{
+			uint id = j[i][valueName.c_str()];
+			GameObject* gameObject = ModuleLayers::S_GetGameObject(id);
+			MaterialComponent* component = nullptr;
+			if (gameObject != nullptr)
+				component = gameObject->GetComponent<MaterialComponent>();
+			if (component != nullptr)
+			{
+				API::API_ShaderComponent* shader = (API::API_ShaderComponent*)value;
+				shader->SetComponent(component);
+			}
 		}
 	}
 }

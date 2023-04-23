@@ -25,7 +25,7 @@ void MaterialComponent::OnEditor()
 {
 	bool created = true;
 
-	//if (_resource) _resource->material.CheckVersion();
+	if (_resource) _resource->material.CheckVersion();
 
 	if (ImGui::CollapsingHeader("Material", &created, ImGuiTreeNodeFlags_DefaultOpen))
 	{

@@ -23,7 +23,7 @@ namespace API
 		MaterialComponent* _materialComponent = nullptr;
 
 		friend class API_GameObject;
-		friend class DragBoxAnimationPlayer;
+		friend class DragBoxShaderComponent;
 	};
 }
 

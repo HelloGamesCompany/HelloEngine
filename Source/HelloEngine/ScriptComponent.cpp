@@ -366,6 +366,16 @@ void ScriptComponent::AddDragBoxPrefabResource(const char* name, uint* value)
 	inspectorFields.push_back(dragBoxField);
 }
 
+void ScriptComponent::AddDragBoxShaderComponent(const char* name, API::API_ShaderComponent* value)
+{
+	DragBoxShaderComponent* dragBoxField = new DragBoxShaderComponent();
+	dragBoxField->valueName = name;
+	dragBoxField->value = value;
+	dragBoxField->className = scriptResource == nullptr ? addedScript : scriptResource->className;
+
+	inspectorFields.push_back(dragBoxField);
+}
+
 uint ScriptComponent::GetResourceUID()
 {
 	if (scriptResource != nullptr)

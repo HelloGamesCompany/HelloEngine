@@ -169,6 +169,7 @@
     <ClCompile Include="API\API_SkinnedMeshRenderer.cpp" />
     <ClCompile Include="sha256.cpp" />
     <ClCompile Include="API\API_String.cpp" />
+    <ClCompile Include="API\API_ShaderComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\External\ImGuiColorTextEdit\TextEditor.h" />
@@ -377,6 +378,7 @@
     <ClInclude Include="API\API_SkinnedMeshRenderer.h" />
     <ClInclude Include="sha256.h" />
     <ClInclude Include="API\API_String.h" />
+    <ClInclude Include="API\API_ShaderComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="HelloEngine.rc" />

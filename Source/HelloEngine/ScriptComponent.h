@@ -46,6 +46,7 @@ public:
 	void AddDragBoxUIInput(const char* name, API::API_UIInput* value) override;
 	void AddDragBoxUIText(const char* name, API::API_UIText* value) override;
 	void AddDragBoxPrefabResource(const char* name, uint* value) override;
+	void AddDragBoxShaderComponent(const char* name, API::API_ShaderComponent* value) override;
 
 	uint GetResourceUID();
 	void DestroyedResource();
