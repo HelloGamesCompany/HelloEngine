@@ -295,6 +295,12 @@
                     },
                     {
                         "Player GO": 1475165862
+                    },
+                    {
+                        "Test": 0
+                    },
+                    {
+                        "Test2": 0
                     }
                 ],
                 "Script Resource": 486374105,
@@ -310,10 +316,10 @@
                         "Base Gun": 0
                     },
                     {
-                        "Normal Gun": 0
+                        "Normal Gun": 2
                     },
                     {
-                        "Special Gun": 0
+                        "Special Gun": 5
                     },
                     {
                         "Duals": 1764362837
@@ -6863,7 +6869,7 @@
                         "Player": 1475165862
                     },
                     {
-                        "Pull Size": 20
+                        "Pull Size": 40
                     },
                     {
                         "Projectile Prefab": 633942339

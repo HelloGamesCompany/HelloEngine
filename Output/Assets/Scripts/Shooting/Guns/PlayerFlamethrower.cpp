@@ -82,7 +82,6 @@ void PlayerFlamethrower::Shoot()
         else shotCooldown = fullShotCooldown;
         playerStats->UseAmmo(ammoType);
 
-
         if (playingParticlesCd <= 0.0f) fireParticles.Play();
         playingParticlesCd = 0.2f;
     }
