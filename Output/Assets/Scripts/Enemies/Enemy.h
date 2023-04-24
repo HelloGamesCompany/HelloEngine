@@ -32,6 +32,7 @@ public:
     API_GameObject enemyDropManagerGO;
     EnemyDropManager* enemyDropManager;
     API_RigidBody enemyRb;
+    API_ShaderComponent enemyShader;
 
     float maxHp = 100.0f;
     float currentHp;

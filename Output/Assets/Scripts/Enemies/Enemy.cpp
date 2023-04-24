@@ -22,6 +22,7 @@ HELLO_ENGINE_API_C Enemy* CreateEnemy(ScriptToInspectorInterface* script)
     //script->AddDragBoxRigidBody("Enemy RigidBody", &classInstance->enemyRb);
     script->AddDragBoxParticleSystem("Hit particle system", &classInstance->hitParticles);
     script->AddCheckBox("Has Shield", &classInstance->hasShield);
+    script->AddDragBoxShaderComponent("Color hit", &classInstance->enemyShader);
     script->AddDragBoxGameObject("Bomb", &classInstance->bomb);
     script->AddDragBoxTextureResource("Texture Bomb 1", &classInstance->textureBomb[0]);
     script->AddDragBoxTextureResource("Texture Bomb 2", &classInstance->textureBomb[1]);
