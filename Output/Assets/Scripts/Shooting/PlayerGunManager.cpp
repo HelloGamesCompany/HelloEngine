@@ -49,7 +49,8 @@ void PlayerGunManager::Start()
     //GetGun(1, gunOnHandIndex1);
     //GetGun(2, gunOnHandIndex2);
     //GetGun(3, gunOnHandIndex3);
-
+    //playerStats->laserAmmo = 99999;
+    //playerStats->specialAmmo = 99999;
     switch (equipedNormalGun)
     {
     case 1: // semiautomatic

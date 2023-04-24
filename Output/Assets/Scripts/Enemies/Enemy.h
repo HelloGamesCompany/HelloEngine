@@ -74,6 +74,7 @@ public:
     int currentBombNum = 0;
     API_GameObject bomb;
     uint textureBomb[6];
+    int shotgunLevel;
 
     // burn
     void AddBurn();
