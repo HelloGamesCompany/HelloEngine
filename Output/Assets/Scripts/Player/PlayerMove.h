@@ -93,8 +93,8 @@ public:
     uint shootAnim[6];
     void PlayShootAnim(int gunIndex);
     bool isShooting = false;
-    uint swapGunAnim;
-    void PlaySwapGunAnim();
+    uint swapGunAnim[2];
+    void PlaySwapGunAnim(int animationIndex);
     void StopSwapGunAnim();
     bool isSwapingGun = false;
     uint hittedAnim = 0;

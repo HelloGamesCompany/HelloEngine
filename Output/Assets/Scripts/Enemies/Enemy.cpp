@@ -70,7 +70,7 @@ void Enemy::Start()
         _tAnimDie = 1.43f;
     }
 
-    
+    shotgunLevel = API_QuickSave::GetInt("shotgun_level");
 }
 
 void Enemy::Update()
@@ -343,7 +343,8 @@ void Enemy::CheckBombs()
         else
         {
             stickBomb->triggerActive = true;
-            TakeDamage(5.0f * currentBombNum, 5.0f * currentBombNum);
+            if (shotgunLevel > 2) TakeDamage(15.0f * currentBombNum, 15.0f * currentBombNum);
+            else TakeDamage(10.0f * currentBombNum, 10.0f * currentBombNum);
         }
         currentBombNum = 0;
         bomb.SetActive(false);
