@@ -12,6 +12,6 @@ public:
 	void Update() override;
 	void OnCollisionEnter(API::API_RigidBody other);
 	
-	float meleeDmg = 20.0f;
+	float meleeDmg = 30.0f;
 };
 

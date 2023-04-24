@@ -251,6 +251,7 @@
 		<ClCompile Include="../../Assets/Scripts/Quests/FindAndRescueGroot.cpp" />
 		<ClCompile Include="../../Assets/Scripts/Player/PlayerInCombat.cpp" />
 		<ClCompile Include="../../Assets/Scripts/UI Test folder/Map/feedbackMission.cpp" />
+		<ClCompile Include="../../Assets/Scripts/Thanos/SwordDmg.cpp" />
 	</ItemGroup>
 	<ItemGroup>
 		<ClInclude Include="..\..\Assets\Scripts\EbonyMaw\BossAttacks.h" />
@@ -369,6 +370,7 @@
 		<ClInclude Include="../../Assets/Scripts/Quests/FindAndRescueGroot.h" />
 		<ClInclude Include="../../Assets/Scripts/Player/PlayerInCombat.h" />
 		<ClInclude Include="../../Assets/Scripts/UI Test folder/Map/feedbackMission.h" />
+		<ClInclude Include="../../Assets/Scripts/Thanos/SwordDmg.h" />
 	</ItemGroup>
 	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 	<ImportGroup Label="ExtensionTargets" />

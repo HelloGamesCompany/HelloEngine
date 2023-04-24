@@ -16,7 +16,7 @@ public:
 
     void TakeDamage(float damage);
 
-    float hp;
+    float hp = 1000.0f;
 
     float meleeDmg = 20.0f;
 

@@ -2,9 +2,8 @@
 #include "API/HelloBehavior.h"
 #include "ScriptToInspectorInterface.h"
 #include "Macro.h"
-
+#include "ThanosAttacks.h"
 #include "API/API.h"
-class ThanosAttacks;
 class ThanosMovement : HelloBehavior
 {
 public:

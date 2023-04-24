@@ -113,30 +113,6 @@
                     },
                     {
                         "Rot_Offset_Z": 0.0
-                    },
-                    {
-                        "Target": 373022943
-                    },
-                    {
-                        "Delay": 0.009999999776482582
-                    },
-                    {
-                        "Offset_X": 0.0
-                    },
-                    {
-                        "Offset_Y": 45.0
-                    },
-                    {
-                        "Offset_Z": -17.0
-                    },
-                    {
-                        "Rot_Offset_X": 58.0
-                    },
-                    {
-                        "Rot_Offset_Y": 0.0
-                    },
-                    {
-                        "Rot_Offset_Z": 0.0
                     }
                 ],
                 "Script Resource": 1919097789,
@@ -203,6 +179,9 @@
                         "Offset_Z": -10.0
                     },
                     {
+                        "Orbital Offset Multiplier": 2.0
+                    },
+                    {
                         "Rot_X": 56.0
                     },
                     {
@@ -216,6 +195,9 @@
                     },
                     {
                         "Use safe zone: ": true
+                    },
+                    {
+                        "Orbital": false
                     },
                     {
                         "Target": 373022943
@@ -233,34 +215,7 @@
                         "Offset_Z": -10.0
                     },
                     {
-                        "Rot_X": 56.0
-                    },
-                    {
-                        "Rot_Y": 0.0
-                    },
-                    {
-                        "Rot_Z": 0.0
-                    },
-                    {
-                        "SafeZone_Distance": 3.0
-                    },
-                    {
-                        "Use safe zone: ": true
-                    },
-                    {
-                        "Target": 373022943
-                    },
-                    {
-                        "Delay": 0.05999999865889549
-                    },
-                    {
-                        "Offset_X": 0.0
-                    },
-                    {
-                        "Offset_Y": 20.0
-                    },
-                    {
-                        "Offset_Z": -10.0
+                        "Orbital Offset Multiplier": 2.0
                     },
                     {
                         "Rot_X": 56.0
@@ -276,6 +231,9 @@
                     },
                     {
                         "Use safe zone: ": true
+                    },
+                    {
+                        "Orbital": false
                     }
                 ],
                 "Script Resource": 577361718,
@@ -594,96 +552,6 @@
                     },
                     {
                         "Player Stats GO": 373022943
-                    },
-                    {
-                        "Velocity": 7.5
-                    },
-                    {
-                        "Upgrade Velocity": 9.0
-                    },
-                    {
-                        "SecToMaxVel": 0.20000000298023224
-                    },
-                    {
-                        "SecToZeroVel": 0.20000000298023224
-                    },
-                    {
-                        "Y tp limit": -20.0
-                    },
-                    {
-                        "Rigid Body": 373022943
-                    },
-                    {
-                        "Dash Time": 0.5
-                    },
-                    {
-                        "Dash Distance": 9.0
-                    },
-                    {
-                        "Upgrade Dash Distance": 11.0
-                    },
-                    {
-                        "Dash Cooldown": 2.0
-                    },
-                    {
-                        "Upgrade Dash Cooldown": 1.0
-                    },
-                    {
-                        "AnimationPlayer": 985693684
-                    },
-                    {
-                        "Dash Animation": 3707604139
-                    },
-                    {
-                        "Idle Animation 1": 738149381
-                    },
-                    {
-                        "Idle Animation 2": 2426153329
-                    },
-                    {
-                        "Idle Animation 3": 1590499778
-                    },
-                    {
-                        "Run Forward Animation": 781813718
-                    },
-                    {
-                        "Run Back Animation": 915742792
-                    },
-                    {
-                        "Run Left Animation": 4072259668
-                    },
-                    {
-                        "Run Right Animation": 3628832266
-                    },
-                    {
-                        "Shoot Duals Animation": 2706901869
-                    },
-                    {
-                        "Shoot SemiAuto Animation": 2706901869
-                    },
-                    {
-                        "Shoot Automatic Animation": 2706901869
-                    },
-                    {
-                        "Shoot Burst Animation": 2706901869
-                    },
-                    {
-                        "Shoot Shotgun Animation": 2706901869
-                    },
-                    {
-                        "Shoot Handgun Animation": 2706901869
-                    },
-                    {
-                        "Hit Animation": 359781210
-                    },
-                    {
-                        "Open Chest Animation": 2410125527
-                    },
-                    {
-                        "Dead Animation": 296001631
-                    },
-                    {
-                        "Player Stats GO": 373022943
                     }
                 ],
                 "Script Resource": 102275363,
@@ -723,9 +591,6 @@
                         "Upgraded Aid Kit Heal Amount": 60.0
                     },
                     {
-                        "Hit Particles": 4287485572
-                    },
-                    {
                         "Passive Heal Particles": 1471927406
                     },
                     {
@@ -766,54 +631,6 @@
                     },
                     {
                         "Upgraded Aid Kit Heal Amount": 60.0
-                    },
-                    {
-                        "Hit Particles": 4287485572
-                    },
-                    {
-                        "Passive Heal Particles": 1471927406
-                    },
-                    {
-                        "Kid Heal Particles": 3100903507
-                    },
-                    {
-                        "Player GO": 373022943
-                    },
-                    {
-                        "Power Ups Managers (HUD)": 55302948
-                    },
-                    {
-                        "Max HP": 100.0
-                    },
-                    {
-                        "Current HP": 100.0
-                    },
-                    {
-                        "Upgraded Max HP": 125.0
-                    },
-                    {
-                        "Resistance": 100.0
-                    },
-                    {
-                        "Deadline Percentage": 20.0
-                    },
-                    {
-                        "Upgraded Deadline Percentage": 50.0
-                    },
-                    {
-                        "Deadline Heal Amount": 2.5
-                    },
-                    {
-                        "Upgraded Deadline Heal Amount": 5.0
-                    },
-                    {
-                        "Aid Kit Heal Amount": 30.0
-                    },
-                    {
-                        "Upgraded Aid Kit Heal Amount": 60.0
-                    },
-                    {
-                        "Hit Particles": 4287485572
                     },
                     {
                         "Passive Heal Particles": 1471927406
@@ -862,9 +679,6 @@
                         "Shotgun": 23838785
                     },
                     {
-                        "Handgun": 1822674229
-                    },
-                    {
                         "Swap Delay": 1.0
                     },
                     {
@@ -899,48 +713,6 @@
                     },
                     {
                         "Shotgun": 23838785
-                    },
-                    {
-                        "Handgun": 1822674229
-                    },
-                    {
-                        "Swap Delay": 1.0
-                    },
-                    {
-                        "Fast Swap Delay": 0.5
-                    },
-                    {
-                        "Swap Weapon GO (HUD)": 1663296749
-                    },
-                    {
-                        "Player Stats GO": 373022943
-                    },
-                    {
-                        "Base Gun": 0
-                    },
-                    {
-                        "Normal Gun": 2
-                    },
-                    {
-                        "Special Gun": 3
-                    },
-                    {
-                        "Duals": 851574187
-                    },
-                    {
-                        "Semiautomatic": 4012886439
-                    },
-                    {
-                        "Automatic": 2134099410
-                    },
-                    {
-                        "Burst": 2331353082
-                    },
-                    {
-                        "Shotgun": 23838785
-                    },
-                    {
-                        "Handgun": 1822674229
                     },
                     {
                         "Swap Delay": 1.0
@@ -958,9 +730,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Level Index": 0
-                    },
                     {
                         "Level Index": 0
                     },
@@ -6199,9 +5968,6 @@
                     },
                     {
                         "Gun Type": 0
-                    },
-                    {
-                        "Gun Type": 0
                     }
                 ],
                 "Script Resource": 4015574954,
@@ -6210,63 +5976,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Projectile Pull": 3433217862
-                    },
-                    {
-                        "Projectile Speed": 0.0
-                    },
-                    {
-                        "Projectile Damage": 0.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 0.0
-                    },
-                    {
-                        "Projectile Spawn": 851574187
-                    },
-                    {
-                        "Second Projectile Spawn": 701275422
-                    },
-                    {
-                        "Projectile ScaleX": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleY": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleZ": 0.10000000149011612
-                    },
-                    {
-                        "Projectiles per second": 0.0
-                    },
-                    {
-                        "Extra % firerate": 15.0
-                    },
-                    {
-                        "Burst Space": 0.0
-                    },
-                    {
-                        "Second Gun GO": 701275422
-                    },
-                    {
-                        "Slow %": 0.0
-                    },
-                    {
-                        "Freeze %": 0.0
-                    },
-                    {
-                        "Player Stats GO": 373022943
-                    },
-                    {
-                        "Ammo Type": 0
-                    },
-                    {
-                        "Audio Event String": "w_basic"
-                    },
                     {
                         "Projectile Pull": 3433217862
                     },
@@ -6423,9 +6132,6 @@
                     },
                     {
                         "Gun Type": 1
-                    },
-                    {
-                        "Gun Type": 1
                     }
                 ],
                 "Script Resource": 4015574954,
@@ -6434,48 +6140,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Projectile Pull": 3433217862
-                    },
-                    {
-                        "Projectile Speed": 0.0
-                    },
-                    {
-                        "Projectile Damage": 0.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 0.0
-                    },
-                    {
-                        "Projectile Spawn": 4012886439
-                    },
-                    {
-                        "Projectile ScaleX": 0.20000000298023224
-                    },
-                    {
-                        "Projectile ScaleY": 0.20000000298023224
-                    },
-                    {
-                        "Projectile ScaleZ": 0.4000000059604645
-                    },
-                    {
-                        "Projectiles per second": 0.0
-                    },
-                    {
-                        "Extra % firerate": 15.0
-                    },
-                    {
-                        "Player Stats GO": 373022943
-                    },
-                    {
-                        "Ammo Type": 1
-                    },
-                    {
-                        "Audio Event String": "w_semi"
-                    },
                     {
                         "Projectile Pull": 3433217862
                     },
@@ -6602,9 +6266,6 @@
                     },
                     {
                         "Gun Type": 2
-                    },
-                    {
-                        "Gun Type": 2
                     }
                 ],
                 "Script Resource": 4015574954,
@@ -6613,48 +6274,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Projectile Pull": 3433217862
-                    },
-                    {
-                        "Projectile Speed": 0.0
-                    },
-                    {
-                        "Projectile Damage": 0.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 0.0
-                    },
-                    {
-                        "Projectile Spawn": 2134099410
-                    },
-                    {
-                        "Projectile ScaleX": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleY": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleZ": 0.10000000149011612
-                    },
-                    {
-                        "Projectiles per second": 0.0
-                    },
-                    {
-                        "Extra % firerate": 15.0
-                    },
-                    {
-                        "Player Stats GO": 373022943
-                    },
-                    {
-                        "Ammo Type": 1
-                    },
-                    {
-                        "Audio Event String": "w_automatic"
-                    },
                     {
                         "Projectile Pull": 3433217862
                     },
@@ -6781,9 +6400,6 @@
                     },
                     {
                         "Gun Type": 3
-                    },
-                    {
-                        "Gun Type": 3
                     }
                 ],
                 "Script Resource": 4015574954,
@@ -6792,54 +6408,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Projectile Pull": 3433217862
-                    },
-                    {
-                        "Projectile Speed": 0.0
-                    },
-                    {
-                        "Projectile Damage": 0.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 0.0
-                    },
-                    {
-                        "Projectile Spawn": 2331353082
-                    },
-                    {
-                        "Projectile ScaleX": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleY": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleZ": 0.10000000149011612
-                    },
-                    {
-                        "Projectiles per second": 0.0
-                    },
-                    {
-                        "Extra % firerate": 15.0
-                    },
-                    {
-                        "Burst Space": 0.0
-                    },
-                    {
-                        "Projectiles per burst": 0
-                    },
-                    {
-                        "Player Stats GO": 373022943
-                    },
-                    {
-                        "Ammo Type": 1
-                    },
-                    {
-                        "Audio Event String": "w_burst"
-                    },
                     {
                         "Projectile Pull": 3433217862
                     },
@@ -6978,9 +6546,6 @@
                     },
                     {
                         "Gun Type": 4
-                    },
-                    {
-                        "Gun Type": 4
                     }
                 ],
                 "Script Resource": 4015574954,
@@ -6989,54 +6554,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Projectile Pull": 3433217862
-                    },
-                    {
-                        "Projectile Speed": 0.0
-                    },
-                    {
-                        "Projectile Damage": 0.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 0.0
-                    },
-                    {
-                        "Projectile Spawn": 23838785
-                    },
-                    {
-                        "Projectile ScaleX": 0.05000000074505806
-                    },
-                    {
-                        "Projectile ScaleY": 0.05000000074505806
-                    },
-                    {
-                        "Projectile ScaleZ": 0.05000000074505806
-                    },
-                    {
-                        "Projectiles per second": 0.0
-                    },
-                    {
-                        "Extra % firerate": 15.0
-                    },
-                    {
-                        "Pellets per shot": 0
-                    },
-                    {
-                        "Pellets Dispersion": 0.0
-                    },
-                    {
-                        "Player Stats GO": 373022943
-                    },
-                    {
-                        "Ammo Type": 1
-                    },
-                    {
-                        "Audio Event String": "w_shotgun"
-                    },
                     {
                         "Projectile Pull": 3433217862
                     },
@@ -7175,9 +6692,6 @@
                     },
                     {
                         "Gun Type": 5
-                    },
-                    {
-                        "Gun Type": 5
                     }
                 ],
                 "Script Resource": 4015574954,
@@ -7185,135 +6699,8 @@
             },
             {
                 "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Projectile Pull": 3433217862
-                    },
-                    {
-                        "Projectile Speed": 0.0
-                    },
-                    {
-                        "Projectile Damage": 0.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 0.0
-                    },
-                    {
-                        "Projectile Spawn": 1822674229
-                    },
-                    {
-                        "Projectile ScaleX": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleY": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleZ": 0.10000000149011612
-                    },
-                    {
-                        "Projectiles per second": 0.0
-                    },
-                    {
-                        "Extra % firerate": 15.0
-                    },
-                    {
-                        "Player Stats GO": 373022943
-                    },
-                    {
-                        "Ammo Type": 1
-                    },
-                    {
-                        "Audio Event String": "w_handgun"
-                    },
-                    {
-                        "Projectile Pull": 3433217862
-                    },
-                    {
-                        "Projectile Speed": 0.0
-                    },
-                    {
-                        "Projectile Damage": 0.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 0.0
-                    },
-                    {
-                        "Projectile Spawn": 1822674229
-                    },
-                    {
-                        "Projectile ScaleX": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleY": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleZ": 0.10000000149011612
-                    },
-                    {
-                        "Projectiles per second": 0.0
-                    },
-                    {
-                        "Extra % firerate": 15.0
-                    },
-                    {
-                        "Player Stats GO": 373022943
-                    },
-                    {
-                        "Ammo Type": 1
-                    },
-                    {
-                        "Audio Event String": "w_handgun"
-                    },
-                    {
-                        "Projectile Pull": 3433217862
-                    },
-                    {
-                        "Projectile Speed": 0.0
-                    },
-                    {
-                        "Projectile Damage": 0.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 0.0
-                    },
-                    {
-                        "Projectile Spawn": 1822674229
-                    },
-                    {
-                        "Projectile ScaleX": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleY": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleZ": 0.10000000149011612
-                    },
-                    {
-                        "Projectiles per second": 0.0
-                    },
-                    {
-                        "Extra % firerate": 15.0
-                    },
-                    {
-                        "Player Stats GO": 373022943
-                    },
-                    {
-                        "Ammo Type": 1
-                    },
-                    {
-                        "Audio Event String": "w_handgun"
-                    }
-                ],
-                "Script Resource": 4264749539,
+                "Inspector Fields": null,
+                "Script Resource": 0,
                 "Type": 5
             }
         ],
@@ -8674,12 +8061,6 @@
                         "Shotgun Bomb Prefab": 884876432
                     },
                     {
-                        "Electricity Chain Pull Size": 10
-                    },
-                    {
-                        "Electricity Chain Prefab": 4219605086
-                    },
-                    {
                         "Check Ricochet Traget Prefab": 3306111952
                     },
                     {
@@ -8696,36 +8077,6 @@
                     },
                     {
                         "Shotgun Bomb Prefab": 884876432
-                    },
-                    {
-                        "Electricity Chain Pull Size": 10
-                    },
-                    {
-                        "Electricity Chain Prefab": 4219605086
-                    },
-                    {
-                        "Check Ricochet Traget Prefab": 3306111952
-                    },
-                    {
-                        "Player": 373022943
-                    },
-                    {
-                        "Pull Size": 20
-                    },
-                    {
-                        "Projectile Prefab": 633942339
-                    },
-                    {
-                        "Shotgun Bomb Pull Size": 10
-                    },
-                    {
-                        "Shotgun Bomb Prefab": 884876432
-                    },
-                    {
-                        "Electricity Chain Pull Size": 10
-                    },
-                    {
-                        "Electricity Chain Prefab": 4219605086
                     },
                     {
                         "Check Ricochet Traget Prefab": 3306111952
@@ -8828,9 +8179,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Player Stats GO": 373022943
-                    },
                     {
                         "Player Stats GO": 373022943
                     },
@@ -8993,15 +8341,6 @@
                         "HP BOSS 1 TEXTURE": 2911723293
                     },
                     {
-                        "SHIELD BOSS 1 TEXTURE": 983380074
-                    },
-                    {
-                        "SHIELD BOSS 2 TEXTURE": 887326709
-                    },
-                    {
-                        "SHIELD BOSS 3 TEXTURE": 2383669952
-                    },
-                    {
                         "All GO HUD BOSS": 456782903
                     },
                     {
@@ -9012,36 +8351,6 @@
                     },
                     {
                         "HP BOSS 1 TEXTURE": 2911723293
-                    },
-                    {
-                        "SHIELD BOSS 1 TEXTURE": 983380074
-                    },
-                    {
-                        "SHIELD BOSS 2 TEXTURE": 887326709
-                    },
-                    {
-                        "SHIELD BOSS 3 TEXTURE": 2383669952
-                    },
-                    {
-                        "All GO HUD BOSS": 456782903
-                    },
-                    {
-                        "HP BOSS UI IMAGE": 2571830806
-                    },
-                    {
-                        "SHIELD BOSS UI IMAGE": 1140742751
-                    },
-                    {
-                        "HP BOSS 1 TEXTURE": 2911723293
-                    },
-                    {
-                        "SHIELD BOSS 1 TEXTURE": 983380074
-                    },
-                    {
-                        "SHIELD BOSS 2 TEXTURE": 887326709
-                    },
-                    {
-                        "SHIELD BOSS 3 TEXTURE": 2383669952
                     }
                 ],
                 "Script Resource": 2970796296,
@@ -9308,33 +8617,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Player Stats GO": 373022943
-                    },
-                    {
-                        "Texture_SPEED_INCREASE": 572968604
-                    },
-                    {
-                        "Texture_FIRERATE_INCREASE": 904723382
-                    },
-                    {
-                        "Texture_SHIELD": 874482960
-                    },
-                    {
-                        "Texture_SLOW_TIME": 3865343995
-                    },
-                    {
-                        "GamesObjects_1": 275846147
-                    },
-                    {
-                        "GamesObjects_2": 1955845492
-                    },
-                    {
-                        "GamesObjects_3": 1885819871
-                    },
-                    {
-                        "GamesObjects_4": 4104934763
-                    },
                     {
                         "Player Stats GO": 373022943
                     },
@@ -9689,9 +8971,6 @@
                     },
                     {
                         "hp": false
-                    },
-                    {
-                        "hp": false
                     }
                 ],
                 "Script Resource": 3127299926,
@@ -9700,21 +8979,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Player Stats GO": 373022943
-                    },
-                    {
-                        "HP_BAR": 2805963011
-                    },
-                    {
-                        "SHIELD_BAR": 1184260047
-                    },
-                    {
-                        "HP Texture": 2859695454
-                    },
-                    {
-                        "HP Regen Texture": 4119276236
-                    },
                     {
                         "Player Stats GO": 373022943
                     },
@@ -9934,90 +9198,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "HandgunsWeapons_On": 3076489896
-                    },
-                    {
-                        "HandgunsWeapons_Off": 3986648714
-                    },
-                    {
-                        "Auto_On": 2067694486
-                    },
-                    {
-                        "Burst_On": 1186397666
-                    },
-                    {
-                        "Semi_On": 953282997
-                    },
-                    {
-                        "Shotgun_On": 3011687056
-                    },
-                    {
-                        "Handgun_On": 2485249494
-                    },
-                    {
-                        "Auto_Off": 554082642
-                    },
-                    {
-                        "Burst_Off": 2098528651
-                    },
-                    {
-                        "Semi_Off": 3008937367
-                    },
-                    {
-                        "Shotgun_Off": 1390408833
-                    },
-                    {
-                        "Handgun_Off": 732632770
-                    },
-                    {
-                        "FlameThrower_On 1": 2806950331
-                    },
-                    {
-                        "Ricochet_On 2": 4165763925
-                    },
-                    {
-                        "FlameThrower_Off 1": 2148606541
-                    },
-                    {
-                        "Ricochet_Off 2": 852787717
-                    },
-                    {
-                        "Material Weapon 1 on": 3776990906
-                    },
-                    {
-                        "Material Weapon 1 off": 2806136321
-                    },
-                    {
-                        "Game Bar Weapon 1": 1641239556
-                    },
-                    {
-                        "Material Weapon 2 on": 2532755391
-                    },
-                    {
-                        "Material Weapon 2 off": 3080739531
-                    },
-                    {
-                        "Game Bar Weapon 2": 3321290372
-                    },
-                    {
-                        "Material Weapon 3 on": 3920428013
-                    },
-                    {
-                        "Material Weapon 3 off": 3241999568
-                    },
-                    {
-                        "Game Bar Weapon 3": 2877340158
-                    },
-                    {
-                        "Text_Dash_on": 486085637
-                    },
-                    {
-                        "Text_Dash_off": 3635487892
-                    },
-                    {
-                        "Player Move GO": 2421452379
-                    },
                     {
                         "HandgunsWeapons_On": 3076489896
                     },
@@ -11254,27 +10434,6 @@
                     },
                     {
                         "Special munition off": 1826945064
-                    },
-                    {
-                        "Player Stats GO": 373022943
-                    },
-                    {
-                        "Infinit munition on": 210544854
-                    },
-                    {
-                        "Infinit munition off": 3914866382
-                    },
-                    {
-                        "Normal munition on": 2582744357
-                    },
-                    {
-                        "Normal munition off": 144064360
-                    },
-                    {
-                        "Special munition on": 1156171400
-                    },
-                    {
-                        "Special munition off": 1826945064
                     }
                 ],
                 "Script Resource": 392201209,
@@ -11609,9 +10768,6 @@
                     },
                     {
                         "Continue": 347874162
-                    },
-                    {
-                        "Continue": 347874162
                     }
                 ],
                 "Script Resource": 514756029,
@@ -11653,9 +10809,11 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 0,
+                "hoverBlockImage": 0,
                 "hoverImage": 2113770562,
+                "idleBlockImage": 0,
                 "idleImage": 258549829,
+                "pressBlockImage": 0,
                 "pressImage": 516501109
             }
         ],
@@ -11925,12 +11083,6 @@
                     },
                     {
                         "Scene": "SpaceshipHUB_Scene.HScene"
-                    },
-                    {
-                        "Button": 3241817212
-                    },
-                    {
-                        "Scene": "SpaceshipHUB_Scene.HScene"
                     }
                 ],
                 "Script Resource": 1064725144,
@@ -11972,9 +11124,11 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 0,
+                "hoverBlockImage": 0,
                 "hoverImage": 2113770562,
+                "idleBlockImage": 0,
                 "idleImage": 258549829,
+                "pressBlockImage": 0,
                 "pressImage": 516501109
             }
         ],
@@ -12112,7 +11266,7 @@
         "UID": 3020537554
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -12142,7 +11296,7 @@
         "UID": 3419867478
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -12187,7 +11341,7 @@
         "UID": 3081632077
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -12221,7 +11375,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 321575884,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -12233,7 +11387,7 @@
         "UID": 4100463025
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -12267,7 +11421,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 321575884,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -12279,7 +11433,7 @@
         "UID": 450032996
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -12313,7 +11467,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 3407967413,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -12325,7 +11479,7 @@
         "UID": 4255757492
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -12359,7 +11513,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 3407967413,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -12371,7 +11525,7 @@
         "UID": 1773435971
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -12405,7 +11559,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 119357396,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -12417,7 +11571,7 @@
         "UID": 960878878
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -12451,7 +11605,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 3407967413,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -12463,7 +11617,7 @@
         "UID": 3232730038
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -12497,7 +11651,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 3407967413,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -12509,7 +11663,7 @@
         "UID": 1021730605
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -12543,7 +11697,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 3407967413,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -12555,7 +11709,7 @@
         "UID": 658094352
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -12589,7 +11743,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 3407967413,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -12601,7 +11755,7 @@
         "UID": 2770734160
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -12635,7 +11789,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 3407967413,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -12647,7 +11801,7 @@
         "UID": 1416788111
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -12681,7 +11835,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 3407967413,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -12693,7 +11847,7 @@
         "UID": 4281123291
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -12727,7 +11881,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 3407967413,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -12739,7 +11893,7 @@
         "UID": 2534169494
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -12773,7 +11927,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 3407967413,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -12785,7 +11939,7 @@
         "UID": 2747756686
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -12819,7 +11973,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 3407967413,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -12831,7 +11985,7 @@
         "UID": 3724872166
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -12865,7 +12019,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 3407967413,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -12877,7 +12031,7 @@
         "UID": 3494703901
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -12911,7 +12065,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 3407967413,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -12923,7 +12077,7 @@
         "UID": 3472907712
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -12957,7 +12111,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 3407967413,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -12969,7 +12123,7 @@
         "UID": 2123888831
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -13003,7 +12157,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 3407967413,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -13015,7 +12169,7 @@
         "UID": 130236362
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -13049,7 +12203,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 119357396,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -13061,7 +12215,7 @@
         "UID": 509796946
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -13095,7 +12249,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 3407967413,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -13107,7 +12261,7 @@
         "UID": 3258410618
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -13141,7 +12295,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 3407967413,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -13153,7 +12307,7 @@
         "UID": 2222995649
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -13187,7 +12341,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 3407967413,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -13199,7 +12353,7 @@
         "UID": 2328534965
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -13233,7 +12387,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 3407967413,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -13245,7 +12399,7 @@
         "UID": 1392210744
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -13279,7 +12433,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 3407967413,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -13291,7 +12445,7 @@
         "UID": 2577239192
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -13325,7 +12479,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 3407967413,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -13337,7 +12491,7 @@
         "UID": 3416028536
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -13371,7 +12525,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 3407967413,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -13383,7 +12537,7 @@
         "UID": 2098623447
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -13417,7 +12571,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 119357396,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -13429,14 +12583,14 @@
         "UID": 2065528258
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
                 "Position": [
-                    37.85413360595703,
-                    -95.18892669677734,
-                    7279.58203125
+                    37.85398483276367,
+                    -95.18896484375,
+                    7279.58251953125
                 ],
                 "Rotation": [
                     -90.00000762939453,
@@ -13445,8 +12599,8 @@
                 ],
                 "Scale": [
                     116.95184326171875,
-                    116.95184326171875,
-                    116.95184326171875
+                    116.95183563232422,
+                    116.95183563232422
                 ],
                 "Type": 1
             },
@@ -13463,7 +12617,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 321575884,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -13475,7 +12629,7 @@
         "UID": 47845545
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -13509,7 +12663,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 3407967413,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -13521,7 +12675,7 @@
         "UID": 2455034045
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -13555,7 +12709,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 3407967413,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -13567,7 +12721,7 @@
         "UID": 3701702625
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -13601,7 +12755,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 3407967413,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -13613,7 +12767,7 @@
         "UID": 1020825940
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -13647,7 +12801,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 3407967413,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -13659,7 +12813,7 @@
         "UID": 2098921828
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -13693,7 +12847,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 3407967413,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -13705,7 +12859,7 @@
         "UID": 1364275379
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -13739,7 +12893,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 3407967413,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -13751,7 +12905,7 @@
         "UID": 3309377615
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -13785,7 +12939,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 3407967413,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -13797,7 +12951,7 @@
         "UID": 2953307290
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -13831,7 +12985,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 3407967413,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -13843,7 +12997,7 @@
         "UID": 3532442978
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -13877,7 +13031,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 3407967413,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -13889,7 +13043,7 @@
         "UID": 2385202377
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -13923,7 +13077,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 3407967413,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -13935,7 +13089,7 @@
         "UID": 3854123869
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -13969,7 +13123,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 3407967413,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -13981,7 +13135,7 @@
         "UID": 4171033345
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -14015,7 +13169,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 3407967413,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -14027,7 +13181,7 @@
         "UID": 183695092
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -14061,7 +13215,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 3407967413,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -14073,7 +13227,7 @@
         "UID": 2918359940
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -14107,7 +13261,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 3407967413,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -14119,7 +13273,7 @@
         "UID": 1414478163
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -14153,7 +13307,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 3407967413,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -14165,7 +13319,7 @@
         "UID": 2374023535
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -14199,7 +13353,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 3407967413,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -14211,7 +13365,7 @@
         "UID": 2961045563
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -14245,7 +13399,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 3407967413,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -14257,7 +13411,7 @@
         "UID": 1112868214
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -14291,7 +13445,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 3407967413,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -14303,7 +13457,7 @@
         "UID": 2082874350
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -14337,7 +13491,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 3407967413,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -14349,7 +13503,7 @@
         "UID": 814306501
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -14383,7 +13537,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 3407967413,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -14395,7 +13549,7 @@
         "UID": 3559566217
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -14429,7 +13583,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 3407967413,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -14441,7 +13595,7 @@
         "UID": 946614556
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -14475,7 +13629,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 3407967413,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -14487,7 +13641,7 @@
         "UID": 2273813452
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -14521,7 +13675,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 3407967413,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -14533,7 +13687,7 @@
         "UID": 1261745723
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -14567,7 +13721,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 3407967413,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -14579,7 +13733,7 @@
         "UID": 3327843191
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -14613,7 +13767,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 3407967413,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -14625,7 +13779,7 @@
         "UID": 54985186
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -14659,7 +13813,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 119357396,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -14671,7 +13825,7 @@
         "UID": 1307773770
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -14705,7 +13859,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 119357396,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -14717,7 +13871,7 @@
         "UID": 3800900562
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -14751,7 +13905,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 119357396,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -14763,7 +13917,7 @@
         "UID": 972985849
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -14797,7 +13951,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 119357396,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -14809,7 +13963,7 @@
         "UID": 23600716
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -14843,7 +13997,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 119357396,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -14855,7 +14009,7 @@
         "UID": 2427941564
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -14889,7 +14043,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 119357396,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -14901,7 +14055,7 @@
         "UID": 2986725868
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -14935,7 +14089,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 119357396,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -14947,7 +14101,7 @@
         "UID": 2294987483
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -14981,7 +14135,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 119357396,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -14993,7 +14147,7 @@
         "UID": 2245175446
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -15027,7 +14181,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 119357396,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -15039,7 +14193,7 @@
         "UID": 319955341
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -15073,7 +14227,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 119357396,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -15085,7 +14239,7 @@
         "UID": 1910398705
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -15119,7 +14273,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 119357396,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -15131,7 +14285,7 @@
         "UID": 1615985572
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -15165,7 +14319,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 119357396,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -15177,7 +14331,7 @@
         "UID": 4158156788
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -15211,7 +14365,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 119357396,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -15223,7 +14377,7 @@
         "UID": 1353085059
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -15257,7 +14411,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 119357396,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -15269,7 +14423,7 @@
         "UID": 1617189471
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -15303,7 +14457,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 119357396,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -15315,7 +14469,7 @@
         "UID": 2075463147
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -15349,7 +14503,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 119357396,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -15361,7 +14515,7 @@
         "UID": 235017958
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -15395,7 +14549,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 119357396,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -15407,7 +14561,7 @@
         "UID": 2654823454
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -15441,7 +14595,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 119357396,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -15453,7 +14607,7 @@
         "UID": 1841074869
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -15487,7 +14641,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 119357396,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -15499,7 +14653,7 @@
         "UID": 2764440121
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -15533,7 +14687,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 3407967413,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -15545,7 +14699,7 @@
         "UID": 1306163084
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -15579,7 +14733,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 3407967413,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -15591,7 +14745,7 @@
         "UID": 3332480252
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -15625,7 +14779,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 3407967413,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -15637,7 +14791,7 @@
         "UID": 769261867
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -15671,7 +14825,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 3407967413,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -15683,7 +14837,7 @@
         "UID": 2833228583
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -15717,7 +14871,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 3407967413,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -15729,7 +14883,7 @@
         "UID": 1539140946
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -15763,7 +14917,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 3407967413,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -24083,5 +23237,1811 @@
         "PrefabUID": 3024902111,
         "Tag": "Default",
         "UID": 4171197536
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -171.77566528320313,
+                    12.267433166503906,
+                    45.4825325012207
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "AngularFactor": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "ColPosition": [
+                    0.0,
+                    0.8999999761581421,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    1.0,
+                    2.4000000953674316,
+                    1.0
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsShapeSelected": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsStatic": false,
+                "IsTrigger": false,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    0.5,
+                    0.0,
+                    0.5,
+                    1.0
+                ],
+                "ShapeSelected": 0,
+                "SphereHorSlices": 16,
+                "SphereRadius": 1.0,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Boss": 256946375
+                    },
+                    {
+                        "Player": 373022943
+                    },
+                    {
+                        "Melee Attack 1": 1495879326
+                    },
+                    {
+                        "SWORD": 3229914335
+                    },
+                    {
+                        "Boss": 256946375
+                    },
+                    {
+                        "Player": 373022943
+                    },
+                    {
+                        "Melee Attack 1": 1495879326
+                    },
+                    {
+                        "SWORD": 3229914335
+                    }
+                ],
+                "Script Resource": 3789534315,
+                "Type": 5
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": null,
+                "Script Resource": 84377673,
+                "Type": 5
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Player": 373022943
+                    },
+                    {
+                        "Player": 373022943
+                    }
+                ],
+                "Script Resource": 404657982,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Thanos",
+        "ParentUID": 1957540640,
+        "PrefabUID": 0,
+        "Tag": "Boss",
+        "UID": 256946375
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -3.899999865097925e-05,
+                    1.162755012512207,
+                    0.04248899966478348
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RootJoint",
+        "ParentUID": 256946375,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 324786035
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.10284499824047089,
+                    -0.029903000220656395,
+                    0.008453000336885452
+                ],
+                "Rotation": [
+                    -1.076234221458435,
+                    9.938796043395996,
+                    0.582912266254425
+                ],
+                "Scale": [
+                    1.0000003576278687,
+                    1.0000001192092896,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightLeg1",
+        "ParentUID": 324786035,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3220696591
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.03299799934029579,
+                    -0.40248599648475647,
+                    0.025234000757336617
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightKnee1",
+        "ParentUID": 3220696591,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 759739738
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.06504400074481964,
+                    -0.5505369901657104,
+                    -0.07201399654150009
+                ],
+                "Rotation": [
+                    -114.506103515625,
+                    73.45543670654297,
+                    -47.06462097167969
+                ],
+                "Scale": [
+                    1.000000238418579,
+                    1.0,
+                    0.999999463558197
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightAnkle1",
+        "ParentUID": 759739738,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1318049058
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0387130007147789,
+                    0.04793199896812439,
+                    -0.012373000383377075
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightFoot1",
+        "ParentUID": 1318049058,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1917187978
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.09263700246810913,
+                    0.01030499953776598,
+                    -0.02285899966955185
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightFootTip1",
+        "ParentUID": 1917187978,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1845558545
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.00036899998667649925,
+                    0.1443450003862381,
+                    -0.005344000179320574
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "BackLow",
+        "ParentUID": 324786035,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1389834308
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -9.300000237999484e-05,
+                    0.12106499820947647,
+                    -0.037147000432014465
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "BackMid",
+        "ParentUID": 1389834308,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 336145683
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -1.8999999156221747e-05,
+                    0.18338899314403534,
+                    -0.0741569995880127
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "BackHigh",
+        "ParentUID": 336145683,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3816767535
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.10726699978113174,
+                    0.059484001249074936,
+                    -0.02547300048172474
+                ],
+                "Rotation": [
+                    -89.93765258789063,
+                    89.96572875976563,
+                    179.93319702148438
+                ],
+                "Scale": [
+                    1.000000238418579,
+                    1.0,
+                    1.000000238418579
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftChest",
+        "ParentUID": 3816767535,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1840918010
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.02401299960911274,
+                    -0.001167000038549304,
+                    0.10122700035572052
+                ],
+                "Rotation": [
+                    -29.088701248168945,
+                    -54.31425857543945,
+                    -34.426048278808594
+                ],
+                "Scale": [
+                    1.000000238418579,
+                    1.000000238418579,
+                    1.0000004768371582
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftShoulder",
+        "ParentUID": 1840918010,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 433694273
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.2468930035829544,
+                    -0.01123099960386753,
+                    0.18391799926757813
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftElbow",
+        "ParentUID": 433694273,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 608889653
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.27857398986816406,
+                    0.0027260000351816416,
+                    0.15626199543476105
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftWrist",
+        "ParentUID": 608889653,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 179319992
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.05527399852871895,
+                    -0.0028009999077767134,
+                    0.0313900001347065
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftHand",
+        "ParentUID": 179319992,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3262200856
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.014240999706089497,
+                    0.05567999929189682,
+                    0.026714999228715897
+                ],
+                "Rotation": [
+                    16.803146362304688,
+                    -11.312191009521484,
+                    8.929040908813477
+                ],
+                "Scale": [
+                    1.000000238418579,
+                    1.0000004768371582,
+                    0.9999998807907104
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftThumb",
+        "ParentUID": 3262200856,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 4110150392
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.024003000929951668,
+                    0.036497000604867935,
+                    0.006029000040143728
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftMIdThumb",
+        "ParentUID": 4110150392,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 584345431
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.024157000705599785,
+                    0.0318790003657341,
+                    0.01318500004708767
+                ],
+                "Rotation": [
+                    77.05802154541016,
+                    51.76064682006836,
+                    29.543964385986328
+                ],
+                "Scale": [
+                    0.9999999403953552,
+                    1.000000238418579,
+                    0.9999999403953552
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftTipThumb",
+        "ParentUID": 584345431,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 783023939
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.09814999997615814,
+                    -0.01258699968457222,
+                    0.04802900180220604
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftLittle",
+        "ParentUID": 3262200856,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3184736287
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.04401500150561333,
+                    0.0025339999701827765,
+                    0.030674999579787254
+                ],
+                "Rotation": [
+                    16.803146362304688,
+                    -11.312191009521484,
+                    8.929040908813477
+                ],
+                "Scale": [
+                    1.000000238418579,
+                    1.0000004768371582,
+                    0.9999998807907104
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftStartLittle",
+        "ParentUID": 3184736287,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1133348522
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.059438999742269516,
+                    0.0016700000269338489,
+                    0.02303300052881241
+                ],
+                "Rotation": [
+                    -82.47453308105469,
+                    16.423677444458008,
+                    -18.871248245239258
+                ],
+                "Scale": [
+                    0.9999998211860657,
+                    0.9999995827674866,
+                    0.9999996423721313
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftMidLittle",
+        "ParentUID": 1133348522,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2013255346
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.09433399885892868,
+                    0.04223199933767319,
+                    0.06462600082159042
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftMiddle",
+        "ParentUID": 3262200856,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2887706202
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.03596099838614464,
+                    0.008549000136554241,
+                    0.0248160008341074
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftStartMIddle",
+        "ParentUID": 2887706202,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1869330977
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.033615000545978546,
+                    0.005243000108748674,
+                    0.022749999538064003
+                ],
+                "Rotation": [
+                    16.803146362304688,
+                    -11.312191009521484,
+                    8.929040908813477
+                ],
+                "Scale": [
+                    1.000000238418579,
+                    1.0000004768371582,
+                    0.9999998807907104
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftMidMiddle",
+        "ParentUID": 1869330977,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2887913621
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -7.100000220816582e-05,
+                    0.19689099490642548,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Neck",
+        "ParentUID": 3816767535,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3425147289
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    9.999999747378752e-06,
+                    0.1939069926738739,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Head",
+        "ParentUID": 3425147289,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1300166252
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.0050760000012815,
+                    0.0010029999539256096,
+                    -0.14530199766159058
+                ],
+                "Rotation": [
+                    -89.93765258789063,
+                    89.96572875976563,
+                    179.93319702148438
+                ],
+                "Scale": [
+                    1.000000238418579,
+                    1.0,
+                    1.000000238418579
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Hair",
+        "ParentUID": 1300166252,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2438867292
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.10726699978113174,
+                    0.059484999626874924,
+                    -0.02547300048172474
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftChest1",
+        "ParentUID": 3816767535,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3437623564
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.10120899975299835,
+                    0.024089999496936798,
+                    -0.001167000038549304
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftShoulder1",
+        "ParentUID": 3437623564,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2327514235
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.30618301033973694,
+                    -0.034060001373291016,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftElbow1",
+        "ParentUID": 2327514235,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3342411447
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.3193129897117615,
+                    0.008270000107586384,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftWrist1",
+        "ParentUID": 3342411447,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 699254306
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.06355399638414383,
+                    0.00022000000171829015,
+                    -0.0030449999030679464
+                ],
+                "Rotation": [
+                    -89.93765258789063,
+                    89.96572875976563,
+                    179.93319702148438
+                ],
+                "Scale": [
+                    1.000000238418579,
+                    1.0,
+                    1.000000238418579
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftHand1",
+        "ParentUID": 699254306,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3624705162
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0035600000992417336,
+                    0.05774400010704994,
+                    -0.025877999141812325
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftThumb1",
+        "ParentUID": 3624705162,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 499639825
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0029490001033991575,
+                    0.03641900047659874,
+                    -0.024685999378561974
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftMIdThumb1",
+        "ParentUID": 499639825,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 484126020
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.003949000034481287,
+                    0.03202800080180168,
+                    -0.027060000225901604
+                ],
+                "Rotation": [
+                    -77.05777740478516,
+                    43.7911376953125,
+                    -99.0678939819336
+                ],
+                "Scale": [
+                    1.0000001192092896,
+                    1.0000003576278687,
+                    0.9999994039535522
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftTipThumb1",
+        "ParentUID": 484126020,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2729266708
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0042329998686909676,
+                    -0.014782999642193317,
+                    -0.10891900211572647
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftLittle1",
+        "ParentUID": 3624705162,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 629335331
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.002819000044837594,
+                    0.0036830001045018435,
+                    -0.053502000868320465
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftStartLittle1",
+        "ParentUID": 629335331,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1993693055
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.0033309999853372574,
+                    0.0017839999636635184,
+                    -0.06366299837827682
+                ],
+                "Rotation": [
+                    -77.05777740478516,
+                    43.7911376953125,
+                    -99.0678939819336
+                ],
+                "Scale": [
+                    1.0000001192092896,
+                    1.0000003576278687,
+                    0.9999994039535522
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftMidLittle1",
+        "ParentUID": 1993693055,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2446077323
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.007007000036537647,
+                    0.04231800138950348,
+                    -0.114096999168396
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftMiddle1",
+        "ParentUID": 3624705162,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2896018183
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    3.300000025774352e-05,
+                    0.009056000038981438,
+                    -0.0435900017619133
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftStartMIddle1",
+        "ParentUID": 2896018183,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 737175218
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.0005089999758638442,
+                    0.005743999965488911,
+                    -0.04052000120282173
+                ],
+                "Rotation": [
+                    -77.05777740478516,
+                    43.7911376953125,
+                    -99.0678939819336
+                ],
+                "Scale": [
+                    1.0000001192092896,
+                    1.0000003576278687,
+                    0.9999994039535522
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "LeftMidMiddle1",
+        "ParentUID": 737175218,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2311632474
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.10284499824047089,
+                    -0.029905999079346657,
+                    0.008453000336885452
+                ],
+                "Rotation": [
+                    -1.0688401460647583,
+                    -9.874239921569824,
+                    -0.578497052192688
+                ],
+                "Scale": [
+                    0.9999997019767761,
+                    0.9999996423721313,
+                    0.9999998211860657
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightLeg2",
+        "ParentUID": 324786035,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1444923937
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.03299799934029579,
+                    -0.4024839997291565,
+                    0.025234000757336617
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightKnee2",
+        "ParentUID": 1444923937,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 325410964
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.06504400074481964,
+                    -0.5505369901657104,
+                    -0.07201399654150009
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightAnkle2",
+        "ParentUID": 325410964,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3779205540
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.0056409998796880245,
+                    -0.05860200151801109,
+                    0.021980000659823418
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightFoot2",
+        "ParentUID": 3779205540,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2372347379
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0017950000474229455,
+                    -0.042323999106884,
+                    0.08611500263214111
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "RightFootTip2",
+        "ParentUID": 2372347379,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2229505678
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.00035700001171790063,
+                    0.041127000004053116,
+                    0.11228500306606293
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "ClothFront",
+        "ParentUID": 324786035,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 296730597
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.00035700001171790063,
+                    0.04250499978661537,
+                    -0.11413200199604034
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "ClothBack",
+        "ParentUID": 324786035,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 4183167273
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 1623496117,
+                "RootBoneUuid": 324786035,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 9
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "model",
+        "ParentUID": 256946375,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 3146306364
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.1245880126953125,
+                    0.8907260894775391,
+                    1.2050437927246094
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.5833039283752441,
+                    1.0,
+                    1.3924003839492798
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": false,
+                "Index inside model": 0,
+                "ModelUID": 10,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "AngularFactor": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "ColPosition": [
+                    0.0,
+                    0.0,
+                    0.6000000238418579
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    3.200000047683716,
+                    3.0999999046325684,
+                    2.799999952316284
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsShapeSelected": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsStatic": false,
+                "IsTrigger": false,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    0.5,
+                    0.0,
+                    0.5,
+                    1.0
+                ],
+                "ShapeSelected": 0,
+                "SphereHorSlices": 16,
+                "SphereRadius": 1.0,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": null,
+                "Script Resource": 3078314501,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "MeleeArea",
+        "ParentUID": 256946375,
+        "PrefabUID": 0,
+        "Tag": "Primitive",
+        "UID": 1495879326
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.1427764892578125,
+                    1.6232099533081055,
+                    1.5364227294921875
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 12,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "AngularFactor": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "ColPosition": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    false,
+                    true,
+                    false
+                ],
+                "IsShapeSelected": [
+                    false,
+                    true,
+                    false
+                ],
+                "IsStatic": false,
+                "IsTrigger": false,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    0.5,
+                    0.0,
+                    0.5,
+                    1.0
+                ],
+                "ShapeSelected": 1,
+                "SphereHorSlices": 16,
+                "SphereRadius": 2.700000047683716,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": null,
+                "Script Resource": 798735971,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Sword",
+        "ParentUID": 256946375,
+        "PrefabUID": 0,
+        "Tag": "Primitive",
+        "UID": 3229914335
     }
 ]

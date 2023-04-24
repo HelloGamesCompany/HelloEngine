@@ -13,16 +13,14 @@ HELLO_ENGINE_API_C ThanosMovement* CreateThanosMovement(ScriptToInspectorInterfa
 void ThanosMovement::Start()
 {
     Tattack = (ThanosAttacks*)boss.GetScript("ThanosAttacks");
-    if (Tattack == nullptr) {
-        Console::Log("ThanosAttacks missing in thanosmovement script ");
-    }
 }
 void ThanosMovement::Update()
 {
-    if (Tattack->isAttacking == false) {
+   if (Tattack->isAttacking == false) {
         angle = Rotate(player.GetTransform().GetGlobalPosition(), angle);
+        Console::Log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
         Seek(&gameObject, player.GetTransform().GetGlobalPosition(), bossSpeed);
-    }
+  }
     dashCooldown += Time::GetDeltaTime();
 
 }
@@ -46,7 +44,8 @@ float ThanosMovement::Rotate(API_Vector3 target, float _angle)
 void ThanosMovement::Seek(API_GameObject* seeker, API_Vector3 target, float speed)
 {
     API_Vector3 direction = target - seeker->GetTransform().GetGlobalPosition();
-    seeker->GetTransform().Translate(direction * speed / 100);
+    seeker->GetTransform().Translate(direction * speed / 400);
+    //Console::Log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
 
     if (direction.x < 8 && direction.x > -8 && direction.y < 8 && direction.y && direction.z < 8 && direction.z && dashCooldown > 5.0f) {
         if (Tattack) {

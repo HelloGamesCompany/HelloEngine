@@ -2,8 +2,8 @@
 #include "API/HelloBehavior.h"
 #include "ScriptToInspectorInterface.h"
 #include "Macro.h"
-#include "../Thanos/ThanosMovement.h"
 #include "API/API.h"
+#include "ThanosMeleeDmg.h"
 
 class ThanosAttacks : HelloBehavior
 {
@@ -15,9 +15,9 @@ public:
 
 	void DashAttack();
 
-	void Seek(API_GameObject* seeker, API_Vector3 target, float speed);
+	void Seek(API_GameObject* seeker, API_Vector3 target, float speed); 
 
-	ThanosMovement* Tmovement;
+	ThanosMeleeDmg* tMeleeDmg;
 	bool isAttacking = false;
 
 	API_GameObject boss;
@@ -25,6 +25,11 @@ public:
 
 	API_GameObject melee1;
 	float meleeAttackTime = 0.0f;
+
+	API_GameObject sword;
+	bool swordThrown = false;
+	float swordSpeed = 2.0f;
+	API_Vector3 aimPosition;
 
 	enum class THANOS_STATE {
 		IDLE,
