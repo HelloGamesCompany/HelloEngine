@@ -286,15 +286,18 @@ void ComponentUIButton::UpdateGamePadInput(bool selected)
         _material->ChangeTexture(textureIDHover);
         break;
     case ButtonState::ONPRESS:
+        break;
     case ButtonState::ONHOLD:
         _material->ChangeTexture(textureIDPress);
         break;
     case ButtonState::NORMALBLOCKED:
         _material->ChangeTexture(textureIDIdleBlocked);
+        break;
     case ButtonState::HOVEREDBLOCKED:
         _material->ChangeTexture(textureIDHoverBlocked);
         break;
     case ButtonState::ONPRESSBLOCKED:
+        break;
     case ButtonState::ONHOLDBLOCKED:
         _material->ChangeTexture(textureIDHPressBlocked);
         break;

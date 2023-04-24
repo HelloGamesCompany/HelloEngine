@@ -10476,15 +10476,6 @@
                     },
                     {
                         "Scene path and name: ": "LVL1_Blockout.HScene"
-                    },
-                    {
-                        "Is Hub Scene": true
-                    },
-                    {
-                        "(IF NO HUB) Current Level": 1
-                    },
-                    {
-                        "Scene path and name: ": "LVL1_Blockout.HScene"
                     }
                 ],
                 "Script Resource": 2719578167,
@@ -10523,7 +10514,7 @@
             {
                 "Active camera": true,
                 "Active culling": true,
-                "Aspect ratio": 2.0079259872436523,
+                "Aspect ratio": 2.300300359725952,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -10535,42 +10526,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Target": 1862169540
-                    },
-                    {
-                        "Delay": 0.10000000149011612
-                    },
-                    {
-                        "Offset_X": 0.0
-                    },
-                    {
-                        "Offset_Y": 10.0
-                    },
-                    {
-                        "Offset_Z": -7.0
-                    },
-                    {
-                        "Orbital Offset Multiplier": 2.0
-                    },
-                    {
-                        "Rot_X": 50.0
-                    },
-                    {
-                        "Rot_Y": 0.0
-                    },
-                    {
-                        "Rot_Z": 0.0
-                    },
-                    {
-                        "SafeZone_Distance": 10.0
-                    },
-                    {
-                        "Use safe zone: ": false
-                    },
-                    {
-                        "Orbital": false
-                    },
                     {
                         "Target": 1862169540
                     },
@@ -11983,12 +11938,6 @@
                     },
                     {
                         "Gun Index": 4
-                    },
-                    {
-                        "BluePrint Image Component": 2341798902
-                    },
-                    {
-                        "Gun Index": 4
                     }
                 ],
                 "Script Resource": 2406654245,
@@ -12035,12 +11984,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "BluePrint Image Component": 1422799981
-                    },
-                    {
-                        "Gun Index": 3
-                    },
                     {
                         "BluePrint Image Component": 1422799981
                     },
@@ -12097,12 +12040,6 @@
                     },
                     {
                         "Gun Index": 2
-                    },
-                    {
-                        "BluePrint Image Component": 1926729553
-                    },
-                    {
-                        "Gun Index": 2
                     }
                 ],
                 "Script Resource": 999461329,
@@ -12154,12 +12091,6 @@
                     },
                     {
                         "Gun Index": 1
-                    },
-                    {
-                        "BluePrint Image Component": 419620740
-                    },
-                    {
-                        "Gun Index": 1
                     }
                 ],
                 "Script Resource": 2406654245,
@@ -12206,12 +12137,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "BluePrint Image Component": 47992147
-                    },
-                    {
-                        "Gun Index": 5
-                    },
                     {
                         "BluePrint Image Component": 47992147
                     },
@@ -12313,12 +12238,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Text Blueprints": 2108451898
-                    },
-                    {
-                        "PlayerStorage GO": 1862169540
-                    },
                     {
                         "Text Blueprints": 2108451898
                     },
@@ -12457,45 +12376,6 @@
                     },
                     {
                         "Player": 1862169540
-                    },
-                    {
-                        "Weapon": 2125686633
-                    },
-                    {
-                        "Next Weapon": 740957820
-                    },
-                    {
-                        "Panel Upgrate": 911611964
-                    },
-                    {
-                        "Panel Unlock": 911611964
-                    },
-                    {
-                        "Next Panel Upgrate": 2121029335
-                    },
-                    {
-                        "Next Panel Unlock": 2412948481
-                    },
-                    {
-                        "Material Weapon": 1048084744
-                    },
-                    {
-                        "Material Weapon Locked": 2413304871
-                    },
-                    {
-                        "SelectedWeapon": 1046225449
-                    },
-                    {
-                        "List Weapons": 3432315266
-                    },
-                    {
-                        "Gun Index": 0
-                    },
-                    {
-                        "Open Menu Interruptor": 1766493025
-                    },
-                    {
-                        "Player": 1862169540
                     }
                 ],
                 "Script Resource": 1737653682,
@@ -12547,48 +12427,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Weapon": 740957820
-                    },
-                    {
-                        "Next Weapon": 3667161260
-                    },
-                    {
-                        "Prev Weapon": 2125686633
-                    },
-                    {
-                        "Panel Upgrate": 2121029335
-                    },
-                    {
-                        "Panel Unlock": 2412948481
-                    },
-                    {
-                        "Next Panel Upgrate": 1250319448
-                    },
-                    {
-                        "Next Panel Unlock": 1692539270
-                    },
-                    {
-                        "Prev Panel Upgrate": 911611964
-                    },
-                    {
-                        "Prev Panel Unlock": 911611964
-                    },
-                    {
-                        "Material Weapon": 2760442950
-                    },
-                    {
-                        "Material Weapon Locked": 567303012
-                    },
-                    {
-                        "SelectedWeapon": 1046225449
-                    },
-                    {
-                        "List Weapons": 3432315266
-                    },
-                    {
-                        "Gun Index": 4
-                    },
                     {
                         "Weapon": 740957820
                     },
@@ -12722,48 +12560,6 @@
                     },
                     {
                         "Gun Index": 3
-                    },
-                    {
-                        "Weapon": 3667161260
-                    },
-                    {
-                        "Next Weapon": 1398139035
-                    },
-                    {
-                        "Prev Weapon": 740957820
-                    },
-                    {
-                        "Panel Upgrate": 1250319448
-                    },
-                    {
-                        "Panel Unlock": 1692539270
-                    },
-                    {
-                        "Next Panel Upgrate": 385359660
-                    },
-                    {
-                        "Next Panel Unlock": 801303102
-                    },
-                    {
-                        "Prev Panel Upgrate": 2121029335
-                    },
-                    {
-                        "Prev Panel Unlock": 2412948481
-                    },
-                    {
-                        "Material Weapon": 426950729
-                    },
-                    {
-                        "Material Weapon Locked": 673939956
-                    },
-                    {
-                        "SelectedWeapon": 1046225449
-                    },
-                    {
-                        "List Weapons": 3432315266
-                    },
-                    {
-                        "Gun Index": 3
                     }
                 ],
                 "Script Resource": 1737653682,
@@ -12815,48 +12611,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Weapon": 1398139035
-                    },
-                    {
-                        "Next Weapon": 2993926487
-                    },
-                    {
-                        "Prev Weapon": 3667161260
-                    },
-                    {
-                        "Panel Upgrate": 385359660
-                    },
-                    {
-                        "Panel Unlock": 801303102
-                    },
-                    {
-                        "Next Panel Upgrate": 2021939713
-                    },
-                    {
-                        "Next Panel Unlock": 3043641959
-                    },
-                    {
-                        "Prev Panel Upgrate": 1250319448
-                    },
-                    {
-                        "Prev Panel Unlock": 1692539270
-                    },
-                    {
-                        "Material Weapon": 2428347813
-                    },
-                    {
-                        "Material Weapon Locked": 2342560247
-                    },
-                    {
-                        "SelectedWeapon": 1046225449
-                    },
-                    {
-                        "List Weapons": 3432315266
-                    },
-                    {
-                        "Gun Index": 2
-                    },
                     {
                         "Weapon": 1398139035
                     },
@@ -12990,48 +12744,6 @@
                     },
                     {
                         "Gun Index": 1
-                    },
-                    {
-                        "Weapon": 2993926487
-                    },
-                    {
-                        "Next Weapon": 1098109250
-                    },
-                    {
-                        "Prev Weapon": 1398139035
-                    },
-                    {
-                        "Panel Upgrate": 2021939713
-                    },
-                    {
-                        "Panel Unlock": 3043641959
-                    },
-                    {
-                        "Next Panel Upgrate": 445014355
-                    },
-                    {
-                        "Next Panel Unlock": 227055725
-                    },
-                    {
-                        "Prev Panel Upgrate": 385359660
-                    },
-                    {
-                        "Prev Panel Unlock": 801303102
-                    },
-                    {
-                        "Material Weapon": 2984314687
-                    },
-                    {
-                        "Material Weapon Locked": 4116342376
-                    },
-                    {
-                        "SelectedWeapon": 1046225449
-                    },
-                    {
-                        "List Weapons": 3432315266
-                    },
-                    {
-                        "Gun Index": 1
                     }
                 ],
                 "Script Resource": 1737653682,
@@ -13083,39 +12795,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Weapon": 1098109250
-                    },
-                    {
-                        "Prev Weapon": 2993926487
-                    },
-                    {
-                        "Panel Upgrate": 445014355
-                    },
-                    {
-                        "Panel Unlock": 227055725
-                    },
-                    {
-                        "Prev Panel Upgrate": 2021939713
-                    },
-                    {
-                        "Prev Panel Unlock": 3043641959
-                    },
-                    {
-                        "Material Weapon": 3703264764
-                    },
-                    {
-                        "Material Weapon Locked": 2450359488
-                    },
-                    {
-                        "SelectedWeapon": 1046225449
-                    },
-                    {
-                        "List Weapons": 3432315266
-                    },
-                    {
-                        "Gun Index": 5
-                    },
                     {
                         "Weapon": 1098109250
                     },
@@ -13235,27 +12914,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Upgrate 1": 604812651
-                    },
-                    {
-                        "Upgrate 2": 4097172583
-                    },
-                    {
-                        "Upgrate 3": 3294404498
-                    },
-                    {
-                        "Panel Upgrate": 911611964
-                    },
-                    {
-                        "Player": 1862169540
-                    },
-                    {
-                        "List Weapons": 3432315266
-                    },
-                    {
-                        "Gun Index": 0
-                    },
                     {
                         "Upgrate 1": 604812651
                     },
@@ -13501,18 +13159,6 @@
                     },
                     {
                         "Gun Index": 4
-                    },
-                    {
-                        "Unlock": 2830347253
-                    },
-                    {
-                        "Panel Unlock": 2412948481
-                    },
-                    {
-                        "List Weapons": 3432315266
-                    },
-                    {
-                        "Gun Index": 4
                     }
                 ],
                 "Script Resource": 1200723108,
@@ -13643,27 +13289,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Upgrate 1": 2912728259
-                    },
-                    {
-                        "Upgrate 2": 173239198
-                    },
-                    {
-                        "Upgrate 3": 818036790
-                    },
-                    {
-                        "Panel Upgrate": 2121029335
-                    },
-                    {
-                        "Player": 1862169540
-                    },
-                    {
-                        "List Weapons": 3432315266
-                    },
-                    {
-                        "Gun Index": 4
-                    },
                     {
                         "Upgrate 1": 2912728259
                     },
@@ -13909,18 +13534,6 @@
                     },
                     {
                         "Gun Index": 3
-                    },
-                    {
-                        "Unlock": 3848750910
-                    },
-                    {
-                        "Panel Unlock": 1692539270
-                    },
-                    {
-                        "List Weapons": 3432315266
-                    },
-                    {
-                        "Gun Index": 3
                     }
                 ],
                 "Script Resource": 1200723108,
@@ -14051,27 +13664,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Upgrate 1": 2388101176
-                    },
-                    {
-                        "Upgrate 2": 3807946136
-                    },
-                    {
-                        "Upgrate 3": 1866621559
-                    },
-                    {
-                        "Panel Upgrate": 1250319448
-                    },
-                    {
-                        "Player": 1862169540
-                    },
-                    {
-                        "List Weapons": 3432315266
-                    },
-                    {
-                        "Gun Index": 3
-                    },
                     {
                         "Upgrate 1": 2388101176
                     },
@@ -14317,18 +13909,6 @@
                     },
                     {
                         "Gun Index": 2
-                    },
-                    {
-                        "Unlock": 193056597
-                    },
-                    {
-                        "Panel Unlock": 801303102
-                    },
-                    {
-                        "List Weapons": 3432315266
-                    },
-                    {
-                        "Gun Index": 2
                     }
                 ],
                 "Script Resource": 1200723108,
@@ -14459,27 +14039,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Upgrate 1": 2759158044
-                    },
-                    {
-                        "Upgrate 2": 2929867724
-                    },
-                    {
-                        "Upgrate 3": 3733990972
-                    },
-                    {
-                        "Panel Upgrate": 385359660
-                    },
-                    {
-                        "Player": 1862169540
-                    },
-                    {
-                        "List Weapons": 3432315266
-                    },
-                    {
-                        "Gun Index": 2
-                    },
                     {
                         "Upgrate 1": 2759158044
                     },
@@ -14725,18 +14284,6 @@
                     },
                     {
                         "Gun Index": 1
-                    },
-                    {
-                        "Unlock": 595344786
-                    },
-                    {
-                        "Panel Unlock": 3043641959
-                    },
-                    {
-                        "List Weapons": 3432315266
-                    },
-                    {
-                        "Gun Index": 1
                     }
                 ],
                 "Script Resource": 1200723108,
@@ -14867,27 +14414,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Upgrate 1": 1911632372
-                    },
-                    {
-                        "Upgrate 2": 1605769859
-                    },
-                    {
-                        "Upgrate 3": 1599605854
-                    },
-                    {
-                        "Panel Upgrate": 2021939713
-                    },
-                    {
-                        "Player": 1862169540
-                    },
-                    {
-                        "List Weapons": 3432315266
-                    },
-                    {
-                        "Gun Index": 1
-                    },
                     {
                         "Upgrate 1": 1911632372
                     },
@@ -15133,18 +14659,6 @@
                     },
                     {
                         "Gun Index": 5
-                    },
-                    {
-                        "Unlock": 2366980945
-                    },
-                    {
-                        "Panel Unlock": 227055725
-                    },
-                    {
-                        "List Weapons": 3432315266
-                    },
-                    {
-                        "Gun Index": 5
                     }
                 ],
                 "Script Resource": 1200723108,
@@ -15275,27 +14789,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Upgrate 1": 2745303407
-                    },
-                    {
-                        "Upgrate 2": 428859450
-                    },
-                    {
-                        "Upgrate 3": 3306093954
-                    },
-                    {
-                        "Panel Upgrate": 445014355
-                    },
-                    {
-                        "Player": 1862169540
-                    },
-                    {
-                        "List Weapons": 3432315266
-                    },
-                    {
-                        "Gun Index": 5
-                    },
                     {
                         "Upgrate 1": 2745303407
                     },
@@ -15599,24 +15092,6 @@
                     },
                     {
                         "Menu Panel": 2963029982
-                    },
-                    {
-                        "Number of menus": 4
-                    },
-                    {
-                        "Menu to Open 1": 1831149941
-                    },
-                    {
-                        "Menu to Open 2": 2867293371
-                    },
-                    {
-                        "Menu to Open 3": 4071677295
-                    },
-                    {
-                        "Menu to Open 4": 3432315266
-                    },
-                    {
-                        "Menu Panel": 2963029982
                     }
                 ],
                 "Script Resource": 3847920188,
@@ -15805,96 +15280,6 @@
                     },
                     {
                         "Player Stats GO": 1862169540
-                    },
-                    {
-                        "Velocity": 7.5
-                    },
-                    {
-                        "Upgrade Velocity": 9.0
-                    },
-                    {
-                        "SecToMaxVel": 0.20000000298023224
-                    },
-                    {
-                        "SecToZeroVel": 0.20000000298023224
-                    },
-                    {
-                        "Y tp limit": -20.0
-                    },
-                    {
-                        "Rigid Body": 1862169540
-                    },
-                    {
-                        "Dash Time": 0.5
-                    },
-                    {
-                        "Dash Distance": 6.0
-                    },
-                    {
-                        "Upgrade Dash Distance": 8.0
-                    },
-                    {
-                        "Dash Cooldown": 6.0
-                    },
-                    {
-                        "Upgrade Dash Cooldown": 3.0
-                    },
-                    {
-                        "AnimationPlayer": 1477466868
-                    },
-                    {
-                        "Dash Animation": 3707604139
-                    },
-                    {
-                        "Idle Animation 1": 738149381
-                    },
-                    {
-                        "Idle Animation 2": 2426153329
-                    },
-                    {
-                        "Idle Animation 3": 1590499778
-                    },
-                    {
-                        "Run Forward Animation": 781813718
-                    },
-                    {
-                        "Run Back Animation": 915742792
-                    },
-                    {
-                        "Run Left Animation": 4072259668
-                    },
-                    {
-                        "Run Right Animation": 3628832266
-                    },
-                    {
-                        "Shoot Duals Animation": 2706901869
-                    },
-                    {
-                        "Shoot SemiAuto Animation": 2706901869
-                    },
-                    {
-                        "Shoot Automatic Animation": 2706901869
-                    },
-                    {
-                        "Shoot Burst Animation": 2706901869
-                    },
-                    {
-                        "Shoot Shotgun Animation": 2706901869
-                    },
-                    {
-                        "Shoot Handgun Animation": 2706901869
-                    },
-                    {
-                        "Hit Animation": 359781210
-                    },
-                    {
-                        "Open Chest Animation": 2410125527
-                    },
-                    {
-                        "Dead Animation": 296001631
-                    },
-                    {
-                        "Player Stats GO": 1862169540
                     }
                 ],
                 "Script Resource": 102275363,
@@ -15903,45 +15288,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Max HP": 100.0
-                    },
-                    {
-                        "Current HP": 100.0
-                    },
-                    {
-                        "Upgraded Max HP": 125.0
-                    },
-                    {
-                        "Resistance": 100.0
-                    },
-                    {
-                        "Deadline Percentage": 20.0
-                    },
-                    {
-                        "Upgraded Deadline Percentage": 50.0
-                    },
-                    {
-                        "Deadline Heal Amount": 2.5
-                    },
-                    {
-                        "Upgraded Deadline Heal Amount": 5.0
-                    },
-                    {
-                        "Aid Kit Heal Amount": 30.0
-                    },
-                    {
-                        "Upgraded Aid Kit Heal Amount": 60.0
-                    },
-                    {
-                        "Passive Heal Particles": 913497443
-                    },
-                    {
-                        "Kid Heal Particles": 3316874580
-                    },
-                    {
-                        "Player GO": 1862169540
-                    },
                     {
                         "Max HP": 100.0
                     },
@@ -16020,39 +15366,6 @@
                     },
                     {
                         "Fast Swap Delay": 0.5
-                    },
-                    {
-                        "Player Stats GO": 1862169540
-                    },
-                    {
-                        "Base Gun": 0
-                    },
-                    {
-                        "Normal Gun": -1
-                    },
-                    {
-                        "Special Gun": -1
-                    },
-                    {
-                        "Duals": 3550167112
-                    },
-                    {
-                        "Semiautomatic": 3701521640
-                    },
-                    {
-                        "Automatic": 1305371143
-                    },
-                    {
-                        "Burst": 4031330739
-                    },
-                    {
-                        "Shotgun": 2049488206
-                    },
-                    {
-                        "Swap Delay": 1.0
-                    },
-                    {
-                        "Fast Swap Delay": 0.5
                     }
                 ],
                 "Script Resource": 2666385646,
@@ -16061,9 +15374,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Level Index": 0
-                    },
                     {
                         "Level Index": 0
                     }
@@ -21296,9 +20606,6 @@
                 "Inspector Fields": [
                     {
                         "Gun Type": 0
-                    },
-                    {
-                        "Gun Type": 0
                     }
                 ],
                 "Script Resource": 4015574954,
@@ -21307,63 +20614,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Projectile Pull": 3024727231
-                    },
-                    {
-                        "Projectile Speed": 30.0
-                    },
-                    {
-                        "Projectile Damage": 5.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 5.0
-                    },
-                    {
-                        "Projectile Lifetime": 1.0
-                    },
-                    {
-                        "Projectile Spawn": 3550167112
-                    },
-                    {
-                        "Second Projectile Spawn": 2009336184
-                    },
-                    {
-                        "Projectile ScaleX": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleY": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleZ": 0.10000000149011612
-                    },
-                    {
-                        "Projectiles per second": 1.2000000476837158
-                    },
-                    {
-                        "Extra % firerate": 15.0
-                    },
-                    {
-                        "Burst Space": 0.10000000149011612
-                    },
-                    {
-                        "Second Gun GO": 2009336184
-                    },
-                    {
-                        "Slow %": 0.0
-                    },
-                    {
-                        "Freeze %": 0.0
-                    },
-                    {
-                        "Player Stats GO": 1862169540
-                    },
-                    {
-                        "Ammo Type": 0
-                    },
-                    {
-                        "Audio Event String": "w_basic"
-                    },
                     {
                         "Projectile Pull": 3024727231
                     },
@@ -21460,9 +20710,6 @@
                 "Inspector Fields": [
                     {
                         "Gun Type": 1
-                    },
-                    {
-                        "Gun Type": 1
                     }
                 ],
                 "Script Resource": 4015574954,
@@ -21471,48 +20718,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Projectile Pull": 3024727231
-                    },
-                    {
-                        "Projectile Speed": 80.0
-                    },
-                    {
-                        "Projectile Damage": 60.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 60.0
-                    },
-                    {
-                        "Projectile Lifetime": 0.5
-                    },
-                    {
-                        "Projectile Spawn": 3701521640
-                    },
-                    {
-                        "Projectile ScaleX": 0.20000000298023224
-                    },
-                    {
-                        "Projectile ScaleY": 0.20000000298023224
-                    },
-                    {
-                        "Projectile ScaleZ": 0.4000000059604645
-                    },
-                    {
-                        "Projectiles per second": 1.0
-                    },
-                    {
-                        "Extra % firerate": 15.0
-                    },
-                    {
-                        "Player Stats GO": 1862169540
-                    },
-                    {
-                        "Ammo Type": 1
-                    },
-                    {
-                        "Audio Event String": "w_semi"
-                    },
                     {
                         "Projectile Pull": 3024727231
                     },
@@ -21594,9 +20799,6 @@
                 "Inspector Fields": [
                     {
                         "Gun Type": 2
-                    },
-                    {
-                        "Gun Type": 2
                     }
                 ],
                 "Script Resource": 4015574954,
@@ -21605,48 +20807,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Projectile Pull": 3024727231
-                    },
-                    {
-                        "Projectile Speed": 40.0
-                    },
-                    {
-                        "Projectile Damage": 1.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 1.0
-                    },
-                    {
-                        "Projectile Lifetime": 1.0
-                    },
-                    {
-                        "Projectile Spawn": 1305371143
-                    },
-                    {
-                        "Projectile ScaleX": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleY": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleZ": 0.10000000149011612
-                    },
-                    {
-                        "Projectiles per second": 10.0
-                    },
-                    {
-                        "Extra % firerate": 15.0
-                    },
-                    {
-                        "Player Stats GO": 1862169540
-                    },
-                    {
-                        "Ammo Type": 1
-                    },
-                    {
-                        "Audio Event String": "w_automatic"
-                    },
                     {
                         "Projectile Pull": 3024727231
                     },
@@ -21728,9 +20888,6 @@
                 "Inspector Fields": [
                     {
                         "Gun Type": 3
-                    },
-                    {
-                        "Gun Type": 3
                     }
                 ],
                 "Script Resource": 4015574954,
@@ -21739,54 +20896,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Projectile Pull": 3024727231
-                    },
-                    {
-                        "Projectile Speed": 35.0
-                    },
-                    {
-                        "Projectile Damage": 20.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 20.0
-                    },
-                    {
-                        "Projectile Lifetime": 1.0
-                    },
-                    {
-                        "Projectile Spawn": 4031330739
-                    },
-                    {
-                        "Projectile ScaleX": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleY": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleZ": 0.10000000149011612
-                    },
-                    {
-                        "Projectiles per second": 1.0
-                    },
-                    {
-                        "Extra % firerate": 15.0
-                    },
-                    {
-                        "Burst Space": 0.10000000149011612
-                    },
-                    {
-                        "Projectiles per burst": 3
-                    },
-                    {
-                        "Player Stats GO": 1862169540
-                    },
-                    {
-                        "Ammo Type": 1
-                    },
-                    {
-                        "Audio Event String": "w_burst"
-                    },
                     {
                         "Projectile Pull": 3024727231
                     },
@@ -21874,9 +20983,6 @@
                 "Inspector Fields": [
                     {
                         "Gun Type": 4
-                    },
-                    {
-                        "Gun Type": 4
                     }
                 ],
                 "Script Resource": 4015574954,
@@ -21885,54 +20991,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Projectile Pull": 3024727231
-                    },
-                    {
-                        "Projectile Speed": 40.0
-                    },
-                    {
-                        "Projectile Damage": 5.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 5.0
-                    },
-                    {
-                        "Projectile Lifetime": 0.20000000298023224
-                    },
-                    {
-                        "Projectile Spawn": 2049488206
-                    },
-                    {
-                        "Projectile ScaleX": 0.05000000074505806
-                    },
-                    {
-                        "Projectile ScaleY": 0.05000000074505806
-                    },
-                    {
-                        "Projectile ScaleZ": 0.05000000074505806
-                    },
-                    {
-                        "Projectiles per second": 1.2999999523162842
-                    },
-                    {
-                        "Extra % firerate": 15.0
-                    },
-                    {
-                        "Pellets per shot": 3
-                    },
-                    {
-                        "Pellets Dispersion": 0.20000000298023224
-                    },
-                    {
-                        "Player Stats GO": 1862169540
-                    },
-                    {
-                        "Ammo Type": 1
-                    },
-                    {
-                        "Audio Event String": "w_shotgun"
-                    },
                     {
                         "Projectile Pull": 3024727231
                     },
@@ -22018,9 +21076,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Gun Type": 5
-                    },
                     {
                         "Gun Type": 5
                     }
@@ -23387,18 +22442,6 @@
                     },
                     {
                         "Shotgun Bomb Pull Size": 0
-                    },
-                    {
-                        "Player": 1862169540
-                    },
-                    {
-                        "Pull Size": 20
-                    },
-                    {
-                        "Projectile Prefab": 633942339
-                    },
-                    {
-                        "Shotgun Bomb Pull Size": 0
                     }
                 ],
                 "Script Resource": 211675320,
@@ -23649,15 +22692,6 @@
                     },
                     {
                         "Menu Panel": 1310414073
-                    },
-                    {
-                        "Number of menus": 1
-                    },
-                    {
-                        "Menu to Open 1": 2937841997
-                    },
-                    {
-                        "Menu Panel": 1310414073
                     }
                 ],
                 "Script Resource": 2222166954,
@@ -23702,7 +22736,7 @@
         "UID": 1310414073
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -23770,39 +22804,6 @@
                     },
                     {
                         "Player": 1862169540
-                    },
-                    {
-                        "Main Panel": 2937841997
-                    },
-                    {
-                        "Movement": 1137202544
-                    },
-                    {
-                        "Armory": 4046148656
-                    },
-                    {
-                        "Health": 2895536623
-                    },
-                    {
-                        "Special": 1570224826
-                    },
-                    {
-                        "PanelMovement": 726755960
-                    },
-                    {
-                        "PanelAbility2": 3616324842
-                    },
-                    {
-                        "PanelAbility3": 2934290476
-                    },
-                    {
-                        "PanelAbility4": 2546321765
-                    },
-                    {
-                        "Open Menu Interruptor": 971135935
-                    },
-                    {
-                        "Player": 1862169540
                     }
                 ],
                 "Script Resource": 1486068309,
@@ -23817,7 +22818,7 @@
         "UID": 2937841997
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -23855,7 +22856,7 @@
         "UID": 565103024
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -23900,15 +22901,6 @@
                     },
                     {
                         "AbilityButton": 1137202544
-                    },
-                    {
-                        "Main Panel": 2937841997
-                    },
-                    {
-                        "Current Panel": 726755960
-                    },
-                    {
-                        "AbilityButton": 1137202544
                     }
                 ],
                 "Script Resource": 792501851,
@@ -23923,7 +22915,7 @@
         "UID": 1137202544
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -23968,15 +22960,6 @@
                     },
                     {
                         "AbilityButton": 4046148656
-                    },
-                    {
-                        "Main Panel": 2937841997
-                    },
-                    {
-                        "Current Panel": 3616324842
-                    },
-                    {
-                        "AbilityButton": 4046148656
                     }
                 ],
                 "Script Resource": 792501851,
@@ -23991,7 +22974,7 @@
         "UID": 4046148656
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -24036,15 +23019,6 @@
                     },
                     {
                         "AbilityButton": 2895536623
-                    },
-                    {
-                        "Main Panel": 2937841997
-                    },
-                    {
-                        "Current Panel": 2934290476
-                    },
-                    {
-                        "AbilityButton": 2895536623
                     }
                 ],
                 "Script Resource": 792501851,
@@ -24059,7 +23033,7 @@
         "UID": 2895536623
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -24104,15 +23078,6 @@
                     },
                     {
                         "AbilityButton": 1570224826
-                    },
-                    {
-                        "Main Panel": 2937841997
-                    },
-                    {
-                        "Current Panel": 2546321765
-                    },
-                    {
-                        "AbilityButton": 1570224826
                     }
                 ],
                 "Script Resource": 792501851,
@@ -24127,7 +23092,7 @@
         "UID": 1570224826
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -24166,7 +23131,7 @@
         "UID": 820025857
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -24194,7 +23159,7 @@
                     1.0,
                     1.0
                 ],
-                "Enabled": false,
+                "Enabled": true,
                 "PositionX": 0.7400000095367432,
                 "PositionY": 0.6875,
                 "Scale": 0.5,
@@ -24209,12 +23174,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Text Blueprints": 2314891765
-                    },
-                    {
-                        "PlayerStorage GO": 1862169540
-                    },
                     {
                         "Text Blueprints": 2314891765
                     },
@@ -24311,72 +23270,6 @@
                     },
                     {
                         "Player": 1862169540
-                    },
-                    {
-                        "Desciption1": 6080464
-                    },
-                    {
-                        "Desciption2": 3286644510
-                    },
-                    {
-                        "Desciption3": 762428728
-                    },
-                    {
-                        "Desciption4": 197488503
-                    },
-                    {
-                        "Upgrate 1": 2761944280
-                    },
-                    {
-                        "Skillpoints needed LvL 1": 1
-                    },
-                    {
-                        "Upgrate 2": 3636875960
-                    },
-                    {
-                        "Skillpoints needed LvL 2": 2
-                    },
-                    {
-                        "Upgrate 3": 1734210071
-                    },
-                    {
-                        "Skillpoints needed LvL 3": 2
-                    },
-                    {
-                        "Upgrate 4": 1613695234
-                    },
-                    {
-                        "Skillpoints needed LvL 4": 3
-                    },
-                    {
-                        "Skillpoints needed LvL 5": 0
-                    },
-                    {
-                        "Upgrade Number": 4
-                    },
-                    {
-                        "Main Panel": 2937841997
-                    },
-                    {
-                        "Current Panel": 726755960
-                    },
-                    {
-                        "Tree Index": 0
-                    },
-                    {
-                        "Player": 1862169540
-                    },
-                    {
-                        "Desciption1": 6080464
-                    },
-                    {
-                        "Desciption2": 3286644510
-                    },
-                    {
-                        "Desciption3": 762428728
-                    },
-                    {
-                        "Desciption4": 197488503
                     }
                 ],
                 "Script Resource": 477126565,
@@ -24426,17 +23319,8 @@
                 "pressImage": 2599615273
             },
             {
-                "Enabled": false,
+                "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Current Description": 6080464
-                    },
-                    {
-                        "Next Description": 3286644510
-                    },
-                    {
-                        "Button": 2761944280
-                    },
                     {
                         "Current Description": 6080464
                     },
@@ -24494,20 +23378,8 @@
                 "pressImage": 398460794
             },
             {
-                "Enabled": false,
+                "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Current Description": 3286644510
-                    },
-                    {
-                        "Next Description": 762428728
-                    },
-                    {
-                        "Previous Description": 6080464
-                    },
-                    {
-                        "Button": 3636875960
-                    },
                     {
                         "Current Description": 3286644510
                     },
@@ -24568,20 +23440,8 @@
                 "pressImage": 116788097
             },
             {
-                "Enabled": false,
+                "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Current Description": 762428728
-                    },
-                    {
-                        "Next Description": 197488503
-                    },
-                    {
-                        "Previous Description": 3286644510
-                    },
-                    {
-                        "Button": 1734210071
-                    },
                     {
                         "Current Description": 762428728
                     },
@@ -24642,17 +23502,8 @@
                 "pressImage": 3844307165
             },
             {
-                "Enabled": false,
+                "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Current Description": 197488503
-                    },
-                    {
-                        "Previous Description": 762428728
-                    },
-                    {
-                        "Button": 1613695234
-                    },
                     {
                         "Current Description": 197488503
                     },
@@ -24863,48 +23714,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Upgrate 1": 1168933361
-                    },
-                    {
-                        "Skillpoints needed LvL 1": 1
-                    },
-                    {
-                        "Upgrate 2": 1269201573
-                    },
-                    {
-                        "Skillpoints needed LvL 2": 2
-                    },
-                    {
-                        "Upgrate 3": 2720533225
-                    },
-                    {
-                        "Skillpoints needed LvL 3": 2
-                    },
-                    {
-                        "Upgrate 4": 2480871420
-                    },
-                    {
-                        "Skillpoints needed LvL 4": 3
-                    },
-                    {
-                        "Skillpoints needed LvL 5": 0
-                    },
-                    {
-                        "Upgrade Number": 4
-                    },
-                    {
-                        "Main Panel": 2937841997
-                    },
-                    {
-                        "Current Panel": 3616324842
-                    },
-                    {
-                        "Tree Index": 1
-                    },
-                    {
-                        "Player": 1862169540
-                    },
                     {
                         "Upgrate 1": 1168933361
                     },
@@ -25321,51 +24130,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Upgrate 1": 2412762651
-                    },
-                    {
-                        "Skillpoints needed LvL 1": 1
-                    },
-                    {
-                        "Upgrate 2": 2777578711
-                    },
-                    {
-                        "Skillpoints needed LvL 2": 2
-                    },
-                    {
-                        "Upgrate 3": 1199903426
-                    },
-                    {
-                        "Skillpoints needed LvL 3": 2
-                    },
-                    {
-                        "Upgrate 4": 1362514346
-                    },
-                    {
-                        "Skillpoints needed LvL 4": 2
-                    },
-                    {
-                        "Upgrate 5": 963583409
-                    },
-                    {
-                        "Skillpoints needed LvL 5": 3
-                    },
-                    {
-                        "Upgrade Number": 5
-                    },
-                    {
-                        "Main Panel": 2937841997
-                    },
-                    {
-                        "Current Panel": 2934290476
-                    },
-                    {
-                        "Tree Index": 2
-                    },
-                    {
-                        "Player": 1862169540
-                    },
                     {
                         "Upgrate 1": 2412762651
                     },
@@ -25902,45 +24666,6 @@
                     },
                     {
                         "Player": 1862169540
-                    },
-                    {
-                        "Upgrate 1": 2692458665
-                    },
-                    {
-                        "Skillpoints needed LvL 1": 3
-                    },
-                    {
-                        "Upgrate 2": 2112049340
-                    },
-                    {
-                        "Skillpoints needed LvL 2": 3
-                    },
-                    {
-                        "Upgrate 3": 486754283
-                    },
-                    {
-                        "Skillpoints needed LvL 3": 4
-                    },
-                    {
-                        "Skillpoints needed LvL 4": 0
-                    },
-                    {
-                        "Skillpoints needed LvL 5": 0
-                    },
-                    {
-                        "Upgrade Number": 3
-                    },
-                    {
-                        "Main Panel": 2937841997
-                    },
-                    {
-                        "Current Panel": 2546321765
-                    },
-                    {
-                        "Tree Index": 3
-                    },
-                    {
-                        "Player": 1862169540
                     }
                 ],
                 "Script Resource": 477126565,
@@ -26261,9 +24986,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Continue": 3612029568
-                    },
                     {
                         "Continue": 3612029568
                     }
@@ -26616,9 +25338,6 @@
                 "Inspector Fields": [
                     {
                         "Continue": 3171051626
-                    },
-                    {
-                        "Continue": 3171051626
                     }
                 ],
                 "Script Resource": 514756029,
@@ -26826,12 +25545,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Panel text 1": 3845602525
-                    },
-                    {
-                        "Panel text 2": 925652610
-                    },
                     {
                         "Panel text 1": 3845602525
                     },

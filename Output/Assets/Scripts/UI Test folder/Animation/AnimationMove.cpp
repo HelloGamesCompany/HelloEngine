@@ -72,7 +72,7 @@ void AnimationMove::Update()
 					actualRepeatMoveY++;
 				}
 			}
-			else
+			if (actualRepeatMoveY == repeatMoveY * 2 && actualRepeatMoveX == repeatMoveX * 2)
 			{
 				animationMove = false;
 			}
