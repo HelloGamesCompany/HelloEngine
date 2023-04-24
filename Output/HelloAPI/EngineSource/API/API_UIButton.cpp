@@ -68,8 +68,6 @@ bool API::API_UIButton::OnHovered()
         Engine::Console::S_Log("Trying to acces a NULLPTR UI Button");
         return false;
     }
-
-    return _UIButton->State == ButtonState::HOVERED;
     if (_UIButton->isBlocked)
     {
         return _UIButton->State == ButtonState::HOVEREDBLOCKED;

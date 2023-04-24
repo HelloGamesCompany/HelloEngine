@@ -12,13 +12,11 @@ HELLO_ENGINE_API_C AbilityDescription* CreateAbilityDescription(ScriptToInspecto
 
 void AbilityDescription::Start()
 {
-	currentDescription.SetActive(false);
-	nextDescription.SetActive(false);
-	previousDescription.SetActive(false);
+	HoveredButton.SetBlocked(true);
 }
 void AbilityDescription::Update()
 {
-	if (HoveredButton.OnHovered()) {
+	if (HoveredButton.getIsBlocked() || HoveredButton.OnHovered()) {
 		previousDescription.SetActive(false);
 		currentDescription.SetActive(true);
 		nextDescription.SetActive(false);
