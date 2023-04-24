@@ -28,11 +28,11 @@ HELLO_ENGINE_API_C AnimationMove* CreateAnimationMove(ScriptToInspectorInterface
 
 void AnimationMove::Start()
 {
-	startPosX = gameObject.GetTransform().GetGlobalPosition().x;
-	startPosY = gameObject.GetTransform().GetGlobalPosition().y;
+	startPosX = gameObject.GetTransform().GetLocalPosition().x;
+	startPosY = gameObject.GetTransform().GetLocalPosition().y;
 
-	startScalX = gameObject.GetTransform().GetGlobalScale().x;
-	startScalY = gameObject.GetTransform().GetGlobalScale().y;
+	startScalX = gameObject.GetTransform().GetLocalScale().x;
+	startScalY = gameObject.GetTransform().GetLocalScale().y;
 
 	startRotate = gameObject.GetTransform().GetLocalRotation().z;
 }
@@ -57,11 +57,11 @@ void AnimationMove::Update()
 
 void AnimationMove::MoveAnimationX()
 {
-	if (startPosX - gameObject.GetTransform().GetGlobalPosition().x >= distanceX)
+	if (startPosX - gameObject.GetTransform().GetLocalPosition().x >= distanceX)
 	{
 		movingRight = true;
 	}
-	else if (startPosX - gameObject.GetTransform().GetGlobalPosition().x <= -distanceX)
+	else if (startPosX - gameObject.GetTransform().GetLocalPosition().x <= -distanceX)
 	{
 		movingRight = false;
 	}
@@ -69,21 +69,21 @@ void AnimationMove::MoveAnimationX()
 
 	if (movingRight)
 	{
-		gameObject.GetTransform().SetPosition(gameObject.GetTransform().GetGlobalPosition().x + (0.001 * speedX), gameObject.GetTransform().GetGlobalPosition().y, gameObject.GetTransform().GetGlobalPosition().z);
+		gameObject.GetTransform().SetPosition(gameObject.GetTransform().GetLocalPosition().x + (0.001 * speedX), gameObject.GetTransform().GetLocalPosition().y, gameObject.GetTransform().GetLocalPosition().z);
 	}
 	else
 	{
-		gameObject.GetTransform().SetPosition(gameObject.GetTransform().GetGlobalPosition().x - (0.001 * speedX), gameObject.GetTransform().GetGlobalPosition().y, gameObject.GetTransform().GetGlobalPosition().z);
+		gameObject.GetTransform().SetPosition(gameObject.GetTransform().GetLocalPosition().x - (0.001 * speedX), gameObject.GetTransform().GetLocalPosition().y, gameObject.GetTransform().GetLocalPosition().z);
 	}
 }
 
 void AnimationMove::MoveAnimationY()
 {
-	if (startPosY - gameObject.GetTransform().GetGlobalPosition().y >= distanceY)
+	if (startPosY - gameObject.GetTransform().GetLocalPosition().y >= distanceY)
 	{
 		movingUP = true;
 	}
-	else if (startPosY - gameObject.GetTransform().GetGlobalPosition().y <= -distanceY)
+	else if (startPosY - gameObject.GetTransform().GetLocalPosition().y <= -distanceY)
 	{
 		movingUP = false;
 	}
@@ -91,32 +91,32 @@ void AnimationMove::MoveAnimationY()
 
 	if (movingUP)
 	{
-		gameObject.GetTransform().SetPosition(gameObject.GetTransform().GetGlobalPosition().x, gameObject.GetTransform().GetGlobalPosition().y + (0.001 * speedY), gameObject.GetTransform().GetGlobalPosition().z);
+		gameObject.GetTransform().SetPosition(gameObject.GetTransform().GetLocalPosition().x, gameObject.GetTransform().GetLocalPosition().y + (0.001 * speedY), gameObject.GetTransform().GetLocalPosition().z);
 	}
 	else
 	{
-		gameObject.GetTransform().SetPosition(gameObject.GetTransform().GetGlobalPosition().x, gameObject.GetTransform().GetGlobalPosition().y - (0.001 * speedY), gameObject.GetTransform().GetGlobalPosition().z);
+		gameObject.GetTransform().SetPosition(gameObject.GetTransform().GetLocalPosition().x, gameObject.GetTransform().GetLocalPosition().y - (0.001 * speedY), gameObject.GetTransform().GetLocalPosition().z);
 	}
 }
 
 void AnimationMove::ScaleAnimation()
 {
-	if (startScalX - gameObject.GetTransform().GetGlobalScale().x >= scale)
+	if (startScalX - gameObject.GetTransform().GetLocalScale().x >= scale)
 	{
 		scaling = true;
 	}
-	else if (startScalX - gameObject.GetTransform().GetGlobalScale().x <= -scale)
+	else if (startScalX - gameObject.GetTransform().GetLocalScale().x <= -scale)
 	{
 		scaling = false;
 	}
 
 	if (scaling)
 	{
-		gameObject.GetTransform().SetScale(gameObject.GetTransform().GetGlobalScale().x + (0.001 * speedScale), gameObject.GetTransform().GetGlobalScale().y + (0.001 * speedScale), gameObject.GetTransform().GetGlobalScale().z);
+		gameObject.GetTransform().SetScale(gameObject.GetTransform().GetLocalScale().x + (0.001 * speedScale), gameObject.GetTransform().GetLocalScale().y + (0.001 * speedScale), gameObject.GetTransform().GetLocalScale().z);
 	}
 	else
 	{
-		gameObject.GetTransform().SetScale(gameObject.GetTransform().GetGlobalScale().x - (0.001 * speedScale), gameObject.GetTransform().GetGlobalScale().y - (0.001 * speedScale), gameObject.GetTransform().GetGlobalScale().z);
+		gameObject.GetTransform().SetScale(gameObject.GetTransform().GetLocalScale().x - (0.001 * speedScale), gameObject.GetTransform().GetLocalScale().y - (0.001 * speedScale), gameObject.GetTransform().GetLocalScale().z);
 	}
 }
 
