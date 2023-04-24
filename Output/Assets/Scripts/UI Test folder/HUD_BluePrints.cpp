@@ -19,20 +19,16 @@ HELLO_ENGINE_API_C HUD_BluePrints* CreateHUD_BluePrints(ScriptToInspectorInterfa
 	script->AddDragBoxUIText("Text_Special_Weapon", &classInstance->text_special_weapon);
 
 	//Textures Upgrade
-	script->AddDragBoxTextureResource("Texture_Amo", &classInstance->upgrade_textures[0]);
-	script->AddDragBoxTextureResource("Texture_MediKit", &classInstance->upgrade_textures[1]);
-	script->AddDragBoxTextureResource("Texture_Upgrade", &classInstance->upgrade_textures[2]);
-	
+	script->AddDragBoxTextureResource("Texture_Amo", &classInstance->upgrade_textures);
 	//Textures NewWeapon
 	script->AddDragBoxTextureResource("Texture_blueprint_Semiautomatic", &classInstance->new_weapon_textures[0]);
 	script->AddDragBoxTextureResource("Texture_blueprint_Automatic", &classInstance->new_weapon_textures[1]);
 	script->AddDragBoxTextureResource("Texture_blueprint_Burst", &classInstance->new_weapon_textures[2]);
 	script->AddDragBoxTextureResource("Texture_blueprint_Shotgun", &classInstance->new_weapon_textures[3]);
-	script->AddDragBoxTextureResource("Texture_blueprint_Hand_Gun", &classInstance->new_weapon_textures[4]);
 
 	//Textures SpecialWeapon
-	script->AddDragBoxTextureResource("Texture_gun1", &classInstance->special_weapon_textures[0]);
-	script->AddDragBoxTextureResource("Texture_gun2", &classInstance->special_weapon_textures[1]);
+	script->AddDragBoxTextureResource("Texture_Lanzallamas", &classInstance->special_weapon_textures[0]);
+	script->AddDragBoxTextureResource("Texture_Ricochet", &classInstance->special_weapon_textures[1]);
 
 	//
 
@@ -60,23 +56,10 @@ void HUD_BluePrints::Start()
 void HUD_BluePrints::Update()
 {
 
-	UpgradeAlert();
 
-	//falla{
-
-	/*if (chest_items->GetGunBlueprint() > 0)
-		{
-			New_WeaponAlert(chest_items->GetGunBlueprint());
-		}
-
-		if (chest_items->GetSpecialGun() > 0)
-		{
-		Special_WeaponAlert(chest_items->GetSpecialGun());
-		}
-	}*/
 }
 
-void HUD_BluePrints::UpgradeAlert()
+void HUD_BluePrints::UpgradeAlert(int GetUpgrade)
 {
 	timer_upgrade -= Time::GetDeltaTime();
 
@@ -94,14 +77,18 @@ void HUD_BluePrints::UpgradeAlert()
 		timer_upgrade = 1.3f;
 	}
 
-	/*switch (switch_on)
+	
+	switch (GetUpgrade)
 	{
+	case 0:
+		material_upgrade.ChangeAlbedoTexture(upgrade_textures);
+		break;
 	default:
 		break;
-	}*/
+	}
 }
 
-void HUD_BluePrints::New_WeaponAlert(int ChestManager)
+void HUD_BluePrints::New_WeaponAlert(int GetNewWeapon)
 {
 	timer_new -= Time::GetDeltaTime();
 
@@ -120,7 +107,7 @@ void HUD_BluePrints::New_WeaponAlert(int ChestManager)
 		timer_new = 1.3f;
 	}
 
-	switch (ChestManager)
+	switch (GetNewWeapon)
 	{
 	case 1:
 		material_new_weapon.ChangeAlbedoTexture(new_weapon_textures[0]);
@@ -134,15 +121,12 @@ void HUD_BluePrints::New_WeaponAlert(int ChestManager)
 	case 4:
 		material_new_weapon.ChangeAlbedoTexture(new_weapon_textures[3]);
 		break;
-	case 5:
-		material_new_weapon.ChangeAlbedoTexture(new_weapon_textures[4]);
-		break;
 	default:
 		break;
 	}
 }
 
-void HUD_BluePrints::Special_WeaponAlert(int GetSpwcialWeapon)
+void HUD_BluePrints::Special_WeaponAlert(int GetSpecialWeapon)
 {
 	timer_special -= Time::GetDeltaTime();
 
@@ -161,12 +145,12 @@ void HUD_BluePrints::Special_WeaponAlert(int GetSpwcialWeapon)
 		timer_special = 1.3f;
 	}
 
-	switch (GetSpwcialWeapon)
+	switch (GetSpecialWeapon)
 	{
-	case 1:
+	case 5:
 		material_special_weapon.ChangeAlbedoTexture(special_weapon_textures[0]);
 		break;
-	case 2:
+	case 6:
 		material_special_weapon.ChangeAlbedoTexture(special_weapon_textures[1]);
 		break;
 	default:

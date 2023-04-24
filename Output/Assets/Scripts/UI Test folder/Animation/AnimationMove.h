@@ -16,6 +16,11 @@ public:
 	void ScaleAnimation();
 	void RotateAnimation();
 
+	void ResetAnimationMoveX();
+	void ResetAnimationMoveY();
+	void ResetAnimationScale();
+	void ResetAnimationRotate();
+
 	API_GameObject gameObject;
 
 	bool animationMove = false;
@@ -47,5 +52,17 @@ public:
 	bool movingRight = true;
 	bool scaling = true;
 	bool rotating = true;
+
+	bool loopMove = false;
+	bool loopScale = false;
+	bool loopRotate = false;
+	int repeatMoveX = 0;
+	int repeatMoveY = 0;
+	int repeatScale = 0;
+	int repeatRotate = 0;
+	int actualRepeatMoveX = 0;
+	int actualRepeatMoveY = 0;
+	int actualRepeatScale = 0;
+	int actualRepeatRotate = 0;
 };
 

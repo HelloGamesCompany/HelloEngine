@@ -18,6 +18,11 @@ HELLO_ENGINE_API_C AbilityTreeUpgrades* CreateAbilityTreeUpgrades(ScriptToInspec
     script->AddDragBoxUIInput("Current Panel", &classInstance->currentPanel);
     script->AddDragInt("Tree Index", &classInstance->treeIndex);
     script->AddDragBoxGameObject("Player", &classInstance->playerStorageGO);
+    script->AddDragBoxGameObject("Desciption1", &classInstance->description1);
+    script->AddDragBoxGameObject("Desciption2", &classInstance->description2);
+    script->AddDragBoxGameObject("Desciption3", &classInstance->description3);
+    script->AddDragBoxGameObject("Desciption4", &classInstance->description4);
+    script->AddDragBoxGameObject("Desciption5", &classInstance->description5);
     return classInstance;
 }
 
@@ -162,6 +167,39 @@ void AbilityTreeUpgrades::Update()
         {
             // wrong sound
         }
+    }
+    if (Upgrate1.OnHovered())
+    {
+        description1.SetActive(true);
+        description2.SetActive(false);
+        Console::Log("1");
+    }
+    if (Upgrate2.OnHovered())
+    {
+        description1.SetActive(false);
+        description2.SetActive(true);
+        description3.SetActive(false);
+        Console::Log("2");
+    }
+    if (Upgrate3.OnHovered())
+    {
+        description2.SetActive(false);
+        description3.SetActive(true);
+        description4.SetActive(false);
+        Console::Log("3");
+    }
+    if (Upgrate4.OnHovered())
+    {
+        description3.SetActive(false);
+        description4.SetActive(true);
+        description5.SetActive(false);
+        Console::Log("4");
+    }
+    if (Upgrate5.OnHovered())
+    {
+        description4.SetActive(false);
+        description5.SetActive(true);
+        Console::Log("5");
     }
 }
 

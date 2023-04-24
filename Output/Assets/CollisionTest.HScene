@@ -254,7 +254,7 @@
             {
                 "Enabled": true,
                 "Position": [
-                    9.142131805419922,
+                    22.21968650817871,
                     20.14923667907715,
                     0.0
                 ],
@@ -327,7 +327,7 @@
                 ],
                 "IsStatic": false,
                 "IsTrigger": false,
-                "Mass": 0.0,
+                "Mass": 1.0,
                 "RenderColColor": [
                     0.0,
                     0.5,
