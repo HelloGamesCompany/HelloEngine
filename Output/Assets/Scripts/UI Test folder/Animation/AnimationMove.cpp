@@ -204,3 +204,23 @@ void AnimationMove::RotateAnimation()
 		gameObject.GetTransform().SetRotation(gameObject.GetTransform().GetLocalRotation().x, gameObject.GetTransform().GetLocalRotation().y, gameObject.GetTransform().GetLocalRotation().z - (0.001 * speedRotate));
 	}
 }
+
+void AnimationMove::ResetAnimationMoveX()
+{
+	actualRepeatMoveX = 0;
+}
+
+void AnimationMove::ResetAnimationMoveY()
+{
+	actualRepeatMoveY = 0;
+}
+
+void AnimationMove::ResetAnimationRotate()
+{
+	actualRepeatRotate = 0;
+}
+
+void AnimationMove::ResetAnimationScale()
+{
+	actualRepeatScale = 0;
+}

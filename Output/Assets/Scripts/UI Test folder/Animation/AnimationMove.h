@@ -16,6 +16,11 @@ public:
 	void ScaleAnimation();
 	void RotateAnimation();
 
+	void ResetAnimationMoveX();
+	void ResetAnimationMoveY();
+	void ResetAnimationScale();
+	void ResetAnimationRotate();
+
 	API_GameObject gameObject;
 
 	bool animationMove = false;
