@@ -1,4 +1,5 @@
 #include "Chest.h"
+
 HELLO_ENGINE_API_C Chest* CreateChest(ScriptToInspectorInterface* script)
 {
     Chest* classInstance = new Chest();
@@ -20,6 +21,7 @@ void Chest::Start()
 
 void Chest::Update()
 {
+
     if (opening)
     {
         openChestTime -= Time::GetRealTimeDeltaTime();
@@ -43,24 +45,30 @@ void Chest::Update()
             switch (itemIndex)
             {
             case 0: // Upgrade Blueprint
+                playerStats->SaveChestData(itemIndex, chestIndex);
+                if (playerStats->storage->hud_blueprints) playerStats->storage->hud_blueprints->UpgradeAlert(itemIndex);
+                break;
             case 1: // Unlock Gun
             case 2:
             case 3:
             case 4:
             case 5:
                 playerStats->SaveChestData(itemIndex, chestIndex);
+                if (playerStats->storage->hud_blueprints) playerStats->storage->hud_blueprints->New_WeaponAlert(itemIndex);
                 break;
             case 6: // Get Flamethrower
                 playerGunManager->GetGun(3, 6);
                 playerStats->specialAmmo = 200;
                 playerStats->GetAmmo(2, 200);
                 playerStats->SaveChestData(6, chestIndex); // save game
+                if (playerStats->storage->hud_blueprints) playerStats->storage->hud_blueprints->Special_WeaponAlert(5);
                 break;
             case 7: // Get Ricochet
                 playerGunManager->GetGun(3, 7);
                 playerStats->specialAmmo = 15;
                 playerStats->GetAmmo(3, 15);
                 playerStats->SaveChestData(7, chestIndex); // save game
+                if (playerStats->storage->hud_blueprints) playerStats->storage->hud_blueprints->Special_WeaponAlert(6);
                 break;
             default:
                 Console::Log("Item Index is not between 0 and 7.");
