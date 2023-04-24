@@ -313,6 +313,7 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
                 if (rotation.x == 0 && rotation.z == 0) // means enemy in range
                 {
                     gameObject.GetTransform().SetRotation(rotation);
+                    lifeTime = 1.0f;
                     targetsHitted++;
                 }
                 else
@@ -332,6 +333,7 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
                     if (rotation.x == 0 && rotation.z == 0) // means enemy in range
                     {
                         gameObject.GetTransform().SetRotation(rotation);
+                        lifeTime = 1.0f;
                         targetsHitted++;
                     }
                     else
