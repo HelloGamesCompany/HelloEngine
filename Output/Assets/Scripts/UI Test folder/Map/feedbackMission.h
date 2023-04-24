@@ -9,6 +9,7 @@ class PlayerStorage;
 class Mision_LikeThe80s;
 class Mision_Masacre;
 class Mision_SomethingPersonal;
+class AnimationMove;
 
 class feedbackMission : HelloBehavior
 {
@@ -21,6 +22,8 @@ public:
 	API_GameObject missionsGO;
 	API_GameObject player;
 
+	API_GameObject visualFeedback;
+
 	uint mission1Finish;
 	uint mission2Finish;
 
@@ -29,5 +32,6 @@ public:
 	Mision_LikeThe80s* mision_LikeThe = nullptr;
 	Mision_Masacre* mision_Masacre = nullptr;
 	Mision_SomethingPersonal* mision_Personal = nullptr;
+	AnimationMove* viusalFeedbackScript = nullptr;
 };
 
