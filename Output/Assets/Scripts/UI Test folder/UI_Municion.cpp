@@ -35,7 +35,7 @@ void UI_Municion::Start()
 
     text_munition_InfinitWeapon_On.SetActive(true);
     text_munition_InfinitWeapon_Off.SetActive(false);
-    //image_more_munition.SetOpacity(0);
+    image_more_munition.SetOpacity(0);
     text_munition_Normal_On.GetGameObject().SetActive(false);
     text_munition_Normal_Off.GetGameObject().SetActive(false);
     text_munition_Special_On.GetGameObject().SetActive(false);
@@ -47,10 +47,28 @@ void UI_Municion::Start()
 void UI_Municion::Update()
 {
 
-  
-        More_Municion_Alert();
-  
-  
+    if (opacity_Active == true)
+    {
+
+        //si es 0 ho resetea a 1
+        if (opacity_Munition <= 0 && opacity_Reset == true)
+        {
+            opacity_Munition = 1;
+            image_more_munition.SetOpacity(opacity_Munition);
+            opacity_Reset = false;
+        }
+        //redueix fins a 0
+        else if(opacity_Reset == false)
+        {
+            image_more_munition.SetOpacity(opacity_Munition = opacity_Munition - 0.01);
+        }
+        else
+        {
+            opacity_Reset = true;
+            opacity_Active = false;
+        }
+    }
+
     int equipedIndex = 0;
 
     if (playerGunManager)
@@ -119,40 +137,4 @@ void UI_Municion::Update()
         text_munition_Special_On.GetGameObject().SetActive(true);
         text_munition_Special_Off.GetGameObject().SetActive(false);
     }
-}
-
-void UI_Municion::More_Municion_Alert()
-{
-    timer_MoreMunicion -= Time::GetDeltaTime();
-
-    if (opacity_Munition <= 0)
-    {
-        opacity_Munition = 1;
-        image_more_munition.SetOpacity(opacity_Munition);        
-    }
-    else
-    {
-        image_more_munition.SetOpacity(opacity_Munition = opacity_Munition - 0.01);
-        
-    }
-
-
-   /* if (timer_MoreMunicion >= 0.0f)
-    {
-        //image_more_munition.SetOpacity(opacity_Munition);
-       
-        //image_more_munition.GetGameObject().SetActive(true);
-        //text_more_munition_Normal.GetGameObject().SetActive(true);
-        //text_more_munition_Normal.SetText(std::to_string(playerStats->laserAmmo).c_str());
-     
-    }
-    else if (timer_MoreMunicion < 0.f)
-    {
-        image_more_munition.SetOpacity(0);
-        //image_more_munition.GetGameObject().SetActive(false);
-        //text_more_munition_Normal.SetText(std::to_string(playerStats->laserAmmo).c_str());
-        //text_more_munition_Normal.GetGameObject().SetActive(false);
-        timer_MoreMunicion = 1.3f;
-    }*/
-
 }

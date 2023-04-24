@@ -332,6 +332,7 @@ void PlayerStats::GetAmmo(int type, int amount)
     {
     case 1:
         //script Municion
+        ammo_Script->opacity_Active = true;
         laserAmmo += amount;
         if (laserAmmo > maxLaserAmmo) laserAmmo = maxLaserAmmo;
         break;

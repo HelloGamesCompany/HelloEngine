@@ -15,8 +15,6 @@ public:
     void Start() override;
     void Update() override;
 
-    void More_Municion_Alert();
-
     API_GameObject text_munition_InfinitWeapon_On;
     API_GameObject text_munition_InfinitWeapon_Off;
 
@@ -32,6 +30,7 @@ public:
     PlayerGunManager* playerGunManager;
 
     float opacity_Munition = 1;
-    float timer_MoreMunicion = 1.3f;
+    bool opacity_Active = false;
+    bool opacity_Reset = true;
 };
 
