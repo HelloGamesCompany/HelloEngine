@@ -23,6 +23,7 @@ HELLO_ENGINE_API_C Enemy* CreateEnemy(ScriptToInspectorInterface* script)
     script->AddDragBoxParticleSystem("Hit particle system", &classInstance->hitParticles);
     script->AddCheckBox("Has Shield", &classInstance->hasShield);
     script->AddDragBoxShaderComponent("Color hit", &classInstance->enemyShader);
+    script->AddDragFloat("Time hit color", &classInstance->_tHitColor);
     script->AddDragBoxGameObject("Bomb", &classInstance->bomb);
     script->AddDragBoxTextureResource("Texture Bomb 1", &classInstance->textureBomb[0]);
     script->AddDragBoxTextureResource("Texture Bomb 2", &classInstance->textureBomb[1]);
@@ -110,7 +111,24 @@ void Enemy::Update()
          Die();
         }
     }
+    if (_hitShader)
+    {
+        _coldHitColor += Time::GetDeltaTime();
+        if(_coldHitColor>=_tHitColor)
+        {
+            _coldHitColor = 0;
+           // enemyShader.SetColor(255, 255, 255, 255);
+            _hitShader = false;
+        }
+        else {
 
+            enemyShader.SetColor(1.1, 0, 0, 0.5);
+        }
+    }
+    else 
+    {
+        enemyShader.SetColor(1, 1, 1, 255);
+    }
 }
 
 void Enemy::TakingDmgState()
@@ -244,7 +262,8 @@ void Enemy::OnCollisionEnter(API::API_RigidBody other)
     if (detectionTag == "Projectile")
     {
         isHit = true;
-       // enemyShader.SetColor(255,0,0,0.5);
+        enemyShader.SetColor(255,0,0,0.5);
+       if(!_hitShader) _hitShader = true;
     }
 }
 

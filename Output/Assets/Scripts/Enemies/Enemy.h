@@ -84,6 +84,7 @@ public:
     float _tAnimDie;
     float _coldAnimDie;
 
+    float _tHitColor = 0.35f;
 private:
 
     float _coldStun;
@@ -96,5 +97,8 @@ private:
     float _tAnimHit;
     float _coldAnimHit;
     
+    float _coldHitColor;
+
+    bool _hitShader;
 };
 
