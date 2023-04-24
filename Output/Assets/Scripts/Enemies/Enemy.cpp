@@ -22,7 +22,7 @@ HELLO_ENGINE_API_C Enemy* CreateEnemy(ScriptToInspectorInterface* script)
     //script->AddDragBoxRigidBody("Enemy RigidBody", &classInstance->enemyRb);
     script->AddDragBoxParticleSystem("Hit particle system", &classInstance->hitParticles);
     script->AddCheckBox("Has Shield", &classInstance->hasShield);
-    //script->AddDragBoxShaderComponent("Color hit", &classInstance->enemyShader);
+    script->AddDragBoxShaderComponent("Color hit", &classInstance->enemyShader);
     script->AddDragBoxGameObject("Bomb", &classInstance->bomb);
     script->AddDragBoxTextureResource("Texture Bomb 1", &classInstance->textureBomb[0]);
     script->AddDragBoxTextureResource("Texture Bomb 2", &classInstance->textureBomb[1]);
@@ -234,13 +234,17 @@ void Enemy::OnCollisionEnter(API::API_RigidBody other)
     std::string detectionTag = other.GetGameObject().GetTag();
     if(detectionTag == "Player")
     {
-        PlayerStats* pStats = (PlayerStats*)other.GetGameObject().GetScript("PlayerStats");
-        pStats->TakeDamage(10, 0);
+        EnemyMeleeMovement* meleeScript = (EnemyMeleeMovement*)gameObject.GetScript("EnemyMeleeMovement");
+        if (meleeScript)
+        {
+            PlayerStats* pStats = (PlayerStats*)other.GetGameObject().GetScript("PlayerStats");
+           if(meleeScript->enemState== EnemyMeleeMovement::States::ATTACKIG) pStats->TakeDamage(10, 0);
+        }
     }
     if (detectionTag == "Projectile")
     {
         isHit = true;
-        
+       // enemyShader.SetColor(255,0,0,0.5);
     }
 }
 
