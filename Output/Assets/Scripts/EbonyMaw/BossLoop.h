@@ -69,6 +69,7 @@ public:
     API_GameObject bomb;
     API_GameObject bombShield;
     uint textureBomb[6];
+    int shotgunLevel;
 
     // burn
     void AddBurn();

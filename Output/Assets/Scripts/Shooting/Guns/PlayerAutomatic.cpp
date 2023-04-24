@@ -89,7 +89,7 @@ void PlayerAutomatic::SetGunStatsPerLevel(int level)
         projectileDamage = 1.0f;
         projectileResistanceDamage = 1.0f;
         projectileLifetime = 0.3f;
-        cadence = 10.0f;
+        cadence = 100.0f;
         // max damage 10
         // damage aument speed 0%
         break;
