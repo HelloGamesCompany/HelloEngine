@@ -167,6 +167,9 @@
                     },
                     {
                         "HP BOSS 1 TEXTURE": 2911723293
+                    },
+                    {
+                        "SHIELD BOSS TEXTURE": 3349762469
                     }
                 ],
                 "Script Resource": 2970796296,
@@ -863,6 +866,49 @@
                 "MeshEnabled": true,
                 "OpacityDirection": 0,
                 "Type": 15
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Button Guide": 2142730524
+                    },
+                    {
+                        "Move animation active": true
+                    },
+                    {
+                        "Distance move X": 0.019999999552965164
+                    },
+                    {
+                        "Speed move X": 1.5
+                    },
+                    {
+                        "Distance move Y": 0.0
+                    },
+                    {
+                        "Speed move Y": 0.0
+                    },
+                    {
+                        "Scale animation active": false
+                    },
+                    {
+                        "Scale max": 0.0
+                    },
+                    {
+                        "Speed Scale": 0.0
+                    },
+                    {
+                        "Rotate animation active": false
+                    },
+                    {
+                        "Rotate distance": 0.0
+                    },
+                    {
+                        "Speed Rotation": 0.0
+                    }
+                ],
+                "Script Resource": 148961927,
+                "Type": 5
             }
         ],
         "FirstOnPrefab": false,
