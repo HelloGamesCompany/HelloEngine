@@ -3,6 +3,7 @@
 #include "ScriptToInspectorInterface.h"
 #include "Macro.h"
 
+
 #include "API/API.h"
 
 
@@ -11,6 +12,7 @@
 class PlayerMove;
 class HpBar;
 class HUD_Power_Up_Scrip;
+class UI_Municion;
 
 class PlayerStats : HelloBehavior
 {
@@ -91,4 +93,7 @@ public:
     // HUD
     HUD_Power_Up_Scrip* hudPowerUp;
     API_GameObject hudPowerUpGO;
+
+    API_GameObject ammo_ScriptGO;
+    UI_Municion* ammo_Script;
 };

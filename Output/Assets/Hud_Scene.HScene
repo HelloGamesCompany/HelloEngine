@@ -54,7 +54,7 @@
             {
                 "Active camera": true,
                 "Active culling": true,
-                "Aspect ratio": 1.6912028789520264,
+                "Aspect ratio": 1.5971014499664307,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -1099,22 +1099,34 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Button Guide": 2142730524
+                        "Move X animation repeat": 0
                     },
                     {
-                        "Move animation active": true
+                        "Move Y animation repeat": 0
                     },
                     {
-                        "Distance move X": 0.019999999552965164
+                        "Move animation in loop": false
                     },
                     {
-                        "Speed move X": 1.5
+                        "Move animation active": false
+                    },
+                    {
+                        "Distance move X": 0.0
+                    },
+                    {
+                        "Speed move X": 0.0
                     },
                     {
                         "Distance move Y": 0.0
                     },
                     {
                         "Speed move Y": 0.0
+                    },
+                    {
+                        "Scale animation repeat": 0
+                    },
+                    {
+                        "Scale animation in loop": false
                     },
                     {
                         "Scale animation active": false
@@ -1124,6 +1136,12 @@
                     },
                     {
                         "Speed Scale": 0.0
+                    },
+                    {
+                        "Rotate animation repeat": 0
+                    },
+                    {
+                        "Rotate animation in loop": false
                     },
                     {
                         "Rotate animation active": false
@@ -1135,22 +1153,34 @@
                         "Speed Rotation": 0.0
                     },
                     {
-                        "Button Guide": 2142730524
+                        "Move X animation repeat": 0
                     },
                     {
-                        "Move animation active": true
+                        "Move Y animation repeat": 0
                     },
                     {
-                        "Distance move X": 0.019999999552965164
+                        "Move animation in loop": false
                     },
                     {
-                        "Speed move X": 1.5
+                        "Move animation active": false
+                    },
+                    {
+                        "Distance move X": 0.0
+                    },
+                    {
+                        "Speed move X": 0.0
                     },
                     {
                         "Distance move Y": 0.0
                     },
                     {
                         "Speed move Y": 0.0
+                    },
+                    {
+                        "Scale animation repeat": 0
+                    },
+                    {
+                        "Scale animation in loop": false
                     },
                     {
                         "Scale animation active": false
@@ -1162,112 +1192,10 @@
                         "Speed Scale": 0.0
                     },
                     {
-                        "Rotate animation active": false
+                        "Rotate animation repeat": 0
                     },
                     {
-                        "Rotate distance": 0.0
-                    },
-                    {
-                        "Speed Rotation": 0.0
-                    },
-                    {
-                        "Button Guide": 2142730524
-                    },
-                    {
-                        "Move animation active": true
-                    },
-                    {
-                        "Distance move X": 0.019999999552965164
-                    },
-                    {
-                        "Speed move X": 1.5
-                    },
-                    {
-                        "Distance move Y": 0.0
-                    },
-                    {
-                        "Speed move Y": 0.0
-                    },
-                    {
-                        "Scale animation active": false
-                    },
-                    {
-                        "Scale max": 0.0
-                    },
-                    {
-                        "Speed Scale": 0.0
-                    },
-                    {
-                        "Rotate animation active": false
-                    },
-                    {
-                        "Rotate distance": 0.0
-                    },
-                    {
-                        "Speed Rotation": 0.0
-                    },
-                    {
-                        "Button Guide": 2142730524
-                    },
-                    {
-                        "Move animation active": true
-                    },
-                    {
-                        "Distance move X": 0.019999999552965164
-                    },
-                    {
-                        "Speed move X": 1.5
-                    },
-                    {
-                        "Distance move Y": 0.0
-                    },
-                    {
-                        "Speed move Y": 0.0
-                    },
-                    {
-                        "Scale animation active": false
-                    },
-                    {
-                        "Scale max": 0.0
-                    },
-                    {
-                        "Speed Scale": 0.0
-                    },
-                    {
-                        "Rotate animation active": false
-                    },
-                    {
-                        "Rotate distance": 0.0
-                    },
-                    {
-                        "Speed Rotation": 0.0
-                    },
-                    {
-                        "Button Guide": 2142730524
-                    },
-                    {
-                        "Move animation active": true
-                    },
-                    {
-                        "Distance move X": 0.019999999552965164
-                    },
-                    {
-                        "Speed move X": 1.5
-                    },
-                    {
-                        "Distance move Y": 0.0
-                    },
-                    {
-                        "Speed move Y": 0.0
-                    },
-                    {
-                        "Scale animation active": false
-                    },
-                    {
-                        "Scale max": 0.0
-                    },
-                    {
-                        "Speed Scale": 0.0
+                        "Rotate animation in loop": false
                     },
                     {
                         "Rotate animation active": false
@@ -3170,6 +3098,88 @@
         "UID": 1292481097
     },
     {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.5400000214576721,
+                    0.7099999785423279,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.5,
+                    0.5,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Color": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Enabled": false,
+                "PositionX": -0.5400000214576721,
+                "PositionY": 0.7099999785423279,
+                "Scale": 0.20000000298023224,
+                "Text": "+100",
+                "Type": 17
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "More_Munition_text",
+        "ParentUID": 3396396909,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 3278993731
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.5600000023841858,
+                    0.7400000095367432,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.014999999664723873,
+                    0.03999999910593033,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 1054723984,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "More_Munition_GO",
+        "ParentUID": 3396396909,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 373225517
+    },
+    {
         "Active": true,
         "Components": [
             {
@@ -3193,242 +3203,7 @@
             },
             {
                 "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Material_Upgrade": 2094448581
-                    },
-                    {
-                        "Material_New_Weapon": 2749613084
-                    },
-                    {
-                        "Material_Special_Weapon": 177811771
-                    },
-                    {
-                        "Material_Background_Upgrade": 1138365017
-                    },
-                    {
-                        "Text_Upgrade": 171349848
-                    },
-                    {
-                        "Text_New_Weapon": 2978910595
-                    },
-                    {
-                        "Text_Special_Weapon": 1858958322
-                    },
-                    {
-                        "Texture_Amo": 1054723984
-                    },
-                    {
-                        "Texture_MediKit": 1990536294
-                    },
-                    {
-                        "Texture_Upgrade": 1486232972
-                    },
-                    {
-                        "Texture_blueprint_Semiautomatic": 3149460017
-                    },
-                    {
-                        "Texture_blueprint_Automatic": 1832907480
-                    },
-                    {
-                        "Texture_blueprint_Burst": 4043280563
-                    },
-                    {
-                        "Texture_blueprint_Shotgun": 2823435623
-                    },
-                    {
-                        "Texture_blueprint_Hand_Gun": 1485247823
-                    },
-                    {
-                        "Texture_gun1": 1352913199
-                    },
-                    {
-                        "Texture_gun2": 2271832197
-                    },
-                    {
-                        "Material_Upgrade": 2094448581
-                    },
-                    {
-                        "Material_New_Weapon": 2749613084
-                    },
-                    {
-                        "Material_Special_Weapon": 177811771
-                    },
-                    {
-                        "Material_Background_Upgrade": 1138365017
-                    },
-                    {
-                        "Text_Upgrade": 171349848
-                    },
-                    {
-                        "Text_New_Weapon": 2978910595
-                    },
-                    {
-                        "Text_Special_Weapon": 1858958322
-                    },
-                    {
-                        "Texture_Amo": 1054723984
-                    },
-                    {
-                        "Texture_MediKit": 1990536294
-                    },
-                    {
-                        "Texture_Upgrade": 1486232972
-                    },
-                    {
-                        "Texture_blueprint_Semiautomatic": 3149460017
-                    },
-                    {
-                        "Texture_blueprint_Automatic": 1832907480
-                    },
-                    {
-                        "Texture_blueprint_Burst": 4043280563
-                    },
-                    {
-                        "Texture_blueprint_Shotgun": 2823435623
-                    },
-                    {
-                        "Texture_blueprint_Hand_Gun": 1485247823
-                    },
-                    {
-                        "Texture_gun1": 1352913199
-                    },
-                    {
-                        "Texture_gun2": 2271832197
-                    },
-                    {
-                        "Material_Upgrade": 2094448581
-                    },
-                    {
-                        "Material_New_Weapon": 2749613084
-                    },
-                    {
-                        "Material_Special_Weapon": 177811771
-                    },
-                    {
-                        "Material_Background_Upgrade": 1138365017
-                    },
-                    {
-                        "Text_Upgrade": 171349848
-                    },
-                    {
-                        "Text_New_Weapon": 2978910595
-                    },
-                    {
-                        "Text_Special_Weapon": 1858958322
-                    },
-                    {
-                        "Texture_Amo": 1054723984
-                    },
-                    {
-                        "Texture_MediKit": 1990536294
-                    },
-                    {
-                        "Texture_Upgrade": 1486232972
-                    },
-                    {
-                        "Texture_blueprint_Semiautomatic": 3149460017
-                    },
-                    {
-                        "Texture_blueprint_Automatic": 1832907480
-                    },
-                    {
-                        "Texture_blueprint_Burst": 4043280563
-                    },
-                    {
-                        "Texture_blueprint_Shotgun": 2823435623
-                    },
-                    {
-                        "Texture_gun1": 1352913199
-                    },
-                    {
-                        "Texture_gun2": 2271832197
-                    },
-                    {
-                        "Material_Upgrade": 2094448581
-                    },
-                    {
-                        "Material_New_Weapon": 2749613084
-                    },
-                    {
-                        "Material_Special_Weapon": 177811771
-                    },
-                    {
-                        "Material_Background_Upgrade": 1138365017
-                    },
-                    {
-                        "Text_Upgrade": 171349848
-                    },
-                    {
-                        "Text_New_Weapon": 2978910595
-                    },
-                    {
-                        "Text_Special_Weapon": 1858958322
-                    },
-                    {
-                        "Texture_Amo": 1054723984
-                    },
-                    {
-                        "Texture_MediKit": 1990536294
-                    },
-                    {
-                        "Texture_Upgrade": 1486232972
-                    },
-                    {
-                        "Texture_blueprint_Semiautomatic": 3149460017
-                    },
-                    {
-                        "Texture_blueprint_Automatic": 1832907480
-                    },
-                    {
-                        "Texture_blueprint_Burst": 4043280563
-                    },
-                    {
-                        "Texture_blueprint_Shotgun": 2823435623
-                    },
-                    {
-                        "Texture_gun1": 1352913199
-                    },
-                    {
-                        "Texture_gun2": 2271832197
-                    },
-                    {
-                        "Material_Upgrade": 2094448581
-                    },
-                    {
-                        "Material_New_Weapon": 2749613084
-                    },
-                    {
-                        "Material_Special_Weapon": 177811771
-                    },
-                    {
-                        "Material_Background_Upgrade": 1138365017
-                    },
-                    {
-                        "Text_Upgrade": 171349848
-                    },
-                    {
-                        "Text_New_Weapon": 2978910595
-                    },
-                    {
-                        "Text_Special_Weapon": 1858958322
-                    },
-                    {
-                        "Texture_Amo": 1054723984
-                    },
-                    {
-                        "Texture_blueprint_Semiautomatic": 3149460017
-                    },
-                    {
-                        "Texture_blueprint_Automatic": 1832907480
-                    },
-                    {
-                        "Texture_blueprint_Burst": 4043280563
-                    },
-                    {
-                        "Texture_blueprint_Shotgun": 2823435623
-                    }
-                ],
+                "Inspector Fields": null,
                 "Script Resource": 291064225,
                 "Type": 5
             }

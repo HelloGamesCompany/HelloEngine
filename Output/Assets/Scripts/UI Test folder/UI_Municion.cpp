@@ -6,11 +6,15 @@ HELLO_ENGINE_API_C UI_Municion* CreateUI_Municion(ScriptToInspectorInterface* sc
     script->AddDragBoxGameObject("Player Stats GO", &classInstance->playerStatsGO);
     script->AddDragBoxGameObject("Infinit munition on", &classInstance->text_munition_InfinitWeapon_On);
     script->AddDragBoxGameObject("Infinit munition off", &classInstance->text_munition_InfinitWeapon_Off);
+    script->AddDragBoxUIImage("More munition Image", &classInstance->image_more_munition);
 
     script->AddDragBoxUIText("Normal munition on", &classInstance->text_munition_Normal_On);
     script->AddDragBoxUIText("Normal munition off", &classInstance->text_munition_Normal_Off);
     script->AddDragBoxUIText("Special munition on", &classInstance->text_munition_Special_On);
     script->AddDragBoxUIText("Special munition off", &classInstance->text_munition_Special_Off);
+   // script->AddDragBoxUIText("More munition Text", &classInstance->text_more_munition_Normal);
+
+
     return classInstance;
 }
 
@@ -26,17 +30,27 @@ void UI_Municion::Start()
     text_munition_Normal_Off.GetGameObject().GetMeshRenderer().SetActive(false);
     text_munition_Special_On.GetGameObject().GetMeshRenderer().SetActive(false);
     text_munition_Special_Off.GetGameObject().GetMeshRenderer().SetActive(false);
+    
+    //text_more_munition_Normal.GetGameObject().GetMeshRenderer().SetActive(false);
 
     text_munition_InfinitWeapon_On.SetActive(true);
     text_munition_InfinitWeapon_Off.SetActive(false);
+    //image_more_munition.SetOpacity(0);
     text_munition_Normal_On.GetGameObject().SetActive(false);
     text_munition_Normal_Off.GetGameObject().SetActive(false);
     text_munition_Special_On.GetGameObject().SetActive(false);
     text_munition_Special_Off.GetGameObject().SetActive(false);
+    
+    //text_more_munition_Normal.GetGameObject().SetActive(false);
 }
 
 void UI_Municion::Update()
 {
+
+  
+        More_Municion_Alert();
+  
+  
     int equipedIndex = 0;
 
     if (playerGunManager)
@@ -61,6 +75,8 @@ void UI_Municion::Update()
             break;
         }
     }
+
+
 
     if (!playerStats) return;
 
@@ -103,4 +119,40 @@ void UI_Municion::Update()
         text_munition_Special_On.GetGameObject().SetActive(true);
         text_munition_Special_Off.GetGameObject().SetActive(false);
     }
+}
+
+void UI_Municion::More_Municion_Alert()
+{
+    timer_MoreMunicion -= Time::GetDeltaTime();
+
+    if (opacity_Munition <= 0)
+    {
+        opacity_Munition = 1;
+        image_more_munition.SetOpacity(opacity_Munition);        
+    }
+    else
+    {
+        image_more_munition.SetOpacity(opacity_Munition = opacity_Munition - 0.01);
+        
+    }
+
+
+   /* if (timer_MoreMunicion >= 0.0f)
+    {
+        //image_more_munition.SetOpacity(opacity_Munition);
+       
+        //image_more_munition.GetGameObject().SetActive(true);
+        //text_more_munition_Normal.GetGameObject().SetActive(true);
+        //text_more_munition_Normal.SetText(std::to_string(playerStats->laserAmmo).c_str());
+     
+    }
+    else if (timer_MoreMunicion < 0.f)
+    {
+        image_more_munition.SetOpacity(0);
+        //image_more_munition.GetGameObject().SetActive(false);
+        //text_more_munition_Normal.SetText(std::to_string(playerStats->laserAmmo).c_str());
+        //text_more_munition_Normal.GetGameObject().SetActive(false);
+        timer_MoreMunicion = 1.3f;
+    }*/
+
 }

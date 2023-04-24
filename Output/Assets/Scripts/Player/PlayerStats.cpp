@@ -4,6 +4,7 @@
 #include "../UI Test folder/HpBar.h"
 #include "../UsefulScripts/IndexContainer.h"
 #include "../UI Test folder/HUD_Power_Up_Scrip.h"
+#include "../UI Test folder/UI_Municion.h"
 HELLO_ENGINE_API_C PlayerStats* CreatePlayerStats(ScriptToInspectorInterface* script)
 {
     PlayerStats* classInstance = new PlayerStats();
@@ -23,6 +24,7 @@ HELLO_ENGINE_API_C PlayerStats* CreatePlayerStats(ScriptToInspectorInterface* sc
     script->AddDragBoxParticleSystem("Kid Heal Particles", &classInstance->aidKitParticles);
     script->AddDragBoxGameObject("Player GO", &classInstance->playerGO);
     script->AddDragBoxGameObject("Power Ups Managers (HUD)", &classInstance->hudPowerUpGO);
+    script->AddDragBoxGameObject("Hud SwapWeapon Indicator GO", &classInstance->ammo_ScriptGO);
     //script->AddDragInt("movement tree lvl", &classInstance->movementTreeLvl); // use it only for playtesting
     //script->AddDragInt("armory tree lvl", &classInstance->armoryTreeLvl);
     //script->AddDragInt("health tree lvl", &classInstance->healthTreeLvl);
@@ -61,6 +63,9 @@ void PlayerStats::Start()
 
     hudPowerUp = (HUD_Power_Up_Scrip*)hudPowerUpGO.GetScript("HUD_Power_Up_Scrip");
     if (!hudPowerUp) Console::Log("HUD_Power_Up_Scrip Missing in PlayerStats. Only needed in levels.");
+    
+    ammo_Script = (UI_Municion*)ammo_ScriptGO.GetScript("UI_Municion");
+    if (!ammo_Script) Console::Log("UI_Municion Missing in PlayerStats. Only needed in levels.");
 }
 
 void PlayerStats::Update()
@@ -326,6 +331,7 @@ void PlayerStats::GetAmmo(int type, int amount)
     switch (type)
     {
     case 1:
+        //script Municion
         laserAmmo += amount;
         if (laserAmmo > maxLaserAmmo) laserAmmo = maxLaserAmmo;
         break;

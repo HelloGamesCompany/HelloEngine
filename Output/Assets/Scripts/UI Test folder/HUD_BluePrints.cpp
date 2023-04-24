@@ -55,28 +55,70 @@ void HUD_BluePrints::Start()
 }
 void HUD_BluePrints::Update()
 {
+	if (timer_new < 1.3f)
+	{
 
+		timer_new -= Time::GetDeltaTime();
+		
+		if (timer_new >= 0.0f)
+		{
 
+			material_new_weapon.GetGameObject().GetTransform().Translate(new_weapon_movmentX);
+			text_upgrade.GetGameObject().GetTransform().Translate(new_weapon_movmentX);
+			material_Background_2.GetGameObject().GetTransform().Translate(new_weapon_movmentX);
+		}
+		else if (timer_new <= -3.0f)
+		{
+			material_new_weapon.GetGameObject().GetTransform().SetPosition(new_weapon_position_save);
+			text_upgrade.GetGameObject().GetTransform().SetPosition(text_new_weapon_position_save);
+			material_Background_2.GetGameObject().GetTransform().SetPosition(Background_new_weapon_position_save);
+			timer_new = 1.3f;
+		}
+	}
+
+	if (timer_upgrade < 1.3f)
+	{
+		timer_upgrade -= Time::GetDeltaTime();
+
+		if (timer_upgrade >= 0.0f)
+		{
+			material_upgrade.GetGameObject().GetTransform().Translate(upgrade_movmentX);
+			text_upgrade.GetGameObject().GetTransform().Translate(upgrade_movmentX);
+			material_Background_1.GetGameObject().GetTransform().Translate(upgrade_movmentX);
+		}
+		else if (timer_upgrade <= -3.0f)
+		{
+			material_upgrade.GetGameObject().GetTransform().SetPosition(upgrade_position_save);
+			text_upgrade.GetGameObject().GetTransform().SetPosition(text_upgrade_position_save);
+			material_Background_1.GetGameObject().GetTransform().SetPosition(Background_upgrade_position_save);
+			timer_upgrade = 1.3f;
+		}
+	}
+
+	if (timer_special < 1.3f)
+	{
+		timer_special -= Time::GetDeltaTime();
+
+		if (timer_special >= 0.0f)
+		{
+
+			material_special_weapon.GetGameObject().GetTransform().Translate(special_weapon_movmentX);
+			text_special_weapon.GetGameObject().GetTransform().Translate(special_weapon_movmentX);
+			material_Background_3.GetGameObject().GetTransform().Translate(special_weapon_movmentX);
+		}
+		else if (timer_special <= -3.0f)
+		{
+			material_special_weapon.GetGameObject().GetTransform().SetPosition(special_weapon_position_save);
+			text_special_weapon.GetGameObject().GetTransform().SetPosition(text_special_weapon_position_save);
+			material_Background_3.GetGameObject().GetTransform().SetPosition(Background_special_weapon_position_save);
+			timer_special = 1.3f;
+		}
+	}
 }
 
 void HUD_BluePrints::UpgradeAlert(int GetUpgrade)
 {
 	timer_upgrade -= Time::GetDeltaTime();
-
-	if (timer_upgrade >= 0.0f)
-	{
-		material_upgrade.GetGameObject().GetTransform().Translate(upgrade_movmentX);
-		text_upgrade.GetGameObject().GetTransform().Translate(upgrade_movmentX);
-		material_Background_1.GetGameObject().GetTransform().Translate(upgrade_movmentX);
-	}
-	else if (timer_upgrade <= -3.0f)
-	{
-		material_upgrade.GetGameObject().GetTransform().SetPosition(upgrade_position_save);
-		text_upgrade.GetGameObject().GetTransform().SetPosition(text_upgrade_position_save);
-		material_Background_1.GetGameObject().GetTransform().SetPosition(Background_upgrade_position_save);
-		timer_upgrade = 1.3f;
-	}
-
 	
 	switch (GetUpgrade)
 	{
@@ -91,22 +133,6 @@ void HUD_BluePrints::UpgradeAlert(int GetUpgrade)
 void HUD_BluePrints::New_WeaponAlert(int GetNewWeapon)
 {
 	timer_new -= Time::GetDeltaTime();
-
-	if (timer_new >= 0.0f)
-	{
-
-		material_new_weapon.GetGameObject().GetTransform().Translate(new_weapon_movmentX);
-		text_upgrade.GetGameObject().GetTransform().Translate(new_weapon_movmentX);
-		material_Background_2.GetGameObject().GetTransform().Translate(new_weapon_movmentX);
-	}
-	else if (timer_new <= -3.0f)
-	{
-		material_new_weapon.GetGameObject().GetTransform().SetPosition(new_weapon_position_save);
-		text_upgrade.GetGameObject().GetTransform().SetPosition(text_new_weapon_position_save);
-		material_Background_2.GetGameObject().GetTransform().SetPosition(Background_new_weapon_position_save);
-		timer_new = 1.3f;
-	}
-
 	switch (GetNewWeapon)
 	{
 	case 1:
@@ -129,21 +155,6 @@ void HUD_BluePrints::New_WeaponAlert(int GetNewWeapon)
 void HUD_BluePrints::Special_WeaponAlert(int GetSpecialWeapon)
 {
 	timer_special -= Time::GetDeltaTime();
-
-	if (timer_special >= 0.0f)
-	{
-
-		material_special_weapon.GetGameObject().GetTransform().Translate(special_weapon_movmentX);
-		text_special_weapon.GetGameObject().GetTransform().Translate(special_weapon_movmentX);
-		material_Background_3.GetGameObject().GetTransform().Translate(special_weapon_movmentX);
-	}
-	else if (timer_special <= -3.0f)
-	{
-		material_special_weapon.GetGameObject().GetTransform().SetPosition(special_weapon_position_save);
-		text_special_weapon.GetGameObject().GetTransform().SetPosition(text_special_weapon_position_save);
-		material_Background_3.GetGameObject().GetTransform().SetPosition(Background_special_weapon_position_save);
-		timer_special = 1.3f;
-	}
 
 	switch (GetSpecialWeapon)
 	{
