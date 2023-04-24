@@ -83,16 +83,16 @@ void Enemy::Update()
     //burn
     if (burnTime > 3.0f)
     {
-        if (resetBurn >= 0.0f)
+        TakeDamage(30.0f * Time::GetDeltaTime(), 0.0f);
+    }
+    if (resetBurn > 0.0f)
+    {
+        resetBurn -= Time::GetDeltaTime();
+        if (resetBurn <= 0.0f)
         {
-            resetBurn -= Time::GetDeltaTime();
-            if (resetBurn <= 0.0f)
-            {
-                resetBurn = 0.0f;
-                burnTime -= Time::GetDeltaTime();
-            }
+            resetBurn = 0.0f;
+            burnTime -= Time::GetDeltaTime();
         }
-        TakeDamage(0.5f, 0.0f);
     }
 
     if (takingDmg && !dying)

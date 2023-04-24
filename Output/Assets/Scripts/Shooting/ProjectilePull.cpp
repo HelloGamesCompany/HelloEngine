@@ -253,7 +253,7 @@ void ProjectilePull::LauchProjectileFLAMETHROWER(float projectileSpeed, float pr
     go.SetActive(true);
     go.GetTransform().SetPosition(shootingSpawn.GetGlobalPosition());
     go.GetTransform().SetRotation(playerGO.GetTransform().GetGlobalRotation());
-    //go.GetMeshRenderer().SetActive(false);
+    go.GetMeshRenderer().SetActive(false);
 
     Projectile* projectile = (Projectile*)go.GetScript("Projectile");
     projectile->speed = projectileSpeed;

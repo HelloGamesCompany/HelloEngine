@@ -4,6 +4,7 @@
 #include "..\..\Quests\Secondary_Quests\Mision_SomethingPersonal.h"
 #include "..\..\Quests\Secondary_Quests\Mision_TheRuleOfFive.h"
 #include "..\..\Player\PlayerStorage.h"
+#include "..\..\UI Test folder\Animation\AnimationMove.h"
 
 HELLO_ENGINE_API_C feedbackMission* CreatefeedbackMission(ScriptToInspectorInterface* script)
 {
@@ -18,6 +19,7 @@ HELLO_ENGINE_API_C feedbackMission* CreatefeedbackMission(ScriptToInspectorInter
 	script->AddDragBoxTextureResource("Material mission 1 Finished", &classInstance->mission1Finish);
 	script->AddDragBoxTextureResource("Material mission 2 Finished", &classInstance->mission2Finish);
 
+	script->AddDragBoxGameObject("Object visual feedback", &classInstance->visualFeedback);
 	
 	return classInstance;
 }
@@ -28,6 +30,8 @@ void feedbackMission::Start()
 	mision_LikeThe = (Mision_LikeThe80s*)missionsGO.GetScript("Mision_LikeThe80s");
 	mision_Masacre = (Mision_Masacre*)missionsGO.GetScript("Mision_Masacre");
 	//mision_Personal = (Mision_SomethingPersonal*)missionsGO.GetScript("Mision_SomethingPersonal");
+
+	viusalFeedbackScript = (AnimationMove*)visualFeedback.GetScript("AnimationMove");
 }
 
 void feedbackMission::Update()
@@ -40,6 +44,9 @@ void feedbackMission::Update()
     case 1: // level 1
 		if (mision_LikeThe->misionCompleted)
 		{
+			visualFeedback.GetMaterialCompoennt().ChangeAlbedoTexture(mission1Finish);
+			viusalFeedbackScript->ResetAnimationMoveX();
+			viusalFeedbackScript->PlayAnimationMoveX();
 			missionPostit1.GetMaterialCompoennt().ChangeAlbedoTexture(mission1Finish);
 		}
 		//Second mission in revision
@@ -47,6 +54,9 @@ void feedbackMission::Update()
     case 2: // level 2
 		if (mision_Masacre->misionCompleted)
 		{
+			visualFeedback.GetMaterialCompoennt().ChangeAlbedoTexture(mission1Finish);
+			viusalFeedbackScript->ResetAnimationMoveX();
+			viusalFeedbackScript->PlayAnimationMoveX();
 			missionPostit1.GetMaterialCompoennt().ChangeAlbedoTexture(mission1Finish);
 		}
 		/*if (mision_Personal->misionCompleted)

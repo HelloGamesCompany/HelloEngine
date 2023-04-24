@@ -33,6 +33,8 @@ public:
 
     int chestIndex;
     int itemIndex;
+
+
     // 0 -> Upgrade Blueprint
     // 1 -> Unlock SemiAutomatic
     // 2 -> Unlock Automatic

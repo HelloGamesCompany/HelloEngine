@@ -16,23 +16,23 @@ HELLO_ENGINE_API_C ThanosLoop* CreateThanosLoop(ScriptToInspectorInterface* scri
 
 void ThanosLoop::Start()
 {
-
+    shotgunLevel = API_QuickSave::GetInt("shotgun_level");
 }
 void ThanosLoop::Update()
 {
     //burn
     if (burnTime > 3.0f)
     {
-        if (resetBurn >= 0.0f)
+        TakeDamage(30.0f * Time::GetDeltaTime());
+    }
+    if (resetBurn > 0.0f)
+    {
+        resetBurn -= Time::GetDeltaTime();
+        if (resetBurn <= 0.0f)
         {
-            resetBurn -= Time::GetDeltaTime();
-            if (resetBurn <= 0.0f)
-            {
-                resetBurn = 0.0f;
-                burnTime -= Time::GetDeltaTime();
-            }
+            resetBurn = 0.0f;
+            burnTime -= Time::GetDeltaTime();
         }
-        TakeDamage(0.5f);
     }
 }
 
@@ -74,7 +74,8 @@ void ThanosLoop::CheckBombs()
         else
         {
             stickBomb->triggerActive = true;
-            TakeDamage(5.0f * currentBombNum);
+            if (shotgunLevel > 2) TakeDamage(15.0f * currentBombNum);
+            else TakeDamage(10.0f * currentBombNum);
         }
         currentBombNum = 0;
         bomb.SetActive(false);
