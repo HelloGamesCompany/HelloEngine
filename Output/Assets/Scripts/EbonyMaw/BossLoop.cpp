@@ -37,7 +37,6 @@ HELLO_ENGINE_API_C BossLoop* CreateBossLoop(ScriptToInspectorInterface* script)
     script->AddDragBoxTextureResource("Texture Bomb 6", &classInstance->textureBomb[5]);
 
     //TEMPORAL FOR ALPHA 1
-    script->AddDragBoxGameObject("TEMPORAL- finalTextPanel", &classInstance->finalTextPanel);
 
     //Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
     return classInstance;
