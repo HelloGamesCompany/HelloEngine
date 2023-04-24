@@ -28,5 +28,6 @@
 #include "API_SkinnedMeshRenderer.h"
 #include "API_UIInput.h"
 #include "API_ShaderComponent.h"
+#include "API_UIImage.h"
 
 using namespace API;
