@@ -6,6 +6,9 @@ HELLO_ENGINE_API_C AnimationMove* CreateAnimationMove(ScriptToInspectorInterface
 
 	script->AddDragBoxGameObject("Button Guide", &classInstance->gameObject);
 
+	script->AddDragInt("Move X animation repeat", &classInstance->repeatMoveX);
+	script->AddDragInt("Move Y animation repeat", &classInstance->repeatMoveY);
+	script->AddCheckBox("Move animation in loop", &classInstance->loopMove);
 	script->AddCheckBox("Move animation active", &classInstance->animationMove);
 
 	script->AddDragFloat("Distance move X", &classInstance->distanceX);
@@ -13,11 +16,15 @@ HELLO_ENGINE_API_C AnimationMove* CreateAnimationMove(ScriptToInspectorInterface
 	script->AddDragFloat("Distance move Y", &classInstance->distanceY);
 	script->AddDragFloat("Speed move Y", &classInstance->speedY);
 
+	script->AddDragInt("Scale animation repeat", &classInstance->repeatScale);
+	script->AddCheckBox("Scale animation in loop", &classInstance->loopScale);
 	script->AddCheckBox("Scale animation active", &classInstance->animationScale);
 
 	script->AddDragFloat("Scale max", &classInstance->scale);
 	script->AddDragFloat("Speed Scale", &classInstance->speedScale);
 
+	script->AddDragInt("Rotate animation repeat", &classInstance->repeatRotate);
+	script->AddCheckBox("Rotate animation in loop", &classInstance->loopRotate);
 	script->AddCheckBox("Rotate animation active", &classInstance->animationRotate);
 
 	script->AddDragFloat("Rotate distance", &classInstance->rotate);
@@ -40,18 +47,75 @@ void AnimationMove::Update()
 {
 	if (animationMove)
 	{
-		MoveAnimationX();
-		MoveAnimationY();
+		if (loopMove)
+		{
+			MoveAnimationX();
+			MoveAnimationY();
+		}
+		else
+		{
+			if (actualRepeatMoveX < repeatMoveX * 2)
+			{
+				MoveAnimationX();
+
+				if (gameObject.GetTransform().GetLocalPosition().x == startPosX)
+				{
+					actualRepeatMoveX++;
+				}
+			}
+			if (actualRepeatMoveY < repeatMoveY * 2)
+			{
+				MoveAnimationY();
+
+				if (gameObject.GetTransform().GetLocalPosition().y == startPosY)
+				{
+					actualRepeatMoveY++;
+				}
+			}
+		}
+		
+
+
 	}
 
 	if (animationScale)
 	{
-		ScaleAnimation();
+		if (loopScale)
+		{
+			ScaleAnimation();
+		}
+		else
+		{
+			if (actualRepeatScale < repeatScale * 4)
+			{
+				ScaleAnimation();
+
+				if (gameObject.GetTransform().GetLocalScale().x <= startScalX + 0.001 && gameObject.GetTransform().GetLocalScale().x >= startScalX - 0.001)
+				{
+					actualRepeatScale++;
+				}
+			}
+		}
 	}
 
 	if (animationRotate)
 	{
-		RotateAnimation();
+		if (loopRotate)
+		{
+			RotateAnimation();
+		}
+		else
+		{
+			if (actualRepeatRotate < repeatRotate * 2)
+			{
+				RotateAnimation();
+
+				if (gameObject.GetTransform().GetLocalRotation().z <= startRotate + 0.001 && gameObject.GetTransform().GetLocalRotation().z >= startRotate - 0.001)
+				{
+					actualRepeatRotate++;
+				}
+			}
+		}
 	}
 }
 
@@ -133,7 +197,6 @@ void AnimationMove::RotateAnimation()
 
 	if (rotating)
 	{
-		Console::Log("Rotating");
 		gameObject.GetTransform().SetRotation(gameObject.GetTransform().GetLocalRotation().x, gameObject.GetTransform().GetLocalRotation().y, gameObject.GetTransform().GetLocalRotation().z + (0.001 * speedRotate));
 	}
 	else
