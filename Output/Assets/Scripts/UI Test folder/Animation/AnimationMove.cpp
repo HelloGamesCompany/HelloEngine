@@ -72,6 +72,10 @@ void AnimationMove::Update()
 					actualRepeatMoveY++;
 				}
 			}
+			else
+			{
+				animationMove = false;
+			}
 		}
 		
 
@@ -95,6 +99,10 @@ void AnimationMove::Update()
 					actualRepeatScale++;
 				}
 			}
+			else
+			{
+				animationScale = false;
+			}
 		}
 	}
 
@@ -114,6 +122,10 @@ void AnimationMove::Update()
 				{
 					actualRepeatRotate++;
 				}
+			}
+			else
+			{
+				animationRotate = false;
 			}
 		}
 	}
@@ -223,4 +235,24 @@ void AnimationMove::ResetAnimationRotate()
 void AnimationMove::ResetAnimationScale()
 {
 	actualRepeatScale = 0;
+}
+
+void AnimationMove::PlayAnimationMoveX()
+{
+	animationMove = true;
+}
+
+void AnimationMove::PlayAnimationMoveY()
+{
+	animationMove = true;
+}
+
+void AnimationMove::PlayAnimationRotate()
+{
+	animationRotate = true;
+}
+
+void AnimationMove::PlayAnimationScale()
+{
+	animationScale = true;
 }
