@@ -54,7 +54,7 @@
             {
                 "Active camera": true,
                 "Active culling": false,
-                "Aspect ratio": 2.064631938934326,
+                "Aspect ratio": 1.9408766031265259,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -516,96 +516,6 @@
                     },
                     {
                         "Player Stats GO": 1475165862
-                    },
-                    {
-                        "Velocity": 7.5
-                    },
-                    {
-                        "Upgrade Velocity": 9.0
-                    },
-                    {
-                        "SecToMaxVel": 0.20000000298023224
-                    },
-                    {
-                        "SecToZeroVel": 0.20000000298023224
-                    },
-                    {
-                        "Y tp limit": -20.0
-                    },
-                    {
-                        "Rigid Body": 1475165862
-                    },
-                    {
-                        "Dash Time": 0.5
-                    },
-                    {
-                        "Dash Distance": 6.0
-                    },
-                    {
-                        "Upgrade Dash Distance": 8.0
-                    },
-                    {
-                        "Dash Cooldown": 6.0
-                    },
-                    {
-                        "Upgrade Dash Cooldown": 3.0
-                    },
-                    {
-                        "AnimationPlayer": 3800139251
-                    },
-                    {
-                        "Dash Animation": 3707604139
-                    },
-                    {
-                        "Idle Animation 1": 738149381
-                    },
-                    {
-                        "Idle Animation 2": 2426153329
-                    },
-                    {
-                        "Idle Animation 3": 1590499778
-                    },
-                    {
-                        "Run Forward Animation": 781813718
-                    },
-                    {
-                        "Run Back Animation": 915742792
-                    },
-                    {
-                        "Run Left Animation": 4072259668
-                    },
-                    {
-                        "Run Right Animation": 3628832266
-                    },
-                    {
-                        "Shoot Duals Animation": 2706901869
-                    },
-                    {
-                        "Shoot SemiAuto Animation": 2706901869
-                    },
-                    {
-                        "Shoot Automatic Animation": 2706901869
-                    },
-                    {
-                        "Shoot Burst Animation": 2706901869
-                    },
-                    {
-                        "Shoot Shotgun Animation": 2706901869
-                    },
-                    {
-                        "Shoot Handgun Animation": 2706901869
-                    },
-                    {
-                        "Hit Animation": 359781210
-                    },
-                    {
-                        "Open Chest Animation": 2410125527
-                    },
-                    {
-                        "Dead Animation": 296001631
-                    },
-                    {
-                        "Player Stats GO": 1475165862
                     }
                 ],
                 "Script Resource": 102275363,
@@ -645,7 +555,43 @@
                         "Upgraded Aid Kit Heal Amount": 60.0
                     },
                     {
-                        "Material Component": 3800139251
+                        "Passive Heal Particles": 605917601
+                    },
+                    {
+                        "Kid Heal Particles": 3341299674
+                    },
+                    {
+                        "Player GO": 1475165862
+                    },
+                    {
+                        "Max HP": 100.0
+                    },
+                    {
+                        "Current HP": 100.0
+                    },
+                    {
+                        "Upgraded Max HP": 125.0
+                    },
+                    {
+                        "Resistance": 100.0
+                    },
+                    {
+                        "Deadline Percentage": 20.0
+                    },
+                    {
+                        "Upgraded Deadline Percentage": 50.0
+                    },
+                    {
+                        "Deadline Heal Amount": 2.5
+                    },
+                    {
+                        "Upgraded Deadline Heal Amount": 5.0
+                    },
+                    {
+                        "Aid Kit Heal Amount": 30.0
+                    },
+                    {
+                        "Upgraded Aid Kit Heal Amount": 60.0
                     },
                     {
                         "Passive Heal Particles": 605917601
@@ -687,9 +633,6 @@
                         "Upgraded Aid Kit Heal Amount": 60.0
                     },
                     {
-                        "Material Component": 3800139251
-                    },
-                    {
                         "Passive Heal Particles": 605917601
                     },
                     {
@@ -727,93 +670,6 @@
                     },
                     {
                         "Upgraded Aid Kit Heal Amount": 60.0
-                    },
-                    {
-                        "Material Component": 3800139251
-                    },
-                    {
-                        "Passive Heal Particles": 605917601
-                    },
-                    {
-                        "Kid Heal Particles": 3341299674
-                    },
-                    {
-                        "Player GO": 1475165862
-                    },
-                    {
-                        "Max HP": 100.0
-                    },
-                    {
-                        "Current HP": 100.0
-                    },
-                    {
-                        "Upgraded Max HP": 125.0
-                    },
-                    {
-                        "Resistance": 100.0
-                    },
-                    {
-                        "Deadline Percentage": 20.0
-                    },
-                    {
-                        "Upgraded Deadline Percentage": 50.0
-                    },
-                    {
-                        "Deadline Heal Amount": 2.5
-                    },
-                    {
-                        "Upgraded Deadline Heal Amount": 5.0
-                    },
-                    {
-                        "Aid Kit Heal Amount": 30.0
-                    },
-                    {
-                        "Upgraded Aid Kit Heal Amount": 60.0
-                    },
-                    {
-                        "Material Component": 3800139251
-                    },
-                    {
-                        "Passive Heal Particles": 605917601
-                    },
-                    {
-                        "Kid Heal Particles": 3341299674
-                    },
-                    {
-                        "Player GO": 1475165862
-                    },
-                    {
-                        "Max HP": 100.0
-                    },
-                    {
-                        "Current HP": 100.0
-                    },
-                    {
-                        "Upgraded Max HP": 125.0
-                    },
-                    {
-                        "Resistance": 100.0
-                    },
-                    {
-                        "Deadline Percentage": 20.0
-                    },
-                    {
-                        "Upgraded Deadline Percentage": 50.0
-                    },
-                    {
-                        "Deadline Heal Amount": 2.5
-                    },
-                    {
-                        "Upgraded Deadline Heal Amount": 5.0
-                    },
-                    {
-                        "Aid Kit Heal Amount": 30.0
-                    },
-                    {
-                        "Upgraded Aid Kit Heal Amount": 60.0
-                    },
-                    {
-                        "Material Component": 3800139251
                     },
                     {
                         "Passive Heal Particles": 605917601
@@ -986,45 +842,6 @@
                     },
                     {
                         "Fast Swap Delay": 0.5
-                    },
-                    {
-                        "Player Stats GO": 1475165862
-                    },
-                    {
-                        "Base Gun": 0
-                    },
-                    {
-                        "Normal Gun": 2
-                    },
-                    {
-                        "Special Gun": 5
-                    },
-                    {
-                        "Duals": 1764362837
-                    },
-                    {
-                        "Semiautomatic": 640409176
-                    },
-                    {
-                        "Automatic": 4166709816
-                    },
-                    {
-                        "Burst": 4117960599
-                    },
-                    {
-                        "Shotgun": 3172887682
-                    },
-                    {
-                        "Flamethrower": 3579561625
-                    },
-                    {
-                        "Ricochet": 2767080449
-                    },
-                    {
-                        "Swap Delay": 1.0
-                    },
-                    {
-                        "Fast Swap Delay": 0.5
                     }
                 ],
                 "Script Resource": 2666385646,
@@ -1033,9 +850,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Level Index": 0
-                    },
                     {
                         "Level Index": 0
                     },
@@ -7514,16 +7328,16 @@
                 "ModelUID": 13,
                 "ParticleModules": {
                     "ModuleEmission": {
-                        "ParticlesPerSecond": 20
+                        "ParticlesPerSecond": 1036831949
                     },
                     "ModuleMain": {
                         "BeginScale": [
                             0.0,
-                            0.0,
+                            1.401298464324817e-45,
                             0.0
                         ],
                         "Delay": 0.0,
-                        "Duration": 0.0,
+                        "Duration": 0.10000000149011612,
                         "EndScale": [
                             0.0,
                             0.0,
@@ -7549,30 +7363,12 @@
                         ]
                     }
                 },
-                "ResourceTextUID": 0,
+                "ResourceTextUID": 3431661267,
                 "Type": 6
             },
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Player": 1475165862
-                    },
-                    {
-                        "Pull Size": 40
-                    },
-                    {
-                        "Projectile Prefab": 633942339
-                    },
-                    {
-                        "Shotgun Bomb Pull Size": 10
-                    },
-                    {
-                        "Shotgun Bomb Prefab": 884876432
-                    },
-                    {
-                        "Check Ricochet Traget Prefab": 3306111952
-                    },
                     {
                         "Player": 1475165862
                     },
@@ -7755,7 +7551,7 @@
         "UID": 2800121112
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -7775,6 +7571,16 @@
                     1.0
                 ],
                 "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 0,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
             }
         ],
         "FirstOnPrefab": true,
@@ -7785,7 +7591,37 @@
         "UID": 419460321
     },
     {
-        "Active": true,
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "(O) Dual Left",
+        "ParentUID": 419460321,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1140484082
+    },
+    {
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -7809,9 +7645,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Gun Type": 0
-                    },
                     {
                         "Gun Type": 0
                     },
@@ -7847,67 +7680,10 @@
                         "Projectile Lifetime": 0.0
                     },
                     {
-                        "Projectile Spawn": 1764362837
+                        "Projectile Spawn": 1461530439
                     },
                     {
-                        "Second Projectile Spawn": 419460321
-                    },
-                    {
-                        "Projectile ScaleX": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleY": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleZ": 0.10000000149011612
-                    },
-                    {
-                        "Projectiles per second": 0.0
-                    },
-                    {
-                        "Extra % firerate": 15.0
-                    },
-                    {
-                        "Burst Space": 0.0
-                    },
-                    {
-                        "Second Gun GO": 419460321
-                    },
-                    {
-                        "Slow %": 0.0
-                    },
-                    {
-                        "Freeze %": 0.0
-                    },
-                    {
-                        "Player Stats GO": 1475165862
-                    },
-                    {
-                        "Ammo Type": 0
-                    },
-                    {
-                        "Audio Event String": "w_basic"
-                    },
-                    {
-                        "Projectile Pull": 3715485205
-                    },
-                    {
-                        "Projectile Speed": 0.0
-                    },
-                    {
-                        "Projectile Damage": 0.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 0.0
-                    },
-                    {
-                        "Projectile Spawn": 1764362837
-                    },
-                    {
-                        "Second Projectile Spawn": 419460321
+                        "Second Projectile Spawn": 1140484082
                     },
                     {
                         "Projectile ScaleX": 0.10000000149011612
@@ -7961,67 +7737,10 @@
                         "Projectile Lifetime": 0.0
                     },
                     {
-                        "Projectile Spawn": 1764362837
+                        "Projectile Spawn": 1461530439
                     },
                     {
-                        "Second Projectile Spawn": 419460321
-                    },
-                    {
-                        "Projectile ScaleX": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleY": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleZ": 0.10000000149011612
-                    },
-                    {
-                        "Projectiles per second": 0.0
-                    },
-                    {
-                        "Extra % firerate": 15.0
-                    },
-                    {
-                        "Burst Space": 0.0
-                    },
-                    {
-                        "Second Gun GO": 419460321
-                    },
-                    {
-                        "Slow %": 0.0
-                    },
-                    {
-                        "Freeze %": 0.0
-                    },
-                    {
-                        "Player Stats GO": 1475165862
-                    },
-                    {
-                        "Ammo Type": 0
-                    },
-                    {
-                        "Audio Event String": "w_basic"
-                    },
-                    {
-                        "Projectile Pull": 3715485205
-                    },
-                    {
-                        "Projectile Speed": 0.0
-                    },
-                    {
-                        "Projectile Damage": 0.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 0.0
-                    },
-                    {
-                        "Projectile Spawn": 1764362837
-                    },
-                    {
-                        "Second Projectile Spawn": 419460321
+                        "Second Projectile Spawn": 1140484082
                     },
                     {
                         "Projectile ScaleX": 0.10000000149011612
@@ -8075,10 +7794,67 @@
                         "Projectile Lifetime": 0.0
                     },
                     {
-                        "Projectile Spawn": 1764362837
+                        "Projectile Spawn": 1461530439
                     },
                     {
-                        "Second Projectile Spawn": 419460321
+                        "Second Projectile Spawn": 1140484082
+                    },
+                    {
+                        "Projectile ScaleX": 0.10000000149011612
+                    },
+                    {
+                        "Projectile ScaleY": 0.10000000149011612
+                    },
+                    {
+                        "Projectile ScaleZ": 0.10000000149011612
+                    },
+                    {
+                        "Projectiles per second": 0.0
+                    },
+                    {
+                        "Extra % firerate": 15.0
+                    },
+                    {
+                        "Burst Space": 0.0
+                    },
+                    {
+                        "Second Gun GO": 419460321
+                    },
+                    {
+                        "Slow %": 0.0
+                    },
+                    {
+                        "Freeze %": 0.0
+                    },
+                    {
+                        "Player Stats GO": 1475165862
+                    },
+                    {
+                        "Ammo Type": 0
+                    },
+                    {
+                        "Audio Event String": "w_basic"
+                    },
+                    {
+                        "Projectile Pull": 3715485205
+                    },
+                    {
+                        "Projectile Speed": 0.0
+                    },
+                    {
+                        "Projectile Damage": 0.0
+                    },
+                    {
+                        "Projectile Resistance Damage": 0.0
+                    },
+                    {
+                        "Projectile Lifetime": 0.0
+                    },
+                    {
+                        "Projectile Spawn": 1461530439
+                    },
+                    {
+                        "Second Projectile Spawn": 1140484082
                     },
                     {
                         "Projectile ScaleX": 0.10000000149011612
@@ -8129,14 +7905,14 @@
         "UID": 1764362837
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
                 "Position": [
                     0.0,
-                    1.5,
-                    0.699999988079071
+                    0.0,
+                    0.0
                 ],
                 "Rotation": [
                     0.0,
@@ -8149,13 +7925,56 @@
                     1.0
                 ],
                 "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "(O) Dual Right",
+        "ParentUID": 1764362837,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1461530439
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -1.5167991307407647e-08,
+                    1.481363296508789,
+                    0.5727614760398865
+                ],
+                "Rotation": [
+                    90.0,
+                    8.53773599374108e-07,
+                    0.0
+                ],
+                "Scale": [
+                    0.05000000074505806,
+                    0.05000000074505806,
+                    0.05000000074505806
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 8071546,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 166286596,
+                "Type": 18
             },
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Gun Type": 1
-                    },
                     {
                         "Gun Type": 1
                     },
@@ -8191,7 +8010,7 @@
                         "Projectile Lifetime": 0.0
                     },
                     {
-                        "Projectile Spawn": 640409176
+                        "Projectile Spawn": 581871769
                     },
                     {
                         "Projectile ScaleX": 0.20000000298023224
@@ -8233,7 +8052,7 @@
                         "Projectile Lifetime": 0.0
                     },
                     {
-                        "Projectile Spawn": 640409176
+                        "Projectile Spawn": 581871769
                     },
                     {
                         "Projectile ScaleX": 0.20000000298023224
@@ -8275,7 +8094,7 @@
                         "Projectile Lifetime": 0.0
                     },
                     {
-                        "Projectile Spawn": 640409176
+                        "Projectile Spawn": 581871769
                     },
                     {
                         "Projectile ScaleX": 0.20000000298023224
@@ -8317,49 +8136,7 @@
                         "Projectile Lifetime": 0.0
                     },
                     {
-                        "Projectile Spawn": 640409176
-                    },
-                    {
-                        "Projectile ScaleX": 0.20000000298023224
-                    },
-                    {
-                        "Projectile ScaleY": 0.20000000298023224
-                    },
-                    {
-                        "Projectile ScaleZ": 0.4000000059604645
-                    },
-                    {
-                        "Projectiles per second": 0.0
-                    },
-                    {
-                        "Extra % firerate": 15.0
-                    },
-                    {
-                        "Player Stats GO": 1475165862
-                    },
-                    {
-                        "Ammo Type": 1
-                    },
-                    {
-                        "Audio Event String": "w_semi"
-                    },
-                    {
-                        "Projectile Pull": 3715485205
-                    },
-                    {
-                        "Projectile Speed": 0.0
-                    },
-                    {
-                        "Projectile Damage": 0.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 0.0
-                    },
-                    {
-                        "Projectile Spawn": 640409176
+                        "Projectile Spawn": 581871769
                     },
                     {
                         "Projectile ScaleX": 0.20000000298023224
@@ -8398,33 +8175,76 @@
         "UID": 640409176
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
                 "Position": [
-                    0.0,
-                    1.5,
-                    0.699999988079071
+                    -0.0035522030666470528,
+                    0.06200218200683594,
+                    -2.8836021423339844
                 ],
                 "Rotation": [
-                    0.0,
-                    0.0,
-                    0.0
+                    3.4986100930396724e-13,
+                    -6.717331985789388e-12,
+                    7.683964213356376e-06
                 ],
                 "Scale": [
-                    1.0,
-                    1.0,
+                    0.9999998211860657,
+                    0.9999998807907104,
                     1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "(O) Semiauto",
+        "ParentUID": 640409176,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 581871769
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.1914437860250473,
+                    1.188159704208374,
+                    0.4494706094264984
+                ],
+                "Rotation": [
+                    90.00000762939453,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    0.07000000029802322,
+                    0.06999843567609787,
+                    0.06999843567609787
                 ],
                 "Type": 1
             },
             {
                 "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 2716272886,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 4259248798,
+                "Type": 18
+            },
+            {
+                "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Gun Type": 2
-                    },
                     {
                         "Gun Type": 2
                     },
@@ -8460,7 +8280,7 @@
                         "Projectile Lifetime": 0.0
                     },
                     {
-                        "Projectile Spawn": 4166709816
+                        "Projectile Spawn": 362893676
                     },
                     {
                         "Projectile ScaleX": 0.10000000149011612
@@ -8502,7 +8322,7 @@
                         "Projectile Lifetime": 0.0
                     },
                     {
-                        "Projectile Spawn": 4166709816
+                        "Projectile Spawn": 362893676
                     },
                     {
                         "Projectile ScaleX": 0.10000000149011612
@@ -8544,7 +8364,7 @@
                         "Projectile Lifetime": 0.0
                     },
                     {
-                        "Projectile Spawn": 4166709816
+                        "Projectile Spawn": 362893676
                     },
                     {
                         "Projectile ScaleX": 0.10000000149011612
@@ -8586,49 +8406,7 @@
                         "Projectile Lifetime": 0.0
                     },
                     {
-                        "Projectile Spawn": 4166709816
-                    },
-                    {
-                        "Projectile ScaleX": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleY": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleZ": 0.10000000149011612
-                    },
-                    {
-                        "Projectiles per second": 0.0
-                    },
-                    {
-                        "Extra % firerate": 15.0
-                    },
-                    {
-                        "Player Stats GO": 1475165862
-                    },
-                    {
-                        "Ammo Type": 1
-                    },
-                    {
-                        "Audio Event String": "w_automatic"
-                    },
-                    {
-                        "Projectile Pull": 3715485205
-                    },
-                    {
-                        "Projectile Speed": 0.0
-                    },
-                    {
-                        "Projectile Damage": 0.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 0.0
-                    },
-                    {
-                        "Projectile Spawn": 4166709816
+                        "Projectile Spawn": 362893676
                     },
                     {
                         "Projectile ScaleX": 0.10000000149011612
@@ -8667,19 +8445,19 @@
         "UID": 4166709816
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
                 "Position": [
-                    0.0,
-                    1.5,
-                    0.699999988079071
+                    2.4299754386447603e-07,
+                    1.6174378395080566,
+                    -6.237453460693359
                 ],
                 "Rotation": [
-                    0.0,
-                    0.0,
-                    0.0
+                    -4.310455132518786e-35,
+                    2.426570516076106e-20,
+                    2.035554884372015e-13
                 ],
                 "Scale": [
                     1.0,
@@ -8687,13 +8465,56 @@
                     1.0
                 ],
                 "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "(O) Automatic",
+        "ParentUID": 4166709816,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 362893676
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.4954671263694763,
+                    1.3306463956832886,
+                    0.6988869309425354
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.029999999329447746,
+                    0.034999389201402664,
+                    0.04999938979744911
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 1324348387,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 1826811508,
+                "Type": 18
             },
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Gun Type": 3
-                    },
                     {
                         "Gun Type": 3
                     },
@@ -8729,7 +8550,7 @@
                         "Projectile Lifetime": 0.0
                     },
                     {
-                        "Projectile Spawn": 4117960599
+                        "Projectile Spawn": 2022981724
                     },
                     {
                         "Projectile ScaleX": 0.10000000149011612
@@ -8777,7 +8598,7 @@
                         "Projectile Lifetime": 0.0
                     },
                     {
-                        "Projectile Spawn": 4117960599
+                        "Projectile Spawn": 2022981724
                     },
                     {
                         "Projectile ScaleX": 0.10000000149011612
@@ -8825,7 +8646,7 @@
                         "Projectile Lifetime": 0.0
                     },
                     {
-                        "Projectile Spawn": 4117960599
+                        "Projectile Spawn": 2022981724
                     },
                     {
                         "Projectile ScaleX": 0.10000000149011612
@@ -8873,55 +8694,7 @@
                         "Projectile Lifetime": 0.0
                     },
                     {
-                        "Projectile Spawn": 4117960599
-                    },
-                    {
-                        "Projectile ScaleX": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleY": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleZ": 0.10000000149011612
-                    },
-                    {
-                        "Projectiles per second": 0.0
-                    },
-                    {
-                        "Extra % firerate": 15.0
-                    },
-                    {
-                        "Burst Space": 0.0
-                    },
-                    {
-                        "Projectiles per burst": 0
-                    },
-                    {
-                        "Player Stats GO": 1475165862
-                    },
-                    {
-                        "Ammo Type": 1
-                    },
-                    {
-                        "Audio Event String": "w_burst"
-                    },
-                    {
-                        "Projectile Pull": 3715485205
-                    },
-                    {
-                        "Projectile Speed": 0.0
-                    },
-                    {
-                        "Projectile Damage": 0.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 0.0
-                    },
-                    {
-                        "Projectile Spawn": 4117960599
+                        "Projectile Spawn": 2022981724
                     },
                     {
                         "Projectile ScaleX": 0.10000000149011612
@@ -8966,19 +8739,19 @@
         "UID": 4117960599
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
                 "Position": [
-                    0.0,
-                    1.5,
-                    0.699999988079071
+                    -15.86255931854248,
+                    2.8662376403808594,
+                    6.213468551635742
                 ],
                 "Rotation": [
-                    0.0,
-                    0.0,
-                    0.0
+                    -3.535913421563482e-20,
+                    2.426570516076106e-20,
+                    -4.07110976874403e-13
                 ],
                 "Scale": [
                     1.0,
@@ -8986,13 +8759,56 @@
                     1.0
                 ],
                 "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "(O) Burst",
+        "ParentUID": 4117960599,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2022981724
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -5.275275682947722e-08,
+                    1.5,
+                    0.25747764110565186
+                ],
+                "Rotation": [
+                    -90.00000762939453,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.05000000074505806,
+                    0.049999602138996124,
+                    0.049999602138996124
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 1582471132,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 2127763370,
+                "Type": 18
             },
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Gun Type": 4
-                    },
                     {
                         "Gun Type": 4
                     },
@@ -9028,7 +8844,7 @@
                         "Projectile Lifetime": 0.0
                     },
                     {
-                        "Projectile Spawn": 3172887682
+                        "Projectile Spawn": 1443036171
                     },
                     {
                         "Projectile ScaleX": 0.10000000149011612
@@ -9076,7 +8892,7 @@
                         "Projectile Lifetime": 0.0
                     },
                     {
-                        "Projectile Spawn": 3172887682
+                        "Projectile Spawn": 1443036171
                     },
                     {
                         "Projectile ScaleX": 0.10000000149011612
@@ -9124,7 +8940,7 @@
                         "Projectile Lifetime": 0.0
                     },
                     {
-                        "Projectile Spawn": 3172887682
+                        "Projectile Spawn": 1443036171
                     },
                     {
                         "Projectile ScaleX": 0.10000000149011612
@@ -9172,55 +8988,7 @@
                         "Projectile Lifetime": 0.0
                     },
                     {
-                        "Projectile Spawn": 3172887682
-                    },
-                    {
-                        "Projectile ScaleX": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleY": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleZ": 0.10000000149011612
-                    },
-                    {
-                        "Projectiles per second": 0.0
-                    },
-                    {
-                        "Extra % firerate": 15.0
-                    },
-                    {
-                        "Pellets per shot": 0
-                    },
-                    {
-                        "Pellets Dispersion": 0.0
-                    },
-                    {
-                        "Player Stats GO": 1475165862
-                    },
-                    {
-                        "Ammo Type": 1
-                    },
-                    {
-                        "Audio Event String": "w_shotgun"
-                    },
-                    {
-                        "Projectile Pull": 3715485205
-                    },
-                    {
-                        "Projectile Speed": 0.0
-                    },
-                    {
-                        "Projectile Damage": 0.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 0.0
-                    },
-                    {
-                        "Projectile Spawn": 3172887682
+                        "Projectile Spawn": 1443036171
                     },
                     {
                         "Projectile ScaleX": 0.10000000149011612
@@ -9265,82 +9033,54 @@
         "UID": 3172887682
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
                 "Position": [
-                    0.0,
-                    1.5,
-                    0.699999988079071
+                    7.303058282559505e-07,
+                    -6.126338005065918,
+                    2.212390899658203
                 ],
                 "Rotation": [
-                    0.0,
-                    0.0,
-                    0.0
+                    2.2391103728092165e-12,
+                    7.18264914117558e-18,
+                    2.035554884372015e-13
                 ],
                 "Scale": [
-                    1.0,
+                    0.9999998211860657,
                     1.0,
                     1.0
                 ],
                 "Type": 1
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Gun Type": 5
-                    },
-                    {
-                        "Gun Type": 5
-                    },
-                    {
-                        "Gun Type": 5
-                    },
-                    {
-                        "Gun Type": 5
-                    },
-                    {
-                        "Gun Type": 5
-                    }
-                ],
-                "Script Resource": 4015574954,
-                "Type": 5
-            },
-            {
-                "Enabled": true,
-                "Inspector Fields": null,
-                "Script Resource": 0,
-                "Type": 5
             }
         ],
         "FirstOnPrefab": true,
-        "Name": "Handgun",
-        "ParentUID": 1475165862,
+        "Name": "(O) Shotgun",
+        "ParentUID": 3172887682,
         "PrefabUID": 0,
         "Tag": "Default",
-        "UID": 855340649
+        "UID": 1443036171
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
                 "Position": [
-                    0.0,
-                    1.5,
-                    0.699999988079071
+                    -4.426777167054752e-08,
+                    1.578857421875,
+                    0.32865461707115173
                 ],
                 "Rotation": [
-                    0.0,
+                    -90.00000762939453,
                     0.0,
                     0.0
                 ],
                 "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
+                    0.05000000074505806,
+                    0.04999970644712448,
+                    0.04999970644712448
                 ],
                 "Type": 1
             },
@@ -9390,10 +9130,23 @@
             },
             {
                 "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 1497929994,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 910850575,
+                "Type": 18
+            },
+            {
+                "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Gun Type": 5
-                    },
                     {
                         "Gun Type": 5
                     },
@@ -9429,7 +9182,7 @@
                         "Projectile Lifetime": 0.0
                     },
                     {
-                        "Projectile Spawn": 3579561625
+                        "Projectile Spawn": 2041240455
                     },
                     {
                         "Fire Particles": 3579561625
@@ -9474,7 +9227,7 @@
                         "Projectile Lifetime": 0.0
                     },
                     {
-                        "Projectile Spawn": 3579561625
+                        "Projectile Spawn": 2041240455
                     },
                     {
                         "Fire Particles": 3579561625
@@ -9519,7 +9272,7 @@
                         "Projectile Lifetime": 0.0
                     },
                     {
-                        "Projectile Spawn": 3579561625
+                        "Projectile Spawn": 2041240455
                     },
                     {
                         "Fire Particles": 3579561625
@@ -9564,52 +9317,7 @@
                         "Projectile Lifetime": 0.0
                     },
                     {
-                        "Projectile Spawn": 3579561625
-                    },
-                    {
-                        "Fire Particles": 3579561625
-                    },
-                    {
-                        "Projectile ScaleX": 0.0
-                    },
-                    {
-                        "Projectile ScaleY": 0.0
-                    },
-                    {
-                        "Projectile ScaleZ": 0.0
-                    },
-                    {
-                        "Ticks per second": 0.0
-                    },
-                    {
-                        "Extra % firerate": 15.0
-                    },
-                    {
-                        "Player Stats GO": 1475165862
-                    },
-                    {
-                        "Ammo Type": 2
-                    },
-                    {
-                        "Audio Event String": "w_basic"
-                    },
-                    {
-                        "Projectile Pull": 3715485205
-                    },
-                    {
-                        "Projectile Speed": 0.0
-                    },
-                    {
-                        "Projectile Damage": 0.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 0.0
-                    },
-                    {
-                        "Projectile Spawn": 3579561625
+                        "Projectile Spawn": 2041240455
                     },
                     {
                         "Fire Particles": 3579561625
@@ -9651,33 +9359,76 @@
         "UID": 3579561625
     },
     {
-        "Active": true,
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    5.151180744178419e-07,
+                    -4.3211469650268555,
+                    0.4677886962890625
+                ],
+                "Rotation": [
+                    -1.1570789890652208e-26,
+                    7.279713486932878e-20,
+                    -2.035555833048916e-13
+                ],
+                "Scale": [
+                    0.9999998211860657,
+                    1.0,
+                    0.9999998211860657
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "(O) Flamethrower",
+        "ParentUID": 3579561625,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2041240455
+    },
+    {
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
                 "Position": [
                     0.0,
-                    1.5,
+                    1.288332462310791,
                     0.699999988079071
                 ],
                 "Rotation": [
-                    0.0,
-                    0.0,
-                    0.0
+                    179.99989318847656,
+                    89.98020935058594,
+                    179.99989318847656
                 ],
                 "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
+                    0.030000003054738045,
+                    0.029999999329447746,
+                    0.05000004917383194
                 ],
                 "Type": 1
             },
             {
                 "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 1353370257,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 2675366070,
+                "Type": 18
+            },
+            {
+                "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Gun Type": 6
-                    },
                     {
                         "Gun Type": 6
                     },
@@ -9713,7 +9464,7 @@
                         "Projectile Lifetime": 0.0
                     },
                     {
-                        "Projectile Spawn": 2767080449
+                        "Projectile Spawn": 1323827506
                     },
                     {
                         "Projectile ScaleX": 0.4000000059604645
@@ -9755,7 +9506,7 @@
                         "Projectile Lifetime": 0.0
                     },
                     {
-                        "Projectile Spawn": 2767080449
+                        "Projectile Spawn": 1323827506
                     },
                     {
                         "Projectile ScaleX": 0.4000000059604645
@@ -9797,7 +9548,7 @@
                         "Projectile Lifetime": 0.0
                     },
                     {
-                        "Projectile Spawn": 2767080449
+                        "Projectile Spawn": 1323827506
                     },
                     {
                         "Projectile ScaleX": 0.4000000059604645
@@ -9839,49 +9590,7 @@
                         "Projectile Lifetime": 0.0
                     },
                     {
-                        "Projectile Spawn": 2767080449
-                    },
-                    {
-                        "Projectile ScaleX": 0.4000000059604645
-                    },
-                    {
-                        "Projectile ScaleY": 0.05000000074505806
-                    },
-                    {
-                        "Projectile ScaleZ": 0.4000000059604645
-                    },
-                    {
-                        "Projectiles per second": 0.0
-                    },
-                    {
-                        "Extra % firerate": 15.0
-                    },
-                    {
-                        "Player Stats GO": 1475165862
-                    },
-                    {
-                        "Ammo Type": 2
-                    },
-                    {
-                        "Audio Event String": "w_basic"
-                    },
-                    {
-                        "Projectile Pull": 3715485205
-                    },
-                    {
-                        "Projectile Speed": 0.0
-                    },
-                    {
-                        "Projectile Damage": 0.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 0.0
-                    },
-                    {
-                        "Projectile Spawn": 2767080449
+                        "Projectile Spawn": 1323827506
                     },
                     {
                         "Projectile ScaleX": 0.4000000059604645
@@ -9918,6 +9627,36 @@
         "PrefabUID": 0,
         "Tag": "Default",
         "UID": 2767080449
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    6.196863174438477,
+                    11.314765930175781,
+                    0.0012840188574045897
+                ],
+                "Rotation": [
+                    -2.12302696039543e-13,
+                    6.211556069501967e-08,
+                    6.514519392680773e-12
+                ],
+                "Scale": [
+                    1.0000001192092896,
+                    1.0,
+                    0.9999937415122986
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "(O) Ricochet",
+        "ParentUID": 2767080449,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1323827506
     },
     {
         "Active": true,
