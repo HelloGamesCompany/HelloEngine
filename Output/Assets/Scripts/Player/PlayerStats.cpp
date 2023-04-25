@@ -211,7 +211,26 @@ void PlayerStats::OnCollisionEnter(API_RigidBody other)
             return;
         }
 
-        Audio::Event(indexContainer->playAudio.c_str());
+        // check casette amount
+        int casettesPicked = 0;
+        if (storage->casette1Picked) casettesPicked++;
+        if (storage->casette2Picked) casettesPicked++;
+        if (storage->casette3Picked) casettesPicked++;
+
+        switch (casettesPicked)
+        {
+        case 0:
+            Audio::Event(storage->playAudio1.c_str());
+            break;
+        case 1:
+            Audio::Event(storage->playAudio2.c_str());
+            break;
+        case 2:
+            Audio::Event(storage->playAudio3.c_str());
+            break;
+        default:
+            break;
+        }
 
         switch (indexContainer->index)
         {
