@@ -50,8 +50,7 @@ public:
     int laserAmmo; // index 1
     int maxLaserAmmo;
     int specialAmmo;
-    int maxFireAmmo; // index 2
-    int maxRicochetAmmo; // index 3
+    int maxSpecialAmmo; // index 2
      
     bool detected; //if the player is being detected somehow
     bool inCombat = false;

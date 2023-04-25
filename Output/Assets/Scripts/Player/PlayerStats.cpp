@@ -177,7 +177,7 @@ void PlayerStats::OnCollisionEnter(API_RigidBody other)
         switch (enemyDrop->dropIndex)
         {
         case 0: // laser ammo
-            GetAmmo(1, 100);
+            GetAmmo(1, 0.4f * maxLaserAmmo);
             break;
         case 1: // first aid kit
             if (healthTreeLvl > 3) Heal(upgradedAidKitHeal);
@@ -316,11 +316,10 @@ int PlayerStats::GetAmmonByType(int type)
         return laserAmmo;
         break;
     case 2:
-    case 3:
         return specialAmmo;
         break;
     default:
-        Console::Log("Invalid type, type can only be 0, 1, 2 or 3.");
+        Console::Log("Invalid type, type can only be 0, 1 or 2.");
         return -1;
         break;
     }
@@ -338,14 +337,10 @@ void PlayerStats::GetAmmo(int type, int amount)
         break;
     case 2:
         specialAmmo += amount;
-        if (specialAmmo > maxFireAmmo) specialAmmo = maxFireAmmo;
-        break;
-    case 3:
-        specialAmmo += amount;
-        if (specialAmmo > maxRicochetAmmo) specialAmmo = maxRicochetAmmo;
+        if (specialAmmo > maxSpecialAmmo) specialAmmo = maxSpecialAmmo;
         break;
     default:
-        Console::Log("Invalid type, can only get ammo of types 1, 2 or 3.");
+        Console::Log("Invalid type, can only get ammo of types 1 or 2.");
         break;
     }
 }
@@ -358,11 +353,10 @@ void PlayerStats::UseAmmo(int type, int amount)
         laserAmmo -= amount;
         break;
     case 2:
-    case 3:
         specialAmmo -= amount;
         break;
     default:
-        Console::Log("Invalid type, can only use ammo of types 1, 2 or 3.");
+        Console::Log("Invalid type, can only use ammo of types 1 or 2.");
         break;
     }
 }
@@ -408,9 +402,8 @@ void PlayerStats::GetPowerUp(int index)
         hudPowerUp->AddPowerUp(PowerUp_Type::SHIELD, 1);
         break;
     case 3:
-        GetAmmo(1, 9999);
-        GetAmmo(2, 9999);
-        GetAmmo(3, 9999);
+        GetAmmo(1, maxLaserAmmo);
+        GetAmmo(2, maxSpecialAmmo);
         break;
     case 4:
         slowTimePowerUp = 5.0f;

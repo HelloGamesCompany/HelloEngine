@@ -54,19 +54,23 @@ void PlayerGunManager::Start()
     switch (equipedNormalGun)
     {
     case 1: // semiautomatic
-        playerStats->maxLaserAmmo = 200;
+        playerStats->maxLaserAmmo = 150;
+        playerStats->laserAmmo = 150;
         if (swapWeapon) swapWeapon->SwapWeapon2(normalWeapon_Type::SEMI);
         break;
     case 2: // automatic
-        playerStats->maxLaserAmmo = 200;
+        playerStats->maxLaserAmmo = 350;
+        playerStats->laserAmmo = 350;
         if (swapWeapon) swapWeapon->SwapWeapon2(normalWeapon_Type::AUTO);
         break;
     case 3: // burst
-        playerStats->maxLaserAmmo = 200;
+        playerStats->maxLaserAmmo = 100;
+        playerStats->laserAmmo = 100;
         if (swapWeapon) swapWeapon->SwapWeapon2(normalWeapon_Type::BURST);
         break;
     case 4: // shotgun
-        playerStats->maxLaserAmmo = 200;
+        playerStats->maxLaserAmmo = 70;
+        playerStats->laserAmmo = 70;
         if (swapWeapon) swapWeapon->SwapWeapon2(normalWeapon_Type::SHOTGUN);
         break;
     default:
