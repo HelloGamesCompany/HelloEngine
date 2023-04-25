@@ -211,6 +211,8 @@ void PlayerStats::OnCollisionEnter(API_RigidBody other)
             return;
         }
 
+        Audio::Event(indexContainer->playAudio.c_str());
+
         switch (indexContainer->index)
         {
         case 1:

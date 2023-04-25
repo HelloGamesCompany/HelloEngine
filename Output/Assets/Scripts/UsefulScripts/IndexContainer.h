@@ -12,5 +12,6 @@ public:
     void Update() override;
 
     int index;
+    API_String playAudio;
 };
 
