@@ -4,9 +4,9 @@ HELLO_ENGINE_API_C HUD_BluePrints* CreateHUD_BluePrints(ScriptToInspectorInterfa
 {
 	HUD_BluePrints* classInstance = new HUD_BluePrints();
 	//Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
-	script->AddDragBoxMaterialComponent("Material_Upgrade", &classInstance->material_upgrade);
-	script->AddDragBoxMaterialComponent("Material_New_Weapon", &classInstance->material_new_weapon);
-	script->AddDragBoxMaterialComponent("Material_Special_Weapon", &classInstance->material_special_weapon);
+	script->AddDragBoxUIImage("Image_Upgrade", &classInstance->material_upgrade);
+	script->AddDragBoxUIImage("Image_New_Weapon", &classInstance->material_new_weapon);
+	script->AddDragBoxUIImage("Image_Special_Weapon", &classInstance->material_special_weapon);
 	
 	//background
 	script->AddDragBoxMaterialComponent("Material_Background_Upgrade", &classInstance->material_Background_1);
@@ -55,26 +55,6 @@ void HUD_BluePrints::Start()
 }
 void HUD_BluePrints::Update()
 {
-	if (timer_new < 1.3f)
-	{
-
-		timer_new -= Time::GetDeltaTime();
-		
-		if (timer_new >= 0.0f)
-		{
-
-			material_new_weapon.GetGameObject().GetTransform().Translate(new_weapon_movmentX);
-			text_upgrade.GetGameObject().GetTransform().Translate(new_weapon_movmentX);
-			material_Background_2.GetGameObject().GetTransform().Translate(new_weapon_movmentX);
-		}
-		else if (timer_new <= -3.0f)
-		{
-			material_new_weapon.GetGameObject().GetTransform().SetPosition(new_weapon_position_save);
-			text_upgrade.GetGameObject().GetTransform().SetPosition(text_new_weapon_position_save);
-			material_Background_2.GetGameObject().GetTransform().SetPosition(Background_new_weapon_position_save);
-			timer_new = 1.3f;
-		}
-	}
 
 	if (timer_upgrade < 1.3f)
 	{
@@ -86,12 +66,44 @@ void HUD_BluePrints::Update()
 			text_upgrade.GetGameObject().GetTransform().Translate(upgrade_movmentX);
 			material_Background_1.GetGameObject().GetTransform().Translate(upgrade_movmentX);
 		}
-		else if (timer_upgrade <= -3.0f)
+		else if (timer_upgrade < 0.0f && timer_upgrade > -3.0f)
+		{
+		material_upgrade.SetOpacity(opacity_upgrade = opacity_upgrade - 0.003);
+		}
+		else
 		{
 			material_upgrade.GetGameObject().GetTransform().SetPosition(upgrade_position_save);
 			text_upgrade.GetGameObject().GetTransform().SetPosition(text_upgrade_position_save);
 			material_Background_1.GetGameObject().GetTransform().SetPosition(Background_upgrade_position_save);
+			opacity_upgrade = 1;
 			timer_upgrade = 1.3f;
+			material_upgrade.SetOpacity(opacity_upgrade);
+		}
+	}
+
+	if (timer_new < 1.3f)
+	{
+		timer_new -= Time::GetDeltaTime();
+
+		if (timer_new >= 0.0f)
+		{
+
+			material_new_weapon.GetGameObject().GetTransform().Translate(new_weapon_movmentX);
+			text_new_weapon.GetGameObject().GetTransform().Translate(new_weapon_movmentX);
+			material_Background_2.GetGameObject().GetTransform().Translate(new_weapon_movmentX);
+		}
+		else if (timer_new > -3.0f && timer_new < 0.0f)
+		{
+			material_new_weapon.SetOpacity(opacity_new_weapon = opacity_new_weapon - 0.003);
+		}
+		else
+		{
+			material_new_weapon.GetGameObject().GetTransform().SetPosition(new_weapon_position_save);
+			text_new_weapon.GetGameObject().GetTransform().SetPosition(text_new_weapon_position_save);
+			material_Background_2.GetGameObject().GetTransform().SetPosition(Background_new_weapon_position_save);
+			opacity_new_weapon = 1;
+			material_new_weapon.SetOpacity(opacity_new_weapon);
+			timer_new = 1.3f;
 		}
 	}
 
@@ -106,12 +118,19 @@ void HUD_BluePrints::Update()
 			text_special_weapon.GetGameObject().GetTransform().Translate(special_weapon_movmentX);
 			material_Background_3.GetGameObject().GetTransform().Translate(special_weapon_movmentX);
 		}
-		else if (timer_special <= -3.0f)
+		else if ( timer_special < 0.0f && timer_special > -3.0f)
+		{
+			material_upgrade.SetOpacity(opacity_special_weapon = opacity_special_weapon - 0.01);
+		
+		}
+		else
 		{
 			material_special_weapon.GetGameObject().GetTransform().SetPosition(special_weapon_position_save);
 			text_special_weapon.GetGameObject().GetTransform().SetPosition(text_special_weapon_position_save);
 			material_Background_3.GetGameObject().GetTransform().SetPosition(Background_special_weapon_position_save);
 			timer_special = 1.3f;
+			opacity_special_weapon = 1;
+			material_upgrade.SetOpacity(opacity_special_weapon);
 		}
 	}
 }
@@ -119,11 +138,11 @@ void HUD_BluePrints::Update()
 void HUD_BluePrints::UpgradeAlert(int GetUpgrade)
 {
 	timer_upgrade -= Time::GetDeltaTime();
-	
+
 	switch (GetUpgrade)
 	{
 	case 0:
-		material_upgrade.ChangeAlbedoTexture(upgrade_textures);
+		material_upgrade.GetGameObject().GetMaterialCompoennt().ChangeAlbedoTexture(upgrade_textures);
 		break;
 	default:
 		break;
@@ -136,16 +155,16 @@ void HUD_BluePrints::New_WeaponAlert(int GetNewWeapon)
 	switch (GetNewWeapon)
 	{
 	case 1:
-		material_new_weapon.ChangeAlbedoTexture(new_weapon_textures[0]);
+		material_new_weapon.GetGameObject().GetMaterialCompoennt().ChangeAlbedoTexture(new_weapon_textures[0]);
 		break;
 	case 2:
-		material_new_weapon.ChangeAlbedoTexture(new_weapon_textures[1]);
+		material_new_weapon.GetGameObject().GetMaterialCompoennt().ChangeAlbedoTexture(new_weapon_textures[1]);
 		break;
 	case 3:
-		material_new_weapon.ChangeAlbedoTexture(new_weapon_textures[2]);
+		material_new_weapon.GetGameObject().GetMaterialCompoennt().ChangeAlbedoTexture(new_weapon_textures[2]);
 		break;
 	case 4:
-		material_new_weapon.ChangeAlbedoTexture(new_weapon_textures[3]);
+		material_new_weapon.GetGameObject().GetMaterialCompoennt().ChangeAlbedoTexture(new_weapon_textures[3]);
 		break;
 	default:
 		break;
@@ -159,10 +178,10 @@ void HUD_BluePrints::Special_WeaponAlert(int GetSpecialWeapon)
 	switch (GetSpecialWeapon)
 	{
 	case 5:
-		material_special_weapon.ChangeAlbedoTexture(special_weapon_textures[0]);
+		material_special_weapon.GetGameObject().GetMaterialCompoennt().ChangeAlbedoTexture(special_weapon_textures[0]);
 		break;
 	case 6:
-		material_special_weapon.ChangeAlbedoTexture(special_weapon_textures[1]);
+		material_special_weapon.GetGameObject().GetMaterialCompoennt().ChangeAlbedoTexture(special_weapon_textures[1]);
 		break;
 	default:
 		break;
