@@ -10523,7 +10523,7 @@
             {
                 "Active camera": true,
                 "Active culling": true,
-                "Aspect ratio": 2.0104987621307373,
+                "Aspect ratio": 2.0628366470336914,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -13554,12 +13554,12 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "hoverBlockImage": 0,
+                "hoverBlockImage": 3021994239,
                 "hoverImage": 3987571885,
-                "idleBlockImage": 0,
+                "idleBlockImage": 3021994239,
                 "idleImage": 1449475796,
-                "pressBlockImage": 0,
-                "pressImage": 2961548424
+                "pressBlockImage": 1138698016,
+                "pressImage": 1449475796
             }
         ],
         "FirstOnPrefab": false,
@@ -13962,12 +13962,12 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "hoverBlockImage": 0,
+                "hoverBlockImage": 3021994239,
                 "hoverImage": 3987571885,
-                "idleBlockImage": 0,
+                "idleBlockImage": 3021994239,
                 "idleImage": 1449475796,
-                "pressBlockImage": 0,
-                "pressImage": 2961548424
+                "pressBlockImage": 1138698016,
+                "pressImage": 1449475796
             }
         ],
         "FirstOnPrefab": false,
@@ -14370,12 +14370,12 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "hoverBlockImage": 0,
+                "hoverBlockImage": 3021994239,
                 "hoverImage": 3987571885,
-                "idleBlockImage": 0,
+                "idleBlockImage": 3021994239,
                 "idleImage": 1449475796,
-                "pressBlockImage": 0,
-                "pressImage": 2961548424
+                "pressBlockImage": 1138698016,
+                "pressImage": 1449475796
             }
         ],
         "FirstOnPrefab": false,
@@ -14778,12 +14778,12 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "hoverBlockImage": 0,
+                "hoverBlockImage": 3021994239,
                 "hoverImage": 3987571885,
-                "idleBlockImage": 0,
+                "idleBlockImage": 3021994239,
                 "idleImage": 1449475796,
-                "pressBlockImage": 0,
-                "pressImage": 2961548424
+                "pressBlockImage": 1138698016,
+                "pressImage": 1449475796
             }
         ],
         "FirstOnPrefab": false,
@@ -15186,12 +15186,12 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "hoverBlockImage": 0,
+                "hoverBlockImage": 3021994239,
                 "hoverImage": 3987571885,
-                "idleBlockImage": 0,
+                "idleBlockImage": 3021994239,
                 "idleImage": 1449475796,
-                "pressBlockImage": 0,
-                "pressImage": 2961548424
+                "pressBlockImage": 1138698016,
+                "pressImage": 1449475796
             }
         ],
         "FirstOnPrefab": false,
@@ -15601,6 +15601,9 @@
                         "Menu Panel": 2963029982
                     },
                     {
+                        "Button Guide": 3437375339
+                    },
+                    {
                         "Number of menus": 4
                     },
                     {
@@ -15617,6 +15620,9 @@
                     },
                     {
                         "Menu Panel": 2963029982
+                    },
+                    {
+                        "Button Guide": 3437375339
                     }
                 ],
                 "Script Resource": 3847920188,
@@ -23651,6 +23657,9 @@
                         "Menu Panel": 1310414073
                     },
                     {
+                        "Button Guide": 2225710694
+                    },
+                    {
                         "Number of menus": 1
                     },
                     {
@@ -23658,6 +23667,9 @@
                     },
                     {
                         "Menu Panel": 1310414073
+                    },
+                    {
+                        "Button Guide": 2225710694
                     }
                 ],
                 "Script Resource": 2222166954,
@@ -24172,7 +24184,7 @@
                 "Enabled": true,
                 "Position": [
                     0.699999988079071,
-                    0.6800000071525574,
+                    0.6100000143051147,
                     0.0
                 ],
                 "Rotation": [
@@ -24181,7 +24193,7 @@
                     0.0
                 ],
                 "Scale": [
-                    0.5,
+                    0.800000011920929,
                     0.5,
                     0.5
                 ],
@@ -24196,7 +24208,7 @@
                 ],
                 "Enabled": true,
                 "PositionX": 0.699999988079071,
-                "PositionY": 0.6800000071525574,
+                "PositionY": 0.6100000143051147,
                 "Scale": 0.5,
                 "Text": "0",
                 "Type": 17
@@ -24240,7 +24252,7 @@
                 "Enabled": true,
                 "Position": [
                     0.75,
-                    0.699999988079071,
+                    0.6399999856948853,
                     0.0
                 ],
                 "Rotation": [
@@ -24249,8 +24261,8 @@
                     0.0
                 ],
                 "Scale": [
-                    0.15000000596046448,
-                    0.15000000596046448,
+                    0.10000000149011612,
+                    0.10000000149011612,
                     0.30000001192092896
                 ],
                 "Type": 1
@@ -24272,7 +24284,7 @@
         "UID": 3476811162
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -24405,7 +24417,7 @@
         "UID": 726755960
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -24436,7 +24448,7 @@
                 "hoverImage": 3906363488,
                 "idleBlockImage": 3466576953,
                 "idleImage": 75339859,
-                "pressBlockImage": 1455574380,
+                "pressBlockImage": 2204455621,
                 "pressImage": 2599615273
             },
             {
@@ -24473,7 +24485,7 @@
         "UID": 2761944280
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -24547,7 +24559,7 @@
         "UID": 3636875960
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -24621,7 +24633,7 @@
         "UID": 1734210071
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -24689,7 +24701,7 @@
         "UID": 1613695234
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -24727,7 +24739,7 @@
         "UID": 6080464
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -24765,7 +24777,7 @@
         "UID": 3286644510
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -24803,7 +24815,7 @@
         "UID": 762428728
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -24841,7 +24853,7 @@
         "UID": 197488503
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -24974,7 +24986,7 @@
         "UID": 3616324842
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -25042,7 +25054,7 @@
         "UID": 1168933361
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -25116,7 +25128,7 @@
         "UID": 1269201573
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -25190,7 +25202,7 @@
         "UID": 2720533225
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -25258,7 +25270,7 @@
         "UID": 2480871420
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -25296,7 +25308,7 @@
         "UID": 886436084
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -25334,7 +25346,7 @@
         "UID": 2362856287
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -25372,7 +25384,7 @@
         "UID": 4085303271
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -25410,7 +25422,7 @@
         "UID": 2653277242
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -25550,7 +25562,7 @@
         "UID": 2934290476
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -25624,7 +25636,7 @@
         "UID": 2412762651
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -25698,7 +25710,7 @@
         "UID": 2777578711
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -25772,7 +25784,7 @@
         "UID": 1199903426
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -25846,7 +25858,7 @@
         "UID": 1362514346
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -25920,7 +25932,7 @@
         "UID": 963583409
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -25958,7 +25970,7 @@
         "UID": 3020994421
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -25996,7 +26008,7 @@
         "UID": 1888929368
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -26034,7 +26046,7 @@
         "UID": 855224226
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -26072,7 +26084,7 @@
         "UID": 2425893789
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -26110,7 +26122,7 @@
         "UID": 3732501824
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -26236,7 +26248,7 @@
         "UID": 2546321765
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -26304,7 +26316,7 @@
         "UID": 2692458665
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -26378,7 +26390,7 @@
         "UID": 2112049340
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -26446,7 +26458,7 @@
         "UID": 486754283
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -26484,7 +26496,7 @@
         "UID": 1387223882
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -26522,7 +26534,7 @@
         "UID": 2835375609
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -30351,5 +30363,353 @@
         "PrefabUID": 633942339,
         "Tag": "Projectile",
         "UID": 2866064362
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Buttons Guide",
+        "ParentUID": 2830428646,
+        "PrefabUID": 924864671,
+        "Tag": "UI",
+        "UID": 270501343
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.8500000238418579,
+                    -0.800000011920929,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.10000000149011612,
+                    0.20000000298023224,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 3545280342,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
+                "Type": 15
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Button Guide": 3437375339
+                    },
+                    {
+                        "Move X animation repeat": 0
+                    },
+                    {
+                        "Move Y animation repeat": 0
+                    },
+                    {
+                        "Move animation in loop": true
+                    },
+                    {
+                        "Move animation active": true
+                    },
+                    {
+                        "Distance move X": 0.0
+                    },
+                    {
+                        "Speed move X": 0.0
+                    },
+                    {
+                        "Distance move Y": 0.029999999329447746
+                    },
+                    {
+                        "Speed move Y": 1.0
+                    },
+                    {
+                        "Scale animation repeat": 0
+                    },
+                    {
+                        "Scale animation in loop": false
+                    },
+                    {
+                        "Scale animation active": false
+                    },
+                    {
+                        "Scale max": 0.0
+                    },
+                    {
+                        "Speed Scale": 0.0
+                    },
+                    {
+                        "Rotate animation repeat": 0
+                    },
+                    {
+                        "Rotate animation in loop": false
+                    },
+                    {
+                        "Rotate animation active": false
+                    },
+                    {
+                        "Rotate distance": 0.0
+                    },
+                    {
+                        "Speed Rotation": 0.0
+                    },
+                    {
+                        "Button Guide": 3437375339
+                    },
+                    {
+                        "Move X animation repeat": 0
+                    },
+                    {
+                        "Move Y animation repeat": 0
+                    },
+                    {
+                        "Move animation in loop": true
+                    },
+                    {
+                        "Move animation active": true
+                    },
+                    {
+                        "Distance move X": 0.0
+                    },
+                    {
+                        "Speed move X": 0.0
+                    },
+                    {
+                        "Distance move Y": 0.029999999329447746
+                    },
+                    {
+                        "Speed move Y": 1.0
+                    },
+                    {
+                        "Scale animation repeat": 0
+                    },
+                    {
+                        "Scale animation in loop": false
+                    },
+                    {
+                        "Scale animation active": false
+                    },
+                    {
+                        "Scale max": 0.0
+                    },
+                    {
+                        "Speed Scale": 0.0
+                    },
+                    {
+                        "Rotate animation repeat": 0
+                    },
+                    {
+                        "Rotate animation in loop": false
+                    },
+                    {
+                        "Rotate animation active": false
+                    },
+                    {
+                        "Rotate distance": 0.0
+                    },
+                    {
+                        "Speed Rotation": 0.0
+                    }
+                ],
+                "Script Resource": 148961927,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Armory_Button",
+        "ParentUID": 270501343,
+        "PrefabUID": 924864671,
+        "Tag": "UI",
+        "UID": 3437375339
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.8500000238418579,
+                    -0.800000011920929,
+                    0.0
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.10000000149011612,
+                    0.20000000298023224,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 3545280342,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
+                "Type": 15
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Button Guide": 2225710694
+                    },
+                    {
+                        "Move X animation repeat": 0
+                    },
+                    {
+                        "Move Y animation repeat": 0
+                    },
+                    {
+                        "Move animation in loop": true
+                    },
+                    {
+                        "Move animation active": true
+                    },
+                    {
+                        "Distance move X": 0.0
+                    },
+                    {
+                        "Speed move X": 0.0
+                    },
+                    {
+                        "Distance move Y": 0.029999999329447746
+                    },
+                    {
+                        "Speed move Y": 1.0
+                    },
+                    {
+                        "Scale animation repeat": 0
+                    },
+                    {
+                        "Scale animation in loop": false
+                    },
+                    {
+                        "Scale animation active": false
+                    },
+                    {
+                        "Scale max": 0.0
+                    },
+                    {
+                        "Speed Scale": 0.0
+                    },
+                    {
+                        "Rotate animation repeat": 0
+                    },
+                    {
+                        "Rotate animation in loop": false
+                    },
+                    {
+                        "Rotate animation active": false
+                    },
+                    {
+                        "Rotate distance": 0.0
+                    },
+                    {
+                        "Speed Rotation": 0.0
+                    },
+                    {
+                        "Button Guide": 2225710694
+                    },
+                    {
+                        "Move X animation repeat": 0
+                    },
+                    {
+                        "Move Y animation repeat": 0
+                    },
+                    {
+                        "Move animation in loop": true
+                    },
+                    {
+                        "Move animation active": true
+                    },
+                    {
+                        "Distance move X": 0.0
+                    },
+                    {
+                        "Speed move X": 0.0
+                    },
+                    {
+                        "Distance move Y": 0.029999999329447746
+                    },
+                    {
+                        "Speed move Y": 1.0
+                    },
+                    {
+                        "Scale animation repeat": 0
+                    },
+                    {
+                        "Scale animation in loop": false
+                    },
+                    {
+                        "Scale animation active": false
+                    },
+                    {
+                        "Scale max": 0.0
+                    },
+                    {
+                        "Speed Scale": 0.0
+                    },
+                    {
+                        "Rotate animation repeat": 0
+                    },
+                    {
+                        "Rotate animation in loop": false
+                    },
+                    {
+                        "Rotate animation active": false
+                    },
+                    {
+                        "Rotate distance": 0.0
+                    },
+                    {
+                        "Speed Rotation": 0.0
+                    }
+                ],
+                "Script Resource": 148961927,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": false,
+        "Name": "Abilities_Button",
+        "ParentUID": 270501343,
+        "PrefabUID": 924864671,
+        "Tag": "UI",
+        "UID": 2225710694
     }
 ]
