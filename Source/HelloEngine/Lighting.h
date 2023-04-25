@@ -5,14 +5,6 @@
 #include "PointLightComponent.h"
 #include "SpotLightComponent.h"
 
-struct GlobalLight
-{
-	float4 lightDirection = float4(0.2f, 1.0f, -0.75f, 0.0f);
-	float3 lightColor = float3(1.0, 1.0f, 1.0f);
-
-	float lightStrength = 1.0f;
-};
-
 struct LightMap
 {
 	DirectionalLight directionalLight;
@@ -43,8 +35,5 @@ private:
 	int ref;
 
 	static LightMap _lightMap;
-
-public:
-	static GlobalLight global;
 };
 

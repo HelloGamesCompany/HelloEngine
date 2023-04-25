@@ -22,7 +22,7 @@ SpotLightComponent::~SpotLightComponent()
 void SpotLightComponent::OnTransformCallback(float4x4 worldMatrix)
 {
 	data.position = worldMatrix.TranslatePart();
-	data.direction = worldMatrix.ToEulerXYZ();
+	data.direction = _gameObject->GetComponent<TransformComponent>()->GetLocalRotation();
 
 	UpdateToLightMap();
 }
@@ -57,7 +57,7 @@ void SpotLightComponent::DeSerializationUnique(json& j)
 	
 	float4x4 transform = _gameObject->GetComponent<TransformComponent>()->GetGlobalMatrix();
 	data.position = transform.TranslatePart();
-	data.direction = transform.ToEulerXYZ();
+	data.direction = _gameObject->GetComponent<TransformComponent>()->GetLocalRotation();
 
 	UpdateToLightMap();
 }
@@ -65,13 +65,13 @@ void SpotLightComponent::DeSerializationUnique(json& j)
 #ifdef STANDALONE
 void SpotLightComponent::OnEditorUnique()
 {
-	ImGui::DragFloat("Cutoff", &data.cutoff);
-	ImGui::DragFloat("Distance", &data.distance);
+	ImGui::DragFloat("Cutoff", &data.cutoff, 0.5f, 0.05f, 179.5f);
+	ImGui::DragFloat("Distance", &data.distance, 0.5f, 0.5f, 1000.0f);
 
 	ImGui::TextColored(ImVec4(1.0f, 0.0f, 0.0f, 1.0f), "Attenuation");
-	ImGui::DragFloat("Constant", &data.constant);
-	ImGui::DragFloat("Linear", &data.linear);
-	ImGui::DragFloat("Exponential", &data.exp);
+	//ImGui::DragFloat("Constant", &data.constant);
+	ImGui::DragFloat("Linear", &data.linear, 0.05f, 0.05f, 0.0f);
+	ImGui::DragFloat("Quadratic", &data.exp, 0.05f, 0.0f, 1.0f);
 
 	UpdateToLightMap();
 }

@@ -111,10 +111,10 @@ void LightComponent::OnEditor()
 		}
 
 		//Ambient intensity
-		ImGui::DragFloat("Ambient Intensity", &data.ambientIntensity, 0.25f);
+		ImGui::DragFloat("Ambient Intensity", &data.ambientIntensity, 0.25f, 0.25f, 1000.0f);
 
 		//Diffuse intensity
-		ImGui::DragFloat("Diffuse Intensity", &data.diffuseIntensity, 0.25f);
+		ImGui::DragFloat("Diffuse Intensity", &data.diffuseIntensity, 0.25f, 0.25f, 1000.0f);
 
 		//Unique per child
 		ImGui::NewLine();

@@ -1,7 +1,6 @@
 #include "Headers.h"
 #include "Lighting.h"
 
-GlobalLight Lighting::global;
 LightMap Lighting::_lightMap;
 
 Lighting::Lighting()
@@ -14,28 +13,6 @@ Lighting::~Lighting()
 {
 
 }
-
-//uint Lighting::AddLight(Light lightData)
-//{
-//	uint _lightID = 0;
-//
-//	switch (lightData.GetType())
-//	{
-//	case Component::Type::DIRECTIONAL_LIGHT:
-//		_lightMap.directionalLight = (DirectionalLight) lightData;
-//		break;
-//	case Component::Type::POINT_LIGHT:
-//		_lightID = _lightMap.pointLight.size();
-//		_lightMap.pointLight[_lightID] = (PointLightComponent::PointLight) lightData;
-//		break;
-//	case Component::Type::SPOT_LIGHT:
-//		_lightID = _lightMap.spotLight.size();
-//		_lightMap.spotLight[_lightID] = (SpotLightComponent::SpotLight) lightData;
-//		break;
-//	}
-//
-//	return _lightID;
-//}
 
 void Lighting::SetDirectionalLight(DirectionalLight lightData)
 {

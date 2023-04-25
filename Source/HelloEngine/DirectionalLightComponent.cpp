@@ -21,7 +21,8 @@ DirectionalLightComponent::~DirectionalLightComponent()
 
 void DirectionalLightComponent::OnTransformCallback(float4x4 worldMatrix)
 {
-	data.direction = worldMatrix.ToEulerXYZ();
+	//data.direction = worldMatrix.ToEulerXYZ();
+	data.direction = _gameObject->GetComponent<TransformComponent>()->GetLocalRotation();
 
 	UpdateToLightMap();
 }
@@ -42,7 +43,8 @@ void DirectionalLightComponent::DeSerializationUnique(json& j)
 	/*std::vector<float> temp = j["Direction"];
 	data.direction = { temp[0], temp[1], temp[2] };*/
 
-	data.direction = _gameObject->GetComponent<TransformComponent>()->GetGlobalMatrix().ToEulerXYZ();
+	//data.direction = _gameObject->GetComponent<TransformComponent>()->GetGlobalMatrix().ToEulerXYZ();
+	data.direction = _gameObject->GetComponent<TransformComponent>()->GetLocalRotation();
 
 	UpdateToLightMap();
 }

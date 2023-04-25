@@ -7,7 +7,7 @@ struct PointLight : public Light
 
 	float constant = 1.0f;
 	float linear = 1.0f;
-	float exp = 1.0f;
+	float exp = 0.0f;
 
 	float3 position;
 	float distance = 16.0f;

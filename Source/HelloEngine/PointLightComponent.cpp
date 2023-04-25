@@ -58,13 +58,13 @@ void PointLightComponent::DeSerializationUnique(json& j)
 #ifdef STANDALONE
 void PointLightComponent::OnEditorUnique()
 {
-	ImGui::DragFloat("Distance", &data.distance);
+	ImGui::DragFloat("Distance", &data.distance, 0.5f, 0.5f, 1000.0f);
 
 	//UpdateData(this->data);
 	ImGui::TextColored(ImVec4(1.0f, 0.0f, 0.0f, 1.0f), "Attenuation");
-	ImGui::DragFloat("Constant", &data.constant);
-	ImGui::DragFloat("Linear", &data.linear);
-	ImGui::DragFloat("Quadratic", &data.exp);
+	//ImGui::DragFloat("Constant", &data.constant);
+	ImGui::DragFloat("Linear", &data.linear, 0.05f, 0.05f, 0.0f);
+	ImGui::DragFloat("Quadratic", &data.exp, 0.05f, 0.0f, 1.0f);
 	
 	UpdateToLightMap();
 }
