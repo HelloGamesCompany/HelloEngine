@@ -6,6 +6,7 @@
 #include "API/API.h"
 
 class FadeToBlack;
+class PlayerStorage;
 
 class ShipInLevel : HelloBehavior
 {
@@ -14,10 +15,14 @@ public:
 	void Start() override; 
 	void Update() override;
 
+	void OnCollisionEnter(API::API_RigidBody other);
+
 	void OnCollisionStay(API::API_RigidBody other);
 
 	API_GameObject fadeToBlackGO;
 	FadeToBlack* fadeToBlackRef;
+
+	API_Transform positionToReturn;
 
 	float timerTotp = 0.0f;
 
