@@ -54,7 +54,7 @@
             {
                 "Active camera": true,
                 "Active culling": false,
-                "Aspect ratio": 1.9408766031265259,
+                "Aspect ratio": 2.064631938934326,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -194,7 +194,7 @@
                         "AnimationPlayer": 3800139251
                     },
                     {
-                        "Dash Animation": 3707604139
+                        "Dash Animation": 686365920
                     },
                     {
                         "Idle Animation 1": 738149381
@@ -230,10 +230,16 @@
                         "Shoot Burst Animation": 2706901869
                     },
                     {
-                        "Shoot Shotgun Animation": 2706901869
+                        "Shoot Shotgun Animation": 2946562888
                     },
                     {
                         "Shoot Handgun Animation": 2706901869
+                    },
+                    {
+                        "Swap Duals Animation": 3812072834
+                    },
+                    {
+                        "Swap Gun Animation": 2774027618
                     },
                     {
                         "Hit Animation": 359781210
@@ -284,7 +290,7 @@
                         "AnimationPlayer": 3800139251
                     },
                     {
-                        "Dash Animation": 3707604139
+                        "Dash Animation": 686365920
                     },
                     {
                         "Idle Animation 1": 738149381
@@ -320,10 +326,16 @@
                         "Shoot Burst Animation": 2706901869
                     },
                     {
-                        "Shoot Shotgun Animation": 2706901869
+                        "Shoot Shotgun Animation": 2946562888
                     },
                     {
                         "Shoot Handgun Animation": 2706901869
+                    },
+                    {
+                        "Swap Duals Animation": 3812072834
+                    },
+                    {
+                        "Swap Gun Animation": 2774027618
                     },
                     {
                         "Hit Animation": 359781210
@@ -374,7 +386,7 @@
                         "AnimationPlayer": 3800139251
                     },
                     {
-                        "Dash Animation": 3707604139
+                        "Dash Animation": 686365920
                     },
                     {
                         "Idle Animation 1": 738149381
@@ -410,10 +422,16 @@
                         "Shoot Burst Animation": 2706901869
                     },
                     {
-                        "Shoot Shotgun Animation": 2706901869
+                        "Shoot Shotgun Animation": 2946562888
                     },
                     {
                         "Shoot Handgun Animation": 2706901869
+                    },
+                    {
+                        "Swap Duals Animation": 3812072834
+                    },
+                    {
+                        "Swap Gun Animation": 2774027618
                     },
                     {
                         "Hit Animation": 359781210
@@ -464,7 +482,7 @@
                         "AnimationPlayer": 3800139251
                     },
                     {
-                        "Dash Animation": 3707604139
+                        "Dash Animation": 686365920
                     },
                     {
                         "Idle Animation 1": 738149381
@@ -500,10 +518,16 @@
                         "Shoot Burst Animation": 2706901869
                     },
                     {
-                        "Shoot Shotgun Animation": 2706901869
+                        "Shoot Shotgun Animation": 2946562888
                     },
                     {
                         "Shoot Handgun Animation": 2706901869
+                    },
+                    {
+                        "Swap Duals Animation": 3812072834
+                    },
+                    {
+                        "Swap Gun Animation": 2774027618
                     },
                     {
                         "Hit Animation": 359781210
@@ -7561,26 +7585,32 @@
                     0.699999988079071
                 ],
                 "Rotation": [
-                    -0.0,
+                    -90.0,
                     0.0,
                     -0.0
                 ],
                 "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
+                    0.10000000149011612,
+                    0.10000000149011612,
+                    0.10000000149011612
                 ],
                 "Type": 1
             },
             {
                 "Enabled": true,
                 "Index inside model": 0,
-                "ModelUID": 0,
+                "ModelUID": 3946089191,
                 "ShowAABB": false,
                 "ShowFaceNormals": false,
                 "ShowOBB": false,
                 "ShowVertexNormals": false,
                 "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 3467158536,
+                "Type": 18
             }
         ],
         "FirstOnPrefab": true,
@@ -7631,16 +7661,32 @@
                     0.699999988079071
                 ],
                 "Rotation": [
-                    0.0,
+                    -90.0,
                     0.0,
                     0.0
                 ],
                 "Scale": [
-                    1.0,
-                    1.0,
-                    1.0
+                    0.10000000149011612,
+                    0.10000000149011612,
+                    0.10000000149011612
                 ],
                 "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 3946089191,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "Enabled": true,
+                "IsInstanced": true,
+                "MaterialUID": 3467158536,
+                "Type": 18
             },
             {
                 "Enabled": true,
