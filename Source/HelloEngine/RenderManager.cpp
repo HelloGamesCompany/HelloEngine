@@ -731,14 +731,14 @@ void RenderManager::DrawColliderSphere(std::vector<float3>* spherePointsComp, st
 
 	//glGenBuffers(1, &SPIBO);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, SPIBO);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(uint) * sphereIndicesComp->size(), &sphereIndicesComp->at(0), GL_STATIC_DRAW);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(uint) * sphereIndicesComp->size(), &sphereIndicesComp->at(0), GL_DYNAMIC_DRAW);
 
 	//glGenBuffers(1, &SPVBO);
 	glBindBuffer(GL_ARRAY_BUFFER, SPVBO);
 
 	glBufferData(GL_ARRAY_BUFFER, sizeof(float3) * spherePointsComp->size(), nullptr, GL_DYNAMIC_DRAW);
 
-	glBindVertexArray(0);
+	//glBindVertexArray(0);
 
 	///
 
@@ -792,7 +792,7 @@ void RenderManager::CalculateSphereBuffer(std::vector<uint>* sphereIndicesComp, 
 
 	glGenBuffers(1, &SPIBO);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, SPIBO);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(uint) * sphereIndicesComp->size(), &sphereIndicesComp->at(0), GL_STATIC_DRAW);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(uint) * sphereIndicesComp->size(), &sphereIndicesComp->at(0), GL_DYNAMIC_DRAW);
 
 	glGenBuffers(1, &SPVBO);
 	glBindBuffer(GL_ARRAY_BUFFER, SPVBO);

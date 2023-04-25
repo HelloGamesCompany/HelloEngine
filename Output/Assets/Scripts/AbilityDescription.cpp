@@ -14,10 +14,7 @@ HELLO_ENGINE_API_C AbilityDescription* CreateAbilityDescription(ScriptToInspecto
 
 void AbilityDescription::Start()
 {
-	nextDescription.SetActive(false);
-	previousDescription.SetActive(false);
-	description4.SetActive(false);
-	description5.SetActive(false);
+
 }
 void AbilityDescription::Update()
 {

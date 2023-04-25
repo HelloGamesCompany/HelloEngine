@@ -90,7 +90,7 @@ public:
     uint runBackAnim = 0;
     uint runLeftAnim = 0;
     uint runRightAnim = 0;
-    uint shootAnim[6];
+    uint shootAnim[7];
     void PlayShootAnim(int gunIndex);
     bool isShooting = false;
     uint swapGunAnim[2];
