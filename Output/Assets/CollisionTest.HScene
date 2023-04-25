@@ -254,7 +254,7 @@
             {
                 "Enabled": true,
                 "Position": [
-                    22.21968650817871,
+                    21.868318557739258,
                     20.14923667907715,
                     0.0
                 ],
@@ -335,9 +335,9 @@
                     1.0
                 ],
                 "ShapeSelected": 1,
-                "SphereHorSlices": 4,
-                "SphereRadius": 14.399999618530273,
-                "SphereVerSlices": 30,
+                "SphereHorSlices": 1,
+                "SphereRadius": 17.899999618530273,
+                "SphereVerSlices": 32,
                 "Type": 8,
                 "WireframeSize": 3.0
             }
