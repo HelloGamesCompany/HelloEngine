@@ -254,6 +254,7 @@
 		<ClCompile Include="../../Assets/Scripts/Thanos/SwordDmg.cpp" />
 		<ClCompile Include="../../Assets/Scripts/InteractiveEnviroment/ShipInLevel.cpp" />
 		<ClCompile Include="../../Assets/Scripts/FadeToBlack.cpp" />
+		<ClCompile Include="../../Assets/Scripts/Thanos/ThanosDefense.cpp" />
 	</ItemGroup>
 	<ItemGroup>
 		<ClInclude Include="..\..\Assets\Scripts\EbonyMaw\BossAttacks.h" />
@@ -375,6 +376,7 @@
 		<ClInclude Include="../../Assets/Scripts/Thanos/SwordDmg.h" />
 		<ClInclude Include="../../Assets/Scripts/InteractiveEnviroment/ShipInLevel.h" />
 		<ClInclude Include="../../Assets/Scripts/FadeToBlack.h" />
+		<ClInclude Include="../../Assets/Scripts/Thanos/ThanosDefense.h" />
 	</ItemGroup>
 	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 	<ImportGroup Label="ExtensionTargets" />

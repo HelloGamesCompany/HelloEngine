@@ -8,6 +8,7 @@ HELLO_ENGINE_API_C ThanosAttacks* CreateThanosAttacks(ScriptToInspectorInterface
 
 	script->AddDragBoxGameObject("Melee Attack 1", &classInstance->melee1); 
 	script->AddDragBoxGameObject("SWORD", &classInstance->sword);
+	script->AddDragBoxGameObject("DeflectProjectiles", &classInstance->defenseSword);
 
 	
 
@@ -21,11 +22,12 @@ void ThanosAttacks::Start()
 	tMeleeDmg = (ThanosMeleeDmg*)boss.GetScript("ThanosMeleeDmg");
 	thanosState = THANOS_STATE::SEEKING;
 	sword.SetActive(false);
-
+	melee1.SetActive(false);
 }
 void ThanosAttacks::Update()
 {
 	if (isAttacking) {
+		defenseSword.SetActive(false);
 		switch (thanosState)
 		{
 		case THANOS_STATE::IDLE:
@@ -37,20 +39,21 @@ void ThanosAttacks::Update()
 				sword.SetActive(true);
 			}
 			else {
-				THANOS_STATE::DASHATTACK;
+
+				thanosState = THANOS_STATE::DASHATTACK;
 			}
 
-			
-		}break;		
+
+		}break;
 		case THANOS_STATE::MELEEATTACK:
-			tMeleeDmg->meleeDmg = 30;
+			//tMeleeDmg->meleeDmg = 30;
 
 			MeleeAttack();
 
 			break;
 
 		case THANOS_STATE::DASHATTACK:
-			tMeleeDmg->meleeDmg = 50;
+			//tMeleeDmg->meleeDmg = 50;
 
 			DashAttack();
 
@@ -68,6 +71,10 @@ void ThanosAttacks::Update()
 		default:
 			break;
 		}
+	}
+	else {
+		sword.GetTransform().SetPosition(boss.GetTransform().GetGlobalPosition());
+		defenseSword.SetActive(true);
 	}
 	
 }
@@ -88,13 +95,14 @@ void ThanosAttacks::MeleeAttack() {
 }
 
 void ThanosAttacks::DashAttack() {
-	Seek(&boss, playerPosition, 50.0f);
+	Seek(&boss, playerPosition, 2.5f);
 }
 
 void ThanosAttacks::Seek(API_GameObject* seeker, API_Vector3 target, float speed)
 {
 	API_Vector3 direction = target - seeker->GetTransform().GetGlobalPosition();
-	seeker->GetTransform().Translate(direction * speed / 100);
+	Console::Log(target);
+	seeker->GetTransform().Translate(direction * speed / 10);
 
 	if (direction.x < 0.03 && direction.x > -0.03 && direction.y < 0.03 && direction.y && direction.z < 0.03 && direction.z) {
 		if (thanosState == THANOS_STATE::THROWINGATTACK) {
@@ -109,3 +117,4 @@ void ThanosAttacks::Seek(API_GameObject* seeker, API_Vector3 target, float speed
 		else thanosState = THANOS_STATE::MELEEATTACK;
 	}
 }
+

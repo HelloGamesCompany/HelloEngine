@@ -3,6 +3,7 @@
 HELLO_ENGINE_API_C ThanosLoop* CreateThanosLoop(ScriptToInspectorInterface* script)
 {
     ThanosLoop* classInstance = new ThanosLoop();
+    script->AddDragFloat("Hp", &classInstance->hp);
     //Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
     script->AddDragBoxGameObject("Bomb", &classInstance->bomb);
     script->AddDragBoxTextureResource("Texture Bomb 1", &classInstance->textureBomb[0]);

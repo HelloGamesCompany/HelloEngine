@@ -8,14 +8,14 @@
 class ThanosAttacks : HelloBehavior
 {
 public:
-	void Start() override; 
+	void Start() override;
 	void Update() override;
 
 	void MeleeAttack();
 
 	void DashAttack();
 
-	void Seek(API_GameObject* seeker, API_Vector3 target, float speed); 
+	void Seek(API_GameObject* seeker, API_Vector3 target, float speed);
 
 	ThanosMeleeDmg* tMeleeDmg;
 	bool isAttacking = false;
@@ -30,6 +30,8 @@ public:
 	bool swordThrown = false;
 	float swordSpeed = 2.0f;
 	API_Vector3 aimPosition;
+
+	API_GameObject defenseSword;
 
 	enum class THANOS_STATE {
 		IDLE,
