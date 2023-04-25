@@ -52,6 +52,7 @@ public:
     bool actStun;
 
     bool targeting;
+    bool meleeIsAtking = false;
     
     API_Vector3 baseRot;//base rotation object
 

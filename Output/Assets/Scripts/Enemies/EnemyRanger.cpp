@@ -14,7 +14,7 @@ HELLO_ENGINE_API_C EnemyRanger* CreateEnemyRanger(ScriptToInspectorInterface* sc
     script->AddDragBoxGameObject("Enemy gun", &classInstance->gunObj);
     script->AddDragBoxGameObject("Target", &classInstance->target);
     script->AddDragBoxGameObject("Action zone", &classInstance->actionZone);
-    script->AddDragBoxRigidBody("Action Rb zone", &classInstance->zoneRb);
+   // script->AddDragBoxRigidBody("Action Rb zone", &classInstance->zoneRb);
     script->AddDragBoxGameObject("Point 1", &classInstance->listPoints[0]);
     script->AddDragBoxGameObject("Point 2", &classInstance->listPoints[1]);
     script->AddDragBoxGameObject("Point 3", &classInstance->listPoints[2]);
@@ -34,7 +34,7 @@ HELLO_ENGINE_API_C EnemyRanger* CreateEnemyRanger(ScriptToInspectorInterface* sc
 void EnemyRanger::Start()
 {
     actualPoint = listPoints[0].GetTransform().GetGlobalPosition();
-
+    zoneRb = actionZone.GetRigidBody();
     _avalPoints = 3;
     enemState = States::WANDERING;
 

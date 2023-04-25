@@ -391,6 +391,7 @@ void EnemyMeleeMovement::WalkAway()
 }
 void EnemyMeleeMovement::ChargeAttack()
 {
+    enemy->meleeIsAtking = true;
     enemy->currentSpeed = chargeSpeed;
     Seek(enemy->currentSpeed, target.GetTransform().GetGlobalPosition(), enemy->enemyRb);
     targetPosOnAttack = target.GetTransform().GetGlobalPosition();

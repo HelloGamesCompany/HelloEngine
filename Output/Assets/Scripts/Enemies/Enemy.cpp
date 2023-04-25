@@ -15,7 +15,7 @@ HELLO_ENGINE_API_C Enemy* CreateEnemy(ScriptToInspectorInterface* script)
     script->AddDragFloat("Current Helath", &classInstance->currentHp);
     script->AddDragFloat("Start Resistance", &classInstance->minResistence);
     script->AddDragFloat("Resistance", &classInstance->maxResistance);
-    script->AddDragFloat("Speed", &classInstance->speed);
+    script->AddDragFloat("Speed", &classInstance->speed); 
     script->AddDragFloat("Acceleration", &classInstance->acceleration);
     script->AddDragFloat("Current speed", &classInstance->currentSpeed);
     script->AddDragBoxGameObject("Enemy Manager", &classInstance->enemyDropManagerGO);
@@ -256,7 +256,7 @@ void Enemy::OnCollisionEnter(API::API_RigidBody other)
         if (meleeScript)
         {
             PlayerStats* pStats = (PlayerStats*)other.GetGameObject().GetScript("PlayerStats");
-           if(meleeScript->enemState== EnemyMeleeMovement::States::ATTACKIG) pStats->TakeDamage(10, 0);
+           if(meleeScript->enemState== EnemyMeleeMovement::States::ATTACKIG && meleeIsAtking) pStats->TakeDamage(10, 0), meleeIsAtking=false;
         }
     }
     if (detectionTag == "Projectile")
