@@ -19,12 +19,12 @@ public:
 	API_Vector3 new_weapon_movmentX;
 	API_Vector3 special_weapon_movmentX;
 
-	API_Material material_upgrade;
+	API_UIImage material_upgrade;
+	API_UIImage material_new_weapon;
+	API_UIImage material_special_weapon;
 	API_Material material_Background_1;
 	API_Material material_Background_2;
 	API_Material material_Background_3;
-	API_Material material_new_weapon;
-	API_Material material_special_weapon;
 	
 	API_UIText text_upgrade;
 	API_UIText text_new_weapon;
@@ -33,6 +33,10 @@ public:
 	float timer_upgrade = 1.3f;
 	float timer_new = 1.3f;
 	float timer_special = 1.3f;
+
+	float opacity_upgrade = 1;
+	float opacity_new_weapon = 1;
+	float opacity_special_weapon = 1;
 
 	uint upgrade_textures;
 	uint new_weapon_textures[5];
