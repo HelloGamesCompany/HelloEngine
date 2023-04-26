@@ -5,6 +5,7 @@ HELLO_ENGINE_API_C HpBar* CreateHpBar(ScriptToInspectorInterface* script)
     //Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
    
     script->AddDragBoxGameObject("Player Stats GO", &classInstance->playerStatsGO);
+   // script->AddDragBoxGameObject("HUD Shield", &classInstance->playerShieldStatsGO);
     script->AddDragBoxUIImage("HP_BAR", &classInstance->hp_Bar);
     script->AddDragBoxUIImage("SHIELD_BAR", &classInstance->shield_Bar);
     
@@ -19,8 +20,8 @@ void HpBar::Start()
     playerStats = (PlayerStats*)playerStatsGO.GetScript("PlayerStats");
     if (playerStats == nullptr) Console::Log("Missing PlayerStats on HpBar Script.");
     
-    playerShieldStats = (HUD_SHIELD_BROKEN*)playerShieldStatsGO.GetScript("HUD_SHIELD_BROKEN");
-    if (playerShieldStats == nullptr) Console::Log("HUD_SHIELD_BROKEN PlayerStats on HpBar Script.");
+    //ShieldStats = (HUD_SHIELD_BROKEN*)ShieldStatsGO.GetScript("HUD_SHIELD_BROKEN");
+    //if (ShieldStatsGO == nullptr) Console::Log("HUD_SHIELD_BROKEN PlayerStats on HpBar Script.");
     
     hp_Bar.FillImage(1);
     hp_Bar.GetGameObject().GetMaterialCompoennt().ChangeAlbedoTexture(hp_texture);
@@ -74,7 +75,7 @@ void HpBar::ShieldPlayerbar(float Shield_Player_value)
   
   if (Shield_Player_value <= 0 && shield_broked == true)
   {
-      playerShieldStats->breack_shield_Player_anim = true;
+      //playerShieldStats->breack_shield_Player_anim = true;
       shield_broked = false;
   }
   else
