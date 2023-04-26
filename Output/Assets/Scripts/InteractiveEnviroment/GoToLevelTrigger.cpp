@@ -93,6 +93,7 @@ void GoToLevelTrigger::OnCollisionEnter(API_RigidBody other)
         {
             API_QuickSave::SetBool("level" + std::to_string(nextLevel) + "_completed", true);
         }
+        API_QuickSave::SetBool("ComesFromHub", true);
         Scene::LoadScene(scene.c_str());
     }
 }

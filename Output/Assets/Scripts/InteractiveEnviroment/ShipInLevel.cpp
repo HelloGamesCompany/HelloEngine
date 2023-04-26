@@ -31,10 +31,6 @@ void ShipInLevel::Start()
 
 	playerStorageRef->levelIndex = lvlIndex;
 
-	if (API_QuickSave::GetBool("IsInMiddleOfLevel") == true)
-	{
-		fadeToBlackRef->blackToFade = true;
-	}
 }
 	
 void ShipInLevel::Update()
@@ -55,7 +51,6 @@ void ShipInLevel::OnCollisionEnter(API::API_RigidBody other)
 		API_QuickSave::SetFloat("PlayerPosZ", positionToReturn.GetGlobalPosition().z);
 		//API_QuickSave::SetFloat("PlayerIndicatorPosX", -0.7f);
 		//API_QuickSave::SetFloat("PlayerIndicatorPosY", -0.39f);
-		API_QuickSave::SetBool("IsInMiddleOfLevel", true);
 		API_QuickSave::SetBool("level1_completed", true);
 		
 	}
@@ -81,9 +76,17 @@ void ShipInLevel::OnCollisionStay(API::API_RigidBody other)
 			{
 
 				Scene::LoadScene("SpaceshipHUB_Scene.HScene");
-
+				API_QuickSave::SetBool("IsInMiddleOfLevel", true);
 				timerTotp = 0.0f;
 			}
+		}
+		else if (API_QuickSave::GetBool("ComesFromHub"))
+		{
+			fadeToBlackRef->blackToFade = true;
+
+			API_QuickSave::SetBool("ComesFromHub", false);
+
+
 		}
     }
 

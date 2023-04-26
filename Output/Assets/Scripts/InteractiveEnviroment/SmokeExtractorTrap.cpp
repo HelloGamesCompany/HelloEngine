@@ -59,10 +59,9 @@ void SmokeExtractorTrap::Update()
 	}
 }
 
-void SmokeExtractorTrap::OnCollisionEnter(API_RigidBody other)
+void SmokeExtractorTrap::OnCollisionStay(API_RigidBody other)
 {
 
-	std::string detectionName = other.GetGameObject().GetName();
 	std::string detectionTag = other.GetGameObject().GetTag();
 
 	if (detectionTag == "Player")
