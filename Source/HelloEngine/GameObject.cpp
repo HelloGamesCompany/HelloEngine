@@ -141,15 +141,41 @@ void GameObject::SetActive(bool active)
 
 void GameObject::OnCollisionEnter(PhysBody3D* other)
 {
+    for (int i = 0; i < _components.size(); ++i)
+    {
+        if (_components[i]->_type == Component::Type::SCRIPT)
+        {
+            // Callback to Scripting
+            ScriptComponent* script = (ScriptComponent*)_components[i];
+            script->OnCollisionEnter(other);
+        }
+    }
+}
+
+void GameObject::OnCollisionStay(PhysBody3D* other)
+{
 	for (int i = 0; i < _components.size(); ++i)
 	{
 		if (_components[i]->_type == Component::Type::SCRIPT)
 		{
 			// Callback to Scripting
 			ScriptComponent* script = (ScriptComponent*)_components[i];
-			script->OnCollisionEnter(other);
+			script->OnCollisionStay(other);
 		}
 	}
+}
+
+void GameObject::OnCollisionExit(PhysBody3D* other)
+{
+    for (int i = 0; i < _components.size(); ++i)
+    {
+        if (_components[i]->_type == Component::Type::SCRIPT)
+        {
+            // Callback to Scripting
+            ScriptComponent* script = (ScriptComponent*)_components[i];
+            script->OnCollisionExit(other);
+        }
+    }
 }
 
 #ifdef STANDALONE

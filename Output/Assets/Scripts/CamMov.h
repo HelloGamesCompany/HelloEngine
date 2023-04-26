@@ -12,10 +12,14 @@ public:
 	void Start() override;
 	void Update() override;
 
+	void SetOrbital(bool orbital);
+
 	API_GameObject target;
 
 	API_Vector3 camPos = { 0.0f,25.0f,-20.0f };
 	API_Vector3 camRot = { 50.0f, 0.0f, 0.0f };
+	float orbitalMult = 2.0f;
+	bool orbital = false;
 
 	API_Vector3 desiredPosition;
 	API_Vector3 smoothedPosition;

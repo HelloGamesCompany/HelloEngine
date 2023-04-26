@@ -1,6 +1,6 @@
 #include "SmokeExtractorTrap.h"
 #include "../Player/PlayerStats.h"
-
+#include "../Enemies/Enemy.h"
 HELLO_ENGINE_API_C SmokeExtractorTrap* CreateSmokeExtractorTrap(ScriptToInspectorInterface* script)
 {
 	SmokeExtractorTrap* classInstance = new SmokeExtractorTrap();
@@ -63,8 +63,9 @@ void SmokeExtractorTrap::OnCollisionEnter(API_RigidBody other)
 {
 
 	std::string detectionName = other.GetGameObject().GetName();
+	std::string detectionTag = other.GetGameObject().GetTag();
 
-	if (detectionName == "Player")
+	if (detectionTag == "Player")
 	{
 		if (throwFire)
 		{
@@ -73,4 +74,14 @@ void SmokeExtractorTrap::OnCollisionEnter(API_RigidBody other)
 			playerStats->TakeDamage(10.0f, 0);
 		}
 	}
+	else if (detectionTag == "Enemy")
+	{
+		if (throwFire)
+		{
+			Enemy* enemyScript = (Enemy*)other.GetGameObject().GetScript("Enemy");
+
+			enemyScript->TakeDamage(10.0f, 0);
+		}
+	}
+
 }

@@ -17,6 +17,8 @@ void Map::Start()
 {
     playerStorage = (PlayerStorage*)playerStorageGO.GetScript("PlayerStorage");
     if (playerStorage == nullptr) Console::Log("PlayerStorage missing in CasetteManager.");
+
+    mapGO.SetActive(true);
 }
 
 void Map::Update()

@@ -236,7 +236,7 @@
 		}
 	}
 	
-	uniform vec3 ColourTest;
+	uniform vec4 ColourTest;
 	
 	void main()
 	{
@@ -260,18 +260,12 @@
 		vec3 texDiffCol = texture2D(albedo_texture, TextureCoords).rgb;
 		if (length(texDiffCol) != 0.0)
 		{
-			FragColor = texture(albedo_texture, TextureCoords) * result * vec4(ColourTest, 1.0f);
+			FragColor = texture(albedo_texture, TextureCoords) * result * ColourTest;
 		}
 		else
 		{
-			FragColor = result * vec4(ColourTest, 1.0f);
+			FragColor = result * ColourTest;
 		}
 	}
 #endif
-
-
-
-
-
-
 

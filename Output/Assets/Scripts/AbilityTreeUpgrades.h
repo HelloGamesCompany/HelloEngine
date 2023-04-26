@@ -31,6 +31,8 @@ public:
     API_UIInput mainPanel;
     API_UIInput currentPanel;
 
+
+
     int skillLevel;
     int treeIndex;
 

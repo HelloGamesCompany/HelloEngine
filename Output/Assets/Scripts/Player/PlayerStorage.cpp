@@ -1,10 +1,13 @@
 #include "PlayerStorage.h"
-#include "API/API_QuickSave.h"
+#include "../UI Test folder/PlayerIndicator.h"
 HELLO_ENGINE_API_C PlayerStorage* CreatePlayerStorage(ScriptToInspectorInterface* script)
 {
     PlayerStorage* classInstance = new PlayerStorage();
     //Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
     script->AddDragInt("Level Index", &classInstance->levelIndex);
+    script->AddDragBoxGameObject("Map Indicator", &classInstance->playerIndicatorGO);
+    script->AddDragBoxGameObject("Hud BluePrint Indicator GO", &classInstance->hud_blueprintsGO);
+
     return classInstance;
 }
 
@@ -49,7 +52,16 @@ void PlayerStorage::Start()
         break;
     }
 
-    if (levelIndex != 0) gameObject.GetTransform().SetPosition(API_QuickSave::GetFloat("PlayerPosX"), API_QuickSave::GetFloat("PlayerPosY"), API_QuickSave::GetFloat("PlayerPosZ"));
+    if (levelIndex != 0)
+    {
+        gameObject.GetTransform().SetPosition(API_QuickSave::GetFloat("PlayerPosX"), API_QuickSave::GetFloat("PlayerPosY"), API_QuickSave::GetFloat("PlayerPosZ"));
+
+        playerIndicator = (PlayerIndicator*)playerIndicatorGO.GetScript("PlayerIndicator");
+        if (playerIndicator == nullptr) Console::Log("PlayerIndicator missing in PlayerStorage.");
+    }
+
+    hud_blueprints = (HUD_BluePrints*)hud_blueprintsGO.GetScript("HUD_BluePrints");
+    if (hud_blueprints == nullptr) Console::Log("HUD_BluePrints missing in PlayerStorage.");
 }
 
 void PlayerStorage::Update()
@@ -60,10 +72,14 @@ void PlayerStorage::Update()
 void PlayerStorage::SaveData()
 {
 
-    //Player Position
+    // Player Position
     API_QuickSave::SetFloat("PlayerPosX", gameObject.GetTransform().GetGlobalPosition().x);
     API_QuickSave::SetFloat("PlayerPosY", gameObject.GetTransform().GetGlobalPosition().y);
     API_QuickSave::SetFloat("PlayerPosZ", gameObject.GetTransform().GetGlobalPosition().z);
+
+    // Player Indicator Positiony
+    if (playerIndicator) playerIndicator->SavePosition();
+
     // skill points
     API_QuickSave::SetInt("skillPointsAmount", skillPoints);
 

@@ -84,6 +84,7 @@
             {
                 "Enabled": true,
                 "MaterialResource": 0,
+                "MeshEnabled": false,
                 "Type": 16,
                 "listButtons": [
                     0
@@ -122,6 +123,7 @@
             {
                 "Enabled": true,
                 "MaterialResource": 0,
+                "MeshEnabled": false,
                 "Type": 16,
                 "listButtons": [
                     0
@@ -160,7 +162,9 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 139376968,
+                "MaterialResource": 697126489,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
                 "Type": 15
             }
         ],
@@ -197,6 +201,8 @@
                 "Enabled": true,
                 "FillImage": 1.0,
                 "MaterialResource": 0,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
                 "Type": 15
             }
         ],
@@ -232,6 +238,7 @@
             {
                 "Enabled": true,
                 "MaterialResource": 0,
+                "MeshEnabled": false,
                 "Type": 16,
                 "listButtons": [
                     0
@@ -270,7 +277,9 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 3838844858,
+                "MaterialResource": 815361866,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
                 "Type": 15
             },
             {
@@ -283,7 +292,7 @@
                         "Gun Index": 4
                     }
                 ],
-                "Script Resource": 2905751812,
+                "Script Resource": 2406654245,
                 "Type": 5
             }
         ],
@@ -319,7 +328,9 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 985804532,
+                "MaterialResource": 2355185900,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
                 "Type": 15
             },
             {
@@ -332,7 +343,7 @@
                         "Gun Index": 3
                     }
                 ],
-                "Script Resource": 2905751812,
+                "Script Resource": 2406654245,
                 "Type": 5
             }
         ],
@@ -368,7 +379,9 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 809546067,
+                "MaterialResource": 2114159316,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
                 "Type": 15
             },
             {
@@ -381,7 +394,7 @@
                         "Gun Index": 2
                     }
                 ],
-                "Script Resource": 3695252177,
+                "Script Resource": 999461329,
                 "Type": 5
             }
         ],
@@ -417,7 +430,9 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 1352642618,
+                "MaterialResource": 2184002129,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
                 "Type": 15
             },
             {
@@ -430,7 +445,7 @@
                         "Gun Index": 1
                     }
                 ],
-                "Script Resource": 2905751812,
+                "Script Resource": 2406654245,
                 "Type": 5
             }
         ],
@@ -466,7 +481,9 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 3727522677,
+                "MaterialResource": 3239165303,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
                 "Type": 15
             },
             {
@@ -479,7 +496,7 @@
                         "Gun Index": 5
                     }
                 ],
-                "Script Resource": 2905751812,
+                "Script Resource": 2406654245,
                 "Type": 5
             }
         ],
@@ -515,6 +532,7 @@
             {
                 "Enabled": true,
                 "MaterialResource": 0,
+                "MeshEnabled": false,
                 "Type": 16,
                 "listButtons": [
                     0
@@ -579,7 +597,7 @@
                         "PlayerStorage GO": 78564325
                     }
                 ],
-                "Script Resource": 1753846134,
+                "Script Resource": 1499929841,
                 "Type": 5
             }
         ],
@@ -615,6 +633,7 @@
             {
                 "Enabled": true,
                 "MaterialResource": 0,
+                "MeshEnabled": false,
                 "Type": 16,
                 "listButtons": [
                     3640781781,
@@ -657,13 +676,14 @@
             },
             {
                 "Enabled": true,
-                "MaterialResource": 1409015305,
+                "MaterialResource": 2100364871,
+                "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
                 "blockImage": 0,
-                "hoverImage": 3707835447,
-                "idleImage": 1409015305,
-                "pressImage": 1597583807
+                "hoverImage": 2607114263,
+                "idleImage": 2100364871,
+                "pressImage": 1784069243
             },
             {
                 "Enabled": true,
@@ -693,10 +713,10 @@
                         "Prev Panel Unlock": 794799067
                     },
                     {
-                        "Material Weapon": 3613693446
+                        "Material Weapon": 1048084744
                     },
                     {
-                        "Material Weapon Locked": 2497864979
+                        "Material Weapon Locked": 2413304871
                     },
                     {
                         "SelectedWeapon": 797707866
@@ -708,7 +728,7 @@
                         "Gun Index": 0
                     }
                 ],
-                "Script Resource": 2943233861,
+                "Script Resource": 1737653682,
                 "Type": 5
             }
         ],
@@ -743,13 +763,14 @@
             },
             {
                 "Enabled": true,
-                "MaterialResource": 1822315430,
+                "MaterialResource": 3359989511,
+                "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
                 "blockImage": 0,
-                "hoverImage": 1677387699,
-                "idleImage": 1822315430,
-                "pressImage": 3649915254
+                "hoverImage": 3548595453,
+                "idleImage": 3359989511,
+                "pressImage": 3134360548
             },
             {
                 "Enabled": true,
@@ -782,10 +803,10 @@
                         "Prev Panel Unlock": 794799067
                     },
                     {
-                        "Material Weapon": 1026044394
+                        "Material Weapon": 2760442950
                     },
                     {
-                        "Material Weapon Locked": 1639815392
+                        "Material Weapon Locked": 567303012
                     },
                     {
                         "SelectedWeapon": 797707866
@@ -797,7 +818,7 @@
                         "Gun Index": 4
                     }
                 ],
-                "Script Resource": 2943233861,
+                "Script Resource": 1737653682,
                 "Type": 5
             }
         ],
@@ -832,13 +853,14 @@
             },
             {
                 "Enabled": true,
-                "MaterialResource": 1567315137,
+                "MaterialResource": 3606883868,
+                "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
                 "blockImage": 0,
-                "hoverImage": 109319305,
-                "idleImage": 1567315137,
-                "pressImage": 3209887626
+                "hoverImage": 2929144298,
+                "idleImage": 3606883868,
+                "pressImage": 1189431292
             },
             {
                 "Enabled": true,
@@ -871,10 +893,10 @@
                         "Prev Panel Unlock": 1383730987
                     },
                     {
-                        "Material Weapon": 334261511
+                        "Material Weapon": 426950729
                     },
                     {
-                        "Material Weapon Locked": 2202060709
+                        "Material Weapon Locked": 673939956
                     },
                     {
                         "SelectedWeapon": 797707866
@@ -886,7 +908,7 @@
                         "Gun Index": 3
                     }
                 ],
-                "Script Resource": 2943233861,
+                "Script Resource": 1737653682,
                 "Type": 5
             }
         ],
@@ -921,13 +943,14 @@
             },
             {
                 "Enabled": true,
-                "MaterialResource": 3293086449,
+                "MaterialResource": 3086544391,
+                "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
                 "blockImage": 0,
-                "hoverImage": 587270201,
-                "idleImage": 3293086449,
-                "pressImage": 154785093
+                "hoverImage": 2779668864,
+                "idleImage": 3086544391,
+                "pressImage": 2991941798
             },
             {
                 "Enabled": true,
@@ -960,10 +983,10 @@
                         "Prev Panel Unlock": 3266740145
                     },
                     {
-                        "Material Weapon": 1780030818
+                        "Material Weapon": 2428347813
                     },
                     {
-                        "Material Weapon Locked": 3711690831
+                        "Material Weapon Locked": 2342560247
                     },
                     {
                         "SelectedWeapon": 797707866
@@ -975,7 +998,7 @@
                         "Gun Index": 2
                     }
                 ],
-                "Script Resource": 2943233861,
+                "Script Resource": 1737653682,
                 "Type": 5
             }
         ],
@@ -1010,13 +1033,14 @@
             },
             {
                 "Enabled": true,
-                "MaterialResource": 3324075840,
+                "MaterialResource": 4072617269,
+                "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
                 "blockImage": 0,
-                "hoverImage": 1747512733,
-                "idleImage": 3324075840,
-                "pressImage": 1842904264
+                "hoverImage": 4102752492,
+                "idleImage": 4072617269,
+                "pressImage": 2648647856
             },
             {
                 "Enabled": true,
@@ -1049,10 +1073,10 @@
                         "Prev Panel Unlock": 147604913
                     },
                     {
-                        "Material Weapon": 2392737524
+                        "Material Weapon": 2984314687
                     },
                     {
-                        "Material Weapon Locked": 3104510813
+                        "Material Weapon Locked": 4116342376
                     },
                     {
                         "SelectedWeapon": 797707866
@@ -1064,7 +1088,7 @@
                         "Gun Index": 1
                     }
                 ],
-                "Script Resource": 2943233861,
+                "Script Resource": 1737653682,
                 "Type": 5
             }
         ],
@@ -1099,13 +1123,14 @@
             },
             {
                 "Enabled": true,
-                "MaterialResource": 1767948154,
+                "MaterialResource": 2382946074,
+                "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
                 "blockImage": 0,
-                "hoverImage": 1317989011,
-                "idleImage": 1767948154,
-                "pressImage": 957302266
+                "hoverImage": 1878643894,
+                "idleImage": 2382946074,
+                "pressImage": 820437597
             },
             {
                 "Enabled": true,
@@ -1135,10 +1160,10 @@
                         "Prev Panel Unlock": 1173460062
                     },
                     {
-                        "Material Weapon": 1837055462
+                        "Material Weapon": 3703264764
                     },
                     {
-                        "Material Weapon Locked": 575076703
+                        "Material Weapon Locked": 2450359488
                     },
                     {
                         "SelectedWeapon": 797707866
@@ -1150,7 +1175,7 @@
                         "Gun Index": 5
                     }
                 ],
-                "Script Resource": 2943233861,
+                "Script Resource": 1737653682,
                 "Type": 5
             }
         ],
@@ -1187,6 +1212,8 @@
                 "Enabled": true,
                 "FillImage": 1.0,
                 "MaterialResource": 0,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
                 "Type": 15
             }
         ],
@@ -1222,6 +1249,7 @@
             {
                 "Enabled": false,
                 "MaterialResource": 0,
+                "MeshEnabled": false,
                 "Type": 16,
                 "listButtons": [
                     2642169239,
@@ -1254,7 +1282,7 @@
                         "Gun Index": 0
                     }
                 ],
-                "Script Resource": 3444632365,
+                "Script Resource": 1414171341,
                 "Type": 5
             }
         ],
@@ -1289,13 +1317,14 @@
             },
             {
                 "Enabled": true,
-                "MaterialResource": 2478038607,
+                "MaterialResource": 2149305872,
+                "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 4074849189,
-                "hoverImage": 172135175,
-                "idleImage": 2478038607,
-                "pressImage": 3248408230
+                "blockImage": 1114890029,
+                "hoverImage": 155913452,
+                "idleImage": 2149305872,
+                "pressImage": 2678424219
             }
         ],
         "FirstOnPrefab": false,
@@ -1329,13 +1358,14 @@
             },
             {
                 "Enabled": true,
-                "MaterialResource": 4186940495,
+                "MaterialResource": 1500276118,
+                "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 1006989028,
-                "hoverImage": 2219247879,
-                "idleImage": 4186940495,
-                "pressImage": 2258801793
+                "blockImage": 3203515059,
+                "hoverImage": 3028963037,
+                "idleImage": 1500276118,
+                "pressImage": 2956277822
             }
         ],
         "FirstOnPrefab": false,
@@ -1369,13 +1399,14 @@
             },
             {
                 "Enabled": true,
-                "MaterialResource": 2041397986,
+                "MaterialResource": 4018647135,
+                "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 2244738760,
-                "hoverImage": 3263093199,
-                "idleImage": 2041397986,
-                "pressImage": 4103131384
+                "blockImage": 1645096517,
+                "hoverImage": 1507458867,
+                "idleImage": 4018647135,
+                "pressImage": 2151725819
             }
         ],
         "FirstOnPrefab": false,
@@ -1410,7 +1441,9 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 645059070,
+                "MaterialResource": 3331385431,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
                 "Type": 15
             }
         ],
@@ -1446,6 +1479,7 @@
             {
                 "Enabled": false,
                 "MaterialResource": 0,
+                "MeshEnabled": false,
                 "Type": 16,
                 "listButtons": [
                     618596646
@@ -1467,7 +1501,7 @@
                         "Gun Index": 4
                     }
                 ],
-                "Script Resource": 1907481788,
+                "Script Resource": 1200723108,
                 "Type": 5
             }
         ],
@@ -1502,13 +1536,14 @@
             },
             {
                 "Enabled": true,
-                "MaterialResource": 674657286,
+                "MaterialResource": 1449475796,
+                "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 3374075361,
-                "hoverImage": 2248120447,
-                "idleImage": 674657286,
-                "pressImage": 1212544785
+                "blockImage": 3021994239,
+                "hoverImage": 3987571885,
+                "idleImage": 1449475796,
+                "pressImage": 2961548424
             }
         ],
         "FirstOnPrefab": false,
@@ -1543,7 +1578,9 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 4256432398,
+                "MaterialResource": 2439925664,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
                 "Type": 15
             }
         ],
@@ -1579,6 +1616,7 @@
             {
                 "Enabled": false,
                 "MaterialResource": 0,
+                "MeshEnabled": false,
                 "Type": 16,
                 "listButtons": [
                     833326043,
@@ -1608,7 +1646,7 @@
                         "Gun Index": 4
                     }
                 ],
-                "Script Resource": 3444632365,
+                "Script Resource": 1414171341,
                 "Type": 5
             }
         ],
@@ -1643,13 +1681,14 @@
             },
             {
                 "Enabled": true,
-                "MaterialResource": 84388814,
+                "MaterialResource": 1166228711,
+                "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 2930020352,
-                "hoverImage": 2716363911,
-                "idleImage": 84388814,
-                "pressImage": 2077013315
+                "blockImage": 117027243,
+                "hoverImage": 774695756,
+                "idleImage": 1166228711,
+                "pressImage": 2911103099
             }
         ],
         "FirstOnPrefab": false,
@@ -1683,13 +1722,14 @@
             },
             {
                 "Enabled": true,
-                "MaterialResource": 1695339837,
+                "MaterialResource": 1010678855,
+                "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 1422322410,
-                "hoverImage": 3855024139,
-                "idleImage": 1695339837,
-                "pressImage": 432176309
+                "blockImage": 4291909931,
+                "hoverImage": 1764344122,
+                "idleImage": 1010678855,
+                "pressImage": 979497022
             }
         ],
         "FirstOnPrefab": false,
@@ -1723,13 +1763,14 @@
             },
             {
                 "Enabled": true,
-                "MaterialResource": 760803408,
+                "MaterialResource": 3991879842,
+                "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 1070251866,
-                "hoverImage": 2296858777,
-                "idleImage": 760803408,
-                "pressImage": 1592136076
+                "blockImage": 2188747304,
+                "hoverImage": 540665624,
+                "idleImage": 3991879842,
+                "pressImage": 3039633898
             }
         ],
         "FirstOnPrefab": false,
@@ -1764,7 +1805,9 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 4256432398,
+                "MaterialResource": 2439925664,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
                 "Type": 15
             }
         ],
@@ -1800,6 +1843,7 @@
             {
                 "Enabled": false,
                 "MaterialResource": 0,
+                "MeshEnabled": false,
                 "Type": 16,
                 "listButtons": [
                     2312409956
@@ -1821,7 +1865,7 @@
                         "Gun Index": 3
                     }
                 ],
-                "Script Resource": 1907481788,
+                "Script Resource": 1200723108,
                 "Type": 5
             }
         ],
@@ -1856,13 +1900,14 @@
             },
             {
                 "Enabled": true,
-                "MaterialResource": 674657286,
+                "MaterialResource": 1449475796,
+                "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 3374075361,
-                "hoverImage": 2248120447,
-                "idleImage": 674657286,
-                "pressImage": 1212544785
+                "blockImage": 3021994239,
+                "hoverImage": 3987571885,
+                "idleImage": 1449475796,
+                "pressImage": 2961548424
             }
         ],
         "FirstOnPrefab": false,
@@ -1897,7 +1942,9 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 527183784,
+                "MaterialResource": 4033447456,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
                 "Type": 15
             }
         ],
@@ -1933,6 +1980,7 @@
             {
                 "Enabled": false,
                 "MaterialResource": 0,
+                "MeshEnabled": false,
                 "Type": 16,
                 "listButtons": [
                     2031947933,
@@ -1962,7 +2010,7 @@
                         "Gun Index": 3
                     }
                 ],
-                "Script Resource": 3444632365,
+                "Script Resource": 1414171341,
                 "Type": 5
             }
         ],
@@ -1997,13 +2045,14 @@
             },
             {
                 "Enabled": true,
-                "MaterialResource": 965577152,
+                "MaterialResource": 2913812819,
+                "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 1435069777,
-                "hoverImage": 2281484681,
-                "idleImage": 965577152,
-                "pressImage": 2937302943
+                "blockImage": 1271969995,
+                "hoverImage": 439256936,
+                "idleImage": 2913812819,
+                "pressImage": 786732544
             }
         ],
         "FirstOnPrefab": false,
@@ -2037,13 +2086,14 @@
             },
             {
                 "Enabled": true,
-                "MaterialResource": 655373696,
+                "MaterialResource": 3445119563,
+                "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 3371830546,
-                "hoverImage": 2209303369,
-                "idleImage": 655373696,
-                "pressImage": 371741233
+                "blockImage": 1173882226,
+                "hoverImage": 481541573,
+                "idleImage": 3445119563,
+                "pressImage": 3705268701
             }
         ],
         "FirstOnPrefab": false,
@@ -2077,13 +2127,14 @@
             },
             {
                 "Enabled": true,
-                "MaterialResource": 2697353124,
+                "MaterialResource": 3557925662,
+                "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 4133370479,
-                "hoverImage": 1588223373,
-                "idleImage": 2697353124,
-                "pressImage": 1221949736
+                "blockImage": 3373326121,
+                "hoverImage": 1977164779,
+                "idleImage": 3557925662,
+                "pressImage": 4283548949
             }
         ],
         "FirstOnPrefab": false,
@@ -2118,7 +2169,9 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 527183784,
+                "MaterialResource": 4033447456,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
                 "Type": 15
             }
         ],
@@ -2154,6 +2207,7 @@
             {
                 "Enabled": false,
                 "MaterialResource": 0,
+                "MeshEnabled": false,
                 "Type": 16,
                 "listButtons": [
                     2839875941
@@ -2175,7 +2229,7 @@
                         "Gun Index": 2
                     }
                 ],
-                "Script Resource": 1907481788,
+                "Script Resource": 1200723108,
                 "Type": 5
             }
         ],
@@ -2210,13 +2264,14 @@
             },
             {
                 "Enabled": true,
-                "MaterialResource": 674657286,
+                "MaterialResource": 1449475796,
+                "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 3374075361,
-                "hoverImage": 2248120447,
-                "idleImage": 674657286,
-                "pressImage": 1212544785
+                "blockImage": 3021994239,
+                "hoverImage": 3987571885,
+                "idleImage": 1449475796,
+                "pressImage": 2961548424
             }
         ],
         "FirstOnPrefab": false,
@@ -2251,7 +2306,9 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 2821424744,
+                "MaterialResource": 3316625958,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
                 "Type": 15
             }
         ],
@@ -2287,6 +2344,7 @@
             {
                 "Enabled": false,
                 "MaterialResource": 0,
+                "MeshEnabled": false,
                 "Type": 16,
                 "listButtons": [
                     1164770649,
@@ -2316,7 +2374,7 @@
                         "Gun Index": 2
                     }
                 ],
-                "Script Resource": 3444632365,
+                "Script Resource": 1414171341,
                 "Type": 5
             }
         ],
@@ -2351,13 +2409,14 @@
             },
             {
                 "Enabled": true,
-                "MaterialResource": 2607176441,
+                "MaterialResource": 3892636527,
+                "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 4240662503,
-                "hoverImage": 732294785,
-                "idleImage": 2607176441,
-                "pressImage": 2766095335
+                "blockImage": 3474830610,
+                "hoverImage": 3352448533,
+                "idleImage": 3892636527,
+                "pressImage": 2455332123
             }
         ],
         "FirstOnPrefab": false,
@@ -2391,13 +2450,14 @@
             },
             {
                 "Enabled": true,
-                "MaterialResource": 4206903025,
+                "MaterialResource": 3883930136,
+                "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 1988115038,
-                "hoverImage": 1570743353,
-                "idleImage": 4206903025,
-                "pressImage": 3780012090
+                "blockImage": 3162713692,
+                "hoverImage": 3012560447,
+                "idleImage": 3883930136,
+                "pressImage": 1950173065
             }
         ],
         "FirstOnPrefab": false,
@@ -2431,13 +2491,14 @@
             },
             {
                 "Enabled": true,
-                "MaterialResource": 3597791025,
+                "MaterialResource": 3793480577,
+                "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 3911930088,
-                "hoverImage": 3427092089,
-                "idleImage": 3597791025,
-                "pressImage": 868381556
+                "blockImage": 736185371,
+                "hoverImage": 3750942508,
+                "idleImage": 3793480577,
+                "pressImage": 2076496312
             }
         ],
         "FirstOnPrefab": false,
@@ -2472,7 +2533,9 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 2821424744,
+                "MaterialResource": 3316625958,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
                 "Type": 15
             }
         ],
@@ -2508,6 +2571,7 @@
             {
                 "Enabled": false,
                 "MaterialResource": 0,
+                "MeshEnabled": false,
                 "Type": 16,
                 "listButtons": [
                     2890039286
@@ -2529,7 +2593,7 @@
                         "Gun Index": 1
                     }
                 ],
-                "Script Resource": 1907481788,
+                "Script Resource": 1200723108,
                 "Type": 5
             }
         ],
@@ -2564,13 +2628,14 @@
             },
             {
                 "Enabled": true,
-                "MaterialResource": 674657286,
+                "MaterialResource": 1449475796,
+                "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 3374075361,
-                "hoverImage": 2248120447,
-                "idleImage": 674657286,
-                "pressImage": 1212544785
+                "blockImage": 3021994239,
+                "hoverImage": 3987571885,
+                "idleImage": 1449475796,
+                "pressImage": 2961548424
             }
         ],
         "FirstOnPrefab": false,
@@ -2605,7 +2670,9 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 2127722291,
+                "MaterialResource": 3961846292,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
                 "Type": 15
             }
         ],
@@ -2641,6 +2708,7 @@
             {
                 "Enabled": false,
                 "MaterialResource": 0,
+                "MeshEnabled": false,
                 "Type": 16,
                 "listButtons": [
                     3402325730,
@@ -2670,7 +2738,7 @@
                         "Gun Index": 1
                     }
                 ],
-                "Script Resource": 3444632365,
+                "Script Resource": 1414171341,
                 "Type": 5
             }
         ],
@@ -2705,13 +2773,14 @@
             },
             {
                 "Enabled": true,
-                "MaterialResource": 1935501734,
+                "MaterialResource": 1912700799,
+                "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 706212868,
-                "hoverImage": 2588487091,
-                "idleImage": 1935501734,
-                "pressImage": 540086739
+                "blockImage": 2340429309,
+                "hoverImage": 2080007791,
+                "idleImage": 1912700799,
+                "pressImage": 2121955852
             }
         ],
         "FirstOnPrefab": false,
@@ -2745,13 +2814,14 @@
             },
             {
                 "Enabled": true,
-                "MaterialResource": 1805580362,
+                "MaterialResource": 317947480,
+                "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 3171665256,
-                "hoverImage": 2171917795,
-                "idleImage": 1805580362,
-                "pressImage": 1770867898
+                "blockImage": 3683239595,
+                "hoverImage": 3248838484,
+                "idleImage": 317947480,
+                "pressImage": 3213623159
             }
         ],
         "FirstOnPrefab": false,
@@ -2785,13 +2855,14 @@
             },
             {
                 "Enabled": true,
-                "MaterialResource": 3085186598,
+                "MaterialResource": 3878999702,
+                "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 3844474880,
-                "hoverImage": 2620407347,
-                "idleImage": 3085186598,
-                "pressImage": 4232938474
+                "blockImage": 1714793349,
+                "hoverImage": 3153219901,
+                "idleImage": 3878999702,
+                "pressImage": 1473558259
             }
         ],
         "FirstOnPrefab": false,
@@ -2826,7 +2897,9 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 2127722291,
+                "MaterialResource": 3961846292,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
                 "Type": 15
             }
         ],
@@ -2862,6 +2935,7 @@
             {
                 "Enabled": false,
                 "MaterialResource": 0,
+                "MeshEnabled": false,
                 "Type": 16,
                 "listButtons": [
                     178243298
@@ -2883,7 +2957,7 @@
                         "Gun Index": 5
                     }
                 ],
-                "Script Resource": 1907481788,
+                "Script Resource": 1200723108,
                 "Type": 5
             }
         ],
@@ -2918,13 +2992,14 @@
             },
             {
                 "Enabled": true,
-                "MaterialResource": 674657286,
+                "MaterialResource": 1449475796,
+                "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 3374075361,
-                "hoverImage": 2248120447,
-                "idleImage": 674657286,
-                "pressImage": 1212544785
+                "blockImage": 3021994239,
+                "hoverImage": 3987571885,
+                "idleImage": 1449475796,
+                "pressImage": 2961548424
             }
         ],
         "FirstOnPrefab": false,
@@ -2959,7 +3034,9 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 3794872102,
+                "MaterialResource": 512375774,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
                 "Type": 15
             }
         ],
@@ -2995,6 +3072,7 @@
             {
                 "Enabled": false,
                 "MaterialResource": 0,
+                "MeshEnabled": false,
                 "Type": 16,
                 "listButtons": [
                     1782370003,
@@ -3024,7 +3102,7 @@
                         "Gun Index": 5
                     }
                 ],
-                "Script Resource": 3444632365,
+                "Script Resource": 1414171341,
                 "Type": 5
             }
         ],
@@ -3059,13 +3137,14 @@
             },
             {
                 "Enabled": true,
-                "MaterialResource": 749026489,
+                "MaterialResource": 3534649351,
+                "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 375025647,
-                "hoverImage": 1408808970,
-                "idleImage": 749026489,
-                "pressImage": 2133100964
+                "blockImage": 2619713122,
+                "hoverImage": 3631596909,
+                "idleImage": 3534649351,
+                "pressImage": 2770058791
             }
         ],
         "FirstOnPrefab": false,
@@ -3099,13 +3178,14 @@
             },
             {
                 "Enabled": true,
-                "MaterialResource": 2548065214,
+                "MaterialResource": 2561209527,
+                "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 1117865188,
-                "hoverImage": 1733052407,
-                "idleImage": 2548065214,
-                "pressImage": 720010894
+                "blockImage": 3825299766,
+                "hoverImage": 2525416066,
+                "idleImage": 2561209527,
+                "pressImage": 3645214413
             }
         ],
         "FirstOnPrefab": false,
@@ -3139,13 +3219,14 @@
             },
             {
                 "Enabled": true,
-                "MaterialResource": 2548065214,
+                "MaterialResource": 2561209527,
+                "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 704264630,
-                "hoverImage": 1733052407,
-                "idleImage": 2548065214,
-                "pressImage": 1218351389
+                "blockImage": 2301888740,
+                "hoverImage": 2525416066,
+                "idleImage": 2561209527,
+                "pressImage": 3196897115
             }
         ],
         "FirstOnPrefab": false,
@@ -3180,7 +3261,9 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 3794872102,
+                "MaterialResource": 512375774,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
                 "Type": 15
             }
         ],
@@ -3262,7 +3345,7 @@
                         "Level Index": 0
                     }
                 ],
-                "Script Resource": 1045846276,
+                "Script Resource": 775870401,
                 "Type": 5
             }
         ],

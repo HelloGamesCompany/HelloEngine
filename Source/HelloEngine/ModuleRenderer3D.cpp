@@ -78,6 +78,8 @@ bool ModuleRenderer3D::Init()
 
 	OnResize(ModuleWindow::width, ModuleWindow::height);
 
+	isRenderingColliders = true;
+
 	return ret;
 }
 

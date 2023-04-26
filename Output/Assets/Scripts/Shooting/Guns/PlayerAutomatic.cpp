@@ -9,8 +9,6 @@ HELLO_ENGINE_API_C PlayerAutomatic* CreatePlayerAutomatic(ScriptToInspectorInter
     script->AddDragFloat("Projectile Resistance Damage", &classInstance->projectileResistanceDamage);
     script->AddDragFloat("Projectile Lifetime", &classInstance->projectileLifetime);
     script->AddDragBoxTransform("Projectile Spawn", &classInstance->shootingSpawn);
-    script->AddDragBoxMeshResource("Projectile Mesh", &classInstance->projectileMesh);
-    script->AddDragBoxTextureResource("Projectile Material", &classInstance->projectileMaterial);
     script->AddDragFloat("Projectile ScaleX", &classInstance->projectileScale.x);
     script->AddDragFloat("Projectile ScaleY", &classInstance->projectileScale.y);
     script->AddDragFloat("Projectile ScaleZ", &classInstance->projectileScale.z);
@@ -68,7 +66,7 @@ void PlayerAutomatic::Shoot()
 {
     if (canShoot)
     {
-        LauchProjectile(shootingSpawn);
+        LauchProjectile(shootingSpawn, PROJECTILE_TYPE::AUTO);
         PlayShotSound(audioEventString);
         canShoot = false;
         if (playerStats->fireratePowerUp) shotCooldown = fullShotCooldownWithPowerUp;
@@ -88,31 +86,39 @@ void PlayerAutomatic::SetGunStatsPerLevel(int level)
     {
     case 0:
         projectileSpeed = 40.0f;
-        projectileDamage = 25.0f;
-        projectileResistanceDamage = 0.0f;
-        projectileLifetime = 1.0f;
-        cadence = 3.0f;
+        projectileDamage = 1.0f;
+        projectileResistanceDamage = 1.0f;
+        projectileLifetime = 0.3f;
+        cadence = 10.0f;
+        // max damage 10
+        // damage aument speed 0%
         break;
     case 1:
         projectileSpeed = 40.0f;
-        projectileDamage = 25.0f;
-        projectileResistanceDamage = 0.0f;
-        projectileLifetime = 1.0f;
-        cadence = 5.0f;
+        projectileDamage = 1.0f;
+        projectileResistanceDamage = 1.0f;
+        projectileLifetime = 0.5f;
+        cadence = 10.0f;
+        // max damage 10
+        // damage aument speed 0%
         break;
     case 2:
-        projectileSpeed = 50.0f;
-        projectileDamage = 25.0f;
-        projectileResistanceDamage = 0.0f;
-        projectileLifetime = 1.0f;
-        cadence = 5.0f;
+        projectileSpeed = 40.0f;
+        projectileDamage = 1.0f;
+        projectileResistanceDamage = 1.0f;
+        projectileLifetime = 0.5f;
+        cadence = 10.0f;
+        // max damage 15
+        // damage aument speed 0%
         break;
     case 3:
-        projectileSpeed = 50.0f;
-        projectileDamage = 35.0f;
-        projectileResistanceDamage = 0.0f;
-        projectileLifetime = 1.0f;
-        cadence = 5.0f;
+        projectileSpeed = 40.0f;
+        projectileDamage = 1.0f;
+        projectileResistanceDamage = 1.0f;
+        projectileLifetime = 0.5f;
+        cadence = 10.0f;
+        // max damage 15
+        // damage aument speed 50%
         break;
     default:
         Console::Log("Automatic gun level can't be different from 0, 1, 2 or 3.");

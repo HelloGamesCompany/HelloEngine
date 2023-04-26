@@ -300,7 +300,9 @@
     <ClCompile Include="API\API_AnimationPlayer.cpp" />
     <ClCompile Include="API\API_Audio.cpp" />
     <ClCompile Include="API\API_QuickSave.cpp" />
+    <ClCompile Include="API\API_ShaderComponent.cpp" />
     <ClCompile Include="API\API_SkinnedMeshRenderer.cpp" />
+    <ClCompile Include="API\API_String.cpp" />
     <ClCompile Include="API\API_UIButton.cpp" />
     <ClCompile Include="API\API_Console.cpp" />
     <ClCompile Include="API\API_GameObject.cpp" />
@@ -376,6 +378,9 @@
     <ClCompile Include="MaterialComponent.cpp" />
     <ClCompile Include="PointLightComponent.cpp" />
     <ClCompile Include="SpotLightComponent.cpp" />
+    <ClCompile Include="sha256.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="TextureComponent.cpp" />
     <ClCompile Include="MeshImporter.cpp" />
     <ClCompile Include="MeshRenderComponent.cpp" />
@@ -505,7 +510,9 @@
     <ClInclude Include="API\API_AnimationPlayer.h" />
     <ClInclude Include="API\API_Audio.h" />
     <ClInclude Include="API\API_QuickSave.h" />
+    <ClInclude Include="API\API_ShaderComponent.h" />
     <ClInclude Include="API\API_SkinnedMeshRenderer.h" />
+    <ClInclude Include="API\API_String.h" />
     <ClInclude Include="API\API_UIButton.h" />
     <ClInclude Include="API\API_Console.h" />
     <ClInclude Include="API\API_GameObject.h" />
@@ -581,6 +588,7 @@
     <ClInclude Include="MaterialComponent.h" />
     <ClInclude Include="PointLightComponent.h" />
     <ClInclude Include="SpotLightComponent.h" />
+    <ClInclude Include="sha256.h" />
     <ClInclude Include="TextureComponent.h" />
     <ClInclude Include="MemLeaks.h" />
     <ClInclude Include="MeshImporter.h" />

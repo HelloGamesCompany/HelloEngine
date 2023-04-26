@@ -117,6 +117,38 @@ void ModuleResourceManager::S_ImportFile(const std::string& filePath)
 
 		break;
 	}
+	case ResourceType::MATERIAL:
+	{
+		uint UUID = HelloUUID::GenerateGUID(filePath);
+		std::string resourcePath = "Resources/Materials/" + std::to_string(UUID) + ".material";
+
+		char* buffer = nullptr;
+		uint size = ModuleFiles::S_Load(filePath, &buffer);
+
+		//Resources
+		ModuleFiles::S_Save(resourcePath, &buffer[0], size, false);
+
+		//Create Metadata
+		ModuleFiles::S_CreateMetaData(filePath, resourcePath, UUID);
+		RELEASE(buffer);
+		break;
+	}
+	case ResourceType::SHADER:
+	{
+		uint UUID = HelloUUID::GenerateGUID(filePath);
+		std::string resourcePath = "Resources/Shaders/" + std::to_string(UUID) + ".shader";
+
+		char* buffer = nullptr;
+		uint size = ModuleFiles::S_Load(filePath, &buffer);
+
+		//Resources
+		ModuleFiles::S_Save(resourcePath, &buffer[0], size, false);
+
+		//Create Metadata
+		ModuleFiles::S_CreateMetaData(filePath, resourcePath, UUID);
+		RELEASE(buffer);
+		break;
+	}
 	default:
 		break;
 	}
@@ -952,6 +984,8 @@ std::vector<Resource*> ModuleResourceManager::S_GetResourcePool(ResourceType typ
 	std::vector<Resource*> toReturn;
 	for (const auto& r : resources)
 	{
+		if (r.second == nullptr)
+			continue;
 		if (r.second->type == type) toReturn.push_back(r.second);
 	}
 

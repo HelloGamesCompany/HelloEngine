@@ -9,8 +9,6 @@ HELLO_ENGINE_API_C PlayerSemiAuto* CreatePlayerSemiAuto(ScriptToInspectorInterfa
     script->AddDragFloat("Projectile Resistance Damage", &classInstance->projectileResistanceDamage);
     script->AddDragFloat("Projectile Lifetime", &classInstance->projectileLifetime);
     script->AddDragBoxTransform("Projectile Spawn", &classInstance->shootingSpawn);
-    script->AddDragBoxMeshResource("Projectile Mesh", &classInstance->projectileMesh);
-    script->AddDragBoxTextureResource("Projectile Material", &classInstance->projectileMaterial);
     script->AddDragFloat("Projectile ScaleX", &classInstance->projectileScale.x);
     script->AddDragFloat("Projectile ScaleY", &classInstance->projectileScale.y);
     script->AddDragFloat("Projectile ScaleZ", &classInstance->projectileScale.z);
@@ -86,7 +84,7 @@ void PlayerSemiAuto::Shoot()
     {
         if (canCrit && (rand() % 100) < 20) projectileDamage = 100.0f;
         else projectileDamage = projectileDamageWithoutCrit;
-        LauchProjectile(shootingSpawn, PROJECTILE_ACTION::FLINCH);
+        LauchProjectile(shootingSpawn, PROJECTILE_TYPE::SEMI, PROJECTILE_ACTION::FLINCH);
         PlayShotSound(audioEventString);
         canShoot = false;
         if (playerStats->fireratePowerUp) shotCooldown = fullShotCooldownWithPowerUp;
@@ -113,7 +111,7 @@ void PlayerSemiAuto::SetGunStatsPerLevel(int level)
     case 0:
         projectileSpeed = 80.0f;
         projectileDamageWithoutCrit = 60.0f;
-        projectileResistanceDamage = 0.0f;
+        projectileResistanceDamage = 60.0f;
         projectileLifetime = 0.5f;
         cadence = 1.0f;
         canCrit = false;
@@ -121,7 +119,7 @@ void PlayerSemiAuto::SetGunStatsPerLevel(int level)
     case 1:
         projectileSpeed = 80.0f;
         projectileDamageWithoutCrit = 70.0f;
-        projectileResistanceDamage = 0.0f;
+        projectileResistanceDamage = 70.0f;
         projectileLifetime = 0.5f;
         cadence = 1.0f;
         canCrit = false;
@@ -129,16 +127,16 @@ void PlayerSemiAuto::SetGunStatsPerLevel(int level)
     case 2:
         projectileSpeed = 100.0f;
         projectileDamageWithoutCrit = 70.0f;
-        projectileResistanceDamage = 0.0f;
-        projectileLifetime = 0.5f;
+        projectileResistanceDamage = 70.0f;
+        projectileLifetime = 0.4f;
         cadence = 1.0f;
         canCrit = false;
         break;
     case 3:
         projectileSpeed = 100.0f;
         projectileDamageWithoutCrit = 70.0f;
-        projectileResistanceDamage = 0.0f;
-        projectileLifetime = 0.5f;
+        projectileResistanceDamage = 70.0f;
+        projectileLifetime = 0.4f;
         cadence = 1.0f;
         canCrit = true;
         break;

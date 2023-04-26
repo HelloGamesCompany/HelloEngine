@@ -7,6 +7,8 @@
 
 #include "API/API.h"
 
+class PlayerStorage;
+
 class Mision_Masacre : HelloBehavior
 {
 public:
@@ -14,6 +16,10 @@ public:
 	void Update() override;
 
 	std::vector <API_GameObject> enemies;
+
+	API_GameObject playerStorageGO;
+
+	PlayerStorage* playerStorage;
 
 	int enemiessize = 0;
 	int numOfDeadEnemies = 0;

@@ -19,6 +19,12 @@ void PlayerUltimate::Update()
 {
     if (playerStats && playerStats->specialTreeLvl < 3) return;
 
+    if (endUlt)
+    {
+        triggerUlt = false;
+        endUlt = false;
+    }
+
     if (Input::GetKey(KeyCode::KEY_F) == KeyState::KEY_DOWN)
     {
         UseUltimate();
@@ -60,7 +66,7 @@ void PlayerUltimate::Update()
     }
 }
 
-void PlayerUltimate::OnCollisionEnter(API::API_RigidBody other)
+void PlayerUltimate::OnCollisionStay(API::API_RigidBody other)
 {
     if (!triggerUlt) return;
     std::string detectionTag = other.GetGameObject().GetTag();
@@ -71,7 +77,7 @@ void PlayerUltimate::OnCollisionEnter(API::API_RigidBody other)
         if (enemyScript) enemyScript->ActiveStun(3.0f);
     }
 
-    triggerUlt = false;
+    endUlt = true;
 }
 
 void PlayerUltimate::UseUltimate()

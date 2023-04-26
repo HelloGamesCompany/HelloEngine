@@ -33,7 +33,7 @@ void AbilityTreeUpgrades::Start()
     if (skillLevel != 1) Upgrate2.SetBlocked(true);
     if (skillLevel != 2) Upgrate3.SetBlocked(true);
     if (skillLevel != 3 && upgradeNum > 3) Upgrate4.SetBlocked(true);
-    if (skillLevel != 4 && upgradeNum > 4) Upgrate5.SetBlocked(true);
+    if (skillLevel != 4 && upgradeNum > 4) Upgrate5.SetBlocked(true);  
 }
 
 void AbilityTreeUpgrades::Update()
@@ -65,6 +65,7 @@ void AbilityTreeUpgrades::Update()
                 UpgradeSkill();
                 Upgrate1.SetBlocked(true);
                 Upgrate2.SetBlocked(false);
+
             }
             else if (upgradingLevel == 2)
             {
@@ -77,6 +78,7 @@ void AbilityTreeUpgrades::Update()
                 UpgradeSkill();
                 Upgrate3.SetBlocked(true);
                 if (upgradeNum > 3) Upgrate4.SetBlocked(false);
+
             }
             else if (upgradingLevel == 4)
             {

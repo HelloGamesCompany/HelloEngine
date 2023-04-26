@@ -87,6 +87,8 @@ public:
     void SetAllChildsPrefabUID(uint prefabUID);
 
 	void OnCollisionEnter(PhysBody3D* other);
+    void OnCollisionStay(PhysBody3D* other);
+    void OnCollisionExit(PhysBody3D* other);
 
 #ifdef STANDALONE
     void OnEditor();

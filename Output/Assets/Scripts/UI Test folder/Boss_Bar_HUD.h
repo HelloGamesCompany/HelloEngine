@@ -4,6 +4,7 @@
 #include "Macro.h"
 #include "API/API_UIImage.h"
 #include "../EbonyMaw/BossLoop.h"
+#include "../UI Test folder/HUD_SHIELD_BROKEN.h"
 
 #include "API/API.h"
 
@@ -13,12 +14,16 @@ public:
 	void Start() override; 
 	void Update() override;
 
-	void Boss_Bar(float HP_Boss_Value, float Shield_Boss_Value[3], int phase, bool Is_Active);
+	void Boss_Bar(float HP_Boss_Value, /*float Shield_Boss_Value[3]*/ float Shield_Boss_Value, int phase, bool Is_Active);
 
 	API_GameObject bossStatsGO;
 	BossLoop* bossStats;
 
-	uint shield_boss_texture[3];
+	API_GameObject boss_shield_destroyed_GO;
+	HUD_SHIELD_BROKEN* boss_shield_destroyed;
+
+	//uint shield_boss_texture[3];
+	uint shield_boss_texture;
 	uint hp_boss_texture;
 
 	API_GameObject boss_HUD;
