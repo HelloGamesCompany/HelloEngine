@@ -59,6 +59,8 @@ void EnemyMeleeMovement::Start()
     animState = AnimationState::NONE;
     zoneRb = actionZone.GetRigidBody();
 
+  //  Game::FindGameObjectsWithTag("Player",&target, 1);
+
     enemy = (Enemy*)gameObject.GetScript("Enemy");
     attackZone = (EnemyMeleeAttackZone*)attackZoneGO.GetScript("EnemyMeleeAttackZone");
     targStats = (PlayerStats*)target.GetScript("PlayerStats");

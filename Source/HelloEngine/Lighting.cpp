@@ -23,7 +23,7 @@ uint Lighting::AddPointLight(PointLight lightData)
 {
 	uint _lightID = 0;
 
-	_lightID = _lightMap.pointLight.size();
+	_lightID = HelloUUID::GenerateUUID();
 	_lightMap.pointLight[_lightID] = lightData;
 
 	return _lightID;
@@ -33,7 +33,7 @@ uint Lighting::AddSpotLight(SpotLight lightData)
 {
 	uint _lightID = 0;
 
-	_lightID = _lightMap.spotLight.size();
+	_lightID = HelloUUID::GenerateUUID();
 	_lightMap.spotLight[_lightID] = lightData;
 
 	return _lightID;
@@ -53,6 +53,13 @@ void Lighting::RemoveLight(Component::Type type, uint _lightID)
 			_lightMap.spotLight.erase(_lightID);
 			break;
 	}
+}
+
+void Lighting::ClearLights()
+{
+	_lightMap.pointLight.clear();
+	_lightMap.spotLight.clear();
+	_lightMap.directionalLight = DirectionalLight();
 }
 
 void Lighting::Update()

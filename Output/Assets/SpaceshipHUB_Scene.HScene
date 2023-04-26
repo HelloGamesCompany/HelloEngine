@@ -10485,24 +10485,6 @@
                     },
                     {
                         "Scene path and name: ": "LVL1_Blockout.HScene"
-                    },
-                    {
-                        "Is Hub Scene": true
-                    },
-                    {
-                        "(IF NO HUB) Current Level": 1
-                    },
-                    {
-                        "Scene path and name: ": "LVL1_Blockout.HScene"
-                    },
-                    {
-                        "Is Hub Scene": true
-                    },
-                    {
-                        "(IF NO HUB) Current Level": 1
-                    },
-                    {
-                        "Scene path and name: ": "LVL1_Blockout.HScene"
                     }
                 ],
                 "Script Resource": 2719578167,
@@ -10541,7 +10523,7 @@
             {
                 "Active camera": true,
                 "Active culling": true,
-                "Aspect ratio": 1.8648383617401123,
+                "Aspect ratio": 2.064631938934326,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -10553,78 +10535,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Target": 1862169540
-                    },
-                    {
-                        "Delay": 0.10000000149011612
-                    },
-                    {
-                        "Offset_X": 0.0
-                    },
-                    {
-                        "Offset_Y": 10.0
-                    },
-                    {
-                        "Offset_Z": -7.0
-                    },
-                    {
-                        "Orbital Offset Multiplier": 2.0
-                    },
-                    {
-                        "Rot_X": 50.0
-                    },
-                    {
-                        "Rot_Y": 0.0
-                    },
-                    {
-                        "Rot_Z": 0.0
-                    },
-                    {
-                        "SafeZone_Distance": 10.0
-                    },
-                    {
-                        "Use safe zone: ": false
-                    },
-                    {
-                        "Orbital": false
-                    },
-                    {
-                        "Target": 1862169540
-                    },
-                    {
-                        "Delay": 0.10000000149011612
-                    },
-                    {
-                        "Offset_X": 0.0
-                    },
-                    {
-                        "Offset_Y": 10.0
-                    },
-                    {
-                        "Offset_Z": -7.0
-                    },
-                    {
-                        "Orbital Offset Multiplier": 2.0
-                    },
-                    {
-                        "Rot_X": 50.0
-                    },
-                    {
-                        "Rot_Y": 0.0
-                    },
-                    {
-                        "Rot_Z": 0.0
-                    },
-                    {
-                        "SafeZone_Distance": 10.0
-                    },
-                    {
-                        "Use safe zone: ": false
-                    },
-                    {
-                        "Orbital": false
-                    },
                     {
                         "Target": 1862169540
                     },
@@ -11905,7 +11815,7 @@
             },
             {
                 "Enabled": true,
-                "MaterialResource": 0,
+                "MaterialResource": 697126489,
                 "MeshEnabled": false,
                 "Type": 16,
                 "listButtons": [
@@ -12003,7 +11913,7 @@
             {
                 "Enabled": true,
                 "Position": [
-                    -0.44999998807907104,
+                    -0.35499998927116394,
                     0.7599999904632568,
                     0.0
                 ],
@@ -12013,8 +11923,8 @@
                     0.0
                 ],
                 "Scale": [
-                    0.05000000074505806,
-                    0.07500000298023224,
+                    0.05999999865889549,
+                    0.09000000357627869,
                     0.5
                 ],
                 "Type": 1
@@ -12030,18 +11940,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "BluePrint Image Component": 2341798902
-                    },
-                    {
-                        "Gun Index": 4
-                    },
-                    {
-                        "BluePrint Image Component": 2341798902
-                    },
-                    {
-                        "Gun Index": 4
-                    },
                     {
                         "BluePrint Image Component": 2341798902
                     },
@@ -12072,7 +11970,7 @@
             {
                 "Enabled": true,
                 "Position": [
-                    -0.3400000035762787,
+                    -0.23999999463558197,
                     0.7599999904632568,
                     0.0
                 ],
@@ -12082,8 +11980,8 @@
                     0.0
                 ],
                 "Scale": [
-                    0.05000000074505806,
-                    0.07500000298023224,
+                    0.05999999865889549,
+                    0.09000000357627869,
                     0.5
                 ],
                 "Type": 1
@@ -12099,18 +11997,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "BluePrint Image Component": 1422799981
-                    },
-                    {
-                        "Gun Index": 3
-                    },
-                    {
-                        "BluePrint Image Component": 1422799981
-                    },
-                    {
-                        "Gun Index": 3
-                    },
                     {
                         "BluePrint Image Component": 1422799981
                     },
@@ -12141,7 +12027,7 @@
             {
                 "Enabled": true,
                 "Position": [
-                    -0.23000000417232513,
+                    -0.11999999731779099,
                     0.7599999904632568,
                     0.0
                 ],
@@ -12151,8 +12037,8 @@
                     0.0
                 ],
                 "Scale": [
-                    0.05000000074505806,
-                    0.07500000298023224,
+                    0.05999999865889549,
+                    0.09000000357627869,
                     0.5
                 ],
                 "Type": 1
@@ -12168,18 +12054,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "BluePrint Image Component": 1926729553
-                    },
-                    {
-                        "Gun Index": 2
-                    },
-                    {
-                        "BluePrint Image Component": 1926729553
-                    },
-                    {
-                        "Gun Index": 2
-                    },
                     {
                         "BluePrint Image Component": 1926729553
                     },
@@ -12210,7 +12084,7 @@
             {
                 "Enabled": true,
                 "Position": [
-                    -0.11999999731779099,
+                    0.0,
                     0.7599999904632568,
                     0.0
                 ],
@@ -12220,8 +12094,8 @@
                     0.0
                 ],
                 "Scale": [
-                    0.05000000074505806,
-                    0.07500000298023224,
+                    0.05999999865889549,
+                    0.09000000357627869,
                     0.5
                 ],
                 "Type": 1
@@ -12237,18 +12111,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "BluePrint Image Component": 419620740
-                    },
-                    {
-                        "Gun Index": 1
-                    },
-                    {
-                        "BluePrint Image Component": 419620740
-                    },
-                    {
-                        "Gun Index": 1
-                    },
                     {
                         "BluePrint Image Component": 419620740
                     },
@@ -12367,18 +12229,6 @@
                     },
                     {
                         "PlayerStorage GO": 1862169540
-                    },
-                    {
-                        "Text Blueprints": 2108451898
-                    },
-                    {
-                        "PlayerStorage GO": 1862169540
-                    },
-                    {
-                        "Text Blueprints": 2108451898
-                    },
-                    {
-                        "PlayerStorage GO": 1862169540
                     }
                 ],
                 "Script Resource": 1296421856,
@@ -12441,7 +12291,7 @@
             {
                 "Enabled": true,
                 "Position": [
-                    -0.8700000047683716,
+                    -0.8550000190734863,
                     0.6200000047683716,
                     0.0
                 ],
@@ -12451,8 +12301,8 @@
                     0.0
                 ],
                 "Scale": [
-                    0.125,
-                    0.125,
+                    0.20000000298023224,
+                    0.20000000298023224,
                     0.0
                 ],
                 "Type": 1
@@ -12463,9 +12313,9 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "hoverBlockImage": 0,
+                "hoverBlockImage": 2051134276,
                 "hoverImage": 2607114263,
-                "idleBlockImage": 0,
+                "idleBlockImage": 2320951350,
                 "idleImage": 2100364871,
                 "pressBlockImage": 0,
                 "pressImage": 1784069243
@@ -12473,84 +12323,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Weapon": 2125686633
-                    },
-                    {
-                        "Next Weapon": 740957820
-                    },
-                    {
-                        "Panel Upgrate": 911611964
-                    },
-                    {
-                        "Panel Unlock": 911611964
-                    },
-                    {
-                        "Next Panel Upgrate": 2121029335
-                    },
-                    {
-                        "Next Panel Unlock": 2412948481
-                    },
-                    {
-                        "Material Weapon": 1048084744
-                    },
-                    {
-                        "Material Weapon Locked": 2413304871
-                    },
-                    {
-                        "SelectedWeapon": 1046225449
-                    },
-                    {
-                        "List Weapons": 3432315266
-                    },
-                    {
-                        "Gun Index": 0
-                    },
-                    {
-                        "Open Menu Interruptor": 1766493025
-                    },
-                    {
-                        "Player": 1862169540
-                    },
-                    {
-                        "Weapon": 2125686633
-                    },
-                    {
-                        "Next Weapon": 740957820
-                    },
-                    {
-                        "Panel Upgrate": 911611964
-                    },
-                    {
-                        "Panel Unlock": 911611964
-                    },
-                    {
-                        "Next Panel Upgrate": 2121029335
-                    },
-                    {
-                        "Next Panel Unlock": 2412948481
-                    },
-                    {
-                        "Material Weapon": 1048084744
-                    },
-                    {
-                        "Material Weapon Locked": 2413304871
-                    },
-                    {
-                        "SelectedWeapon": 1046225449
-                    },
-                    {
-                        "List Weapons": 3432315266
-                    },
-                    {
-                        "Gun Index": 0
-                    },
-                    {
-                        "Open Menu Interruptor": 1766493025
-                    },
-                    {
-                        "Player": 1862169540
-                    },
                     {
                         "Weapon": 2125686633
                     },
@@ -12647,9 +12419,9 @@
             {
                 "Enabled": true,
                 "Position": [
-                    -0.8700000047683716,
-                    0.36000001430511475,
-                    0.0
+                    -0.8550000190734863,
+                    0.28999999165534973,
+                    -0.20000000298023224
                 ],
                 "Rotation": [
                     0.0,
@@ -12657,8 +12429,8 @@
                     0.0
                 ],
                 "Scale": [
-                    0.125,
-                    0.125,
+                    0.20000000298023224,
+                    0.20000000298023224,
                     0.0
                 ],
                 "Type": 1
@@ -12669,100 +12441,16 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "hoverBlockImage": 0,
+                "hoverBlockImage": 3920621495,
                 "hoverImage": 3548595453,
-                "idleBlockImage": 0,
+                "idleBlockImage": 2600632336,
                 "idleImage": 3359989511,
-                "pressBlockImage": 0,
+                "pressBlockImage": 3134360548,
                 "pressImage": 3134360548
             },
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Weapon": 740957820
-                    },
-                    {
-                        "Next Weapon": 3667161260
-                    },
-                    {
-                        "Prev Weapon": 2125686633
-                    },
-                    {
-                        "Panel Upgrate": 2121029335
-                    },
-                    {
-                        "Panel Unlock": 2412948481
-                    },
-                    {
-                        "Next Panel Upgrate": 1250319448
-                    },
-                    {
-                        "Next Panel Unlock": 1692539270
-                    },
-                    {
-                        "Prev Panel Upgrate": 911611964
-                    },
-                    {
-                        "Prev Panel Unlock": 911611964
-                    },
-                    {
-                        "Material Weapon": 2760442950
-                    },
-                    {
-                        "Material Weapon Locked": 567303012
-                    },
-                    {
-                        "SelectedWeapon": 1046225449
-                    },
-                    {
-                        "List Weapons": 3432315266
-                    },
-                    {
-                        "Gun Index": 4
-                    },
-                    {
-                        "Weapon": 740957820
-                    },
-                    {
-                        "Next Weapon": 3667161260
-                    },
-                    {
-                        "Prev Weapon": 2125686633
-                    },
-                    {
-                        "Panel Upgrate": 2121029335
-                    },
-                    {
-                        "Panel Unlock": 2412948481
-                    },
-                    {
-                        "Next Panel Upgrate": 1250319448
-                    },
-                    {
-                        "Next Panel Unlock": 1692539270
-                    },
-                    {
-                        "Prev Panel Upgrate": 911611964
-                    },
-                    {
-                        "Prev Panel Unlock": 911611964
-                    },
-                    {
-                        "Material Weapon": 2760442950
-                    },
-                    {
-                        "Material Weapon Locked": 567303012
-                    },
-                    {
-                        "SelectedWeapon": 1046225449
-                    },
-                    {
-                        "List Weapons": 3432315266
-                    },
-                    {
-                        "Gun Index": 4
-                    },
                     {
                         "Weapon": 740957820
                     },
@@ -12865,8 +12553,8 @@
             {
                 "Enabled": true,
                 "Position": [
-                    -0.8650000095367432,
-                    0.14000000059604645,
+                    -0.8550000190734863,
+                    0.0,
                     0.0
                 ],
                 "Rotation": [
@@ -12875,8 +12563,8 @@
                     0.0
                 ],
                 "Scale": [
-                    0.125,
-                    0.125,
+                    0.20000000298023224,
+                    0.20000000298023224,
                     0.0
                 ],
                 "Type": 1
@@ -12887,100 +12575,16 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "hoverBlockImage": 0,
+                "hoverBlockImage": 1462945608,
                 "hoverImage": 2929144298,
-                "idleBlockImage": 0,
+                "idleBlockImage": 3970776888,
                 "idleImage": 3606883868,
-                "pressBlockImage": 0,
+                "pressBlockImage": 1189431292,
                 "pressImage": 1189431292
             },
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Weapon": 3667161260
-                    },
-                    {
-                        "Next Weapon": 1398139035
-                    },
-                    {
-                        "Prev Weapon": 740957820
-                    },
-                    {
-                        "Panel Upgrate": 1250319448
-                    },
-                    {
-                        "Panel Unlock": 1692539270
-                    },
-                    {
-                        "Next Panel Upgrate": 385359660
-                    },
-                    {
-                        "Next Panel Unlock": 801303102
-                    },
-                    {
-                        "Prev Panel Upgrate": 2121029335
-                    },
-                    {
-                        "Prev Panel Unlock": 2412948481
-                    },
-                    {
-                        "Material Weapon": 426950729
-                    },
-                    {
-                        "Material Weapon Locked": 673939956
-                    },
-                    {
-                        "SelectedWeapon": 1046225449
-                    },
-                    {
-                        "List Weapons": 3432315266
-                    },
-                    {
-                        "Gun Index": 3
-                    },
-                    {
-                        "Weapon": 3667161260
-                    },
-                    {
-                        "Next Weapon": 1398139035
-                    },
-                    {
-                        "Prev Weapon": 740957820
-                    },
-                    {
-                        "Panel Upgrate": 1250319448
-                    },
-                    {
-                        "Panel Unlock": 1692539270
-                    },
-                    {
-                        "Next Panel Upgrate": 385359660
-                    },
-                    {
-                        "Next Panel Unlock": 801303102
-                    },
-                    {
-                        "Prev Panel Upgrate": 2121029335
-                    },
-                    {
-                        "Prev Panel Unlock": 2412948481
-                    },
-                    {
-                        "Material Weapon": 426950729
-                    },
-                    {
-                        "Material Weapon Locked": 673939956
-                    },
-                    {
-                        "SelectedWeapon": 1046225449
-                    },
-                    {
-                        "List Weapons": 3432315266
-                    },
-                    {
-                        "Gun Index": 3
-                    },
                     {
                         "Weapon": 3667161260
                     },
@@ -13083,9 +12687,9 @@
             {
                 "Enabled": true,
                 "Position": [
-                    -0.8700000047683716,
-                    -0.07999999821186066,
-                    0.0
+                    -0.8550000190734863,
+                    -0.30000001192092896,
+                    -0.20000000298023224
                 ],
                 "Rotation": [
                     0.0,
@@ -13093,8 +12697,8 @@
                     0.0
                 ],
                 "Scale": [
-                    0.125,
-                    0.125,
+                    0.20000000298023224,
+                    0.20000000298023224,
                     0.0
                 ],
                 "Type": 1
@@ -13105,100 +12709,16 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "hoverBlockImage": 0,
+                "hoverBlockImage": 3812242223,
                 "hoverImage": 2779668864,
-                "idleBlockImage": 0,
+                "idleBlockImage": 4120780674,
                 "idleImage": 3086544391,
-                "pressBlockImage": 0,
+                "pressBlockImage": 2991941798,
                 "pressImage": 2991941798
             },
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Weapon": 1398139035
-                    },
-                    {
-                        "Next Weapon": 2993926487
-                    },
-                    {
-                        "Prev Weapon": 3667161260
-                    },
-                    {
-                        "Panel Upgrate": 385359660
-                    },
-                    {
-                        "Panel Unlock": 801303102
-                    },
-                    {
-                        "Next Panel Upgrate": 2021939713
-                    },
-                    {
-                        "Next Panel Unlock": 3043641959
-                    },
-                    {
-                        "Prev Panel Upgrate": 1250319448
-                    },
-                    {
-                        "Prev Panel Unlock": 1692539270
-                    },
-                    {
-                        "Material Weapon": 2428347813
-                    },
-                    {
-                        "Material Weapon Locked": 2342560247
-                    },
-                    {
-                        "SelectedWeapon": 1046225449
-                    },
-                    {
-                        "List Weapons": 3432315266
-                    },
-                    {
-                        "Gun Index": 2
-                    },
-                    {
-                        "Weapon": 1398139035
-                    },
-                    {
-                        "Next Weapon": 2993926487
-                    },
-                    {
-                        "Prev Weapon": 3667161260
-                    },
-                    {
-                        "Panel Upgrate": 385359660
-                    },
-                    {
-                        "Panel Unlock": 801303102
-                    },
-                    {
-                        "Next Panel Upgrate": 2021939713
-                    },
-                    {
-                        "Next Panel Unlock": 3043641959
-                    },
-                    {
-                        "Prev Panel Upgrate": 1250319448
-                    },
-                    {
-                        "Prev Panel Unlock": 1692539270
-                    },
-                    {
-                        "Material Weapon": 2428347813
-                    },
-                    {
-                        "Material Weapon Locked": 2342560247
-                    },
-                    {
-                        "SelectedWeapon": 1046225449
-                    },
-                    {
-                        "List Weapons": 3432315266
-                    },
-                    {
-                        "Gun Index": 2
-                    },
                     {
                         "Weapon": 1398139035
                     },
@@ -13301,8 +12821,8 @@
             {
                 "Enabled": true,
                 "Position": [
-                    -0.8700000047683716,
-                    -0.30000001192092896,
+                    -0.8550000190734863,
+                    -0.6000000238418579,
                     0.0
                 ],
                 "Rotation": [
@@ -13311,8 +12831,8 @@
                     0.0
                 ],
                 "Scale": [
-                    0.125,
-                    0.125,
+                    0.20000000298023224,
+                    0.20000000298023224,
                     0.0
                 ],
                 "Type": 1
@@ -13323,82 +12843,16 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "hoverBlockImage": 0,
+                "hoverBlockImage": 3812242223,
                 "hoverImage": 4102752492,
-                "idleBlockImage": 0,
+                "idleBlockImage": 4120780674,
                 "idleImage": 4072617269,
-                "pressBlockImage": 0,
+                "pressBlockImage": 2991941798,
                 "pressImage": 2648647856
             },
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Weapon": 2993926487
-                    },
-                    {
-                        "Prev Weapon": 1398139035
-                    },
-                    {
-                        "Panel Upgrate": 2021939713
-                    },
-                    {
-                        "Panel Unlock": 3043641959
-                    },
-                    {
-                        "Prev Panel Upgrate": 385359660
-                    },
-                    {
-                        "Prev Panel Unlock": 801303102
-                    },
-                    {
-                        "Material Weapon": 2984314687
-                    },
-                    {
-                        "Material Weapon Locked": 4116342376
-                    },
-                    {
-                        "SelectedWeapon": 1046225449
-                    },
-                    {
-                        "List Weapons": 3432315266
-                    },
-                    {
-                        "Gun Index": 1
-                    },
-                    {
-                        "Weapon": 2993926487
-                    },
-                    {
-                        "Prev Weapon": 1398139035
-                    },
-                    {
-                        "Panel Upgrate": 2021939713
-                    },
-                    {
-                        "Panel Unlock": 3043641959
-                    },
-                    {
-                        "Prev Panel Upgrate": 385359660
-                    },
-                    {
-                        "Prev Panel Unlock": 801303102
-                    },
-                    {
-                        "Material Weapon": 2984314687
-                    },
-                    {
-                        "Material Weapon Locked": 4116342376
-                    },
-                    {
-                        "SelectedWeapon": 1046225449
-                    },
-                    {
-                        "List Weapons": 3432315266
-                    },
-                    {
-                        "Gun Index": 1
-                    },
                     {
                         "Weapon": 2993926487
                     },
@@ -13592,48 +13046,6 @@
                     },
                     {
                         "Gun Index": 0
-                    },
-                    {
-                        "Upgrate 1": 604812651
-                    },
-                    {
-                        "Upgrate 2": 4097172583
-                    },
-                    {
-                        "Upgrate 3": 3294404498
-                    },
-                    {
-                        "Panel Upgrate": 911611964
-                    },
-                    {
-                        "Player": 1862169540
-                    },
-                    {
-                        "List Weapons": 3432315266
-                    },
-                    {
-                        "Gun Index": 0
-                    },
-                    {
-                        "Upgrate 1": 604812651
-                    },
-                    {
-                        "Upgrate 2": 4097172583
-                    },
-                    {
-                        "Upgrate 3": 3294404498
-                    },
-                    {
-                        "Panel Upgrate": 911611964
-                    },
-                    {
-                        "Player": 1862169540
-                    },
-                    {
-                        "List Weapons": 3432315266
-                    },
-                    {
-                        "Gun Index": 0
                     }
                 ],
                 "Script Resource": 1414171341,
@@ -13675,11 +13087,11 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "hoverBlockImage": 0,
+                "hoverBlockImage": 2189136847,
                 "hoverImage": 155913452,
-                "idleBlockImage": 0,
+                "idleBlockImage": 1114890029,
                 "idleImage": 2149305872,
-                "pressBlockImage": 0,
+                "pressBlockImage": 2678424219,
                 "pressImage": 2678424219
             }
         ],
@@ -13718,11 +13130,11 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "hoverBlockImage": 0,
+                "hoverBlockImage": 3183724039,
                 "hoverImage": 3028963037,
-                "idleBlockImage": 0,
+                "idleBlockImage": 3203515059,
                 "idleImage": 1500276118,
-                "pressBlockImage": 0,
+                "pressBlockImage": 2956277822,
                 "pressImage": 2956277822
             }
         ],
@@ -13761,11 +13173,11 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "hoverBlockImage": 0,
+                "hoverBlockImage": 1017800918,
                 "hoverImage": 1507458867,
-                "idleBlockImage": 0,
+                "idleBlockImage": 1645096517,
                 "idleImage": 4018647135,
-                "pressBlockImage": 0,
+                "pressBlockImage": 2151725819,
                 "pressImage": 2151725819
             }
         ],
@@ -13848,30 +13260,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Unlock": 2830347253
-                    },
-                    {
-                        "Panel Unlock": 2412948481
-                    },
-                    {
-                        "List Weapons": 3432315266
-                    },
-                    {
-                        "Gun Index": 4
-                    },
-                    {
-                        "Unlock": 2830347253
-                    },
-                    {
-                        "Panel Unlock": 2412948481
-                    },
-                    {
-                        "List Weapons": 3432315266
-                    },
-                    {
-                        "Gun Index": 4
-                    },
                     {
                         "Unlock": 2830347253
                     },
@@ -14066,48 +13454,6 @@
                     },
                     {
                         "Gun Index": 4
-                    },
-                    {
-                        "Upgrate 1": 2912728259
-                    },
-                    {
-                        "Upgrate 2": 173239198
-                    },
-                    {
-                        "Upgrate 3": 818036790
-                    },
-                    {
-                        "Panel Upgrate": 2121029335
-                    },
-                    {
-                        "Player": 1862169540
-                    },
-                    {
-                        "List Weapons": 3432315266
-                    },
-                    {
-                        "Gun Index": 4
-                    },
-                    {
-                        "Upgrate 1": 2912728259
-                    },
-                    {
-                        "Upgrate 2": 173239198
-                    },
-                    {
-                        "Upgrate 3": 818036790
-                    },
-                    {
-                        "Panel Upgrate": 2121029335
-                    },
-                    {
-                        "Player": 1862169540
-                    },
-                    {
-                        "List Weapons": 3432315266
-                    },
-                    {
-                        "Gun Index": 4
                     }
                 ],
                 "Script Resource": 1414171341,
@@ -14149,11 +13495,11 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "hoverBlockImage": 0,
+                "hoverBlockImage": 1600758678,
                 "hoverImage": 774695756,
-                "idleBlockImage": 0,
+                "idleBlockImage": 117027243,
                 "idleImage": 1166228711,
-                "pressBlockImage": 0,
+                "pressBlockImage": 2911103099,
                 "pressImage": 2911103099
             }
         ],
@@ -14192,11 +13538,11 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "hoverBlockImage": 0,
+                "hoverBlockImage": 3171726492,
                 "hoverImage": 1764344122,
-                "idleBlockImage": 0,
+                "idleBlockImage": 4291909931,
                 "idleImage": 1010678855,
-                "pressBlockImage": 0,
+                "pressBlockImage": 979497022,
                 "pressImage": 979497022
             }
         ],
@@ -14235,11 +13581,11 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "hoverBlockImage": 0,
+                "hoverBlockImage": 3832610455,
                 "hoverImage": 540665624,
-                "idleBlockImage": 0,
+                "idleBlockImage": 2188747304,
                 "idleImage": 3991879842,
-                "pressBlockImage": 0,
+                "pressBlockImage": 3039633898,
                 "pressImage": 3039633898
             }
         ],
@@ -14322,30 +13668,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Unlock": 3848750910
-                    },
-                    {
-                        "Panel Unlock": 1692539270
-                    },
-                    {
-                        "List Weapons": 3432315266
-                    },
-                    {
-                        "Gun Index": 3
-                    },
-                    {
-                        "Unlock": 3848750910
-                    },
-                    {
-                        "Panel Unlock": 1692539270
-                    },
-                    {
-                        "List Weapons": 3432315266
-                    },
-                    {
-                        "Gun Index": 3
-                    },
                     {
                         "Unlock": 3848750910
                     },
@@ -14540,48 +13862,6 @@
                     },
                     {
                         "Gun Index": 3
-                    },
-                    {
-                        "Upgrate 1": 2388101176
-                    },
-                    {
-                        "Upgrate 2": 3807946136
-                    },
-                    {
-                        "Upgrate 3": 1866621559
-                    },
-                    {
-                        "Panel Upgrate": 1250319448
-                    },
-                    {
-                        "Player": 1862169540
-                    },
-                    {
-                        "List Weapons": 3432315266
-                    },
-                    {
-                        "Gun Index": 3
-                    },
-                    {
-                        "Upgrate 1": 2388101176
-                    },
-                    {
-                        "Upgrate 2": 3807946136
-                    },
-                    {
-                        "Upgrate 3": 1866621559
-                    },
-                    {
-                        "Panel Upgrate": 1250319448
-                    },
-                    {
-                        "Player": 1862169540
-                    },
-                    {
-                        "List Weapons": 3432315266
-                    },
-                    {
-                        "Gun Index": 3
                     }
                 ],
                 "Script Resource": 1414171341,
@@ -14623,11 +13903,11 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "hoverBlockImage": 0,
+                "hoverBlockImage": 1012357891,
                 "hoverImage": 439256936,
-                "idleBlockImage": 0,
+                "idleBlockImage": 1271969995,
                 "idleImage": 2913812819,
-                "pressBlockImage": 0,
+                "pressBlockImage": 786732544,
                 "pressImage": 786732544
             }
         ],
@@ -14666,11 +13946,11 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "hoverBlockImage": 0,
+                "hoverBlockImage": 946208082,
                 "hoverImage": 481541573,
-                "idleBlockImage": 0,
+                "idleBlockImage": 1173882226,
                 "idleImage": 3445119563,
-                "pressBlockImage": 0,
+                "pressBlockImage": 3705268701,
                 "pressImage": 3705268701
             }
         ],
@@ -14709,11 +13989,11 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "hoverBlockImage": 0,
+                "hoverBlockImage": 1968622942,
                 "hoverImage": 1977164779,
-                "idleBlockImage": 0,
+                "idleBlockImage": 3373326121,
                 "idleImage": 3557925662,
-                "pressBlockImage": 0,
+                "pressBlockImage": 4283548949,
                 "pressImage": 4283548949
             }
         ],
@@ -14796,30 +14076,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Unlock": 193056597
-                    },
-                    {
-                        "Panel Unlock": 801303102
-                    },
-                    {
-                        "List Weapons": 3432315266
-                    },
-                    {
-                        "Gun Index": 2
-                    },
-                    {
-                        "Unlock": 193056597
-                    },
-                    {
-                        "Panel Unlock": 801303102
-                    },
-                    {
-                        "List Weapons": 3432315266
-                    },
-                    {
-                        "Gun Index": 2
-                    },
                     {
                         "Unlock": 193056597
                     },
@@ -15014,48 +14270,6 @@
                     },
                     {
                         "Gun Index": 2
-                    },
-                    {
-                        "Upgrate 1": 2759158044
-                    },
-                    {
-                        "Upgrate 2": 2929867724
-                    },
-                    {
-                        "Upgrate 3": 3733990972
-                    },
-                    {
-                        "Panel Upgrate": 385359660
-                    },
-                    {
-                        "Player": 1862169540
-                    },
-                    {
-                        "List Weapons": 3432315266
-                    },
-                    {
-                        "Gun Index": 2
-                    },
-                    {
-                        "Upgrate 1": 2759158044
-                    },
-                    {
-                        "Upgrate 2": 2929867724
-                    },
-                    {
-                        "Upgrate 3": 3733990972
-                    },
-                    {
-                        "Panel Upgrate": 385359660
-                    },
-                    {
-                        "Player": 1862169540
-                    },
-                    {
-                        "List Weapons": 3432315266
-                    },
-                    {
-                        "Gun Index": 2
                     }
                 ],
                 "Script Resource": 1414171341,
@@ -15097,11 +14311,11 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "hoverBlockImage": 0,
+                "hoverBlockImage": 1438127966,
                 "hoverImage": 3352448533,
-                "idleBlockImage": 0,
+                "idleBlockImage": 3474830610,
                 "idleImage": 3892636527,
-                "pressBlockImage": 0,
+                "pressBlockImage": 2455332123,
                 "pressImage": 2455332123
             }
         ],
@@ -15140,11 +14354,11 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "hoverBlockImage": 0,
+                "hoverBlockImage": 4020468801,
                 "hoverImage": 3012560447,
-                "idleBlockImage": 0,
+                "idleBlockImage": 3162713692,
                 "idleImage": 3883930136,
-                "pressBlockImage": 0,
+                "pressBlockImage": 1950173065,
                 "pressImage": 1950173065
             }
         ],
@@ -15183,11 +14397,11 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "hoverBlockImage": 0,
+                "hoverBlockImage": 2990030520,
                 "hoverImage": 3750942508,
-                "idleBlockImage": 0,
+                "idleBlockImage": 736185371,
                 "idleImage": 3793480577,
-                "pressBlockImage": 0,
+                "pressBlockImage": 2076496312,
                 "pressImage": 2076496312
             }
         ],
@@ -15270,30 +14484,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Unlock": 595344786
-                    },
-                    {
-                        "Panel Unlock": 3043641959
-                    },
-                    {
-                        "List Weapons": 3432315266
-                    },
-                    {
-                        "Gun Index": 1
-                    },
-                    {
-                        "Unlock": 595344786
-                    },
-                    {
-                        "Panel Unlock": 3043641959
-                    },
-                    {
-                        "List Weapons": 3432315266
-                    },
-                    {
-                        "Gun Index": 1
-                    },
                     {
                         "Unlock": 595344786
                     },
@@ -15447,48 +14637,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Upgrate 1": 1911632372
-                    },
-                    {
-                        "Upgrate 2": 1605769859
-                    },
-                    {
-                        "Upgrate 3": 1599605854
-                    },
-                    {
-                        "Panel Upgrate": 2021939713
-                    },
-                    {
-                        "Player": 1862169540
-                    },
-                    {
-                        "List Weapons": 3432315266
-                    },
-                    {
-                        "Gun Index": 1
-                    },
-                    {
-                        "Upgrate 1": 1911632372
-                    },
-                    {
-                        "Upgrate 2": 1605769859
-                    },
-                    {
-                        "Upgrate 3": 1599605854
-                    },
-                    {
-                        "Panel Upgrate": 2021939713
-                    },
-                    {
-                        "Player": 1862169540
-                    },
-                    {
-                        "List Weapons": 3432315266
-                    },
-                    {
-                        "Gun Index": 1
-                    },
                     {
                         "Upgrate 1": 1911632372
                     },
@@ -15837,48 +14985,6 @@
                     },
                     {
                         "Button Guide": 3437375339
-                    },
-                    {
-                        "Number of menus": 4
-                    },
-                    {
-                        "Menu to Open 1": 1831149941
-                    },
-                    {
-                        "Menu to Open 2": 2867293371
-                    },
-                    {
-                        "Menu to Open 3": 4071677295
-                    },
-                    {
-                        "Menu to Open 4": 3432315266
-                    },
-                    {
-                        "Menu Panel": 2963029982
-                    },
-                    {
-                        "Button Guide": 3437375339
-                    },
-                    {
-                        "Number of menus": 4
-                    },
-                    {
-                        "Menu to Open 1": 1831149941
-                    },
-                    {
-                        "Menu to Open 2": 2867293371
-                    },
-                    {
-                        "Menu to Open 3": 4071677295
-                    },
-                    {
-                        "Menu to Open 4": 3432315266
-                    },
-                    {
-                        "Menu Panel": 2963029982
-                    },
-                    {
-                        "Button Guide": 3437375339
                     }
                 ],
                 "Script Resource": 3847920188,
@@ -16151,180 +15257,6 @@
                     },
                     {
                         "Player Stats GO": 1862169540
-                    },
-                    {
-                        "Velocity": 7.5
-                    },
-                    {
-                        "Upgrade Velocity": 9.0
-                    },
-                    {
-                        "SecToMaxVel": 0.20000000298023224
-                    },
-                    {
-                        "SecToZeroVel": 0.20000000298023224
-                    },
-                    {
-                        "Y tp limit": -20.0
-                    },
-                    {
-                        "Rigid Body": 1862169540
-                    },
-                    {
-                        "Dash Time": 0.5
-                    },
-                    {
-                        "Dash Distance": 6.0
-                    },
-                    {
-                        "Upgrade Dash Distance": 8.0
-                    },
-                    {
-                        "Dash Cooldown": 6.0
-                    },
-                    {
-                        "Upgrade Dash Cooldown": 3.0
-                    },
-                    {
-                        "AnimationPlayer": 1477466868
-                    },
-                    {
-                        "Dash Animation": 3707604139
-                    },
-                    {
-                        "Idle Animation 1": 738149381
-                    },
-                    {
-                        "Idle Animation 2": 2426153329
-                    },
-                    {
-                        "Idle Animation 3": 1590499778
-                    },
-                    {
-                        "Run Forward Animation": 781813718
-                    },
-                    {
-                        "Run Back Animation": 915742792
-                    },
-                    {
-                        "Run Left Animation": 4072259668
-                    },
-                    {
-                        "Run Right Animation": 3628832266
-                    },
-                    {
-                        "Shoot Duals Animation": 2706901869
-                    },
-                    {
-                        "Shoot SemiAuto Animation": 2706901869
-                    },
-                    {
-                        "Shoot Automatic Animation": 2706901869
-                    },
-                    {
-                        "Shoot Burst Animation": 2706901869
-                    },
-                    {
-                        "Shoot Shotgun Animation": 2706901869
-                    },
-                    {
-                        "Hit Animation": 359781210
-                    },
-                    {
-                        "Open Chest Animation": 2410125527
-                    },
-                    {
-                        "Dead Animation": 296001631
-                    },
-                    {
-                        "Player Stats GO": 1862169540
-                    },
-                    {
-                        "Velocity": 7.5
-                    },
-                    {
-                        "Upgrade Velocity": 9.0
-                    },
-                    {
-                        "SecToMaxVel": 0.20000000298023224
-                    },
-                    {
-                        "SecToZeroVel": 0.20000000298023224
-                    },
-                    {
-                        "Y tp limit": -20.0
-                    },
-                    {
-                        "Rigid Body": 1862169540
-                    },
-                    {
-                        "Dash Time": 0.5
-                    },
-                    {
-                        "Dash Distance": 6.0
-                    },
-                    {
-                        "Upgrade Dash Distance": 8.0
-                    },
-                    {
-                        "Dash Cooldown": 6.0
-                    },
-                    {
-                        "Upgrade Dash Cooldown": 3.0
-                    },
-                    {
-                        "AnimationPlayer": 1477466868
-                    },
-                    {
-                        "Dash Animation": 3707604139
-                    },
-                    {
-                        "Idle Animation 1": 738149381
-                    },
-                    {
-                        "Idle Animation 2": 2426153329
-                    },
-                    {
-                        "Idle Animation 3": 1590499778
-                    },
-                    {
-                        "Run Forward Animation": 781813718
-                    },
-                    {
-                        "Run Back Animation": 915742792
-                    },
-                    {
-                        "Run Left Animation": 4072259668
-                    },
-                    {
-                        "Run Right Animation": 3628832266
-                    },
-                    {
-                        "Shoot Duals Animation": 2706901869
-                    },
-                    {
-                        "Shoot SemiAuto Animation": 2706901869
-                    },
-                    {
-                        "Shoot Automatic Animation": 2706901869
-                    },
-                    {
-                        "Shoot Burst Animation": 2706901869
-                    },
-                    {
-                        "Shoot Shotgun Animation": 2706901869
-                    },
-                    {
-                        "Hit Animation": 359781210
-                    },
-                    {
-                        "Open Chest Animation": 2410125527
-                    },
-                    {
-                        "Dead Animation": 296001631
-                    },
-                    {
-                        "Player Stats GO": 1862169540
                     }
                 ],
                 "Script Resource": 102275363,
@@ -16333,84 +15265,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Max HP": 100.0
-                    },
-                    {
-                        "Current HP": 100.0
-                    },
-                    {
-                        "Upgraded Max HP": 125.0
-                    },
-                    {
-                        "Resistance": 100.0
-                    },
-                    {
-                        "Deadline Percentage": 20.0
-                    },
-                    {
-                        "Upgraded Deadline Percentage": 50.0
-                    },
-                    {
-                        "Deadline Heal Amount": 2.5
-                    },
-                    {
-                        "Upgraded Deadline Heal Amount": 5.0
-                    },
-                    {
-                        "Aid Kit Heal Amount": 30.0
-                    },
-                    {
-                        "Upgraded Aid Kit Heal Amount": 60.0
-                    },
-                    {
-                        "Passive Heal Particles": 913497443
-                    },
-                    {
-                        "Kid Heal Particles": 3316874580
-                    },
-                    {
-                        "Player GO": 1862169540
-                    },
-                    {
-                        "Max HP": 100.0
-                    },
-                    {
-                        "Current HP": 100.0
-                    },
-                    {
-                        "Upgraded Max HP": 125.0
-                    },
-                    {
-                        "Resistance": 100.0
-                    },
-                    {
-                        "Deadline Percentage": 20.0
-                    },
-                    {
-                        "Upgraded Deadline Percentage": 50.0
-                    },
-                    {
-                        "Deadline Heal Amount": 2.5
-                    },
-                    {
-                        "Upgraded Deadline Heal Amount": 5.0
-                    },
-                    {
-                        "Aid Kit Heal Amount": 30.0
-                    },
-                    {
-                        "Upgraded Aid Kit Heal Amount": 60.0
-                    },
-                    {
-                        "Passive Heal Particles": 913497443
-                    },
-                    {
-                        "Kid Heal Particles": 3316874580
-                    },
-                    {
-                        "Player GO": 1862169540
-                    },
                     {
                         "Max HP": 100.0
                     },
@@ -16561,72 +15415,6 @@
                     },
                     {
                         "Fast Swap Delay": 0.5
-                    },
-                    {
-                        "Player Stats GO": 1862169540
-                    },
-                    {
-                        "Base Gun": 0
-                    },
-                    {
-                        "Normal Gun": -1
-                    },
-                    {
-                        "Special Gun": -1
-                    },
-                    {
-                        "Duals": 3550167112
-                    },
-                    {
-                        "Semiautomatic": 3701521640
-                    },
-                    {
-                        "Automatic": 1305371143
-                    },
-                    {
-                        "Burst": 4031330739
-                    },
-                    {
-                        "Shotgun": 2049488206
-                    },
-                    {
-                        "Swap Delay": 1.0
-                    },
-                    {
-                        "Fast Swap Delay": 0.5
-                    },
-                    {
-                        "Player Stats GO": 1862169540
-                    },
-                    {
-                        "Base Gun": 0
-                    },
-                    {
-                        "Normal Gun": -1
-                    },
-                    {
-                        "Special Gun": -1
-                    },
-                    {
-                        "Duals": 3550167112
-                    },
-                    {
-                        "Semiautomatic": 3701521640
-                    },
-                    {
-                        "Automatic": 1305371143
-                    },
-                    {
-                        "Burst": 4031330739
-                    },
-                    {
-                        "Shotgun": 2049488206
-                    },
-                    {
-                        "Swap Delay": 1.0
-                    },
-                    {
-                        "Fast Swap Delay": 0.5
                     }
                 ],
                 "Script Resource": 2666385646,
@@ -16635,12 +15423,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Level Index": 0
-                    },
-                    {
-                        "Level Index": 0
-                    },
                     {
                         "Level Index": 0
                     },
@@ -21879,12 +20661,6 @@
                     },
                     {
                         "Gun Type": 0
-                    },
-                    {
-                        "Gun Type": 0
-                    },
-                    {
-                        "Gun Type": 0
                     }
                 ],
                 "Script Resource": 4015574954,
@@ -21893,120 +20669,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Projectile Pull": 3024727231
-                    },
-                    {
-                        "Projectile Speed": 30.0
-                    },
-                    {
-                        "Projectile Damage": 5.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 5.0
-                    },
-                    {
-                        "Projectile Lifetime": 1.0
-                    },
-                    {
-                        "Projectile Spawn": 3550167112
-                    },
-                    {
-                        "Second Projectile Spawn": 2009336184
-                    },
-                    {
-                        "Projectile ScaleX": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleY": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleZ": 0.10000000149011612
-                    },
-                    {
-                        "Projectiles per second": 1.2000000476837158
-                    },
-                    {
-                        "Extra % firerate": 15.0
-                    },
-                    {
-                        "Burst Space": 0.10000000149011612
-                    },
-                    {
-                        "Second Gun GO": 2009336184
-                    },
-                    {
-                        "Slow %": 0.0
-                    },
-                    {
-                        "Freeze %": 0.0
-                    },
-                    {
-                        "Player Stats GO": 1862169540
-                    },
-                    {
-                        "Ammo Type": 0
-                    },
-                    {
-                        "Audio Event String": "w_basic"
-                    },
-                    {
-                        "Projectile Pull": 3024727231
-                    },
-                    {
-                        "Projectile Speed": 30.0
-                    },
-                    {
-                        "Projectile Damage": 5.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 5.0
-                    },
-                    {
-                        "Projectile Lifetime": 1.0
-                    },
-                    {
-                        "Projectile Spawn": 3550167112
-                    },
-                    {
-                        "Second Projectile Spawn": 2009336184
-                    },
-                    {
-                        "Projectile ScaleX": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleY": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleZ": 0.10000000149011612
-                    },
-                    {
-                        "Projectiles per second": 1.2000000476837158
-                    },
-                    {
-                        "Extra % firerate": 15.0
-                    },
-                    {
-                        "Burst Space": 0.10000000149011612
-                    },
-                    {
-                        "Second Gun GO": 2009336184
-                    },
-                    {
-                        "Slow %": 0.0
-                    },
-                    {
-                        "Freeze %": 0.0
-                    },
-                    {
-                        "Player Stats GO": 1862169540
-                    },
-                    {
-                        "Ammo Type": 0
-                    },
-                    {
-                        "Audio Event String": "w_basic"
-                    },
                     {
                         "Projectile Pull": 3024727231
                     },
@@ -22163,12 +20825,6 @@
                     },
                     {
                         "Gun Type": 1
-                    },
-                    {
-                        "Gun Type": 1
-                    },
-                    {
-                        "Gun Type": 1
                     }
                 ],
                 "Script Resource": 4015574954,
@@ -22177,90 +20833,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Projectile Pull": 3024727231
-                    },
-                    {
-                        "Projectile Speed": 80.0
-                    },
-                    {
-                        "Projectile Damage": 60.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 60.0
-                    },
-                    {
-                        "Projectile Lifetime": 0.5
-                    },
-                    {
-                        "Projectile Spawn": 3701521640
-                    },
-                    {
-                        "Projectile ScaleX": 0.20000000298023224
-                    },
-                    {
-                        "Projectile ScaleY": 0.20000000298023224
-                    },
-                    {
-                        "Projectile ScaleZ": 0.4000000059604645
-                    },
-                    {
-                        "Projectiles per second": 1.0
-                    },
-                    {
-                        "Extra % firerate": 15.0
-                    },
-                    {
-                        "Player Stats GO": 1862169540
-                    },
-                    {
-                        "Ammo Type": 1
-                    },
-                    {
-                        "Audio Event String": "w_semi"
-                    },
-                    {
-                        "Projectile Pull": 3024727231
-                    },
-                    {
-                        "Projectile Speed": 80.0
-                    },
-                    {
-                        "Projectile Damage": 60.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 60.0
-                    },
-                    {
-                        "Projectile Lifetime": 0.5
-                    },
-                    {
-                        "Projectile Spawn": 3701521640
-                    },
-                    {
-                        "Projectile ScaleX": 0.20000000298023224
-                    },
-                    {
-                        "Projectile ScaleY": 0.20000000298023224
-                    },
-                    {
-                        "Projectile ScaleZ": 0.4000000059604645
-                    },
-                    {
-                        "Projectiles per second": 1.0
-                    },
-                    {
-                        "Extra % firerate": 15.0
-                    },
-                    {
-                        "Player Stats GO": 1862169540
-                    },
-                    {
-                        "Ammo Type": 1
-                    },
-                    {
-                        "Audio Event String": "w_semi"
-                    },
                     {
                         "Projectile Pull": 3024727231
                     },
@@ -22387,12 +20959,6 @@
                     },
                     {
                         "Gun Type": 2
-                    },
-                    {
-                        "Gun Type": 2
-                    },
-                    {
-                        "Gun Type": 2
                     }
                 ],
                 "Script Resource": 4015574954,
@@ -22401,90 +20967,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Projectile Pull": 3024727231
-                    },
-                    {
-                        "Projectile Speed": 40.0
-                    },
-                    {
-                        "Projectile Damage": 1.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 1.0
-                    },
-                    {
-                        "Projectile Lifetime": 1.0
-                    },
-                    {
-                        "Projectile Spawn": 1305371143
-                    },
-                    {
-                        "Projectile ScaleX": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleY": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleZ": 0.10000000149011612
-                    },
-                    {
-                        "Projectiles per second": 10.0
-                    },
-                    {
-                        "Extra % firerate": 15.0
-                    },
-                    {
-                        "Player Stats GO": 1862169540
-                    },
-                    {
-                        "Ammo Type": 1
-                    },
-                    {
-                        "Audio Event String": "w_automatic"
-                    },
-                    {
-                        "Projectile Pull": 3024727231
-                    },
-                    {
-                        "Projectile Speed": 40.0
-                    },
-                    {
-                        "Projectile Damage": 1.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 1.0
-                    },
-                    {
-                        "Projectile Lifetime": 1.0
-                    },
-                    {
-                        "Projectile Spawn": 1305371143
-                    },
-                    {
-                        "Projectile ScaleX": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleY": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleZ": 0.10000000149011612
-                    },
-                    {
-                        "Projectiles per second": 10.0
-                    },
-                    {
-                        "Extra % firerate": 15.0
-                    },
-                    {
-                        "Player Stats GO": 1862169540
-                    },
-                    {
-                        "Ammo Type": 1
-                    },
-                    {
-                        "Audio Event String": "w_automatic"
-                    },
                     {
                         "Projectile Pull": 3024727231
                     },
@@ -22611,12 +21093,6 @@
                     },
                     {
                         "Gun Type": 3
-                    },
-                    {
-                        "Gun Type": 3
-                    },
-                    {
-                        "Gun Type": 3
                     }
                 ],
                 "Script Resource": 4015574954,
@@ -22625,102 +21101,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Projectile Pull": 3024727231
-                    },
-                    {
-                        "Projectile Speed": 35.0
-                    },
-                    {
-                        "Projectile Damage": 20.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 20.0
-                    },
-                    {
-                        "Projectile Lifetime": 1.0
-                    },
-                    {
-                        "Projectile Spawn": 4031330739
-                    },
-                    {
-                        "Projectile ScaleX": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleY": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleZ": 0.10000000149011612
-                    },
-                    {
-                        "Projectiles per second": 1.0
-                    },
-                    {
-                        "Extra % firerate": 15.0
-                    },
-                    {
-                        "Burst Space": 0.10000000149011612
-                    },
-                    {
-                        "Projectiles per burst": 3
-                    },
-                    {
-                        "Player Stats GO": 1862169540
-                    },
-                    {
-                        "Ammo Type": 1
-                    },
-                    {
-                        "Audio Event String": "w_burst"
-                    },
-                    {
-                        "Projectile Pull": 3024727231
-                    },
-                    {
-                        "Projectile Speed": 35.0
-                    },
-                    {
-                        "Projectile Damage": 20.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 20.0
-                    },
-                    {
-                        "Projectile Lifetime": 1.0
-                    },
-                    {
-                        "Projectile Spawn": 4031330739
-                    },
-                    {
-                        "Projectile ScaleX": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleY": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleZ": 0.10000000149011612
-                    },
-                    {
-                        "Projectiles per second": 1.0
-                    },
-                    {
-                        "Extra % firerate": 15.0
-                    },
-                    {
-                        "Burst Space": 0.10000000149011612
-                    },
-                    {
-                        "Projectiles per burst": 3
-                    },
-                    {
-                        "Player Stats GO": 1862169540
-                    },
-                    {
-                        "Ammo Type": 1
-                    },
-                    {
-                        "Audio Event String": "w_burst"
-                    },
                     {
                         "Projectile Pull": 3024727231
                     },
@@ -22859,12 +21239,6 @@
                     },
                     {
                         "Gun Type": 4
-                    },
-                    {
-                        "Gun Type": 4
-                    },
-                    {
-                        "Gun Type": 4
                     }
                 ],
                 "Script Resource": 4015574954,
@@ -22873,102 +21247,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Projectile Pull": 3024727231
-                    },
-                    {
-                        "Projectile Speed": 40.0
-                    },
-                    {
-                        "Projectile Damage": 5.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 5.0
-                    },
-                    {
-                        "Projectile Lifetime": 0.20000000298023224
-                    },
-                    {
-                        "Projectile Spawn": 2049488206
-                    },
-                    {
-                        "Projectile ScaleX": 0.05000000074505806
-                    },
-                    {
-                        "Projectile ScaleY": 0.05000000074505806
-                    },
-                    {
-                        "Projectile ScaleZ": 0.05000000074505806
-                    },
-                    {
-                        "Projectiles per second": 1.2999999523162842
-                    },
-                    {
-                        "Extra % firerate": 15.0
-                    },
-                    {
-                        "Pellets per shot": 3
-                    },
-                    {
-                        "Pellets Dispersion": 0.20000000298023224
-                    },
-                    {
-                        "Player Stats GO": 1862169540
-                    },
-                    {
-                        "Ammo Type": 1
-                    },
-                    {
-                        "Audio Event String": "w_shotgun"
-                    },
-                    {
-                        "Projectile Pull": 3024727231
-                    },
-                    {
-                        "Projectile Speed": 40.0
-                    },
-                    {
-                        "Projectile Damage": 5.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 5.0
-                    },
-                    {
-                        "Projectile Lifetime": 0.20000000298023224
-                    },
-                    {
-                        "Projectile Spawn": 2049488206
-                    },
-                    {
-                        "Projectile ScaleX": 0.05000000074505806
-                    },
-                    {
-                        "Projectile ScaleY": 0.05000000074505806
-                    },
-                    {
-                        "Projectile ScaleZ": 0.05000000074505806
-                    },
-                    {
-                        "Projectiles per second": 1.2999999523162842
-                    },
-                    {
-                        "Extra % firerate": 15.0
-                    },
-                    {
-                        "Pellets per shot": 3
-                    },
-                    {
-                        "Pellets Dispersion": 0.20000000298023224
-                    },
-                    {
-                        "Player Stats GO": 1862169540
-                    },
-                    {
-                        "Ammo Type": 1
-                    },
-                    {
-                        "Audio Event String": "w_shotgun"
-                    },
                     {
                         "Projectile Pull": 3024727231
                     },
@@ -23102,12 +21380,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Gun Type": 5
-                    },
-                    {
-                        "Gun Type": 5
-                    },
                     {
                         "Gun Type": 5
                     },
@@ -24490,30 +22762,6 @@
                     },
                     {
                         "Shotgun Bomb Pull Size": 0
-                    },
-                    {
-                        "Player": 1862169540
-                    },
-                    {
-                        "Pull Size": 20
-                    },
-                    {
-                        "Projectile Prefab": 633942339
-                    },
-                    {
-                        "Shotgun Bomb Pull Size": 0
-                    },
-                    {
-                        "Player": 1862169540
-                    },
-                    {
-                        "Pull Size": 20
-                    },
-                    {
-                        "Projectile Prefab": 633942339
-                    },
-                    {
-                        "Shotgun Bomb Pull Size": 0
                     }
                 ],
                 "Script Resource": 211675320,
@@ -24733,30 +22981,6 @@
                     },
                     {
                         "Button Guide": 2225710694
-                    },
-                    {
-                        "Number of menus": 1
-                    },
-                    {
-                        "Menu to Open 1": 2937841997
-                    },
-                    {
-                        "Menu Panel": 1310414073
-                    },
-                    {
-                        "Button Guide": 2225710694
-                    },
-                    {
-                        "Number of menus": 1
-                    },
-                    {
-                        "Menu to Open 1": 2937841997
-                    },
-                    {
-                        "Menu Panel": 1310414073
-                    },
-                    {
-                        "Button Guide": 2225710694
                     }
                 ],
                 "Script Resource": 2222166954,
@@ -24837,72 +23061,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Main Panel": 2937841997
-                    },
-                    {
-                        "Movement": 1137202544
-                    },
-                    {
-                        "Armory": 4046148656
-                    },
-                    {
-                        "Health": 2895536623
-                    },
-                    {
-                        "Special": 1570224826
-                    },
-                    {
-                        "PanelMovement": 726755960
-                    },
-                    {
-                        "PanelAbility2": 3616324842
-                    },
-                    {
-                        "PanelAbility3": 2934290476
-                    },
-                    {
-                        "PanelAbility4": 2546321765
-                    },
-                    {
-                        "Open Menu Interruptor": 971135935
-                    },
-                    {
-                        "Player": 1862169540
-                    },
-                    {
-                        "Main Panel": 2937841997
-                    },
-                    {
-                        "Movement": 1137202544
-                    },
-                    {
-                        "Armory": 4046148656
-                    },
-                    {
-                        "Health": 2895536623
-                    },
-                    {
-                        "Special": 1570224826
-                    },
-                    {
-                        "PanelMovement": 726755960
-                    },
-                    {
-                        "PanelAbility2": 3616324842
-                    },
-                    {
-                        "PanelAbility3": 2934290476
-                    },
-                    {
-                        "PanelAbility4": 2546321765
-                    },
-                    {
-                        "Open Menu Interruptor": 971135935
-                    },
-                    {
-                        "Player": 1862169540
-                    },
                     {
                         "Main Panel": 2937841997
                     },
@@ -25074,24 +23232,6 @@
                     },
                     {
                         "AbilityButton": 1137202544
-                    },
-                    {
-                        "Main Panel": 2937841997
-                    },
-                    {
-                        "Current Panel": 726755960
-                    },
-                    {
-                        "AbilityButton": 1137202544
-                    },
-                    {
-                        "Main Panel": 2937841997
-                    },
-                    {
-                        "Current Panel": 726755960
-                    },
-                    {
-                        "AbilityButton": 1137202544
                     }
                 ],
                 "Script Resource": 792501851,
@@ -25143,24 +23283,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Main Panel": 2937841997
-                    },
-                    {
-                        "Current Panel": 3616324842
-                    },
-                    {
-                        "AbilityButton": 4046148656
-                    },
-                    {
-                        "Main Panel": 2937841997
-                    },
-                    {
-                        "Current Panel": 3616324842
-                    },
-                    {
-                        "AbilityButton": 4046148656
-                    },
                     {
                         "Main Panel": 2937841997
                     },
@@ -25246,24 +23368,6 @@
                     },
                     {
                         "AbilityButton": 2895536623
-                    },
-                    {
-                        "Main Panel": 2937841997
-                    },
-                    {
-                        "Current Panel": 2934290476
-                    },
-                    {
-                        "AbilityButton": 2895536623
-                    },
-                    {
-                        "Main Panel": 2937841997
-                    },
-                    {
-                        "Current Panel": 2934290476
-                    },
-                    {
-                        "AbilityButton": 2895536623
                     }
                 ],
                 "Script Resource": 792501851,
@@ -25315,24 +23419,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Main Panel": 2937841997
-                    },
-                    {
-                        "Current Panel": 2546321765
-                    },
-                    {
-                        "AbilityButton": 1570224826
-                    },
-                    {
-                        "Main Panel": 2937841997
-                    },
-                    {
-                        "Current Panel": 2546321765
-                    },
-                    {
-                        "AbilityButton": 1570224826
-                    },
                     {
                         "Main Panel": 2937841997
                     },
@@ -25446,18 +23532,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Text Blueprints": 2314891765
-                    },
-                    {
-                        "PlayerStorage GO": 1862169540
-                    },
-                    {
-                        "Text Blueprints": 2314891765
-                    },
-                    {
-                        "PlayerStorage GO": 1862169540
-                    },
                     {
                         "Text Blueprints": 2314891765
                     },
@@ -25640,90 +23714,6 @@
                     },
                     {
                         "Player": 1862169540
-                    },
-                    {
-                        "Upgrate 1": 2761944280
-                    },
-                    {
-                        "Skillpoints needed LvL 1": 1
-                    },
-                    {
-                        "Upgrate 2": 3636875960
-                    },
-                    {
-                        "Skillpoints needed LvL 2": 2
-                    },
-                    {
-                        "Upgrate 3": 1734210071
-                    },
-                    {
-                        "Skillpoints needed LvL 3": 2
-                    },
-                    {
-                        "Upgrate 4": 1613695234
-                    },
-                    {
-                        "Skillpoints needed LvL 4": 3
-                    },
-                    {
-                        "Skillpoints needed LvL 5": 0
-                    },
-                    {
-                        "Upgrade Number": 4
-                    },
-                    {
-                        "Main Panel": 2937841997
-                    },
-                    {
-                        "Current Panel": 726755960
-                    },
-                    {
-                        "Tree Index": 0
-                    },
-                    {
-                        "Player": 1862169540
-                    },
-                    {
-                        "Upgrate 1": 2761944280
-                    },
-                    {
-                        "Skillpoints needed LvL 1": 1
-                    },
-                    {
-                        "Upgrate 2": 3636875960
-                    },
-                    {
-                        "Skillpoints needed LvL 2": 2
-                    },
-                    {
-                        "Upgrate 3": 1734210071
-                    },
-                    {
-                        "Skillpoints needed LvL 3": 2
-                    },
-                    {
-                        "Upgrate 4": 1613695234
-                    },
-                    {
-                        "Skillpoints needed LvL 4": 3
-                    },
-                    {
-                        "Skillpoints needed LvL 5": 0
-                    },
-                    {
-                        "Upgrade Number": 4
-                    },
-                    {
-                        "Main Panel": 2937841997
-                    },
-                    {
-                        "Current Panel": 726755960
-                    },
-                    {
-                        "Tree Index": 0
-                    },
-                    {
-                        "Player": 1862169540
                     }
                 ],
                 "Script Resource": 477126565,
@@ -25769,8 +23759,8 @@
                 "hoverImage": 3906363488,
                 "idleBlockImage": 3466576953,
                 "idleImage": 75339859,
-                "pressBlockImage": 2204455621,
-                "pressImage": 2599615273
+                "pressBlockImage": 3767728819,
+                "pressImage": 1881016656
             },
             {
                 "Enabled": true,
@@ -25782,12 +23772,6 @@
                         "Next Description": 3286644510
                     },
                     {
-                        "Description 4": 762428728
-                    },
-                    {
-                        "Description 5": 197488503
-                    },
-                    {
                         "Button": 2761944280
                     },
                     {
@@ -25795,42 +23779,6 @@
                     },
                     {
                         "Next Description": 3286644510
-                    },
-                    {
-                        "Description 4": 762428728
-                    },
-                    {
-                        "Description 5": 197488503
-                    },
-                    {
-                        "Button": 2761944280
-                    },
-                    {
-                        "Current Description": 6080464
-                    },
-                    {
-                        "Next Description": 3286644510
-                    },
-                    {
-                        "Description 4": 762428728
-                    },
-                    {
-                        "Description 5": 197488503
-                    },
-                    {
-                        "Button": 2761944280
-                    },
-                    {
-                        "Current Description": 6080464
-                    },
-                    {
-                        "Next Description": 3286644510
-                    },
-                    {
-                        "Description 4": 762428728
-                    },
-                    {
-                        "Description 5": 197488503
                     },
                     {
                         "Button": 2761944280
@@ -25879,8 +23827,8 @@
                 "hoverImage": 2063043809,
                 "idleBlockImage": 4254496951,
                 "idleImage": 1654806533,
-                "pressBlockImage": 1223215809,
-                "pressImage": 398460794
+                "pressBlockImage": 3629126910,
+                "pressImage": 2541473345
             },
             {
                 "Enabled": true,
@@ -25895,9 +23843,6 @@
                         "Previous Description": 6080464
                     },
                     {
-                        "Description 4": 197488503
-                    },
-                    {
                         "Button": 3636875960
                     },
                     {
@@ -25908,39 +23853,6 @@
                     },
                     {
                         "Previous Description": 6080464
-                    },
-                    {
-                        "Description 4": 197488503
-                    },
-                    {
-                        "Button": 3636875960
-                    },
-                    {
-                        "Current Description": 3286644510
-                    },
-                    {
-                        "Next Description": 762428728
-                    },
-                    {
-                        "Previous Description": 6080464
-                    },
-                    {
-                        "Description 4": 197488503
-                    },
-                    {
-                        "Button": 3636875960
-                    },
-                    {
-                        "Current Description": 3286644510
-                    },
-                    {
-                        "Next Description": 762428728
-                    },
-                    {
-                        "Previous Description": 6080464
-                    },
-                    {
-                        "Description 4": 197488503
                     },
                     {
                         "Button": 3636875960
@@ -25989,8 +23901,8 @@
                 "hoverImage": 1077388208,
                 "idleBlockImage": 530420254,
                 "idleImage": 3754038098,
-                "pressBlockImage": 4261630852,
-                "pressImage": 116788097
+                "pressBlockImage": 3629934470,
+                "pressImage": 715887939
             },
             {
                 "Enabled": true,
@@ -26005,9 +23917,6 @@
                         "Previous Description": 3286644510
                     },
                     {
-                        "Description 4": 6080464
-                    },
-                    {
                         "Button": 1734210071
                     },
                     {
@@ -26018,39 +23927,6 @@
                     },
                     {
                         "Previous Description": 3286644510
-                    },
-                    {
-                        "Description 4": 6080464
-                    },
-                    {
-                        "Button": 1734210071
-                    },
-                    {
-                        "Current Description": 762428728
-                    },
-                    {
-                        "Next Description": 197488503
-                    },
-                    {
-                        "Previous Description": 3286644510
-                    },
-                    {
-                        "Description 4": 6080464
-                    },
-                    {
-                        "Button": 1734210071
-                    },
-                    {
-                        "Current Description": 762428728
-                    },
-                    {
-                        "Next Description": 197488503
-                    },
-                    {
-                        "Previous Description": 3286644510
-                    },
-                    {
-                        "Description 4": 6080464
                     },
                     {
                         "Button": 1734210071
@@ -26099,8 +23975,8 @@
                 "hoverImage": 972143631,
                 "idleBlockImage": 3265449754,
                 "idleImage": 37551856,
-                "pressBlockImage": 1522364512,
-                "pressImage": 3844307165
+                "pressBlockImage": 2013464412,
+                "pressImage": 1684924925
             },
             {
                 "Enabled": true,
@@ -26112,12 +23988,6 @@
                         "Previous Description": 762428728
                     },
                     {
-                        "Description 4": 3286644510
-                    },
-                    {
-                        "Description 5": 6080464
-                    },
-                    {
                         "Button": 1613695234
                     },
                     {
@@ -26125,42 +23995,6 @@
                     },
                     {
                         "Previous Description": 762428728
-                    },
-                    {
-                        "Description 4": 3286644510
-                    },
-                    {
-                        "Description 5": 6080464
-                    },
-                    {
-                        "Button": 1613695234
-                    },
-                    {
-                        "Current Description": 197488503
-                    },
-                    {
-                        "Previous Description": 762428728
-                    },
-                    {
-                        "Description 4": 3286644510
-                    },
-                    {
-                        "Description 5": 6080464
-                    },
-                    {
-                        "Button": 1613695234
-                    },
-                    {
-                        "Current Description": 197488503
-                    },
-                    {
-                        "Previous Description": 762428728
-                    },
-                    {
-                        "Description 4": 3286644510
-                    },
-                    {
-                        "Description 5": 6080464
                     },
                     {
                         "Button": 1613695234
@@ -26449,90 +24283,6 @@
                     },
                     {
                         "Player": 1862169540
-                    },
-                    {
-                        "Upgrate 1": 1168933361
-                    },
-                    {
-                        "Skillpoints needed LvL 1": 1
-                    },
-                    {
-                        "Upgrate 2": 1269201573
-                    },
-                    {
-                        "Skillpoints needed LvL 2": 2
-                    },
-                    {
-                        "Upgrate 3": 2720533225
-                    },
-                    {
-                        "Skillpoints needed LvL 3": 2
-                    },
-                    {
-                        "Upgrate 4": 2480871420
-                    },
-                    {
-                        "Skillpoints needed LvL 4": 3
-                    },
-                    {
-                        "Skillpoints needed LvL 5": 0
-                    },
-                    {
-                        "Upgrade Number": 4
-                    },
-                    {
-                        "Main Panel": 2937841997
-                    },
-                    {
-                        "Current Panel": 3616324842
-                    },
-                    {
-                        "Tree Index": 1
-                    },
-                    {
-                        "Player": 1862169540
-                    },
-                    {
-                        "Upgrate 1": 1168933361
-                    },
-                    {
-                        "Skillpoints needed LvL 1": 1
-                    },
-                    {
-                        "Upgrate 2": 1269201573
-                    },
-                    {
-                        "Skillpoints needed LvL 2": 2
-                    },
-                    {
-                        "Upgrate 3": 2720533225
-                    },
-                    {
-                        "Skillpoints needed LvL 3": 2
-                    },
-                    {
-                        "Upgrate 4": 2480871420
-                    },
-                    {
-                        "Skillpoints needed LvL 4": 3
-                    },
-                    {
-                        "Skillpoints needed LvL 5": 0
-                    },
-                    {
-                        "Upgrade Number": 4
-                    },
-                    {
-                        "Main Panel": 2937841997
-                    },
-                    {
-                        "Current Panel": 3616324842
-                    },
-                    {
-                        "Tree Index": 1
-                    },
-                    {
-                        "Player": 1862169540
                     }
                 ],
                 "Script Resource": 477126565,
@@ -26575,11 +24325,11 @@
                 "State": 0,
                 "Type": 12,
                 "hoverBlockImage": 983788303,
-                "hoverImage": 4051481788,
+                "hoverImage": 4172910120,
                 "idleBlockImage": 3625591785,
                 "idleImage": 1651947909,
-                "pressBlockImage": 4172910120,
-                "pressImage": 204539219
+                "pressBlockImage": 1309917340,
+                "pressImage": 2026614356
             },
             {
                 "Enabled": true,
@@ -26591,12 +24341,6 @@
                         "Next Description": 2362856287
                     },
                     {
-                        "Description 4": 4085303271
-                    },
-                    {
-                        "Description 5": 2653277242
-                    },
-                    {
                         "Button": 1168933361
                     },
                     {
@@ -26604,42 +24348,6 @@
                     },
                     {
                         "Next Description": 2362856287
-                    },
-                    {
-                        "Description 4": 4085303271
-                    },
-                    {
-                        "Description 5": 2653277242
-                    },
-                    {
-                        "Button": 1168933361
-                    },
-                    {
-                        "Current Description": 886436084
-                    },
-                    {
-                        "Next Description": 2362856287
-                    },
-                    {
-                        "Description 4": 4085303271
-                    },
-                    {
-                        "Description 5": 2653277242
-                    },
-                    {
-                        "Button": 1168933361
-                    },
-                    {
-                        "Current Description": 886436084
-                    },
-                    {
-                        "Next Description": 2362856287
-                    },
-                    {
-                        "Description 4": 4085303271
-                    },
-                    {
-                        "Description 5": 2653277242
                     },
                     {
                         "Button": 1168933361
@@ -26688,8 +24396,8 @@
                 "hoverImage": 3450303370,
                 "idleBlockImage": 3041891450,
                 "idleImage": 3794375888,
-                "pressBlockImage": 22138383,
-                "pressImage": 3217302591
+                "pressBlockImage": 3103968547,
+                "pressImage": 1349641558
             },
             {
                 "Enabled": true,
@@ -26704,9 +24412,6 @@
                         "Previous Description": 886436084
                     },
                     {
-                        "Description 4": 2653277242
-                    },
-                    {
                         "Button": 1269201573
                     },
                     {
@@ -26717,39 +24422,6 @@
                     },
                     {
                         "Previous Description": 886436084
-                    },
-                    {
-                        "Description 4": 2653277242
-                    },
-                    {
-                        "Button": 1269201573
-                    },
-                    {
-                        "Current Description": 2362856287
-                    },
-                    {
-                        "Next Description": 4085303271
-                    },
-                    {
-                        "Previous Description": 886436084
-                    },
-                    {
-                        "Description 4": 2653277242
-                    },
-                    {
-                        "Button": 1269201573
-                    },
-                    {
-                        "Current Description": 2362856287
-                    },
-                    {
-                        "Next Description": 4085303271
-                    },
-                    {
-                        "Previous Description": 886436084
-                    },
-                    {
-                        "Description 4": 2653277242
                     },
                     {
                         "Button": 1269201573
@@ -26798,8 +24470,8 @@
                 "hoverImage": 1565970794,
                 "idleBlockImage": 3343364781,
                 "idleImage": 125103827,
-                "pressBlockImage": 438562774,
-                "pressImage": 1176255252
+                "pressBlockImage": 3778361191,
+                "pressImage": 2854807789
             },
             {
                 "Enabled": true,
@@ -26814,9 +24486,6 @@
                         "Previous Description": 2362856287
                     },
                     {
-                        "Description 4": 886436084
-                    },
-                    {
                         "Button": 2720533225
                     },
                     {
@@ -26827,39 +24496,6 @@
                     },
                     {
                         "Previous Description": 2362856287
-                    },
-                    {
-                        "Description 4": 886436084
-                    },
-                    {
-                        "Button": 2720533225
-                    },
-                    {
-                        "Current Description": 4085303271
-                    },
-                    {
-                        "Next Description": 2653277242
-                    },
-                    {
-                        "Previous Description": 2362856287
-                    },
-                    {
-                        "Description 4": 886436084
-                    },
-                    {
-                        "Button": 2720533225
-                    },
-                    {
-                        "Current Description": 4085303271
-                    },
-                    {
-                        "Next Description": 2653277242
-                    },
-                    {
-                        "Previous Description": 2362856287
-                    },
-                    {
-                        "Description 4": 886436084
                     },
                     {
                         "Button": 2720533225
@@ -26908,8 +24544,8 @@
                 "hoverImage": 3684446967,
                 "idleBlockImage": 986295648,
                 "idleImage": 2208756202,
-                "pressBlockImage": 2795924200,
-                "pressImage": 914503855
+                "pressBlockImage": 2464491423,
+                "pressImage": 949159402
             },
             {
                 "Enabled": true,
@@ -26921,12 +24557,6 @@
                         "Previous Description": 4085303271
                     },
                     {
-                        "Description 4": 2362856287
-                    },
-                    {
-                        "Description 5": 886436084
-                    },
-                    {
                         "Button": 2480871420
                     },
                     {
@@ -26934,42 +24564,6 @@
                     },
                     {
                         "Previous Description": 4085303271
-                    },
-                    {
-                        "Description 4": 2362856287
-                    },
-                    {
-                        "Description 5": 886436084
-                    },
-                    {
-                        "Button": 2480871420
-                    },
-                    {
-                        "Current Description": 2653277242
-                    },
-                    {
-                        "Previous Description": 4085303271
-                    },
-                    {
-                        "Description 4": 2362856287
-                    },
-                    {
-                        "Description 5": 886436084
-                    },
-                    {
-                        "Button": 2480871420
-                    },
-                    {
-                        "Current Description": 2653277242
-                    },
-                    {
-                        "Previous Description": 4085303271
-                    },
-                    {
-                        "Description 4": 2362856287
-                    },
-                    {
-                        "Description 5": 886436084
                     },
                     {
                         "Button": 2480871420
@@ -27265,96 +24859,6 @@
                     },
                     {
                         "Player": 1862169540
-                    },
-                    {
-                        "Upgrate 1": 2412762651
-                    },
-                    {
-                        "Skillpoints needed LvL 1": 1
-                    },
-                    {
-                        "Upgrate 2": 2777578711
-                    },
-                    {
-                        "Skillpoints needed LvL 2": 2
-                    },
-                    {
-                        "Upgrate 3": 1199903426
-                    },
-                    {
-                        "Skillpoints needed LvL 3": 2
-                    },
-                    {
-                        "Upgrate 4": 1362514346
-                    },
-                    {
-                        "Skillpoints needed LvL 4": 2
-                    },
-                    {
-                        "Upgrate 5": 963583409
-                    },
-                    {
-                        "Skillpoints needed LvL 5": 3
-                    },
-                    {
-                        "Upgrade Number": 5
-                    },
-                    {
-                        "Main Panel": 2937841997
-                    },
-                    {
-                        "Current Panel": 2934290476
-                    },
-                    {
-                        "Tree Index": 2
-                    },
-                    {
-                        "Player": 1862169540
-                    },
-                    {
-                        "Upgrate 1": 2412762651
-                    },
-                    {
-                        "Skillpoints needed LvL 1": 1
-                    },
-                    {
-                        "Upgrate 2": 2777578711
-                    },
-                    {
-                        "Skillpoints needed LvL 2": 2
-                    },
-                    {
-                        "Upgrate 3": 1199903426
-                    },
-                    {
-                        "Skillpoints needed LvL 3": 2
-                    },
-                    {
-                        "Upgrate 4": 1362514346
-                    },
-                    {
-                        "Skillpoints needed LvL 4": 2
-                    },
-                    {
-                        "Upgrate 5": 963583409
-                    },
-                    {
-                        "Skillpoints needed LvL 5": 3
-                    },
-                    {
-                        "Upgrade Number": 5
-                    },
-                    {
-                        "Main Panel": 2937841997
-                    },
-                    {
-                        "Current Panel": 2934290476
-                    },
-                    {
-                        "Tree Index": 2
-                    },
-                    {
-                        "Player": 1862169540
                     }
                 ],
                 "Script Resource": 477126565,
@@ -27400,8 +24904,8 @@
                 "hoverImage": 2942853897,
                 "idleBlockImage": 1487730403,
                 "idleImage": 962993018,
-                "pressBlockImage": 3966207148,
-                "pressImage": 1652741118
+                "pressBlockImage": 964319235,
+                "pressImage": 1573633164
             },
             {
                 "Enabled": true,
@@ -27416,12 +24920,6 @@
                         "Previous Description": 855224226
                     },
                     {
-                        "Description 4": 2425893789
-                    },
-                    {
-                        "Description 5": 3732501824
-                    },
-                    {
                         "Button": 2412762651
                     },
                     {
@@ -27432,48 +24930,6 @@
                     },
                     {
                         "Previous Description": 855224226
-                    },
-                    {
-                        "Description 4": 2425893789
-                    },
-                    {
-                        "Description 5": 3732501824
-                    },
-                    {
-                        "Button": 2412762651
-                    },
-                    {
-                        "Current Description": 3020994421
-                    },
-                    {
-                        "Next Description": 1888929368
-                    },
-                    {
-                        "Previous Description": 855224226
-                    },
-                    {
-                        "Description 4": 2425893789
-                    },
-                    {
-                        "Description 5": 3732501824
-                    },
-                    {
-                        "Button": 2412762651
-                    },
-                    {
-                        "Current Description": 3020994421
-                    },
-                    {
-                        "Next Description": 1888929368
-                    },
-                    {
-                        "Previous Description": 855224226
-                    },
-                    {
-                        "Description 4": 2425893789
-                    },
-                    {
-                        "Description 5": 3732501824
                     },
                     {
                         "Button": 2412762651
@@ -27518,12 +24974,12 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "hoverBlockImage": 2246531119,
+                "hoverBlockImage": 3067472483,
                 "hoverImage": 1816090980,
-                "idleBlockImage": 1487730403,
+                "idleBlockImage": 1658656476,
                 "idleImage": 18640436,
-                "pressBlockImage": 3966207148,
-                "pressImage": 1948854205
+                "pressBlockImage": 370833931,
+                "pressImage": 2927959955
             },
             {
                 "Enabled": true,
@@ -27538,12 +24994,6 @@
                         "Previous Description": 3020994421
                     },
                     {
-                        "Description 4": 2425893789
-                    },
-                    {
-                        "Description 5": 3732501824
-                    },
-                    {
                         "Button": 2777578711
                     },
                     {
@@ -27554,48 +25004,6 @@
                     },
                     {
                         "Previous Description": 3020994421
-                    },
-                    {
-                        "Description 4": 2425893789
-                    },
-                    {
-                        "Description 5": 3732501824
-                    },
-                    {
-                        "Button": 2777578711
-                    },
-                    {
-                        "Current Description": 1888929368
-                    },
-                    {
-                        "Next Description": 855224226
-                    },
-                    {
-                        "Previous Description": 3020994421
-                    },
-                    {
-                        "Description 4": 2425893789
-                    },
-                    {
-                        "Description 5": 3732501824
-                    },
-                    {
-                        "Button": 2777578711
-                    },
-                    {
-                        "Current Description": 1888929368
-                    },
-                    {
-                        "Next Description": 855224226
-                    },
-                    {
-                        "Previous Description": 3020994421
-                    },
-                    {
-                        "Description 4": 2425893789
-                    },
-                    {
-                        "Description 5": 3732501824
                     },
                     {
                         "Button": 2777578711
@@ -27640,12 +25048,12 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "hoverBlockImage": 2246531119,
+                "hoverBlockImage": 950433155,
                 "hoverImage": 3595214095,
-                "idleBlockImage": 1487730403,
+                "idleBlockImage": 2095876669,
                 "idleImage": 645164375,
-                "pressBlockImage": 3966207148,
-                "pressImage": 250540909
+                "pressBlockImage": 379827194,
+                "pressImage": 2661025800
             },
             {
                 "Enabled": true,
@@ -27660,12 +25068,6 @@
                         "Previous Description": 1888929368
                     },
                     {
-                        "Description 4": 3020994421
-                    },
-                    {
-                        "Description 5": 3732501824
-                    },
-                    {
                         "Button": 1199903426
                     },
                     {
@@ -27676,48 +25078,6 @@
                     },
                     {
                         "Previous Description": 1888929368
-                    },
-                    {
-                        "Description 4": 3020994421
-                    },
-                    {
-                        "Description 5": 3732501824
-                    },
-                    {
-                        "Button": 1199903426
-                    },
-                    {
-                        "Current Description": 855224226
-                    },
-                    {
-                        "Next Description": 2425893789
-                    },
-                    {
-                        "Previous Description": 1888929368
-                    },
-                    {
-                        "Description 4": 3020994421
-                    },
-                    {
-                        "Description 5": 3732501824
-                    },
-                    {
-                        "Button": 1199903426
-                    },
-                    {
-                        "Current Description": 855224226
-                    },
-                    {
-                        "Next Description": 2425893789
-                    },
-                    {
-                        "Previous Description": 1888929368
-                    },
-                    {
-                        "Description 4": 3020994421
-                    },
-                    {
-                        "Description 5": 3732501824
                     },
                     {
                         "Button": 1199903426
@@ -27762,12 +25122,12 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "hoverBlockImage": 2246531119,
+                "hoverBlockImage": 998650191,
                 "hoverImage": 1591933439,
-                "idleBlockImage": 1487730403,
+                "idleBlockImage": 163643360,
                 "idleImage": 707616108,
-                "pressBlockImage": 3966207148,
-                "pressImage": 2483720286
+                "pressBlockImage": 2623950227,
+                "pressImage": 1505102640
             },
             {
                 "Enabled": true,
@@ -27782,12 +25142,6 @@
                         "Previous Description": 855224226
                     },
                     {
-                        "Description 4": 1888929368
-                    },
-                    {
-                        "Description 5": 3020994421
-                    },
-                    {
                         "Button": 1362514346
                     },
                     {
@@ -27798,48 +25152,6 @@
                     },
                     {
                         "Previous Description": 855224226
-                    },
-                    {
-                        "Description 4": 1888929368
-                    },
-                    {
-                        "Description 5": 3020994421
-                    },
-                    {
-                        "Button": 1362514346
-                    },
-                    {
-                        "Current Description": 2425893789
-                    },
-                    {
-                        "Next Description": 3732501824
-                    },
-                    {
-                        "Previous Description": 855224226
-                    },
-                    {
-                        "Description 4": 1888929368
-                    },
-                    {
-                        "Description 5": 3020994421
-                    },
-                    {
-                        "Button": 1362514346
-                    },
-                    {
-                        "Current Description": 2425893789
-                    },
-                    {
-                        "Next Description": 3732501824
-                    },
-                    {
-                        "Previous Description": 855224226
-                    },
-                    {
-                        "Description 4": 1888929368
-                    },
-                    {
-                        "Description 5": 3020994421
                     },
                     {
                         "Button": 1362514346
@@ -27884,12 +25196,12 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "hoverBlockImage": 2246531119,
+                "hoverBlockImage": 1843429432,
                 "hoverImage": 4171383660,
-                "idleBlockImage": 1487730403,
+                "idleBlockImage": 1750194025,
                 "idleImage": 393356939,
-                "pressBlockImage": 3966207148,
-                "pressImage": 2623192227
+                "pressBlockImage": 1187623283,
+                "pressImage": 115080057
             },
             {
                 "Enabled": true,
@@ -27904,12 +25216,6 @@
                         "Previous Description": 2425893789
                     },
                     {
-                        "Description 4": 1888929368
-                    },
-                    {
-                        "Description 5": 855224226
-                    },
-                    {
                         "Button": 963583409
                     },
                     {
@@ -27920,48 +25226,6 @@
                     },
                     {
                         "Previous Description": 2425893789
-                    },
-                    {
-                        "Description 4": 1888929368
-                    },
-                    {
-                        "Description 5": 855224226
-                    },
-                    {
-                        "Button": 963583409
-                    },
-                    {
-                        "Current Description": 3732501824
-                    },
-                    {
-                        "Next Description": 3020994421
-                    },
-                    {
-                        "Previous Description": 2425893789
-                    },
-                    {
-                        "Description 4": 1888929368
-                    },
-                    {
-                        "Description 5": 855224226
-                    },
-                    {
-                        "Button": 963583409
-                    },
-                    {
-                        "Current Description": 3732501824
-                    },
-                    {
-                        "Next Description": 3020994421
-                    },
-                    {
-                        "Previous Description": 2425893789
-                    },
-                    {
-                        "Description 4": 1888929368
-                    },
-                    {
-                        "Description 5": 855224226
                     },
                     {
                         "Button": 963583409
@@ -28281,84 +25545,6 @@
                     },
                     {
                         "Player": 1862169540
-                    },
-                    {
-                        "Upgrate 1": 2692458665
-                    },
-                    {
-                        "Skillpoints needed LvL 1": 3
-                    },
-                    {
-                        "Upgrate 2": 2112049340
-                    },
-                    {
-                        "Skillpoints needed LvL 2": 3
-                    },
-                    {
-                        "Upgrate 3": 486754283
-                    },
-                    {
-                        "Skillpoints needed LvL 3": 4
-                    },
-                    {
-                        "Skillpoints needed LvL 4": 0
-                    },
-                    {
-                        "Skillpoints needed LvL 5": 0
-                    },
-                    {
-                        "Upgrade Number": 3
-                    },
-                    {
-                        "Main Panel": 2937841997
-                    },
-                    {
-                        "Current Panel": 2546321765
-                    },
-                    {
-                        "Tree Index": 3
-                    },
-                    {
-                        "Player": 1862169540
-                    },
-                    {
-                        "Upgrate 1": 2692458665
-                    },
-                    {
-                        "Skillpoints needed LvL 1": 3
-                    },
-                    {
-                        "Upgrate 2": 2112049340
-                    },
-                    {
-                        "Skillpoints needed LvL 2": 3
-                    },
-                    {
-                        "Upgrate 3": 486754283
-                    },
-                    {
-                        "Skillpoints needed LvL 3": 4
-                    },
-                    {
-                        "Skillpoints needed LvL 4": 0
-                    },
-                    {
-                        "Skillpoints needed LvL 5": 0
-                    },
-                    {
-                        "Upgrade Number": 3
-                    },
-                    {
-                        "Main Panel": 2937841997
-                    },
-                    {
-                        "Current Panel": 2546321765
-                    },
-                    {
-                        "Tree Index": 3
-                    },
-                    {
-                        "Player": 1862169540
                     }
                 ],
                 "Script Resource": 477126565,
@@ -28404,8 +25590,8 @@
                 "hoverImage": 1481163469,
                 "idleBlockImage": 70539861,
                 "idleImage": 941191803,
-                "pressBlockImage": 2916017232,
-                "pressImage": 1240771976
+                "pressBlockImage": 327143222,
+                "pressImage": 379342264
             },
             {
                 "Enabled": true,
@@ -28417,9 +25603,6 @@
                         "Next Description": 2835375609
                     },
                     {
-                        "Description 4": 2861744828
-                    },
-                    {
                         "Button": 2692458665
                     },
                     {
@@ -28427,33 +25610,6 @@
                     },
                     {
                         "Next Description": 2835375609
-                    },
-                    {
-                        "Description 4": 2861744828
-                    },
-                    {
-                        "Button": 2692458665
-                    },
-                    {
-                        "Current Description": 1387223882
-                    },
-                    {
-                        "Next Description": 2835375609
-                    },
-                    {
-                        "Description 4": 2861744828
-                    },
-                    {
-                        "Button": 2692458665
-                    },
-                    {
-                        "Current Description": 1387223882
-                    },
-                    {
-                        "Next Description": 2835375609
-                    },
-                    {
-                        "Description 4": 2861744828
                     },
                     {
                         "Button": 2692458665
@@ -28502,36 +25658,12 @@
                 "hoverImage": 2463679771,
                 "idleBlockImage": 909971764,
                 "idleImage": 119784811,
-                "pressBlockImage": 4004864065,
-                "pressImage": 4004864065
+                "pressBlockImage": 3093634964,
+                "pressImage": 3350083043
             },
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Current Description": 2835375609
-                    },
-                    {
-                        "Next Description": 2861744828
-                    },
-                    {
-                        "Previous Description": 1387223882
-                    },
-                    {
-                        "Button": 2112049340
-                    },
-                    {
-                        "Current Description": 2835375609
-                    },
-                    {
-                        "Next Description": 2861744828
-                    },
-                    {
-                        "Previous Description": 1387223882
-                    },
-                    {
-                        "Button": 2112049340
-                    },
                     {
                         "Current Description": 2835375609
                     },
@@ -28600,8 +25732,8 @@
                 "hoverImage": 16280546,
                 "idleBlockImage": 1016881062,
                 "idleImage": 2184501696,
-                "pressBlockImage": 1982743726,
-                "pressImage": 154268735
+                "pressBlockImage": 3413687423,
+                "pressImage": 1998028955
             },
             {
                 "Enabled": true,
@@ -28613,9 +25745,6 @@
                         "Previous Description": 2835375609
                     },
                     {
-                        "Description 4": 1387223882
-                    },
-                    {
                         "Button": 486754283
                     },
                     {
@@ -28623,33 +25752,6 @@
                     },
                     {
                         "Previous Description": 2835375609
-                    },
-                    {
-                        "Description 4": 1387223882
-                    },
-                    {
-                        "Button": 486754283
-                    },
-                    {
-                        "Current Description": 2861744828
-                    },
-                    {
-                        "Previous Description": 2835375609
-                    },
-                    {
-                        "Description 4": 1387223882
-                    },
-                    {
-                        "Button": 486754283
-                    },
-                    {
-                        "Current Description": 2861744828
-                    },
-                    {
-                        "Previous Description": 2835375609
-                    },
-                    {
-                        "Description 4": 1387223882
                     },
                     {
                         "Button": 486754283
@@ -28844,12 +25946,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Continue": 3612029568
-                    },
-                    {
-                        "Continue": 3612029568
-                    },
                     {
                         "Continue": 3612029568
                     },
@@ -29208,12 +26304,6 @@
                     },
                     {
                         "Continue": 3171051626
-                    },
-                    {
-                        "Continue": 3171051626
-                    },
-                    {
-                        "Continue": 3171051626
                     }
                 ],
                 "Script Resource": 514756029,
@@ -29421,18 +26511,6 @@
             {
                 "Enabled": true,
                 "Inspector Fields": [
-                    {
-                        "Panel text 1": 3845602525
-                    },
-                    {
-                        "Panel text 2": 925652610
-                    },
-                    {
-                        "Panel text 1": 3845602525
-                    },
-                    {
-                        "Panel text 2": 925652610
-                    },
                     {
                         "Panel text 1": 3845602525
                     },
@@ -32661,19 +29739,16 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Button Guide": 3437375339
-                    },
-                    {
                         "Move X animation repeat": 0
                     },
                     {
                         "Move Y animation repeat": 0
                     },
                     {
-                        "Move animation in loop": true
+                        "Move animation in loop": false
                     },
                     {
-                        "Move animation active": true
+                        "Move animation active": false
                     },
                     {
                         "Distance move X": 0.0
@@ -32682,10 +29757,10 @@
                         "Speed move X": 0.0
                     },
                     {
-                        "Distance move Y": 0.029999999329447746
+                        "Distance move Y": 0.0
                     },
                     {
-                        "Speed move Y": 1.0
+                        "Speed move Y": 0.0
                     },
                     {
                         "Scale animation repeat": 0
@@ -32718,19 +29793,16 @@
                         "Speed Rotation": 0.0
                     },
                     {
-                        "Button Guide": 3437375339
-                    },
-                    {
                         "Move X animation repeat": 0
                     },
                     {
                         "Move Y animation repeat": 0
                     },
                     {
-                        "Move animation in loop": true
+                        "Move animation in loop": false
                     },
                     {
-                        "Move animation active": true
+                        "Move animation active": false
                     },
                     {
                         "Distance move X": 0.0
@@ -32739,124 +29811,10 @@
                         "Speed move X": 0.0
                     },
                     {
-                        "Distance move Y": 0.029999999329447746
+                        "Distance move Y": 0.0
                     },
                     {
-                        "Speed move Y": 1.0
-                    },
-                    {
-                        "Scale animation repeat": 0
-                    },
-                    {
-                        "Scale animation in loop": false
-                    },
-                    {
-                        "Scale animation active": false
-                    },
-                    {
-                        "Scale max": 0.0
-                    },
-                    {
-                        "Speed Scale": 0.0
-                    },
-                    {
-                        "Rotate animation repeat": 0
-                    },
-                    {
-                        "Rotate animation in loop": false
-                    },
-                    {
-                        "Rotate animation active": false
-                    },
-                    {
-                        "Rotate distance": 0.0
-                    },
-                    {
-                        "Speed Rotation": 0.0
-                    },
-                    {
-                        "Button Guide": 3437375339
-                    },
-                    {
-                        "Move X animation repeat": 0
-                    },
-                    {
-                        "Move Y animation repeat": 0
-                    },
-                    {
-                        "Move animation in loop": true
-                    },
-                    {
-                        "Move animation active": true
-                    },
-                    {
-                        "Distance move X": 0.0
-                    },
-                    {
-                        "Speed move X": 0.0
-                    },
-                    {
-                        "Distance move Y": 0.029999999329447746
-                    },
-                    {
-                        "Speed move Y": 1.0
-                    },
-                    {
-                        "Scale animation repeat": 0
-                    },
-                    {
-                        "Scale animation in loop": false
-                    },
-                    {
-                        "Scale animation active": false
-                    },
-                    {
-                        "Scale max": 0.0
-                    },
-                    {
-                        "Speed Scale": 0.0
-                    },
-                    {
-                        "Rotate animation repeat": 0
-                    },
-                    {
-                        "Rotate animation in loop": false
-                    },
-                    {
-                        "Rotate animation active": false
-                    },
-                    {
-                        "Rotate distance": 0.0
-                    },
-                    {
-                        "Speed Rotation": 0.0
-                    },
-                    {
-                        "Button Guide": 3437375339
-                    },
-                    {
-                        "Move X animation repeat": 0
-                    },
-                    {
-                        "Move Y animation repeat": 0
-                    },
-                    {
-                        "Move animation in loop": true
-                    },
-                    {
-                        "Move animation active": true
-                    },
-                    {
-                        "Distance move X": 0.0
-                    },
-                    {
-                        "Speed move X": 0.0
-                    },
-                    {
-                        "Distance move Y": 0.029999999329447746
-                    },
-                    {
-                        "Speed move Y": 1.0
+                        "Speed move Y": 0.0
                     },
                     {
                         "Scale animation repeat": 0
@@ -32934,19 +29892,16 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Button Guide": 2225710694
-                    },
-                    {
                         "Move X animation repeat": 0
                     },
                     {
                         "Move Y animation repeat": 0
                     },
                     {
-                        "Move animation in loop": true
+                        "Move animation in loop": false
                     },
                     {
-                        "Move animation active": true
+                        "Move animation active": false
                     },
                     {
                         "Distance move X": 0.0
@@ -32955,10 +29910,10 @@
                         "Speed move X": 0.0
                     },
                     {
-                        "Distance move Y": 0.029999999329447746
+                        "Distance move Y": 0.0
                     },
                     {
-                        "Speed move Y": 1.0
+                        "Speed move Y": 0.0
                     },
                     {
                         "Scale animation repeat": 0
@@ -32991,19 +29946,16 @@
                         "Speed Rotation": 0.0
                     },
                     {
-                        "Button Guide": 2225710694
-                    },
-                    {
                         "Move X animation repeat": 0
                     },
                     {
                         "Move Y animation repeat": 0
                     },
                     {
-                        "Move animation in loop": true
+                        "Move animation in loop": false
                     },
                     {
-                        "Move animation active": true
+                        "Move animation active": false
                     },
                     {
                         "Distance move X": 0.0
@@ -33012,124 +29964,10 @@
                         "Speed move X": 0.0
                     },
                     {
-                        "Distance move Y": 0.029999999329447746
+                        "Distance move Y": 0.0
                     },
                     {
-                        "Speed move Y": 1.0
-                    },
-                    {
-                        "Scale animation repeat": 0
-                    },
-                    {
-                        "Scale animation in loop": false
-                    },
-                    {
-                        "Scale animation active": false
-                    },
-                    {
-                        "Scale max": 0.0
-                    },
-                    {
-                        "Speed Scale": 0.0
-                    },
-                    {
-                        "Rotate animation repeat": 0
-                    },
-                    {
-                        "Rotate animation in loop": false
-                    },
-                    {
-                        "Rotate animation active": false
-                    },
-                    {
-                        "Rotate distance": 0.0
-                    },
-                    {
-                        "Speed Rotation": 0.0
-                    },
-                    {
-                        "Button Guide": 2225710694
-                    },
-                    {
-                        "Move X animation repeat": 0
-                    },
-                    {
-                        "Move Y animation repeat": 0
-                    },
-                    {
-                        "Move animation in loop": true
-                    },
-                    {
-                        "Move animation active": true
-                    },
-                    {
-                        "Distance move X": 0.0
-                    },
-                    {
-                        "Speed move X": 0.0
-                    },
-                    {
-                        "Distance move Y": 0.029999999329447746
-                    },
-                    {
-                        "Speed move Y": 1.0
-                    },
-                    {
-                        "Scale animation repeat": 0
-                    },
-                    {
-                        "Scale animation in loop": false
-                    },
-                    {
-                        "Scale animation active": false
-                    },
-                    {
-                        "Scale max": 0.0
-                    },
-                    {
-                        "Speed Scale": 0.0
-                    },
-                    {
-                        "Rotate animation repeat": 0
-                    },
-                    {
-                        "Rotate animation in loop": false
-                    },
-                    {
-                        "Rotate animation active": false
-                    },
-                    {
-                        "Rotate distance": 0.0
-                    },
-                    {
-                        "Speed Rotation": 0.0
-                    },
-                    {
-                        "Button Guide": 2225710694
-                    },
-                    {
-                        "Move X animation repeat": 0
-                    },
-                    {
-                        "Move Y animation repeat": 0
-                    },
-                    {
-                        "Move animation in loop": true
-                    },
-                    {
-                        "Move animation active": true
-                    },
-                    {
-                        "Distance move X": 0.0
-                    },
-                    {
-                        "Speed move X": 0.0
-                    },
-                    {
-                        "Distance move Y": 0.029999999329447746
-                    },
-                    {
-                        "Speed move Y": 1.0
+                        "Speed move Y": 0.0
                     },
                     {
                         "Scale animation repeat": 0
