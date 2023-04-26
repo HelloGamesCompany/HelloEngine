@@ -33,6 +33,7 @@ void GetDiviner::OnCollisionStay(API_RigidBody other)
                 playerStorage->SaveData();
             }
             API_QuickSave::SetBool("level1_completed", true);
+            API_QuickSave::SetBool("IsInMiddleOfLevel", false);
             finalText.SetActive(true);
         }
         
