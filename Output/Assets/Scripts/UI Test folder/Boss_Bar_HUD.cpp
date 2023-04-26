@@ -65,7 +65,7 @@ void Boss_Bar_HUD::Boss_Bar(float HP_Boss_Value, float Shield_Boss_Value, int ph
         boss_shield_bar.GetGameObject().GetMaterialCompoennt().ChangeAlbedoTexture(shield_boss_texture);
         if (Shield_Boss_Value <= 0.1)
         {
-            //boss_shield_destroyed->breack_shield_boss_anim = true;
+            boss_shield_destroyed->breack_shield_boss_anim = true;
         }
     }
 

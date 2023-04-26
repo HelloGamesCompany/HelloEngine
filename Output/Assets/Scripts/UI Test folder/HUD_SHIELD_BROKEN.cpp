@@ -20,9 +20,8 @@ void HUD_SHIELD_BROKEN::Start()
 }
 void HUD_SHIELD_BROKEN::Update()
 {
-	//
-		//BrokenShield_Animation(breack_shield_boss_anim);
-		//BrokenShield_Animation(breack_shield_Player_anim);
+		BrokenShield_Animation(breack_shield_boss_anim);
+		BrokenShield_Animation(breack_shield_Player_anim);
 }
 
 void HUD_SHIELD_BROKEN::BrokenShield_Animation(bool isbroken)
