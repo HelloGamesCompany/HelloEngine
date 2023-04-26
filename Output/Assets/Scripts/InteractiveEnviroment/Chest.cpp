@@ -10,6 +10,8 @@ HELLO_ENGINE_API_C Chest* CreateChest(ScriptToInspectorInterface* script)
     script->AddCheckBox("Tutorial Weapon Blueprint", &classInstance->tutorialWeaponBlueprint);
     script->AddDragInt("Chest Index", &classInstance->chestIndex);
     script->AddDragInt("Item Index", &classInstance->itemIndex);
+
+    script->AddDragBoxUIImage("Guide Button", &classInstance->guideButton);
     return classInstance;
 }
 
@@ -25,7 +27,7 @@ void Chest::Update()
     if (opening)
     {
         openChestTime -= Time::GetRealTimeDeltaTime();
-
+        guideButton.FillImage(openChestTime);
         if (Input::GetGamePadButton(GamePadButton::BUTTON_X) == KeyState::KEY_UP || Input::GetKey(KeyCode::KEY_E) == KeyState::KEY_UP)
         {
             if (playerMove) playerMove->StopOpenChestAnim();
@@ -143,4 +145,22 @@ void Chest::OpenChestOnStart()
 {
     chestAnimatorPlayer.Play();
     gameObject.SetActive(false);
+}
+
+void Chest::OnCollisionEnter(API::API_RigidBody other)
+{
+    std::string detectionTag = other.GetGameObject().GetTag();
+    if (detectionTag == "Player")
+    {
+        guideButton.GetGameObject().SetActive(true);
+    }
+}
+
+void Chest::OnCollisionExit(API::API_RigidBody other)
+{
+    std::string detectionTag = other.GetGameObject().GetTag();
+    if (detectionTag == "Player")
+    {
+        guideButton.GetGameObject().SetActive(false);
+    }
 }

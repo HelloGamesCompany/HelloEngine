@@ -23,6 +23,9 @@ void Boss_Bar_HUD::Start()
     bossStats = (BossLoop*)bossStatsGO.GetScript("BossLoop");
     if (bossStats == nullptr) Console::Log("Missing BossStats on Boss_Bar_HUD Script.");
 
+    boss_shield_destroyed = (HUD_SHIELD_BROKEN*)boss_shield_destroyed_GO.GetScript("HUD_SHIELD_BROKEN");
+    if (bossStats == nullptr) Console::Log("HUD_SHIELD_BROKEN BossStats on Boss_Bar_HUD Script.");
+
     boss_shield_bar.GetGameObject().GetMaterialCompoennt().ChangeAlbedoTexture(shield_boss_texture);
     boss_hp_bar.GetGameObject().GetMaterialCompoennt().ChangeAlbedoTexture(hp_boss_texture);
 
@@ -60,6 +63,10 @@ void Boss_Bar_HUD::Boss_Bar(float HP_Boss_Value, float Shield_Boss_Value, int ph
         boss_shield_bar.FillImage(Shield_Boss_Value);
         //boss_shield_bar.GetGameObject().GetMaterialCompoennt().ChangeAlbedoTexture(shield_boss_texture[phase]);
         boss_shield_bar.GetGameObject().GetMaterialCompoennt().ChangeAlbedoTexture(shield_boss_texture);
+        if (Shield_Boss_Value <= 0.1)
+        {
+            //boss_shield_destroyed->breack_shield_boss_anim = true;
+        }
     }
 
 }

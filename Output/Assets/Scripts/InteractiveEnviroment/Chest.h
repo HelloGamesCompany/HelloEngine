@@ -16,12 +16,15 @@ public:
     void Update() override;
 
     void OnCollisionStay(API::API_RigidBody other) override;
+    void OnCollisionEnter(API::API_RigidBody other) override;
+    void OnCollisionExit(API::API_RigidBody other) override;
 
     void OpenChestOnStart();
 
     API_AnimationPlayer chestAnimatorPlayer;
 
     float openChestTime;
+    float openChestTimeBar;
     float maxOpenChestTime = 1.0f;
     bool opening;
     PlayerGunManager* playerGunManager;
@@ -34,6 +37,7 @@ public:
     int chestIndex;
     int itemIndex;
 
+    API_UIImage guideButton;
 
     // 0 -> Upgrade Blueprint
     // 1 -> Unlock SemiAutomatic

@@ -4,6 +4,7 @@
 #include "Macro.h"
 #include "API/API_UIImage.h"
 #include "../EbonyMaw/BossLoop.h"
+#include "../UI Test folder/HUD_SHIELD_BROKEN.h"
 
 #include "API/API.h"
 
@@ -17,6 +18,9 @@ public:
 
 	API_GameObject bossStatsGO;
 	BossLoop* bossStats;
+
+	API_GameObject boss_shield_destroyed_GO;
+	HUD_SHIELD_BROKEN* boss_shield_destroyed;
 
 	//uint shield_boss_texture[3];
 	uint shield_boss_texture;

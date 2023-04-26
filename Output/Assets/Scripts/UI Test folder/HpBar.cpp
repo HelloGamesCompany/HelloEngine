@@ -15,9 +15,13 @@ HELLO_ENGINE_API_C HpBar* CreateHpBar(ScriptToInspectorInterface* script)
 
 void HpBar::Start()
 {
+    //
     playerStats = (PlayerStats*)playerStatsGO.GetScript("PlayerStats");
     if (playerStats == nullptr) Console::Log("Missing PlayerStats on HpBar Script.");
-
+    
+   // playerShieldStats = (HUD_SHIELD_BROKEN*)playerShieldStatsGO.GetScript("HUD_SHIELD_BROKEN");
+   // if (playerShieldStats == nullptr) Console::Log("HUD_SHIELD_BROKEN PlayerStats on HpBar Script.");
+    
     hp_Bar.FillImage(1);
     hp_Bar.GetGameObject().GetMaterialCompoennt().ChangeAlbedoTexture(hp_texture);
 }
@@ -41,7 +45,7 @@ void HpBar::Update()
         }
 
         HpPlayerbar(playerStats->currentHp / playerStats->currentMaxHp, hp_regen);
-        ShieldPlayerbar(playerStats->shield/50);
+        ShieldPlayerbar(playerStats->shield/50 );
     }
 
  
@@ -64,7 +68,18 @@ void HpBar::HpPlayerbar(float vida_Player_value, bool Regen_Bar_Active)
 
 void HpBar::ShieldPlayerbar(float Shield_Player_value)
 {
-
    shield_Bar.FillImage(Shield_Player_value);
 
+
+  
+   //if (Shield_Player_value <= 0 && shield_broked == true)
+   //{
+   //    playerShieldStats->breack_shield_Player_anim = true;
+   //    shield_broked = false;
+   //}
+   //else
+   //{
+   //    shield_broked = true;
+   //}
+   
 }

@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<ItemGroup Label="ProjectConfigurations">
 		<ProjectConfiguration Include="Debug|Win32">
@@ -257,6 +257,8 @@
 		<ClCompile Include="../../Assets/Scripts/Thanos/ThanosDefense.cpp" />
 		<ClCompile Include="../../Assets/Scripts/InteractiveEnviroment/ButtonBarrier.cpp" />
 		<ClCompile Include="../../Assets/Scripts/InteractiveEnviroment/BarrierWithButton.cpp" />
+		<ClCompile Include="../../Assets/Scripts/InteractiveEnviroment/Decoration/SpaceShip.cpp" />
+    <ClCompile Include="..\..\Assets\Scripts\UI Test folder\HUD_SHIELD_BROKEN.cpp" />
 	</ItemGroup>
 	<ItemGroup>
 		<ClInclude Include="..\..\Assets\Scripts\EbonyMaw\BossAttacks.h" />
@@ -381,6 +383,8 @@
 		<ClInclude Include="../../Assets/Scripts/Thanos/ThanosDefense.h" />
 		<ClInclude Include="../../Assets/Scripts/InteractiveEnviroment/ButtonBarrier.h" />
 		<ClInclude Include="../../Assets/Scripts/InteractiveEnviroment/BarrierWithButton.h" />
+		<ClInclude Include="../../Assets/Scripts/InteractiveEnviroment/Decoration/SpaceShip.h" />
+    <ClInclude Include="..\..\Assets\Scripts\UI Test folder\HUD_SHIELD_BROKEN.h" />
 	</ItemGroup>
 	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 	<ImportGroup Label="ExtensionTargets" />
