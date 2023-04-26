@@ -166,6 +166,9 @@ void RenderManager::Init()
 	CalculateSphereIndices(&sphereIndicesMax, MAX_VERTICAL_SLICES_SPHERE, MAX_HORIZONTAL_SLICES_SPHERE);
 	CalculateSphereBuffer(&sphereIndicesMax, MAX_VERTICAL_SLICES_SPHERE, MAX_HORIZONTAL_SLICES_SPHERE);
 
+	CalculateCylinderIndices(&cylinderIndicesMax, MAX_VERTICAL_SLICES_CYLINDER);
+	CalculateCylinderBuffer(&cylinderIndicesMax, MAX_VERTICAL_SLICES_CYLINDER);
+
 }
 
 void RenderManager::OnEditor()
@@ -765,6 +768,23 @@ void RenderManager::DrawColliderSphere(std::vector<float3>* spherePointsComp, st
 
 void RenderManager::DrawColliderCylinder(std::vector<float3>* cylinderPointsComp, std::vector<uint>* cylinderIndicesComp, float4 color, float wireSize)
 {
+
+	//glGenVertexArrays(1, &CYVAO);
+	glBindVertexArray(CYVAO);
+
+	//glGenBuffers(1, &CYIBO);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, CYIBO);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(uint) * cylinderIndicesComp->size(), &cylinderIndicesComp->at(0), GL_DYNAMIC_DRAW);
+
+	//glGenBuffers(1, &CYVBO);
+	glBindBuffer(GL_ARRAY_BUFFER, CYVBO);
+
+	glBufferData(GL_ARRAY_BUFFER, sizeof(float3) * cylinderPointsComp->size(), nullptr, GL_DYNAMIC_DRAW);
+
+	//glBindVertexArray(0);
+
+	///
+
 	glBindVertexArray(CYVAO);
 
 	glBindBuffer(GL_ARRAY_BUFFER, CYVBO);
@@ -813,7 +833,7 @@ void RenderManager::CalculateCylinderBuffer(std::vector<uint>* cylinderIndicesCo
 
 	glGenBuffers(1, &CYIBO);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, CYIBO);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(uint) * cylinderIndicesComp->size(), &cylinderIndicesComp->at(0), GL_STATIC_DRAW);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(uint) * cylinderIndicesComp->size(), &cylinderIndicesComp->at(0), GL_DYNAMIC_DRAW);
 
 	glGenBuffers(1, &CYVBO);
 	glBindBuffer(GL_ARRAY_BUFFER, CYVBO);
