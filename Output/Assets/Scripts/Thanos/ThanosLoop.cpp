@@ -35,6 +35,17 @@ void ThanosLoop::Update()
             burnTime -= Time::GetDeltaTime();
         }
     }
+
+    if (hp < 0) {
+        gameObject.SetActive(false);
+    }
+    else if (hp > 2000) {
+        phase = 1;
+    }
+    else {
+        phase = 2;
+    }
+
 }
 
 void ThanosLoop::OnCollisionEnter(API::API_RigidBody other)

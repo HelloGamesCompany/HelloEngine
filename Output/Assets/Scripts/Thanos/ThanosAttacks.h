@@ -4,6 +4,7 @@
 #include "Macro.h"
 #include "API/API.h"
 #include "ThanosMeleeDmg.h"
+#include "ThanosLoop.h"
 
 class ThanosAttacks : HelloBehavior
 {
@@ -19,6 +20,7 @@ public:
 
 	ThanosMeleeDmg* tMeleeDmg;
 	bool isAttacking = false;
+	bool dashing = false;
 
 	API_GameObject boss;
 	API_GameObject player;
@@ -28,8 +30,11 @@ public:
 
 	API_GameObject sword;
 	bool swordThrown = false;
-	float swordSpeed = 2.0f;
+	float swordSpeed = 1.0f;
 	API_Vector3 aimPosition;
+	float swordTime = 0.0f;
+
+	float charge = 0.0f;
 
 	API_GameObject defenseSword;
 
@@ -41,10 +46,15 @@ public:
 		HOLDING,
 		SPECIALATTACK,
 		THROWINGATTACK,
+		LASTSWORD,
+		PULSE,
 	};
 
 	THANOS_STATE thanosState;
 
 	API_Vector3 playerPosition;
+
+	ThanosLoop* tLoop;
+	bool finalSword = false;
 };
 

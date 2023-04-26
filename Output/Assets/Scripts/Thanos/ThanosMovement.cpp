@@ -21,7 +21,7 @@ void ThanosMovement::Update()
         angle = Rotate(player.GetTransform().GetGlobalPosition(), angle);
 
         Seek(&gameObject, player.GetTransform().GetGlobalPosition(), bossSpeed);
-  }
+   }
     dashCooldown += Time::GetDeltaTime();
 }
 
