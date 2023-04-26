@@ -257,6 +257,7 @@
 		<ClCompile Include="../../Assets/Scripts/Thanos/ThanosDefense.cpp" />
 		<ClCompile Include="../../Assets/Scripts/InteractiveEnviroment/ButtonBarrier.cpp" />
 		<ClCompile Include="../../Assets/Scripts/InteractiveEnviroment/BarrierWithButton.cpp" />
+		<ClCompile Include="../../Assets/Scripts/InteractiveEnviroment/Decoration/SpaceShip.cpp" />
 	</ItemGroup>
 	<ItemGroup>
 		<ClInclude Include="..\..\Assets\Scripts\EbonyMaw\BossAttacks.h" />
@@ -381,6 +382,7 @@
 		<ClInclude Include="../../Assets/Scripts/Thanos/ThanosDefense.h" />
 		<ClInclude Include="../../Assets/Scripts/InteractiveEnviroment/ButtonBarrier.h" />
 		<ClInclude Include="../../Assets/Scripts/InteractiveEnviroment/BarrierWithButton.h" />
+		<ClInclude Include="../../Assets/Scripts/InteractiveEnviroment/Decoration/SpaceShip.h" />
 	</ItemGroup>
 	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 	<ImportGroup Label="ExtensionTargets" />
