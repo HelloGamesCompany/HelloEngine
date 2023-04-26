@@ -23,8 +23,8 @@ public:
     API_GameObject playerStatsGO;
     PlayerStats* playerStats;
 
-    API_GameObject ShieldStatsGO;
-    HUD_SHIELD_BROKEN* ShieldStats;
+    API_GameObject fons_movment_GO;
+    HUD_SHIELD_BROKEN* fons_movment;
 
     uint hp_texture;
     uint hp_regen_texture;
