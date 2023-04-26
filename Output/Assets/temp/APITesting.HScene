@@ -2945,7 +2945,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": false,
-                "MaterialUID": 2801553831,
+                "MaterialUID": 215811356,
                 "Type": 18
             }
         ],
@@ -2955,5 +2955,91 @@
         "PrefabUID": 0,
         "Tag": "Default",
         "UID": 1274714533
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    1.8008034229278564,
+                    0.257295161485672
+                ],
+                "Rotation": [
+                    171.80718994140625,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0000218152999878,
+                    1.0000218152999878
+                ],
+                "Type": 1
+            },
+            {
+                "Ambient Intensity": 1.0,
+                "Color": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Diffuse Intensity": 1.0,
+                "Enabled": true,
+                "Type": 20
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Empty",
+        "ParentUID": 3050111611,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 1554141616
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    3.1506686210632324
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "Type": 1
+            },
+            {
+                "Ambient Intensity": 0.75,
+                "Color": [
+                    1.0,
+                    0.733668327331543,
+                    0.733668327331543
+                ],
+                "Constant": 1.0,
+                "Diffuse Intensity": 1.25,
+                "Distance": 16.0,
+                "Enabled": true,
+                "Exp": 0.0,
+                "Linear": 1.0,
+                "Type": 21
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Empty",
+        "ParentUID": 3050111611,
+        "PrefabUID": 0,
+        "Tag": "Default",
+        "UID": 2077326704
     }
 ]
