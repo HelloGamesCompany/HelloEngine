@@ -202,6 +202,9 @@
                         "SHIELD BOSS TEXTURE": 3349762469
                     },
                     {
+                        "SHIELD BOSS icon": 91629146
+                    },
+                    {
                         "All GO HUD BOSS": 533326204
                     },
                     {
@@ -215,6 +218,9 @@
                     },
                     {
                         "SHIELD BOSS TEXTURE": 3349762469
+                    },
+                    {
+                        "SHIELD BOSS icon": 91629146
                     }
                 ],
                 "Script Resource": 2970796296,
@@ -237,6 +243,31 @@
                     }
                 ],
                 "Script Resource": 2563255136,
+                "Type": 5
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Movment on X": 0.0
+                    },
+                    {
+                        "Movment Repetitions": 0.0
+                    },
+                    {
+                        "Movment Speed": 0.0
+                    },
+                    {
+                        "Movment on X": 0.0
+                    },
+                    {
+                        "Movment Repetitions": 0.0
+                    },
+                    {
+                        "Movment Speed": 0.0
+                    }
+                ],
+                "Script Resource": 360515611,
                 "Type": 5
             }
         ],
@@ -474,6 +505,44 @@
         "PrefabUID": 3202643080,
         "Tag": "UI",
         "UID": 2234780185
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.949999988079071,
+                    1.399999976158142,
+                    -0.05999999865889549
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.10000000149011612,
+                    0.20000000298023224,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 812766267,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Shield_Icon",
+        "ParentUID": 533326204,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 91629146
     },
     {
         "Active": true,
@@ -1037,6 +1106,31 @@
                 "MeshEnabled": true,
                 "OpacityDirection": 0,
                 "Type": 15
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Movment on X": 0.0
+                    },
+                    {
+                        "Movment Repetitions": 0.0
+                    },
+                    {
+                        "Movment Speed": 0.0
+                    },
+                    {
+                        "Movment on X": 0.0
+                    },
+                    {
+                        "Movment Repetitions": 0.0
+                    },
+                    {
+                        "Movment Speed": 0.0
+                    }
+                ],
+                "Script Resource": 272862626,
+                "Type": 5
             }
         ],
         "FirstOnPrefab": false,
@@ -2485,7 +2579,22 @@
                         "Infinit munition off": 2596827792
                     },
                     {
-                        "More munition Image": 373225517
+                        "Normal munition on": 1394349007
+                    },
+                    {
+                        "Normal munition off": 1121392154
+                    },
+                    {
+                        "Special munition on": 2822614242
+                    },
+                    {
+                        "Special munition off": 1292481097
+                    },
+                    {
+                        "Infinit munition on": 1124720208
+                    },
+                    {
+                        "Infinit munition off": 2596827792
                     },
                     {
                         "Normal munition on": 1394349007
@@ -2506,9 +2615,6 @@
                         "Infinit munition off": 2596827792
                     },
                     {
-                        "More munition Image": 373225517
-                    },
-                    {
                         "Normal munition on": 1394349007
                     },
                     {
@@ -2525,30 +2631,6 @@
                     },
                     {
                         "Infinit munition off": 2596827792
-                    },
-                    {
-                        "More munition Image": 373225517
-                    },
-                    {
-                        "Normal munition on": 1394349007
-                    },
-                    {
-                        "Normal munition off": 1121392154
-                    },
-                    {
-                        "Special munition on": 2822614242
-                    },
-                    {
-                        "Special munition off": 1292481097
-                    },
-                    {
-                        "Infinit munition on": 1124720208
-                    },
-                    {
-                        "Infinit munition off": 2596827792
-                    },
-                    {
-                        "More munition Image": 373225517
                     },
                     {
                         "Normal munition on": 1394349007

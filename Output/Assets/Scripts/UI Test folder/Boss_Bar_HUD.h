@@ -27,6 +27,7 @@ public:
 	uint hp_boss_texture;
 
 	API_GameObject boss_HUD;
+	API_GameObject boss_shield_icon;
 	API_UIImage boss_hp_bar;
 	API_UIImage boss_shield_bar;
 };

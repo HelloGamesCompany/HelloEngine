@@ -14,7 +14,7 @@ HELLO_ENGINE_API_C UI_Municion* CreateUI_Municion(ScriptToInspectorInterface* sc
     script->AddDragBoxUIText("Special munition off", &classInstance->text_munition_Special_Off);
    // script->AddDragBoxUIText("More munition Text", &classInstance->text_more_munition_Normal);
 
-
+    //
     return classInstance;
 }
 

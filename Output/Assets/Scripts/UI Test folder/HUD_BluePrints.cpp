@@ -19,7 +19,7 @@ HELLO_ENGINE_API_C HUD_BluePrints* CreateHUD_BluePrints(ScriptToInspectorInterfa
 	script->AddDragBoxUIText("Text_Special_Weapon", &classInstance->text_special_weapon);
 
 	//Textures Upgrade
-	script->AddDragBoxTextureResource("Texture_Amo", &classInstance->upgrade_textures);
+	script->AddDragBoxTextureResource("Texture_Upgrade", &classInstance->upgrade_textures);
 	//Textures NewWeapon
 	script->AddDragBoxTextureResource("Texture_blueprint_Semiautomatic", &classInstance->new_weapon_textures[0]);
 	script->AddDragBoxTextureResource("Texture_blueprint_Automatic", &classInstance->new_weapon_textures[1]);
