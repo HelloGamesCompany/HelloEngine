@@ -29,6 +29,7 @@ public:
 	float meleeAttackTime = 0.0f;
 
 	API_GameObject sword;
+	API_GameObject bTarget;
 	bool swordThrown = false;
 	float swordSpeed = 1.0f;
 	API_Vector3 aimPosition;

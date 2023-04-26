@@ -13,6 +13,7 @@ HELLO_ENGINE_API_C ThanosAttacks* CreateThanosAttacks(ScriptToInspectorInterface
 	script->AddDragBoxGameObject("Melee Attack 1", &classInstance->melee1); 
 	script->AddDragBoxGameObject("SWORD", &classInstance->sword);
 	script->AddDragBoxGameObject("DeflectProjectiles", &classInstance->defenseSword);
+	script->AddDragBoxGameObject("BoomerangTarget", &classInstance->bTarget);
 
 
 	//Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
@@ -49,10 +50,14 @@ void ThanosAttacks::Update()
 				if (charge > 0.25f) {
 					charge = 0.0f;
 					if (selectAttack < 6 || tLoop->phase == 2) {
+						playerPosition = player.GetTransform().GetGlobalPosition();
+
 						thanosState = THANOS_STATE::THROWINGATTACK;
 						sword.SetActive(true);
 					}
 					else {
+						playerPosition = player.GetTransform().GetGlobalPosition();
+
 						thanosState = THANOS_STATE::DASHATTACK;
 					}
 				}
@@ -78,7 +83,7 @@ void ThanosAttacks::Update()
 				isAttacking = true;
 				if (swordThrown == false) {
 
-					aimPosition = player.GetTransform().GetGlobalPosition();
+					aimPosition = bTarget.GetTransform().GetGlobalPosition();
 
 					swordThrown = true;
 				}
@@ -86,7 +91,7 @@ void ThanosAttacks::Update()
 				Seek(&sword, aimPosition, swordSpeed);
 				swordTime += Time::GetDeltaTime();
 
-				if (swordTime > 2.5f) {
+				if (swordTime > 1.75f) {
 					swordThrown = false;
 					isAttacking = false;
 					thanosState = THANOS_STATE::SEEKING;
