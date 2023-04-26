@@ -55,7 +55,6 @@ void UI_Municion::Update()
             opacity_Munition = 1;
             image_more_munition.SetOpacity(opacity_Munition);
             opacity_Reset = false;
-            Console::Log("Alex");
         }
         //redueix fins a 0
         else if(opacity_Reset == false)
@@ -65,14 +64,11 @@ void UI_Municion::Update()
             {
                 opacity_Active = false;
             }
-            Console::Log("Rius");
         }
         else
         {
             opacity_Reset = true;
-            Console::Log("Roger");
         }
-        Console::Log("yo le doy my corazon");
     }
 
     int equipedIndex = 0;
