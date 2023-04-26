@@ -253,15 +253,6 @@ void ImWindowConfiguration::Update()
 			ImGui::TextWrapped("GLSL: %s\n", glGetString(GL_SHADING_LANGUAGE_VERSION));
 
 		}
-
-		if (ImGui::CollapsingHeader("Global Lighting"))
-		{
-			ImGui::DragFloat3("Light Direction" , &Lighting::global.lightDirection.At(0));
-
-			ImGui::ColorPicker3("Light Colour", &Lighting::global.lightColor.At(0), 0 | ImGuiColorEditFlags_NoSidePreview | ImGuiColorEditFlags_NoSmallPreview);
-
-			ImGui::InputFloat("Specular Strength", &Lighting::global.lightStrength);
-		}
 	}
 	ImGui::End();
 }

@@ -3,16 +3,11 @@
 	layout (location = 0) in vec3 aPos; 
 	layout (location = 1) in vec3 normals;
 	layout (location = 2) in vec2 textCoords;
-	layout (location = 3) in ivec4 boneIds;
-	layout (location = 4) in vec4 weights;
-	
-	const int MAX_BONES = 100;
-	const int MAX_BONE_INFLUENCE = 4;
 	
 	uniform mat4 view;
 	uniform mat4 projection;
 	uniform mat4 model;
-	uniform mat4 finalBonesMatrices[MAX_BONES];
+	uniform mat4 model_rot;
 	
 	uniform sampler2D normal_texture;
 	
@@ -20,49 +15,19 @@
 	out vec3 Normal;
 	out vec3 FragPos;
 	
-	mat4 ScaleNormalize(mat4 matrix)
-	{
-		matrix[0][0] = normalize(matrix[0][0]);
-		matrix[1][1] = normalize(matrix[1][1]);
-		matrix[2][2] = normalize(matrix[2][2]);
-		matrix[3][3] = normalize(matrix[3][3]);
-		
-		return matrix;
-	}
-	
 	void main()
 	{
-		//BONES
-		vec4 totalPosition = vec4(0.0f);
-		for (int i = 0; i < MAX_BONE_INFLUENCE; i++)
-		{
-			if (boneIds[i] == -1) 
-				continue;
-
-			if (boneIds[i] >= MAX_BONES)
-			{
-				totalPosition = vec4(aPos, 1.0f);
-				break;
-			}
-
-			vec4 localPosition = finalBonesMatrices[boneIds[i]] * vec4(aPos, 1.0f);
-			totalPosition += localPosition * weights[i];
-			vec3 localNormal = mat3(finalBonesMatrices[boneIds[i]]) * normals;
-		}
-
-		if (totalPosition.x == 0.0f && totalPosition.y == 0.0f && totalPosition.z == 0.0f && totalPosition.w == 0.00f)
-		{
-			totalPosition = vec4(aPos, 1.0f);
-		}
-	
 		vec4 aPos4 = vec4(aPos, 1.0);
 		
 		//OUT
 		FragPos = vec3(model * aPos4);
 		TextureCoords = textCoords;
+
+		//Normal = normalize(texture(normal_texture, TextureCoords).rgb * 2.0 - 1.0);
+		//Normal = normalize (vec3(model * vec4(normals, 0.0)));
 		Normal = normalize(mat3(transpose(inverse(model))) * normals);
 		
-		gl_Position = projection * view * model * totalPosition;
+		gl_Position = projection * view * model * aPos4;
 	}
 #endif
 #ifdef FRAGMENT_PROGRAM
@@ -106,7 +71,6 @@
 		
 		vec3 Position;
 		vec3 Direction;
-		vec3 Euler;
 		float Distance;
 	};
 	
@@ -118,8 +82,15 @@
 	uniform int Actual_Spot;
 	
 	uniform sampler2D albedo_texture;
+	//uniform sampler2D normal_texture;
+	//uniform sampler2D metallic_texture;
 	
 	uniform vec3 ViewPoint;
+	//uniform vec3 LightColor;
+	//uniform vec3 specularLightColor;
+
+	//uniform float shininess = 32.0f;
+	//uniform float specularIntensity = 1.0f;
 	
 	int steps = 2;
 	float scaleFactor = 1.0f/steps;
@@ -130,66 +101,35 @@
 	
 	out vec4 FragColor;
 	
-	//AUXILIAR METHODS
-	mat4 rotate(mat4 matrix, float angle, vec3 axis) {
-	    axis = normalize(axis);
-	    float s = sin(angle);
-	    float c = cos(angle);
-	    float oc = 1.0 - c;
-	    float x = axis.x;
-	    float y = axis.y;
-	    float z = axis.z;
-	
-	    mat4 rotation = mat4(oc * x * x + c, oc * x * y - z * s,  oc * x * z + y * s, 0.0,
-	                         oc * x * y + z * s,  oc * y * y + c, oc * y * z - x * s, 0.0,
-	                         oc * x * z - y * s,  oc * y * z + x * s,  oc * z * z + c, 0.0,
-	                         0.0, 0.0, 0.0, 1.0);
-	
-		return matrix * rotation;
-	}
-	
-	vec3 CalculateDirection(vec3 euler)
-	{
-		vec3 direction = vec3(0.0f, 0.0f, 1.0f);
-		mat4 rotation;
-		rotation[0] = vec4(1.0f, 0.0f, 0.0f, 0.0f);
-		rotation[1] = vec4(0.0f, 1.0f, 0.0f, 0.0f);
-		rotation[2] = vec4(0.0f, 0.0f, 1.0f, 0.0f);
-		rotation[3] = vec4(0.0f, 0.0f, 0.0f, 1.0f);
-		
-		rotation = rotate(rotation, radians(euler.x), vec3(-1.0f, 0.0f, 0.0f));
-		rotation = rotate(rotation, radians(euler.y), vec3(0.0f, -1.0f, 0.0f));
-		rotation = rotate(rotation, radians(euler.z), vec3(0.0f, 0.0f, -1.0f));
-		
-		return vec3(rotation * vec4(direction, 0.0f));
-	}
-	
-	//LIGHT METHODS
 	vec4 CalculateLight(Light light, vec3 direction, vec3 normal)
 	{
 		//Ambient
-		vec4 Ambient = vec4(light.Color, 1.0f) * light.AmbientIntensity;
+		vec4 Ambient = vec4(light.Color, 1.0f) * light.AmbientIntensity; // * AmbientColor;
 		
 		//Diffuse
 		float diff = max(dot(normal, direction), 0.0);
+		//float diff = dot(normal, -direction);
+		
+		//diff = floor(diff * steps) * scaleFactor;
 		diff = ceil(diff * steps) * scaleFactor;
-		
+			
 		vec4 Diffuse = vec4(light.Color, 1.0f) * light.DiffuseIntensity * diff;
-		
-		Diffuse.xyz = clamp(Diffuse.xyz, 0.15, 1.0);
-		
+		//vec4 Diffuse = awawasasdvec4(light.Color, 1.0f) * light.DiffuseIntensity * (diff + 0.1);
+		Diffuse.xyz = clamp(Diffuse.xyz, 0.00, 1.0);
+		if (Diffuse.xyz == vec3(0.0f))
+		{
+			Diffuse.xyz = vec3(0.1f);
+		}
 		Diffuse.w = 1.0f;
+	
 		
-		vec4 result = (Ambient * Diffuse);
-		result.w = 1.0f;
-		return result;
+		return (Ambient * (Diffuse));
 	}
 	
 	//Calculate Lights
 	vec4 CalculateDirectionalLight(vec3 normal)
 	{
-		vec3 dir = normalize(CalculateDirection(Light_Directional.Direction));
-		
+		vec3 dir = normalize(Light_Directional.Direction);
 		return CalculateLight(Light_Directional.Base, dir, normal);
 	}
 	
@@ -197,6 +137,7 @@
 	{
 		vec3 lightDir = normalize(light.Position - FragPos);
 		float dist = length(light.Position - FragPos);
+		//lightPos = normalize(lightPos);
 		
 		vec4 color = vec4(0.1f);
 		
@@ -206,19 +147,21 @@
 		}
 		
 		float attenuation = light.Constant + (light.Linear * dist) * (light.Exp * dist) * (dist * dist);
+		//float attenuation = 1.0 / (light.Constant + light.Linear * dist + light.Exp * (dist * dist));
 		
 		return (color / attenuation);
 	}
 	
 	vec4 CalculateSpotLight(SpotLight light, vec3 normal)
 	{
+		vec3 lightToPixel = normalize(FragPos - light.Position) * -1.0f;
 		vec3 lightDir = normalize(light.Position - FragPos);
-		
-		float theta = dot(lightDir, normalize(CalculateDirection(light.Direction)));
+		float theta = dot(lightDir, normalize(-light.Direction));
 		
 		if (theta > light.Cutoff)
 		{
-			float dist = length(lightDir);
+			//vec3 lightDir = normalize(light.Position - FragPos);
+			float dist = length(light.Position - FragPos);
 			
 			vec4 color = vec4(0.0f);
 		
@@ -227,21 +170,27 @@
 				color = CalculateLight(light.Base, lightDir, normal);
 			}
 			
-			float attenuation = light.Constant + (light.Linear * dist) * (light.Exp * dist *dist);
+			//float epsilon = light.Cutoff - 
+			
+			float attenuation = light.Constant + (light.Linear * dist) * (light.Exp * dist) * (dist * dist);
 			float spotLightIntensity = (1.0 - (1.0 - theta) / (1.0 - light.Cutoff));
 			
-			vec4 result = (color / attenuation);
+			vec4 result = (color / attenuation) * spotLightIntensity;
 			result.w = 1.0f;
 			return result;
 		}
+		
+		//return vec4(light.Base.AmbientIntensity);
 	}
 	
-	uniform vec4 ColourTest;
+	uniform vec3 ColourTest;
 	
 	void main()
 	{
+		//vec3 norm = normalize(texture(normal_texture, TextureCoords).rgb * 2.0 - 1.0);
+		//norm = norm + Normal;
 		
-		//Directionalasde
+		//Directional
 		vec4 result = CalculateDirectionalLight(Normal);
 		
 		//Point
@@ -260,12 +209,32 @@
 		vec3 texDiffCol = texture2D(albedo_texture, TextureCoords).rgb;
 		if (length(texDiffCol) != 0.0)
 		{
-			FragColor = texture(albedo_texture, TextureCoords) * result * ColourTest;
+			FragColor = texture(albedo_texture, TextureCoords) * result * vec4(ColourTest, 1.0f);
 		}
 		else
 		{
-			FragColor = result * ColourTest;
+		//FragColor = vec4(normalize(Light_Point[0].Position - FragPos) , 1.0);
+		//FragColor = vec4(FragPos, 1.0f);
+		FragColor = result * vec4(ColourTest, 1.0f);
 		}
+		
 	}
+	
 #endif
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

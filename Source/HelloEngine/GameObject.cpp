@@ -22,6 +22,10 @@
 #include "PhysicsComponent.h"
 #include "ComponentUIInput.h"
 #include "TextRendererComponent.h"
+#include "DirectionalLightComponent.h"
+#include "PointLightComponent.h"
+#include "SpotLightComponent.h"
+
 
 GameObject::GameObject(GameObject* parent, std::string name, std::string tag, uint ID) : name(name), tag(tag)
 {
@@ -231,6 +235,18 @@ void GameObject::OnEditor()
                 case 8:
                     if (!HasComponent<MaterialComponent>())
                         AddComponent<MaterialComponent>();
+                    break;
+                case 9:
+                    if (!HasComponent<DirectionalLightComponent>())
+                        AddComponent<DirectionalLightComponent>();
+                    break;
+                case 10:
+                    if (!HasComponent<PointLightComponent>())
+                        AddComponent<PointLightComponent>();
+                    break;
+                case 11:
+                    if (!HasComponent<SpotLightComponent>())
+                        AddComponent<SpotLightComponent>();
                 }   
             }
         }
@@ -478,6 +494,18 @@ Component* GameObject::AddComponentOfType(Component::Type type)
         newComponent = new TextRendererComponent(this);
         _components.push_back(newComponent);
         break;
+    case Component::Type::DIRECTIONAL_LIGHT:
+        newComponent = new DirectionalLightComponent(this);
+        _components.push_back(newComponent);
+        break;
+    case Component::Type::POINT_LIGHT:
+        newComponent = new PointLightComponent(this);
+        _components.push_back(newComponent);
+        break;
+    case Component::Type::SPOT_LIGHT:
+        newComponent = new SpotLightComponent(this);
+        _components.push_back(newComponent);
+        break;
 	}
 
 	return newComponent;
@@ -526,6 +554,17 @@ Component* GameObject::AddComponentOfType(Component::Type type, const Component&
         newComponent = new MaterialComponent(this);
         _components.push_back(newComponent);
         break;
+    case Component::Type::DIRECTIONAL_LIGHT:
+        newComponent = new DirectionalLightComponent(this);
+        _components.push_back(newComponent);
+        break;
+    case Component::Type::POINT_LIGHT:
+        newComponent = new PointLightComponent(this);
+        _components.push_back(newComponent);
+        break;
+    case Component::Type::SPOT_LIGHT:
+        newComponent = new SpotLightComponent(this);
+        _components.push_back(newComponent);
 	}
 
 	return newComponent;
