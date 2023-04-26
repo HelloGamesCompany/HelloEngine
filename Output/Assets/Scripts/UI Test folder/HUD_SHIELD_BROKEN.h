@@ -10,7 +10,7 @@ class HUD_SHIELD_BROKEN : HelloBehavior
 public:
 	void Start() override; 
 	void Update() override;
-	bool BrokenShield_Animation(bool *isbroken);
+	void BrokenShield_Animation(bool isbroken);
 
 	API_GameObject object_to_move;
 	int counter = 0;
@@ -23,6 +23,7 @@ public:
 
 	bool moviment_Dreta = true;
 
-	bool movimentadwadawdasdaw = false;
+	bool breack_shield_boss_anim = false;
+	bool breack_shield_Player_anim = false;
 };
 

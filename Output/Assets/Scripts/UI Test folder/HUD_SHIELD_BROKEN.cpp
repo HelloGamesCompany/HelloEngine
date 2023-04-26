@@ -7,7 +7,7 @@ HELLO_ENGINE_API_C HUD_SHIELD_BROKEN* CreateHUD_SHIELD_BROKEN(ScriptToInspectorI
 	script->AddDragFloat("Movment on X", &classInstance->movment_position);
 	script->AddDragFloat("Movment Repetitions", &classInstance->movment_repetitions);
 	script->AddDragFloat("Movment Speed", &classInstance->movment_speed);
-
+	
 	return classInstance;
 }
 
@@ -20,18 +20,15 @@ void HUD_SHIELD_BROKEN::Start()
 }
 void HUD_SHIELD_BROKEN::Update()
 {
-
-	if (Input::GetKey(KeyCode::KEY_C) == KeyState::KEY_DOWN) {
-		movimentadwadawdasdaw = true;
-	}
-
-	BrokenShield_Animation(&movimentadwadawdasdaw);
+	//
+		//BrokenShield_Animation(breack_shield_boss_anim);
+		//BrokenShield_Animation(breack_shield_Player_anim);
 }
 
-bool HUD_SHIELD_BROKEN::BrokenShield_Animation(bool *isbroken)
+void HUD_SHIELD_BROKEN::BrokenShield_Animation(bool isbroken)
 {
 
-	if (*isbroken == true)
+	if (isbroken == true)
 	{
 		if (counter <= movment_repetitions)
 		{
@@ -63,26 +60,29 @@ bool HUD_SHIELD_BROKEN::BrokenShield_Animation(bool *isbroken)
 			if (object_to_move.GetTransform().GetLocalPosition().x > original_position && object_to_move.GetTransform().GetLocalPosition().x != original_position)
 			{
 				object_to_move.GetTransform().SetPosition(variable_position = variable_position - movment_speed, original_positionY, 0);
-				if (variable_position < original_position)
+				if (variable_position > original_position)
 				{
 					
 					counter = 0;
-					*isbroken = false;
+					breack_shield_boss_anim = false;
+					breack_shield_Player_anim = false;
+
+			
 				}
 			}
 			else if (object_to_move.GetTransform().GetLocalPosition().x < original_position && object_to_move.GetTransform().GetLocalPosition().x != original_position)
 			{
 				object_to_move.GetTransform().SetPosition(variable_position = variable_position + movment_speed, original_positionY, 0);
-				if (variable_position > original_position)
+				if (variable_position < original_position)
 				{
 					
 					counter = 0;
-					*isbroken = false;
+					breack_shield_boss_anim = false;
+					breack_shield_Player_anim = false;
 				}
 			}
-			Console::Log("he acabat el loop");
+		
 		}
 
-		Console::Log("VUELVO");
 	}
 }
