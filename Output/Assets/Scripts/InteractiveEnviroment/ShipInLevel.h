@@ -22,9 +22,13 @@ public:
 	API_GameObject fadeToBlackGO;
 	FadeToBlack* fadeToBlackRef;
 
+	API_GameObject playerGO;
+	PlayerStorage* playerStorageRef;
+
 	API_Transform positionToReturn;
 
 	float timerTotp = 0.0f;
+	int lvlIndex = 1;
 
 };
 
