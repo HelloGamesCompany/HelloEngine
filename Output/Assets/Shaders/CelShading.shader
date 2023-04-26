@@ -14,9 +14,21 @@
 	out vec3 Normal;
 	out vec3 FragPos;
 	
+	
+	mat4 ScaleNormalize(mat4 matrix)
+	{
+		matrix[0][0] = normalize(matrix[0][0]);
+		matrix[1][1] = normalize(matrix[1][1]);
+		matrix[2][2] = normalize(matrix[2][2]);
+		matrix[3][3] = normalize(matrix[3][3]);
+		
+		return matrix;
+	}
+	
 	void main()
 	{
 		vec4 aPos4 = vec4(aPos, 1.0);
+		
 		
 		//OUT
 		FragPos = vec3(model * aPos4);
@@ -137,15 +149,13 @@
 		
 		vec4 Diffuse = vec4(light.Color, 1.0f) * light.DiffuseIntensity * diff;
 		
-		Diffuse.xyz = clamp(Diffuse.xyz, 0.00, 1.0);
-		if (Diffuse.xyz == vec3(0.0f))
-		{
-			Diffuse.xyz = vec3(0.1f);
-		}
+		Diffuse.xyz = clamp(Diffuse.xyz, 0.15, 1.0);
+		
 		Diffuse.w = 1.0f;
 	
-		
-		return (Ambient * (Diffuse));
+		vec4 result = (Ambient * Diffuse);
+		result.w = 1.0f;
+		return result;
 	}
 	
 	//Calculate Lights
@@ -231,4 +241,10 @@
 		}
 	}
 #endif
+
+
+
+
+
+
 

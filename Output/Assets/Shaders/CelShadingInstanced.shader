@@ -137,15 +137,11 @@
 		
 		vec4 Diffuse = vec4(light.Color, 1.0f) * light.DiffuseIntensity * diff;
 		
-		Diffuse.xyz = clamp(Diffuse.xyz, 0.00, 1.0);
-		if (Diffuse.xyz == vec3(0.0f))
-		{
-			Diffuse.xyz = vec3(0.1f);
-		}
-		Diffuse.w = 1.0f;
+		Diffuse.xyz = clamp(Diffuse.xyz, 0.15, 1.0);
 	
-		
-		return (Ambient * (Diffuse));
+		vec4 result = (Ambient * Diffuse);
+		result.w = 1.0f;
+		return result;
 	}
 	
 	//Calculate Lights
@@ -231,4 +227,7 @@
 		}
 	}
 #endif
+
+
+
 
