@@ -56,7 +56,7 @@ void HUD_BluePrints::Start()
 void HUD_BluePrints::Update()
 {
 
-	if (timer_upgrade < 1.3f)
+	if (timer_upgrade < 1.8f)
 	{
 		timer_upgrade -= Time::GetDeltaTime();
 
@@ -76,12 +76,12 @@ void HUD_BluePrints::Update()
 			text_upgrade.GetGameObject().GetTransform().SetPosition(text_upgrade_position_save);
 			material_Background_1.GetGameObject().GetTransform().SetPosition(Background_upgrade_position_save);
 			opacity_upgrade = 1;
-			timer_upgrade = 1.3f;
+			timer_upgrade = 1.8f;
 			material_upgrade.SetOpacity(opacity_upgrade);
 		}
 	}
 
-	if (timer_new < 1.3f)
+	if (timer_new < 1.8f)
 	{
 		timer_new -= Time::GetDeltaTime();
 
@@ -103,11 +103,11 @@ void HUD_BluePrints::Update()
 			material_Background_2.GetGameObject().GetTransform().SetPosition(Background_new_weapon_position_save);
 			opacity_new_weapon = 1;
 			material_new_weapon.SetOpacity(opacity_new_weapon);
-			timer_new = 1.3f;
+			timer_new = 1.8f;
 		}
 	}
 
-	if (timer_special < 1.3f)
+	if (timer_special < 1.8f)
 	{
 		timer_special -= Time::GetDeltaTime();
 
@@ -128,7 +128,7 @@ void HUD_BluePrints::Update()
 			material_special_weapon.GetGameObject().GetTransform().SetPosition(special_weapon_position_save);
 			text_special_weapon.GetGameObject().GetTransform().SetPosition(text_special_weapon_position_save);
 			material_Background_3.GetGameObject().GetTransform().SetPosition(Background_special_weapon_position_save);
-			timer_special = 1.3f;
+			timer_special = 1.8f;
 			opacity_special_weapon = 1;
 			material_upgrade.SetOpacity(opacity_special_weapon);
 		}

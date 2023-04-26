@@ -30,9 +30,9 @@ public:
 	API_UIText text_new_weapon;
 	API_UIText text_special_weapon;
 
-	float timer_upgrade = 1.3f;
-	float timer_new = 1.3f;
-	float timer_special = 1.3f;
+	float timer_upgrade = 1.8f;
+	float timer_new = 1.8f;
+	float timer_special = 1.8f;
 
 	float opacity_upgrade = 1;
 	float opacity_new_weapon = 1;
