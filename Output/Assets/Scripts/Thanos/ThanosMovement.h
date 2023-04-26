@@ -27,5 +27,7 @@ public:
 	float dashCooldown = 0.0f;
 
 	ThanosAttacks* Tattack;
+
+	float justOnce = false;
 };
 

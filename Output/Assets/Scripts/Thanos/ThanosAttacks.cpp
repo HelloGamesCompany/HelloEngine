@@ -3,6 +3,9 @@
 HELLO_ENGINE_API_C ThanosAttacks* CreateThanosAttacks(ScriptToInspectorInterface* script)
 {
 	ThanosAttacks* classInstance = new ThanosAttacks();
+
+	script->AddCheckBox("IsAttacking?", &classInstance->isAttacking);
+
 	script->AddDragBoxGameObject("Boss", &classInstance->boss);
 	script->AddDragBoxGameObject("Player", &classInstance->player);
 
@@ -10,7 +13,6 @@ HELLO_ENGINE_API_C ThanosAttacks* CreateThanosAttacks(ScriptToInspectorInterface
 	script->AddDragBoxGameObject("SWORD", &classInstance->sword);
 	script->AddDragBoxGameObject("DeflectProjectiles", &classInstance->defenseSword);
 
-	
 
 	//Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
 	return classInstance;
