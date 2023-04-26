@@ -125,6 +125,7 @@ private:
 	/*std::vector<uint> sphereIndices;*/
 	/*std::vector<uint> cylinderIndices;*/
 	std::vector<uint> sphereIndicesMax;
+	std::vector<uint> cylinderIndicesMax;
 
 	// ModelResources for primitives
 	ResourceModel* primitiveModels[5];
