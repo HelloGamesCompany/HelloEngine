@@ -14,6 +14,7 @@ HELLO_ENGINE_API_C Boss_Bar_HUD* CreateBoss_Bar_HUD(ScriptToInspectorInterface* 
    //script->AddDragBoxTextureResource("SHIELD BOSS 2 TEXTURE", &classInstance->shield_boss_texture[1]);
    //script->AddDragBoxTextureResource("SHIELD BOSS 3 TEXTURE", &classInstance->shield_boss_texture[2]);
    script->AddDragBoxTextureResource("SHIELD BOSS TEXTURE", &classInstance->shield_boss_texture);
+   script->AddDragBoxGameObject("SHIELD BOSS icon", &classInstance->boss_shield_icon);
 
    return classInstance;
 }
@@ -55,6 +56,7 @@ void Boss_Bar_HUD::Boss_Bar(float HP_Boss_Value, float Shield_Boss_Value, int ph
     if (Is_Active == true) {
         boss_hp_bar.FillImage(HP_Boss_Value);
         boss_shield_bar.GetGameObject().SetActive(false);
+        boss_shield_icon.SetActive(true);
     }
     else if (Is_Active == false)
     {
@@ -63,6 +65,7 @@ void Boss_Bar_HUD::Boss_Bar(float HP_Boss_Value, float Shield_Boss_Value, int ph
         boss_shield_bar.FillImage(Shield_Boss_Value);
         //boss_shield_bar.GetGameObject().GetMaterialCompoennt().ChangeAlbedoTexture(shield_boss_texture[phase]);
         boss_shield_bar.GetGameObject().GetMaterialCompoennt().ChangeAlbedoTexture(shield_boss_texture);
+        boss_shield_icon.SetActive(false);
         if (Shield_Boss_Value <= 0.1)
         {
             boss_shield_destroyed->breack_shield_boss_anim = true;
