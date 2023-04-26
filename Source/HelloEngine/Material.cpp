@@ -47,37 +47,42 @@ void Material::UpdateLights()
 	}
 	
 	//Point Light
-	for (int i = 0; (i < lightMap.pointLight.size()) && (actualPoint < shader->shader.data._maxPointLights); ++i)
+	for (auto& pl : lightMap.pointLight)
 	{
-		if (!lightMap.pointLight[i].isEnabled) continue;
-		shader->shader.SetFloat3v("Light_Point[" + std::to_string(actualPoint) + "].Base.Color", &lightMap.pointLight[i].color.At(0));
-		shader->shader.SetFloat("Light_Point[" + std::to_string(actualPoint) + "].Base.AmbientIntensity", lightMap.pointLight[i].ambientIntensity);
-		shader->shader.SetFloat("Light_Point[" + std::to_string(actualPoint) + "].Base.DiffuseIntensity", lightMap.pointLight[i].diffuseIntensity);
+		if (!pl.second.isEnabled) continue;
+		shader->shader.SetFloat3v("Light_Point[" + std::to_string(actualPoint) + "].Base.Color", &pl.second.color.At(0));
+		shader->shader.SetFloat("Light_Point[" + std::to_string(actualPoint) + "].Base.AmbientIntensity", pl.second.ambientIntensity);
+		shader->shader.SetFloat("Light_Point[" + std::to_string(actualPoint) + "].Base.DiffuseIntensity", pl.second.diffuseIntensity);
 
-		shader->shader.SetFloat("Light_Point[" + std::to_string(actualPoint) + "].Constant", lightMap.pointLight[i].constant);
-		shader->shader.SetFloat("Light_Point[" + std::to_string(actualPoint) + "].Linear", lightMap.pointLight[i].linear);
-		shader->shader.SetFloat("Light_Point[" + std::to_string(actualPoint) + "].Exp", lightMap.pointLight[i].exp);
-		shader->shader.SetFloat("Light_Point[" + std::to_string(actualPoint) + "].Distance", lightMap.pointLight[i].distance);
-		shader->shader.SetFloat3v("Light_Point[" + std::to_string(actualPoint) + "].Position", &lightMap.pointLight[i].position.At(0));
+		shader->shader.SetFloat("Light_Point[" + std::to_string(actualPoint) + "].Constant", pl.second.constant);
+		shader->shader.SetFloat("Light_Point[" + std::to_string(actualPoint) + "].Linear", pl.second.linear);
+		shader->shader.SetFloat("Light_Point[" + std::to_string(actualPoint) + "].Exp", pl.second.exp);
+		shader->shader.SetFloat("Light_Point[" + std::to_string(actualPoint) + "].Distance", pl.second.distance);
+		shader->shader.SetFloat3v("Light_Point[" + std::to_string(actualPoint) + "].Position", &pl.second.position.At(0));
+		
 		actualPoint++;
+		if (actualPoint == shader->shader.data._maxPointLights) break;
 	}
 
 	//Spot Light
-	for (int i = 0; (i < lightMap.spotLight.size()) && (actualSpot < shader->shader.data._maxSpotLights); ++i)
+
+	for (auto& sl : lightMap.spotLight)
 	{
-		if (!lightMap.spotLight[i].isEnabled) continue;
-		shader->shader.SetFloat3v("Light_Spot[" + std::to_string(actualSpot) + "].Base.Color", &lightMap.spotLight[i].color.At(0));
-		shader->shader.SetFloat("Light_Spot[" + std::to_string(actualSpot) + "].Base.AmbientIntensity", lightMap.spotLight[i].ambientIntensity);
-		shader->shader.SetFloat("Light_Spot[" + std::to_string(actualSpot) + "].Base.DiffuseIntensity", lightMap.spotLight[i].diffuseIntensity);
-	
-		shader->shader.SetFloat("Light_Spot[" + std::to_string(actualSpot) + "].Constant", lightMap.spotLight[i].constant);
-		shader->shader.SetFloat("Light_Spot[" + std::to_string(actualSpot) + "].Linear", lightMap.spotLight[i].linear);
-		shader->shader.SetFloat("Light_Spot[" + std::to_string(actualSpot) + "].Exp", lightMap.spotLight[i].exp);
-		shader->shader.SetFloat("Light_Spot[" + std::to_string(actualSpot) + "].Cutoff", math::Cos(math::DegToRad(lightMap.spotLight[i].cutoff)));
-		shader->shader.SetFloat("Light_Spot[" + std::to_string(actualSpot) + "].Distance", lightMap.spotLight[i].distance);
-		shader->shader.SetFloat3v("Light_Spot[" + std::to_string(actualSpot) + "].Position", &lightMap.spotLight[i].position.At(0));
-		shader->shader.SetFloat3v("Light_Spot[" + std::to_string(actualSpot) + "].Direction", &lightMap.spotLight[i].direction.At(0));
+		if (!sl.second.isEnabled) continue;
+		shader->shader.SetFloat3v("Light_Spot[" + std::to_string(actualSpot) + "].Base.Color", &sl.second.color.At(0));
+		shader->shader.SetFloat("Light_Spot[" + std::to_string(actualSpot) + "].Base.AmbientIntensity", sl.second.ambientIntensity);
+		shader->shader.SetFloat("Light_Spot[" + std::to_string(actualSpot) + "].Base.DiffuseIntensity", sl.second.diffuseIntensity);
+
+		shader->shader.SetFloat("Light_Spot[" + std::to_string(actualSpot) + "].Constant", sl.second.constant);
+		shader->shader.SetFloat("Light_Spot[" + std::to_string(actualSpot) + "].Linear", sl.second.linear);
+		shader->shader.SetFloat("Light_Spot[" + std::to_string(actualSpot) + "].Exp", sl.second.exp);
+		shader->shader.SetFloat("Light_Spot[" + std::to_string(actualSpot) + "].Cutoff", math::Cos(math::DegToRad(sl.second.cutoff)));
+		shader->shader.SetFloat("Light_Spot[" + std::to_string(actualSpot) + "].Distance", sl.second.distance);
+		shader->shader.SetFloat3v("Light_Spot[" + std::to_string(actualSpot) + "].Position", &sl.second.position.At(0));
+		shader->shader.SetFloat3v("Light_Spot[" + std::to_string(actualSpot) + "].Direction", &sl.second.direction.At(0));
+		
 		actualSpot++;
+		if (actualSpot == shader->shader.data._maxSpotLights) break;
 	}
 
 	shader->shader.SetInt("Actual_Spot", actualSpot);

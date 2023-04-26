@@ -21,6 +21,7 @@
 #include "ModuleRenderer3D.h"
 #include "Component.h"
 #include "LayerEditor.h"
+#include "Lighting.h"
 
 // In create resource mesh method save my index and model UID.
 // Save ResourceModel UID and index.
@@ -602,7 +603,7 @@ bool ModuleResourceManager::S_DeserializeScene(const std::string& filePath)
 	ModuleLayers::DestroyMeshes(); // When all meshes are destroyed, the Instance Renderers get destroyed as well. In this case, we want this to happen BEFORE we Deserialize the scene
 									   // If we let it happen afterwards, the old meshes will destroy the new Instance Renderers.
 	LayerGame::RemoveAllScripts();
-
+	Lighting::ClearLights();
 // Create New GameObject for root GameObject
 	if (ModuleLayers::rootGameObject)
 		ModuleLayers::rootGameObject->Destroy();
