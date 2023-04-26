@@ -13,5 +13,8 @@ public:
 	void OnCollisionEnter(API::API_RigidBody other);
 	
 	float meleeDmg = 30.0f;
+
+	API_GameObject boss;
+	API_GameObject player;
 };
 

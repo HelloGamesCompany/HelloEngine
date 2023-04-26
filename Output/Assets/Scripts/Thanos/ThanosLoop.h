@@ -16,7 +16,7 @@ public:
 
     void TakeDamage(float damage);
 
-    float hp = 1000.0f;
+    float hp = 3000.0f;
 
     float meleeDmg = 20.0f;
 
@@ -34,5 +34,6 @@ public:
     float burnTime = 0.0f;
     float resetBurn;
 
+    int phase = 1;
 };
 
