@@ -29,7 +29,7 @@ public:
     PlayerStats* playerStats;
     PlayerGunManager* playerGunManager;
 
-    float opacity_Munition = 1;
+    float opacity_Munition = 0;
     bool opacity_Active = false;
     bool opacity_Reset = true;
 };

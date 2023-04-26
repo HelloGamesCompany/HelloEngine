@@ -24,7 +24,7 @@ HELLO_ENGINE_API_C PlayerStats* CreatePlayerStats(ScriptToInspectorInterface* sc
     script->AddDragBoxParticleSystem("Kid Heal Particles", &classInstance->aidKitParticles);
     script->AddDragBoxGameObject("Player GO", &classInstance->playerGO);
     script->AddDragBoxGameObject("Power Ups Managers (HUD)", &classInstance->hudPowerUpGO);
-    script->AddDragBoxGameObject("Hud SwapWeapon Indicator GO", &classInstance->ammo_ScriptGO);
+    script->AddDragBoxGameObject("Hud Munition GO", &classInstance->ammo_ScriptGO);
     //script->AddDragInt("movement tree lvl", &classInstance->movementTreeLvl); // use it only for playtesting
     //script->AddDragInt("armory tree lvl", &classInstance->armoryTreeLvl);
     //script->AddDragInt("health tree lvl", &classInstance->healthTreeLvl);
@@ -353,6 +353,7 @@ void PlayerStats::GetAmmo(int type, int amount)
     case 1:
         //script Municion
         ammo_Script->opacity_Active = true;
+        Console::Log("Ella quiere un pedazo - cherito");
         laserAmmo += amount;
         if (laserAmmo > maxLaserAmmo) laserAmmo = maxLaserAmmo;
         break;
