@@ -10390,7 +10390,7 @@
                 "Position": [
                     0.08513391017913818,
                     2.0452969074249268,
-                    -1.8774076700210571
+                    -3.0
                 ],
                 "Rotation": [
                     -0.0008879246306605637,
@@ -10523,7 +10523,7 @@
             {
                 "Active camera": true,
                 "Active culling": true,
-                "Aspect ratio": 2.064631938934326,
+                "Aspect ratio": 2.0947177410125732,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -11034,8 +11034,8 @@
                 ],
                 "Scale": [
                     50.0,
-                    50.0,
-                    50.0
+                    49.9999885559082,
+                    49.9999885559082
                 ],
                 "Type": 1
             },
@@ -29739,16 +29739,19 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
+                        "Button Guide": 3437375339
+                    },
+                    {
                         "Move X animation repeat": 0
                     },
                     {
                         "Move Y animation repeat": 0
                     },
                     {
-                        "Move animation in loop": false
+                        "Move animation in loop": true
                     },
                     {
-                        "Move animation active": false
+                        "Move animation active": true
                     },
                     {
                         "Distance move X": 0.0
@@ -29757,10 +29760,10 @@
                         "Speed move X": 0.0
                     },
                     {
-                        "Distance move Y": 0.0
+                        "Distance move Y": 0.019999999552965164
                     },
                     {
-                        "Speed move Y": 0.0
+                        "Speed move Y": 1.5
                     },
                     {
                         "Scale animation repeat": 0
@@ -29793,16 +29796,19 @@
                         "Speed Rotation": 0.0
                     },
                     {
+                        "Button Guide": 3437375339
+                    },
+                    {
                         "Move X animation repeat": 0
                     },
                     {
                         "Move Y animation repeat": 0
                     },
                     {
-                        "Move animation in loop": false
+                        "Move animation in loop": true
                     },
                     {
-                        "Move animation active": false
+                        "Move animation active": true
                     },
                     {
                         "Distance move X": 0.0
@@ -29811,10 +29817,10 @@
                         "Speed move X": 0.0
                     },
                     {
-                        "Distance move Y": 0.0
+                        "Distance move Y": 0.019999999552965164
                     },
                     {
-                        "Speed move Y": 0.0
+                        "Speed move Y": 1.5
                     },
                     {
                         "Scale animation repeat": 0
@@ -29892,16 +29898,19 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
+                        "Button Guide": 2225710694
+                    },
+                    {
                         "Move X animation repeat": 0
                     },
                     {
                         "Move Y animation repeat": 0
                     },
                     {
-                        "Move animation in loop": false
+                        "Move animation in loop": true
                     },
                     {
-                        "Move animation active": false
+                        "Move animation active": true
                     },
                     {
                         "Distance move X": 0.0
@@ -29910,10 +29919,10 @@
                         "Speed move X": 0.0
                     },
                     {
-                        "Distance move Y": 0.0
+                        "Distance move Y": 0.019999999552965164
                     },
                     {
-                        "Speed move Y": 0.0
+                        "Speed move Y": 1.5
                     },
                     {
                         "Scale animation repeat": 0
@@ -29946,16 +29955,19 @@
                         "Speed Rotation": 0.0
                     },
                     {
+                        "Button Guide": 2225710694
+                    },
+                    {
                         "Move X animation repeat": 0
                     },
                     {
                         "Move Y animation repeat": 0
                     },
                     {
-                        "Move animation in loop": false
+                        "Move animation in loop": true
                     },
                     {
-                        "Move animation active": false
+                        "Move animation active": true
                     },
                     {
                         "Distance move X": 0.0
@@ -29964,10 +29976,10 @@
                         "Speed move X": 0.0
                     },
                     {
-                        "Distance move Y": 0.0
+                        "Distance move Y": 0.019999999552965164
                     },
                     {
-                        "Speed move Y": 0.0
+                        "Speed move Y": 1.5
                     },
                     {
                         "Scale animation repeat": 0
