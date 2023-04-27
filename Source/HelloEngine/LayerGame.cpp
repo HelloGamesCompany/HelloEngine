@@ -322,10 +322,9 @@ void LayerGame::S_CreateBehaviorScript(ScriptComponent* component)
 
 	uint randomUID = HelloUUID::GenerateUUID();
 	_behaviorScripts[randomUID].script = (HelloBehavior*)create(component);
-	_behaviorScripts[randomUID].active = component->IsEnabled();
-
+	_behaviorScripts[randomUID].active = component->IsEnabled() && component->_gameObject->IsActive();
 	_behaviorScripts[randomUID].script->gameObject.SetGameObject(component->_gameObject);
-
+	_behaviorScripts[randomUID].debugName = component->scriptResource->className;
 	component->scriptUID = randomUID;
 }
 
