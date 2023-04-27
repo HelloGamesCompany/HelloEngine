@@ -73,18 +73,20 @@ void BossLoop::Update()
                 weakTime += dt;
                 rockShield.SetActive(false);
 
-                //if (knockUpTimer <= 1) {
+                if (knockUpTimer <= 1) {
                     if (animState != AnimationState::KNOCKUP)
                     {
                         animState = AnimationState::KNOCKUP;
                         animationPlayer.ChangeAnimation(knockUpAnim);
-                        animationPlayer.SetLoop(false);
+                        animationPlayer.SetLoop(true);
+                        //animationPlayer.SetStayLast(true);
                         animationPlayer.Play();
-                    }/*
+                    }
+                    knockUpTimer += dt;
                 }
                 else {
-                    knockUpTimer += dt;
-                }*/
+                    animationPlayer.Pause();
+                }
             }
             else {
                 rockShield.SetActive(true);
@@ -95,20 +97,22 @@ void BossLoop::Update()
                 shield[phase] = maxShield[phase];
                 canTakeDamage = false;
                 dt = Time::GetDeltaTime();
-                //if (recoverTimer <= 6) {
+                if (recoverTimer <= 6) {
                     if (animState != AnimationState::RECOVER)
                     {
                         animState = AnimationState::RECOVER;
                         animationPlayer.ChangeAnimation(recoverAnim);
-                        animationPlayer.SetLoop(false);
+                        animationPlayer.SetLoop(true);
                         animationPlayer.Play();
                     }
-                /*    recoverTimer = 0;
-                    knockUpTimer = 0;
+                    recoverTimer += dt;
+                    
                 }
                 else {
-                    recoverTimer += dt;
-                }*/
+                    animationPlayer.Pause();
+                    recoverTimer = 0;
+                    knockUpTimer = 0;
+                }
             }
             if (hp <= maxHpLoss[phase - 1]) {
                 weakTime = 0;
