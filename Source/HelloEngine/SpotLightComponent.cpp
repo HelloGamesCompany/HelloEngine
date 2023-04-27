@@ -39,7 +39,6 @@ void SpotLightComponent::SerializationUnique(json& j)
 	j["Distance"] = data.distance;
 
 
-	j["Constant"] = data.constant;
 	j["Linear"] = data.linear;
 	j["Exp"] = data.exp;
 }
@@ -51,7 +50,6 @@ void SpotLightComponent::DeSerializationUnique(json& j)
 	data.cutoff = j["Cutoff"];
 	data.distance = j["Distance"];
 
-	data.constant = j["Constant"];
 	data.linear = j["Linear"];
 	data.exp = j["Exp"];
 	
