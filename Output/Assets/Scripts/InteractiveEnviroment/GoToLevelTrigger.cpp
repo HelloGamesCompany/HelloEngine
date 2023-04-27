@@ -13,7 +13,7 @@ void GoToLevelTrigger::Start()
 {
     if (isHub)
     {
-        if (API_QuickSave::GetBool("level4_completed"))
+        /*if (API_QuickSave::GetBool("level4_completed"))
         {
             scene = std::string("LVL5_Blockout");
             nextLevel = 5;
@@ -23,9 +23,9 @@ void GoToLevelTrigger::Start()
             scene = std::string("LVL4_Blockout.HScene");
             nextLevel = 4;
         }
-        else if (API_QuickSave::GetBool("level2_completed"))
+        else */if (API_QuickSave::GetBool("level2_completed"))
         {
-            scene = std::string("LVL3_Blockout.HScene");
+            scene = std::string("LVL5_Blockout.HScene");
             nextLevel = 3;
         }
         else if (API_QuickSave::GetBool("level1_completed"))
