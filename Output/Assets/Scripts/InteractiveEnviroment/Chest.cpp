@@ -57,14 +57,14 @@ void Chest::Update()
                 if (playerStats->storage->hud_blueprints) playerStats->storage->hud_blueprints->New_WeaponAlert(itemIndex);
                 break;
             case 5: // Get Flamethrower
-                playerGunManager->GetGun(3, 6);
+                playerGunManager->GetGun(3, 5);
                 playerStats->specialAmmo = 600;
                 playerStats->maxSpecialAmmo = 600;
                 playerStats->SaveChestData(6, chestIndex); // save game
                 if (playerStats->storage->hud_blueprints) playerStats->storage->hud_blueprints->Special_WeaponAlert(5);
                 break;
             case 6: // Get Ricochet
-                playerGunManager->GetGun(3, 7);
+                playerGunManager->GetGun(3, 6);
                 playerStats->specialAmmo = 20;
                 playerStats->maxSpecialAmmo = 20;
                 playerStats->SaveChestData(7, chestIndex); // save game
