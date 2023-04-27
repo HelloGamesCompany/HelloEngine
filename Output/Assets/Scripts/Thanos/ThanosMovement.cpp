@@ -60,7 +60,7 @@ void ThanosMovement::Seek(API_GameObject* seeker, API_Vector3 target, float spee
 {
     API_Vector3 direction = target - seeker->GetTransform().GetGlobalPosition();
 
-    seeker->GetTransform().Translate(direction * (speed / 100));
+    seeker->GetTransform().Translate(direction * speed * Time::GetDeltaTime());
 
     float distTP = player.GetTransform().GetGlobalPosition().Distance(gameObject.GetTransform().GetGlobalPosition());
 
@@ -85,7 +85,7 @@ void ThanosMovement::Seek2(API_GameObject* seeker, API_Vector3 target, float spe
 {
     API_Vector3 direction = target - seeker->GetTransform().GetGlobalPosition();
 
-    seeker->GetTransform().Translate(direction * (speed / 100));
+    seeker->GetTransform().Translate(direction * (speed) * Time::GetDeltaTime());
 
     float distTP = player.GetTransform().GetGlobalPosition().Distance(gameObject.GetTransform().GetGlobalPosition());
 
