@@ -18,6 +18,8 @@ public:
 
 	void Seek2(API_GameObject* seeker, API_Vector3 target, float speed);
 
+	void Hide(API_GameObject* follower_position, API_Vector3 target_position, float speed);
+
 	API_GameObject player;
 	API_GameObject boss;
 
