@@ -24,7 +24,6 @@ public:
     API_AnimationPlayer chestAnimatorPlayer;
 
     float openChestTime;
-    float openChestTimeBar;
     float maxOpenChestTime = 1.0f;
     bool opening;
     PlayerGunManager* playerGunManager;

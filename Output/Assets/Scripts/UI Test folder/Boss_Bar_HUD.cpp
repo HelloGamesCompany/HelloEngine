@@ -45,7 +45,7 @@ void Boss_Bar_HUD::Update()
         if (bossStats->dist < 80.0f)
         {
             boss_HUD.SetActive(true);
-            Boss_Bar(bossStats->hp / 1500, shields, bossStats->phase, bossStats->canTakeDamage);
+            Boss_Bar(bossStats->hp / 1500.0f, shields, bossStats->phase, bossStats->canTakeDamage);
         }
         else
         {
@@ -87,6 +87,6 @@ void Boss_Bar_HUD::Boss_Bar(float HP_Boss_Value, float Shield_Boss_Value[3], int
     }
     else if (Shield_Boss_Value[phase] > 0)
     {
-        shield_Boss_broked = true;
+        shield_Boss_broked = false;
     }
 }
