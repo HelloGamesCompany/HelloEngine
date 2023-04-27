@@ -271,7 +271,7 @@ void PlayerStats::TakeDamage(float amount, float resistanceDamage)
     {
         currentHp += shield;
         shield = 0.0f;
-        if (shieldBefore > 0) hudPowerUp->RemovePowerUp(PowerUp_Type::SHIELD);
+        if (shieldBefore > 0 && hudPowerUp) hudPowerUp->RemovePowerUp(PowerUp_Type::SHIELD);
     }
 
     // hp damage

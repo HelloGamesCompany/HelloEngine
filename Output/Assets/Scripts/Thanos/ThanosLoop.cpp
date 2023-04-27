@@ -57,7 +57,7 @@ void ThanosLoop::OnCollisionEnter(API::API_RigidBody other)
         if (detectionName == "Player")
         {
             PlayerStats* pStats = (PlayerStats*)other.GetGameObject().GetScript("PlayerStats");
-            pStats->TakeDamage(meleeDmg, 0);
+            //pStats->TakeDamage(meleeDmg, 0);
         }
     }
 }
