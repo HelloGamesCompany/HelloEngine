@@ -24,6 +24,16 @@ HELLO_ENGINE_API_C ThanosAttacks* CreateThanosAttacks(ScriptToInspectorInterface
 	script->AddDragBoxGameObject("Bullet2", &classInstance->bullet2);
 	script->AddDragBoxGameObject("Bullet3", &classInstance->bullet3);
 
+	script->AddDragBoxGameObject("Beam1", &classInstance->beam1);
+	script->AddDragBoxGameObject("Beam2", &classInstance->beam2);
+	script->AddDragBoxGameObject("Beam3", &classInstance->beam3);
+	script->AddDragBoxGameObject("Beam4", &classInstance->beam4);
+
+	script->AddDragBoxGameObject("BeamTarget1", &classInstance->beamTarget1);
+	script->AddDragBoxGameObject("BeamTarget2", &classInstance->beamTarget2);
+	script->AddDragBoxGameObject("BeamTarget3", &classInstance->beamTarget3);
+	script->AddDragBoxGameObject("BeamTarget3", &classInstance->beamTarget4);
+
 
 	//Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
 	return classInstance;
@@ -48,6 +58,16 @@ void ThanosAttacks::Start()
 	bullets[0] = bullet1;
 	bullets[1] = bullet2;
 	bullets[2] = bullet3;
+
+	beams[0] = beam1;
+	beams[1] = beam2;
+	beams[2] = beam3;
+	beams[3] = beam4;
+
+	beamTargets[0] = beamTarget1;
+	beamTargets[1] = beamTarget2;
+	beamTargets[2] = beamTarget3;
+	beamTargets[3] = beamTarget4;
 
 }
 void ThanosAttacks::Update()
@@ -97,6 +117,10 @@ void ThanosAttacks::Update()
 			break;
 		case THANOS_STATE::IDLE:
 
+			for (int i = 0; i < 4; i++) {
+				beams[i].SetActive(false);
+			}
+
 			attackType = rand() % 100 + 1;
 
 			isAttacking = true;
@@ -105,7 +129,8 @@ void ThanosAttacks::Update()
 
 			if (charge > 2.0f) {
 				charge = 0.0f;
-				if (attackType > 0) thanosState = THANOS_STATE::BURST;
+				if (attackType > 50) thanosState = THANOS_STATE::BURST;
+				if (attackType <= 50) thanosState = THANOS_STATE::BEAM;
 				 
 			}
 			
@@ -132,9 +157,43 @@ void ThanosAttacks::Update()
 				thanosState = THANOS_STATE::IDLE;
 				isAttacking = false;
 				busrstTime = 0.0f;
+				for (int i = 0; i < 3; i++) {
+					bulletThrown[i] = false;
+				}
+
 			}
 
 			break;
+
+		case THANOS_STATE::BEAM:
+			
+			beamTime += Time::GetDeltaTime();
+
+			for (int i = 0; i < 4; i++) {
+				if (beamTime > beamTimes[i]) {
+					if (beamThrown[i] == false) {
+						beamThrown[i] = true;
+						beams[i].SetActive(true);
+						beamPositions[i] = beamTargets[i].GetTransform().GetGlobalPosition();
+						angle = Rotate(beamPositions[i], angle, &beams[i]);
+					}
+					BulletSeek(&beams[i],beamPositions[i], beamSpeed, i);
+				}
+				else beams[i].GetTransform().SetPosition(gameObject.GetTransform().GetGlobalPosition());
+			}
+
+			if (beamTime > beamTimes[4]) {
+				thanosState = THANOS_STATE::IDLE;
+				isAttacking = false;
+				beamTime = 0.0f;
+				for (int i = 0; i < 4; i++) {
+					beamThrown[i] = false;
+				}
+
+			}
+			
+			break;
+
 		default:
 			break;
 		}
@@ -270,9 +329,24 @@ void ThanosAttacks::BulletSeek(API_GameObject* seeker, API_Vector3 target, float
 	API_Vector3 direction = target - seeker->GetTransform().GetGlobalPosition();
 	seeker->GetTransform().Translate(direction * speed / 10);
 
-	if (direction.x < 0.03 && direction.x > -0.03 && direction.y < 0.03 && direction.y && direction.z < 0.03 && direction.z) {
+	if (direction.x < 0.3 && direction.x > -0.3 && direction.y < 0.3 && direction.y && direction.z < 0.3 && direction.z) {
 		seeker->SetActive(false);
 	}
 
 }
 
+float ThanosAttacks::Rotate(API_Vector3 target, float _angle, API_GameObject* rotator)
+{
+	API_Vector2 lookDir;
+	lookDir.x = (target.x - rotator->GetTransform().GetGlobalPosition().x);
+	lookDir.y = (target.z - rotator->GetTransform().GetGlobalPosition().z);
+
+	API_Vector2 normLookDir;
+	normLookDir.x = lookDir.x / sqrt(pow(lookDir.x, 2) + pow(lookDir.y, 2));
+	normLookDir.y = lookDir.y / sqrt(pow(lookDir.x, 2) + pow(lookDir.y, 2));
+	_angle = 0;
+	_angle = atan2(normLookDir.y, normLookDir.x) * RADTODEG - 90.0f;
+	rotator->GetTransform().SetRotation(0, -_angle - 90, 0);
+
+	return _angle;
+}

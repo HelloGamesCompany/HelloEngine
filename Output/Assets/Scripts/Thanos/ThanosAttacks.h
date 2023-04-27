@@ -55,6 +55,7 @@ public:
 		LASTSWORD,
 		PULSE,
 		BURST,
+		BEAM,
 	};
 
 	THANOS_STATE thanosState;
@@ -87,5 +88,32 @@ public:
 	float busrstTime = 0.0f;
 
 	float attackType = 0.0f;
+
+	API_GameObject beam1;
+	API_GameObject beam2;
+	API_GameObject beam3;
+	API_GameObject beam4;
+
+	API_GameObject beams[4];
+
+	API_GameObject beamTarget1;
+	API_GameObject beamTarget2;
+	API_GameObject beamTarget3;
+	API_GameObject beamTarget4;
+
+	API_GameObject beamTargets[4];
+	API_Vector3 beamPositions[4];
+
+	float beamTime = 0.0f;
+	float beamTimes[5] = { 0.01f,1.6f,1.61f,2.1f,2.5f };
+
+	bool beamThrown[4] = { false,false,false,false };
+
+	float beamSpeed = 0.75f;
+
+	float Rotate(API_Vector3 target, float _angle, API_GameObject* rotator);
+
+	float angle = 0.0f;
+
 };
 

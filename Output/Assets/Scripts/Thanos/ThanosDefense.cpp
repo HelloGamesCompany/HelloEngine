@@ -23,8 +23,11 @@ void ThanosDefense::OnCollisionEnter(API::API_RigidBody other)
 
     if (detectionTag == "Projectile")
     {
-        other.GetGameObject().GetTransform().Rotate(0, 180, 0);
         Projectile* projectile = (Projectile*)other.GetGameObject().GetScript("Projectile");
-        projectile->reflected = true;
+        if (projectile->type == PROJECTILE_TYPE::NONE || projectile->type == PROJECTILE_TYPE::AUTO || projectile->type == PROJECTILE_TYPE::SEMI || projectile->type == PROJECTILE_TYPE::SHOTGUN) {
+            other.GetGameObject().GetTransform().Rotate(0, 180, 0);
+            projectile->reflected = true;
+        }
+        
     }
 }

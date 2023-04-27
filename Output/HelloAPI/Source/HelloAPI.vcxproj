@@ -260,6 +260,7 @@
 		<ClCompile Include="../../Assets/Scripts/InteractiveEnviroment/Decoration/SpaceShip.cpp" />
 		<ClCompile Include="..\..\Assets\Scripts\UI Test folder\HUD_SHIELD_BROKEN.cpp" />
 		<ClCompile Include="../../Assets/Scripts/Thanos/ThanosBullets.cpp" />
+		<ClCompile Include="../../Assets/Scripts/Thanos/BeamDmg.cpp" />
 	</ItemGroup>
 	<ItemGroup>
 		<ClInclude Include="..\..\Assets\Scripts\EbonyMaw\BossAttacks.h" />
@@ -387,6 +388,7 @@
 		<ClInclude Include="../../Assets/Scripts/InteractiveEnviroment/Decoration/SpaceShip.h" />
 		<ClInclude Include="..\..\Assets\Scripts\UI Test folder\HUD_SHIELD_BROKEN.h" />
 		<ClInclude Include="../../Assets/Scripts/Thanos/ThanosBullets.h" />
+		<ClInclude Include="../../Assets/Scripts/Thanos/BeamDmg.h" />
 	</ItemGroup>
 	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 	<ImportGroup Label="ExtensionTargets" />
