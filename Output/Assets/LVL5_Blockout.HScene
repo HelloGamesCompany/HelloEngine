@@ -23997,7 +23997,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": false,
-                "MaterialUID": 0,
+                "MaterialUID": 2872881526,
                 "Type": 18
             }
         ],
@@ -24486,7 +24486,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 0,
+                "MaterialUID": 4152820774,
                 "Type": 18
             }
         ],
@@ -24562,7 +24562,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 0,
+                "MaterialUID": 4152820774,
                 "Type": 18
             },
             {
@@ -24918,7 +24918,7 @@
         "UID": 2243582923
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
@@ -25068,23 +25068,23 @@
         "UID": 1116061254
     },
     {
-        "Active": false,
+        "Active": true,
         "Components": [
             {
                 "Enabled": true,
                 "Position": [
-                    2.4299754386447603e-07,
-                    1.6174378395080566,
-                    -6.237453460693359
+                    -2.432547092437744,
+                    1.6171875,
+                    -6.2374420166015625
                 ],
                 "Rotation": [
-                    -4.310455132518786e-35,
-                    2.426570516076106e-20,
-                    2.035554884372015e-13
+                    -4.4883981947796414e-11,
+                    -4.168816403193887e-10,
+                    1.6675264502552523e-09
                 ],
                 "Scale": [
                     1.0,
-                    1.0,
+                    1.0000001192092896,
                     1.0
                 ],
                 "Type": 1
