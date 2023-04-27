@@ -17,7 +17,7 @@ public:
     API_GameObject description5;
     API_UIButton HoveredButton;
 
-    bool audioON = false;
+    bool audioON = true;
 
 
 	void Start() override; 
