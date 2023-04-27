@@ -58,6 +58,7 @@ void ArmoryUpgratteButtons::Update()
 {
     if (Input::GetGamePadButton(GamePadButton::BUTTON_B) == KeyState::KEY_DOWN && PanelUpgrate.IsEnabled())
     {
+        Audio::Event("click");
         Input::HandleGamePadButton(GamePadButton::BUTTON_B);
         SelectWeaponList.SetEnable(true);
         PanelUpgrate.SetEnable(false);
@@ -153,6 +154,25 @@ void ArmoryUpgratteButtons::Update()
     if (Upgrate3.getIsBlocked() && Upgrate3.OnPress())
     {
         Audio::Event("error");
+    }
+    if (Upgrate1.OnHovered() && audioUp1)
+    {
+        audioUp1 = false;
+        audioUp2 = true;
+        Audio::Event("hover");
+    }
+    if (Upgrate2.OnHovered() && audioUp2)
+    {
+        audioUp1 = true;
+        audioUp2 = false;
+        audioUp3 = true;
+        Audio::Event("hover");
+    }
+    if (Upgrate3.OnHovered() && audioUp3)
+    {
+        audioUp2 = true;
+        audioUp3 = false;
+        Audio::Event("hover");
     }
     /*if (Input::GetGamePadButton(GamePadButton::BUTTON_DOWN) == KeyState::KEY_DOWN || Input::GetGamePadAxis(GamePadAxis::AXIS_RIGHTY) >= 10000)
     {

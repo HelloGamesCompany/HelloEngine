@@ -24,12 +24,15 @@ void AbilityDescription::Update()
 		nextDescription.SetActive(false);
 		description4.SetActive(false);
 		description5.SetActive(false);
+		if (audioON)
+		{
+			audioON = false;
+			Console::Log("David");
+			Audio::Event("hover");
+		}
+	}
+	else if (!HoveredButton.OnHovered() && !HoveredButton.OnPress())
+	{
 		audioON = true;
 	}
-
-	if (audioON == true) {
-		Audio::Event("hover");
-		Console::Log("s");
-	}
-
 }

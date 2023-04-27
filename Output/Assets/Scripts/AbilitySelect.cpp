@@ -34,6 +34,8 @@ void AbilitySelect::Update()
     }
     else if (abilitySelect.OnPress() && !waitFrame)
     {
+        Audio::Event("click");
+
         mainPanel.SetEnable(false);
         abilityPanel.SetEnable(true);
         waitFrame = true;
