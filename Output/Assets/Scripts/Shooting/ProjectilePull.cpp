@@ -64,6 +64,8 @@ void ProjectilePull::Update()
             autoForce -= dt * 3.0f;
         }
     }
+
+    if (autoForce < 0.0f) autoForce = 0.0f;
 }
 
 API_GameObject ProjectilePull::GetFirstInactiveProjectile()

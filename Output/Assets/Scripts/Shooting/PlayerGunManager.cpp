@@ -44,12 +44,12 @@ void PlayerGunManager::Start()
     GetGun(1, 0);
     int equipedNormalGun = API_QuickSave::GetInt("equipedNormalGun");
     if (equipedNormalGun < -1 || equipedNormalGun > 4) equipedNormalGun = -1;
-    GetGun(2, equipedNormalGun);
+    //GetGun(2, equipedNormalGun);
     GetGun(3, -1);
     //GetGun(1, gunOnHandIndex1);
-    //GetGun(2, gunOnHandIndex2);
+    GetGun(2, gunOnHandIndex2);
     //GetGun(3, gunOnHandIndex3);
-    //playerStats->laserAmmo = 99999;
+    playerStats->laserAmmo = 99999;
     //playerStats->specialAmmo = 99999;
     switch (equipedNormalGun)
     {
