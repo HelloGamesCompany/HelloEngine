@@ -172,4 +172,5 @@ void AbilityTreeUpgrades::UpgradeSkill()
 
     skillLevel++;
     API_QuickSave::SetInt("tree" + std::to_string(treeIndex) + "_level", skillLevel);
+    Audio::Event("ability_get");
 }
