@@ -112,6 +112,8 @@ void ArmoryWeaponSelect::Update()
 
 void ArmoryWeaponSelect::FindUnlock()
 {
+    Audio::Event("hover");
+
     if (gunIndex == 0) isUnlocked = true;
     else
     {

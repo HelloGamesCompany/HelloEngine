@@ -101,11 +101,13 @@ void ArmoryUpgratteButtons::Update()
     {
         if (_playerStorage->upgradeBlueprintAmount > 0)
         {
+            Audio::Event("click");
             manteinTime = 1.0f;
             upgradingLevel = 1;
         }
         else
         {
+            Audio::Event("error");
             // wrong sound
         }
     }
@@ -114,11 +116,13 @@ void ArmoryUpgratteButtons::Update()
     {
         if (_playerStorage->upgradeBlueprintAmount > 0)
         {
+            Audio::Event("click");
             manteinTime = 1.0f;
             upgradingLevel = 2;
         }
         else
         {
+            Audio::Event("error");
             // wrong sound
         }
     }
@@ -127,13 +131,29 @@ void ArmoryUpgratteButtons::Update()
     {
         if (_playerStorage->upgradeBlueprintAmount > 0)
         {
+            Audio::Event("click");
             manteinTime = 1.0f;
             upgradingLevel = 3;
         }
         else
         {
+            Audio::Event("error");
             // wrong sound
         }
+    }
+
+    if (Upgrate1.getIsBlocked() && Upgrate1.OnPress())
+    {
+        Audio::Event("error");
+    }
+    if (Upgrate2.getIsBlocked() && Upgrate2.OnPress())
+    {
+        Console::Log("WTF");
+        Audio::Event("error");
+    }
+    if (Upgrate3.getIsBlocked() && Upgrate3.OnPress())
+    {
+        Audio::Event("error");
     }
 }
 
@@ -141,6 +161,8 @@ void ArmoryUpgratteButtons::UpgradeGun()
 {
     _playerStorage->upgradeBlueprintAmount--;
     _playerStorage->SaveData();
+
+    Audio::Event("w_upgrade");
 
     gunLevel++;
 
