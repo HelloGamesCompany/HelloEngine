@@ -186,7 +186,7 @@ void BossLoop::OnCollisionEnter(API::API_RigidBody other)
 void BossLoop::TakeDamage(float damage)
 {
     if (hp <= 0) return;
-
+    
     if (canTakeDamage == true) {
 
         hp -= damage;

@@ -23,11 +23,10 @@ void Chest::Start()
 
 void Chest::Update()
 {
-
+    guideButton.FillImage(openChestTime / maxOpenChestTime);
     if (opening)
     {
         openChestTime -= Time::GetRealTimeDeltaTime();
-        guideButton.FillImage(openChestTime);
         if (Input::GetGamePadButton(GamePadButton::BUTTON_X) == KeyState::KEY_UP || Input::GetKey(KeyCode::KEY_E) == KeyState::KEY_UP)
         {
             if (playerMove) playerMove->StopOpenChestAnim();

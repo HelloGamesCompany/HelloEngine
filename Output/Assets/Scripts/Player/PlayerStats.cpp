@@ -91,7 +91,7 @@ void PlayerStats::Update()
             if (healthTreeLvl > 3) currentHp += upgradedDeadlineHeal;
             else currentHp += deadlineHeal;
 
-            if (currentHp > deathlineHp)
+            if (currentHp >= deathlineHp)
             {
                 currentHp = deathlineHp;
                 lastHitTime = 0.0f;
@@ -352,7 +352,7 @@ void PlayerStats::GetAmmo(int type, int amount)
     {
     case 1:
         //script Municion
-        ammo_Script->opacity_Active = true;
+        if (ammo_Script) ammo_Script->opacity_Active = true;
         laserAmmo += amount;
         if (laserAmmo > maxLaserAmmo) laserAmmo = maxLaserAmmo;
         break;
