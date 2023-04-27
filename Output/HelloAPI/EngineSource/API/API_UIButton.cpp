@@ -31,15 +31,15 @@ bool API::API_UIButton::OnPress()
         return false;
     }
 
-    /* if (_UIButton->isBlocked)
+     if (_UIButton->isBlocked)
      {
          return _UIButton->State == ButtonState::ONPRESSBLOCKED;
      }
      else
      {
          return _UIButton->State == ButtonState::ONPRESS;
-     }*/
-    return _UIButton->State == ButtonState::ONPRESS;
+     }
+    //return _UIButton->State == ButtonState::ONPRESS;
 }
 
 bool API::API_UIButton::OnHold()
