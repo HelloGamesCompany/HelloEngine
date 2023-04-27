@@ -91,7 +91,7 @@ void PlayerStats::Update()
             if (healthTreeLvl > 3) currentHp += upgradedDeadlineHeal;
             else currentHp += deadlineHeal;
 
-            if (currentHp > deathlineHp)
+            if (currentHp >= deathlineHp)
             {
                 currentHp = deathlineHp;
                 lastHitTime = 0.0f;
