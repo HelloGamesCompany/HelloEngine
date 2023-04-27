@@ -15,6 +15,9 @@
 #include "Console.h";
 #include "LayerEditor.h"
 
+#include "DebugUtils/SampleInterfaces.h"
+#include "DebugUtils/DetourDebugDraw.h"
+
 using CSL = Engine::Console;
 
 NavMeshBuilder* ModuleNavMesh::navMeshBuilder = nullptr;
@@ -186,6 +189,36 @@ ModuleNavMesh::ModuleNavMesh(bool start_enabled)
     geometry = new InputGeom();
     buildSettings = new BuildSettings;
     pathfinder = new Pathfinder;
+
+	buildSettings->cellSize = 0.3f;
+	// Cell height in world units
+	buildSettings->cellHeight = 0.2f;
+	// Agent height in world units
+	buildSettings->agentHeight = 2.0f;
+	// Agent radius in world units
+	buildSettings->agentRadius = 0.5f;
+	// Agent max climb in world units
+	buildSettings->agentMaxClimb = 0.9f;
+	// Agent max slope in degrees
+	buildSettings->agentMaxSlope = 45.0f;
+	// Region minimum size in voxels.
+	// regionMinSize = sqrt(regionMinArea)
+	buildSettings->regionMinSize = 8.0f;
+	// Region merge size in voxels.
+	// regionMergeSize = sqrt(regionMergeArea)
+	buildSettings->regionMergeSize = 20.0f;
+	// Edge max length in world units
+	buildSettings->edgeMaxLen = 12.0f;
+	// Edge max error in voxels
+	buildSettings->edgeMaxError = 1.3f;
+	// Detail sample distance in voxels
+	buildSettings->detailSampleDist = 6.0f;
+	// Detail sample max error in voxel heights.
+	buildSettings->detailSampleMaxError = 1.0f;
+	// Size of the tiles in voxels
+	buildSettings->tileSize = 32;
+
+	buildSettings->vertsPerPoly = 6.0f;
 }
 
 ModuleNavMesh::~ModuleNavMesh()
@@ -597,6 +630,90 @@ std::vector<float3> Pathfinder::CalculatePath(ComponentAgent* agent, float3 dest
 
 void Pathfinder::RenderPath(ComponentAgent* agent)
 {
+	NavAgent* agentProp = agent->agentProperties;
+	DebugDrawGL dd;
+
+	static const unsigned int startCol = duRGBA(128, 25, 0, 192);
+	static const unsigned int endCol = duRGBA(51, 102, 0, 129);
+	static const unsigned int pathCol = duRGBA(0, 0, 0, 64);
+
+	if (agentProp->pathType == PathType::SMOOTH)
+	{
+		duDebugDrawNavMeshPoly(&dd, *m_navMesh, agentProp->m_startRef, startCol);
+		duDebugDrawNavMeshPoly(&dd, *m_navMesh, agentProp->m_endRef, endCol);
+
+		if (agentProp->m_npolys)
+		{
+			for (int i = 0; i < agentProp->m_npolys; ++i)
+			{
+				if (agentProp->m_polys[i] == agentProp->m_startRef || agentProp->m_polys[i] == agentProp->m_endRef)
+					continue;
+				duDebugDrawNavMeshPoly(&dd, *m_navMesh, agentProp->m_polys[i], pathCol);
+			}
+		}
+
+		if (agentProp->m_nsmoothPath)
+		{
+			dd.depthMask(false);
+			const unsigned int spathCol = duRGBA(0, 0, 0, 220);
+			dd.begin(DU_DRAW_LINES, 3.0f);
+			for (int i = 0; i < agentProp->m_nsmoothPath; ++i)
+				dd.vertex(agentProp->m_smoothPath[i * 3], agentProp->m_smoothPath[i * 3 + 1] + 0.1f, agentProp->m_smoothPath[i * 3 + 2], spathCol);
+			dd.end();
+			dd.depthMask(true);
+		}
+	}
+	else if (agentProp->pathType == PathType::STRAIGHT)
+	{
+		duDebugDrawNavMeshPoly(&dd, *m_navMesh, agentProp->m_startRef, startCol);
+		duDebugDrawNavMeshPoly(&dd, *m_navMesh, agentProp->m_endRef, endCol);
+
+		if (agentProp->m_npolys)
+		{
+			for (int i = 0; i < agentProp->m_npolys; ++i)
+			{
+				if (agentProp->m_polys[i] == agentProp->m_startRef || agentProp->m_polys[i] == agentProp->m_endRef)
+					continue;
+				duDebugDrawNavMeshPoly(&dd, *m_navMesh, agentProp->m_polys[i], pathCol);
+			}
+		}
+
+		if (agentProp->m_nstraightPath)
+		{
+			dd.depthMask(false);
+			const unsigned int spathCol = duRGBA(64, 16, 0, 220);
+			const unsigned int offMeshCol = duRGBA(128, 96, 0, 220);
+			dd.begin(DU_DRAW_LINES, 2.0f);
+			for (int i = 0; i < agentProp->m_nstraightPath - 1; ++i)
+			{
+				unsigned int col;
+				if (agentProp->m_straightPathFlags[i] & DT_STRAIGHTPATH_OFFMESH_CONNECTION)
+					col = offMeshCol;
+				else
+					col = spathCol;
+
+				dd.vertex(agentProp->m_straightPath[i * 3], agentProp->m_straightPath[i * 3 + 1] + 0.4f, agentProp->m_straightPath[i * 3 + 2], col);
+				dd.vertex(agentProp->m_straightPath[(i + 1) * 3], agentProp->m_straightPath[(i + 1) * 3 + 1] + 0.4f, agentProp->m_straightPath[(i + 1) * 3 + 2], col);
+			}
+			dd.end();
+			dd.begin(DU_DRAW_POINTS, 6.0f);
+			for (int i = 0; i < agentProp->m_nstraightPath; ++i)
+			{
+				unsigned int col;
+				if (agentProp->m_straightPathFlags[i] & DT_STRAIGHTPATH_START)
+					col = startCol;
+				else if (agentProp->m_straightPathFlags[i] & DT_STRAIGHTPATH_END)
+					col = endCol;
+				else if (agentProp->m_straightPathFlags[i] & DT_STRAIGHTPATH_OFFMESH_CONNECTION)
+					col = offMeshCol;
+				else
+					col = spathCol;
+				dd.vertex(agentProp->m_straightPath[i * 3], agentProp->m_straightPath[i * 3 + 1] + 0.4f, agentProp->m_straightPath[i * 3 + 2], col);
+			}
+			dd.end();
+			dd.depthMask(true);
+		}
+	}
 }
 
 bool Pathfinder::MovePath(ComponentAgent* agent)

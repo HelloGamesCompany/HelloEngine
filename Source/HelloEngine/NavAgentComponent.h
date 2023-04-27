@@ -21,5 +21,9 @@ public:
 public:
 	NavAgent* agentProperties = nullptr;
 	Pathfinder* pathfinding = nullptr;
+
+private:
+	float3 testPath;
+	std::vector<float3> path;
 };
 

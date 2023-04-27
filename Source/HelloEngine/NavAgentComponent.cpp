@@ -7,7 +7,9 @@ ComponentAgent::ComponentAgent(GameObject* gameObject) : Component(gameObject)
 {
 	_type = Type::AGENT;
 	agentProperties = new NavAgent();
-	pathfinding = Application::Instance()->navMesh->GetPathfinding();
+	pathfinding = ModuleNavMesh::GetPathfinding();
+
+	testPath = { 0,0,0 };
 }
 
 ComponentAgent::~ComponentAgent()
@@ -22,6 +24,23 @@ void ComponentAgent::OnEditor()
 
 	if (ImGui::CollapsingHeader("NavAgent"))
 	{
+		if (ImGui::Button("CreatePath"))
+		{
+			agentProperties->path = ModuleNavMesh::GetPathfinding()->CalculatePath(this, testPath);
+		}
+		ImGui::SameLine();
+
+		if (ImGui::Button("GoTo"))
+		{
+			ModuleNavMesh::GetPathfinding()->MovePath(this);
+		}
+
+		ImGui::DragFloat3("XYZ: ", testPath.ptr());
+		ImGui::Separator();
+		ImGui::Separator();
+
+
+
 		ImGui::Spacing();
 		ImGui::Text("Agent Properties");
 		ImGui::Separator();

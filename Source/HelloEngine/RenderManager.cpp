@@ -17,6 +17,12 @@
 
 #include "ModuleRenderer3D.h"
 
+#include "ModuleNavMesh.h"
+#include "NavMeshBuilder.h"
+
+#include "LayerEditor.h"
+#include "NavAgentComponent.h"
+
 RenderManager::RenderManager()
 {
 }
@@ -269,6 +275,18 @@ void RenderManager::DrawDebug()
 	for (int i = 0; i < ModulePhysics::physBodies.size(); i++)
 	{
 		ModulePhysics::physBodies[i]->RenderCollider();
+	}
+
+	if (ModuleNavMesh::GetNavMeshBuilder() != nullptr)
+	{
+		ModuleNavMesh::GetNavMeshBuilder()->DebugDraw();
+
+		if (LayerEditor::selectedGameObject && 
+			LayerEditor::selectedGameObject->GetComponent<ComponentAgent>())
+		{
+			ModuleNavMesh::GetPathfinding()->RenderPath(LayerEditor::selectedGameObject->GetComponent<ComponentAgent>());
+		}
+		
 	}
 }
 

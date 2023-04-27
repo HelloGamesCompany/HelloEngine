@@ -88,36 +88,36 @@ public:
 struct BuildSettings
 {
 	// Cell size in world units
-	float cellSize;
+	float cellSize = 0.3f;
 	// Cell height in world units
-	float cellHeight;
+	float cellHeight = 0.2f;
 	// Agent height in world units
-	float agentHeight;
+	float agentHeight = 2.0f;
 	// Agent radius in world units
-	float agentRadius;
+	float agentRadius = 0.5f;
 	// Agent max climb in world units
-	float agentMaxClimb;
+	float agentMaxClimb = 0.9f;
 	// Agent max slope in degrees
-	float agentMaxSlope;
+	float agentMaxSlope = 45.0f;
 	// Region minimum size in voxels.
 	// regionMinSize = sqrt(regionMinArea)
-	float regionMinSize;
+	float regionMinSize = 8.0f;
 	// Region merge size in voxels.
 	// regionMergeSize = sqrt(regionMergeArea)
-	float regionMergeSize;
+	float regionMergeSize = 20.0f;
 	// Edge max length in world units
-	float edgeMaxLen;
+	float edgeMaxLen = 12.0f;
 	// Edge max error in voxels
-	float edgeMaxError;
+	float edgeMaxError = 1.3f;	
 	float vertsPerPoly;
 	// Detail sample distance in voxels
-	float detailSampleDist;
+	float detailSampleDist = 6.0f;
 	// Detail sample max error in voxel heights.
-	float detailSampleMaxError;
+	float detailSampleMaxError = 1.0f;
 	// Partition type, see SamplePartitionType
 	int partitionType;
 	// Size of the tiles in voxels
-	float tileSize;
+	float tileSize = 32;
 	// Bounds of the area to mesh
 	float navMeshBMin[3];
 	float navMeshBMax[3];
