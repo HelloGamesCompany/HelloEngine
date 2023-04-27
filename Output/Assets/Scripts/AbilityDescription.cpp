@@ -14,7 +14,7 @@ HELLO_ENGINE_API_C AbilityDescription* CreateAbilityDescription(ScriptToInspecto
 
 void AbilityDescription::Start()
 {
-
+	audioON = false;
 }
 void AbilityDescription::Update()
 {
@@ -24,6 +24,12 @@ void AbilityDescription::Update()
 		nextDescription.SetActive(false);
 		description4.SetActive(false);
 		description5.SetActive(false);
-		Console::Log("1");
+		audioON = true;
 	}
+
+	if (audioON == true) {
+		Audio::Event("hover");
+		Console::Log("s");
+	}
+
 }

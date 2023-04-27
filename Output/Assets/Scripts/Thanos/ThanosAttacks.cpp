@@ -20,6 +20,10 @@ HELLO_ENGINE_API_C ThanosAttacks* CreateThanosAttacks(ScriptToInspectorInterface
 
 	script->AddDragBoxGameObject("ExplosionWave", &classInstance->explosionWave);
 
+	script->AddDragBoxGameObject("Bullet1", &classInstance->bullet1);
+	script->AddDragBoxGameObject("Bullet2", &classInstance->bullet2);
+	script->AddDragBoxGameObject("Bullet3", &classInstance->bullet3);
+
 
 	//Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
 	return classInstance;
@@ -37,6 +41,13 @@ void ThanosAttacks::Start()
 	melee1.SetActive(false);
 	defenseSword.SetActive(true);
 	explosionWave.SetActive(false);
+	bullet1.SetActive(false);
+	bullet2.SetActive(false);
+	bullet3.SetActive(false);
+
+	bullets[0] = bullet1;
+	bullets[1] = bullet2;
+	bullets[2] = bullet3;
 
 }
 void ThanosAttacks::Update()
@@ -81,12 +92,40 @@ void ThanosAttacks::Update()
 			if (explosionTime > 0.6) {
 				explosionWave.SetActive(false);
 				isAttacking = false;
-				thanosState = THANOS_STATE::SEEKING;
+				thanosState = THANOS_STATE::IDLE;
 			}
 			break;
-		case THANOS_STATE::SEEKING:
+		case THANOS_STATE::IDLE:
 
+			attackType = rand() % 100 + 1;
 
+			isAttacking = true;
+
+			if (attackType > 0) thanosState = THANOS_STATE::BURST;
+
+			break;
+
+		case THANOS_STATE::BURST:
+			
+			busrstTime += Time::GetDeltaTime();
+
+			for (int i = 0; i < 3; i++) {
+				if (busrstTime > burstTimes[i]) {
+					if (bulletThrown[i] == false) {
+						bulletThrown[i] = true;
+						playerPositions[i] = player.GetTransform().GetGlobalPosition();
+						bullets[i].SetActive(true);
+					}
+					BulletSeek(&bullets[i], playerPositions[i], bulletSpeed / 10, i);
+				}
+				else bullets[i].GetTransform().GetGlobalPosition() = boss.GetTransform().GetLocalPosition();
+			}
+			
+			if (busrstTime > burstTimes[3]) {
+				thanosState = THANOS_STATE::IDLE;
+				isAttacking = false;
+				busrstTime = 0.0f;
+			}
 
 			break;
 		default:
@@ -217,5 +256,16 @@ void ThanosAttacks::Seek(API_GameObject* seeker, API_Vector3 target, float speed
 		}
 		else if(thanosState != THANOS_STATE::PULSE) thanosState = THANOS_STATE::MELEEATTACK;
 	}
+}
+
+void ThanosAttacks::BulletSeek(API_GameObject* seeker, API_Vector3 target, float speed, int numBullet)
+{
+	API_Vector3 direction = target - seeker->GetTransform().GetGlobalPosition();
+	seeker->GetTransform().Translate(direction * speed / 10);
+
+	if (direction.x < 0.03 && direction.x > -0.03 && direction.y < 0.03 && direction.y && direction.z < 0.03 && direction.z) {
+		seeker->SetActive(false);
+	}
+
 }
 
