@@ -52,6 +52,8 @@ void ArmoryWeaponSelect::Update()
 {
     if (Input::GetGamePadButton(GamePadButton::BUTTON_B) == KeyState::KEY_DOWN && SelectWeaponList.IsEnabled())
     {
+        Audio::Event("click");
+
         findUnlock = true;
         if (!interruptor) return;
         Input::HandleGamePadButton(GamePadButton::BUTTON_B);
@@ -93,6 +95,7 @@ void ArmoryWeaponSelect::Update()
     }
     else if (CurrentWeapon.OnPress() && !findUnlock)
     {
+        Audio::Event("click");
         SelectWeaponList.SetEnable(false);
         if (isUnlocked)
         {

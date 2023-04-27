@@ -148,13 +148,16 @@ void ArmoryUpgratteButtons::Update()
     }
     if (Upgrate2.getIsBlocked() && Upgrate2.OnPress())
     {
-        Console::Log("WTF");
         Audio::Event("error");
     }
     if (Upgrate3.getIsBlocked() && Upgrate3.OnPress())
     {
         Audio::Event("error");
     }
+    /*if (Input::GetGamePadButton(GamePadButton::BUTTON_DOWN) == KeyState::KEY_DOWN || Input::GetGamePadAxis(GamePadAxis::AXIS_RIGHTY) >= 10000)
+    {
+        Console::Log("PEPE");
+    }*/
 }
 
 void ArmoryUpgratteButtons::UpgradeGun()
