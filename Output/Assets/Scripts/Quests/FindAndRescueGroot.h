@@ -6,6 +6,7 @@
 #include "API/API.h"
 
 class PlayerStorage;
+class FadeToBlack;
 
 class FindAndRescueGroot : HelloBehavior
 {
@@ -19,5 +20,10 @@ public:
 	PlayerStorage* playerStorage;
 	API_GameObject finalText;
 
+	API_GameObject fadeToBlackGO;
+	FadeToBlack* fadeToBlackRef;
+
+	float timerToTp = 0.0f;
+	
 };
 

@@ -5,6 +5,8 @@
 #include "API/API.h"
 #include "ThanosMeleeDmg.h"
 #include "ThanosLoop.h"
+#include "../Player/PlayerStats.h"
+#include "../Player/PlayerMove.h"
 
 class ThanosAttacks : HelloBehavior
 {
@@ -39,6 +41,8 @@ public:
 
 	API_GameObject defenseSword;
 
+	float distSA = 0.0F;
+
 	enum class THANOS_STATE {
 		IDLE,
 		SEEKING,
@@ -56,6 +60,14 @@ public:
 	API_Vector3 playerPosition;
 
 	ThanosLoop* tLoop;
+	PlayerStats* pStats;
+	PlayerMove* pMove;
 	bool finalSword = false;
+
+	float explosionTime = 0.0f;
+	API_GameObject explosionWave;
+
+	bool explosionWave1HasArrived = false;
+	bool explosionWave2HasArrived = false;
 };
 
