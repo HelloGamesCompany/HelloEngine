@@ -24,7 +24,7 @@ public:
 	API_GameObject boss;
 
 	float distBP;
-	float bossSpeed = 0.5f;
+	float bossSpeed = 1.0f;
 
 	float angle = 0.0f;
 

@@ -79,7 +79,7 @@ public:
 	API_GameObject bullet3;
 
 	API_GameObject bullets[3];
-	float bulletSpeed = 1.0f;
+	float bulletSpeed = 8.0f;
 
 	bool bulletThrown[3] = { false,false,false };
 
@@ -105,7 +105,7 @@ public:
 	API_Vector3 beamPositions[4];
 
 	float beamTime = 0.0f;
-	float beamTimes[5] = { 0.01f,1.6f,1.61f,2.1f,2.5f };
+	float beamTimes[5] = { 0.31f,1.1f,1.11f,1.6f,3.5f };
 
 	bool beamThrown[4] = { false,false,false,false };
 

@@ -91,7 +91,7 @@ void ThanosAttacks::Update()
 			explosionWave.GetTransform().Scale(20.0f * Time::GetDeltaTime());
 			explosionWave.SetActive(true);
 			if (explosionTime < 0.5 && distSA < 30.0 && explosionWave1HasArrived == false) {
-				//pStats->TakeDamage(50, 0);
+				pStats->TakeDamage(50, 0);
 				explosionWave1HasArrived = true;
 			}
 			if (explosionTime >= 0.5 && distSA > 30.0 && distSA < 60.0 && explosionWave2HasArrived == false) {
@@ -104,7 +104,7 @@ void ThanosAttacks::Update()
 				float z = normalizedvector.z * normalizedvector.z;
 				float sum = x + y + z;
 				API_Vector3 direction = { normalizedvector.x / sum, 0, normalizedvector.z / sum };
-				//pMove->RecieveImpulse(-direction, 0.25f, 50);
+				pMove->RecieveImpulse(-direction, 0.25f, 50);
 
 				//KnockBack
 				explosionWave2HasArrived = true;
@@ -177,7 +177,10 @@ void ThanosAttacks::Update()
 						beamPositions[i] = beamTargets[i].GetTransform().GetGlobalPosition();
 						angle = Rotate(beamPositions[i], angle, &beams[i]);
 					}
-					BulletSeek(&beams[i],beamPositions[i], beamSpeed, i);
+					if (i == 1 || i == 2) {
+						BulletSeek(&beams[i], beamPositions[i], beamSpeed * 1.2f , i);
+					}
+					else BulletSeek(&beams[i],beamPositions[i], beamSpeed, i);
 				}
 				else beams[i].GetTransform().SetPosition(gameObject.GetTransform().GetGlobalPosition());
 			}
@@ -301,7 +304,7 @@ void ThanosAttacks::Seek(API_GameObject* seeker, API_Vector3 target, float speed
 {
 	API_Vector3 direction = target - seeker->GetTransform().GetGlobalPosition();
 	Console::Log(target);
-	seeker->GetTransform().Translate(direction * speed / 10);
+	seeker->GetTransform().Translate(direction * speed * Time::GetDeltaTime() * 10);
 
 	if (direction.x < 0.15 && direction.x > -0.15 && direction.y < 0.15 && direction.y && direction.z < 0.15 && direction.z) {
 		if (tLoop->phase == 2) {
@@ -327,7 +330,7 @@ void ThanosAttacks::Seek(API_GameObject* seeker, API_Vector3 target, float speed
 void ThanosAttacks::BulletSeek(API_GameObject* seeker, API_Vector3 target, float speed, int numBullet)
 {
 	API_Vector3 direction = target - seeker->GetTransform().GetGlobalPosition();
-	seeker->GetTransform().Translate(direction * speed / 10);
+	seeker->GetTransform().Translate(direction * speed * Time::GetDeltaTime());
 
 	if (direction.x < 0.3 && direction.x > -0.3 && direction.y < 0.3 && direction.y && direction.z < 0.3 && direction.z) {
 		seeker->SetActive(false);
