@@ -1,6 +1,9 @@
 #include "ThanosAttacks.h"
 #include "ThanosMeleeDmg.h"
 #include "ThanosLoop.h"
+#include "../Player/PlayerStats.h"
+#include "../Player/PlayerMove.h"
+
 HELLO_ENGINE_API_C ThanosAttacks* CreateThanosAttacks(ScriptToInspectorInterface* script)
 {
 	ThanosAttacks* classInstance = new ThanosAttacks();
@@ -15,6 +18,8 @@ HELLO_ENGINE_API_C ThanosAttacks* CreateThanosAttacks(ScriptToInspectorInterface
 	script->AddDragBoxGameObject("DeflectProjectiles", &classInstance->defenseSword);
 	script->AddDragBoxGameObject("BoomerangTarget", &classInstance->bTarget);
 
+	script->AddDragBoxGameObject("ExplosionWave", &classInstance->explosionWave);
+
 
 	//Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
 	return classInstance;
@@ -25,16 +30,69 @@ void ThanosAttacks::Start()
 	srand(time(NULL));
 	tMeleeDmg = (ThanosMeleeDmg*)melee1.GetScript("ThanosMeleeDmg");
 	tLoop = (ThanosLoop*)boss.GetScript("ThanosLoop");
+	pStats = (PlayerStats*)player.GetScript("PlayerStats");
+	pMove = (PlayerMove*)player.GetScript("PlayerMove");
 	thanosState = THANOS_STATE::SEEKING;
 	sword.SetActive(false);
 	melee1.SetActive(false);
 	defenseSword.SetActive(true);
+	explosionWave.SetActive(false);
+
 }
 void ThanosAttacks::Update()
 {
 	
 	if (tLoop->phase == 2 && thanosState != THANOS_STATE::THROWINGATTACK && finalSword == true) {
 		//2ND phase!!!
+
+
+
+		switch (thanosState)
+		{
+		case THANOS_STATE::PULSE:
+
+			Console::Log("leleleleleleleelelelelele");
+
+			isAttacking = true;
+			distSA = player.GetTransform().GetGlobalPosition().Distance(gameObject.GetTransform().GetGlobalPosition());
+
+			explosionTime += Time::GetDeltaTime();
+			explosionWave.GetTransform().Scale(20.0f * Time::GetDeltaTime());
+			explosionWave.SetActive(true);
+			if (explosionTime < 0.5 && distSA < 30.0 && explosionWave1HasArrived == false) {
+				//pStats->TakeDamage(50, 0);
+				explosionWave1HasArrived = true;
+			}
+			if (explosionTime >= 0.5 && distSA > 30.0 && distSA < 60.0 && explosionWave2HasArrived == false) {
+
+				//pStats->TakeDamage(1, 0);
+
+				API_Vector3 normalizedvector = boss.GetTransform().GetGlobalPosition() - player.GetTransform().GetGlobalPosition();
+				float x = normalizedvector.x * normalizedvector.x;
+				float y = 0;
+				float z = normalizedvector.z * normalizedvector.z;
+				float sum = x + y + z;
+				API_Vector3 direction = { normalizedvector.x / sum, 0, normalizedvector.z / sum };
+				//pMove->RecieveImpulse(-direction, 0.25f, 50);
+
+				//KnockBack
+				explosionWave2HasArrived = true;
+			}
+			if (explosionTime > 0.6) {
+				explosionWave.SetActive(false);
+				isAttacking = false;
+				thanosState = THANOS_STATE::SEEKING;
+			}
+			break;
+		case THANOS_STATE::SEEKING:
+
+
+
+			break;
+		default:
+			break;
+		}
+
 	}
 	else {
 		if (isAttacking) {
@@ -142,6 +200,7 @@ void ThanosAttacks::Seek(API_GameObject* seeker, API_Vector3 target, float speed
 
 	if (direction.x < 0.15 && direction.x > -0.15 && direction.y < 0.15 && direction.y && direction.z < 0.15 && direction.z) {
 		if (tLoop->phase == 2) {
+			Console::Log("telodoyyyy");
 			thanosState = THANOS_STATE::PULSE;
 			isAttacking = false;
 			finalSword = true;
@@ -156,7 +215,7 @@ void ThanosAttacks::Seek(API_GameObject* seeker, API_Vector3 target, float speed
 			}
 			aimPosition = boss.GetTransform().GetGlobalPosition();
 		}
-		else thanosState = THANOS_STATE::MELEEATTACK;
+		else if(thanosState != THANOS_STATE::PULSE) thanosState = THANOS_STATE::MELEEATTACK;
 	}
 }
 
