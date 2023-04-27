@@ -21,7 +21,7 @@ HELLO_ENGINE_API_C EnemyMeleeMovement* CreateEnemyMeleeMovement(ScriptToInspecto
     script->AddDragInt("Probaility to dodge %", &classInstance->probDash);
     script->AddDragFloat("Vel dash", &classInstance->velDash);
     script->AddDragFloat("Time Dash", &classInstance->tDash);
-    script->AddDragBoxGameObject("Target", &classInstance->target);
+    //script->AddDragBoxGameObject("Target", &classInstance->target);
     script->AddDragBoxGameObject("Action zone", &classInstance->actionZone);
     script->AddDragBoxGameObject("Attack zone", &classInstance->attackZoneGO);
     //script->AddDragBoxRigidBody("Action Rb zone", &classInstance->zoneRb);
@@ -39,7 +39,7 @@ HELLO_ENGINE_API_C EnemyMeleeMovement* CreateEnemyMeleeMovement(ScriptToInspecto
     script->AddDragBoxAnimationResource("Dash Animation", &classInstance->dashAnim);
     script->AddDragBoxAnimationResource("Die Animation", &classInstance->dieAnim);
     script->AddDragBoxAnimationResource("Hit Animation", &classInstance->hitAnim);
-    //script->AddCheckBox("Dashiing", &classInstance->dashing);
+    ///script->AddCheckBox("Dashiing", &classInstance->attacking);
     return classInstance;
 }
 
@@ -59,7 +59,7 @@ void EnemyMeleeMovement::Start()
     animState = AnimationState::NONE;
     zoneRb = actionZone.GetRigidBody();
 
-  //  Game::FindGameObjectsWithTag("Player",&target, 1);
+    Game::FindGameObjectsWithTag("Player",&target, 1);
 
     enemy = (Enemy*)gameObject.GetScript("Enemy");
     attackZone = (EnemyMeleeAttackZone*)attackZoneGO.GetScript("EnemyMeleeAttackZone");
@@ -168,7 +168,7 @@ void EnemyMeleeMovement::Update()
         {
         case States::WANDERING:
           ///  Console::Log("NumPoint: " + std::to_string(numPoint));
-
+            attacking = false;
             enemy->currentSpeed = enemy->speed * enemy->stunVel * enemy->slowVel /** dt*/;
             
             //if ((gameObject.GetTransform().GetLocalPosition().Distance(actualPoint) < 5))
@@ -192,6 +192,7 @@ void EnemyMeleeMovement::Update()
             break;
 
         case States::TARGETING:
+            attacking = false;
             enemy->currentSpeed = enemy->speed * enemy->acceleration * enemy->stunVel * enemy->slowVel /** dt*/;
 
             
@@ -207,7 +208,7 @@ void EnemyMeleeMovement::Update()
             break;
 
         case States::ATTACKIG:
-
+            attacking = true;
             if (timer < attackCharge)
             {
                 ChargeAttack();
@@ -265,6 +266,7 @@ void EnemyMeleeMovement::Update()
             break;
 
             case States::DASHING:
+                attacking = false;
                 _dashCooldown += dt;
                 if (_dashCooldown < tDash)
                 {

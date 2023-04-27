@@ -12,9 +12,9 @@ HELLO_ENGINE_API_C EnemyRanger* CreateEnemyRanger(ScriptToInspectorInterface* sc
     script->AddDragFloat("OutsideZone Time", &classInstance->outTime);
     script->AddDragInt("Gun Type(0Semi/1burst)", &classInstance->gunType);
     script->AddDragBoxGameObject("Enemy gun", &classInstance->gunObj);
-    script->AddDragBoxGameObject("Target", &classInstance->target);
+   // script->AddDragBoxGameObject("Target", &classInstance->target);
     script->AddDragBoxGameObject("Action zone", &classInstance->actionZone);
-   // script->AddDragBoxRigidBody("Action Rb zone", &classInstance->zoneRb);
+   // script->AddDragBoxRigidBody("Action Rb zone", &classInstance->zoneRb); 
     script->AddDragBoxGameObject("Point 1", &classInstance->listPoints[0]);
     script->AddDragBoxGameObject("Point 2", &classInstance->listPoints[1]);
     script->AddDragBoxGameObject("Point 3", &classInstance->listPoints[2]);
@@ -33,6 +33,7 @@ HELLO_ENGINE_API_C EnemyRanger* CreateEnemyRanger(ScriptToInspectorInterface* sc
 
 void EnemyRanger::Start()
 {
+    Game::FindGameObjectsWithTag("Player", &target, 1);
     actualPoint = listPoints[0].GetTransform().GetGlobalPosition();
     zoneRb = actionZone.GetRigidBody();
     _avalPoints = 3;
