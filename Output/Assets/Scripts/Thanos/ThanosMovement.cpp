@@ -1,5 +1,6 @@
 #include "ThanosMovement.h"
 #include "ThanosAttacks.h"
+#include "ThanosLoop.h"
 
 HELLO_ENGINE_API_C ThanosMovement* CreateThanosMovement(ScriptToInspectorInterface* script)
 {
@@ -14,15 +15,29 @@ HELLO_ENGINE_API_C ThanosMovement* CreateThanosMovement(ScriptToInspectorInterfa
 void ThanosMovement::Start()
 {
     Tattack = (ThanosAttacks*)boss.GetScript("ThanosAttacks");
+    Tloop = (ThanosLoop*)boss.GetScript("ThanosLoop");
 }
 void ThanosMovement::Update()
 {
-   if (Tattack->isAttacking == false) {
-        angle = Rotate(player.GetTransform().GetGlobalPosition(), angle);
+    distBP = player.GetTransform().GetGlobalPosition().Distance(gameObject.GetTransform().GetGlobalPosition());
+    if(Tloop->phase == 1){
+        if (Tattack->isAttacking == false) {
+            angle = Rotate(player.GetTransform().GetGlobalPosition(), angle);
 
-        Seek(&gameObject, player.GetTransform().GetGlobalPosition(), bossSpeed);
-   }
-    dashCooldown += Time::GetDeltaTime();
+            Seek(&gameObject, player.GetTransform().GetGlobalPosition(), bossSpeed);
+        }
+        dashCooldown += Time::GetDeltaTime();
+    }
+    else {
+        angle = Rotate(player.GetTransform().GetGlobalPosition(), angle);
+        if (distBP > 15.0f) {
+            Seek2(&gameObject, player.GetTransform().GetGlobalPosition(), bossSpeed);
+        }
+        else if (distBP < 10.0f) {
+            Hide(&gameObject, player.GetTransform().GetGlobalPosition(), bossSpeed * 1.5f);
+        }
+    }
+
 }
 
 float ThanosMovement::Rotate(API_Vector3 target, float _angle)
@@ -64,4 +79,21 @@ void ThanosMovement::Seek(API_GameObject* seeker, API_Vector3 target, float spee
             dashCooldown = 0.0f;
     }
     
+}
+
+void ThanosMovement::Seek2(API_GameObject* seeker, API_Vector3 target, float speed)
+{
+    API_Vector3 direction = target - seeker->GetTransform().GetGlobalPosition();
+
+    seeker->GetTransform().Translate(direction * (speed / 100));
+
+    float distTP = player.GetTransform().GetGlobalPosition().Distance(gameObject.GetTransform().GetGlobalPosition());
+
+    
+}
+
+void ThanosMovement::Hide(API_GameObject* follower_position, API_Vector3 target_position, float speed)
+{
+    API_Vector3 direction = target_position - follower_position->GetTransform().GetGlobalPosition();
+    follower_position->GetTransform().Translate(-direction.x * Time::GetDeltaTime() * speed, 0, -direction.z * speed * Time::GetDeltaTime());
 }
