@@ -151,7 +151,7 @@
             {
                 "Active camera": true,
                 "Active culling": false,
-                "Aspect ratio": 2.064631938934326,
+                "Aspect ratio": 1.9408766031265259,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -15369,6 +15369,15 @@
                         "ExplosionWave": 943160538
                     },
                     {
+                        "Bullet1": 2550450836
+                    },
+                    {
+                        "Bullet2": 2399701923
+                    },
+                    {
+                        "Bullet3": 4009701375
+                    },
+                    {
                         "IsAttacking?": false
                     },
                     {
@@ -15391,6 +15400,15 @@
                     },
                     {
                         "ExplosionWave": 943160538
+                    },
+                    {
+                        "Bullet1": 2550450836
+                    },
+                    {
+                        "Bullet2": 2399701923
+                    },
+                    {
+                        "Bullet3": 4009701375
                     }
                 ],
                 "Script Resource": 3789534315,
@@ -23979,7 +23997,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": false,
-                "MaterialUID": 2872881526,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -24468,7 +24486,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 4152820774,
+                "MaterialUID": 0,
                 "Type": 18
             }
         ],
@@ -24544,7 +24562,7 @@
             {
                 "Enabled": true,
                 "IsInstanced": true,
-                "MaterialUID": 4152820774,
+                "MaterialUID": 0,
                 "Type": 18
             },
             {
@@ -24900,7 +24918,7 @@
         "UID": 2243582923
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
@@ -25050,23 +25068,23 @@
         "UID": 1116061254
     },
     {
-        "Active": true,
+        "Active": false,
         "Components": [
             {
                 "Enabled": true,
                 "Position": [
-                    -2.461050510406494,
-                    1.6171875,
-                    -6.2374420166015625
+                    2.4299754386447603e-07,
+                    1.6174378395080566,
+                    -6.237453460693359
                 ],
                 "Rotation": [
-                    -3.796309794301678e-11,
-                    -4.168816403193887e-10,
-                    1.6675264502552523e-09
+                    -4.310455132518786e-35,
+                    2.426570516076106e-20,
+                    2.035554884372015e-13
                 ],
                 "Scale": [
                     1.0,
-                    1.0000001192092896,
+                    1.0,
                     1.0
                 ],
                 "Type": 1
@@ -34853,5 +34871,326 @@
         "PrefabUID": 3306111952,
         "Tag": "Default",
         "UID": 378520145
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -1.0030059814453125,
+                    1.499765396118164,
+                    -3.814697265625e-06
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    0.5,
+                    0.5,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 11,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "AngularFactor": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "ColPosition": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    false,
+                    true,
+                    false
+                ],
+                "IsShapeSelected": [
+                    false,
+                    true,
+                    false
+                ],
+                "IsStatic": false,
+                "IsTrigger": false,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    0.5,
+                    0.0,
+                    0.5,
+                    1.0
+                ],
+                "ShapeSelected": 1,
+                "SphereHorSlices": 16,
+                "SphereRadius": 1.0,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 1.0
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": null,
+                "Script Resource": 453530408,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "ThanosBullet",
+        "ParentUID": 1957540640,
+        "PrefabUID": 0,
+        "Tag": "Primitive",
+        "UID": 2550450836
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -1.0086517333984375,
+                    1.5033950805664063,
+                    -3.814697265625e-06
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    0.5,
+                    0.5,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 11,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "AngularFactor": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "ColPosition": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    false,
+                    true,
+                    false
+                ],
+                "IsShapeSelected": [
+                    false,
+                    true,
+                    false
+                ],
+                "IsStatic": false,
+                "IsTrigger": false,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    0.5,
+                    0.0,
+                    0.5,
+                    1.0
+                ],
+                "ShapeSelected": 1,
+                "SphereHorSlices": 16,
+                "SphereRadius": 1.0,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 1.0
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": null,
+                "Script Resource": 453530408,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "ThanosBullet",
+        "ParentUID": 1957540640,
+        "PrefabUID": 0,
+        "Tag": "Primitive",
+        "UID": 2399701923
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    -0.9954986572265625,
+                    1.5020084381103516,
+                    0.0
+                ],
+                "Rotation": [
+                    -0.0,
+                    0.0,
+                    -0.0
+                ],
+                "Scale": [
+                    0.5,
+                    0.5,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "Index inside model": 0,
+                "ModelUID": 11,
+                "ShowAABB": false,
+                "ShowFaceNormals": false,
+                "ShowOBB": false,
+                "ShowVertexNormals": false,
+                "Type": 2
+            },
+            {
+                "AngularFactor": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "ColPosition": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    false,
+                    true,
+                    false
+                ],
+                "IsShapeSelected": [
+                    false,
+                    true,
+                    false
+                ],
+                "IsStatic": false,
+                "IsTrigger": false,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    0.5,
+                    0.0,
+                    0.5,
+                    1.0
+                ],
+                "ShapeSelected": 1,
+                "SphereHorSlices": 16,
+                "SphereRadius": 1.0,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 1.0
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": null,
+                "Script Resource": 453530408,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "ThanosBullet",
+        "ParentUID": 1957540640,
+        "PrefabUID": 0,
+        "Tag": "Primitive",
+        "UID": 4009701375
     }
 ]
