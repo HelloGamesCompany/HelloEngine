@@ -18,7 +18,7 @@ HELLO_ENGINE_API_C EnemyTank* CreateEnemyTank(ScriptToInspectorInterface* script
 	script->AddDragInt("Gun Type(0Semi/1Burst/2Shotgun)", &classInstance->gunType);
 	script->AddDragBoxGameObject("Enemy gun", &classInstance->gunObj);
 
-	script->AddDragBoxGameObject("Target", &classInstance->target);
+	//script->AddDragBoxGameObject("Target", &classInstance->target);
 	script->AddDragBoxRigidBody("Action Rb zone", &classInstance->zoneRb);
 	script->AddDragFloat("Attack Range", &classInstance->attackRange);
 	script->AddDragFloat("Approximate Range", &classInstance->approximateRange);
@@ -39,6 +39,7 @@ HELLO_ENGINE_API_C EnemyTank* CreateEnemyTank(ScriptToInspectorInterface* script
 
 void EnemyTank::Start()
 {
+	Game::FindGameObjectsWithTag("Player", &target, 1);
 	
 	isReturning = false;
 	currentShield = maxShield;

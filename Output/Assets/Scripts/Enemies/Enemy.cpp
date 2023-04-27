@@ -100,7 +100,7 @@ void Enemy::Update()
         TakingDmgState();
     }
 
-    if (Input::GetKey(KeyCode::KEY_J) == KeyState::KEY_DOWN)
+    /*if (Input::GetKey(KeyCode::KEY_J) == KeyState::KEY_DOWN)
     {
         EnemyRanger* rangeScript = (EnemyRanger*)gameObject.GetScript("EnemyRanger");
         EnemyMeleeMovement* meleeScript = (EnemyMeleeMovement*)gameObject.GetScript("EnemyMeleeMovement");
@@ -110,7 +110,7 @@ void Enemy::Update()
          currentHp = 0;
          Die();
         }
-    }
+    }*/
     if (_hitShader)
     {
         _coldHitColor += Time::GetDeltaTime();

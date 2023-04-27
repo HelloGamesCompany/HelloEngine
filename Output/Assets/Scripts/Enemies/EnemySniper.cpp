@@ -4,7 +4,7 @@ HELLO_ENGINE_API_C EnemySniper* CreateEnemySniper(ScriptToInspectorInterface* sc
 	EnemySniper* classInstance = new EnemySniper();
 	//Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
     script->AddDragFloat("Range", &classInstance->range);
-    script->AddDragBoxGameObject("Target", &classInstance->target);
+   // script->AddDragBoxGameObject("Target", &classInstance->target);
     script->AddDragBoxGameObject("Enemy gun", &classInstance->gunObj);
     script->AddDragBoxAnimationPlayer("Animation Player", &classInstance->animationPlayer);
     script->AddDragBoxAnimationResource("Idle Animation", &classInstance->idleAnim);
@@ -16,6 +16,7 @@ HELLO_ENGINE_API_C EnemySniper* CreateEnemySniper(ScriptToInspectorInterface* sc
 
 void EnemySniper::Start()
 {
+    Game::FindGameObjectsWithTag("Player", &target, 1);
     enemState = States::TARGETING;
     enemyGun = (EnemyGun*)gunObj.GetScript("EnemyAutomatic");
 
