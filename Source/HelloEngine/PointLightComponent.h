@@ -5,7 +5,6 @@ struct PointLight : public Light
 {
 	PointLight() : Light(Component::Type::POINT_LIGHT) {}
 
-	float constant = 1.0f;
 	float linear = 1.0f;
 	float exp = 0.0f;
 

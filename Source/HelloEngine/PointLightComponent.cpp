@@ -35,7 +35,6 @@ void PointLightComponent::UpdateToLightMap()
 
 void PointLightComponent::SerializationUnique(json& j)
 {
-	j["Constant"] = data.constant;
 	j["Linear"] = data.linear;
 	j["Exp"] = data.exp;
 
@@ -44,7 +43,6 @@ void PointLightComponent::SerializationUnique(json& j)
 
 void PointLightComponent::DeSerializationUnique(json& j)
 {
-	data.constant = j["Constant"];
 	data.linear = j["Linear"];
 	data.exp = j["Exp"];
 

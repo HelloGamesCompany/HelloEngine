@@ -86,7 +86,6 @@
 	{
 		Light Base;
 		
-		float Constant;
 		float Linear;
 		float Exp;
 		
@@ -99,7 +98,6 @@
 	{
 		Light Base;
 		
-		float Constant;
 		float Linear;
 		float Exp;
 		float Cutoff;
@@ -205,7 +203,7 @@
 			color = CalculateLight(light.Base, lightDir, normal);
 		}
 		
-		float attenuation = light.Constant + (light.Linear * dist) * (light.Exp * dist) * (dist * dist);
+		float attenuation = 1 + (light.Linear * dist) * (light.Exp * dist) * (dist * dist);
 		
 		return (color / attenuation);
 	}
@@ -216,24 +214,26 @@
 		
 		float theta = dot(lightDir, normalize(CalculateDirection(light.Direction)));
 		
+		vec4 color = vec4(0.0f);
+		
 		if (theta > light.Cutoff)
 		{
 			float dist = length(lightDir);
-			
-			vec4 color = vec4(0.0f);
 		
 			if (light.Distance > dist)
 			{
 				color = CalculateLight(light.Base, lightDir, normal);
 			}
 			
-			float attenuation = light.Constant + (light.Linear * dist) * (light.Exp * dist *dist);
+			float attenuation = 1 + (light.Linear * dist) * (light.Exp * dist *dist);
 			float spotLightIntensity = (1.0 - (1.0 - theta) / (1.0 - light.Cutoff));
 			
 			vec4 result = (color / attenuation);
 			result.w = 1.0f;
 			return result;
 		}
+		
+		return color;
 	}
 	
 	uniform vec4 ColourTest;
@@ -268,4 +268,5 @@
 		}
 	}
 #endif
+
 
