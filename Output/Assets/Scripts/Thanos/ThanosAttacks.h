@@ -83,7 +83,7 @@ public:
 	bool bulletThrown[3] = { false,false,false };
 
 	API_Vector3 playerPositions[3] = { 0,0,0 };
-	float burstTimes[4] = { 0.0f,0.25f,0.5f,1.0f };
+	float burstTimes[4] = { 0.01f,0.25f,0.5f,1.0f };
 	float busrstTime = 0.0f;
 
 	float attackType = 0.0f;

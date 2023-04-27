@@ -101,7 +101,14 @@ void ThanosAttacks::Update()
 
 			isAttacking = true;
 
-			if (attackType > 0) thanosState = THANOS_STATE::BURST;
+			charge += Time::GetDeltaTime();
+
+			if (charge > 2.0f) {
+				charge = 0.0f;
+				if (attackType > 0) thanosState = THANOS_STATE::BURST;
+				 
+			}
+			
 
 			break;
 
@@ -116,9 +123,9 @@ void ThanosAttacks::Update()
 						playerPositions[i] = player.GetTransform().GetGlobalPosition();
 						bullets[i].SetActive(true);
 					}
-					BulletSeek(&bullets[i], playerPositions[i], bulletSpeed / 10, i);
+					BulletSeek(&bullets[i], playerPositions[i], bulletSpeed, i);
 				}
-				else bullets[i].GetTransform().GetGlobalPosition() = boss.GetTransform().GetLocalPosition();
+				else bullets[i].GetTransform().SetPosition(gameObject.GetTransform().GetGlobalPosition());
 			}
 			
 			if (busrstTime > burstTimes[3]) {
