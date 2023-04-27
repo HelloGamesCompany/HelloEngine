@@ -81,12 +81,12 @@ public:
     PlayerStats* targStats = nullptr;
 
     int gunType;
+    bool _canWalk = false;
 private:
     int _avalPoints = 0;
     float _movCooldown;//max time that can be outside the zone
     float _outCooldown;//max time that can be outside the zone
     float _hitOutCooldown;//
-    bool _canWalk = false;
 
 };
 

@@ -27,13 +27,14 @@ HELLO_ENGINE_API_C EnemyRanger* CreateEnemyRanger(ScriptToInspectorInterface* sc
     script->AddDragBoxAnimationResource("Aim Animation", &classInstance->aimAnim);
     script->AddDragBoxAnimationResource("Hited Animation", &classInstance->hitAnim);
     script->AddDragBoxAnimationResource("Die Animation", &classInstance->dieAnim);
-
+    script->AddCheckBox("Dashiing", &classInstance->_canWalk);
     return classInstance;
 }
 
 void EnemyRanger::Start()
 {
     Game::FindGameObjectsWithTag("Player", &target, 1);
+    cooldownPoint = 3.0f;
     actualPoint = listPoints[0].GetTransform().GetGlobalPosition();
     zoneRb = actionZone.GetRigidBody();
     _avalPoints = 3;
@@ -63,7 +64,8 @@ void EnemyRanger::Update()
 {
     float dt = Time::GetDeltaTime();
 
-
+    Console::Log(std::to_string(actualPoint.x) +" " + std::to_string(actualPoint.z) );
+    Console::Log("_move coldowb "+std::to_string(_movCooldown));
     if (enemy != nullptr /*&& targStats != nullptr*/)
     {
             // float dis = gameObject.GetTransform().GetGlobalPosition().Distance(target.GetTransform().GetGlobalPosition());
@@ -148,14 +150,14 @@ void EnemyRanger::Update()
             
 
                 //if ((gameObject.GetTransform().GetLocalPosition().Distance(actualPoint) < 5))
-                if ((gameObject.GetTransform().GetGlobalPosition().Distance(actualPoint) < 5))
+                if ((gameObject.GetTransform().GetGlobalPosition().Distance(actualPoint) < 2))
                 {
                     numPoint++;
                     if (numPoint >= _avalPoints)numPoint = 0;
                     _canWalk = false;
                 }
-                if (!_canWalk)_movCooldown += dt;
-                if (_movCooldown >= cooldownPoint)
+                if (!_canWalk)_movCooldown += Time::GetDeltaTime();
+                if (_movCooldown > cooldownPoint)
                 {
                     _movCooldown = 0;
                     _canWalk = true;
@@ -164,6 +166,7 @@ void EnemyRanger::Update()
                 actualPoint = listPoints[numPoint].GetTransform().GetGlobalPosition();
 
                 if (_canWalk)Wander(enemy->currentSpeed, actualPoint, enemy->enemyRb);
+                if (!_canWalk)Wander(0, actualPoint, enemy->enemyRb);
 
                 if (animState != AnimationState::WALK && !enemy->takingDmg)
                 {
