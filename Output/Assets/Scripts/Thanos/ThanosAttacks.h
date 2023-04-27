@@ -19,6 +19,7 @@ public:
 	void DashAttack();
 
 	void Seek(API_GameObject* seeker, API_Vector3 target, float speed);
+	void BulletSeek(API_GameObject* seeker, API_Vector3 target, float speed, int numBullet);
 
 	ThanosMeleeDmg* tMeleeDmg;
 	bool isAttacking = false;
@@ -53,6 +54,7 @@ public:
 		THROWINGATTACK,
 		LASTSWORD,
 		PULSE,
+		BURST,
 	};
 
 	THANOS_STATE thanosState;
@@ -69,5 +71,21 @@ public:
 
 	bool explosionWave1HasArrived = false;
 	bool explosionWave2HasArrived = false;
+
+
+	API_GameObject bullet1;
+	API_GameObject bullet2;
+	API_GameObject bullet3;
+
+	API_GameObject bullets[3];
+	float bulletSpeed = 1.0f;
+
+	bool bulletThrown[3] = { false,false,false };
+
+	API_Vector3 playerPositions[3] = { 0,0,0 };
+	float burstTimes[4] = { 0.0f,0.25f,0.5f,1.0f };
+	float busrstTime = 0.0f;
+
+	float attackType = 0.0f;
 };
 
