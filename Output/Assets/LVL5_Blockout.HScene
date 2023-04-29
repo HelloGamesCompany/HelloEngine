@@ -17220,9 +17220,9 @@
             },
             {
                 "AngularFactor": [
+                    0.0,
                     1.0,
-                    1.0,
-                    1.0
+                    0.0
                 ],
                 "ColPosition": [
                     0.0,
@@ -17310,10 +17310,10 @@
                         "Upgrade Dash Distance": 8.0
                     },
                     {
-                        "Dash Cooldown": 6.0
+                        "Dash Cooldown": 2.0
                     },
                     {
-                        "Upgrade Dash Cooldown": 3.0
+                        "Upgrade Dash Cooldown": 1.0
                     },
                     {
                         "AnimationPlayer": 603016130
