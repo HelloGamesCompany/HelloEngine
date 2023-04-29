@@ -11,6 +11,8 @@ bool NavMeshImporter::SaveNavMesh(const char* assets_path, const dtNavMesh* cons
 	if (!navMesh)
 		return false;
 
+	ModuleFiles::S_MakeDir("Assets/NavMeshes/");
+
 	json data;
 
 	// store setting

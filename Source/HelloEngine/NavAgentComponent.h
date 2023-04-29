@@ -18,11 +18,13 @@ public:
 	void Serialization(json& j) override;
 	void DeSerialization(json& j) override;
 
+	void SetTarget(float3 targetPos);
+
 public:
 	NavAgent* agentProperties = nullptr;
 	Pathfinder* pathfinder = nullptr;
 
 private:
-	float3 testPath;
+	float3 _target;
 };
 

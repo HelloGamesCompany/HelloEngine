@@ -66,6 +66,67 @@
                 "Enabled": true,
                 "ResourceUID": 2921651695,
                 "Type": 3
+            },
+            {
+                "AngularFactor": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "ColPosition": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColRotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "ColScale": [
+                    40.0,
+                    1.0,
+                    30.0
+                ],
+                "CylVerSlices": 16,
+                "CylinderRadiusHeight": [
+                    1.0,
+                    1.0
+                ],
+                "Enabled": true,
+                "Gravity": [
+                    0.0,
+                    -9.800000190734863,
+                    0.0
+                ],
+                "HasPhysBody": true,
+                "IsKinematic": false,
+                "IsRenderingCol": true,
+                "IsShapeCreated": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsShapeSelected": [
+                    true,
+                    false,
+                    false
+                ],
+                "IsStatic": true,
+                "IsTrigger": false,
+                "Mass": 0.0,
+                "RenderColColor": [
+                    0.5,
+                    0.0,
+                    0.5,
+                    1.0
+                ],
+                "ShapeSelected": 0,
+                "SphereHorSlices": 16,
+                "SphereRadius": 1.0,
+                "SphereVerSlices": 16,
+                "Type": 8,
+                "WireframeSize": 3.0
             }
         ],
         "FirstOnPrefab": true,
@@ -124,7 +185,7 @@
                 "Enabled": true,
                 "Position": [
                     -15.16838264465332,
-                    0.6502645015716553,
+                    1.5642201900482178,
                     11.584816932678223
                 ],
                 "Rotation": [
@@ -134,8 +195,8 @@
                 ],
                 "Scale": [
                     1.0,
-                    0.9999980330467224,
-                    0.9999980330467224
+                    0.999961793422699,
+                    0.999961793422699
                 ],
                 "Type": 1
             },
@@ -172,7 +233,7 @@
                 ],
                 "ColScale": [
                     1.0,
-                    1.0,
+                    2.5,
                     1.0
                 ],
                 "CylVerSlices": 16,
@@ -201,11 +262,11 @@
                 ],
                 "IsStatic": false,
                 "IsTrigger": false,
-                "Mass": 0.0,
+                "Mass": 1.0,
                 "RenderColColor": [
-                    0.5,
-                    0.0,
-                    0.5,
+                    0.9999998807907104,
+                    0.7441860437393188,
+                    1.0,
                     1.0
                 ],
                 "ShapeSelected": 0,
@@ -213,7 +274,7 @@
                 "SphereRadius": 1.0,
                 "SphereVerSlices": 16,
                 "Type": 8,
-                "WireframeSize": 3.0
+                "WireframeSize": 10.199999809265137
             },
             {
                 "Agent": {
@@ -222,6 +283,7 @@
                     "Height": 2.0,
                     "MaxClimb": 0.8999999761581421,
                     "MaxSlope": 45,
+                    "PathType": 1,
                     "Radius": 0.5,
                     "Speed": 1.0,
                     "StoppingDistance": 0.0

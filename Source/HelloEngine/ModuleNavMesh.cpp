@@ -257,6 +257,8 @@ void ModuleNavMesh::S_Load(std::string navMeshPath)
 	if (navMeshPath == "null")
 		navMeshPath = LayerEditor::S_GetCurrentSceneName();
 
+	navMeshPath = ModuleFiles::S_GetFileName(navMeshPath, false);
+
 	navMeshPath = "Assets/NavMeshes/" + navMeshPath + ".nav";
 
 	S_ResetNavMeshes();

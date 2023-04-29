@@ -8,8 +8,7 @@ ComponentAgent::ComponentAgent(GameObject* gameObject) : Component(gameObject)
 	_type = Type::AGENT;
 	agentProperties = new NavAgent();
 	pathfinder = ModuleNavMesh::S_GetPathfinding();
-
-	testPath = { 0,0,0 };
+	_target = { 0,0,0 };
 }
 
 ComponentAgent::~ComponentAgent()
@@ -24,14 +23,14 @@ void ComponentAgent::OnEditor()
 	if (ImGui::CollapsingHeader("NavAgent"))
 	{
 		if (ImGui::Button("CreatePath"))
-			agentProperties->path = ModuleNavMesh::S_GetPathfinding()->CalculatePath(this, testPath);
+			agentProperties->path = pathfinder->CalculatePath(this, _target);
 
 		ImGui::SameLine();
 
 		if (ImGui::Button("GoTo"))
 			ModuleNavMesh::S_GetPathfinding()->MovePath(this);
 
-		ImGui::DragFloat3("XYZ: ", testPath.ptr());
+		ImGui::DragFloat3("Target: ", _target.ptr());
 		ImGui::Separator();
 		ImGui::Separator();
 
@@ -89,19 +88,7 @@ void ComponentAgent::Serialization(json& j)
 	_j["Agent"]["AngularSpeed"] = agentProperties->angularSpeed;
 	_j["Agent"]["Acceleration"] = agentProperties->acceleration;
 	_j["Agent"]["StoppingDistance"] = agentProperties->stoppingDistance;
-
-	// Path info
-	/*
 	_j["Agent"]["PathType"] = agentProperties->pathType;
-	_j["Agent"]["NumPolys"] = agentProperties->m_npolys;
-	_j["Agent"]["NumStraight"] = agentProperties->m_nstraightPath;
-	_j["Agent"]["NumSmooth"] = agentProperties->m_nsmoothPath;
-
-	if (agentProperties->m_npolys > 0)
-	{
-
-	}
-	*/
 
 	j["Components"].push_back(_j);
 }
@@ -116,6 +103,14 @@ void ComponentAgent::DeSerialization(json& j)
 	agentProperties->angularSpeed = j["Agent"]["AngularSpeed"];
 	agentProperties->acceleration = j["Agent"]["Acceleration"];
 	agentProperties->stoppingDistance = j["Agent"]["StoppingDistance"];
+	//agentProperties->pathType = j["Agent"]["PathType"];
 
 	bool enabled = j["Enabled"];
+}
+
+void ComponentAgent::SetTarget(float3 targetPos)
+{
+	_target = targetPos;
+
+	agentProperties->path = pathfinder->CalculatePath(this, _target);
 }
