@@ -32,7 +32,8 @@ public:
 	RenderManager renderManager;
 	ParticleManager particleManager;
 	SDL_GLContext context;
-	bool isVSync = false;
+	static bool isVSync;
+	static bool drawNavMesh;
 
 private:
 	ModuleCamera3D* _cameras = nullptr;

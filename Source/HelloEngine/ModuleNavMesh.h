@@ -134,30 +134,30 @@ public:
 
 	UpdateStatus Update(float dt);
 
-	static bool Save();
+	static bool S_Save();
 
-	static void Load();
+	static void S_Load(std::string navMeshPath = "null");
 
-	static void CheckNavMeshIntersection(LineSegment raycast, int clickedMouseButton);
+	static void S_CheckNavMeshIntersection(LineSegment raycast, int clickedMouseButton);
 
-	static void ResetNavMeshes();
+	static void S_ResetNavMeshes();
 
-	static bool IsWalkable(float x, float z, float3& hitPoint);
+	static bool S_IsWalkable(float x, float z, float3& hitPoint);
 
 	bool CleanUp() override;
 
-	static void BakeNavMesh();
+	static void S_BakeNavMesh();
 
-	static void AddGameObjectToNavMesh(GameObject* objectToAdd);
+	static void S_AddGameObjectToNavMesh(GameObject* objectToAdd);
 
-	static NavMeshBuilder* GetNavMeshBuilder() { return navMeshBuilder; };
-	static InputGeom* GetInputGeom() { return geometry; };
-	static BuildSettings* GetBuildSettings() { return buildSettings; };
-	static Pathfinder* GetPathfinding() { return pathfinder; };
+	static NavMeshBuilder* S_GetNavMeshBuilder() { return _navMeshBuilder; };
+	static InputGeom* S_GetInputGeom() { return _geometry; };
+	static BuildSettings* S_GetBuildSettings() { return _buildSettings; };
+	static Pathfinder* S_GetPathfinding() { return _pathfinder; };
 
 private:
-	static NavMeshBuilder* navMeshBuilder;
-	static Pathfinder* pathfinder;
-	static InputGeom* geometry;
-	static BuildSettings* buildSettings;
+	static NavMeshBuilder* _navMeshBuilder;
+	static Pathfinder* _pathfinder;
+	static InputGeom* _geometry;
+	static BuildSettings* _buildSettings;
 };

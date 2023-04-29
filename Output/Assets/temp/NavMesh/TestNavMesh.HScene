@@ -23,6 +23,7 @@
             }
         ],
         "FirstOnPrefab": true,
+        "IsStatic": false,
         "Name": "Root",
         "ParentUID": 0,
         "PrefabUID": 0,
@@ -68,6 +69,7 @@
             }
         ],
         "FirstOnPrefab": true,
+        "IsStatic": true,
         "Name": "Plane",
         "ParentUID": 3292246201,
         "PrefabUID": 0,
@@ -108,6 +110,7 @@
             }
         ],
         "FirstOnPrefab": true,
+        "IsStatic": true,
         "Name": "Cube",
         "ParentUID": 3292246201,
         "PrefabUID": 0,
@@ -211,9 +214,24 @@
                 "SphereVerSlices": 16,
                 "Type": 8,
                 "WireframeSize": 3.0
+            },
+            {
+                "Agent": {
+                    "Acceleration": 1.0,
+                    "AngularSpeed": 1.0,
+                    "Height": 2.0,
+                    "MaxClimb": 0.8999999761581421,
+                    "MaxSlope": 45,
+                    "Radius": 0.5,
+                    "Speed": 1.0,
+                    "StoppingDistance": 0.0
+                },
+                "Enabled": true,
+                "Type": 19
             }
         ],
         "FirstOnPrefab": true,
+        "IsStatic": false,
         "Name": "Player",
         "ParentUID": 3292246201,
         "PrefabUID": 0,

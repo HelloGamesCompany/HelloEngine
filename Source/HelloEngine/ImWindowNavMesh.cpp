@@ -3,10 +3,11 @@
 #include "ModuleNavMesh.h"
 #include "InputGeom.h"
 #include "NavMeshBuilder.h"
+#include "ModuleRenderer3D.h"
 
 ImWindowNavMesh::ImWindowNavMesh()
 {
-	buildSettings = ModuleNavMesh::GetBuildSettings();
+	buildSettings = ModuleNavMesh::S_GetBuildSettings();
 }
 
 ImWindowNavMesh::~ImWindowNavMesh()
@@ -24,6 +25,8 @@ void ImWindowNavMesh::Update()
         _bakeCounter = 100;
     }
     ImGui::Dummy({ 0,10 });
+
+    ImGui::Checkbox("DebugDraw", &ModuleRenderer3D::drawNavMesh);
 
     ImGui::Text("Agent Properties");
     ImGui::Separator();
@@ -53,8 +56,8 @@ void ImWindowNavMesh::Update()
 
     if (ImGui::CollapsingHeader("NavMeshBuilder"))
     {
-        mesh = ModuleNavMesh::GetInputGeom()->getMesh();
-        builder = ModuleNavMesh::GetNavMeshBuilder();
+        mesh = ModuleNavMesh::S_GetInputGeom()->getMesh();
+        builder = ModuleNavMesh::S_GetNavMeshBuilder();
 
         ImGui::Text("NaveMesh Geometry");
         ImGui::Separator();
@@ -106,7 +109,7 @@ void ImWindowNavMesh::Update()
 
         if (_bakeCounter <= 0)
         {
-            ModuleNavMesh::BakeNavMesh();
+            ModuleNavMesh::S_BakeNavMesh();
 
             _bakeRequest = false;
         }

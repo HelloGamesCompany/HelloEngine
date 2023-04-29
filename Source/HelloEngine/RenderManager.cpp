@@ -277,16 +277,15 @@ void RenderManager::DrawDebug()
 		ModulePhysics::physBodies[i]->RenderCollider();
 	}
 
-	if (ModuleNavMesh::GetNavMeshBuilder() != nullptr)
+	if (ModuleRenderer3D::drawNavMesh && ModuleNavMesh::S_GetNavMeshBuilder())
 	{
-		ModuleNavMesh::GetNavMeshBuilder()->DebugDraw();
+		ModuleNavMesh::S_GetNavMeshBuilder()->DebugDraw();
 
 		if (LayerEditor::selectedGameObject && 
 			LayerEditor::selectedGameObject->GetComponent<ComponentAgent>())
 		{
-			ModuleNavMesh::GetPathfinding()->RenderPath(LayerEditor::selectedGameObject->GetComponent<ComponentAgent>());
-		}
-		
+			ModuleNavMesh::S_GetPathfinding()->RenderPath(LayerEditor::selectedGameObject->GetComponent<ComponentAgent>());
+		}		
 	}
 }
 

@@ -20,10 +20,10 @@
 
 using CSL = Engine::Console;
 
-NavMeshBuilder* ModuleNavMesh::navMeshBuilder = nullptr;
-Pathfinder* ModuleNavMesh::pathfinder = nullptr;
-InputGeom* ModuleNavMesh::geometry = nullptr;
-BuildSettings* ModuleNavMesh::buildSettings = nullptr;
+NavMeshBuilder* ModuleNavMesh::_navMeshBuilder = nullptr;
+Pathfinder* ModuleNavMesh::_pathfinder = nullptr;
+InputGeom* ModuleNavMesh::_geometry = nullptr;
+BuildSettings* ModuleNavMesh::_buildSettings = nullptr;
 
 inline bool InRange(const float* v1, const float* v2, const float r, const float h)
 {
@@ -186,62 +186,62 @@ static int fixupShortcuts(dtPolyRef* path, int npath, dtNavMeshQuery* navQuery)
 
 ModuleNavMesh::ModuleNavMesh(bool start_enabled)
 {
-    geometry = new InputGeom();
-    buildSettings = new BuildSettings;
-    pathfinder = new Pathfinder;
+	_geometry = new InputGeom();
+	_buildSettings = new BuildSettings;
+	_pathfinder = new Pathfinder;
 
-	buildSettings->cellSize = 0.3f;
+	_buildSettings->cellSize = 0.3f;
 	// Cell height in world units
-	buildSettings->cellHeight = 0.2f;
+	_buildSettings->cellHeight = 0.2f;
 	// Agent height in world units
-	buildSettings->agentHeight = 2.0f;
+	_buildSettings->agentHeight = 2.0f;
 	// Agent radius in world units
-	buildSettings->agentRadius = 0.5f;
+	_buildSettings->agentRadius = 0.5f;
 	// Agent max climb in world units
-	buildSettings->agentMaxClimb = 0.9f;
+	_buildSettings->agentMaxClimb = 0.9f;
 	// Agent max slope in degrees
-	buildSettings->agentMaxSlope = 45.0f;
+	_buildSettings->agentMaxSlope = 45.0f;
 	// Region minimum size in voxels.
 	// regionMinSize = sqrt(regionMinArea)
-	buildSettings->regionMinSize = 8.0f;
+	_buildSettings->regionMinSize = 8.0f;
 	// Region merge size in voxels.
 	// regionMergeSize = sqrt(regionMergeArea)
-	buildSettings->regionMergeSize = 20.0f;
+	_buildSettings->regionMergeSize = 20.0f;
 	// Edge max length in world units
-	buildSettings->edgeMaxLen = 12.0f;
+	_buildSettings->edgeMaxLen = 12.0f;
 	// Edge max error in voxels
-	buildSettings->edgeMaxError = 1.3f;
+	_buildSettings->edgeMaxError = 1.3f;
 	// Detail sample distance in voxels
-	buildSettings->detailSampleDist = 6.0f;
+	_buildSettings->detailSampleDist = 6.0f;
 	// Detail sample max error in voxel heights.
-	buildSettings->detailSampleMaxError = 1.0f;
+	_buildSettings->detailSampleMaxError = 1.0f;
 	// Size of the tiles in voxels
-	buildSettings->tileSize = 32;
+	_buildSettings->tileSize = 32;
 
-	buildSettings->vertsPerPoly = 6.0f;
+	_buildSettings->vertsPerPoly = 6.0f;
 }
 
 ModuleNavMesh::~ModuleNavMesh()
 {
-	RELEASE(geometry);
-	RELEASE(navMeshBuilder);
-    RELEASE(buildSettings);
-    RELEASE(pathfinder);
+	RELEASE(_geometry);
+	RELEASE(_navMeshBuilder);
+	RELEASE(_buildSettings);
+	RELEASE(_pathfinder);
 }
 
 bool ModuleNavMesh::Start()
 {
-    return true;
+	return true;
 }
 
 UpdateStatus ModuleNavMesh::Update(float dt)
 {
-    return UpdateStatus::UPDATE_CONTINUE;
+	return UpdateStatus::UPDATE_CONTINUE;
 }
 
-bool ModuleNavMesh::Save()
+bool ModuleNavMesh::S_Save()
 {
-	if (!navMeshBuilder)
+	if (!_navMeshBuilder)
 		return false;
 
 	// Get current scene name and convert to the navmesh path
@@ -249,79 +249,77 @@ bool ModuleNavMesh::Save()
 	navMeshPath = LayerEditor::S_GetCurrentSceneName();
 	navMeshPath = "Assets/NavMeshes/" + navMeshPath + ".nav";
 
-	return NavMeshImporter::SaveNavMesh(navMeshPath.c_str(), navMeshBuilder->GetNavMesh(), buildSettings);
+	return NavMeshImporter::SaveNavMesh(navMeshPath.c_str(), _navMeshBuilder->GetNavMesh(), _buildSettings, _geometry);
 }
 
-void ModuleNavMesh::Load()
+void ModuleNavMesh::S_Load(std::string navMeshPath)
 {
-	std::string navMeshPath;
-	navMeshPath = LayerEditor::S_GetCurrentSceneName();
+	if (navMeshPath == "null")
+		navMeshPath = LayerEditor::S_GetCurrentSceneName();
+
 	navMeshPath = "Assets/NavMeshes/" + navMeshPath + ".nav";
 
-	dtNavMesh* navMesh = nullptr;
+	S_ResetNavMeshes();
 
-	if (!NavMeshImporter::LoadNavMesh(navMeshPath.c_str(), navMesh, buildSettings))
+	dtNavMesh* navMesh = dtAllocNavMesh();
+
+	if (!NavMeshImporter::LoadNavMesh(navMeshPath.c_str(), navMesh, _buildSettings, _geometry))
 	{
 		Console::S_Log("PROBLEM LOADING THE NAVMESH: There isn't a NavMesh baked for this scene!", LogType::WARNING);
 		return;
 	}
 
-	ResetNavMeshes();
+	_geometry->SetChunkyMesh();
 
-	rcVcopy(geometry->m_meshBMin, buildSettings->navMeshBMin);
-	rcVcopy(geometry->m_meshBMax, buildSettings->navMeshBMax);
+	if (!_navMeshBuilder)
+		_navMeshBuilder = new NavMeshBuilder();
 
-	if (!navMeshBuilder)
-		navMeshBuilder = new NavMeshBuilder();
+	_navMeshBuilder->HandleMeshChanged(_geometry, _buildSettings);
+	_navMeshBuilder->HandleSettings();
+	_navMeshBuilder->HandleBuild();
 
-	navMeshBuilder->HandleMeshChanged(geometry, buildSettings);
-
-	navMeshBuilder->SetNavMesh(navMesh);
-
-	navMeshBuilder->BuildAllTiles();
-
-	pathfinder->Init(navMeshBuilder);
+	_pathfinder->Init(_navMeshBuilder);
 }
 
-void ModuleNavMesh::CheckNavMeshIntersection(LineSegment raycast, int clickedMouseButton)
+void ModuleNavMesh::S_CheckNavMeshIntersection(LineSegment raycast, int clickedMouseButton)
 {
-	if (navMeshBuilder == nullptr)
+	if (_navMeshBuilder == nullptr)
 		return;
 
-	if (geometry->getChunkyMesh() == nullptr && navMeshBuilder->GetNavMesh() == nullptr)
+	if (_geometry->getChunkyMesh() == nullptr && _navMeshBuilder->GetNavMesh() == nullptr)
 	{
 		//return;
-		BakeNavMesh();
+		S_BakeNavMesh();
 		CSL::S_Log("No chunky mesh set, one has been baked to avoid crashes", LogType::WARNING);
 	}
 
 	float hitTime;
 
-	pathfinder->rayCast[0] = raycast.a;
-	pathfinder->rayCast[1] = raycast.b;
+	_pathfinder->rayCast[0] = raycast.a;
+	_pathfinder->rayCast[1] = raycast.b;
 
-	if (geometry->raycastMesh(raycast.a.ptr(), raycast.b.ptr(), hitTime))
-		pathfinder->hitPosition = raycast.a + (raycast.b - raycast.a) * hitTime;
+	if (_geometry->raycastMesh(raycast.a.ptr(), raycast.b.ptr(), hitTime))
+		_pathfinder->hitPosition = raycast.a + (raycast.b - raycast.a) * hitTime;
 }
 
-void ModuleNavMesh::ResetNavMeshes()
+void ModuleNavMesh::S_ResetNavMeshes()
 {
-	RELEASE(geometry);
+	RELEASE(_geometry);
 
-	RELEASE(navMeshBuilder);
+	RELEASE(_navMeshBuilder);
 
-	geometry = new InputGeom();
+	_geometry = new InputGeom();
 
-	navMeshBuilder = new NavMeshBuilder();
+	_navMeshBuilder = new NavMeshBuilder();
 }
 
-bool ModuleNavMesh::IsWalkable(float x, float z, float3& hitPoint)
+bool ModuleNavMesh::S_IsWalkable(float x, float z, float3& hitPoint)
 {
 	float3 upperPoint = float3(x, 20.0f, z);
 	float3 lowerPoint = float3(x, -20, z);
 	float hitTime;
 
-	bool walkable = geometry->raycastMesh(upperPoint.ptr(), lowerPoint.ptr(), hitTime);
+	bool walkable = _geometry->raycastMesh(upperPoint.ptr(), lowerPoint.ptr(), hitTime);
 
 	hitPoint = upperPoint + (lowerPoint - upperPoint) * hitTime;
 
@@ -330,12 +328,12 @@ bool ModuleNavMesh::IsWalkable(float x, float z, float3& hitPoint)
 
 bool ModuleNavMesh::CleanUp()
 {
-    return true;
+	return true;
 }
 
-void ModuleNavMesh::BakeNavMesh()
+void ModuleNavMesh::S_BakeNavMesh()
 {
-	ResetNavMeshes();
+	S_ResetNavMeshes();
 
 	std::vector<GameObject*>* gameObjects = ModuleLayers::rootGameObject->GetAllChildren();
 
@@ -343,28 +341,28 @@ void ModuleNavMesh::BakeNavMesh()
 	for (auto gameObject : *gameObjects)
 	{
 		if (gameObject->IsStatic())
-			AddGameObjectToNavMesh(gameObject);
+			S_AddGameObjectToNavMesh(gameObject);
 	}
 
 	// Build navMesh
-	if (geometry->getMesh()->vertices.size() > 0 && geometry->getMesh()->indices.size() > 0)
+	if (_geometry->getMesh()->vertices.size() > 0 && _geometry->getMesh()->indices.size() > 0)
 	{
-		geometry->SetChunkyMesh();
+		_geometry->SetChunkyMesh();
 
-		if (navMeshBuilder == nullptr)
-			navMeshBuilder = new NavMeshBuilder();
+		if (_navMeshBuilder == nullptr)
+			_navMeshBuilder = new NavMeshBuilder();
 
-		navMeshBuilder->HandleMeshChanged(geometry, buildSettings);
-		navMeshBuilder->HandleSettings();
-		navMeshBuilder->HandleBuild();
+		_navMeshBuilder->HandleMeshChanged(_geometry, _buildSettings);
+		_navMeshBuilder->HandleSettings();
+		_navMeshBuilder->HandleBuild();
 
-		pathfinder->Init(navMeshBuilder);
+		_pathfinder->Init(_navMeshBuilder);
 	}
-	
-	Save();
+
+	S_Save();
 }
 
-void ModuleNavMesh::AddGameObjectToNavMesh(GameObject* objectToAdd)
+void ModuleNavMesh::S_AddGameObjectToNavMesh(GameObject* objectToAdd)
 {
 	MeshRenderComponent* meshRenderer = objectToAdd->GetComponent<MeshRenderComponent>();
 
@@ -378,7 +376,7 @@ void ModuleNavMesh::AddGameObjectToNavMesh(GameObject* objectToAdd)
 
 	float4x4 globalTransform = objectToAdd->transform->GetGlobalMatrix();
 
-	geometry->MergeToMesh(mesh, globalTransform);
+	_geometry->MergeToMesh(mesh, globalTransform);
 }
 
 Pathfinder::Pathfinder() : m_navQuery(nullptr),
@@ -388,19 +386,19 @@ m_navMesh(nullptr), m_navMeshBuilder(nullptr)
 
 Pathfinder::~Pathfinder()
 {
-    m_navMesh = nullptr;
-    m_navQuery = nullptr;
-    m_navMeshBuilder = nullptr;
+	m_navMesh = nullptr;
+	m_navQuery = nullptr;
+	m_navMeshBuilder = nullptr;
 }
 
 void Pathfinder::Init(NavMeshBuilder* builder)
 {
-    if (!builder)
-        return;
+	if (!builder)
+		return;
 
-    m_navMeshBuilder = builder;
-    m_navMesh = builder->GetNavMesh();
-    m_navQuery = builder->GetNavMeshQuery();
+	m_navMeshBuilder = builder;
+	m_navMesh = builder->GetNavMesh();
+	m_navQuery = builder->GetNavMeshQuery();
 }
 
 std::vector<float3> Pathfinder::CalculatePath(ComponentAgent* agent, float3 destination)
@@ -568,7 +566,7 @@ std::vector<float3> Pathfinder::CalculatePath(ComponentAgent* agent, float3 dest
 			}
 
 			if (dtStatusFailed(status) || (status & DT_STATUS_DETAIL_MASK) || agentProp->m_nstraightPath == 0)
-			{	
+			{
 				CSL::S_Log("Could not create smooth path", LogType::ERR);
 				calculatedPath.clear();
 				return calculatedPath;
@@ -602,8 +600,8 @@ std::vector<float3> Pathfinder::CalculatePath(ComponentAgent* agent, float3 dest
 					agentProp->m_straightPathPolys, &agentProp->m_nstraightPath, MAX_POLYS);
 			}
 
-			if (dtStatusFailed(status) || (status & DT_STATUS_DETAIL_MASK) || agentProp->m_nstraightPath == 0) 
-			{	
+			if (dtStatusFailed(status) || (status & DT_STATUS_DETAIL_MASK) || agentProp->m_nstraightPath == 0)
+			{
 				CSL::S_Log("Could not create straight path", LogType::ERR);
 				calculatedPath.clear();
 				return calculatedPath;
@@ -619,7 +617,7 @@ std::vector<float3> Pathfinder::CalculatePath(ComponentAgent* agent, float3 dest
 	calculatedPath.resize(agentProp->m_nstraightPath);
 
 	memcpy(calculatedPath.data(), agentProp->m_straightPath, sizeof(float) * agentProp->m_nstraightPath * 3);
-	
+
 	if (calculatedPath.size() > 0)
 		calculatedPath.erase(calculatedPath.begin());
 
@@ -736,15 +734,15 @@ bool Pathfinder::MovePath(ComponentAgent* agent)
 bool Pathfinder::MoveTo(ComponentAgent* agent, float3 destination)
 {
 	PhysicsComponent* physComponent = agent->GetGameObject()->GetComponent<PhysicsComponent>();
-	
+
 	float3 origin = agent->GetGameObject()->GetComponent<TransformComponent>()->GetGlobalPosition();
-	
+
 	float3 direction = destination - origin;
-	
+
 	float2 destination2D = { destination.x, destination.z };
-	
+
 	float totalheight = math::Abs(direction.y);
-	
+
 	direction.Normalize();
 
 	physComponent->_physBody->body->activate(true);
@@ -772,7 +770,7 @@ bool Pathfinder::LookAt(btRigidBody* rigidBody, float2 direction2D, float2 origi
 
 		if (angle != inf)
 		{
-			if (direction2D.x < 0) 
+			if (direction2D.x < 0)
 				angle *= -1;
 
 			Quat temp = Quat::RotateY(angle);
@@ -795,14 +793,14 @@ bool Pathfinder::SmoothLookAt(btRigidBody* rigidBody, float2 direction2D, float2
 
 		if (angle != inf)
 		{
-			if (direction2D.x < 0) 
+			if (direction2D.x < 0)
 				angle *= -1;
-			
+
 			btTransform quat = rigidBody->getWorldTransform();
 
 			Quat temp = Quat::RotateY(angle);
 
-			quat.setRotation(btQuaternion(temp.x,temp.y,temp.z,temp.w));
+			quat.setRotation(btQuaternion(temp.x, temp.y, temp.z, temp.w));
 
 			btQuaternion btTemp = rigidBody->getWorldTransform().getRotation();
 
@@ -821,7 +819,7 @@ bool Pathfinder::SmoothLookAt(btRigidBody* rigidBody, float2 direction2D, float2
 
 NavAgent::NavAgent()
 {
-	const BuildSettings* settings = Application::Instance()->navMesh->GetBuildSettings();
+	const BuildSettings* settings = Application::Instance()->navMesh->S_GetBuildSettings();
 	radius = settings->agentRadius;
 	height = settings->agentHeight;
 	maxClimb = settings->agentMaxClimb;

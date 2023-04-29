@@ -152,5 +152,4 @@ private:
     friend class CommandSetParentGameObject;
     friend class ImWindowHierarchy;
     friend class ImWindowInspector;
-
 };

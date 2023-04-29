@@ -81,7 +81,8 @@ public:
 	InputGeom();
 	~InputGeom();
 
-	void SetMesh();
+	void SetUpMesh();
+	void SetMesh(SimpleMesh* mesh);
 	bool SetChunkyMesh();
 	void MergeToMesh(ResourceMesh* new_mesh, float4x4 new_mesh_transform);
 
@@ -124,6 +125,8 @@ private:
 	// Explicitly disabled copy constructor and copy assignment operator.
 	InputGeom(const InputGeom&);
 	InputGeom& operator=(const InputGeom&);
+
+	friend class NavMeshImporter;
 };
 
 #endif // INPUTGEOM_H

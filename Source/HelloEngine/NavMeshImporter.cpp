@@ -6,7 +6,7 @@
 
 using json = nlohmann::json;
 
-bool NavMeshImporter::SaveNavMesh(const char* assets_path, const dtNavMesh* const navMesh, const BuildSettings* const buildSettings)
+bool NavMeshImporter::SaveNavMesh(const char* assets_path, const dtNavMesh* const navMesh, const BuildSettings* const buildSettings, const InputGeom* const geom)
 {
 	if (!navMesh)
 		return false;
@@ -39,7 +39,7 @@ bool NavMeshImporter::SaveNavMesh(const char* assets_path, const dtNavMesh* cons
 	NavMeshSetHeader header;
 	header.numTiles = 0;
 
-	header.params =  *navMesh->getParams();
+	header.params = *navMesh->getParams();
 
 	for (int i = 0; i < navMesh->getMaxTiles(); ++i)
 	{
@@ -87,6 +87,34 @@ bool NavMeshImporter::SaveNavMesh(const char* assets_path, const dtNavMesh* cons
 		data["tiles"].push_back(new_object);
 	}
 
+	// Store InputGeom
+
+	data["geom"]["offMeshConCount"] = geom->m_offMeshConCount;
+
+	data["geom"]["volumeCount"] = geom->m_volumeCount;
+
+	const SimpleMesh* mesh = geom->getMesh();
+
+	data["geom"]["verticesSize"] = mesh->vertices.size();
+
+	for (auto& vertice : mesh->vertices)
+	{
+		data["geom"]["vertices"].push_back(
+			{
+				{"X",vertice.x},
+				{"Y",vertice.y},
+				{"Z",vertice.z}
+			});
+	}
+
+	data["geom"]["indicesSize"] = mesh->indices.size();
+
+	for (auto& indice : mesh->indices)
+	{
+		data["geom"]["indices"].push_back(indice);
+	}
+
+	// Save
 	std::string buffer = data.dump(2);
 
 	ModuleFiles::S_Save(assets_path, &buffer[0], buffer.size(), false);
@@ -94,7 +122,7 @@ bool NavMeshImporter::SaveNavMesh(const char* assets_path, const dtNavMesh* cons
 	return true;
 }
 
-bool NavMeshImporter::LoadNavMesh(const char* assets_path, dtNavMesh* navMesh, BuildSettings* buildSettings)
+bool NavMeshImporter::LoadNavMesh(const char* assets_path, dtNavMesh* const navMesh, BuildSettings* const buildSettings, InputGeom* const geom)
 {
 	char* buffer = nullptr;
 
@@ -129,9 +157,6 @@ bool NavMeshImporter::LoadNavMesh(const char* assets_path, dtNavMesh* navMesh, B
 		buildSettings->tileSize = data["buildSetting"]["tileSize"];
 	}
 
-	// Load build header
-	navMesh = dtAllocNavMesh();
-
 	if (!navMesh)
 		return false;
 
@@ -158,6 +183,39 @@ bool NavMeshImporter::LoadNavMesh(const char* assets_path, dtNavMesh* navMesh, B
 		std::vector<unsigned char>bytes = data["tiles"][i]["data"];
 
 		navMesh->addTile(bytes.data(), tsize, DT_TILE_FREE_DATA, tr, 0);
+	}
+
+	// Load geom
+	if (data.contains("geom"))
+	{
+		if (data["geom"].contains("offMeshConCount"))
+			geom->m_offMeshConCount = data["geom"]["offMeshConCount"];
+
+		if (data["geom"].contains("volumeCount"))
+			geom->m_volumeCount = data["geom"]["volumeCount"];
+
+		int size = data["geom"]["verticesSize"];
+
+		SimpleMesh* mesh = new SimpleMesh();
+
+		for (int i = 0; i < size; i++)
+		{
+			mesh->vertices.push_back(
+				{
+					data["geom"]["vertices"][i]["X"],
+					data["geom"]["vertices"][i]["Y"],
+					data["geom"]["vertices"][i]["Z"]
+				});
+		}
+
+		size = data["geom"]["indicesSize"];
+
+		for (int i = 0; i < size; i++)
+		{
+			mesh->indices.push_back(data["geom"]["indices"][i]);
+		}
+
+		geom->SetMesh(mesh);
 	}
 
 	return true;

@@ -583,14 +583,14 @@ void NavMeshBuilder::HandleSettings()
 
 void NavMeshBuilder::DebugDraw()
 {
-	if (m_geom != nullptr)
+	if (m_geom)
 	{
 		const float* bmin = m_geom->getMeshBoundsMin();
 		const float* bmax = m_geom->getMeshBoundsMax();
 		DrawBoundaries(bmin[0], bmin[1], bmin[2], bmax[0], bmax[1], bmax[2]);
 	}
 
-	if (m_navMesh != nullptr)
+	if (m_navMesh)
 	{
 		DebugDrawGL dd;
 
@@ -619,7 +619,6 @@ void NavMeshBuilder::DrawBoundaries(float minx, float miny, float minz, float ma
 	//app->renderer3D->AddDebugLines(float3(maxx, miny, maxz), float3(maxx, maxy, maxz), float3(1.0f, 1.0f, 1.0f));
 	//app->renderer3D->AddDebugLines(float3(minx, miny, maxz), float3(minx, maxy, maxz), float3(1.0f, 1.0f, 1.0f));
 }
-
 
 void NavMeshBuilder::SetNavMesh(dtNavMesh* newNavMesh)
 {

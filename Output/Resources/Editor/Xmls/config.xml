@@ -8,6 +8,7 @@
 	<renderer>
 		<vsync value="false" />
 		<framerate value="120" />
+		<drawNavMesh value="false" />
 	</renderer>
 	<scene>
 		<currentScene value="Assets/temp/NavMesh/TestNavMesh.HScene" />

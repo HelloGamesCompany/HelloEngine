@@ -7,7 +7,7 @@ ComponentAgent::ComponentAgent(GameObject* gameObject) : Component(gameObject)
 {
 	_type = Type::AGENT;
 	agentProperties = new NavAgent();
-	pathfinding = ModuleNavMesh::GetPathfinding();
+	pathfinder = ModuleNavMesh::S_GetPathfinding();
 
 	testPath = { 0,0,0 };
 }
@@ -21,25 +21,19 @@ ComponentAgent::~ComponentAgent()
 void ComponentAgent::OnEditor()
 {
 	ImGui::PushID(this);
-
 	if (ImGui::CollapsingHeader("NavAgent"))
 	{
 		if (ImGui::Button("CreatePath"))
-		{
-			agentProperties->path = ModuleNavMesh::GetPathfinding()->CalculatePath(this, testPath);
-		}
+			agentProperties->path = ModuleNavMesh::S_GetPathfinding()->CalculatePath(this, testPath);
+
 		ImGui::SameLine();
 
 		if (ImGui::Button("GoTo"))
-		{
-			ModuleNavMesh::GetPathfinding()->MovePath(this);
-		}
+			ModuleNavMesh::S_GetPathfinding()->MovePath(this);
 
 		ImGui::DragFloat3("XYZ: ", testPath.ptr());
 		ImGui::Separator();
 		ImGui::Separator();
-
-
 
 		ImGui::Spacing();
 		ImGui::Text("Agent Properties");
@@ -66,12 +60,15 @@ void ComponentAgent::OnEditor()
 
 		ImGui::Text("Path Type");
 		ImGui::Separator();
+
 		ImGui::Spacing();
+
 		if (ImGui::RadioButton("Smooth Path", agentProperties->pathType == PathType::SMOOTH))
 			agentProperties->pathType = PathType::SMOOTH;
 		ImGui::SameLine();
 		if (ImGui::RadioButton("Straight Path", agentProperties->pathType == PathType::STRAIGHT))
 			agentProperties->pathType = PathType::STRAIGHT;
+
 		ImGui::Dummy({ 0,10 });
 	}
 	ImGui::PopID();
@@ -79,7 +76,6 @@ void ComponentAgent::OnEditor()
 
 void ComponentAgent::Serialization(json& j)
 {
-	//-----------------------------------------------------------------------
 	json _j;
 
 	_j["Type"] = _type;
@@ -114,7 +110,7 @@ void ComponentAgent::DeSerialization(json& j)
 {
 	agentProperties->radius = j["Agent"]["Radius"];
 	agentProperties->height = j["Agent"]["Height"];
-	agentProperties->maxClimb = j["Agent"]["Base Offset"];
+	agentProperties->maxClimb = j["Agent"]["MaxClimb"];
 	agentProperties->maxSlope = j["Agent"]["MaxSlope"];
 	agentProperties->speed = j["Agent"]["Speed"];
 	agentProperties->angularSpeed = j["Agent"]["AngularSpeed"];
