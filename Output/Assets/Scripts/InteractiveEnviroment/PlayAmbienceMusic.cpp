@@ -10,7 +10,7 @@ HELLO_ENGINE_API_C PlayAmbienceMusic* CreatePlayAmbienceMusic(ScriptToInspectorI
 
 void PlayAmbienceMusic::Start()
 {
-    if (sound != "")
+    if (sound != std::string(""))
     {
         Audio::Event(sound.c_str());
         soundDuration = maxSoundDuration;
@@ -20,7 +20,7 @@ void PlayAmbienceMusic::Start()
 void PlayAmbienceMusic::Update()
 {
     //4.95
-    if (sound != "")
+    if (sound != std::string(""))
     {
         soundDuration -= Time::GetRealTimeDeltaTime();
         if (soundDuration <= 0.0f)

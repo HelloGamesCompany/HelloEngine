@@ -109,6 +109,11 @@
                 "Type": 3
             },
             {
+                "AngularFactor": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
                 "ColPosition": [
                     0.0,
                     0.0,
@@ -130,11 +135,6 @@
                     1.0
                 ],
                 "Enabled": true,
-                "GlobalGravity": [
-                    0.0,
-                    -10.0,
-                    0.0
-                ],
                 "Gravity": [
                     0.0,
                     -9.800000190734863,
@@ -230,6 +230,11 @@
                 "Type": 1
             },
             {
+                "AngularFactor": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
                 "ColPosition": [
                     -25.0,
                     -7.0,
@@ -251,11 +256,6 @@
                     1.0
                 ],
                 "Enabled": true,
-                "GlobalGravity": [
-                    0.0,
-                    -10.0,
-                    0.0
-                ],
                 "Gravity": [
                     0.0,
                     -9.800000190734863,
@@ -294,109 +294,10 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Enemy Prefab": 1127042913
+                        "Enemy Prefab": 4041009675
                     },
                     {
-                        "Spawn Destroyed": 3510816987
-                    },
-                    {
-                        "Spawn Entire": 3558823017
-                    },
-                    {
-                        " Parent of the Spawn": 1752313381
-                    },
-                    {
-                        " Parent of the Pool": 84103879
-                    },
-                    {
-                        "Enemy Pool Size": 3
-                    },
-                    {
-                        "Action zone": 2916127301
-                    },
-                    {
-                        "Action Rb zone": 2916127301
-                    },
-                    {
-                        "Point 1": 594741000
-                    },
-                    {
-                        "Point 2": 2978427560
-                    },
-                    {
-                        "Point 3": 594741000
-                    },
-                    {
-                        "Enemy Prefab": 1127042913
-                    },
-                    {
-                        "Spawn Destroyed": 3510816987
-                    },
-                    {
-                        "Spawn Entire": 3558823017
-                    },
-                    {
-                        " Parent of the Spawn": 1752313381
-                    },
-                    {
-                        " Parent of the Pool": 84103879
-                    },
-                    {
-                        "Enemy Pool Size": 3
-                    },
-                    {
-                        "Action zone": 2916127301
-                    },
-                    {
-                        "Action Rb zone": 2916127301
-                    },
-                    {
-                        "Point 1": 594741000
-                    },
-                    {
-                        "Point 2": 2978427560
-                    },
-                    {
-                        "Point 3": 594741000
-                    },
-                    {
-                        "Enemy Prefab": 1127042913
-                    },
-                    {
-                        "Spawn Destroyed": 3510816987
-                    },
-                    {
-                        "Spawn Entire": 3558823017
-                    },
-                    {
-                        " Parent of the Spawn": 1752313381
-                    },
-                    {
-                        " Parent of the Pool": 84103879
-                    },
-                    {
-                        "Enemy Pool Size": 3
-                    },
-                    {
-                        "Action zone": 2916127301
-                    },
-                    {
-                        "Action Rb zone": 2916127301
-                    },
-                    {
-                        "Point 1": 594741000
-                    },
-                    {
-                        "Point 2": 2978427560
-                    },
-                    {
-                        "Point 3": 594741000
-                    },
-                    {
-                        "Enemy Prefab": 1127042913
-                    },
-                    {
-                        "Spawn Destroyed": 3510816987
+                        "Spawn Destroyed": 980981192
                     },
                     {
                         "Spawn Entire": 3558823017
@@ -426,7 +327,7 @@
                         "Point 3": 594741000
                     }
                 ],
-                "Script Resource": 1103577651,
+                "Script Resource": 4145735438,
                 "Type": 5
             }
         ],
@@ -500,6 +401,11 @@
                 "Type": 1
             },
             {
+                "AngularFactor": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
                 "ColPosition": [
                     0.0,
                     0.0,
@@ -521,11 +427,6 @@
                     1.0
                 ],
                 "Enabled": true,
-                "GlobalGravity": [
-                    0.0,
-                    -10.0,
-                    0.0
-                ],
                 "Gravity": [
                     0.0,
                     -9.800000190734863,
@@ -691,6 +592,11 @@
                 "Type": 2
             },
             {
+                "AngularFactor": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
                 "ColPosition": [
                     0.0,
                     0.0,
@@ -712,11 +618,6 @@
                     1.0
                 ],
                 "Enabled": true,
-                "GlobalGravity": [
-                    0.0,
-                    -10.0,
-                    0.0
-                ],
                 "Gravity": [
                     0.0,
                     -9.800000190734863,
@@ -782,6 +683,11 @@
                 "Type": 1
             },
             {
+                "AngularFactor": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
                 "ColPosition": [
                     -25.0,
                     -7.0,
@@ -803,11 +709,6 @@
                     1.0
                 ],
                 "Enabled": true,
-                "GlobalGravity": [
-                    0.0,
-                    -10.0,
-                    0.0
-                ],
                 "Gravity": [
                     0.0,
                     -9.800000190734863,
@@ -846,109 +747,10 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Enemy Prefab": 1127042913
+                        "Enemy Prefab": 4041009675
                     },
                     {
-                        "Spawn Destroyed": 3510816987
-                    },
-                    {
-                        "Spawn Entire": 3558823017
-                    },
-                    {
-                        " Parent of the Spawn": 1373594139
-                    },
-                    {
-                        " Parent of the Pool": 84103879
-                    },
-                    {
-                        "Enemy Pool Size": 3
-                    },
-                    {
-                        "Action zone": 2916127301
-                    },
-                    {
-                        "Action Rb zone": 2916127301
-                    },
-                    {
-                        "Point 1": 594741000
-                    },
-                    {
-                        "Point 2": 2978427560
-                    },
-                    {
-                        "Point 3": 594741000
-                    },
-                    {
-                        "Enemy Prefab": 1127042913
-                    },
-                    {
-                        "Spawn Destroyed": 3510816987
-                    },
-                    {
-                        "Spawn Entire": 3558823017
-                    },
-                    {
-                        " Parent of the Spawn": 1373594139
-                    },
-                    {
-                        " Parent of the Pool": 84103879
-                    },
-                    {
-                        "Enemy Pool Size": 3
-                    },
-                    {
-                        "Action zone": 2916127301
-                    },
-                    {
-                        "Action Rb zone": 2916127301
-                    },
-                    {
-                        "Point 1": 594741000
-                    },
-                    {
-                        "Point 2": 2978427560
-                    },
-                    {
-                        "Point 3": 594741000
-                    },
-                    {
-                        "Enemy Prefab": 1127042913
-                    },
-                    {
-                        "Spawn Destroyed": 3510816987
-                    },
-                    {
-                        "Spawn Entire": 3558823017
-                    },
-                    {
-                        " Parent of the Spawn": 1373594139
-                    },
-                    {
-                        " Parent of the Pool": 84103879
-                    },
-                    {
-                        "Enemy Pool Size": 3
-                    },
-                    {
-                        "Action zone": 2916127301
-                    },
-                    {
-                        "Action Rb zone": 2916127301
-                    },
-                    {
-                        "Point 1": 594741000
-                    },
-                    {
-                        "Point 2": 2978427560
-                    },
-                    {
-                        "Point 3": 594741000
-                    },
-                    {
-                        "Enemy Prefab": 1127042913
-                    },
-                    {
-                        "Spawn Destroyed": 3510816987
+                        "Spawn Destroyed": 980981192
                     },
                     {
                         "Spawn Entire": 3558823017
@@ -978,7 +780,7 @@
                         "Point 3": 594741000
                     }
                 ],
-                "Script Resource": 1103577651,
+                "Script Resource": 4145735438,
                 "Type": 5
             }
         ],

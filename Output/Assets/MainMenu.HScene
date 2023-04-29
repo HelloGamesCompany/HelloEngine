@@ -54,7 +54,7 @@
             {
                 "Active camera": true,
                 "Active culling": true,
-                "Aspect ratio": 1.986928105354309,
+                "Aspect ratio": 2.064631938934326,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -169,7 +169,7 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 2228956348,
+                "MaterialResource": 3774383686,
                 "MeshEnabled": true,
                 "OpacityDirection": 0,
                 "Type": 15
@@ -189,7 +189,7 @@
                 "Enabled": true,
                 "Position": [
                     0.0,
-                    0.4399999976158142,
+                    0.2199999988079071,
                     -0.003000000026077032
                 ],
                 "Rotation": [
@@ -206,14 +206,16 @@
             },
             {
                 "Enabled": true,
-                "MaterialResource": 2360640650,
+                "MaterialResource": 502344175,
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 0,
-                "hoverImage": 2973295929,
-                "idleImage": 2360640650,
-                "pressImage": 2805871651
+                "hoverBlockImage": 0,
+                "hoverImage": 1957283857,
+                "idleBlockImage": 0,
+                "idleImage": 502344175,
+                "pressBlockImage": 0,
+                "pressImage": 740199417
             },
             {
                 "Enabled": true,
@@ -232,9 +234,24 @@
                     },
                     {
                         "Collectibles": 1057867941
+                    },
+                    {
+                        "Continue": 351199318
+                    },
+                    {
+                        "NewGame": 1741124431
+                    },
+                    {
+                        "Exit": 1551021094
+                    },
+                    {
+                        "Settings": 3765630460
+                    },
+                    {
+                        "Collectibles": 1057867941
                     }
                 ],
-                "Script Resource": 186220908,
+                "Script Resource": 2459103775,
                 "Type": 5
             },
             {
@@ -251,9 +268,21 @@
                     },
                     {
                         "Vel": 0.0010000000474974513
+                    },
+                    {
+                        "Button": 1741124431
+                    },
+                    {
+                        "minY": 0.0
+                    },
+                    {
+                        "maxY": 0.019999999552965164
+                    },
+                    {
+                        "Vel": 0.0010000000474974513
                     }
                 ],
-                "Script Resource": 1526311301,
+                "Script Resource": 2045280243,
                 "Type": 5
             }
         ],
@@ -271,8 +300,8 @@
                 "Enabled": true,
                 "Position": [
                     0.0,
-                    0.14000000059604645,
-                    -0.003000000026077032
+                    -0.05999999865889549,
+                    -0.30300000309944153
                 ],
                 "Rotation": [
                     0.0,
@@ -288,14 +317,16 @@
             },
             {
                 "Enabled": true,
-                "MaterialResource": 134788504,
+                "MaterialResource": 258549829,
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 0,
-                "hoverImage": 3407794357,
-                "idleImage": 134788504,
-                "pressImage": 3478967511
+                "hoverBlockImage": 0,
+                "hoverImage": 2113770562,
+                "idleBlockImage": 0,
+                "idleImage": 258549829,
+                "pressBlockImage": 0,
+                "pressImage": 516501109
             },
             {
                 "Enabled": true,
@@ -314,9 +345,24 @@
                     },
                     {
                         "Collectibles": 1057867941
+                    },
+                    {
+                        "Continue": 351199318
+                    },
+                    {
+                        "NewGame": 1741124431
+                    },
+                    {
+                        "Exit": 1551021094
+                    },
+                    {
+                        "Settings": 3765630460
+                    },
+                    {
+                        "Collectibles": 1057867941
                     }
                 ],
-                "Script Resource": 186220908,
+                "Script Resource": 2459103775,
                 "Type": 5
             },
             {
@@ -332,10 +378,22 @@
                         "maxY": 0.019999999552965164
                     },
                     {
-                        "Vel": 0.0005000000237487257
+                        "Vel": 0.0010000000474974513
+                    },
+                    {
+                        "Button": 351199318
+                    },
+                    {
+                        "minY": 0.0
+                    },
+                    {
+                        "maxY": 0.019999999552965164
+                    },
+                    {
+                        "Vel": 0.0010000000474974513
                     }
                 ],
-                "Script Resource": 1526311301,
+                "Script Resource": 2045280243,
                 "Type": 5
             }
         ],
@@ -353,7 +411,7 @@
                 "Enabled": true,
                 "Position": [
                     0.0,
-                    -0.20000000298023224,
+                    -0.30000001192092896,
                     -0.003000000026077032
                 ],
                 "Rotation": [
@@ -370,14 +428,16 @@
             },
             {
                 "Enabled": true,
-                "MaterialResource": 3923147828,
+                "MaterialResource": 3905780417,
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 0,
-                "hoverImage": 273176788,
-                "idleImage": 3923147828,
-                "pressImage": 2736792734
+                "hoverBlockImage": 0,
+                "hoverImage": 2390042200,
+                "idleBlockImage": 0,
+                "idleImage": 3905780417,
+                "pressBlockImage": 0,
+                "pressImage": 1835749501
             },
             {
                 "Enabled": true,
@@ -396,9 +456,24 @@
                     },
                     {
                         "Collectibles": 1057867941
+                    },
+                    {
+                        "Continue": 351199318
+                    },
+                    {
+                        "NewGame": 1741124431
+                    },
+                    {
+                        "Exit": 1551021094
+                    },
+                    {
+                        "Settings": 3765630460
+                    },
+                    {
+                        "Collectibles": 1057867941
                     }
                 ],
-                "Script Resource": 186220908,
+                "Script Resource": 2459103775,
                 "Type": 5
             },
             {
@@ -415,9 +490,21 @@
                     },
                     {
                         "Vel": 0.0010000000474974513
+                    },
+                    {
+                        "Button": 1057867941
+                    },
+                    {
+                        "minY": 0.0
+                    },
+                    {
+                        "maxY": 0.019999999552965164
+                    },
+                    {
+                        "Vel": 0.0010000000474974513
                     }
                 ],
-                "Script Resource": 1526311301,
+                "Script Resource": 2045280243,
                 "Type": 5
             }
         ],
@@ -435,8 +522,8 @@
                 "Enabled": true,
                 "Position": [
                     0.0,
-                    -0.5,
-                    -0.003000000026077032
+                    -0.550000011920929,
+                    -0.2029999941587448
                 ],
                 "Rotation": [
                     0.0,
@@ -452,14 +539,16 @@
             },
             {
                 "Enabled": true,
-                "MaterialResource": 2224721247,
+                "MaterialResource": 3402076847,
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 0,
-                "hoverImage": 3401443754,
-                "idleImage": 2224721247,
-                "pressImage": 1132405233
+                "hoverBlockImage": 0,
+                "hoverImage": 999375466,
+                "idleBlockImage": 0,
+                "idleImage": 3402076847,
+                "pressBlockImage": 0,
+                "pressImage": 234350783
             },
             {
                 "Enabled": true,
@@ -478,9 +567,24 @@
                     },
                     {
                         "Collectibles": 1057867941
+                    },
+                    {
+                        "Continue": 351199318
+                    },
+                    {
+                        "NewGame": 1741124431
+                    },
+                    {
+                        "Exit": 1551021094
+                    },
+                    {
+                        "Settings": 3765630460
+                    },
+                    {
+                        "Collectibles": 1057867941
                     }
                 ],
-                "Script Resource": 186220908,
+                "Script Resource": 2459103775,
                 "Type": 5
             },
             {
@@ -497,9 +601,21 @@
                     },
                     {
                         "Vel": 0.0010000000474974513
+                    },
+                    {
+                        "Button": 3765630460
+                    },
+                    {
+                        "minY": 0.0
+                    },
+                    {
+                        "maxY": 0.019999999552965164
+                    },
+                    {
+                        "Vel": 0.0010000000474974513
                     }
                 ],
-                "Script Resource": 1526311301,
+                "Script Resource": 2045280243,
                 "Type": 5
             }
         ],
@@ -534,14 +650,16 @@
             },
             {
                 "Enabled": true,
-                "MaterialResource": 4120732920,
+                "MaterialResource": 1327694463,
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 0,
-                "hoverImage": 541261496,
-                "idleImage": 4120732920,
-                "pressImage": 4148078915
+                "hoverBlockImage": 0,
+                "hoverImage": 1199094144,
+                "idleBlockImage": 0,
+                "idleImage": 1327694463,
+                "pressBlockImage": 0,
+                "pressImage": 1707226011
             },
             {
                 "Enabled": true,
@@ -560,9 +678,24 @@
                     },
                     {
                         "Collectibles": 1057867941
+                    },
+                    {
+                        "Continue": 351199318
+                    },
+                    {
+                        "NewGame": 1741124431
+                    },
+                    {
+                        "Exit": 1551021094
+                    },
+                    {
+                        "Settings": 3765630460
+                    },
+                    {
+                        "Collectibles": 1057867941
                     }
                 ],
-                "Script Resource": 186220908,
+                "Script Resource": 2459103775,
                 "Type": 5
             },
             {
@@ -579,9 +712,21 @@
                     },
                     {
                         "Vel": 0.0010000000474974513
+                    },
+                    {
+                        "Button": 1551021094
+                    },
+                    {
+                        "minY": 0.0
+                    },
+                    {
+                        "maxY": 0.019999999552965164
+                    },
+                    {
+                        "Vel": 0.0010000000474974513
                     }
                 ],
-                "Script Resource": 1526311301,
+                "Script Resource": 2045280243,
                 "Type": 5
             }
         ],
@@ -617,7 +762,7 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 3521942759,
+                "MaterialResource": 4251427282,
                 "MeshEnabled": true,
                 "OpacityDirection": 0,
                 "Type": 15
@@ -655,7 +800,7 @@
             {
                 "Enabled": true,
                 "FillImage": 1.0,
-                "MaterialResource": 4095403898,
+                "MaterialResource": 2698314272,
                 "MeshEnabled": true,
                 "OpacityDirection": 0,
                 "Type": 15
@@ -665,9 +810,12 @@
                 "Inspector Fields": [
                     {
                         "Velocity": 0.5
+                    },
+                    {
+                        "Velocity": 0.5
                     }
                 ],
-                "Script Resource": 354635148,
+                "Script Resource": 3877120418,
                 "Type": 5
             }
         ],
@@ -677,5 +825,202 @@
         "PrefabUID": 0,
         "Tag": "UI",
         "UID": 356406331
+    },
+    {
+        "Active": true,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.10000000149011612,
+                    0.699999988079071,
+                    -0.30000001192092896
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.4000000059604645,
+                    0.30000001192092896,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 3771601749,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
+                "Type": 15
+            },
+            {
+                "Enabled": true,
+                "Inspector Fields": [
+                    {
+                        "Button Guide": 3959061821
+                    },
+                    {
+                        "Move X animation repeat": 0
+                    },
+                    {
+                        "Move Y animation repeat": 0
+                    },
+                    {
+                        "Move animation in loop": true
+                    },
+                    {
+                        "Move animation active": true
+                    },
+                    {
+                        "Distance move X": 0.0
+                    },
+                    {
+                        "Speed move X": 0.0
+                    },
+                    {
+                        "Distance move Y": 0.019999999552965164
+                    },
+                    {
+                        "Speed move Y": 0.20000000298023224
+                    },
+                    {
+                        "Scale animation repeat": 0
+                    },
+                    {
+                        "Scale animation in loop": false
+                    },
+                    {
+                        "Scale animation active": false
+                    },
+                    {
+                        "Scale max": 0.10000000149011612
+                    },
+                    {
+                        "Speed Scale": 1.0
+                    },
+                    {
+                        "Rotate animation repeat": 0
+                    },
+                    {
+                        "Rotate animation in loop": false
+                    },
+                    {
+                        "Rotate animation active": false
+                    },
+                    {
+                        "Rotate distance": 0.0010000000474974513
+                    },
+                    {
+                        "Speed Rotation": 1.0
+                    },
+                    {
+                        "Button Guide": 3959061821
+                    },
+                    {
+                        "Move X animation repeat": 0
+                    },
+                    {
+                        "Move Y animation repeat": 0
+                    },
+                    {
+                        "Move animation in loop": true
+                    },
+                    {
+                        "Move animation active": true
+                    },
+                    {
+                        "Distance move X": 0.0
+                    },
+                    {
+                        "Speed move X": 0.0
+                    },
+                    {
+                        "Distance move Y": 0.019999999552965164
+                    },
+                    {
+                        "Speed move Y": 0.20000000298023224
+                    },
+                    {
+                        "Scale animation repeat": 0
+                    },
+                    {
+                        "Scale animation in loop": false
+                    },
+                    {
+                        "Scale animation active": false
+                    },
+                    {
+                        "Scale max": 0.10000000149011612
+                    },
+                    {
+                        "Speed Scale": 1.0
+                    },
+                    {
+                        "Rotate animation repeat": 0
+                    },
+                    {
+                        "Rotate animation in loop": false
+                    },
+                    {
+                        "Rotate animation active": false
+                    },
+                    {
+                        "Rotate distance": 0.0010000000474974513
+                    },
+                    {
+                        "Speed Rotation": 1.0
+                    }
+                ],
+                "Script Resource": 148961927,
+                "Type": 5
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Title",
+        "ParentUID": 2377698017,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 3959061821
+    },
+    {
+        "Active": false,
+        "Components": [
+            {
+                "Enabled": true,
+                "Position": [
+                    0.0,
+                    0.0,
+                    -0.20000000298023224
+                ],
+                "Rotation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "Scale": [
+                    0.5,
+                    0.5,
+                    0.5
+                ],
+                "Type": 1
+            },
+            {
+                "Enabled": true,
+                "FillImage": 1.0,
+                "MaterialResource": 1782830273,
+                "MeshEnabled": true,
+                "OpacityDirection": 0,
+                "Type": 15
+            }
+        ],
+        "FirstOnPrefab": true,
+        "Name": "Image",
+        "ParentUID": 1170745027,
+        "PrefabUID": 0,
+        "Tag": "UI",
+        "UID": 1035546526
     }
 ]

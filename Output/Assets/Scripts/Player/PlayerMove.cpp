@@ -34,8 +34,10 @@ HELLO_ENGINE_API_C PlayerMove* CreatePlayerMove(ScriptToInspectorInterface* scri
     script->AddDragBoxAnimationResource("Shoot Automatic Animation", &classInstance->shootAnim[2]);
     script->AddDragBoxAnimationResource("Shoot Burst Animation", &classInstance->shootAnim[3]);
     script->AddDragBoxAnimationResource("Shoot Shotgun Animation", &classInstance->shootAnim[4]);
-    script->AddDragBoxAnimationResource("Shoot Handgun Animation", &classInstance->shootAnim[5]);
-    script->AddDragBoxAnimationResource("Swap Gun Animation", &classInstance->swapGunAnim);
+    script->AddDragBoxAnimationResource("Shoot Flamethrower Animation", &classInstance->shootAnim[5]);
+    script->AddDragBoxAnimationResource("Shoot Ricochet Animation", &classInstance->shootAnim[6]);
+    script->AddDragBoxAnimationResource("Swap Duals Animation", &classInstance->swapGunAnim[0]);
+    script->AddDragBoxAnimationResource("Swap Gun Animation", &classInstance->swapGunAnim[1]);
     script->AddDragBoxAnimationResource("Hit Animation", &classInstance->hittedAnim);
     script->AddDragBoxAnimationResource("Open Chest Animation", &classInstance->openChestAnim);
     script->AddDragBoxAnimationResource("Dead Animation", &classInstance->deathAnim);
@@ -94,8 +96,6 @@ void PlayerMove::Update()
 
     if (openingChest || (playerStats && playerStats->hittedTime > 0.0f)) return; // can't do other actions while is opening a chest or been hitted
 
-    Aim();
-
     if (Input::GetGamePadAxis(GamePadAxis::AXIS_TRIGGERRIGHT) < 5000 || isSwapingGun)
     {
         isShooting = false;
@@ -138,6 +138,8 @@ void PlayerMove::Update()
         Dash();
         return; //NO MORE MOVEMENT
     }
+
+    Aim();
 
     API_Vector2 input = GetMoveInput();
     //currentInput = input.Distance(API_Vector2::S_Zero());   //TEST
@@ -250,6 +252,7 @@ void PlayerMove::DashSetup()
 
     //Set dash vel
     rigidBody.SetVelocity((movDir * dist) / dashTime);
+    transform.SetRotation(0.0f, atan2(movDir.x, movDir.z) * RADTODEG, 0.0f);
 
     if (currentAnim != PlayerAnims::DASH)
     {
@@ -257,7 +260,7 @@ void PlayerMove::DashSetup()
         playerAnimator.Play();
         currentAnim = PlayerAnims::DASH;
     }
-
+    playerStats->inmunityTime = dashTime;
     Audio::Event("starlord_dash");
 }
 
@@ -701,13 +704,13 @@ void PlayerMove::PlayShootAnim(int gunIndex)
     }
 }
 
-void PlayerMove::PlaySwapGunAnim()
+void PlayerMove::PlaySwapGunAnim(int animationIndex)
 {
     isSwapingGun = true;
 
     if (currentAnim != PlayerAnims::SWAP_GUN)
     {
-        playerAnimator.ChangeAnimation(swapGunAnim);
+        playerAnimator.ChangeAnimation(swapGunAnim[animationIndex]);
         playerAnimator.Play();
         currentAnim = PlayerAnims::SWAP_GUN;
     }

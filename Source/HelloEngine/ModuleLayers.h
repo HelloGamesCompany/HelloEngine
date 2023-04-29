@@ -49,6 +49,8 @@ public:
 	/// Iterate over every Game object and destroy their MeshRenderComponent mesh (the object, not the component itself).
 	static void DestroyMeshes();
 
+	static void RequestReimportAllScenes(std::vector<std::string>& scenes);
+
 public:
 	static LayerGame* game;
 	static LayerEditor* editor;
@@ -63,6 +65,9 @@ public:
 	// Empty API_Components to return in case you try to access the component of an unexisting game object.
 	static API::API_GameObject* emptyAPIGameObject;
 	static API::API_Transform* emptyAPITransform;
+
+	static std::vector<std::string> allScenesInAssets;
+	static bool reimportAllScenes;
 
 private:
 	static Layer* _layers[(uint)LayersID::MAX];

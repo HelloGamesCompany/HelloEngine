@@ -11,7 +11,7 @@ public:
     void Start() override;
     void Update() override;
 
-    std::string sound = "";
+    API_String sound = "";
     float maxSoundDuration;
     float soundDuration;
 };

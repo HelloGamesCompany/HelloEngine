@@ -47,4 +47,8 @@ public:
 	float3 colScl = { 1,1,1 };
 
 	ColliderShape colShape;
+
+	std::map<uint, PhysBody3D*> lastFrameCollidingBodies;
+	std::map<uint, PhysBody3D*> thisFrameCollidingBodies;
+
 };

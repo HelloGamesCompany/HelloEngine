@@ -9,8 +9,6 @@ HELLO_ENGINE_API_C PlayerShotgun* CreatePlayerShotgun(ScriptToInspectorInterface
     script->AddDragFloat("Projectile Resistance Damage", &classInstance->projectileResistanceDamage);
     script->AddDragFloat("Projectile Lifetime", &classInstance->projectileLifetime);
     script->AddDragBoxTransform("Projectile Spawn", &classInstance->shootingSpawn);
-    script->AddDragBoxMeshResource("Projectile Mesh", &classInstance->projectileMesh);
-    script->AddDragBoxTextureResource("Projectile Material", &classInstance->projectileMaterial);
     script->AddDragFloat("Projectile ScaleX", &classInstance->projectileScale.x);
     script->AddDragFloat("Projectile ScaleY", &classInstance->projectileScale.y);
     script->AddDragFloat("Projectile ScaleZ", &classInstance->projectileScale.z);
@@ -88,7 +86,7 @@ void PlayerShotgun::Shoot()
     {
         for (size_t i = 0; i < pellets; i++)
         {
-            LauchProjectile(shootingSpawn, PROJECTILE_ACTION::FLINCH, pelletsDisersion);
+            LauchProjectile(shootingSpawn, PROJECTILE_TYPE::SHOTGUN, PROJECTILE_ACTION::FLINCH, pelletsDisersion);
         }
         PlayShotSound(audioEventString);
         canShoot = false;
@@ -115,39 +113,47 @@ void PlayerShotgun::SetGunStatsPerLevel(int level)
     {
     case 0:
         projectileSpeed = 40.0f;
-        projectileDamage = 3.0f;
-        projectileResistanceDamage = 0.0f;
+        projectileDamage = 5.0f;
+        projectileResistanceDamage = 5.0f;
         projectileLifetime = 0.2f;
         cadence = 1.3f;
-        pellets = 10;
+        pellets = 3;
         pelletsDisersion = 0.2f;
+        // explosion damage 10
+        // bomb num 2
         break;
     case 1:
         projectileSpeed = 40.0f;
-        projectileDamage = 3.0f;
-        projectileResistanceDamage = 0.0f;
+        projectileDamage = 5.0f;
+        projectileResistanceDamage = 5.0f;
         projectileLifetime = 0.2f;
         cadence = 1.3f;
-        pellets = 10;
-        pelletsDisersion = 0.4f;
+        pellets = 4;
+        pelletsDisersion = 0.2f;
+        // explosion damage 10
+        // bomb num 2
         break;
     case 2:
         projectileSpeed = 40.0f;
-        projectileDamage = 3.0f;
-        projectileResistanceDamage = 0.0f;
+        projectileDamage = 5.0f;
+        projectileResistanceDamage = 5.0f;
         projectileLifetime = 0.2f;
         cadence = 1.3f;
-        pellets = 14;
-        pelletsDisersion = 0.4f;
+        pellets = 4;
+        pelletsDisersion = 0.2f;
+        // explosion damage 10
+        // bomb num 3
         break;
     case 3:
         projectileSpeed = 40.0f;
-        projectileDamage = 5.0f;
-        projectileResistanceDamage = 0.0f;
+        projectileDamage = 10.0f;
+        projectileResistanceDamage = 10.0f;
         projectileLifetime = 0.2f;
         cadence = 1.3f;
-        pellets = 14;
-        pelletsDisersion = 0.4f;
+        pellets = 4;
+        pelletsDisersion = 0.2f;
+        // explosion damage 15
+        // bomb num 3
         break;
     default:
         Console::Log("Shotgun gun level can't be different from 0, 1, 2 or 3.");

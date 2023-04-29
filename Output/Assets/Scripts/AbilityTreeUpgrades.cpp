@@ -33,14 +33,15 @@ void AbilityTreeUpgrades::Start()
     if (skillLevel != 1) Upgrate2.SetBlocked(true);
     if (skillLevel != 2) Upgrate3.SetBlocked(true);
     if (skillLevel != 3 && upgradeNum > 3) Upgrate4.SetBlocked(true);
-    if (skillLevel != 4 && upgradeNum > 4) Upgrate5.SetBlocked(true);
+    if (skillLevel != 4 && upgradeNum > 4) Upgrate5.SetBlocked(true);  
 }
 
 void AbilityTreeUpgrades::Update()
 {
     if (Input::GetGamePadButton(GamePadButton::BUTTON_B) == KeyState::KEY_DOWN && currentPanel.IsEnabled())
     {
-        Input::HandleGamePadButton(GamePadButton::BUTTON_B);;
+        Audio::Event("click");
+        Input::HandleGamePadButton(GamePadButton::BUTTON_B);
         mainPanel.SetEnable(true);
         currentPanel.SetEnable(false);
         return;
@@ -65,6 +66,7 @@ void AbilityTreeUpgrades::Update()
                 UpgradeSkill();
                 Upgrate1.SetBlocked(true);
                 Upgrate2.SetBlocked(false);
+
             }
             else if (upgradingLevel == 2)
             {
@@ -77,6 +79,7 @@ void AbilityTreeUpgrades::Update()
                 UpgradeSkill();
                 Upgrate3.SetBlocked(true);
                 if (upgradeNum > 3) Upgrate4.SetBlocked(false);
+
             }
             else if (upgradingLevel == 4)
             {
@@ -96,12 +99,14 @@ void AbilityTreeUpgrades::Update()
     {
         if (playerStorage->skillPoints > skillPoints1)
         {
+            Audio::Event("click");
             manteinTime = 1.0f;
             upgradingLevel = 1;
             upgradeCost = skillPoints1;
         }
         else
         {
+            Audio::Event("error");
             // wrong sound
         }
     }
@@ -110,12 +115,14 @@ void AbilityTreeUpgrades::Update()
     {
         if (playerStorage->skillPoints > skillPoints2)
         {
+            Audio::Event("click");
             manteinTime = 1.0f;
             upgradingLevel = 2;
             upgradeCost = skillPoints2;
         }
         else
         {
+            Audio::Event("error");
             // wrong sound
         }
     }
@@ -124,12 +131,14 @@ void AbilityTreeUpgrades::Update()
     {
         if (playerStorage->skillPoints > skillPoints3)
         {
+            Audio::Event("click");
             manteinTime = 1.0f;
             upgradingLevel = 3;
             upgradeCost = skillPoints3;
         }
         else
         {
+            Audio::Event("error");
             // wrong sound
         }
     }
@@ -138,12 +147,14 @@ void AbilityTreeUpgrades::Update()
     {
         if (playerStorage->skillPoints > skillPoints4)
         {
+            Audio::Event("click");
             manteinTime = 1.0f;
             upgradingLevel = 4;
             upgradeCost = skillPoints4;
         }
         else
         {
+            Audio::Event("error");
             // wrong sound
         }
     }
@@ -152,12 +163,14 @@ void AbilityTreeUpgrades::Update()
     {
         if (playerStorage->skillPoints > skillPoints5)
         {
+            Audio::Event("click");
             manteinTime = 1.0f;
             upgradingLevel = 5;
             upgradeCost = skillPoints5;
         }
         else
         {
+            Audio::Event("error");
             // wrong sound
         }
     }
@@ -165,9 +178,11 @@ void AbilityTreeUpgrades::Update()
 
 void AbilityTreeUpgrades::UpgradeSkill()
 {
+    Audio::Event("ability_get");
     playerStorage->skillPoints -= upgradeCost;
     playerStorage->SaveData();
 
     skillLevel++;
     API_QuickSave::SetInt("tree" + std::to_string(treeIndex) + "_level", skillLevel);
+    Audio::Event("ability_get");
 }

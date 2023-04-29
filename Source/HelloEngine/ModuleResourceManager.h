@@ -322,7 +322,6 @@ public:
     static std::map<std::string, Resource*> loadedResources;
 
     static std::map<uint, Resource*> resources;
-
-private:
     static FileTree* _fileTree;
+    
 };

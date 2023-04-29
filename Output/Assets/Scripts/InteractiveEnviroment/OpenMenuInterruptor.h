@@ -14,6 +14,8 @@ public:
     void Update() override;
 
     void OnCollisionEnter(API::API_RigidBody other) override;
+    void OnCollisionStay(API::API_RigidBody other) override;
+    void OnCollisionExit(API::API_RigidBody other) override;
 
     void OpenMenus();
 
@@ -23,5 +25,6 @@ public:
     int numberOfAsignedMenus;
     API_GameObject menu[10];
     API_GameObject menuPanel;
+    API_GameObject buttonGuide;
 };
 

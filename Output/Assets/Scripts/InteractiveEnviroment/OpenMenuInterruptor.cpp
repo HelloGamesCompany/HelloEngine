@@ -16,6 +16,7 @@ HELLO_ENGINE_API_C OpenMenuInterruptor* CreateOpenMenuInterruptor(ScriptToInspec
     script->AddDragBoxGameObject("Menu to Open 9", &classInstance->menu[8]);
     script->AddDragBoxGameObject("Menu to Open 10", &classInstance->menu[9]);
     script->AddDragBoxGameObject("Menu Panel", &classInstance->menuPanel);
+    script->AddDragBoxGameObject("Button Guide", &classInstance->buttonGuide);
     return classInstance;
 }
 
@@ -34,6 +35,15 @@ void OpenMenuInterruptor::OnCollisionEnter(API::API_RigidBody other)
     std::string detectionTag = other.GetGameObject().GetTag();
     if (detectionTag == "Player")
     {
+        buttonGuide.SetActive(true);
+    }
+}
+
+void OpenMenuInterruptor::OnCollisionStay(API::API_RigidBody other)
+{
+    std::string detectionTag = other.GetGameObject().GetTag();
+    if (detectionTag == "Player")
+    {
         if (open) return;
 
         if (Input::GetGamePadButton(GamePadButton::BUTTON_X) == KeyState::KEY_DOWN || Input::GetKey(KeyCode::KEY_E) == KeyState::KEY_DOWN)
@@ -48,6 +58,15 @@ void OpenMenuInterruptor::OnCollisionEnter(API::API_RigidBody other)
             open = true;
 
         }
+    }
+}
+
+void OpenMenuInterruptor::OnCollisionExit(API::API_RigidBody other)
+{
+    std::string detectionTag = other.GetGameObject().GetTag();
+    if (detectionTag == "Player")
+    {
+        buttonGuide.SetActive(false);
     }
 }
 

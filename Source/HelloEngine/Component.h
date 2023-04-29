@@ -29,6 +29,10 @@ public:
 		UI_INPUT,
 		UI_TEXT,
 		MATERIAL,
+		LIGHT,
+		DIRECTIONAL_LIGHT,
+		POINT_LIGHT,
+		SPOT_LIGHT,
 		MAX
 	};
 

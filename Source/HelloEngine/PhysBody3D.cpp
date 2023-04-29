@@ -57,7 +57,7 @@ void PhysBody3D::SetPos(float x, float y, float z)
 	btTransform t = body->getWorldTransform();
 	t.setOrigin(btVector3(x, y, z));
 	body->setWorldTransform(t);
-	if (isKinematic == true) 
+	if (isKinematic == true)
 	{
 		body->getMotionState()->setWorldTransform(t);
 	}
@@ -129,7 +129,7 @@ void PhysBody3D::Update()
 	//btTransform worldTransform = body->getWorldTransform();
 	//btScalar matrix;
 	//worldTransform.getOpenGLMatrix(&matrix);
-	
+
 	// TODO: This check will not be necessary once we stop creating PhysBodies without game objects!!!
 	if (ModuleLayers::gameObjects.count(gameObjectUID) != 0)
 	{
@@ -138,7 +138,38 @@ void PhysBody3D::Update()
 
 		GameObject* go = ModuleLayers::gameObjects[gameObjectUID];
 		go->transform->_ignorePhysBody = true; // This flag makes the PhysComponent ignore this Position update!
+
+		//OPTION 1
 		go->transform->SetPosition(GetPos() - colPos); // The idea here is, if any other transformation occurs after this, it will be applied, but this one won't. Check PhysComponent::OnTransformCallback()
+
+		//OPTION 2
+		//float3 goScl = go->transform->GetGlobalScale();
+		//float3 goRot = go->transform->GetGlobalRotation();
+
+		//float matFloat[16] = {0.0f};
+		//body->getWorldTransform().getOpenGLMatrix(matFloat);
+
+		//float4x4 mat4x4 = float4x4::identity;
+
+		//for (int i = 0; i < 4; i++)
+		//{
+		//	for (int j = 0; j < 4; j++)
+		//	{
+		//		mat4x4[i][j] = matFloat[i*4 + j];
+		//	}
+		//}
+		//mat4x4.Transpose();
+
+		//go->transform->SetLocalFromGlobal(mat4x4, true);
+		//go->transform->SetScale(goScl); //This line provokes that the collider does not rotate for some reason
+		//go->transform->SetRotation(goRot); //This line provokes that the collider does not rotate for some reason
+		//go->transform->Translate(-colPos); //This line provokes that the collider does not rotate for some reason
+
+		
+
+
+
+
 
 		// Commented out because it affects bodies that are rotated by script. 
 		/*go->transform->_ignorePhysBody = true;
@@ -168,30 +199,61 @@ void PhysBody3D::RenderCollider()
 			if (ModuleLayers::gameObjects.count(gameObjectUID) != 0)
 			{
 				GameObject* go = ModuleLayers::gameObjects[gameObjectUID];
-				Application::Instance()->renderer3D->renderManager.DrawColliderBox(this, float4(go->GetComponent<PhysicsComponent>()->renderColColor), go->GetComponent<PhysicsComponent>()->wireframeSize);
+				if (go->IsActive() && !go->IsPendingToDelete())
+				{
+					PhysicsComponent* physComp = go->GetComponent<PhysicsComponent>();
+					if (physComp != nullptr)
+					{
+						Application::Instance()->renderer3D->renderManager.DrawColliderBox(this, float4(physComp->renderColColor), physComp->wireframeSize);
+					}
+				}
 			}
-			
+
 			break;
 		case ColliderShape::SPHERE:
 			// TODO: This check will not be necessary once we stop creating PhysBodies without game objects!!!
 			if (ModuleLayers::gameObjects.count(gameObjectUID) != 0)
 			{
 				GameObject* go = ModuleLayers::gameObjects[gameObjectUID];
-				Application::Instance()->renderer3D->renderManager.DrawColliderSphere(this, go->GetComponent<PhysicsComponent>()->sphereRadius, float4(go->GetComponent<PhysicsComponent>()->renderColColor), go->GetComponent<PhysicsComponent>()->wireframeSize, go->GetComponent<PhysicsComponent>()->sphereVerSlices, go->GetComponent<PhysicsComponent>()->sphereHorSlices);
+				if (go->IsActive() && !go->IsPendingToDelete())
+				{
+					
+					PhysicsComponent* physComp = go->GetComponent<PhysicsComponent>();
+					if (physComp != nullptr)
+					{
+						
+						Application::Instance()->renderer3D->renderManager.CalculateSphereIndices(&physComp->sphereIndicesComp, physComp->sphereVerSlices, physComp->sphereHorSlices);
+						//Application::Instance()->renderer3D->renderManager.CalculateSphereBuffer(&physComp->sphereIndicesComp, physComp->sphereVerSlices, physComp->sphereHorSlices);
+						Application::Instance()->renderer3D->renderManager.CalculateSpherePoints(this, &physComp->spherePointsComp, physComp->sphereRadius, physComp->sphereVerSlices, physComp->sphereHorSlices);
+						Application::Instance()->renderer3D->renderManager.DrawColliderSphere(&physComp->spherePointsComp, &physComp->sphereIndicesComp, float4(physComp->renderColColor), physComp->wireframeSize);
+
+					}
+				}
 			}
-			
 			break;
 		case ColliderShape::CYLINDER:
 			// TODO: This check will not be necessary once we stop creating PhysBodies without game objects!!!
 			if (ModuleLayers::gameObjects.count(gameObjectUID) != 0)
 			{
 				GameObject* go = ModuleLayers::gameObjects[gameObjectUID];
-				Application::Instance()->renderer3D->renderManager.DrawColliderCylinder(this, go->GetComponent<PhysicsComponent>()->cylRadiusHeight, float4(go->GetComponent<PhysicsComponent>()->renderColColor), go->GetComponent<PhysicsComponent>()->wireframeSize, go->GetComponent<PhysicsComponent>()->cylinderVerSlices);
+				if (go->IsActive() && !go->IsPendingToDelete())
+				{
+					PhysicsComponent* physComp = go->GetComponent<PhysicsComponent>();
+					if (physComp != nullptr)
+					{
+						//Application::Instance()->renderer3D->renderManager.DrawColliderCylinder(this, physComp->cylRadiusHeight, float4(physComp->renderColColor), physComp->wireframeSize, physComp->cylinderVerSlices);
+						
+						Application::Instance()->renderer3D->renderManager.CalculateCylinderIndices(&physComp->cylinderIndicesComp, physComp->cylinderVerSlices);
+						//Application::Instance()->renderer3D->renderManager.CalculateCylinderBuffer(&physComp->cylinderIndicesComp, physComp->cylinderVerSlices);
+						Application::Instance()->renderer3D->renderManager.CalculateCylinderPoints(this, &physComp->cylinderPointsComp, physComp->cylRadiusHeight, physComp->cylinderVerSlices);
+						Application::Instance()->renderer3D->renderManager.DrawColliderCylinder(&physComp->cylinderPointsComp, &physComp->cylinderIndicesComp, float4(physComp->renderColColor), physComp->wireframeSize);
+					}
+				}
 			}
-			
+
 			break;
 		}
-		
+
 	}
 
 }

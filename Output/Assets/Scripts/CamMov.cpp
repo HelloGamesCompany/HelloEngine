@@ -7,12 +7,14 @@ HELLO_ENGINE_API_C CamMov* CreateCamMov(ScriptToInspectorInterface* script)
 	script->AddDragFloat("Offset_X", &classInstance->camPos.x);
 	script->AddDragFloat("Offset_Y", &classInstance->camPos.y);
 	script->AddDragFloat("Offset_Z", &classInstance->camPos.z);
+	script->AddDragFloat("Orbital Offset Multiplier", &classInstance->orbitalMult);
 	script->AddDragFloat("Rot_X", &classInstance->camRot.x);
 	script->AddDragFloat("Rot_Y", &classInstance->camRot.y);
 	script->AddDragFloat("Rot_Z", &classInstance->camRot.z);
 	//Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
 	script->AddDragFloat("SafeZone_Distance", &classInstance->safeZoneDistance);
 	script->AddCheckBox("Use safe zone: ", &classInstance->safeZone);
+	script->AddCheckBox("Orbital", &classInstance->orbital);
 	return classInstance;
 }
 
@@ -34,7 +36,7 @@ void CamMov::Start()
 void CamMov::Update()
 {
 	gameObject.GetTransform().SetRotation(camRot);
-	desiredPosition = target.GetTransform().GetGlobalPosition() + camPos;
+	desiredPosition = target.GetTransform().GetGlobalPosition() + (orbital? camPos * orbitalMult: camPos);
 	
 	if (safeZone)
 	{
@@ -53,4 +55,9 @@ void CamMov::Update()
 	smoothedPosition.z = Lerp(gameObject.GetTransform().GetGlobalPosition().z, desiredPosition.z, tempDelay);
 
 	gameObject.GetTransform().SetPosition(smoothedPosition.x, smoothedPosition.y, smoothedPosition.z);
+}
+
+void CamMov::SetOrbital(bool orbital)
+{
+	this->orbital = orbital;
 }

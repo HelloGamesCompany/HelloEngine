@@ -47,9 +47,8 @@ public:
     API_GameObject automatic; // index 2
     API_GameObject burst; // index 3
     API_GameObject shotgun; // index 4
-    API_GameObject handgun; // index 5
-    API_GameObject flamethrower; // index 6
-    API_GameObject ricochet; // index 7
+    API_GameObject flamethrower; // index 5
+    API_GameObject ricochet; // index 6
 
     // animations
     PlayerMove* playerMove;

@@ -596,6 +596,10 @@ void LayerEditor::DrawMenuBar()
 			{
 				S_ReimportAllAssets();
 			}
+			if (ImGui::MenuItem("Regenerate metas UIDs"))
+			{
+				ModuleFiles::S_RegenerateMetasUIDs();
+			}
 			ImGui::EndMenu();
 		}
 

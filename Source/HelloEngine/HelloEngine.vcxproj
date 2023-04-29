@@ -300,7 +300,9 @@
     <ClCompile Include="API\API_AnimationPlayer.cpp" />
     <ClCompile Include="API\API_Audio.cpp" />
     <ClCompile Include="API\API_QuickSave.cpp" />
+    <ClCompile Include="API\API_ShaderComponent.cpp" />
     <ClCompile Include="API\API_SkinnedMeshRenderer.cpp" />
+    <ClCompile Include="API\API_String.cpp" />
     <ClCompile Include="API\API_UIButton.cpp" />
     <ClCompile Include="API\API_Console.cpp" />
     <ClCompile Include="API\API_GameObject.cpp" />
@@ -336,6 +338,7 @@
     <ClCompile Include="ComponentUIInput.cpp" />
     <ClCompile Include="ComponentUISlider.cpp" />
     <ClCompile Include="Console.cpp" />
+    <ClCompile Include="DirectionalLightComponent.cpp" />
     <ClCompile Include="Emitter.cpp" />
     <ClCompile Include="FontManager.cpp" />
     <ClCompile Include="FrameBuffer.cpp" />
@@ -367,11 +370,17 @@
     <ClCompile Include="Layer.cpp" />
     <ClCompile Include="LayerGame.cpp" />
     <ClCompile Include="LayerUI.cpp" />
+    <ClCompile Include="LightComponent.cpp" />
     <ClCompile Include="Lighting.cpp" />
     <ClCompile Include="Log.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Material.cpp" />
     <ClCompile Include="MaterialComponent.cpp" />
+    <ClCompile Include="PointLightComponent.cpp" />
+    <ClCompile Include="SpotLightComponent.cpp" />
+    <ClCompile Include="sha256.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="TextureComponent.cpp" />
     <ClCompile Include="MeshImporter.cpp" />
     <ClCompile Include="MeshRenderComponent.cpp" />
@@ -501,7 +510,9 @@
     <ClInclude Include="API\API_AnimationPlayer.h" />
     <ClInclude Include="API\API_Audio.h" />
     <ClInclude Include="API\API_QuickSave.h" />
+    <ClInclude Include="API\API_ShaderComponent.h" />
     <ClInclude Include="API\API_SkinnedMeshRenderer.h" />
+    <ClInclude Include="API\API_String.h" />
     <ClInclude Include="API\API_UIButton.h" />
     <ClInclude Include="API\API_Console.h" />
     <ClInclude Include="API\API_GameObject.h" />
@@ -542,6 +553,7 @@
     <ClInclude Include="ComponentUISlider.h" />
     <ClInclude Include="Console.h" />
     <ClInclude Include="CycleArray.hpp" />
+    <ClInclude Include="DirectionalLightComponent.h" />
     <ClInclude Include="Emitter.h" />
     <ClInclude Include="FileTree.hpp" />
     <ClInclude Include="File_Model.h" />
@@ -570,9 +582,13 @@
     <ClInclude Include="Layer.h" />
     <ClInclude Include="LayerGame.h" />
     <ClInclude Include="LayerUI.h" />
+    <ClInclude Include="LightComponent.h" />
     <ClInclude Include="Lighting.h" />
     <ClInclude Include="Material.h" />
     <ClInclude Include="MaterialComponent.h" />
+    <ClInclude Include="PointLightComponent.h" />
+    <ClInclude Include="SpotLightComponent.h" />
+    <ClInclude Include="sha256.h" />
     <ClInclude Include="TextureComponent.h" />
     <ClInclude Include="MemLeaks.h" />
     <ClInclude Include="MeshImporter.h" />

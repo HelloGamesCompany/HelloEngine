@@ -13,7 +13,6 @@ HELLO_ENGINE_API_C PlayerGunManager* CreatePlayerGunManager(ScriptToInspectorInt
     script->AddDragBoxGameObject("Automatic", &classInstance->automatic);
     script->AddDragBoxGameObject("Burst", &classInstance->burst);
     script->AddDragBoxGameObject("Shotgun", &classInstance->shotgun);
-    script->AddDragBoxGameObject("Handgun", &classInstance->handgun);
     script->AddDragBoxGameObject("Flamethrower", &classInstance->flamethrower);
     script->AddDragBoxGameObject("Ricochet", &classInstance->ricochet);
     script->AddDragFloat("Swap Delay", &classInstance->maxSwapDelay);
@@ -38,40 +37,47 @@ void PlayerGunManager::Start()
     guns.push_back(automatic);
     guns.push_back(burst);
     guns.push_back(shotgun);
-    guns.push_back(handgun);
     guns.push_back(flamethrower);
     guns.push_back(ricochet);
 
     // get start guns
     GetGun(1, 0);
     int equipedNormalGun = API_QuickSave::GetInt("equipedNormalGun");
-    if (equipedNormalGun < -1 || equipedNormalGun > 5) equipedNormalGun = -1;
+    if (equipedNormalGun < -1 || equipedNormalGun > 4) equipedNormalGun = -1;
     GetGun(2, equipedNormalGun);
     GetGun(3, -1);
-
+    //GetGun(1, gunOnHandIndex1);
+    //GetGun(2, gunOnHandIndex2);
+    //GetGun(3, gunOnHandIndex3);
+    //playerStats->laserAmmo = 99999;
+    //playerStats->specialAmmo = 99999;
     switch (equipedNormalGun)
     {
     case 1: // semiautomatic
+        playerStats->maxLaserAmmo = 150;
+        playerStats->laserAmmo = 150;
         if (swapWeapon) swapWeapon->SwapWeapon2(normalWeapon_Type::SEMI);
         break;
     case 2: // automatic
+        playerStats->maxLaserAmmo = 350;
+        playerStats->laserAmmo = 350;
         if (swapWeapon) swapWeapon->SwapWeapon2(normalWeapon_Type::AUTO);
         break;
     case 3: // burst
+        playerStats->maxLaserAmmo = 100;
+        playerStats->laserAmmo = 100;
         if (swapWeapon) swapWeapon->SwapWeapon2(normalWeapon_Type::BURST);
         break;
     case 4: // shotgun
-       
+        playerStats->maxLaserAmmo = 70;
+        playerStats->laserAmmo = 70;
         if (swapWeapon) swapWeapon->SwapWeapon2(normalWeapon_Type::SHOTGUN);
-        break;
-    case 5: // handgun
-        if (swapWeapon) swapWeapon->SwapWeapon2(normalWeapon_Type::REVOLVER);
         break;
     default:
         break;
     }
-    // start with base gun selected
-    UnequipGun(0);
+    
+    UnequipGun(0); // start with base gun selected
 }
 
 void PlayerGunManager::Update()
@@ -84,9 +90,9 @@ void PlayerGunManager::Update()
     if (playerStats && playerStats->hittedTime > 0.0f) return; // return if hitted
 
     // Keyboard
-    if (Input::GetKey(KeyCode::KEY_1) == KeyState::KEY_DOWN) { UnequipGun(gunOnHandIndex1); /*if (weaponUI.IsAlive() == true) { ((SwapWeapon*)weaponUI.GetScript("SwapWeapon"))->SwapWeapon1(); }*/  }
-    else if (Input::GetKey(KeyCode::KEY_2) == KeyState::KEY_DOWN) { UnequipGun(gunOnHandIndex2); /*if (weaponUI.IsAlive() == true) { ((SwapWeapon*)weaponUI.GetScript("SwapWeapon"))->SwapWeapon2(); }*/ }
-    else if (Input::GetKey(KeyCode::KEY_3) == KeyState::KEY_DOWN) { UnequipGun(gunOnHandIndex3); /*if (weaponUI.IsAlive() == true) { ((SwapWeapon*)weaponUI.GetScript("SwapWeapon"))->SwapWeapon3(); }*/ }
+    if (Input::GetKey(KeyCode::KEY_1) == KeyState::KEY_DOWN) UnequipGun(gunOnHandIndex1);
+    else if (Input::GetKey(KeyCode::KEY_2) == KeyState::KEY_DOWN) UnequipGun(gunOnHandIndex2);
+    else if (Input::GetKey(KeyCode::KEY_3) == KeyState::KEY_DOWN) UnequipGun(gunOnHandIndex3);
 
     // gamepad
     if (Input::GetGamePadButton(GamePadButton::BUTTON_LEFT_SHOULDER) == KeyState::KEY_DOWN)
@@ -152,50 +158,6 @@ void PlayerGunManager::Update()
             // no ammo sound?
         }
     }
-
-    //switch (equipedIndex)
-    //{
-    //case 0: // press and release
-    //case 1:
-    //case 4:
-    //case 5:
-    //case 7:
-    //    if ((Input::GetGamePadAxis(GamePadAxis::AXIS_TRIGGERRIGHT) > 5000 && canShoot) || Input::GetMouseButton(MouseButton::LEFT) == KeyState::KEY_DOWN)
-    //    {
-    //        if (playerStats && playerStats->GetAmmonByType(equipedGun->ammoType) > 0)
-    //        {
-    //            equipedGun->Shoot();
-    //            canShoot = false;
-    //        }
-    //        else
-    //        {
-    //            // no ammo sound?
-    //        }
-    //    }
-    //    if (Input::GetGamePadAxis(GamePadAxis::AXIS_TRIGGERRIGHT) < 5000)
-    //    {
-    //        canShoot = true;
-    //    }
-    //    break;
-    //case 2: // mantein pressed
-    //case 3:
-    //case 6:
-    //    if (Input::GetGamePadAxis(GamePadAxis::AXIS_TRIGGERRIGHT) > 5000 || Input::GetMouseButton(MouseButton::LEFT) == KeyState::KEY_REPEAT)
-    //    {
-    //        if (playerStats && playerStats->GetAmmonByType(equipedGun->ammoType) > 0)
-    //        {
-    //            equipedGun->Shoot();
-    //        }
-    //        else
-    //        {
-    //            // no ammo sound?
-    //        }
-    //    }
-    //    break;
-    //default:
-    //    break;
-    //}
-    
 }
 
 void PlayerGunManager::GetGun(int slot, int gunIndex)
@@ -245,15 +207,11 @@ void PlayerGunManager::EquipGun(int index)
         equipedGun = (PlayerGun*)guns[index].GetScript("PlayerShotgun");
         if (swapWeapon) swapWeapon->SwapWeapon2(normalWeapon_Type::SHOTGUN);
         break;
-    case 5: // handgun
-        equipedGun = (PlayerGun*)guns[index].GetScript("PlayerHandgun");
-        if (swapWeapon) swapWeapon->SwapWeapon2(normalWeapon_Type::REVOLVER);
-        break;
-    case 6: // flamethrower
+    case 5: // flamethrower
         equipedGun = (PlayerGun*)guns[index].GetScript("PlayerFlamethrower");
         if (swapWeapon) swapWeapon->SwapWeapon3(specialWeapon_Type::FLAMETHROWER);
         break;
-    case 7: // ricochet
+    case 6: // ricochet
         equipedGun = (PlayerGun*)guns[index].GetScript("PlayerRicochet");
         if (swapWeapon) swapWeapon->SwapWeapon3(specialWeapon_Type::RICOCHET);
         break;
@@ -270,12 +228,16 @@ void PlayerGunManager::UnequipGun(int index)
 {
     if (index == -1) return;
 
+    if (playerMove)
+    {
+        if (equipedIndex == 0) playerMove->PlaySwapGunAnim(0);
+        else playerMove->PlaySwapGunAnim(1);
+    }
+
     if (equipedGun != nullptr) equipedGun->EnableGuns(false);
     equipedIndex = index;
 
     if (playerStats && playerStats->armoryTreeLvl > 0) swapDelay = maxFastSwapDelay + 0.001f;
     else swapDelay = maxSwapDelay + 0.001f;
     swapToIndex = index;
-
-    if (playerMove) playerMove->PlaySwapGunAnim();
 }

@@ -4,6 +4,10 @@
 #include "Application.h"
 #include "MemLeaks.h"
 
+
+// TEMPORAL
+#include "sha256.h"
+
 enum main_states
 {
 	MAIN_CREATION,
@@ -22,6 +26,16 @@ int main(int argc, char** argv)
 	int main_return = EXIT_FAILURE;
 	main_states state = MAIN_CREATION;
 	Application* app = nullptr;
+
+	// HASHMAP TESTING
+
+	//std::string fileName = "Assets/Test.png";
+	//std::hash<std::string> hasher;
+	//size_t hashValue = hasher(fileName);
+
+
+	//SHA256 hash;
+	//std::string test = hash("Assets/Test.txt");
 
 	//_CrtSetBreakAlloc(152277);
 

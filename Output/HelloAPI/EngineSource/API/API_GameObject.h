@@ -22,6 +22,7 @@ namespace API
 	class API_UIInput;
 	class API_UIText;
     class API_SkinnedMeshRenderer;
+    class API_ShaderComponent;
     class TO_API API_GameObject
     {
     public:
@@ -61,6 +62,8 @@ namespace API
 
         API_SkinnedMeshRenderer GetSkinnedMeshRender();
 
+        uint GetUID();
+
         void SetActive(bool active);
         bool IsActive();
 
@@ -96,5 +99,6 @@ namespace API
 		friend class API_UIInput;
 		friend class API_UIText;
         friend class API_SkinnedMeshRenderer;
+        friend class API_ShaderComponent;
     };
 }

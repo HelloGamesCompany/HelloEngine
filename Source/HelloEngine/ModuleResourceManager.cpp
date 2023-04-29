@@ -21,6 +21,7 @@
 #include "ModuleRenderer3D.h"
 #include "Component.h"
 #include "LayerEditor.h"
+#include "Lighting.h"
 
 // In create resource mesh method save my index and model UID.
 // Save ResourceModel UID and index.
@@ -68,7 +69,6 @@ bool ModuleResourceManager::Start()
 	_fileTree = new FileTree();
 
 	ModuleFiles::S_UpdateFileTree(_fileTree);
-
 	return true;
 }
 
@@ -115,6 +115,38 @@ void ModuleResourceManager::S_ImportFile(const std::string& filePath)
 	{
 		ModuleFiles::S_CreateMetaData(filePath, filePath, S_GetPrefabUID(filePath));
 
+		break;
+	}
+	case ResourceType::MATERIAL:
+	{
+		uint UUID = HelloUUID::GenerateGUID(filePath);
+		std::string resourcePath = "Resources/Materials/" + std::to_string(UUID) + ".material";
+
+		char* buffer = nullptr;
+		uint size = ModuleFiles::S_Load(filePath, &buffer);
+
+		//Resources
+		ModuleFiles::S_Save(resourcePath, &buffer[0], size, false);
+
+		//Create Metadata
+		ModuleFiles::S_CreateMetaData(filePath, resourcePath, UUID);
+		RELEASE(buffer);
+		break;
+	}
+	case ResourceType::SHADER:
+	{
+		uint UUID = HelloUUID::GenerateGUID(filePath);
+		std::string resourcePath = "Resources/Shaders/" + std::to_string(UUID) + ".shader";
+
+		char* buffer = nullptr;
+		uint size = ModuleFiles::S_Load(filePath, &buffer);
+
+		//Resources
+		ModuleFiles::S_Save(resourcePath, &buffer[0], size, false);
+
+		//Create Metadata
+		ModuleFiles::S_CreateMetaData(filePath, resourcePath, UUID);
+		RELEASE(buffer);
 		break;
 	}
 	default:
@@ -570,7 +602,7 @@ bool ModuleResourceManager::S_DeserializeScene(const std::string& filePath)
 	ModuleLayers::DestroyMeshes(); // When all meshes are destroyed, the Instance Renderers get destroyed as well. In this case, we want this to happen BEFORE we Deserialize the scene
 									   // If we let it happen afterwards, the old meshes will destroy the new Instance Renderers.
 	LayerGame::RemoveAllScripts();
-
+	Lighting::ClearLights();
 // Create New GameObject for root GameObject
 	if (ModuleLayers::rootGameObject)
 		ModuleLayers::rootGameObject->Destroy();
@@ -952,6 +984,8 @@ std::vector<Resource*> ModuleResourceManager::S_GetResourcePool(ResourceType typ
 	std::vector<Resource*> toReturn;
 	for (const auto& r : resources)
 	{
+		if (r.second == nullptr)
+			continue;
 		if (r.second->type == type) toReturn.push_back(r.second);
 	}
 

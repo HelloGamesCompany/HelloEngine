@@ -36,17 +36,21 @@ struct File : public SelectableFile
 			metaPath = path + ".helloMeta";
 			metaFile = ModuleFiles::S_LoadMeta(metaPath);
 
+			
 			// Check if this meta file has a different modify time than the file.
+#ifdef STANDALONE
 			unsigned long long modifyTime = ModuleFiles::S_CheckFileLastModify(path);
 			if (metaFile.lastModified != modifyTime)
 				Reimport();
+#endif // STANDALONE
 		}
 		else
 		{
 			// If the resource type of this file is not undefined:
 			// iF it doesn't have a meta file, create one by using the ImportFile method inside ModuleResourceManager
 			if (ModuleFiles::S_GetResourceType(path) == ResourceType::UNDEFINED ||
-				ModuleFiles::S_GetResourceType(path) == ResourceType::SCENE)
+				ModuleFiles::S_GetResourceType(path) == ResourceType::SCENE ||
+				ModuleFiles::S_GetResourceType(path) == ResourceType::ANIMATION)
 				return;
 
 			ModuleResourceManager::S_ImportFile(path);

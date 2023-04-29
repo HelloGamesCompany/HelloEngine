@@ -5,6 +5,7 @@
 #include "LayerGame.h"
 #include "ModuleLayers.h"
 #include "PhysicsComponent.h"
+#include "GameObject.h"
 
 btDiscreteDynamicsWorld* ModulePhysics::world = nullptr;
 std::vector <PhysBody3D*> ModulePhysics::physBodies;
@@ -61,21 +62,21 @@ bool ModulePhysics::Start()
 	//testBody2->body->setGravity(btVector3(0, 0, 0));
 	// Testing------------------------------------------
 
-	for (int i = 0; i < physBodies.size(); i++) 
-	{
-		if (ModuleLayers::gameObjects.count(physBodies[i]->gameObjectUID) != 0)
-		{
-			GameObject* go = ModuleLayers::gameObjects[physBodies[i]->gameObjectUID];
-			go->GetComponent<PhysicsComponent>()->CheckRenderBuffers();
-		}
-	}
+	//for (int i = 0; i < physBodies.size(); i++) 
+	//{
+	//	if (ModuleLayers::gameObjects.count(physBodies[i]->gameObjectUID) != 0)
+	//	{
+	//		GameObject* go = ModuleLayers::gameObjects[physBodies[i]->gameObjectUID];
+	//		go->GetComponent<PhysicsComponent>()->CheckRenderBuffers();
+	//	}
+	//}
 
 	return true;
 }
 
 UpdateStatus ModulePhysics::PreUpdate()
 {
-	if (hasToSetRenderBuffers == true) 
+	/*if (hasToSetRenderBuffers == true) 
 	{
 		for (int i = 0; i < physBodies.size(); i++) 
 		{
@@ -86,7 +87,7 @@ UpdateStatus ModulePhysics::PreUpdate()
 			}
 		}
 		hasToSetRenderBuffers = false;
-	}
+	}*/
 	//world->stepSimulation(Application::Instance()->GetDeltaTime(), 15);
 
 	////testBody->Push(1, 1, 1);
@@ -116,44 +117,304 @@ UpdateStatus ModulePhysics::PreUpdate()
 	world->stepSimulation(EngineTime::GameDeltaTime(), 15);
 #endif	
 
-	int numManifolds = world->getDispatcher()->getNumManifolds();
-	for (int i = 0; i < numManifolds; i++)
-	{
-		btPersistentManifold* contactManifold = world->getDispatcher()->getManifoldByIndexInternal(i);
-		btCollisionObject* obA = (btCollisionObject*)(contactManifold->getBody0());
-		btCollisionObject* obB = (btCollisionObject*)(contactManifold->getBody1());
+	////////////OPCION 1 
+	// (Adaptacion de como estaba. Usa 2 mapas, el del frame anterior y el del actual, y compara. 
+	// Primero actualiza los mapas para este frame. 
+	// Luego, actualiza los mapas de los objetos que colisionan.
+	// Finalmente, actualiza los mapas de los objetos que no han colisionado y que en el anterior frame si lo hacian)
 
-		int numContacts = contactManifold->getNumContacts();
-		if (numContacts > 0)
+
+	//if (LayerGame::S_IsPlaying()) {
+	//	for (int i = 0; i < physBodies.size(); i++)
+	//	{
+	//		PhysBody3D* pbody = physBodies.at(i);
+	//		pbody->lastFrameCollidingBodies.clear();
+	//		pbody->lastFrameCollidingBodies.insert(pbody->thisFrameCollidingBodies.begin(), pbody->thisFrameCollidingBodies.end());
+	//		pbody->thisFrameCollidingBodies.clear();
+	//	}
+
+	//	int numManifolds = world->getDispatcher()->getNumManifolds();
+
+	//	for (int i = 0; i < numManifolds; i++)
+	//	{
+	//		btPersistentManifold* contactManifold = world->getDispatcher()->getManifoldByIndexInternal(i);
+	//		btCollisionObject* obA = (btCollisionObject*)(contactManifold->getBody0());
+	//		btCollisionObject* obB = (btCollisionObject*)(contactManifold->getBody1());
+
+
+	//		int numContacts = contactManifold->getNumContacts();
+	//		if (numContacts > 0)
+	//		{
+	//			//Console::S_Log("CONTACT");
+
+	//			PhysBody3D* pBodyA = (PhysBody3D*)obA->getUserPointer();
+	//			PhysBody3D* pBodyB = (PhysBody3D*)obB->getUserPointer();
+
+	//			if (pBodyA && pBodyB)
+	//			{
+	//				if (ModuleLayers::gameObjects.count(pBodyA->gameObjectUID) != 0 && ModuleLayers::gameObjects[pBodyA->gameObjectUID] != nullptr)
+	//				{
+	//					GameObject* objectA = ModuleLayers::gameObjects[pBodyA->gameObjectUID];
+	//					GameObject* objectB = ModuleLayers::gameObjects[pBodyB->gameObjectUID];
+
+	//					if (!objectA->IsActive() || !objectB->IsActive())
+	//						continue;
+
+	//					//Prov
+	//					/*objectA->OnCollisionEnter(pBodyB);*/
+
+	//					if (pBodyA->lastFrameCollidingBodies.count(pBodyB->gameObjectUID) != 0 && pBodyA->lastFrameCollidingBodies[pBodyB->gameObjectUID] != nullptr)
+	//					{
+	//						//stay
+	//						objectA->OnCollisionStay(pBodyB);
+	//						pBodyA->thisFrameCollidingBodies.insert(std::pair<uint, PhysBody3D*>(pBodyB->gameObjectUID, pBodyB));
+	//					}
+	//					else
+	//					{
+	//						//enter
+	//						objectA->OnCollisionEnter(pBodyB);
+	//						pBodyA->thisFrameCollidingBodies.insert(std::pair<uint, PhysBody3D*>(pBodyB->gameObjectUID, pBodyB));
+	//					}
+	//				}
+
+	//				if (ModuleLayers::gameObjects.count(pBodyB->gameObjectUID) != 0 && ModuleLayers::gameObjects[pBodyB->gameObjectUID] != nullptr)
+	//				{
+	//					GameObject* objectA = ModuleLayers::gameObjects[pBodyA->gameObjectUID];
+	//					GameObject* objectB = ModuleLayers::gameObjects[pBodyB->gameObjectUID];
+
+	//					if (!objectB->IsActive())
+	//						continue;
+
+	//					//Prov
+	//					/*objectB->OnCollisionEnter(pBodyA);*/
+
+	//					if (pBodyB->lastFrameCollidingBodies.count(pBodyA->gameObjectUID) != 0 && pBodyB->lastFrameCollidingBodies[pBodyA->gameObjectUID] != nullptr)
+	//					{
+	//						//stay
+	//						objectB->OnCollisionStay(pBodyA);
+	//						pBodyB->thisFrameCollidingBodies.insert(std::pair<uint, PhysBody3D*>(pBodyA->gameObjectUID, pBodyA));
+	//					}
+	//					else
+	//					{
+	//						//enter
+	//						objectB->OnCollisionEnter(pBodyA);
+	//						pBodyB->thisFrameCollidingBodies.insert(std::pair<uint, PhysBody3D*>(pBodyA->gameObjectUID, pBodyA));
+	//					}
+	//				}
+	//			}
+	//		}
+	//	}
+
+	//	for (int i = 0; i < physBodies.size(); i++)
+	//	{
+	//		PhysBody3D* pbody = physBodies.at(i);
+
+	//		for (auto it1 = pbody->lastFrameCollidingBodies.begin(); it1 != pbody->lastFrameCollidingBodies.end(); it1++) {
+
+	//			if (pbody->thisFrameCollidingBodies.count(it1->first) == 0 || pbody->thisFrameCollidingBodies[it1->first] == nullptr)
+	//			{
+	//				//exit
+	//				GameObject* obj = ModuleLayers::gameObjects[pbody->gameObjectUID];
+
+	//				obj->OnCollisionExit(pbody->lastFrameCollidingBodies[it1->first]);
+	//			}
+	//		}
+	//	}
+	//}
+
+	////OPCION 1.5 (Adaptacion de la 1 que quiza esta un poco mas optimizado)
+	
+
+	if (LayerGame::S_IsPlaying()) {
+		for (int i = 0; i < physBodies.size(); i++)
 		{
-			PhysBody3D* pBodyA = (PhysBody3D*)obA->getUserPointer();
-			PhysBody3D* pBodyB = (PhysBody3D*)obB->getUserPointer();
+			PhysBody3D* pbody = physBodies.at(i);
+			pbody->lastFrameCollidingBodies.clear();
+			pbody->lastFrameCollidingBodies.insert(pbody->thisFrameCollidingBodies.begin(), pbody->thisFrameCollidingBodies.end());
+			pbody->thisFrameCollidingBodies.clear();
+		}
 
-			if (pBodyA && pBodyB)
+		int numManifolds = world->getDispatcher()->getNumManifolds();
+
+		for (int i = 0; i < numManifolds; i++)
+		{
+			btPersistentManifold* contactManifold = world->getDispatcher()->getManifoldByIndexInternal(i);
+			btCollisionObject* obA = (btCollisionObject*)(contactManifold->getBody0());
+			btCollisionObject* obB = (btCollisionObject*)(contactManifold->getBody1());
+
+
+			int numContacts = contactManifold->getNumContacts();
+			if (numContacts > 0)
 			{
-				if (ModuleLayers::gameObjects.count(pBodyA->gameObjectUID) != 0 && ModuleLayers::gameObjects[pBodyA->gameObjectUID] != nullptr)
+				//Console::S_Log("CONTACT");
+
+				PhysBody3D* pBodyA = (PhysBody3D*)obA->getUserPointer();
+				PhysBody3D* pBodyB = (PhysBody3D*)obB->getUserPointer();
+
+				if (pBodyA && pBodyB)
 				{
-					GameObject* objectA = ModuleLayers::gameObjects[pBodyA->gameObjectUID];
-					GameObject* objectB = ModuleLayers::gameObjects[pBodyB->gameObjectUID];
+					if ((ModuleLayers::gameObjects.count(pBodyA->gameObjectUID) != 0 && ModuleLayers::gameObjects[pBodyA->gameObjectUID] != nullptr)
+					&& (ModuleLayers::gameObjects.count(pBodyB->gameObjectUID) != 0 && ModuleLayers::gameObjects[pBodyB->gameObjectUID] != nullptr))
+					{
+						GameObject* objectA = ModuleLayers::gameObjects[pBodyA->gameObjectUID];
+						GameObject* objectB = ModuleLayers::gameObjects[pBodyB->gameObjectUID];
 
-					if (!objectA->IsActive() || !objectB->IsActive())
-						continue;
+						if (!objectA->IsActive() || !objectB->IsActive())
+							continue;
 
-					objectA->OnCollisionEnter(pBodyB);
+						if (pBodyA->lastFrameCollidingBodies.count(pBodyB->gameObjectUID) != 0 && pBodyA->lastFrameCollidingBodies[pBodyB->gameObjectUID] != nullptr)
+						{
+							//stay
+							objectA->OnCollisionStay(pBodyB);
+							pBodyA->thisFrameCollidingBodies.insert(std::pair<uint, PhysBody3D*>(pBodyB->gameObjectUID, pBodyB));
+						}
+						else
+						{
+							//enter
+							objectA->OnCollisionEnter(pBodyB);
+							pBodyA->thisFrameCollidingBodies.insert(std::pair<uint, PhysBody3D*>(pBodyB->gameObjectUID, pBodyB));
+						}
+
+						if (pBodyB->lastFrameCollidingBodies.count(pBodyA->gameObjectUID) != 0 && pBodyB->lastFrameCollidingBodies[pBodyA->gameObjectUID] != nullptr)
+						{
+							//stay
+							objectB->OnCollisionStay(pBodyA);
+							pBodyB->thisFrameCollidingBodies.insert(std::pair<uint, PhysBody3D*>(pBodyA->gameObjectUID, pBodyA));
+						}
+						else
+						{
+							//enter
+							objectB->OnCollisionEnter(pBodyA);
+							pBodyB->thisFrameCollidingBodies.insert(std::pair<uint, PhysBody3D*>(pBodyA->gameObjectUID, pBodyA));
+						}
+					}
+					
 				}
-				
-				if (ModuleLayers::gameObjects.count(pBodyB->gameObjectUID) != 0 && ModuleLayers::gameObjects[pBodyB->gameObjectUID] != nullptr)
+			}
+		}
+
+		for (int i = 0; i < physBodies.size(); i++)
+		{
+			PhysBody3D* pbody = physBodies.at(i);
+
+			for (auto it1 = pbody->lastFrameCollidingBodies.begin(); it1 != pbody->lastFrameCollidingBodies.end(); it1++) {
+
+				if (pbody->thisFrameCollidingBodies.count(it1->first) == 0 || pbody->thisFrameCollidingBodies[it1->first] == nullptr)
 				{
-					GameObject* objectB = ModuleLayers::gameObjects[pBodyB->gameObjectUID];
+					//exit
+					GameObject* obj = ModuleLayers::gameObjects[pbody->gameObjectUID];
 
-					if (!objectB->IsActive())
-						continue;
-
-					objectB->OnCollisionEnter(pBodyA);
+					obj->OnCollisionExit(pbody->lastFrameCollidingBodies[it1->first]);
 				}
 			}
 		}
 	}
+
+	///////////OPCION 2 
+	// (Itera cada gameobject con colisiones. Por cada uno, itera otra vez para encontrar posibles colisiones.
+	// Luego, itera todas las colisiones que se están produciendo.
+	// Si una de esas colisiones coincide con los gameobject que se estan iterando, actualiza su mapa.
+	// Si ninguna colision coincide con los gameobject que se estan iterando, actualiza su mapa.
+
+	
+	//if (LayerGame::S_IsPlaying()) {
+
+	//	for (int i = world->getNumCollisionObjects() - 1; i >= 0; i--)
+	//	{
+	//		btCollisionObject* obj1 = world->getCollisionObjectArray()[i];
+
+	//		for (int j = world->getNumCollisionObjects() - 1; j >= 0; j--)
+	//		{
+	//			if (j != i)
+	//			{
+	//				btCollisionObject* obj2 = world->getCollisionObjectArray()[j];
+
+	//				PhysBody3D* pBody1 = (PhysBody3D*)obj1->getUserPointer();
+	//				PhysBody3D* pBody2 = (PhysBody3D*)obj2->getUserPointer();
+
+	//				GameObject* object1 = ModuleLayers::gameObjects[pBody1->gameObjectUID];
+	//				GameObject* object2 = ModuleLayers::gameObjects[pBody2->gameObjectUID];
+
+
+	//				bool obj1ContactsObj2 = false;
+
+	//				int numManifolds = world->getDispatcher()->getNumManifolds();
+	//				for (int k = 0; k < numManifolds; k++)
+	//				{
+	//					btPersistentManifold* contactManifold = world->getDispatcher()->getManifoldByIndexInternal(k);
+	//					btCollisionObject* obA = (btCollisionObject*)(contactManifold->getBody0());
+	//					btCollisionObject* obB = (btCollisionObject*)(contactManifold->getBody1());
+
+	//					int numContacts = contactManifold->getNumContacts();
+	//					if (numContacts > 0)
+	//					{
+	//						//Console::S_Log("CONTACT");
+
+	//						PhysBody3D* pBodyA = (PhysBody3D*)obA->getUserPointer();
+	//						PhysBody3D* pBodyB = (PhysBody3D*)obB->getUserPointer();
+
+	//						if (pBodyA && pBodyB)
+	//						{
+	//							if ((ModuleLayers::gameObjects.count(pBodyA->gameObjectUID) != 0 && ModuleLayers::gameObjects[pBodyA->gameObjectUID] != nullptr)
+	//							&& (ModuleLayers::gameObjects.count(pBodyB->gameObjectUID) != 0 && ModuleLayers::gameObjects[pBodyB->gameObjectUID] != nullptr))
+	//							{
+	//								GameObject* objectA = ModuleLayers::gameObjects[pBodyA->gameObjectUID];
+	//								GameObject* objectB = ModuleLayers::gameObjects[pBodyB->gameObjectUID];
+
+	//								if (!objectA->IsActive() || !objectB->IsActive())
+	//									continue;
+
+	//								if (object1 == objectA && object2 == objectB)
+	//								{
+	//									obj1ContactsObj2 = true;
+	//									if (pBody1->thisFrameCollidingBodies.count(pBody2->gameObjectUID) != 0 && pBody1->thisFrameCollidingBodies[pBody2->gameObjectUID] != nullptr)
+	//									{
+	//										//stay
+	//										object1->OnCollisionStay(pBody2);
+	//									}
+	//									else
+	//									{
+	//										//enter
+	//										object1->OnCollisionEnter(pBody2);
+	//										pBody1->thisFrameCollidingBodies.insert(std::pair<uint, PhysBody3D*>(pBody2->gameObjectUID, pBody2));
+	//									}
+	//									//Console::S_Log("TRUE: " + object1->GetName() + " with " + object2->GetName());
+	//								}
+	//								else if (object1 == objectB && object2 == objectA)
+	//								{
+	//									obj1ContactsObj2 = true;
+	//									if (pBody1->thisFrameCollidingBodies.count(pBody2->gameObjectUID) != 0 && pBody1->thisFrameCollidingBodies[pBody2->gameObjectUID] != nullptr)
+	//									{
+	//										//stay
+	//										object1->OnCollisionStay(pBody2);
+	//									}
+	//									else
+	//									{
+	//										//enter
+	//										object1->OnCollisionEnter(pBody2);
+	//										pBody1->thisFrameCollidingBodies.insert(std::pair<uint, PhysBody3D*>(pBody2->gameObjectUID, pBody2));
+	//									}
+	//									//Console::S_Log("TRUE: " + object1->GetName() + " with " + object2->GetName());
+	//								}
+	//							}				
+	//						}
+	//					}
+	//				}
+	//				
+	//				if (obj1ContactsObj2 == false) 
+	//				{
+	//					if (pBody1->thisFrameCollidingBodies.count(pBody2->gameObjectUID) != 0 && pBody1->thisFrameCollidingBodies[pBody2->gameObjectUID] != nullptr)
+	//					{
+	//						//exit
+	//						object1->OnCollisionExit(pBody2);
+	//						pBody1->thisFrameCollidingBodies.erase(pBody2->gameObjectUID);
+	//					}
+	//					//Console::S_Log("FALSE: " + object1->GetName() + " does not collide with " + object2->GetName());
+	//				}				
+	//			}
+	//		}
+	//	}
+	//}
 
 	return UpdateStatus::UPDATE_CONTINUE;
 }
@@ -315,12 +576,17 @@ void ModulePhysics::S_RemovePhysBody(PhysBody3D* physBody)
 
 void ModulePhysics::UpdatePhysBodyPos(PhysBody3D* physBody)
 {
+	if (ModuleLayers::gameObjects.count(physBody->gameObjectUID) == 0)
+		return;
 	float3 currentTransformPos = ModuleLayers::gameObjects[physBody->gameObjectUID]->transform->GetGlobalPosition();
 	physBody->SetPos(physBody->colPos.x + currentTransformPos.x, physBody->colPos.y + currentTransformPos.y, physBody->colPos.z + currentTransformPos.z);
 }
 
 void ModulePhysics::UpdatePhysBodyRotation(PhysBody3D* physBody)
 {
+	if (ModuleLayers::gameObjects.count(physBody->gameObjectUID) == 0)
+		return;
+
 	physBody->SetRotation(physBody->colRot.x, physBody->colRot.y, physBody->colRot.z);
 }
 

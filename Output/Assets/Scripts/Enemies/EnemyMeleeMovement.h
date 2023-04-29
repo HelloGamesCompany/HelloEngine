@@ -29,7 +29,8 @@ public:
         TARGETING,
         WANDERING,
         ATTACKIG,
-        DASHING
+        DASHING,
+        DYING
 
     };
 
@@ -53,6 +54,8 @@ public:
     bool targeting = false;
     bool dashing = false;
    // bool shooted = false;
+
+    bool attacking = false;
 
     float detectionDis = 2.0f;
     float lossingDis = 10.0f;
