@@ -2,6 +2,7 @@
 #include "../Enemies/EnemyMeleeMovement.h"
 #include "../Enemies/Enemy.h"
 #include "../Shooting/Projectile.h"
+#include "API/API_AnimationPlayer.h"
 
 HELLO_ENGINE_API_C EnemyMeleeSpawner* CreateEnemyMeleeSpawner(ScriptToInspectorInterface* script)
 {
@@ -86,7 +87,7 @@ void EnemyMeleeSpawner::Start()
         EnemyMeleeMovement* enemyMeleeMov = (EnemyMeleeMovement*)enemiesInSpawn[i].GetScript("EnemyMeleeMovement");
         if (enemyMeleeMov != nullptr)
         {
-
+             
             enemyMeleeMov->target = target;
             enemyMeleeMov->actionZone = actionZone;
             enemyMeleeMov->zoneRb = zoneRb;
@@ -94,6 +95,7 @@ void EnemyMeleeSpawner::Start()
             enemyMeleeMov->listPoints[1] = listPoints[1];
             enemyMeleeMov->listPoints[2] = listPoints[2];
             enemyMeleeMov->attackZoneGO = attackZoneRef;
+            enemyMeleeMov->animationPlayer = skinnedMeshRef.GetGameObject().GetAnimationPlayer();
 
             enemyMeleeMov->Start();
         }
@@ -103,7 +105,7 @@ void EnemyMeleeSpawner::Start()
 }
 void EnemyMeleeSpawner::Update()
 {
-    if (!destroyed)
+    if (!destroyed) 
     {
         spawnTimer += Time::GetDeltaTime();
 
@@ -144,9 +146,10 @@ void EnemyMeleeSpawner::SpawnEnemy(int i)
 
     if (i == -1)
     {
+        Console::Log("NOT SPAWN");
         return;
     }
-
+    Console::Log("YES SPAWN");
     enemiesInSpawn[i].GetTransform().SetPosition(gameObject.GetTransform().GetGlobalPosition());
     enemiesInSpawn[i].SetActive(true);
 

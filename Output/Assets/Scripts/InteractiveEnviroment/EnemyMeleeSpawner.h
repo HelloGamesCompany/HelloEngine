@@ -35,8 +35,6 @@ public:
 
 	API_RigidBody zoneRb;
 
-	API_AnimationPlayer animationPlayer;
-
 	API_GameObject listPoints[5];
 
 	uint enemyPrefabRes;
