@@ -38357,7 +38357,7 @@
             {
                 "Active camera": true,
                 "Active culling": false,
-                "Aspect ratio": 2.064631938934326,
+                "Aspect ratio": 1.9408766031265259,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -38385,6 +38385,9 @@
                         "Offset_Z": -10.0
                     },
                     {
+                        "Orbital Offset Multiplier": 2.0
+                    },
+                    {
                         "Rot_X": 56.0
                     },
                     {
@@ -38398,6 +38401,9 @@
                     },
                     {
                         "Use safe zone: ": true
+                    },
+                    {
+                        "Orbital": false
                     }
                 ],
                 "Script Resource": 577361718,
@@ -66078,9 +66084,6 @@
                     },
                     {
                         "Texture Bomb 6": 3749102505
-                    },
-                    {
-                        "TEMPORAL- finalTextPanel": 2427945228
                     }
                 ],
                 "Script Resource": 2642193061,
@@ -72537,9 +72540,6 @@
                         "Shoot Shotgun Animation": 2706901869
                     },
                     {
-                        "Shoot Handgun Animation": 2706901869
-                    },
-                    {
                         "Hit Animation": 359781210
                     },
                     {
@@ -72589,9 +72589,6 @@
                         "Upgraded Aid Kit Heal Amount": 60.0
                     },
                     {
-                        "Hit Particles": 4287485572
-                    },
-                    {
                         "Passive Heal Particles": 1471927406
                     },
                     {
@@ -72636,9 +72633,6 @@
                     },
                     {
                         "Shotgun": 23838785
-                    },
-                    {
-                        "Handgun": 1822674229
                     },
                     {
                         "Swap Delay": 1.0
@@ -78367,51 +78361,8 @@
             },
             {
                 "Enabled": true,
-                "Inspector Fields": [
-                    {
-                        "Projectile Pull": 3433217862
-                    },
-                    {
-                        "Projectile Speed": 0.0
-                    },
-                    {
-                        "Projectile Damage": 0.0
-                    },
-                    {
-                        "Projectile Resistance Damage": 0.0
-                    },
-                    {
-                        "Projectile Lifetime": 0.0
-                    },
-                    {
-                        "Projectile Spawn": 1822674229
-                    },
-                    {
-                        "Projectile ScaleX": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleY": 0.10000000149011612
-                    },
-                    {
-                        "Projectile ScaleZ": 0.10000000149011612
-                    },
-                    {
-                        "Projectiles per second": 0.0
-                    },
-                    {
-                        "Extra % firerate": 15.0
-                    },
-                    {
-                        "Player Stats GO": 373022943
-                    },
-                    {
-                        "Ammo Type": 1
-                    },
-                    {
-                        "Audio Event String": "w_handgun"
-                    }
-                ],
-                "Script Resource": 4264749539,
+                "Inspector Fields": null,
+                "Script Resource": 0,
                 "Type": 5
             }
         ],
@@ -79770,12 +79721,6 @@
                     },
                     {
                         "Shotgun Bomb Prefab": 884876432
-                    },
-                    {
-                        "Electricity Chain Pull Size": 10
-                    },
-                    {
-                        "Electricity Chain Prefab": 4219605086
                     },
                     {
                         "Check Ricochet Traget Prefab": 3306111952
@@ -88370,9 +88315,6 @@
                         "Boss Stats GO": 4283218684
                     },
                     {
-                        "All GO HUD BOSS": 456782903
-                    },
-                    {
                         "HP BOSS UI IMAGE": 2571830806
                     },
                     {
@@ -92309,9 +92251,11 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 0,
+                "hoverBlockImage": 0,
                 "hoverImage": 2113770562,
+                "idleBlockImage": 0,
                 "idleImage": 258549829,
+                "pressBlockImage": 0,
                 "pressImage": 516501109
             }
         ],
@@ -92616,9 +92560,11 @@
                 "MeshEnabled": true,
                 "State": 0,
                 "Type": 12,
-                "blockImage": 0,
+                "hoverBlockImage": 0,
                 "hoverImage": 2113770562,
+                "idleBlockImage": 0,
                 "idleImage": 258549829,
+                "pressBlockImage": 0,
                 "pressImage": 516501109
             }
         ],
