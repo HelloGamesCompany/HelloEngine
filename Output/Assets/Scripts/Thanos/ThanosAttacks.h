@@ -115,5 +115,6 @@ public:
 
 	float angle = 0.0f;
 
+	float pulse = false;
 };
 

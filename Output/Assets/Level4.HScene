@@ -127,7 +127,7 @@
             {
                 "Active camera": true,
                 "Active culling": false,
-                "Aspect ratio": 2.0700180530548096,
+                "Aspect ratio": 2.064631938934326,
                 "Enabled": true,
                 "FOV": 60.0,
                 "Far plane": 1000.0,
@@ -15177,10 +15177,10 @@
                         "BeamTarget2": 3352584672
                     },
                     {
-                        "BeamTarget3": 1743982176
+                        "BeamTarget3": 299748191
                     },
                     {
-                        "BeamTarget3": 1743982176
+                        "BeamTarget4": 1743982176
                     }
                 ],
                 "Script Resource": 3789534315,
@@ -15190,7 +15190,7 @@
                 "Enabled": true,
                 "Inspector Fields": [
                     {
-                        "Hp": 3000.0
+                        "Hp": 2017.0
                     }
                 ],
                 "Script Resource": 84377673,
@@ -17291,15 +17291,6 @@
                         "Shoot Shotgun Animation": 2946562888
                     },
                     {
-                        "Shoot Flamethrower Animation": 3917491268
-                    },
-                    {
-                        "Shoot Ricochet Animation": 2946562888
-                    },
-                    {
-                        "Swap Duals Animation": 3812072834
-                    },
-                    {
                         "Swap Gun Animation": 2774027618
                     },
                     {
@@ -17350,9 +17341,6 @@
                     },
                     {
                         "Upgraded Aid Kit Heal Amount": 60.0
-                    },
-                    {
-                        "Material Component": 603016130
                     },
                     {
                         "Passive Heal Particles": 2974379620

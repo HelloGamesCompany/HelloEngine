@@ -32,7 +32,7 @@ HELLO_ENGINE_API_C ThanosAttacks* CreateThanosAttacks(ScriptToInspectorInterface
 	script->AddDragBoxGameObject("BeamTarget1", &classInstance->beamTarget1);
 	script->AddDragBoxGameObject("BeamTarget2", &classInstance->beamTarget2);
 	script->AddDragBoxGameObject("BeamTarget3", &classInstance->beamTarget3);
-	script->AddDragBoxGameObject("BeamTarget3", &classInstance->beamTarget4);
+	script->AddDragBoxGameObject("BeamTarget4", &classInstance->beamTarget4);
 
 
 	//Show variables inside the inspector using script->AddDragInt("variableName", &classInstance->variable);
@@ -73,10 +73,13 @@ void ThanosAttacks::Start()
 void ThanosAttacks::Update()
 {
 	//defenseSword.GetTransform().SetPosition(boss.GetTransform().GetGlobalPosition());
-	if (tLoop->phase == 2 && thanosState != THANOS_STATE::THROWINGATTACK && finalSword == true) {
+	if (tLoop->phase == 2) {
 		//2ND phase!!!
-
-
+		if (pulse == false) {
+			pulse = true;
+			sword.SetActive(false);
+			thanosState = THANOS_STATE::PULSE;
+		}
 
 		switch (thanosState)
 		{
