@@ -14,6 +14,7 @@ public:
 	~ModuleRenderer3D();
 
 	bool Init();
+	bool Start();
 	UpdateStatus PreUpdate();
 	UpdateStatus PostUpdate();
 	bool CleanUp();

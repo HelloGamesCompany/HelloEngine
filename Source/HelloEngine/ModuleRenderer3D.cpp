@@ -83,6 +83,15 @@ bool ModuleRenderer3D::Init()
 	return ret;
 }
 
+bool ModuleRenderer3D::Start()
+{
+	bool ret = true;
+
+	particleManager.Start();
+
+	return ret;
+}
+
 // PreUpdate: clear buffer
 UpdateStatus ModuleRenderer3D::PreUpdate()
 {
