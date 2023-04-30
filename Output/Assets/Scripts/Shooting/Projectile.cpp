@@ -3,6 +3,8 @@
 #include "../Enemies/Enemy.h"
 #include "../EbonyMaw/BossLoop.h"
 #include "../Thanos/ThanosLoop.h"
+#include "../Thanos/ThanosAttacks.h"
+
 HELLO_ENGINE_API_C Projectile* CreateProjectile(ScriptToInspectorInterface* script)
 {
     Projectile* classInstance = new Projectile();
@@ -77,15 +79,23 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
             }
             Destroy();
         }
-        else if (detectionTag == "Thanos" && !reflected)
+        else if (detectionTag == "Thanos")
         {
             ThanosLoop* boss = (ThanosLoop*)other.GetGameObject().GetScript("ThanosLoop");
-            if (boss)
-            {
-                boss->TakeDamage(damage);
-                boss->CheckBombs();
-            }
-            Destroy();
+            ThanosAttacks* bosss = (ThanosAttacks*)other.GetGameObject().GetScript("ThanosAttacks");
+                if (bosss->defenseSword.IsActive() == true) {
+                    gameObject.GetTransform().Rotate(0, 180, 0);
+                    reflected = true;
+                }
+                else {
+                    if (boss) {
+
+                        boss->TakeDamage(damage);
+                        boss->CheckBombs();
+                        Destroy();
+                    }
+                }
+           
         }
         else if (detectionTag == "Player" && reflected)
         {
@@ -120,14 +130,27 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
             pull->LauchProjectileSECONDARY_SEMI(speed, damage / 3.0f, resistanceDamage / 3.0f, 0.3f, gameObject.GetTransform(), { 0.1f, 0.1f, 0.1f }, -30.0f, other.GetGameObject().GetUID());
             Destroy();
         }
-        else if (detectionTag == "Thanos" && !reflected)
+        else if (detectionTag == "Thanos")
         {
+            ThanosAttacks* bosss = (ThanosAttacks*)other.GetGameObject().GetScript("ThanosAttacks");
             ThanosLoop* boss = (ThanosLoop*)other.GetGameObject().GetScript("ThanosLoop");
-            if (boss) boss->TakeDamage(damage);
-            pull->LauchProjectileSECONDARY_SEMI(speed, damage / 3.0f, resistanceDamage / 3.0f, 0.3f, gameObject.GetTransform(), { 0.1f, 0.1f, 0.1f }, 30.0f, other.GetGameObject().GetUID());
-            pull->LauchProjectileSECONDARY_SEMI(speed, damage / 3.0f, resistanceDamage / 3.0f, 0.3f, gameObject.GetTransform(), { 0.1f, 0.1f, 0.1f }, 0.0f, other.GetGameObject().GetUID());
-            pull->LauchProjectileSECONDARY_SEMI(speed, damage / 3.0f, resistanceDamage / 3.0f, 0.3f, gameObject.GetTransform(), { 0.1f, 0.1f, 0.1f }, -30.0f, other.GetGameObject().GetUID());
-            Destroy();
+            
+                 
+                 if (bosss->defenseSword.IsActive() == true) {
+                     gameObject.GetTransform().Rotate(0, 180, 0);
+                     reflected = true;
+                 }
+                 else {
+                     if(boss) boss->TakeDamage(damage);
+                     pull->LauchProjectileSECONDARY_SEMI(speed, damage / 3.0f, resistanceDamage / 3.0f, 0.3f, gameObject.GetTransform(), { 0.1f, 0.1f, 0.1f }, 30.0f, other.GetGameObject().GetUID());
+                     pull->LauchProjectileSECONDARY_SEMI(speed, damage / 3.0f, resistanceDamage / 3.0f, 0.3f, gameObject.GetTransform(), { 0.1f, 0.1f, 0.1f }, 0.0f, other.GetGameObject().GetUID());
+                     pull->LauchProjectileSECONDARY_SEMI(speed, damage / 3.0f, resistanceDamage / 3.0f, 0.3f, gameObject.GetTransform(), { 0.1f, 0.1f, 0.1f }, -30.0f, other.GetGameObject().GetUID());
+                     Destroy();
+                 }
+                
+                
+               
+            
         }
         else if (detectionTag == "Player" && reflected)
         {
@@ -180,11 +203,22 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
             if (miniBoss) miniBoss->TakeDamage(damage);
             Destroy();
         }
-        else if (detectionTag == "Thanos" && !reflected)
+        else if (detectionTag == "Thanos")
         {
             ThanosLoop* boss = (ThanosLoop*)other.GetGameObject().GetScript("ThanosLoop");
-            if (boss) boss->TakeDamage(damage);
-            Destroy();
+            ThanosAttacks* bosss = (ThanosAttacks*)other.GetGameObject().GetScript("ThanosAttacks");
+
+
+            if (bosss->defenseSword.IsActive() == true) {
+                gameObject.GetTransform().Rotate(0, 180, 0);
+                reflected = true;
+            }
+            else {
+                if (boss) boss->TakeDamage(damage);
+                Destroy();
+            }
+
+            
         }
         else if (detectionTag == "Player" && reflected)
         {
@@ -243,14 +277,23 @@ void Projectile::OnCollisionEnter(API::API_RigidBody other)
             if (shotgunLevel > 1) pull->LauchProjectileSHOTGUN_BOMB(0.5f, gameObject.GetTransform(), { 0.3f, 0.3f, 0.3f }, other.GetGameObject().GetUID());
             Destroy();
         }
-        else if (detectionTag == "Thanos" && !reflected)
+        else if (detectionTag == "Thanos")
         {
             ThanosLoop* boss = (ThanosLoop*)other.GetGameObject().GetScript("ThanosLoop");
-            if (boss) boss->TakeDamage(damage);
-            pull->LauchProjectileSHOTGUN_BOMB(0.5f, gameObject.GetTransform(), { 0.3f, 0.3f, 0.3f }, other.GetGameObject().GetUID());
-            pull->LauchProjectileSHOTGUN_BOMB(0.5f, gameObject.GetTransform(), { 0.3f, 0.3f, 0.3f }, other.GetGameObject().GetUID());
-            if (shotgunLevel > 1) pull->LauchProjectileSHOTGUN_BOMB(0.5f, gameObject.GetTransform(), { 0.3f, 0.3f, 0.3f }, other.GetGameObject().GetUID());
-            Destroy();
+            ThanosAttacks* bosss = (ThanosAttacks*)other.GetGameObject().GetScript("ThanosAttacks");
+
+            if (bosss->defenseSword.IsActive() == true) {
+                gameObject.GetTransform().Rotate(0, 180, 0);
+                reflected = true;
+            }
+            else {
+                if (boss) boss->TakeDamage(damage);
+                pull->LauchProjectileSHOTGUN_BOMB(0.5f, gameObject.GetTransform(), { 0.3f, 0.3f, 0.3f }, other.GetGameObject().GetUID());
+                pull->LauchProjectileSHOTGUN_BOMB(0.5f, gameObject.GetTransform(), { 0.3f, 0.3f, 0.3f }, other.GetGameObject().GetUID());
+                if (shotgunLevel > 1) pull->LauchProjectileSHOTGUN_BOMB(0.5f, gameObject.GetTransform(), { 0.3f, 0.3f, 0.3f }, other.GetGameObject().GetUID());
+                Destroy();
+            }
+            
         }
         else if (detectionTag == "Player" && reflected)
         {
