@@ -3,6 +3,7 @@
 #include "../Enemies/Enemy.h"
 #include "../Shooting/Projectile.h"
 #include "API/API_AnimationPlayer.h"
+#include "SpawnerArea.h"
 
 HELLO_ENGINE_API_C EnemyMeleeSpawner* CreateEnemyMeleeSpawner(ScriptToInspectorInterface* script)
 {
@@ -29,6 +30,8 @@ HELLO_ENGINE_API_C EnemyMeleeSpawner* CreateEnemyMeleeSpawner(ScriptToInspectorI
 
 void EnemyMeleeSpawner::Start()
 {
+    spawnerArea = (SpawnerArea*)actionZone.GetScript("SpawnerArea");
+    if (spawnerArea == nullptr) Console::Log("SpawnerArea missing in EnemyMeleeSpawner Script.");
 
     enemiesInSpawn.resize(spawnPoolSize);
 
@@ -130,7 +133,7 @@ void EnemyMeleeSpawner::Start()
 }
 void EnemyMeleeSpawner::Update()
 {
-    if (!destroyed) 
+    if (!destroyed && spawnerArea && spawnerArea->playerIn)
     {
         spawnTimer += Time::GetDeltaTime();
 
@@ -147,19 +150,13 @@ void EnemyMeleeSpawner::OnCollisionEnter(API_RigidBody other)
 {
     if (!destroyed)
     {
-        std::string detectionName = other.GetGameObject().GetName();
+        std::string detectionTag = other.GetGameObject().GetTag();
 
-        if (detectionName == "Projectile")
+        if (detectionTag == "Projectile")
         {
-
             Projectile* projectile = (Projectile*)other.GetGameObject().GetScript("Projectile");
 
             ShootSpawn(projectile->damage);
-
-        }
-        else if (detectionName == "Cube")
-        {
-            DestroySpawn();
         }
     }
 }

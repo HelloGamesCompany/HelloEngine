@@ -6,6 +6,7 @@
 #include "API/API.h"
 
 class Enemy;
+class SpawnerArea;
 
 class EnemyMeleeSpawner : HelloBehavior
 {
@@ -27,6 +28,7 @@ public:
     API_GameObject enemy;
     API_GameObject target;
     API_GameObject actionZone;
+    SpawnerArea* spawnerArea;
     API_GameObject parent;
 
     API_GameObject childs[60];
